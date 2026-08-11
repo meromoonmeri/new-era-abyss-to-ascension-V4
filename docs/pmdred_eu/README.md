@@ -53,6 +53,35 @@ python tools/test_pmdred_eu_audit.py -v
 Set `PMDRED_EU_ROM` to the authoritative ROM path to enable the additional
 full-ROM deterministic-report reproduction test.
 
+## Validate the PMDO graphical conversion
+
+Install the converter's pinned image dependency, then validate all 245 map-file
+rows without writing game assets:
+
+```bash
+python -m pip install -r tools/requirements-pmdred.txt
+python tools/convert_red_all.py \
+  --source-dir /tmp/pmdred-eu-ground \
+  --report /tmp/pmdred-eu-conversion-validation.json
+```
+
+The converter verifies every input file against the manifest before use. It
+consumes only the normalized EU extraction, reproduces all visual BMA layers,
+BPC flips/palettes, BPL palette cycles, BPA tile cycles (including the GBA BPA
+post-decrement timer), and BMA collision, and never silently substitutes a US
+resource or invented border. All four BPA dependency slots (including gaps) are
+retained in rendering and provenance. The graphical converter deliberately
+creates no entrance marker: entrances belong to event/script reconstruction,
+so a guessed walkable center would be fabricated evidence. `--apply` is
+required to change reserve assets; the default is a no-write exhaustive
+validation.
+
+The committed `conversion_validation.json` is the no-write result for all 245
+rows: zero failures. Its SHA-256 is
+`6f384cb72bbcf1bc203abed158a020eeaa7bfd47bf49aafc88f4fe7114b847aa`.
+This establishes deterministic conversion coverage, not visual approval or
+scene/event completeness.
+
 ## Proven Ground archive results
 
 - Ground archive: ROM offset `0x01A20000`, address `0x09A20000`, magic

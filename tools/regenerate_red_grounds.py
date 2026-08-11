@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 """
 regenerate_red_grounds.py — régénère les grounds PMD Red EN JEU (Data/Ground)
-avec TOUTES les animations natives (BPA + palette + couches multiples), en
-conservant entités, obstacles, marqueurs, musique, commentaire.
+depuis l'extraction canonique du ROM européen, avec TOUTES les animations
+natives (BPA + palette + couches multiples) et la collision BMA canonique, en
+conservant les entités de scène, marqueurs et musiques du projet.
 
 Usage : python3 tools/regenerate_red_grounds.py [--ids a,b] [--apply]
 """
@@ -19,51 +20,66 @@ import sys
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-RED = '/tmp/pmd-red/data/map_bg'
+RED = os.environ.get('PMDRED_EU_GROUND', '/tmp/pmdred-eu-ground')
 sys.path.insert(0, os.path.join(ROOT, 'tools'))
-from convert_red_all import (parse_bpl, parse_bpc, decode_bma, parse_bpa,
-                             Renderer, png_bytes, write_tile, lcm, opaque)
+from convert_red_all import (DEFAULT_MANIFEST, Renderer, decode_bma,
+                             decode_bma_collision, lcm, load_authoritative_jobs,
+                             opaque, parse_bpa, parse_bpc, parse_bpl, png_bytes,
+                             write_tile)
 
 XSTRIDE = 128
 
-# ground en jeu -> (bpl, bpc, bma, [bpa...])
+# Live Ground -> canonical BPL/map identity clue.  BPC/BMA/all four BPA slots
+# always come from the authoritative EU dependency table, never this map.
 GROUNDS = {
-    'a02p01': ('A02P01', 'A02P01c', 'A02P01m', []),
-    'a02p02': ('A02P02', 'A02P02c', 'A02P02m', []),
-    'a02p03': ('A02P03', 'A02P03c', 'A02P03m', []),
-    'a02p04': ('A02P04', 'A02P04c', 'A02P04m', []),
-    'a04p01': ('A04P01', 'A04P01c', 'A04P01m', ['A04P011']),
-    'a05p03': ('A05P03', 'A05P03c', 'A05P03m', []),
-    'arc_palier_celeste': ('D13P02', 'D13P02c', 'D13P02m', []),
-    'arc_parvis_celeste': ('D13P01', 'D13P01c', 'D13P01m', []),
-    'arc_tour_ciel_sommet': ('D13P03', 'D13P03c', 'D13P03m', []),
-    'sinister_woods_clearing': ('D04P02', 'D04P02c', 'D04P02m', []),
-    'gloomy_forest_entrance': ('D04P01', 'D04P01c', 'D04P01m', []),
-    'd09p02': ('D09P02', 'D09P02c', 'D09P02m', []),
-    'd09p03': ('D09P03', 'D09P03c', 'D09P03m', []),
-    'd10p02': ('D10P02', 'D10P02c', 'D10P02m', []),
-    'd10p03': ('D10P03', 'D10P03c', 'D10P03m', []),
-    'd11p02': ('D11P02', 'D11P02c', 'D11P02m', []),
-    'd11p03': ('D11P03', 'D11P03c', 'D11P03m', []),
-    'foret_givree_oree': ('D10P01', 'D10P01c', 'D10P01m', []),
-    'fosse_ardente': ('D12P04', 'D12P04c', 'D12P04m', []),
-    'gloomy_forest_boss': ('D04P02', 'D04P02c', 'D04P02m', []),
-    'gloomy_forest_entrance': ('D04P01', 'D04P01c', 'D04P01m', []),
-    'gorge_ardente_coeur': ('D12P02', 'D12P02c', 'D12P02m', []),
-    'gorge_ardente_porte': ('D12P01', 'D12P01c', 'D12P01m', []),
-    'grotte_lazuli_fond': ('D08P02', 'D08P02c', 'D08P02m', []),
-    'grotte_lazuli_seuil': ('D08P01', 'D08P01c', 'D08P01m', []),
-    'mont_cendre_pied': ('D09P01', 'D09P01c', 'D09P01m', []),
-    'mont_gele_pied': ('D11P01', 'D11P01c', 'D11P01m', []),
-    'mount_windswept_guardian': ('D18P01', 'D18P01c', 'D18P01m', []),
-    'palier_celeste': ('D13P02', 'D13P02c', 'D13P02m', []),
-    'parvis_celeste': ('D13P01', 'D13P01c', 'D13P01m', []),
-    'poisonous_forest_boss': ('H12P01', 'H12P01c', 'H12P01m', ['H12P011']),
-    'pre_tonnerre': ('H17P01', 'H17P01c', 'H17P01m', []),
-    'sanctuaire_voeu': ('D23P01', 'D23P01c', 'D23P01m', []),
-    't01p01': ('T01P01', 'T01P01c', 'T01P01m', ['T01P011']),
-    'tour_ciel_sommet': ('D13P03', 'D13P03c', 'D13P03m', []),
+    'a02p01': 'A02P01',
+    'a02p02': 'A02P02',
+    'a02p03': 'A02P03',
+    'a02p04': 'A02P04',
+    'a04p01': 'A04P01',
+    'a05p03': 'A05P03',
+    'arc_palier_celeste': 'D13P02',
+    'arc_parvis_celeste': 'D13P01',
+    'arc_tour_ciel_sommet': 'D13P03',
+    'sinister_woods_clearing': 'D04P02',
+    'gloomy_forest_entrance': 'D04P01',
+    'd09p02': 'D09P02',
+    'd09p03': 'D09P03',
+    'd10p02': 'D10P02',
+    'd10p03': 'D10P03',
+    'd11p02': 'D11P02',
+    'd11p03': 'D11P03',
+    'foret_givree_oree': 'D10P01',
+    'fosse_ardente': 'D12P04',
+    'gorge_ardente_coeur': 'D12P02',
+    'gorge_ardente_porte': 'D12P01',
+    'grotte_lazuli_fond': 'D08P02',
+    'grotte_lazuli_seuil': 'D08P01',
+    'mont_cendre_pied': 'D09P01',
+    'mont_gele_pied': 'D11P01',
+    'mount_windswept_guardian': 'D18P01',
+    'palier_celeste': 'D13P02',
+    'parvis_celeste': 'D13P01',
+    'pre_tonnerre': 'H17P01',
+    'sanctuaire_voeu': 'D23P01',
+    't01p01': 'T01P01',
+    'tour_ciel_sommet': 'D13P03',
 }
+
+_CANONICAL_BY_BPL = None
+
+
+def canonical_dependency(bpl_id):
+    """Resolve a live-Ground clue through the hash-guarded EU dependency table."""
+    global _CANONICAL_BY_BPL
+    if _CANONICAL_BY_BPL is None:
+        _CANONICAL_BY_BPL = {
+            value['bpl']: (key, value)
+            for key, value in load_authoritative_jobs(DEFAULT_MANIFEST, RED)
+        }
+    if bpl_id not in _CANONICAL_BY_BPL:
+        raise ValueError('aucune dépendance EU canonique pour ' + bpl_id)
+    return _CANONICAL_BY_BPL[bpl_id]
 
 
 def minimal_period(seq, cap=512):
@@ -76,9 +92,15 @@ def minimal_period(seq, cap=512):
 
 
 def regenerate(ground, apply=True):
-    bpl_id, bpc_id, bma_id, bpa_list = GROUNDS[ground]
+    bpl_clue = GROUNDS[ground]
+    dependency_key, dependency = canonical_dependency(bpl_clue)
+    bpl_id = dependency['bpl']
+    bpc_id = dependency['bpc']
+    bma_id = dependency['bma']
+    bpa_list = dependency['bpa']
     gpath = os.path.join(ROOT, 'Data', 'Ground', ground + '.rsground')
-    doc = json.load(open(gpath, encoding='utf-8-sig'))
+    with open(gpath, encoding='utf-8-sig') as stream:
+        doc = json.load(stream)
     o = doc['Object']
     sheet = None
     for col in o['Layers'][0]['Tiles']:
@@ -100,7 +122,44 @@ def regenerate(ground, apply=True):
     palettes, specs, anim_pals = parse_bpl(os.path.join(RED, bpl_id + '.bpl'))
     cw, chh, bpc_tiles, chunks = parse_bpc(os.path.join(RED, bpc_id + '.bpc'))
     Wt, Ht, Wc, Hc, nL, layers = decode_bma(os.path.join(RED, bma_id + '.bma'))
-    bpa_slots = parse_bpa([os.path.join(RED, p + '.bpa') for p in bpa_list]) if bpa_list else []
+    old_grid = o['Layers'][0]['Tiles']
+    old_width = len(old_grid)
+    old_heights = {len(column) for column in old_grid}
+    if len(old_heights) != 1:
+        raise ValueError('%s a des colonnes live de hauteurs incohérentes' % ground)
+    old_height = next(iter(old_heights))
+    dimension_migration = 'exact'
+    if (old_width, old_height) != (Wt, Ht):
+        # Several old imports exposed chunk padding to the right even though
+        # Red's BMA camera width is smaller.  Cropping that padding is safe only
+        # when every preserved scene entity remains wholly in canonical bounds.
+        if old_width < Wt or old_height < Ht:
+            raise ValueError(
+                '%s dimensions live %dx%d < EU %dx%d; translation spatiale requise' %
+                (ground, old_width, old_height, Wt, Ht)
+            )
+        for entity_layer in o.get('Entities', []):
+            for collection in ('MapChars', 'GroundObjects', 'Spawners', 'Markers'):
+                for entity in entity_layer.get(collection, []):
+                    bounds = entity.get('Collider')
+                    if bounds is None:
+                        continue
+                    if (bounds['X'] < 0 or bounds['Y'] < 0 or
+                            bounds['X'] + bounds['Width'] > Wt * 8 or
+                            bounds['Y'] + bounds['Height'] > Ht * 8):
+                        raise ValueError(
+                            '%s entité %s sort du cadre EU; translation requise' %
+                            (ground, entity.get('EntName', '?'))
+                        )
+        dimension_migration = 'crop-right-bottom-padding:%dx%d->%dx%d' % (
+            old_width, old_height, Wt, Ht
+        )
+    bpa_slots = parse_bpa([
+        os.path.join(RED, name + '.bpa') if name is not None else None
+        for name in bpa_list
+    ])
+    populated_bpa_slots = [(index, slot) for index, slot in enumerate(bpa_slots)
+                           if slot is not None]
 
     L = 1
     desc = []
@@ -108,13 +167,14 @@ def regenerate(ground, apply=True):
         if nf > 0:
             L = lcm(L, dur * nf)
             desc.append('P%d:%dx%d' % (i, dur, nf))
-    bpa_nf = bpa_slots[0]['nf'] if bpa_slots else 0
-    bpa_dur = bpa_slots[0]['dur'] if bpa_slots else 0
-    if bpa_slots:
-        for slot in bpa_slots:
-            if slot['nf'] > 1 and slot['dur'] > 0:
-                L = lcm(L, slot['dur'] * slot['nf'])
-        desc.append('BPA:%dfx%d' % (bpa_nf, bpa_dur))
+    if populated_bpa_slots:
+        for _, slot in populated_bpa_slots:
+            if slot['nf'] > 1 and slot['cycle'] > 0:
+                L = lcm(L, slot['cycle'])
+        desc.append('BPA:%s' % ','.join(
+            'S%d=%d' % (index, slot['cycle'])
+            for index, slot in populated_bpa_slots
+        ))
 
     renderer = Renderer(bpc_tiles, bpa_slots, palettes, anim_pals, specs, chunks)
 
@@ -125,7 +185,7 @@ def regenerate(ground, apply=True):
         for cid in cids:
             if not (0 < cid < len(chunks)):
                 continue
-            if bpa_slots and any((e & 0x3FF) >= nt for e in chunks[cid]):
+            if populated_bpa_slots and any((e & 0x3FF) >= nt for e in chunks[cid]):
                 return True
             if anim_pal_set and any(((e >> 12) & 0xF) in anim_pal_set for e in chunks[cid]):
                 return True
@@ -220,16 +280,41 @@ def regenerate(ground, apply=True):
                                         'NeighborCode': -1,
                                         'Layers': [{'Frames': frs, 'FrameLength': fl}]}
 
+    collision_layers, collision_width, collision_height = decode_bma_collision(
+        os.path.join(RED, bma_id + '.bma')
+    )
+    if len(collision_layers) > 1:
+        raise ValueError('%s a %d couches collision; migration PMDO indéfinie' %
+                         (bma_id, len(collision_layers)))
+    if (collision_width, collision_height) != (Wt, Ht):
+        raise ValueError('%s dimensions collision/caméra incompatibles' % bma_id)
+    collision = collision_layers[0] if collision_layers else None
+    obstacles = [[
+        {'Bounds': {'X': x * 8, 'Y': y * 8, 'Width': 8, 'Height': 8},
+         'Tags': 1 if collision is not None and collision[y * Wt + x] else 0}
+        for y in range(Ht)
+    ] for x in range(Wt)]
+    result = {
+        'ground': ground, 'dependency': dependency_key, 'L': L, 'desc': desc,
+        'anim_cells': n_anim, 'dimension_migration': dimension_migration,
+        'collision_layers': len(collision_layers),
+        'solid_cells': sum(cell['Tags'] != 0 for column in obstacles for cell in column),
+        'source_normalized_sha256': dependency['source_hashes'],
+    }
     if not apply:
-        return {'ground': ground, 'L': L, 'desc': desc, 'anim_cells': n_anim}
+        return result
 
     write_tile(os.path.join(ROOT, 'Content', 'Tile', sheet + '.tile'), entries)
     o['Layers'] = [{'Name': 'Base', 'Layer': 0, 'Visible': True, 'Tiles': grid}]
-    o['Comment'] = (o.get('Comment', '').split(' | ANIMÉ')[0] +
-                    ' | ANIMÉ (BPA+palette, %d ticks : %s).' % (L, '; '.join(desc) if desc else '—'))
+    o['obstacles'] = obstacles
+    o['Comment'] = (o.get('Comment', '').split(' | PMD Red EU ROM')[0] +
+                    ' | PMD Red EU ROM %s; rendu graphique et collision BMA; '
+                    '%d ticks : %s.' %
+                    (dependency_key, L, '; '.join(desc) if desc else 'aucune'))
     with io.open(gpath, 'w', encoding='utf-8-sig') as f:
         json.dump(doc, f, ensure_ascii=False, separators=(',', ':'))
-    return {'ground': ground, 'L': L, 'desc': desc, 'anim_cells': n_anim, 'sheet': sheet}
+    result['sheet'] = sheet
+    return result
 
 
 def main():
@@ -237,18 +322,22 @@ def main():
     only = None
     if '--ids' in sys.argv:
         only = set(sys.argv[sys.argv.index('--ids') + 1].split(','))
+    failures = 0
     for g in sorted(GROUNDS):
         if only and g not in only:
             continue
         try:
             r = regenerate(g, apply)
-            print('%-26s L=%4d anim_cells=%-5d %s' % (
-                g, r['L'], r['anim_cells'], '; '.join(r['desc']) if r['desc'] else '—'), flush=True)
+            print('%-26s L=%4d anim_cells=%-5d %-35s %s' % (
+                g, r['L'], r['anim_cells'], r['dimension_migration'],
+                '; '.join(r['desc']) if r['desc'] else '—'), flush=True)
         except Exception as e:
             import traceback
-            print('ERR %-26s %s' % (g, str(e)[:120]))
+            failures += 1
+            print('ERR %-26s %s' % (g, str(e)[:160]))
             traceback.print_exc()
+    return 1 if failures else 0
 
 
 if __name__ == '__main__':
-    main()
+    raise SystemExit(main())

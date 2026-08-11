@@ -3,8 +3,10 @@
 """
 convert_red_all.py — Les 245 maps PMD Red avec TOUTES leurs animations.
 
-Sources : pret/pmd-red (data/map_bg) + map_dependencies.json du port officiel
-(PMD-RED-PMDO-PORT : triplets bpl/bpc/bma/bpa exacts pour chacune des 245 maps).
+Source canonique : extraction normalisée du ROM européen produite par
+``audit_pmdred_eu_rom.py`` + ``docs/pmdred_eu/ground_manifest.json``. pret/pmd-red
+reste une référence de format uniquement ; ses ressources US ne sont jamais
+utilisées par défaut.
 
 Animations natives PMD Red (ground_bg.c) :
   1. BPA  : tuiles animées (eau, lave, cascades…). Plusieurs slots possibles,
@@ -24,8 +26,10 @@ g ticks, FL = g).
 Sortie : RESERVE/red_grounds/<id>.rsground + RESERVE/red_tiles/<id>_Base.tile
 + RESERVE/red_manifest.json.
 
-Usage : python3 tools/convert_red_all.py [--ids A,B] [--apply] [--serial]
+Usage : python3 tools/convert_red_all.py --source-dir /tmp/pmdred_eu_ground
+        [--ids a01p01,b01p00a] [--apply] [--serial] [--resume]
 """
+import argparse
 import glob
 import hashlib
 import io
@@ -39,10 +43,16 @@ import time
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-RED = '/tmp/pmd-red/data/map_bg'
-PORT = '/tmp/pmdred-main'
+sys.path.insert(0, os.path.join(ROOT, 'tools'))
+import audit_pmdred_eu_rom as eu_audit
+
+DEFAULT_RED = os.environ.get('PMDRED_EU_GROUND', '/tmp/pmdred-eu-ground')
+DEFAULT_MANIFEST = os.path.join(ROOT, 'docs', 'pmdred_eu', 'ground_manifest.json')
+RED = DEFAULT_RED
 OUT_G = os.path.join(ROOT, 'RESERVE', 'red_grounds')
 OUT_T = os.path.join(ROOT, 'RESERVE', 'red_tiles')
+APPLY = False
+CONVERTER_VERSION = '2.0.0-eu'
 
 XSTRIDE = 128
 
@@ -53,7 +63,8 @@ def lcm(a, b):
 
 def parse_bpl(p):
     """(palettes, specs, anim_pals) — specs seulement si hasPalAnimations."""
-    d = open(p, 'rb').read()
+    with open(p, 'rb') as stream:
+        d = stream.read()
     npal = struct.unpack_from('<h', d, 0)[0]
     has = struct.unpack_from('<h', d, 2)[0]
     palettes = []
@@ -88,7 +99,8 @@ def parse_bpl(p):
 
 
 def parse_bpc(p):
-    d = open(p, 'rb').read()
+    with open(p, 'rb') as stream:
+        d = stream.read()
     cw, chh, nt = struct.unpack_from('<HHH', d, 0)
     nc, = struct.unpack_from('<H', d, 14)
     tiles = [bytes(32)] + [d[16 + i * 32:16 + (i + 1) * 32] for i in range(nt - 1)]
@@ -102,7 +114,8 @@ def parse_bpc(p):
 
 
 def decode_bma(p):
-    d = open(p, 'rb').read()
+    with open(p, 'rb') as stream:
+        d = stream.read()
     Wt, Ht, tw, th, Wc, Hc = d[:6]
     nL, hD, hC = struct.unpack_from('<HhH', d, 6)
     src = 12
@@ -150,22 +163,61 @@ def decode_bma(p):
     return Wt, Ht, Wc, Hc, nL, layers
 
 
+def decode_bma_collision(path):
+    """Decode the canonical per-camera-tile collision layer without SkyTemple."""
+    with open(path, 'rb') as stream:
+        data = stream.read()
+    width, height = data[0], data[1]
+    chunk_width, chunk_height = data[4], data[5]
+    number_of_layers, has_data_layer, number_of_collisions = struct.unpack_from('<HHH', data, 6)
+    _, offset, _ = eu_audit.decode_bma_layers(
+        data, 12, chunk_width, chunk_height, number_of_layers, os.path.basename(path)
+    )
+    camera_cells = width * height
+    if has_data_layer:
+        _, offset, _ = eu_audit.decode_generic_nrl(
+            data, offset, camera_cells, os.path.basename(path) + '/data'
+        )
+    collisions = []
+    for layer in range(number_of_collisions):
+        deltas, offset, _ = eu_audit.decode_collision_rle(
+            data, offset, camera_cells, os.path.basename(path) + '/collision-%d' % layer
+        )
+        decoded = bytearray(camera_cells)
+        for index, delta in enumerate(deltas):
+            above = decoded[index - width] if index >= width else 0
+            decoded[index] = delta ^ above
+        collisions.append([bool(value) for value in decoded])
+    return collisions, width, height
+
+
 def parse_bpa(paths):
     """Tuiles BPA par fichier (ordre des slots VRAM). Chaque slot a SON
     compteur (ground_bg.c sub3E0Ptr) : nf, dur, frames."""
     slots = []
-    for p in paths:
-        d = open(p, 'rb').read()
+    for slot_index, p in enumerate(paths):
+        if p is None:
+            slots.append(None)
+            continue
+        with open(p, 'rb') as stream:
+            d = stream.read()
         nt = d[0]
         nf = struct.unpack_from('<h', d, 2)[0]
         durs = list(struct.unpack_from('<%di' % nf, d, 4))
+        if any(duration < 0 for duration in durs):
+            raise ValueError('durée BPA négative dans ' + p)
         off = 4 + nf * 4
         frs = []
         for f in range(nf):
             frs.append([d[off + (f * nt + k) * 32: off + (f * nt + k + 1) * 32]
                         for k in range(nt)])
-        slots.append({'nt': nt, 'nf': nf, 'dur': durs[0] if durs else 0,
-                      'frames': frs})
+        # GroundBg's BPA timer uses ``timer-- <= 0`` (unlike the BPL
+        # pre-decrement), so a source duration N remains visible for N+1
+        # updates.  Zero-duration frames therefore still last one tick.
+        effective_durations = [duration + 1 for duration in durs]
+        slots.append({'nt': nt, 'nf': nf, 'source_durations': durs,
+                      'durations': effective_durations,
+                      'cycle': sum(effective_durations), 'frames': frs})
     return slots
 
 
@@ -196,7 +248,8 @@ class Renderer:
         off = len(bpc_tiles)
         for slot in bpa_slots:
             self.bpa_offsets.append(off)
-            off += slot['nt']
+            if slot is not None:
+                off += slot['nt']
         self.palettes = palettes
         self.anim_pals = anim_pals
         self.specs = specs
@@ -211,33 +264,40 @@ class Renderer:
 
     def bpa_frame_at(self, slot_idx, tick):
         slot = self.bpa_slots[slot_idx]
-        if slot['nf'] <= 1 or slot['dur'] <= 0:
+        if slot is None:
+            raise ValueError('cannot render an empty BPA dependency slot')
+        if slot['nf'] <= 1 or slot['cycle'] <= 0:
             return 0
-        return (tick // slot['dur']) % slot['nf']
+        position = tick % slot['cycle']
+        elapsed = 0
+        for frame, duration in enumerate(slot['durations']):
+            elapsed += duration
+            if position < elapsed:
+                return frame
+        return slot['nf'] - 1
+
+    def bpa_location(self, tile_index):
+        for slot_idx, offset in enumerate(self.bpa_offsets):
+            slot = self.bpa_slots[slot_idx]
+            if slot is not None and offset <= tile_index < offset + slot['nt']:
+                return slot_idx, tile_index - offset
+        return None
 
     def tile(self, ti, pi, tick):
-        bf = 0
-        if ti >= len(self.bpc_tiles) and self.bpa_slots:
-            for fidx, off in enumerate(self.bpa_offsets):
-                if ti < off + self.bpa_slots[fidx]['nt']:
-                    bf = self.bpa_frame_at(fidx, tick)
-                    break
+        location = self.bpa_location(ti) if ti >= len(self.bpc_tiles) else None
+        bf = self.bpa_frame_at(location[0], tick) if location is not None else 0
         key = (ti, pi, self.pal_frame_key(pi, tick), bf)
         im = self.cache.get(key)
         if im is not None:
             return im
         if ti < len(self.bpc_tiles):
             td = self.bpc_tiles[ti]
-        elif self.bpa_slots:
-            fidx = 0
-            for f, off in enumerate(self.bpa_offsets):
-                if ti < off + self.bpa_slots[f]['nt']:
-                    fidx = f
-                    break
-            base = self.bpa_offsets[fidx]
-            k = ti - base
-            td = self.bpa_slots[fidx]['frames'][bf][k]
+        elif location is not None:
+            slot_idx, tile_in_slot = location
+            td = self.bpa_slots[slot_idx]['frames'][bf][tile_in_slot]
         else:
+            # Canonical maps can reference patterned blank VRAM sentinels that
+            # sit outside the declared BPC/BPA tile ranges.
             td = bytes(32)
         pal = self.pal_at(pi, tick)
         im = tile_image(td, pal, False, False)
@@ -316,15 +376,25 @@ def write_tile(path, entries):
         out += struct.pack('<QQ', key, offsets[png])
     for h in order:
         out += struct.pack('<Q', len(h)) + h
-    open(path, 'wb').write(bytes(out))
+    with open(path, 'wb') as stream:
+        stream.write(bytes(out))
 
 
-def convert(asset_id, bpl, bpc, bma, bpa_list, apply=True, dep_key=''):
+def convert(asset_id, bpl, bpc, bma, bpa_list, apply=True, dep_key='', source_hashes=None):
     t0 = time.time()
+    source_hashes = source_hashes or {}
     palettes, specs, anim_pals = parse_bpl(os.path.join(RED, bpl + '.bpl'))
     cw, chh, bpc_tiles, chunks = parse_bpc(os.path.join(RED, bpc + '.bpc'))
     Wt, Ht, Wc, Hc, nL, layers = decode_bma(os.path.join(RED, bma + '.bma'))
-    bpa_slots = parse_bpa([os.path.join(RED, p + '.bpa') for p in bpa_list]) if bpa_list else []
+    # Keep all four dependency-table slots.  A gap has a zero tile count in
+    # Red's corresponding BPC metadata; packing only populated names loses
+    # canonical slot identity even when rendered VRAM offsets happen to match.
+    bpa_slots = parse_bpa([
+        os.path.join(RED, name + '.bpa') if name is not None else None
+        for name in bpa_list
+    ]) if bpa_list else []
+    populated_bpa_slots = [(index, slot) for index, slot in enumerate(bpa_slots)
+                           if slot is not None]
 
     L = 1
     anim_desc = []
@@ -332,13 +402,16 @@ def convert(asset_id, bpl, bpc, bma, bpa_list, apply=True, dep_key=''):
         if nf > 0:
             L = lcm(L, dur * nf)
             anim_desc.append('P%d:%dx%d' % (i, dur, nf))
-    bpa_dur = bpa_slots[0]['dur'] if bpa_slots else 0
-    bpa_nf = bpa_slots[0]['nf'] if bpa_slots else 0
-    if bpa_slots:
-        for slot in bpa_slots:
-            if slot['nf'] > 1 and slot['dur'] > 0:
-                L = lcm(L, slot['dur'] * slot['nf'])
-        anim_desc.append('BPA:%dt x %df x %d' % (sum(s['nt'] for s in bpa_slots), bpa_nf, bpa_dur))
+    if populated_bpa_slots:
+        for _, slot in populated_bpa_slots:
+            if slot['nf'] > 1 and slot['cycle'] > 0:
+                L = lcm(L, slot['cycle'])
+        anim_desc.append(
+            'BPA:%dt; %s' %
+            (sum(slot['nt'] for _, slot in populated_bpa_slots),
+             ','.join('S%d=%d' % (index, slot['cycle'])
+                      for index, slot in populated_bpa_slots))
+        )
     has_anim = L > 1 or bool(anim_desc)
     if not has_anim:
         L = 1
@@ -351,7 +424,7 @@ def convert(asset_id, bpl, bpc, bma, bpa_list, apply=True, dep_key=''):
 
     def cell_info(cids):
         per = 1
-        uses_bpa = False
+        used_bpa_slots = set()
         pals = set()
         for cid in cids:
             if not (0 < cid < len(chunks)):
@@ -360,17 +433,19 @@ def convert(asset_id, bpl, bpc, bma, bpa_list, apply=True, dep_key=''):
                 ti = ent & 0x3FF
                 pi = (ent >> 12) & 0xF
                 if ti >= nt:
-                    uses_bpa = True
+                    location = renderer.bpa_location(ti)
+                    if location is not None:
+                        used_bpa_slots.add(location[0])
                 if pi in anim_pal_set:
                     pals.add(pi)
-        if uses_bpa and bpa_slots:
-            for slot in bpa_slots:
-                if slot['nf'] > 1 and slot['dur'] > 0:
-                    per = lcm(per, slot['dur'] * slot['nf'])
+        for slot_index in used_bpa_slots:
+            slot = bpa_slots[slot_index]
+            if slot['nf'] > 1 and slot['cycle'] > 0:
+                per = lcm(per, slot['cycle'])
         for pi in pals:
             dur, nf = specs[pi]
             per = lcm(per, dur * nf)
-        return bool(uses_bpa or pals), per
+        return bool(used_bpa_slots or pals), per
 
     n_cells = Wc * Hc
     cell_cids = [[layers[l][(ci // Wc) * 64 + ci % Wc] for l in range(nL)]
@@ -458,28 +533,28 @@ def convert(asset_id, bpl, bpc, bma, bpa_list, apply=True, dep_key=''):
                                     'NeighborCode': -1,
                                     'Layers': [{'Frames': frs, 'FrameLength': fl}]}
 
-    if not apply:
-        return {'asset': asset_id, 'anim': has_anim, 'desc': anim_desc,
-                'L': L, 'cells_animees': n_anim_cells, 'dims': (Wt, Ht),
-                'time': time.time() - t0}
-
-    write_tile(os.path.join(OUT_T, asset_id + '_Base.tile'), entries)
-
-    # collision
-    try:
-        from skytemple_files.common.types.file_types import FileType
-        bma_obj = FileType.BMA.deserialize(open(os.path.join(RED, bma + '.bma'), 'rb').read())
-        coll = bma_obj.collision
-        per_tile = coll is not None and len(coll) == Wt * Ht
-    except Exception:
-        coll, per_tile = None, False
+    # Collision is decoded from the same EU BMA bytes.  Ground maps in this
+    # archive use zero or one collision layer; fail rather than silently
+    # inventing/substituting collision if that invariant changes.
+    collision_layers, collision_width, collision_height = decode_bma_collision(
+        os.path.join(RED, bma + '.bma')
+    )
+    if len(collision_layers) > 1:
+        raise ValueError('%s has %d collision layers; PMDO mapping is undefined' %
+                         (bma, len(collision_layers)))
+    if (collision_width, collision_height) != (Wt, Ht):
+        raise ValueError('%s collision dimensions do not match camera dimensions' % bma)
+    coll = collision_layers[0] if collision_layers else None
+    per_tile = coll is not None and len(coll) == Wt * Ht
     obstacles = []
     for x in range(Wt):
         col = []
         for y in range(Ht):
             blocked = False
             if coll is None:
-                blocked = (x <= 0 or y <= 0 or x >= Wt - 1 or y >= Ht - 1)
+                # No collision stream means no canonical solid cells.  Do not
+                # invent a PMDO border and misrepresent source geometry.
+                blocked = False
             elif per_tile:
                 blocked = bool(coll[y * Wt + x])
             else:
@@ -490,17 +565,27 @@ def convert(asset_id, bpl, bpc, bma, bpa_list, apply=True, dep_key=''):
                         'Tags': 1 if blocked else 0})
         obstacles.append(col)
 
-    entry = None
-    for y in range(Ht // 2 - 2, Ht):
-        for x in range(Wt // 2 - 2, Wt):
-            if obstacles[x][y]['Tags'] == 0:
-                entry = (x * 8 + 4, y * 8 + 4)
-                break
-        if entry:
-            break
-    if entry is None:
-        entry = (Wt * 4, Ht * 4)
+    result = {'asset': asset_id, 'map_dependency': dep_key,
+              'resources': {'bpl': bpl, 'bpc': bpc, 'bma': bma, 'bpa': bpa_list},
+              'source_normalized_sha256': source_hashes,
+              'anim': has_anim, 'desc': anim_desc,
+              'L': L, 'cells_animees': n_anim_cells, 'dims': (Wt, Ht),
+              'collision_layers': len(collision_layers),
+              'solid_cells': sum(
+                  obstacle['Tags'] != 0 for column in obstacles for obstacle in column
+              ),
+              'time': time.time() - t0}
+    if not apply:
+        return result
 
+    os.makedirs(OUT_G, exist_ok=True)
+    os.makedirs(OUT_T, exist_ok=True)
+    write_tile(os.path.join(OUT_T, asset_id + '_Base.tile'), entries)
+
+    bpa_provenance = ','.join(
+        'S%d:%s' % (index, name if name is not None else 'empty')
+        for index, name in enumerate(bpa_list)
+    )
     doc = {
         'Version': '0.8.9.0',
         'Object': {
@@ -508,10 +593,13 @@ def convert(asset_id, bpl, bpc, bma, bpa_list, apply=True, dep_key=''):
             'TexSize': 1,
             'Name': {'DefaultText': asset_id, 'LocalTexts': {}},
             'Released': True,
-            'Comment': ('PMD Red (pret/pmd-red) — %s (%s). Rendu EXACT par tick '
-                        '(%d ticks), BPA+palette animées incluses, collision BMA '
-                        'source, sans overlay. Animations: %s' %
-                        (dep_key, bpl, L, '; '.join(anim_desc) if anim_desc else 'aucune')),
+            'Comment': ('PMD Red EU ROM — %s; ressources %s/%s/%s%s. Rendu '
+                        'graphique canonique par tick (%d ticks), BPA+palette '
+                        'animées et collision BMA incluses, sans overlay. '
+                        'Animations: %s' %
+                        (dep_key, bpl, bpc, bma,
+                         ('/' + bpa_provenance) if bpa_provenance else '', L,
+                         '; '.join(anim_desc) if anim_desc else 'aucune')),
             'obstacles': obstacles,
             'rand': {'$type': 'RogueElements.ReRandom, RogueElements', 's': [0, 0, 0, 0]},
             'Status': {},
@@ -530,63 +618,166 @@ def convert(asset_id, bpl, bpc, bma, bpa_list, apply=True, dep_key=''):
             'ViewCenter': None, 'ViewOffset': {'X': 0, 'Y': 0},
             'ActiveChar': None,
             'Decorations': [{'Name': 'New Deco', 'Layer': 0, 'Visible': True, 'Anims': []}],
+            # Entrances are event/script data, not BMA graphics.  Do not
+            # fabricate a central walkable marker and call it canonical.
             'Entities': [{'Name': 'New EntLayer', 'Visible': True,
                           'MapChars': [], 'GroundObjects': [], 'Spawners': [],
-                          'Markers': [{'EntName': 'Main_Entrance_Marker',
-                                       'Direction': 4, 'EntEnabled': True,
-                                       'Collider': {'X': entry[0] - 8, 'Y': entry[1] - 8,
-                                                    'Width': 16, 'Height': 16}}]}],
+                          'Markers': []}],
         },
     }
-    with io.open(os.path.join(OUT_G, asset_id + '.rsground'), 'w', encoding='utf-8-sig') as f:
+    ground_path = os.path.join(OUT_G, asset_id + '.rsground')
+    tile_path = os.path.join(OUT_T, asset_id + '_Base.tile')
+    with io.open(ground_path, 'w', encoding='utf-8-sig') as f:
         json.dump(doc, f, ensure_ascii=False, separators=(',', ':'))
 
-    return {'asset': asset_id, 'anim': has_anim, 'desc': anim_desc,
-            'L': L, 'cells_animees': n_anim_cells, 'dims': (Wt, Ht),
-            'time': time.time() - t0}
+    with open(ground_path, 'rb') as stream:
+        ground_sha256 = hashlib.sha256(stream.read()).hexdigest()
+    with open(tile_path, 'rb') as stream:
+        tile_sha256 = hashlib.sha256(stream.read()).hexdigest()
+    result['output_sha256'] = {
+        'rsground': ground_sha256,
+        'tile': tile_sha256,
+    }
+    result['time'] = time.time() - t0
+    return result
 
 
 def _worker(job):
     key, v = job
     try:
-        r = convert(v['bpl'].lower(), v['bpl'], v['bpc'], v['bma'], v.get('bpa') or [], True, key)
+        r = convert(
+            v['bpl'].lower(), v['bpl'], v['bpc'], v['bma'],
+            v.get('bpa') or [], APPLY, key, v.get('source_hashes'),
+        )
         return ('OK', r)
     except Exception as e:
-        return ('ERR', (v['bpl'].lower(), str(e)[:120]))
+        return ('ERR', (v['bpl'].lower(), str(e)[:240]))
 
 
-def main():
-    apply = '--apply' in sys.argv
-    only = None
-    if '--ids' in sys.argv:
-        only = set(sys.argv[sys.argv.index('--ids') + 1].split(','))
-    dep = json.load(open(os.path.join(PORT, 'map_dependencies.json')))
-    jobs = [(key, v) for key, v in sorted(dep.items())
-            if not only or v['bpl'].lower() in only]
-    done = set(os.path.basename(f)[:-9] for f in glob.glob(os.path.join(OUT_G, '*.rsground')))
-    jobs = [j for j in jobs if j[1]['bpl'].lower() not in done]
-    print('à convertir:', len(jobs), flush=True)
+def parse_args(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--source-dir', default=DEFAULT_RED,
+                        help='normalized EU Ground extraction from audit_pmdred_eu_rom.py')
+    parser.add_argument('--manifest', default=DEFAULT_MANIFEST,
+                        help='authoritative EU Ground manifest')
+    parser.add_argument('--ids', help='comma-separated lower-case BPL/map asset IDs')
+    parser.add_argument('--apply', action='store_true', help='write .tile/.rsground outputs')
+    parser.add_argument('--report', help='write deterministic conversion/validation JSON')
+    parser.add_argument('--serial', action='store_true', help='disable multiprocessing')
+    parser.add_argument('--resume', action='store_true',
+                        help='skip outputs already present in RESERVE/red_grounds')
+    return parser.parse_args(argv)
+
+
+def load_authoritative_jobs(manifest_path, source_dir):
+    with open(manifest_path, encoding='utf-8') as stream:
+        manifest = json.load(stream)
+    expected_rom = '0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd'
+    actual_rom = manifest.get('authority', {}).get('rom', {}).get('sha256')
+    if actual_rom != expected_rom or manifest.get('validation', {}).get('status') != 'pass':
+        raise ValueError('manifest is not a passing authoritative EU ROM audit')
+
+    resources = {entry['name']: entry for entry in manifest['ground_archive']['resources']}
+    extension = {'bpl': '.bpl', 'bpc': '.bpc', 'bma': '.bma', 'bpa': '.bpa'}
+    dependencies = []
+    needed = set()
+    for entry in manifest['map_files_table']['entries']:
+        bpas = [entry['bpa_%d' % slot] for slot in range(4)]
+        populated_bpas = [name for name in bpas if name is not None]
+        names = (entry['bpl'], entry['bpc'], entry['bma'], *populated_bpas)
+        value = {
+            'bpl': entry['bpl'], 'bpc': entry['bpc'], 'bma': entry['bma'],
+            'bpa': bpas,
+            'source_hashes': {name: resources[name]['normalized_sha256'] for name in names},
+        }
+        dependencies.append(('EU map_file_id=%d' % entry['map_file_id'], value))
+        needed.update((entry['bpl'], entry['bpc'], entry['bma'], *populated_bpas))
+
+    for name in sorted(needed):
+        record = resources[name]
+        path = os.path.join(source_dir, name + extension[record['type']])
+        if not os.path.isfile(path):
+            raise FileNotFoundError('missing canonical extraction resource: ' + path)
+        with open(path, 'rb') as stream:
+            digest = hashlib.sha256(stream.read()).hexdigest()
+        if digest != record['normalized_sha256']:
+            raise ValueError('%s hash %s does not match EU manifest %s' %
+                             (path, digest, record['normalized_sha256']))
+    return dependencies
+
+
+def main(argv=None):
+    global APPLY, RED
+    args = parse_args(argv)
+    APPLY = args.apply
+    RED = os.path.abspath(args.source_dir)
+    only = set(args.ids.split(',')) if args.ids else None
+    jobs = [job for job in load_authoritative_jobs(args.manifest, RED)
+            if not only or job[1]['bpl'].lower() in only]
+    if only:
+        found = {job[1]['bpl'].lower() for job in jobs}
+        missing = sorted(only - found)
+        if missing:
+            raise ValueError('unknown --ids: ' + ', '.join(missing))
+    if args.resume:
+        done = set(os.path.basename(path)[:-9]
+                   for path in glob.glob(os.path.join(OUT_G, '*.rsground')))
+        jobs = [job for job in jobs if job[1]['bpl'].lower() not in done]
+    print('%s: %d' % ('à écrire' if APPLY else 'à valider (sans écriture)', len(jobs)), flush=True)
     report = []
     ok = fail = 0
-    if '--serial' in sys.argv:
-        results = [_worker(j) for j in jobs]
+    if args.serial:
+        results = [_worker(job) for job in jobs]
     else:
         import multiprocessing as mp
         with mp.Pool(max(1, min(8, os.cpu_count() or 4))) as pool:
             results = pool.map(_worker, jobs, chunksize=1)
-    for status, r in results:
+    for status, result in results:
         if status == 'OK':
-            report.append(r)
+            report.append(result)
             ok += 1
             print('OK  %-28s %-34s L=%4d anim=%s' % (
-                r['asset'], (r['desc'][0][:32] if r['desc'] else '—'), r['L'], r['anim']), flush=True)
+                result['asset'], (result['desc'][0][:32] if result['desc'] else '—'),
+                result['L'], result['anim']), flush=True)
         else:
-            print('ERR %-28s %s' % (r[0], r[1]), flush=True)
+            print('ERR %-28s %s' % (result[0], result[1]), flush=True)
             fail += 1
     print('TERMINÉ : %d OK, %d échecs' % (ok, fail))
-    json.dump(report, open(os.path.join(ROOT, 'RESERVE', 'red_manifest.json'), 'w'),
-              indent=1, ensure_ascii=False)
+    deterministic_results = [
+        {key: value for key, value in result.items() if key != 'time'}
+        for result in report
+    ]
+    if APPLY:
+        legacy_report_path = os.path.join(ROOT, 'RESERVE', 'red_manifest.json')
+        with open(legacy_report_path, 'w', encoding='utf-8') as stream:
+            json.dump(deterministic_results, stream, indent=1, ensure_ascii=False)
+            stream.write('\n')
+    if args.report:
+        with open(args.manifest, 'rb') as stream:
+            manifest_bytes = stream.read()
+        with open(__file__, 'rb') as stream:
+            converter_sha256 = hashlib.sha256(stream.read()).hexdigest()
+        report_document = {
+            'schema': 'new-era.pmdred-eu-ground-conversion.v1',
+            'converter': {
+                'name': 'convert_red_all.py',
+                'version': CONVERTER_VERSION,
+                'sha256': converter_sha256,
+            },
+            'source_manifest_sha256': hashlib.sha256(manifest_bytes).hexdigest(),
+            'source_directory': 'external normalized EU extraction',
+            'apply': APPLY,
+            'requested_ids': sorted(only) if only else None,
+            'result_count': len(deterministic_results),
+            'failure_count': fail,
+            'results': deterministic_results,
+        }
+        os.makedirs(os.path.dirname(os.path.abspath(args.report)), exist_ok=True)
+        with open(args.report, 'w', encoding='utf-8', newline='\n') as stream:
+            json.dump(report_document, stream, ensure_ascii=False, sort_keys=True, indent=2)
+            stream.write('\n')
+    return 1 if fail else 0
 
 
 if __name__ == '__main__':
-    main()
+    raise SystemExit(main())

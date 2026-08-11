@@ -1,0 +1,2 @@
+# Deterministic PNG rendering for tools/convert_red_all.py.
+Pillow==12.3.0
