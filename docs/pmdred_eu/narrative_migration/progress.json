@@ -1,0 +1,721 @@
+{
+  "schema": "new-era.pmdred-eu-narrative-migration-progress.v1",
+  "updated_at": "2026-08-12",
+  "source_audit": "docs/pmdred_eu/narrative_audit/narrative_scope.json",
+  "source_audit_sha256": "48034cbae2ef3fe717ca46ed31d34fd831352f5b466f2a0418671375af3fcf92",
+  "protected_baseline": "docs/pmdred_eu/narrative_migration/protected_baseline.json",
+  "protected_baseline_sha256": "f70b213bf7afd3adba9ffd28f78862a004ede66d42b32d3dad5603c8b483f24c",
+  "summary": {
+    "scene_count": 133,
+    "fully_migrated_scene_count": 0,
+    "in_progress_scene_count": 1,
+    "not_started_scene_count": 132,
+    "current_scene": "s01",
+    "current_boundary": "portal prelude through BGM_SWITCH",
+    "blocking_dependency": "SPECIAL_TEXT_PERSONALITY_QUIZ_AND_PALETTE_0x22"
+  },
+  "current_lot": {
+    "id": "global_presentation_s01_prelude",
+    "migration_plan_phase": "Phase 6.1 — Socle global",
+    "result": "PARTIAL_PASS_DEPENDENCY_BLOCKED",
+    "full_scene_migrated": false,
+    "implemented_source_command_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "blocked_source_command_indices": [
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "runtime_validation": "docs/pmdred_eu/narrative_migration/scenes/s01/runtime/validation.json",
+    "runtime_validation_sha256": "4094165d5cbb9b925a0c10ec3514cdae7877af8bca0e7495916a085377e50d88",
+    "normal_pmdo_exit": true,
+    "route_connected": false
+  },
+  "invariants": {
+    "qualified_archive_backed_grounds_immutable": 219,
+    "chapter_1_to_5_files_immutable": 99,
+    "fugitive_arc_routes_immutable": 27,
+    "guard_result": "PASS"
+  },
+  "scenes": [
+    {
+      "asset": "t00p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "t01p01",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "t01p02a",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "t01p03",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "t01p04",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "t01p05",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "t01p07",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "b01p01a",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "b01p02a",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h01p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h01p02",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h01p03",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h02p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h02p02",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h02p03",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h03p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h04p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h04p02",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h05p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h05p02",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h06p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h06p02",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h06p03",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h06p04",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h06p05",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h06p06",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h07p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h07p02",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h07p03",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h07p04",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h07p05",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h07p06",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h07p07",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h07p08",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h08p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h09p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h09p02",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h10p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h10p02",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h11p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h12p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h13p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h13p02",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h13p03",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h13p04",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h14p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h15p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h16p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h17p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h18p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h19p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h20p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h21p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h21p02",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h22p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h23p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h24p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h25p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h26p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h27p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h28p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h28p02",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h29p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h29p02",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h29p03",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "h29p04",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "a01p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "a01p02",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "a02p01",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "a02p02",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "a02p03",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "a02p04",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "a03p01",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "a03p02",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "a03p03",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "a04p01",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "a04p02",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "a04p03",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "a04p04",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "a05p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "a05p02",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "a05p03",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d01p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d01p02",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d02p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d02p02",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d03p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d03p02",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d04p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d04p02",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d05p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d05p02",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d06p01",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d06p02",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d06p03",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d07p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d07p02",
+      "audit_primary_classification": "DÉPENDANCE",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d08p01",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d08p02",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d09p01",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d09p02",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d09p03",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d10p01",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d10p02",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d10p03",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d11p01",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d11p02",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d11p03",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d12p01",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d12p02",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d12p04",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d13p01",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d13p02",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d13p03",
+      "audit_primary_classification": "CONFLIT",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d14p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d15p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d16p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d17p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d18p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d19p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d20p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d21p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d22p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d23p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d24p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d24p02",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "d25p01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "s01",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "IN_PROGRESS_DEPENDENCY_BLOCKED"
+    },
+    {
+      "asset": "s02",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "s03",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "s04",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "s05",
+      "audit_primary_classification": "ADAPTÉ",
+      "migration_status": "NOT_STARTED"
+    },
+    {
+      "asset": "s06",
+      "audit_primary_classification": "PORTÉ",
+      "migration_status": "NOT_STARTED"
+    }
+  ],
+  "next_action": "Implement exact PMD Red EU personality quiz plus raw palette opcodes 0x22/0x23, BGM fadeout, RET; rerun the same isolated PMDO gate before any route connection."
+}
