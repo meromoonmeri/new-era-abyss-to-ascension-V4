@@ -1,0 +1,321 @@
+{
+  "schema": 1,
+  "ground": "h03p01",
+  "validated_at": "2026-08-12",
+  "runtime": "PASS",
+  "visual_comparison": {
+    "result": "PASS",
+    "dimensions_pixels": [
+      552,
+      336
+    ],
+    "primary_sample_count": 256,
+    "reload_sample_count": 1,
+    "exact_sample_count": 257,
+    "unique_rgba_frame_count": 109,
+    "mismatched_pixel_count": 0,
+    "maximum_channel_delta": 0,
+    "all_full_rgba_exact": true,
+    "all_fully_opaque": true,
+    "comparative_png_paths": [
+      "docs/pmdred_eu/pmdo_validation/h03p01_exhaustive_pass/comparisons/comparison_primary_tick0.png",
+      "docs/pmdred_eu/pmdo_validation/h03p01_exhaustive_pass/comparisons/comparison_primary_tick767.png",
+      "docs/pmdred_eu/pmdo_validation/h03p01_exhaustive_pass/comparisons/comparison_reload_tick0.png"
+    ],
+    "complete_metrics_report": "docs/pmdred_eu/pmdo_validation/h03p01_exhaustive_pass/report.json"
+  },
+  "tile_palette_validation": {
+    "result": "PASS",
+    "reference": "independent authenticated raw EU BPL/BPC/BPA/BMA renderer",
+    "resource_hashes": {
+      "H03P01": "7328637a0c61cb362da9004a784681a41054d4c06a2de2b5a218e2b107dd92a4",
+      "H03P01c": "e1d91f7f7fefeaa2e63663cc8aeaa75cdf7659c3200d25eed7f0dae05c0adec1",
+      "H03P01m": "77342444e57b609faca642b8f5d74f6a5239dfa8cc19a1bc47accf45b622ca6a"
+    }
+  },
+  "animation_validation": {
+    "result": "PASS",
+    "primary_sample_count": 256,
+    "first_tick": 0,
+    "last_tick": 767,
+    "cell_local_schedule_count": 2,
+    "maximum_cell_local_cycle_ticks": 384,
+    "all_schedules_covered_through_two_complete_cycles": true,
+    "channels": [
+      {
+        "cycle": 150,
+        "frame_count": 25,
+        "frame_durations": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6
+        ],
+        "index": 0,
+        "kind": "BPL_PALETTE"
+      },
+      {
+        "cycle": 384,
+        "frame_count": 64,
+        "frame_durations": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6
+        ],
+        "index": 11,
+        "kind": "BPL_PALETTE"
+      }
+    ],
+    "unique_observed_rgba_frames": 109,
+    "reload_tick_zero_exact": true,
+    "orphaned_animation_observed": false
+  },
+  "collision_validation": {
+    "result": "PASS",
+    "source": "H03P01m",
+    "collision_layer_count": 1,
+    "solid_cells": 1941,
+    "collision_sha256": "d9ac9aa0c85c134a62db95a711ba492065957de181a3a6ce8607d6406f253731",
+    "successful_probe": {
+      "start": [
+        272,
+        160
+      ],
+      "direction": "Down",
+      "observed_delta": [
+        0,
+        8
+      ],
+      "result": "PASS"
+    },
+    "blocked_probe": {
+      "start": [
+        272,
+        192
+      ],
+      "direction": "Down",
+      "observed_delta": [
+        0,
+        0
+      ],
+      "result": "PASS"
+    }
+  },
+  "entry_exit_reentry": {
+    "result": "PASS",
+    "loads": 2,
+    "entries": 2,
+    "exits": 2,
+    "same_ground_reentries": 1,
+    "strict_native_lifecycle_order": "PASS"
+  },
+  "cleanup_reload": {
+    "result": "PASS",
+    "cleanup_probe_count": 4,
+    "ground_exit_cleanup_passes": 2,
+    "sink_cleanup": "PASS",
+    "final_cleanup": "PASS",
+    "reload_load": "LOAD_PASS",
+    "reload_tick_zero_full_rgba_exact": true,
+    "terminal_end_seen": true,
+    "state_leakage_observed": false,
+    "stale_assets_observed": false,
+    "permanent_lock_observed": false,
+    "orphan_process_check": "PASS"
+  },
+  "native_termination": {
+    "result": "PASS",
+    "load_phase": "Unload",
+    "deinit_seen": true,
+    "graphics_unload_seen": true,
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "terminal": true,
+    "graceful": true,
+    "watchdog": false,
+    "requested_signal": null,
+    "sigsegv": false,
+    "forced_kill": false,
+    "orphan_process": false,
+    "evidence": "docs/pmdred_eu/pmdo_validation/h03p01_exhaustive_pass/termination.json",
+    "sha256": "616c9daa2257ffb349c0d84a007c041442d9b73de41de995dd37e95da3696c90"
+  },
+  "fixture_isolation": {
+    "canonical_source_ground_sha256": "a087193b5ebde6b33a779a83c3321736624c7fb4f83f628365d68fc441b2d141",
+    "canonical_source_tile_sha256": "20056a610fa0699ffa9dd4d5c63ca2b368fdd272f96b51f543948d65454ee39e",
+    "source_entity_counts": {
+      "markers": 0,
+      "spawners": 0,
+      "map_characters": 0,
+      "ground_objects": 0
+    },
+    "fixture_only_changes": [
+      "deterministic entry marker",
+      "ignored validator plumbing"
+    ],
+    "source_and_promoted_files_unchanged_by_fixture": true
+  },
+  "special_classification": {
+    "canonical_source": {
+      "category": "friend_area",
+      "ground_map_symbol": "MAP_FRIEND_AREA_MT_DEEPGREEN",
+      "canonical_debug_id": 116,
+      "map_id": 112,
+      "map_file_id": 117,
+      "ground_place_id": 9,
+      "stable_ground_id": "h03p01",
+      "classification": "mt_deepgreen_friend_area",
+      "friend_area": "mt_deepgreen",
+      "cinematic": false,
+      "arena": false,
+      "boss": false
+    },
+    "scope": {
+      "cinematic_choreography": "NOT APPLICABLE/NOT CLAIMED; Ground-only lifecycle and rendering validated",
+      "arena": false,
+      "boss": false
+    }
+  },
+  "identity_validation": {
+    "result": "PASS",
+    "authenticated_map_file_id": 117,
+    "pinned_enum_symbol": "MAP_FRIEND_AREA_MT_DEEPGREEN",
+    "conversion_type": 1,
+    "weather_id": -1
+  },
+  "definitive_destination": {
+    "ground": "Data/Ground/h03p01.rsground",
+    "tile": "Content/Tile/h03p01_Base.tile",
+    "zone_registry": "Data/Zone/master_zone.json",
+    "zone_registry_entry": "h03p01",
+    "promotion_status": "PROMOTED_ADDITIVE_CANONICAL",
+    "preexisting_destinations": false,
+    "pre_promotion_record": "RESERVE/pmdred_pre_promotion/h03p01/README.md",
+    "promoted_ground_sha256": "a087193b5ebde6b33a779a83c3321736624c7fb4f83f628365d68fc441b2d141",
+    "promoted_tile_sha256": "20056a610fa0699ffa9dd4d5c63ca2b368fdd272f96b51f543948d65454ee39e"
+  },
+  "provenance": {
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+    "conversion_report_sha256": "91f3b460b3e3b7689bc608ece2006cb6103d653bcdc22ad028f4172c3a1b0fdc",
+    "candidate_ground_sha256": "a087193b5ebde6b33a779a83c3321736624c7fb4f83f628365d68fc441b2d141",
+    "candidate_tile_sha256": "20056a610fa0699ffa9dd4d5c63ca2b368fdd272f96b51f543948d65454ee39e",
+    "source_normalized_sha256": {
+      "H03P01": "7328637a0c61cb362da9004a784681a41054d4c06a2de2b5a218e2b107dd92a4",
+      "H03P01c": "e1d91f7f7fefeaa2e63663cc8aeaa75cdf7659c3200d25eed7f0dae05c0adec1",
+      "H03P01m": "77342444e57b609faca642b8f5d74f6a5239dfa8cc19a1bc47accf45b622ca6a"
+    },
+    "events_sha256": "7a987f0e615a931f95300858ad86beada9e341b8261b1d670cce8dc0d95629c3",
+    "report_sha256": "46ef6107f7af77a65cd0885914e32c095c24dc49b384154c1025d5559d214acc",
+    "fixture_manifest_sha256": "cb0fffec591290465ca74e3f82967d71a9a40472a88b816865179ebb6f831102",
+    "termination_sha256": "616c9daa2257ffb349c0d84a007c041442d9b73de41de995dd37e95da3696c90",
+    "detailed_provenance": "docs/pmdred_eu/pmdo_validation/h03p01_exhaustive_pass/provenance.json"
+  },
+  "execution_note": {
+    "terminal_event_and_all_required_captures_completed": true,
+    "post_terminal_shutdown": "PMDO-native GameBase.LoadPhase.Unload followed by NORMAL_EXIT",
+    "return_code": 0,
+    "watchdog": false,
+    "requested_signal": null,
+    "evidence_impact": "NONE"
+  },
+  "dungeon_restitution": {
+    "affected": false,
+    "status": "27-relationship bundle retained"
+  },
+  "scope_note": "Ground-only; dialogue, choreography, music assignment, and narrative routing are not claimed.",
+  "post_promotion_integration": {
+    "result": "PASS",
+    "exact_pmdo_index": "PASS",
+    "indexed_ground_sha256": "a087193b5ebde6b33a779a83c3321736624c7fb4f83f628365d68fc441b2d141",
+    "indexed_tile_sha256": "20056a610fa0699ffa9dd4d5c63ca2b368fdd272f96b51f543948d65454ee39e",
+    "index_log_sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+    "zone_encoding_bom_preserved": true,
+    "zone_change": "one insertion after h02p03",
+    "zone_ground_map_count": 303,
+    "canonical_index": 244,
+    "variant_and_routing_static_checks": "PASS"
+  }
+}
