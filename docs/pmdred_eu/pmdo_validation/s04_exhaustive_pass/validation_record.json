@@ -1,0 +1,221 @@
+{
+  "schema": 1,
+  "ground": "s04",
+  "validated_at": "2026-08-12",
+  "runtime": "PASS",
+  "visual_comparison": {
+    "result": "PASS",
+    "dimensions_pixels": [
+      240,
+      640
+    ],
+    "primary_sample_count": 1,
+    "reload_sample_count": 1,
+    "exact_sample_count": 2,
+    "unique_rgba_frame_count": 1,
+    "mismatched_pixel_count": 0,
+    "maximum_channel_delta": 0,
+    "all_full_rgba_exact": true,
+    "all_fully_opaque": true,
+    "comparative_png_paths": [
+      "docs/pmdred_eu/pmdo_validation/s04_exhaustive_pass/comparisons/comparison_primary_tick0.png",
+      "docs/pmdred_eu/pmdo_validation/s04_exhaustive_pass/comparisons/comparison_reload_tick0.png"
+    ],
+    "complete_metrics_report": "docs/pmdred_eu/pmdo_validation/s04_exhaustive_pass/report.json"
+  },
+  "tile_palette_validation": {
+    "result": "PASS",
+    "reference": "independent authenticated raw EU BPL/BPC/BPA/BMA renderer",
+    "resource_hashes": {
+      "S04": "dcc2406c8cebef3365aa977db8652e993c6f0f818e91417629939e3b1aa69563",
+      "S04c": "32cc00f463e6cd61992fa8e13c8c46601deb12f50697231c26c0913ee98d467c",
+      "S04m": "f7317fc443cc6022c84d4199f9875444d9d17716fe3d584edd4a01df8b76c578"
+    }
+  },
+  "animation_validation": {
+    "result": "PASS",
+    "primary_sample_count": 1,
+    "first_tick": 0,
+    "last_tick": 0,
+    "cell_local_schedule_count": 0,
+    "maximum_cell_local_cycle_ticks": 1,
+    "all_schedules_covered_through_two_complete_cycles": true,
+    "channels": [],
+    "unique_observed_rgba_frames": 1,
+    "reload_tick_zero_exact": true,
+    "orphaned_animation_observed": false
+  },
+  "collision_validation": {
+    "result": "PASS",
+    "source": "S04m",
+    "collision_layer_count": 0,
+    "solid_cells": 0,
+    "collision_sha256": "a0ee989ed2a0a2e3626520afa4032e06144865c8c8f6357293c9f4cd2069eaf2",
+    "successful_probe": {
+      "start": [
+        112,
+        312
+      ],
+      "direction": "Down",
+      "observed_delta": [
+        0,
+        8
+      ],
+      "result": "PASS"
+    },
+    "blocked_probe": {
+      "applicable": false,
+      "reason": "AUTHENTICATED_RAW_ROM_BMA_HAS_NO_COLLISION_LAYER_OR_SOLID_CELLS",
+      "fixture_expectation": "NO_BMA_COLLISION_LAYER_OR_SOLIDS",
+      "runtime_result": "NOT_APPLICABLE_NO_BMA_SOLIDS",
+      "result": "NOT_APPLICABLE"
+    }
+  },
+  "entry_exit_reentry": {
+    "result": "PASS",
+    "loads": 2,
+    "entries": 2,
+    "exits": 2,
+    "same_ground_reentries": 1,
+    "strict_native_lifecycle_order": "PASS"
+  },
+  "cleanup_reload": {
+    "result": "PASS",
+    "cleanup_probe_count": 4,
+    "ground_exit_cleanup_passes": 2,
+    "sink_cleanup": "PASS",
+    "final_cleanup": "PASS",
+    "reload_load": "LOAD_PASS",
+    "reload_tick_zero_full_rgba_exact": true,
+    "terminal_end_seen": true,
+    "state_leakage_observed": false,
+    "stale_assets_observed": false,
+    "permanent_lock_observed": false,
+    "orphan_process_check": "PASS"
+  },
+  "native_termination": {
+    "result": "PASS",
+    "load_phase": "Unload",
+    "deinit_seen": true,
+    "graphics_unload_seen": true,
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "terminal": true,
+    "graceful": true,
+    "watchdog": false,
+    "requested_signal": null,
+    "sigsegv": false,
+    "forced_kill": false,
+    "orphan_process": false,
+    "evidence": "docs/pmdred_eu/pmdo_validation/s04_exhaustive_pass/termination.json",
+    "sha256": "c54bef280de42fb2d873a1f2f7334fceb546a9abd4af5c6119bc81f710189d63"
+  },
+  "fixture_isolation": {
+    "canonical_source_ground_sha256": "fe2706f208ae738a0d252e3199bf888d9ed86a52beed253902d651be2b3b633d",
+    "canonical_source_tile_sha256": "a88590a282cfd116177d60e0dc828ea2e620e491a7838830c4fc708224b41bc4",
+    "source_entity_counts": {
+      "markers": 0,
+      "spawners": 0,
+      "map_characters": 0,
+      "ground_objects": 0
+    },
+    "fixture_only_changes": [
+      "deterministic entry marker",
+      "ignored validator plumbing"
+    ],
+    "source_and_promoted_files_unchanged_by_fixture": true
+  },
+  "special_classification": {
+    "canonical_source": {
+      "category": "logo_screen",
+      "ground_map_symbol": "MAP_LOGO_POKEMON_COMPANY",
+      "canonical_debug_id": 237,
+      "map_id": 235,
+      "map_file_id": 244,
+      "ground_place_id": 37,
+      "stable_ground_id": "s04",
+      "classification": "pokemon_company_logo_screen",
+      "logo": "pokemon_company",
+      "cinematic": false,
+      "arena": false,
+      "boss": false
+    },
+    "scope": {
+      "cinematic_choreography": "NOT APPLICABLE/NOT CLAIMED; Ground-only lifecycle and rendering validated",
+      "arena": false,
+      "boss": false
+    }
+  },
+  "identity_validation": {
+    "result": "PASS",
+    "authenticated_map_file_id": 244,
+    "pinned_enum_symbol": "MAP_LOGO_POKEMON_COMPANY",
+    "conversion_type": 4,
+    "weather_id": -1
+  },
+  "definitive_destination": {
+    "ground": "Data/Ground/s04.rsground",
+    "tile": "Content/Tile/s04_Base.tile",
+    "zone_registry": "Data/Zone/master_zone.json",
+    "zone_registry_entry": "s04",
+    "promotion_status": "PROMOTED_ADDITIVE_CANONICAL",
+    "preexisting_destinations": false,
+    "pre_promotion_destinations": {
+      "ground": {
+        "preexisting": false,
+        "sha256": null,
+        "reserve": null
+      },
+      "tile": {
+        "preexisting": false,
+        "sha256": null,
+        "reserve": null
+      }
+    },
+    "pre_promotion_record": "RESERVE/pmdred_pre_promotion/s04/README.md",
+    "promoted_ground_sha256": "fe2706f208ae738a0d252e3199bf888d9ed86a52beed253902d651be2b3b633d",
+    "promoted_tile_sha256": "a88590a282cfd116177d60e0dc828ea2e620e491a7838830c4fc708224b41bc4"
+  },
+  "provenance": {
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+    "conversion_report_sha256": "91f3b460b3e3b7689bc608ece2006cb6103d653bcdc22ad028f4172c3a1b0fdc",
+    "candidate_ground_sha256": "fe2706f208ae738a0d252e3199bf888d9ed86a52beed253902d651be2b3b633d",
+    "candidate_tile_sha256": "a88590a282cfd116177d60e0dc828ea2e620e491a7838830c4fc708224b41bc4",
+    "source_normalized_sha256": {
+      "S04": "dcc2406c8cebef3365aa977db8652e993c6f0f818e91417629939e3b1aa69563",
+      "S04c": "32cc00f463e6cd61992fa8e13c8c46601deb12f50697231c26c0913ee98d467c",
+      "S04m": "f7317fc443cc6022c84d4199f9875444d9d17716fe3d584edd4a01df8b76c578"
+    },
+    "events_sha256": "d6523afd29fa9af00f1dc221c5930c387cea5a0030806b47eb5c93ff14dfabdc",
+    "report_sha256": "554d9cf2e756439e65f35bba985abfcc91280db4ba6973497ffff6542bbd27aa",
+    "fixture_manifest_sha256": "2a0f91cb20a3645f12abb150a773353c9000a29f8b65da013a94724418f3135c",
+    "termination_sha256": "c54bef280de42fb2d873a1f2f7334fceb546a9abd4af5c6119bc81f710189d63",
+    "detailed_provenance": "docs/pmdred_eu/pmdo_validation/s04_exhaustive_pass/provenance.json"
+  },
+  "execution_note": {
+    "terminal_event_and_all_required_captures_completed": true,
+    "post_terminal_shutdown": "PMDO-native GameBase.LoadPhase.Unload followed by NORMAL_EXIT",
+    "return_code": 0,
+    "watchdog": false,
+    "requested_signal": null,
+    "evidence_impact": "NONE"
+  },
+  "dungeon_restitution": {
+    "affected": false,
+    "status": "27-relationship bundle retained"
+  },
+  "scope_note": "Ground-only; dialogue, choreography, music assignment, and narrative routing are not claimed.",
+  "post_promotion_integration": {
+    "result": "PASS",
+    "exact_pmdo_index": "PASS",
+    "indexed_ground_sha256": "fe2706f208ae738a0d252e3199bf888d9ed86a52beed253902d651be2b3b633d",
+    "indexed_tile_sha256": "a88590a282cfd116177d60e0dc828ea2e620e491a7838830c4fc708224b41bc4",
+    "index_log_sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+    "zone_encoding_bom_preserved": true,
+    "zone_change": "one insertion after s03",
+    "zone_ground_map_count": 390,
+    "canonical_index": 333,
+    "variant_and_routing_static_checks": "PASS"
+  }
+}
