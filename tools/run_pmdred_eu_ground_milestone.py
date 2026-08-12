@@ -279,6 +279,7 @@ def classify_ground_role(symbol: str) -> dict[str, Any]:
         "MAP_TITLE_SCREEN": ("title_screen", "title_screen", {"screen": "title"}),
         "MAP_INTRO": ("intro_scene", "intro_scene", {"scene": "intro"}),
         "MAP_LOGO_POKEMON_COMPANY": ("logo_screen", "pokemon_company_logo_screen", {"logo": "pokemon_company"}),
+        "MAP_LOGO_WARNING": ("warning_screen", "logo_warning_screen", {"screen": "logo_warning"}),
     }
     if symbol in explicit_story_roles:
         category, classification, details = explicit_story_roles[symbol]

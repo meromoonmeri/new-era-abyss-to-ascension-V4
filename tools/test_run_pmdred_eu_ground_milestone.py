@@ -188,6 +188,17 @@ class GroundRoleClassificationTests(unittest.TestCase):
             },
         )
         self.assertEqual(
+            classify_ground_role("MAP_LOGO_WARNING"),
+            {
+                "category": "warning_screen",
+                "classification": "logo_warning_screen",
+                "screen": "logo_warning",
+                "cinematic": False,
+                "arena": False,
+                "boss": False,
+            },
+        )
+        self.assertEqual(
             classify_ground_role("MAP_THUNDERWAVE_CAVE_ENTRY"),
             {
                 "category": "dungeon_transition_ground",
