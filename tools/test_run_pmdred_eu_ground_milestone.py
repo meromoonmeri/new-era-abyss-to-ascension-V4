@@ -398,18 +398,39 @@ class EntityMigrationRecoveryGateTests(unittest.TestCase):
                 record, "a02p01", MIGRATION_POLICIES["a02p01"]
             )
 
-    def test_historical_singleton_zone_entry_is_retained_byte_exactly(self) -> None:
+    def test_historical_singleton_zone_entries_are_retained_byte_exactly(self) -> None:
         root = Path(__file__).resolve().parents[1]
         zone = root / "Data/Zone/master_zone.json"
         before = zone.read_bytes()
         maps = json.loads(before.decode("utf-8-sig"))["Object"]["GroundMaps"]
-        pre, post, prior, index = insert_zone(
-            "a02p01", ["a01p02", "a02p01"], {"a01p02"}, retain_existing=True
-        )
-        self.assertEqual(pre, post)
-        self.assertEqual(zone.read_bytes(), before)
-        self.assertEqual(index, maps.index("a02p01"))
-        self.assertEqual(prior, maps[index - 1])
+        for ground in ("a02p01", "a02p02", "a02p03", "a02p04"):
+            with self.subTest(ground=ground):
+                pre, post, prior, index = insert_zone(
+                    ground, list(MIGRATION_POLICIES), {"a01p02"}, retain_existing=True
+                )
+                self.assertEqual(pre, post)
+                self.assertEqual(zone.read_bytes(), before)
+                self.assertEqual(index, maps.index(ground))
+                self.assertEqual(prior, maps[index - 1])
+
+    def test_a02_fugitive_migration_policies_pin_exact_integrated_outputs(self) -> None:
+        expected = {
+            "a02p01": ("016551d87ddf6b5556a4f9181ec8061a5af2df1bda97e3f43e376f3dc64dc3b2", 3),
+            "a02p02": ("f9aac6971906cbb93eab368bcd91bb4a9723180bd854d17b19811474c3484a3c", 1),
+            "a02p03": ("f939c874590008a7db4217f7fd77f65d548a32ba5ccfa0701e77a0da070982a3", 1),
+            "a02p04": ("9add5df8383ddb077c832ddae9e06287ad29cd6db695437b7d1f655af8a2c790", 1),
+        }
+        self.assertEqual(set(MIGRATION_POLICIES), set(expected))
+        for ground, (integrated_hash, spawner_count) in expected.items():
+            with self.subTest(ground=ground):
+                policy = MIGRATION_POLICIES[ground]
+                self.assertEqual(policy["ground"], ground)
+                self.assertEqual(policy["integrated_ground_sha256"], integrated_hash)
+                self.assertEqual(
+                    policy["expected_entities"]["Markers"],
+                    ["Main_Entrance_Marker", "Cutscene_Marker"],
+                )
+                self.assertEqual(len(policy["expected_entities"]["Spawners"]), spawner_count)
 
     def test_generic_zone_insertion_still_rejects_unvalidated_existing_entry(self) -> None:
         with self.assertRaisesRegex(RuntimeError, "zone already contains unvalidated a02p01"):

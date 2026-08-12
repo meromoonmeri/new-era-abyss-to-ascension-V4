@@ -1068,9 +1068,11 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
         ground_hash=migration["integrated_candidate"]["ground_sha256"]
         if sha(ground_src) != ground_hash or migration["canonical_baseline"]["ground_sha256"] != canonical_ground_hash:
             raise RuntimeError("entity-integrated candidate readback failed")
+        entity_counts = migration["entity_integration"]["entity_counts"]
         log(
             f"ENTITY_INTEGRATION_PASS ground={ground} canonical={canonical_ground_hash} "
-            f"integrated={ground_hash} markers=2 spawners=3"
+            f"integrated={ground_hash} markers={entity_counts['markers']} "
+            f"spawners={entity_counts['spawners']}"
         )
     else:
         ground_src=canonical_ground_src

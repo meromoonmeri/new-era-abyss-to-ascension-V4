@@ -43,7 +43,88 @@ A02P01_POLICY: dict[str, Any] = {
     },
 }
 
-MIGRATION_POLICIES = {"a02p01": A02P01_POLICY}
+A02P02_POLICY: dict[str, Any] = {
+    "schema": "new-era.pmdred-eu-occupied-ground-migration-policy.v1",
+    "ground": "a02p02",
+    "historical_ground_sha256": "dc60ccc9b2d714a91a725a86397b6af3b4aadd6dfe40aaef981423794c7d6083",
+    "historical_tile": "Content/Tile/A02p02_Base.tile",
+    "historical_tile_sha256": "9b195f5e9eb12ad6e7b4a162b555e37a4e13ac7e4a73fac4cec66e17a1f9e904",
+    "canonical_ground_sha256": "4aa76d598b3171a513f6a4ba8d17b71ef5403f725278c24c49ff9e02d41bba82",
+    "canonical_tile_sha256": "9b195f5e9eb12ad6e7b4a162b555e37a4e13ac7e4a73fac4cec66e17a1f9e904",
+    "integrated_ground_sha256": "f9aac6971906cbb93eab368bcd91bb4a9723180bd854d17b19811474c3484a3c",
+    "preserved_fields": ["Markers", "Spawners"],
+    "expected_entities": {
+        "Markers": ["Main_Entrance_Marker", "Cutscene_Marker"],
+        "Spawners": ["TEAMMATE_1"],
+    },
+    "historical_reserves": {
+        "RESERVE/red_grounds/a02p02.rsground": "6b373ccc45b65ffabfb3d8df2fda372d96bd0f8afca3516aaf7c713faee4fd31",
+        "RESERVE/red_tiles/a02p02_Base.tile": "9b195f5e9eb12ad6e7b4a162b555e37a4e13ac7e4a73fac4cec66e17a1f9e904",
+    },
+    "related_scripts": {
+        "Data/Script/halcyon/ground/a02p02/init.lua": "fdaa6bbec4f7bcf9c2031e1b1f02a14dec4080e330f5cedc4d8ec8247dacc6a4",
+        "Data/Script/halcyon/FugitiveArc.lua": "cf9ffe31cb90c7301808d920522463cc66e0e7349f74a1c8fdfca061c1621519",
+        "Data/Script/halcyon/FugitiveCinematics.lua": "1fea1611e0f9636f6fd8ca6268ba9d2d676972f3b153162b694950c7f32eb484",
+        "Data/Script/halcyon/arc_fugitif/scene/a02p02.lua": "6721f3b91720060db21cad2b13f014779d44f9370d65e0c6ae851fc004e90a85",
+    },
+}
+
+A02P03_POLICY: dict[str, Any] = {
+    "schema": "new-era.pmdred-eu-occupied-ground-migration-policy.v1",
+    "ground": "a02p03",
+    "historical_ground_sha256": "7f91bdf9d4ff3574ee00ffe8fcacd30aae83bc9bdec8fb2c18b0135c06ba456e",
+    "historical_tile": "Content/Tile/A02p03_Base.tile",
+    "historical_tile_sha256": "94b275262765e0b7ea1fd209bc9f1d1dac89452d3f3e36228ed46d2f30c12e7b",
+    "canonical_ground_sha256": "b6cfa6d2cfc5e550cf85f23f321af8ffe5c862b11a8332ec6d1444dd84c32bbc",
+    "canonical_tile_sha256": "94b275262765e0b7ea1fd209bc9f1d1dac89452d3f3e36228ed46d2f30c12e7b",
+    "integrated_ground_sha256": "f939c874590008a7db4217f7fd77f65d548a32ba5ccfa0701e77a0da070982a3",
+    "preserved_fields": ["Markers", "Spawners"],
+    "expected_entities": {
+        "Markers": ["Main_Entrance_Marker", "Cutscene_Marker"],
+        "Spawners": ["TEAMMATE_1"],
+    },
+    "historical_reserves": {
+        "RESERVE/red_grounds/a02p03.rsground": "3904f90e0454b5863c74aab0d6455e09253e7bafdb747bbc816cefa1f2b20191",
+        "RESERVE/red_tiles/a02p03_Base.tile": "94b275262765e0b7ea1fd209bc9f1d1dac89452d3f3e36228ed46d2f30c12e7b",
+    },
+    "related_scripts": {
+        "Data/Script/halcyon/ground/a02p03/init.lua": "e058192f2e857701e3616a4a93fb2fc6bf4185b5812e28820dbbc196ee415405",
+        "Data/Script/halcyon/FugitiveArc.lua": "cf9ffe31cb90c7301808d920522463cc66e0e7349f74a1c8fdfca061c1621519",
+        "Data/Script/halcyon/FugitiveCinematics.lua": "1fea1611e0f9636f6fd8ca6268ba9d2d676972f3b153162b694950c7f32eb484",
+        "Data/Script/halcyon/arc_fugitif/scene/a02p03.lua": "8d541ac52cc8325f4ad34cef09525da3f02a4bd630eb85ec332b806b200bb387",
+    },
+}
+
+A02P04_POLICY: dict[str, Any] = {
+    "schema": "new-era.pmdred-eu-occupied-ground-migration-policy.v1",
+    "ground": "a02p04",
+    "historical_ground_sha256": "b792870dc610761c89fe9fd5c26fcee343714311b04d9a17a52521fa5c9f738f",
+    "historical_tile": "Content/Tile/A02p04_Base.tile",
+    "historical_tile_sha256": "2270fe64e93dca7b7c15dca06c8e87e7d4b1aeae4ff558ad9c86853207eb7ea0",
+    "canonical_ground_sha256": "15d18cb20ccaadb38887e2c3c722e2b5983d3184f1409960bed15c951451a209",
+    "canonical_tile_sha256": "2270fe64e93dca7b7c15dca06c8e87e7d4b1aeae4ff558ad9c86853207eb7ea0",
+    "integrated_ground_sha256": "9add5df8383ddb077c832ddae9e06287ad29cd6db695437b7d1f655af8a2c790",
+    "preserved_fields": ["Markers", "Spawners"],
+    "expected_entities": {
+        "Markers": ["Main_Entrance_Marker", "Cutscene_Marker"],
+        "Spawners": ["TEAMMATE_1"],
+    },
+    "historical_reserves": {
+        "RESERVE/red_grounds/a02p04.rsground": "5a91344deb7e0c8682aa421486d603592d53d12df5b8c8476ffb1b026f88daed",
+        "RESERVE/red_tiles/a02p04_Base.tile": "2270fe64e93dca7b7c15dca06c8e87e7d4b1aeae4ff558ad9c86853207eb7ea0",
+    },
+    "related_scripts": {
+        "Data/Script/halcyon/ground/a02p04/init.lua": "b280ed09c6c7ba25586a680e1db74562b9c4f0158e2fdedacb150b75965523a0",
+        "Data/Script/halcyon/FugitiveArc.lua": "cf9ffe31cb90c7301808d920522463cc66e0e7349f74a1c8fdfca061c1621519",
+        "Data/Script/halcyon/FugitiveCinematics.lua": "1fea1611e0f9636f6fd8ca6268ba9d2d676972f3b153162b694950c7f32eb484",
+        "Data/Script/halcyon/arc_fugitif/scene/a02p04.lua": "2c827064a8ee97a8b20ef57ce645d2566a6f5cd9aa255efbf4497b5ac1111f70",
+    },
+}
+
+MIGRATION_POLICIES = {
+    policy["ground"]: policy
+    for policy in (A02P01_POLICY, A02P02_POLICY, A02P03_POLICY, A02P04_POLICY)
+}
 
 
 def sha256_file(path: Path) -> str:
