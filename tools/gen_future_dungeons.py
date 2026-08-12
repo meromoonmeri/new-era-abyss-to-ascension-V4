@@ -134,7 +134,7 @@ def build_floor(fl, tset_name, music_ogg, floor_index):
                                          "MaxFoes": max(1, fl["enemy_density"]), "RespawnTime": 60},
                              "MaxFoes": 0, "RespawnTime": 0}))
     # [2] FloorStairsStep
-    steps.append(gs(2, {"$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+    steps.append(gs(2, {"$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
                         "MinDistance": 3, "Entrances": [{"Loc": {"X": 0, "Y": 0}, "Dir": 0}],
                         "Exits": [{"Loc": {"X": 0, "Y": 0}, "Tile": {"TileLoc": {"X": 0, "Y": 0}, "ID": "stairs_go_down", "Revealed": True, "Owner": 0, "TileStates": []}}],
                         "Filters": []}))
@@ -143,7 +143,8 @@ def build_floor(fl, tset_name, music_ogg, floor_index):
         steps.append(gs(3, {"$type": "RogueElements.PerlinWaterStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                             "OrderComplexity": 3, "OrderSoftness": 1, "WaterPercent": {"Min": fl["water_density"], "Max": fl["water_density"]},
                             "Bowl": True, "Terrain": tile("water"),
-                            "TerrainStencil": {"$type": "RogueElements.WaterTerrainStencil, RogueElements", "Stencil": "ocean"}}))
+                            "TerrainStencil": {"$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                                               "Room": False, "Wall": True, "Blocked": False, "Not": False}}))
     # [4] MapTextureStep (tileset NDS -> auto-tileset)
     steps.append(gs(4, {"$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
                         "GroundTileset": tset_name + "_floor",
@@ -177,7 +178,7 @@ def build_floor(fl, tset_name, music_ogg, floor_index):
                                        "Amount": {"Min": 2, "Max": max(3, fl["enemy_density"] + 1)}},
                              "Ally": False, "ClumpFactor": 20}))
     # [7] DetectIsolatedStairsStep
-    steps.append(gs(7, {"$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.Dungeon.StairsTile, RogueEssence]], RogueElements"}))
+    steps.append(gs(7, {"$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"}))
     # MobSpawnStep : TABLE ENNEMIS NDS du floor (PoolTeamSpawner)
     # (le champ 'md' de mappa_s.bin EST le MONSTER_ID — identité directe)
     mob_spawns = []

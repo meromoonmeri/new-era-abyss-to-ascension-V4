@@ -35,6 +35,12 @@ env "${PMDO_ENV[@]}" PMDO_NEW_GAME_VALIDATOR=full_title_flow \
  --status-json "$FIX/termination.json" --terminal-timeout 300 --reset-events
 ! grep -qE 'Exception Depth|Could not find value|RUNTIME_FAIL|Lua Trace' "$FIX/runtime.log"
 ! grep -qE 'PMDRED_EU|PERSONALITY_QUIZ|QUIZ_' "$FIX/runtime.log"
+DIAGNOSTIC_LOG=$(find "$FIX/appdata/LOG" -type f -name '*.txt' -print -quit)
+test -n "$DIAGNOSTIC_LOG"
+if grep -q 'RegisterMonster(string) only registers form 0' "$DIAGNOSTIC_LOG"; then
+  grep -n 'RegisterMonster(string) only registers form 0' "$DIAGNOSTIC_LOG"
+  exit 1
+fi
 "$PYTHON" tools/validate_new_game_startup_regression.py --fixture "$FIX" --check-only
 "$PYTHON" - "$FIX" "$EVIDENCE" <<'PY'
 import json,sys

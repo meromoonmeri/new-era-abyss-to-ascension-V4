@@ -60,7 +60,9 @@ function DebugTools:OnNewGame()
   if _DATA.Save.ActiveTeam.Players.Count > 0 then
      local talk_evt = RogueEssence.Dungeon.BattleScriptEvent("HeroInteract")
     _DATA.Save.ActiveTeam.Players[0].ActionEvents:Add(talk_evt)
-	_DATA.Save:RegisterMonster(_DATA.Save.ActiveTeam.Players[0].BaseForm.Species)
+	-- Register the exact MonsterID (species, form, skin, gender). The string
+	-- overload only registers form 0 and emits a PMDO 0.8.12 warning.
+	_DATA.Save:RegisterMonster(_DATA.Save.ActiveTeam.Players[0].BaseForm)
 	
 	_DATA.Save.ActiveTeam:SetRank("normal")
 	if not GAME:InRogueMode() then

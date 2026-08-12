@@ -514,7 +514,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -585,8 +585,11 @@
           }
          },
          "TerrainStencil": {
-          "$type": "RogueElements.WaterTerrainStencil, RogueElements",
-          "Stencil": "ocean"
+          "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+          "Room": false,
+          "Wall": true,
+          "Blocked": false,
+          "Not": false
          }
         }
        },
@@ -729,7 +732,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.Dungeon.StairsTile, RogueEssence]], RogueElements"
+         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
         }
        },
        {
@@ -1125,7 +1128,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -1196,8 +1199,11 @@
           }
          },
          "TerrainStencil": {
-          "$type": "RogueElements.WaterTerrainStencil, RogueElements",
-          "Stencil": "ocean"
+          "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+          "Room": false,
+          "Wall": true,
+          "Blocked": false,
+          "Not": false
          }
         }
        },
@@ -1340,7 +1346,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.Dungeon.StairsTile, RogueEssence]], RogueElements"
+         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
         }
        },
        {
@@ -1736,7 +1742,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -1807,8 +1813,11 @@
           }
          },
          "TerrainStencil": {
-          "$type": "RogueElements.WaterTerrainStencil, RogueElements",
-          "Stencil": "ocean"
+          "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+          "Room": false,
+          "Wall": true,
+          "Blocked": false,
+          "Not": false
          }
         }
        },
@@ -1951,7 +1960,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.Dungeon.StairsTile, RogueEssence]], RogueElements"
+         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
         }
        },
        {
@@ -2347,7 +2356,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -2418,8 +2427,11 @@
           }
          },
          "TerrainStencil": {
-          "$type": "RogueElements.WaterTerrainStencil, RogueElements",
-          "Stencil": "ocean"
+          "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+          "Room": false,
+          "Wall": true,
+          "Blocked": false,
+          "Not": false
          }
         }
        },
@@ -2562,7 +2574,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.Dungeon.StairsTile, RogueEssence]], RogueElements"
+         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
         }
        },
        {
@@ -2958,7 +2970,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -3029,8 +3041,11 @@
           }
          },
          "TerrainStencil": {
-          "$type": "RogueElements.WaterTerrainStencil, RogueElements",
-          "Stencil": "ocean"
+          "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+          "Room": false,
+          "Wall": true,
+          "Blocked": false,
+          "Not": false
          }
         }
        },
@@ -3173,7 +3188,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.Dungeon.StairsTile, RogueEssence]], RogueElements"
+         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
         }
        },
        {
@@ -3607,7 +3622,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -3678,8 +3693,11 @@
           }
          },
          "TerrainStencil": {
-          "$type": "RogueElements.WaterTerrainStencil, RogueElements",
-          "Stencil": "ocean"
+          "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+          "Room": false,
+          "Wall": true,
+          "Blocked": false,
+          "Not": false
          }
         }
        },
@@ -3822,7 +3840,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.Dungeon.StairsTile, RogueEssence]], RogueElements"
+         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
         }
        },
        {
@@ -4256,7 +4274,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -4327,8 +4345,11 @@
           }
          },
          "TerrainStencil": {
-          "$type": "RogueElements.WaterTerrainStencil, RogueElements",
-          "Stencil": "ocean"
+          "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+          "Room": false,
+          "Wall": true,
+          "Blocked": false,
+          "Not": false
          }
         }
        },
@@ -4471,7 +4492,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.Dungeon.StairsTile, RogueEssence]], RogueElements"
+         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
         }
        },
        {
@@ -4905,7 +4926,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -4976,8 +4997,11 @@
           }
          },
          "TerrainStencil": {
-          "$type": "RogueElements.WaterTerrainStencil, RogueElements",
-          "Stencil": "ocean"
+          "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+          "Room": false,
+          "Wall": true,
+          "Blocked": false,
+          "Not": false
          }
         }
        },
@@ -5120,7 +5144,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.Dungeon.StairsTile, RogueEssence]], RogueElements"
+         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
         }
        },
        {
@@ -5554,7 +5578,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -5625,8 +5649,11 @@
           }
          },
          "TerrainStencil": {
-          "$type": "RogueElements.WaterTerrainStencil, RogueElements",
-          "Stencil": "ocean"
+          "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+          "Room": false,
+          "Wall": true,
+          "Blocked": false,
+          "Not": false
          }
         }
        },
@@ -5769,7 +5796,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.Dungeon.StairsTile, RogueEssence]], RogueElements"
+         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
         }
        },
        {
@@ -6165,7 +6192,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -6236,8 +6263,11 @@
           }
          },
          "TerrainStencil": {
-          "$type": "RogueElements.WaterTerrainStencil, RogueElements",
-          "Stencil": "ocean"
+          "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+          "Room": false,
+          "Wall": true,
+          "Blocked": false,
+          "Not": false
          }
         }
        },
@@ -6380,7 +6410,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.Dungeon.StairsTile, RogueEssence]], RogueElements"
+         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
         }
        },
        {
@@ -6776,7 +6806,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -6847,8 +6877,11 @@
           }
          },
          "TerrainStencil": {
-          "$type": "RogueElements.WaterTerrainStencil, RogueElements",
-          "Stencil": "ocean"
+          "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+          "Room": false,
+          "Wall": true,
+          "Blocked": false,
+          "Not": false
          }
         }
        },
@@ -6991,7 +7024,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.Dungeon.StairsTile, RogueEssence]], RogueElements"
+         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
         }
        },
        {
@@ -7387,7 +7420,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -7458,8 +7491,11 @@
           }
          },
          "TerrainStencil": {
-          "$type": "RogueElements.WaterTerrainStencil, RogueElements",
-          "Stencil": "ocean"
+          "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+          "Room": false,
+          "Wall": true,
+          "Blocked": false,
+          "Not": false
          }
         }
        },
@@ -7602,7 +7638,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.Dungeon.StairsTile, RogueEssence]], RogueElements"
+         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
         }
        },
        {
@@ -7998,7 +8034,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -8069,8 +8105,11 @@
           }
          },
          "TerrainStencil": {
-          "$type": "RogueElements.WaterTerrainStencil, RogueElements",
-          "Stencil": "ocean"
+          "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+          "Room": false,
+          "Wall": true,
+          "Blocked": false,
+          "Not": false
          }
         }
        },
@@ -8213,7 +8252,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.Dungeon.StairsTile, RogueEssence]], RogueElements"
+         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
         }
        },
        {
@@ -8609,7 +8648,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -8680,8 +8719,11 @@
           }
          },
          "TerrainStencil": {
-          "$type": "RogueElements.WaterTerrainStencil, RogueElements",
-          "Stencil": "ocean"
+          "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+          "Room": false,
+          "Wall": true,
+          "Blocked": false,
+          "Not": false
          }
         }
        },
@@ -8824,7 +8866,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.Dungeon.StairsTile, RogueEssence]], RogueElements"
+         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
         }
        },
        {
@@ -9220,7 +9262,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -9291,8 +9333,11 @@
           }
          },
          "TerrainStencil": {
-          "$type": "RogueElements.WaterTerrainStencil, RogueElements",
-          "Stencil": "ocean"
+          "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+          "Room": false,
+          "Wall": true,
+          "Blocked": false,
+          "Not": false
          }
         }
        },
@@ -9435,7 +9480,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.Dungeon.StairsTile, RogueEssence]], RogueElements"
+         "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
         }
        },
        {
