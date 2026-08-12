@@ -46,6 +46,18 @@ class BpaTimingTests(unittest.TestCase):
         self.assertEqual(renderer.bpa_location(2), (2, 0))
 
 
+class AnimationPeriodTests(unittest.TestCase):
+    def test_finite_prefix_pseudo_period_is_not_accepted_as_cyclic(self) -> None:
+        # The final state equals the first, so the old finite-prefix check
+        # incorrectly accepted period 4 for this five-tick closed cycle.  PMDO
+        # would then drift on the next cycle.
+        sequence = [b"A", b"B", b"C", b"D", b"A"]
+        self.assertEqual(converter.minimal_period(sequence), 5)
+
+    def test_true_divisor_period_is_retained(self) -> None:
+        self.assertEqual(converter.minimal_period([b"A", b"B"] * 6), 2)
+
+
 class BlankSentinelTests(unittest.TestCase):
     def test_out_of_range_tile_reference_is_canonical_blank(self) -> None:
         palette = [(0, 0, 0, 0)] + [(255, 0, 255, 255)] * 15

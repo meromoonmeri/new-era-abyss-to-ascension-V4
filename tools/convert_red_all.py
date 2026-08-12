@@ -54,7 +54,7 @@ RED = DEFAULT_RED
 OUT_G = os.path.join(ROOT, 'RESERVE', 'red_grounds')
 OUT_T = os.path.join(ROOT, 'RESERVE', 'red_tiles')
 APPLY = False
-CONVERTER_VERSION = '2.0.0-eu'
+CONVERTER_VERSION = '2.0.1-eu'
 
 XSTRIDE = 128
 
@@ -329,10 +329,18 @@ class Renderer:
 
 
 def minimal_period(seq, cap=512):
+    """Return a true cyclic period, never a finite-prefix pseudo-period.
+
+    A period of a closed animation cycle must divide its length.  Without the
+    divisibility guard, equal beginning/end frames can make ``n-k`` look like a
+    period over the first cycle even though PMDO drifts immediately after the
+    wrap.  Exact-engine validation exposed that defect on h26p01 at tick 120.
+    """
     n = len(seq)
     for p in range(1, min(n, cap + 1)):
-        ok = all(seq[i] == seq[i % p] for i in range(n))
-        if ok:
+        if n % p != 0:
+            continue
+        if all(seq[i] == seq[i % p] for i in range(n)):
             return p
     return n
 

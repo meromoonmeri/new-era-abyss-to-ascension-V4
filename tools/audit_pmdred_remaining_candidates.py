@@ -3,10 +3,12 @@
 
 The candidate root is deliberately external/ignored.  This audit authenticates
 its deterministic conversion report, compares every graphical tile at every
-source-local animation tick, checks collision against the independently decoded
-BMA auxiliary stream, and reconciles every candidate with the preserved legacy
-reserve.  It does not claim that canonical scripts, music, entries/exits, or
-exact-PMDO runtime behavior have already been reconstructed.
+source-local animation tick across two complete local cycles, checks collision
+against the independently decoded BMA auxiliary stream, and reconciles every
+candidate with the preserved legacy reserve.  The second cycle is mandatory:
+it detects serialized PMDO schedules that agree initially but drift at wrap.
+It does not claim that canonical scripts, music, entries/exits, or exact-PMDO
+runtime behavior have already been reconstructed.
 """
 from __future__ import annotations
 
@@ -143,11 +145,14 @@ def audit_candidate_worker(task: tuple[str, dict[str, Any], str, str]) -> dict[s
                 chunk_ids, chunks, len(bpc_tiles), bpa_slots, renderer,
                 palette_specs, animated_palettes,
             )
-            source_cell_ticks += period
+            # Validate two complete source-local cycles.  One cycle cannot
+            # detect a candidate whose serialized cycle was shortened by an
+            # equal prefix/suffix and only drifts after its first wrap.
+            source_cell_ticks += period * 2
             maximum_cell_period = max(maximum_cell_period, period)
             if period > 1:
                 animated_cells += 1
-            for tick in range(period):
+            for tick in range(period * 2):
                 expected_cell = converter.opaque(
                     renderer.chunk_cell(chunk_ids, tick, chunk_width, chunk_height)
                 )
@@ -231,6 +236,7 @@ def audit_candidate_worker(task: tuple[str, dict[str, Any], str, str]) -> dict[s
         "dimensions_tiles": [width, height],
         "graphical_layer_count": layer_count,
         "source_chunk_cell_count": map_width * map_height,
+        "validated_local_cycle_count": 2,
         "source_cell_tick_count": source_cell_ticks,
         "tile_tick_comparison_count": tile_tick_comparisons,
         "animated_cell_count": animated_cells,
@@ -418,7 +424,7 @@ def run(args: argparse.Namespace) -> int:
             "included": [
                 "all 219 canonical conversion-table Grounds except direct types 10/11",
                 "authenticated normalized EU resources and deterministic candidate outputs",
-                "every graphical tile at every source-local animation tick",
+                "every graphical tile at every source-local animation tick across two complete local cycles",
                 "BMA camera dimensions, collision, obstacle bounds, and unknown-data separation",
                 "complete reconciliation with the preserved legacy reserve",
             ],
@@ -440,6 +446,7 @@ def run(args: argparse.Namespace) -> int:
             "expected_candidate_count": 219,
             "passing_candidate_count": len(records),
             "failure_count": len(failures),
+            "validated_local_cycle_count": 2,
             "source_cell_tick_count": total_source_cell_ticks,
             "tile_tick_comparison_count": total_tile_tick_comparisons,
             "all_graphical_tick_comparisons_exact": not failures and len(records) == 219,
