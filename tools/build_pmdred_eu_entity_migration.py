@@ -220,11 +220,38 @@ A04P01_POLICY: dict[str, Any] = {
     },
 }
 
+A05P03_POLICY: dict[str, Any] = {
+    "schema": "new-era.pmdred-eu-occupied-ground-migration-policy.v1",
+    "ground": "a05p03",
+    "historical_ground_sha256": "41d2183ff20d0dcaa9b2e70c7eb74f5ffeee3b4dca44c432f1bf38c5fdcabee8",
+    "historical_tile": "Content/Tile/A05p03_Base.tile",
+    "historical_tile_sha256": "85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc",
+    "canonical_ground_sha256": "ac270916ba76eefaa6b242d66092fe0a43cbe77637226896753f7dac5339a6a6",
+    "canonical_tile_sha256": "85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc",
+    "integrated_ground_sha256": "bb7a394689a9f70c556d54de0e8ca1679132174111446f14b2c6a39c305d5212",
+    "preserved_fields": ["Markers", "Spawners"],
+    "expected_entities": {
+        "Markers": ["Main_Entrance_Marker", "Cutscene_Marker"],
+        "Spawners": [],
+    },
+    "historical_reserves": {
+        "RESERVE/red_grounds/a05p03.rsground": "9d3819a102ce3f141ffde72c69c4a24d9bf7043c8fc12d1dca970a27548fd813",
+        "RESERVE/red_tiles/a05p03_Base.tile": "85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc",
+    },
+    "related_scripts": {
+        "Data/Script/halcyon/ground/a05p03/init.lua": "bbbaa509337fa7116e25669b2b40bf30bddad027003a77df64341be8cc383dff",
+        "Data/Script/halcyon/FugitiveArc.lua": "cf9ffe31cb90c7301808d920522463cc66e0e7349f74a1c8fdfca061c1621519",
+        "Data/Script/halcyon/FugitiveCinematics.lua": "1fea1611e0f9636f6fd8ca6268ba9d2d676972f3b153162b694950c7f32eb484",
+        "Data/Script/halcyon/arc_fugitif/scene/a05p03.lua": "8b9ece7d5f19b087039d6cdf426ae2ce976e40412c3e9967140b93f26adab30f",
+    },
+}
+
 MIGRATION_POLICIES = {
     policy["ground"]: policy
     for policy in (
         A02P01_POLICY, A02P02_POLICY, A02P03_POLICY, A02P04_POLICY,
         A03P01_POLICY, A03P02_POLICY, A03P03_POLICY, A04P01_POLICY,
+        A05P03_POLICY,
     )
 }
 
