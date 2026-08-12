@@ -1,9 +1,9 @@
 {
   "schema": "new-era.pmdred-eu-exact-pmdo-progress.v1",
-  "generated_at": "2026-08-12T13:49:47+00:00",
+  "generated_at": "2026-08-12T13:55:13+00:00",
   "repository": {
     "branch": "arena/019ff57e-new-era-abyss-to-ascension-v4",
-    "source_head": "3f0980c9a9cd87471c7222965f1a3a7fa8b4445e"
+    "source_head": "41618e179040bf5aa0da321f1920c4976a081087"
   },
   "scope": "219 canonical archive-backed Grounds; Ground-only until exhaustive validation is complete",
   "authority": {
@@ -20,11 +20,11 @@
   "summary": {
     "canonical_ground_count": 219,
     "static_pass_count": 219,
-    "runtime_pass_and_promoted_count": 53,
-    "remaining_count": 166,
-    "contiguous_plan_prefix_count": 51,
+    "runtime_pass_and_promoted_count": 54,
+    "remaining_count": 165,
+    "contiguous_plan_prefix_count": 52,
     "out_of_order_pilot_count": 2,
-    "next_ground": "b07p02c",
+    "next_ground": "b08p01a",
     "runtime_dependencies_ready": true,
     "checkpoint_integrity": "PASS"
   },
@@ -80,6 +80,7 @@
     "b07p01c",
     "b07p02a",
     "b07p02b",
+    "b07p02c",
     "h26p01",
     "a01p01"
   ],
@@ -134,14 +135,14 @@
     "b07p01b",
     "b07p01c",
     "b07p02a",
-    "b07p02b"
+    "b07p02b",
+    "b07p02c"
   ],
   "validated_out_of_order_pilots": [
     "h26p01",
     "a01p01"
   ],
   "remaining_ids": [
-    "b07p02c",
     "b08p01a",
     "b08p01b",
     "b08p01c",
@@ -455,7 +456,7 @@
         "ground": "t01p02a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "e699a00529d631701e7e964ea291cb24420fb32c51b0574d941c1c581230afe1",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "t01p02a",
@@ -467,7 +468,7 @@
         "ground": "t01p02b",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "e1c4e4c1647e1ecea7841588b23913af038898bf51554216585b590241007e6a",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "t01p02b",
@@ -479,7 +480,7 @@
         "ground": "t01p03",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "e7b2adbfc57cede69c3a727d9f53efa0dcb775b76138e33fe2f2934e54d2a5b3",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "t01p03",
@@ -491,7 +492,7 @@
         "ground": "t01p04",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "af9267c42bd2ada57dc5324d28fdc592dc7cba6fc3e5f883bfcf1778c53fe5f2",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "t01p04",
@@ -503,7 +504,7 @@
         "ground": "t01p05",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "110f07d0b0cd8d2b89e801b579747e53eaafa9ce6c6aadd5c1da782c5649a79e",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "t01p05",
@@ -515,7 +516,7 @@
         "ground": "t01p07",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "0a1c5280b99157323a914d9f029a19f243c80e2d27ff041d1bd63807f9183226",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "t01p07",
@@ -527,7 +528,7 @@
         "ground": "b01p00a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "b7c0b933ec73b3c6078f748209c8aa2b872e7ee1690811ede66c714bb7c2dc6d",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b01p00a",
@@ -539,7 +540,7 @@
         "ground": "b01p01a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "bc22b90d6769a785668ad7ea3c48f9716c93c3f881b00fab091e221d5fcd4c0e",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b01p01a",
@@ -551,7 +552,7 @@
         "ground": "b01p01b",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "c842cb920de7b9eed3919d00f9ace9c961098619773a02e2fae053c5871db88b",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b01p01b",
@@ -563,7 +564,7 @@
         "ground": "b01p01c",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "882fabd41bb7ebe348e4ce729ac9c9da169ee973f81a4b01b5702aa5c5d74345",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b01p01c",
@@ -575,7 +576,7 @@
         "ground": "b01p02a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "7232335622cb411610aca609869b4b2326c0b4ca16d43327976cbf85cecddd44",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b01p02a",
@@ -587,7 +588,7 @@
         "ground": "b01p02b",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "3c086654ff04243a797ad50e92f9685e3737782d93c93e8b64db93665212869c",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b01p02b",
@@ -599,7 +600,7 @@
         "ground": "b01p02c",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "d66bdda6e1f9639b33e4c741a6b5d06552d0c8d993f25839b8b9d73df1fb6ec4",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b01p02c",
@@ -611,7 +612,7 @@
         "ground": "b02p01a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "2aa418667bca9c12c61b56539f341f9e6528eb96eba4c5c4a58f68f06022fcf6",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b02p01a",
@@ -623,7 +624,7 @@
         "ground": "b02p01b",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b02p01b",
@@ -635,7 +636,7 @@
         "ground": "b02p01c",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b02p01c",
@@ -647,7 +648,7 @@
         "ground": "b02p02a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "1d2ac656947d94445693edd36431924341544c70ba0fd9d54bb8d2a4bd8ce7d2",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b02p02a",
@@ -659,7 +660,7 @@
         "ground": "b02p02b",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "d5f3086e90480dcfc9b5aa487e6533d95d610d6376a2b6820ebdfc69c037e84f",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b02p02b",
@@ -671,7 +672,7 @@
         "ground": "b02p02c",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "7705f3fba1bf680fc012c442f2c96926e601538a850ae2b485fd408d76293ebc",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b02p02c",
@@ -683,7 +684,7 @@
         "ground": "b03p01a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "723ab4c42abbafd859bc8f5bfbdb092cd01cf7bb0c044144f7bc3ef11d154aa2",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b03p01a",
@@ -695,7 +696,7 @@
         "ground": "b03p01b",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "a0b3840f87c56b2fdf927e387f19274829553d3548c88419a8993c7609c1afee",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b03p01b",
@@ -707,7 +708,7 @@
         "ground": "b03p01c",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "3a8123aa897618dcfce41053594d179954d36f1d1859fddc0ac811143a8e102b",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b03p01c",
@@ -719,7 +720,7 @@
         "ground": "b03p02a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "124689eec5ffa5be1c65dd5a426b34b4f3962f53723bbc5381d4db4fef9c5a80",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b03p02a",
@@ -731,7 +732,7 @@
         "ground": "b03p02b",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "c3f27cf2f64ff413ace70ffc8ddad1f50562453543b2afe497fe8bfb59124048",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b03p02b",
@@ -743,7 +744,7 @@
         "ground": "b03p02c",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "b017904539c1f707c73fa0cbaac77d24badd41a8b2a128055a429cdb31f006b6",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b03p02c",
@@ -755,7 +756,7 @@
         "ground": "b04p01a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "00fc899c91ef76631b3d1c75fb14b85b3f72ee1fd00c98374c1e44f502b65cab",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b04p01a",
@@ -767,7 +768,7 @@
         "ground": "b04p01b",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "42a326ce18e221cf49af3c5919cfda84713914dd930ea8f2865751ebb8c86427",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b04p01b",
@@ -779,7 +780,7 @@
         "ground": "b04p01c",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "dfb89cb66b06d44fbb5f77931eb56949072387e646b507ea97fabd9e0e9b987c",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b04p01c",
@@ -791,7 +792,7 @@
         "ground": "b04p02a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "f5dc523d13aa832bdaeafb37dc6ebd8ce2dd3295c49f553e9bfbc602d37f3227",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b04p02a",
@@ -803,7 +804,7 @@
         "ground": "b04p02b",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "2ea3c748286efe8aea235849ebc54327c3be77048674ec9ded768dfaba36d40a",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b04p02b",
@@ -815,7 +816,7 @@
         "ground": "b04p02c",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "fe83c3186422feec468775c8ce99805bb1e7fcd945a6ef54a24ee79139e8c23c",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b04p02c",
@@ -827,7 +828,7 @@
         "ground": "b05p01a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "da759c3960ad54ada646c132e70cfbd7953a7d05439a14660b0f4ba1ddda7682",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b05p01a",
@@ -839,7 +840,7 @@
         "ground": "b05p01b",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "b5757cf45f5e13399eb90931cd9f34aebe751eab1500de718d54cf13eda98707",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b05p01b",
@@ -851,7 +852,7 @@
         "ground": "b05p01c",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "63b98211b80cc815148f163b2dc5afc6d293f73a980985a53f99905303e2fcd8",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b05p01c",
@@ -863,7 +864,7 @@
         "ground": "b05p02a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "5e81da668eca1842e88103c1d90a441d96dfb620075c6732b386a4d0bdd6a221",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b05p02a",
@@ -875,7 +876,7 @@
         "ground": "b05p02b",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "0b693e2a99c047e95faf73128aa130b793f51a5ea30c790497f3322d2a37139d",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b05p02b",
@@ -887,7 +888,7 @@
         "ground": "b05p02c",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "c6854876026d741a894e6585546c11ffc527ec8ee509a7fefdc817b03d8dbf66",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b05p02c",
@@ -899,7 +900,7 @@
         "ground": "b06p01a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "675eea9c9e433a9227975f92bfccc8922fe67b978320e521d9487c96a697491b",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b06p01a",
@@ -911,7 +912,7 @@
         "ground": "b06p01b",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "b330e078bd329b3b8ad667532ebe34c06a4b3171deadbd3bdab62df566fbbd51",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b06p01b",
@@ -923,49 +924,55 @@
         "ground": "b06p01c",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "cc175ca1cf9edc7184c9c47f758aac31d56e0885ebd6e262c6682045cc1f8610",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b06p02a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "f89499ffe48f4067148efa890707c1bcdb6053ebd517d42ce2e3baab0e1a554c",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b06p02b",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "284cad6c4df01ee7990f83c3a00f1102fa0b8d08f3875e8782f93110c56ae9e3",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b06p02c",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "d5a03031705bc2b3f20e13c8d19aac6e05d42ee3e3b1cc99e9eee211ce1575a8",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b07p01a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "3ed685cc11650481cb8b12641138d66fdc6eaa5a6c79cf57ced5b9283f73714a",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b07p01b",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "fd8f322ab2d78c8b9610ed1e46ba024c9a76a8e911adceb1f59000c0999af976",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b07p01c",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "753e3b279e1bdd7e29851f1b9958c19fa269f363bd650ab18c696c7630295389",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "b07p02a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "833e573725fb88e024259e5673ad8753f11a9e9874b89fd501f3e573ab421bf3",
-        "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
+      },
+      {
+        "ground": "b07p02b",
+        "path": "Data/Zone/master_zone.json",
+        "expected_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309",
+        "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
       },
       {
         "ground": "h26p01",
@@ -1019,10 +1026,10 @@
   "resume": {
     "restore": "bash tools/restore_pmdred_eu_validation_runtime.sh",
     "verify_checkpoint": "python3 tools/update_pmdred_eu_validation_progress.py --check",
-    "next_ground": "b07p02c",
+    "next_ground": "b08p01a",
     "next_recipe_template": "docs/pmdred_eu/pmdo_validation/t01p07_exhaustive_pass/commands.sh",
-    "working_recipe": ".runtime-cache/b07p02c-working-recipe.sh",
-    "rule": "Regenerate/restore exact inputs, hash-gate, validate b07p02c in isolation, compare every planned tick, promote only after all runtime/lifecycle gates pass, then regenerate this checkpoint."
+    "working_recipe": ".runtime-cache/b08p01a-working-recipe.sh",
+    "rule": "Regenerate/restore exact inputs, hash-gate, validate b08p01a in isolation, compare every planned tick, promote only after all runtime/lifecycle gates pass, then regenerate this checkpoint."
   },
   "dungeon_restitution": {
     "manifest": "docs/pmdred_eu/dungeon_grounds/manifest.json",
@@ -2309,7 +2316,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "e699a00529d631701e7e964ea291cb24420fb32c51b0574d941c1c581230afe1",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -2651,7 +2658,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "e1c4e4c1647e1ecea7841588b23913af038898bf51554216585b590241007e6a",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -2953,7 +2960,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "e7b2adbfc57cede69c3a727d9f53efa0dcb775b76138e33fe2f2934e54d2a5b3",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -3188,7 +3195,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "af9267c42bd2ada57dc5324d28fdc592dc7cba6fc3e5f883bfcf1778c53fe5f2",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -3467,7 +3474,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "110f07d0b0cd8d2b89e801b579747e53eaafa9ce6c6aadd5c1da782c5649a79e",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -3791,7 +3798,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "0a1c5280b99157323a914d9f029a19f243c80e2d27ff041d1bd63807f9183226",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -4023,7 +4030,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "b7c0b933ec73b3c6078f748209c8aa2b872e7ee1690811ede66c714bb7c2dc6d",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -4274,7 +4281,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "bc22b90d6769a785668ad7ea3c48f9716c93c3f881b00fab091e221d5fcd4c0e",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -4526,7 +4533,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "c842cb920de7b9eed3919d00f9ace9c961098619773a02e2fae053c5871db88b",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -4797,7 +4804,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "882fabd41bb7ebe348e4ce729ac9c9da169ee973f81a4b01b5702aa5c5d74345",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -5023,7 +5030,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "7232335622cb411610aca609869b4b2326c0b4ca16d43327976cbf85cecddd44",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -5249,7 +5256,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "3c086654ff04243a797ad50e92f9685e3737782d93c93e8b64db93665212869c",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -5475,7 +5482,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "d66bdda6e1f9639b33e4c741a6b5d06552d0c8d993f25839b8b9d73df1fb6ec4",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -5726,7 +5733,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "2aa418667bca9c12c61b56539f341f9e6528eb96eba4c5c4a58f68f06022fcf6",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -5978,7 +5985,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -6249,7 +6256,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -6475,7 +6482,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "1d2ac656947d94445693edd36431924341544c70ba0fd9d54bb8d2a4bd8ce7d2",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -6701,7 +6708,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "d5f3086e90480dcfc9b5aa487e6533d95d610d6376a2b6820ebdfc69c037e84f",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -6927,7 +6934,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "7705f3fba1bf680fc012c442f2c96926e601538a850ae2b485fd408d76293ebc",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -7178,7 +7185,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "723ab4c42abbafd859bc8f5bfbdb092cd01cf7bb0c044144f7bc3ef11d154aa2",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -7430,7 +7437,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "a0b3840f87c56b2fdf927e387f19274829553d3548c88419a8993c7609c1afee",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -7701,7 +7708,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "3a8123aa897618dcfce41053594d179954d36f1d1859fddc0ac811143a8e102b",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -7927,7 +7934,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "124689eec5ffa5be1c65dd5a426b34b4f3962f53723bbc5381d4db4fef9c5a80",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -8153,7 +8160,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "c3f27cf2f64ff413ace70ffc8ddad1f50562453543b2afe497fe8bfb59124048",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -8379,7 +8386,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "b017904539c1f707c73fa0cbaac77d24badd41a8b2a128055a429cdb31f006b6",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -8630,7 +8637,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "00fc899c91ef76631b3d1c75fb14b85b3f72ee1fd00c98374c1e44f502b65cab",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -8882,7 +8889,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "42a326ce18e221cf49af3c5919cfda84713914dd930ea8f2865751ebb8c86427",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -9153,7 +9160,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "dfb89cb66b06d44fbb5f77931eb56949072387e646b507ea97fabd9e0e9b987c",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -9379,7 +9386,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "f5dc523d13aa832bdaeafb37dc6ebd8ce2dd3295c49f553e9bfbc602d37f3227",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -9605,7 +9612,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "2ea3c748286efe8aea235849ebc54327c3be77048674ec9ded768dfaba36d40a",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -9831,7 +9838,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "fe83c3186422feec468775c8ce99805bb1e7fcd945a6ef54a24ee79139e8c23c",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -10114,7 +10121,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "da759c3960ad54ada646c132e70cfbd7953a7d05439a14660b0f4ba1ddda7682",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -10382,7 +10389,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "b5757cf45f5e13399eb90931cd9f34aebe751eab1500de718d54cf13eda98707",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -10649,7 +10656,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "63b98211b80cc815148f163b2dc5afc6d293f73a980985a53f99905303e2fcd8",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -10965,7 +10972,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "5e81da668eca1842e88103c1d90a441d96dfb620075c6732b386a4d0bdd6a221",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -11281,7 +11288,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "0b693e2a99c047e95faf73128aa130b793f51a5ea30c790497f3322d2a37139d",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -11591,7 +11598,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "c6854876026d741a894e6585546c11ffc527ec8ee509a7fefdc817b03d8dbf66",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -11874,7 +11881,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "675eea9c9e433a9227975f92bfccc8922fe67b978320e521d9487c96a697491b",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -12142,7 +12149,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "b330e078bd329b3b8ad667532ebe34c06a4b3171deadbd3bdab62df566fbbd51",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             },
             {
               "path": "tools/build_pmdred_eu_runtime_fixture.py",
@@ -12409,7 +12416,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "cc175ca1cf9edc7184c9c47f758aac31d56e0885ebd6e262c6682045cc1f8610",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             }
           ]
         }
@@ -12720,7 +12727,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "f89499ffe48f4067148efa890707c1bcdb6053ebd517d42ce2e3baab0e1a554c",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             }
           ]
         }
@@ -13031,7 +13038,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "284cad6c4df01ee7990f83c3a00f1102fa0b8d08f3875e8782f93110c56ae9e3",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             }
           ]
         }
@@ -13336,7 +13343,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "d5a03031705bc2b3f20e13c8d19aac6e05d42ee3e3b1cc99e9eee211ce1575a8",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             }
           ]
         }
@@ -13614,7 +13621,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "3ed685cc11650481cb8b12641138d66fdc6eaa5a6c79cf57ced5b9283f73714a",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             }
           ]
         }
@@ -13877,7 +13884,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "fd8f322ab2d78c8b9610ed1e46ba024c9a76a8e911adceb1f59000c0999af976",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             }
           ]
         }
@@ -14139,7 +14146,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "753e3b279e1bdd7e29851f1b9958c19fa269f363bd650ab18c696c7630295389",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             }
           ]
         }
@@ -14450,7 +14457,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "833e573725fb88e024259e5673ad8753f11a9e9874b89fd501f3e573ab421bf3",
-              "actual_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309"
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
             }
           ]
         }
@@ -14757,7 +14764,13 @@
           "manifest": "docs/pmdred_eu/pmdo_validation/b07p02b_exhaustive_pass/evidence_hashes.sha256",
           "checked": 45,
           "immutable_failures": [],
-          "historical_progressive_drift": []
+          "historical_progressive_drift": [
+            {
+              "path": "Data/Zone/master_zone.json",
+              "expected_sha256": "07180e1987eedd5d1af3529709e7c4fc415d40199e5aba4dffbddf3345371309",
+              "actual_sha256": "507ce05845fff7d10e667975ba47ee252e1ad1b7e7f786fe6c4dacedc898b48e"
+            }
+          ]
         }
       },
       "promoted_destination_checks": [
@@ -14841,33 +14854,246 @@
           "tile_bytes_equal": false
         }
       },
-      "runtime": "NOT_RUN",
+      "runtime": "PASS",
+      "validated_at": "2026-08-12",
+      "validation_record": "docs/pmdred_eu/pmdo_validation/b07p02c_exhaustive_pass/validation_record.json",
+      "validation_record_sha256": "4a99ba7e4e75280e10b36b0768e752711c1a32689d6b74f93a47000d9cc92b47",
       "visual_comparison": {
-        "result": "NOT_RUN",
-        "comparative_png_paths": []
+        "result": "PASS",
+        "dimensions_pixels": [
+          480,
+          480
+        ],
+        "primary_sample_count": 1920,
+        "reload_sample_count": 1,
+        "exact_sample_count": 1921,
+        "unique_rgba_frame_count": 180,
+        "mismatched_pixel_count": 0,
+        "maximum_channel_delta": 0,
+        "all_full_rgba_exact": true,
+        "all_fully_opaque": true,
+        "comparative_png_paths": [
+          "docs/pmdred_eu/pmdo_validation/b07p02c_exhaustive_pass/comparisons/comparison_primary_tick0.png",
+          "docs/pmdred_eu/pmdo_validation/b07p02c_exhaustive_pass/comparisons/comparison_primary_tick5759.png",
+          "docs/pmdred_eu/pmdo_validation/b07p02c_exhaustive_pass/comparisons/comparison_reload_tick0.png"
+        ],
+        "complete_metrics_report": "docs/pmdred_eu/pmdo_validation/b07p02c_exhaustive_pass/report.json"
       },
       "animation_validation": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "primary_sample_count": 1920,
+        "first_tick": 0,
+        "last_tick": 5759,
+        "cell_local_schedule_count": 8,
+        "maximum_cell_local_cycle_ticks": 2880,
+        "all_schedules_covered_through_two_complete_cycles": true,
+        "channels": [
+          {
+            "cycle": 120,
+            "frame_count": 15,
+            "frame_durations": [
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8
+            ],
+            "index": 2,
+            "kind": "BPL_PALETTE"
+          },
+          {
+            "cycle": 120,
+            "frame_count": 15,
+            "frame_durations": [
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8
+            ],
+            "index": 3,
+            "kind": "BPL_PALETTE"
+          },
+          {
+            "cycle": 144,
+            "frame_count": 12,
+            "frame_durations": [
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12
+            ],
+            "index": 5,
+            "kind": "BPL_PALETTE"
+          },
+          {
+            "cycle": 64,
+            "frame_count": 8,
+            "frame_durations": [
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8
+            ],
+            "index": 10,
+            "kind": "BPL_PALETTE"
+          }
+        ],
+        "unique_observed_rgba_frames": 180,
+        "reload_tick_zero_exact": true,
+        "orphaned_animation_observed": false
       },
       "collision_validation": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "source": "B05P02Cm",
+        "collision_layer_count": 1,
+        "solid_cells": 3307,
+        "collision_sha256": "e87d79b8d25ea5a3f0a0486e7efcd0313320b43c9128ee4b29b105f545128601",
+        "successful_probe": {
+          "start": [
+            232,
+            232
+          ],
+          "direction": "Down",
+          "observed_delta": [
+            0,
+            8
+          ],
+          "result": "PASS"
+        },
+        "blocked_probe": {
+          "start": [
+            232,
+            216
+          ],
+          "direction": "Up",
+          "observed_delta": [
+            0,
+            0
+          ],
+          "result": "PASS"
+        }
       },
       "entry_exit_reentry": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "loads": 2,
+        "entries": 2,
+        "exits": 2,
+        "same_ground_reentries": 1,
+        "strict_native_lifecycle_order": "PASS"
       },
       "cleanup_reload": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "cleanup_probe_count": 4,
+        "ground_exit_cleanup_passes": 2,
+        "sink_cleanup": "PASS",
+        "final_cleanup": "PASS",
+        "reload_load": "LOAD_PASS",
+        "reload_tick_zero_full_rgba_exact": true,
+        "terminal_end_seen": true,
+        "state_leakage_observed": false,
+        "stale_assets_observed": false,
+        "permanent_lock_observed": false,
+        "orphan_process_check": "PASS"
       },
       "special_classification": {
-        "result": "PENDING_AUTHENTICATED_TECHNICAL_IDENTITY_CHECK",
-        "cinematic": null,
-        "arena": null,
-        "boss": null
+        "category": "canonical_ground_map",
+        "ground_map_symbol": "MAP_TEAM_BASE_PSYDUCK_BASIC",
+        "cinematic": false,
+        "arena": false,
+        "boss": false
       },
       "definitive_destination": {
-        "promotion_status": "NOT_PROMOTED"
+        "ground": "Data/Ground/b07p02c.rsground",
+        "tile": "Content/Tile/b07p02c_Base.tile",
+        "zone_registry": "Data/Zone/master_zone.json",
+        "zone_registry_entry": "b07p02c",
+        "promotion_status": "PROMOTED_ADDITIVE_CANONICAL",
+        "preexisting_destinations": false,
+        "pre_promotion_record": "RESERVE/pmdred_pre_promotion/b07p02c/README.md",
+        "promoted_ground_sha256": "c1ccfc7e1e49a6b3ab48009c5ed31b8a6cc7a0e51662ed058ebec1001aeed095",
+        "promoted_tile_sha256": "11eb7a8724b4dd0a971e69161d62e7f47ac6eac57e8d246bfecb9f1fee46f2e1"
       },
-      "evidence": null
+      "provenance": {
+        "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+        "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+        "conversion_report_sha256": "91f3b460b3e3b7689bc608ece2006cb6103d653bcdc22ad028f4172c3a1b0fdc",
+        "candidate_ground_sha256": "c1ccfc7e1e49a6b3ab48009c5ed31b8a6cc7a0e51662ed058ebec1001aeed095",
+        "candidate_tile_sha256": "11eb7a8724b4dd0a971e69161d62e7f47ac6eac57e8d246bfecb9f1fee46f2e1",
+        "source_normalized_sha256": {
+          "B05P02Cc": "69c2a81cfdc34b3fcd419f795069b61753daf45d00f9083fe4b15f30351ec32c",
+          "B05P02Cm": "34cf9703fc92c02cb88ab2188a0d27b032801ebcd3ba894e3476af5972f2a8cc",
+          "B07P02C": "b9d75e3d91ec676a7e5550b554c05a027c696737e8e501dd46639c487d9ed842"
+        },
+        "events_sha256": "67c4be85be88bd47804b5062154fe4f5d55b72f3c60da61a7b2c0738fc84e1c6",
+        "report_sha256": "c1985808b50ebabc9ca111277217607a3ed88fe5c01d1121ae3d8289d4e6784d",
+        "fixture_manifest_sha256": "9d4c2d046f89f0a790834391700518010685349dba46d25a7c466dba61f2cacd",
+        "detailed_provenance": "docs/pmdred_eu/pmdo_validation/b07p02c_exhaustive_pass/provenance.json"
+      },
+      "evidence": {
+        "directory": "docs/pmdred_eu/pmdo_validation/b07p02c_exhaustive_pass",
+        "integrity": {
+          "result": "PASS",
+          "manifest": "docs/pmdred_eu/pmdo_validation/b07p02c_exhaustive_pass/evidence_hashes.sha256",
+          "checked": 45,
+          "immutable_failures": [],
+          "historical_progressive_drift": []
+        }
+      },
+      "promoted_destination_checks": [
+        {
+          "role": "ground",
+          "path": "Data/Ground/b07p02c.rsground",
+          "expected_sha256": "c1ccfc7e1e49a6b3ab48009c5ed31b8a6cc7a0e51662ed058ebec1001aeed095",
+          "actual_sha256": "c1ccfc7e1e49a6b3ab48009c5ed31b8a6cc7a0e51662ed058ebec1001aeed095",
+          "result": "PASS"
+        },
+        {
+          "role": "tile",
+          "path": "Content/Tile/b07p02c_Base.tile",
+          "expected_sha256": "11eb7a8724b4dd0a971e69161d62e7f47ac6eac57e8d246bfecb9f1fee46f2e1",
+          "actual_sha256": "11eb7a8724b4dd0a971e69161d62e7f47ac6eac57e8d246bfecb9f1fee46f2e1",
+          "result": "PASS"
+        }
+      ],
+      "zone_registry": {
+        "required_by_record": true,
+        "declared": true,
+        "current_occurrences": 1,
+        "current_index": 183
+      }
     },
     {
       "id": "b08p01a",
