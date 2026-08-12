@@ -12,13 +12,49 @@ from pathlib import Path
 from build_pmdred_eu_entity_migration import MIGRATION_POLICIES, build_migration, read_json
 from run_pmdred_eu_ground_milestone import (
     build_collision_validation,
+    canonical_ground_symbols,
     classify_ground_role,
+    ground_symbols,
     insert_zone,
+    resolve_ground_symbol,
     validate_partial_additive_recovery_record,
     validate_partial_entity_migration_recovery_record,
     validate_pre_promotion_collision_failure_record,
     write_commands,
 )
+
+
+class GroundSymbolResolutionTests(unittest.TestCase):
+    def test_canonical_debug_identity_resolves_regional_entries(self) -> None:
+        canonical = canonical_ground_symbols()
+        enum = ground_symbols()
+        self.assertEqual(len(canonical), 229)
+        self.assertEqual(canonical[233], "MAP_TITLE_SCREEN")
+        self.assertEqual(canonical[235], "MAP_INTRO")
+        self.assertEqual(canonical[237], "MAP_LOGO_POKEMON_COMPANY")
+        self.assertEqual(canonical[239], "MAP_LOGO_WARNING")
+        self.assertEqual(canonical[240], "MAP_TEAM_BASE_WALL_MAP")
+        for regional_map_id in range(229, 234):
+            self.assertEqual(
+                resolve_ground_symbol(
+                    {"canonical_debug_id": 233, "map_id": regional_map_id}, enum, canonical
+                ),
+                "MAP_TITLE_SCREEN",
+            )
+
+    def test_pre_tail_regional_enum_identity_is_preserved(self) -> None:
+        self.assertEqual(
+            resolve_ground_symbol(
+                {"canonical_debug_id": 1, "map_id": 2},
+                ground_symbols(),
+                canonical_ground_symbols(),
+            ),
+            "MAP_WHISCASH_POND",
+        )
+
+    def test_missing_canonical_identity_stops_closed(self) -> None:
+        with self.assertRaisesRegex(RuntimeError, "no pinned GroundMapID symbol"):
+            resolve_ground_symbol({"canonical_debug_id": 999, "map_id": 999}, [], {})
 
 
 class GroundRoleClassificationTests(unittest.TestCase):
@@ -117,6 +153,17 @@ class GroundRoleClassificationTests(unittest.TestCase):
         self.assertEqual(
             classify_ground_role("MAP_NIGHT_SKY_2")["classification"],
             "night_sky_scene_2",
+        )
+        self.assertEqual(
+            classify_ground_role("MAP_TITLE_SCREEN"),
+            {
+                "category": "title_screen",
+                "classification": "title_screen",
+                "screen": "title",
+                "cinematic": False,
+                "arena": False,
+                "boss": False,
+            },
         )
         self.assertEqual(
             classify_ground_role("MAP_INTRO"),
@@ -477,8 +524,14 @@ class OccupiedGroundEntityMigrationTests(unittest.TestCase):
             output = Path(temp)
             write_commands(
                 output, "a02p01",
-                {"stable_ground_id": "a02p01", "map_file_id": 174},
-                "MAP_FUGITIVES_FISSURE", "integrated-ground-hash", "tile-hash",
+                {
+                    "canonical_debug_id": 173,
+                    "debug_string": "__ground_amd_conversion_00173",
+                    "stable_ground_id": "a02p01",
+                    "map_file_id": 174,
+                    "map_id": 165,
+                },
+                "MAP_FUGITIVES_FIRE", "integrated-ground-hash", "tile-hash",
                 28, 2, 1,
                 repo / "RESERVE/red_grounds/a02p01.rsground",
                 repo / "RESERVE/red_tiles/a02p01_Base.tile",

@@ -156,6 +156,62 @@ def ground_symbols() -> list[str]:
     return re.findall(r"^\s*(MAP_[A-Z0-9_]+)\s*,", body, flags=re.MULTILINE)
 
 
+def canonical_ground_symbols() -> dict[int, str]:
+    """Map canonical debug identity to the pinned pret GroundMapID symbol.
+
+    The EU ROM conversion table inserts localized S02/S05/S06 resources, so its
+    regional map IDs are not enum indices from S02 onward.  The manifest retains
+    the canonical debug-string identity for every regional entry; the pinned
+    technical-reference table binds that identity to its designated enum symbol.
+    """
+    source = (ROOT / ".runtime-cache/pmd-red-reference/src/ground_map_conversion_table.c").read_text()
+    enum_symbols = set(ground_symbols())
+    symbols: dict[int, str] = {}
+    entry_pattern = re.compile(
+        r"^\s*\[(MAP_[A-Z0-9_]+)\]\s*=\s*\{(?P<body>.*?)^\s*\},",
+        flags=re.MULTILINE | re.DOTALL,
+    )
+    for entry in entry_pattern.finditer(source):
+        symbol = entry.group(1)
+        debug_match = re.search(r'__ground_amd_conversion_(\d+)', entry.group("body"))
+        if debug_match is None or symbol not in enum_symbols or symbol == "MAP_COUNT":
+            raise RuntimeError(f"invalid pinned canonical GroundMapID binding for {symbol}")
+        canonical_debug_id = int(debug_match.group(1))
+        if canonical_debug_id in symbols:
+            raise RuntimeError(f"duplicate pinned canonical debug identity {canonical_debug_id}")
+        symbols[canonical_debug_id] = symbol
+    if len(symbols) != len(enum_symbols) - 1:
+        raise RuntimeError(
+            f"incomplete pinned canonical GroundMapID bindings: {len(symbols)} != {len(enum_symbols) - 1}"
+        )
+    return symbols
+
+
+def resolve_ground_symbol(
+    identity: dict[str, Any], enum_symbols: list[str], canonical_symbols: dict[int, str]
+) -> str:
+    """Preserve regional enum-index identity, with authenticated tail fallback.
+
+    Existing EU entries through map ID 228 use their regional map ID exactly as
+    the established campaign does.  ID 229 is the pret sentinel and IDs 230–245
+    exceed that enum, so only that regional tail falls back through the EU
+    manifest's canonical debug identity to the pinned designated initializer.
+    """
+    regional_map_id = identity["map_id"]
+    if 0 <= regional_map_id < len(enum_symbols):
+        regional_symbol = enum_symbols[regional_map_id]
+        if regional_symbol != "MAP_COUNT":
+            return regional_symbol
+    canonical_debug_id = identity["canonical_debug_id"]
+    try:
+        return canonical_symbols[canonical_debug_id]
+    except KeyError as exc:
+        raise RuntimeError(
+            f"no pinned GroundMapID symbol for regional map ID {regional_map_id} "
+            f"or canonical debug identity {canonical_debug_id}"
+        ) from exc
+
+
 def classify_team_base(symbol: str) -> dict[str, Any]:
     match = re.fullmatch(r"MAP_TEAM_BASE(_INSIDE)?_([A-Z]+)_(BASIC|CONSTRUCTION|FINAL)", symbol)
     if not match:
@@ -220,6 +276,7 @@ def classify_ground_role(symbol: str) -> dict[str, Any]:
         "MAP_COMET": ("celestial_scene", "comet_celestial_scene", {"setting": "comet"}),
         "MAP_NIGHTMARE": ("dream_scene", "nightmare_dream_scene", {"setting": "nightmare"}),
         "MAP_THE_END": ("ending_screen", "the_end_screen", {"screen": "the_end"}),
+        "MAP_TITLE_SCREEN": ("title_screen", "title_screen", {"screen": "title"}),
         "MAP_INTRO": ("intro_scene", "intro_scene", {"scene": "intro"}),
         "MAP_LOGO_POKEMON_COMPANY": ("logo_screen", "pokemon_company_logo_screen", {"logo": "pokemon_company"}),
     }
@@ -675,8 +732,30 @@ def write_commands(out: Path, ground: str, identity: dict[str, Any], symbol: str
     source = source.replace(old_tile, f"test \"$(sha256sum RESERVE/red_tiles/{ground}_Base.tile | cut -d' ' -f1)\" = {sha(reserve_tile)}" if reserve_tile.is_file() else f"test ! -e RESERVE/red_tiles/{ground}_Base.tile")
     start = source.index("assert entry == {"); end = source.index("PYID", start)
     exact = repr(identity).replace("'stable_ground_id': '" + ground + "'", "'stable_ground_id': '" + ground + "'")
-    block = f"assert entry == {exact}\nheader=Path('.runtime-cache/pmd-red-reference/include/constants/ground_map.h').read_text()\nassert '{symbol}' in header\nprint('{ground.upper()}_IDENTITY_PASS map_file_id={identity['map_file_id']} symbol={symbol}')\n"
-    source = source[:start] + block + source[end:]
+    enum_symbols = ground_symbols()
+    resolved_symbol = resolve_ground_symbol(identity, enum_symbols, canonical_ground_symbols())
+    if resolved_symbol != symbol:
+        raise RuntimeError(f"reproduction identity symbol mismatch: {resolved_symbol} != {symbol}")
+    regional_map_id = identity["map_id"]
+    if 0 <= regional_map_id < len(enum_symbols) and enum_symbols[regional_map_id] != "MAP_COUNT":
+        binding_gate = (
+            "body=header.split('enum GroundMapID',1)[1].split('};',1)[0]\n"
+            "enum_symbols=re.findall(r'^\\s*(MAP_[A-Z0-9_]+)\\s*,',body,flags=re.MULTILINE)\n"
+            f"assert enum_symbols[{regional_map_id}] == '{symbol}'\n"
+        )
+        import_line = "import json,re\n"
+    else:
+        binding_gate = (
+            "table=Path('.runtime-cache/pmd-red-reference/src/ground_map_conversion_table.c').read_text()\n"
+            f"designated=table.split('[{symbol}] = {{',1)[1].split('}},',1)[0]\n"
+            f"assert '{identity['debug_string']}' in designated\n"
+        )
+        import_line = "import json\n"
+    block = f"{import_line}from pathlib import Path\nentry=next(x for x in json.loads(Path('docs/pmdred_eu/ground_manifest.json').read_text())['ground_conversion_table']['entries'] if x['stable_ground_id']=='{ground}')\nassert entry == {exact}\nheader=Path('.runtime-cache/pmd-red-reference/include/constants/ground_map.h').read_text()\nassert '{symbol}' in header\n{binding_gate}print('{ground.upper()}_IDENTITY_PASS map_file_id={identity['map_file_id']} canonical_debug_id={identity['canonical_debug_id']} symbol={symbol}')\n"
+    heredoc_start = source.rfind("import json\n", 0, start)
+    if heredoc_start < 0:
+        raise RuntimeError("reproduction identity heredoc was not found")
+    source = source[:heredoc_start] + block + source[end:]
     source = source.replace('test "$(wc -l < "$FIX/events.jsonl")" -eq 313', f'test "$(wc -l < "$FIX/events.jsonl")" -eq {event_count}')
     source = source.replace('test "$(find "$FIX/appdata/SCREENSHOT" -maxdepth 1 -type f -name \'*.png\' | wc -l)" -eq 97', f'test "$(find "$FIX/appdata/SCREENSHOT" -maxdepth 1 -type f -name \'*.png\' | wc -l)" -eq {sample_count}')
     source = source.replace("r['sample_count']==97 and len(primary)==96", f"r['sample_count']=={sample_count} and len(primary)=={sample_count-1}")
@@ -1058,9 +1137,9 @@ Role flags are recorded independently as `cinematic=false`, `arena=false`, `boss
 
 
 def process_ground(ground: str, all_data: dict[str, Any]) -> None:
-    order=all_data["order"]; plans=all_data["plans"]; audits=all_data["audits"]; identities=all_data["identities"]; symbols=all_data["symbols"]
-    identity=identities[ground]; symbol=symbols[identity["map_id"]]
-    if symbols[identity["map_id"]] != symbol: raise AssertionError
+    order=all_data["order"]; plans=all_data["plans"]; audits=all_data["audits"]; identities=all_data["identities"]
+    identity=identities[ground]
+    symbol=resolve_ground_symbol(identity, all_data["enum_symbols"], all_data["canonical_symbols"])
     role=classify_ground_role(symbol); plan=plans[ground]; audit=audits[ground]
     state={"ground":ground,"stage":"preflight","updated_at":time.time()};dump(STATE_PATH,state)
     if audit["status"]!="pass": raise RuntimeError("static audit is not PASS")
@@ -1364,9 +1443,9 @@ Evidence: `docs/pmdred_eu/pmdo_validation/{ground}_exhaustive_pass/`.
 def main() -> int:
     parser=argparse.ArgumentParser();parser.add_argument("--ids",nargs="*");parser.add_argument("--all-team-bases",action="store_true");parser.add_argument("--limit",type=int);args=parser.parse_args()
     if not args.ids and not args.all_team_bases: parser.error("choose --ids or --all-team-bases")
-    plan_doc=load(PLAN_PATH);audit_doc=load(AUDIT_PATH);manifest_doc=load(MANIFEST_PATH);symbols=ground_symbols()
+    plan_doc=load(PLAN_PATH);audit_doc=load(AUDIT_PATH);manifest_doc=load(MANIFEST_PATH)
     identities={x["stable_ground_id"]:x for x in manifest_doc["ground_conversion_table"]["entries"]};audits={x["id"]:x for x in audit_doc["candidates"]}
-    all_data={"order":plan_doc["ground_order"],"plans":plan_doc["grounds"],"audits":audits,"identities":identities,"symbols":symbols}
+    all_data={"order":plan_doc["ground_order"],"plans":plan_doc["grounds"],"audits":audits,"identities":identities,"enum_symbols":ground_symbols(),"canonical_symbols":canonical_ground_symbols()}
     ids=args.ids or [x for x in plan_doc["ground_order"] if x.startswith("b")]
     progress=load(ROOT/"docs/pmdred_eu/pmdo_validation/progress.json");validated=set(progress["validated_ids"]);ids=[x for x in ids if x not in validated]
     if args.limit is not None: ids=ids[:args.limit]
