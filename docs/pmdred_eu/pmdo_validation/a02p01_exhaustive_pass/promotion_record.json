@@ -1,0 +1,239 @@
+{
+  "schema": 1,
+  "ground": "a02p01",
+  "validated_at": "2026-08-12",
+  "promoted_at": "2026-08-12",
+  "result": "PROMOTION_PASS_INTEGRATION_PRESERVING_ENTITY_MIGRATION_AFTER_FRESH_RECOVERY",
+  "method": {
+    "destination_precondition": "ground present at 2b6d651a9fd7d25f159f50fc9d1cd6fa7006899988822eda217f4bf60923aad7; tile absent; legacy_case_tile present at 7f80a67d0d6823541dbed67e77b68d1d005eb09b53d79a0d3a66e7a1bae027e3",
+    "installation_mode": "no replacement on recovery: authenticated the preserved historical reserve and exact integrated install, then required a fresh full rerun",
+    "historical_bytes_reserved_before_replacement": true,
+    "existing_asset_discarded": false,
+    "existing_scripts_modified": false,
+    "zone_registration": "authenticated singleton retained after poisonous_forest_entrance without mutation",
+    "canonical_migration": "authenticated canonical visual/collision/animation Ground plus only exact additive historical Markers/Spawners",
+    "existing_project_entities_preserved": true,
+    "legacy_case_tile_retained_unchanged": true
+  },
+  "gates": {
+    "exact_pmdo_version": "0.8.12",
+    "exact_pmdo_executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+    "active_patched_sdl_sha256": "2cec7b5f9603a8a856a94b3a5e4fb5bd5e93e3ed0d04b85431625d5acb14e71f",
+    "report_sha256": "b78b537d89aefef87824150f154255103fdddf1180b5d42f63b90d5ff0c50f76",
+    "fixture_manifest_sha256": "8018317285864245d50d42e830cec8eebbacb0d0b52d33c6ce8aad5a7b6d1eec",
+    "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+    "canonical_ground_sha256": "4cb74d9c04c7473359f8b8360caac80df825dff91775917dbfe0d5dd201fc389",
+    "canonical_tile_sha256": "7f80a67d0d6823541dbed67e77b68d1d005eb09b53d79a0d3a66e7a1bae027e3",
+    "planned_primary_tick_count": 1,
+    "observed_primary_tick_count": 1,
+    "reload_tick_zero_covered": true,
+    "pixel_exact_sample_count": 2,
+    "fully_opaque_sample_count": 2,
+    "mismatched_pixel_count": 0,
+    "maximum_channel_delta": 0,
+    "runtime_safe": true,
+    "native_lifecycle_order_pass": true,
+    "cleanup_pass": true,
+    "terminal_end_seen": true,
+    "load_phase_unload_pass": true,
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "terminal": true,
+    "graceful": true,
+    "watchdog": false,
+    "requested_signal": null,
+    "sigsegv": false,
+    "forced_kill": false,
+    "orphan_process": false,
+    "termination_sha256": "9a1734449497c59fe5b3b7d96a4789c0193b97fb5e7b264a1ace11e5b3b8b64e",
+    "identity_map_file_id": 174,
+    "identity_symbol": "MAP_FUGITIVES_FIRE",
+    "integrated_ground_sha256": "016551d87ddf6b5556a4f9181ec8061a5af2df1bda97e3f43e376f3dc64dc3b2",
+    "entity_integration_proof": "PASS_ADDITIVE_MARKERS_SPAWNERS_ONLY"
+  },
+  "files": [
+    {
+      "candidate": ".runtime-cache/pmdred-eu-a02p01-entity-integrated-candidate-recovery-rerun/grounds/a02p01.rsground",
+      "destination": "Data/Ground/a02p01.rsground",
+      "destination_preexisting": true,
+      "pre_promotion_sha256": "2b6d651a9fd7d25f159f50fc9d1cd6fa7006899988822eda217f4bf60923aad7",
+      "pre_promotion_reserve": "RESERVE/pmdred_pre_promotion/a02p01/a02p01.rsground",
+      "bytes": 547613,
+      "validated_candidate_sha256": "016551d87ddf6b5556a4f9181ec8061a5af2df1bda97e3f43e376f3dc64dc3b2",
+      "destination_sha256": "016551d87ddf6b5556a4f9181ec8061a5af2df1bda97e3f43e376f3dc64dc3b2",
+      "candidate_destination_identical": true,
+      "canonical_baseline": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/grounds/a02p01.rsground",
+      "canonical_baseline_sha256": "4cb74d9c04c7473359f8b8360caac80df825dff91775917dbfe0d5dd201fc389"
+    },
+    {
+      "candidate": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/tiles/a02p01_Base.tile",
+      "destination": "Content/Tile/a02p01_Base.tile",
+      "destination_preexisting": false,
+      "pre_promotion_sha256": null,
+      "pre_promotion_reserve": null,
+      "bytes": 135557,
+      "validated_candidate_sha256": "7f80a67d0d6823541dbed67e77b68d1d005eb09b53d79a0d3a66e7a1bae027e3",
+      "destination_sha256": "7f80a67d0d6823541dbed67e77b68d1d005eb09b53d79a0d3a66e7a1bae027e3",
+      "candidate_destination_identical": true
+    }
+  ],
+  "zone_registration": {
+    "entry": "a02p01",
+    "entry_count": 1,
+    "position": "after poisonous_forest_entrance",
+    "mode": "retained_authenticated_historical_singleton",
+    "pre_promotion_sha256": "66671e4c5f81d167e221f3f9bd845090145f1e39bd6169472fe76a88d3adcf5b",
+    "post_promotion_sha256": "66671e4c5f81d167e221f3f9bd845090145f1e39bd6169472fe76a88d3adcf5b"
+  },
+  "preserved_variants": [
+    {
+      "role": "pre_promotion_destination_reserve",
+      "files": {
+        "ground": {
+          "preexisting": true,
+          "sha256": "2b6d651a9fd7d25f159f50fc9d1cd6fa7006899988822eda217f4bf60923aad7",
+          "reserve": "RESERVE/pmdred_pre_promotion/a02p01/a02p01.rsground"
+        },
+        "tile": {
+          "preexisting": false,
+          "sha256": null,
+          "reserve": null
+        },
+        "legacy_case_tile": {
+          "preexisting": true,
+          "sha256": "7f80a67d0d6823541dbed67e77b68d1d005eb09b53d79a0d3a66e7a1bae027e3",
+          "reserve": "RESERVE/pmdred_pre_promotion/a02p01/A02p01_Base.tile"
+        }
+      },
+      "modified_after_capture": false
+    },
+    {
+      "role": "historical_reserve",
+      "ground": {
+        "present": true,
+        "sha256": "51e08f36ecc2975ba6ca9b0ae4fc2590400eb559608bf7f38246a7168e8aa9fb"
+      },
+      "tile": {
+        "present": true,
+        "sha256": "7f80a67d0d6823541dbed67e77b68d1d005eb09b53d79a0d3a66e7a1bae027e3"
+      },
+      "modified": false
+    },
+    {
+      "role": "historical_v200_and_v201_reports",
+      "paths": [
+        "docs/pmdred_eu/remaining_grounds/history/v200_pre_period_fix/",
+        "docs/pmdred_eu/remaining_grounds/"
+      ],
+      "modified_by_promotion": false
+    },
+    {
+      "role": "failed_attempt_evidence",
+      "record": "docs/pmdred_eu/pmdo_validation/a02p01_failed_attempt_preexisting_zone_gate/failure_record.json",
+      "sha256": "b6a2237d508a8564332332507b67eab5becd2d92a683f55639121bf3664d3ef8",
+      "reclassified_as_pass": false
+    },
+    {
+      "role": "occupied_ground_entity_migration",
+      "manifest": "docs/pmdred_eu/pmdo_validation/a02p01_exhaustive_pass/entity_migration_manifest.json",
+      "sha256": "e9502b0c582013179f1a0a4f1a6d47c810fd54c22235a17c12cce2e59a561128",
+      "historical_ground_and_tile_reserved": true,
+      "legacy_case_tile_retained": true
+    }
+  ],
+  "post_promotion_integration": {
+    "result": "PASS",
+    "exact_pmdo_index": "PASS",
+    "log_sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+    "zone_structure": "PASS",
+    "existing_routes_unchanged": "PASS"
+  },
+  "entity_integration": {
+    "result": "PASS_HASH_GATED_ENTITY_INTEGRATION",
+    "manifest": "docs/pmdred_eu/pmdo_validation/a02p01_exhaustive_pass/entity_migration_manifest.json",
+    "manifest_sha256": "e9502b0c582013179f1a0a4f1a6d47c810fd54c22235a17c12cce2e59a561128",
+    "canonical_baseline_ground_sha256": "4cb74d9c04c7473359f8b8360caac80df825dff91775917dbfe0d5dd201fc389",
+    "integrated_validated_ground_sha256": "016551d87ddf6b5556a4f9181ec8061a5af2df1bda97e3f43e376f3dc64dc3b2",
+    "complete_historical_ground_sha256": "2b6d651a9fd7d25f159f50fc9d1cd6fa7006899988822eda217f4bf60923aad7",
+    "complete_historical_tile_sha256": "7f80a67d0d6823541dbed67e77b68d1d005eb09b53d79a0d3a66e7a1bae027e3",
+    "preserved_entities": {
+      "mode": "additive_markers_spawners_only",
+      "canonical_entity_layer_count": 1,
+      "preserved_entity_layer_count": 1,
+      "entity_counts": {
+        "markers": 2,
+        "spawners": 3,
+        "map_characters": 0,
+        "ground_objects": 0
+      },
+      "ordered_names": {
+        "markers": [
+          "Main_Entrance_Marker",
+          "Cutscene_Marker"
+        ],
+        "spawners": [
+          "TEAMMATE_1",
+          "TEAMMATE_2",
+          "TEAMMATE_3"
+        ]
+      },
+      "entity_payload_sha256": {
+        "Main_Entrance_Marker": "085cae6ff016958768836d9856153a3d870c26c01d3a82021deecca7fad278bd",
+        "Cutscene_Marker": "9e22212677f4515d503782519d5e89d279d4075403e6d259208a5dd1120d5569",
+        "TEAMMATE_1": "b82966ced42118ad8ef9d8b9c40a660c08324f52f600241271a06320631a6661",
+        "TEAMMATE_2": "a4f97b69ad766fae6255cfafd17433ddff0a9d49aaf0b0682840025dc55f14d9",
+        "TEAMMATE_3": "b136576a973bb1a90dbc79d33642da4bce51a70968c0bae6472d58468fd951ae"
+      },
+      "colliders": {
+        "Main_Entrance_Marker": {
+          "X": 200,
+          "Y": 152,
+          "Width": 16,
+          "Height": 16
+        },
+        "Cutscene_Marker": {
+          "X": 312,
+          "Y": 184,
+          "Width": 16,
+          "Height": 16
+        },
+        "TEAMMATE_1": {
+          "X": 208,
+          "Y": 168,
+          "Width": 16,
+          "Height": 16
+        },
+        "TEAMMATE_2": {
+          "X": 176,
+          "Y": 152,
+          "Width": 16,
+          "Height": 16
+        },
+        "TEAMMATE_3": {
+          "X": 224,
+          "Y": 152,
+          "Width": 16,
+          "Height": 16
+        }
+      },
+      "canonical_dimensions_pixels": [
+        480,
+        360
+      ],
+      "all_colliders_within_canonical_geometry": true,
+      "all_entity_payloads_preserved_byte_for_byte_at_json_value_level": true,
+      "canonical_data_unchanged_outside_additive_entities": true
+    },
+    "legacy_case_tile_retained_unchanged": "Content/Tile/A02p01_Base.tile",
+    "canonical_case_tile_created": "Content/Tile/a02p01_Base.tile",
+    "related_scripts_unchanged": {
+      "Data/Script/halcyon/ground/a02p01/init.lua": "e74cd013a6f7f0d2273e8eccded5aebb8b2ee89e7e31b869cefc8cb33f3af388",
+      "Data/Script/halcyon/FugitiveArc.lua": "cf9ffe31cb90c7301808d920522463cc66e0e7349f74a1c8fdfca061c1621519",
+      "Data/Script/halcyon/FugitiveCinematics.lua": "1fea1611e0f9636f6fd8ca6268ba9d2d676972f3b153162b694950c7f32eb484",
+      "Data/Script/halcyon/arc_fugitif/scene/a02p01.lua": "bd8752a9ccb27350b6bcb2e588818f3e98410a40fd0b1aa8f1ac25dabf684ec9"
+    },
+    "existing_asset_discarded": false,
+    "existing_entity_silently_deactivated": false,
+    "scripts_modified": false
+  }
+}

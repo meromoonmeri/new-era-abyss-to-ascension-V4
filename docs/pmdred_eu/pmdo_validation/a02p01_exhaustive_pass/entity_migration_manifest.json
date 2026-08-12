@@ -1,0 +1,109 @@
+{
+  "schema": "new-era.pmdred-eu-occupied-ground-migration.v1",
+  "ground": "a02p01",
+  "result": "PASS_HASH_GATED_ENTITY_INTEGRATION",
+  "policy_schema": "new-era.pmdred-eu-occupied-ground-migration-policy.v1",
+  "historical": {
+    "ground": "RESERVE/pmdred_pre_promotion/a02p01/a02p01.rsground",
+    "ground_sha256": "2b6d651a9fd7d25f159f50fc9d1cd6fa7006899988822eda217f4bf60923aad7",
+    "tile": "Content/Tile/A02p01_Base.tile",
+    "tile_sha256": "7f80a67d0d6823541dbed67e77b68d1d005eb09b53d79a0d3a66e7a1bae027e3",
+    "complete_historical_ground_reserved_before_active_replacement_required": true,
+    "complete_historical_tile_reserved_before_active_replacement_required": true
+  },
+  "canonical_baseline": {
+    "ground": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/grounds/a02p01.rsground",
+    "ground_sha256": "4cb74d9c04c7473359f8b8360caac80df825dff91775917dbfe0d5dd201fc389",
+    "tile": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/tiles/a02p01_Base.tile",
+    "tile_sha256": "7f80a67d0d6823541dbed67e77b68d1d005eb09b53d79a0d3a66e7a1bae027e3"
+  },
+  "integrated_candidate": {
+    "ground": ".runtime-cache/pmdred-eu-a02p01-entity-integrated-candidate-recovery-rerun/grounds/a02p01.rsground",
+    "ground_sha256": "016551d87ddf6b5556a4f9181ec8061a5af2df1bda97e3f43e376f3dc64dc3b2",
+    "tile": ".runtime-cache/pmdred-eu-a02p01-entity-integrated-candidate-recovery-rerun/tiles/a02p01_Base.tile",
+    "tile_sha256": "7f80a67d0d6823541dbed67e77b68d1d005eb09b53d79a0d3a66e7a1bae027e3"
+  },
+  "entity_integration": {
+    "mode": "additive_markers_spawners_only",
+    "canonical_entity_layer_count": 1,
+    "preserved_entity_layer_count": 1,
+    "entity_counts": {
+      "markers": 2,
+      "spawners": 3,
+      "map_characters": 0,
+      "ground_objects": 0
+    },
+    "ordered_names": {
+      "markers": [
+        "Main_Entrance_Marker",
+        "Cutscene_Marker"
+      ],
+      "spawners": [
+        "TEAMMATE_1",
+        "TEAMMATE_2",
+        "TEAMMATE_3"
+      ]
+    },
+    "entity_payload_sha256": {
+      "Main_Entrance_Marker": "085cae6ff016958768836d9856153a3d870c26c01d3a82021deecca7fad278bd",
+      "Cutscene_Marker": "9e22212677f4515d503782519d5e89d279d4075403e6d259208a5dd1120d5569",
+      "TEAMMATE_1": "b82966ced42118ad8ef9d8b9c40a660c08324f52f600241271a06320631a6661",
+      "TEAMMATE_2": "a4f97b69ad766fae6255cfafd17433ddff0a9d49aaf0b0682840025dc55f14d9",
+      "TEAMMATE_3": "b136576a973bb1a90dbc79d33642da4bce51a70968c0bae6472d58468fd951ae"
+    },
+    "colliders": {
+      "Main_Entrance_Marker": {
+        "X": 200,
+        "Y": 152,
+        "Width": 16,
+        "Height": 16
+      },
+      "Cutscene_Marker": {
+        "X": 312,
+        "Y": 184,
+        "Width": 16,
+        "Height": 16
+      },
+      "TEAMMATE_1": {
+        "X": 208,
+        "Y": 168,
+        "Width": 16,
+        "Height": 16
+      },
+      "TEAMMATE_2": {
+        "X": 176,
+        "Y": 152,
+        "Width": 16,
+        "Height": 16
+      },
+      "TEAMMATE_3": {
+        "X": 224,
+        "Y": 152,
+        "Width": 16,
+        "Height": 16
+      }
+    },
+    "canonical_dimensions_pixels": [
+      480,
+      360
+    ],
+    "all_colliders_within_canonical_geometry": true,
+    "all_entity_payloads_preserved_byte_for_byte_at_json_value_level": true,
+    "canonical_data_unchanged_outside_additive_entities": true
+  },
+  "historical_reserve_provenance": {
+    "RESERVE/red_grounds/a02p01.rsground": "51e08f36ecc2975ba6ca9b0ae4fc2590400eb559608bf7f38246a7168e8aa9fb",
+    "RESERVE/red_tiles/a02p01_Base.tile": "7f80a67d0d6823541dbed67e77b68d1d005eb09b53d79a0d3a66e7a1bae027e3"
+  },
+  "related_scripts_unchanged": {
+    "Data/Script/halcyon/ground/a02p01/init.lua": "e74cd013a6f7f0d2273e8eccded5aebb8b2ee89e7e31b869cefc8cb33f3af388",
+    "Data/Script/halcyon/FugitiveArc.lua": "cf9ffe31cb90c7301808d920522463cc66e0e7349f74a1c8fdfca061c1621519",
+    "Data/Script/halcyon/FugitiveCinematics.lua": "1fea1611e0f9636f6fd8ca6268ba9d2d676972f3b153162b694950c7f32eb484",
+    "Data/Script/halcyon/arc_fugitif/scene/a02p01.lua": "bd8752a9ccb27350b6bcb2e588818f3e98410a40fd0b1aa8f1ac25dabf684ec9"
+  },
+  "canonical_case_tile_identity": "Content/Tile/a02p01_Base.tile",
+  "legacy_case_tile_retained_unchanged": "Content/Tile/A02p01_Base.tile",
+  "existing_asset_discarded": false,
+  "existing_entity_silently_deactivated": false,
+  "scripts_modified": false
+}
