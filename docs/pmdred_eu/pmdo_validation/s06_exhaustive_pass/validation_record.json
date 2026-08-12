@@ -1,0 +1,221 @@
+{
+  "schema": 1,
+  "ground": "s06",
+  "validated_at": "2026-08-12",
+  "runtime": "PASS",
+  "visual_comparison": {
+    "result": "PASS",
+    "dimensions_pixels": [
+      240,
+      168
+    ],
+    "primary_sample_count": 1,
+    "reload_sample_count": 1,
+    "exact_sample_count": 2,
+    "unique_rgba_frame_count": 1,
+    "mismatched_pixel_count": 0,
+    "maximum_channel_delta": 0,
+    "all_full_rgba_exact": true,
+    "all_fully_opaque": true,
+    "comparative_png_paths": [
+      "docs/pmdred_eu/pmdo_validation/s06_exhaustive_pass/comparisons/comparison_primary_tick0.png",
+      "docs/pmdred_eu/pmdo_validation/s06_exhaustive_pass/comparisons/comparison_reload_tick0.png"
+    ],
+    "complete_metrics_report": "docs/pmdred_eu/pmdo_validation/s06_exhaustive_pass/report.json"
+  },
+  "tile_palette_validation": {
+    "result": "PASS",
+    "reference": "independent authenticated raw EU BPL/BPC/BPA/BMA renderer",
+    "resource_hashes": {
+      "S06": "b42fccf79bd99af1c58d79eee57c43898221233fcc4bf377c4ebabc9d7e7842c",
+      "S06c": "481819e7d9557afc9cb275606b866480f0572daa3efbda72ea276266f400b779",
+      "S06m": "bc01e734da004656b23b7b8b9b459003dc19a8d5aff160213443bd4959b4cef8"
+    }
+  },
+  "animation_validation": {
+    "result": "PASS",
+    "primary_sample_count": 1,
+    "first_tick": 0,
+    "last_tick": 0,
+    "cell_local_schedule_count": 0,
+    "maximum_cell_local_cycle_ticks": 1,
+    "all_schedules_covered_through_two_complete_cycles": true,
+    "channels": [],
+    "unique_observed_rgba_frames": 1,
+    "reload_tick_zero_exact": true,
+    "orphaned_animation_observed": false
+  },
+  "collision_validation": {
+    "result": "PASS",
+    "source": "S06m",
+    "collision_layer_count": 0,
+    "solid_cells": 0,
+    "collision_sha256": "e8195f8e18c1f0602bab8831ed7a652b2e58628df6b28024d379ab83579a4516",
+    "successful_probe": {
+      "start": [
+        112,
+        80
+      ],
+      "direction": "Down",
+      "observed_delta": [
+        0,
+        8
+      ],
+      "result": "PASS"
+    },
+    "blocked_probe": {
+      "applicable": false,
+      "reason": "AUTHENTICATED_RAW_ROM_BMA_HAS_NO_COLLISION_LAYER_OR_SOLID_CELLS",
+      "fixture_expectation": "NO_BMA_COLLISION_LAYER_OR_SOLIDS",
+      "runtime_result": "NOT_APPLICABLE_NO_BMA_SOLIDS",
+      "result": "NOT_APPLICABLE"
+    }
+  },
+  "entry_exit_reentry": {
+    "result": "PASS",
+    "loads": 2,
+    "entries": 2,
+    "exits": 2,
+    "same_ground_reentries": 1,
+    "strict_native_lifecycle_order": "PASS"
+  },
+  "cleanup_reload": {
+    "result": "PASS",
+    "cleanup_probe_count": 4,
+    "ground_exit_cleanup_passes": 2,
+    "sink_cleanup": "PASS",
+    "final_cleanup": "PASS",
+    "reload_load": "LOAD_PASS",
+    "reload_tick_zero_full_rgba_exact": true,
+    "terminal_end_seen": true,
+    "state_leakage_observed": false,
+    "stale_assets_observed": false,
+    "permanent_lock_observed": false,
+    "orphan_process_check": "PASS"
+  },
+  "native_termination": {
+    "result": "PASS",
+    "load_phase": "Unload",
+    "deinit_seen": true,
+    "graphics_unload_seen": true,
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "terminal": true,
+    "graceful": true,
+    "watchdog": false,
+    "requested_signal": null,
+    "sigsegv": false,
+    "forced_kill": false,
+    "orphan_process": false,
+    "evidence": "docs/pmdred_eu/pmdo_validation/s06_exhaustive_pass/termination.json",
+    "sha256": "d564da69ca1fc855d70eed043a5ea5b3209c8b955739f5d6c652a8a3171f92bd"
+  },
+  "fixture_isolation": {
+    "canonical_source_ground_sha256": "c87b931615455df278a6745bf5c0fbbe9528f473fd53b1be5e40a0c49e3bb308",
+    "canonical_source_tile_sha256": "0a4838e70a0ee8afdaa92dce2bb48edf112f5cc7dfa0833c4a3f79a836974f9c",
+    "source_entity_counts": {
+      "markers": 0,
+      "spawners": 0,
+      "map_characters": 0,
+      "ground_objects": 0
+    },
+    "fixture_only_changes": [
+      "deterministic entry marker",
+      "ignored validator plumbing"
+    ],
+    "source_and_promoted_files_unchanged_by_fixture": true
+  },
+  "special_classification": {
+    "canonical_source": {
+      "category": "wall_map_screen",
+      "ground_map_symbol": "MAP_TEAM_BASE_WALL_MAP",
+      "canonical_debug_id": 240,
+      "map_id": 241,
+      "map_file_id": 250,
+      "ground_place_id": 37,
+      "stable_ground_id": "s06",
+      "classification": "rescue_team_base_wall_map_screen",
+      "setting": "rescue_team_base",
+      "cinematic": false,
+      "arena": false,
+      "boss": false
+    },
+    "scope": {
+      "cinematic_choreography": "NOT APPLICABLE/NOT CLAIMED; Ground-only lifecycle and rendering validated",
+      "arena": false,
+      "boss": false
+    }
+  },
+  "identity_validation": {
+    "result": "PASS",
+    "authenticated_map_file_id": 250,
+    "pinned_enum_symbol": "MAP_TEAM_BASE_WALL_MAP",
+    "conversion_type": 4,
+    "weather_id": -1
+  },
+  "definitive_destination": {
+    "ground": "Data/Ground/s06.rsground",
+    "tile": "Content/Tile/s06_Base.tile",
+    "zone_registry": "Data/Zone/master_zone.json",
+    "zone_registry_entry": "s06",
+    "promotion_status": "PROMOTED_ADDITIVE_CANONICAL",
+    "preexisting_destinations": false,
+    "pre_promotion_destinations": {
+      "ground": {
+        "preexisting": false,
+        "sha256": null,
+        "reserve": null
+      },
+      "tile": {
+        "preexisting": false,
+        "sha256": null,
+        "reserve": null
+      }
+    },
+    "pre_promotion_record": "RESERVE/pmdred_pre_promotion/s06/README.md",
+    "promoted_ground_sha256": "c87b931615455df278a6745bf5c0fbbe9528f473fd53b1be5e40a0c49e3bb308",
+    "promoted_tile_sha256": "0a4838e70a0ee8afdaa92dce2bb48edf112f5cc7dfa0833c4a3f79a836974f9c"
+  },
+  "provenance": {
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+    "conversion_report_sha256": "91f3b460b3e3b7689bc608ece2006cb6103d653bcdc22ad028f4172c3a1b0fdc",
+    "candidate_ground_sha256": "c87b931615455df278a6745bf5c0fbbe9528f473fd53b1be5e40a0c49e3bb308",
+    "candidate_tile_sha256": "0a4838e70a0ee8afdaa92dce2bb48edf112f5cc7dfa0833c4a3f79a836974f9c",
+    "source_normalized_sha256": {
+      "S06": "b42fccf79bd99af1c58d79eee57c43898221233fcc4bf377c4ebabc9d7e7842c",
+      "S06c": "481819e7d9557afc9cb275606b866480f0572daa3efbda72ea276266f400b779",
+      "S06m": "bc01e734da004656b23b7b8b9b459003dc19a8d5aff160213443bd4959b4cef8"
+    },
+    "events_sha256": "7e1f51bce48556184c7b798a12b155d8f47701d1f31a1097ccf946961a5ba01e",
+    "report_sha256": "2fab3a662f5318f03ea11aa111883b17092e3e0cbbc17b3494f4c172efb469ef",
+    "fixture_manifest_sha256": "cad9c4636d7958ee86d5dc4321ac8143b16e8093d98069dfe181e18afb11ae71",
+    "termination_sha256": "d564da69ca1fc855d70eed043a5ea5b3209c8b955739f5d6c652a8a3171f92bd",
+    "detailed_provenance": "docs/pmdred_eu/pmdo_validation/s06_exhaustive_pass/provenance.json"
+  },
+  "execution_note": {
+    "terminal_event_and_all_required_captures_completed": true,
+    "post_terminal_shutdown": "PMDO-native GameBase.LoadPhase.Unload followed by NORMAL_EXIT",
+    "return_code": 0,
+    "watchdog": false,
+    "requested_signal": null,
+    "evidence_impact": "NONE"
+  },
+  "dungeon_restitution": {
+    "affected": false,
+    "status": "27-relationship bundle retained"
+  },
+  "scope_note": "Ground-only; dialogue, choreography, music assignment, and narrative routing are not claimed.",
+  "post_promotion_integration": {
+    "result": "PASS",
+    "exact_pmdo_index": "PASS",
+    "indexed_ground_sha256": "c87b931615455df278a6745bf5c0fbbe9528f473fd53b1be5e40a0c49e3bb308",
+    "indexed_tile_sha256": "0a4838e70a0ee8afdaa92dce2bb48edf112f5cc7dfa0833c4a3f79a836974f9c",
+    "index_log_sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+    "zone_encoding_bom_preserved": true,
+    "zone_change": "one insertion after s05_spa",
+    "zone_ground_map_count": 396,
+    "canonical_index": 339,
+    "variant_and_routing_static_checks": "PASS"
+  }
+}
