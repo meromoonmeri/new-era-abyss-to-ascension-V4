@@ -233,6 +233,18 @@ def classify_ground_role(symbol: str) -> dict[str, Any]:
             "arena": False,
             "boss": False,
         }
+    match = re.fullmatch(r"MAP_([A-Z0-9]+(?:_[A-Z0-9]+)*)_MID", symbol)
+    if match:
+        location = match.group(1).lower()
+        return {
+            "category": "dungeon_midpoint_ground",
+            "classification": f"{location}_midpoint_ground",
+            "location": location,
+            "stage": "midpoint",
+            "cinematic": False,
+            "arena": False,
+            "boss": False,
+        }
     match = re.fullmatch(r"MAP_([A-Z0-9]+(?:_[A-Z0-9]+)*)_(ENTRY|END)", symbol)
     if match:
         location, transition = match.groups()
