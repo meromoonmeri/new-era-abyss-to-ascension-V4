@@ -22,16 +22,6 @@ class TerminationClassificationTests(unittest.TestCase):
         self.assertEqual(result["exit_signal"], signal.SIGTERM)
         self.assertFalse(result["segmentation_fault"])
 
-    def test_official_sigint_direct_and_managed_statuses_pass(self) -> None:
-        direct = classify_returncode(-signal.SIGINT, signal.SIGINT, False)
-        managed = classify_returncode(128 + signal.SIGINT, signal.SIGINT, False)
-        self.assertEqual(direct["kind"], "EXPECTED_SIGINT_SIGNAL")
-        self.assertEqual(direct["wait_state"], "SIGNALED")
-        self.assertEqual(managed["kind"], "EXPECTED_SIGINT_EXIT_CODE")
-        self.assertEqual(managed["wait_state"], "EXITED")
-        self.assertEqual(direct["result"], managed["result"])
-        self.assertEqual(direct["result"], "PASS")
-
     def test_sigsegv_is_never_hidden_or_accepted(self) -> None:
         result = classify_returncode(-signal.SIGSEGV, signal.SIGTERM, False)
         self.assertEqual(result["kind"], "SIGSEGV")

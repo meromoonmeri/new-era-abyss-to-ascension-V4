@@ -299,16 +299,6 @@ untouched, every index PMDO might rewrite is fixture-local, and only copied
 Grounds receive deterministic audit markers and routing. The graphical tile
 index is parsed, merged, written, and read back exactly before launch.
 
-The official bounded shutdown gate is
-`tools/run_pmdred_eu_pmdo_termination_gate.py`. PMDO is launched directly so its
-real wait status cannot be hidden by `wait ... || true`. After the validator's
-terminal `end`, the runner sends SIGINT only to PMDO, records whether wait(2)
-reported a signal or a managed `128+signal` exit, and rejects SIGSEGV, every
-unexpected status, forced cleanup, or residual process. SIGINT replaced the
-former SIGTERM process-group stop after repeated exact-runtime controls exposed
-an intermittent null-address crash in SwiftShader teardown on multiple Grounds;
-no Ground or conversion bytes were changed to address that runtime-only race.
-
 The controlled engine run loaded all 27 Grounds. For each Ground it recorded
 entry, scheduler ownership, four cardinal movement/collision probes, exact
 canonical CANM tick seeks, screenshots, and a `SAFE` verdict. The dependency-free
