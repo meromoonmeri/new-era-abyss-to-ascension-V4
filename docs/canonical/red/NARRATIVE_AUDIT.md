@@ -55,3 +55,7 @@ Zones canoniques actives auditées : **9**. Erreurs structurelles : **0**.
 - Chaque nouvelle scène doit avoir quatre états : première arrivée, nouvelle tentative, victoire, défaite/repli.
 - Chaque boss doit retourner sur le même Ground après le combat et utiliser un `.rsmap` visuellement identique.
 - Les 27 Grounds dungeon-backed doivent utiliser les reconstructions ROM corrigées, jamais les anciens placeholders.
+
+## Audit exhaustif PMD Red EU
+
+Ce document historique couvre uniquement les 9 zones actives ci-dessus et ne constitue pas une preuve d’exhaustivité narrative. L’audit intégral des **133 scènes Ground EU**, des **26 modules de cinématique de donjon**, des **219 Grounds certifiés** et des **27 relations dungeon-backed** est publié dans [`docs/pmdred_eu/narrative_audit/README.md`](../../pmdred_eu/narrative_audit/README.md). Il préserve le présent audit et remplace seulement son usage comme verdict global.
