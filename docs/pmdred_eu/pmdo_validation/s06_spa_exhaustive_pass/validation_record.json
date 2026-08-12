@@ -1,0 +1,221 @@
+{
+  "schema": 1,
+  "ground": "s06_spa",
+  "validated_at": "2026-08-12",
+  "runtime": "PASS",
+  "visual_comparison": {
+    "result": "PASS",
+    "dimensions_pixels": [
+      240,
+      168
+    ],
+    "primary_sample_count": 1,
+    "reload_sample_count": 1,
+    "exact_sample_count": 2,
+    "unique_rgba_frame_count": 1,
+    "mismatched_pixel_count": 0,
+    "maximum_channel_delta": 0,
+    "all_full_rgba_exact": true,
+    "all_fully_opaque": true,
+    "comparative_png_paths": [
+      "docs/pmdred_eu/pmdo_validation/s06_spa_exhaustive_pass/comparisons/comparison_primary_tick0.png",
+      "docs/pmdred_eu/pmdo_validation/s06_spa_exhaustive_pass/comparisons/comparison_reload_tick0.png"
+    ],
+    "complete_metrics_report": "docs/pmdred_eu/pmdo_validation/s06_spa_exhaustive_pass/report.json"
+  },
+  "tile_palette_validation": {
+    "result": "PASS",
+    "reference": "independent authenticated raw EU BPL/BPC/BPA/BMA renderer",
+    "resource_hashes": {
+      "S06_SPA": "c9ec2cd608c333e3ca2b9b4ae9254dd4c4bcf389f52cf2b102ab05646776c65e",
+      "S06_SPAc": "b6b2573ac9b8a503a21fa6b014eadc6150819d2ce44d467a6b3c5bb9c042b8cb",
+      "S06_SPAm": "bc01e734da004656b23b7b8b9b459003dc19a8d5aff160213443bd4959b4cef8"
+    }
+  },
+  "animation_validation": {
+    "result": "PASS",
+    "primary_sample_count": 1,
+    "first_tick": 0,
+    "last_tick": 0,
+    "cell_local_schedule_count": 0,
+    "maximum_cell_local_cycle_ticks": 1,
+    "all_schedules_covered_through_two_complete_cycles": true,
+    "channels": [],
+    "unique_observed_rgba_frames": 1,
+    "reload_tick_zero_exact": true,
+    "orphaned_animation_observed": false
+  },
+  "collision_validation": {
+    "result": "PASS",
+    "source": "S06_SPAm",
+    "collision_layer_count": 0,
+    "solid_cells": 0,
+    "collision_sha256": "e8195f8e18c1f0602bab8831ed7a652b2e58628df6b28024d379ab83579a4516",
+    "successful_probe": {
+      "start": [
+        112,
+        80
+      ],
+      "direction": "Down",
+      "observed_delta": [
+        0,
+        8
+      ],
+      "result": "PASS"
+    },
+    "blocked_probe": {
+      "applicable": false,
+      "reason": "AUTHENTICATED_RAW_ROM_BMA_HAS_NO_COLLISION_LAYER_OR_SOLID_CELLS",
+      "fixture_expectation": "NO_BMA_COLLISION_LAYER_OR_SOLIDS",
+      "runtime_result": "NOT_APPLICABLE_NO_BMA_SOLIDS",
+      "result": "NOT_APPLICABLE"
+    }
+  },
+  "entry_exit_reentry": {
+    "result": "PASS",
+    "loads": 2,
+    "entries": 2,
+    "exits": 2,
+    "same_ground_reentries": 1,
+    "strict_native_lifecycle_order": "PASS"
+  },
+  "cleanup_reload": {
+    "result": "PASS",
+    "cleanup_probe_count": 4,
+    "ground_exit_cleanup_passes": 2,
+    "sink_cleanup": "PASS",
+    "final_cleanup": "PASS",
+    "reload_load": "LOAD_PASS",
+    "reload_tick_zero_full_rgba_exact": true,
+    "terminal_end_seen": true,
+    "state_leakage_observed": false,
+    "stale_assets_observed": false,
+    "permanent_lock_observed": false,
+    "orphan_process_check": "PASS"
+  },
+  "native_termination": {
+    "result": "PASS",
+    "load_phase": "Unload",
+    "deinit_seen": true,
+    "graphics_unload_seen": true,
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "terminal": true,
+    "graceful": true,
+    "watchdog": false,
+    "requested_signal": null,
+    "sigsegv": false,
+    "forced_kill": false,
+    "orphan_process": false,
+    "evidence": "docs/pmdred_eu/pmdo_validation/s06_spa_exhaustive_pass/termination.json",
+    "sha256": "ebd145a7e6de49206e8af5211adcf5517a458de759afa6efec375bbcdc1a093a"
+  },
+  "fixture_isolation": {
+    "canonical_source_ground_sha256": "31fc33cc0c2e9aa22fec46a5543a154c0b2f83fbb1412bd8fb8b3a46ab44eba0",
+    "canonical_source_tile_sha256": "4ad1f79be381b9d6109b8d19c62c874cc604d1648691d7b687511a4f367a4f56",
+    "source_entity_counts": {
+      "markers": 0,
+      "spawners": 0,
+      "map_characters": 0,
+      "ground_objects": 0
+    },
+    "fixture_only_changes": [
+      "deterministic entry marker",
+      "ignored validator plumbing"
+    ],
+    "source_and_promoted_files_unchanged_by_fixture": true
+  },
+  "special_classification": {
+    "canonical_source": {
+      "category": "wall_map_screen",
+      "ground_map_symbol": "MAP_TEAM_BASE_WALL_MAP",
+      "canonical_debug_id": 240,
+      "map_id": 245,
+      "map_file_id": 254,
+      "ground_place_id": 37,
+      "stable_ground_id": "s06_spa",
+      "classification": "rescue_team_base_wall_map_screen",
+      "setting": "rescue_team_base",
+      "cinematic": false,
+      "arena": false,
+      "boss": false
+    },
+    "scope": {
+      "cinematic_choreography": "NOT APPLICABLE/NOT CLAIMED; Ground-only lifecycle and rendering validated",
+      "arena": false,
+      "boss": false
+    }
+  },
+  "identity_validation": {
+    "result": "PASS",
+    "authenticated_map_file_id": 254,
+    "pinned_enum_symbol": "MAP_TEAM_BASE_WALL_MAP",
+    "conversion_type": 4,
+    "weather_id": -1
+  },
+  "definitive_destination": {
+    "ground": "Data/Ground/s06_spa.rsground",
+    "tile": "Content/Tile/s06_spa_Base.tile",
+    "zone_registry": "Data/Zone/master_zone.json",
+    "zone_registry_entry": "s06_spa",
+    "promotion_status": "PROMOTED_ADDITIVE_CANONICAL",
+    "preexisting_destinations": false,
+    "pre_promotion_destinations": {
+      "ground": {
+        "preexisting": false,
+        "sha256": null,
+        "reserve": null
+      },
+      "tile": {
+        "preexisting": false,
+        "sha256": null,
+        "reserve": null
+      }
+    },
+    "pre_promotion_record": "RESERVE/pmdred_pre_promotion/s06_spa/README.md",
+    "promoted_ground_sha256": "31fc33cc0c2e9aa22fec46a5543a154c0b2f83fbb1412bd8fb8b3a46ab44eba0",
+    "promoted_tile_sha256": "4ad1f79be381b9d6109b8d19c62c874cc604d1648691d7b687511a4f367a4f56"
+  },
+  "provenance": {
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+    "conversion_report_sha256": "91f3b460b3e3b7689bc608ece2006cb6103d653bcdc22ad028f4172c3a1b0fdc",
+    "candidate_ground_sha256": "31fc33cc0c2e9aa22fec46a5543a154c0b2f83fbb1412bd8fb8b3a46ab44eba0",
+    "candidate_tile_sha256": "4ad1f79be381b9d6109b8d19c62c874cc604d1648691d7b687511a4f367a4f56",
+    "source_normalized_sha256": {
+      "S06_SPA": "c9ec2cd608c333e3ca2b9b4ae9254dd4c4bcf389f52cf2b102ab05646776c65e",
+      "S06_SPAc": "b6b2573ac9b8a503a21fa6b014eadc6150819d2ce44d467a6b3c5bb9c042b8cb",
+      "S06_SPAm": "bc01e734da004656b23b7b8b9b459003dc19a8d5aff160213443bd4959b4cef8"
+    },
+    "events_sha256": "17312bc720acaf1ba0987b949c40d31ca2bcb500379d4ff1fce90fba842dd948",
+    "report_sha256": "7ddac8e05e17544ff270639955f8deb9d885fa1cdf192bcfb4d3c62cd0356cf9",
+    "fixture_manifest_sha256": "90ea3ebe1dbede195d9742f8c69502e469d3d79d815cc27bd51670fed015d259",
+    "termination_sha256": "ebd145a7e6de49206e8af5211adcf5517a458de759afa6efec375bbcdc1a093a",
+    "detailed_provenance": "docs/pmdred_eu/pmdo_validation/s06_spa_exhaustive_pass/provenance.json"
+  },
+  "execution_note": {
+    "terminal_event_and_all_required_captures_completed": true,
+    "post_terminal_shutdown": "PMDO-native GameBase.LoadPhase.Unload followed by NORMAL_EXIT",
+    "return_code": 0,
+    "watchdog": false,
+    "requested_signal": null,
+    "evidence_impact": "NONE"
+  },
+  "dungeon_restitution": {
+    "affected": false,
+    "status": "27-relationship bundle retained"
+  },
+  "scope_note": "Ground-only; dialogue, choreography, music assignment, and narrative routing are not claimed.",
+  "post_promotion_integration": {
+    "result": "PASS",
+    "exact_pmdo_index": "PASS",
+    "indexed_ground_sha256": "31fc33cc0c2e9aa22fec46a5543a154c0b2f83fbb1412bd8fb8b3a46ab44eba0",
+    "indexed_tile_sha256": "4ad1f79be381b9d6109b8d19c62c874cc604d1648691d7b687511a4f367a4f56",
+    "index_log_sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+    "zone_encoding_bom_preserved": true,
+    "zone_change": "one insertion after s06_ita",
+    "zone_ground_map_count": 400,
+    "canonical_index": 343,
+    "variant_and_routing_static_checks": "PASS"
+  }
+}
