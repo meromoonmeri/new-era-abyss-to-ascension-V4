@@ -1,0 +1,11 @@
+# a03p03 exhaustive exact-PMDO pass
+
+## Result
+
+`PASS — INTEGRATION-PRESERVING ENTITY MIGRATION`
+
+`a03p03` is the authenticated EU sunset summit scene (`MAP_SUMMIT_SUNSET`; map ID 171, map-file ID 180). Exact PMDO 0.8.12 loaded the authenticated v2.0.1-eu candidate in isolation; the independent raw-EU-ROM renderer matched all **2/2** full-RGBA samples with zero mismatched pixels and full opacity. BMA movement and blocking probes passed. Two entries/exits, same-Ground re-entry, unload/reload, cleanup, and state isolation all passed. PMDO then entered native `GameBase.LoadPhase.Unload`, published data and graphics unload callbacks, emitted terminal `end`, returned 0 as `NORMAL_EXIT`, and left no signal, watchdog, SIGSEGV, forced kill, or orphan.
+
+Role flags are recorded independently as `cinematic=false`, `arena=false`, `boss=false`; this Ground-only record claims no dialogue, choreography, music, or narrative routing. 1 primary boundary ticks (0–0) cover every applicable animation schedule through two complete local cycles (maximum 1 ticks); 1 distinct primary RGBA frames were observed.
+
+The complete occupied Ground and historical tile were reserved at their exact hashes before any replacement. Its markers ['Main_Entrance_Marker'] and spawners [] were preserved unchanged as the only additions to canonical Ground `4025e48c9cf24be8a321da31115e933b05f994b89bcf01f827f4c46af3a8d22a`. This exact integrated Ground `8a0124252466f4adcdbfad6ab2097920e34d863c663e141772a034e602039589` was the runtime/comparison subject and promoted artifact. Historical tile `Content/Tile/a03p03_Base.tile` was copied byte-exactly into the durable pre-promotion reserve, then its canonical identity was replaced atomically with authenticated tile `fa9b2e916bf28714e4614964f7589d6ef83e81754ee358c147c09c975a7a5281`. All related scripts remained unchanged; no entity was silently deactivated. Zone integration authenticated singleton retained after a03p02 without mutation, preserved BOM/other routes, retained all reserve/history, and passed exact-PMDO post-promotion indexing (`3df47e3b…`). Complete metrics, events, logs, representative initial/final/reload PNGs, provenance, promotion details, reproduction commands, and hashes are in this directory.

@@ -1,0 +1,89 @@
+{
+  "schema": "new-era.pmdred-eu-occupied-ground-migration.v1",
+  "ground": "a03p03",
+  "result": "PASS_HASH_GATED_ENTITY_INTEGRATION",
+  "policy_schema": "new-era.pmdred-eu-occupied-ground-migration-policy.v1",
+  "historical": {
+    "ground": "Data/Ground/a03p03.rsground",
+    "ground_sha256": "056e711e49f8f9ae7b5067458d66ba2c758e42ca3b96fb60e0e58946c9bb52ae",
+    "tile": "Content/Tile/a03p03_Base.tile",
+    "tile_sha256": "314207f03b49c0908a801ee10ee0cbcb29c700d8500539444625e56da05489f9",
+    "complete_historical_ground_reserved_before_active_replacement_required": true,
+    "complete_historical_tile_reserved_before_active_replacement_required": true
+  },
+  "canonical_baseline": {
+    "ground": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/grounds/a03p03.rsground",
+    "ground_sha256": "4025e48c9cf24be8a321da31115e933b05f994b89bcf01f827f4c46af3a8d22a",
+    "tile": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/tiles/a03p03_Base.tile",
+    "tile_sha256": "fa9b2e916bf28714e4614964f7589d6ef83e81754ee358c147c09c975a7a5281"
+  },
+  "integrated_candidate": {
+    "ground": ".runtime-cache/pmdred-eu-a03p03-entity-integrated-candidate/grounds/a03p03.rsground",
+    "ground_sha256": "8a0124252466f4adcdbfad6ab2097920e34d863c663e141772a034e602039589",
+    "tile": ".runtime-cache/pmdred-eu-a03p03-entity-integrated-candidate/tiles/a03p03_Base.tile",
+    "tile_sha256": "fa9b2e916bf28714e4614964f7589d6ef83e81754ee358c147c09c975a7a5281"
+  },
+  "entity_integration": {
+    "mode": "additive_markers_spawners_only",
+    "canonical_entity_layer_count": 1,
+    "preserved_entity_layer_count": 1,
+    "entity_counts": {
+      "markers": 1,
+      "spawners": 0,
+      "map_characters": 0,
+      "ground_objects": 0
+    },
+    "ordered_names": {
+      "markers": [
+        "Main_Entrance_Marker"
+      ],
+      "spawners": []
+    },
+    "entity_payload_sha256": {
+      "Main_Entrance_Marker": "4101ab226e2038425c6184957cfaf55b2b3ec0218aa62409d0c93e358df97e50"
+    },
+    "colliders": {
+      "Main_Entrance_Marker": {
+        "X": 460,
+        "Y": 124,
+        "Width": 16,
+        "Height": 16
+      }
+    },
+    "canonical_dimensions_pixels": [
+      960,
+      288
+    ],
+    "all_colliders_within_canonical_geometry": true,
+    "all_entity_payloads_preserved_byte_for_byte_at_json_value_level": true,
+    "canonical_data_unchanged_outside_additive_entities": true
+  },
+  "historical_reserve_provenance": {
+    "RESERVE/red_grounds/a03p03.rsground": "056e711e49f8f9ae7b5067458d66ba2c758e42ca3b96fb60e0e58946c9bb52ae",
+    "RESERVE/red_tiles/a03p03_Base.tile": "fa9b2e916bf28714e4614964f7589d6ef83e81754ee358c147c09c975a7a5281"
+  },
+  "related_scripts_unchanged": {
+    "Data/Script/halcyon/ground/a03p03/init.lua": "700409fe2421b0bbbeaf7ec4e47bd78ae7ccffd0ad2525bef41f35c5946fc1a1",
+    "Data/Script/halcyon/FugitiveArc.lua": "cf9ffe31cb90c7301808d920522463cc66e0e7349f74a1c8fdfca061c1621519",
+    "Data/Script/halcyon/FugitiveCinematics.lua": "1fea1611e0f9636f6fd8ca6268ba9d2d676972f3b153162b694950c7f32eb484",
+    "Data/Script/halcyon/arc_fugitif/scene/a03p03.lua": "8ce94deaded0feca1efdc80a8f19cb6a7710877a2f518aa668e61146d6e56d70"
+  },
+  "tile_migration": {
+    "mode": "reserve_and_replace_canonical_identity",
+    "historical_active_path": "Content/Tile/a03p03_Base.tile",
+    "historical_active_sha256": "314207f03b49c0908a801ee10ee0cbcb29c700d8500539444625e56da05489f9",
+    "canonical_active_path": "Content/Tile/a03p03_Base.tile",
+    "canonical_active_sha256": "fa9b2e916bf28714e4614964f7589d6ef83e81754ee358c147c09c975a7a5281",
+    "same_active_identity": true,
+    "historical_bytes_must_be_reserved_before_replacement": true,
+    "historical_active_path_retained_unchanged": false,
+    "canonical_identity_created_additively": false,
+    "canonical_identity_replaced_only_after_reserve": true
+  },
+  "canonical_case_tile_identity": "Content/Tile/a03p03_Base.tile",
+  "legacy_case_tile_retained_unchanged": null,
+  "historical_tile_replaced_after_reserve": "Content/Tile/a03p03_Base.tile",
+  "existing_asset_discarded": false,
+  "existing_entity_silently_deactivated": false,
+  "scripts_modified": false
+}
