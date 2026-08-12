@@ -16,7 +16,6 @@ import json
 import os
 import re
 import shutil
-import signal
 import subprocess
 import sys
 import tempfile
@@ -111,54 +110,42 @@ def run_index(fixture: Path, log_path: Path) -> None:
 
 
 def run_validator(ground: str, fixture: Path, expected_screenshots: int) -> None:
-    if EVENTS.exists():
-        shutil.copyfile(EVENTS, fixture / "preexisting-validator-events.jsonl")
-        EVENTS.unlink()
-    env = pmdo_env(); env["PMDO_GROUND_VALIDATOR"] = "pmdred_eu_native_fixture"
-    command = [str(PMDO), "-asset", str(fixture / "asset") + "/", "-appdata", str(fixture / "appdata") + "/", "-quest", "pmdred_eu_fixture"]
-    runtime_log = fixture / "runtime.log"
     timeout_seconds = max(600, int(expected_screenshots * 0.75 + 180))
-    log(f"RUNTIME_START ground={ground} expected_screenshots={expected_screenshots} deadline={timeout_seconds}s")
-    with runtime_log.open("wb") as stream:
-        proc = subprocess.Popen(command, cwd=ROOT, env=env, stdout=stream, stderr=subprocess.STDOUT, start_new_session=True)
-        start = time.monotonic(); terminal = False; last_progress = -10
-        try:
-            while proc.poll() is None:
-                elapsed = int(time.monotonic() - start)
-                if EVENTS.is_file() and '"event":"end"' in EVENTS.read_text(errors="replace"):
-                    terminal = True
-                    log(f"RUNTIME_TERMINAL ground={ground} seconds={elapsed}")
-                    os.killpg(proc.pid, signal.SIGTERM)
-                    break
-                if elapsed >= timeout_seconds:
-                    raise TimeoutError(f"validator deadline exceeded for {ground}")
-                if elapsed - last_progress >= 10:
-                    last_progress = elapsed
-                    event_count = sum(1 for _ in EVENTS.open()) if EVENTS.is_file() else 0
-                    screenshot_count = len(list((fixture / "appdata/SCREENSHOT").glob("*.png")))
-                    try:
-                        cpu = subprocess.check_output(["ps", "-o", "%cpu=", "-p", str(proc.pid)], text=True).strip()
-                    except subprocess.SubprocessError:
-                        cpu = "exited"
-                    log(f"RUNTIME_PROGRESS ground={ground} seconds={elapsed} cpu={cpu} events={event_count} screenshots={screenshot_count}")
-                time.sleep(0.25)
-            try:
-                proc.wait(timeout=5)
-            except subprocess.TimeoutExpired:
-                os.killpg(proc.pid, signal.SIGKILL); proc.wait()
-        finally:
-            if proc.poll() is None:
-                os.killpg(proc.pid, signal.SIGTERM)
-                try: proc.wait(timeout=2)
-                except subprocess.TimeoutExpired:
-                    os.killpg(proc.pid, signal.SIGKILL); proc.wait()
-    if not terminal or not EVENTS.is_file():
-        raise RuntimeError(f"terminal event absent for {ground}")
-    shutil.copyfile(EVENTS, fixture / "events.jsonl")
-    actual_screenshots = len(list((fixture / "appdata/SCREENSHOT").glob("*.png")))
-    if actual_screenshots != expected_screenshots:
-        raise RuntimeError(f"{ground}: expected {expected_screenshots} screenshots, found {actual_screenshots}")
-    log(f"RUNTIME_PASS ground={ground} events={sum(1 for _ in EVENTS.open())} screenshots={actual_screenshots}")
+    run(
+        [
+            str(PYTHON),
+            "tools/run_pmdred_eu_native_fixture.py",
+            "--fixture",
+            str(fixture),
+            "--ground",
+            ground,
+            "--expected-screenshots",
+            str(expected_screenshots),
+            "--timeout-seconds",
+            str(timeout_seconds),
+        ],
+        timeout=timeout_seconds + 15,
+    )
+    termination = load(fixture / "termination.json")
+    required = [
+        termination["result"] == "PASS",
+        termination["exit_classification"] == "NORMAL_EXIT",
+        termination["return_code"] == 0,
+        termination["terminal"] is True,
+        termination["graceful"] is True,
+        termination["watchdog"] is False,
+        termination["requested_signal"] is None,
+        termination["sigsegv"] is False,
+        termination["forced_kill"] is False,
+        termination["orphan_process"] is False,
+        termination["load_phase_unload"]["pass"] is True,
+    ]
+    if not all(required):
+        raise RuntimeError(f"native termination evidence failed for {ground}: {required}")
+    log(
+        f"RUNTIME_PASS ground={ground} events={termination['event_count']} "
+        f"screenshots={termination['actual_screenshot_count']} exit=NORMAL_EXIT"
+    )
 
 
 def ground_symbols() -> list[str]:
@@ -245,6 +232,24 @@ def write_commands(out: Path, ground: str, identity: dict[str, Any], symbol: str
     source = source.replace("==19\n", f"=={unique_count}\n")
     source = source.replace("samples=97 unique_rgba=19", f"samples={sample_count} unique_rgba={unique_count}")
     source = source.replace("all 97 comparative PNGs", f"all {sample_count} comparative PNGs")
+    runtime_start = source.index('PMDO_RUN_PID=""')
+    runtime_end = source.index('test "$(wc -l < "$FIX/events.jsonl")"', runtime_start)
+    native_runtime = f'''"$PYTHON" tools/run_pmdred_eu_native_fixture.py \\
+  --fixture "$FIX" --ground {ground} --expected-screenshots {sample_count} \\
+  --timeout-seconds 1800
+"$PYTHON" - "$FIX/termination.json" <<'PYTERM'
+import json, sys
+from pathlib import Path
+t=json.loads(Path(sys.argv[1]).read_text())
+assert t['result']=='PASS' and t['exit_classification']=='NORMAL_EXIT'
+assert t['return_code']==0 and t['terminal'] and t['graceful']
+assert not t['watchdog'] and t['requested_signal'] is None
+assert not t['sigsegv'] and not t['forced_kill'] and not t['orphan_process']
+assert t['load_phase_unload']['pass']
+print('{ground.upper()}_NATIVE_TERMINATION_PASS rc=0 phase=Unload')
+PYTERM
+'''
+    source = source[:runtime_start] + native_runtime + source[runtime_end:]
     (out / "commands.sh").write_text(source); os.chmod(out / "commands.sh", 0o755)
 
 
@@ -254,9 +259,20 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
     if out.exists(): raise FileExistsError(out)
     (out / "actual").mkdir(parents=True); (out / "comparisons").mkdir()
     report = load(comparison / "report.json"); manifest = load(fixture / "fixture_manifest.json")
+    termination = load(fixture / "termination.json")
+    termination_pass = [
+        termination["result"] == "PASS", termination["exit_classification"] == "NORMAL_EXIT",
+        termination["return_code"] == 0, termination["terminal"] is True,
+        termination["graceful"] is True, termination["watchdog"] is False,
+        termination["requested_signal"] is None, termination["sigsegv"] is False,
+        termination["forced_kill"] is False, termination["orphan_process"] is False,
+        termination["load_phase_unload"]["pass"] is True,
+    ]
+    if not all(termination_pass):
+        raise RuntimeError(f"refusing to package non-graceful termination: {termination_pass}")
     primary = [x for x in report["samples"] if x["phase"] == "primary"]; reloads = [x for x in report["samples"] if x["phase"] == "reload"]
     unique_count = len({x["actual_rgba_sha256"] for x in primary}); samples = len(primary) + len(reloads)
-    for src, dst in [(fixture/"fixture_manifest.json",out/"fixture_manifest.json"),(fixture/"events.jsonl",out/"events.jsonl"),(fixture/"runtime.log",out/"runtime.log"),(fixture/"index.log",out/"index.log"),(post_fixture/"post_promotion_index.log",out/"post_promotion_index.log"),(comparison/"report.json",out/"report.json"),(comparison/"comparison.log",out/"comparison.log")]: shutil.copyfile(src,dst)
+    for src, dst in [(fixture/"fixture_manifest.json",out/"fixture_manifest.json"),(fixture/"events.jsonl",out/"events.jsonl"),(fixture/"termination.json",out/"termination.json"),(fixture/"runtime.log",out/"runtime.log"),(fixture/"index.log",out/"index.log"),(post_fixture/"post_promotion_index.log",out/"post_promotion_index.log"),(comparison/"report.json",out/"report.json"),(comparison/"comparison.log",out/"comparison.log")]: shutil.copyfile(src,dst)
     logs = sorted((fixture / "appdata/LOG").glob("*.txt"));
     if not logs: raise RuntimeError("engine log absent")
     shutil.copyfile(logs[-1], out / "engine.log")
@@ -267,6 +283,7 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
         shutil.copyfile(ROOT / item["comparative_png"], out / "comparisons" / f"comparison_{phase}_tick{tick}.png")
     ground_hash = audit["candidate_sha256"]["rsground"]; tile_hash = audit["candidate_sha256"]["tile"]
     events_sha, report_sha, fixture_sha = sha(out/"events.jsonl"),sha(out/"report.json"),sha(out/"fixture_manifest.json")
+    termination_sha = sha(out/"termination.json")
     validations={(x["ground"],x["phase"]):x for x in report["runtime"]["validations"]}; main=validations[(ground,"primary")]
     channels=plan["animation_channels"]; ticks=plan["complete_two_local_cycle_boundary_ticks"]
     reserve_ground=ROOT/f"RESERVE/red_grounds/{ground}.rsground"; reserve_tile=ROOT/f"RESERVE/red_tiles/{ground}_Base.tile"
@@ -280,16 +297,17 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
       "collision_validation":{"result":"PASS","source":plan["resources"]["bma"],"collision_layer_count":plan["collision_layer_count"],"solid_cells":plan["solid_cells"],"collision_sha256":plan["collision_sha256"],"successful_probe":{"start":[manifest["entries"][0]["spawn"]["movement_probes"]["successful"]["x"],manifest["entries"][0]["spawn"]["movement_probes"]["successful"]["y"]],"direction":manifest["entries"][0]["spawn"]["movement_probes"]["successful"]["direction"],"observed_delta":[int(x) for x in main["move_delta"].split(",")],"result":"PASS"},"blocked_probe":{"start":[manifest["entries"][0]["spawn"]["movement_probes"]["blocked"]["x"],manifest["entries"][0]["spawn"]["movement_probes"]["blocked"]["y"]],"direction":manifest["entries"][0]["spawn"]["movement_probes"]["blocked"]["direction"],"observed_delta":[int(x) for x in main["blocked_delta"].split(",")],"result":"PASS"}},
       "entry_exit_reentry":{"result":"PASS","loads":2,"entries":2,"exits":2,"same_ground_reentries":1,"strict_native_lifecycle_order":"PASS"},
       "cleanup_reload":{"result":"PASS","cleanup_probe_count":4,"ground_exit_cleanup_passes":2,"sink_cleanup":"PASS","final_cleanup":"PASS","reload_load":"LOAD_PASS","reload_tick_zero_full_rgba_exact":True,"terminal_end_seen":True,"state_leakage_observed":False,"stale_assets_observed":False,"permanent_lock_observed":False,"orphan_process_check":"PASS"},
+      "native_termination":{"result":"PASS","load_phase":"Unload","deinit_seen":True,"graphics_unload_seen":True,"exit_classification":"NORMAL_EXIT","return_code":0,"terminal":True,"graceful":True,"watchdog":False,"requested_signal":None,"sigsegv":False,"forced_kill":False,"orphan_process":False,"evidence":str((out/"termination.json").relative_to(ROOT)),"sha256":termination_sha},
       "fixture_isolation":{"canonical_source_ground_sha256":ground_hash,"canonical_source_tile_sha256":tile_hash,"source_entity_counts":{"markers":0,"spawners":0,"map_characters":0,"ground_objects":0},"fixture_only_changes":["deterministic entry marker","ignored validator plumbing"],"source_and_promoted_files_unchanged_by_fixture":True},
       "special_classification":{"canonical_source":classification,"scope":{"cinematic_choreography":"NOT APPLICABLE/NOT CLAIMED; Ground-only lifecycle and rendering validated","arena":False,"boss":False}},
       "identity_validation":{"result":"PASS","authenticated_map_file_id":identity["map_file_id"],"pinned_enum_symbol":symbol,"conversion_type":identity["conversion_type"],"weather_id":identity["weather_id"]},
       "definitive_destination":{"ground":f"Data/Ground/{ground}.rsground","tile":f"Content/Tile/{ground}_Base.tile","zone_registry":"Data/Zone/master_zone.json","zone_registry_entry":ground,"promotion_status":"PROMOTED_ADDITIVE_CANONICAL","preexisting_destinations":False,"pre_promotion_record":f"RESERVE/pmdred_pre_promotion/{ground}/README.md","promoted_ground_sha256":ground_hash,"promoted_tile_sha256":tile_hash},
-      "provenance":{"rom_sha256":ROM_SHA256,"reference_plan_sha256":PLAN_SHA256,"conversion_report_sha256":CONVERSION_SHA256,"candidate_ground_sha256":ground_hash,"candidate_tile_sha256":tile_hash,"source_normalized_sha256":plan["source_normalized_sha256"],"events_sha256":events_sha,"report_sha256":report_sha,"fixture_manifest_sha256":fixture_sha,"detailed_provenance":str((out/"provenance.json").relative_to(ROOT))},
-      "execution_note":{"terminal_event_and_all_required_captures_completed":True,"post_terminal_shutdown":"bounded process-group termination after terminal evidence","evidence_impact":"NONE"},"dungeon_restitution":{"affected":False,"status":"27-relationship bundle retained"},
+      "provenance":{"rom_sha256":ROM_SHA256,"reference_plan_sha256":PLAN_SHA256,"conversion_report_sha256":CONVERSION_SHA256,"candidate_ground_sha256":ground_hash,"candidate_tile_sha256":tile_hash,"source_normalized_sha256":plan["source_normalized_sha256"],"events_sha256":events_sha,"report_sha256":report_sha,"fixture_manifest_sha256":fixture_sha,"termination_sha256":termination_sha,"detailed_provenance":str((out/"provenance.json").relative_to(ROOT))},
+      "execution_note":{"terminal_event_and_all_required_captures_completed":True,"post_terminal_shutdown":"PMDO-native GameBase.LoadPhase.Unload followed by NORMAL_EXIT","return_code":0,"watchdog":False,"requested_signal":None,"evidence_impact":"NONE"},"dungeon_restitution":{"affected":False,"status":"27-relationship bundle retained"},
       "scope_note":"Ground-only; dialogue, choreography, music assignment, and narrative routing are not claimed.",
       "post_promotion_integration":{"result":"PASS","exact_pmdo_index":"PASS","indexed_ground_sha256":ground_hash,"indexed_tile_sha256":tile_hash,"index_log_sha256":INDEX_SHA256,"zone_encoding_bom_preserved":True,"zone_change":f"one insertion after {prior}","zone_ground_map_count":len(load(ROOT/"Data/Zone/master_zone.json")["Object"]["GroundMaps"]),"canonical_index":zone_index,"variant_and_routing_static_checks":"PASS"}}
-    promotion={"schema":1,"ground":ground,"validated_at":DATE,"promoted_at":DATE,"result":"PROMOTION_PASS_ADDITIVE_CANONICAL","method":{"destination_precondition":"both destinations absent","installation_mode":"fsynced temporary files and atomic os.replace","existing_asset_discarded":False,"existing_scripts_modified":False,"zone_registration":f"one insertion after {prior} without reserialization"},"gates":{"exact_pmdo_version":"0.8.12","exact_pmdo_executable_sha256":PMDO_SHA256,"active_patched_sdl_sha256":SDL_SHA256,"report_sha256":report_sha,"fixture_manifest_sha256":fixture_sha,"reference_plan_sha256":PLAN_SHA256,"canonical_ground_sha256":ground_hash,"canonical_tile_sha256":tile_hash,"planned_primary_tick_count":len(primary),"observed_primary_tick_count":len(primary),"reload_tick_zero_covered":True,"pixel_exact_sample_count":samples,"fully_opaque_sample_count":samples,"mismatched_pixel_count":0,"maximum_channel_delta":0,"runtime_safe":True,"native_lifecycle_order_pass":True,"cleanup_pass":True,"terminal_end_seen":True,"identity_map_file_id":identity["map_file_id"],"identity_symbol":symbol},"files":[{"candidate":f".runtime-cache/pmdred-eu-remaining-regenerated-v201/grounds/{ground}.rsground","destination":f"Data/Ground/{ground}.rsground","destination_preexisting":False,"bytes":(ROOT/f"Data/Ground/{ground}.rsground").stat().st_size,"validated_candidate_sha256":ground_hash,"destination_sha256":ground_hash,"candidate_destination_identical":True},{"candidate":f".runtime-cache/pmdred-eu-remaining-regenerated-v201/tiles/{ground}_Base.tile","destination":f"Content/Tile/{ground}_Base.tile","destination_preexisting":False,"bytes":(ROOT/f"Content/Tile/{ground}_Base.tile").stat().st_size,"validated_candidate_sha256":tile_hash,"destination_sha256":tile_hash,"candidate_destination_identical":True}],"zone_registration":{"entry":ground,"entry_count":1,"position":f"after {prior}","pre_promotion_sha256":zone_pre,"post_promotion_sha256":zone_post},"preserved_variants":[{"role":"historical_reserve",**reserve_details,"modified":False},{"role":"historical_v200_and_v201_reports","paths":["docs/pmdred_eu/remaining_grounds/history/v200_pre_period_fix/","docs/pmdred_eu/remaining_grounds/"],"modified_by_promotion":False}],"post_promotion_integration":{"result":"PASS","exact_pmdo_index":"PASS","log_sha256":INDEX_SHA256,"zone_structure":"PASS","existing_routes_unchanged":"PASS"}}
-    provenance={"schema":1,"ground":ground,"validated_at":DATE,"result":"PASS","authorities":{"rom":{"sha256":ROM_SHA256,"bytes":33554432,"region":"Europe"},"technical_reference":{"repository":"pret/pmd-red","commit":"bf0092d0e34fd8e49b859a0b5f96f00740faa42d","role":f"{symbol} identity, not EU bytes"},"normalized_extraction":{"source_hashes":plan["source_normalized_sha256"]},"runtime_plan":{"schema":2,"sha256":PLAN_SHA256},"conversion":{"converter":"2.0.1-eu","report_sha256":CONVERSION_SHA256}},"identity":{"canonical_debug_id":identity["canonical_debug_id"],"map_id":identity["map_id"],"map_file_id":identity["map_file_id"],"ground_place_id":identity["ground_place_id"],"conversion_type":identity["conversion_type"],"weather_id":identity["weather_id"],"stable_ground_id":ground,"ground_map_symbol":symbol,"dimensions_tiles":plan["dimensions_tiles"],"dimensions_pixels":plan["dimensions_pixels"],**role},"tested_source":{"ground_sha256":ground_hash,"tile_sha256":tile_hash,"candidate_entities":{"markers":0,"spawners":0,"map_characters":0,"ground_objects":0},"fixture_manifest_sha256":fixture_sha,"static_audit":audit},"runtime":{"name":"PMDO","version":"0.8.12","executable_sha256":PMDO_SHA256,"patched_sdl_sha256":SDL_SHA256,"events_sha256":events_sha,"event_count":sum(1 for _ in (out/"events.jsonl").open()),"primary_samples":len(primary),"reload_samples":1,"terminal_seen":True},"comparison":{"report_sha256":report_sha,"sample_count":samples,"exact_sample_count":samples,"fully_opaque_sample_count":samples,"mismatched_pixels":0,"maximum_channel_delta":0,"unique_primary_rgba_frames":unique_count},"candidate_provenance_reconciliation":{"historical_v200_reports_preserved_at":"docs/pmdred_eu/remaining_grounds/history/v200_pre_period_fix/","authenticated_v201_ground_sha256":ground_hash,"authenticated_v201_tile_sha256":tile_hash,"decision":"Only authenticated v2.0.1-eu bytes were exact-engine tested and promoted; immutable v2.0.0 reports and active v2.0.1 reports remain distinct provenance."},"preservation":{"historical_reserve":reserve_details,"absence_record":f"RESERVE/pmdred_pre_promotion/{ground}/README.md"},"promoted":{"ground_sha256":ground_hash,"tile_sha256":tile_hash,"zone_pre_sha256":zone_pre,"zone_post_sha256":zone_post},"durable_evidence":{},"reproduction":{"commands":str((out/"commands.sh").relative_to(ROOT))},"scope":"Ground-only validation","post_promotion_integration":{"exact_pmdo_index":"PASS","log_sha256":INDEX_SHA256,"zone_encoding_bom_preserved":True}}
+    promotion={"schema":1,"ground":ground,"validated_at":DATE,"promoted_at":DATE,"result":"PROMOTION_PASS_ADDITIVE_CANONICAL","method":{"destination_precondition":"both destinations absent","installation_mode":"fsynced temporary files and atomic os.replace","existing_asset_discarded":False,"existing_scripts_modified":False,"zone_registration":f"one insertion after {prior} without reserialization"},"gates":{"exact_pmdo_version":"0.8.12","exact_pmdo_executable_sha256":PMDO_SHA256,"active_patched_sdl_sha256":SDL_SHA256,"report_sha256":report_sha,"fixture_manifest_sha256":fixture_sha,"reference_plan_sha256":PLAN_SHA256,"canonical_ground_sha256":ground_hash,"canonical_tile_sha256":tile_hash,"planned_primary_tick_count":len(primary),"observed_primary_tick_count":len(primary),"reload_tick_zero_covered":True,"pixel_exact_sample_count":samples,"fully_opaque_sample_count":samples,"mismatched_pixel_count":0,"maximum_channel_delta":0,"runtime_safe":True,"native_lifecycle_order_pass":True,"cleanup_pass":True,"terminal_end_seen":True,"load_phase_unload_pass":True,"exit_classification":"NORMAL_EXIT","return_code":0,"terminal":True,"graceful":True,"watchdog":False,"requested_signal":None,"sigsegv":False,"forced_kill":False,"orphan_process":False,"termination_sha256":termination_sha,"identity_map_file_id":identity["map_file_id"],"identity_symbol":symbol},"files":[{"candidate":f".runtime-cache/pmdred-eu-remaining-regenerated-v201/grounds/{ground}.rsground","destination":f"Data/Ground/{ground}.rsground","destination_preexisting":False,"bytes":(ROOT/f"Data/Ground/{ground}.rsground").stat().st_size,"validated_candidate_sha256":ground_hash,"destination_sha256":ground_hash,"candidate_destination_identical":True},{"candidate":f".runtime-cache/pmdred-eu-remaining-regenerated-v201/tiles/{ground}_Base.tile","destination":f"Content/Tile/{ground}_Base.tile","destination_preexisting":False,"bytes":(ROOT/f"Content/Tile/{ground}_Base.tile").stat().st_size,"validated_candidate_sha256":tile_hash,"destination_sha256":tile_hash,"candidate_destination_identical":True}],"zone_registration":{"entry":ground,"entry_count":1,"position":f"after {prior}","pre_promotion_sha256":zone_pre,"post_promotion_sha256":zone_post},"preserved_variants":[{"role":"historical_reserve",**reserve_details,"modified":False},{"role":"historical_v200_and_v201_reports","paths":["docs/pmdred_eu/remaining_grounds/history/v200_pre_period_fix/","docs/pmdred_eu/remaining_grounds/"],"modified_by_promotion":False}],"post_promotion_integration":{"result":"PASS","exact_pmdo_index":"PASS","log_sha256":INDEX_SHA256,"zone_structure":"PASS","existing_routes_unchanged":"PASS"}}
+    provenance={"schema":1,"ground":ground,"validated_at":DATE,"result":"PASS","authorities":{"rom":{"sha256":ROM_SHA256,"bytes":33554432,"region":"Europe"},"technical_reference":{"repository":"pret/pmd-red","commit":"bf0092d0e34fd8e49b859a0b5f96f00740faa42d","role":f"{symbol} identity, not EU bytes"},"normalized_extraction":{"source_hashes":plan["source_normalized_sha256"]},"runtime_plan":{"schema":2,"sha256":PLAN_SHA256},"conversion":{"converter":"2.0.1-eu","report_sha256":CONVERSION_SHA256}},"identity":{"canonical_debug_id":identity["canonical_debug_id"],"map_id":identity["map_id"],"map_file_id":identity["map_file_id"],"ground_place_id":identity["ground_place_id"],"conversion_type":identity["conversion_type"],"weather_id":identity["weather_id"],"stable_ground_id":ground,"ground_map_symbol":symbol,"dimensions_tiles":plan["dimensions_tiles"],"dimensions_pixels":plan["dimensions_pixels"],**role},"tested_source":{"ground_sha256":ground_hash,"tile_sha256":tile_hash,"candidate_entities":{"markers":0,"spawners":0,"map_characters":0,"ground_objects":0},"fixture_manifest_sha256":fixture_sha,"static_audit":audit},"runtime":{"name":"PMDO","version":"0.8.12","executable_sha256":PMDO_SHA256,"patched_sdl_sha256":SDL_SHA256,"events_sha256":events_sha,"event_count":sum(1 for _ in (out/"events.jsonl").open()),"primary_samples":len(primary),"reload_samples":1,"terminal_seen":True,"load_phase":"Unload","exit_classification":"NORMAL_EXIT","return_code":0,"graceful":True,"watchdog":False,"requested_signal":None,"sigsegv":False,"forced_kill":False,"orphan_process":False,"termination_sha256":termination_sha},"comparison":{"report_sha256":report_sha,"sample_count":samples,"exact_sample_count":samples,"fully_opaque_sample_count":samples,"mismatched_pixels":0,"maximum_channel_delta":0,"unique_primary_rgba_frames":unique_count},"candidate_provenance_reconciliation":{"historical_v200_reports_preserved_at":"docs/pmdred_eu/remaining_grounds/history/v200_pre_period_fix/","authenticated_v201_ground_sha256":ground_hash,"authenticated_v201_tile_sha256":tile_hash,"decision":"Only authenticated v2.0.1-eu bytes were exact-engine tested and promoted; immutable v2.0.0 reports and active v2.0.1 reports remain distinct provenance."},"preservation":{"historical_reserve":reserve_details,"absence_record":f"RESERVE/pmdred_pre_promotion/{ground}/README.md"},"promoted":{"ground_sha256":ground_hash,"tile_sha256":tile_hash,"zone_pre_sha256":zone_pre,"zone_post_sha256":zone_post},"durable_evidence":{},"reproduction":{"commands":str((out/"commands.sh").relative_to(ROOT))},"scope":"Ground-only validation","post_promotion_integration":{"exact_pmdo_index":"PASS","log_sha256":INDEX_SHA256,"zone_encoding_bom_preserved":True}}
     dump(out/"validation_record.json",record);dump(out/"promotion_record.json",promotion);dump(out/"provenance.json",provenance)
     write_commands(out,ground,identity,symbol,ground_hash,tile_hash,sum(1 for _ in (out/"events.jsonl").open()),samples,unique_count,reserve_ground,reserve_tile)
     max_cycle=max((x["source_local_cycle"] for x in plan["cell_animation_schedules"]),default=1)
@@ -299,7 +317,7 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
 
 `PASS — PROMOTED ADDITIVELY`
 
-`{ground}` is the authenticated EU {role['classification'].replace('_',' ')} (`{symbol}`; map ID {identity['map_id']}, map-file ID {identity['map_file_id']}). Exact PMDO 0.8.12 loaded the authenticated v2.0.1-eu candidate in isolation; the independent raw-EU-ROM renderer matched all **{samples}/{samples}** full-RGBA samples with zero mismatched pixels and full opacity. BMA movement/blocking, two entries/exits, same-Ground re-entry, unload/reload, cleanup, state isolation, and terminal `end` all passed.
+`{ground}` is the authenticated EU {role['classification'].replace('_',' ')} (`{symbol}`; map ID {identity['map_id']}, map-file ID {identity['map_file_id']}). Exact PMDO 0.8.12 loaded the authenticated v2.0.1-eu candidate in isolation; the independent raw-EU-ROM renderer matched all **{samples}/{samples}** full-RGBA samples with zero mismatched pixels and full opacity. BMA movement/blocking, two entries/exits, same-Ground re-entry, unload/reload, cleanup, and state isolation all passed. PMDO then entered native `GameBase.LoadPhase.Unload`, published data and graphics unload callbacks, emitted terminal `end`, returned 0 as `NORMAL_EXIT`, and left no signal, watchdog, SIGSEGV, forced kill, or orphan.
 
 Role flags are recorded independently as `cinematic=false`, `arena=false`, `boss=false`; this Ground-only record claims no dialogue, choreography, music, or narrative routing. {len(primary)} primary boundary ticks ({ticks[0]}–{ticks[-1]}) cover every applicable animation schedule through two complete local cycles (maximum {max_cycle} ticks); {unique_count} distinct primary RGBA frames were observed.
 

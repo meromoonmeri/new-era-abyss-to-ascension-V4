@@ -561,8 +561,11 @@ local PILOT={{
 }}
 local SINK={{zone='master_zone',idx={sink_index}}}
 local DIR={{Up=Direction.Up,Right=Direction.Right,Down=Direction.Down,Left=Direction.Left}}
+local GameBaseType=luanet.import_type('RogueEssence.GameBase')
+local LoadPhaseType=luanet.import_type('RogueEssence.GameBase+LoadPhase')
 local function safe(f,d)local ok,v=pcall(f);if ok then return v end;return d end
 local function quote(v)return tostring(v):gsub('\\\\','\\\\\\\\'):gsub('"','\\\\"'):gsub('\\n',' | ')end
+local function phase(v)local raw=tostring(v);local name=raw:match('^([%a_]+)');return name or raw,raw end
 local function emit(s)
  PrintInfo('[PMDRED_EU_NATIVE_VALIDATOR] '..s)
  local f=io.open('/tmp/pmdred_eu_ground_validator.jsonl','a');if f then f:write(s..'\\n');f:flush();f:close() end
@@ -675,7 +678,14 @@ function V:OnGroundMapEnter()
  if self.finishing then
   emit('{{"event":"sink_entered","cleanup":"PASS"}}')
   emit('{{"event":"final_cleanup","cleanup":"PASS"}}')
-  emit('{{"event":"end"}}')
+  local before_value=safe(function()return GameBaseType.CurrentPhase end,'READ_FAILED')
+  local before,before_raw=phase(before_value)
+  local assigned_value=safe(function()
+   GameBaseType.CurrentPhase=LoadPhaseType.Unload
+   return GameBaseType.CurrentPhase
+  end,'WRITE_FAILED')
+  local assigned,assigned_raw=phase(assigned_value)
+  emit('{{"event":"load_phase_unload_requested","before":"'..quote(before)..'","before_raw":"'..quote(before_raw)..'","requested":"Unload","readback":"'..quote(assigned)..'","readback_raw":"'..quote(assigned_raw)..'"}}')
   return
  end
  if self.busy or self.idx<1 or self.idx>#PILOT then return end
@@ -712,6 +722,19 @@ function V:OnUpdate()
   RogueEssence.Content.GraphicsManager.TotalFrameTick=self.capture_total
  end
 end
+function V:OnDeinit()
+ if not self.enabled then return end
+ local current=safe(function()return GameBaseType.CurrentPhase end,'READ_FAILED')
+ local phase_name,phase_raw=phase(current)
+ emit('{{"event":"native_deinit","load_phase":"'..quote(phase_name)..'","load_phase_raw":"'..quote(phase_raw)..'"}}')
+end
+function V:OnGraphicsUnload()
+ if not self.enabled then return end
+ local current=safe(function()return GameBaseType.CurrentPhase end,'READ_FAILED')
+ local phase_name,phase_raw=phase(current)
+ emit('{{"event":"native_graphics_unload","load_phase":"'..quote(phase_name)..'","load_phase_raw":"'..quote(phase_raw)..'"}}')
+ emit('{{"event":"end","terminal":true,"graceful":true,"load_phase":"'..quote(phase_name)..'","load_phase_raw":"'..quote(phase_raw)..'"}}')
+end
 function V:OnInit()
  if self.enabled then emit('{{"event":"bootstrap_new_game"}}');RogueEssence.GameManager.Instance:NewGamePlus(424242) end
 end
@@ -720,6 +743,8 @@ function V:OnLoadSavedData()self:begin()end
 function V:Subscribe(med)
  med:Subscribe('PmdRedEuNativeGroundValidator',EngineServiceEvents.Update,function()self.OnUpdate(self)end)
  med:Subscribe('PmdRedEuNativeGroundValidator',EngineServiceEvents.Init,function()self.OnInit(self)end)
+ med:Subscribe('PmdRedEuNativeGroundValidator',EngineServiceEvents.Deinit,function()self.OnDeinit(self)end)
+ med:Subscribe('PmdRedEuNativeGroundValidator',EngineServiceEvents.GraphicsUnload,function()self.OnGraphicsUnload(self)end)
  med:Subscribe('PmdRedEuNativeGroundValidator',EngineServiceEvents.NewGame,function()self.OnNewGame(self)end)
  med:Subscribe('PmdRedEuNativeGroundValidator',EngineServiceEvents.LoadSavedData,function()self.OnLoadSavedData(self)end)
  med:Subscribe('PmdRedEuNativeGroundValidator',EngineServiceEvents.GroundMapEnter,function()self.OnGroundMapEnter(self)end)

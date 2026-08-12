@@ -72,6 +72,15 @@ ensure_checkout() {
     local tmp="${dst}.clone.$$"
     [[ ! -e $tmp ]] || fail "temporary path already exists: $tmp"
     timeout --signal=TERM --kill-after=15 900 gh repo clone "$repo" "$tmp" -- --depth 1
+    # A lock commit can stop being the repository's default-branch tip after
+    # this recipe is recorded. Keep the initial transfer shallow, then fetch
+    # and detach the exact authenticated commit rather than accepting a newer
+    # moving HEAD or failing into an unnecessary rebuild loop.
+    if [[ $(git -C "$tmp" rev-parse HEAD) != "$commit" ]]; then
+      timeout --signal=TERM --kill-after=15 900 \
+        git -C "$tmp" fetch --depth 1 origin "$commit"
+      git -C "$tmp" -c advice.detachedHead=false checkout --detach "$commit"
+    fi
     [[ $(git -C "$tmp" rev-parse HEAD) == "$commit" ]] || fail "unexpected head for $repo"
     mv -n "$tmp" "$dst"
   fi
@@ -138,6 +147,11 @@ done
 
 # The codeload tarball is the only large source that is not duplicated as a
 # checkout. GitHub CLI supplies authenticated bounded transport when absent.
+# GitHub-generated tar/gzip container bytes are not a stable commit identity:
+# the same pinned Git tree can later be recompressed into different bytes.
+# Preserve the original observed transport hash, but make the exact 11,485-file
+# tree manifest the acceptance authority for any authenticated transport
+# variant of this same immutable commit.
 DUMP_ARCHIVE=.runtime-cache/downloads/DumpAsset-${DUMP_COMMIT}.tar.gz
 if [[ ! -e $DUMP_ARCHIVE ]]; then
   command -v gh >/dev/null || fail "gh is required to restore DumpAsset"
@@ -146,10 +160,16 @@ if [[ ! -e $DUMP_ARCHIVE ]]; then
   timeout --signal=TERM --kill-after=15 1800 gh api \
     -H 'Accept: application/vnd.github+json' \
     "repos/audinowho/DumpAsset/tarball/$DUMP_COMMIT" > "$tmp"
-  verify_file "$tmp" "$DUMP_ARCHIVE_SHA" 338722101
+  [[ -s $tmp ]] || fail "empty DumpAsset transport: $tmp"
   mv -n "$tmp" "$DUMP_ARCHIVE"
 fi
-verify_file "$DUMP_ARCHIVE" "$DUMP_ARCHIVE_SHA" 338722101
+DUMP_ARCHIVE_ACTUAL_SHA=$(actual_sha "$DUMP_ARCHIVE")
+DUMP_ARCHIVE_ACTUAL_BYTES=$(stat -c %s "$DUMP_ARCHIVE")
+if [[ $DUMP_ARCHIVE_ACTUAL_SHA == "$DUMP_ARCHIVE_SHA" && $DUMP_ARCHIVE_ACTUAL_BYTES == 338722101 ]]; then
+  echo "FILE_PASS $DUMP_ARCHIVE"
+else
+  echo "TRANSPORT_VARIANT $DUMP_ARCHIVE historical_sha256=$DUMP_ARCHIVE_SHA actual_sha256=$DUMP_ARCHIVE_ACTUAL_SHA actual_bytes=$DUMP_ARCHIVE_ACTUAL_BYTES"
+fi
 if [[ ! -e .runtime-cache/DumpAsset ]]; then
   tmp=".runtime-cache/DumpAsset.extract.$$"
   mkdir "$tmp"
@@ -157,6 +177,7 @@ if [[ ! -e .runtime-cache/DumpAsset ]]; then
   printf '%s\n' "$DUMP_COMMIT" > "$tmp/.source-commit"
   make_tree_manifest "$tmp" .runtime-cache/DumpAsset.tree-sha256.tmp.$$ .source-commit
   [[ $(actual_sha .runtime-cache/DumpAsset.tree-sha256.tmp.$$) == "$DUMP_TREE_MANIFEST_SHA" ]] || fail "DumpAsset extraction mismatch"
+  [[ $(wc -l < .runtime-cache/DumpAsset.tree-sha256.tmp.$$) == 11485 ]] || fail "DumpAsset extraction file count mismatch"
   mv -n .runtime-cache/DumpAsset.tree-sha256.tmp.$$ .runtime-cache/DumpAsset.tree-sha256
   mv -n "$tmp" .runtime-cache/DumpAsset
 fi

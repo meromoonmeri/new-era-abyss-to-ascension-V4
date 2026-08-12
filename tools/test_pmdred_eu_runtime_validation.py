@@ -197,7 +197,10 @@ class IndependentReferencePlanTests(unittest.TestCase):
                 {"event": "ground_exit", "ground": "synthetic", "phase": "reload", "cleanup": "PASS"},
                 {"event": "sink_entered", "cleanup": "PASS"},
                 {"event": "final_cleanup", "cleanup": "PASS"},
-                {"event": "end"},
+                {"event": "load_phase_unload_requested", "before": "Ready", "requested": "Unload", "readback": "Unload"},
+                {"event": "native_deinit", "load_phase": "Unload"},
+                {"event": "native_graphics_unload", "load_phase": "Unload"},
+                {"event": "end", "terminal": True, "graceful": True, "load_phase": "Unload"},
             ])
             events_path = root / "events.jsonl"
             events_path.write_text("".join(json.dumps(event) + "\n" for event in events))
@@ -370,7 +373,10 @@ class RuntimeEvidenceTests(unittest.TestCase):
                 {"event": "ground_exit", "ground": "h26p01", "phase": "reload", "cleanup": "PASS"},
                 {"event": "sink_entered", "cleanup": "PASS"},
                 {"event": "final_cleanup", "cleanup": "PASS"},
-                {"event": "end"},
+                {"event": "load_phase_unload_requested", "before": "Ready", "requested": "Unload", "readback": "Unload"},
+                {"event": "native_deinit", "load_phase": "Unload"},
+                {"event": "native_graphics_unload", "load_phase": "Unload"},
+                {"event": "end", "terminal": True, "graceful": True, "load_phase": "Unload"},
             ]
             events_path = root / "events.jsonl"
             events_path.write_text("".join(json.dumps(event) + "\n" for event in events))

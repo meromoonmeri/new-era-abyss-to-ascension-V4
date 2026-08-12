@@ -446,6 +446,9 @@ def validate_native_lifecycle_order(events: list[dict[str, Any]]) -> dict[str, A
     began = False
     sink_seen = False
     final_seen = False
+    unload_requested = False
+    deinit_seen = False
+    graphics_unload_seen = False
     end_seen = False
 
     for index, event in enumerate(events):
@@ -537,9 +540,37 @@ def validate_native_lifecycle_order(events: list[dict[str, Any]]) -> dict[str, A
             if event.get("cleanup") != "PASS":
                 error(index, "final_cleanup is not PASS")
             final_seen = True
-        elif kind == "end":
+        elif kind == "load_phase_unload_requested":
             if not final_seen:
-                error(index, "end precedes final_cleanup")
+                error(index, "LoadPhase.Unload request precedes final_cleanup")
+            if unload_requested:
+                error(index, "duplicate LoadPhase.Unload request")
+            if event.get("requested") != "Unload" or event.get("readback") != "Unload":
+                error(index, "LoadPhase.Unload request/readback is not Unload")
+            unload_requested = True
+        elif kind == "native_deinit":
+            if not unload_requested:
+                error(index, "native deinit precedes LoadPhase.Unload request")
+            if deinit_seen:
+                error(index, "duplicate native deinit")
+            if event.get("load_phase") != "Unload":
+                error(index, "native deinit did not observe LoadPhase.Unload")
+            deinit_seen = True
+        elif kind == "native_graphics_unload":
+            if not deinit_seen:
+                error(index, "native graphics unload precedes native deinit")
+            if graphics_unload_seen:
+                error(index, "duplicate native graphics unload")
+            if event.get("load_phase") != "Unload":
+                error(index, "native graphics unload did not observe LoadPhase.Unload")
+            graphics_unload_seen = True
+        elif kind == "end":
+            if not graphics_unload_seen:
+                error(index, "end precedes native graphics unload")
+            if event.get("terminal") is not True or event.get("graceful") is not True:
+                error(index, "end is not terminal and graceful")
+            if event.get("load_phase") != "Unload":
+                error(index, "end did not observe LoadPhase.Unload")
             end_seen = True
 
     if active is not None:
@@ -553,6 +584,12 @@ def validate_native_lifecycle_order(events: list[dict[str, Any]]) -> dict[str, A
         errors.append("sink_entered is missing")
     if not final_seen:
         errors.append("final_cleanup is missing")
+    if not unload_requested:
+        errors.append("LoadPhase.Unload request is missing")
+    if not deinit_seen:
+        errors.append("native deinit is missing")
+    if not graphics_unload_seen:
+        errors.append("native graphics unload is missing")
     if not end_seen:
         errors.append("end is missing")
 
@@ -578,6 +615,10 @@ def validate_native_lifecycle_order(events: list[dict[str, Any]]) -> dict[str, A
         "declared_ground_count": ground_count,
         "declared_loads_per_ground": loads_per_ground,
         "closed_load_count": len(closed),
+        "load_phase_unload_requested": unload_requested,
+        "native_deinit_seen": deinit_seen,
+        "native_graphics_unload_seen": graphics_unload_seen,
+        "terminal_graceful_end_seen": end_seen,
     }
 
 
