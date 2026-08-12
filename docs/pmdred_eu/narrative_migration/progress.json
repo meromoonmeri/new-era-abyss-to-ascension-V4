@@ -717,5 +717,18 @@
       "migration_status": "NOT_STARTED"
     }
   ],
-  "next_action": "Implement exact PMD Red EU personality quiz plus raw palette opcodes 0x22/0x23, BGM fadeout, RET; rerun the same isolated PMDO gate before any route connection."
+  "next_action": "Integrate the exact PMD Red EU personality quiz into the existing New Era personality_test system, preserve its two-layer parallax and Red staging, map the canonical result into the complete New Era starter catalogue, then close palette opcodes 0x22/0x23 and rerun the isolated PMDO gate.",
+  "definitive_integration_contract": "docs/pmdred_eu/narrative_migration/integration_contract.json",
+  "definitive_integration_contract_sha256": "688f73c41d8f4f8f8bc0cecea743a55e24b43d3b3480b7ae080b7ad86d841c32",
+  "architecture": {
+    "personality_quiz": "INTEGRATE_RED_EU_QUIZ_INTO_EXISTING_NEW_ERA_PERSONALITY_TEST",
+    "independent_second_quiz": false,
+    "starter_result_bridge": "CANONICAL_RESULT_TO_FULL_NEW_ERA_STARTER_CATALOGUE",
+    "personality_test_parallax": "DREAM_BACK_PLUS_30_AND_DREAM_FRONT_MINUS_30",
+    "fugitive_arc": "NEW_ERA_MAIN_CONTINUITY_FROM_METANO_TOWN_SQUARE",
+    "parallel_red_campaign": false,
+    "technical_namespace_role": "COLLISION_AVOIDANCE_AND_ISOLATED_VALIDATION_ONLY",
+    "canonical_dungeons_and_cutscenes": true,
+    "canonical_encounter_and_boss_staging": true
+  }
 }

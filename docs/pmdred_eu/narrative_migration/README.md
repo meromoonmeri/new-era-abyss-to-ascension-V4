@@ -1,6 +1,18 @@
 # Migration narrative PMD Red EU → New Era
 
-La migration effective a commencé après l’audit exhaustif. Elle utilise un namespace parallèle `halcyon.pmdred_eu`, sans connexion à `FugitiveArc` ni aux chapitres New Era.
+La migration effective a commencé après l’audit exhaustif. `halcyon.pmdred_eu` est un namespace **technique d’isolation et de validation**, pas une campagne parallèle. La cible produit est l’intégration de PMD Red EU dans la continuité principale de New Era.
+
+## Périmètre définitif
+
+[`INTEGRATION_CONTRACT.md`](INTEGRATION_CONTRACT.md) et [`integration_contract.json`](integration_contract.json) sont autoritatifs. Ils remplacent les recommandations antérieures incompatibles :
+
+- un seul Personality Quiz, intégré au système `personality_test` New Era et à son parallaxe existant ;
+- questions, branches, résultat et mise en scène Red EU, puis accès au catalogue complet des starters New Era ;
+- arc Fugitive intégré à l’histoire New Era, avec départ depuis la place de Métano Town ;
+- donjons, cinématiques in-dungeon, rencontres et boss traités comme des chaînes complètes ;
+- aucune campagne Red parallèle et aucune simplification de mise en scène.
+
+L’isolation actuelle de `s01` reste nécessaire pour obtenir une preuve PMDO avant de connecter le quiz existant ou une route d’histoire.
 
 ## État actuel
 
@@ -10,7 +22,7 @@ La migration effective a commencé après l’audit exhaustif. Elle utilise un n
 - **Scène en cours :** `s01`, **11 commandes source sur 16** reproduites jusqu’au changement de musique inclus.
 - **Connexion aux routes de jeu :** aucune.
 
-La scène n’est volontairement **pas déclarée terminée**. Les commandes suivantes restent bloquées : opcode palette `0x22`, `SPECIAL_TEXT_PERSONALITY_QUIZ`, fondu BGM, opcode palette `0x23` et `RET`. Le sélecteur direct de personnages New Era ne remplace pas silencieusement le test de personnalité canonique.
+La scène n’est volontairement **pas déclarée terminée**. Les commandes suivantes restent bloquées : opcode palette `0x22`, `SPECIAL_TEXT_PERSONALITY_QUIZ`, fondu BGM, opcode palette `0x23` et `RET`. Le quiz Red doit être intégré au système `personality_test` existant, puis transmettre son résultat au sélecteur New Era complet ; aucun second quiz et aucun remplacement silencieux ne sont autorisés.
 
 ## Ce qui est effectivement porté pour `s01`
 
@@ -68,6 +80,7 @@ Le runner ne lance ni convertisseur, ni finalizer, ni promoteur Ground.
 
 ## Artefacts
 
+- [`INTEGRATION_CONTRACT.md`](INTEGRATION_CONTRACT.md) / [`integration_contract.json`](integration_contract.json) — périmètre produit définitif ;
 - [`protected_baseline.json`](protected_baseline.json) — baseline create-only ;
 - [`progress.json`](progress.json) — progression machine des 133 scènes ;
 - [`scenes/s01/authority.json`](scenes/s01/authority.json) — commandes, textes EU, Ground et audio ;
@@ -79,4 +92,4 @@ Le runner ne lance ni convertisseur, ni finalizer, ni promoteur Ground.
 
 ## Prochaine étape obligatoire
 
-Porter exactement le test de personnalité PMD Red EU et déterminer les opcodes palette `0x22`/`0x23`, puis reprendre `s01` au même point. La scène ne pourra être promue qu’après validation des questions, branches, résultat héros, fondus, audio, état final et transition vers la suite canonique.
+Porter exactement le test de personnalité PMD Red EU **dans le système `personality_test` New Era existant**, déterminer les opcodes palette `0x22`/`0x23`, puis relier le résultat canonique au catalogue complet des starters New Era. `s01` ne pourra être promue qu’après validation des questions, branches, pondérations, résultat, parallaxe, assets Pokémon, fondus, audio, état final et transition. L’entrée Métano et l’arc Fugitive ne seront connectés qu’après ce gate.
