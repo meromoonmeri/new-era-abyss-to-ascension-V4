@@ -489,7 +489,11 @@ function V:advance()
   local cleaned=Scheduler.Cancel(map)
   local active=safe(function()return Scheduler.ActiveAsset()end,nil)
   emit('{{"event":"final_cleanup","cleanup":"'..((cleaned and active==nil) and 'PASS' or 'FAIL')..'"}}')
-  emit('{{"event":"end"}}');self.busy=false;self.task=nil
+  emit('{{"event":"end"}}')
+  -- Request the engine's own unload path. External TERM is retained only as a
+  -- strict watchdog by the process runner; a qualifying run exits normally.
+  RogueEssence.GameBase.CurrentPhase=RogueEssence.GameBase.LoadPhase.Unload
+  self.busy=false;self.task=nil
  else
   self.exiting=leaving.id
   GAME:EnterZone(PILOT[self.idx].zone,-1,PILOT[self.idx].idx,0);self.busy=false;self.task=nil
@@ -676,6 +680,9 @@ function V:OnGroundMapEnter()
   emit('{{"event":"sink_entered","cleanup":"PASS"}}')
   emit('{{"event":"final_cleanup","cleanup":"PASS"}}')
   emit('{{"event":"end"}}')
+  -- Exit through PMDO/FNA's normal unload lifecycle. The strict runner waits
+  -- for status 0 and uses TERM only as a diagnostic watchdog if this stalls.
+  RogueEssence.GameBase.CurrentPhase=RogueEssence.GameBase.LoadPhase.Unload
   return
  end
  if self.busy or self.idx<1 or self.idx>#PILOT then return end

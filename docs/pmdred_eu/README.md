@@ -299,6 +299,16 @@ untouched, every index PMDO might rewrite is fixture-local, and only copied
 Grounds receive deterministic audit markers and routing. The graphical tile
 index is parsed, merged, written, and read back exactly before launch.
 
+The official bounded shutdown gate is
+`tools/run_pmdred_eu_pmdo_termination_gate.py`. After writing terminal `end`,
+the fixture requests PMDO's own `GameBase.LoadPhase.Unload`; qualification
+requires an unsignaled process exit with status 0 and no residual process. TERM
+remains a strict watchdog only: its real wait status is always retained, and a
+SIGSEGV, signal-assisted exit, forced kill, or stalled unload fails the run.
+This replaces the former process-group TERM stop, whose SwiftShader teardown
+race could null-dereference on multiple Grounds. No Ground, graphical resource,
+or conversion byte is modified by this lifecycle-only correction.
+
 The controlled engine run loaded all 27 Grounds. For each Ground it recorded
 entry, scheduler ownership, four cardinal movement/collision probes, exact
 canonical CANM tick seeks, screenshots, and a `SAFE` verdict. The dependency-free

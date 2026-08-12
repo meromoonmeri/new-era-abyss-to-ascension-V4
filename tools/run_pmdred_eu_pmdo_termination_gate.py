@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Run PMDO until validator ``end`` and classify its real termination status.
 
-This runner deliberately does not hide ``wait``/``Popen.wait`` results.  PMDO is
+This runner deliberately does not hide ``wait``/``Popen.wait`` results. PMDO is
 launched directly as a new process-group leader (without a ``timeout`` parent),
-so the recorded return code belongs to PMDO itself.  Once the fixed validator
-stream contains its terminal event, the requested shutdown signal is sent only
-to PMDO.  SIGTERM is accepted as the expected bounded shutdown; SIGSEGV and all
-other statuses fail the gate.
+so the recorded return code belongs to PMDO itself. The fixture requests PMDO's
+own ``GameBase.LoadPhase.Unload`` after writing its terminal event. A qualifying
+run must then exit normally with status 0. TERM remains a strict watchdog for a
+stalled unload: its real status is retained, and SIGSEGV or any signal-assisted
+shutdown fails official qualification.
 
 The runner is transport/lifecycle plumbing only.  It does not build, convert,
 compare, install, or promote any Ground.
@@ -58,6 +59,26 @@ def classify_returncode(returncode: int, requested_signal: int, forced_kill: boo
     }
 
 
+def official_gate_passes(
+    *,
+    terminal_seen: bool,
+    graceful_exit_observed: bool,
+    returncode: int,
+    requested_signal_sent: bool,
+    residual_before: list[int],
+    residual_after: list[int],
+) -> bool:
+    """Require the engine's own successful unload; watchdog exits never pass."""
+    return (
+        terminal_seen
+        and graceful_exit_observed
+        and returncode == 0
+        and not requested_signal_sent
+        and not residual_before
+        and not residual_after
+    )
+
+
 def process_group_members(pgid: int) -> list[int]:
     """Return live PIDs whose Linux process-group ID equals ``pgid``."""
     members: list[int] = []
@@ -81,6 +102,34 @@ def has_terminal_event(path: Path) -> bool:
         return False
 
 
+def signal_state(pid: int) -> dict[str, Any]:
+    """Capture Linux signal masks before shutdown for TERM/INT diagnosis."""
+    status: dict[str, str] = {}
+    for line in Path(f"/proc/{pid}/status").read_text().splitlines():
+        if ":" in line:
+            key, value = line.split(":", 1)
+            status[key] = value.strip()
+    masks = {key: int(status.get(key, "0"), 16) for key in ("SigBlk", "SigIgn", "SigCgt")}
+    signals: dict[str, Any] = {}
+    for sig in (signal.SIGINT, signal.SIGTERM):
+        bit = 1 << (sig - 1)
+        caught = bool(masks["SigCgt"] & bit)
+        ignored = bool(masks["SigIgn"] & bit)
+        blocked = bool(masks["SigBlk"] & bit)
+        signals[signal.Signals(sig).name] = {
+            "number": int(sig),
+            "caught": caught,
+            "ignored": ignored,
+            "blocked": blocked,
+            "disposition": "CAUGHT" if caught else "IGNORED" if ignored else "DEFAULT",
+        }
+    return {
+        "thread_count": int(status.get("Threads", "0")),
+        "raw_masks": {key: f"{value:016x}" for key, value in masks.items()},
+        "signals": signals,
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--pmdo", type=Path, required=True)
@@ -92,6 +141,7 @@ def main() -> int:
     parser.add_argument("--event-copy", type=Path, required=True)
     parser.add_argument("--status-json", type=Path, required=True)
     parser.add_argument("--terminal-timeout", type=float, default=1800.0)
+    parser.add_argument("--graceful-exit-timeout", type=float, default=30.0)
     parser.add_argument("--shutdown-timeout", type=float, default=15.0)
     parser.add_argument("--post-end-delay", type=float, default=0.1)
     parser.add_argument("--shutdown-signal", choices=("TERM", "INT"), default="TERM")
@@ -135,19 +185,42 @@ def main() -> int:
                 break
             time.sleep(0.02)
 
+        pre_signal_state = None
         requested_signal_sent = False
-        if terminal_seen and process.poll() is None:
-            time.sleep(args.post_end_delay)
+        forced_kill = False
+        graceful_exit_observed = False
+
+        # The fixture requests GameBase.LoadPhase.Unload after writing `end`.
+        # A qualifying process must complete that native PMDO/FNA/SDL teardown
+        # itself and return 0. TERM remains the strict bounded watchdog: if the
+        # normal path stalls, its exact status is captured but the run fails.
+        if terminal_seen:
+            try:
+                returncode = process.wait(timeout=args.graceful_exit_timeout)
+                graceful_exit_observed = True
+            except subprocess.TimeoutExpired:
+                pre_signal_state = signal_state(process.pid)
+                time.sleep(args.post_end_delay)
+                os.kill(process.pid, shutdown_signal)
+                requested_signal_sent = True
+                try:
+                    returncode = process.wait(timeout=args.shutdown_timeout)
+                except subprocess.TimeoutExpired:
+                    forced_kill = True
+                    os.killpg(pgid, signal.SIGKILL)
+                    returncode = process.wait()
+        elif process.poll() is not None:
+            returncode = process.wait()
+        else:
+            pre_signal_state = signal_state(process.pid)
             os.kill(process.pid, shutdown_signal)
             requested_signal_sent = True
-
-        forced_kill = False
-        try:
-            returncode = process.wait(timeout=args.shutdown_timeout)
-        except subprocess.TimeoutExpired:
-            forced_kill = True
-            os.killpg(pgid, signal.SIGKILL)
-            returncode = process.wait()
+            try:
+                returncode = process.wait(timeout=args.shutdown_timeout)
+            except subprocess.TimeoutExpired:
+                forced_kill = True
+                os.killpg(pgid, signal.SIGKILL)
+                returncode = process.wait()
 
     # The leader has been reaped. Any remaining member is an orphan for this
     # bounded run and is removed only after being recorded as a gate failure.
@@ -172,17 +245,30 @@ def main() -> int:
         parse_error = str(exc)
 
     termination = classify_returncode(returncode, shutdown_signal, forced_kill)
-    if not terminal_seen or not requested_signal_sent or residual_members or residual_after_cleanup:
+    # Classification preserves every raw status, but official qualification is
+    # stricter: terminal evidence + engine-requested normal exit 0 + no orphan.
+    if not official_gate_passes(
+        terminal_seen=terminal_seen,
+        graceful_exit_observed=graceful_exit_observed,
+        returncode=returncode,
+        requested_signal_sent=requested_signal_sent,
+        residual_before=residual_members,
+        residual_after=residual_after_cleanup,
+    ):
         termination["result"] = "FAIL"
     result = {
-        "schema": "new-era.pmdred-eu-pmdo-termination-gate.v1",
+        "schema": "new-era.pmdred-eu-pmdo-termination-gate.v2",
         "command": command,
         "pmdo_pid": pgid,
         "requested_signal": int(shutdown_signal),
         "requested_signal_name": signal.Signals(shutdown_signal).name,
         "requested_signal_sent": requested_signal_sent,
+        "pre_signal_process_state": pre_signal_state,
         "terminal_seen": terminal_seen,
-        "terminal_to_signal_seconds": None if terminal_seen_at is None else args.post_end_delay,
+        "graceful_exit_requested_by_fixture": True,
+        "graceful_exit_observed": graceful_exit_observed,
+        "graceful_exit_timeout_seconds": args.graceful_exit_timeout,
+        "terminal_to_signal_seconds": args.post_end_delay if requested_signal_sent else None,
         "elapsed_seconds": round(time.monotonic() - started, 6),
         "event_count": len(event_lines),
         "event_parse_error": parse_error,
@@ -193,9 +279,10 @@ def main() -> int:
     }
     args.status_json.write_text(json.dumps(result, indent=2) + "\n")
     print(
-        "PMDO_TERMINATION_GATE_{} kind={} returncode={} signal={} terminal={} residual={}".format(
+        "PMDO_TERMINATION_GATE_{} kind={} returncode={} signal={} terminal={} graceful={} watchdog={} residual={}".format(
             termination["result"], termination["kind"], returncode,
-            termination["exit_signal_name"], terminal_seen, len(residual_members)
+            termination["exit_signal_name"], terminal_seen, graceful_exit_observed,
+            requested_signal_sent, len(residual_members)
         )
     )
     return 0 if termination["result"] == "PASS" else 3

@@ -4,7 +4,7 @@ from __future__ import annotations
 import signal
 import unittest
 
-from run_pmdred_eu_pmdo_termination_gate import classify_returncode
+from run_pmdred_eu_pmdo_termination_gate import classify_returncode, official_gate_passes
 
 
 class TerminationClassificationTests(unittest.TestCase):
@@ -53,6 +53,28 @@ class TerminationClassificationTests(unittest.TestCase):
         self.assertEqual(result["kind"], "FORCED_KILL")
         self.assertEqual(result["result"], "FAIL")
         self.assertTrue(result["forced_kill"])
+
+    def test_official_gate_requires_unsignaled_normal_unload(self) -> None:
+        base = {
+            "terminal_seen": True,
+            "graceful_exit_observed": True,
+            "returncode": 0,
+            "requested_signal_sent": False,
+            "residual_before": [],
+            "residual_after": [],
+        }
+        self.assertTrue(official_gate_passes(**base))
+        for change in (
+            {"terminal_seen": False},
+            {"graceful_exit_observed": False},
+            {"returncode": 143},
+            {"returncode": -signal.SIGSEGV},
+            {"requested_signal_sent": True},
+            {"residual_before": [10]},
+            {"residual_after": [11]},
+        ):
+            case = {**base, **change}
+            self.assertFalse(official_gate_passes(**case), change)
 
 
 if __name__ == "__main__":
