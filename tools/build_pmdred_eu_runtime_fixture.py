@@ -71,6 +71,71 @@ def validation_sink_payload(candidate: dict[str, Any]) -> dict[str, Any]:
     return sink_payload
 
 
+def verify_additive_entity_integration(
+    integrated_path: Path,
+    canonical_path: Path,
+) -> dict[str, Any]:
+    """Prove an integrated Ground only adds markers/spawners to a canonical one.
+
+    Project scripts can depend on invisible markers or dormant spawn definitions.
+    Such integration must survive canonical visual promotion, but the exception is
+    deliberately narrow: every canonical byte-level value represented by JSON,
+    including existing entities, must remain intact and in order.
+    """
+    integrated = read_json(integrated_path)
+    canonical = read_json(canonical_path)
+    integrated_layers = integrated.get("Object", {}).get("Entities")
+    canonical_layers = canonical.get("Object", {}).get("Entities")
+    if not isinstance(integrated_layers, list) or not isinstance(canonical_layers, list):
+        raise ValueError("Ground entity integration requires serialized entity-layer lists")
+    if len(integrated_layers) != len(canonical_layers):
+        raise ValueError("Ground entity integration changed the entity-layer count")
+
+    normalized = copy.deepcopy(integrated)
+    normalized_layers = normalized["Object"]["Entities"]
+    layer_evidence: list[dict[str, int]] = []
+    added_total = 0
+    for index, (candidate_layer, canonical_layer) in enumerate(
+        zip(integrated_layers, canonical_layers, strict=True)
+    ):
+        for field in ("Markers", "Spawners"):
+            candidate_entities = candidate_layer.get(field)
+            canonical_entities = canonical_layer.get(field)
+            if not isinstance(candidate_entities, list) or not isinstance(canonical_entities, list):
+                raise ValueError(f"entity layer {index} has a non-list {field} value")
+            if candidate_entities[:len(canonical_entities)] != canonical_entities:
+                raise ValueError(
+                    f"entity layer {index} changed or reordered canonical {field}"
+                )
+            normalized_layers[index][field] = copy.deepcopy(canonical_entities)
+        added_markers = len(candidate_layer["Markers"]) - len(canonical_layer["Markers"])
+        added_spawners = len(candidate_layer["Spawners"]) - len(canonical_layer["Spawners"])
+        added_total += added_markers + added_spawners
+        layer_evidence.append({
+            "layer": index,
+            "canonical_markers": len(canonical_layer["Markers"]),
+            "integrated_markers": len(candidate_layer["Markers"]),
+            "added_markers": added_markers,
+            "canonical_spawners": len(canonical_layer["Spawners"]),
+            "integrated_spawners": len(candidate_layer["Spawners"]),
+            "added_spawners": added_spawners,
+        })
+
+    if normalized != canonical:
+        raise ValueError(
+            "Ground integration differs from canonical data outside additive Markers/Spawners"
+        )
+    if added_total == 0:
+        raise ValueError("Ground entity-integration exception added no entities")
+    return {
+        "mode": "additive_markers_spawners_only",
+        "canonical_ground": str(canonical_path),
+        "canonical_ground_sha256": sha256_file(canonical_path),
+        "integrated_ground_sha256": sha256_file(integrated_path),
+        "layers": layer_evidence,
+    }
+
+
 def symlink(source: Path, target: Path) -> None:
     target.parent.mkdir(parents=True, exist_ok=True)
     target.symlink_to(source.resolve(), target_is_directory=source.is_dir())
@@ -675,9 +740,18 @@ def build(
     plan_path: Path | None = None,
     ids: list[str] | None = None,
     pilot_ticks: list[int] | None = None,
+    entity_integrated_ids: list[str] | None = None,
+    canonical_baseline_root: Path | None = None,
 ) -> Path:
     if conversion_set not in {"direct", "remaining"}:
         raise ValueError(f"unsupported conversion set {conversion_set}")
+    integrated_ids = set(entity_integrated_ids or [])
+    if integrated_ids and (conversion_set != "remaining" or canonical_baseline_root is None):
+        raise ValueError(
+            "entity-integrated IDs require remaining conversion set and canonical baseline root"
+        )
+    if canonical_baseline_root is not None and not integrated_ids:
+        raise ValueError("canonical baseline root requires explicit entity-integrated IDs")
     reference_plan: dict[str, Any] | None = None
     conversion_report: dict[str, Any] | None = None
     if conversion_set == "direct":
@@ -707,6 +781,12 @@ def build(
     unknown = sorted(set(ids or []) - set(available))
     if unknown:
         raise ValueError("unknown candidate ids: " + ", ".join(unknown))
+    unknown_integrated = sorted(integrated_ids - set(candidates))
+    if unknown_integrated:
+        raise ValueError(
+            "entity-integrated IDs are not selected candidates: "
+            + ", ".join(unknown_integrated)
+        )
     if not candidates:
         raise ValueError("fixture candidate selection is empty")
     if pilot_ticks is not None and len(candidates) != 1:
@@ -780,11 +860,35 @@ def build(
         source_tile = candidate_root / "tiles" / f"{asset}{sheet_suffix}"
         if not source_ground.is_file() or not source_tile.is_file():
             raise ValueError(f"missing candidate files for {asset}")
+        entity_integration: dict[str, Any] | None = None
         if conversion_set == "remaining":
             expected = report_rows[asset]["output_sha256"]
             actual = {"rsground": sha256_file(source_ground), "tile": sha256_file(source_tile)}
             if actual != expected:
-                raise ValueError(f"{asset}: candidate files differ from authenticated conversion report")
+                if asset not in integrated_ids:
+                    raise ValueError(
+                        f"{asset}: candidate files differ from authenticated conversion report"
+                    )
+                if actual["tile"] != expected["tile"]:
+                    raise ValueError(f"{asset}: entity integration changed the canonical tile")
+                assert canonical_baseline_root is not None
+                baseline_ground = canonical_baseline_root / "grounds" / source_ground.name
+                baseline_tile = canonical_baseline_root / "tiles" / source_tile.name
+                baseline_actual = {
+                    "rsground": sha256_file(baseline_ground),
+                    "tile": sha256_file(baseline_tile),
+                }
+                if baseline_actual != expected:
+                    raise ValueError(
+                        f"{asset}: canonical integration baseline differs from authenticated report"
+                    )
+                entity_integration = verify_additive_entity_integration(
+                    source_ground, baseline_ground
+                )
+            elif asset in integrated_ids:
+                raise ValueError(
+                    f"{asset}: declared entity integration is byte-identical to canonical candidate"
+                )
 
         spawn = fixture_ground(source_ground, quest / "Data/Ground" / source_ground.name)
         symlink(source_tile, quest / "Content/Tile" / source_tile.name)
@@ -827,7 +931,7 @@ def build(
                 preview_ticks = pilot_ticks
             else:
                 preview_ticks = planned_ticks
-        manifest_entries.append({
+        manifest_entry = {
             "id": asset,
             "zone_index": ground_maps.index(asset),
             "spawn": spawn,
@@ -836,7 +940,13 @@ def build(
             "source_tile": display_path(source_tile),
             "source_ground_sha256": sha256_file(source_ground),
             "source_tile_sha256": sha256_file(source_tile),
-        })
+        }
+        if entity_integration is not None:
+            entity_integration["canonical_ground"] = display_path(
+                Path(entity_integration["canonical_ground"])
+            )
+            manifest_entry["entity_integration"] = entity_integration
+        manifest_entries.append(manifest_entry)
 
     if conversion_set == "remaining":
         sink_path = quest / "Data/Ground" / f"{VALIDATION_SINK_ASSET}.rsground"
@@ -913,6 +1023,10 @@ def build(
         "replaced_fixture_local_tile_index_nodes": sorted(replaced_tile_index_nodes),
         "reference_plan": display_path(plan_path) if plan_path else None,
         "reference_plan_sha256": sha256_file(plan_path) if plan_path else None,
+        "entity_integrated_ids": sorted(integrated_ids),
+        "canonical_baseline_root": (
+            display_path(canonical_baseline_root) if canonical_baseline_root else None
+        ),
         "entries": manifest_entries,
     }
     (output / "fixture_manifest.json").write_text(
@@ -943,6 +1057,17 @@ def main() -> int:
     parser.add_argument("--plan", type=Path)
     parser.add_argument("--ids", help="comma-separated selected Ground IDs")
     parser.add_argument(
+        "--entity-integrated-ids",
+        help=(
+            "comma-separated selected Grounds allowed to add Markers/Spawners; "
+            "requires --canonical-baseline-root"
+        ),
+    )
+    parser.add_argument(
+        "--canonical-baseline-root", type=Path,
+        help="authenticated unintegrated conversion root used to prove entity-only additions",
+    )
+    parser.add_argument(
         "--pilot-ticks",
         help="comma-separated authenticated tick subset; requires exactly one selected Ground",
     )
@@ -969,6 +1094,8 @@ def main() -> int:
         plan_path=rooted(args.plan),
         ids=parse_csv(args.ids),
         pilot_ticks=parse_ticks(args.pilot_ticks),
+        entity_integrated_ids=parse_csv(args.entity_integrated_ids),
+        canonical_baseline_root=rooted(args.canonical_baseline_root),
     )
     print(quest)
     return 0

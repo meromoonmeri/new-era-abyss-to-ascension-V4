@@ -249,6 +249,52 @@ class RuntimeEvidenceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "serialized LocalText"):
             FIXTURE.validation_sink_payload({"Object": {"Name": "flattened"}})
 
+    def test_entity_integration_proof_allows_only_ordered_additions(self) -> None:
+        marker = {"EntName": "Canonical"}
+        added_marker = {"EntName": "ProjectMarker"}
+        added_spawner = {"EntName": "ProjectSpawner"}
+        canonical = {
+            "Version": "0.8.9.0",
+            "Object": {
+                "Comment": "canonical",
+                "Entities": [{
+                    "Name": "Entities", "Visible": True, "MapChars": [],
+                    "GroundObjects": [], "Spawners": [], "Markers": [marker],
+                }],
+            },
+        }
+        integrated = json.loads(json.dumps(canonical))
+        layer = integrated["Object"]["Entities"][0]
+        layer["Markers"].append(added_marker)
+        layer["Spawners"].append(added_spawner)
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            canonical_path = root / "canonical.rsground"
+            integrated_path = root / "integrated.rsground"
+            FIXTURE.write_json_bom(canonical_path, canonical)
+            FIXTURE.write_json_bom(integrated_path, integrated)
+            evidence = FIXTURE.verify_additive_entity_integration(
+                integrated_path, canonical_path
+            )
+            self.assertEqual(evidence["mode"], "additive_markers_spawners_only")
+            self.assertEqual(evidence["layers"][0]["added_markers"], 1)
+            self.assertEqual(evidence["layers"][0]["added_spawners"], 1)
+
+            integrated["Object"]["Comment"] = "not canonical"
+            FIXTURE.write_json_bom(integrated_path, integrated)
+            with self.assertRaisesRegex(ValueError, "outside additive"):
+                FIXTURE.verify_additive_entity_integration(
+                    integrated_path, canonical_path
+                )
+
+            integrated["Object"]["Comment"] = "canonical"
+            integrated["Object"]["Entities"][0]["Markers"].reverse()
+            FIXTURE.write_json_bom(integrated_path, integrated)
+            with self.assertRaisesRegex(ValueError, "changed or reordered"):
+                FIXTURE.verify_additive_entity_integration(
+                    integrated_path, canonical_path
+                )
+
     def test_native_fixture_uses_exact_movement_and_inert_sink_lifecycle(self) -> None:
         entry = {
             "id": "h26p01",

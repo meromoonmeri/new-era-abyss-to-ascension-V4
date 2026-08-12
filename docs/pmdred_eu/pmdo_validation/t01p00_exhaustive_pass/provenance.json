@@ -192,8 +192,8 @@
   "validation_record": "validation_record.json",
   "artifacts": {
     "README.md": {
-      "bytes": 5220,
-      "sha256": "032571be04db4ed058bda71d9b7674e8a9d13876827e3554707ac1db213c9903"
+      "bytes": 5426,
+      "sha256": "705c40d6185c18f310593787dec0dab481adc790b9f0b52ceae9f1bb2cc5300d"
     },
     "actual/actual_primary_tick0.png": {
       "bytes": 326752,
@@ -208,8 +208,8 @@
       "sha256": "464ed8366714e9bd2e7319c052c18952a0275afca77b83df1a14511e3abc5dd5"
     },
     "commands.sh": {
-      "bytes": 4071,
-      "sha256": "b5589214991f8f67d7652a466a116cddf3b185a74e8ffd7d5ea649c69bc76b69"
+      "bytes": 4116,
+      "sha256": "ca4f07cc5a8a13c3db08bb1753f3b8d168ec1d999c7cdbcaaea342a65d19610e"
     },
     "comparison.log": {
       "bytes": 162,
@@ -261,5 +261,11 @@
     }
   },
   "promotion_record": "promotion_record.json",
-  "promotion_record_sha256": "42eadd743955e6d5aa1feb2cb25fc993e6212877b00b84d608a7e9070ea9a3d1"
+  "promotion_record_sha256": "42eadd743955e6d5aa1feb2cb25fc993e6212877b00b84d608a7e9070ea9a3d1",
+  "post_validation_documentation": {
+    "amended_at": "2026-08-12",
+    "renderer_recipe_correction": "commands.sh now records SDL_VIDEO_GL_DRIVER as the absolute ANGLE libGLESv2.so path in addition to SDL_VIDEO_EGL_DRIVER. The exact successful runtime used both; this amendment corrects the previously incomplete written recipe and does not alter runtime evidence.",
+    "subsequent_identity_resolution": "The later exhaustive t01p01 pass proved MAP_WHISCASH_POND and corrected the active place_pokemon alias to t01p00. Identity-divergence fields elsewhere in this record describe the state and deliberate deferral at this promotion time.",
+    "runtime_evidence_changed": false
+  }
 }
