@@ -23,6 +23,8 @@ import time
 from pathlib import Path
 from typing import Any
 
+from build_pmdred_eu_entity_migration import MIGRATION_POLICIES, build_migration
+
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON = ROOT / ".runtime-cache/test-venv/bin/python"
 BUNDLE = ROOT / ".runtime-cache/pmdo-headless-bundle"
@@ -482,7 +484,8 @@ def partial_additive_recovery_record(
 
 
 def write_commands(out: Path, ground: str, identity: dict[str, Any], symbol: str, ground_hash: str, tile_hash: str,
-                   event_count: int, sample_count: int, unique_count: int, reserve_ground: Path, reserve_tile: Path) -> None:
+                   event_count: int, sample_count: int, unique_count: int, reserve_ground: Path, reserve_tile: Path,
+                   migration: dict[str, Any] | None = None) -> None:
     source = (ROOT / "docs/pmdred_eu/pmdo_validation/t01p07_exhaustive_pass/commands.sh").read_text()
     source = source.replace("t01p07", ground).replace("T01P07", ground.upper())
     source = source.replace("cc7ce085938d10aa4d564e6037e0ea0671ab1736f08448b38c6ad9c517a35546", ground_hash)
@@ -520,13 +523,37 @@ print('{ground.upper()}_NATIVE_TERMINATION_PASS rc=0 phase=Unload')
 PYTERM
 '''
     source = source[:runtime_start] + native_runtime + source[runtime_end:]
+    if migration is not None:
+        canonical_hash = migration["canonical_baseline"]["ground_sha256"]
+        source = source.replace(
+            'CANONICAL="$ROOT/.runtime-cache/pmdred-eu-remaining-regenerated-v201"',
+            'CANONICAL="$ROOT/.runtime-cache/pmdred-eu-remaining-regenerated-v201"\n'
+            f'MIGRATED="$ROOT/.runtime-cache/pmdred-eu-{ground}-reproduction-entity-migration"',
+        )
+        source = source.replace(
+            f'test "$(sha256sum "$CANONICAL/grounds/{ground}.rsground" | cut -d\' \' -f1)" = {ground_hash}',
+            f'test "$(sha256sum "$CANONICAL/grounds/{ground}.rsground" | cut -d\' \' -f1)" = {canonical_hash}\n'
+            'test ! -e "$MIGRATED"\n'
+            f'"$PYTHON" tools/build_pmdred_eu_entity_migration.py --ground {ground} --output "$MIGRATED"\n'
+            f'test "$(sha256sum "$MIGRATED/grounds/{ground}.rsground" | cut -d\' \' -f1)" = {ground_hash}',
+        )
+        source = source.replace(
+            '--candidate-root "$CANONICAL" \\\n  --plan "$PLAN" \\\n  --ids ' + ground + ' \\\n  --output "$FIX"',
+            '--candidate-root "$MIGRATED" \\\n  --canonical-baseline-root "$CANONICAL" \\\n  --entity-integrated-ids ' + ground + ' \\\n  --plan "$PLAN" \\\n  --ids ' + ground + ' \\\n  --output "$FIX"',
+        )
+        source = source.replace(
+            f'--ids {ground} --output "$POST_FIX"',
+            f'--ids {ground} --entity-integrated-ids {ground} '
+            f'--canonical-baseline-root "$CANONICAL" --output "$POST_FIX"',
+        )
     (out / "commands.sh").write_text(source); os.chmod(out / "commands.sh", 0o755)
 
 
 def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: dict[str, Any], audit: dict[str, Any], plan: dict[str, Any],
                      fixture: Path, comparison: Path, post_fixture: Path, zone_pre: str, zone_post: str, prior: str, zone_index: int,
                      pre_promotion: dict[str, dict[str, Any]], partial_recovery_record: Path | None = None,
-                     pre_promotion_failure_record: Path | None = None) -> None:
+                     pre_promotion_failure_record: Path | None = None,
+                     migration: dict[str, Any] | None = None) -> None:
     out = ROOT / f"docs/pmdred_eu/pmdo_validation/{ground}_exhaustive_pass"
     if out.exists(): raise FileExistsError(out)
     (out / "actual").mkdir(parents=True); (out / "comparisons").mkdir()
@@ -545,6 +572,16 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
     primary = [x for x in report["samples"] if x["phase"] == "primary"]; reloads = [x for x in report["samples"] if x["phase"] == "reload"]
     unique_count = len({x["actual_rgba_sha256"] for x in primary}); samples = len(primary) + len(reloads)
     for src, dst in [(fixture/"fixture_manifest.json",out/"fixture_manifest.json"),(fixture/"events.jsonl",out/"events.jsonl"),(fixture/"termination.json",out/"termination.json"),(fixture/"runtime.log",out/"runtime.log"),(fixture/"index.log",out/"index.log"),(post_fixture/"post_promotion_index.log",out/"post_promotion_index.log"),(comparison/"report.json",out/"report.json"),(comparison/"comparison.log",out/"comparison.log")]: shutil.copyfile(src,dst)
+    if migration is not None:
+        migration_manifest = (
+            ROOT / migration["integrated_candidate"]["ground"]
+        ).parents[1] / "migration_manifest.json"
+        if load(migration_manifest) != migration:
+            raise RuntimeError("entity migration manifest changed before evidence packaging")
+        shutil.copyfile(migration_manifest, out/"entity_migration_manifest.json")
+        for relative, expected in migration["related_scripts_unchanged"].items():
+            if sha(ROOT/relative) != expected:
+                raise RuntimeError(f"related migration script changed before packaging: {relative}")
     logs = sorted((fixture / "appdata/LOG").glob("*.txt"));
     if not logs: raise RuntimeError("engine log absent")
     shutil.copyfile(logs[-1], out / "engine.log")
@@ -553,7 +590,12 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
         phase, tick = item["phase"], item["tick"]
         shutil.copyfile(ROOT / item["source_screenshot"], out / "actual" / f"actual_{phase}_tick{tick}.png")
         shutil.copyfile(ROOT / item["comparative_png"], out / "comparisons" / f"comparison_{phase}_tick{tick}.png")
-    ground_hash = audit["candidate_sha256"]["rsground"]; tile_hash = audit["candidate_sha256"]["tile"]
+    canonical_ground_hash = audit["candidate_sha256"]["rsground"]
+    ground_hash = (
+        migration["integrated_candidate"]["ground_sha256"]
+        if migration is not None else canonical_ground_hash
+    )
+    tile_hash = audit["candidate_sha256"]["tile"]
     events_sha, report_sha, fixture_sha = sha(out/"events.jsonl"),sha(out/"report.json"),sha(out/"fixture_manifest.json")
     termination_sha = sha(out/"termination.json")
     validations={(x["ground"],x["phase"]):x for x in report["runtime"]["validations"]}; main=validations[(ground,"primary")]
@@ -634,20 +676,85 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
             "reclassified_as_pass": False,
         })
         provenance["preservation"]["prior_pre_promotion_failure"] = failure_metadata
+    if migration is not None:
+        entity_proof = migration["entity_integration"]
+        migration_evidence = {
+            "result": migration["result"],
+            "manifest": str((out/"entity_migration_manifest.json").relative_to(ROOT)),
+            "manifest_sha256": sha(out/"entity_migration_manifest.json"),
+            "canonical_baseline_ground_sha256": canonical_ground_hash,
+            "integrated_validated_ground_sha256": ground_hash,
+            "complete_historical_ground_sha256": migration["historical"]["ground_sha256"],
+            "complete_historical_tile_sha256": migration["historical"]["tile_sha256"],
+            "preserved_entities": entity_proof,
+            "legacy_case_tile_retained_unchanged": migration["legacy_case_tile_retained_unchanged"],
+            "canonical_case_tile_created": migration["canonical_case_tile_identity"],
+            "related_scripts_unchanged": migration["related_scripts_unchanged"],
+            "existing_asset_discarded": False,
+            "existing_entity_silently_deactivated": False,
+            "scripts_modified": False,
+        }
+        record["entity_aware_migration"] = migration_evidence
+        record["definitive_destination"]["promotion_status"] = "PROMOTED_INTEGRATION_PRESERVING_ENTITY_MIGRATION"
+        record["fixture_isolation"]["authenticated_canonical_baseline_ground_sha256"] = canonical_ground_hash
+        record["fixture_isolation"]["source_entity_counts"] = entity_proof["entity_counts"]
+        record["provenance"]["authenticated_canonical_baseline_ground_sha256"] = canonical_ground_hash
+        record["provenance"]["integrated_candidate_ground_sha256"] = ground_hash
+        promotion["result"] = "PROMOTION_PASS_INTEGRATION_PRESERVING_ENTITY_MIGRATION"
+        promotion["method"]["canonical_migration"] = (
+            "authenticated canonical visual/collision/animation Ground plus only exact additive historical Markers/Spawners"
+        )
+        promotion["method"]["existing_project_entities_preserved"] = True
+        promotion["method"]["legacy_case_tile_retained_unchanged"] = True
+        promotion["gates"]["canonical_ground_sha256"] = canonical_ground_hash
+        promotion["gates"]["integrated_ground_sha256"] = ground_hash
+        promotion["gates"]["entity_integration_proof"] = "PASS_ADDITIVE_MARKERS_SPAWNERS_ONLY"
+        promotion["files"][0]["candidate"] = migration["integrated_candidate"]["ground"]
+        promotion["files"][0]["canonical_baseline"] = migration["canonical_baseline"]["ground"]
+        promotion["files"][0]["canonical_baseline_sha256"] = canonical_ground_hash
+        promotion["entity_integration"] = migration_evidence
+        promotion["preserved_variants"].append({
+            "role": "occupied_ground_entity_migration",
+            "manifest": migration_evidence["manifest"],
+            "sha256": migration_evidence["manifest_sha256"],
+            "historical_ground_and_tile_reserved": True,
+            "legacy_case_tile_retained": True,
+        })
+        provenance["tested_source"]["authenticated_canonical_baseline_ground_sha256"] = canonical_ground_hash
+        provenance["tested_source"]["candidate_entities"] = entity_proof["entity_counts"]
+        provenance["candidate_provenance_reconciliation"]["authenticated_v201_ground_sha256"] = canonical_ground_hash
+        provenance["candidate_provenance_reconciliation"]["integrated_validated_ground_sha256"] = ground_hash
+        provenance["candidate_provenance_reconciliation"]["decision"] = (
+            "Authenticated v2.0.1-eu visual/collision bytes were preserved exactly; only hash-gated historical Markers/Spawners were added, and that exact integrated artifact was runtime-tested and promoted."
+        )
+        provenance["preservation"]["entity_aware_migration"] = migration_evidence
     dump(out/"validation_record.json",record);dump(out/"promotion_record.json",promotion);dump(out/"provenance.json",provenance)
-    write_commands(out,ground,identity,symbol,ground_hash,tile_hash,sum(1 for _ in (out/"events.jsonl").open()),samples,unique_count,reserve_ground,reserve_tile)
+    write_commands(out,ground,identity,symbol,ground_hash,tile_hash,sum(1 for _ in (out/"events.jsonl").open()),samples,unique_count,reserve_ground,reserve_tile,migration)
     with (out/"commands.sh").open("a") as stream:
         for item in pre_promotion.values():
             if item["preexisting"]:
                 stream.write(f"test \"$(sha256sum {item['reserve']} | cut -d' ' -f1)\" = {item['sha256']}\n")
     max_cycle=max((x["source_local_cycle"] for x in plan["cell_animation_schedules"]),default=1)
-    result_heading = "PASS — RECOVERED EXACT ADDITIVE INSTALL AFTER FRESH FULL RERUN" if recovered_partial_additive else ("PASS — PROMOTED WITH PRESERVED CANONICAL MIGRATION" if preexisting else "PASS — PROMOTED ADDITIVELY")
+    result_heading = (
+        "PASS — INTEGRATION-PRESERVING ENTITY MIGRATION"
+        if migration is not None else
+        ("PASS — RECOVERED EXACT ADDITIVE INSTALL AFTER FRESH FULL RERUN" if recovered_partial_additive else ("PASS — PROMOTED WITH PRESERVED CANONICAL MIGRATION" if preexisting else "PASS — PROMOTED ADDITIVELY"))
+    )
     if recovered_partial_additive:
         promotion_summary = (
             f"A prior attempt additively installed the previously absent exact candidate destinations, then remained a FAIL because zone integration stopped. "
             f"That failed attempt is preserved at `{partial_recovery_record.relative_to(ROOT).as_posix()}`. Its untracked destination bytes were authenticated "
             f"again against the v2.0.1 candidates and durable failure record, retained without replacement, and accepted only after this fresh full runtime and "
             f"comparison rerun passed. The active Ground/tile hashes are `{ground_hash}` / `{tile_hash}`."
+        )
+    elif migration is not None:
+        names = migration["entity_integration"]["ordered_names"]
+        promotion_summary = (
+            f"The complete occupied Ground and legacy-case tile were reserved at their exact historical hashes before replacement. "
+            f"Its markers {names['markers']} and spawners {names['spawners']} were preserved unchanged as the only additions to canonical Ground "
+            f"`{canonical_ground_hash}`. This exact integrated Ground `{ground_hash}` was the runtime/comparison subject and promoted artifact. "
+            f"Canonical lowercase tile identity `{migration['canonical_case_tile_identity']}` was created, while `{migration['legacy_case_tile_retained_unchanged']}` "
+            f"and all related scripts remained unchanged; no entity was silently deactivated."
         )
     elif preexisting:
         migrated = ", ".join(name for name, item in pre_promotion.items() if item["preexisting"])
@@ -698,6 +805,10 @@ Role flags are recorded independently as `cinematic=false`, `arena=false`, `boss
         manifest_paths.append(partial_recovery_record)
     if pre_promotion_failure_record is not None:
         manifest_paths.append(pre_promotion_failure_record)
+    if migration is not None:
+        manifest_paths.append(ROOT/migration["legacy_case_tile_retained_unchanged"])
+        manifest_paths.extend(ROOT/relative for relative in migration["related_scripts_unchanged"])
+        manifest_paths.append(ROOT/migration["canonical_baseline"]["ground"])
     (out/"evidence_hashes.sha256").write_text("".join(f"{sha(path)}  {path.relative_to(ROOT).as_posix()}\n" for path in manifest_paths))
 
 
@@ -708,18 +819,23 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
     role=classify_ground_role(symbol); plan=plans[ground]; audit=audits[ground]
     state={"ground":ground,"stage":"preflight","updated_at":time.time()};dump(STATE_PATH,state)
     if audit["status"]!="pass": raise RuntimeError("static audit is not PASS")
-    ground_src=CANONICAL/f"grounds/{ground}.rsground"; tile_src=CANONICAL/f"tiles/{ground}_Base.tile"
-    ground_hash=audit["candidate_sha256"]["rsground"];tile_hash=audit["candidate_sha256"]["tile"]
-    if sha(ground_src)!=ground_hash or sha(tile_src)!=tile_hash: raise RuntimeError("candidate hash mismatch")
+    canonical_ground_src=CANONICAL/f"grounds/{ground}.rsground"; tile_src=CANONICAL/f"tiles/{ground}_Base.tile"
+    canonical_ground_hash=audit["candidate_sha256"]["rsground"];tile_hash=audit["candidate_sha256"]["tile"]
+    if sha(canonical_ground_src)!=canonical_ground_hash or sha(tile_src)!=tile_hash: raise RuntimeError("candidate hash mismatch")
     ground_dst=ROOT/f"Data/Ground/{ground}.rsground";tile_dst=ROOT/f"Content/Tile/{ground}_Base.tile"; evidence=ROOT/f"docs/pmdred_eu/pmdo_validation/{ground}_exhaustive_pass"
     if evidence.exists():
         log(f"SKIP already evidenced {ground}");return
     reserve_dir=ROOT/f"RESERVE/pmdred_pre_promotion/{ground}"
     pre_ground_reserve=reserve_dir/ground_dst.name; pre_tile_reserve=reserve_dir/tile_dst.name
-    recovery_record_path=partial_additive_recovery_record(ground,ground_dst,tile_dst,ground_hash,tile_hash)
+    recovery_record_path=partial_additive_recovery_record(ground,ground_dst,tile_dst,canonical_ground_hash,tile_hash)
     pre_promotion_failure_path = pre_promotion_collision_failure_record(ground, ground_dst, tile_dst)
     if recovery_record_path is not None and pre_promotion_failure_path is not None:
         raise RuntimeError(f"conflicting recovery modes for {ground}")
+    migration_policy = MIGRATION_POLICIES.get(ground) if ground_dst.is_file() and recovery_record_path is None else None
+    if ground_dst.is_file() and recovery_record_path is None and migration_policy is None:
+        raise RuntimeError(f"occupied Ground destination for {ground}; entity-aware migration is required")
+    if migration_policy is not None and pre_promotion_failure_path is not None:
+        raise RuntimeError(f"occupied migration cannot reuse a pre-promotion failure mode for {ground}")
     if recovery_record_path is not None:
         # These fields describe the historical destination precondition, not the
         # exact additive bytes retained from the explicitly failed first attempt.
@@ -735,9 +851,30 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
             "tile": {"preexisting": tile_dst.is_file(), "sha256": sha(tile_dst) if tile_dst.is_file() else None,
                      "reserve": pre_tile_reserve.relative_to(ROOT).as_posix() if tile_dst.is_file() else None},
         }
-    if ground_dst.exists() and recovery_record_path is None:
-        raise RuntimeError(f"occupied Ground destination for {ground}; entity-aware migration is required")
-    if tile_dst.exists() and recovery_record_path is None:
+    legacy_tile: Path | None = None
+    pre_legacy_tile_reserve: Path | None = None
+    if migration_policy is not None:
+        legacy_tile = ROOT / migration_policy["historical_tile"]
+        pre_legacy_tile_reserve = reserve_dir / legacy_tile.name
+        pre_promotion["legacy_case_tile"] = {
+            "preexisting": legacy_tile.is_file(),
+            "sha256": sha(legacy_tile) if legacy_tile.is_file() else None,
+            "reserve": pre_legacy_tile_reserve.relative_to(ROOT).as_posix(),
+        }
+        required = [
+            pre_promotion["ground"]["sha256"] == migration_policy["historical_ground_sha256"],
+            not tile_dst.exists(),
+            pre_promotion["legacy_case_tile"]["sha256"] == migration_policy["historical_tile_sha256"],
+            not reserve_dir.exists(),
+        ]
+        if not all(required):
+            raise RuntimeError(f"occupied Ground migration precondition failed for {ground}: {required}")
+        log(
+            f"ENTITY_AWARE_MIGRATION_REQUIRED ground={ground} "
+            f"historical_ground_sha256={pre_promotion['ground']['sha256']} "
+            f"legacy_tile_sha256={pre_promotion['legacy_case_tile']['sha256']}"
+        )
+    elif tile_dst.exists() and recovery_record_path is None:
         historical_tile=ROOT/f"RESERVE/red_tiles/{ground}_Base.tile"
         if not historical_tile.is_file() or sha(historical_tile) != pre_promotion["tile"]["sha256"]:
             raise RuntimeError(f"occupied tile for {ground} does not match its preserved historical reserve")
@@ -752,9 +889,37 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
     suffix="-recovery-rerun" if (recovery_record_path is not None or pre_promotion_failure_path is not None) else ""
     fixture=ROOT/f".runtime-cache/pmdred-eu-{ground}-runtime{suffix}"; comparison=ROOT/f".runtime-cache/pmdred-eu-{ground}-comparison{suffix}"
     post_candidate=ROOT/f".runtime-cache/pmdred-eu-{ground}-promoted-candidate{suffix}";post_fixture=ROOT/f".runtime-cache/pmdred-eu-{ground}-promoted-fixture{suffix}"
-    for path in [fixture,comparison,post_candidate,post_fixture]:
+    migration_root=ROOT/f".runtime-cache/pmdred-eu-{ground}-entity-integrated-candidate{suffix}"
+    runtime_candidate_root=CANONICAL
+    migration: dict[str, Any] | None = None
+    create_only_paths=[fixture,comparison,post_candidate,post_fixture]
+    if migration_policy is not None:
+        create_only_paths.append(migration_root)
+    for path in create_only_paths:
         if path.exists(): raise FileExistsError(f"create-only runtime path exists: {path}")
-    run([str(PYTHON),"tools/build_pmdred_eu_runtime_fixture.py","--conversion-set","remaining","--candidate-root",str(CANONICAL),"--plan",str(PLAN_PATH),"--ids",ground,"--output",str(fixture)])
+    if migration_policy is not None:
+        assert legacy_tile is not None
+        migration = build_migration(
+            ROOT, ground, migration_root, policy=migration_policy,
+            historical_ground=ground_dst, historical_tile=legacy_tile,
+            canonical_root=CANONICAL,
+        )
+        runtime_candidate_root=migration_root
+        ground_src=migration_root/f"grounds/{ground}.rsground"
+        ground_hash=migration["integrated_candidate"]["ground_sha256"]
+        if sha(ground_src) != ground_hash or migration["canonical_baseline"]["ground_sha256"] != canonical_ground_hash:
+            raise RuntimeError("entity-integrated candidate readback failed")
+        log(
+            f"ENTITY_INTEGRATION_PASS ground={ground} canonical={canonical_ground_hash} "
+            f"integrated={ground_hash} markers=2 spawners=3"
+        )
+    else:
+        ground_src=canonical_ground_src
+        ground_hash=canonical_ground_hash
+    fixture_command=[str(PYTHON),"tools/build_pmdred_eu_runtime_fixture.py","--conversion-set","remaining","--candidate-root",str(runtime_candidate_root),"--plan",str(PLAN_PATH),"--ids",ground,"--output",str(fixture)]
+    if migration is not None:
+        fixture_command.extend(["--entity-integrated-ids",ground,"--canonical-baseline-root",str(CANONICAL)])
+    run(fixture_command)
     run_index(fixture,fixture/"index.log");state["stage"]="indexed";dump(STATE_PATH,state)
     run_validator(ground,fixture,plan["sample_count"]+1);state["stage"]="runtime_terminal";dump(STATE_PATH,state)
     comparison.mkdir()
@@ -775,6 +940,26 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
         if sha(ground_dst)!=ground_hash or sha(tile_dst)!=tile_hash:
             raise RuntimeError("partial additive recovery bytes changed during fresh runtime/comparison")
         log(f"PARTIAL_ADDITIVE_INSTALL_RETAINED ground={ground} replacement=false")
+    elif migration is not None:
+        assert legacy_tile is not None and pre_legacy_tile_reserve is not None
+        reserve_dir.mkdir(parents=True)
+        atomic_install(ground_dst,pre_ground_reserve)
+        atomic_install(legacy_tile,pre_legacy_tile_reserve)
+        reserve_gates = [
+            sha(pre_ground_reserve) == pre_promotion["ground"]["sha256"],
+            sha(pre_legacy_tile_reserve) == pre_promotion["legacy_case_tile"]["sha256"],
+            sha(legacy_tile) == pre_promotion["legacy_case_tile"]["sha256"],
+        ]
+        if not all(reserve_gates):
+            raise RuntimeError(f"occupied migration reserve readback failed: {reserve_gates}")
+        atomic_replace_preserved(
+            ground_src, ground_dst, pre_ground_reserve, pre_promotion["ground"]["sha256"]
+        )
+        atomic_install(tile_src,tile_dst)
+        log(
+            f"ENTITY_AWARE_MIGRATION_INSTALLED ground={ground} historical_reserved=true "
+            f"legacy_case_tile_retained=true canonical_case_tile_created=true"
+        )
     else:
         if pre_promotion["tile"]["preexisting"]:
             reserve_dir.mkdir(parents=True)
@@ -796,6 +981,13 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
             f"| `{Path(item['reserve']).name}` | `{item['sha256']}` |"
             for item in pre_promotion.values() if item["preexisting"]
         )
+        migration_note = (
+            "The complete occupied Ground and legacy-case tile were copied byte-exactly into this directory and hash-verified. "
+            "Only the exact historical Markers and Spawners were added to the authenticated canonical visual/collision Ground before that integrated artifact was validated. "
+            "The active Ground was then replaced atomically, the canonical lowercase tile identity was created additively, and the legacy-case tile remained unchanged. "
+            if migration is not None else
+            "The destination Ground was absent. Every pre-existing tile byte was copied into this directory and hash-verified before the active destination was replaced atomically with the independently validated authenticated EU v2.0.1 candidate. "
+        )
         reserve_note=f"""# `{ground}` pre-promotion reserve
 
 These are the exact destination bytes retained before the validated canonical migration on {DATE}. They are historical inputs, not canonical proof and not active assets.
@@ -804,7 +996,7 @@ These are the exact destination bytes retained before the validated canonical mi
 | --- | --- |
 {preserved_rows}
 
-The destination Ground was absent. Every pre-existing tile byte was copied into this directory and hash-verified before the active destination was replaced atomically with the independently validated authenticated EU v2.0.1 candidate. No historical bytes were discarded. Pre-promotion `master_zone.json` SHA-256: `{zone_pre}`.
+{migration_note}No historical bytes were discarded, no preserved entity was silently deactivated, and related scripts were not modified. Pre-promotion `master_zone.json` SHA-256: `{zone_pre}`.
 
 Historical reserve Ground: `{sha(reserve_ground) if reserve_ground.is_file() else 'absent'}`. Historical reserve tile: `{sha(reserve_tile) if reserve_tile.is_file() else 'absent'}`. Those reserves and both v2.0.0/v2.0.1 report generations remain unmodified. Authenticated identity: `{symbol}` / map ID {identity['map_id']} / map-file ID {identity['map_file_id']}.
 
@@ -817,12 +1009,15 @@ Evidence: `docs/pmdred_eu/pmdo_validation/{ground}_exhaustive_pass/`.
     state["stage"]="promoted";dump(STATE_PATH,state)
     (post_candidate/"grounds").mkdir(parents=True);(post_candidate/"tiles").mkdir()
     shutil.copyfile(ground_dst,post_candidate/"grounds"/ground_dst.name);shutil.copyfile(tile_dst,post_candidate/"tiles"/tile_dst.name);shutil.copyfile(CANONICAL/"conversion_report.json",post_candidate/"conversion_report.json")
-    run([str(PYTHON),"tools/build_pmdred_eu_runtime_fixture.py","--conversion-set","remaining","--candidate-root",str(post_candidate),"--plan",str(PLAN_PATH),"--ids",ground,"--output",str(post_fixture)])
+    post_fixture_command=[str(PYTHON),"tools/build_pmdred_eu_runtime_fixture.py","--conversion-set","remaining","--candidate-root",str(post_candidate),"--plan",str(PLAN_PATH),"--ids",ground,"--output",str(post_fixture)]
+    if migration is not None:
+        post_fixture_command.extend(["--entity-integrated-ids",ground,"--canonical-baseline-root",str(CANONICAL)])
+    run(post_fixture_command)
     run_index(post_fixture,post_fixture/"post_promotion_index.log")
     package_evidence(
         ground,symbol,role,identity,audit,plan,fixture,comparison,post_fixture,
         zone_pre,zone_post,prior,zone_index,pre_promotion,recovery_record_path,
-        pre_promotion_failure_path,
+        pre_promotion_failure_path,migration,
     )
     state["stage"]="evidence_packaged";dump(STATE_PATH,state)
     run([sys.executable,"tools/update_pmdred_eu_validation_progress.py","--write"])

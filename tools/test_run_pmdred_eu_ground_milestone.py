@@ -2,15 +2,20 @@
 """Narrow role-classification tests for the authenticated Ground campaign."""
 from __future__ import annotations
 
+import copy
+import hashlib
 import json
+import tempfile
 import unittest
 from pathlib import Path
 
+from build_pmdred_eu_entity_migration import build_migration, read_json
 from run_pmdred_eu_ground_milestone import (
     build_collision_validation,
     classify_ground_role,
     validate_partial_additive_recovery_record,
     validate_pre_promotion_collision_failure_record,
+    write_commands,
 )
 
 
@@ -202,6 +207,172 @@ class PrePromotionCollisionFailureRecoveryTests(unittest.TestCase):
         record["authenticated_collision_facts"]["solid_cells"] = 1
         with self.assertRaisesRegex(RuntimeError, "failure record gate failed"):
             validate_pre_promotion_collision_failure_record(record, "a01p02")
+
+
+class OccupiedGroundEntityMigrationTests(unittest.TestCase):
+    @staticmethod
+    def write_bom(path: Path, payload: dict) -> None:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(
+            "\ufeff" + json.dumps(payload, ensure_ascii=False, separators=(",", ":")),
+            encoding="utf-8",
+        )
+
+    @staticmethod
+    def digest(path: Path) -> str:
+        return hashlib.sha256(path.read_bytes()).hexdigest()
+
+    def fixture(self, root: Path) -> tuple[dict, Path, Path, Path]:
+        layer = {
+            "Name": "entities", "Visible": True,
+            "MapChars": [], "GroundObjects": [], "Spawners": [], "Markers": [],
+        }
+        canonical = {
+            "Version": "0.8.12.0",
+            "Object": {
+                "AssetName": "test01",
+                "obstacles": [[{"Tags": 0} for _ in range(4)] for _ in range(5)],
+                "Entities": [copy.deepcopy(layer)],
+                "visual": {"authenticated": True},
+            },
+        }
+        historical = copy.deepcopy(canonical)
+        old_layer = historical["Object"]["Entities"][0]
+        old_layer["Markers"] = [
+            {
+                "EntName": "Main_Entrance_Marker", "EntEnabled": True,
+                "Collider": {"X": 8, "Y": 8, "Width": 16, "Height": 16},
+            },
+            {
+                "EntName": "Cutscene_Marker", "EntEnabled": True,
+                "Collider": {"X": 16, "Y": 8, "Width": 16, "Height": 16},
+            },
+        ]
+        old_layer["Spawners"] = [
+            {
+                "EntName": name, "NPCName": f"Teammate{index}", "EntEnabled": True,
+                "Collider": {"X": 8 * index, "Y": 8, "Width": 16, "Height": 16},
+            }
+            for index, name in enumerate(("TEAMMATE_1", "TEAMMATE_2", "TEAMMATE_3"), 1)
+        ]
+        historical_path = root / "Data/Ground/test01.rsground"
+        canonical_root = root / "canonical"
+        canonical_path = canonical_root / "grounds/test01.rsground"
+        historical_tile = root / "Content/Tile/Test01_Base.tile"
+        canonical_tile = canonical_root / "tiles/test01_Base.tile"
+        self.write_bom(historical_path, historical)
+        self.write_bom(canonical_path, canonical)
+        historical_tile.parent.mkdir(parents=True)
+        historical_tile.write_bytes(b"authenticated tile")
+        canonical_tile.parent.mkdir(parents=True)
+        canonical_tile.write_bytes(historical_tile.read_bytes())
+        (canonical_root / "conversion_report.json").write_text("{}\n")
+        policy = {
+            "schema": "test-policy.v1",
+            "ground": "test01",
+            "historical_ground_sha256": self.digest(historical_path),
+            "historical_tile": "Content/Tile/Test01_Base.tile",
+            "historical_tile_sha256": self.digest(historical_tile),
+            "canonical_ground_sha256": self.digest(canonical_path),
+            "canonical_tile_sha256": self.digest(canonical_tile),
+            "preserved_fields": ["Markers", "Spawners"],
+            "expected_entities": {
+                "Markers": ["Main_Entrance_Marker", "Cutscene_Marker"],
+                "Spawners": ["TEAMMATE_1", "TEAMMATE_2", "TEAMMATE_3"],
+            },
+            "historical_reserves": {},
+            "related_scripts": {},
+        }
+        return policy, historical_path, historical_tile, canonical_root
+
+    def test_migration_preserves_entities_and_only_entities(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            policy, historical_path, historical_tile, canonical_root = self.fixture(root)
+            output = root / "output"
+            manifest = build_migration(
+                root, "test01", output, policy=policy,
+                historical_ground=historical_path, historical_tile=historical_tile,
+                canonical_root=canonical_root,
+            )
+            integrated = read_json(output / "grounds/test01.rsground")
+            historical = read_json(historical_path)
+            canonical = read_json(canonical_root / "grounds/test01.rsground")
+            layer = integrated["Object"]["Entities"][0]
+            old_layer = historical["Object"]["Entities"][0]
+            self.assertEqual(layer["Markers"], old_layer["Markers"])
+            self.assertEqual(layer["Spawners"], old_layer["Spawners"])
+            layer["Markers"] = []
+            layer["Spawners"] = []
+            self.assertEqual(integrated, canonical)
+            self.assertEqual(
+                manifest["entity_integration"]["ordered_names"]["spawners"],
+                ["TEAMMATE_1", "TEAMMATE_2", "TEAMMATE_3"],
+            )
+            self.assertFalse(manifest["existing_entity_silently_deactivated"])
+
+    def test_historical_tamper_is_rejected_before_output(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            policy, historical_path, historical_tile, canonical_root = self.fixture(root)
+            historical_path.write_bytes(historical_path.read_bytes() + b"tamper")
+            output = root / "output"
+            with self.assertRaisesRegex(RuntimeError, "historical Ground hash gate failed"):
+                build_migration(
+                    root, "test01", output, policy=policy,
+                    historical_ground=historical_path, historical_tile=historical_tile,
+                    canonical_root=canonical_root,
+                )
+            self.assertFalse(output.exists())
+
+    def test_canonical_tamper_is_rejected_before_output(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            policy, historical_path, historical_tile, canonical_root = self.fixture(root)
+            canonical = canonical_root / "grounds/test01.rsground"
+            canonical.write_bytes(canonical.read_bytes() + b"tamper")
+            output = root / "output"
+            with self.assertRaisesRegex(RuntimeError, "authenticated canonical Ground hash gate failed"):
+                build_migration(
+                    root, "test01", output, policy=policy,
+                    historical_ground=historical_path, historical_tile=historical_tile,
+                    canonical_root=canonical_root,
+                )
+            self.assertFalse(output.exists())
+
+    def test_migration_output_is_create_only(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            policy, historical_path, historical_tile, canonical_root = self.fixture(root)
+            output = root / "output"
+            output.mkdir()
+            with self.assertRaisesRegex(FileExistsError, "create-only migration output exists"):
+                build_migration(
+                    root, "test01", output, policy=policy,
+                    historical_ground=historical_path, historical_tile=historical_tile,
+                    canonical_root=canonical_root,
+                )
+
+    def test_reproduction_recipe_rebuilds_integrated_subject(self) -> None:
+        repo = Path(__file__).resolve().parents[1]
+        with tempfile.TemporaryDirectory() as temp:
+            output = Path(temp)
+            write_commands(
+                output, "a02p01",
+                {"stable_ground_id": "a02p01", "map_file_id": 174},
+                "MAP_FUGITIVES_FISSURE", "integrated-ground-hash", "tile-hash",
+                28, 2, 1,
+                repo / "RESERVE/red_grounds/a02p01.rsground",
+                repo / "RESERVE/red_tiles/a02p01_Base.tile",
+                {"canonical_baseline": {"ground_sha256": "canonical-ground-hash"}},
+            )
+            recipe = (output / "commands.sh").read_text()
+            self.assertIn("build_pmdred_eu_entity_migration.py --ground a02p01", recipe)
+            self.assertIn("canonical-ground-hash", recipe)
+            self.assertIn("integrated-ground-hash", recipe)
+            self.assertIn('--candidate-root "$MIGRATED"', recipe)
+            self.assertEqual(recipe.count("--entity-integrated-ids a02p01"), 2)
+            self.assertEqual(recipe.count('--canonical-baseline-root "$CANONICAL"'), 2)
 
 
 class PilotZoneIntegrationCorrectionTests(unittest.TestCase):
