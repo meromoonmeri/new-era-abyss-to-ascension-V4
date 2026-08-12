@@ -1,0 +1,68 @@
+{
+  "schema": "new-era.pmdred-eu-native-termination.v1",
+  "ground": "h21p02",
+  "result": "PASS",
+  "command": [
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdo-headless-bundle/PMDO",
+    "-asset",
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdred-eu-h21p02-runtime/asset/",
+    "-appdata",
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdred-eu-h21p02-runtime/appdata/",
+    "-quest",
+    "pmdred_eu_fixture"
+  ],
+  "started_at": "2026-08-12T20:44:51.958+00:00",
+  "ended_at": "2026-08-12T20:45:08.855+00:00",
+  "duration_seconds": 16.897,
+  "pid": 21129,
+  "process_group": 21129,
+  "pmdo_executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+  "load_phase_unload": {
+    "requested": true,
+    "request_event": {
+      "event": "load_phase_unload_requested",
+      "before": "Ready",
+      "before_raw": "Ready: 2",
+      "requested": "Unload",
+      "readback": "Unload",
+      "readback_raw": "Unload: 3"
+    },
+    "deinit_event": {
+      "event": "native_deinit",
+      "load_phase": "Unload",
+      "load_phase_raw": "Unload: 3"
+    },
+    "graphics_unload_event": {
+      "event": "native_graphics_unload",
+      "load_phase": "Unload",
+      "load_phase_raw": "Unload: 3"
+    },
+    "terminal_event": {
+      "event": "end",
+      "terminal": true,
+      "graceful": true,
+      "load_phase": "Unload",
+      "load_phase_raw": "Unload: 3"
+    },
+    "ordered_and_terminal_last": true,
+    "pass": true
+  },
+  "exit_classification": "NORMAL_EXIT",
+  "return_code": 0,
+  "terminal": true,
+  "graceful": true,
+  "watchdog": false,
+  "watchdog_reason": null,
+  "requested_signal": null,
+  "sigsegv": false,
+  "forced_kill": false,
+  "orphan_process": false,
+  "process_group_members_before_cleanup": [],
+  "process_group_members_after_cleanup": [],
+  "event_parse_error": null,
+  "event_count": 280,
+  "event_stream_sha256": "71ba4bc1e97cc84a73ee1cda876c76ec029db1788f961c5bc5f892f441617db5",
+  "expected_screenshot_count": 85,
+  "actual_screenshot_count": 85,
+  "runtime_log_sha256": "f93af4f4bf475cae2aa88f06c89b7fc3a5dfbb472fa93b7eb3942ce4b2b0c758"
+}
