@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """Run PMDO until validator ``end`` and classify its real termination status.
 
-This runner deliberately does not hide ``wait``/``Popen.wait`` results.  PMDO is
+This runner deliberately does not hide ``wait``/``Popen.wait`` results. PMDO is
 launched directly as a new process-group leader (without a ``timeout`` parent),
-so the recorded return code belongs to PMDO itself.  Once the fixed validator
+so the recorded return code belongs to PMDO itself. Once the fixed validator
 stream contains its terminal event, the requested shutdown signal is sent only
-to PMDO.  SIGTERM is accepted as the expected bounded shutdown; SIGSEGV and all
-other statuses fail the gate.
+to PMDO. SIGINT is the official default: repeated exact-runtime controls proved
+it avoids the SwiftShader SIGTERM teardown race. The requested signal's direct
+or managed ``128+signal`` status is accepted; SIGSEGV and all other statuses
+fail the gate.
 
 The runner is transport/lifecycle plumbing only.  It does not build, convert,
 compare, install, or promote any Ground.
@@ -94,7 +96,7 @@ def main() -> int:
     parser.add_argument("--terminal-timeout", type=float, default=1800.0)
     parser.add_argument("--shutdown-timeout", type=float, default=15.0)
     parser.add_argument("--post-end-delay", type=float, default=0.1)
-    parser.add_argument("--shutdown-signal", choices=("TERM", "INT"), default="TERM")
+    parser.add_argument("--shutdown-signal", choices=("TERM", "INT"), default="INT")
     parser.add_argument("--reset-events", action="store_true")
     args = parser.parse_args()
 
