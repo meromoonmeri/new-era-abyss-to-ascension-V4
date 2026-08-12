@@ -106,6 +106,28 @@ class GroundRoleClassificationTests(unittest.TestCase):
             "night_sky_scene_2",
         )
         self.assertEqual(
+            classify_ground_role("MAP_INTRO"),
+            {
+                "category": "intro_scene",
+                "classification": "intro_scene",
+                "scene": "intro",
+                "cinematic": False,
+                "arena": False,
+                "boss": False,
+            },
+        )
+        self.assertEqual(
+            classify_ground_role("MAP_LOGO_POKEMON_COMPANY"),
+            {
+                "category": "logo_screen",
+                "classification": "pokemon_company_logo_screen",
+                "logo": "pokemon_company",
+                "cinematic": False,
+                "arena": False,
+                "boss": False,
+            },
+        )
+        self.assertEqual(
             classify_ground_role("MAP_THUNDERWAVE_CAVE_ENTRY"),
             {
                 "category": "dungeon_transition_ground",

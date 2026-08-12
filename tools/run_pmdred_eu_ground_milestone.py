@@ -211,6 +211,8 @@ def classify_ground_role(symbol: str) -> dict[str, Any]:
         "MAP_COMET": ("celestial_scene", "comet_celestial_scene", {"setting": "comet"}),
         "MAP_NIGHTMARE": ("dream_scene", "nightmare_dream_scene", {"setting": "nightmare"}),
         "MAP_THE_END": ("ending_screen", "the_end_screen", {"screen": "the_end"}),
+        "MAP_INTRO": ("intro_scene", "intro_scene", {"scene": "intro"}),
+        "MAP_LOGO_POKEMON_COMPANY": ("logo_screen", "pokemon_company_logo_screen", {"logo": "pokemon_company"}),
     }
     if symbol in explicit_story_roles:
         category, classification, details = explicit_story_roles[symbol]
