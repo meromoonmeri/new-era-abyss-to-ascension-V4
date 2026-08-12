@@ -1,0 +1,228 @@
+{
+  "schema": 1,
+  "ground": "d06p01",
+  "validated_at": "2026-08-12",
+  "runtime": "PASS",
+  "visual_comparison": {
+    "result": "PASS",
+    "dimensions_pixels": [
+      408,
+      288
+    ],
+    "primary_sample_count": 1,
+    "reload_sample_count": 1,
+    "exact_sample_count": 2,
+    "unique_rgba_frame_count": 1,
+    "mismatched_pixel_count": 0,
+    "maximum_channel_delta": 0,
+    "all_full_rgba_exact": true,
+    "all_fully_opaque": true,
+    "comparative_png_paths": [
+      "docs/pmdred_eu/pmdo_validation/d06p01_exhaustive_pass/comparisons/comparison_primary_tick0.png",
+      "docs/pmdred_eu/pmdo_validation/d06p01_exhaustive_pass/comparisons/comparison_reload_tick0.png"
+    ],
+    "complete_metrics_report": "docs/pmdred_eu/pmdo_validation/d06p01_exhaustive_pass/report.json"
+  },
+  "tile_palette_validation": {
+    "result": "PASS",
+    "reference": "independent authenticated raw EU BPL/BPC/BPA/BMA renderer",
+    "resource_hashes": {
+      "D06P01": "e5a01175b9fceced6b55d14570c5ccc7d92ea917b5e6dbcc000acc2773818c8f",
+      "D06P01c": "94035a1379b551ea48bbd3d4fdd0e62289d47bc53ecfa7931385de9fcf280af9",
+      "D06P01m": "69b30e0a6e5e5983d3946967be3bf6b0da5afe8d115d698ef42ecbc8328150bf"
+    }
+  },
+  "animation_validation": {
+    "result": "PASS",
+    "primary_sample_count": 1,
+    "first_tick": 0,
+    "last_tick": 0,
+    "cell_local_schedule_count": 0,
+    "maximum_cell_local_cycle_ticks": 1,
+    "all_schedules_covered_through_two_complete_cycles": true,
+    "channels": [],
+    "unique_observed_rgba_frames": 1,
+    "reload_tick_zero_exact": true,
+    "orphaned_animation_observed": false
+  },
+  "collision_validation": {
+    "result": "PASS",
+    "source": "D06P01m",
+    "collision_layer_count": 1,
+    "solid_cells": 1103,
+    "collision_sha256": "791370563ced43ba55e11d5b550a3d1997c5a8760a8e426725be7ad59c9f492d",
+    "successful_probe": {
+      "start": [
+        200,
+        136
+      ],
+      "direction": "Down",
+      "observed_delta": [
+        0,
+        8
+      ],
+      "result": "PASS"
+    },
+    "blocked_probe": {
+      "applicable": true,
+      "start": [
+        216,
+        136
+      ],
+      "direction": "Right",
+      "observed_delta": [
+        0,
+        0
+      ],
+      "result": "PASS"
+    }
+  },
+  "entry_exit_reentry": {
+    "result": "PASS",
+    "loads": 2,
+    "entries": 2,
+    "exits": 2,
+    "same_ground_reentries": 1,
+    "strict_native_lifecycle_order": "PASS"
+  },
+  "cleanup_reload": {
+    "result": "PASS",
+    "cleanup_probe_count": 4,
+    "ground_exit_cleanup_passes": 2,
+    "sink_cleanup": "PASS",
+    "final_cleanup": "PASS",
+    "reload_load": "LOAD_PASS",
+    "reload_tick_zero_full_rgba_exact": true,
+    "terminal_end_seen": true,
+    "state_leakage_observed": false,
+    "stale_assets_observed": false,
+    "permanent_lock_observed": false,
+    "orphan_process_check": "PASS"
+  },
+  "native_termination": {
+    "result": "PASS",
+    "load_phase": "Unload",
+    "deinit_seen": true,
+    "graphics_unload_seen": true,
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "terminal": true,
+    "graceful": true,
+    "watchdog": false,
+    "requested_signal": null,
+    "sigsegv": false,
+    "forced_kill": false,
+    "orphan_process": false,
+    "evidence": "docs/pmdred_eu/pmdo_validation/d06p01_exhaustive_pass/termination.json",
+    "sha256": "a9f6dbfb3b5c4fa582549957ad314dc60a32655f49b9c2a57a99e5db76b68571"
+  },
+  "fixture_isolation": {
+    "canonical_source_ground_sha256": "a367ee05eadd1059b7b6d0354f7c7adad10c4fdcfb64557436db5d361db72421",
+    "canonical_source_tile_sha256": "e4d41521fca1b68aed1fb07cd67c3facd153310a7a881dd4288656a429de68dc",
+    "source_entity_counts": {
+      "markers": 0,
+      "spawners": 0,
+      "map_characters": 0,
+      "ground_objects": 0
+    },
+    "fixture_only_changes": [
+      "deterministic entry marker",
+      "ignored validator plumbing"
+    ],
+    "source_and_promoted_files_unchanged_by_fixture": true
+  },
+  "special_classification": {
+    "canonical_source": {
+      "category": "dungeon_transition_ground",
+      "ground_map_symbol": "MAP_LAPIS_CAVE_ENTRY",
+      "canonical_debug_id": 197,
+      "map_id": 193,
+      "map_file_id": 202,
+      "ground_place_id": 18,
+      "stable_ground_id": "d06p01",
+      "classification": "lapis_cave_entry_ground",
+      "location": "lapis_cave",
+      "transition": "entry",
+      "cinematic": false,
+      "arena": false,
+      "boss": false
+    },
+    "scope": {
+      "cinematic_choreography": "NOT APPLICABLE/NOT CLAIMED; Ground-only lifecycle and rendering validated",
+      "arena": false,
+      "boss": false
+    }
+  },
+  "identity_validation": {
+    "result": "PASS",
+    "authenticated_map_file_id": 202,
+    "pinned_enum_symbol": "MAP_LAPIS_CAVE_ENTRY",
+    "conversion_type": 1,
+    "weather_id": -1
+  },
+  "definitive_destination": {
+    "ground": "Data/Ground/d06p01.rsground",
+    "tile": "Content/Tile/d06p01_Base.tile",
+    "zone_registry": "Data/Zone/master_zone.json",
+    "zone_registry_entry": "d06p01",
+    "promotion_status": "PROMOTED_ADDITIVE_CANONICAL",
+    "preexisting_destinations": false,
+    "pre_promotion_destinations": {
+      "ground": {
+        "preexisting": false,
+        "sha256": null,
+        "reserve": null
+      },
+      "tile": {
+        "preexisting": false,
+        "sha256": null,
+        "reserve": null
+      }
+    },
+    "pre_promotion_record": "RESERVE/pmdred_pre_promotion/d06p01/README.md",
+    "promoted_ground_sha256": "a367ee05eadd1059b7b6d0354f7c7adad10c4fdcfb64557436db5d361db72421",
+    "promoted_tile_sha256": "e4d41521fca1b68aed1fb07cd67c3facd153310a7a881dd4288656a429de68dc"
+  },
+  "provenance": {
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+    "conversion_report_sha256": "91f3b460b3e3b7689bc608ece2006cb6103d653bcdc22ad028f4172c3a1b0fdc",
+    "candidate_ground_sha256": "a367ee05eadd1059b7b6d0354f7c7adad10c4fdcfb64557436db5d361db72421",
+    "candidate_tile_sha256": "e4d41521fca1b68aed1fb07cd67c3facd153310a7a881dd4288656a429de68dc",
+    "source_normalized_sha256": {
+      "D06P01": "e5a01175b9fceced6b55d14570c5ccc7d92ea917b5e6dbcc000acc2773818c8f",
+      "D06P01c": "94035a1379b551ea48bbd3d4fdd0e62289d47bc53ecfa7931385de9fcf280af9",
+      "D06P01m": "69b30e0a6e5e5983d3946967be3bf6b0da5afe8d115d698ef42ecbc8328150bf"
+    },
+    "events_sha256": "7da79dc8cf263021a5a744a95b9ead2e77c41e51fac7c26f15cca3f41b587edb",
+    "report_sha256": "79668d36fca8531c839aaa460eae0e28327ce95bf5c637319d6b33ac899a19ca",
+    "fixture_manifest_sha256": "b9abe45a017db559262e9d6dd7f0bc5f51bc94c4a7bbceb18a6d29ae231aa5de",
+    "termination_sha256": "a9f6dbfb3b5c4fa582549957ad314dc60a32655f49b9c2a57a99e5db76b68571",
+    "detailed_provenance": "docs/pmdred_eu/pmdo_validation/d06p01_exhaustive_pass/provenance.json"
+  },
+  "execution_note": {
+    "terminal_event_and_all_required_captures_completed": true,
+    "post_terminal_shutdown": "PMDO-native GameBase.LoadPhase.Unload followed by NORMAL_EXIT",
+    "return_code": 0,
+    "watchdog": false,
+    "requested_signal": null,
+    "evidence_impact": "NONE"
+  },
+  "dungeon_restitution": {
+    "affected": false,
+    "status": "27-relationship bundle retained"
+  },
+  "scope_note": "Ground-only; dialogue, choreography, music assignment, and narrative routing are not claimed.",
+  "post_promotion_integration": {
+    "result": "PASS",
+    "exact_pmdo_index": "PASS",
+    "indexed_ground_sha256": "a367ee05eadd1059b7b6d0354f7c7adad10c4fdcfb64557436db5d361db72421",
+    "indexed_tile_sha256": "e4d41521fca1b68aed1fb07cd67c3facd153310a7a881dd4288656a429de68dc",
+    "index_log_sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+    "zone_encoding_bom_preserved": true,
+    "zone_change": "one insertion after d05p01",
+    "zone_ground_map_count": 370,
+    "canonical_index": 313,
+    "variant_and_routing_static_checks": "PASS"
+  }
+}
