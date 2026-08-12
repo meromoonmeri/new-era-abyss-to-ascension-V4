@@ -1,0 +1,265 @@
+{
+  "schema": 1,
+  "ground": "h20p01",
+  "validated_at": "2026-08-12",
+  "runtime": "PASS",
+  "visual_comparison": {
+    "result": "PASS",
+    "dimensions_pixels": [
+      456,
+      336
+    ],
+    "primary_sample_count": 48,
+    "reload_sample_count": 1,
+    "exact_sample_count": 49,
+    "unique_rgba_frame_count": 24,
+    "mismatched_pixel_count": 0,
+    "maximum_channel_delta": 0,
+    "all_full_rgba_exact": true,
+    "all_fully_opaque": true,
+    "comparative_png_paths": [
+      "docs/pmdred_eu/pmdo_validation/h20p01_exhaustive_pass/comparisons/comparison_primary_tick0.png",
+      "docs/pmdred_eu/pmdo_validation/h20p01_exhaustive_pass/comparisons/comparison_primary_tick95.png",
+      "docs/pmdred_eu/pmdo_validation/h20p01_exhaustive_pass/comparisons/comparison_reload_tick0.png"
+    ],
+    "complete_metrics_report": "docs/pmdred_eu/pmdo_validation/h20p01_exhaustive_pass/report.json"
+  },
+  "tile_palette_validation": {
+    "result": "PASS",
+    "reference": "independent authenticated raw EU BPL/BPC/BPA/BMA renderer",
+    "resource_hashes": {
+      "H20P01": "796b4ebf40533226c13f47677ff760742695230f7939a6afb6afe18048a198f4",
+      "H20P01c": "b981a3f13603bcb7d2fe725b217d22c9fc8161cfd60ea791d1b3945a64f2fdfc",
+      "H20P01m": "34755347699b9b7d81e0ac924ddea6ffd757a824afabe25b00053670fe029258"
+    }
+  },
+  "animation_validation": {
+    "result": "PASS",
+    "primary_sample_count": 48,
+    "first_tick": 0,
+    "last_tick": 95,
+    "cell_local_schedule_count": 2,
+    "maximum_cell_local_cycle_ticks": 48,
+    "all_schedules_covered_through_two_complete_cycles": true,
+    "channels": [
+      {
+        "cycle": 48,
+        "frame_count": 12,
+        "frame_durations": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "index": 8,
+        "kind": "BPL_PALETTE"
+      },
+      {
+        "cycle": 36,
+        "frame_count": 9,
+        "frame_durations": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "index": 9,
+        "kind": "BPL_PALETTE"
+      }
+    ],
+    "unique_observed_rgba_frames": 24,
+    "reload_tick_zero_exact": true,
+    "orphaned_animation_observed": false
+  },
+  "collision_validation": {
+    "result": "PASS",
+    "source": "H20P01m",
+    "collision_layer_count": 1,
+    "solid_cells": 1492,
+    "collision_sha256": "e716a8a7932a6b54584a5b9d9d2e70f50a8ed5d6b42757dabd43c37d7877d152",
+    "successful_probe": {
+      "start": [
+        224,
+        152
+      ],
+      "direction": "Left",
+      "observed_delta": [
+        -8,
+        0
+      ],
+      "result": "PASS"
+    },
+    "blocked_probe": {
+      "start": [
+        224,
+        152
+      ],
+      "direction": "Down",
+      "observed_delta": [
+        0,
+        0
+      ],
+      "result": "PASS"
+    }
+  },
+  "entry_exit_reentry": {
+    "result": "PASS",
+    "loads": 2,
+    "entries": 2,
+    "exits": 2,
+    "same_ground_reentries": 1,
+    "strict_native_lifecycle_order": "PASS"
+  },
+  "cleanup_reload": {
+    "result": "PASS",
+    "cleanup_probe_count": 4,
+    "ground_exit_cleanup_passes": 2,
+    "sink_cleanup": "PASS",
+    "final_cleanup": "PASS",
+    "reload_load": "LOAD_PASS",
+    "reload_tick_zero_full_rgba_exact": true,
+    "terminal_end_seen": true,
+    "state_leakage_observed": false,
+    "stale_assets_observed": false,
+    "permanent_lock_observed": false,
+    "orphan_process_check": "PASS"
+  },
+  "native_termination": {
+    "result": "PASS",
+    "load_phase": "Unload",
+    "deinit_seen": true,
+    "graphics_unload_seen": true,
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "terminal": true,
+    "graceful": true,
+    "watchdog": false,
+    "requested_signal": null,
+    "sigsegv": false,
+    "forced_kill": false,
+    "orphan_process": false,
+    "evidence": "docs/pmdred_eu/pmdo_validation/h20p01_exhaustive_pass/termination.json",
+    "sha256": "5d725e9a168e3714a0d5de6e557fccc807201f3f967eff888424c973571c4f88"
+  },
+  "fixture_isolation": {
+    "canonical_source_ground_sha256": "ec944dd50b1d35061d21759f007b4b93f28854759c9bbb301e8880bb492d311a",
+    "canonical_source_tile_sha256": "e4c127a92007cd99c764b0e5714d083a0918b06d810bc417257ce61819b1fbde",
+    "source_entity_counts": {
+      "markers": 0,
+      "spawners": 0,
+      "map_characters": 0,
+      "ground_objects": 0
+    },
+    "fixture_only_changes": [
+      "deterministic entry marker",
+      "ignored validator plumbing"
+    ],
+    "source_and_promoted_files_unchanged_by_fixture": true
+  },
+  "special_classification": {
+    "canonical_source": {
+      "category": "friend_area",
+      "ground_map_symbol": "MAP_FRIEND_AREA_AGED_CHAMBER_AN",
+      "canonical_debug_id": 155,
+      "map_id": 148,
+      "map_file_id": 156,
+      "ground_place_id": 9,
+      "stable_ground_id": "h20p01",
+      "classification": "aged_chamber_an_friend_area",
+      "friend_area": "aged_chamber_an",
+      "cinematic": false,
+      "arena": false,
+      "boss": false
+    },
+    "scope": {
+      "cinematic_choreography": "NOT APPLICABLE/NOT CLAIMED; Ground-only lifecycle and rendering validated",
+      "arena": false,
+      "boss": false
+    }
+  },
+  "identity_validation": {
+    "result": "PASS",
+    "authenticated_map_file_id": 156,
+    "pinned_enum_symbol": "MAP_FRIEND_AREA_AGED_CHAMBER_AN",
+    "conversion_type": 1,
+    "weather_id": 14
+  },
+  "definitive_destination": {
+    "ground": "Data/Ground/h20p01.rsground",
+    "tile": "Content/Tile/h20p01_Base.tile",
+    "zone_registry": "Data/Zone/master_zone.json",
+    "zone_registry_entry": "h20p01",
+    "promotion_status": "PROMOTED_ADDITIVE_CANONICAL",
+    "preexisting_destinations": false,
+    "pre_promotion_destinations": {
+      "ground": {
+        "preexisting": false,
+        "sha256": null,
+        "reserve": null
+      },
+      "tile": {
+        "preexisting": false,
+        "sha256": null,
+        "reserve": null
+      }
+    },
+    "pre_promotion_record": "RESERVE/pmdred_pre_promotion/h20p01/README.md",
+    "promoted_ground_sha256": "ec944dd50b1d35061d21759f007b4b93f28854759c9bbb301e8880bb492d311a",
+    "promoted_tile_sha256": "e4c127a92007cd99c764b0e5714d083a0918b06d810bc417257ce61819b1fbde"
+  },
+  "provenance": {
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+    "conversion_report_sha256": "91f3b460b3e3b7689bc608ece2006cb6103d653bcdc22ad028f4172c3a1b0fdc",
+    "candidate_ground_sha256": "ec944dd50b1d35061d21759f007b4b93f28854759c9bbb301e8880bb492d311a",
+    "candidate_tile_sha256": "e4c127a92007cd99c764b0e5714d083a0918b06d810bc417257ce61819b1fbde",
+    "source_normalized_sha256": {
+      "H20P01": "796b4ebf40533226c13f47677ff760742695230f7939a6afb6afe18048a198f4",
+      "H20P01c": "b981a3f13603bcb7d2fe725b217d22c9fc8161cfd60ea791d1b3945a64f2fdfc",
+      "H20P01m": "34755347699b9b7d81e0ac924ddea6ffd757a824afabe25b00053670fe029258"
+    },
+    "events_sha256": "98f855e86f996c24e69f464c58087bbcbb3234aaa22869f88a52a17654808db0",
+    "report_sha256": "052ee523d9c14b1a751eb340acc3741d9b1052100588e46e0399a077366a0745",
+    "fixture_manifest_sha256": "d70909115364e398bc45caa5dba22dcbb84cf500488289d01a92f9320d32da01",
+    "termination_sha256": "5d725e9a168e3714a0d5de6e557fccc807201f3f967eff888424c973571c4f88",
+    "detailed_provenance": "docs/pmdred_eu/pmdo_validation/h20p01_exhaustive_pass/provenance.json"
+  },
+  "execution_note": {
+    "terminal_event_and_all_required_captures_completed": true,
+    "post_terminal_shutdown": "PMDO-native GameBase.LoadPhase.Unload followed by NORMAL_EXIT",
+    "return_code": 0,
+    "watchdog": false,
+    "requested_signal": null,
+    "evidence_impact": "NONE"
+  },
+  "dungeon_restitution": {
+    "affected": false,
+    "status": "27-relationship bundle retained"
+  },
+  "scope_note": "Ground-only; dialogue, choreography, music assignment, and narrative routing are not claimed.",
+  "post_promotion_integration": {
+    "result": "PASS",
+    "exact_pmdo_index": "PASS",
+    "indexed_ground_sha256": "ec944dd50b1d35061d21759f007b4b93f28854759c9bbb301e8880bb492d311a",
+    "indexed_tile_sha256": "e4c127a92007cd99c764b0e5714d083a0918b06d810bc417257ce61819b1fbde",
+    "index_log_sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+    "zone_encoding_bom_preserved": true,
+    "zone_change": "one insertion after h19p01",
+    "zone_ground_map_count": 339,
+    "canonical_index": 280,
+    "variant_and_routing_static_checks": "PASS"
+  }
+}
