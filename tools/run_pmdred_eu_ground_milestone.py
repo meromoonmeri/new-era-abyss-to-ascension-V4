@@ -2,11 +2,11 @@
 """Run one or more established exact-PMDO PMD Red EU Ground milestones.
 
 This is an orchestration of the already-audited fixture, exact PMDO 0.8.12,
-independent renderer/comparator, additive promotion, post-promotion indexing,
-and checkpoint tools.  It supports authenticated rescue-team-base and friend-
-area Grounds whose roles follow directly from the pinned GroundMapID symbol.
-It stops before any occupied destination or unimplemented role rather than
-guessing or overwriting.
+independent renderer/comparator, additive promotion or hash-gated preserved tile
+migration, post-promotion indexing, and checkpoint tools. It supports
+rescue-team-base and friend-area Grounds whose roles follow directly from the
+pinned GroundMapID symbol. It stops before any unrecognized occupied destination
+or unimplemented role rather than guessing or discarding historical bytes.
 """
 from __future__ import annotations
 
@@ -198,6 +198,24 @@ def atomic_install(source: Path, destination: Path) -> None:
         if os.path.exists(temp_name): os.unlink(temp_name)
 
 
+def atomic_replace_preserved(source: Path, destination: Path, reserve: Path, expected_pre_sha256: str) -> None:
+    """Replace a destination only after its exact prior bytes have a durable reserve."""
+    if not destination.is_file() or sha(destination) != expected_pre_sha256:
+        raise RuntimeError(f"pre-promotion destination changed before migration: {destination}")
+    if not reserve.is_file() or sha(reserve) != expected_pre_sha256:
+        raise RuntimeError(f"durable pre-promotion reserve gate failed: {reserve}")
+    fd, temp_name = tempfile.mkstemp(prefix=destination.name + ".migrate.", dir=destination.parent)
+    try:
+        with os.fdopen(fd, "wb") as stream:
+            stream.write(source.read_bytes()); stream.flush(); os.fsync(stream.fileno())
+        if sha(Path(temp_name)) != sha(source):
+            raise RuntimeError(f"migration temporary copy hash mismatch: {destination}")
+        os.replace(temp_name, destination)
+        directory = os.open(destination.parent, os.O_RDONLY); os.fsync(directory); os.close(directory)
+    finally:
+        if os.path.exists(temp_name): os.unlink(temp_name)
+
+
 def insert_zone(ground: str, order: list[str], validated: set[str]) -> tuple[str, str, str, int]:
     path = ROOT / "Data/Zone/master_zone.json"; before = path.read_bytes()
     if not before.startswith(b"\xef\xbb\xbf"):
@@ -272,7 +290,8 @@ PYTERM
 
 
 def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: dict[str, Any], audit: dict[str, Any], plan: dict[str, Any],
-                     fixture: Path, comparison: Path, post_fixture: Path, zone_pre: str, zone_post: str, prior: str, zone_index: int) -> None:
+                     fixture: Path, comparison: Path, post_fixture: Path, zone_pre: str, zone_post: str, prior: str, zone_index: int,
+                     pre_promotion: dict[str, dict[str, Any]]) -> None:
     out = ROOT / f"docs/pmdred_eu/pmdo_validation/{ground}_exhaustive_pass"
     if out.exists(): raise FileExistsError(out)
     (out / "actual").mkdir(parents=True); (out / "comparisons").mkdir()
@@ -306,6 +325,14 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
     channels=plan["animation_channels"]; ticks=plan["complete_two_local_cycle_boundary_ticks"]
     reserve_ground=ROOT/f"RESERVE/red_grounds/{ground}.rsground"; reserve_tile=ROOT/f"RESERVE/red_tiles/{ground}_Base.tile"
     reserve_details={"ground":{"present":reserve_ground.is_file(),"sha256":sha(reserve_ground) if reserve_ground.is_file() else None},"tile":{"present":reserve_tile.is_file(),"sha256":sha(reserve_tile) if reserve_tile.is_file() else None}}
+    preexisting = any(item["preexisting"] for item in pre_promotion.values())
+    promotion_result = "PROMOTION_PASS_CANONICAL_WITH_PRESERVED_MIGRATION" if preexisting else "PROMOTION_PASS_ADDITIVE_CANONICAL"
+    promotion_status = "PROMOTED_CANONICAL_WITH_PRESERVED_MIGRATION" if preexisting else "PROMOTED_ADDITIVE_CANONICAL"
+    precondition = "; ".join(f"{name} {'present at ' + item['sha256'] if item['preexisting'] else 'absent'}" for name, item in pre_promotion.items())
+    pre_reserve_details = {
+        name: {"preexisting": item["preexisting"], "sha256": item["sha256"], "reserve": item["reserve"]}
+        for name, item in pre_promotion.items()
+    }
     classification={"category":role["category"],"ground_map_symbol":symbol,"canonical_debug_id":identity["canonical_debug_id"],"map_id":identity["map_id"],"map_file_id":identity["map_file_id"],"ground_place_id":identity["ground_place_id"],"stable_ground_id":ground,**role}
     record={
       "schema":1,"ground":ground,"validated_at":DATE,"runtime":"PASS",
@@ -319,27 +346,44 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
       "fixture_isolation":{"canonical_source_ground_sha256":ground_hash,"canonical_source_tile_sha256":tile_hash,"source_entity_counts":{"markers":0,"spawners":0,"map_characters":0,"ground_objects":0},"fixture_only_changes":["deterministic entry marker","ignored validator plumbing"],"source_and_promoted_files_unchanged_by_fixture":True},
       "special_classification":{"canonical_source":classification,"scope":{"cinematic_choreography":"NOT APPLICABLE/NOT CLAIMED; Ground-only lifecycle and rendering validated","arena":False,"boss":False}},
       "identity_validation":{"result":"PASS","authenticated_map_file_id":identity["map_file_id"],"pinned_enum_symbol":symbol,"conversion_type":identity["conversion_type"],"weather_id":identity["weather_id"]},
-      "definitive_destination":{"ground":f"Data/Ground/{ground}.rsground","tile":f"Content/Tile/{ground}_Base.tile","zone_registry":"Data/Zone/master_zone.json","zone_registry_entry":ground,"promotion_status":"PROMOTED_ADDITIVE_CANONICAL","preexisting_destinations":False,"pre_promotion_record":f"RESERVE/pmdred_pre_promotion/{ground}/README.md","promoted_ground_sha256":ground_hash,"promoted_tile_sha256":tile_hash},
+      "definitive_destination":{"ground":f"Data/Ground/{ground}.rsground","tile":f"Content/Tile/{ground}_Base.tile","zone_registry":"Data/Zone/master_zone.json","zone_registry_entry":ground,"promotion_status":promotion_status,"preexisting_destinations":preexisting,"pre_promotion_destinations":pre_reserve_details,"pre_promotion_record":f"RESERVE/pmdred_pre_promotion/{ground}/README.md","promoted_ground_sha256":ground_hash,"promoted_tile_sha256":tile_hash},
       "provenance":{"rom_sha256":ROM_SHA256,"reference_plan_sha256":PLAN_SHA256,"conversion_report_sha256":CONVERSION_SHA256,"candidate_ground_sha256":ground_hash,"candidate_tile_sha256":tile_hash,"source_normalized_sha256":plan["source_normalized_sha256"],"events_sha256":events_sha,"report_sha256":report_sha,"fixture_manifest_sha256":fixture_sha,"termination_sha256":termination_sha,"detailed_provenance":str((out/"provenance.json").relative_to(ROOT))},
       "execution_note":{"terminal_event_and_all_required_captures_completed":True,"post_terminal_shutdown":"PMDO-native GameBase.LoadPhase.Unload followed by NORMAL_EXIT","return_code":0,"watchdog":False,"requested_signal":None,"evidence_impact":"NONE"},"dungeon_restitution":{"affected":False,"status":"27-relationship bundle retained"},
       "scope_note":"Ground-only; dialogue, choreography, music assignment, and narrative routing are not claimed.",
       "post_promotion_integration":{"result":"PASS","exact_pmdo_index":"PASS","indexed_ground_sha256":ground_hash,"indexed_tile_sha256":tile_hash,"index_log_sha256":INDEX_SHA256,"zone_encoding_bom_preserved":True,"zone_change":f"one insertion after {prior}","zone_ground_map_count":len(load(ROOT/"Data/Zone/master_zone.json")["Object"]["GroundMaps"]),"canonical_index":zone_index,"variant_and_routing_static_checks":"PASS"}}
-    promotion={"schema":1,"ground":ground,"validated_at":DATE,"promoted_at":DATE,"result":"PROMOTION_PASS_ADDITIVE_CANONICAL","method":{"destination_precondition":"both destinations absent","installation_mode":"fsynced temporary files and atomic os.replace","existing_asset_discarded":False,"existing_scripts_modified":False,"zone_registration":f"one insertion after {prior} without reserialization"},"gates":{"exact_pmdo_version":"0.8.12","exact_pmdo_executable_sha256":PMDO_SHA256,"active_patched_sdl_sha256":SDL_SHA256,"report_sha256":report_sha,"fixture_manifest_sha256":fixture_sha,"reference_plan_sha256":PLAN_SHA256,"canonical_ground_sha256":ground_hash,"canonical_tile_sha256":tile_hash,"planned_primary_tick_count":len(primary),"observed_primary_tick_count":len(primary),"reload_tick_zero_covered":True,"pixel_exact_sample_count":samples,"fully_opaque_sample_count":samples,"mismatched_pixel_count":0,"maximum_channel_delta":0,"runtime_safe":True,"native_lifecycle_order_pass":True,"cleanup_pass":True,"terminal_end_seen":True,"load_phase_unload_pass":True,"exit_classification":"NORMAL_EXIT","return_code":0,"terminal":True,"graceful":True,"watchdog":False,"requested_signal":None,"sigsegv":False,"forced_kill":False,"orphan_process":False,"termination_sha256":termination_sha,"identity_map_file_id":identity["map_file_id"],"identity_symbol":symbol},"files":[{"candidate":f".runtime-cache/pmdred-eu-remaining-regenerated-v201/grounds/{ground}.rsground","destination":f"Data/Ground/{ground}.rsground","destination_preexisting":False,"bytes":(ROOT/f"Data/Ground/{ground}.rsground").stat().st_size,"validated_candidate_sha256":ground_hash,"destination_sha256":ground_hash,"candidate_destination_identical":True},{"candidate":f".runtime-cache/pmdred-eu-remaining-regenerated-v201/tiles/{ground}_Base.tile","destination":f"Content/Tile/{ground}_Base.tile","destination_preexisting":False,"bytes":(ROOT/f"Content/Tile/{ground}_Base.tile").stat().st_size,"validated_candidate_sha256":tile_hash,"destination_sha256":tile_hash,"candidate_destination_identical":True}],"zone_registration":{"entry":ground,"entry_count":1,"position":f"after {prior}","pre_promotion_sha256":zone_pre,"post_promotion_sha256":zone_post},"preserved_variants":[{"role":"historical_reserve",**reserve_details,"modified":False},{"role":"historical_v200_and_v201_reports","paths":["docs/pmdred_eu/remaining_grounds/history/v200_pre_period_fix/","docs/pmdred_eu/remaining_grounds/"],"modified_by_promotion":False}],"post_promotion_integration":{"result":"PASS","exact_pmdo_index":"PASS","log_sha256":INDEX_SHA256,"zone_structure":"PASS","existing_routes_unchanged":"PASS"}}
-    provenance={"schema":1,"ground":ground,"validated_at":DATE,"result":"PASS","authorities":{"rom":{"sha256":ROM_SHA256,"bytes":33554432,"region":"Europe"},"technical_reference":{"repository":"pret/pmd-red","commit":"bf0092d0e34fd8e49b859a0b5f96f00740faa42d","role":f"{symbol} identity, not EU bytes"},"normalized_extraction":{"source_hashes":plan["source_normalized_sha256"]},"runtime_plan":{"schema":2,"sha256":PLAN_SHA256},"conversion":{"converter":"2.0.1-eu","report_sha256":CONVERSION_SHA256}},"identity":{"canonical_debug_id":identity["canonical_debug_id"],"map_id":identity["map_id"],"map_file_id":identity["map_file_id"],"ground_place_id":identity["ground_place_id"],"conversion_type":identity["conversion_type"],"weather_id":identity["weather_id"],"stable_ground_id":ground,"ground_map_symbol":symbol,"dimensions_tiles":plan["dimensions_tiles"],"dimensions_pixels":plan["dimensions_pixels"],**role},"tested_source":{"ground_sha256":ground_hash,"tile_sha256":tile_hash,"candidate_entities":{"markers":0,"spawners":0,"map_characters":0,"ground_objects":0},"fixture_manifest_sha256":fixture_sha,"static_audit":audit},"runtime":{"name":"PMDO","version":"0.8.12","executable_sha256":PMDO_SHA256,"patched_sdl_sha256":SDL_SHA256,"events_sha256":events_sha,"event_count":sum(1 for _ in (out/"events.jsonl").open()),"primary_samples":len(primary),"reload_samples":1,"terminal_seen":True,"load_phase":"Unload","exit_classification":"NORMAL_EXIT","return_code":0,"graceful":True,"watchdog":False,"requested_signal":None,"sigsegv":False,"forced_kill":False,"orphan_process":False,"termination_sha256":termination_sha},"comparison":{"report_sha256":report_sha,"sample_count":samples,"exact_sample_count":samples,"fully_opaque_sample_count":samples,"mismatched_pixels":0,"maximum_channel_delta":0,"unique_primary_rgba_frames":unique_count},"candidate_provenance_reconciliation":{"historical_v200_reports_preserved_at":"docs/pmdred_eu/remaining_grounds/history/v200_pre_period_fix/","authenticated_v201_ground_sha256":ground_hash,"authenticated_v201_tile_sha256":tile_hash,"decision":"Only authenticated v2.0.1-eu bytes were exact-engine tested and promoted; immutable v2.0.0 reports and active v2.0.1 reports remain distinct provenance."},"preservation":{"historical_reserve":reserve_details,"absence_record":f"RESERVE/pmdred_pre_promotion/{ground}/README.md"},"promoted":{"ground_sha256":ground_hash,"tile_sha256":tile_hash,"zone_pre_sha256":zone_pre,"zone_post_sha256":zone_post},"durable_evidence":{},"reproduction":{"commands":str((out/"commands.sh").relative_to(ROOT))},"scope":"Ground-only validation","post_promotion_integration":{"exact_pmdo_index":"PASS","log_sha256":INDEX_SHA256,"zone_encoding_bom_preserved":True}}
+    promotion={"schema":1,"ground":ground,"validated_at":DATE,"promoted_at":DATE,"result":promotion_result,"method":{"destination_precondition":precondition,"installation_mode":"fsynced temporary files and atomic os.replace after durable preservation where required","historical_bytes_reserved_before_replacement":preexisting,"existing_asset_discarded":False,"existing_scripts_modified":False,"zone_registration":f"one insertion after {prior} without reserialization"},"gates":{"exact_pmdo_version":"0.8.12","exact_pmdo_executable_sha256":PMDO_SHA256,"active_patched_sdl_sha256":SDL_SHA256,"report_sha256":report_sha,"fixture_manifest_sha256":fixture_sha,"reference_plan_sha256":PLAN_SHA256,"canonical_ground_sha256":ground_hash,"canonical_tile_sha256":tile_hash,"planned_primary_tick_count":len(primary),"observed_primary_tick_count":len(primary),"reload_tick_zero_covered":True,"pixel_exact_sample_count":samples,"fully_opaque_sample_count":samples,"mismatched_pixel_count":0,"maximum_channel_delta":0,"runtime_safe":True,"native_lifecycle_order_pass":True,"cleanup_pass":True,"terminal_end_seen":True,"load_phase_unload_pass":True,"exit_classification":"NORMAL_EXIT","return_code":0,"terminal":True,"graceful":True,"watchdog":False,"requested_signal":None,"sigsegv":False,"forced_kill":False,"orphan_process":False,"termination_sha256":termination_sha,"identity_map_file_id":identity["map_file_id"],"identity_symbol":symbol},"files":[{"candidate":f".runtime-cache/pmdred-eu-remaining-regenerated-v201/grounds/{ground}.rsground","destination":f"Data/Ground/{ground}.rsground","destination_preexisting":pre_promotion["ground"]["preexisting"],"pre_promotion_sha256":pre_promotion["ground"]["sha256"],"pre_promotion_reserve":pre_promotion["ground"]["reserve"],"bytes":(ROOT/f"Data/Ground/{ground}.rsground").stat().st_size,"validated_candidate_sha256":ground_hash,"destination_sha256":ground_hash,"candidate_destination_identical":True},{"candidate":f".runtime-cache/pmdred-eu-remaining-regenerated-v201/tiles/{ground}_Base.tile","destination":f"Content/Tile/{ground}_Base.tile","destination_preexisting":pre_promotion["tile"]["preexisting"],"pre_promotion_sha256":pre_promotion["tile"]["sha256"],"pre_promotion_reserve":pre_promotion["tile"]["reserve"],"bytes":(ROOT/f"Content/Tile/{ground}_Base.tile").stat().st_size,"validated_candidate_sha256":tile_hash,"destination_sha256":tile_hash,"candidate_destination_identical":True}],"zone_registration":{"entry":ground,"entry_count":1,"position":f"after {prior}","pre_promotion_sha256":zone_pre,"post_promotion_sha256":zone_post},"preserved_variants":[{"role":"pre_promotion_destination_reserve","files":pre_reserve_details,"modified_after_capture":False},{"role":"historical_reserve",**reserve_details,"modified":False},{"role":"historical_v200_and_v201_reports","paths":["docs/pmdred_eu/remaining_grounds/history/v200_pre_period_fix/","docs/pmdred_eu/remaining_grounds/"],"modified_by_promotion":False}],"post_promotion_integration":{"result":"PASS","exact_pmdo_index":"PASS","log_sha256":INDEX_SHA256,"zone_structure":"PASS","existing_routes_unchanged":"PASS"}}
+    provenance={"schema":1,"ground":ground,"validated_at":DATE,"result":"PASS","authorities":{"rom":{"sha256":ROM_SHA256,"bytes":33554432,"region":"Europe"},"technical_reference":{"repository":"pret/pmd-red","commit":"bf0092d0e34fd8e49b859a0b5f96f00740faa42d","role":f"{symbol} identity, not EU bytes"},"normalized_extraction":{"source_hashes":plan["source_normalized_sha256"]},"runtime_plan":{"schema":2,"sha256":PLAN_SHA256},"conversion":{"converter":"2.0.1-eu","report_sha256":CONVERSION_SHA256}},"identity":{"canonical_debug_id":identity["canonical_debug_id"],"map_id":identity["map_id"],"map_file_id":identity["map_file_id"],"ground_place_id":identity["ground_place_id"],"conversion_type":identity["conversion_type"],"weather_id":identity["weather_id"],"stable_ground_id":ground,"ground_map_symbol":symbol,"dimensions_tiles":plan["dimensions_tiles"],"dimensions_pixels":plan["dimensions_pixels"],**role},"tested_source":{"ground_sha256":ground_hash,"tile_sha256":tile_hash,"candidate_entities":{"markers":0,"spawners":0,"map_characters":0,"ground_objects":0},"fixture_manifest_sha256":fixture_sha,"static_audit":audit},"runtime":{"name":"PMDO","version":"0.8.12","executable_sha256":PMDO_SHA256,"patched_sdl_sha256":SDL_SHA256,"events_sha256":events_sha,"event_count":sum(1 for _ in (out/"events.jsonl").open()),"primary_samples":len(primary),"reload_samples":1,"terminal_seen":True,"load_phase":"Unload","exit_classification":"NORMAL_EXIT","return_code":0,"graceful":True,"watchdog":False,"requested_signal":None,"sigsegv":False,"forced_kill":False,"orphan_process":False,"termination_sha256":termination_sha},"comparison":{"report_sha256":report_sha,"sample_count":samples,"exact_sample_count":samples,"fully_opaque_sample_count":samples,"mismatched_pixels":0,"maximum_channel_delta":0,"unique_primary_rgba_frames":unique_count},"candidate_provenance_reconciliation":{"historical_v200_reports_preserved_at":"docs/pmdred_eu/remaining_grounds/history/v200_pre_period_fix/","authenticated_v201_ground_sha256":ground_hash,"authenticated_v201_tile_sha256":tile_hash,"decision":"Only authenticated v2.0.1-eu bytes were exact-engine tested and promoted; immutable v2.0.0 reports and active v2.0.1 reports remain distinct provenance."},"preservation":{"historical_reserve":reserve_details,"pre_promotion_destinations":pre_reserve_details,"pre_promotion_record":f"RESERVE/pmdred_pre_promotion/{ground}/README.md"},"promoted":{"ground_sha256":ground_hash,"tile_sha256":tile_hash,"zone_pre_sha256":zone_pre,"zone_post_sha256":zone_post},"durable_evidence":{},"reproduction":{"commands":str((out/"commands.sh").relative_to(ROOT))},"scope":"Ground-only validation","post_promotion_integration":{"exact_pmdo_index":"PASS","log_sha256":INDEX_SHA256,"zone_encoding_bom_preserved":True}}
     dump(out/"validation_record.json",record);dump(out/"promotion_record.json",promotion);dump(out/"provenance.json",provenance)
     write_commands(out,ground,identity,symbol,ground_hash,tile_hash,sum(1 for _ in (out/"events.jsonl").open()),samples,unique_count,reserve_ground,reserve_tile)
+    with (out/"commands.sh").open("a") as stream:
+        for item in pre_promotion.values():
+            if item["preexisting"]:
+                stream.write(f"test \"$(sha256sum {item['reserve']} | cut -d' ' -f1)\" = {item['sha256']}\n")
     max_cycle=max((x["source_local_cycle"] for x in plan["cell_animation_schedules"]),default=1)
+    result_heading = "PASS — PROMOTED WITH PRESERVED CANONICAL MIGRATION" if preexisting else "PASS — PROMOTED ADDITIVELY"
+    if preexisting:
+        migrated = ", ".join(name for name, item in pre_promotion.items() if item["preexisting"])
+        promotion_summary = (
+            f"Promotion created the previously absent destinations, except for pre-existing {migrated} bytes that were first copied byte-exactly "
+            f"into `RESERVE/pmdred_pre_promotion/{ground}/` and hash-verified before canonical replacement. The active Ground/tile hashes are "
+            f"`{ground_hash}` / `{tile_hash}`. No historical bytes were discarded."
+        )
+    else:
+        promotion_summary = (
+            f"Promotion created previously absent `Data/Ground/{ground}.rsground` (`{ground_hash}`) and "
+            f"`Content/Tile/{ground}_Base.tile` (`{tile_hash}`)."
+        )
     readme=f"""# {ground} exhaustive exact-PMDO pass
 
 ## Result
 
-`PASS — PROMOTED ADDITIVELY`
+`{result_heading}`
 
 `{ground}` is the authenticated EU {role['classification'].replace('_',' ')} (`{symbol}`; map ID {identity['map_id']}, map-file ID {identity['map_file_id']}). Exact PMDO 0.8.12 loaded the authenticated v2.0.1-eu candidate in isolation; the independent raw-EU-ROM renderer matched all **{samples}/{samples}** full-RGBA samples with zero mismatched pixels and full opacity. BMA movement/blocking, two entries/exits, same-Ground re-entry, unload/reload, cleanup, and state isolation all passed. PMDO then entered native `GameBase.LoadPhase.Unload`, published data and graphics unload callbacks, emitted terminal `end`, returned 0 as `NORMAL_EXIT`, and left no signal, watchdog, SIGSEGV, forced kill, or orphan.
 
 Role flags are recorded independently as `cinematic=false`, `arena=false`, `boss=false`; this Ground-only record claims no dialogue, choreography, music, or narrative routing. {len(primary)} primary boundary ticks ({ticks[0]}–{ticks[-1]}) cover every applicable animation schedule through two complete local cycles (maximum {max_cycle} ticks); {unique_count} distinct primary RGBA frames were observed.
 
-Promotion created previously absent `Data/Ground/{ground}.rsground` (`{ground_hash}`) and `Content/Tile/{ground}_Base.tile` (`{tile_hash}`), inserted one zone entry after `{prior}` without reserializing the registry, preserved BOM/other routes, retained all reserve/history, and passed exact-PMDO post-promotion indexing (`{INDEX_SHA256[:8]}…`). Complete metrics, events, logs, representative initial/final/reload PNGs, provenance, promotion details, reproduction commands, and hashes are in this directory.
+{promotion_summary} Promotion inserted one zone entry after `{prior}` without reserializing the registry, preserved BOM/other routes, retained all reserve/history, and passed exact-PMDO post-promotion indexing (`{INDEX_SHA256[:8]}…`). Complete metrics, events, logs, representative initial/final/reload PNGs, provenance, promotion details, reproduction commands, and hashes are in this directory.
 """
     (out/"README.md").write_text(readme)
     provenance=load(out/"provenance.json")
@@ -347,6 +391,7 @@ Promotion created previously absent `Data/Ground/{ground}.rsground` (`{ground_ha
         if path.is_file() and path.name not in {"provenance.json","evidence_hashes.sha256"}: provenance["durable_evidence"][path.relative_to(out).as_posix()]=sha(path)
     dump(out/"provenance.json",provenance)
     manifest_paths=[x for x in sorted(out.rglob("*")) if x.is_file() and x.name!="evidence_hashes.sha256"]+[ROOT/f"Data/Ground/{ground}.rsground",ROOT/f"Content/Tile/{ground}_Base.tile",ROOT/"Data/Zone/master_zone.json",ROOT/f"RESERVE/pmdred_pre_promotion/{ground}/README.md",LOCK_PATH,REPORT_PATH,AUDIT_PATH]
+    manifest_paths.extend(ROOT / item["reserve"] for item in pre_promotion.values() if item["preexisting"])
     (out/"evidence_hashes.sha256").write_text("".join(f"{sha(path)}  {path.relative_to(ROOT).as_posix()}\n" for path in manifest_paths))
 
 
@@ -363,7 +408,23 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
     ground_dst=ROOT/f"Data/Ground/{ground}.rsground";tile_dst=ROOT/f"Content/Tile/{ground}_Base.tile"; evidence=ROOT/f"docs/pmdred_eu/pmdo_validation/{ground}_exhaustive_pass"
     if evidence.exists():
         log(f"SKIP already evidenced {ground}");return
-    if ground_dst.exists() or tile_dst.exists(): raise RuntimeError(f"occupied destination for {ground}; refusing overwrite")
+    reserve_dir=ROOT/f"RESERVE/pmdred_pre_promotion/{ground}"
+    pre_ground_reserve=reserve_dir/ground_dst.name; pre_tile_reserve=reserve_dir/tile_dst.name
+    pre_promotion = {
+        "ground": {"preexisting": ground_dst.is_file(), "sha256": sha(ground_dst) if ground_dst.is_file() else None,
+                   "reserve": pre_ground_reserve.relative_to(ROOT).as_posix() if ground_dst.is_file() else None},
+        "tile": {"preexisting": tile_dst.is_file(), "sha256": sha(tile_dst) if tile_dst.is_file() else None,
+                 "reserve": pre_tile_reserve.relative_to(ROOT).as_posix() if tile_dst.is_file() else None},
+    }
+    if ground_dst.exists():
+        raise RuntimeError(f"occupied Ground destination for {ground}; entity-aware migration is required")
+    if tile_dst.exists():
+        historical_tile=ROOT/f"RESERVE/red_tiles/{ground}_Base.tile"
+        if not historical_tile.is_file() or sha(historical_tile) != pre_promotion["tile"]["sha256"]:
+            raise RuntimeError(f"occupied tile for {ground} does not match its preserved historical reserve")
+        if reserve_dir.exists():
+            raise RuntimeError(f"pre-promotion reserve path already exists for unvalidated {ground}")
+        log(f"PRESERVED_MIGRATION_REQUIRED ground={ground} tile_sha256={pre_promotion['tile']['sha256']}")
     fixture=ROOT/f".runtime-cache/pmdred-eu-{ground}-runtime"; comparison=ROOT/f".runtime-cache/pmdred-eu-{ground}-comparison"
     post_candidate=ROOT/f".runtime-cache/pmdred-eu-{ground}-promoted-candidate";post_fixture=ROOT/f".runtime-cache/pmdred-eu-{ground}-promoted-fixture"
     for path in [fixture,comparison,post_candidate,post_fixture]:
@@ -382,19 +443,49 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
     gates=[report["grounds"]==[ground],report["sample_count"]==expected,len(primary)==plan["sample_count"],report["exact_sample_count"]==expected,report["fully_opaque_sample_count"]==expected,report["all_exact"],report["all_fully_opaque"],rt["all_runtime_safe"],rt["runtime_sequence_consistent"],rt["native_lifecycle_order"]["pass"],rt["all_cleanups_pass"],rt["end_event_seen"],rt["same_ground_reentry_count"]==1,vals[(ground,"primary")]["movement_probe"]=="PASS",vals[(ground,"primary")]["blocked_probe"]=="PASS",vals[(ground,"reload")]["load"]=="LOAD_PASS",all(x["mismatched_pixels"]==0 and x["maximum_channel_delta"]==0 for x in report["samples"])]
     if not all(gates): raise RuntimeError(f"comparison/runtime gate failed for {ground}: {gates}")
     state["stage"]="comparison_pass";dump(STATE_PATH,state);log(f"COMPARE_PASS ground={ground} samples={expected} unique={len({x['actual_rgba_sha256'] for x in primary})}")
-    atomic_install(ground_src,ground_dst);atomic_install(tile_src,tile_dst)
+    if pre_promotion["tile"]["preexisting"]:
+        reserve_dir.mkdir(parents=True)
+        atomic_install(tile_dst,pre_tile_reserve)
+        if sha(pre_tile_reserve) != pre_promotion["tile"]["sha256"]:
+            raise RuntimeError("pre-promotion tile reserve readback failed")
+    atomic_install(ground_src,ground_dst)
+    if pre_promotion["tile"]["preexisting"]:
+        atomic_replace_preserved(tile_src,tile_dst,pre_tile_reserve,pre_promotion["tile"]["sha256"])
+    else:
+        atomic_install(tile_src,tile_dst)
     validated=set(load(ROOT/"docs/pmdred_eu/pmdo_validation/progress.json")["validated_ids"])
     zone_pre,zone_post,prior,zone_index=insert_zone(ground,order,validated)
     if sha(ground_dst)!=ground_hash or sha(tile_dst)!=tile_hash: raise RuntimeError("promotion readback failed")
-    reserve_dir=ROOT/f"RESERVE/pmdred_pre_promotion/{ground}";reserve_dir.mkdir(parents=True)
+    reserve_dir.mkdir(parents=True,exist_ok=True)
     reserve_ground=ROOT/f"RESERVE/red_grounds/{ground}.rsground";reserve_tile=ROOT/f"RESERVE/red_tiles/{ground}_Base.tile"
-    (reserve_dir/"README.md").write_text(f"# `{ground}` pre-promotion record\n\nBoth canonical lowercase destinations were absent before the {DATE} additive promotion. Pre-promotion `master_zone.json` SHA-256: `{zone_pre}`. No existing worktree asset was replaced.\n\nHistorical reserve Ground: `{sha(reserve_ground) if reserve_ground.is_file() else 'absent'}`. Historical reserve tile: `{sha(reserve_tile) if reserve_tile.is_file() else 'absent'}`. Those reserves and both v2.0.0/v2.0.1 report generations remain unmodified. Authenticated identity: `{symbol}` / map ID {identity['map_id']} / map-file ID {identity['map_file_id']}.\n\nEvidence: `docs/pmdred_eu/pmdo_validation/{ground}_exhaustive_pass/`.\n")
+    if any(item["preexisting"] for item in pre_promotion.values()):
+        preserved_rows="\n".join(
+            f"| `{Path(item['reserve']).name}` | `{item['sha256']}` |"
+            for item in pre_promotion.values() if item["preexisting"]
+        )
+        reserve_note=f"""# `{ground}` pre-promotion reserve
+
+These are the exact destination bytes retained before the validated canonical migration on {DATE}. They are historical inputs, not canonical proof and not active assets.
+
+| File | Pre-promotion SHA-256 |
+| --- | --- |
+{preserved_rows}
+
+The destination Ground was absent. Every pre-existing tile byte was copied into this directory and hash-verified before the active destination was replaced atomically with the independently validated authenticated EU v2.0.1 candidate. No historical bytes were discarded. Pre-promotion `master_zone.json` SHA-256: `{zone_pre}`.
+
+Historical reserve Ground: `{sha(reserve_ground) if reserve_ground.is_file() else 'absent'}`. Historical reserve tile: `{sha(reserve_tile) if reserve_tile.is_file() else 'absent'}`. Those reserves and both v2.0.0/v2.0.1 report generations remain unmodified. Authenticated identity: `{symbol}` / map ID {identity['map_id']} / map-file ID {identity['map_file_id']}.
+
+Evidence: `docs/pmdred_eu/pmdo_validation/{ground}_exhaustive_pass/`.
+"""
+    else:
+        reserve_note=f"# `{ground}` pre-promotion record\n\nBoth canonical lowercase destinations were absent before the {DATE} additive promotion. Pre-promotion `master_zone.json` SHA-256: `{zone_pre}`. No existing worktree asset was replaced.\n\nHistorical reserve Ground: `{sha(reserve_ground) if reserve_ground.is_file() else 'absent'}`. Historical reserve tile: `{sha(reserve_tile) if reserve_tile.is_file() else 'absent'}`. Those reserves and both v2.0.0/v2.0.1 report generations remain unmodified. Authenticated identity: `{symbol}` / map ID {identity['map_id']} / map-file ID {identity['map_file_id']}.\n\nEvidence: `docs/pmdred_eu/pmdo_validation/{ground}_exhaustive_pass/`.\n"
+    (reserve_dir/"README.md").write_text(reserve_note)
     state["stage"]="promoted";dump(STATE_PATH,state)
     (post_candidate/"grounds").mkdir(parents=True);(post_candidate/"tiles").mkdir()
     shutil.copyfile(ground_dst,post_candidate/"grounds"/ground_dst.name);shutil.copyfile(tile_dst,post_candidate/"tiles"/tile_dst.name);shutil.copyfile(CANONICAL/"conversion_report.json",post_candidate/"conversion_report.json")
     run([str(PYTHON),"tools/build_pmdred_eu_runtime_fixture.py","--conversion-set","remaining","--candidate-root",str(post_candidate),"--plan",str(PLAN_PATH),"--ids",ground,"--output",str(post_fixture)])
     run_index(post_fixture,post_fixture/"post_promotion_index.log")
-    package_evidence(ground,symbol,role,identity,audit,plan,fixture,comparison,post_fixture,zone_pre,zone_post,prior,zone_index)
+    package_evidence(ground,symbol,role,identity,audit,plan,fixture,comparison,post_fixture,zone_pre,zone_post,prior,zone_index,pre_promotion)
     state["stage"]="evidence_packaged";dump(STATE_PATH,state)
     run([sys.executable,"tools/update_pmdred_eu_validation_progress.py","--write"])
     run([sys.executable,"tools/update_pmdred_eu_validation_progress.py","--check"])
