@@ -1,0 +1,214 @@
+{
+  "schema": 1,
+  "ground": "h06p02",
+  "validated_at": "2026-08-12",
+  "result": "PASS",
+  "authorities": {
+    "rom": {
+      "sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+      "bytes": 33554432,
+      "region": "Europe"
+    },
+    "technical_reference": {
+      "repository": "pret/pmd-red",
+      "commit": "bf0092d0e34fd8e49b859a0b5f96f00740faa42d",
+      "role": "MAP_FRIEND_AREA_SKY_BLUE_PLAINS identity, not EU bytes"
+    },
+    "normalized_extraction": {
+      "source_hashes": {
+        "H06P02": "955533b6624a69d4d0104218d63299bcf0045117d5fd145491083e9cdfa39374",
+        "H06P02c": "b4a8714d75b57457d87fd28d9faded9d8f8b39146fe2b3693426ff26edafbf97",
+        "H06P02m": "a03e001f6281fb4908c4acd4440820bf67e0bdde30a605158ca8be9f287ce83b"
+      }
+    },
+    "runtime_plan": {
+      "schema": 2,
+      "sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0"
+    },
+    "conversion": {
+      "converter": "2.0.1-eu",
+      "report_sha256": "91f3b460b3e3b7689bc608ece2006cb6103d653bcdc22ad028f4172c3a1b0fdc"
+    }
+  },
+  "identity": {
+    "canonical_debug_id": 122,
+    "map_id": 118,
+    "map_file_id": 123,
+    "ground_place_id": 9,
+    "conversion_type": 1,
+    "weather_id": -1,
+    "stable_ground_id": "h06p02",
+    "ground_map_symbol": "MAP_FRIEND_AREA_SKY_BLUE_PLAINS",
+    "dimensions_tiles": [
+      60,
+      42
+    ],
+    "dimensions_pixels": [
+      480,
+      336
+    ],
+    "category": "friend_area",
+    "classification": "sky_blue_plains_friend_area",
+    "friend_area": "sky_blue_plains",
+    "cinematic": false,
+    "arena": false,
+    "boss": false
+  },
+  "tested_source": {
+    "ground_sha256": "b5a24c3588f6e0c570b2822d1bbf36f555bb50fd2948ac5b98784358b53ca62f",
+    "tile_sha256": "51aa9af82852655de44faed5051982fb06825ed7d3346f151513dc21f479720a",
+    "candidate_entities": {
+      "markers": 0,
+      "spawners": 0,
+      "map_characters": 0,
+      "ground_objects": 0
+    },
+    "fixture_manifest_sha256": "43f01839c5b320e75ce470b68a5af9cb12ba091c2e2f400ed97dceda097ceb2b",
+    "static_audit": {
+      "animated_cell_count": 8,
+      "candidate_sha256": {
+        "rsground": "b5a24c3588f6e0c570b2822d1bbf36f555bb50fd2948ac5b98784358b53ca62f",
+        "tile": "51aa9af82852655de44faed5051982fb06825ed7d3346f151513dc21f479720a"
+      },
+      "collision_layer_count": 1,
+      "conversion_type": 1,
+      "dimensions_tiles": [
+        60,
+        42
+      ],
+      "graphical_layer_count": 1,
+      "id": "h06p02",
+      "legacy": {
+        "changed_ground_components": [
+          "Layers",
+          "Entities"
+        ],
+        "ground_semantic_equal_without_comment": false,
+        "legacy_entity_counts": {
+          "GroundObjects": 0,
+          "MapChars": 0,
+          "Markers": 1,
+          "Spawners": 0
+        },
+        "legacy_entity_names": [
+          "Main_Entrance_Marker"
+        ],
+        "legacy_sha256": {
+          "rsground": "701499516efc2300dde12268e700d70abb9f34af2c1fec4aeaaced3292174072",
+          "tile": "36924fec243a14145d72c19928bfa678aa0496d5bfd7892d6e8fa68d2156a610"
+        },
+        "legacy_status": "differs_from_canonical_regeneration",
+        "tile_bytes_equal": false
+      },
+      "map_file_id": 123,
+      "maximum_cell_period": 80,
+      "referenced_sheet_tile_count": 3168,
+      "resources": {
+        "bma": "H06P02m",
+        "bpa": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "bpc": "H06P02c",
+        "bpl": "H06P02"
+      },
+      "sheet_tile_count": 3168,
+      "solid_cell_count": 1288,
+      "source_cell_tick_count": 1824,
+      "source_chunk_cell_count": 280,
+      "status": "pass",
+      "tile_tick_comparison_count": 16416,
+      "unknown_bma_data_nonzero_cells": 0,
+      "unknown_bma_data_present": false,
+      "validated_local_cycle_count": 2,
+      "weather_id": -1
+    }
+  },
+  "runtime": {
+    "name": "PMDO",
+    "version": "0.8.12",
+    "executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+    "patched_sdl_sha256": "2cec7b5f9603a8a856a94b3a5e4fb5bd5e93e3ed0d04b85431625d5acb14e71f",
+    "events_sha256": "fd2aa3cbe7f8902e71b65fe0c5d159d927dd7eab79e91ccf32fd41c1ab29b78f",
+    "event_count": 148,
+    "primary_samples": 40,
+    "reload_samples": 1,
+    "terminal_seen": true,
+    "load_phase": "Unload",
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "graceful": true,
+    "watchdog": false,
+    "requested_signal": null,
+    "sigsegv": false,
+    "forced_kill": false,
+    "orphan_process": false,
+    "termination_sha256": "fa931b36e8d7f426bdcd546bd7e4fd38921067d54e9e249a02e93d3eadeed10a"
+  },
+  "comparison": {
+    "report_sha256": "c51a60670c53cef05ffd89d4027b7f410ab9a39b9c55a9f4221ac45a1cbeaf54",
+    "sample_count": 41,
+    "exact_sample_count": 41,
+    "fully_opaque_sample_count": 41,
+    "mismatched_pixels": 0,
+    "maximum_channel_delta": 0,
+    "unique_primary_rgba_frames": 10
+  },
+  "candidate_provenance_reconciliation": {
+    "historical_v200_reports_preserved_at": "docs/pmdred_eu/remaining_grounds/history/v200_pre_period_fix/",
+    "authenticated_v201_ground_sha256": "b5a24c3588f6e0c570b2822d1bbf36f555bb50fd2948ac5b98784358b53ca62f",
+    "authenticated_v201_tile_sha256": "51aa9af82852655de44faed5051982fb06825ed7d3346f151513dc21f479720a",
+    "decision": "Only authenticated v2.0.1-eu bytes were exact-engine tested and promoted; immutable v2.0.0 reports and active v2.0.1 reports remain distinct provenance."
+  },
+  "preservation": {
+    "historical_reserve": {
+      "ground": {
+        "present": true,
+        "sha256": "701499516efc2300dde12268e700d70abb9f34af2c1fec4aeaaced3292174072"
+      },
+      "tile": {
+        "present": true,
+        "sha256": "36924fec243a14145d72c19928bfa678aa0496d5bfd7892d6e8fa68d2156a610"
+      }
+    },
+    "absence_record": "RESERVE/pmdred_pre_promotion/h06p02/README.md"
+  },
+  "promoted": {
+    "ground_sha256": "b5a24c3588f6e0c570b2822d1bbf36f555bb50fd2948ac5b98784358b53ca62f",
+    "tile_sha256": "51aa9af82852655de44faed5051982fb06825ed7d3346f151513dc21f479720a",
+    "zone_pre_sha256": "2b6a8cfc493bf9d7b91e440b4c3c43efa187f75ef226171ddcabe303b6b912fb",
+    "zone_post_sha256": "3044c51a11c7a9cd25c9913da73a616f85eebf8954e41df3924271bec3a12a14"
+  },
+  "durable_evidence": {
+    "README.md": "d6ca6d220d4cbce1f8d316ac7de18deeffc2ac5dd3884cfd2f39b2bc50e3401e",
+    "actual/actual_primary_tick0.png": "4d2e199aecf0e026173415a9af4820b74f00b20135040330f7e1ac26fec58733",
+    "actual/actual_primary_tick159.png": "5d32fb94b4e5ada7496cf8d7083634f4d26347e95236d21532ae57c1686f6bbb",
+    "actual/actual_reload_tick0.png": "4d2e199aecf0e026173415a9af4820b74f00b20135040330f7e1ac26fec58733",
+    "commands.sh": "7e0145e4189dabd09b085e3e66cbfb08ae4b43579f67325045a2b2bcb4daa8a2",
+    "comparison.log": "30739b32ba735313238a7a042bce2ccbb2111d296cc2e9d9d8cf3d280c9c6f90",
+    "comparisons/comparison_primary_tick0.png": "bf5b70dc746f05b748d1064c7991d21cb89f797764e327f5d708fc7860bac2c9",
+    "comparisons/comparison_primary_tick159.png": "fba847f91e8a55fb24d39c7baa2f355bbf8f517e956bcb19b8f51bc59ea74b14",
+    "comparisons/comparison_reload_tick0.png": "bf5b70dc746f05b748d1064c7991d21cb89f797764e327f5d708fc7860bac2c9",
+    "engine.log": "14f35d335128f5fcef4515f29c4d74d231cdf1fe93c4a95b072b81e001918566",
+    "events.jsonl": "fd2aa3cbe7f8902e71b65fe0c5d159d927dd7eab79e91ccf32fd41c1ab29b78f",
+    "fixture_manifest.json": "43f01839c5b320e75ce470b68a5af9cb12ba091c2e2f400ed97dceda097ceb2b",
+    "index.log": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+    "post_promotion_index.log": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+    "promotion_record.json": "373bcae092ac89fa15f02149d9368e23d5818ec7d3e6fb67abd68468c762e9ed",
+    "report.json": "c51a60670c53cef05ffd89d4027b7f410ab9a39b9c55a9f4221ac45a1cbeaf54",
+    "runtime.log": "52a26f50cc25de005a50e8f35f373fea3a6b17cac09d017c99f6ff212221505b",
+    "termination.json": "fa931b36e8d7f426bdcd546bd7e4fd38921067d54e9e249a02e93d3eadeed10a",
+    "validation_record.json": "e6e3e09a6a4b376cad5f3696dd34b57e67c4c91b65e7b20605730171a98ee262"
+  },
+  "reproduction": {
+    "commands": "docs/pmdred_eu/pmdo_validation/h06p02_exhaustive_pass/commands.sh"
+  },
+  "scope": "Ground-only validation",
+  "post_promotion_integration": {
+    "exact_pmdo_index": "PASS",
+    "log_sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+    "zone_encoding_bom_preserved": true
+  }
+}
