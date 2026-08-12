@@ -1,0 +1,76 @@
+{
+  "kind": "ignored_symlink_overlay",
+  "quest": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdred-eu-a03p02-runtime/quest",
+  "quest_name": "pmdred_eu_fixture",
+  "asset_root": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdred-eu-a03p02-runtime/asset/",
+  "appdata": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdred-eu-a03p02-runtime/appdata/",
+  "conversion_set": "remaining",
+  "candidate_count": 1,
+  "master_zone_ground_count": 356,
+  "replaced_fixture_local_tile_index_nodes": [
+    "a03p02_Base"
+  ],
+  "reference_plan": ".runtime-cache/pmdred-eu-reference-plan-v2.json",
+  "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+  "entity_integrated_ids": [
+    "a03p02"
+  ],
+  "canonical_baseline_root": ".runtime-cache/pmdred-eu-remaining-regenerated-v201",
+  "entries": [
+    {
+      "id": "a03p02",
+      "zone_index": 311,
+      "spawn": {
+        "x": 128,
+        "y": 224,
+        "clear_move_directions": 4,
+        "movement_probes": {
+          "successful": {
+            "x": 128,
+            "y": 216,
+            "direction": "Down",
+            "expected_delta": [
+              0,
+              8
+            ]
+          },
+          "blocked": {
+            "x": 128,
+            "y": 216,
+            "direction": "Up",
+            "expected_delta": [
+              0,
+              -8
+            ]
+          },
+          "blocked_expectation": "BMA_SOLID_BLOCK",
+          "solid_cells": 1246
+        }
+      },
+      "preview_ticks": [
+        0
+      ],
+      "source_ground": ".runtime-cache/pmdred-eu-a03p02-entity-integrated-candidate/grounds/a03p02.rsground",
+      "source_tile": ".runtime-cache/pmdred-eu-a03p02-entity-integrated-candidate/tiles/a03p02_Base.tile",
+      "source_ground_sha256": "4c685a550e2cc6a9cf58f0b640ed3f206700639ac9dd0c39e1a35d1d8c16634c",
+      "source_tile_sha256": "076d64fb6b4f86ef10fc0861a1b2cf4e01f4d88a434b220c886575c6fe30898c",
+      "entity_integration": {
+        "mode": "additive_markers_spawners_only",
+        "canonical_ground": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/grounds/a03p02.rsground",
+        "canonical_ground_sha256": "1802dc409408b7ae85f12ba5e318babe74b232632c3b055fc7a252586b51a463",
+        "integrated_ground_sha256": "4c685a550e2cc6a9cf58f0b640ed3f206700639ac9dd0c39e1a35d1d8c16634c",
+        "layers": [
+          {
+            "layer": 0,
+            "canonical_markers": 0,
+            "integrated_markers": 1,
+            "added_markers": 1,
+            "canonical_spawners": 0,
+            "integrated_spawners": 0,
+            "added_spawners": 0
+          }
+        ]
+      }
+    }
+  ]
+}
