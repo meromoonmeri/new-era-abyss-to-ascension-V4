@@ -1,0 +1,50 @@
+{
+  "schema": "new-era.pmdred-eu-ground-orchestration-failure.v1",
+  "ground": "d13p01",
+  "result": "ORCHESTRATION_FAIL_BEFORE_FIXTURE",
+  "attempt_started_at": "2026-08-12T22:39:40Z",
+  "failure_observed_at": "2026-08-12T22:39:40Z",
+  "head_before_attempt": "3a5cb40304cf1f02df3fedd8dbe7a212454b5f37",
+  "failed_command": "PYTHONPATH=tools .runtime-cache/test-venv/bin/python tools/run_pmdred_eu_ground_milestone.py --ids d13p01",
+  "failure": {
+    "stage": "role_classification_preflight",
+    "observed": "MAP_D16",
+    "rejected_by_gate": "role classification is not implemented for MAP_D16; stopping rather than guessing",
+    "cause": "The conservative role classifier did not yet encode the pinned legacy numeric dungeon token."
+  },
+  "authenticated_identity": {
+    "stable_ground_id": "d13p01",
+    "manifest_map_id": 212,
+    "ground_map_symbol": "MAP_D16",
+    "technical_ground_map_association": {
+      "dungeon": "DUNGEON_FIERY_FIELD",
+      "floor": 100,
+      "source": ".runtime-cache/pmd-red-reference/src/ground_map.c"
+    }
+  },
+  "canonical_state": {
+    "ground_destination_absent": true,
+    "tile_destination_absent": true,
+    "official_pass_evidence_created": false,
+    "fixture_created": false,
+    "runtime_executed": false,
+    "comparison_executed": false,
+    "promotion_executed": false,
+    "zone_mutated": false,
+    "checkpoint_mutated": false,
+    "checkpoint_validated_count": 197,
+    "checkpoint_next_ground": "d13p01"
+  },
+  "recovery_policy": {
+    "preserve_this_failed_attempt": true,
+    "do_not_reclassify_as_pass": true,
+    "narrow_authenticated_map_d16_classification_required": true,
+    "do_not_infer_boss_or_cinematic_behavior": true,
+    "fresh_complete_official_rerun_required": true,
+    "official_pass_may_be_packaged_only_after_all_gates_pass_on_fresh_rerun": true
+  },
+  "evidence": {
+    "README.md": "788ba7659b72bf5de38418f4647409ae1160b0d1cdef04c73a747f0fb19f139d",
+    "orchestration_failure.log": "d488c80d71410b4902e67f03a9239d8b82b218970ab698b1ed0cf81316bc1325"
+  }
+}

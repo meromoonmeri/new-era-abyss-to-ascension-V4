@@ -129,6 +129,18 @@ class GroundRoleClassificationTests(unittest.TestCase):
                 "boss": False,
             },
         )
+        self.assertEqual(
+            classify_ground_role("MAP_D16"),
+            {
+                "category": "dungeon_endpoint_ground",
+                "classification": "fiery_field_endpoint_ground",
+                "location": "fiery_field",
+                "stage": "endpoint",
+                "cinematic": False,
+                "arena": False,
+                "boss": False,
+            },
+        )
 
     def test_unimplemented_role_still_stops(self) -> None:
         with self.assertRaisesRegex(RuntimeError, "stopping rather than guessing"):

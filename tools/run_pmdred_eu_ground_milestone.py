@@ -233,6 +233,23 @@ def classify_ground_role(symbol: str) -> dict[str, Any]:
             "arena": False,
             "boss": False,
         }
+    # The original enum leaves this postgame dungeon endpoint numerically named.
+    # Its pinned GroundMapID association identifies Fiery Field at floor 100;
+    # classify that authenticated association without inferring boss choreography.
+    legacy_dungeon_endpoints = {
+        "MAP_D16": "fiery_field",
+    }
+    if symbol in legacy_dungeon_endpoints:
+        location = legacy_dungeon_endpoints[symbol]
+        return {
+            "category": "dungeon_endpoint_ground",
+            "classification": f"{location}_endpoint_ground",
+            "location": location,
+            "stage": "endpoint",
+            "cinematic": False,
+            "arena": False,
+            "boss": False,
+        }
     match = re.fullmatch(r"MAP_([A-Z0-9]+(?:_[A-Z0-9]+)*)_MID", symbol)
     if match:
         location = match.group(1).lower()
