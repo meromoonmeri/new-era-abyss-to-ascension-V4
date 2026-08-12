@@ -170,6 +170,15 @@ def classify_team_base(symbol: str) -> dict[str, Any]:
 
 def classify_ground_role(symbol: str) -> dict[str, Any]:
     """Classify only roles encoded unambiguously by the pinned GroundMapID."""
+    if symbol == "MAP_TEAM_BASE_WALL_MAP":
+        return {
+            "category": "wall_map_screen",
+            "classification": "rescue_team_base_wall_map_screen",
+            "setting": "rescue_team_base",
+            "cinematic": False,
+            "arena": False,
+            "boss": False,
+        }
     if symbol.startswith("MAP_TEAM_BASE_"):
         return classify_team_base(symbol)
     match = re.fullmatch(r"MAP_FRIEND_AREA_([A-Z0-9]+(?:_[A-Z0-9]+)*)", symbol)

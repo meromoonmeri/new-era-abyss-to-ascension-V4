@@ -37,6 +37,19 @@ class GroundRoleClassificationTests(unittest.TestCase):
             },
         )
 
+    def test_team_base_wall_map_is_not_treated_as_a_species_base(self) -> None:
+        self.assertEqual(
+            classify_ground_role("MAP_TEAM_BASE_WALL_MAP"),
+            {
+                "category": "wall_map_screen",
+                "classification": "rescue_team_base_wall_map_screen",
+                "setting": "rescue_team_base",
+                "cinematic": False,
+                "arena": False,
+                "boss": False,
+            },
+        )
+
     def test_friend_area_classification_comes_from_enum_symbol(self) -> None:
         self.assertEqual(
             classify_ground_role("MAP_FRIEND_AREA_BOUNTIFUL_SEA"),
