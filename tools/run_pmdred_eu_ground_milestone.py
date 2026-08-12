@@ -192,6 +192,26 @@ def classify_ground_role(symbol: str) -> dict[str, Any]:
             "arena": False,
             "boss": False,
         }
+    match = re.fullmatch(r"MAP_FUGITIVES_([A-Z0-9]+(?:_[A-Z0-9]+)*)", symbol)
+    if match:
+        setting = match.group(1).lower()
+        return {
+            "category": "fugitive_journey_scene",
+            "classification": f"{setting}_fugitive_journey_scene",
+            "setting": setting,
+            "cinematic": False,
+            "arena": False,
+            "boss": False,
+        }
+    if symbol == "MAP_SUMMIT_SUNSET":
+        return {
+            "category": "summit_scene",
+            "classification": "sunset_summit_scene",
+            "time": "sunset",
+            "cinematic": False,
+            "arena": False,
+            "boss": False,
+        }
     raise RuntimeError(f"role classification is not implemented for {symbol}; stopping rather than guessing")
 
 

@@ -54,6 +54,32 @@ class GroundRoleClassificationTests(unittest.TestCase):
             },
         )
 
+    def test_fugitive_journey_scene_comes_from_enum_symbol(self) -> None:
+        self.assertEqual(
+            classify_ground_role("MAP_FUGITIVES_SNOW_ROAD"),
+            {
+                "category": "fugitive_journey_scene",
+                "classification": "snow_road_fugitive_journey_scene",
+                "setting": "snow_road",
+                "cinematic": False,
+                "arena": False,
+                "boss": False,
+            },
+        )
+
+    def test_summit_sunset_is_explicit(self) -> None:
+        self.assertEqual(
+            classify_ground_role("MAP_SUMMIT_SUNSET"),
+            {
+                "category": "summit_scene",
+                "classification": "sunset_summit_scene",
+                "time": "sunset",
+                "cinematic": False,
+                "arena": False,
+                "boss": False,
+            },
+        )
+
     def test_unimplemented_role_still_stops(self) -> None:
         with self.assertRaisesRegex(RuntimeError, "stopping rather than guessing"):
             classify_ground_role("MAP_POKEMON_SQUARE")
