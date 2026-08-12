@@ -28,6 +28,12 @@ jamais modifier les Grounds, tiles, chapitres ou validations PMD Red existants.
 git submodule update --init --depth 1 external/BIBLIOTHEQUE
 ```
 
-Toute évolution du contenu doit être réalisée et commitée dans le dépôt
-BIBLIOTHEQUE, puis le pointeur du sous-module peut être mis à jour séparément
-sur cette branche après audit.
+## Espace de travail de cette session
+
+À la demande du propriétaire, `external/BIBLIOTHEQUE_WORKSPACE/` contient les
+schémas, outils et métadonnées dérivées suivis sur cette branche. Cet overlay ne
+contient aucune source brute et n'est jamais chargé par PMDO. Son arborescence
+est volontairement transférable vers le dépôt BIBLIOTHEQUE.
+
+Toute évolution des sources brutes doit rester commitée dans le dépôt
+BIBLIOTHEQUE. Le pointeur du sous-module ne peut être mis à jour qu'après audit.
