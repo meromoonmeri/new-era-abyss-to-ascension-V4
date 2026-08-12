@@ -503,6 +503,7 @@ class EntityMigrationRecoveryGateTests(unittest.TestCase):
             "a03p01": ("b0217e3fa2963faf0ee340c639b80d8a2cd33f7c3a8a585db21f8eecc0be0beb", 1, 0, "reserve_and_replace_canonical_identity"),
             "a03p02": ("4c685a550e2cc6a9cf58f0b640ed3f206700639ac9dd0c39e1a35d1d8c16634c", 1, 0, "reserve_and_replace_canonical_identity"),
             "a03p03": ("8a0124252466f4adcdbfad6ab2097920e34d863c663e141772a034e602039589", 1, 0, "reserve_and_replace_canonical_identity"),
+            "a04p01": ("c6b2b6938f37f2c5f4d10f0686c7b7734aab500144ed036ecc5eeee53c79d6af", 4, 2, "reserve_and_replace_canonical_identity"),
         }
         self.assertEqual(set(MIGRATION_POLICIES), set(expected))
         for ground, (integrated_hash, marker_count, spawner_count, tile_mode) in expected.items():

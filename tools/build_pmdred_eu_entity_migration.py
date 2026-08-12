@@ -193,11 +193,38 @@ A03P03_POLICY: dict[str, Any] = {
     },
 }
 
+A04P01_POLICY: dict[str, Any] = {
+    "schema": "new-era.pmdred-eu-occupied-ground-migration-policy.v1",
+    "ground": "a04p01",
+    "historical_ground_sha256": "c44840e6dca2e1462f98b63204f4d60f5b6a86304b04c81faa379ae416039a5b",
+    "historical_tile": "Content/Tile/a04p01_Base.tile",
+    "historical_tile_sha256": "b376149a921c935a8f803b36559627302fb0fb5f00832a602d5c83a54af28adf",
+    "canonical_ground_sha256": "b511cfe2a90b46a3c01ba4809582bfcef63aff4898b73ff5970e8c5d08086c92",
+    "canonical_tile_sha256": "b376149a921c935a8f803b36559627302fb0fb5f00832a602d5c83a54af28adf",
+    "integrated_ground_sha256": "c6b2b6938f37f2c5f4d10f0686c7b7734aab500144ed036ecc5eeee53c79d6af",
+    "tile_migration_mode": "reserve_and_replace_canonical_identity",
+    "preserved_fields": ["Markers", "Spawners"],
+    "expected_entities": {
+        "Markers": ["Main_Entrance_Marker", "Boss_Marker", "PNJ_Marker_1", "Cutscene_Marker"],
+        "Spawners": ["TEAMMATE_1", "TEAMMATE_2"],
+    },
+    "historical_reserves": {
+        "RESERVE/red_grounds/a04p01.rsground": "8ca6d9d60743b11b98c8d30fabd47c8108871187a2018f8f7df678ef7162f230",
+        "RESERVE/red_tiles/a04p01_Base.tile": "98bfcfafcfde3d0abbff80861148c34699ba506de5f0aa0c10697a791166908d",
+    },
+    "related_scripts": {
+        "Data/Script/halcyon/ground/a04p01/init.lua": "4d6791577c184d7a00207fce75ddf649072a44ec252ec7751e2acedad968159b",
+        "Data/Script/halcyon/FugitiveArc.lua": "cf9ffe31cb90c7301808d920522463cc66e0e7349f74a1c8fdfca061c1621519",
+        "Data/Script/halcyon/FugitiveCinematics.lua": "1fea1611e0f9636f6fd8ca6268ba9d2d676972f3b153162b694950c7f32eb484",
+        "Data/Script/halcyon/arc_fugitif/scene/a04p01.lua": "55ed095da6d27e089431bf9a28b9e9e4cf21d92b4fff121e93697cbf492bb8f4",
+    },
+}
+
 MIGRATION_POLICIES = {
     policy["ground"]: policy
     for policy in (
         A02P01_POLICY, A02P02_POLICY, A02P03_POLICY, A02P04_POLICY,
-        A03P01_POLICY, A03P02_POLICY, A03P03_POLICY,
+        A03P01_POLICY, A03P02_POLICY, A03P03_POLICY, A04P01_POLICY,
     )
 }
 
