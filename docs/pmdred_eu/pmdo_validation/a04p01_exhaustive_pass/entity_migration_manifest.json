@@ -1,0 +1,130 @@
+{
+  "schema": "new-era.pmdred-eu-occupied-ground-migration.v1",
+  "ground": "a04p01",
+  "result": "PASS_HASH_GATED_ENTITY_INTEGRATION",
+  "policy_schema": "new-era.pmdred-eu-occupied-ground-migration-policy.v1",
+  "historical": {
+    "ground": "Data/Ground/a04p01.rsground",
+    "ground_sha256": "c44840e6dca2e1462f98b63204f4d60f5b6a86304b04c81faa379ae416039a5b",
+    "tile": "Content/Tile/a04p01_Base.tile",
+    "tile_sha256": "b376149a921c935a8f803b36559627302fb0fb5f00832a602d5c83a54af28adf",
+    "complete_historical_ground_reserved_before_active_replacement_required": true,
+    "complete_historical_tile_reserved_before_active_replacement_required": true
+  },
+  "canonical_baseline": {
+    "ground": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/grounds/a04p01.rsground",
+    "ground_sha256": "b511cfe2a90b46a3c01ba4809582bfcef63aff4898b73ff5970e8c5d08086c92",
+    "tile": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/tiles/a04p01_Base.tile",
+    "tile_sha256": "b376149a921c935a8f803b36559627302fb0fb5f00832a602d5c83a54af28adf"
+  },
+  "integrated_candidate": {
+    "ground": ".runtime-cache/pmdred-eu-a04p01-entity-integrated-candidate/grounds/a04p01.rsground",
+    "ground_sha256": "c6b2b6938f37f2c5f4d10f0686c7b7734aab500144ed036ecc5eeee53c79d6af",
+    "tile": ".runtime-cache/pmdred-eu-a04p01-entity-integrated-candidate/tiles/a04p01_Base.tile",
+    "tile_sha256": "b376149a921c935a8f803b36559627302fb0fb5f00832a602d5c83a54af28adf"
+  },
+  "entity_integration": {
+    "mode": "additive_markers_spawners_only",
+    "canonical_entity_layer_count": 1,
+    "preserved_entity_layer_count": 1,
+    "entity_counts": {
+      "markers": 4,
+      "spawners": 2,
+      "map_characters": 0,
+      "ground_objects": 0
+    },
+    "ordered_names": {
+      "markers": [
+        "Main_Entrance_Marker",
+        "Boss_Marker",
+        "PNJ_Marker_1",
+        "Cutscene_Marker"
+      ],
+      "spawners": [
+        "TEAMMATE_1",
+        "TEAMMATE_2"
+      ]
+    },
+    "entity_payload_sha256": {
+      "Main_Entrance_Marker": "c8f37db1228aef8d9a73058130ef52cefc442c313d579bd0625a3d0047a3d508",
+      "Boss_Marker": "71af947ab62d8ef6578764084713f60499d77e64f2839b5cc362d706374f082a",
+      "PNJ_Marker_1": "acb92b5d0be8a60529443038c8dc9bb3859578fe3f4cc1a1c42549986fcaa1dd",
+      "Cutscene_Marker": "3b6dab49b2841efbfa2fea1b7dd07d495a29bd2e1a691fcaeca39718aa0cc8e3",
+      "TEAMMATE_1": "63aefb7eff624bf312d2b4bb97b374e5c69c14ee5abf9239591ff4012b1fbfe4",
+      "TEAMMATE_2": "76511de8c80aba7b0d81ed5cac5b16f3237c5fb5ffca66829360a2bbeec18d63"
+    },
+    "colliders": {
+      "Main_Entrance_Marker": {
+        "X": 184,
+        "Y": 408,
+        "Width": 16,
+        "Height": 16
+      },
+      "Boss_Marker": {
+        "X": 136,
+        "Y": 280,
+        "Width": 16,
+        "Height": 16
+      },
+      "PNJ_Marker_1": {
+        "X": 160,
+        "Y": 264,
+        "Width": 16,
+        "Height": 16
+      },
+      "Cutscene_Marker": {
+        "X": 160,
+        "Y": 272,
+        "Width": 16,
+        "Height": 16
+      },
+      "TEAMMATE_1": {
+        "X": 136,
+        "Y": 408,
+        "Width": 16,
+        "Height": 16
+      },
+      "TEAMMATE_2": {
+        "X": 160,
+        "Y": 440,
+        "Width": 16,
+        "Height": 16
+      }
+    },
+    "canonical_dimensions_pixels": [
+      312,
+      600
+    ],
+    "all_colliders_within_canonical_geometry": true,
+    "all_entity_payloads_preserved_byte_for_byte_at_json_value_level": true,
+    "canonical_data_unchanged_outside_additive_entities": true
+  },
+  "historical_reserve_provenance": {
+    "RESERVE/red_grounds/a04p01.rsground": "8ca6d9d60743b11b98c8d30fabd47c8108871187a2018f8f7df678ef7162f230",
+    "RESERVE/red_tiles/a04p01_Base.tile": "98bfcfafcfde3d0abbff80861148c34699ba506de5f0aa0c10697a791166908d"
+  },
+  "related_scripts_unchanged": {
+    "Data/Script/halcyon/ground/a04p01/init.lua": "4d6791577c184d7a00207fce75ddf649072a44ec252ec7751e2acedad968159b",
+    "Data/Script/halcyon/FugitiveArc.lua": "cf9ffe31cb90c7301808d920522463cc66e0e7349f74a1c8fdfca061c1621519",
+    "Data/Script/halcyon/FugitiveCinematics.lua": "1fea1611e0f9636f6fd8ca6268ba9d2d676972f3b153162b694950c7f32eb484",
+    "Data/Script/halcyon/arc_fugitif/scene/a04p01.lua": "55ed095da6d27e089431bf9a28b9e9e4cf21d92b4fff121e93697cbf492bb8f4"
+  },
+  "tile_migration": {
+    "mode": "reserve_and_replace_canonical_identity",
+    "historical_active_path": "Content/Tile/a04p01_Base.tile",
+    "historical_active_sha256": "b376149a921c935a8f803b36559627302fb0fb5f00832a602d5c83a54af28adf",
+    "canonical_active_path": "Content/Tile/a04p01_Base.tile",
+    "canonical_active_sha256": "b376149a921c935a8f803b36559627302fb0fb5f00832a602d5c83a54af28adf",
+    "same_active_identity": true,
+    "historical_bytes_must_be_reserved_before_replacement": true,
+    "historical_active_path_retained_unchanged": false,
+    "canonical_identity_created_additively": false,
+    "canonical_identity_replaced_only_after_reserve": true
+  },
+  "canonical_case_tile_identity": "Content/Tile/a04p01_Base.tile",
+  "legacy_case_tile_retained_unchanged": null,
+  "historical_tile_replaced_after_reserve": "Content/Tile/a04p01_Base.tile",
+  "existing_asset_discarded": false,
+  "existing_entity_silently_deactivated": false,
+  "scripts_modified": false
+}
