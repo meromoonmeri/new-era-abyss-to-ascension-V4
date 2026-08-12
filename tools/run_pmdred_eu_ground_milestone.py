@@ -181,6 +181,17 @@ def classify_ground_role(symbol: str) -> dict[str, Any]:
             "arena": False,
             "boss": False,
         }
+    match = re.fullmatch(r"MAP_PERSONALITY_TEST_([A-Z0-9]+(?:_[A-Z0-9]+)*)", symbol)
+    if match:
+        color = match.group(1).lower()
+        return {
+            "category": "personality_test_screen",
+            "classification": f"{color}_personality_test_screen",
+            "color": color,
+            "cinematic": False,
+            "arena": False,
+            "boss": False,
+        }
     raise RuntimeError(f"role classification is not implemented for {symbol}; stopping rather than guessing")
 
 

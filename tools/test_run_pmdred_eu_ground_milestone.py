@@ -41,6 +41,19 @@ class GroundRoleClassificationTests(unittest.TestCase):
             },
         )
 
+    def test_personality_test_screen_comes_from_enum_symbol(self) -> None:
+        self.assertEqual(
+            classify_ground_role("MAP_PERSONALITY_TEST_CYAN"),
+            {
+                "category": "personality_test_screen",
+                "classification": "cyan_personality_test_screen",
+                "color": "cyan",
+                "cinematic": False,
+                "arena": False,
+                "boss": False,
+            },
+        )
+
     def test_unimplemented_role_still_stops(self) -> None:
         with self.assertRaisesRegex(RuntimeError, "stopping rather than guessing"):
             classify_ground_role("MAP_POKEMON_SQUARE")
