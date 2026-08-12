@@ -54,8 +54,12 @@ class PilotZoneIntegrationCorrectionTests(unittest.TestCase):
         )["Object"]["GroundMaps"]
         self.assertEqual(maps.count("h26p01"), 1)
         self.assertEqual(maps.count("a01p01"), 1)
-        h25 = maps.index("h25p01")
-        self.assertEqual(maps[h25 : h25 + 3], ["h25p01", "h26p01", "a01p01"])
+        self.assertLess(maps.index("h25p01"), maps.index("h26p01"))
+        self.assertLess(maps.index("h26p01"), maps.index("a01p01"))
+        # Later contiguous h27-h29 promotions are intentionally inserted between
+        # the corrected h26 predecessor and the already validated a01 pilot.
+        if "h27p01" in maps:
+            self.assertLess(maps.index("h27p01"), maps.index("a01p01"))
 
     def test_correction_is_non_reserializing_and_exact_pmdo_indexed(self) -> None:
         root = Path(__file__).resolve().parents[1]
