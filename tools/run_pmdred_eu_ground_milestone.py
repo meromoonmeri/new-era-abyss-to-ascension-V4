@@ -3,10 +3,10 @@
 
 This is an orchestration of the already-audited fixture, exact PMDO 0.8.12,
 independent renderer/comparator, additive promotion, post-promotion indexing,
-and checkpoint tools.  It deliberately supports only authenticated rescue-team
-base Grounds for now: their role classification follows directly from the
-pinned GroundMapID symbol.  It stops before any occupied destination or any
-non-team-base role rather than guessing or overwriting.
+and checkpoint tools.  It supports authenticated rescue-team-base and friend-
+area Grounds whose roles follow directly from the pinned GroundMapID symbol.
+It stops before any occupied destination or unimplemented role rather than
+guessing or overwriting.
 """
 from __future__ import annotations
 
@@ -164,6 +164,24 @@ def classify_team_base(symbol: str) -> dict[str, Any]:
         "location": "interior" if inside else "exterior", "species": species.lower(), "stage": stage.lower(),
         "cinematic": False, "arena": False, "boss": False,
     }
+
+
+def classify_ground_role(symbol: str) -> dict[str, Any]:
+    """Classify only roles encoded unambiguously by the pinned GroundMapID."""
+    if symbol.startswith("MAP_TEAM_BASE_"):
+        return classify_team_base(symbol)
+    match = re.fullmatch(r"MAP_FRIEND_AREA_([A-Z0-9]+(?:_[A-Z0-9]+)*)", symbol)
+    if match:
+        friend_area = match.group(1).lower()
+        return {
+            "category": "friend_area",
+            "classification": f"{friend_area}_friend_area",
+            "friend_area": friend_area,
+            "cinematic": False,
+            "arena": False,
+            "boss": False,
+        }
+    raise RuntimeError(f"role classification is not implemented for {symbol}; stopping rather than guessing")
 
 
 def atomic_install(source: Path, destination: Path) -> None:
@@ -336,7 +354,7 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
     order=all_data["order"]; plans=all_data["plans"]; audits=all_data["audits"]; identities=all_data["identities"]; symbols=all_data["symbols"]
     identity=identities[ground]; symbol=symbols[identity["map_id"]]
     if symbols[identity["map_id"]] != symbol: raise AssertionError
-    role=classify_team_base(symbol); plan=plans[ground]; audit=audits[ground]
+    role=classify_ground_role(symbol); plan=plans[ground]; audit=audits[ground]
     state={"ground":ground,"stage":"preflight","updated_at":time.time()};dump(STATE_PATH,state)
     if audit["status"]!="pass": raise RuntimeError("static audit is not PASS")
     ground_src=CANONICAL/f"grounds/{ground}.rsground"; tile_src=CANONICAL/f"tiles/{ground}_Base.tile"
