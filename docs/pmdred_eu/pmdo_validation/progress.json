@@ -1,9 +1,9 @@
 {
   "schema": "new-era.pmdred-eu-exact-pmdo-progress.v1",
-  "generated_at": "2026-08-12T18:05:14+00:00",
+  "generated_at": "2026-08-12T18:05:47+00:00",
   "repository": {
     "branch": "arena/019ff57e-new-era-abyss-to-ascension-v4",
-    "source_head": "2ad9458f169f1d69576a73d5dc8231631d55e390"
+    "source_head": "0de4fc132dbf28c91ff5af77f2fb5ccd6f9b17a4"
   },
   "scope": "219 canonical archive-backed Grounds; Ground-only until exhaustive validation is complete",
   "authority": {
@@ -20,11 +20,11 @@
   "summary": {
     "canonical_ground_count": 219,
     "static_pass_count": 219,
-    "runtime_pass_and_promoted_count": 178,
-    "remaining_count": 41,
-    "contiguous_plan_prefix_count": 178,
+    "runtime_pass_and_promoted_count": 179,
+    "remaining_count": 40,
+    "contiguous_plan_prefix_count": 179,
     "out_of_order_pilot_count": 0,
-    "next_ground": "a05p03",
+    "next_ground": "a05p03g",
     "runtime_dependencies_ready": true,
     "checkpoint_integrity": "PASS"
   },
@@ -206,7 +206,8 @@
     "a04p03",
     "a04p04",
     "a05p01",
-    "a05p02"
+    "a05p02",
+    "a05p03"
   ],
   "contiguous_validated_prefix": [
     "t00p01",
@@ -386,11 +387,11 @@
     "a04p03",
     "a04p04",
     "a05p01",
-    "a05p02"
+    "a05p02",
+    "a05p03"
   ],
   "validated_out_of_order_pilots": [],
   "remaining_ids": [
-    "a05p03",
     "a05p03g",
     "a05p03f",
     "a05p03i",
@@ -1893,10 +1894,10 @@
   "resume": {
     "restore": "bash tools/restore_pmdred_eu_validation_runtime.sh",
     "verify_checkpoint": "python3 tools/update_pmdred_eu_validation_progress.py --check",
-    "next_ground": "a05p03",
+    "next_ground": "a05p03g",
     "next_recipe_template": "docs/pmdred_eu/pmdo_validation/t01p07_exhaustive_pass/commands.sh",
-    "working_recipe": ".runtime-cache/a05p03-working-recipe.sh",
-    "rule": "Regenerate/restore exact inputs, hash-gate, validate a05p03 in isolation, compare every planned tick, promote only after all runtime/lifecycle gates pass, then regenerate this checkpoint."
+    "working_recipe": ".runtime-cache/a05p03g-working-recipe.sh",
+    "rule": "Regenerate/restore exact inputs, hash-gate, validate a05p03g in isolation, compare every planned tick, promote only after all runtime/lifecycle gates pass, then regenerate this checkpoint."
   },
   "dungeon_restitution": {
     "manifest": "docs/pmdred_eu/dungeon_grounds/manifest.json",
@@ -48580,33 +48581,154 @@
           "tile_bytes_equal": true
         }
       },
-      "runtime": "NOT_RUN",
+      "runtime": "PASS",
+      "validated_at": "2026-08-12",
+      "validation_record": "docs/pmdred_eu/pmdo_validation/a05p03_exhaustive_pass/validation_record.json",
+      "validation_record_sha256": "964008413cdf3b08f5f8a5b7aa71c5fba38eeb569f6f7b2f53d0ad74a19073b5",
       "visual_comparison": {
-        "result": "NOT_RUN",
-        "comparative_png_paths": []
+        "result": "PASS",
+        "dimensions_pixels": [
+          312,
+          240
+        ],
+        "primary_sample_count": 1,
+        "reload_sample_count": 1,
+        "exact_sample_count": 2,
+        "unique_rgba_frame_count": 1,
+        "mismatched_pixel_count": 0,
+        "maximum_channel_delta": 0,
+        "all_full_rgba_exact": true,
+        "all_fully_opaque": true,
+        "comparative_png_paths": [
+          "docs/pmdred_eu/pmdo_validation/a05p03_exhaustive_pass/comparisons/comparison_primary_tick0.png",
+          "docs/pmdred_eu/pmdo_validation/a05p03_exhaustive_pass/comparisons/comparison_primary_tick0.png",
+          "docs/pmdred_eu/pmdo_validation/a05p03_exhaustive_pass/comparisons/comparison_reload_tick0.png"
+        ],
+        "complete_metrics_report": "docs/pmdred_eu/pmdo_validation/a05p03_exhaustive_pass/report.json"
       },
       "animation_validation": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "primary_sample_count": 1,
+        "first_tick": 0,
+        "last_tick": 0,
+        "cell_local_schedule_count": 0,
+        "maximum_cell_local_cycle_ticks": 0,
+        "all_schedules_covered_through_two_complete_cycles": true,
+        "channels": [],
+        "unique_observed_rgba_frames": 1,
+        "reload_tick_zero_exact": true,
+        "orphaned_animation_observed": false
       },
       "collision_validation": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "source": "A05P03m",
+        "collision_layer_count": 0,
+        "solid_cells": 0,
+        "collision_sha256": "bb22e7c937802de18d1dfa08a5f6821a913d37c038e8d763f8ef0bba55648bdd",
+        "successful_probe": {
+          "start": [
+            152,
+            112
+          ],
+          "direction": "Down",
+          "observed_delta": [
+            0,
+            8
+          ],
+          "result": "PASS"
+        },
+        "blocked_probe": null
       },
       "entry_exit_reentry": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "loads": 2,
+        "entries": 2,
+        "exits": 2,
+        "same_ground_reentries": 1,
+        "strict_native_lifecycle_order": "PASS"
       },
       "cleanup_reload": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "cleanup_probe_count": 4,
+        "ground_exit_cleanup_passes": 2,
+        "sink_cleanup": "PASS",
+        "final_cleanup": "PASS",
+        "reload_load": "LOAD_PASS",
+        "reload_tick_zero_full_rgba_exact": true,
+        "terminal_end_seen": true,
+        "state_leakage_observed": false,
+        "stale_assets_observed": false,
+        "permanent_lock_observed": false,
+        "orphan_process_check": "PASS"
       },
       "special_classification": {
-        "result": "PENDING_AUTHENTICATED_TECHNICAL_IDENTITY_CHECK",
-        "cinematic": null,
-        "arena": null,
-        "boss": null
+        "category": "canonical_ground_map",
+        "ground_map_symbol": "MAP_TINY_WOODS_ENTRY",
+        "cinematic": false,
+        "arena": false,
+        "boss": false
       },
       "definitive_destination": {
-        "promotion_status": "NOT_PROMOTED"
+        "ground": "Data/Ground/a05p03.rsground",
+        "tile": "Content/Tile/a05p03_Base.tile",
+        "zone_registry": "Data/Zone/master_zone.json",
+        "zone_registry_entry": "a05p03",
+        "promotion_status": "PROMOTED_INTEGRATION_PRESERVING_MIGRATION",
+        "preexisting_destinations": true,
+        "pre_promotion_record": "RESERVE/pmdred_pre_promotion/a05p03/README.md",
+        "promoted_ground_sha256": "bb7a394689a9f70c556d54de0e8ca1679132174111446f14b2c6a39c305d5212",
+        "promoted_tile_sha256": "85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc"
       },
-      "evidence": null
+      "provenance": {
+        "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+        "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+        "conversion_report_sha256": "91f3b460b3e3b7689bc608ece2006cb6103d653bcdc22ad028f4172c3a1b0fdc",
+        "canonical_ground_sha256": "ac270916ba76eefaa6b242d66092fe0a43cbe77637226896753f7dac5339a6a6",
+        "integrated_ground_sha256": "bb7a394689a9f70c556d54de0e8ca1679132174111446f14b2c6a39c305d5212",
+        "candidate_tile_sha256": "85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc",
+        "entity_integration": "PASS_ADDITIVE_MARKERS_SPAWNERS_ONLY",
+        "source_normalized_sha256": {
+          "A05P03": "1540367ad21623a881603546dfd5a5af5652bbf840f3a44c47dfb71ad29a17ab",
+          "A05P03c": "8b7c7659129d61510c3c8199d51af576956d13ba9e14c97bbccc1ac776d7d87e",
+          "A05P03m": "dd1058f0ae11e2bf3e03a9d5026adffed8eb1305a058cff1120a963003d4df58"
+        },
+        "events_sha256": "10c0e93d2fc91cfde069c6c11f047a6ca9212c36c8e4538ef7ded4817809cd30",
+        "report_sha256": "78c9c8f510681a3c846d865415a38aa17e4e1f0d9452864e5793ffecea6dd4cb",
+        "fixture_manifest_sha256": "0c97ef537dbe04ec813cbc6b62982de2b8eae541b90cedccd5d1b0b0e9a0f0fa",
+        "detailed_provenance": "docs/pmdred_eu/pmdo_validation/a05p03_exhaustive_pass/provenance.json"
+      },
+      "evidence": {
+        "directory": "docs/pmdred_eu/pmdo_validation/a05p03_exhaustive_pass",
+        "integrity": {
+          "result": "PASS",
+          "manifest": "docs/pmdred_eu/pmdo_validation/a05p03_exhaustive_pass/evidence_hashes.sha256",
+          "checked": 41,
+          "immutable_failures": [],
+          "historical_progressive_drift": []
+        }
+      },
+      "promoted_destination_checks": [
+        {
+          "role": "ground",
+          "path": "Data/Ground/a05p03.rsground",
+          "expected_sha256": "bb7a394689a9f70c556d54de0e8ca1679132174111446f14b2c6a39c305d5212",
+          "actual_sha256": "bb7a394689a9f70c556d54de0e8ca1679132174111446f14b2c6a39c305d5212",
+          "result": "PASS"
+        },
+        {
+          "role": "tile",
+          "path": "Content/Tile/a05p03_Base.tile",
+          "expected_sha256": "85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc",
+          "actual_sha256": "85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc",
+          "result": "PASS"
+        }
+      ],
+      "zone_registry": {
+        "required_by_record": true,
+        "declared": true,
+        "current_occurrences": 1,
+        "current_index": 301
+      }
     },
     {
       "id": "a05p03g",
