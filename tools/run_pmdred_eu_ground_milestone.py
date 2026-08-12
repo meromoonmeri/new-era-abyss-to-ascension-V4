@@ -317,13 +317,20 @@ def atomic_replace_preserved(source: Path, destination: Path, reserve: Path, exp
         if os.path.exists(temp_name): os.unlink(temp_name)
 
 
-def insert_zone(ground: str, order: list[str], validated: set[str]) -> tuple[str, str, str, int]:
+def insert_zone(
+    ground: str, order: list[str], validated: set[str], *, retain_existing: bool = False
+) -> tuple[str, str, str, int]:
     path = ROOT / "Data/Zone/master_zone.json"; before = path.read_bytes()
     if not before.startswith(b"\xef\xbb\xbf"):
         raise RuntimeError("master_zone.json BOM absent")
     values = json.loads(before.decode("utf-8-sig"))["Object"]["GroundMaps"]
     if ground in values:
-        raise RuntimeError(f"zone already contains unvalidated {ground}")
+        if not retain_existing or values.count(ground) != 1:
+            raise RuntimeError(f"zone already contains unvalidated {ground}")
+        existing_index = values.index(ground)
+        if existing_index == 0:
+            raise RuntimeError(f"preexisting zone entry has no predecessor: {ground}")
+        return sha_bytes(before), sha_bytes(before), values[existing_index - 1], existing_index
     index = order.index(ground); prior = next((x for x in reversed(order[:index]) if x in validated), None)
     if prior is None or values.count(prior) != 1:
         raise RuntimeError(f"cannot identify unique validated predecessor for {ground}")
@@ -434,6 +441,84 @@ def pre_promotion_collision_failure_record(
         evidence_path = evidence_root / relative
         if not evidence_path.is_file() or sha(evidence_path) != expected:
             raise RuntimeError(f"preserved collision failure evidence hash mismatch: {relative}")
+    return record_path
+
+
+def validate_partial_entity_migration_recovery_record(
+    record: dict[str, Any], ground: str, policy: dict[str, Any]
+) -> None:
+    """Authenticate immutable semantics of a failed occupied-migration attempt."""
+    migration = record.get("entity_migration", {})
+    canonical = record.get("canonical_state", {})
+    recovery = record.get("recovery_policy", {})
+    required = [
+        record.get("schema") == "new-era.pmdred-eu-ground-orchestration-failure.v1",
+        record.get("ground") == ground,
+        record.get("result") == "ORCHESTRATION_FAIL_AFTER_AUTHENTICATED_MIGRATION_INSTALL_BEFORE_PROMOTION",
+        record.get("failure", {}).get("stage") == "zone_integration_after_migration_install",
+        migration.get("historical_ground_sha256") == policy["historical_ground_sha256"],
+        migration.get("canonical_baseline_ground_sha256") == policy["canonical_ground_sha256"],
+        migration.get("integrated_ground_sha256") == policy["integrated_ground_sha256"],
+        migration.get("tile_sha256") == policy["canonical_tile_sha256"],
+        migration.get("markers") == policy["expected_entities"]["Markers"],
+        migration.get("spawners") == policy["expected_entities"]["Spawners"],
+        migration.get("reserve_created") is True,
+        migration.get("uppercase_case_tile_retained") is True,
+        migration.get("lowercase_canonical_tile_created") is True,
+        canonical.get("active_ground_sha256") == policy["integrated_ground_sha256"],
+        canonical.get("historical_reserve_ground_sha256") == policy["historical_ground_sha256"],
+        canonical.get("official_pass_evidence_created") is False,
+        canonical.get("zone_unchanged") is True,
+        canonical.get("zone_entry_count") == 1,
+        recovery.get("preserve_this_failed_attempt") is True,
+        recovery.get("do_not_reclassify_as_pass") is True,
+        recovery.get("authenticate_partial_migration_and_reserve") is True,
+        recovery.get("retain_singleton_historical_zone_entry_in_place") is True,
+        recovery.get("fresh_full_runtime_comparison_and_post_promotion_rerun_required") is True,
+        recovery.get("official_pass_may_be_packaged_only_after_all_gates_pass_on_fresh_rerun") is True,
+    ]
+    if not all(required):
+        raise RuntimeError(f"partial entity migration recovery record gate failed for {ground}: {required}")
+
+
+def partial_entity_migration_recovery_record(
+    ground: str, ground_dst: Path, tile_dst: Path, legacy_tile: Path,
+    reserve_ground: Path, reserve_legacy_tile: Path, policy: dict[str, Any],
+) -> Path | None:
+    """Authenticate the exact occupied migration left by a preserved failed attempt."""
+    expected_integrated = policy["integrated_ground_sha256"]
+    expected_tile = policy["canonical_tile_sha256"]
+    active_matches = (
+        ground_dst.is_file() and sha(ground_dst) == expected_integrated
+        and tile_dst.is_file() and sha(tile_dst) == expected_tile
+    )
+    if not active_matches:
+        return None
+    record_path = ROOT / (
+        f"docs/pmdred_eu/pmdo_validation/"
+        f"{ground}_failed_attempt_preexisting_zone_gate/failure_record.json"
+    )
+    if not record_path.is_file():
+        return None
+    record = load(record_path)
+    validate_partial_entity_migration_recovery_record(record, ground, policy)
+    canonical = record["canonical_state"]
+    maps = load(ROOT / "Data/Zone/master_zone.json")["Object"]["GroundMaps"]
+    zone_indices = [index for index, value in enumerate(maps) if value == ground]
+    required = [
+        len(zone_indices) == 1,
+        zone_indices == [canonical.get("zone_index")],
+        sha(ROOT / "Data/Zone/master_zone.json") == canonical.get("zone_sha256"),
+        reserve_ground.is_file() and sha(reserve_ground) == policy["historical_ground_sha256"],
+        reserve_legacy_tile.is_file() and sha(reserve_legacy_tile) == policy["historical_tile_sha256"],
+        legacy_tile.is_file() and sha(legacy_tile) == policy["historical_tile_sha256"],
+    ]
+    if not all(required):
+        raise RuntimeError(f"partial entity migration recovery gate failed for {ground}: {required}")
+    for relative, expected in record["evidence"].items():
+        evidence_path = record_path.parent / relative
+        if not evidence_path.is_file() or sha(evidence_path) != expected:
+            raise RuntimeError(f"preserved entity migration failure evidence hash mismatch: {relative}")
     return record_path
 
 
@@ -553,6 +638,7 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
                      fixture: Path, comparison: Path, post_fixture: Path, zone_pre: str, zone_post: str, prior: str, zone_index: int,
                      pre_promotion: dict[str, dict[str, Any]], partial_recovery_record: Path | None = None,
                      pre_promotion_failure_record: Path | None = None,
+                     migration_failure_record: Path | None = None,
                      migration: dict[str, Any] | None = None) -> None:
     out = ROOT / f"docs/pmdred_eu/pmdo_validation/{ground}_exhaustive_pass"
     if out.exists(): raise FileExistsError(out)
@@ -614,6 +700,15 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
         name: {"preexisting": item["preexisting"], "sha256": item["sha256"], "reserve": item["reserve"]}
         for name, item in pre_promotion.items()
     }
+    retained_zone_entry = migration is not None and zone_pre == zone_post
+    zone_change = (
+        f"retained authenticated singleton historical entry in place after {prior}"
+        if retained_zone_entry else f"one insertion after {prior}"
+    )
+    zone_registration = (
+        f"authenticated singleton retained after {prior} without mutation"
+        if retained_zone_entry else f"one insertion after {prior} without reserialization"
+    )
     classification={"category":role["category"],"ground_map_symbol":symbol,"canonical_debug_id":identity["canonical_debug_id"],"map_id":identity["map_id"],"map_file_id":identity["map_file_id"],"ground_place_id":identity["ground_place_id"],"stable_ground_id":ground,**role}
     record={
       "schema":1,"ground":ground,"validated_at":DATE,"runtime":"PASS",
@@ -631,8 +726,8 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
       "provenance":{"rom_sha256":ROM_SHA256,"reference_plan_sha256":PLAN_SHA256,"conversion_report_sha256":CONVERSION_SHA256,"candidate_ground_sha256":ground_hash,"candidate_tile_sha256":tile_hash,"source_normalized_sha256":plan["source_normalized_sha256"],"events_sha256":events_sha,"report_sha256":report_sha,"fixture_manifest_sha256":fixture_sha,"termination_sha256":termination_sha,"detailed_provenance":str((out/"provenance.json").relative_to(ROOT))},
       "execution_note":{"terminal_event_and_all_required_captures_completed":True,"post_terminal_shutdown":"PMDO-native GameBase.LoadPhase.Unload followed by NORMAL_EXIT","return_code":0,"watchdog":False,"requested_signal":None,"evidence_impact":"NONE"},"dungeon_restitution":{"affected":False,"status":"27-relationship bundle retained"},
       "scope_note":"Ground-only; dialogue, choreography, music assignment, and narrative routing are not claimed.",
-      "post_promotion_integration":{"result":"PASS","exact_pmdo_index":"PASS","indexed_ground_sha256":ground_hash,"indexed_tile_sha256":tile_hash,"index_log_sha256":INDEX_SHA256,"zone_encoding_bom_preserved":True,"zone_change":f"one insertion after {prior}","zone_ground_map_count":len(load(ROOT/"Data/Zone/master_zone.json")["Object"]["GroundMaps"]),"canonical_index":zone_index,"variant_and_routing_static_checks":"PASS"}}
-    promotion={"schema":1,"ground":ground,"validated_at":DATE,"promoted_at":DATE,"result":promotion_result,"method":{"destination_precondition":precondition,"installation_mode":"fsynced temporary files and atomic os.replace after durable preservation where required","historical_bytes_reserved_before_replacement":preexisting,"existing_asset_discarded":False,"existing_scripts_modified":False,"zone_registration":f"one insertion after {prior} without reserialization"},"gates":{"exact_pmdo_version":"0.8.12","exact_pmdo_executable_sha256":PMDO_SHA256,"active_patched_sdl_sha256":SDL_SHA256,"report_sha256":report_sha,"fixture_manifest_sha256":fixture_sha,"reference_plan_sha256":PLAN_SHA256,"canonical_ground_sha256":ground_hash,"canonical_tile_sha256":tile_hash,"planned_primary_tick_count":len(primary),"observed_primary_tick_count":len(primary),"reload_tick_zero_covered":True,"pixel_exact_sample_count":samples,"fully_opaque_sample_count":samples,"mismatched_pixel_count":0,"maximum_channel_delta":0,"runtime_safe":True,"native_lifecycle_order_pass":True,"cleanup_pass":True,"terminal_end_seen":True,"load_phase_unload_pass":True,"exit_classification":"NORMAL_EXIT","return_code":0,"terminal":True,"graceful":True,"watchdog":False,"requested_signal":None,"sigsegv":False,"forced_kill":False,"orphan_process":False,"termination_sha256":termination_sha,"identity_map_file_id":identity["map_file_id"],"identity_symbol":symbol},"files":[{"candidate":f".runtime-cache/pmdred-eu-remaining-regenerated-v201/grounds/{ground}.rsground","destination":f"Data/Ground/{ground}.rsground","destination_preexisting":pre_promotion["ground"]["preexisting"],"pre_promotion_sha256":pre_promotion["ground"]["sha256"],"pre_promotion_reserve":pre_promotion["ground"]["reserve"],"bytes":(ROOT/f"Data/Ground/{ground}.rsground").stat().st_size,"validated_candidate_sha256":ground_hash,"destination_sha256":ground_hash,"candidate_destination_identical":True},{"candidate":f".runtime-cache/pmdred-eu-remaining-regenerated-v201/tiles/{ground}_Base.tile","destination":f"Content/Tile/{ground}_Base.tile","destination_preexisting":pre_promotion["tile"]["preexisting"],"pre_promotion_sha256":pre_promotion["tile"]["sha256"],"pre_promotion_reserve":pre_promotion["tile"]["reserve"],"bytes":(ROOT/f"Content/Tile/{ground}_Base.tile").stat().st_size,"validated_candidate_sha256":tile_hash,"destination_sha256":tile_hash,"candidate_destination_identical":True}],"zone_registration":{"entry":ground,"entry_count":1,"position":f"after {prior}","pre_promotion_sha256":zone_pre,"post_promotion_sha256":zone_post},"preserved_variants":[{"role":"pre_promotion_destination_reserve","files":pre_reserve_details,"modified_after_capture":False},{"role":"historical_reserve",**reserve_details,"modified":False},{"role":"historical_v200_and_v201_reports","paths":["docs/pmdred_eu/remaining_grounds/history/v200_pre_period_fix/","docs/pmdred_eu/remaining_grounds/"],"modified_by_promotion":False}],"post_promotion_integration":{"result":"PASS","exact_pmdo_index":"PASS","log_sha256":INDEX_SHA256,"zone_structure":"PASS","existing_routes_unchanged":"PASS"}}
+      "post_promotion_integration":{"result":"PASS","exact_pmdo_index":"PASS","indexed_ground_sha256":ground_hash,"indexed_tile_sha256":tile_hash,"index_log_sha256":INDEX_SHA256,"zone_encoding_bom_preserved":True,"zone_change":zone_change,"zone_ground_map_count":len(load(ROOT/"Data/Zone/master_zone.json")["Object"]["GroundMaps"]),"canonical_index":zone_index,"variant_and_routing_static_checks":"PASS"}}
+    promotion={"schema":1,"ground":ground,"validated_at":DATE,"promoted_at":DATE,"result":promotion_result,"method":{"destination_precondition":precondition,"installation_mode":"fsynced temporary files and atomic os.replace after durable preservation where required","historical_bytes_reserved_before_replacement":preexisting,"existing_asset_discarded":False,"existing_scripts_modified":False,"zone_registration":zone_registration},"gates":{"exact_pmdo_version":"0.8.12","exact_pmdo_executable_sha256":PMDO_SHA256,"active_patched_sdl_sha256":SDL_SHA256,"report_sha256":report_sha,"fixture_manifest_sha256":fixture_sha,"reference_plan_sha256":PLAN_SHA256,"canonical_ground_sha256":ground_hash,"canonical_tile_sha256":tile_hash,"planned_primary_tick_count":len(primary),"observed_primary_tick_count":len(primary),"reload_tick_zero_covered":True,"pixel_exact_sample_count":samples,"fully_opaque_sample_count":samples,"mismatched_pixel_count":0,"maximum_channel_delta":0,"runtime_safe":True,"native_lifecycle_order_pass":True,"cleanup_pass":True,"terminal_end_seen":True,"load_phase_unload_pass":True,"exit_classification":"NORMAL_EXIT","return_code":0,"terminal":True,"graceful":True,"watchdog":False,"requested_signal":None,"sigsegv":False,"forced_kill":False,"orphan_process":False,"termination_sha256":termination_sha,"identity_map_file_id":identity["map_file_id"],"identity_symbol":symbol},"files":[{"candidate":f".runtime-cache/pmdred-eu-remaining-regenerated-v201/grounds/{ground}.rsground","destination":f"Data/Ground/{ground}.rsground","destination_preexisting":pre_promotion["ground"]["preexisting"],"pre_promotion_sha256":pre_promotion["ground"]["sha256"],"pre_promotion_reserve":pre_promotion["ground"]["reserve"],"bytes":(ROOT/f"Data/Ground/{ground}.rsground").stat().st_size,"validated_candidate_sha256":ground_hash,"destination_sha256":ground_hash,"candidate_destination_identical":True},{"candidate":f".runtime-cache/pmdred-eu-remaining-regenerated-v201/tiles/{ground}_Base.tile","destination":f"Content/Tile/{ground}_Base.tile","destination_preexisting":pre_promotion["tile"]["preexisting"],"pre_promotion_sha256":pre_promotion["tile"]["sha256"],"pre_promotion_reserve":pre_promotion["tile"]["reserve"],"bytes":(ROOT/f"Content/Tile/{ground}_Base.tile").stat().st_size,"validated_candidate_sha256":tile_hash,"destination_sha256":tile_hash,"candidate_destination_identical":True}],"zone_registration":{"entry":ground,"entry_count":1,"position":f"after {prior}","mode":"retained_authenticated_historical_singleton" if retained_zone_entry else "additive_insertion","pre_promotion_sha256":zone_pre,"post_promotion_sha256":zone_post},"preserved_variants":[{"role":"pre_promotion_destination_reserve","files":pre_reserve_details,"modified_after_capture":False},{"role":"historical_reserve",**reserve_details,"modified":False},{"role":"historical_v200_and_v201_reports","paths":["docs/pmdred_eu/remaining_grounds/history/v200_pre_period_fix/","docs/pmdred_eu/remaining_grounds/"],"modified_by_promotion":False}],"post_promotion_integration":{"result":"PASS","exact_pmdo_index":"PASS","log_sha256":INDEX_SHA256,"zone_structure":"PASS","existing_routes_unchanged":"PASS"}}
     provenance={"schema":1,"ground":ground,"validated_at":DATE,"result":"PASS","authorities":{"rom":{"sha256":ROM_SHA256,"bytes":33554432,"region":"Europe"},"technical_reference":{"repository":"pret/pmd-red","commit":"bf0092d0e34fd8e49b859a0b5f96f00740faa42d","role":f"{symbol} identity, not EU bytes"},"normalized_extraction":{"source_hashes":plan["source_normalized_sha256"]},"runtime_plan":{"schema":2,"sha256":PLAN_SHA256},"conversion":{"converter":"2.0.1-eu","report_sha256":CONVERSION_SHA256}},"identity":{"canonical_debug_id":identity["canonical_debug_id"],"map_id":identity["map_id"],"map_file_id":identity["map_file_id"],"ground_place_id":identity["ground_place_id"],"conversion_type":identity["conversion_type"],"weather_id":identity["weather_id"],"stable_ground_id":ground,"ground_map_symbol":symbol,"dimensions_tiles":plan["dimensions_tiles"],"dimensions_pixels":plan["dimensions_pixels"],**role},"tested_source":{"ground_sha256":ground_hash,"tile_sha256":tile_hash,"candidate_entities":{"markers":0,"spawners":0,"map_characters":0,"ground_objects":0},"fixture_manifest_sha256":fixture_sha,"static_audit":audit},"runtime":{"name":"PMDO","version":"0.8.12","executable_sha256":PMDO_SHA256,"patched_sdl_sha256":SDL_SHA256,"events_sha256":events_sha,"event_count":sum(1 for _ in (out/"events.jsonl").open()),"primary_samples":len(primary),"reload_samples":1,"terminal_seen":True,"load_phase":"Unload","exit_classification":"NORMAL_EXIT","return_code":0,"graceful":True,"watchdog":False,"requested_signal":None,"sigsegv":False,"forced_kill":False,"orphan_process":False,"termination_sha256":termination_sha},"comparison":{"report_sha256":report_sha,"sample_count":samples,"exact_sample_count":samples,"fully_opaque_sample_count":samples,"mismatched_pixels":0,"maximum_channel_delta":0,"unique_primary_rgba_frames":unique_count},"candidate_provenance_reconciliation":{"historical_v200_reports_preserved_at":"docs/pmdred_eu/remaining_grounds/history/v200_pre_period_fix/","authenticated_v201_ground_sha256":ground_hash,"authenticated_v201_tile_sha256":tile_hash,"decision":"Only authenticated v2.0.1-eu bytes were exact-engine tested and promoted; immutable v2.0.0 reports and active v2.0.1 reports remain distinct provenance."},"preservation":{"historical_reserve":reserve_details,"pre_promotion_destinations":pre_reserve_details,"pre_promotion_record":f"RESERVE/pmdred_pre_promotion/{ground}/README.md"},"promoted":{"ground_sha256":ground_hash,"tile_sha256":tile_hash,"zone_pre_sha256":zone_pre,"zone_post_sha256":zone_post},"durable_evidence":{},"reproduction":{"commands":str((out/"commands.sh").relative_to(ROOT))},"scope":"Ground-only validation","post_promotion_integration":{"exact_pmdo_index":"PASS","log_sha256":INDEX_SHA256,"zone_encoding_bom_preserved":True}}
     if partial_recovery_record is not None:
         recovery_relative = partial_recovery_record.relative_to(ROOT).as_posix()
@@ -676,6 +771,30 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
             "reclassified_as_pass": False,
         })
         provenance["preservation"]["prior_pre_promotion_failure"] = failure_metadata
+    if migration_failure_record is not None:
+        failure_relative = migration_failure_record.relative_to(ROOT).as_posix()
+        failure_metadata = {
+            "prior_attempt_classification": "FAIL",
+            "record": failure_relative,
+            "record_sha256": sha(migration_failure_record),
+            "failed_after_authenticated_migration_install_before_zone_acceptance": True,
+            "exact_partial_migration_authenticated_and_retained_without_replacement": True,
+            "fresh_full_runtime_comparison_and_post_promotion_rerun": True,
+            "historical_singleton_zone_entry_retained_in_place": retained_zone_entry,
+            "fresh_fixture": fixture.relative_to(ROOT).as_posix(),
+            "fresh_comparison": comparison.relative_to(ROOT).as_posix(),
+        }
+        record["execution_note"]["partial_entity_migration_recovery"] = failure_metadata
+        promotion["method"]["installation_mode"] = (
+            "no replacement on recovery: authenticated the preserved historical reserve and exact integrated install, then required a fresh full rerun"
+        )
+        promotion["preserved_variants"].append({
+            "role": "failed_attempt_evidence",
+            "record": failure_relative,
+            "sha256": failure_metadata["record_sha256"],
+            "reclassified_as_pass": False,
+        })
+        provenance["preservation"]["partial_entity_migration_recovery"] = failure_metadata
     if migration is not None:
         entity_proof = migration["entity_integration"]
         migration_evidence = {
@@ -695,12 +814,20 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
             "scripts_modified": False,
         }
         record["entity_aware_migration"] = migration_evidence
-        record["definitive_destination"]["promotion_status"] = "PROMOTED_INTEGRATION_PRESERVING_ENTITY_MIGRATION"
+        record["definitive_destination"]["promotion_status"] = (
+            "PROMOTED_INTEGRATION_PRESERVING_ENTITY_MIGRATION_AFTER_FRESH_RECOVERY"
+            if migration_failure_record is not None else
+            "PROMOTED_INTEGRATION_PRESERVING_ENTITY_MIGRATION"
+        )
         record["fixture_isolation"]["authenticated_canonical_baseline_ground_sha256"] = canonical_ground_hash
         record["fixture_isolation"]["source_entity_counts"] = entity_proof["entity_counts"]
         record["provenance"]["authenticated_canonical_baseline_ground_sha256"] = canonical_ground_hash
         record["provenance"]["integrated_candidate_ground_sha256"] = ground_hash
-        promotion["result"] = "PROMOTION_PASS_INTEGRATION_PRESERVING_ENTITY_MIGRATION"
+        promotion["result"] = (
+            "PROMOTION_PASS_INTEGRATION_PRESERVING_ENTITY_MIGRATION_AFTER_FRESH_RECOVERY"
+            if migration_failure_record is not None else
+            "PROMOTION_PASS_INTEGRATION_PRESERVING_ENTITY_MIGRATION"
+        )
         promotion["method"]["canonical_migration"] = (
             "authenticated canonical visual/collision/animation Ground plus only exact additive historical Markers/Spawners"
         )
@@ -774,6 +901,11 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
             f"`{pre_promotion_failure_record.parent.relative_to(ROOT).as_posix()}`; this PASS uses a "
             "complete fresh fixture, runtime, and exhaustive comparison after the narrow gate correction."
         )
+    if migration_failure_record is not None:
+        promotion_summary += (
+            f" The first migration attempt remains classified as FAIL at "
+            f"`{migration_failure_record.parent.relative_to(ROOT).as_posix()}`; its exact partial install and reserves were authenticated and retained without replacement, and this PASS uses a complete fresh runtime, comparison, and post-promotion indexing attempt."
+        )
     if collision_validation["blocked_probe"]["applicable"]:
         collision_summary = "BMA movement and blocking probes passed."
     else:
@@ -792,7 +924,7 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
 
 Role flags are recorded independently as `cinematic=false`, `arena=false`, `boss=false`; this Ground-only record claims no dialogue, choreography, music, or narrative routing. {len(primary)} primary boundary ticks ({ticks[0]}–{ticks[-1]}) cover every applicable animation schedule through two complete local cycles (maximum {max_cycle} ticks); {unique_count} distinct primary RGBA frames were observed.
 
-{promotion_summary} Promotion inserted one zone entry after `{prior}` without reserializing the registry, preserved BOM/other routes, retained all reserve/history, and passed exact-PMDO post-promotion indexing (`{INDEX_SHA256[:8]}…`). Complete metrics, events, logs, representative initial/final/reload PNGs, provenance, promotion details, reproduction commands, and hashes are in this directory.
+{promotion_summary} Zone integration {zone_registration}, preserved BOM/other routes, retained all reserve/history, and passed exact-PMDO post-promotion indexing (`{INDEX_SHA256[:8]}…`). Complete metrics, events, logs, representative initial/final/reload PNGs, provenance, promotion details, reproduction commands, and hashes are in this directory.
 """
     (out/"README.md").write_text(readme)
     provenance=load(out/"provenance.json")
@@ -805,6 +937,8 @@ Role flags are recorded independently as `cinematic=false`, `arena=false`, `boss
         manifest_paths.append(partial_recovery_record)
     if pre_promotion_failure_record is not None:
         manifest_paths.append(pre_promotion_failure_record)
+    if migration_failure_record is not None:
+        manifest_paths.append(migration_failure_record)
     if migration is not None:
         manifest_paths.append(ROOT/migration["legacy_case_tile_retained_unchanged"])
         manifest_paths.extend(ROOT/relative for relative in migration["related_scripts_unchanged"])
@@ -829,9 +963,23 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
     pre_ground_reserve=reserve_dir/ground_dst.name; pre_tile_reserve=reserve_dir/tile_dst.name
     recovery_record_path=partial_additive_recovery_record(ground,ground_dst,tile_dst,canonical_ground_hash,tile_hash)
     pre_promotion_failure_path = pre_promotion_collision_failure_record(ground, ground_dst, tile_dst)
-    if recovery_record_path is not None and pre_promotion_failure_path is not None:
-        raise RuntimeError(f"conflicting recovery modes for {ground}")
     migration_policy = MIGRATION_POLICIES.get(ground) if ground_dst.is_file() and recovery_record_path is None else None
+    legacy_tile: Path | None = ROOT / migration_policy["historical_tile"] if migration_policy is not None else None
+    pre_legacy_tile_reserve: Path | None = reserve_dir / legacy_tile.name if legacy_tile is not None else None
+    migration_recovery_path: Path | None = None
+    if migration_policy is not None:
+        assert legacy_tile is not None and pre_legacy_tile_reserve is not None
+        migration_recovery_path = partial_entity_migration_recovery_record(
+            ground, ground_dst, tile_dst, legacy_tile,
+            pre_ground_reserve, pre_legacy_tile_reserve, migration_policy,
+        )
+    recovery_modes = [
+        recovery_record_path is not None,
+        pre_promotion_failure_path is not None,
+        migration_recovery_path is not None,
+    ]
+    if sum(recovery_modes) > 1:
+        raise RuntimeError(f"conflicting recovery modes for {ground}")
     if ground_dst.is_file() and recovery_record_path is None and migration_policy is None:
         raise RuntimeError(f"occupied Ground destination for {ground}; entity-aware migration is required")
     if migration_policy is not None and pre_promotion_failure_path is not None:
@@ -844,6 +992,19 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
             "tile": {"preexisting": False, "sha256": None, "reserve": None},
         }
         log(f"PARTIAL_ADDITIVE_RECOVERY_AUTHENTICATED ground={ground} record={recovery_record_path.relative_to(ROOT)}")
+    elif migration_recovery_path is not None:
+        assert migration_policy is not None and legacy_tile is not None and pre_legacy_tile_reserve is not None
+        pre_promotion = {
+            "ground": {"preexisting": True, "sha256": migration_policy["historical_ground_sha256"],
+                       "reserve": pre_ground_reserve.relative_to(ROOT).as_posix()},
+            "tile": {"preexisting": False, "sha256": None, "reserve": None},
+            "legacy_case_tile": {"preexisting": True, "sha256": migration_policy["historical_tile_sha256"],
+                                 "reserve": pre_legacy_tile_reserve.relative_to(ROOT).as_posix()},
+        }
+        log(
+            f"PARTIAL_ENTITY_MIGRATION_RECOVERY_AUTHENTICATED ground={ground} "
+            f"record={migration_recovery_path.relative_to(ROOT)} fresh_rerun=true"
+        )
     else:
         pre_promotion = {
             "ground": {"preexisting": ground_dst.is_file(), "sha256": sha(ground_dst) if ground_dst.is_file() else None,
@@ -851,11 +1012,8 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
             "tile": {"preexisting": tile_dst.is_file(), "sha256": sha(tile_dst) if tile_dst.is_file() else None,
                      "reserve": pre_tile_reserve.relative_to(ROOT).as_posix() if tile_dst.is_file() else None},
         }
-    legacy_tile: Path | None = None
-    pre_legacy_tile_reserve: Path | None = None
-    if migration_policy is not None:
-        legacy_tile = ROOT / migration_policy["historical_tile"]
-        pre_legacy_tile_reserve = reserve_dir / legacy_tile.name
+    if migration_policy is not None and migration_recovery_path is None:
+        assert legacy_tile is not None and pre_legacy_tile_reserve is not None
         pre_promotion["legacy_case_tile"] = {
             "preexisting": legacy_tile.is_file(),
             "sha256": sha(legacy_tile) if legacy_tile.is_file() else None,
@@ -874,7 +1032,7 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
             f"historical_ground_sha256={pre_promotion['ground']['sha256']} "
             f"legacy_tile_sha256={pre_promotion['legacy_case_tile']['sha256']}"
         )
-    elif tile_dst.exists() and recovery_record_path is None:
+    elif migration_policy is None and tile_dst.exists() and recovery_record_path is None:
         historical_tile=ROOT/f"RESERVE/red_tiles/{ground}_Base.tile"
         if not historical_tile.is_file() or sha(historical_tile) != pre_promotion["tile"]["sha256"]:
             raise RuntimeError(f"occupied tile for {ground} does not match its preserved historical reserve")
@@ -886,7 +1044,7 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
             f"PRE_PROMOTION_FAILURE_PRESERVED ground={ground} "
             f"record={pre_promotion_failure_path.relative_to(ROOT)} fresh_rerun=true"
         )
-    suffix="-recovery-rerun" if (recovery_record_path is not None or pre_promotion_failure_path is not None) else ""
+    suffix="-recovery-rerun" if any(recovery_modes) else ""
     fixture=ROOT/f".runtime-cache/pmdred-eu-{ground}-runtime{suffix}"; comparison=ROOT/f".runtime-cache/pmdred-eu-{ground}-comparison{suffix}"
     post_candidate=ROOT/f".runtime-cache/pmdred-eu-{ground}-promoted-candidate{suffix}";post_fixture=ROOT/f".runtime-cache/pmdred-eu-{ground}-promoted-fixture{suffix}"
     migration_root=ROOT/f".runtime-cache/pmdred-eu-{ground}-entity-integrated-candidate{suffix}"
@@ -901,7 +1059,8 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
         assert legacy_tile is not None
         migration = build_migration(
             ROOT, ground, migration_root, policy=migration_policy,
-            historical_ground=ground_dst, historical_tile=legacy_tile,
+            historical_ground=pre_ground_reserve if migration_recovery_path is not None else ground_dst,
+            historical_tile=legacy_tile,
             canonical_root=CANONICAL,
         )
         runtime_candidate_root=migration_root
@@ -942,24 +1101,36 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
         log(f"PARTIAL_ADDITIVE_INSTALL_RETAINED ground={ground} replacement=false")
     elif migration is not None:
         assert legacy_tile is not None and pre_legacy_tile_reserve is not None
-        reserve_dir.mkdir(parents=True)
-        atomic_install(ground_dst,pre_ground_reserve)
-        atomic_install(legacy_tile,pre_legacy_tile_reserve)
-        reserve_gates = [
-            sha(pre_ground_reserve) == pre_promotion["ground"]["sha256"],
-            sha(pre_legacy_tile_reserve) == pre_promotion["legacy_case_tile"]["sha256"],
-            sha(legacy_tile) == pre_promotion["legacy_case_tile"]["sha256"],
-        ]
-        if not all(reserve_gates):
-            raise RuntimeError(f"occupied migration reserve readback failed: {reserve_gates}")
-        atomic_replace_preserved(
-            ground_src, ground_dst, pre_ground_reserve, pre_promotion["ground"]["sha256"]
-        )
-        atomic_install(tile_src,tile_dst)
-        log(
-            f"ENTITY_AWARE_MIGRATION_INSTALLED ground={ground} historical_reserved=true "
-            f"legacy_case_tile_retained=true canonical_case_tile_created=true"
-        )
+        if migration_recovery_path is not None:
+            recovery_gates = [
+                sha(ground_dst) == ground_hash,
+                sha(tile_dst) == tile_hash,
+                sha(pre_ground_reserve) == pre_promotion["ground"]["sha256"],
+                sha(pre_legacy_tile_reserve) == pre_promotion["legacy_case_tile"]["sha256"],
+                sha(legacy_tile) == pre_promotion["legacy_case_tile"]["sha256"],
+            ]
+            if not all(recovery_gates):
+                raise RuntimeError(f"partial entity migration install changed during fresh rerun: {recovery_gates}")
+            log(f"PARTIAL_ENTITY_MIGRATION_INSTALL_RETAINED ground={ground} replacement=false")
+        else:
+            reserve_dir.mkdir(parents=True)
+            atomic_install(ground_dst,pre_ground_reserve)
+            atomic_install(legacy_tile,pre_legacy_tile_reserve)
+            reserve_gates = [
+                sha(pre_ground_reserve) == pre_promotion["ground"]["sha256"],
+                sha(pre_legacy_tile_reserve) == pre_promotion["legacy_case_tile"]["sha256"],
+                sha(legacy_tile) == pre_promotion["legacy_case_tile"]["sha256"],
+            ]
+            if not all(reserve_gates):
+                raise RuntimeError(f"occupied migration reserve readback failed: {reserve_gates}")
+            atomic_replace_preserved(
+                ground_src, ground_dst, pre_ground_reserve, pre_promotion["ground"]["sha256"]
+            )
+            atomic_install(tile_src,tile_dst)
+            log(
+                f"ENTITY_AWARE_MIGRATION_INSTALLED ground={ground} historical_reserved=true "
+                f"legacy_case_tile_retained=true canonical_case_tile_created=true"
+            )
     else:
         if pre_promotion["tile"]["preexisting"]:
             reserve_dir.mkdir(parents=True)
@@ -972,7 +1143,11 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
         else:
             atomic_install(tile_src,tile_dst)
     validated=set(load(ROOT/"docs/pmdred_eu/pmdo_validation/progress.json")["validated_ids"])
-    zone_pre,zone_post,prior,zone_index=insert_zone(ground,order,validated)
+    zone_pre,zone_post,prior,zone_index=insert_zone(
+        ground, order, validated, retain_existing=migration is not None
+    )
+    if migration is not None and zone_pre == zone_post:
+        log(f"ENTITY_MIGRATION_ZONE_ENTRY_RETAINED ground={ground} index={zone_index} predecessor={prior}")
     if sha(ground_dst)!=ground_hash or sha(tile_dst)!=tile_hash: raise RuntimeError("promotion readback failed")
     reserve_dir.mkdir(parents=True,exist_ok=True)
     reserve_ground=ROOT/f"RESERVE/red_grounds/{ground}.rsground";reserve_tile=ROOT/f"RESERVE/red_tiles/{ground}_Base.tile"
@@ -1017,7 +1192,7 @@ Evidence: `docs/pmdred_eu/pmdo_validation/{ground}_exhaustive_pass/`.
     package_evidence(
         ground,symbol,role,identity,audit,plan,fixture,comparison,post_fixture,
         zone_pre,zone_post,prior,zone_index,pre_promotion,recovery_record_path,
-        pre_promotion_failure_path,migration,
+        pre_promotion_failure_path,migration_recovery_path,migration,
     )
     state["stage"]="evidence_packaged";dump(STATE_PATH,state)
     run([sys.executable,"tools/update_pmdred_eu_validation_progress.py","--write"])

@@ -9,11 +9,13 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from build_pmdred_eu_entity_migration import build_migration, read_json
+from build_pmdred_eu_entity_migration import MIGRATION_POLICIES, build_migration, read_json
 from run_pmdred_eu_ground_milestone import (
     build_collision_validation,
     classify_ground_role,
+    insert_zone,
     validate_partial_additive_recovery_record,
+    validate_partial_entity_migration_recovery_record,
     validate_pre_promotion_collision_failure_record,
     write_commands,
 )
@@ -373,6 +375,45 @@ class OccupiedGroundEntityMigrationTests(unittest.TestCase):
             self.assertIn('--candidate-root "$MIGRATED"', recipe)
             self.assertEqual(recipe.count("--entity-integrated-ids a02p01"), 2)
             self.assertEqual(recipe.count('--canonical-baseline-root "$CANONICAL"'), 2)
+
+
+class EntityMigrationRecoveryGateTests(unittest.TestCase):
+    def test_preserved_partial_migration_record_is_fully_authenticated(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        record = json.loads((
+            root / "docs/pmdred_eu/pmdo_validation/a02p01_failed_attempt_preexisting_zone_gate/failure_record.json"
+        ).read_text())
+        validate_partial_entity_migration_recovery_record(
+            record, "a02p01", MIGRATION_POLICIES["a02p01"]
+        )
+
+    def test_failed_migration_cannot_be_reclassified_as_pass(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        record = json.loads((
+            root / "docs/pmdred_eu/pmdo_validation/a02p01_failed_attempt_preexisting_zone_gate/failure_record.json"
+        ).read_text())
+        record["result"] = "PASS"
+        with self.assertRaisesRegex(RuntimeError, "recovery record gate failed"):
+            validate_partial_entity_migration_recovery_record(
+                record, "a02p01", MIGRATION_POLICIES["a02p01"]
+            )
+
+    def test_historical_singleton_zone_entry_is_retained_byte_exactly(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        zone = root / "Data/Zone/master_zone.json"
+        before = zone.read_bytes()
+        maps = json.loads(before.decode("utf-8-sig"))["Object"]["GroundMaps"]
+        pre, post, prior, index = insert_zone(
+            "a02p01", ["a01p02", "a02p01"], {"a01p02"}, retain_existing=True
+        )
+        self.assertEqual(pre, post)
+        self.assertEqual(zone.read_bytes(), before)
+        self.assertEqual(index, maps.index("a02p01"))
+        self.assertEqual(prior, maps[index - 1])
+
+    def test_generic_zone_insertion_still_rejects_unvalidated_existing_entry(self) -> None:
+        with self.assertRaisesRegex(RuntimeError, "zone already contains unvalidated a02p01"):
+            insert_zone("a02p01", ["a01p02", "a02p01"], {"a01p02"})
 
 
 class PilotZoneIntegrationCorrectionTests(unittest.TestCase):
