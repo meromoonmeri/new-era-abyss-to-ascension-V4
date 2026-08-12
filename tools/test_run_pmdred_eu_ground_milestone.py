@@ -313,6 +313,34 @@ class OccupiedGroundEntityMigrationTests(unittest.TestCase):
             )
             self.assertFalse(manifest["existing_entity_silently_deactivated"])
 
+    def test_same_identity_tile_requires_reserve_before_replacement(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            policy, historical_path, historical_tile, canonical_root = self.fixture(root)
+            same_identity_tile = root / "Content/Tile/test01_Base.tile"
+            same_identity_tile.write_bytes(historical_tile.read_bytes())
+            policy["historical_tile"] = "Content/Tile/test01_Base.tile"
+            policy["historical_tile_sha256"] = self.digest(same_identity_tile)
+            policy["tile_migration_mode"] = "reserve_and_replace_canonical_identity"
+            manifest = build_migration(
+                root, "test01", root / "output", policy=policy,
+                historical_ground=historical_path, historical_tile=same_identity_tile,
+                canonical_root=canonical_root,
+            )
+            self.assertEqual(
+                manifest["tile_migration"]["mode"],
+                "reserve_and_replace_canonical_identity",
+            )
+            self.assertTrue(manifest["tile_migration"]["same_active_identity"])
+            self.assertTrue(
+                manifest["tile_migration"]["canonical_identity_replaced_only_after_reserve"]
+            )
+            self.assertIsNone(manifest["legacy_case_tile_retained_unchanged"])
+            self.assertEqual(
+                manifest["historical_tile_replaced_after_reserve"],
+                "Content/Tile/test01_Base.tile",
+            )
+
     def test_historical_tamper_is_rejected_before_output(self) -> None:
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
@@ -378,6 +406,46 @@ class OccupiedGroundEntityMigrationTests(unittest.TestCase):
 
 
 class EntityMigrationRecoveryGateTests(unittest.TestCase):
+    @staticmethod
+    def same_identity_record() -> dict:
+        policy = MIGRATION_POLICIES["a03p01"]
+        return {
+            "schema": "new-era.pmdred-eu-ground-orchestration-failure.v1",
+            "ground": "a03p01",
+            "result": "ORCHESTRATION_FAIL_AFTER_AUTHENTICATED_MIGRATION_INSTALL_BEFORE_PROMOTION",
+            "failure": {"stage": "zone_integration_after_migration_install"},
+            "entity_migration": {
+                "historical_ground_sha256": policy["historical_ground_sha256"],
+                "canonical_baseline_ground_sha256": policy["canonical_ground_sha256"],
+                "integrated_ground_sha256": policy["integrated_ground_sha256"],
+                "tile_sha256": policy["canonical_tile_sha256"],
+                "markers": policy["expected_entities"]["Markers"],
+                "spawners": policy["expected_entities"]["Spawners"],
+                "reserve_created": True,
+                "tile_migration_mode": "reserve_and_replace_canonical_identity",
+                "historical_active_tile_sha256": policy["historical_tile_sha256"],
+                "historical_tile_reserved_before_replacement": True,
+                "canonical_identity_tile_replaced_atomically": True,
+            },
+            "canonical_state": {
+                "active_ground_sha256": policy["integrated_ground_sha256"],
+                "active_tile_sha256": policy["canonical_tile_sha256"],
+                "historical_reserve_ground_sha256": policy["historical_ground_sha256"],
+                "historical_reserve_tile_sha256": policy["historical_tile_sha256"],
+                "official_pass_evidence_created": False,
+                "zone_unchanged": True,
+                "zone_entry_count": 1,
+            },
+            "recovery_policy": {
+                "preserve_this_failed_attempt": True,
+                "do_not_reclassify_as_pass": True,
+                "authenticate_partial_migration_and_reserve": True,
+                "retain_singleton_historical_zone_entry_in_place": True,
+                "fresh_full_runtime_comparison_and_post_promotion_rerun_required": True,
+                "official_pass_may_be_packaged_only_after_all_gates_pass_on_fresh_rerun": True,
+            },
+        }
+
     def test_preserved_partial_migration_record_is_fully_authenticated(self) -> None:
         root = Path(__file__).resolve().parents[1]
         record = json.loads((
@@ -386,6 +454,19 @@ class EntityMigrationRecoveryGateTests(unittest.TestCase):
         validate_partial_entity_migration_recovery_record(
             record, "a02p01", MIGRATION_POLICIES["a02p01"]
         )
+
+    def test_same_identity_tile_recovery_authenticates_reserve_and_atomic_replacement(self) -> None:
+        validate_partial_entity_migration_recovery_record(
+            self.same_identity_record(), "a03p01", MIGRATION_POLICIES["a03p01"]
+        )
+
+    def test_same_identity_tile_recovery_rejects_wrong_historical_reserve(self) -> None:
+        record = self.same_identity_record()
+        record["canonical_state"]["historical_reserve_tile_sha256"] = "wrong"
+        with self.assertRaisesRegex(RuntimeError, "recovery record gate failed"):
+            validate_partial_entity_migration_recovery_record(
+                record, "a03p01", MIGRATION_POLICIES["a03p01"]
+            )
 
     def test_failed_migration_cannot_be_reclassified_as_pass(self) -> None:
         root = Path(__file__).resolve().parents[1]
@@ -403,7 +484,7 @@ class EntityMigrationRecoveryGateTests(unittest.TestCase):
         zone = root / "Data/Zone/master_zone.json"
         before = zone.read_bytes()
         maps = json.loads(before.decode("utf-8-sig"))["Object"]["GroundMaps"]
-        for ground in ("a02p01", "a02p02", "a02p03", "a02p04"):
+        for ground in MIGRATION_POLICIES:
             with self.subTest(ground=ground):
                 pre, post, prior, index = insert_zone(
                     ground, list(MIGRATION_POLICIES), {"a01p02"}, retain_existing=True
@@ -413,24 +494,28 @@ class EntityMigrationRecoveryGateTests(unittest.TestCase):
                 self.assertEqual(index, maps.index(ground))
                 self.assertEqual(prior, maps[index - 1])
 
-    def test_a02_fugitive_migration_policies_pin_exact_integrated_outputs(self) -> None:
+    def test_fugitive_migration_policies_pin_exact_integrated_outputs(self) -> None:
         expected = {
-            "a02p01": ("016551d87ddf6b5556a4f9181ec8061a5af2df1bda97e3f43e376f3dc64dc3b2", 3),
-            "a02p02": ("f9aac6971906cbb93eab368bcd91bb4a9723180bd854d17b19811474c3484a3c", 1),
-            "a02p03": ("f939c874590008a7db4217f7fd77f65d548a32ba5ccfa0701e77a0da070982a3", 1),
-            "a02p04": ("9add5df8383ddb077c832ddae9e06287ad29cd6db695437b7d1f655af8a2c790", 1),
+            "a02p01": ("016551d87ddf6b5556a4f9181ec8061a5af2df1bda97e3f43e376f3dc64dc3b2", 2, 3, "retain_distinct_historical_identity"),
+            "a02p02": ("f9aac6971906cbb93eab368bcd91bb4a9723180bd854d17b19811474c3484a3c", 2, 1, "retain_distinct_historical_identity"),
+            "a02p03": ("f939c874590008a7db4217f7fd77f65d548a32ba5ccfa0701e77a0da070982a3", 2, 1, "retain_distinct_historical_identity"),
+            "a02p04": ("9add5df8383ddb077c832ddae9e06287ad29cd6db695437b7d1f655af8a2c790", 2, 1, "retain_distinct_historical_identity"),
+            "a03p01": ("b0217e3fa2963faf0ee340c639b80d8a2cd33f7c3a8a585db21f8eecc0be0beb", 1, 0, "reserve_and_replace_canonical_identity"),
+            "a03p02": ("4c685a550e2cc6a9cf58f0b640ed3f206700639ac9dd0c39e1a35d1d8c16634c", 1, 0, "reserve_and_replace_canonical_identity"),
+            "a03p03": ("8a0124252466f4adcdbfad6ab2097920e34d863c663e141772a034e602039589", 1, 0, "reserve_and_replace_canonical_identity"),
         }
         self.assertEqual(set(MIGRATION_POLICIES), set(expected))
-        for ground, (integrated_hash, spawner_count) in expected.items():
+        for ground, (integrated_hash, marker_count, spawner_count, tile_mode) in expected.items():
             with self.subTest(ground=ground):
                 policy = MIGRATION_POLICIES[ground]
                 self.assertEqual(policy["ground"], ground)
                 self.assertEqual(policy["integrated_ground_sha256"], integrated_hash)
-                self.assertEqual(
-                    policy["expected_entities"]["Markers"],
-                    ["Main_Entrance_Marker", "Cutscene_Marker"],
-                )
+                self.assertEqual(len(policy["expected_entities"]["Markers"]), marker_count)
                 self.assertEqual(len(policy["expected_entities"]["Spawners"]), spawner_count)
+                self.assertEqual(
+                    policy.get("tile_migration_mode", "retain_distinct_historical_identity"),
+                    tile_mode,
+                )
 
     def test_generic_zone_insertion_still_rejects_unvalidated_existing_entry(self) -> None:
         with self.assertRaisesRegex(RuntimeError, "zone already contains unvalidated a02p01"):

@@ -121,9 +121,84 @@ A02P04_POLICY: dict[str, Any] = {
     },
 }
 
+A03P01_POLICY: dict[str, Any] = {
+    "schema": "new-era.pmdred-eu-occupied-ground-migration-policy.v1",
+    "ground": "a03p01",
+    "historical_ground_sha256": "b274410f90ad2ef7f0e9c2cbdbb4e68959db2dca25b94b3452f3d67a5a5280dc",
+    "historical_tile": "Content/Tile/a03p01_Base.tile",
+    "historical_tile_sha256": "4b8f2b3729a32685206ee5c37bc346e53b83685da4a9bdb6964bbb4d1f4642b0",
+    "canonical_ground_sha256": "36b389989c2ed916b95bc79aa5236a03c42911d81116d8f4f3c1f59679f1c3b3",
+    "canonical_tile_sha256": "877fd56336e417ed7690db8baeeedf465657eaf37a345d2010fa356333bf8cf4",
+    "integrated_ground_sha256": "b0217e3fa2963faf0ee340c639b80d8a2cd33f7c3a8a585db21f8eecc0be0beb",
+    "tile_migration_mode": "reserve_and_replace_canonical_identity",
+    "preserved_fields": ["Markers", "Spawners"],
+    "expected_entities": {"Markers": ["Main_Entrance_Marker"], "Spawners": []},
+    "historical_reserves": {
+        "RESERVE/red_grounds/a03p01.rsground": "b274410f90ad2ef7f0e9c2cbdbb4e68959db2dca25b94b3452f3d67a5a5280dc",
+        "RESERVE/red_tiles/a03p01_Base.tile": "877fd56336e417ed7690db8baeeedf465657eaf37a345d2010fa356333bf8cf4",
+    },
+    "related_scripts": {
+        "Data/Script/halcyon/ground/a03p01/init.lua": "314759f57c7e9fa38905193d94e8c8e377b7f137ff7bf9c7adbdb4e63928a64e",
+        "Data/Script/halcyon/FugitiveArc.lua": "cf9ffe31cb90c7301808d920522463cc66e0e7349f74a1c8fdfca061c1621519",
+        "Data/Script/halcyon/FugitiveCinematics.lua": "1fea1611e0f9636f6fd8ca6268ba9d2d676972f3b153162b694950c7f32eb484",
+        "Data/Script/halcyon/arc_fugitif/scene/a03p01.lua": "0a46bb9f145b82db1e5a7bfdf67473ab4e910271a029740f182034e18492c5c3",
+    },
+}
+
+A03P02_POLICY: dict[str, Any] = {
+    "schema": "new-era.pmdred-eu-occupied-ground-migration-policy.v1",
+    "ground": "a03p02",
+    "historical_ground_sha256": "ca7278d2c16e3843a089ab20904b7c3b5d85542d24987573604ffe12e83c9ff3",
+    "historical_tile": "Content/Tile/a03p02_Base.tile",
+    "historical_tile_sha256": "5d492bd32d1c0fbebce449bf85624865d333eb5743b0acb5adacf5ce7fb9cf2a",
+    "canonical_ground_sha256": "1802dc409408b7ae85f12ba5e318babe74b232632c3b055fc7a252586b51a463",
+    "canonical_tile_sha256": "076d64fb6b4f86ef10fc0861a1b2cf4e01f4d88a434b220c886575c6fe30898c",
+    "integrated_ground_sha256": "4c685a550e2cc6a9cf58f0b640ed3f206700639ac9dd0c39e1a35d1d8c16634c",
+    "tile_migration_mode": "reserve_and_replace_canonical_identity",
+    "preserved_fields": ["Markers", "Spawners"],
+    "expected_entities": {"Markers": ["Main_Entrance_Marker"], "Spawners": []},
+    "historical_reserves": {
+        "RESERVE/red_grounds/a03p02.rsground": "62afb6275c527e997ec5225505328559f14a9671fd07a684b8b7b6de1d1bc749",
+        "RESERVE/red_tiles/a03p02_Base.tile": "076d64fb6b4f86ef10fc0861a1b2cf4e01f4d88a434b220c886575c6fe30898c",
+    },
+    "related_scripts": {
+        "Data/Script/halcyon/ground/a03p02/init.lua": "9d72fb9f94fa6e291a4e48e06c74e6b470a583496b1169c3dc42fbeb27632b6b",
+        "Data/Script/halcyon/FugitiveArc.lua": "cf9ffe31cb90c7301808d920522463cc66e0e7349f74a1c8fdfca061c1621519",
+        "Data/Script/halcyon/FugitiveCinematics.lua": "1fea1611e0f9636f6fd8ca6268ba9d2d676972f3b153162b694950c7f32eb484",
+        "Data/Script/halcyon/arc_fugitif/scene/a03p02.lua": "f6f59a474c70da53edf6339026225c8610a98d38cf528a89c1be3838136c0492",
+    },
+}
+
+A03P03_POLICY: dict[str, Any] = {
+    "schema": "new-era.pmdred-eu-occupied-ground-migration-policy.v1",
+    "ground": "a03p03",
+    "historical_ground_sha256": "056e711e49f8f9ae7b5067458d66ba2c758e42ca3b96fb60e0e58946c9bb52ae",
+    "historical_tile": "Content/Tile/a03p03_Base.tile",
+    "historical_tile_sha256": "314207f03b49c0908a801ee10ee0cbcb29c700d8500539444625e56da05489f9",
+    "canonical_ground_sha256": "4025e48c9cf24be8a321da31115e933b05f994b89bcf01f827f4c46af3a8d22a",
+    "canonical_tile_sha256": "fa9b2e916bf28714e4614964f7589d6ef83e81754ee358c147c09c975a7a5281",
+    "integrated_ground_sha256": "8a0124252466f4adcdbfad6ab2097920e34d863c663e141772a034e602039589",
+    "tile_migration_mode": "reserve_and_replace_canonical_identity",
+    "preserved_fields": ["Markers", "Spawners"],
+    "expected_entities": {"Markers": ["Main_Entrance_Marker"], "Spawners": []},
+    "historical_reserves": {
+        "RESERVE/red_grounds/a03p03.rsground": "056e711e49f8f9ae7b5067458d66ba2c758e42ca3b96fb60e0e58946c9bb52ae",
+        "RESERVE/red_tiles/a03p03_Base.tile": "fa9b2e916bf28714e4614964f7589d6ef83e81754ee358c147c09c975a7a5281",
+    },
+    "related_scripts": {
+        "Data/Script/halcyon/ground/a03p03/init.lua": "700409fe2421b0bbbeaf7ec4e47bd78ae7ccffd0ad2525bef41f35c5946fc1a1",
+        "Data/Script/halcyon/FugitiveArc.lua": "cf9ffe31cb90c7301808d920522463cc66e0e7349f74a1c8fdfca061c1621519",
+        "Data/Script/halcyon/FugitiveCinematics.lua": "1fea1611e0f9636f6fd8ca6268ba9d2d676972f3b153162b694950c7f32eb484",
+        "Data/Script/halcyon/arc_fugitif/scene/a03p03.lua": "8ce94deaded0feca1efdc80a8f19cb6a7710877a2f518aa668e61146d6e56d70",
+    },
+}
+
 MIGRATION_POLICIES = {
     policy["ground"]: policy
-    for policy in (A02P01_POLICY, A02P02_POLICY, A02P03_POLICY, A02P04_POLICY)
+    for policy in (
+        A02P01_POLICY, A02P02_POLICY, A02P03_POLICY, A02P04_POLICY,
+        A03P01_POLICY, A03P02_POLICY, A03P03_POLICY,
+    )
 }
 
 
@@ -298,6 +373,21 @@ def build_migration(
     canonical_ground = canonical_root / f"grounds/{ground}.rsground"
     canonical_tile = canonical_root / f"tiles/{ground}_Base.tile"
     conversion_report = canonical_root / "conversion_report.json"
+    canonical_tile_identity = f"Content/Tile/{ground}_Base.tile"
+    tile_migration_mode = policy.get(
+        "tile_migration_mode", "retain_distinct_historical_identity"
+    )
+    if tile_migration_mode not in {
+        "retain_distinct_historical_identity",
+        "reserve_and_replace_canonical_identity",
+    }:
+        raise RuntimeError(f"unsupported historical tile migration mode: {tile_migration_mode}")
+    same_tile_identity = policy["historical_tile"] == canonical_tile_identity
+    if same_tile_identity != (tile_migration_mode == "reserve_and_replace_canonical_identity"):
+        raise RuntimeError(
+            "historical tile identity does not match its migration mode: "
+            f"{policy['historical_tile']} / {tile_migration_mode}"
+        )
 
     require_hash(historical_ground, policy["historical_ground_sha256"], "historical Ground")
     require_hash(historical_tile, policy["historical_tile_sha256"], "historical tile")
@@ -379,8 +469,25 @@ def build_migration(
         "entity_integration": entity_proof,
         "historical_reserve_provenance": reserve_provenance,
         "related_scripts_unchanged": script_provenance,
-        "canonical_case_tile_identity": f"Content/Tile/{ground}_Base.tile",
-        "legacy_case_tile_retained_unchanged": policy["historical_tile"],
+        "tile_migration": {
+            "mode": tile_migration_mode,
+            "historical_active_path": policy["historical_tile"],
+            "historical_active_sha256": policy["historical_tile_sha256"],
+            "canonical_active_path": canonical_tile_identity,
+            "canonical_active_sha256": policy["canonical_tile_sha256"],
+            "same_active_identity": same_tile_identity,
+            "historical_bytes_must_be_reserved_before_replacement": True,
+            "historical_active_path_retained_unchanged": not same_tile_identity,
+            "canonical_identity_created_additively": not same_tile_identity,
+            "canonical_identity_replaced_only_after_reserve": same_tile_identity,
+        },
+        "canonical_case_tile_identity": canonical_tile_identity,
+        "legacy_case_tile_retained_unchanged": (
+            policy["historical_tile"] if not same_tile_identity else None
+        ),
+        "historical_tile_replaced_after_reserve": (
+            policy["historical_tile"] if same_tile_identity else None
+        ),
         "existing_asset_discarded": False,
         "existing_entity_silently_deactivated": False,
         "scripts_modified": False,

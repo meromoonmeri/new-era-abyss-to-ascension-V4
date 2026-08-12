@@ -451,6 +451,22 @@ def validate_partial_entity_migration_recovery_record(
     migration = record.get("entity_migration", {})
     canonical = record.get("canonical_state", {})
     recovery = record.get("recovery_policy", {})
+    tile_mode = policy.get("tile_migration_mode", "retain_distinct_historical_identity")
+    tile_required = (
+        [
+            migration.get("uppercase_case_tile_retained") is True,
+            migration.get("lowercase_canonical_tile_created") is True,
+        ]
+        if tile_mode == "retain_distinct_historical_identity" else
+        [
+            migration.get("tile_migration_mode") == "reserve_and_replace_canonical_identity",
+            migration.get("historical_active_tile_sha256") == policy["historical_tile_sha256"],
+            migration.get("historical_tile_reserved_before_replacement") is True,
+            migration.get("canonical_identity_tile_replaced_atomically") is True,
+            canonical.get("historical_reserve_tile_sha256") == policy["historical_tile_sha256"],
+            canonical.get("active_tile_sha256") == policy["canonical_tile_sha256"],
+        ]
+    )
     required = [
         record.get("schema") == "new-era.pmdred-eu-ground-orchestration-failure.v1",
         record.get("ground") == ground,
@@ -463,8 +479,7 @@ def validate_partial_entity_migration_recovery_record(
         migration.get("markers") == policy["expected_entities"]["Markers"],
         migration.get("spawners") == policy["expected_entities"]["Spawners"],
         migration.get("reserve_created") is True,
-        migration.get("uppercase_case_tile_retained") is True,
-        migration.get("lowercase_canonical_tile_created") is True,
+        *tile_required,
         canonical.get("active_ground_sha256") == policy["integrated_ground_sha256"],
         canonical.get("historical_reserve_ground_sha256") == policy["historical_ground_sha256"],
         canonical.get("official_pass_evidence_created") is False,
@@ -505,13 +520,19 @@ def partial_entity_migration_recovery_record(
     canonical = record["canonical_state"]
     maps = load(ROOT / "Data/Zone/master_zone.json")["Object"]["GroundMaps"]
     zone_indices = [index for index, value in enumerate(maps) if value == ground]
+    tile_replaced = (
+        policy.get("tile_migration_mode", "retain_distinct_historical_identity")
+        == "reserve_and_replace_canonical_identity"
+    )
     required = [
         len(zone_indices) == 1,
         zone_indices == [canonical.get("zone_index")],
         sha(ROOT / "Data/Zone/master_zone.json") == canonical.get("zone_sha256"),
         reserve_ground.is_file() and sha(reserve_ground) == policy["historical_ground_sha256"],
         reserve_legacy_tile.is_file() and sha(reserve_legacy_tile) == policy["historical_tile_sha256"],
-        legacy_tile.is_file() and sha(legacy_tile) == policy["historical_tile_sha256"],
+        legacy_tile.is_file() and sha(legacy_tile) == (
+            policy["canonical_tile_sha256"] if tile_replaced else policy["historical_tile_sha256"]
+        ),
     ]
     if not all(required):
         raise RuntimeError(f"partial entity migration recovery gate failed for {ground}: {required}")
@@ -806,8 +827,10 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
             "complete_historical_ground_sha256": migration["historical"]["ground_sha256"],
             "complete_historical_tile_sha256": migration["historical"]["tile_sha256"],
             "preserved_entities": entity_proof,
+            "tile_migration": migration["tile_migration"],
             "legacy_case_tile_retained_unchanged": migration["legacy_case_tile_retained_unchanged"],
-            "canonical_case_tile_created": migration["canonical_case_tile_identity"],
+            "historical_tile_replaced_after_reserve": migration["historical_tile_replaced_after_reserve"],
+            "canonical_case_tile_identity": migration["canonical_case_tile_identity"],
             "related_scripts_unchanged": migration["related_scripts_unchanged"],
             "existing_asset_discarded": False,
             "existing_entity_silently_deactivated": False,
@@ -832,7 +855,13 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
             "authenticated canonical visual/collision/animation Ground plus only exact additive historical Markers/Spawners"
         )
         promotion["method"]["existing_project_entities_preserved"] = True
-        promotion["method"]["legacy_case_tile_retained_unchanged"] = True
+        promotion["method"]["tile_migration"] = migration["tile_migration"]
+        promotion["method"]["legacy_case_tile_retained_unchanged"] = bool(
+            migration["legacy_case_tile_retained_unchanged"]
+        )
+        promotion["method"]["historical_tile_replaced_only_after_reserve"] = bool(
+            migration["historical_tile_replaced_after_reserve"]
+        )
         promotion["gates"]["canonical_ground_sha256"] = canonical_ground_hash
         promotion["gates"]["integrated_ground_sha256"] = ground_hash
         promotion["gates"]["entity_integration_proof"] = "PASS_ADDITIVE_MARKERS_SPAWNERS_ONLY"
@@ -845,7 +874,8 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
             "manifest": migration_evidence["manifest"],
             "sha256": migration_evidence["manifest_sha256"],
             "historical_ground_and_tile_reserved": True,
-            "legacy_case_tile_retained": True,
+            "tile_migration": migration["tile_migration"],
+            "legacy_case_tile_retained": bool(migration["legacy_case_tile_retained_unchanged"]),
         })
         provenance["tested_source"]["authenticated_canonical_baseline_ground_sha256"] = canonical_ground_hash
         provenance["tested_source"]["candidate_entities"] = entity_proof["entity_counts"]
@@ -876,12 +906,19 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
         )
     elif migration is not None:
         names = migration["entity_integration"]["ordered_names"]
+        if migration["historical_tile_replaced_after_reserve"]:
+            tile_summary = (
+                f"Historical tile `{migration['historical_tile_replaced_after_reserve']}` was copied byte-exactly into the durable pre-promotion reserve, then its canonical identity was replaced atomically with authenticated tile `{tile_hash}`. "
+            )
+        else:
+            tile_summary = (
+                f"Canonical lowercase tile identity `{migration['canonical_case_tile_identity']}` was created additively, while `{migration['legacy_case_tile_retained_unchanged']}` remained unchanged. "
+            )
         promotion_summary = (
-            f"The complete occupied Ground and legacy-case tile were reserved at their exact historical hashes before replacement. "
+            f"The complete occupied Ground and historical tile were reserved at their exact hashes before any replacement. "
             f"Its markers {names['markers']} and spawners {names['spawners']} were preserved unchanged as the only additions to canonical Ground "
             f"`{canonical_ground_hash}`. This exact integrated Ground `{ground_hash}` was the runtime/comparison subject and promoted artifact. "
-            f"Canonical lowercase tile identity `{migration['canonical_case_tile_identity']}` was created, while `{migration['legacy_case_tile_retained_unchanged']}` "
-            f"and all related scripts remained unchanged; no entity was silently deactivated."
+            f"{tile_summary}All related scripts remained unchanged; no entity was silently deactivated."
         )
     elif preexisting:
         migrated = ", ".join(name for name, item in pre_promotion.items() if item["preexisting"])
@@ -940,7 +977,8 @@ Role flags are recorded independently as `cinematic=false`, `arena=false`, `boss
     if migration_failure_record is not None:
         manifest_paths.append(migration_failure_record)
     if migration is not None:
-        manifest_paths.append(ROOT/migration["legacy_case_tile_retained_unchanged"])
+        if migration["legacy_case_tile_retained_unchanged"]:
+            manifest_paths.append(ROOT/migration["legacy_case_tile_retained_unchanged"])
         manifest_paths.extend(ROOT/relative for relative in migration["related_scripts_unchanged"])
         manifest_paths.append(ROOT/migration["canonical_baseline"]["ground"])
     (out/"evidence_hashes.sha256").write_text("".join(f"{sha(path)}  {path.relative_to(ROOT).as_posix()}\n" for path in manifest_paths))
@@ -966,6 +1004,11 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
     migration_policy = MIGRATION_POLICIES.get(ground) if ground_dst.is_file() and recovery_record_path is None else None
     legacy_tile: Path | None = ROOT / migration_policy["historical_tile"] if migration_policy is not None else None
     pre_legacy_tile_reserve: Path | None = reserve_dir / legacy_tile.name if legacy_tile is not None else None
+    migration_tile_replaces_canonical = bool(
+        migration_policy is not None
+        and migration_policy.get("tile_migration_mode", "retain_distinct_historical_identity")
+        == "reserve_and_replace_canonical_identity"
+    )
     migration_recovery_path: Path | None = None
     if migration_policy is not None:
         assert legacy_tile is not None and pre_legacy_tile_reserve is not None
@@ -997,10 +1040,18 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
         pre_promotion = {
             "ground": {"preexisting": True, "sha256": migration_policy["historical_ground_sha256"],
                        "reserve": pre_ground_reserve.relative_to(ROOT).as_posix()},
-            "tile": {"preexisting": False, "sha256": None, "reserve": None},
-            "legacy_case_tile": {"preexisting": True, "sha256": migration_policy["historical_tile_sha256"],
-                                 "reserve": pre_legacy_tile_reserve.relative_to(ROOT).as_posix()},
+            "tile": {
+                "preexisting": migration_tile_replaces_canonical,
+                "sha256": migration_policy["historical_tile_sha256"] if migration_tile_replaces_canonical else None,
+                "reserve": pre_legacy_tile_reserve.relative_to(ROOT).as_posix() if migration_tile_replaces_canonical else None,
+            },
         }
+        if not migration_tile_replaces_canonical:
+            pre_promotion["legacy_case_tile"] = {
+                "preexisting": True,
+                "sha256": migration_policy["historical_tile_sha256"],
+                "reserve": pre_legacy_tile_reserve.relative_to(ROOT).as_posix(),
+            }
         log(
             f"PARTIAL_ENTITY_MIGRATION_RECOVERY_AUTHENTICATED ground={ground} "
             f"record={migration_recovery_path.relative_to(ROOT)} fresh_rerun=true"
@@ -1014,15 +1065,20 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
         }
     if migration_policy is not None and migration_recovery_path is None:
         assert legacy_tile is not None and pre_legacy_tile_reserve is not None
-        pre_promotion["legacy_case_tile"] = {
-            "preexisting": legacy_tile.is_file(),
-            "sha256": sha(legacy_tile) if legacy_tile.is_file() else None,
-            "reserve": pre_legacy_tile_reserve.relative_to(ROOT).as_posix(),
-        }
+        if migration_tile_replaces_canonical:
+            migration_tile_record = pre_promotion["tile"]
+        else:
+            pre_promotion["legacy_case_tile"] = {
+                "preexisting": legacy_tile.is_file(),
+                "sha256": sha(legacy_tile) if legacy_tile.is_file() else None,
+                "reserve": pre_legacy_tile_reserve.relative_to(ROOT).as_posix(),
+            }
+            migration_tile_record = pre_promotion["legacy_case_tile"]
         required = [
             pre_promotion["ground"]["sha256"] == migration_policy["historical_ground_sha256"],
-            not tile_dst.exists(),
-            pre_promotion["legacy_case_tile"]["sha256"] == migration_policy["historical_tile_sha256"],
+            tile_dst.is_file() if migration_tile_replaces_canonical else not tile_dst.exists(),
+            migration_tile_record["sha256"] == migration_policy["historical_tile_sha256"],
+            migration_tile_record["reserve"] == pre_legacy_tile_reserve.relative_to(ROOT).as_posix(),
             not reserve_dir.exists(),
         ]
         if not all(required):
@@ -1030,7 +1086,8 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
         log(
             f"ENTITY_AWARE_MIGRATION_REQUIRED ground={ground} "
             f"historical_ground_sha256={pre_promotion['ground']['sha256']} "
-            f"legacy_tile_sha256={pre_promotion['legacy_case_tile']['sha256']}"
+            f"historical_tile_sha256={migration_tile_record['sha256']} "
+            f"tile_mode={migration_policy.get('tile_migration_mode', 'retain_distinct_historical_identity')}"
         )
     elif migration_policy is None and tile_dst.exists() and recovery_record_path is None:
         historical_tile=ROOT/f"RESERVE/red_tiles/{ground}_Base.tile"
@@ -1060,7 +1117,11 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
         migration = build_migration(
             ROOT, ground, migration_root, policy=migration_policy,
             historical_ground=pre_ground_reserve if migration_recovery_path is not None else ground_dst,
-            historical_tile=legacy_tile,
+            historical_tile=(
+                pre_legacy_tile_reserve
+                if migration_recovery_path is not None and migration_tile_replaces_canonical
+                else legacy_tile
+            ),
             canonical_root=CANONICAL,
         )
         runtime_candidate_root=migration_root
@@ -1104,34 +1165,51 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
     elif migration is not None:
         assert legacy_tile is not None and pre_legacy_tile_reserve is not None
         if migration_recovery_path is not None:
+            historical_tile_record = (
+                pre_promotion["tile"]
+                if migration_tile_replaces_canonical
+                else pre_promotion["legacy_case_tile"]
+            )
             recovery_gates = [
                 sha(ground_dst) == ground_hash,
                 sha(tile_dst) == tile_hash,
                 sha(pre_ground_reserve) == pre_promotion["ground"]["sha256"],
-                sha(pre_legacy_tile_reserve) == pre_promotion["legacy_case_tile"]["sha256"],
-                sha(legacy_tile) == pre_promotion["legacy_case_tile"]["sha256"],
+                sha(pre_legacy_tile_reserve) == historical_tile_record["sha256"],
+                sha(legacy_tile) == (
+                    tile_hash if migration_tile_replaces_canonical else historical_tile_record["sha256"]
+                ),
             ]
             if not all(recovery_gates):
                 raise RuntimeError(f"partial entity migration install changed during fresh rerun: {recovery_gates}")
             log(f"PARTIAL_ENTITY_MIGRATION_INSTALL_RETAINED ground={ground} replacement=false")
         else:
+            migration_tile_record = (
+                pre_promotion["tile"]
+                if migration_tile_replaces_canonical
+                else pre_promotion["legacy_case_tile"]
+            )
             reserve_dir.mkdir(parents=True)
             atomic_install(ground_dst,pre_ground_reserve)
             atomic_install(legacy_tile,pre_legacy_tile_reserve)
             reserve_gates = [
                 sha(pre_ground_reserve) == pre_promotion["ground"]["sha256"],
-                sha(pre_legacy_tile_reserve) == pre_promotion["legacy_case_tile"]["sha256"],
-                sha(legacy_tile) == pre_promotion["legacy_case_tile"]["sha256"],
+                sha(pre_legacy_tile_reserve) == migration_tile_record["sha256"],
+                sha(legacy_tile) == migration_tile_record["sha256"],
             ]
             if not all(reserve_gates):
                 raise RuntimeError(f"occupied migration reserve readback failed: {reserve_gates}")
             atomic_replace_preserved(
                 ground_src, ground_dst, pre_ground_reserve, pre_promotion["ground"]["sha256"]
             )
-            atomic_install(tile_src,tile_dst)
+            if migration_tile_replaces_canonical:
+                atomic_replace_preserved(
+                    tile_src, tile_dst, pre_legacy_tile_reserve, migration_tile_record["sha256"]
+                )
+            else:
+                atomic_install(tile_src,tile_dst)
             log(
                 f"ENTITY_AWARE_MIGRATION_INSTALLED ground={ground} historical_reserved=true "
-                f"legacy_case_tile_retained=true canonical_case_tile_created=true"
+                f"tile_mode={migration['tile_migration']['mode']}"
             )
     else:
         if pre_promotion["tile"]["preexisting"]:
@@ -1158,13 +1236,21 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
             f"| `{Path(item['reserve']).name}` | `{item['sha256']}` |"
             for item in pre_promotion.values() if item["preexisting"]
         )
-        migration_note = (
-            "The complete occupied Ground and legacy-case tile were copied byte-exactly into this directory and hash-verified. "
-            "Only the exact historical Markers and Spawners were added to the authenticated canonical visual/collision Ground before that integrated artifact was validated. "
-            "The active Ground was then replaced atomically, the canonical lowercase tile identity was created additively, and the legacy-case tile remained unchanged. "
-            if migration is not None else
-            "The destination Ground was absent. Every pre-existing tile byte was copied into this directory and hash-verified before the active destination was replaced atomically with the independently validated authenticated EU v2.0.1 candidate. "
-        )
+        if migration is not None:
+            tile_preservation_note = (
+                "The pre-existing canonical-identity tile was also reserved byte-exactly and then replaced atomically with the independently validated authenticated tile. "
+                if migration_tile_replaces_canonical else
+                "The canonical lowercase tile identity was created additively, while the distinct legacy-case tile remained unchanged. "
+            )
+            migration_note = (
+                "The complete occupied Ground and historical tile were copied byte-exactly into this directory and hash-verified. "
+                "Only the exact historical Markers and Spawners were added to the authenticated canonical visual/collision Ground before that integrated artifact was validated. "
+                "The active Ground was then replaced atomically. " + tile_preservation_note
+            )
+        else:
+            migration_note = (
+                "The destination Ground was absent. Every pre-existing tile byte was copied into this directory and hash-verified before the active destination was replaced atomically with the independently validated authenticated EU v2.0.1 candidate. "
+            )
         reserve_note=f"""# `{ground}` pre-promotion reserve
 
 These are the exact destination bytes retained before the validated canonical migration on {DATE}. They are historical inputs, not canonical proof and not active assets.
