@@ -1,0 +1,221 @@
+{
+  "schema": 1,
+  "ground": "d24p01",
+  "validated_at": "2026-08-12",
+  "runtime": "PASS",
+  "visual_comparison": {
+    "result": "PASS",
+    "dimensions_pixels": [
+      408,
+      384
+    ],
+    "primary_sample_count": 1,
+    "reload_sample_count": 1,
+    "exact_sample_count": 2,
+    "unique_rgba_frame_count": 1,
+    "mismatched_pixel_count": 0,
+    "maximum_channel_delta": 0,
+    "all_full_rgba_exact": true,
+    "all_fully_opaque": true,
+    "comparative_png_paths": [
+      "docs/pmdred_eu/pmdo_validation/d24p01_exhaustive_pass/comparisons/comparison_primary_tick0.png",
+      "docs/pmdred_eu/pmdo_validation/d24p01_exhaustive_pass/comparisons/comparison_reload_tick0.png"
+    ],
+    "complete_metrics_report": "docs/pmdred_eu/pmdo_validation/d24p01_exhaustive_pass/report.json"
+  },
+  "tile_palette_validation": {
+    "result": "PASS",
+    "reference": "independent authenticated raw EU BPL/BPC/BPA/BMA renderer",
+    "resource_hashes": {
+      "D24P01": "1633f6f9ebbaac3222f5fc8664e1bbbc6baba61b9cbe5af84b4f3ec7184c51b7",
+      "D24P01c": "117faa40de0d6cbcd0d46c035be78511dea18a9f94644cbca5c62afb8dc6bf8c",
+      "D24P01m": "9a5e9297454052a84c9259336e98df40f83b42ff769eeb745db6c88db8bf8c6a"
+    }
+  },
+  "animation_validation": {
+    "result": "PASS",
+    "primary_sample_count": 1,
+    "first_tick": 0,
+    "last_tick": 0,
+    "cell_local_schedule_count": 0,
+    "maximum_cell_local_cycle_ticks": 1,
+    "all_schedules_covered_through_two_complete_cycles": true,
+    "channels": [],
+    "unique_observed_rgba_frames": 1,
+    "reload_tick_zero_exact": true,
+    "orphaned_animation_observed": false
+  },
+  "collision_validation": {
+    "result": "PASS",
+    "source": "D24P01m",
+    "collision_layer_count": 0,
+    "solid_cells": 0,
+    "collision_sha256": "b950d7a5a24da82ff7cbb5fc041dccee7bf6e22c70b4d0ae2b8889b9a96f92a9",
+    "successful_probe": {
+      "start": [
+        200,
+        184
+      ],
+      "direction": "Down",
+      "observed_delta": [
+        0,
+        8
+      ],
+      "result": "PASS"
+    },
+    "blocked_probe": {
+      "applicable": false,
+      "reason": "AUTHENTICATED_RAW_ROM_BMA_HAS_NO_COLLISION_LAYER_OR_SOLID_CELLS",
+      "fixture_expectation": "NO_BMA_COLLISION_LAYER_OR_SOLIDS",
+      "runtime_result": "NOT_APPLICABLE_NO_BMA_SOLIDS",
+      "result": "NOT_APPLICABLE"
+    }
+  },
+  "entry_exit_reentry": {
+    "result": "PASS",
+    "loads": 2,
+    "entries": 2,
+    "exits": 2,
+    "same_ground_reentries": 1,
+    "strict_native_lifecycle_order": "PASS"
+  },
+  "cleanup_reload": {
+    "result": "PASS",
+    "cleanup_probe_count": 4,
+    "ground_exit_cleanup_passes": 2,
+    "sink_cleanup": "PASS",
+    "final_cleanup": "PASS",
+    "reload_load": "LOAD_PASS",
+    "reload_tick_zero_full_rgba_exact": true,
+    "terminal_end_seen": true,
+    "state_leakage_observed": false,
+    "stale_assets_observed": false,
+    "permanent_lock_observed": false,
+    "orphan_process_check": "PASS"
+  },
+  "native_termination": {
+    "result": "PASS",
+    "load_phase": "Unload",
+    "deinit_seen": true,
+    "graphics_unload_seen": true,
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "terminal": true,
+    "graceful": true,
+    "watchdog": false,
+    "requested_signal": null,
+    "sigsegv": false,
+    "forced_kill": false,
+    "orphan_process": false,
+    "evidence": "docs/pmdred_eu/pmdo_validation/d24p01_exhaustive_pass/termination.json",
+    "sha256": "18dc768b5680b24c29a771f790302677fe558bb8ae108c9def0258021e7ecb4f"
+  },
+  "fixture_isolation": {
+    "canonical_source_ground_sha256": "cd9e6c1aecb6bdbda154d4cbb7efb54e00e23168cee402c63bdcffc20b35025f",
+    "canonical_source_tile_sha256": "32bab429129d1f61f2d35459718bd82d4dcf439ea15fb8f383be458bf6a4ebf1",
+    "source_entity_counts": {
+      "markers": 0,
+      "spawners": 0,
+      "map_characters": 0,
+      "ground_objects": 0
+    },
+    "fixture_only_changes": [
+      "deterministic entry marker",
+      "ignored validator plumbing"
+    ],
+    "source_and_promoted_files_unchanged_by_fixture": true
+  },
+  "special_classification": {
+    "canonical_source": {
+      "category": "intro_scene",
+      "ground_map_symbol": "MAP_INTRO",
+      "canonical_debug_id": 229,
+      "map_id": 225,
+      "map_file_id": 234,
+      "ground_place_id": 12,
+      "stable_ground_id": "d24p01",
+      "classification": "intro_scene",
+      "scene": "intro",
+      "cinematic": false,
+      "arena": false,
+      "boss": false
+    },
+    "scope": {
+      "cinematic_choreography": "NOT APPLICABLE/NOT CLAIMED; Ground-only lifecycle and rendering validated",
+      "arena": false,
+      "boss": false
+    }
+  },
+  "identity_validation": {
+    "result": "PASS",
+    "authenticated_map_file_id": 234,
+    "pinned_enum_symbol": "MAP_INTRO",
+    "conversion_type": 3,
+    "weather_id": -1
+  },
+  "definitive_destination": {
+    "ground": "Data/Ground/d24p01.rsground",
+    "tile": "Content/Tile/d24p01_Base.tile",
+    "zone_registry": "Data/Zone/master_zone.json",
+    "zone_registry_entry": "d24p01",
+    "promotion_status": "PROMOTED_ADDITIVE_CANONICAL",
+    "preexisting_destinations": false,
+    "pre_promotion_destinations": {
+      "ground": {
+        "preexisting": false,
+        "sha256": null,
+        "reserve": null
+      },
+      "tile": {
+        "preexisting": false,
+        "sha256": null,
+        "reserve": null
+      }
+    },
+    "pre_promotion_record": "RESERVE/pmdred_pre_promotion/d24p01/README.md",
+    "promoted_ground_sha256": "cd9e6c1aecb6bdbda154d4cbb7efb54e00e23168cee402c63bdcffc20b35025f",
+    "promoted_tile_sha256": "32bab429129d1f61f2d35459718bd82d4dcf439ea15fb8f383be458bf6a4ebf1"
+  },
+  "provenance": {
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+    "conversion_report_sha256": "91f3b460b3e3b7689bc608ece2006cb6103d653bcdc22ad028f4172c3a1b0fdc",
+    "candidate_ground_sha256": "cd9e6c1aecb6bdbda154d4cbb7efb54e00e23168cee402c63bdcffc20b35025f",
+    "candidate_tile_sha256": "32bab429129d1f61f2d35459718bd82d4dcf439ea15fb8f383be458bf6a4ebf1",
+    "source_normalized_sha256": {
+      "D24P01": "1633f6f9ebbaac3222f5fc8664e1bbbc6baba61b9cbe5af84b4f3ec7184c51b7",
+      "D24P01c": "117faa40de0d6cbcd0d46c035be78511dea18a9f94644cbca5c62afb8dc6bf8c",
+      "D24P01m": "9a5e9297454052a84c9259336e98df40f83b42ff769eeb745db6c88db8bf8c6a"
+    },
+    "events_sha256": "e206410ce0fcc0ebd6efceb3ab7e925382f306dd8fbebeadbb1f0baf60f165a9",
+    "report_sha256": "fe3764315cab6f019fa5cb95b7b84d8807c54f600301c71565b6abcebb050e74",
+    "fixture_manifest_sha256": "53a7289936851d27df1efa9b4eb74d34583e21e7eba362ef735ba9328586b3dd",
+    "termination_sha256": "18dc768b5680b24c29a771f790302677fe558bb8ae108c9def0258021e7ecb4f",
+    "detailed_provenance": "docs/pmdred_eu/pmdo_validation/d24p01_exhaustive_pass/provenance.json"
+  },
+  "execution_note": {
+    "terminal_event_and_all_required_captures_completed": true,
+    "post_terminal_shutdown": "PMDO-native GameBase.LoadPhase.Unload followed by NORMAL_EXIT",
+    "return_code": 0,
+    "watchdog": false,
+    "requested_signal": null,
+    "evidence_impact": "NONE"
+  },
+  "dungeon_restitution": {
+    "affected": false,
+    "status": "27-relationship bundle retained"
+  },
+  "scope_note": "Ground-only; dialogue, choreography, music assignment, and narrative routing are not claimed.",
+  "post_promotion_integration": {
+    "result": "PASS",
+    "exact_pmdo_index": "PASS",
+    "indexed_ground_sha256": "cd9e6c1aecb6bdbda154d4cbb7efb54e00e23168cee402c63bdcffc20b35025f",
+    "indexed_tile_sha256": "32bab429129d1f61f2d35459718bd82d4dcf439ea15fb8f383be458bf6a4ebf1",
+    "index_log_sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+    "zone_encoding_bom_preserved": true,
+    "zone_change": "one insertion after d22p01",
+    "zone_ground_map_count": 381,
+    "canonical_index": 324,
+    "variant_and_routing_static_checks": "PASS"
+  }
+}
