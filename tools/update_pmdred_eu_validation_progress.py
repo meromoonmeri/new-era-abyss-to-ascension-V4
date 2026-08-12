@@ -489,7 +489,15 @@ def make_checkpoint() -> dict[str, Any]:
             "restore": "bash tools/restore_pmdred_eu_validation_runtime.sh",
             "verify_checkpoint": "python3 tools/update_pmdred_eu_validation_progress.py --check",
             "next_ground": next_ground,
-            "next_recipe_template": "docs/pmdred_eu/pmdo_validation/t01p07_exhaustive_pass/commands.sh",
+            "next_command": (
+                f"python3 tools/run_pmdred_eu_ground_milestone.py --ids {next_ground}"
+                if next_ground and next_ground.startswith("b")
+                else None
+            ),
+            "next_recipe_template": (
+                f"docs/pmdred_eu/pmdo_validation/{prefix[-1]}_exhaustive_pass/commands.sh"
+                if prefix else None
+            ),
             "working_recipe": f".runtime-cache/{next_ground}-working-recipe.sh" if next_ground else None,
             "rule": f"Regenerate/restore exact inputs, hash-gate, validate {next_ground} in isolation, compare every planned tick, promote only after all runtime/lifecycle gates pass, then regenerate this checkpoint." if next_ground else "All canonical Grounds are validated; run final integrity and illustrated dungeon restitution reporting.",
         },
@@ -582,11 +590,22 @@ def render_markdown(data: dict[str, Any]) -> str:
             "python3 tools/update_pmdred_eu_validation_progress.py --check",
             "```",
             "",
-            f"Use the latest bounded exact recipe as the audited template for `{data['resume']['next_ground']}` (never substitute reserve-only `t01p06`):",
+            f"Use the bounded, create-only milestone runner for `{data['resume']['next_ground']}` (never substitute reserve-only `t01p06`):",
             "",
             "```bash",
-            f"cp {data['resume']['next_recipe_template']} {data['resume']['working_recipe']}",
-            f"# Derive {data['resume']['next_ground']}-specific identity, hashes, ticks, collision probes, and counts from the authenticated plan/candidate before running.",
+        ]
+    )
+    if data["resume"].get("next_command"):
+        lines.append(data["resume"]["next_command"])
+    else:
+        lines.extend(
+            [
+                f"cp {data['resume']['next_recipe_template']} {data['resume']['working_recipe']}",
+                f"# Derive {data['resume']['next_ground']}-specific identity, hashes, ticks, collision probes, and counts from the authenticated plan/candidate before running.",
+            ]
+        )
+    lines.extend(
+        [
             "```",
             "",
             f"Continuation rule: {data['resume']['rule']}",

@@ -358,10 +358,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 root = Path.cwd()
 progress_path = Path('docs/pmdred_eu/pmdo_validation/progress.json')
-next_ground = (
-    json.loads(progress_path.read_text())['summary']['next_ground']
-    if progress_path.is_file() else 't01p07'
-)
+progress = json.loads(progress_path.read_text()) if progress_path.is_file() else {}
+next_ground = progress.get('summary', {}).get('next_ground', 't01p07')
+next_command = progress.get('resume', {}).get('next_command')
+if not next_command:
+    template = progress.get('resume', {}).get(
+        'next_recipe_template',
+        'docs/pmdred_eu/pmdo_validation/t01p07_exhaustive_pass/commands.sh',
+    )
+    next_command = f'cp {template} .runtime-cache/{next_ground}-working-recipe.sh'
 status = {
     'schema': 'new-era.pmdred-eu-runtime-restoration-status.v1',
     'checked_at': datetime.now(timezone.utc).isoformat(timespec='seconds'),
@@ -379,7 +384,7 @@ status = {
     'resume': [
         'bash tools/restore_pmdred_eu_validation_runtime.sh',
         'python3 tools/update_pmdred_eu_validation_progress.py --check',
-        f'cp docs/pmdred_eu/pmdo_validation/t01p07_exhaustive_pass/commands.sh .runtime-cache/{next_ground}-working-recipe.sh'
+        next_command,
     ]
 }
 path = Path('.runtime-cache/recovery/runtime_restoration_status.json')
