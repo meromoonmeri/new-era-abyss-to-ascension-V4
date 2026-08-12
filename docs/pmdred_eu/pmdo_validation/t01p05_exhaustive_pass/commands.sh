@@ -111,7 +111,10 @@ for ((second=0; second<7200; second++)); do
 done
 wait "$PMDO_RUN_PID" || true
 cleanup
-(( TERMINAL_SEEN == 72 ))
+# TERMINAL_SEEN is a Boolean flag (0/1), not an event/frame count.  The original
+# archived recipe accidentally compared it with 72; recipe_erratum.json records
+# that non-evidentiary transcription error and this bounded correction.
+(( TERMINAL_SEEN == 1 ))
 grep -q '"event":"end"' "$EVENTS"
 cp "$EVENTS" "$FIX/events.jsonl"
 test "$(wc -l < "$FIX/events.jsonl")" -eq 865

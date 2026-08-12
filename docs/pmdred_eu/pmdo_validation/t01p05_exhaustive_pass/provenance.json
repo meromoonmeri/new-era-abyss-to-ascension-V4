@@ -114,7 +114,8 @@
   },
   "durable_evidence": {
     "README.md": "9fa65e59ad09b6345bae1b8565fcfe0712e73e83e1a6fef0d366d8ee76a2322f",
-    "commands.sh": "a6455840e3e53d4d39c68278f65cb42c496380c562fa2bc7358903aef4219348",
+    "commands.sh": "204cf817cce1a3cde024beee8b08e24767feb255163dedb39dde8989d06411a4",
+    "recipe_erratum.json": "fb18da3eb7f29e5dab8f54f271706c077ea30d7f5f722158e63846bf032f3079",
     "comparison.log": "69f7c7d7b66e6c727f533c518b38f8e7a7af111ce252ae3cbfae795eed9992b8",
     "engine.log": "f1f465da7f12c43c50a39327c1796f57c9e0abffa5149cc36e5eea91d6649ce5",
     "events.jsonl": "b8d60d59ca06757a5d3839d284a1d2cbed384f81070a4600f1dd467f0b41ce70",
@@ -125,7 +126,8 @@
     "runtime.log": "3f0d550484c5720db2234d7a16d7a4a02844c7653b364d0d7c25ec9f1243cb14"
   },
   "reproduction": {
-    "commands": "docs/pmdred_eu/pmdo_validation/t01p05_exhaustive_pass/commands.sh"
+    "commands": "docs/pmdred_eu/pmdo_validation/t01p05_exhaustive_pass/commands.sh",
+    "recipe_erratum": "docs/pmdred_eu/pmdo_validation/t01p05_exhaustive_pass/recipe_erratum.json"
   },
   "scope": "Ground-only validation",
   "post_promotion_integration": {
