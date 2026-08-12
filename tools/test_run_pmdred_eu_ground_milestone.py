@@ -89,6 +89,35 @@ class GroundRoleClassificationTests(unittest.TestCase):
             },
         )
 
+    def test_story_and_transition_roles_come_from_pinned_symbols(self) -> None:
+        self.assertEqual(
+            classify_ground_role("MAP_SKY_TOWER"),
+            {
+                "category": "story_location",
+                "classification": "sky_tower_story_location",
+                "location": "sky_tower",
+                "cinematic": False,
+                "arena": False,
+                "boss": False,
+            },
+        )
+        self.assertEqual(
+            classify_ground_role("MAP_NIGHT_SKY_2")["classification"],
+            "night_sky_scene_2",
+        )
+        self.assertEqual(
+            classify_ground_role("MAP_THUNDERWAVE_CAVE_ENTRY"),
+            {
+                "category": "dungeon_transition_ground",
+                "classification": "thunderwave_cave_entry_ground",
+                "location": "thunderwave_cave",
+                "transition": "entry",
+                "cinematic": False,
+                "arena": False,
+                "boss": False,
+            },
+        )
+
     def test_unimplemented_role_still_stops(self) -> None:
         with self.assertRaisesRegex(RuntimeError, "stopping rather than guessing"):
             classify_ground_role("MAP_POKEMON_SQUARE")

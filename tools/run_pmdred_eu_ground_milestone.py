@@ -205,11 +205,44 @@ def classify_ground_role(symbol: str) -> dict[str, Any]:
             "arena": False,
             "boss": False,
         }
-    if symbol == "MAP_SUMMIT_SUNSET":
+    explicit_story_roles = {
+        "MAP_SUMMIT_SUNSET": ("summit_scene", "sunset_summit_scene", {"time": "sunset"}),
+        "MAP_SKY_TOWER": ("story_location", "sky_tower_story_location", {"location": "sky_tower"}),
+        "MAP_COMET": ("celestial_scene", "comet_celestial_scene", {"setting": "comet"}),
+        "MAP_NIGHTMARE": ("dream_scene", "nightmare_dream_scene", {"setting": "nightmare"}),
+        "MAP_THE_END": ("ending_screen", "the_end_screen", {"screen": "the_end"}),
+    }
+    if symbol in explicit_story_roles:
+        category, classification, details = explicit_story_roles[symbol]
         return {
-            "category": "summit_scene",
-            "classification": "sunset_summit_scene",
-            "time": "sunset",
+            "category": category,
+            "classification": classification,
+            **details,
+            "cinematic": False,
+            "arena": False,
+            "boss": False,
+        }
+    match = re.fullmatch(r"MAP_NIGHT_SKY_([0-9]+)", symbol)
+    if match:
+        variant = int(match.group(1))
+        return {
+            "category": "night_sky_scene",
+            "classification": f"night_sky_scene_{variant}",
+            "variant": variant,
+            "cinematic": False,
+            "arena": False,
+            "boss": False,
+        }
+    match = re.fullmatch(r"MAP_([A-Z0-9]+(?:_[A-Z0-9]+)*)_(ENTRY|END)", symbol)
+    if match:
+        location, transition = match.groups()
+        location = location.lower()
+        transition = transition.lower()
+        return {
+            "category": "dungeon_transition_ground",
+            "classification": f"{location}_{transition}_ground",
+            "location": location,
+            "transition": transition,
             "cinematic": False,
             "arena": False,
             "boss": False,
