@@ -379,6 +379,62 @@ def validate_partial_additive_recovery_record(
         raise RuntimeError(f"partial additive recovery record gate failed for {ground}: {required}")
 
 
+def validate_pre_promotion_collision_failure_record(
+    record: dict[str, Any], ground: str
+) -> None:
+    """Authenticate a preserved no-BMA-collision gate failure before a fresh rerun."""
+    facts = record.get("authenticated_collision_facts", {})
+    canonical = record.get("canonical_state", {})
+    policy = record.get("recovery_policy", {})
+    required = [
+        record.get("schema") == "new-era.pmdred-eu-ground-orchestration-failure.v1",
+        record.get("ground") == ground,
+        record.get("result") == "ORCHESTRATION_FAIL_BEFORE_PROMOTION",
+        record.get("failure", {}).get("stage") == "comparison_gate_before_promotion",
+        record.get("failure", {}).get("gate_index") == 14,
+        facts.get("collision_layer_count") == 0,
+        facts.get("solid_cells") == 0,
+        facts.get("fixture_blocked_probe") is None,
+        facts.get("fixture_blocked_expectation") == "NO_BMA_COLLISION_LAYER_OR_SOLIDS",
+        facts.get("runtime_blocked_probe") == "NOT_APPLICABLE_NO_BMA_SOLIDS",
+        canonical.get("ground_destination_absent") is True,
+        canonical.get("tile_destination_absent") is True,
+        canonical.get("zone_entry_count") == 0,
+        canonical.get("official_pass_evidence_created") is False,
+        policy.get("preserve_this_failed_attempt") is True,
+        policy.get("do_not_reclassify_as_pass") is True,
+        policy.get("narrow_collision_non_applicability_gate_required") is True,
+        policy.get("fresh_full_runtime_and_comparison_rerun_required") is True,
+        policy.get("official_pass_may_be_packaged_only_after_all_gates_pass_on_fresh_rerun") is True,
+    ]
+    if not all(required):
+        raise RuntimeError(f"pre-promotion collision failure record gate failed for {ground}: {required}")
+
+
+def pre_promotion_collision_failure_record(
+    ground: str, ground_dst: Path, tile_dst: Path
+) -> Path | None:
+    record_path = ROOT / (
+        f"docs/pmdred_eu/pmdo_validation/"
+        f"{ground}_failed_attempt_no_bma_collision_gate/failure_record.json"
+    )
+    if not record_path.is_file():
+        return None
+    record = load(record_path)
+    validate_pre_promotion_collision_failure_record(record, ground)
+    if ground_dst.exists() or tile_dst.exists():
+        raise RuntimeError(f"pre-promotion failure destinations are no longer absent for {ground}")
+    maps = load(ROOT / "Data/Zone/master_zone.json")["Object"]["GroundMaps"]
+    if maps.count(ground) != 0:
+        raise RuntimeError(f"pre-promotion failed Ground is unexpectedly registered: {ground}")
+    evidence_root = record_path.parent
+    for relative, expected in record["evidence"].items():
+        evidence_path = evidence_root / relative
+        if not evidence_path.is_file() or sha(evidence_path) != expected:
+            raise RuntimeError(f"preserved collision failure evidence hash mismatch: {relative}")
+    return record_path
+
+
 def tracked_at_head(path: Path) -> bool:
     relative = path.relative_to(ROOT).as_posix()
     return subprocess.run(
@@ -469,7 +525,8 @@ PYTERM
 
 def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: dict[str, Any], audit: dict[str, Any], plan: dict[str, Any],
                      fixture: Path, comparison: Path, post_fixture: Path, zone_pre: str, zone_post: str, prior: str, zone_index: int,
-                     pre_promotion: dict[str, dict[str, Any]], partial_recovery_record: Path | None = None) -> None:
+                     pre_promotion: dict[str, dict[str, Any]], partial_recovery_record: Path | None = None,
+                     pre_promotion_failure_record: Path | None = None) -> None:
     out = ROOT / f"docs/pmdred_eu/pmdo_validation/{ground}_exhaustive_pass"
     if out.exists(): raise FileExistsError(out)
     (out / "actual").mkdir(parents=True); (out / "comparisons").mkdir()
@@ -557,6 +614,26 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
             "reclassified_as_pass": False,
         })
         provenance["preservation"]["partial_additive_recovery"] = recovery_metadata
+    if pre_promotion_failure_record is not None:
+        failure_relative = pre_promotion_failure_record.relative_to(ROOT).as_posix()
+        failure_metadata = {
+            "prior_attempt_classification": "FAIL",
+            "record": failure_relative,
+            "record_sha256": sha(pre_promotion_failure_record),
+            "failed_before_promotion": True,
+            "canonical_destinations_untouched_by_failed_attempt": True,
+            "fresh_full_runtime_and_comparison_rerun": True,
+            "fresh_fixture": fixture.relative_to(ROOT).as_posix(),
+            "fresh_comparison": comparison.relative_to(ROOT).as_posix(),
+        }
+        record["execution_note"]["prior_pre_promotion_failure"] = failure_metadata
+        promotion["preserved_variants"].append({
+            "role": "failed_attempt_evidence",
+            "record": failure_relative,
+            "sha256": failure_metadata["record_sha256"],
+            "reclassified_as_pass": False,
+        })
+        provenance["preservation"]["prior_pre_promotion_failure"] = failure_metadata
     dump(out/"validation_record.json",record);dump(out/"promotion_record.json",promotion);dump(out/"provenance.json",provenance)
     write_commands(out,ground,identity,symbol,ground_hash,tile_hash,sum(1 for _ in (out/"events.jsonl").open()),samples,unique_count,reserve_ground,reserve_tile)
     with (out/"commands.sh").open("a") as stream:
@@ -583,6 +660,12 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
         promotion_summary = (
             f"Promotion created previously absent `Data/Ground/{ground}.rsground` (`{ground_hash}`) and "
             f"`Content/Tile/{ground}_Base.tile` (`{tile_hash}`)."
+        )
+    if pre_promotion_failure_record is not None:
+        promotion_summary += (
+            f" The first pre-promotion attempt remains classified as FAIL at "
+            f"`{pre_promotion_failure_record.parent.relative_to(ROOT).as_posix()}`; this PASS uses a "
+            "complete fresh fixture, runtime, and exhaustive comparison after the narrow gate correction."
         )
     if collision_validation["blocked_probe"]["applicable"]:
         collision_summary = "BMA movement and blocking probes passed."
@@ -613,6 +696,8 @@ Role flags are recorded independently as `cinematic=false`, `arena=false`, `boss
     manifest_paths.extend(ROOT / item["reserve"] for item in pre_promotion.values() if item["preexisting"])
     if partial_recovery_record is not None:
         manifest_paths.append(partial_recovery_record)
+    if pre_promotion_failure_record is not None:
+        manifest_paths.append(pre_promotion_failure_record)
     (out/"evidence_hashes.sha256").write_text("".join(f"{sha(path)}  {path.relative_to(ROOT).as_posix()}\n" for path in manifest_paths))
 
 
@@ -632,6 +717,9 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
     reserve_dir=ROOT/f"RESERVE/pmdred_pre_promotion/{ground}"
     pre_ground_reserve=reserve_dir/ground_dst.name; pre_tile_reserve=reserve_dir/tile_dst.name
     recovery_record_path=partial_additive_recovery_record(ground,ground_dst,tile_dst,ground_hash,tile_hash)
+    pre_promotion_failure_path = pre_promotion_collision_failure_record(ground, ground_dst, tile_dst)
+    if recovery_record_path is not None and pre_promotion_failure_path is not None:
+        raise RuntimeError(f"conflicting recovery modes for {ground}")
     if recovery_record_path is not None:
         # These fields describe the historical destination precondition, not the
         # exact additive bytes retained from the explicitly failed first attempt.
@@ -656,7 +744,12 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
         if reserve_dir.exists():
             raise RuntimeError(f"pre-promotion reserve path already exists for unvalidated {ground}")
         log(f"PRESERVED_MIGRATION_REQUIRED ground={ground} tile_sha256={pre_promotion['tile']['sha256']}")
-    suffix="-recovery-rerun" if recovery_record_path is not None else ""
+    if pre_promotion_failure_path is not None:
+        log(
+            f"PRE_PROMOTION_FAILURE_PRESERVED ground={ground} "
+            f"record={pre_promotion_failure_path.relative_to(ROOT)} fresh_rerun=true"
+        )
+    suffix="-recovery-rerun" if (recovery_record_path is not None or pre_promotion_failure_path is not None) else ""
     fixture=ROOT/f".runtime-cache/pmdred-eu-{ground}-runtime{suffix}"; comparison=ROOT/f".runtime-cache/pmdred-eu-{ground}-comparison{suffix}"
     post_candidate=ROOT/f".runtime-cache/pmdred-eu-{ground}-promoted-candidate{suffix}";post_fixture=ROOT/f".runtime-cache/pmdred-eu-{ground}-promoted-fixture{suffix}"
     for path in [fixture,comparison,post_candidate,post_fixture]:
@@ -726,7 +819,11 @@ Evidence: `docs/pmdred_eu/pmdo_validation/{ground}_exhaustive_pass/`.
     shutil.copyfile(ground_dst,post_candidate/"grounds"/ground_dst.name);shutil.copyfile(tile_dst,post_candidate/"tiles"/tile_dst.name);shutil.copyfile(CANONICAL/"conversion_report.json",post_candidate/"conversion_report.json")
     run([str(PYTHON),"tools/build_pmdred_eu_runtime_fixture.py","--conversion-set","remaining","--candidate-root",str(post_candidate),"--plan",str(PLAN_PATH),"--ids",ground,"--output",str(post_fixture)])
     run_index(post_fixture,post_fixture/"post_promotion_index.log")
-    package_evidence(ground,symbol,role,identity,audit,plan,fixture,comparison,post_fixture,zone_pre,zone_post,prior,zone_index,pre_promotion,recovery_record_path)
+    package_evidence(
+        ground,symbol,role,identity,audit,plan,fixture,comparison,post_fixture,
+        zone_pre,zone_post,prior,zone_index,pre_promotion,recovery_record_path,
+        pre_promotion_failure_path,
+    )
     state["stage"]="evidence_packaged";dump(STATE_PATH,state)
     run([sys.executable,"tools/update_pmdred_eu_validation_progress.py","--write"])
     run([sys.executable,"tools/update_pmdred_eu_validation_progress.py","--check"])

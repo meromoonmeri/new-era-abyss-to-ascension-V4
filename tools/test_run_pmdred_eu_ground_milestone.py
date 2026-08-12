@@ -10,6 +10,7 @@ from run_pmdred_eu_ground_milestone import (
     build_collision_validation,
     classify_ground_role,
     validate_partial_additive_recovery_record,
+    validate_pre_promotion_collision_failure_record,
 )
 
 
@@ -155,6 +156,52 @@ class CollisionApplicabilityGateTests(unittest.TestCase):
                 self.entry(None, "NO_BMA_COLLISION_LAYER_OR_SOLIDS"),
                 self.event("NOT_APPLICABLE_NO_BMA_SOLIDS", 1),
             )
+
+
+class PrePromotionCollisionFailureRecoveryTests(unittest.TestCase):
+    @staticmethod
+    def valid_record() -> dict:
+        return {
+            "schema": "new-era.pmdred-eu-ground-orchestration-failure.v1",
+            "ground": "a01p02",
+            "result": "ORCHESTRATION_FAIL_BEFORE_PROMOTION",
+            "failure": {"stage": "comparison_gate_before_promotion", "gate_index": 14},
+            "authenticated_collision_facts": {
+                "collision_layer_count": 0,
+                "solid_cells": 0,
+                "fixture_blocked_probe": None,
+                "fixture_blocked_expectation": "NO_BMA_COLLISION_LAYER_OR_SOLIDS",
+                "runtime_blocked_probe": "NOT_APPLICABLE_NO_BMA_SOLIDS",
+            },
+            "canonical_state": {
+                "ground_destination_absent": True,
+                "tile_destination_absent": True,
+                "zone_entry_count": 0,
+                "official_pass_evidence_created": False,
+            },
+            "recovery_policy": {
+                "preserve_this_failed_attempt": True,
+                "do_not_reclassify_as_pass": True,
+                "narrow_collision_non_applicability_gate_required": True,
+                "fresh_full_runtime_and_comparison_rerun_required": True,
+                "official_pass_may_be_packaged_only_after_all_gates_pass_on_fresh_rerun": True,
+            },
+        }
+
+    def test_exact_failure_record_requires_fresh_rerun(self) -> None:
+        validate_pre_promotion_collision_failure_record(self.valid_record(), "a01p02")
+
+    def test_prior_failure_cannot_be_reclassified_as_pass(self) -> None:
+        record = self.valid_record()
+        record["result"] = "PASS"
+        with self.assertRaisesRegex(RuntimeError, "failure record gate failed"):
+            validate_pre_promotion_collision_failure_record(record, "a01p02")
+
+    def test_collision_facts_cannot_be_relaxed_during_recovery(self) -> None:
+        record = self.valid_record()
+        record["authenticated_collision_facts"]["solid_cells"] = 1
+        with self.assertRaisesRegex(RuntimeError, "failure record gate failed"):
+            validate_pre_promotion_collision_failure_record(record, "a01p02")
 
 
 class PilotZoneIntegrationCorrectionTests(unittest.TestCase):
