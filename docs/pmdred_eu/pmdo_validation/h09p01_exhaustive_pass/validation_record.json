@@ -1,0 +1,282 @@
+{
+  "schema": 1,
+  "ground": "h09p01",
+  "validated_at": "2026-08-12",
+  "runtime": "PASS",
+  "visual_comparison": {
+    "result": "PASS",
+    "dimensions_pixels": [
+      504,
+      336
+    ],
+    "primary_sample_count": 97,
+    "reload_sample_count": 1,
+    "exact_sample_count": 98,
+    "unique_rgba_frame_count": 32,
+    "mismatched_pixel_count": 0,
+    "maximum_channel_delta": 0,
+    "all_full_rgba_exact": true,
+    "all_fully_opaque": true,
+    "comparative_png_paths": [
+      "docs/pmdred_eu/pmdo_validation/h09p01_exhaustive_pass/comparisons/comparison_primary_tick0.png",
+      "docs/pmdred_eu/pmdo_validation/h09p01_exhaustive_pass/comparisons/comparison_primary_tick383.png",
+      "docs/pmdred_eu/pmdo_validation/h09p01_exhaustive_pass/comparisons/comparison_reload_tick0.png"
+    ],
+    "complete_metrics_report": "docs/pmdred_eu/pmdo_validation/h09p01_exhaustive_pass/report.json"
+  },
+  "tile_palette_validation": {
+    "result": "PASS",
+    "reference": "independent authenticated raw EU BPL/BPC/BPA/BMA renderer",
+    "resource_hashes": {
+      "H09P01": "c4f05c8dc5286f0c8d10d38e284e56f80ae7685ffdb31ed2fbb09cfc59d8b794",
+      "H09P01c": "48fb305df1edbd493a733b01983c40a4fbce134dc42f4a76bfe57fe50f31d80d",
+      "H09P01m": "5be70ffc1dfcf679f55ab60b77314fbb9533882ae8930be9b7529cdb8a2d899f"
+    }
+  },
+  "animation_validation": {
+    "result": "PASS",
+    "primary_sample_count": 97,
+    "first_tick": 0,
+    "last_tick": 383,
+    "cell_local_schedule_count": 3,
+    "maximum_cell_local_cycle_ticks": 192,
+    "all_schedules_covered_through_two_complete_cycles": true,
+    "channels": [
+      {
+        "cycle": 100,
+        "frame_count": 10,
+        "frame_durations": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        "index": 6,
+        "kind": "BPL_PALETTE"
+      },
+      {
+        "cycle": 192,
+        "frame_count": 16,
+        "frame_durations": [
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12
+        ],
+        "index": 10,
+        "kind": "BPL_PALETTE"
+      },
+      {
+        "cycle": 192,
+        "frame_count": 16,
+        "frame_durations": [
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12
+        ],
+        "index": 11,
+        "kind": "BPL_PALETTE"
+      }
+    ],
+    "unique_observed_rgba_frames": 32,
+    "reload_tick_zero_exact": true,
+    "orphaned_animation_observed": false
+  },
+  "collision_validation": {
+    "result": "PASS",
+    "source": "H09P01m",
+    "collision_layer_count": 1,
+    "solid_cells": 1806,
+    "collision_sha256": "33e62459f70f1df7b20a060af8a0a551226d938ed84ca1120bf3ba3d9c154c49",
+    "successful_probe": {
+      "start": [
+        248,
+        160
+      ],
+      "direction": "Down",
+      "observed_delta": [
+        0,
+        8
+      ],
+      "result": "PASS"
+    },
+    "blocked_probe": {
+      "start": [
+        248,
+        160
+      ],
+      "direction": "Right",
+      "observed_delta": [
+        0,
+        0
+      ],
+      "result": "PASS"
+    }
+  },
+  "entry_exit_reentry": {
+    "result": "PASS",
+    "loads": 2,
+    "entries": 2,
+    "exits": 2,
+    "same_ground_reentries": 1,
+    "strict_native_lifecycle_order": "PASS"
+  },
+  "cleanup_reload": {
+    "result": "PASS",
+    "cleanup_probe_count": 4,
+    "ground_exit_cleanup_passes": 2,
+    "sink_cleanup": "PASS",
+    "final_cleanup": "PASS",
+    "reload_load": "LOAD_PASS",
+    "reload_tick_zero_full_rgba_exact": true,
+    "terminal_end_seen": true,
+    "state_leakage_observed": false,
+    "stale_assets_observed": false,
+    "permanent_lock_observed": false,
+    "orphan_process_check": "PASS"
+  },
+  "native_termination": {
+    "result": "PASS",
+    "load_phase": "Unload",
+    "deinit_seen": true,
+    "graphics_unload_seen": true,
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "terminal": true,
+    "graceful": true,
+    "watchdog": false,
+    "requested_signal": null,
+    "sigsegv": false,
+    "forced_kill": false,
+    "orphan_process": false,
+    "evidence": "docs/pmdred_eu/pmdo_validation/h09p01_exhaustive_pass/termination.json",
+    "sha256": "a831bd6b4ad187de5be2ea04664be4e0a0a14add08547ad0f5232c3a1a7ea410"
+  },
+  "fixture_isolation": {
+    "canonical_source_ground_sha256": "b9b1e3c83e02756de51c6d3914f80c4ee508264a650ece8db2f8736953acb3b5",
+    "canonical_source_tile_sha256": "10bfce2e89ddfcad7a28c2aa4bcb8c8e40f575e9bc07dde7e71753795c1deff4",
+    "source_entity_counts": {
+      "markers": 0,
+      "spawners": 0,
+      "map_characters": 0,
+      "ground_objects": 0
+    },
+    "fixture_only_changes": [
+      "deterministic entry marker",
+      "ignored validator plumbing"
+    ],
+    "source_and_promoted_files_unchanged_by_fixture": true
+  },
+  "special_classification": {
+    "canonical_source": {
+      "category": "friend_area",
+      "ground_map_symbol": "MAP_FRIEND_AREA_TURTLESHELL_POND",
+      "canonical_debug_id": 137,
+      "map_id": 132,
+      "map_file_id": 138,
+      "ground_place_id": 9,
+      "stable_ground_id": "h09p01",
+      "classification": "turtleshell_pond_friend_area",
+      "friend_area": "turtleshell_pond",
+      "cinematic": false,
+      "arena": false,
+      "boss": false
+    },
+    "scope": {
+      "cinematic_choreography": "NOT APPLICABLE/NOT CLAIMED; Ground-only lifecycle and rendering validated",
+      "arena": false,
+      "boss": false
+    }
+  },
+  "identity_validation": {
+    "result": "PASS",
+    "authenticated_map_file_id": 138,
+    "pinned_enum_symbol": "MAP_FRIEND_AREA_TURTLESHELL_POND",
+    "conversion_type": 1,
+    "weather_id": -1
+  },
+  "definitive_destination": {
+    "ground": "Data/Ground/h09p01.rsground",
+    "tile": "Content/Tile/h09p01_Base.tile",
+    "zone_registry": "Data/Zone/master_zone.json",
+    "zone_registry_entry": "h09p01",
+    "promotion_status": "PROMOTED_ADDITIVE_CANONICAL",
+    "preexisting_destinations": false,
+    "pre_promotion_record": "RESERVE/pmdred_pre_promotion/h09p01/README.md",
+    "promoted_ground_sha256": "b9b1e3c83e02756de51c6d3914f80c4ee508264a650ece8db2f8736953acb3b5",
+    "promoted_tile_sha256": "10bfce2e89ddfcad7a28c2aa4bcb8c8e40f575e9bc07dde7e71753795c1deff4"
+  },
+  "provenance": {
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+    "conversion_report_sha256": "91f3b460b3e3b7689bc608ece2006cb6103d653bcdc22ad028f4172c3a1b0fdc",
+    "candidate_ground_sha256": "b9b1e3c83e02756de51c6d3914f80c4ee508264a650ece8db2f8736953acb3b5",
+    "candidate_tile_sha256": "10bfce2e89ddfcad7a28c2aa4bcb8c8e40f575e9bc07dde7e71753795c1deff4",
+    "source_normalized_sha256": {
+      "H09P01": "c4f05c8dc5286f0c8d10d38e284e56f80ae7685ffdb31ed2fbb09cfc59d8b794",
+      "H09P01c": "48fb305df1edbd493a733b01983c40a4fbce134dc42f4a76bfe57fe50f31d80d",
+      "H09P01m": "5be70ffc1dfcf679f55ab60b77314fbb9533882ae8930be9b7529cdb8a2d899f"
+    },
+    "events_sha256": "be03f8d767ec902200ffea42754c2a75aafe1626a074abe396e6ffa2dc2ee006",
+    "report_sha256": "599524ddf7c302ea1260852ff0d0d78f44e0c0243eab5ad4e63151d015154141",
+    "fixture_manifest_sha256": "53c4793d31a1608e71ea56c6382686eeddf7e22310a6066a1b6224c03eafd1d4",
+    "termination_sha256": "a831bd6b4ad187de5be2ea04664be4e0a0a14add08547ad0f5232c3a1a7ea410",
+    "detailed_provenance": "docs/pmdred_eu/pmdo_validation/h09p01_exhaustive_pass/provenance.json"
+  },
+  "execution_note": {
+    "terminal_event_and_all_required_captures_completed": true,
+    "post_terminal_shutdown": "PMDO-native GameBase.LoadPhase.Unload followed by NORMAL_EXIT",
+    "return_code": 0,
+    "watchdog": false,
+    "requested_signal": null,
+    "evidence_impact": "NONE"
+  },
+  "dungeon_restitution": {
+    "affected": false,
+    "status": "27-relationship bundle retained"
+  },
+  "scope_note": "Ground-only; dialogue, choreography, music assignment, and narrative routing are not claimed.",
+  "post_promotion_integration": {
+    "result": "PASS",
+    "exact_pmdo_index": "PASS",
+    "indexed_ground_sha256": "b9b1e3c83e02756de51c6d3914f80c4ee508264a650ece8db2f8736953acb3b5",
+    "indexed_tile_sha256": "10bfce2e89ddfcad7a28c2aa4bcb8c8e40f575e9bc07dde7e71753795c1deff4",
+    "index_log_sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+    "zone_encoding_bom_preserved": true,
+    "zone_change": "one insertion after h08p01",
+    "zone_ground_map_count": 323,
+    "canonical_index": 264,
+    "variant_and_routing_static_checks": "PASS"
+  }
+}
