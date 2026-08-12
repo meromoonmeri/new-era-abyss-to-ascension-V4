@@ -1,9 +1,9 @@
 {
   "schema": "new-era.pmdred-eu-exact-pmdo-progress.v1",
-  "generated_at": "2026-08-12T21:45:56+00:00",
+  "generated_at": "2026-08-12T21:46:58+00:00",
   "repository": {
     "branch": "arena/019ff05e-new-era-abyss-to-ascension-v4",
-    "source_head": "114edbeb6033d7445e23d07ab9d51f2ff57805ba"
+    "source_head": "a6d853ff80beddc87ca47dc0d887f5058f59c9e9"
   },
   "scope": "219 canonical archive-backed Grounds; Ground-only until exhaustive validation is complete",
   "authority": {
@@ -20,11 +20,11 @@
   "summary": {
     "canonical_ground_count": 219,
     "static_pass_count": 219,
-    "runtime_pass_and_promoted_count": 167,
-    "remaining_count": 52,
-    "contiguous_plan_prefix_count": 167,
+    "runtime_pass_and_promoted_count": 168,
+    "remaining_count": 51,
+    "contiguous_plan_prefix_count": 168,
     "out_of_order_pilot_count": 0,
-    "next_ground": "a02p03",
+    "next_ground": "a02p04",
     "runtime_dependencies_ready": true,
     "checkpoint_integrity": "PASS"
   },
@@ -195,7 +195,8 @@
     "a01p01",
     "a01p02",
     "a02p01",
-    "a02p02"
+    "a02p02",
+    "a02p03"
   ],
   "contiguous_validated_prefix": [
     "t00p01",
@@ -364,11 +365,11 @@
     "a01p01",
     "a01p02",
     "a02p01",
-    "a02p02"
+    "a02p02",
+    "a02p03"
   ],
   "validated_out_of_order_pilots": [],
   "remaining_ids": [
-    "a02p03",
     "a02p04",
     "a03p01",
     "a03p02",
@@ -1732,11 +1733,11 @@
   "resume": {
     "restore": "bash tools/restore_pmdred_eu_validation_runtime.sh",
     "verify_checkpoint": "python3 tools/update_pmdred_eu_validation_progress.py --check",
-    "next_ground": "a02p03",
+    "next_ground": "a02p04",
     "next_command": null,
-    "next_recipe_template": "docs/pmdred_eu/pmdo_validation/a02p02_exhaustive_pass/commands.sh",
-    "working_recipe": ".runtime-cache/a02p03-working-recipe.sh",
-    "rule": "Regenerate/restore exact inputs, hash-gate, validate a02p03 in isolation, compare every planned tick, promote only after all runtime/lifecycle gates pass, then regenerate this checkpoint."
+    "next_recipe_template": "docs/pmdred_eu/pmdo_validation/a02p03_exhaustive_pass/commands.sh",
+    "working_recipe": ".runtime-cache/a02p04-working-recipe.sh",
+    "rule": "Regenerate/restore exact inputs, hash-gate, validate a02p04 in isolation, compare every planned tick, promote only after all runtime/lifecycle gates pass, then regenerate this checkpoint."
   },
   "dungeon_restitution": {
     "manifest": "docs/pmdred_eu/dungeon_grounds/manifest.json",
@@ -45948,33 +45949,183 @@
           "tile_bytes_equal": true
         }
       },
-      "runtime": "NOT_RUN",
+      "runtime": "PASS",
+      "validated_at": "2026-08-12",
+      "validation_record": "docs/pmdred_eu/pmdo_validation/a02p03_exhaustive_pass/validation_record.json",
+      "validation_record_sha256": "1acea94c54313a32dcd23a896ce7230d22e257b2d12053537883a088ece8cfdf",
       "visual_comparison": {
-        "result": "NOT_RUN",
-        "comparative_png_paths": []
+        "result": "PASS",
+        "dimensions_pixels": [
+          360,
+          288
+        ],
+        "primary_sample_count": 1,
+        "reload_sample_count": 1,
+        "exact_sample_count": 2,
+        "unique_rgba_frame_count": 1,
+        "mismatched_pixel_count": 0,
+        "maximum_channel_delta": 0,
+        "all_full_rgba_exact": true,
+        "all_fully_opaque": true,
+        "comparative_png_paths": [
+          "docs/pmdred_eu/pmdo_validation/a02p03_exhaustive_pass/comparisons/comparison_primary_tick0.png",
+          "docs/pmdred_eu/pmdo_validation/a02p03_exhaustive_pass/comparisons/comparison_reload_tick0.png"
+        ],
+        "complete_metrics_report": "docs/pmdred_eu/pmdo_validation/a02p03_exhaustive_pass/report.json"
       },
       "animation_validation": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "primary_sample_count": 1,
+        "first_tick": 0,
+        "last_tick": 0,
+        "cell_local_schedule_count": 0,
+        "maximum_cell_local_cycle_ticks": 1,
+        "all_schedules_covered_through_two_complete_cycles": true,
+        "channels": [],
+        "unique_observed_rgba_frames": 1,
+        "reload_tick_zero_exact": true,
+        "orphaned_animation_observed": false
       },
       "collision_validation": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "source": "A02P03m",
+        "collision_layer_count": 1,
+        "solid_cells": 1208,
+        "collision_sha256": "f317d0ee8038fdc7285f5926ccbe8024fc99a0bda3b941294710daf2dd427194",
+        "successful_probe": {
+          "start": [
+            176,
+            176
+          ],
+          "direction": "Down",
+          "observed_delta": [
+            0,
+            8
+          ],
+          "result": "PASS"
+        },
+        "blocked_probe": {
+          "applicable": true,
+          "start": [
+            176,
+            176
+          ],
+          "direction": "Up",
+          "observed_delta": [
+            0,
+            0
+          ],
+          "result": "PASS"
+        }
       },
       "entry_exit_reentry": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "loads": 2,
+        "entries": 2,
+        "exits": 2,
+        "same_ground_reentries": 1,
+        "strict_native_lifecycle_order": "PASS"
       },
       "cleanup_reload": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "cleanup_probe_count": 4,
+        "ground_exit_cleanup_passes": 2,
+        "sink_cleanup": "PASS",
+        "final_cleanup": "PASS",
+        "reload_load": "LOAD_PASS",
+        "reload_tick_zero_full_rgba_exact": true,
+        "terminal_end_seen": true,
+        "state_leakage_observed": false,
+        "stale_assets_observed": false,
+        "permanent_lock_observed": false,
+        "orphan_process_check": "PASS"
       },
       "special_classification": {
-        "result": "PENDING_AUTHENTICATED_TECHNICAL_IDENTITY_CHECK",
-        "cinematic": null,
-        "arena": null,
-        "boss": null
+        "category": "fugitive_journey_scene",
+        "ground_map_symbol": "MAP_FUGITIVES_VOLCANO",
+        "cinematic": false,
+        "arena": false,
+        "boss": false
       },
       "definitive_destination": {
-        "promotion_status": "NOT_PROMOTED"
+        "ground": "Data/Ground/a02p03.rsground",
+        "tile": "Content/Tile/a02p03_Base.tile",
+        "zone_registry": "Data/Zone/master_zone.json",
+        "zone_registry_entry": "a02p03",
+        "promotion_status": "PROMOTED_INTEGRATION_PRESERVING_ENTITY_MIGRATION",
+        "preexisting_destinations": true,
+        "pre_promotion_destinations": {
+          "ground": {
+            "preexisting": true,
+            "sha256": "7f91bdf9d4ff3574ee00ffe8fcacd30aae83bc9bdec8fb2c18b0135c06ba456e",
+            "reserve": "RESERVE/pmdred_pre_promotion/a02p03/a02p03.rsground"
+          },
+          "tile": {
+            "preexisting": false,
+            "sha256": null,
+            "reserve": null
+          },
+          "legacy_case_tile": {
+            "preexisting": true,
+            "sha256": "94b275262765e0b7ea1fd209bc9f1d1dac89452d3f3e36228ed46d2f30c12e7b",
+            "reserve": "RESERVE/pmdred_pre_promotion/a02p03/A02p03_Base.tile"
+          }
+        },
+        "pre_promotion_record": "RESERVE/pmdred_pre_promotion/a02p03/README.md",
+        "promoted_ground_sha256": "f939c874590008a7db4217f7fd77f65d548a32ba5ccfa0701e77a0da070982a3",
+        "promoted_tile_sha256": "94b275262765e0b7ea1fd209bc9f1d1dac89452d3f3e36228ed46d2f30c12e7b"
       },
-      "evidence": null
+      "provenance": {
+        "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+        "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+        "conversion_report_sha256": "91f3b460b3e3b7689bc608ece2006cb6103d653bcdc22ad028f4172c3a1b0fdc",
+        "candidate_ground_sha256": "f939c874590008a7db4217f7fd77f65d548a32ba5ccfa0701e77a0da070982a3",
+        "candidate_tile_sha256": "94b275262765e0b7ea1fd209bc9f1d1dac89452d3f3e36228ed46d2f30c12e7b",
+        "source_normalized_sha256": {
+          "A02P03": "3891180f7256a104d9e4f47931e4c724c3168b03915af1670375a8c1e45bba80",
+          "A02P03c": "d1942f3cd5db916042a375dc5565628b43980cecd2419a69008e9917f13076c2",
+          "A02P03m": "1220f3359de7c584816bafcd1990ac6ea30fd052ee86304c584434a358e422cd"
+        },
+        "events_sha256": "635e8ce9fcc90f18b6a64407c215d1958310d11fa57a45eea0d71403313840cb",
+        "report_sha256": "561957c5ad25ef0eaff2433eee73339decb92d947f4e1915d420c352a5682755",
+        "fixture_manifest_sha256": "9c547e0675f0592baa47292f102d0aabc1165d1d2f6432712dabf22795c6e17f",
+        "termination_sha256": "42555d1b466484bb227cd33c26305f6fddc7d4ef7737de148b0e680e4c62a770",
+        "detailed_provenance": "docs/pmdred_eu/pmdo_validation/a02p03_exhaustive_pass/provenance.json",
+        "authenticated_canonical_baseline_ground_sha256": "b6cfa6d2cfc5e550cf85f23f321af8ffe5c862b11a8332ec6d1444dd84c32bbc",
+        "integrated_candidate_ground_sha256": "f939c874590008a7db4217f7fd77f65d548a32ba5ccfa0701e77a0da070982a3"
+      },
+      "evidence": {
+        "directory": "docs/pmdred_eu/pmdo_validation/a02p03_exhaustive_pass",
+        "integrity": {
+          "result": "PASS",
+          "manifest": "docs/pmdred_eu/pmdo_validation/a02p03_exhaustive_pass/evidence_hashes.sha256",
+          "checked": 34,
+          "immutable_failures": [],
+          "historical_progressive_drift": []
+        }
+      },
+      "promoted_destination_checks": [
+        {
+          "role": "ground",
+          "path": "Data/Ground/a02p03.rsground",
+          "expected_sha256": "f939c874590008a7db4217f7fd77f65d548a32ba5ccfa0701e77a0da070982a3",
+          "actual_sha256": "f939c874590008a7db4217f7fd77f65d548a32ba5ccfa0701e77a0da070982a3",
+          "result": "PASS"
+        },
+        {
+          "role": "tile",
+          "path": "Content/Tile/a02p03_Base.tile",
+          "expected_sha256": "94b275262765e0b7ea1fd209bc9f1d1dac89452d3f3e36228ed46d2f30c12e7b",
+          "actual_sha256": "94b275262765e0b7ea1fd209bc9f1d1dac89452d3f3e36228ed46d2f30c12e7b",
+          "result": "PASS"
+        }
+      ],
+      "zone_registry": {
+        "required_by_record": true,
+        "declared": true,
+        "current_occurrences": 1,
+        "current_index": 123
+      }
     },
     {
       "id": "a02p04",
