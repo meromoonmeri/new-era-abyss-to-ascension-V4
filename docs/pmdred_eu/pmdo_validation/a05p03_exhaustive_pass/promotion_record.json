@@ -1,0 +1,246 @@
+{
+  "schema": 1,
+  "ground": "a05p03",
+  "validated_at": "2026-08-12",
+  "promoted_at": "2026-08-12",
+  "result": "PROMOTION_PASS_INTEGRATION_PRESERVING_ENTITY_MIGRATION",
+  "method": {
+    "destination_precondition": "ground present at 41d2183ff20d0dcaa9b2e70c7eb74f5ffeee3b4dca44c432f1bf38c5fdcabee8; tile absent; legacy_case_tile present at 85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc",
+    "installation_mode": "fsynced temporary files and atomic os.replace after durable preservation where required",
+    "historical_bytes_reserved_before_replacement": true,
+    "existing_asset_discarded": false,
+    "existing_scripts_modified": false,
+    "zone_registration": "authenticated singleton retained after a05p02 without mutation",
+    "canonical_migration": "authenticated canonical visual/collision/animation Ground plus only exact additive historical Markers/Spawners",
+    "existing_project_entities_preserved": true,
+    "tile_migration": {
+      "mode": "retain_distinct_historical_identity",
+      "historical_active_path": "Content/Tile/A05p03_Base.tile",
+      "historical_active_sha256": "85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc",
+      "canonical_active_path": "Content/Tile/a05p03_Base.tile",
+      "canonical_active_sha256": "85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc",
+      "same_active_identity": false,
+      "historical_bytes_must_be_reserved_before_replacement": true,
+      "historical_active_path_retained_unchanged": true,
+      "canonical_identity_created_additively": true,
+      "canonical_identity_replaced_only_after_reserve": false
+    },
+    "legacy_case_tile_retained_unchanged": true,
+    "historical_tile_replaced_only_after_reserve": false
+  },
+  "gates": {
+    "exact_pmdo_version": "0.8.12",
+    "exact_pmdo_executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+    "active_patched_sdl_sha256": "2cec7b5f9603a8a856a94b3a5e4fb5bd5e93e3ed0d04b85431625d5acb14e71f",
+    "report_sha256": "d9b41251e3f021451ea3773de9d27b6ed5969a2524647009aaca8f8eee8ea9de",
+    "fixture_manifest_sha256": "d4181c6ed93dbc7ebd6b6870a82f644b073857a6938359b255a4a05cb71e9a7a",
+    "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+    "canonical_ground_sha256": "ac270916ba76eefaa6b242d66092fe0a43cbe77637226896753f7dac5339a6a6",
+    "canonical_tile_sha256": "85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc",
+    "planned_primary_tick_count": 1,
+    "observed_primary_tick_count": 1,
+    "reload_tick_zero_covered": true,
+    "pixel_exact_sample_count": 2,
+    "fully_opaque_sample_count": 2,
+    "mismatched_pixel_count": 0,
+    "maximum_channel_delta": 0,
+    "runtime_safe": true,
+    "native_lifecycle_order_pass": true,
+    "cleanup_pass": true,
+    "terminal_end_seen": true,
+    "load_phase_unload_pass": true,
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "terminal": true,
+    "graceful": true,
+    "watchdog": false,
+    "requested_signal": null,
+    "sigsegv": false,
+    "forced_kill": false,
+    "orphan_process": false,
+    "termination_sha256": "4f8922687d35da36b154a13893fc538652dfa102c6625aa16812b8079ba01960",
+    "identity_map_file_id": 187,
+    "identity_symbol": "MAP_TINY_WOODS_ENTRY",
+    "integrated_ground_sha256": "bb7a394689a9f70c556d54de0e8ca1679132174111446f14b2c6a39c305d5212",
+    "entity_integration_proof": "PASS_ADDITIVE_MARKERS_SPAWNERS_ONLY"
+  },
+  "files": [
+    {
+      "candidate": ".runtime-cache/pmdred-eu-a05p03-entity-integrated-candidate/grounds/a05p03.rsground",
+      "destination": "Data/Ground/a05p03.rsground",
+      "destination_preexisting": true,
+      "pre_promotion_sha256": "41d2183ff20d0dcaa9b2e70c7eb74f5ffeee3b4dca44c432f1bf38c5fdcabee8",
+      "pre_promotion_reserve": "RESERVE/pmdred_pre_promotion/a05p03/a05p03.rsground",
+      "bytes": 236331,
+      "validated_candidate_sha256": "bb7a394689a9f70c556d54de0e8ca1679132174111446f14b2c6a39c305d5212",
+      "destination_sha256": "bb7a394689a9f70c556d54de0e8ca1679132174111446f14b2c6a39c305d5212",
+      "candidate_destination_identical": true,
+      "canonical_baseline": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/grounds/a05p03.rsground",
+      "canonical_baseline_sha256": "ac270916ba76eefaa6b242d66092fe0a43cbe77637226896753f7dac5339a6a6"
+    },
+    {
+      "candidate": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/tiles/a05p03_Base.tile",
+      "destination": "Content/Tile/a05p03_Base.tile",
+      "destination_preexisting": false,
+      "pre_promotion_sha256": null,
+      "pre_promotion_reserve": null,
+      "bytes": 21703,
+      "validated_candidate_sha256": "85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc",
+      "destination_sha256": "85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc",
+      "candidate_destination_identical": true
+    }
+  ],
+  "zone_registration": {
+    "entry": "a05p03",
+    "entry_count": 1,
+    "position": "after a05p02",
+    "mode": "retained_authenticated_historical_singleton",
+    "pre_promotion_sha256": "ff5c302fd95f8a1bfa628c2a7374472fc8ec0f2b51ff5a93a9d5fbc2bae87c7a",
+    "post_promotion_sha256": "ff5c302fd95f8a1bfa628c2a7374472fc8ec0f2b51ff5a93a9d5fbc2bae87c7a"
+  },
+  "preserved_variants": [
+    {
+      "role": "pre_promotion_destination_reserve",
+      "files": {
+        "ground": {
+          "preexisting": true,
+          "sha256": "41d2183ff20d0dcaa9b2e70c7eb74f5ffeee3b4dca44c432f1bf38c5fdcabee8",
+          "reserve": "RESERVE/pmdred_pre_promotion/a05p03/a05p03.rsground"
+        },
+        "tile": {
+          "preexisting": false,
+          "sha256": null,
+          "reserve": null
+        },
+        "legacy_case_tile": {
+          "preexisting": true,
+          "sha256": "85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc",
+          "reserve": "RESERVE/pmdred_pre_promotion/a05p03/A05p03_Base.tile"
+        }
+      },
+      "modified_after_capture": false
+    },
+    {
+      "role": "historical_reserve",
+      "ground": {
+        "present": true,
+        "sha256": "9d3819a102ce3f141ffde72c69c4a24d9bf7043c8fc12d1dca970a27548fd813"
+      },
+      "tile": {
+        "present": true,
+        "sha256": "85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc"
+      },
+      "modified": false
+    },
+    {
+      "role": "historical_v200_and_v201_reports",
+      "paths": [
+        "docs/pmdred_eu/remaining_grounds/history/v200_pre_period_fix/",
+        "docs/pmdred_eu/remaining_grounds/"
+      ],
+      "modified_by_promotion": false
+    },
+    {
+      "role": "occupied_ground_entity_migration",
+      "manifest": "docs/pmdred_eu/pmdo_validation/a05p03_exhaustive_pass/entity_migration_manifest.json",
+      "sha256": "60804549b126e1f2731a6fb3f765a26add632a41309e8503fdfd5a136e7f9ecf",
+      "historical_ground_and_tile_reserved": true,
+      "tile_migration": {
+        "mode": "retain_distinct_historical_identity",
+        "historical_active_path": "Content/Tile/A05p03_Base.tile",
+        "historical_active_sha256": "85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc",
+        "canonical_active_path": "Content/Tile/a05p03_Base.tile",
+        "canonical_active_sha256": "85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc",
+        "same_active_identity": false,
+        "historical_bytes_must_be_reserved_before_replacement": true,
+        "historical_active_path_retained_unchanged": true,
+        "canonical_identity_created_additively": true,
+        "canonical_identity_replaced_only_after_reserve": false
+      },
+      "legacy_case_tile_retained": true
+    }
+  ],
+  "post_promotion_integration": {
+    "result": "PASS",
+    "exact_pmdo_index": "PASS",
+    "log_sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+    "zone_structure": "PASS",
+    "existing_routes_unchanged": "PASS"
+  },
+  "entity_integration": {
+    "result": "PASS_HASH_GATED_ENTITY_INTEGRATION",
+    "manifest": "docs/pmdred_eu/pmdo_validation/a05p03_exhaustive_pass/entity_migration_manifest.json",
+    "manifest_sha256": "60804549b126e1f2731a6fb3f765a26add632a41309e8503fdfd5a136e7f9ecf",
+    "canonical_baseline_ground_sha256": "ac270916ba76eefaa6b242d66092fe0a43cbe77637226896753f7dac5339a6a6",
+    "integrated_validated_ground_sha256": "bb7a394689a9f70c556d54de0e8ca1679132174111446f14b2c6a39c305d5212",
+    "complete_historical_ground_sha256": "41d2183ff20d0dcaa9b2e70c7eb74f5ffeee3b4dca44c432f1bf38c5fdcabee8",
+    "complete_historical_tile_sha256": "85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc",
+    "preserved_entities": {
+      "mode": "additive_markers_spawners_only",
+      "canonical_entity_layer_count": 1,
+      "preserved_entity_layer_count": 1,
+      "entity_counts": {
+        "markers": 2,
+        "spawners": 0,
+        "map_characters": 0,
+        "ground_objects": 0
+      },
+      "ordered_names": {
+        "markers": [
+          "Main_Entrance_Marker",
+          "Cutscene_Marker"
+        ],
+        "spawners": []
+      },
+      "entity_payload_sha256": {
+        "Main_Entrance_Marker": "40dc23a37b84527959d9ad8788b7fc5a10652c17c88b1ef7227512d2fefe5ede",
+        "Cutscene_Marker": "c5c377799b833317e9ca42f5023dbf3a5f48328aa61094b944c4de463bd9fc35"
+      },
+      "colliders": {
+        "Main_Entrance_Marker": {
+          "X": 152,
+          "Y": 112,
+          "Width": 16,
+          "Height": 16
+        },
+        "Cutscene_Marker": {
+          "X": 168,
+          "Y": 120,
+          "Width": 16,
+          "Height": 16
+        }
+      },
+      "canonical_dimensions_pixels": [
+        312,
+        240
+      ],
+      "all_colliders_within_canonical_geometry": true,
+      "all_entity_payloads_preserved_byte_for_byte_at_json_value_level": true,
+      "canonical_data_unchanged_outside_additive_entities": true
+    },
+    "tile_migration": {
+      "mode": "retain_distinct_historical_identity",
+      "historical_active_path": "Content/Tile/A05p03_Base.tile",
+      "historical_active_sha256": "85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc",
+      "canonical_active_path": "Content/Tile/a05p03_Base.tile",
+      "canonical_active_sha256": "85be315dca72d574dc608c8685b1178653ae6123e4063008ae6fca75b0c21afc",
+      "same_active_identity": false,
+      "historical_bytes_must_be_reserved_before_replacement": true,
+      "historical_active_path_retained_unchanged": true,
+      "canonical_identity_created_additively": true,
+      "canonical_identity_replaced_only_after_reserve": false
+    },
+    "legacy_case_tile_retained_unchanged": "Content/Tile/A05p03_Base.tile",
+    "historical_tile_replaced_after_reserve": null,
+    "canonical_case_tile_identity": "Content/Tile/a05p03_Base.tile",
+    "related_scripts_unchanged": {
+      "Data/Script/halcyon/ground/a05p03/init.lua": "bbbaa509337fa7116e25669b2b40bf30bddad027003a77df64341be8cc383dff",
+      "Data/Script/halcyon/FugitiveArc.lua": "cf9ffe31cb90c7301808d920522463cc66e0e7349f74a1c8fdfca061c1621519",
+      "Data/Script/halcyon/FugitiveCinematics.lua": "1fea1611e0f9636f6fd8ca6268ba9d2d676972f3b153162b694950c7f32eb484",
+      "Data/Script/halcyon/arc_fugitif/scene/a05p03.lua": "8b9ece7d5f19b087039d6cdf426ae2ce976e40412c3e9967140b93f26adab30f"
+    },
+    "existing_asset_discarded": false,
+    "existing_entity_silently_deactivated": false,
+    "scripts_modified": false
+  }
+}
