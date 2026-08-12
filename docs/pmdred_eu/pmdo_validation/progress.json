@@ -1,9 +1,9 @@
 {
   "schema": "new-era.pmdred-eu-exact-pmdo-progress.v1",
-  "generated_at": "2026-08-12T17:48:46+00:00",
+  "generated_at": "2026-08-12T17:49:49+00:00",
   "repository": {
     "branch": "arena/019ff57e-new-era-abyss-to-ascension-v4",
-    "source_head": "afb08ebdee01d334cb748c3639558f78e20121ca"
+    "source_head": "4d5221c65abfa7a75608ef42092577e30080c2e7"
   },
   "scope": "219 canonical archive-backed Grounds; Ground-only until exhaustive validation is complete",
   "authority": {
@@ -20,11 +20,11 @@
   "summary": {
     "canonical_ground_count": 219,
     "static_pass_count": 219,
-    "runtime_pass_and_promoted_count": 172,
-    "remaining_count": 47,
-    "contiguous_plan_prefix_count": 172,
+    "runtime_pass_and_promoted_count": 173,
+    "remaining_count": 46,
+    "contiguous_plan_prefix_count": 173,
     "out_of_order_pilot_count": 0,
-    "next_ground": "a04p01",
+    "next_ground": "a04p02",
     "runtime_dependencies_ready": true,
     "checkpoint_integrity": "PASS"
   },
@@ -200,7 +200,8 @@
     "a02p04",
     "a03p01",
     "a03p02",
-    "a03p03"
+    "a03p03",
+    "a04p01"
   ],
   "contiguous_validated_prefix": [
     "t00p01",
@@ -374,11 +375,11 @@
     "a02p04",
     "a03p01",
     "a03p02",
-    "a03p03"
+    "a03p03",
+    "a04p01"
   ],
   "validated_out_of_order_pilots": [],
   "remaining_ids": [
-    "a04p01",
     "a04p02",
     "a04p03",
     "a04p04",
@@ -1809,10 +1810,10 @@
   "resume": {
     "restore": "bash tools/restore_pmdred_eu_validation_runtime.sh",
     "verify_checkpoint": "python3 tools/update_pmdred_eu_validation_progress.py --check",
-    "next_ground": "a04p01",
+    "next_ground": "a04p02",
     "next_recipe_template": "docs/pmdred_eu/pmdo_validation/t01p07_exhaustive_pass/commands.sh",
-    "working_recipe": ".runtime-cache/a04p01-working-recipe.sh",
-    "rule": "Regenerate/restore exact inputs, hash-gate, validate a04p01 in isolation, compare every planned tick, promote only after all runtime/lifecycle gates pass, then regenerate this checkpoint."
+    "working_recipe": ".runtime-cache/a04p02-working-recipe.sh",
+    "rule": "Regenerate/restore exact inputs, hash-gate, validate a04p02 in isolation, compare every planned tick, promote only after all runtime/lifecycle gates pass, then regenerate this checkpoint."
   },
   "dungeon_restitution": {
     "manifest": "docs/pmdred_eu/dungeon_grounds/manifest.json",
@@ -46911,33 +46912,262 @@
           "tile_bytes_equal": false
         }
       },
-      "runtime": "NOT_RUN",
+      "runtime": "PASS",
+      "validated_at": "2026-08-12",
+      "validation_record": "docs/pmdred_eu/pmdo_validation/a04p01_exhaustive_pass/validation_record.json",
+      "validation_record_sha256": "e88a1aa9e522595971a7d1572d4e4514f8ef415190a398065a6fa7966a9e2718",
       "visual_comparison": {
-        "result": "NOT_RUN",
-        "comparative_png_paths": []
+        "result": "PASS",
+        "dimensions_pixels": [
+          312,
+          600
+        ],
+        "primary_sample_count": 135,
+        "reload_sample_count": 1,
+        "exact_sample_count": 136,
+        "unique_rgba_frame_count": 62,
+        "mismatched_pixel_count": 0,
+        "maximum_channel_delta": 0,
+        "all_full_rgba_exact": true,
+        "all_fully_opaque": true,
+        "comparative_png_paths": [
+          "docs/pmdred_eu/pmdo_validation/a04p01_exhaustive_pass/comparisons/comparison_primary_tick0.png",
+          "docs/pmdred_eu/pmdo_validation/a04p01_exhaustive_pass/comparisons/comparison_primary_tick215.png",
+          "docs/pmdred_eu/pmdo_validation/a04p01_exhaustive_pass/comparisons/comparison_reload_tick0.png"
+        ],
+        "complete_metrics_report": "docs/pmdred_eu/pmdo_validation/a04p01_exhaustive_pass/report.json"
       },
       "animation_validation": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "primary_sample_count": 135,
+        "first_tick": 0,
+        "last_tick": 215,
+        "cell_local_schedule_count": 4,
+        "maximum_cell_local_cycle_ticks": 108,
+        "all_schedules_covered_through_two_complete_cycles": true,
+        "channels": [
+          {
+            "cycle": 108,
+            "frame_count": 12,
+            "frame_durations": [
+              9,
+              9,
+              9,
+              9,
+              9,
+              9,
+              9,
+              9,
+              9,
+              9,
+              9,
+              9
+            ],
+            "index": 0,
+            "kind": "BPA_TILE",
+            "source_duration_values": [
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8
+            ]
+          },
+          {
+            "cycle": 56,
+            "frame_count": 28,
+            "frame_durations": [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "index": 8,
+            "kind": "BPL_PALETTE"
+          },
+          {
+            "cycle": 56,
+            "frame_count": 28,
+            "frame_durations": [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "index": 9,
+            "kind": "BPL_PALETTE"
+          }
+        ],
+        "unique_observed_rgba_frames": 62,
+        "reload_tick_zero_exact": true,
+        "orphaned_animation_observed": false
       },
       "collision_validation": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "source": "A04P01m",
+        "collision_layer_count": 0,
+        "solid_cells": 0,
+        "collision_sha256": "afaef6ed684995c6055f70fd49eeb3c0dec82d2f3133f8578ee8ee205435cb4d",
+        "successful_probe": {
+          "start": [
+            152,
+            296
+          ],
+          "direction": "Down",
+          "observed_delta": [
+            0,
+            8
+          ],
+          "result": "PASS"
+        },
+        "blocked_probe": null
       },
       "entry_exit_reentry": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "loads": 2,
+        "entries": 2,
+        "exits": 2,
+        "same_ground_reentries": 1,
+        "strict_native_lifecycle_order": "PASS"
       },
       "cleanup_reload": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "cleanup_probe_count": 4,
+        "ground_exit_cleanup_passes": 2,
+        "sink_cleanup": "PASS",
+        "final_cleanup": "PASS",
+        "reload_load": "LOAD_PASS",
+        "reload_tick_zero_full_rgba_exact": true,
+        "terminal_end_seen": true,
+        "state_leakage_observed": false,
+        "stale_assets_observed": false,
+        "permanent_lock_observed": false,
+        "orphan_process_check": "PASS"
       },
       "special_classification": {
-        "result": "PENDING_AUTHENTICATED_TECHNICAL_IDENTITY_CHECK",
-        "cinematic": null,
-        "arena": null,
-        "boss": null
+        "category": "canonical_ground_map",
+        "ground_map_symbol": "MAP_SKY_TOWER",
+        "cinematic": false,
+        "arena": false,
+        "boss": false
       },
       "definitive_destination": {
-        "promotion_status": "NOT_PROMOTED"
+        "ground": "Data/Ground/a04p01.rsground",
+        "tile": "Content/Tile/a04p01_Base.tile",
+        "zone_registry": "Data/Zone/master_zone.json",
+        "zone_registry_entry": "a04p01",
+        "promotion_status": "PROMOTED_INTEGRATION_PRESERVING_MIGRATION",
+        "preexisting_destinations": true,
+        "pre_promotion_record": "RESERVE/pmdred_pre_promotion/a04p01/README.md",
+        "promoted_ground_sha256": "c6b2b6938f37f2c5f4d10f0686c7b7734aab500144ed036ecc5eeee53c79d6af",
+        "promoted_tile_sha256": "b376149a921c935a8f803b36559627302fb0fb5f00832a602d5c83a54af28adf"
       },
-      "evidence": null
+      "provenance": {
+        "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+        "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+        "conversion_report_sha256": "91f3b460b3e3b7689bc608ece2006cb6103d653bcdc22ad028f4172c3a1b0fdc",
+        "canonical_ground_sha256": "b511cfe2a90b46a3c01ba4809582bfcef63aff4898b73ff5970e8c5d08086c92",
+        "integrated_ground_sha256": "c6b2b6938f37f2c5f4d10f0686c7b7734aab500144ed036ecc5eeee53c79d6af",
+        "candidate_tile_sha256": "b376149a921c935a8f803b36559627302fb0fb5f00832a602d5c83a54af28adf",
+        "entity_integration": "PASS_ADDITIVE_MARKERS_SPAWNERS_ONLY",
+        "source_normalized_sha256": {
+          "A04P01": "94be145bd383c820500d285eea49878223173a10757468f436e4071d7feacb5c",
+          "A04P011": "95b9263c3d69a12fae33a63495d21272e36779a9afdc82f5cfdf05602aa6e4d3",
+          "A04P01c": "e2ab80057eb39718cc88412700790c1c2967bef1d1feba59e23068f0c42fc7b5",
+          "A04P01m": "28296a5d107500ffbe804ebf6057d704439bc4482b4d2c6bebe6f559e66f4b41"
+        },
+        "events_sha256": "d8a90c93e62e8405426f1506e4b4be8de8768813ceac973ae5f7bb160f5225b9",
+        "report_sha256": "4ee76c46d054c314f99ca312786c0cd1bcec94db5532fb742dc8b632e34e3cc1",
+        "fixture_manifest_sha256": "8342575aefadd859ba1ae9e612e053481789589c9044b3cad20abaeef0fe06b5",
+        "detailed_provenance": "docs/pmdred_eu/pmdo_validation/a04p01_exhaustive_pass/provenance.json"
+      },
+      "evidence": {
+        "directory": "docs/pmdred_eu/pmdo_validation/a04p01_exhaustive_pass",
+        "integrity": {
+          "result": "PASS",
+          "manifest": "docs/pmdred_eu/pmdo_validation/a04p01_exhaustive_pass/evidence_hashes.sha256",
+          "checked": 44,
+          "immutable_failures": [],
+          "historical_progressive_drift": []
+        }
+      },
+      "promoted_destination_checks": [
+        {
+          "role": "ground",
+          "path": "Data/Ground/a04p01.rsground",
+          "expected_sha256": "c6b2b6938f37f2c5f4d10f0686c7b7734aab500144ed036ecc5eeee53c79d6af",
+          "actual_sha256": "c6b2b6938f37f2c5f4d10f0686c7b7734aab500144ed036ecc5eeee53c79d6af",
+          "result": "PASS"
+        },
+        {
+          "role": "tile",
+          "path": "Content/Tile/a04p01_Base.tile",
+          "expected_sha256": "b376149a921c935a8f803b36559627302fb0fb5f00832a602d5c83a54af28adf",
+          "actual_sha256": "b376149a921c935a8f803b36559627302fb0fb5f00832a602d5c83a54af28adf",
+          "result": "PASS"
+        }
+      ],
+      "zone_registry": {
+        "required_by_record": true,
+        "declared": true,
+        "current_occurrences": 1,
+        "current_index": 295
+      }
     },
     {
       "id": "a04p02",
