@@ -16,14 +16,15 @@ L’isolation actuelle de `s01` reste nécessaire pour obtenir une preuve PMDO a
 
 ## État actuel
 
-- **Lot actif :** phase 6.1, flux de production du Personality Quiz dans le dossier `personality_test` New Era existant.
-- **Résultat du flux :** `PHYSICAL_CONFIRM_INPUT_PASS_LIVE_CREATION_PARTIAL`.
-- **Scènes totalement migrées :** **0/133**.
-- **Scène en cours :** `s01`, toujours **11 commandes source sur 16** reproduites dans son harness isolé.
-- **Corpus canonique :** **219 enregistrements texte** français alignés dans la ROM EU ; **55 questions sélectionnables**, huit posées par catégories distinctes, plus `BraveQuest2B` exclusivement conditionnelle.
-- **Connexion de production :** `personality_test.CharacterSelect()` appelle maintenant une seule fois le prélude et le quiz intégrés avant les sélecteurs héros/partenaire New Era existants.
+- **Lot prioritaire :** correction critique de la Nouvelle Partie.
+- **Résultat :** `PASS_NORMAL_NEW_ERA_STARTUP_RESTORED`.
+- **Nouvelle Partie réelle :** menu titre → `personality_test` New Era → création héros/partenaire → `relic_forest`, chapitre 1.
+- **MissingNo visible :** non.
+- **Quiz ou harness PMD Red au démarrage :** non.
+- **Scènes totalement migrées :** **0/133** ; `s01` reste partielle et isolée.
+- **Corpus canonique du quiz :** conservé sous forme de modules dormants, sans hook de production.
 
-La scène et le quiz ne sont volontairement **pas déclarés terminés**. Le flux routé conserve les sept pages d’introduction, le BGM, les fondus palette de 30 frames correspondant aux opcodes `0x22`/`0x23`, le questionnaire, le genre, la description, la recommandation, le restart, l’enchaînement partenaire, le surnom et le texte final. Le résultat est enregistré dans `SV.PersonalityTest`; la recommandation est déplacée en tête sans jamais filtrer le catalogue. Le chemin non binaire New Era est conservé et explicitement étiqueté comme adaptation. Les confirmations physiques des dix menus du quiz passent maintenant ; restent la navigation directionnelle/non-premier choix, la création live héros/partenaire, la saisie du surnom, la sérialisation et la transition finale, puis le remplacement du blocage du harness `s01` par ce flux unique. Aucun second quiz et aucun remplacement silencieux ne sont autorisés.
+Le routage direct introduit par `524e379` a été retiré. `personality_test/init.lua` est restauré octet pour octet à son état antérieur au branchement PMD Red. `Data/StartParams.xml` pointe maintenant sur l’index réel de `personality_test` (`31`) au lieu de l’ID obsolète `40`, qui résolvait vers `searing_crucible`. Les sentinelles MissingNo historiques n’ont pas été remplacées : le flux normal les consomme avant le premier état Ground observable. Voir [`startup_regression/REPORT.md`](startup_regression/REPORT.md).
 
 ## Ce qui est effectivement porté pour `s01`
 
@@ -47,7 +48,7 @@ Les textes ne proviennent pas de pret : `authority.json` conserve leur adresse e
 - **pret/pmd-red :** graphe des questions, ordre de pointeurs, catégories, valeurs de menu et effets de personnalité ;
 - **New Era :** Ground `personality_test`, parallaxe, RNG enregistrable, option non binaire et catalogue complet de starters.
 
-Le générateur refuse tout autre hash ROM ou commit pret. Il produit `pmdred_quiz_data.lua`; `pmdred_quiz_engine.lua` applique huit tirages sans réutiliser une catégorie, l’embranchement conditionnel de la question brave et le départage canonique par comparaison strictement supérieure. Le module n’utilise pas `math.random` : `pmdred_quiz_flow.lua` lui injecte `GAME.Rand` en production et transmet le résultat au système New Era sans limiter ses choix.
+Le générateur refuse tout autre hash ROM ou commit pret. Il produit `pmdred_quiz_data.lua`; `pmdred_quiz_engine.lua` applique huit tirages sans réutiliser une catégorie, l’embranchement conditionnel de la question brave et le départage canonique par comparaison strictement supérieure. `pmdred_quiz_flow.lua` reste disponible pour les harnesses, mais aucun script de démarrage ne le requiert. Son futur point d’activation reste indéfini et inactif jusqu’à un gate narratif post-démarrage validé.
 
 ## Validation PMDO réelle
 
@@ -71,7 +72,7 @@ Pour le socle du quiz :
 - hashes des captures reproduits lors d’un second run ; sortie native 0, sans watchdog ni processus résiduel ;
 - verdict volontairement partiel `CORE_PASS_NOT_PRODUCTION_ROUTED` pour cette preuve historique du socle.
 
-Pour le flux de production routé :
+Preuves historiques du flux routé, **désormais supplantées et non actives en production** :
 
 - le module `init.lua` suivi a été chargé et parsé par PMDO ; seule sa callback `Enter` a été neutralisée dans la copie ignorée afin que le service pilote le même `pmdred_quiz_flow.lua` ;
 - **246 événements**, **46 pages texte UI réelles** et **21 prompts** sur deux tentatives complètes ;
@@ -80,15 +81,24 @@ Pour le flux de production routé :
 - test « move, never filter » du catalogue, deux captures synchronisées, sortie native 0 et reproduction sémantique/hashes PASS ;
 - verdict partiel `FLOW_PASS_PRODUCTION_ROUTED_INTERACTIVE_INPUT_PARTIAL`.
 
-Pour les inputs physiques du quiz :
+Preuve historique des inputs physiques du quiz, **conservée uniquement comme artefact de harness** :
 
 - `DiagManager.ActiveDebugReplay` alimente le vrai runtime avec des objets `FrameInput` neutres puis `Keys.Enter` ; aucun résultat de choix n’est injecté dans `pmdred_quiz_flow.lua` ;
 - **74 impulsions**, **27 pages**, **10 vrais `BeginChoiceMenu`/`ChoiceResult`** et **212 événements** ;
 - les huit questions, le genre et la confirmation de recommandation sont réellement validés par le moteur de menus ; résultat naïf/garçon/Kaiminus conforme ;
 - BGM, limites palette et sortie native 0 restent dans la même timeline ; reproduction sémantique PASS ;
-- verdict partiel `PHYSICAL_CONFIRM_INPUT_PASS_LIVE_CREATION_PARTIAL`.
+- verdict partiel historique `PHYSICAL_CONFIRM_INPUT_PASS_LIVE_CREATION_PARTIAL`.
 
-Limite de preuve : `_GROUND:Screenshot()` capture le plan Ground, pas les glyphes UI. Les glyphes français sont donc prouvés par égalité avec les bytes ROM EU et passage sans exception dans l’UI texte réelle. La fixture physique couvre la confirmation du premier choix ; navigation directionnelle, saisie de nom et création live des deux Pokémon restent ouvertes.
+Pour la correction Nouvelle Partie :
+
+- appdata vide et vrai menu titre, sans appel direct à `NewGamePlus` et sans `EnterZone` de redirection ;
+- inputs physiques de langue, titre, dialogues, choix héros, direction du partenaire, genre, capacités et surnom ;
+- **95 événements** ; premier Ground `personality_test`, équipe créée Bulbizarre/Héricendre, puis `relic_forest` au chapitre 1 ;
+- aucun MissingNo dans l’équipe ou les acteurs observables ; aucun `SV.PersonalityTest`, texte ou événement PMD Red ;
+- capture Ground finale, sortie native 0, guard protégé PASS ;
+- verdict `PASS_NORMAL_NEW_ERA_STARTUP_RESTORED`.
+
+Limite explicitée : le moteur utilise encore sa sentinelle interne MissingNo avant le chargement du premier Ground, comme avant la migration. Elle n’est jamais montrée et est consommée par le sélecteur New Era ; elle n’a volontairement pas été remplacée par un autre Pokémon.
 
 Le transport GitHub actuel de DumpAsset n’a plus le hash gzip historique, mais son extraction possède exactement les **11 485 fichiers** et le manifeste d’arbre SHA-256 verrouillé par Agent A. Le lock suivi n’a pas été modifié.
 
@@ -111,13 +121,10 @@ Cette commande ne régénère et ne revalide aucun Ground ; elle compare seuleme
 Reproduction du lot PMDO, une fois l’environnement headless verrouillé présent :
 
 ```bash
-bash tools/run_pmdred_eu_scene_s01_runtime.sh
-bash tools/run_pmdred_eu_personality_quiz_runtime.sh
-bash tools/run_pmdred_eu_personality_quiz_flow_runtime.sh
-bash tools/run_pmdred_eu_personality_quiz_input_runtime.sh
+bash tools/run_new_game_startup_regression.sh
 ```
 
-Le runner du socle reproduit aussi l’extraction ROM dans un dossier ignoré. Celui du flux rejoue deux tentatives et compare timeline sémantique et captures. Aucun runner ne lance de convertisseur, finalizer ou promoteur Ground.
+Ce runner pilote le menu titre réel, compare la timeline et la capture, puis rejoue le guard. Les anciens runners du quiz restent des harnesses historiques : ils ne constituent plus un chemin de production. Aucun runner ne lance de convertisseur, finalizer ou promoteur Ground.
 
 ## Artefacts
 
@@ -138,9 +145,13 @@ Le runner du socle reproduit aussi l’extraction ROM dans un dossier ignoré. C
 - [`personality_quiz/runtime_flow/evidence_hashes.sha256`](personality_quiz/runtime_flow/evidence_hashes.sha256) — intégrité de la preuve du flux ;
 - [`personality_quiz/runtime_input/validation.json`](personality_quiz/runtime_input/validation.json) — verdict des vrais `FrameInput` ;
 - [`personality_quiz/runtime_input/events.jsonl`](personality_quiz/runtime_input/events.jsonl) — timeline physique de 212 événements ;
-- [`personality_quiz/runtime_input/evidence_hashes.sha256`](personality_quiz/runtime_input/evidence_hashes.sha256) — intégrité de cette preuve ;
+- [`personality_quiz/runtime_input/evidence_hashes.sha256`](personality_quiz/runtime_input/evidence_hashes.sha256) — intégrité de la preuve historique ;
+- [`startup_regression/REPORT.md`](startup_regression/REPORT.md) — cause et correction avant/après ;
+- [`startup_regression/runtime/validation.json`](startup_regression/runtime/validation.json) — verdict Nouvelle Partie réelle ;
+- [`startup_regression/runtime/events.jsonl`](startup_regression/runtime/events.jsonl) — timeline titre → histoire ;
+- [`startup_regression/runtime/evidence_hashes.sha256`](startup_regression/runtime/evidence_hashes.sha256) — intégrité de la preuve urgente ;
 - [`HASHES.sha256`](HASHES.sha256) — intégrité du lot, des scripts et des autorités consommées.
 
 ## Prochaine étape obligatoire
 
-Étendre le gate `FrameInput` aux directions et aux choix non initiaux, puis piloter le catalogue héros complet, le partenaire et la saisie du surnom. Il faut prouver les assets/animations, formes, genres, capacités et attaques de départ, la sérialisation de `SV.PersonalityTest`, l’équipe finale et la transition vers `relic_forest`. Après ce gate, le harness `s01` pourra remplacer sa dépendance bloquée par un appel au même flux intégré ; l’entrée Métano et l’arc Fugitive ne seront connectés qu’après ce PASS complet.
+Avec le démarrage normal restauré et les modules PMD Red dormants, reprendre l’audit ciblé de **Gloomy Forest = Sinister Woods** : vérifier les états du chapitre 6, les routes existantes et les assets Team Dazzling avant toute modification. Les chapitres 1 à 5 et les Grounds certifiés restent intouchables. Aucun quiz ou arc PMD Red ne sera reconnecté au démarrage.

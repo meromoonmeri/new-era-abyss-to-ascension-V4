@@ -89,6 +89,13 @@
         }
       ],
       "opposed_motion_required": true
+    },
+    "startup_non_regression": {
+      "normal_new_game_flow": "TITLE_TO_NATIVE_CHARACTER_SELECT_TO_RELIC_FOREST_CHAPTER_1",
+      "pmdred_quiz_at_new_game": false,
+      "pmdred_harness_at_new_game": false,
+      "activation_gate": "POST_STARTUP_NEW_ERA_NARRATIVE_GATE_TO_BE_DEFINED_AND_VALIDATED",
+      "current_activation": "DORMANT"
     }
   },
   "fugitive_arc": {

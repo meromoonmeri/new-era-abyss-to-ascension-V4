@@ -40,9 +40,10 @@ Le port doit étendre le système New Era existant autour de `personality_test` 
 5. utiliser les sprites, portraits, animations, genres, formes et conventions visuelles New Era pour les Pokémon montrés ;
 6. transmettre le résultat canonique du quiz au sélecteur de héros New Era ;
 7. ouvrir le **catalogue complet des starters actuellement disponibles dans New Era** : le résultat peut déterminer la recommandation ou la sélection mise en avant, mais ne doit jamais limiter le joueur aux starters PMD Red historiques ;
-8. conserver le système actuel de création du partenaire et ses règles New Era, tout en adaptant proprement l’enchaînement canonique Red.
+8. conserver le système actuel de création du partenaire et ses règles New Era, tout en adaptant proprement l’enchaînement canonique Red ;
+9. préserver strictement la **Nouvelle Partie New Era native** : le menu titre, `CharacterSelect()`, la création du héros/partenaire et l’entrée du chapitre 1 ne doivent jamais déclencher le quiz PMD Red. Les modules Red restent dormants jusqu’à un gate narratif **post-démarrage**, explicitement défini et validé avant connexion.
 
-Le module isolé `halcyon.pmdred_eu.scene.s01` est un harness de restitution de la séquence source. Il devra appeler le système `personality_test` intégré ; il ne doit pas devenir une route de quiz concurrente.
+Le module isolé `halcyon.pmdred_eu.scene.s01` est un harness de restitution de la séquence source. Il ne doit devenir ni une route concurrente ni un hook de Nouvelle Partie. Toute future activation du quiz devra passer par le gate post-démarrage New Era, encore inactif.
 
 ## 3. Arc Fugitive : intégré à l’histoire New Era
 

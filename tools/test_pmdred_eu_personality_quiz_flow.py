@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regressions for the production-routed PMD Red EU quiz presentation flow."""
+"""Regressions for the now-dormant PMD Red EU quiz presentation module."""
 
 from __future__ import annotations
 
@@ -42,32 +42,23 @@ class PersonalityQuizFlowTests(unittest.TestCase):
         cls.flow = FLOW.read_text()
         cls.validation = json.loads((RUNTIME / "validation.json").read_text())
 
-    def test_existing_personality_test_is_the_only_production_route(self) -> None:
+    def test_existing_personality_test_is_restored_and_red_flow_is_dormant(self) -> None:
         self.assertIn("function personality_test.CharacterSelect()", self.init)
-        self.assertIn(
-            "local PmdRedQuizFlow = require 'halcyon.ground.personality_test.pmdred_quiz_flow'",
-            self.init,
-        )
-        prelude = self.init.index("PmdRedQuizFlow.PlayCanonicalPrelude()")
-        run = self.init.index("local quiz_result = PmdRedQuizFlow.Run()")
-        selector = self.init.index("if CONFIG.RegularStarters() then", run)
-        self.assertLess(prelude, run)
-        self.assertLess(run, selector)
-        self.assertEqual(self.init.count("PmdRedQuizFlow.Run()"), 1)
-        self.assertNotIn("Bienvenue dans le monde des Pokémon !", self.init)
-        self.assertNotIn("Es-tu un garçon, une fille ou non binaire ?", self.init)
-        self.assertNotIn("GAME:FadeOut(false, 120)", self.init)
+        self.assertIn("Bienvenue dans le monde des Pokémon !", self.init)
+        self.assertIn("Es-tu un garçon, une fille ou non binaire ?", self.init)
+        self.assertIn("GAME:FadeOut(false, 120)", self.init)
+        self.assertNotIn("pmdred_quiz_flow", self.init)
+        self.assertNotIn("PmdRedQuizFlow", self.init)
+        self.assertNotIn("SV.PersonalityTest", self.init)
+        self.assertEqual(sha256(INIT), "e417364941cc7c5e53002f72633b7050b610601eaaa538e903556f1fbd766bac")
 
-    def test_result_is_transmitted_and_catalogue_is_prioritized_never_filtered(self) -> None:
+    def test_dormant_module_retains_move_never_filter_bridge(self) -> None:
         for token in (
             "SV.PersonalityTest.Personality = quiz_result.personality",
             "SV.PersonalityTest.GenderChoice = quiz_result.gender_choice",
-            "SV.PersonalityTest.Recommendation = quiz_result.recommendation",
-            "SV.PersonalityTest.SelectedQuestions = quiz_result.selected_questions",
-            "SV.PersonalityTest.Totals = quiz_result.totals",
             "PmdRedQuizFlow.PrioritizeRecommendation(",
         ):
-            self.assertIn(token, self.init)
+            self.assertNotIn(token, self.init)
         self.assertIn("move, never filter", self.flow)
         self.assertNotIn("table.remove", self.flow)
         self.assertIn("for _, value in ipairs(values)", self.flow)
@@ -103,10 +94,10 @@ class PersonalityQuizFlowTests(unittest.TestCase):
             "source_opcode = 'CMD_BYTE_23'",
         ):
             self.assertIn(token, self.flow)
-        self.assertIn("PmdRedQuizFlow.ShowPartnerPrompt()", self.init)
-        self.assertIn("PmdRedQuizFlow.PartnerNicknamePrompt()", self.init)
-        self.assertIn("PmdRedQuizFlow.ShowEndText()", self.init)
-        self.assertIn("PmdRedQuizFlow.FadeOutCanonical()", self.init)
+        self.assertNotIn("PmdRedQuizFlow.ShowPartnerPrompt()", self.init)
+        self.assertNotIn("PmdRedQuizFlow.PartnerNicknamePrompt()", self.init)
+        self.assertNotIn("PmdRedQuizFlow.ShowEndText()", self.init)
+        self.assertNotIn("PmdRedQuizFlow.FadeOutCanonical()", self.init)
         ground = json.loads(GROUND.read_text(encoding="utf-8-sig"))["Object"]
         self.assertEqual(ground["AssetName"], "personality_test")
         self.assertEqual(
@@ -114,12 +105,17 @@ class PersonalityQuizFlowTests(unittest.TestCase):
             [30, -30],
         )
 
-    def test_runtime_evidence_is_explicitly_partial_and_integral(self) -> None:
+    def test_historical_routed_evidence_is_preserved_but_no_longer_current(self) -> None:
         self.assertEqual(
             self.validation["result"],
             "FLOW_PASS_PRODUCTION_ROUTED_INTERACTIVE_INPUT_PARTIAL",
         )
         self.assertTrue(self.validation["production_personality_test_routed"])
+        self.assertEqual(
+            self.validation["authority"]["production_init_sha256"],
+            "20eda4cffdf57d3a03641aa92036ef64d10c682882e86a2fd504af08db9858b8",
+        )
+        self.assertNotEqual(self.validation["authority"]["production_init_sha256"], sha256(INIT))
         self.assertFalse(self.validation["full_quiz_integrated"])
         self.assertEqual(self.validation["timeline"]["event_count"], 246)
         self.assertEqual(self.validation["timeline"]["text_page_count"], 46)

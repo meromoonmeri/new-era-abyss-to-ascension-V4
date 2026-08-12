@@ -7,7 +7,6 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.menu.character_menu'
-local PmdRedQuizFlow = require 'halcyon.ground.personality_test.pmdred_quiz_flow'
 
 -- Package name
 local personality_test = {}
@@ -81,8 +80,7 @@ end
 -------------------------------
 
 
--- One integrated start flow: canonical PMD Red EU quiz, then the complete
--- existing New Era hero and partner creation systems.
+--Even though the map is called "personality test", it's really just a character select for the start of your adventure.
 function personality_test.CharacterSelect()
 
 	GAME:CutsceneMode(true)
@@ -133,28 +131,17 @@ function personality_test.CharacterSelect()
 			end
 		end
 	end
-	-- PMD_RED_EU_CANON: exact s01 introduction, BGM switch, 30-frame
-	-- palette fade, question graph, scoring, gender and result reveal.
-	PmdRedQuizFlow.PlayCanonicalPrelude()
-	local quiz_result = PmdRedQuizFlow.Run()
+  	UI:WaitShowVoiceOver("Bienvenue dans le monde des Pokémon !", -1)
+  	UI:WaitShowVoiceOver("Un monde rempli d'aventures palpitantes\n et de mystères à découvrir s'étend devant toi !", -1)
+	UI:WaitShowVoiceOver("Avant de partir, tu dois prendre quelques décisions importantes.", -1)
+	UI:WaitShowVoiceOver("Réfléchis bien avant de choisir !", -1)
+	UI:WaitShowVoiceOver("À présent, fais tes choix !", -1)
+	GAME:WaitFrames(40)
 
-	-- NEW_ERA_ADAPTATION: transmit the canonical result to the one existing
-	-- creation system. The recommendation never filters the starter catalogue.
-	SV.PersonalityTest = SV.PersonalityTest or {}
-	SV.PersonalityTest.Source = 'PMD_RED_EU_CANON'
-	SV.PersonalityTest.Personality = quiz_result.personality
-	SV.PersonalityTest.PersonalityLabel = quiz_result.personality_label
-	SV.PersonalityTest.GenderChoice = quiz_result.gender_choice
-	SV.PersonalityTest.Recommendation = quiz_result.recommendation
-	SV.PersonalityTest.SelectedQuestions = quiz_result.selected_questions
-	SV.PersonalityTest.Totals = quiz_result.totals
+	SOUND:PlayBGM("Welcome to the World of Pokémon!.ogg", true)
+	GAME:FadeIn(40)
+	GAME:WaitFrames(20)
 
-	if not CONFIG.RegularStarters() then
-		species_list = PmdRedQuizFlow.PrioritizeRecommendation(
-			species_list,
-			quiz_result.recommendation
-		)
-	end
 
 	--If all starters is enabled, then run custom code that lets the player select any mon for player and partner.
 	--otherwise, use the standard starter selection script.
@@ -227,12 +214,6 @@ function personality_test.CharacterSelect()
 						RogueEssence.Dungeon.MonsterID("sprigatito", 0, "normal", Gender.Genderless),
 						--RogueEssence.Dungeon.MonsterID("pawmi", 0, "normal", Gender.Genderless),
 						RogueEssence.Dungeon.MonsterID("charcadet", 0, "normal", Gender.Genderless)}
-
-		choices = PmdRedQuizFlow.PrioritizeRecommendation(
-			choices,
-			quiz_result.recommendation,
-			function(mon_id) return mon_id.Species end
-		)
 
 		--not all moves listed are egg moves. Sometimes, egg move choices are too over or under powered and so something else had to be chosen
 		local egg_move_list =
@@ -307,10 +288,19 @@ function personality_test.CharacterSelect()
 
 
 
-		-- The integrated Red quiz already asked gender once. Preserve that result
-		-- instead of opening the former duplicate New Era prompt.
-		local gender = quiz_result.gender
+		local gender = 0
 		local gender_choices = {'Garçon', 'Fille', 'Non-binaire'}
+		UI:BeginChoiceMenu("Es-tu un garçon, une fille ou non binaire ?", gender_choices, 1, 1)
+		UI:WaitForChoice()
+		gender = UI:ChoiceResult()
+
+		if gender == 1 then
+			gender = Gender.Male
+		elseif gender == 2 then
+			gender = Gender.Female
+		else --dunno if this will cause issues with sprites to use
+			gender = Gender.Genderless
+		end
 
 		local monster = _DATA:GetMonster(hero_choice.Species).Forms[hero_choice.Form]
 		local ability = monster.Intrinsic1
@@ -334,11 +324,8 @@ function personality_test.CharacterSelect()
 			GAME:LearnSkill(GAME:GetPlayerPartyMember(0), egg_move_list[mon_id.Species])
 		end
 		GAME:SetTeamLeaderIndex(0)
-		SV.PersonalityTest.HeroSpecies = mon_id.Species
 
-		-- PMD_RED_EU_CANON prompt, followed by the preserved New Era partner
-		-- catalogue, typing warning, ability, gender and move rules.
-		PmdRedQuizFlow.ShowPartnerPrompt()
+
 
 		--Partner data
 		local result = hero_choice
@@ -403,7 +390,6 @@ function personality_test.CharacterSelect()
 		else
 			GAME:LearnSkill(GAME:GetPlayerPartyMember(1), egg_move_list[mon_id.Species])
 		end
-		SV.PersonalityTest.PartnerSpecies = mon_id.Species
 
 	else
 
@@ -412,25 +398,14 @@ function personality_test.CharacterSelect()
 		for charslot = 0, 1, 1 do
 			if charslot == 1 then
 				GAME:WaitFrames(20)
-				PmdRedQuizFlow.ShowPartnerPrompt()
+				UI:WaitShowDialogue("Très bien.[pause=0] Le choix est fait.")
+				UI:WaitShowDialogue("Mais qu'en est-il de ton partenaire ?")
 			end
 			local continue = false
 
 			--run the character selection menu
 			local CharacterMenu = CharacterSelectionMenu()
 			local menu = CharacterMenu:new(menu_title[charslot+1], species_list)
-			if charslot == 0 then
-				-- NEW_ERA_ADAPTATION: put the Red recommendation in focus without
-				-- removing forms, genders, portraits, abilities or any species.
-				menu.data.species = quiz_result.recommendation
-				menu.data.form = 0
-				menu.data.skin = 'normal'
-				menu.data.gender = quiz_result.gender_choice - 1
-				menu.monster = _DATA:GetMonster(menu.data.species)
-				menu.data.intrinsic = menu.monster.Forms[0].Intrinsic1
-				menu:updatePermissions()
-				menu:updateWindows(true, true)
-			end
 			while not continue do
 				while not menu.confirmed do
 					UI:SetCustomMenu(menu:getFocusedWindow())
@@ -456,13 +431,10 @@ function personality_test.CharacterSelect()
 			if menu.data.egg_move ~= '' then
 				GAME:SetCharacterSkill(GAME:GetPlayerPartyMember(charslot), menu.data.egg_move, menu.data.egg_move_index)
 			end
-			if charslot == 0 then SV.PersonalityTest.HeroSpecies = mon_id.Species end
 		end
 		GAME:SetTeamLeaderIndex(0)
 	end
 
-	SV.PersonalityTest.HeroSpecies = GAME:GetPlayerPartyMember(0).CurrentForm.Species
-	SV.PersonalityTest.PartnerSpecies = GAME:GetPlayerPartyMember(1).CurrentForm.Species
 
 	--set player and partner to founders so they cannot be released
 	--set them as partner so they cannot be taken off the active team
@@ -502,7 +474,7 @@ function personality_test.CharacterSelect()
 	local result = ""
 	local yesnoResult = false
 	while not yesnoResult do
-		UI:NameMenu(PmdRedQuizFlow.PartnerNicknamePrompt(), "Il est vivement conseillé de lui donner un surnom.", 60)
+		UI:NameMenu("Quel est le nom de ton partenaire ?", "Il est vivement conseillé de lui donner un surnom.", 60)
 		UI:WaitForChoice()
 		result = UI:ChoiceResult()
 		--if no name given, set name to species name
@@ -591,8 +563,9 @@ function personality_test.CharacterSelect()
 	end
 	 ]]--
 
-	PmdRedQuizFlow.ShowEndText()
-	PmdRedQuizFlow.FadeOutCanonical()
+	SOUND:FadeOutBGM(120)
+	GAME:FadeOut(false, 120)
+	GAME:WaitFrames(120)
 	GAME:CutsceneMode(false)
 	GAME:EnterGroundMap('relic_forest', 'Main_Entrance_Marker')
 end

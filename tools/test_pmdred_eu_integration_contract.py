@@ -43,9 +43,15 @@ class DefinitiveIntegrationContractTests(unittest.TestCase):
         self.assertEqual(quiz["existing_ground"], "Data/Ground/personality_test.rsground")
         self.assertEqual(quiz["new_era_requirements"]["starter_catalogue"], "ALL_CURRENT_NEW_ERA_STARTERS")
         self.assertTrue(PERSONALITY_GROUND.is_file())
+        startup = quiz["startup_non_regression"]
+        self.assertFalse(startup["pmdred_quiz_at_new_game"])
+        self.assertFalse(startup["pmdred_harness_at_new_game"])
+        self.assertEqual(startup["current_activation"], "DORMANT")
+        self.assertIn("POST_STARTUP", startup["activation_gate"])
         script = PERSONALITY_SCRIPT.read_text(encoding="utf-8")
         self.assertIn("function personality_test.CharacterSelect()", script)
         self.assertIn("halcyon.menu.character_menu", script)
+        self.assertNotIn("pmdred_quiz_flow", script)
 
     def test_personality_ground_retains_two_layer_opposed_parallax(self) -> None:
         ground = read_json(PERSONALITY_GROUND)["Object"]
@@ -86,11 +92,11 @@ class DefinitiveIntegrationContractTests(unittest.TestCase):
         self.assertEqual(self.progress["summary"]["fully_migrated_scene_count"], 0)
         self.assertEqual(
             self.progress["current_lot"]["result"],
-            "PHYSICAL_CONFIRM_INPUT_PASS_LIVE_CREATION_PARTIAL",
+            "PASS_NORMAL_NEW_ERA_STARTUP_RESTORED",
         )
         self.assertFalse(self.progress["current_lot"]["full_quiz_integrated"])
-        self.assertTrue(self.progress["personality_quiz"]["production_route_connected"])
-        self.assertTrue(self.progress["personality_quiz"]["complete_new_era_starter_handoff_implemented"])
+        self.assertFalse(self.progress["personality_quiz"]["production_route_connected"])
+        self.assertFalse(self.progress["personality_quiz"]["complete_new_era_starter_handoff_implemented"])
         self.assertFalse(self.progress["personality_quiz"]["complete_new_era_starter_handoff_validated"])
         self.assertFalse(self.progress["personality_quiz"]["complete_new_era_starter_handoff"])
 

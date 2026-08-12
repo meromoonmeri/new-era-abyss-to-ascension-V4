@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BUILDER = ROOT / "tools/build_pmdred_eu_personality_quiz_input_fixture.py"
 RUNTIME = ROOT / "docs/pmdred_eu/narrative_migration/personality_quiz/runtime_input"
+INIT = ROOT / "Data/Script/halcyon/ground/personality_test/init.lua"
 
 
 def sha256(path: Path) -> str:
@@ -29,11 +30,16 @@ class PersonalityQuizInputTests(unittest.TestCase):
         self.assertNotIn("choose=", flow_options)
         self.assertIn("QUIZ_CHOICE_BEGIN", flow_options)
 
-    def test_archived_input_runtime_is_partial_and_integral(self) -> None:
+    def test_archived_input_runtime_is_historical_and_integral(self) -> None:
         validation = json.loads((RUNTIME / "validation.json").read_text())
         self.assertEqual(validation["result"], "PHYSICAL_CONFIRM_INPUT_PASS_LIVE_CREATION_PARTIAL")
         self.assertFalse(validation["full_quiz_integrated"])
         self.assertTrue(validation["production_personality_test_routed"])
+        self.assertEqual(
+            sha256(INIT),
+            "e417364941cc7c5e53002f72633b7050b610601eaaa538e903556f1fbd766bac",
+        )
+        self.assertNotIn("pmdred_quiz_flow", INIT.read_text())
         self.assertEqual(validation["input"]["mechanism"], "RogueEssence.DiagManager.ActiveDebugReplay")
         self.assertEqual(validation["input"]["queued_confirm_pulses"], 74)
         self.assertEqual(validation["input"]["real_begin_choice_menu_count"], 10)
