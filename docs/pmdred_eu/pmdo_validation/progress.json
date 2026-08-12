@@ -1,9 +1,9 @@
 {
   "schema": "new-era.pmdred-eu-exact-pmdo-progress.v1",
-  "generated_at": "2026-08-12T21:46:58+00:00",
+  "generated_at": "2026-08-12T21:48:32+00:00",
   "repository": {
     "branch": "arena/019ff05e-new-era-abyss-to-ascension-v4",
-    "source_head": "a6d853ff80beddc87ca47dc0d887f5058f59c9e9"
+    "source_head": "7f4c12f606a8c311149599bd6925c3f652026895"
   },
   "scope": "219 canonical archive-backed Grounds; Ground-only until exhaustive validation is complete",
   "authority": {
@@ -20,11 +20,11 @@
   "summary": {
     "canonical_ground_count": 219,
     "static_pass_count": 219,
-    "runtime_pass_and_promoted_count": 168,
-    "remaining_count": 51,
-    "contiguous_plan_prefix_count": 168,
+    "runtime_pass_and_promoted_count": 169,
+    "remaining_count": 50,
+    "contiguous_plan_prefix_count": 169,
     "out_of_order_pilot_count": 0,
-    "next_ground": "a02p04",
+    "next_ground": "a03p01",
     "runtime_dependencies_ready": true,
     "checkpoint_integrity": "PASS"
   },
@@ -196,7 +196,8 @@
     "a01p02",
     "a02p01",
     "a02p02",
-    "a02p03"
+    "a02p03",
+    "a02p04"
   ],
   "contiguous_validated_prefix": [
     "t00p01",
@@ -366,11 +367,11 @@
     "a01p02",
     "a02p01",
     "a02p02",
-    "a02p03"
+    "a02p03",
+    "a02p04"
   ],
   "validated_out_of_order_pilots": [],
   "remaining_ids": [
-    "a02p04",
     "a03p01",
     "a03p02",
     "a03p03",
@@ -1733,11 +1734,11 @@
   "resume": {
     "restore": "bash tools/restore_pmdred_eu_validation_runtime.sh",
     "verify_checkpoint": "python3 tools/update_pmdred_eu_validation_progress.py --check",
-    "next_ground": "a02p04",
+    "next_ground": "a03p01",
     "next_command": null,
-    "next_recipe_template": "docs/pmdred_eu/pmdo_validation/a02p03_exhaustive_pass/commands.sh",
-    "working_recipe": ".runtime-cache/a02p04-working-recipe.sh",
-    "rule": "Regenerate/restore exact inputs, hash-gate, validate a02p04 in isolation, compare every planned tick, promote only after all runtime/lifecycle gates pass, then regenerate this checkpoint."
+    "next_recipe_template": "docs/pmdred_eu/pmdo_validation/a02p04_exhaustive_pass/commands.sh",
+    "working_recipe": ".runtime-cache/a03p01-working-recipe.sh",
+    "rule": "Regenerate/restore exact inputs, hash-gate, validate a03p01 in isolation, compare every planned tick, promote only after all runtime/lifecycle gates pass, then regenerate this checkpoint."
   },
   "dungeon_restitution": {
     "manifest": "docs/pmdred_eu/dungeon_grounds/manifest.json",
@@ -46185,33 +46186,259 @@
           "tile_bytes_equal": true
         }
       },
-      "runtime": "NOT_RUN",
+      "runtime": "PASS",
+      "validated_at": "2026-08-12",
+      "validation_record": "docs/pmdred_eu/pmdo_validation/a02p04_exhaustive_pass/validation_record.json",
+      "validation_record_sha256": "614e50c0599965a033a8705b7ce2d1b5c9bf244134daf8e7048744171975458d",
       "visual_comparison": {
-        "result": "NOT_RUN",
-        "comparative_png_paths": []
+        "result": "PASS",
+        "dimensions_pixels": [
+          264,
+          384
+        ],
+        "primary_sample_count": 640,
+        "reload_sample_count": 1,
+        "exact_sample_count": 641,
+        "unique_rgba_frame_count": 150,
+        "mismatched_pixel_count": 0,
+        "maximum_channel_delta": 0,
+        "all_full_rgba_exact": true,
+        "all_fully_opaque": true,
+        "comparative_png_paths": [
+          "docs/pmdred_eu/pmdo_validation/a02p04_exhaustive_pass/comparisons/comparison_primary_tick0.png",
+          "docs/pmdred_eu/pmdo_validation/a02p04_exhaustive_pass/comparisons/comparison_primary_tick959.png",
+          "docs/pmdred_eu/pmdo_validation/a02p04_exhaustive_pass/comparisons/comparison_reload_tick0.png"
+        ],
+        "complete_metrics_report": "docs/pmdred_eu/pmdo_validation/a02p04_exhaustive_pass/report.json"
       },
       "animation_validation": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "primary_sample_count": 640,
+        "first_tick": 0,
+        "last_tick": 959,
+        "cell_local_schedule_count": 14,
+        "maximum_cell_local_cycle_ticks": 480,
+        "all_schedules_covered_through_two_complete_cycles": true,
+        "channels": [
+          {
+            "cycle": 48,
+            "frame_count": 6,
+            "frame_durations": [
+              8,
+              8,
+              8,
+              8,
+              8,
+              8
+            ],
+            "index": 0,
+            "kind": "BPL_PALETTE"
+          },
+          {
+            "cycle": 40,
+            "frame_count": 10,
+            "frame_durations": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "index": 1,
+            "kind": "BPL_PALETTE"
+          },
+          {
+            "cycle": 32,
+            "frame_count": 8,
+            "frame_durations": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "index": 2,
+            "kind": "BPL_PALETTE"
+          },
+          {
+            "cycle": 48,
+            "frame_count": 8,
+            "frame_durations": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "index": 3,
+            "kind": "BPL_PALETTE"
+          },
+          {
+            "cycle": 32,
+            "frame_count": 8,
+            "frame_durations": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "index": 6,
+            "kind": "BPL_PALETTE"
+          }
+        ],
+        "unique_observed_rgba_frames": 150,
+        "reload_tick_zero_exact": true,
+        "orphaned_animation_observed": false
       },
       "collision_validation": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "source": "A02P04m",
+        "collision_layer_count": 0,
+        "solid_cells": 0,
+        "collision_sha256": "c87499548f9efbd98c824a95a664af38f414efb1c9eede544e55e019473d6b24",
+        "successful_probe": {
+          "start": [
+            128,
+            184
+          ],
+          "direction": "Down",
+          "observed_delta": [
+            0,
+            8
+          ],
+          "result": "PASS"
+        },
+        "blocked_probe": {
+          "applicable": false,
+          "reason": "AUTHENTICATED_RAW_ROM_BMA_HAS_NO_COLLISION_LAYER_OR_SOLID_CELLS",
+          "fixture_expectation": "NO_BMA_COLLISION_LAYER_OR_SOLIDS",
+          "runtime_result": "NOT_APPLICABLE_NO_BMA_SOLIDS",
+          "result": "NOT_APPLICABLE"
+        }
       },
       "entry_exit_reentry": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "loads": 2,
+        "entries": 2,
+        "exits": 2,
+        "same_ground_reentries": 1,
+        "strict_native_lifecycle_order": "PASS"
       },
       "cleanup_reload": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "cleanup_probe_count": 4,
+        "ground_exit_cleanup_passes": 2,
+        "sink_cleanup": "PASS",
+        "final_cleanup": "PASS",
+        "reload_load": "LOAD_PASS",
+        "reload_tick_zero_full_rgba_exact": true,
+        "terminal_end_seen": true,
+        "state_leakage_observed": false,
+        "stale_assets_observed": false,
+        "permanent_lock_observed": false,
+        "orphan_process_check": "PASS"
       },
       "special_classification": {
-        "result": "PENDING_AUTHENTICATED_TECHNICAL_IDENTITY_CHECK",
-        "cinematic": null,
-        "arena": null,
-        "boss": null
+        "category": "fugitive_journey_scene",
+        "ground_map_symbol": "MAP_FUGITIVES_SNOW_ROAD",
+        "cinematic": false,
+        "arena": false,
+        "boss": false
       },
       "definitive_destination": {
-        "promotion_status": "NOT_PROMOTED"
+        "ground": "Data/Ground/a02p04.rsground",
+        "tile": "Content/Tile/a02p04_Base.tile",
+        "zone_registry": "Data/Zone/master_zone.json",
+        "zone_registry_entry": "a02p04",
+        "promotion_status": "PROMOTED_INTEGRATION_PRESERVING_ENTITY_MIGRATION",
+        "preexisting_destinations": true,
+        "pre_promotion_destinations": {
+          "ground": {
+            "preexisting": true,
+            "sha256": "b792870dc610761c89fe9fd5c26fcee343714311b04d9a17a52521fa5c9f738f",
+            "reserve": "RESERVE/pmdred_pre_promotion/a02p04/a02p04.rsground"
+          },
+          "tile": {
+            "preexisting": false,
+            "sha256": null,
+            "reserve": null
+          },
+          "legacy_case_tile": {
+            "preexisting": true,
+            "sha256": "2270fe64e93dca7b7c15dca06c8e87e7d4b1aeae4ff558ad9c86853207eb7ea0",
+            "reserve": "RESERVE/pmdred_pre_promotion/a02p04/A02p04_Base.tile"
+          }
+        },
+        "pre_promotion_record": "RESERVE/pmdred_pre_promotion/a02p04/README.md",
+        "promoted_ground_sha256": "9add5df8383ddb077c832ddae9e06287ad29cd6db695437b7d1f655af8a2c790",
+        "promoted_tile_sha256": "2270fe64e93dca7b7c15dca06c8e87e7d4b1aeae4ff558ad9c86853207eb7ea0"
       },
-      "evidence": null
+      "provenance": {
+        "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+        "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+        "conversion_report_sha256": "91f3b460b3e3b7689bc608ece2006cb6103d653bcdc22ad028f4172c3a1b0fdc",
+        "candidate_ground_sha256": "9add5df8383ddb077c832ddae9e06287ad29cd6db695437b7d1f655af8a2c790",
+        "candidate_tile_sha256": "2270fe64e93dca7b7c15dca06c8e87e7d4b1aeae4ff558ad9c86853207eb7ea0",
+        "source_normalized_sha256": {
+          "A02P04": "2c934191741dc5e7f6b1d2b045ec32543630bde154a04d9a0bed3bcbe5d21c4b",
+          "A02P04c": "05fbbdf9248ac726c1db623eb031731bc701ae0387e67bfc110d74a7d8f29ab2",
+          "A02P04m": "4bda0accfd4e58dd9b86e89e626c69c44c6966d9bc9f8999837f85b0716a8d21"
+        },
+        "events_sha256": "0536ae7fd36146f775b4c8323f7434f9774be3cc8b76e8a39fcad750dbbd3b94",
+        "report_sha256": "adfdced255feaf9a28d42c8b238117c7f0de4a3af0549f7d3260be45ba24682a",
+        "fixture_manifest_sha256": "3f09a69908326e219b2a0444d35ff1bb2c2447a58a4cf7520d44ff01a07dc0e0",
+        "termination_sha256": "6ddc45ab6ab3f33cd9265d706820e7ba13c1b30a7d23748a770955364d91a309",
+        "detailed_provenance": "docs/pmdred_eu/pmdo_validation/a02p04_exhaustive_pass/provenance.json",
+        "authenticated_canonical_baseline_ground_sha256": "15d18cb20ccaadb38887e2c3c722e2b5983d3184f1409960bed15c951451a209",
+        "integrated_candidate_ground_sha256": "9add5df8383ddb077c832ddae9e06287ad29cd6db695437b7d1f655af8a2c790"
+      },
+      "evidence": {
+        "directory": "docs/pmdred_eu/pmdo_validation/a02p04_exhaustive_pass",
+        "integrity": {
+          "result": "PASS",
+          "manifest": "docs/pmdred_eu/pmdo_validation/a02p04_exhaustive_pass/evidence_hashes.sha256",
+          "checked": 36,
+          "immutable_failures": [],
+          "historical_progressive_drift": []
+        }
+      },
+      "promoted_destination_checks": [
+        {
+          "role": "ground",
+          "path": "Data/Ground/a02p04.rsground",
+          "expected_sha256": "9add5df8383ddb077c832ddae9e06287ad29cd6db695437b7d1f655af8a2c790",
+          "actual_sha256": "9add5df8383ddb077c832ddae9e06287ad29cd6db695437b7d1f655af8a2c790",
+          "result": "PASS"
+        },
+        {
+          "role": "tile",
+          "path": "Content/Tile/a02p04_Base.tile",
+          "expected_sha256": "2270fe64e93dca7b7c15dca06c8e87e7d4b1aeae4ff558ad9c86853207eb7ea0",
+          "actual_sha256": "2270fe64e93dca7b7c15dca06c8e87e7d4b1aeae4ff558ad9c86853207eb7ea0",
+          "result": "PASS"
+        }
+      ],
+      "zone_registry": {
+        "required_by_record": true,
+        "declared": true,
+        "current_occurrences": 1,
+        "current_index": 124
+      }
     },
     {
       "id": "a03p01",

@@ -1,0 +1,93 @@
+{
+  "schema": "new-era.pmdred-eu-occupied-ground-migration.v1",
+  "ground": "a02p04",
+  "result": "PASS_HASH_GATED_ENTITY_INTEGRATION",
+  "policy_schema": "new-era.pmdred-eu-occupied-ground-migration-policy.v1",
+  "historical": {
+    "ground": "Data/Ground/a02p04.rsground",
+    "ground_sha256": "b792870dc610761c89fe9fd5c26fcee343714311b04d9a17a52521fa5c9f738f",
+    "tile": "Content/Tile/A02p04_Base.tile",
+    "tile_sha256": "2270fe64e93dca7b7c15dca06c8e87e7d4b1aeae4ff558ad9c86853207eb7ea0",
+    "complete_historical_ground_reserved_before_active_replacement_required": true,
+    "complete_historical_tile_reserved_before_active_replacement_required": true
+  },
+  "canonical_baseline": {
+    "ground": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/grounds/a02p04.rsground",
+    "ground_sha256": "15d18cb20ccaadb38887e2c3c722e2b5983d3184f1409960bed15c951451a209",
+    "tile": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/tiles/a02p04_Base.tile",
+    "tile_sha256": "2270fe64e93dca7b7c15dca06c8e87e7d4b1aeae4ff558ad9c86853207eb7ea0"
+  },
+  "integrated_candidate": {
+    "ground": ".runtime-cache/pmdred-eu-a02p04-entity-integrated-candidate/grounds/a02p04.rsground",
+    "ground_sha256": "9add5df8383ddb077c832ddae9e06287ad29cd6db695437b7d1f655af8a2c790",
+    "tile": ".runtime-cache/pmdred-eu-a02p04-entity-integrated-candidate/tiles/a02p04_Base.tile",
+    "tile_sha256": "2270fe64e93dca7b7c15dca06c8e87e7d4b1aeae4ff558ad9c86853207eb7ea0"
+  },
+  "entity_integration": {
+    "mode": "additive_markers_spawners_only",
+    "canonical_entity_layer_count": 1,
+    "preserved_entity_layer_count": 1,
+    "entity_counts": {
+      "markers": 2,
+      "spawners": 1,
+      "map_characters": 0,
+      "ground_objects": 0
+    },
+    "ordered_names": {
+      "markers": [
+        "Main_Entrance_Marker",
+        "Cutscene_Marker"
+      ],
+      "spawners": [
+        "TEAMMATE_1"
+      ]
+    },
+    "entity_payload_sha256": {
+      "Main_Entrance_Marker": "51612b0e4093d768719c89ce7d017ca4bbdaccd51368ff97d3d72e05c61d6e9a",
+      "Cutscene_Marker": "36e5017507f973b2c3c33febf7ac50447654d857b12c49867f288226452badf6",
+      "TEAMMATE_1": "3b98fc5c8ccb2e3d6867e3e2bf3c40c9c09e2195f6bf33fd84d30f175201b9a3"
+    },
+    "colliders": {
+      "Main_Entrance_Marker": {
+        "X": 232,
+        "Y": 304,
+        "Width": 16,
+        "Height": 16
+      },
+      "Cutscene_Marker": {
+        "X": 128,
+        "Y": 64,
+        "Width": 16,
+        "Height": 16
+      },
+      "TEAMMATE_1": {
+        "X": 248,
+        "Y": 304,
+        "Width": 16,
+        "Height": 16
+      }
+    },
+    "canonical_dimensions_pixels": [
+      264,
+      384
+    ],
+    "all_colliders_within_canonical_geometry": true,
+    "all_entity_payloads_preserved_byte_for_byte_at_json_value_level": true,
+    "canonical_data_unchanged_outside_additive_entities": true
+  },
+  "historical_reserve_provenance": {
+    "RESERVE/red_grounds/a02p04.rsground": "5a91344deb7e0c8682aa421486d603592d53d12df5b8c8476ffb1b026f88daed",
+    "RESERVE/red_tiles/a02p04_Base.tile": "2270fe64e93dca7b7c15dca06c8e87e7d4b1aeae4ff558ad9c86853207eb7ea0"
+  },
+  "related_scripts_unchanged": {
+    "Data/Script/halcyon/ground/a02p04/init.lua": "b280ed09c6c7ba25586a680e1db74562b9c4f0158e2fdedacb150b75965523a0",
+    "Data/Script/halcyon/FugitiveArc.lua": "cf9ffe31cb90c7301808d920522463cc66e0e7349f74a1c8fdfca061c1621519",
+    "Data/Script/halcyon/FugitiveCinematics.lua": "1fea1611e0f9636f6fd8ca6268ba9d2d676972f3b153162b694950c7f32eb484",
+    "Data/Script/halcyon/arc_fugitif/scene/a02p04.lua": "2c827064a8ee97a8b20ef57ce645d2566a6f5cd9aa255efbf4497b5ac1111f70"
+  },
+  "canonical_case_tile_identity": "Content/Tile/a02p04_Base.tile",
+  "legacy_case_tile_retained_unchanged": "Content/Tile/A02p04_Base.tile",
+  "existing_asset_discarded": false,
+  "existing_entity_silently_deactivated": false,
+  "scripts_modified": false
+}

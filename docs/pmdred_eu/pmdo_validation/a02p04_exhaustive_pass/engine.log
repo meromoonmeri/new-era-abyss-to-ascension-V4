@@ -1,0 +1,266 @@
+[2026/08/12 21:47:21.997] =========================================
+
+[2026/08/12 21:47:22.005] SESSION STARTED: 2026/08/12 21:47:22
+
+[2026/08/12 21:47:22.005] Version: 0.8.12.0
+
+[2026/08/12 21:47:22.006] .NET 8.0.26
+
+[2026/08/12 21:47:22.006] =========================================
+
+[2026/08/12 21:47:22.026] Queued quest for loading: "pmdred_eu_fixture".
+
+[2026/08/12 21:47:22.031] -----------------------------------------
+
+[2026/08/12 21:47:22.032] Quest: New Era : Abyss to Ascension 0.5.1 cae98609-7a96-4cfc-b5ab-0e1d41f6a1ff
+
+[2026/08/12 21:47:22.032] -----------------------------------------
+
+[2026/08/12 21:47:22.088] [SE]:Initialized Lua 5.4
+
+[2026/08/12 21:47:22.089] [SE]:Importing .NET packages..
+
+[2026/08/12 21:47:22.096] [SE]: **- Lua engine started! -**
+
+[2026/08/12 21:47:22.097] [SE]:Exposing game engine components instances..
+
+[2026/08/12 21:47:22.106] [SE]:Exposing script interface..
+
+[2026/08/12 21:47:22.110] [SE]:Setting up lua globals..
+
+[2026/08/12 21:47:22.110] [SE]:Setting up lua paths..
+
+[2026/08/12 21:47:22.114] [SE]:Setting up lua functions...
+
+[2026/08/12 21:47:22.114] [SE]:Setting up debug functions...
+
+[2026/08/12 21:47:22.117] [SE]:Setting up default script vars...
+
+[2026/08/12 21:47:22.124] [SE]:Caching common lib...
+
+[2026/08/12 21:47:22.140] [SE]:Loading events...
+
+[2026/08/12 21:47:22.168] [SE]:Installing game interface functions..
+
+[2026/08/12 21:47:22.174] [SE]:DebugTools:initialize()
+
+[2026/08/12 21:47:22.178] [SE]:Registered service DebugTools!
+
+[2026/08/12 21:47:22.178] [SE]:UpgradeTools:initialize()
+
+[2026/08/12 21:47:22.179] [SE]:Registered service UpgradeTools!
+
+[2026/08/12 21:47:22.179] [SE]:MenuTools:initialize()
+
+[2026/08/12 21:47:22.179] [SE]:Registered service MenuTools!
+
+[2026/08/12 21:47:22.182] [SE]:Registered service DebugTools!
+
+[2026/08/12 21:47:22.182] [SE]:Registered service MenuTools!
+
+[2026/08/12 21:47:22.182] [SE]:Registered service UpgradeTools!
+
+[2026/08/12 21:47:22.183] [SE]:Registered service ConfigTools!
+
+[2026/08/12 21:47:22.184] [SE]:Registered service NREProbe!
+
+[2026/08/12 21:47:22.185] [SE]:Registered service PmdRedEuNativeGroundValidator!
+
+[2026/08/12 21:47:22.191] [SE]: **- Lua engine ready! -**
+
+[2026/08/12 21:47:22.191] Reserializing indices
+
+[2026/08/12 21:47:22.770] =========================================
+
+[2026/08/12 21:47:22.777] SESSION STARTED: 2026/08/12 21:47:22
+
+[2026/08/12 21:47:22.777] Version: 0.8.12.0
+
+[2026/08/12 21:47:22.778] .NET 8.0.26
+
+[2026/08/12 21:47:22.778] =========================================
+
+[2026/08/12 21:47:22.800] Queued quest for loading: "pmdred_eu_fixture".
+
+[2026/08/12 21:47:22.805] -----------------------------------------
+
+[2026/08/12 21:47:22.807] Quest: New Era : Abyss to Ascension 0.5.1 cae98609-7a96-4cfc-b5ab-0e1d41f6a1ff
+
+[2026/08/12 21:47:22.807] -----------------------------------------
+
+[2026/08/12 21:47:22.922] FNA3D Driver: OpenGL
+
+[2026/08/12 21:47:22.922] OpenGL Renderer: ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver-5.0.0)
+
+[2026/08/12 21:47:22.922] OpenGL Driver: OpenGL ES 3.1.0 (ANGLE 2.1.20986 git hash: ce590bee825a)
+
+[2026/08/12 21:47:22.922] OpenGL Vendor: Google Inc. (Google)
+
+[2026/08/12 21:47:22.922] MojoShader Profile: glsles3
+
+[2026/08/12 21:47:22.952] [SE]:Initialized Lua 5.4
+
+[2026/08/12 21:47:22.953] [SE]:Importing .NET packages..
+
+[2026/08/12 21:47:22.960] [SE]: **- Lua engine started! -**
+
+[2026/08/12 21:47:26.120] [SE]:Exposing game engine components instances..
+
+[2026/08/12 21:47:26.137] [SE]:Exposing script interface..
+
+[2026/08/12 21:47:26.141] [SE]:Setting up lua globals..
+
+[2026/08/12 21:47:26.142] [SE]:Setting up lua paths..
+
+[2026/08/12 21:47:26.146] [SE]:Setting up lua functions...
+
+[2026/08/12 21:47:26.146] [SE]:Setting up debug functions...
+
+[2026/08/12 21:47:26.148] [SE]:Setting up default script vars...
+
+[2026/08/12 21:47:26.155] [SE]:Caching common lib...
+
+[2026/08/12 21:47:26.173] [SE]:Loading events...
+
+[2026/08/12 21:47:26.206] [SE]:Installing game interface functions..
+
+[2026/08/12 21:47:26.213] [SE]:DebugTools:initialize()
+
+[2026/08/12 21:47:26.215] [SE]:Registered service DebugTools!
+
+[2026/08/12 21:47:26.216] [SE]:UpgradeTools:initialize()
+
+[2026/08/12 21:47:26.216] [SE]:Registered service UpgradeTools!
+
+[2026/08/12 21:47:26.217] [SE]:MenuTools:initialize()
+
+[2026/08/12 21:47:26.217] [SE]:Registered service MenuTools!
+
+[2026/08/12 21:47:26.220] [SE]:Registered service DebugTools!
+
+[2026/08/12 21:47:26.220] [SE]:Registered service MenuTools!
+
+[2026/08/12 21:47:26.220] [SE]:Registered service UpgradeTools!
+
+[2026/08/12 21:47:26.221] [SE]:Registered service ConfigTools!
+
+[2026/08/12 21:47:26.222] [SE]:Registered service NREProbe!
+
+[2026/08/12 21:47:26.223] [SE]:Registered service PmdRedEuNativeGroundValidator!
+
+[2026/08/12 21:47:26.229] [SE]: **- Lua engine ready! -**
+
+[2026/08/12 21:47:26.234] LuaEngine.LoadSavedData()..
+
+[2026/08/12 21:47:26.594] Zone Seed: 18446744072740359723
+
+[2026/08/12 21:47:26.595] Zone.OnInit(): Initializing the zone..
+
+[2026/08/12 21:47:26.597] Zone.LoadScriptEvents(): Added event Init to zone master_zone!
+
+[2026/08/12 21:47:26.598] Zone.LoadScriptEvents(): Added event ExitSegment to zone master_zone!
+
+[2026/08/12 21:47:26.598] Zone.LoadScriptEvents(): Added event Rescued to zone master_zone!
+
+[2026/08/12 21:47:26.598] ScriptEvent.ReloadEvent(): Reloading event CURZONESCR.Init!
+
+[2026/08/12 21:47:26.599] ScriptEvent.ReloadEvent(): Reloading event CURZONESCR.ExitSegment!
+
+[2026/08/12 21:47:26.599] ScriptEvent.ReloadEvent(): Reloading event CURZONESCR.Rescued!
+
+[2026/08/12 21:47:26.603] Loading rsground file: a02p04
+
+[2026/08/12 21:47:26.746] Completed file load.
+
+[2026/08/12 21:47:26.752] GroundMap.OnInit(): Initializing the map..
+
+[2026/08/12 21:47:26.754] GroundMap.LoadScriptEvents(): Added event Init to map a02p04!
+
+[2026/08/12 21:47:26.755] GroundMap.LoadScriptEvents(): Added event Enter to map a02p04!
+
+[2026/08/12 21:47:26.756] GroundMap.LoadScriptEvents(): Added event Exit to map a02p04!
+
+[2026/08/12 21:47:26.756] GroundMap.LoadScriptEvents(): Added event Update to map a02p04!
+
+[2026/08/12 21:47:26.756] GroundMap.LoadScriptEvents(): Added event GameSave to map a02p04!
+
+[2026/08/12 21:47:26.756] GroundMap.LoadScriptEvents(): Added event GameLoad to map a02p04!
+
+[2026/08/12 21:47:26.760] LuaEngine.OnGroundMapInit()..
+
+[2026/08/12 21:47:26.774] LuaEngine.OnGroundMapEnter()..
+
+[2026/08/12 21:48:12.267] LuaEngine.OnGroundMapExit()..
+
+[2026/08/12 21:48:12.268] GroundMap.~GroundMap(): Finalizing a02p04..
+
+[2026/08/12 21:48:12.268] ScriptEvent.DoCleanup(): Doing cleanup on CURMAPSCR.Init!
+
+[2026/08/12 21:48:12.268] ScriptEvent.DoCleanup(): Doing cleanup on CURMAPSCR.Enter!
+
+[2026/08/12 21:48:12.268] ScriptEvent.DoCleanup(): Doing cleanup on CURMAPSCR.Exit!
+
+[2026/08/12 21:48:12.268] ScriptEvent.DoCleanup(): Doing cleanup on CURMAPSCR.Update!
+
+[2026/08/12 21:48:12.268] ScriptEvent.DoCleanup(): Doing cleanup on CURMAPSCR.GameSave!
+
+[2026/08/12 21:48:12.268] ScriptEvent.DoCleanup(): Doing cleanup on CURMAPSCR.GameLoad!
+
+[2026/08/12 21:48:12.274] Loading rsground file: a02p04
+
+[2026/08/12 21:48:12.421] Completed file load.
+
+[2026/08/12 21:48:12.421] GroundMap.OnInit(): Initializing the map..
+
+[2026/08/12 21:48:12.421] GroundMap.LoadScriptEvents(): Added event Init to map a02p04!
+
+[2026/08/12 21:48:12.421] GroundMap.LoadScriptEvents(): Added event Enter to map a02p04!
+
+[2026/08/12 21:48:12.421] GroundMap.LoadScriptEvents(): Added event Exit to map a02p04!
+
+[2026/08/12 21:48:12.421] GroundMap.LoadScriptEvents(): Added event Update to map a02p04!
+
+[2026/08/12 21:48:12.421] GroundMap.LoadScriptEvents(): Added event GameSave to map a02p04!
+
+[2026/08/12 21:48:12.421] GroundMap.LoadScriptEvents(): Added event GameLoad to map a02p04!
+
+[2026/08/12 21:48:12.422] LuaEngine.OnGroundMapInit()..
+
+[2026/08/12 21:48:12.422] LuaEngine.OnGroundMapEnter()..
+
+[2026/08/12 21:48:12.627] LuaEngine.OnGroundMapExit()..
+
+[2026/08/12 21:48:12.628] GroundMap.~GroundMap(): Finalizing a02p04..
+
+[2026/08/12 21:48:12.628] ScriptEvent.DoCleanup(): Doing cleanup on CURMAPSCR.Init!
+
+[2026/08/12 21:48:12.628] ScriptEvent.DoCleanup(): Doing cleanup on CURMAPSCR.Enter!
+
+[2026/08/12 21:48:12.628] ScriptEvent.DoCleanup(): Doing cleanup on CURMAPSCR.Exit!
+
+[2026/08/12 21:48:12.628] ScriptEvent.DoCleanup(): Doing cleanup on CURMAPSCR.Update!
+
+[2026/08/12 21:48:12.628] ScriptEvent.DoCleanup(): Doing cleanup on CURMAPSCR.GameSave!
+
+[2026/08/12 21:48:12.628] ScriptEvent.DoCleanup(): Doing cleanup on CURMAPSCR.GameLoad!
+
+[2026/08/12 21:48:12.631] Loading rsground file: pmdred_eu_validation_sink
+
+[2026/08/12 21:48:12.702] Completed file load.
+
+[2026/08/12 21:48:12.702] GroundMap.OnInit(): Initializing the map..
+
+[2026/08/12 21:48:12.703] GroundMap.LoadScriptEvents(): Added event Init to map pmdred_eu_validation_sink!
+
+[2026/08/12 21:48:12.703] GroundMap.LoadScriptEvents(): Added event Enter to map pmdred_eu_validation_sink!
+
+[2026/08/12 21:48:12.703] GroundMap.LoadScriptEvents(): Added event Exit to map pmdred_eu_validation_sink!
+
+[2026/08/12 21:48:12.703] GroundMap.LoadScriptEvents(): Added event Update to map pmdred_eu_validation_sink!
+
+[2026/08/12 21:48:12.704] LuaEngine.OnGroundMapInit()..
+
+[2026/08/12 21:48:12.704] LuaEngine.OnGroundMapEnter()..
+
+[2026/08/12 21:48:12.745] LuaEngine.OnGraphicsUnload()..
+
