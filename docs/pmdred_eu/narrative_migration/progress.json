@@ -11,15 +11,16 @@
     "in_progress_scene_count": 1,
     "not_started_scene_count": 132,
     "current_scene": "s01",
-    "current_boundary": "portal prelude through BGM_SWITCH",
-    "blocking_dependency": "SPECIAL_TEXT_PERSONALITY_QUIZ_AND_PALETTE_0x22"
+    "current_boundary": "portal prelude through BGM_SWITCH; quiz data/scoring/parallax core validated off-route",
+    "blocking_dependency": "INTERACTIVE_PERSONALITY_QUIZ_TIMELINE_PALETTES_AND_NEW_ERA_STARTER_HANDOFF"
   },
   "current_lot": {
-    "id": "global_presentation_s01_prelude",
-    "migration_plan_phase": "Phase 6.1 — Socle global",
-    "result": "PARTIAL_PASS_DEPENDENCY_BLOCKED",
+    "id": "personality_quiz_rom_data_scoring_core",
+    "migration_plan_phase": "Phase 6.1 — Socle global / Personality Quiz intégré",
+    "result": "CORE_PASS_NOT_PRODUCTION_ROUTED",
     "full_scene_migrated": false,
-    "implemented_source_command_indices": [
+    "full_quiz_integrated": false,
+    "s01_implemented_source_command_indices": [
       0,
       1,
       2,
@@ -32,15 +33,17 @@
       9,
       10
     ],
-    "blocked_source_command_indices": [
+    "s01_blocked_source_command_indices": [
       11,
       12,
       13,
       14,
       15
     ],
-    "runtime_validation": "docs/pmdred_eu/narrative_migration/scenes/s01/runtime/validation.json",
-    "runtime_validation_sha256": "4094165d5cbb9b925a0c10ec3514cdae7877af8bca0e7495916a085377e50d88",
+    "quiz_authority": "docs/pmdred_eu/narrative_migration/personality_quiz_fr_eu.json",
+    "quiz_authority_sha256": "ad23d9f43484fa1cd75d53e092c295dd3f510407e13bcc449a0fcf3f41ee019d",
+    "runtime_validation": "docs/pmdred_eu/narrative_migration/personality_quiz/runtime_core/validation.json",
+    "runtime_validation_sha256": "e16ba851a7331b1e8322f26d7c7c4e74639b227ce6706c74153ed7347be5a321",
     "normal_pmdo_exit": true,
     "route_connected": false
   },
@@ -717,7 +720,7 @@
       "migration_status": "NOT_STARTED"
     }
   ],
-  "next_action": "Integrate the exact PMD Red EU personality quiz into the existing New Era personality_test system, preserve its two-layer parallax and Red staging, map the canonical result into the complete New Era starter catalogue, then close palette opcodes 0x22/0x23 and rerun the isolated PMDO gate.",
+  "next_action": "Route the canonical question engine through the existing personality_test.CharacterSelect flow, reproduce the interactive French EU question/gender/description timeline with canonical introduction, audio, palettes, VFX, and waits, then bridge the resolved personality into the complete New Era starter catalogue and validate every observable choice path in PMDO.",
   "definitive_integration_contract": "docs/pmdred_eu/narrative_migration/integration_contract.json",
   "definitive_integration_contract_sha256": "688f73c41d8f4f8f8bc0cecea743a55e24b43d3b3480b7ae080b7ad86d841c32",
   "architecture": {
@@ -730,5 +733,27 @@
     "technical_namespace_role": "COLLISION_AVOIDANCE_AND_ISOLATED_VALIDATION_ONLY",
     "canonical_dungeons_and_cutscenes": true,
     "canonical_encounter_and_boss_staging": true
+  },
+  "personality_quiz": {
+    "target": "Data/Script/halcyon/ground/personality_test/",
+    "status": "CORE_PASS_NOT_PRODUCTION_ROUTED",
+    "classification": {
+      "rom_text_questions_answers_effects": "PMD_RED_EU_CANON",
+      "target_ground_parallax": "NEW_ERA_NATIVE",
+      "rng_injection_fixture": "NEW_ERA_ADAPTATION"
+    },
+    "rom_record_count": 219,
+    "selectable_question_count": 55,
+    "branch_question": "BraveQuest2B",
+    "asked_question_count": 8,
+    "canonical_data_module": "Data/Script/halcyon/ground/personality_test/pmdred_quiz_data.lua",
+    "canonical_data_module_sha256": "05f454799f998551741fe62870606d7dcfb32f0d686115471207c8be4d904b52",
+    "scoring_engine": "Data/Script/halcyon/ground/personality_test/pmdred_quiz_engine.lua",
+    "scoring_engine_sha256": "eef83d3e439e0cbb1d62b80fefd8b4afb268ea86d744fcec097b68e940494d70",
+    "runtime_event_count": 33,
+    "runtime_capture_count": 2,
+    "runtime_parallax_changed_rgb_pixels": 76800,
+    "production_route_connected": false,
+    "complete_new_era_starter_handoff": false
   }
 }

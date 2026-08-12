@@ -16,13 +16,14 @@ L’isolation actuelle de `s01` reste nécessaire pour obtenir une preuve PMDO a
 
 ## État actuel
 
-- **Lot actif :** phase 6.1, socle global, scène `s01` — prélude du portail avant le test de personnalité.
-- **Résultat :** `PARTIAL_PASS_DEPENDENCY_BLOCKED`.
+- **Lot actif :** phase 6.1, socle du Personality Quiz intégré dans le dossier `personality_test` New Era existant.
+- **Résultat du socle :** `CORE_PASS_NOT_PRODUCTION_ROUTED`.
 - **Scènes totalement migrées :** **0/133**.
-- **Scène en cours :** `s01`, **11 commandes source sur 16** reproduites jusqu’au changement de musique inclus.
+- **Scène en cours :** `s01`, toujours **11 commandes source sur 16** reproduites jusqu’au changement de musique inclus.
+- **Corpus canonique :** **219 enregistrements texte** français alignés dans la ROM EU ; **55 questions sélectionnables**, huit posées par catégories distinctes, plus `BraveQuest2B` exclusivement conditionnelle.
 - **Connexion aux routes de jeu :** aucune.
 
-La scène n’est volontairement **pas déclarée terminée**. Les commandes suivantes restent bloquées : opcode palette `0x22`, `SPECIAL_TEXT_PERSONALITY_QUIZ`, fondu BGM, opcode palette `0x23` et `RET`. Le quiz Red doit être intégré au système `personality_test` existant, puis transmettre son résultat au sélecteur New Era complet ; aucun second quiz et aucun remplacement silencieux ne sont autorisés.
+La scène et le quiz ne sont volontairement **pas déclarés terminés**. Le corpus, l’ordre, le rejet des catégories déjà tirées, les pondérations, l’embranchement `BraveQuest2B`, le calcul et le départage cyclique sont maintenant présents sous `Data/Script/halcyon/ground/personality_test/`. Ils ont été chargés par le vrai runtime PMDO, mais l’entrée de production `CharacterSelect()` ne les appelle pas encore. Restent notamment l’UI interactive, l’introduction, les opcodes palette `0x22`/`0x23`, les VFX/SFX/BGM et timings complets, puis la transmission vers le catalogue intégral des starters New Era. Aucun second quiz et aucun remplacement silencieux ne sont autorisés.
 
 ## Ce qui est effectivement porté pour `s01`
 
@@ -38,9 +39,21 @@ La scène n’est volontairement **pas déclarée terminée**. Les commandes sui
 
 Les textes ne proviennent pas de pret : `authority.json` conserve leur adresse et leurs bytes français EU dans l’ordre d’exécution.
 
+## Socle canonique du Personality Quiz
+
+`personality_quiz_fr_eu.json` associe chaque enregistrement français directement extrait de la ROM à la structure technique du commit pret verrouillé. Le rôle de chaque autorité est strictement séparé :
+
+- **ROM PMD Red EU :** glyphes français, ponctuation, retours de ligne, attentes `#W`, changements de page `#P`, centrage et adresses ;
+- **pret/pmd-red :** graphe des questions, ordre de pointeurs, catégories, valeurs de menu et effets de personnalité ;
+- **New Era :** Ground `personality_test`, parallaxe, RNG injectée et futur pont vers son catalogue complet de starters.
+
+Le générateur refuse tout autre hash ROM ou commit pret. Il produit `pmdred_quiz_data.lua`; `pmdred_quiz_engine.lua` applique huit tirages sans réutiliser une catégorie, l’embranchement conditionnel de la question brave et le départage canonique par comparaison strictement supérieure. Le module n’utilise pas `math.random` : le flux de production devra injecter la RNG enregistrable de New Era.
+
 ## Validation PMDO réelle
 
-Le replay isolé a été exécuté dans **PMDO 0.8.12** avec le SDL headless patché d’Agent A :
+Les replays isolés ont été exécutés dans **PMDO 0.8.12** avec le SDL headless patché d’Agent A.
+
+Pour le prélude `s01` :
 
 - 55 événements de timeline contigus avec frames monotones, frontière atteinte à la frame runtime 199 ;
 - six commandes de dialogue et sept pages dans l’ordre attendu, avec début, capture et fin de chaque page journalisés ;
@@ -50,7 +63,15 @@ Le replay isolé a été exécuté dans **PMDO 0.8.12** avec le SDL headless pat
 - aucun signal watchdog, SIGSEGV, kill forcé ou processus résiduel ;
 - aucun `RUNTIME_FAIL`, exception Lua ou clé de texte manquante.
 
-Limite de preuve : `_GROUND:Screenshot()` capture le plan Ground, pas les glyphes UI. Les glyphes français sont donc prouvés par égalité avec les bytes ROM EU, puis par les appels UI réels sans exception et les événements synchronisés ; aucune comparaison pixel des glyphes n’est revendiquée.
+Pour le socle du quiz :
+
+- 33 événements contigus couvrant le chargement des données, neuf appels RNG dont un rejet de catégorie, huit réponses, le score, l’embranchement brave et un cas de départage ;
+- inventaire runtime exact de 13 personnalités, 55 questions sélectionnables, une question conditionnelle et huit questions posées ;
+- deux captures 320×240 synchronisées du vrai Ground `personality_test`, séparées par 120 frames demandées ; les 76 800 pixels RGB changent sous l’effet des couches `Dream_Back` `+30` et `Dream_Front` `-30` ;
+- hashes des captures reproduits lors d’un second run ; sortie native 0, sans watchdog ni processus résiduel ;
+- verdict volontairement partiel `CORE_PASS_NOT_PRODUCTION_ROUTED`.
+
+Limite de preuve : `_GROUND:Screenshot()` capture le plan Ground, pas les glyphes UI. Les glyphes français sont donc prouvés par égalité avec les bytes ROM EU. Le lot du quiz ne revendique encore aucune validation de menu interactif ; celle du prélude repose en plus sur les appels UI réels sans exception et leurs événements synchronisés.
 
 Le transport GitHub actuel de DumpAsset n’a plus le hash gzip historique, mais son extraction possède exactement les **11 485 fichiers** et le manifeste d’arbre SHA-256 verrouillé par Agent A. Le lock suivi n’a pas été modifié.
 
@@ -74,9 +95,10 @@ Reproduction du lot PMDO, une fois l’environnement headless verrouillé prése
 
 ```bash
 bash tools/run_pmdred_eu_scene_s01_runtime.sh
+bash tools/run_pmdred_eu_personality_quiz_runtime.sh
 ```
 
-Le runner ne lance ni convertisseur, ni finalizer, ni promoteur Ground.
+Le second runner reproduit aussi l’extraction ROM dans un dossier ignoré avant de comparer octet pour octet les deux sorties suivies. Aucun runner ne lance de convertisseur, finalizer ou promoteur Ground.
 
 ## Artefacts
 
@@ -87,9 +109,13 @@ Le runner ne lance ni convertisseur, ni finalizer, ni promoteur Ground.
 - [`scenes/s01/runtime/validation.json`](scenes/s01/runtime/validation.json) — verdict PMDO partiel ;
 - [`scenes/s01/runtime/events.jsonl`](scenes/s01/runtime/events.jsonl) — timeline réelle ;
 - [`scenes/s01/runtime/termination.json`](scenes/s01/runtime/termination.json) — terminaison native ;
-- [`scenes/s01/runtime/evidence_hashes.sha256`](scenes/s01/runtime/evidence_hashes.sha256) — intégrité de la preuve ;
+- [`scenes/s01/runtime/evidence_hashes.sha256`](scenes/s01/runtime/evidence_hashes.sha256) — intégrité de la preuve `s01` ;
+- [`personality_quiz_fr_eu.json`](personality_quiz_fr_eu.json) — 219 enregistrements ROM et graphe/scoring canonique ;
+- [`personality_quiz/runtime_core/validation.json`](personality_quiz/runtime_core/validation.json) — verdict PMDO du socle ;
+- [`personality_quiz/runtime_core/events.jsonl`](personality_quiz/runtime_core/events.jsonl) — timeline du socle ;
+- [`personality_quiz/runtime_core/evidence_hashes.sha256`](personality_quiz/runtime_core/evidence_hashes.sha256) — intégrité de cette preuve ;
 - [`HASHES.sha256`](HASHES.sha256) — intégrité du lot, des scripts et des autorités consommées.
 
 ## Prochaine étape obligatoire
 
-Porter exactement le test de personnalité PMD Red EU **dans le système `personality_test` New Era existant**, déterminer les opcodes palette `0x22`/`0x23`, puis relier le résultat canonique au catalogue complet des starters New Era. `s01` ne pourra être promue qu’après validation des questions, branches, pondérations, résultat, parallaxe, assets Pokémon, fondus, audio, état final et transition. L’entrée Métano et l’arc Fugitive ne seront connectés qu’après ce gate.
+Faire appeler le moteur canonique par le flux `personality_test.CharacterSelect()` **existant**, porter l’UI française interactive et toute sa timeline d’introduction, palettes, VFX, SFX, BGM et attentes, puis relier la personnalité obtenue au catalogue complet des starters New Era. Chaque chemin de réponse, le genre, les descriptions et l’état final devront passer le gate PMDO avant de débloquer les opcodes `0x22`/`0x23` de `s01`. L’entrée Métano et l’arc Fugitive ne seront connectés qu’après ce gate.

@@ -84,7 +84,10 @@ class DefinitiveIntegrationContractTests(unittest.TestCase):
         self.assertFalse(self.progress["architecture"]["parallel_red_campaign"])
         self.assertFalse(self.progress["architecture"]["independent_second_quiz"])
         self.assertEqual(self.progress["summary"]["fully_migrated_scene_count"], 0)
-        self.assertEqual(self.progress["current_lot"]["result"], "PARTIAL_PASS_DEPENDENCY_BLOCKED")
+        self.assertEqual(self.progress["current_lot"]["result"], "CORE_PASS_NOT_PRODUCTION_ROUTED")
+        self.assertFalse(self.progress["current_lot"]["full_quiz_integrated"])
+        self.assertFalse(self.progress["personality_quiz"]["production_route_connected"])
+        self.assertFalse(self.progress["personality_quiz"]["complete_new_era_starter_handoff"])
 
 
 if __name__ == "__main__":
