@@ -1,9 +1,9 @@
 {
   "schema": "new-era.pmdred-eu-exact-pmdo-progress.v1",
-  "generated_at": "2026-08-12T11:49:24+00:00",
+  "generated_at": "2026-08-12T11:50:01+00:00",
   "repository": {
     "branch": "arena/019ff57e-new-era-abyss-to-ascension-v4",
-    "source_head": "8263427edb158d199bcd33eac0f37d3ba9a72c88"
+    "source_head": "0fd81c8dad2f692dca7c39cabb120c966ed26f27"
   },
   "scope": "219 canonical archive-backed Grounds; Ground-only until exhaustive validation is complete",
   "authority": {
@@ -20,11 +20,11 @@
   "summary": {
     "canonical_ground_count": 219,
     "static_pass_count": 219,
-    "runtime_pass_and_promoted_count": 20,
-    "remaining_count": 199,
-    "contiguous_plan_prefix_count": 18,
+    "runtime_pass_and_promoted_count": 21,
+    "remaining_count": 198,
+    "contiguous_plan_prefix_count": 19,
     "out_of_order_pilot_count": 2,
-    "next_ground": "b02p01c",
+    "next_ground": "b02p02a",
     "runtime_dependencies_ready": true,
     "checkpoint_integrity": "PASS"
   },
@@ -47,6 +47,7 @@
     "b01p02c",
     "b02p01a",
     "b02p01b",
+    "b02p01c",
     "h26p01",
     "a01p01"
   ],
@@ -68,14 +69,14 @@
     "b01p02b",
     "b01p02c",
     "b02p01a",
-    "b02p01b"
+    "b02p01b",
+    "b02p01c"
   ],
   "validated_out_of_order_pilots": [
     "h26p01",
     "a01p01"
   ],
   "remaining_ids": [
-    "b02p01c",
     "b02p02a",
     "b02p02b",
     "b02p02c",
@@ -410,85 +411,91 @@
         "ground": "t01p02a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "e699a00529d631701e7e964ea291cb24420fb32c51b0574d941c1c581230afe1",
-        "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+        "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
       },
       {
         "ground": "t01p02b",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "e1c4e4c1647e1ecea7841588b23913af038898bf51554216585b590241007e6a",
-        "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+        "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
       },
       {
         "ground": "t01p03",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "e7b2adbfc57cede69c3a727d9f53efa0dcb775b76138e33fe2f2934e54d2a5b3",
-        "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+        "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
       },
       {
         "ground": "t01p04",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "af9267c42bd2ada57dc5324d28fdc592dc7cba6fc3e5f883bfcf1778c53fe5f2",
-        "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+        "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
       },
       {
         "ground": "t01p05",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "110f07d0b0cd8d2b89e801b579747e53eaafa9ce6c6aadd5c1da782c5649a79e",
-        "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+        "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
       },
       {
         "ground": "t01p07",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "0a1c5280b99157323a914d9f029a19f243c80e2d27ff041d1bd63807f9183226",
-        "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+        "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
       },
       {
         "ground": "b01p00a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "b7c0b933ec73b3c6078f748209c8aa2b872e7ee1690811ede66c714bb7c2dc6d",
-        "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+        "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
       },
       {
         "ground": "b01p01a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "bc22b90d6769a785668ad7ea3c48f9716c93c3f881b00fab091e221d5fcd4c0e",
-        "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+        "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
       },
       {
         "ground": "b01p01b",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "c842cb920de7b9eed3919d00f9ace9c961098619773a02e2fae053c5871db88b",
-        "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+        "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
       },
       {
         "ground": "b01p01c",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "882fabd41bb7ebe348e4ce729ac9c9da169ee973f81a4b01b5702aa5c5d74345",
-        "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+        "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
       },
       {
         "ground": "b01p02a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "7232335622cb411610aca609869b4b2326c0b4ca16d43327976cbf85cecddd44",
-        "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+        "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
       },
       {
         "ground": "b01p02b",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "3c086654ff04243a797ad50e92f9685e3737782d93c93e8b64db93665212869c",
-        "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+        "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
       },
       {
         "ground": "b01p02c",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "d66bdda6e1f9639b33e4c741a6b5d06552d0c8d993f25839b8b9d73df1fb6ec4",
-        "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+        "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
       },
       {
         "ground": "b02p01a",
         "path": "Data/Zone/master_zone.json",
         "expected_sha256": "2aa418667bca9c12c61b56539f341f9e6528eb96eba4c5c4a58f68f06022fcf6",
-        "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+        "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
+      },
+      {
+        "ground": "b02p01b",
+        "path": "Data/Zone/master_zone.json",
+        "expected_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b",
+        "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
       },
       {
         "ground": "h26p01",
@@ -542,10 +549,10 @@
   "resume": {
     "restore": "bash tools/restore_pmdred_eu_validation_runtime.sh",
     "verify_checkpoint": "python3 tools/update_pmdred_eu_validation_progress.py --check",
-    "next_ground": "b02p01c",
+    "next_ground": "b02p02a",
     "next_recipe_template": "docs/pmdred_eu/pmdo_validation/t01p07_exhaustive_pass/commands.sh",
-    "working_recipe": ".runtime-cache/b02p01c-working-recipe.sh",
-    "rule": "Regenerate/restore exact inputs, hash-gate, validate b02p01c in isolation, compare every planned tick, promote only after all runtime/lifecycle gates pass, then regenerate this checkpoint."
+    "working_recipe": ".runtime-cache/b02p02a-working-recipe.sh",
+    "rule": "Regenerate/restore exact inputs, hash-gate, validate b02p02a in isolation, compare every planned tick, promote only after all runtime/lifecycle gates pass, then regenerate this checkpoint."
   },
   "dungeon_restitution": {
     "manifest": "docs/pmdred_eu/dungeon_grounds/manifest.json",
@@ -1820,7 +1827,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "e699a00529d631701e7e964ea291cb24420fb32c51b0574d941c1c581230afe1",
-              "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+              "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
             }
           ]
         }
@@ -2157,7 +2164,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "e1c4e4c1647e1ecea7841588b23913af038898bf51554216585b590241007e6a",
-              "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+              "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
             }
           ]
         }
@@ -2454,7 +2461,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "e7b2adbfc57cede69c3a727d9f53efa0dcb775b76138e33fe2f2934e54d2a5b3",
-              "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+              "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
             }
           ]
         }
@@ -2684,7 +2691,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "af9267c42bd2ada57dc5324d28fdc592dc7cba6fc3e5f883bfcf1778c53fe5f2",
-              "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+              "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
             }
           ]
         }
@@ -2958,7 +2965,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "110f07d0b0cd8d2b89e801b579747e53eaafa9ce6c6aadd5c1da782c5649a79e",
-              "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+              "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
             }
           ]
         }
@@ -3277,7 +3284,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "0a1c5280b99157323a914d9f029a19f243c80e2d27ff041d1bd63807f9183226",
-              "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+              "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
             }
           ]
         }
@@ -3504,7 +3511,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "b7c0b933ec73b3c6078f748209c8aa2b872e7ee1690811ede66c714bb7c2dc6d",
-              "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+              "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
             }
           ]
         }
@@ -3750,7 +3757,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "bc22b90d6769a785668ad7ea3c48f9716c93c3f881b00fab091e221d5fcd4c0e",
-              "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+              "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
             }
           ]
         }
@@ -3997,7 +4004,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "c842cb920de7b9eed3919d00f9ace9c961098619773a02e2fae053c5871db88b",
-              "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+              "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
             }
           ]
         }
@@ -4263,7 +4270,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "882fabd41bb7ebe348e4ce729ac9c9da169ee973f81a4b01b5702aa5c5d74345",
-              "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+              "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
             }
           ]
         }
@@ -4484,7 +4491,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "7232335622cb411610aca609869b4b2326c0b4ca16d43327976cbf85cecddd44",
-              "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+              "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
             }
           ]
         }
@@ -4705,7 +4712,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "3c086654ff04243a797ad50e92f9685e3737782d93c93e8b64db93665212869c",
-              "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+              "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
             }
           ]
         }
@@ -4926,7 +4933,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "d66bdda6e1f9639b33e4c741a6b5d06552d0c8d993f25839b8b9d73df1fb6ec4",
-              "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+              "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
             }
           ]
         }
@@ -5172,7 +5179,7 @@
             {
               "path": "Data/Zone/master_zone.json",
               "expected_sha256": "2aa418667bca9c12c61b56539f341f9e6528eb96eba4c5c4a58f68f06022fcf6",
-              "actual_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b"
+              "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
             }
           ]
         }
@@ -5415,7 +5422,13 @@
           "manifest": "docs/pmdred_eu/pmdo_validation/b02p01b_exhaustive_pass/evidence_hashes.sha256",
           "checked": 42,
           "immutable_failures": [],
-          "historical_progressive_drift": []
+          "historical_progressive_drift": [
+            {
+              "path": "Data/Zone/master_zone.json",
+              "expected_sha256": "e402d602ce3f6dd6221b524f7b55bf3760a1723a34b1ec8ce9075d8de81e197b",
+              "actual_sha256": "06cdafb983f335b8dae8a097a4b96e6674bc8606d0542bb3a9db028e5b8a46e5"
+            }
+          ]
         }
       },
       "promoted_destination_checks": [
@@ -5499,33 +5512,207 @@
           "tile_bytes_equal": false
         }
       },
-      "runtime": "NOT_RUN",
+      "runtime": "PASS",
+      "validated_at": "2026-08-12",
+      "validation_record": "docs/pmdred_eu/pmdo_validation/b02p01c_exhaustive_pass/validation_record.json",
+      "validation_record_sha256": "55401104ea73b398619b5ef296a3ec47628a23c402ede18b5c1ceae5d58cfc3a",
       "visual_comparison": {
-        "result": "NOT_RUN",
-        "comparative_png_paths": []
+        "result": "PASS",
+        "dimensions_pixels": [
+          552,
+          552
+        ],
+        "primary_sample_count": 66,
+        "reload_sample_count": 1,
+        "exact_sample_count": 67,
+        "unique_rgba_frame_count": 37,
+        "mismatched_pixel_count": 0,
+        "maximum_channel_delta": 0,
+        "all_full_rgba_exact": true,
+        "all_fully_opaque": true,
+        "comparative_png_paths": [
+          "docs/pmdred_eu/pmdo_validation/b02p01c_exhaustive_pass/comparisons/comparison_primary_tick0.png",
+          "docs/pmdred_eu/pmdo_validation/b02p01c_exhaustive_pass/comparisons/comparison_primary_tick191.png",
+          "docs/pmdred_eu/pmdo_validation/b02p01c_exhaustive_pass/comparisons/comparison_reload_tick0.png"
+        ],
+        "complete_metrics_report": "docs/pmdred_eu/pmdo_validation/b02p01c_exhaustive_pass/report.json"
       },
       "animation_validation": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "primary_sample_count": 66,
+        "first_tick": 0,
+        "last_tick": 191,
+        "cell_local_schedule_count": 2,
+        "maximum_cell_local_cycle_ticks": 96,
+        "all_schedules_covered_through_two_complete_cycles": true,
+        "channels": [
+          {
+            "cycle": 42,
+            "frame_count": 6,
+            "frame_durations": [
+              7,
+              7,
+              7,
+              7,
+              7,
+              7
+            ],
+            "index": 0,
+            "kind": "BPA_TILE",
+            "source_duration_values": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ]
+          },
+          {
+            "cycle": 96,
+            "frame_count": 12,
+            "frame_durations": [
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8
+            ],
+            "index": 4,
+            "kind": "BPL_PALETTE"
+          }
+        ],
+        "unique_observed_rgba_frames": 37,
+        "reload_tick_zero_exact": true,
+        "orphaned_animation_observed": false
       },
       "collision_validation": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "source": "B02P01Cm",
+        "collision_layer_count": 1,
+        "solid_cells": 3706,
+        "collision_sha256": "11e33d7671e378265c26684bbc43bfd3ed484b3855e5dc56e12221f29b77260a",
+        "successful_probe": {
+          "start": [
+            272,
+            272
+          ],
+          "direction": "Down",
+          "observed_delta": [
+            0,
+            8
+          ],
+          "result": "PASS"
+        },
+        "blocked_probe": {
+          "start": [
+            264,
+            272
+          ],
+          "direction": "Left",
+          "observed_delta": [
+            0,
+            0
+          ],
+          "result": "PASS"
+        }
       },
       "entry_exit_reentry": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "loads": 2,
+        "entries": 2,
+        "exits": 2,
+        "same_ground_reentries": 1,
+        "strict_native_lifecycle_order": "PASS"
       },
       "cleanup_reload": {
-        "result": "NOT_RUN"
+        "result": "PASS",
+        "cleanup_probe_count": 4,
+        "ground_exit_cleanup_passes": 2,
+        "sink_cleanup": "PASS",
+        "final_cleanup": "PASS",
+        "reload_load": "LOAD_PASS",
+        "reload_tick_zero_full_rgba_exact": true,
+        "terminal_end_seen": true,
+        "state_leakage_observed": false,
+        "stale_assets_observed": false,
+        "permanent_lock_observed": false,
+        "orphan_process_check": "PASS"
       },
       "special_classification": {
-        "result": "PENDING_AUTHENTICATED_TECHNICAL_IDENTITY_CHECK",
-        "cinematic": null,
-        "arena": null,
-        "boss": null
+        "category": "canonical_ground_map",
+        "ground_map_symbol": "MAP_TEAM_BASE_INSIDE_MEOWTH_BASIC",
+        "cinematic": false,
+        "arena": false,
+        "boss": false
       },
       "definitive_destination": {
-        "promotion_status": "NOT_PROMOTED"
+        "ground": "Data/Ground/b02p01c.rsground",
+        "tile": "Content/Tile/b02p01c_Base.tile",
+        "zone_registry": "Data/Zone/master_zone.json",
+        "zone_registry_entry": "b02p01c",
+        "promotion_status": "PROMOTED_ADDITIVE_CANONICAL",
+        "preexisting_destinations": false,
+        "pre_promotion_record": "RESERVE/pmdred_pre_promotion/b02p01c/README.md",
+        "promoted_ground_sha256": "dd04e5f2a37629c087d709209965204b2164c40276d9aedc8a33d45bebb8a744",
+        "promoted_tile_sha256": "0cb36c93b111d3def5fb46bd355a6ac9fedda9482725d6b82fcb9de3b342bbe8"
       },
-      "evidence": null
+      "provenance": {
+        "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+        "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+        "conversion_report_sha256": "91f3b460b3e3b7689bc608ece2006cb6103d653bcdc22ad028f4172c3a1b0fdc",
+        "candidate_ground_sha256": "dd04e5f2a37629c087d709209965204b2164c40276d9aedc8a33d45bebb8a744",
+        "candidate_tile_sha256": "0cb36c93b111d3def5fb46bd355a6ac9fedda9482725d6b82fcb9de3b342bbe8",
+        "source_normalized_sha256": {
+          "B02P01C": "2fd8c395fb54994ea8c6d37d8a83de99fbf040a23e70867071bad9e2dc58a3d1",
+          "B02P01C1": "f967f3fbb4aa66bbbd309aa3388fa18bac3a6615ef93efde0e273b77bb62659a",
+          "B02P01Cc": "c6136a1c2e76e9be656ba4a8a3813d53189562854c7817584a702a97fe86c36e",
+          "B02P01Cm": "d9a9ef923619ebd9649e1ca23b99987d8e048ef43e832ed8bf52a58165c27cc2"
+        },
+        "events_sha256": "274dc66b517b69245ba05877a229ae49e2864b63c06f78c1ac814d5ffff90edc",
+        "report_sha256": "fc42cc0b314e666d0a132ea843d133ebf87c981710591985febbaabbb3e1ef59",
+        "fixture_manifest_sha256": "f04ee44445138a3f81c4cbb84660c4a784d5daa49766b26571b39368ce034ac9",
+        "detailed_provenance": "docs/pmdred_eu/pmdo_validation/b02p01c_exhaustive_pass/provenance.json"
+      },
+      "evidence": {
+        "directory": "docs/pmdred_eu/pmdo_validation/b02p01c_exhaustive_pass",
+        "integrity": {
+          "result": "PASS",
+          "manifest": "docs/pmdred_eu/pmdo_validation/b02p01c_exhaustive_pass/evidence_hashes.sha256",
+          "checked": 42,
+          "immutable_failures": [],
+          "historical_progressive_drift": []
+        }
+      },
+      "promoted_destination_checks": [
+        {
+          "role": "ground",
+          "path": "Data/Ground/b02p01c.rsground",
+          "expected_sha256": "dd04e5f2a37629c087d709209965204b2164c40276d9aedc8a33d45bebb8a744",
+          "actual_sha256": "dd04e5f2a37629c087d709209965204b2164c40276d9aedc8a33d45bebb8a744",
+          "result": "PASS"
+        },
+        {
+          "role": "tile",
+          "path": "Content/Tile/b02p01c_Base.tile",
+          "expected_sha256": "0cb36c93b111d3def5fb46bd355a6ac9fedda9482725d6b82fcb9de3b342bbe8",
+          "actual_sha256": "0cb36c93b111d3def5fb46bd355a6ac9fedda9482725d6b82fcb9de3b342bbe8",
+          "result": "PASS"
+        }
+      ],
+      "zone_registry": {
+        "required_by_record": true,
+        "declared": true,
+        "current_occurrences": 1,
+        "current_index": 150
+      }
     },
     {
       "id": "b02p02a",
