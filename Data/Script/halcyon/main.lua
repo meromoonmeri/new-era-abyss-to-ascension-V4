@@ -68,6 +68,6 @@ require 'halcyon.RuinesTitan'--Regigigas : eveil, renversement, fuite (etage-are
 require 'halcyon.RuinesArenes'--eveil des trois scelles, joue dans leurs etages-arenes
 require 'halcyon.RuinesRenforts'--renforts de la guilde + revelation de la Tour (camp)
 require 'halcyon.Ch6_10Scenes'--cinematiques d'etage ch8-10 (relais/miniboss/boss)
-PrintInfo('[NREPROBE] build 2026-08-04-K charge (main.lua) — PREMIERE ligne attendue, au LANCEMENT du jeu. Si absente: la copie du mod chargee par le jeu n est PAS celle du depot.')
+PrintInfo('[NREPROBE] build 2026-08-04-K charge (main.lua) -- PREMIERE ligne attendue, au LANCEMENT du jeu. Si absente: la copie du mod chargee par le jeu n est PAS celle du depot.')
 
 math.randomseed(os.time())

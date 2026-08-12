@@ -59,6 +59,10 @@ local function snapshot(tag)
     if okat then
       if at ~= nil then
         attached = 'OUI(' .. tostring(safe(function() return at.Players.Count end, '?')) .. ')'
+      elseif tag == 'DungeonModeBegin' then
+        -- Cet instant precede normalement DungeonMapInit, qui attache l'equipe
+        -- avant la premiere frame jouable. Ne pas le signaler comme un crash.
+        attached = 'NON (transition avant DungeonMapInit, normale)'
       else
         attached = 'NON <- IsGameOver() CRASHERAIT ICI'
       end
@@ -77,7 +81,7 @@ end
 --------------------------------------------------------------------
 function NREProbe:OnInit()
   -- 2e ligne attendue, toujours au LANCEMENT (enregistrement du service).
-  PrintInfo('[NREPROBE] service nre_probe ACTIF (EngineServiceEvents.Init) — build 2026-07-27-C')
+  PrintInfo('[NREPROBE] service nre_probe ACTIF (EngineServiceEvents.Init) -- build 2026-07-27-C')
 end
 function NREProbe:OnLoadSavedData()
   snapshot('LoadSavedData <-- sauvegarde chargee (menu Continuer)')
