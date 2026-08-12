@@ -1,0 +1,3 @@
+[2026-08-12T21:20:34Z] BATCH_FAIL RuntimeError: comparison/runtime gate failed for a01p02: [True, True, True, True, True, True, True, True, True, True, True, True, True, True, False, True, True]
+Failure gate index 14 required blocked_probe == PASS even though the authenticated raw-ROM plan has collision_layer_count=0 and solid_cells=0 and the fixture/comparator correctly reported NOT_APPLICABLE_NO_BMA_SOLIDS.
+No canonical destination, zone registration, PASS evidence, promotion record, or checkpoint was created.

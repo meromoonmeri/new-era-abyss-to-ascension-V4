@@ -1,0 +1,79 @@
+{
+  "schema": "new-era.pmdred-eu-ground-orchestration-failure.v1",
+  "ground": "a01p02",
+  "result": "ORCHESTRATION_FAIL_BEFORE_PROMOTION",
+  "attempt_started_at": "2026-08-12T21:20:26Z",
+  "failure_observed_at": "2026-08-12T21:20:34Z",
+  "head_before_attempt": "d6bab7dbab26abea02e144c2ab1f75f792859ad2",
+  "failed_command": "bash .runtime-cache/serial_deliver_pmdred_grounds.sh a01p02 a02p01 a02p02 a02p03 a02p04 a03p01 a03p02 a03p03",
+  "failure": {
+    "stage": "comparison_gate_before_promotion",
+    "gate_index": 14,
+    "observed": "NOT_APPLICABLE_NO_BMA_SOLIDS",
+    "required_by_buggy_gate": "PASS",
+    "cause": "The final milestone gate did not mirror the established comparator contract for a raw-ROM BMA with no collision layer and zero solid cells."
+  },
+  "authenticated_collision_facts": {
+    "bma": "A01P01m",
+    "collision_layer_count": 0,
+    "solid_cells": 0,
+    "collision_sha256": "39a68c2004ed4a20edb148b72e5aabd663f15cce54b30d2ea1c106e839761ed5",
+    "fixture_blocked_probe": null,
+    "fixture_blocked_expectation": "NO_BMA_COLLISION_LAYER_OR_SOLIDS",
+    "runtime_blocked_probe": "NOT_APPLICABLE_NO_BMA_SOLIDS"
+  },
+  "canonical_state": {
+    "ground_destination_absent": true,
+    "tile_destination_absent": true,
+    "zone_entry_count": 0,
+    "official_pass_evidence_created": false,
+    "checkpoint_validated_count": 164
+  },
+  "runtime": {
+    "result": "PASS",
+    "events": 28,
+    "screenshots": 2,
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "terminal": true,
+    "graceful": true,
+    "load_phase_unload_pass": true,
+    "watchdog": false,
+    "requested_signal": null,
+    "sigsegv": false,
+    "forced_kill": false,
+    "orphan_process": false
+  },
+  "comparison": {
+    "samples": 2,
+    "exact_samples": 2,
+    "fully_opaque_samples": 2,
+    "all_exact": true,
+    "all_fully_opaque": true,
+    "mismatched_pixels": 0,
+    "maximum_channel_delta": 0
+  },
+  "recovery_policy": {
+    "preserve_this_failed_attempt": true,
+    "do_not_reclassify_as_pass": true,
+    "narrow_collision_non_applicability_gate_required": true,
+    "fresh_full_runtime_and_comparison_rerun_required": true,
+    "official_pass_may_be_packaged_only_after_all_gates_pass_on_fresh_rerun": true
+  },
+  "evidence": {
+    "README.md": "d4bad28f4fcd548b091f7ffc8e3eb7ff289be679ef8dda5dddef461276dfcab7",
+    "actual/actual_primary_tick0.png": "ca5c685924e775d1a510c0a1204d5e426015eb86133f70bb645517769cc02f5d",
+    "actual/actual_reload_tick0.png": "ca5c685924e775d1a510c0a1204d5e426015eb86133f70bb645517769cc02f5d",
+    "comparison.log": "abc8a693fd48459b755bb2c3e4a5558840bbd1db1229ffbb4ad64bb1e52157b1",
+    "comparisons/comparison_primary_tick0.png": "93072fd9da382e508ee729387cf77e9f5ec2a8612845f5bef8e8cd5cf08a58b0",
+    "comparisons/comparison_reload_tick0.png": "93072fd9da382e508ee729387cf77e9f5ec2a8612845f5bef8e8cd5cf08a58b0",
+    "engine.log": "6f43076a29e70cc7ddc9e52ebbef3f3bc25ec6d77defad8eb918a117b736ef94",
+    "events.jsonl": "7308766241235d95bcb08c24c795d2d98495c02f0fccd303944b03c154b2b25b",
+    "fixture_manifest.json": "4cf1624bba045cb99b61333957dfa1ae17a56d8f85aa76dfbbc9dc5a31ab4dc9",
+    "index.log": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+    "orchestration_failure.log": "baaf5f9960c5ac243ab4fadd0462463e34cba576cd0cdce8c13cdea6c350b3d0",
+    "report.json": "49054d084be6f06b0fb19d816329c40a67392aec7cfc0b6b803279a1eb684b83",
+    "runtime.log": "c4d0295123ef0a14c4b0b62717d0d7770a9c15fc15e785e6a476ac040fffc460",
+    "termination.json": "c6100b8d776608fa82c4d5fb06b79052118c4c1dd69bea724e12b20744a8e29d"
+  }
+}

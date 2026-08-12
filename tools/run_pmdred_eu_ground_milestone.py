@@ -215,6 +215,74 @@ def classify_ground_role(symbol: str) -> dict[str, Any]:
     raise RuntimeError(f"role classification is not implemented for {symbol}; stopping rather than guessing")
 
 
+def build_collision_validation(
+    plan: dict[str, Any], fixture_entry: dict[str, Any], runtime_event: dict[str, Any]
+) -> dict[str, Any]:
+    """Require either a real blocked probe or authenticated BMA non-applicability.
+
+    A blocked movement probe cannot exist when the raw-ROM BMA has no collision
+    layer and no solid cells.  Accept that condition only when the independently
+    generated plan, fixture manifest, and runtime event all agree exactly.
+    """
+    probes = fixture_entry["spawn"]["movement_probes"]
+    successful = probes["successful"]
+    base = {
+        "result": "PASS",
+        "source": plan["resources"]["bma"],
+        "collision_layer_count": plan["collision_layer_count"],
+        "solid_cells": plan["solid_cells"],
+        "collision_sha256": plan["collision_sha256"],
+        "successful_probe": {
+            "start": [successful["x"], successful["y"]],
+            "direction": successful["direction"],
+            "observed_delta": [int(x) for x in runtime_event["move_delta"].split(",")],
+            "result": "PASS",
+        },
+    }
+    if runtime_event.get("movement_probe") != "PASS":
+        raise RuntimeError("successful movement probe did not pass")
+    layers = plan["collision_layer_count"]
+    solids = plan["solid_cells"]
+    if layers > 0 and solids > 0:
+        blocked = probes.get("blocked")
+        required = [
+            isinstance(blocked, dict),
+            probes.get("blocked_expectation") == "BMA_SOLID_BLOCK",
+            runtime_event.get("blocked_probe") == "PASS",
+            runtime_event.get("solid_cells") == solids,
+        ]
+        if not all(required):
+            raise RuntimeError(f"BMA blocked-probe gate failed: {required}")
+        base["blocked_probe"] = {
+            "applicable": True,
+            "start": [blocked["x"], blocked["y"]],
+            "direction": blocked["direction"],
+            "observed_delta": [int(x) for x in runtime_event["blocked_delta"].split(",")],
+            "result": "PASS",
+        }
+        return base
+    if layers == 0 and solids == 0:
+        required = [
+            probes.get("blocked") is None,
+            probes.get("blocked_expectation") == "NO_BMA_COLLISION_LAYER_OR_SOLIDS",
+            runtime_event.get("blocked_probe") == "NOT_APPLICABLE_NO_BMA_SOLIDS",
+            runtime_event.get("solid_cells") == 0,
+        ]
+        if not all(required):
+            raise RuntimeError(f"BMA no-collision non-applicability gate failed: {required}")
+        base["blocked_probe"] = {
+            "applicable": False,
+            "reason": "AUTHENTICATED_RAW_ROM_BMA_HAS_NO_COLLISION_LAYER_OR_SOLID_CELLS",
+            "fixture_expectation": probes["blocked_expectation"],
+            "runtime_result": runtime_event["blocked_probe"],
+            "result": "NOT_APPLICABLE",
+        }
+        return base
+    raise RuntimeError(
+        f"unsupported inconsistent BMA collision facts: layers={layers} solids={solids}"
+    )
+
+
 def atomic_install(source: Path, destination: Path) -> None:
     if destination.exists():
         raise FileExistsError(destination)
@@ -433,6 +501,7 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
     termination_sha = sha(out/"termination.json")
     validations={(x["ground"],x["phase"]):x for x in report["runtime"]["validations"]}; main=validations[(ground,"primary")]
     channels=plan["animation_channels"]; ticks=plan["complete_two_local_cycle_boundary_ticks"]
+    collision_validation = build_collision_validation(plan, manifest["entries"][0], main)
     reserve_ground=ROOT/f"RESERVE/red_grounds/{ground}.rsground"; reserve_tile=ROOT/f"RESERVE/red_tiles/{ground}_Base.tile"
     reserve_details={"ground":{"present":reserve_ground.is_file(),"sha256":sha(reserve_ground) if reserve_ground.is_file() else None},"tile":{"present":reserve_tile.is_file(),"sha256":sha(reserve_tile) if reserve_tile.is_file() else None}}
     preexisting = any(item["preexisting"] for item in pre_promotion.values())
@@ -452,7 +521,7 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
       "visual_comparison":{"result":"PASS","dimensions_pixels":plan["dimensions_pixels"],"primary_sample_count":len(primary),"reload_sample_count":1,"exact_sample_count":samples,"unique_rgba_frame_count":unique_count,"mismatched_pixel_count":0,"maximum_channel_delta":0,"all_full_rgba_exact":True,"all_fully_opaque":True,"comparative_png_paths":[str(x.relative_to(ROOT)) for x in sorted((out/"comparisons").glob("*.png"))],"complete_metrics_report":str((out/"report.json").relative_to(ROOT))},
       "tile_palette_validation":{"result":"PASS","reference":"independent authenticated raw EU BPL/BPC/BPA/BMA renderer","resource_hashes":plan["source_normalized_sha256"]},
       "animation_validation":{"result":"PASS","primary_sample_count":len(primary),"first_tick":ticks[0],"last_tick":ticks[-1],"cell_local_schedule_count":len(plan["cell_animation_schedules"]),"maximum_cell_local_cycle_ticks":max((x["source_local_cycle"] for x in plan["cell_animation_schedules"]),default=1),"all_schedules_covered_through_two_complete_cycles":True,"channels":channels,"unique_observed_rgba_frames":unique_count,"reload_tick_zero_exact":True,"orphaned_animation_observed":False},
-      "collision_validation":{"result":"PASS","source":plan["resources"]["bma"],"collision_layer_count":plan["collision_layer_count"],"solid_cells":plan["solid_cells"],"collision_sha256":plan["collision_sha256"],"successful_probe":{"start":[manifest["entries"][0]["spawn"]["movement_probes"]["successful"]["x"],manifest["entries"][0]["spawn"]["movement_probes"]["successful"]["y"]],"direction":manifest["entries"][0]["spawn"]["movement_probes"]["successful"]["direction"],"observed_delta":[int(x) for x in main["move_delta"].split(",")],"result":"PASS"},"blocked_probe":{"start":[manifest["entries"][0]["spawn"]["movement_probes"]["blocked"]["x"],manifest["entries"][0]["spawn"]["movement_probes"]["blocked"]["y"]],"direction":manifest["entries"][0]["spawn"]["movement_probes"]["blocked"]["direction"],"observed_delta":[int(x) for x in main["blocked_delta"].split(",")],"result":"PASS"}},
+      "collision_validation":collision_validation,
       "entry_exit_reentry":{"result":"PASS","loads":2,"entries":2,"exits":2,"same_ground_reentries":1,"strict_native_lifecycle_order":"PASS"},
       "cleanup_reload":{"result":"PASS","cleanup_probe_count":4,"ground_exit_cleanup_passes":2,"sink_cleanup":"PASS","final_cleanup":"PASS","reload_load":"LOAD_PASS","reload_tick_zero_full_rgba_exact":True,"terminal_end_seen":True,"state_leakage_observed":False,"stale_assets_observed":False,"permanent_lock_observed":False,"orphan_process_check":"PASS"},
       "native_termination":{"result":"PASS","load_phase":"Unload","deinit_seen":True,"graphics_unload_seen":True,"exit_classification":"NORMAL_EXIT","return_code":0,"terminal":True,"graceful":True,"watchdog":False,"requested_signal":None,"sigsegv":False,"forced_kill":False,"orphan_process":False,"evidence":str((out/"termination.json").relative_to(ROOT)),"sha256":termination_sha},
@@ -515,13 +584,21 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
             f"Promotion created previously absent `Data/Ground/{ground}.rsground` (`{ground_hash}`) and "
             f"`Content/Tile/{ground}_Base.tile` (`{tile_hash}`)."
         )
+    if collision_validation["blocked_probe"]["applicable"]:
+        collision_summary = "BMA movement and blocking probes passed."
+    else:
+        collision_summary = (
+            "The movement probe passed; a blocked probe is authentically not applicable because the "
+            "raw-ROM BMA has no collision layer and zero solid cells, as independently confirmed by "
+            "the plan, fixture manifest, and runtime event."
+        )
     readme=f"""# {ground} exhaustive exact-PMDO pass
 
 ## Result
 
 `{result_heading}`
 
-`{ground}` is the authenticated EU {role['classification'].replace('_',' ')} (`{symbol}`; map ID {identity['map_id']}, map-file ID {identity['map_file_id']}). Exact PMDO 0.8.12 loaded the authenticated v2.0.1-eu candidate in isolation; the independent raw-EU-ROM renderer matched all **{samples}/{samples}** full-RGBA samples with zero mismatched pixels and full opacity. BMA movement/blocking, two entries/exits, same-Ground re-entry, unload/reload, cleanup, and state isolation all passed. PMDO then entered native `GameBase.LoadPhase.Unload`, published data and graphics unload callbacks, emitted terminal `end`, returned 0 as `NORMAL_EXIT`, and left no signal, watchdog, SIGSEGV, forced kill, or orphan.
+`{ground}` is the authenticated EU {role['classification'].replace('_',' ')} (`{symbol}`; map ID {identity['map_id']}, map-file ID {identity['map_file_id']}). Exact PMDO 0.8.12 loaded the authenticated v2.0.1-eu candidate in isolation; the independent raw-EU-ROM renderer matched all **{samples}/{samples}** full-RGBA samples with zero mismatched pixels and full opacity. {collision_summary} Two entries/exits, same-Ground re-entry, unload/reload, cleanup, and state isolation all passed. PMDO then entered native `GameBase.LoadPhase.Unload`, published data and graphics unload callbacks, emitted terminal `end`, returned 0 as `NORMAL_EXIT`, and left no signal, watchdog, SIGSEGV, forced kill, or orphan.
 
 Role flags are recorded independently as `cinematic=false`, `arena=false`, `boss=false`; this Ground-only record claims no dialogue, choreography, music, or narrative routing. {len(primary)} primary boundary ticks ({ticks[0]}–{ticks[-1]}) cover every applicable animation schedule through two complete local cycles (maximum {max_cycle} ticks); {unique_count} distinct primary RGBA frames were observed.
 
@@ -594,8 +671,11 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
     if result.returncode: raise RuntimeError("comparator failed")
     report=load(comparison/"report.json");rt=report["runtime"];primary=[x for x in report["samples"] if x["phase"]=="primary"]
     vals={(x["ground"],x["phase"]):x for x in rt["validations"]}
+    collision_validation = build_collision_validation(
+        plan, load(fixture / "fixture_manifest.json")["entries"][0], vals[(ground,"primary")]
+    )
     expected=plan["sample_count"]+1
-    gates=[report["grounds"]==[ground],report["sample_count"]==expected,len(primary)==plan["sample_count"],report["exact_sample_count"]==expected,report["fully_opaque_sample_count"]==expected,report["all_exact"],report["all_fully_opaque"],rt["all_runtime_safe"],rt["runtime_sequence_consistent"],rt["native_lifecycle_order"]["pass"],rt["all_cleanups_pass"],rt["end_event_seen"],rt["same_ground_reentry_count"]==1,vals[(ground,"primary")]["movement_probe"]=="PASS",vals[(ground,"primary")]["blocked_probe"]=="PASS",vals[(ground,"reload")]["load"]=="LOAD_PASS",all(x["mismatched_pixels"]==0 and x["maximum_channel_delta"]==0 for x in report["samples"])]
+    gates=[report["grounds"]==[ground],report["sample_count"]==expected,len(primary)==plan["sample_count"],report["exact_sample_count"]==expected,report["fully_opaque_sample_count"]==expected,report["all_exact"],report["all_fully_opaque"],rt["all_runtime_safe"],rt["runtime_sequence_consistent"],rt["native_lifecycle_order"]["pass"],rt["all_cleanups_pass"],rt["end_event_seen"],rt["same_ground_reentry_count"]==1,vals[(ground,"primary")]["movement_probe"]=="PASS",collision_validation["result"]=="PASS",vals[(ground,"reload")]["load"]=="LOAD_PASS",all(x["mismatched_pixels"]==0 and x["maximum_channel_delta"]==0 for x in report["samples"])]
     if not all(gates): raise RuntimeError(f"comparison/runtime gate failed for {ground}: {gates}")
     state["stage"]="comparison_pass";dump(STATE_PATH,state);log(f"COMPARE_PASS ground={ground} samples={expected} unique={len({x['actual_rgba_sha256'] for x in primary})}")
     if recovery_record_path is not None:

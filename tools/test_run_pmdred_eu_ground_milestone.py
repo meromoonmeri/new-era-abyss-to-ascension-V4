@@ -7,6 +7,7 @@ import unittest
 from pathlib import Path
 
 from run_pmdred_eu_ground_milestone import (
+    build_collision_validation,
     classify_ground_role,
     validate_partial_additive_recovery_record,
 )
@@ -83,6 +84,77 @@ class GroundRoleClassificationTests(unittest.TestCase):
     def test_unimplemented_role_still_stops(self) -> None:
         with self.assertRaisesRegex(RuntimeError, "stopping rather than guessing"):
             classify_ground_role("MAP_POKEMON_SQUARE")
+
+
+class CollisionApplicabilityGateTests(unittest.TestCase):
+    @staticmethod
+    def plan(layers: int, solids: int) -> dict:
+        return {
+            "resources": {"bma": "map.bma"},
+            "collision_layer_count": layers,
+            "solid_cells": solids,
+            "collision_sha256": "collision-hash",
+        }
+
+    @staticmethod
+    def entry(blocked: dict | None, expectation: str) -> dict:
+        return {
+            "spawn": {
+                "movement_probes": {
+                    "successful": {"x": 8, "y": 16, "direction": "Down"},
+                    "blocked": blocked,
+                    "blocked_expectation": expectation,
+                }
+            }
+        }
+
+    @staticmethod
+    def event(blocked_result: str, solids: int) -> dict:
+        return {
+            "movement_probe": "PASS",
+            "blocked_probe": blocked_result,
+            "move_delta": "0,8",
+            "blocked_delta": "0,0",
+            "solid_cells": solids,
+        }
+
+    def test_no_bma_collision_is_strictly_authenticated_non_applicability(self) -> None:
+        result = build_collision_validation(
+            self.plan(0, 0),
+            self.entry(None, "NO_BMA_COLLISION_LAYER_OR_SOLIDS"),
+            self.event("NOT_APPLICABLE_NO_BMA_SOLIDS", 0),
+        )
+        self.assertEqual(result["result"], "PASS")
+        self.assertFalse(result["blocked_probe"]["applicable"])
+        self.assertEqual(result["blocked_probe"]["result"], "NOT_APPLICABLE")
+
+    def test_non_applicability_cannot_bypass_real_bma_solids(self) -> None:
+        with self.assertRaisesRegex(RuntimeError, "blocked-probe gate failed"):
+            build_collision_validation(
+                self.plan(1, 12),
+                self.entry(None, "NO_BMA_COLLISION_LAYER_OR_SOLIDS"),
+                self.event("NOT_APPLICABLE_NO_BMA_SOLIDS", 12),
+            )
+
+    def test_real_bma_collision_still_requires_passed_blocked_probe(self) -> None:
+        result = build_collision_validation(
+            self.plan(1, 12),
+            self.entry(
+                {"x": 24, "y": 32, "direction": "Left"},
+                "BMA_SOLID_BLOCK",
+            ),
+            self.event("PASS", 12),
+        )
+        self.assertTrue(result["blocked_probe"]["applicable"])
+        self.assertEqual(result["blocked_probe"]["result"], "PASS")
+
+    def test_inconsistent_raw_bma_facts_stop(self) -> None:
+        with self.assertRaisesRegex(RuntimeError, "inconsistent BMA collision facts"):
+            build_collision_validation(
+                self.plan(0, 1),
+                self.entry(None, "NO_BMA_COLLISION_LAYER_OR_SOLIDS"),
+                self.event("NOT_APPLICABLE_NO_BMA_SOLIDS", 1),
+            )
 
 
 class PilotZoneIntegrationCorrectionTests(unittest.TestCase):
