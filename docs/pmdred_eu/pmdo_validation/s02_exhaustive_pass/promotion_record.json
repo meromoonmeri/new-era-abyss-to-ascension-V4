@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "ground": "s02",
+  "validated_at": "2026-08-12",
+  "promoted_at": "2026-08-12",
+  "result": "PROMOTION_PASS_ADDITIVE_CANONICAL",
+  "method": {
+    "destination_precondition": "ground absent; tile absent",
+    "installation_mode": "fsynced temporary files and atomic os.replace after durable preservation where required",
+    "historical_bytes_reserved_before_replacement": false,
+    "existing_asset_discarded": false,
+    "existing_scripts_modified": false,
+    "zone_registration": "one insertion after s01 without reserialization"
+  },
+  "gates": {
+    "exact_pmdo_version": "0.8.12",
+    "exact_pmdo_executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+    "active_patched_sdl_sha256": "2cec7b5f9603a8a856a94b3a5e4fb5bd5e93e3ed0d04b85431625d5acb14e71f",
+    "report_sha256": "93a1808b05e13ecdc768ff4b32e53493fab06b3a41f042b016ea43c6f44c41ac",
+    "fixture_manifest_sha256": "2034f87c20acee8c928a046c1c3d7378dc602778cc2a82041dc4e1156bf7f9b1",
+    "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+    "canonical_ground_sha256": "ead4241fea20e55a895a6aa7293ca2d06dae256d3bf67f3cc063cad5036bb8e8",
+    "canonical_tile_sha256": "265794b0515744a44988996915a2b29968cdeed640a74f801a4295f902f6cb55",
+    "planned_primary_tick_count": 1,
+    "observed_primary_tick_count": 1,
+    "reload_tick_zero_covered": true,
+    "pixel_exact_sample_count": 2,
+    "fully_opaque_sample_count": 2,
+    "mismatched_pixel_count": 0,
+    "maximum_channel_delta": 0,
+    "runtime_safe": true,
+    "native_lifecycle_order_pass": true,
+    "cleanup_pass": true,
+    "terminal_end_seen": true,
+    "load_phase_unload_pass": true,
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "terminal": true,
+    "graceful": true,
+    "watchdog": false,
+    "requested_signal": null,
+    "sigsegv": false,
+    "forced_kill": false,
+    "orphan_process": false,
+    "termination_sha256": "a026c1e87598a1000ba46d98d3639d1bd6e82e7ca268e1f220ac63ba352dc392",
+    "identity_map_file_id": 238,
+    "identity_symbol": "MAP_TITLE_SCREEN"
+  },
+  "files": [
+    {
+      "candidate": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/grounds/s02.rsground",
+      "destination": "Data/Ground/s02.rsground",
+      "destination_preexisting": false,
+      "pre_promotion_sha256": null,
+      "pre_promotion_reserve": null,
+      "bytes": 385969,
+      "validated_candidate_sha256": "ead4241fea20e55a895a6aa7293ca2d06dae256d3bf67f3cc063cad5036bb8e8",
+      "destination_sha256": "ead4241fea20e55a895a6aa7293ca2d06dae256d3bf67f3cc063cad5036bb8e8",
+      "candidate_destination_identical": true
+    },
+    {
+      "candidate": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/tiles/s02_Base.tile",
+      "destination": "Content/Tile/s02_Base.tile",
+      "destination_preexisting": false,
+      "pre_promotion_sha256": null,
+      "pre_promotion_reserve": null,
+      "bytes": 106147,
+      "validated_candidate_sha256": "265794b0515744a44988996915a2b29968cdeed640a74f801a4295f902f6cb55",
+      "destination_sha256": "265794b0515744a44988996915a2b29968cdeed640a74f801a4295f902f6cb55",
+      "candidate_destination_identical": true
+    }
+  ],
+  "zone_registration": {
+    "entry": "s02",
+    "entry_count": 1,
+    "position": "after s01",
+    "mode": "additive_insertion",
+    "pre_promotion_sha256": "104d3582f00d4b34c0c5f36a1a4cdd674ccfbcebce60461d81cd620530119ec9",
+    "post_promotion_sha256": "e572bcb19eeeda7b76c4fd4bb44d488222f94caff2f84435c7e70df0a1d0d388"
+  },
+  "preserved_variants": [
+    {
+      "role": "pre_promotion_destination_reserve",
+      "files": {
+        "ground": {
+          "preexisting": false,
+          "sha256": null,
+          "reserve": null
+        },
+        "tile": {
+          "preexisting": false,
+          "sha256": null,
+          "reserve": null
+        }
+      },
+      "modified_after_capture": false
+    },
+    {
+      "role": "historical_reserve",
+      "ground": {
+        "present": true,
+        "sha256": "e8f08b7bf560c7085cbd888448cc8f1640ac20676f646d24ce325e7c00eae517"
+      },
+      "tile": {
+        "present": true,
+        "sha256": "0a37f2a759fa2f661ac1677810e052004a856fd7558c24e5e9e3ddc101cb5b91"
+      },
+      "modified": false
+    },
+    {
+      "role": "historical_v200_and_v201_reports",
+      "paths": [
+        "docs/pmdred_eu/remaining_grounds/history/v200_pre_period_fix/",
+        "docs/pmdred_eu/remaining_grounds/"
+      ],
+      "modified_by_promotion": false
+    }
+  ],
+  "post_promotion_integration": {
+    "result": "PASS",
+    "exact_pmdo_index": "PASS",
+    "log_sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+    "zone_structure": "PASS",
+    "existing_routes_unchanged": "PASS"
+  }
+}
