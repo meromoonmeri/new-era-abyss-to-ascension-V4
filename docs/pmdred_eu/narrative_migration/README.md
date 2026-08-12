@@ -16,14 +16,14 @@ L’isolation actuelle de `s01` reste nécessaire pour obtenir une preuve PMDO a
 
 ## État actuel
 
-- **Lot actif :** phase 6.1, socle du Personality Quiz intégré dans le dossier `personality_test` New Era existant.
-- **Résultat du socle :** `CORE_PASS_NOT_PRODUCTION_ROUTED`.
+- **Lot actif :** phase 6.1, flux de production du Personality Quiz dans le dossier `personality_test` New Era existant.
+- **Résultat du flux :** `FLOW_PASS_PRODUCTION_ROUTED_INTERACTIVE_INPUT_PARTIAL`.
 - **Scènes totalement migrées :** **0/133**.
-- **Scène en cours :** `s01`, toujours **11 commandes source sur 16** reproduites jusqu’au changement de musique inclus.
+- **Scène en cours :** `s01`, toujours **11 commandes source sur 16** reproduites dans son harness isolé.
 - **Corpus canonique :** **219 enregistrements texte** français alignés dans la ROM EU ; **55 questions sélectionnables**, huit posées par catégories distinctes, plus `BraveQuest2B` exclusivement conditionnelle.
-- **Connexion aux routes de jeu :** aucune.
+- **Connexion de production :** `personality_test.CharacterSelect()` appelle maintenant une seule fois le prélude et le quiz intégrés avant les sélecteurs héros/partenaire New Era existants.
 
-La scène et le quiz ne sont volontairement **pas déclarés terminés**. Le corpus, l’ordre, le rejet des catégories déjà tirées, les pondérations, l’embranchement `BraveQuest2B`, le calcul et le départage cyclique sont maintenant présents sous `Data/Script/halcyon/ground/personality_test/`. Ils ont été chargés par le vrai runtime PMDO, mais l’entrée de production `CharacterSelect()` ne les appelle pas encore. Restent notamment l’UI interactive, l’introduction, les opcodes palette `0x22`/`0x23`, les VFX/SFX/BGM et timings complets, puis la transmission vers le catalogue intégral des starters New Era. Aucun second quiz et aucun remplacement silencieux ne sont autorisés.
+La scène et le quiz ne sont volontairement **pas déclarés terminés**. Le flux routé conserve les sept pages d’introduction, le BGM, les fondus palette de 30 frames correspondant aux opcodes `0x22`/`0x23`, le questionnaire, le genre, la description, la recommandation, le restart, l’enchaînement partenaire, le surnom et le texte final. Le résultat est enregistré dans `SV.PersonalityTest`; la recommandation est déplacée en tête sans jamais filtrer le catalogue. Le chemin non binaire New Era est conservé et explicitement étiqueté comme adaptation. Restent le pilotage physique des menus/cursors, la création live héros/partenaire, la sérialisation et la transition finale, puis le remplacement du blocage du harness `s01` par ce flux unique. Aucun second quiz et aucun remplacement silencieux ne sont autorisés.
 
 ## Ce qui est effectivement porté pour `s01`
 
@@ -45,9 +45,9 @@ Les textes ne proviennent pas de pret : `authority.json` conserve leur adresse e
 
 - **ROM PMD Red EU :** glyphes français, ponctuation, retours de ligne, attentes `#W`, changements de page `#P`, centrage et adresses ;
 - **pret/pmd-red :** graphe des questions, ordre de pointeurs, catégories, valeurs de menu et effets de personnalité ;
-- **New Era :** Ground `personality_test`, parallaxe, RNG injectée et futur pont vers son catalogue complet de starters.
+- **New Era :** Ground `personality_test`, parallaxe, RNG enregistrable, option non binaire et catalogue complet de starters.
 
-Le générateur refuse tout autre hash ROM ou commit pret. Il produit `pmdred_quiz_data.lua`; `pmdred_quiz_engine.lua` applique huit tirages sans réutiliser une catégorie, l’embranchement conditionnel de la question brave et le départage canonique par comparaison strictement supérieure. Le module n’utilise pas `math.random` : le flux de production devra injecter la RNG enregistrable de New Era.
+Le générateur refuse tout autre hash ROM ou commit pret. Il produit `pmdred_quiz_data.lua`; `pmdred_quiz_engine.lua` applique huit tirages sans réutiliser une catégorie, l’embranchement conditionnel de la question brave et le départage canonique par comparaison strictement supérieure. Le module n’utilise pas `math.random` : `pmdred_quiz_flow.lua` lui injecte `GAME.Rand` en production et transmet le résultat au système New Era sans limiter ses choix.
 
 ## Validation PMDO réelle
 
@@ -69,9 +69,18 @@ Pour le socle du quiz :
 - inventaire runtime exact de 13 personnalités, 55 questions sélectionnables, une question conditionnelle et huit questions posées ;
 - deux captures 320×240 synchronisées du vrai Ground `personality_test`, séparées par 120 frames demandées ; les 76 800 pixels RGB changent sous l’effet des couches `Dream_Back` `+30` et `Dream_Front` `-30` ;
 - hashes des captures reproduits lors d’un second run ; sortie native 0, sans watchdog ni processus résiduel ;
-- verdict volontairement partiel `CORE_PASS_NOT_PRODUCTION_ROUTED`.
+- verdict volontairement partiel `CORE_PASS_NOT_PRODUCTION_ROUTED` pour cette preuve historique du socle.
 
-Limite de preuve : `_GROUND:Screenshot()` capture le plan Ground, pas les glyphes UI. Les glyphes français sont donc prouvés par égalité avec les bytes ROM EU. Le lot du quiz ne revendique encore aucune validation de menu interactif ; celle du prélude repose en plus sur les appels UI réels sans exception et leurs événements synchronisés.
+Pour le flux de production routé :
+
+- le module `init.lua` suivi a été chargé et parsé par PMDO ; seule sa callback `Enter` a été neutralisée dans la copie ignorée afin que le service pilote le même `pmdred_quiz_flow.lua` ;
+- **246 événements**, **46 pages texte UI réelles** et **21 prompts** sur deux tentatives complètes ;
+- restart confirmé, branche `BraveQuest2B`, chemins de genre non binaire puis féminin, résultats naïf puis brave et recommandations non contraignantes Kaiminus puis Salamèche ;
+- sept pages d’introduction, BGM canonique, fade-in `CMD_BYTE_22` de 30 frames, prompts partenaire/surnom, texte final, fade BGM et fade-out `CMD_BYTE_23` de 30 frames ;
+- test « move, never filter » du catalogue, deux captures synchronisées, sortie native 0 et reproduction sémantique/hashes PASS ;
+- verdict partiel `FLOW_PASS_PRODUCTION_ROUTED_INTERACTIVE_INPUT_PARTIAL`.
+
+Limite de preuve : `_GROUND:Screenshot()` capture le plan Ground, pas les glyphes UI. Les glyphes français sont donc prouvés par égalité avec les bytes ROM EU et passage sans exception dans l’UI texte réelle. Les choix de cette fixture sont injectés : elle ne revendique pas encore le pilotage physique du curseur ni la création live des deux Pokémon.
 
 Le transport GitHub actuel de DumpAsset n’a plus le hash gzip historique, mais son extraction possède exactement les **11 485 fichiers** et le manifeste d’arbre SHA-256 verrouillé par Agent A. Le lock suivi n’a pas été modifié.
 
@@ -96,9 +105,10 @@ Reproduction du lot PMDO, une fois l’environnement headless verrouillé prése
 ```bash
 bash tools/run_pmdred_eu_scene_s01_runtime.sh
 bash tools/run_pmdred_eu_personality_quiz_runtime.sh
+bash tools/run_pmdred_eu_personality_quiz_flow_runtime.sh
 ```
 
-Le second runner reproduit aussi l’extraction ROM dans un dossier ignoré avant de comparer octet pour octet les deux sorties suivies. Aucun runner ne lance de convertisseur, finalizer ou promoteur Ground.
+Le runner du socle reproduit aussi l’extraction ROM dans un dossier ignoré. Celui du flux rejoue deux tentatives et compare timeline sémantique et captures. Aucun runner ne lance de convertisseur, finalizer ou promoteur Ground.
 
 ## Artefacts
 
@@ -113,9 +123,12 @@ Le second runner reproduit aussi l’extraction ROM dans un dossier ignoré avan
 - [`personality_quiz_fr_eu.json`](personality_quiz_fr_eu.json) — 219 enregistrements ROM et graphe/scoring canonique ;
 - [`personality_quiz/runtime_core/validation.json`](personality_quiz/runtime_core/validation.json) — verdict PMDO du socle ;
 - [`personality_quiz/runtime_core/events.jsonl`](personality_quiz/runtime_core/events.jsonl) — timeline du socle ;
-- [`personality_quiz/runtime_core/evidence_hashes.sha256`](personality_quiz/runtime_core/evidence_hashes.sha256) — intégrité de cette preuve ;
+- [`personality_quiz/runtime_core/evidence_hashes.sha256`](personality_quiz/runtime_core/evidence_hashes.sha256) — intégrité de la preuve du socle ;
+- [`personality_quiz/runtime_flow/validation.json`](personality_quiz/runtime_flow/validation.json) — verdict PMDO du flux routé ;
+- [`personality_quiz/runtime_flow/events.jsonl`](personality_quiz/runtime_flow/events.jsonl) — timeline de 246 événements ;
+- [`personality_quiz/runtime_flow/evidence_hashes.sha256`](personality_quiz/runtime_flow/evidence_hashes.sha256) — intégrité de la preuve du flux ;
 - [`HASHES.sha256`](HASHES.sha256) — intégrité du lot, des scripts et des autorités consommées.
 
 ## Prochaine étape obligatoire
 
-Faire appeler le moteur canonique par le flux `personality_test.CharacterSelect()` **existant**, porter l’UI française interactive et toute sa timeline d’introduction, palettes, VFX, SFX, BGM et attentes, puis relier la personnalité obtenue au catalogue complet des starters New Era. Chaque chemin de réponse, le genre, les descriptions et l’état final devront passer le gate PMDO avant de débloquer les opcodes `0x22`/`0x23` de `s01`. L’entrée Métano et l’arc Fugitive ne seront connectés qu’après ce gate.
+Piloter de vrais inputs PMDO dans les menus du flux `personality_test` routé : questions, genre, confirmation/restart, catalogue héros complet, partenaire et surnom. Il faut ensuite prouver les assets/animations, capacités et attaques de départ, la sérialisation de `SV.PersonalityTest`, l’équipe finale et la transition vers `relic_forest`. Après ce gate, le harness `s01` pourra remplacer sa dépendance bloquée par un appel au même flux intégré ; l’entrée Métano et l’arc Fugitive ne seront connectés qu’après ce PASS complet.
