@@ -86,7 +86,7 @@ class DefinitiveIntegrationContractTests(unittest.TestCase):
         self.assertEqual(self.progress["summary"]["fully_migrated_scene_count"], 0)
         self.assertEqual(
             self.progress["current_lot"]["result"],
-            "FLOW_PASS_PRODUCTION_ROUTED_INTERACTIVE_INPUT_PARTIAL",
+            "PHYSICAL_CONFIRM_INPUT_PASS_LIVE_CREATION_PARTIAL",
         )
         self.assertFalse(self.progress["current_lot"]["full_quiz_integrated"])
         self.assertTrue(self.progress["personality_quiz"]["production_route_connected"])

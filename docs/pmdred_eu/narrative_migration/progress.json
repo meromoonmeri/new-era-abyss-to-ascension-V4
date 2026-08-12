@@ -11,13 +11,13 @@
     "in_progress_scene_count": 1,
     "not_started_scene_count": 132,
     "current_scene": "s01",
-    "current_boundary": "production personality_test flow routed through canonical 30-frame fade-out; interactive input/live creation and s01 harness handoff remain open",
-    "blocking_dependency": "INTERACTIVE_INPUT_LIVE_CHARACTER_CREATION_AND_S01_HANDOFF"
+    "current_boundary": "real PMDO confirm input passes all routed quiz menus; directional/live character creation and s01 handoff remain open",
+    "blocking_dependency": "DIRECTIONAL_INPUT_LIVE_CHARACTER_CREATION_SAVE_TRANSITION_AND_S01_HANDOFF"
   },
   "current_lot": {
-    "id": "personality_quiz_production_flow",
+    "id": "personality_quiz_physical_confirm_input",
     "migration_plan_phase": "Phase 6.1 — Socle global / Personality Quiz intégré",
-    "result": "FLOW_PASS_PRODUCTION_ROUTED_INTERACTIVE_INPUT_PARTIAL",
+    "result": "PHYSICAL_CONFIRM_INPUT_PASS_LIVE_CREATION_PARTIAL",
     "full_scene_migrated": false,
     "full_quiz_integrated": false,
     "s01_implemented_source_command_indices": [
@@ -41,14 +41,13 @@
       15
     ],
     "production_route": "Data/Script/halcyon/ground/personality_test/init.lua",
-    "production_route_sha256": "20eda4cffdf57d3a03641aa92036ef64d10c682882e86a2fd504af08db9858b8",
-    "quiz_flow": "Data/Script/halcyon/ground/personality_test/pmdred_quiz_flow.lua",
-    "quiz_flow_sha256": "c960e059d379cf9e4dc2935b5b90ee202dea028d52c38aa21117a36a5f31e5b9",
-    "runtime_validation": "docs/pmdred_eu/narrative_migration/personality_quiz/runtime_flow/validation.json",
-    "runtime_validation_sha256": "621f678f95040506e78ca4fd888340402925dcc1bfeb9125ca310edbff486405",
+    "runtime_validation": "docs/pmdred_eu/narrative_migration/personality_quiz/runtime_input/validation.json",
+    "runtime_validation_sha256": "e3eb120a505f6467943c3738c8d94721c355c5c58c4e80b2618913ec476821dd",
     "normal_pmdo_exit": true,
     "route_connected": true,
-    "interactive_input_validated": false
+    "physical_confirm_input_validated": true,
+    "directional_input_validated": false,
+    "live_character_creation_validated": false
   },
   "invariants": {
     "qualified_archive_backed_grounds_immutable": 219,
@@ -723,7 +722,7 @@
       "migration_status": "NOT_STARTED"
     }
   ],
-  "next_action": "Drive physical PMDO menu input through the routed personality_test flow, validate cursor/choice behaviour across the question, gender, recommendation, complete hero catalogue, partner creation and nickname menus, prove save serialization and the relic_forest final state, then replace the s01 dependency block with the single integrated flow handoff.",
+  "next_action": "Extend the real FrameInput gate to directional/non-first choices, then drive the complete New Era hero and partner selectors plus name entry; validate portraits, forms, genders, abilities, egg moves, SV.PersonalityTest serialization, final team state and relic_forest transition before replacing the isolated s01 dependency with the same production flow.",
   "definitive_integration_contract": "docs/pmdred_eu/narrative_migration/integration_contract.json",
   "definitive_integration_contract_sha256": "688f73c41d8f4f8f8bc0cecea743a55e24b43d3b3480b7ae080b7ad86d841c32",
   "architecture": {
@@ -739,7 +738,7 @@
   },
   "personality_quiz": {
     "target": "Data/Script/halcyon/ground/personality_test/",
-    "status": "FLOW_PASS_PRODUCTION_ROUTED_INTERACTIVE_INPUT_PARTIAL",
+    "status": "PHYSICAL_CONFIRM_INPUT_PASS_LIVE_CREATION_PARTIAL",
     "classification": {
       "rom_text_questions_answers_effects": "PMD_RED_EU_CANON",
       "target_ground_parallax": "NEW_ERA_NATIVE",
@@ -767,6 +766,13 @@
     "runtime_flow_restart_count": 1,
     "complete_new_era_starter_handoff_implemented": true,
     "complete_new_era_starter_handoff_validated": false,
-    "interactive_input_validated": false
+    "interactive_input_validated": false,
+    "runtime_input_event_count": 212,
+    "runtime_input_text_page_count": 27,
+    "runtime_input_choice_count": 10,
+    "runtime_input_confirm_pulse_count": 74,
+    "physical_confirm_input_validated": true,
+    "directional_input_validated": false,
+    "live_character_creation_validated": false
   }
 }

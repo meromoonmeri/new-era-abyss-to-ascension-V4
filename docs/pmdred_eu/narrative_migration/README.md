@@ -17,13 +17,13 @@ L’isolation actuelle de `s01` reste nécessaire pour obtenir une preuve PMDO a
 ## État actuel
 
 - **Lot actif :** phase 6.1, flux de production du Personality Quiz dans le dossier `personality_test` New Era existant.
-- **Résultat du flux :** `FLOW_PASS_PRODUCTION_ROUTED_INTERACTIVE_INPUT_PARTIAL`.
+- **Résultat du flux :** `PHYSICAL_CONFIRM_INPUT_PASS_LIVE_CREATION_PARTIAL`.
 - **Scènes totalement migrées :** **0/133**.
 - **Scène en cours :** `s01`, toujours **11 commandes source sur 16** reproduites dans son harness isolé.
 - **Corpus canonique :** **219 enregistrements texte** français alignés dans la ROM EU ; **55 questions sélectionnables**, huit posées par catégories distinctes, plus `BraveQuest2B` exclusivement conditionnelle.
 - **Connexion de production :** `personality_test.CharacterSelect()` appelle maintenant une seule fois le prélude et le quiz intégrés avant les sélecteurs héros/partenaire New Era existants.
 
-La scène et le quiz ne sont volontairement **pas déclarés terminés**. Le flux routé conserve les sept pages d’introduction, le BGM, les fondus palette de 30 frames correspondant aux opcodes `0x22`/`0x23`, le questionnaire, le genre, la description, la recommandation, le restart, l’enchaînement partenaire, le surnom et le texte final. Le résultat est enregistré dans `SV.PersonalityTest`; la recommandation est déplacée en tête sans jamais filtrer le catalogue. Le chemin non binaire New Era est conservé et explicitement étiqueté comme adaptation. Restent le pilotage physique des menus/cursors, la création live héros/partenaire, la sérialisation et la transition finale, puis le remplacement du blocage du harness `s01` par ce flux unique. Aucun second quiz et aucun remplacement silencieux ne sont autorisés.
+La scène et le quiz ne sont volontairement **pas déclarés terminés**. Le flux routé conserve les sept pages d’introduction, le BGM, les fondus palette de 30 frames correspondant aux opcodes `0x22`/`0x23`, le questionnaire, le genre, la description, la recommandation, le restart, l’enchaînement partenaire, le surnom et le texte final. Le résultat est enregistré dans `SV.PersonalityTest`; la recommandation est déplacée en tête sans jamais filtrer le catalogue. Le chemin non binaire New Era est conservé et explicitement étiqueté comme adaptation. Les confirmations physiques des dix menus du quiz passent maintenant ; restent la navigation directionnelle/non-premier choix, la création live héros/partenaire, la saisie du surnom, la sérialisation et la transition finale, puis le remplacement du blocage du harness `s01` par ce flux unique. Aucun second quiz et aucun remplacement silencieux ne sont autorisés.
 
 ## Ce qui est effectivement porté pour `s01`
 
@@ -80,7 +80,15 @@ Pour le flux de production routé :
 - test « move, never filter » du catalogue, deux captures synchronisées, sortie native 0 et reproduction sémantique/hashes PASS ;
 - verdict partiel `FLOW_PASS_PRODUCTION_ROUTED_INTERACTIVE_INPUT_PARTIAL`.
 
-Limite de preuve : `_GROUND:Screenshot()` capture le plan Ground, pas les glyphes UI. Les glyphes français sont donc prouvés par égalité avec les bytes ROM EU et passage sans exception dans l’UI texte réelle. Les choix de cette fixture sont injectés : elle ne revendique pas encore le pilotage physique du curseur ni la création live des deux Pokémon.
+Pour les inputs physiques du quiz :
+
+- `DiagManager.ActiveDebugReplay` alimente le vrai runtime avec des objets `FrameInput` neutres puis `Keys.Enter` ; aucun résultat de choix n’est injecté dans `pmdred_quiz_flow.lua` ;
+- **74 impulsions**, **27 pages**, **10 vrais `BeginChoiceMenu`/`ChoiceResult`** et **212 événements** ;
+- les huit questions, le genre et la confirmation de recommandation sont réellement validés par le moteur de menus ; résultat naïf/garçon/Kaiminus conforme ;
+- BGM, limites palette et sortie native 0 restent dans la même timeline ; reproduction sémantique PASS ;
+- verdict partiel `PHYSICAL_CONFIRM_INPUT_PASS_LIVE_CREATION_PARTIAL`.
+
+Limite de preuve : `_GROUND:Screenshot()` capture le plan Ground, pas les glyphes UI. Les glyphes français sont donc prouvés par égalité avec les bytes ROM EU et passage sans exception dans l’UI texte réelle. La fixture physique couvre la confirmation du premier choix ; navigation directionnelle, saisie de nom et création live des deux Pokémon restent ouvertes.
 
 Le transport GitHub actuel de DumpAsset n’a plus le hash gzip historique, mais son extraction possède exactement les **11 485 fichiers** et le manifeste d’arbre SHA-256 verrouillé par Agent A. Le lock suivi n’a pas été modifié.
 
@@ -106,6 +114,7 @@ Reproduction du lot PMDO, une fois l’environnement headless verrouillé prése
 bash tools/run_pmdred_eu_scene_s01_runtime.sh
 bash tools/run_pmdred_eu_personality_quiz_runtime.sh
 bash tools/run_pmdred_eu_personality_quiz_flow_runtime.sh
+bash tools/run_pmdred_eu_personality_quiz_input_runtime.sh
 ```
 
 Le runner du socle reproduit aussi l’extraction ROM dans un dossier ignoré. Celui du flux rejoue deux tentatives et compare timeline sémantique et captures. Aucun runner ne lance de convertisseur, finalizer ou promoteur Ground.
@@ -127,8 +136,11 @@ Le runner du socle reproduit aussi l’extraction ROM dans un dossier ignoré. C
 - [`personality_quiz/runtime_flow/validation.json`](personality_quiz/runtime_flow/validation.json) — verdict PMDO du flux routé ;
 - [`personality_quiz/runtime_flow/events.jsonl`](personality_quiz/runtime_flow/events.jsonl) — timeline de 246 événements ;
 - [`personality_quiz/runtime_flow/evidence_hashes.sha256`](personality_quiz/runtime_flow/evidence_hashes.sha256) — intégrité de la preuve du flux ;
+- [`personality_quiz/runtime_input/validation.json`](personality_quiz/runtime_input/validation.json) — verdict des vrais `FrameInput` ;
+- [`personality_quiz/runtime_input/events.jsonl`](personality_quiz/runtime_input/events.jsonl) — timeline physique de 212 événements ;
+- [`personality_quiz/runtime_input/evidence_hashes.sha256`](personality_quiz/runtime_input/evidence_hashes.sha256) — intégrité de cette preuve ;
 - [`HASHES.sha256`](HASHES.sha256) — intégrité du lot, des scripts et des autorités consommées.
 
 ## Prochaine étape obligatoire
 
-Piloter de vrais inputs PMDO dans les menus du flux `personality_test` routé : questions, genre, confirmation/restart, catalogue héros complet, partenaire et surnom. Il faut ensuite prouver les assets/animations, capacités et attaques de départ, la sérialisation de `SV.PersonalityTest`, l’équipe finale et la transition vers `relic_forest`. Après ce gate, le harness `s01` pourra remplacer sa dépendance bloquée par un appel au même flux intégré ; l’entrée Métano et l’arc Fugitive ne seront connectés qu’après ce PASS complet.
+Étendre le gate `FrameInput` aux directions et aux choix non initiaux, puis piloter le catalogue héros complet, le partenaire et la saisie du surnom. Il faut prouver les assets/animations, formes, genres, capacités et attaques de départ, la sérialisation de `SV.PersonalityTest`, l’équipe finale et la transition vers `relic_forest`. Après ce gate, le harness `s01` pourra remplacer sa dépendance bloquée par un appel au même flux intégré ; l’entrée Métano et l’arc Fugitive ne seront connectés qu’après ce PASS complet.
