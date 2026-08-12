@@ -1,0 +1,228 @@
+{
+  "schema": 1,
+  "ground": "d05p01",
+  "validated_at": "2026-08-12",
+  "runtime": "PASS",
+  "visual_comparison": {
+    "result": "PASS",
+    "dimensions_pixels": [
+      672,
+      240
+    ],
+    "primary_sample_count": 1,
+    "reload_sample_count": 1,
+    "exact_sample_count": 2,
+    "unique_rgba_frame_count": 1,
+    "mismatched_pixel_count": 0,
+    "maximum_channel_delta": 0,
+    "all_full_rgba_exact": true,
+    "all_fully_opaque": true,
+    "comparative_png_paths": [
+      "docs/pmdred_eu/pmdo_validation/d05p01_exhaustive_pass/comparisons/comparison_primary_tick0.png",
+      "docs/pmdred_eu/pmdo_validation/d05p01_exhaustive_pass/comparisons/comparison_reload_tick0.png"
+    ],
+    "complete_metrics_report": "docs/pmdred_eu/pmdo_validation/d05p01_exhaustive_pass/report.json"
+  },
+  "tile_palette_validation": {
+    "result": "PASS",
+    "reference": "independent authenticated raw EU BPL/BPC/BPA/BMA renderer",
+    "resource_hashes": {
+      "D05P01": "9344a2747cb0a6b4a8151841d9f721902b78b0ad2783583d7d8c91fb55c84d7b",
+      "D05P01c": "7897fa82eef2150ce92aceaae788107feecb8b1176ffac17bc0bb5d0652572b4",
+      "D05P01m": "9411749abad90986cf8d37ca9a55b5ca2074c60986843b1dd6e292da09de1df7"
+    }
+  },
+  "animation_validation": {
+    "result": "PASS",
+    "primary_sample_count": 1,
+    "first_tick": 0,
+    "last_tick": 0,
+    "cell_local_schedule_count": 0,
+    "maximum_cell_local_cycle_ticks": 1,
+    "all_schedules_covered_through_two_complete_cycles": true,
+    "channels": [],
+    "unique_observed_rgba_frames": 1,
+    "reload_tick_zero_exact": true,
+    "orphaned_animation_observed": false
+  },
+  "collision_validation": {
+    "result": "PASS",
+    "source": "D05P01m",
+    "collision_layer_count": 1,
+    "solid_cells": 2305,
+    "collision_sha256": "62f21ada3219f09537ff1daac2665447bfd07fa2075ae299290a49ddd8a6c6ee",
+    "successful_probe": {
+      "start": [
+        280,
+        128
+      ],
+      "direction": "Down",
+      "observed_delta": [
+        0,
+        8
+      ],
+      "result": "PASS"
+    },
+    "blocked_probe": {
+      "applicable": true,
+      "start": [
+        280,
+        128
+      ],
+      "direction": "Right",
+      "observed_delta": [
+        0,
+        0
+      ],
+      "result": "PASS"
+    }
+  },
+  "entry_exit_reentry": {
+    "result": "PASS",
+    "loads": 2,
+    "entries": 2,
+    "exits": 2,
+    "same_ground_reentries": 1,
+    "strict_native_lifecycle_order": "PASS"
+  },
+  "cleanup_reload": {
+    "result": "PASS",
+    "cleanup_probe_count": 4,
+    "ground_exit_cleanup_passes": 2,
+    "sink_cleanup": "PASS",
+    "final_cleanup": "PASS",
+    "reload_load": "LOAD_PASS",
+    "reload_tick_zero_full_rgba_exact": true,
+    "terminal_end_seen": true,
+    "state_leakage_observed": false,
+    "stale_assets_observed": false,
+    "permanent_lock_observed": false,
+    "orphan_process_check": "PASS"
+  },
+  "native_termination": {
+    "result": "PASS",
+    "load_phase": "Unload",
+    "deinit_seen": true,
+    "graphics_unload_seen": true,
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "terminal": true,
+    "graceful": true,
+    "watchdog": false,
+    "requested_signal": null,
+    "sigsegv": false,
+    "forced_kill": false,
+    "orphan_process": false,
+    "evidence": "docs/pmdred_eu/pmdo_validation/d05p01_exhaustive_pass/termination.json",
+    "sha256": "0f5163b83b8b7aa1eff3623f71480246974a04bb658796a44f8a6bf2ee0ab54f"
+  },
+  "fixture_isolation": {
+    "canonical_source_ground_sha256": "e8166d54a0f79f431917772a1e32617c3be938389496bb05307ba2fd37f05860",
+    "canonical_source_tile_sha256": "9ca91e5c119eaeb5921f76fd279a60014af2de0a94f9243ca0dd77e361b96bf6",
+    "source_entity_counts": {
+      "markers": 0,
+      "spawners": 0,
+      "map_characters": 0,
+      "ground_objects": 0
+    },
+    "fixture_only_changes": [
+      "deterministic entry marker",
+      "ignored validator plumbing"
+    ],
+    "source_and_promoted_files_unchanged_by_fixture": true
+  },
+  "special_classification": {
+    "canonical_source": {
+      "category": "dungeon_transition_ground",
+      "ground_map_symbol": "MAP_GREAT_CANYON_ENTRY",
+      "canonical_debug_id": 195,
+      "map_id": 191,
+      "map_file_id": 200,
+      "ground_place_id": 17,
+      "stable_ground_id": "d05p01",
+      "classification": "great_canyon_entry_ground",
+      "location": "great_canyon",
+      "transition": "entry",
+      "cinematic": false,
+      "arena": false,
+      "boss": false
+    },
+    "scope": {
+      "cinematic_choreography": "NOT APPLICABLE/NOT CLAIMED; Ground-only lifecycle and rendering validated",
+      "arena": false,
+      "boss": false
+    }
+  },
+  "identity_validation": {
+    "result": "PASS",
+    "authenticated_map_file_id": 200,
+    "pinned_enum_symbol": "MAP_GREAT_CANYON_ENTRY",
+    "conversion_type": 6,
+    "weather_id": -1
+  },
+  "definitive_destination": {
+    "ground": "Data/Ground/d05p01.rsground",
+    "tile": "Content/Tile/d05p01_Base.tile",
+    "zone_registry": "Data/Zone/master_zone.json",
+    "zone_registry_entry": "d05p01",
+    "promotion_status": "PROMOTED_ADDITIVE_CANONICAL",
+    "preexisting_destinations": false,
+    "pre_promotion_destinations": {
+      "ground": {
+        "preexisting": false,
+        "sha256": null,
+        "reserve": null
+      },
+      "tile": {
+        "preexisting": false,
+        "sha256": null,
+        "reserve": null
+      }
+    },
+    "pre_promotion_record": "RESERVE/pmdred_pre_promotion/d05p01/README.md",
+    "promoted_ground_sha256": "e8166d54a0f79f431917772a1e32617c3be938389496bb05307ba2fd37f05860",
+    "promoted_tile_sha256": "9ca91e5c119eaeb5921f76fd279a60014af2de0a94f9243ca0dd77e361b96bf6"
+  },
+  "provenance": {
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+    "conversion_report_sha256": "91f3b460b3e3b7689bc608ece2006cb6103d653bcdc22ad028f4172c3a1b0fdc",
+    "candidate_ground_sha256": "e8166d54a0f79f431917772a1e32617c3be938389496bb05307ba2fd37f05860",
+    "candidate_tile_sha256": "9ca91e5c119eaeb5921f76fd279a60014af2de0a94f9243ca0dd77e361b96bf6",
+    "source_normalized_sha256": {
+      "D05P01": "9344a2747cb0a6b4a8151841d9f721902b78b0ad2783583d7d8c91fb55c84d7b",
+      "D05P01c": "7897fa82eef2150ce92aceaae788107feecb8b1176ffac17bc0bb5d0652572b4",
+      "D05P01m": "9411749abad90986cf8d37ca9a55b5ca2074c60986843b1dd6e292da09de1df7"
+    },
+    "events_sha256": "b733f78c4866c3bf031e3f919abefadee133ac1646ae59dc886504991f800e35",
+    "report_sha256": "611069018be91befc0575da9853e1e7b12e6ebdf2b783ba12bf55f394b4cb6ba",
+    "fixture_manifest_sha256": "ae1474d7eb9dd10021691833f59a7541885798598d6fecca59467e97d2a61417",
+    "termination_sha256": "0f5163b83b8b7aa1eff3623f71480246974a04bb658796a44f8a6bf2ee0ab54f",
+    "detailed_provenance": "docs/pmdred_eu/pmdo_validation/d05p01_exhaustive_pass/provenance.json"
+  },
+  "execution_note": {
+    "terminal_event_and_all_required_captures_completed": true,
+    "post_terminal_shutdown": "PMDO-native GameBase.LoadPhase.Unload followed by NORMAL_EXIT",
+    "return_code": 0,
+    "watchdog": false,
+    "requested_signal": null,
+    "evidence_impact": "NONE"
+  },
+  "dungeon_restitution": {
+    "affected": false,
+    "status": "27-relationship bundle retained"
+  },
+  "scope_note": "Ground-only; dialogue, choreography, music assignment, and narrative routing are not claimed.",
+  "post_promotion_integration": {
+    "result": "PASS",
+    "exact_pmdo_index": "PASS",
+    "indexed_ground_sha256": "e8166d54a0f79f431917772a1e32617c3be938389496bb05307ba2fd37f05860",
+    "indexed_tile_sha256": "9ca91e5c119eaeb5921f76fd279a60014af2de0a94f9243ca0dd77e361b96bf6",
+    "index_log_sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+    "zone_encoding_bom_preserved": true,
+    "zone_change": "one insertion after d04p01",
+    "zone_ground_map_count": 369,
+    "canonical_index": 312,
+    "variant_and_routing_static_checks": "PASS"
+  }
+}
