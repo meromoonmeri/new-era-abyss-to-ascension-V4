@@ -1,0 +1,99 @@
+{
+  "schema": "new-era.pmdred-eu-ground-orchestration-failure.v1",
+  "ground": "h27p01",
+  "result": "ORCHESTRATION_FAIL_AFTER_EXACT_ADDITIVE_INSTALL",
+  "attempt_started_at": "2026-08-12T20:48:57Z",
+  "failure_observed_at": "2026-08-12T20:50:38Z",
+  "head_before_attempt": "21f4c0afb402fbee507afe73ea0895c8eed4b1eb",
+  "failed_command": ".runtime-cache/test-venv/bin/python tools/run_pmdred_eu_ground_milestone.py --ids h27p01",
+  "failure": {
+    "stage": "zone_registration_after_runtime_and_comparison_pass",
+    "exception": "RuntimeError: cannot identify unique validated predecessor for h27p01",
+    "cause": "h26p01 was already validated/promoted out of order but was absent from Data/Zone/master_zone.json; the orchestrator selected it as the nearest validated predecessor without checking registry membership."
+  },
+  "initial_destination_precondition": {
+    "ground": "absent",
+    "tile": "absent"
+  },
+  "preserved_partial_additive_install": {
+    "ground": {
+      "path": "Data/Ground/h27p01.rsground",
+      "sha256": "c3e670bbcf3bb2c554eb2e93d5a9798ec7ee7d7dc30d4fa7fb27915369b5834c",
+      "matches_authenticated_v201_candidate": true,
+      "tracked_at_head": false
+    },
+    "tile": {
+      "path": "Content/Tile/h27p01_Base.tile",
+      "sha256": "090f29330690b6ac6a5fbf0923c275dcb1502cc27ac2e2c9ba4ead6bbf0deda9",
+      "matches_authenticated_v201_candidate": true,
+      "tracked_at_head": false
+    },
+    "deleted_or_overwritten_during_diagnosis": false
+  },
+  "runtime": {
+    "result": "PASS",
+    "events": 1852,
+    "screenshots": 609,
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "terminal": true,
+    "graceful": true,
+    "load_phase_unload_pass": true,
+    "watchdog": false,
+    "requested_signal": null,
+    "sigsegv": false,
+    "forced_kill": false,
+    "orphan_process": false
+  },
+  "comparison": {
+    "samples": 609,
+    "exact_samples": 609,
+    "fully_opaque_samples": 609,
+    "all_exact": true,
+    "all_fully_opaque": true,
+    "mismatched_pixels": 0,
+    "maximum_channel_delta": 0
+  },
+  "predecessor_diagnosis": {
+    "h25p01": {
+      "validated": true,
+      "zone_entry_count": 1
+    },
+    "h26p01": {
+      "validated": true,
+      "zone_entry_count": 0
+    },
+    "a01p01": {
+      "validated": true,
+      "zone_entry_count": 0
+    }
+  },
+  "recovery_policy": {
+    "preserve_this_failed_attempt": true,
+    "preserve_exact_partial_destination_bytes": true,
+    "backfill_missing_pilot_zone_entries_with_exact_engine_index": true,
+    "fresh_full_runtime_and_comparison_rerun_required": true,
+    "official_pass_may_be_packaged_only_after_all_gates_pass_on_fresh_rerun": true
+  },
+  "evidence": {
+    "README.md": "330b85764f0075c77a6d41b837089f3bbe04511bab61cd5ace8ebedb18c2c820",
+    "actual/actual_primary_tick0.png": "ba658c24d6f5bbaf3ce3e2785ebe5aa4eafaf490720014fcb5b34d8276133042",
+    "actual/actual_primary_tick911.png": "961f6546fa3c947246c01ac7b731aad06b629f2035f20c4922e7a7f874a406cc",
+    "actual/actual_reload_tick0.png": "ba658c24d6f5bbaf3ce3e2785ebe5aa4eafaf490720014fcb5b34d8276133042",
+    "comparison.log": "9142d64617b4e33d6489ba7a0982a6d7c51490542f7a6e0f39dc8ca784a557a4",
+    "comparisons/comparison_primary_tick0.png": "7360a3c3676bdb252e0046b123e6fb1ffdbc7bf6e4a718c80920a0f748fc6f0d",
+    "comparisons/comparison_primary_tick911.png": "7a7b5f005290501bbe194868a9c152c6ce0796e12bd84f4cbe88f001c3792b8c",
+    "comparisons/comparison_reload_tick0.png": "7360a3c3676bdb252e0046b123e6fb1ffdbc7bf6e4a718c80920a0f748fc6f0d",
+    "engine.log": "2ae81b790aa67e5fec173fcbcb97f9ec3a4a3e94ea9fffacfee9508a4c3872eb",
+    "events.jsonl": "c704fc3a9861415b04ecdef20e715b76f7ed4d6d273bc74721f6aade2ba4cc5d",
+    "fixture_manifest.json": "b39b4896a06786ccb1739d458c414196e967a93bcfa5ea533c2fa039193516ff",
+    "index.log": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+    "orchestration_failure.log": "4948029fcab2755ed8ab3f6cc5c4aa2d5caa2b587cf81a6c59f74f7e3d754b79",
+    "report.json": "8390e84e19cbe55047ea53e60d587d63f2a4fcde13b5d2842a2ea75b4cdba407",
+    "runtime.log": "16cbe136f63add9c601caf3371d01a73b84d0a732a6b716e97ad77b3d70f771e",
+    "termination.json": "f8aca116d4b6611d19cc3611a0277ebfe82bd7db6957990f3afc194b55d44484",
+    "Data/Ground/h27p01.rsground": "c3e670bbcf3bb2c554eb2e93d5a9798ec7ee7d7dc30d4fa7fb27915369b5834c",
+    "Content/Tile/h27p01_Base.tile": "090f29330690b6ac6a5fbf0923c275dcb1502cc27ac2e2c9ba4ead6bbf0deda9",
+    "Data/Zone/master_zone.json": "699324c6da998f9cc9cf6f251dc690a1bd57b58fa98f0e51a7f682de1218a6e0"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "schema": "new-era.pmdred-eu-zone-integration-correction.v1",
+  "date": "2026-08-12",
+  "result": "PASS",
+  "scope": "Zone registration and exact-PMDO post-integration indexing only; historical Ground runtime/visual evidence was not modified or rerun.",
+  "trigger": "h27p01 orchestration correctly stopped after h26p01, an earlier out-of-order validated pilot, was selected as predecessor but found absent from master_zone.json.",
+  "zone": {
+    "path": "Data/Zone/master_zone.json",
+    "pre_correction_sha256": "699324c6da998f9cc9cf6f251dc690a1bd57b58fa98f0e51a7f682de1218a6e0",
+    "post_correction_sha256": "1916e7ca222e152befd1315d7a0fdca43bd388b48dc5a0ca8523d819dc8346b3",
+    "bom_preserved": true,
+    "reserialized": false,
+    "inserted_entries": [
+      "h26p01",
+      "a01p01"
+    ],
+    "insertion_after": "h25p01",
+    "other_bytes_unchanged": true
+  },
+  "pilots": {
+    "h26p01": {
+      "ground_sha256": "b73166a0dfb774a4c2cdf62b9fb5d5b3f467565759005a4850072a5e1b721a56",
+      "tile_sha256": "ec93bd38bef447a8bf2ce38c1b8ed7c9972cba85fa0c428df298d9ddb232df01",
+      "historical_validation_evidence": "docs/pmdred_eu/pmdo_validation/h26p01_exhaustive_pass/",
+      "revalidated": false
+    },
+    "a01p01": {
+      "ground_sha256": "23564c7171f3234282cf6bab34165eb92aa4910ea63a1a4ca7d2b01209f7b432",
+      "tile_sha256": "fb00f9f9e008317e70245148ab42d3ed3966e79f5203d23529fcb26f05f4bab0",
+      "historical_validation_evidence": "docs/pmdred_eu/pmdo_validation/a01p01_exhaustive_pass/",
+      "revalidated": false
+    }
+  },
+  "exact_pmdo_index": {
+    "result": "PASS",
+    "version": "0.8.12",
+    "executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+    "log": "docs/pmdred_eu/pmdo_validation/pilot_zone_integration_correction_20260812/post_integration_index.log",
+    "log_sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+    "fixture_manifest": "docs/pmdred_eu/pmdo_validation/pilot_zone_integration_correction_20260812/fixture_manifest.json",
+    "fixture_manifest_sha256": "c6f0839b091b2424d0be17054b95436c0c62ff5f954ff06f4f1586903ffbd3bc"
+  },
+  "preservation": {
+    "historical_evidence_modified": false,
+    "promoted_ground_or_tile_modified": false,
+    "routes_removed_or_replaced": false,
+    "failed_h27p01_attempt_preserved_at": "docs/pmdred_eu/pmdo_validation/h27p01_failed_attempt_pre_zone_recovery/"
+  }
+}

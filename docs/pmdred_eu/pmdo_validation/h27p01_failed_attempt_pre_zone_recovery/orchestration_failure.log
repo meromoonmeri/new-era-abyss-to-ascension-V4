@@ -1,0 +1,11 @@
+[2026-08-12T20:50:38Z] BATCH_FAIL RuntimeError: cannot identify unique validated predecessor for h27p01
+Traceback (most recent call last):
+  File "tools/run_pmdred_eu_ground_milestone.py", line 510, in <module>
+    try: raise SystemExit(main())
+  File "tools/run_pmdred_eu_ground_milestone.py", line 505, in main
+    for ground in ids: process_ground(ground,all_data)
+  File "tools/run_pmdred_eu_ground_milestone.py", line 457, in process_ground
+    zone_pre,zone_post,prior,zone_index=insert_zone(ground,order,validated)
+  File "tools/run_pmdred_eu_ground_milestone.py", line 228, in insert_zone
+    raise RuntimeError(f"cannot identify unique validated predecessor for {ground}")
+RuntimeError: cannot identify unique validated predecessor for h27p01

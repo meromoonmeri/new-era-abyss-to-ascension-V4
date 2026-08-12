@@ -247,6 +247,85 @@ def sha_bytes(value: bytes) -> str:
     return hashlib.sha256(value).hexdigest()
 
 
+def validate_partial_additive_recovery_record(
+    record: dict[str, Any], ground: str, ground_hash: str, tile_hash: str
+) -> None:
+    """Authenticate a preserved, uncommitted additive install from a failed attempt.
+
+    This never converts that prior attempt into a PASS.  It only permits the exact
+    candidate bytes already installed by that attempt to remain in place while a
+    fresh, isolated runtime/comparison attempt is performed from the beginning.
+    """
+    installed = record.get("preserved_partial_additive_install", {})
+    policy = record.get("recovery_policy", {})
+    required = [
+        record.get("schema") == "new-era.pmdred-eu-ground-orchestration-failure.v1",
+        record.get("ground") == ground,
+        record.get("result") == "ORCHESTRATION_FAIL_AFTER_EXACT_ADDITIVE_INSTALL",
+        record.get("failure", {}).get("stage") == "zone_registration_after_runtime_and_comparison_pass",
+        record.get("initial_destination_precondition") == {"ground": "absent", "tile": "absent"},
+        installed.get("ground", {}).get("sha256") == ground_hash,
+        installed.get("tile", {}).get("sha256") == tile_hash,
+        installed.get("ground", {}).get("tracked_at_head") is False,
+        installed.get("tile", {}).get("tracked_at_head") is False,
+        installed.get("ground", {}).get("matches_authenticated_v201_candidate") is True,
+        installed.get("tile", {}).get("matches_authenticated_v201_candidate") is True,
+        installed.get("deleted_or_overwritten_during_diagnosis") is False,
+        policy.get("preserve_this_failed_attempt") is True,
+        policy.get("preserve_exact_partial_destination_bytes") is True,
+        policy.get("fresh_full_runtime_and_comparison_rerun_required") is True,
+        policy.get("official_pass_may_be_packaged_only_after_all_gates_pass_on_fresh_rerun") is True,
+    ]
+    if not all(required):
+        raise RuntimeError(f"partial additive recovery record gate failed for {ground}: {required}")
+
+
+def tracked_at_head(path: Path) -> bool:
+    relative = path.relative_to(ROOT).as_posix()
+    return subprocess.run(
+        ["git", "cat-file", "-e", f"HEAD:{relative}"],
+        cwd=ROOT,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    ).returncode == 0
+
+
+def partial_additive_recovery_record(
+    ground: str, ground_dst: Path, tile_dst: Path, ground_hash: str, tile_hash: str
+) -> Path | None:
+    if not (ground_dst.is_file() and tile_dst.is_file()):
+        return None
+    if sha(ground_dst) != ground_hash or sha(tile_dst) != tile_hash:
+        return None
+    if tracked_at_head(ground_dst) or tracked_at_head(tile_dst):
+        return None
+    record_path = (
+        ROOT
+        / f"docs/pmdred_eu/pmdo_validation/{ground}_failed_attempt_pre_zone_recovery/failure_record.json"
+    )
+    if not record_path.is_file():
+        return None
+    record = load(record_path)
+    validate_partial_additive_recovery_record(record, ground, ground_hash, tile_hash)
+    if record["evidence"].get(f"Data/Ground/{ground}.rsground") != ground_hash:
+        raise RuntimeError(f"partial recovery Ground evidence hash mismatch for {ground}")
+    if record["evidence"].get(f"Content/Tile/{ground}_Base.tile") != tile_hash:
+        raise RuntimeError(f"partial recovery tile evidence hash mismatch for {ground}")
+    correction_path = ROOT / "docs/pmdred_eu/pmdo_validation/pilot_zone_integration_correction_20260812/correction_record.json"
+    if not correction_path.is_file():
+        raise RuntimeError("partial recovery requires durable historical pilot zone correction evidence")
+    correction = load(correction_path)
+    maps = load(ROOT / "Data/Zone/master_zone.json")["Object"]["GroundMaps"]
+    if not (
+        correction.get("result") == "PASS"
+        and correction.get("zone", {}).get("inserted_entries") == ["h26p01", "a01p01"]
+        and maps.count("h26p01") == 1
+        and maps.count("a01p01") == 1
+    ):
+        raise RuntimeError("historical pilot zone correction gate failed")
+    return record_path
+
+
 def write_commands(out: Path, ground: str, identity: dict[str, Any], symbol: str, ground_hash: str, tile_hash: str,
                    event_count: int, sample_count: int, unique_count: int, reserve_ground: Path, reserve_tile: Path) -> None:
     source = (ROOT / "docs/pmdred_eu/pmdo_validation/t01p07_exhaustive_pass/commands.sh").read_text()
@@ -291,7 +370,7 @@ PYTERM
 
 def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: dict[str, Any], audit: dict[str, Any], plan: dict[str, Any],
                      fixture: Path, comparison: Path, post_fixture: Path, zone_pre: str, zone_post: str, prior: str, zone_index: int,
-                     pre_promotion: dict[str, dict[str, Any]]) -> None:
+                     pre_promotion: dict[str, dict[str, Any]], partial_recovery_record: Path | None = None) -> None:
     out = ROOT / f"docs/pmdred_eu/pmdo_validation/{ground}_exhaustive_pass"
     if out.exists(): raise FileExistsError(out)
     (out / "actual").mkdir(parents=True); (out / "comparisons").mkdir()
@@ -326,9 +405,12 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
     reserve_ground=ROOT/f"RESERVE/red_grounds/{ground}.rsground"; reserve_tile=ROOT/f"RESERVE/red_tiles/{ground}_Base.tile"
     reserve_details={"ground":{"present":reserve_ground.is_file(),"sha256":sha(reserve_ground) if reserve_ground.is_file() else None},"tile":{"present":reserve_tile.is_file(),"sha256":sha(reserve_tile) if reserve_tile.is_file() else None}}
     preexisting = any(item["preexisting"] for item in pre_promotion.values())
-    promotion_result = "PROMOTION_PASS_CANONICAL_WITH_PRESERVED_MIGRATION" if preexisting else "PROMOTION_PASS_ADDITIVE_CANONICAL"
-    promotion_status = "PROMOTED_CANONICAL_WITH_PRESERVED_MIGRATION" if preexisting else "PROMOTED_ADDITIVE_CANONICAL"
+    recovered_partial_additive = partial_recovery_record is not None
+    promotion_result = "PROMOTION_PASS_RECOVERED_EXACT_ADDITIVE_INSTALL" if recovered_partial_additive else ("PROMOTION_PASS_CANONICAL_WITH_PRESERVED_MIGRATION" if preexisting else "PROMOTION_PASS_ADDITIVE_CANONICAL")
+    promotion_status = "PROMOTED_RECOVERED_EXACT_ADDITIVE_INSTALL" if recovered_partial_additive else ("PROMOTED_CANONICAL_WITH_PRESERVED_MIGRATION" if preexisting else "PROMOTED_ADDITIVE_CANONICAL")
     precondition = "; ".join(f"{name} {'present at ' + item['sha256'] if item['preexisting'] else 'absent'}" for name, item in pre_promotion.items())
+    if recovered_partial_additive:
+        precondition += "; exact untracked candidate install preserved from explicitly failed pre-zone attempt"
     pre_reserve_details = {
         name: {"preexisting": item["preexisting"], "sha256": item["sha256"], "reserve": item["reserve"]}
         for name, item in pre_promotion.items()
@@ -353,6 +435,28 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
       "post_promotion_integration":{"result":"PASS","exact_pmdo_index":"PASS","indexed_ground_sha256":ground_hash,"indexed_tile_sha256":tile_hash,"index_log_sha256":INDEX_SHA256,"zone_encoding_bom_preserved":True,"zone_change":f"one insertion after {prior}","zone_ground_map_count":len(load(ROOT/"Data/Zone/master_zone.json")["Object"]["GroundMaps"]),"canonical_index":zone_index,"variant_and_routing_static_checks":"PASS"}}
     promotion={"schema":1,"ground":ground,"validated_at":DATE,"promoted_at":DATE,"result":promotion_result,"method":{"destination_precondition":precondition,"installation_mode":"fsynced temporary files and atomic os.replace after durable preservation where required","historical_bytes_reserved_before_replacement":preexisting,"existing_asset_discarded":False,"existing_scripts_modified":False,"zone_registration":f"one insertion after {prior} without reserialization"},"gates":{"exact_pmdo_version":"0.8.12","exact_pmdo_executable_sha256":PMDO_SHA256,"active_patched_sdl_sha256":SDL_SHA256,"report_sha256":report_sha,"fixture_manifest_sha256":fixture_sha,"reference_plan_sha256":PLAN_SHA256,"canonical_ground_sha256":ground_hash,"canonical_tile_sha256":tile_hash,"planned_primary_tick_count":len(primary),"observed_primary_tick_count":len(primary),"reload_tick_zero_covered":True,"pixel_exact_sample_count":samples,"fully_opaque_sample_count":samples,"mismatched_pixel_count":0,"maximum_channel_delta":0,"runtime_safe":True,"native_lifecycle_order_pass":True,"cleanup_pass":True,"terminal_end_seen":True,"load_phase_unload_pass":True,"exit_classification":"NORMAL_EXIT","return_code":0,"terminal":True,"graceful":True,"watchdog":False,"requested_signal":None,"sigsegv":False,"forced_kill":False,"orphan_process":False,"termination_sha256":termination_sha,"identity_map_file_id":identity["map_file_id"],"identity_symbol":symbol},"files":[{"candidate":f".runtime-cache/pmdred-eu-remaining-regenerated-v201/grounds/{ground}.rsground","destination":f"Data/Ground/{ground}.rsground","destination_preexisting":pre_promotion["ground"]["preexisting"],"pre_promotion_sha256":pre_promotion["ground"]["sha256"],"pre_promotion_reserve":pre_promotion["ground"]["reserve"],"bytes":(ROOT/f"Data/Ground/{ground}.rsground").stat().st_size,"validated_candidate_sha256":ground_hash,"destination_sha256":ground_hash,"candidate_destination_identical":True},{"candidate":f".runtime-cache/pmdred-eu-remaining-regenerated-v201/tiles/{ground}_Base.tile","destination":f"Content/Tile/{ground}_Base.tile","destination_preexisting":pre_promotion["tile"]["preexisting"],"pre_promotion_sha256":pre_promotion["tile"]["sha256"],"pre_promotion_reserve":pre_promotion["tile"]["reserve"],"bytes":(ROOT/f"Content/Tile/{ground}_Base.tile").stat().st_size,"validated_candidate_sha256":tile_hash,"destination_sha256":tile_hash,"candidate_destination_identical":True}],"zone_registration":{"entry":ground,"entry_count":1,"position":f"after {prior}","pre_promotion_sha256":zone_pre,"post_promotion_sha256":zone_post},"preserved_variants":[{"role":"pre_promotion_destination_reserve","files":pre_reserve_details,"modified_after_capture":False},{"role":"historical_reserve",**reserve_details,"modified":False},{"role":"historical_v200_and_v201_reports","paths":["docs/pmdred_eu/remaining_grounds/history/v200_pre_period_fix/","docs/pmdred_eu/remaining_grounds/"],"modified_by_promotion":False}],"post_promotion_integration":{"result":"PASS","exact_pmdo_index":"PASS","log_sha256":INDEX_SHA256,"zone_structure":"PASS","existing_routes_unchanged":"PASS"}}
     provenance={"schema":1,"ground":ground,"validated_at":DATE,"result":"PASS","authorities":{"rom":{"sha256":ROM_SHA256,"bytes":33554432,"region":"Europe"},"technical_reference":{"repository":"pret/pmd-red","commit":"bf0092d0e34fd8e49b859a0b5f96f00740faa42d","role":f"{symbol} identity, not EU bytes"},"normalized_extraction":{"source_hashes":plan["source_normalized_sha256"]},"runtime_plan":{"schema":2,"sha256":PLAN_SHA256},"conversion":{"converter":"2.0.1-eu","report_sha256":CONVERSION_SHA256}},"identity":{"canonical_debug_id":identity["canonical_debug_id"],"map_id":identity["map_id"],"map_file_id":identity["map_file_id"],"ground_place_id":identity["ground_place_id"],"conversion_type":identity["conversion_type"],"weather_id":identity["weather_id"],"stable_ground_id":ground,"ground_map_symbol":symbol,"dimensions_tiles":plan["dimensions_tiles"],"dimensions_pixels":plan["dimensions_pixels"],**role},"tested_source":{"ground_sha256":ground_hash,"tile_sha256":tile_hash,"candidate_entities":{"markers":0,"spawners":0,"map_characters":0,"ground_objects":0},"fixture_manifest_sha256":fixture_sha,"static_audit":audit},"runtime":{"name":"PMDO","version":"0.8.12","executable_sha256":PMDO_SHA256,"patched_sdl_sha256":SDL_SHA256,"events_sha256":events_sha,"event_count":sum(1 for _ in (out/"events.jsonl").open()),"primary_samples":len(primary),"reload_samples":1,"terminal_seen":True,"load_phase":"Unload","exit_classification":"NORMAL_EXIT","return_code":0,"graceful":True,"watchdog":False,"requested_signal":None,"sigsegv":False,"forced_kill":False,"orphan_process":False,"termination_sha256":termination_sha},"comparison":{"report_sha256":report_sha,"sample_count":samples,"exact_sample_count":samples,"fully_opaque_sample_count":samples,"mismatched_pixels":0,"maximum_channel_delta":0,"unique_primary_rgba_frames":unique_count},"candidate_provenance_reconciliation":{"historical_v200_reports_preserved_at":"docs/pmdred_eu/remaining_grounds/history/v200_pre_period_fix/","authenticated_v201_ground_sha256":ground_hash,"authenticated_v201_tile_sha256":tile_hash,"decision":"Only authenticated v2.0.1-eu bytes were exact-engine tested and promoted; immutable v2.0.0 reports and active v2.0.1 reports remain distinct provenance."},"preservation":{"historical_reserve":reserve_details,"pre_promotion_destinations":pre_reserve_details,"pre_promotion_record":f"RESERVE/pmdred_pre_promotion/{ground}/README.md"},"promoted":{"ground_sha256":ground_hash,"tile_sha256":tile_hash,"zone_pre_sha256":zone_pre,"zone_post_sha256":zone_post},"durable_evidence":{},"reproduction":{"commands":str((out/"commands.sh").relative_to(ROOT))},"scope":"Ground-only validation","post_promotion_integration":{"exact_pmdo_index":"PASS","log_sha256":INDEX_SHA256,"zone_encoding_bom_preserved":True}}
+    if partial_recovery_record is not None:
+        recovery_relative = partial_recovery_record.relative_to(ROOT).as_posix()
+        recovery_sha = sha(partial_recovery_record)
+        recovery_metadata = {
+            "prior_attempt_classification": "FAIL",
+            "record": recovery_relative,
+            "record_sha256": recovery_sha,
+            "destination_bytes_preserved_without_replacement": True,
+            "fresh_full_runtime_and_comparison_rerun": True,
+            "fresh_fixture": fixture.relative_to(ROOT).as_posix(),
+            "fresh_comparison": comparison.relative_to(ROOT).as_posix(),
+        }
+        record["execution_note"]["partial_additive_recovery"] = recovery_metadata
+        promotion["method"]["installation_mode"] = "no replacement: retained exact untracked additive bytes after strict failure-record authentication and fresh full rerun"
+        promotion["method"]["partial_additive_recovery"] = recovery_metadata
+        promotion["preserved_variants"].append({
+            "role": "failed_attempt_evidence",
+            "record": recovery_relative,
+            "sha256": recovery_sha,
+            "reclassified_as_pass": False,
+        })
+        provenance["preservation"]["partial_additive_recovery"] = recovery_metadata
     dump(out/"validation_record.json",record);dump(out/"promotion_record.json",promotion);dump(out/"provenance.json",provenance)
     write_commands(out,ground,identity,symbol,ground_hash,tile_hash,sum(1 for _ in (out/"events.jsonl").open()),samples,unique_count,reserve_ground,reserve_tile)
     with (out/"commands.sh").open("a") as stream:
@@ -360,8 +464,15 @@ def package_evidence(ground: str, symbol: str, role: dict[str, Any], identity: d
             if item["preexisting"]:
                 stream.write(f"test \"$(sha256sum {item['reserve']} | cut -d' ' -f1)\" = {item['sha256']}\n")
     max_cycle=max((x["source_local_cycle"] for x in plan["cell_animation_schedules"]),default=1)
-    result_heading = "PASS — PROMOTED WITH PRESERVED CANONICAL MIGRATION" if preexisting else "PASS — PROMOTED ADDITIVELY"
-    if preexisting:
+    result_heading = "PASS — RECOVERED EXACT ADDITIVE INSTALL AFTER FRESH FULL RERUN" if recovered_partial_additive else ("PASS — PROMOTED WITH PRESERVED CANONICAL MIGRATION" if preexisting else "PASS — PROMOTED ADDITIVELY")
+    if recovered_partial_additive:
+        promotion_summary = (
+            f"A prior attempt additively installed the previously absent exact candidate destinations, then remained a FAIL because zone integration stopped. "
+            f"That failed attempt is preserved at `{partial_recovery_record.relative_to(ROOT).as_posix()}`. Its untracked destination bytes were authenticated "
+            f"again against the v2.0.1 candidates and durable failure record, retained without replacement, and accepted only after this fresh full runtime and "
+            f"comparison rerun passed. The active Ground/tile hashes are `{ground_hash}` / `{tile_hash}`."
+        )
+    elif preexisting:
         migrated = ", ".join(name for name, item in pre_promotion.items() if item["preexisting"])
         promotion_summary = (
             f"Promotion created the previously absent destinations, except for pre-existing {migrated} bytes that were first copied byte-exactly "
@@ -392,6 +503,8 @@ Role flags are recorded independently as `cinematic=false`, `arena=false`, `boss
     dump(out/"provenance.json",provenance)
     manifest_paths=[x for x in sorted(out.rglob("*")) if x.is_file() and x.name!="evidence_hashes.sha256"]+[ROOT/f"Data/Ground/{ground}.rsground",ROOT/f"Content/Tile/{ground}_Base.tile",ROOT/"Data/Zone/master_zone.json",ROOT/f"RESERVE/pmdred_pre_promotion/{ground}/README.md",LOCK_PATH,REPORT_PATH,AUDIT_PATH]
     manifest_paths.extend(ROOT / item["reserve"] for item in pre_promotion.values() if item["preexisting"])
+    if partial_recovery_record is not None:
+        manifest_paths.append(partial_recovery_record)
     (out/"evidence_hashes.sha256").write_text("".join(f"{sha(path)}  {path.relative_to(ROOT).as_posix()}\n" for path in manifest_paths))
 
 
@@ -410,23 +523,34 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
         log(f"SKIP already evidenced {ground}");return
     reserve_dir=ROOT/f"RESERVE/pmdred_pre_promotion/{ground}"
     pre_ground_reserve=reserve_dir/ground_dst.name; pre_tile_reserve=reserve_dir/tile_dst.name
-    pre_promotion = {
-        "ground": {"preexisting": ground_dst.is_file(), "sha256": sha(ground_dst) if ground_dst.is_file() else None,
-                   "reserve": pre_ground_reserve.relative_to(ROOT).as_posix() if ground_dst.is_file() else None},
-        "tile": {"preexisting": tile_dst.is_file(), "sha256": sha(tile_dst) if tile_dst.is_file() else None,
-                 "reserve": pre_tile_reserve.relative_to(ROOT).as_posix() if tile_dst.is_file() else None},
-    }
-    if ground_dst.exists():
+    recovery_record_path=partial_additive_recovery_record(ground,ground_dst,tile_dst,ground_hash,tile_hash)
+    if recovery_record_path is not None:
+        # These fields describe the historical destination precondition, not the
+        # exact additive bytes retained from the explicitly failed first attempt.
+        pre_promotion = {
+            "ground": {"preexisting": False, "sha256": None, "reserve": None},
+            "tile": {"preexisting": False, "sha256": None, "reserve": None},
+        }
+        log(f"PARTIAL_ADDITIVE_RECOVERY_AUTHENTICATED ground={ground} record={recovery_record_path.relative_to(ROOT)}")
+    else:
+        pre_promotion = {
+            "ground": {"preexisting": ground_dst.is_file(), "sha256": sha(ground_dst) if ground_dst.is_file() else None,
+                       "reserve": pre_ground_reserve.relative_to(ROOT).as_posix() if ground_dst.is_file() else None},
+            "tile": {"preexisting": tile_dst.is_file(), "sha256": sha(tile_dst) if tile_dst.is_file() else None,
+                     "reserve": pre_tile_reserve.relative_to(ROOT).as_posix() if tile_dst.is_file() else None},
+        }
+    if ground_dst.exists() and recovery_record_path is None:
         raise RuntimeError(f"occupied Ground destination for {ground}; entity-aware migration is required")
-    if tile_dst.exists():
+    if tile_dst.exists() and recovery_record_path is None:
         historical_tile=ROOT/f"RESERVE/red_tiles/{ground}_Base.tile"
         if not historical_tile.is_file() or sha(historical_tile) != pre_promotion["tile"]["sha256"]:
             raise RuntimeError(f"occupied tile for {ground} does not match its preserved historical reserve")
         if reserve_dir.exists():
             raise RuntimeError(f"pre-promotion reserve path already exists for unvalidated {ground}")
         log(f"PRESERVED_MIGRATION_REQUIRED ground={ground} tile_sha256={pre_promotion['tile']['sha256']}")
-    fixture=ROOT/f".runtime-cache/pmdred-eu-{ground}-runtime"; comparison=ROOT/f".runtime-cache/pmdred-eu-{ground}-comparison"
-    post_candidate=ROOT/f".runtime-cache/pmdred-eu-{ground}-promoted-candidate";post_fixture=ROOT/f".runtime-cache/pmdred-eu-{ground}-promoted-fixture"
+    suffix="-recovery-rerun" if recovery_record_path is not None else ""
+    fixture=ROOT/f".runtime-cache/pmdred-eu-{ground}-runtime{suffix}"; comparison=ROOT/f".runtime-cache/pmdred-eu-{ground}-comparison{suffix}"
+    post_candidate=ROOT/f".runtime-cache/pmdred-eu-{ground}-promoted-candidate{suffix}";post_fixture=ROOT/f".runtime-cache/pmdred-eu-{ground}-promoted-fixture{suffix}"
     for path in [fixture,comparison,post_candidate,post_fixture]:
         if path.exists(): raise FileExistsError(f"create-only runtime path exists: {path}")
     run([str(PYTHON),"tools/build_pmdred_eu_runtime_fixture.py","--conversion-set","remaining","--candidate-root",str(CANONICAL),"--plan",str(PLAN_PATH),"--ids",ground,"--output",str(fixture)])
@@ -443,16 +567,21 @@ def process_ground(ground: str, all_data: dict[str, Any]) -> None:
     gates=[report["grounds"]==[ground],report["sample_count"]==expected,len(primary)==plan["sample_count"],report["exact_sample_count"]==expected,report["fully_opaque_sample_count"]==expected,report["all_exact"],report["all_fully_opaque"],rt["all_runtime_safe"],rt["runtime_sequence_consistent"],rt["native_lifecycle_order"]["pass"],rt["all_cleanups_pass"],rt["end_event_seen"],rt["same_ground_reentry_count"]==1,vals[(ground,"primary")]["movement_probe"]=="PASS",vals[(ground,"primary")]["blocked_probe"]=="PASS",vals[(ground,"reload")]["load"]=="LOAD_PASS",all(x["mismatched_pixels"]==0 and x["maximum_channel_delta"]==0 for x in report["samples"])]
     if not all(gates): raise RuntimeError(f"comparison/runtime gate failed for {ground}: {gates}")
     state["stage"]="comparison_pass";dump(STATE_PATH,state);log(f"COMPARE_PASS ground={ground} samples={expected} unique={len({x['actual_rgba_sha256'] for x in primary})}")
-    if pre_promotion["tile"]["preexisting"]:
-        reserve_dir.mkdir(parents=True)
-        atomic_install(tile_dst,pre_tile_reserve)
-        if sha(pre_tile_reserve) != pre_promotion["tile"]["sha256"]:
-            raise RuntimeError("pre-promotion tile reserve readback failed")
-    atomic_install(ground_src,ground_dst)
-    if pre_promotion["tile"]["preexisting"]:
-        atomic_replace_preserved(tile_src,tile_dst,pre_tile_reserve,pre_promotion["tile"]["sha256"])
+    if recovery_record_path is not None:
+        if sha(ground_dst)!=ground_hash or sha(tile_dst)!=tile_hash:
+            raise RuntimeError("partial additive recovery bytes changed during fresh runtime/comparison")
+        log(f"PARTIAL_ADDITIVE_INSTALL_RETAINED ground={ground} replacement=false")
     else:
-        atomic_install(tile_src,tile_dst)
+        if pre_promotion["tile"]["preexisting"]:
+            reserve_dir.mkdir(parents=True)
+            atomic_install(tile_dst,pre_tile_reserve)
+            if sha(pre_tile_reserve) != pre_promotion["tile"]["sha256"]:
+                raise RuntimeError("pre-promotion tile reserve readback failed")
+        atomic_install(ground_src,ground_dst)
+        if pre_promotion["tile"]["preexisting"]:
+            atomic_replace_preserved(tile_src,tile_dst,pre_tile_reserve,pre_promotion["tile"]["sha256"])
+        else:
+            atomic_install(tile_src,tile_dst)
     validated=set(load(ROOT/"docs/pmdred_eu/pmdo_validation/progress.json")["validated_ids"])
     zone_pre,zone_post,prior,zone_index=insert_zone(ground,order,validated)
     if sha(ground_dst)!=ground_hash or sha(tile_dst)!=tile_hash: raise RuntimeError("promotion readback failed")
@@ -478,14 +607,15 @@ Historical reserve Ground: `{sha(reserve_ground) if reserve_ground.is_file() els
 Evidence: `docs/pmdred_eu/pmdo_validation/{ground}_exhaustive_pass/`.
 """
     else:
-        reserve_note=f"# `{ground}` pre-promotion record\n\nBoth canonical lowercase destinations were absent before the {DATE} additive promotion. Pre-promotion `master_zone.json` SHA-256: `{zone_pre}`. No existing worktree asset was replaced.\n\nHistorical reserve Ground: `{sha(reserve_ground) if reserve_ground.is_file() else 'absent'}`. Historical reserve tile: `{sha(reserve_tile) if reserve_tile.is_file() else 'absent'}`. Those reserves and both v2.0.0/v2.0.1 report generations remain unmodified. Authenticated identity: `{symbol}` / map ID {identity['map_id']} / map-file ID {identity['map_file_id']}.\n\nEvidence: `docs/pmdred_eu/pmdo_validation/{ground}_exhaustive_pass/`.\n"
+        recovery_note=(f" The exact additive installation occurred during a prior attempt that remains classified as FAIL at `{recovery_record_path.relative_to(ROOT).as_posix()}`; its bytes were retained without replacement only after hash authentication and a fresh full rerun." if recovery_record_path is not None else "")
+        reserve_note=f"# `{ground}` pre-promotion record\n\nBoth canonical lowercase destinations were absent before the {DATE} additive promotion.{recovery_note} Pre-promotion `master_zone.json` SHA-256: `{zone_pre}`. No existing worktree asset was replaced.\n\nHistorical reserve Ground: `{sha(reserve_ground) if reserve_ground.is_file() else 'absent'}`. Historical reserve tile: `{sha(reserve_tile) if reserve_tile.is_file() else 'absent'}`. Those reserves and both v2.0.0/v2.0.1 report generations remain unmodified. Authenticated identity: `{symbol}` / map ID {identity['map_id']} / map-file ID {identity['map_file_id']}.\n\nEvidence: `docs/pmdred_eu/pmdo_validation/{ground}_exhaustive_pass/`.\n"
     (reserve_dir/"README.md").write_text(reserve_note)
     state["stage"]="promoted";dump(STATE_PATH,state)
     (post_candidate/"grounds").mkdir(parents=True);(post_candidate/"tiles").mkdir()
     shutil.copyfile(ground_dst,post_candidate/"grounds"/ground_dst.name);shutil.copyfile(tile_dst,post_candidate/"tiles"/tile_dst.name);shutil.copyfile(CANONICAL/"conversion_report.json",post_candidate/"conversion_report.json")
     run([str(PYTHON),"tools/build_pmdred_eu_runtime_fixture.py","--conversion-set","remaining","--candidate-root",str(post_candidate),"--plan",str(PLAN_PATH),"--ids",ground,"--output",str(post_fixture)])
     run_index(post_fixture,post_fixture/"post_promotion_index.log")
-    package_evidence(ground,symbol,role,identity,audit,plan,fixture,comparison,post_fixture,zone_pre,zone_post,prior,zone_index,pre_promotion)
+    package_evidence(ground,symbol,role,identity,audit,plan,fixture,comparison,post_fixture,zone_pre,zone_post,prior,zone_index,pre_promotion,recovery_record_path)
     state["stage"]="evidence_packaged";dump(STATE_PATH,state)
     run([sys.executable,"tools/update_pmdred_eu_validation_progress.py","--write"])
     run([sys.executable,"tools/update_pmdred_eu_validation_progress.py","--check"])
