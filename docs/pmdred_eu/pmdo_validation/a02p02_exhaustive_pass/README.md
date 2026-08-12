@@ -1,0 +1,11 @@
+# a02p02 exhaustive exact-PMDO pass
+
+## Result
+
+`PASS — INTEGRATION-PRESERVING ENTITY MIGRATION`
+
+`a02p02` is the authenticated EU lapis cave fugitive journey scene (`MAP_FUGITIVES_LAPIS_CAVE`; map ID 166, map-file ID 175). Exact PMDO 0.8.12 loaded the authenticated v2.0.1-eu candidate in isolation; the independent raw-EU-ROM renderer matched all **145/145** full-RGBA samples with zero mismatched pixels and full opacity. The movement probe passed; a blocked probe is authentically not applicable because the raw-ROM BMA has no collision layer and zero solid cells, as independently confirmed by the plan, fixture manifest, and runtime event. Two entries/exits, same-Ground re-entry, unload/reload, cleanup, and state isolation all passed. PMDO then entered native `GameBase.LoadPhase.Unload`, published data and graphics unload callbacks, emitted terminal `end`, returned 0 as `NORMAL_EXIT`, and left no signal, watchdog, SIGSEGV, forced kill, or orphan.
+
+Role flags are recorded independently as `cinematic=false`, `arena=false`, `boss=false`; this Ground-only record claims no dialogue, choreography, music, or narrative routing. 144 primary boundary ticks (0–143) cover every applicable animation schedule through two complete local cycles (maximum 72 ticks); 30 distinct primary RGBA frames were observed.
+
+The complete occupied Ground and legacy-case tile were reserved at their exact historical hashes before replacement. Its markers ['Main_Entrance_Marker', 'Cutscene_Marker'] and spawners ['TEAMMATE_1'] were preserved unchanged as the only additions to canonical Ground `4aa76d598b3171a513f6a4ba8d17b71ef5403f725278c24c49ff9e02d41bba82`. This exact integrated Ground `f9aac6971906cbb93eab368bcd91bb4a9723180bd854d17b19811474c3484a3c` was the runtime/comparison subject and promoted artifact. Canonical lowercase tile identity `Content/Tile/a02p02_Base.tile` was created, while `Content/Tile/A02p02_Base.tile` and all related scripts remained unchanged; no entity was silently deactivated. Zone integration authenticated singleton retained after a02p01 without mutation, preserved BOM/other routes, retained all reserve/history, and passed exact-PMDO post-promotion indexing (`3df47e3b…`). Complete metrics, events, logs, representative initial/final/reload PNGs, provenance, promotion details, reproduction commands, and hashes are in this directory.
