@@ -75,8 +75,19 @@ class TileRenderer:
     def animation_frame_count(image: RGBAImage | None) -> int:
         if image is None:
             return 0
-        if image.height == 128 and image.width % 96 == 0:
-            return image.width // 96
+        if image.height == 128:
+            frame_count, remainder = divmod(image.width, 96)
+            if frame_count and remainder == 0:
+                return frame_count
+            # Some Essentials projects append transparent alignment columns to
+            # an otherwise standard 96×128 RMXP animation strip. Accept only
+            # demonstrably empty right padding; never crop visible pixels.
+            if frame_count and all(
+                image.pixels[(y * image.width + x) * 4 + 3] == 0
+                for y in range(image.height)
+                for x in range(frame_count * 96, image.width)
+            ):
+                return frame_count
         if image.height == 32 and image.width % 32 == 0:
             return image.width // 32
         return 0

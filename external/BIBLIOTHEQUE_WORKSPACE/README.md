@@ -7,16 +7,15 @@ racine du dépôt indépendant `meromoonmeri/BIBLIOTHEQUE`.
 
 ## Phase active
 
-**Relict qualifié ; pilote source → IR commun → Ground PMDO validé ; 34 rendus
-PMDO finaux disponibles ; inventaire Nova suivant.**
+**Relict qualifié et pilote PMDO validé ; 34 rendus Relict disponibles ; 552
+rendus Reminiscencia produits en priorité ; Nova vient ensuite.**
 
-Les 28 Zones Relict sont `SOURCE_DOCUMENTED`. La conversion est autorisée
-uniquement dans `games/<game>/conversion/`, hors destinations runtime New Era.
-Le pilote Map 012 atteint `PMDO_VALIDATED` après validation headless PMDO 0.8.12.
-Les 28 Maps canoniques et leurs six variantes divergentes possèdent maintenant
-un PNG final assemblant couches, panoramas, décors-tuiles et VFX représentatifs.
-Les tags terrain et l'intégration narrative restent `ADAPTATION_REQUIRED` ; les
-identités de casting demeurent expurgées.
+Les 28 Zones Relict sont `SOURCE_DOCUMENTED` et le pilote Map 012 est
+`PMDO_VALIDATED`. Reminiscencia V2.3 est verrouillé par hash : ses 552 Maps ont
+un PNG PMDO cible, dont 522 complets, 29 `ADAPTATION_REQUIRED` pour dépendances
+source absentes et une scène casting/UI expurgée. Toute conversion reste sous
+`games/<game>/conversion/`, hors destinations runtime New Era. Les identités de
+casting demeurent exclues.
 
 ## Arborescence
 

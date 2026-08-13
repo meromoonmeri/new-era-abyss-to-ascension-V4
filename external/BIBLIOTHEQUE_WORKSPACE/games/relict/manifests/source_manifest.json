@@ -529,10 +529,10 @@
     "tools/extract_relict_environmental_vfx.py": "92e59fdc845a416b4b34dedaf3e1370719244a02c64a1582a992a0bc02b7f08c",
     "tools/extract_relict_map_animations.py": "9c60770d136e82e56a5c1b7e7407bcf3bc49b76d6c79d5d0791b468302fae05c",
     "tools/inventory_relict.py": "6dfd676bc065d9134f9d1ef07667807634bd9c402867ff7aed79b0a098d23c2a",
-    "tools/png_rgba.py": "ce88f8da9158c7532e0c8524a8f5a4998c975b0d25d9c03c475bd455e92533f9",
+    "tools/png_rgba.py": "3bd229d6f1968ceb7ba2a4396680778f4bbf4e7d134ce0e54a19775e123c6d63",
     "tools/render_pmdo_final_maps.py": "09409af1523c53f7043804661fba20cacd90dae08e5f541cd581ac0f6bd1cdfb",
-    "tools/render_relict_previews.py": "1c108750d85188df25c124d5f4cfa5b81133f6185fa760e8361fdaf8fc900745",
-    "tools/render_rmxp_archive_maps.py": "cd709cd2968c2abc82f630df2e2eeb96ff6600e7f8060757c48e788e2619fe92",
+    "tools/render_relict_previews.py": "efbe9f21480ddf2ff976a8ce46b8a20c44e2b8a6952e1da76268c10f4bcde872",
+    "tools/render_rmxp_archive_maps.py": "ce1a4380af4268bdc4872afdfe341cac93b2a763967dc1bb9a530538cbd87bc9",
     "tools/ruby_marshal.py": "3f7d6135b29f3840d61e62be394a1a46abf4845b8a01716c855b4835fa9bcf3f",
     "tools/validate_pmdo_runtime.py": "cd30ed50ef4058f72b8dcd70a6d21ed81a6688440f4f0328735a4623b4682233"
   },

@@ -28,6 +28,24 @@ from render_relict_previews import TILE_SIZE, TileRenderer, render_layers
 from ruby_marshal import RubyObject
 
 
+DEFAULT_EXCLUDED_MAPS = {
+    "reminiscencia": {
+        463: "CASTING_OR_UI_BAKED_TILE_SCENE",
+    },
+    "nova": {},
+}
+
+
+def excluded_placeholder(width: int, height: int) -> RGBAImage:
+    image = RGBAImage.empty(width, height, (18, 18, 24, 255))
+    image.outline_rect(0, 0, width, height, (220, 45, 180, 255), min(8, width, height))
+    limit = min(width, height)
+    for offset in range(0, limit, 4):
+        image.fill_rect(offset, offset, min(4, width - offset), min(4, height - offset), (120, 35, 100, 255))
+        image.fill_rect(width - offset - 4, offset, min(4, width - offset), min(4, height - offset), (120, 35, 100, 255))
+    return image
+
+
 def safe_extract(archive: Path, destination: Path) -> None:
     with zipfile.ZipFile(archive) as source:
         for member in source.infolist():
@@ -103,9 +121,10 @@ def compose_map(
         raise ValueError(f"invalid tileset {tileset_id}")
     descriptor = tileset_descriptor(tileset_id, tileset)
     dependencies = visual_dependencies(tileset, source, graphics, "ARCHIVE_LFS_SOURCE")
-    missing = [row for row in dependencies if not row.get("resolved")]
-    if missing:
-        raise ValueError(f"unresolved visual dependencies: {missing}")
+    missing = [
+        {"kind": row["kind"], "source_name": row["source_name"], "problems": row["problems"]}
+        for row in dependencies if not row.get("resolved")
+    ]
     renderer = TileRenderer(source, dependencies, descriptor)
     _, transparent = render_layers(row_major_layers(table), renderer)
     canvas = RGBAImage.empty(transparent.width, transparent.height, (0, 0, 0, 255))
@@ -131,15 +150,65 @@ def compose_map(
             event["x"] * TILE_SIZE,
             event["y"] * TILE_SIZE,
         )
-    if renderer.missing_ids:
-        raise ValueError(f"missing rendered tile IDs: {sorted(renderer.missing_ids)}")
     return canvas, {
         "tileset_id": tileset_id,
         "tileset_name": descriptor["name"],
         "panorama_count": panorama_count,
         "environmental_tile_event_count": len(tile_events),
         "fog_name": descriptor["fog"],
+        "missing_tile_ids": sorted(renderer.missing_ids),
+        "unresolved_visual_dependencies": missing,
     }
+
+
+def contact_outputs(output: Path, records: list[dict[str, Any]]) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    thumbs = []
+    for row in records:
+        image = load_png(output / row["file"])
+        thumb = thumbnail(image, 224, 168)
+        draw_label(thumb, f"{row['map_id']:03d}", 4, 4)
+        thumbs.append(thumb)
+
+    columns = 5
+    rows = (len(thumbs) + columns - 1) // columns
+    contact = RGBAImage.empty(columns * 224, rows * 168, (8, 8, 12, 255))
+    for index, thumb in enumerate(thumbs):
+        contact.alpha_over(thumb, (index % columns) * 224, (index // columns) * 168)
+    contact_path = output / "contact_sheet.png"
+    save_png(contact, contact_path)
+    contact_record = {
+        "file": contact_path.relative_to(output).as_posix(),
+        "sha256": sha256_file(contact_path),
+        "width_px": contact.width,
+        "height_px": contact.height,
+        "columns": columns,
+    }
+
+    page_records = []
+    page_size = 50
+    pages_root = output / "contact_pages"
+    if pages_root.exists():
+        shutil.rmtree(pages_root)
+    pages_root.mkdir(parents=True)
+    for start in range(0, len(thumbs), page_size):
+        batch = thumbs[start : start + page_size]
+        page = RGBAImage.empty(columns * 224, 10 * 168, (8, 8, 12, 255))
+        for index, thumb in enumerate(batch):
+            page.alpha_over(thumb, (index % columns) * 224, (index // columns) * 168)
+        first_id = records[start]["map_id"]
+        last_id = records[start + len(batch) - 1]["map_id"]
+        path = pages_root / f"page_{start // page_size + 1:02d}_maps_{first_id:03d}_{last_id:03d}.png"
+        save_png(page, path)
+        page_records.append({
+            "file": path.relative_to(output).as_posix(),
+            "sha256": sha256_file(path),
+            "first_map_id": first_id,
+            "last_map_id": last_id,
+            "render_count": len(batch),
+            "width_px": page.width,
+            "height_px": page.height,
+        })
+    return contact_record, page_records
 
 
 def build(archive: Path, game_id: str, output: Path, extracted: Path | None = None) -> dict[str, Any]:
@@ -171,12 +240,25 @@ def build(archive: Path, game_id: str, output: Path, extracted: Path | None = No
             raise ValueError("MapInfos and Map files differ")
         graphics = graphics_index(source)
         records = []
-        thumbs = []
         maps_root = output / "maps"
         maps_root.mkdir()
+        exclusions = DEFAULT_EXCLUDED_MAPS[game_id]
         for order, (map_id, path) in enumerate(sorted(maps.items()), 1):
             map_obj, table = parse_map(path)
-            image, extras = compose_map(source, map_obj, table, tilesets, graphics)
+            exclusion_reason = exclusions.get(map_id)
+            if exclusion_reason:
+                image = excluded_placeholder(table.x_size * TILE_SIZE, table.y_size * TILE_SIZE)
+                extras = {
+                    "tileset_id": int(ivar(map_obj, "tileset_id", 0)),
+                    "tileset_name": "REDACTED",
+                    "panorama_count": 0,
+                    "environmental_tile_event_count": 0,
+                    "fog_name": "",
+                    "missing_tile_ids": [],
+                    "unresolved_visual_dependencies": [],
+                }
+            else:
+                image, extras = compose_map(source, map_obj, table, tilesets, graphics)
             output_path = maps_root / f"map_{map_id:03d}.png"
             save_png(image, output_path)
             info = map_infos[map_id]
@@ -193,25 +275,31 @@ def build(archive: Path, game_id: str, output: Path, extracted: Path | None = No
                 "height_px": image.height,
                 "layer_count": table.z_size,
                 "actor_pixels_exported": False,
+                "source_pixels_exported": not bool(exclusion_reason),
+                "excluded_visual_scene": exclusion_reason,
                 "pmdo_target_tex_size": 4,
                 "pmdo_target_pitch_px": 32,
                 **extras,
             }
             records.append(record)
-            thumb = thumbnail(image, 224, 168)
-            draw_label(thumb, f"{map_id:03d}", 4, 4)
-            thumbs.append(thumb)
 
-        columns = 5
-        rows = (len(thumbs) + columns - 1) // columns
-        contact = RGBAImage.empty(columns * 224, rows * 168, (8, 8, 12, 255))
-        for index, thumb in enumerate(thumbs):
-            contact.alpha_over(thumb, (index % columns) * 224, (index // columns) * 168)
-        contact_path = output / "contact_sheet.png"
-        save_png(contact, contact_path)
+        contact_record, contact_pages = contact_outputs(output, records)
+        missing_maps = [
+            {
+                "map_id": row["map_id"],
+                "missing_tile_ids": row["missing_tile_ids"],
+                "unresolved_visual_dependencies": row["unresolved_visual_dependencies"],
+            }
+            for row in records
+            if row["missing_tile_ids"] or row["unresolved_visual_dependencies"]
+        ]
         manifest = {
             "schema_version": "1.0.0",
-            "result": "RMXP_ARCHIVE_PMDO_RENDER_PASS",
+            "result": (
+                "RMXP_ARCHIVE_PMDO_RENDER_PASS"
+                if not missing_maps else "RMXP_ARCHIVE_PMDO_RENDER_REVIEW_REQUIRED"
+            ),
+            "status": "SOURCE_EXTRACTED" if not missing_maps else "ADAPTATION_REQUIRED",
             "game_id": game_id,
             "source": {
                 "archive_name": archive.name,
@@ -221,13 +309,16 @@ def build(archive: Path, game_id: str, output: Path, extracted: Path | None = No
                 "actor_pixels_exported": False,
             },
             "map_count": len(records),
-            "contact_sheet": {
-                "file": contact_path.relative_to(output).as_posix(),
-                "sha256": sha256_file(contact_path),
-                "width_px": contact.width,
-                "height_px": contact.height,
-                "columns": columns,
-            },
+            "complete_environmental_render_count": len(records) - len(missing_maps) - len(exclusions),
+            "excluded_visual_scene_count": len(exclusions),
+            "excluded_visual_scenes": [
+                {"map_id": map_id, "reason": reason, "source_pixels_exported": False}
+                for map_id, reason in sorted(exclusions.items())
+            ],
+            "missing_tile_map_count": len(missing_maps),
+            "missing_tiles": missing_maps,
+            "contact_sheet": contact_record,
+            "contact_pages": contact_pages,
             "renders": records,
         }
         write_json(output / "manifest.json", manifest)

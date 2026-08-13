@@ -141,13 +141,17 @@ def load_png(path: Path | str) -> RGBAImage:
             idat.extend(payload)
         elif kind == b"IEND":
             break
-    if depth != 8 or interlace != 0 or color_type not in (0, 2, 3, 4, 6):
+    supported_depth = depth == 8 or (color_type == 3 and depth in (1, 2, 4))
+    if not supported_depth or interlace != 0 or color_type not in (0, 2, 3, 4, 6):
         raise ValueError(
             f"unsupported PNG format depth={depth} color={color_type} interlace={interlace}: {path}"
         )
-    bytes_per_pixel = {0: 1, 2: 3, 3: 1, 4: 2, 6: 4}[color_type]
+    channels = {0: 1, 2: 3, 3: 1, 4: 2, 6: 4}[color_type]
+    # PNG filters operate on bytes. Packed indexed rows still use one byte as
+    # the left-pixel distance even when each byte stores 2, 4, or 8 samples.
+    bytes_per_pixel = max(1, (channels * depth + 7) // 8)
     packed = zlib.decompress(bytes(idat))
-    stride = width * bytes_per_pixel
+    stride = (width * channels * depth + 7) // 8
     if len(packed) != height * (stride + 1):
         raise ValueError(f"PNG scanline size mismatch: {path}")
     rows = []
@@ -203,7 +207,25 @@ def load_png(path: Path | str) -> RGBAImage:
         else:
             if palette is None:
                 raise ValueError(f"indexed PNG has no palette: {path}")
-            for palette_index in row:
+            if depth == 8:
+                palette_indices = list(row[:width])
+            else:
+                palette_indices = []
+                mask = (1 << depth) - 1
+                samples_per_byte = 8 // depth
+                for value in row:
+                    for sample in range(samples_per_byte):
+                        shift = 8 - depth * (sample + 1)
+                        palette_indices.append((value >> shift) & mask)
+                        if len(palette_indices) == width:
+                            break
+                    if len(palette_indices) == width:
+                        break
+            if len(palette_indices) != width:
+                raise ValueError(f"indexed PNG row is truncated: {path}")
+            for palette_index in palette_indices:
+                if palette_index >= len(palette):
+                    raise ValueError(f"indexed PNG palette reference is outside PLTE: {path}")
                 rgba[output : output + 3] = bytes(palette[palette_index])
                 rgba[output + 3] = (
                     palette_alpha[palette_index]
