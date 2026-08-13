@@ -16,3 +16,7 @@ VFX : 552 timelines + 50 Common Events, 27 panoramas, 19 fogs, 31 Pictures,
 
 Voir `reports/REMINISCENCIA_PMDO_CONVERSION.md` et les manifestes sous `vfx/`,
 `animations/`, `manifests/` et `conversion/pmdo_candidates/`.
+
+`conversion/pmdo_dungeons/` contient maintenant 17 zones procédurales PMDO
+natives : 402 étages, escaliers RogueElements, structures complexes, Monster
+Houses et 30 espèces distinctes par donjon.

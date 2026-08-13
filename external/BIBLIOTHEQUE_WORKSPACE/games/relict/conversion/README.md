@@ -47,3 +47,7 @@ sous `pmdo_candidates/` : 28 Grounds à 16 px/`TexSize=2`, 8 atlas, 28 previews,
 28 sidecars et deux preuves runtime exactes (Maps 012 et 002). Les Maps 002,
 007 et 014 restent `ADAPTATION_REQUIRED` pour leurs passages directionnels
 partiels conservés en sidecar. Voir `reports/RELICT_PMDO_CONVERSION.md`.
+
+Cinq vrais donjons RogueElements sont générés sous `pmdo_dungeons/` : Tour du
+Destin, Terres Immaculées, Mont Couronné, Retraite Ancienne et Côte Lazuli.
+Ils totalisent 120 étages et 30 espèces distinctes par zone.
