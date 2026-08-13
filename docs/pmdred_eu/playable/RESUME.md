@@ -14,7 +14,11 @@ Checkpoint du `2026-08-13`, branche
 - Graphe scènes EU : **697 commandes / 117 textes français authentifiés**.
 - Noyau jouable des quatre scènes : **PARTIAL PASS** — 74 lignes neutres,
   menus natifs, acteurs, facings, musique ROM et chorégraphie principale.
-- Restitution commande-par-commande et destination post-`g3` : **PENDING**.
+- Destination post-`g3` : **EU-ROM PASS** dans
+  [`tiny_woods/post_route`](tiny_woods/post_route) — `b01p00a` puis
+  `s02_fre`, conquête Petit Bois, scénario `3,0`, division d'événement.
+- Restitution commande-par-commande et exécution native de cette destination :
+  **PENDING**.
 
 La route certifiée exécute trois scénarios PMDO 0.8.12 indépendants. Le scénario
 complet soumet 143 actions natives, dont trois actions d’escalier et deux
@@ -29,6 +33,10 @@ terminent par `LoadPhase.Unload`, `NORMAL_EXIT`, rc 0, sans signal ni orphelin.
 bash tools/restore_pmdred_eu_validation_runtime.sh
 python3 tools/update_pmdred_eu_validation_progress.py --check
 bash docs/pmdred_eu/playable/tiny_woods/scene_runtime/commands.sh
+python3 tools/audit_pmdred_eu_tiny_woods_post_route.py \
+  .runtime-cache/downloads/pmdred-eu.gba \
+  --pret-root .runtime-cache/pmd-red-reference \
+  --report /tmp/eu_post_route_graph.json
 ```
 
 Les fixtures et preuves sont create-only. Si les noms `*-repro` existent,
@@ -41,7 +49,8 @@ utiliser de nouvelles destinations plutôt que les écraser.
 - interpréter chaque cue restant des 697 commandes authentifiées ;
 - reproduire fanfares, portraits/émotions, chemins de marche et caméra ;
 - brancher le renommage interactif et les récompenses réelles ;
-- identifier puis certifier la destination canonique après `d01p01:g3` ;
+- exécuter nativement la route corrigée `b01p00a → s02_fre`, les états de
+  conquête/scénario et la division d'événement désormais authentifiés ;
 - rejouer ouverture, défaite/retry et sauvetage complet avec terminaison stricte.
 
 Les références aplaties existantes ne sont pas canoniques par défaut. Ne

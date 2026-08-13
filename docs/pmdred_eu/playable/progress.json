@@ -1,9 +1,9 @@
 {
   "schema": "new-era.pmdred-eu-playable-reconstruction-progress.v1",
-  "generated_at": "2026-08-13T17:19:51+00:00",
+  "generated_at": "2026-08-13T18:56:36+00:00",
   "repository": {
     "branch": "arena/019ff05e-new-era-abyss-to-ascension-v4",
-    "parent_checkpoint": "637a3da21b7a608dd9b1ccbadcb11aa88cb02749"
+    "parent_checkpoint": "bff31f9562a58c1a0069fd3560ce057ee13f4fa4"
   },
   "authority": {
     "region": "EU",
@@ -45,16 +45,49 @@
       "authenticated_command_count": 697,
       "authenticated_french_text_count": 117,
       "executed_neutral_branch_dialogue_count": 74,
-      "executed_scene_groups": ["d01p01:g1", "d01p01:g2", "d01p02:g1", "d01p01:g3"],
-      "remaining": "command-complete cues, secondary emotions/portraits, every walk path, interactive rename, reward messages/items, and post-g3 destination"
+      "executed_scene_groups": [
+        "d01p01:g1",
+        "d01p01:g2",
+        "d01p02:g1",
+        "d01p01:g3"
+      ],
+      "remaining": "command-complete cues, secondary emotions/portraits, every walk path, interactive rename, reward messages/items, and native post-g3 execution"
+    },
+    "post_g3_route_authentication": {
+      "status": "PASS",
+      "report": "docs/pmdred_eu/playable/tiny_woods/post_route/eu_post_route_graph.json",
+      "report_sha256": "9f1cf97cbfa211b16dab5fbf52df8aeb195878461f6425be542a229468766615",
+      "event_address": "0x08286DA0",
+      "regional_route": [
+        "184:g1",
+        "183:g3",
+        "9:g16",
+        "229:g2"
+      ],
+      "stable_ground_route": [
+        "d01p02",
+        "d01p01",
+        "b01p00a",
+        "s02_fre"
+      ],
+      "rescue_base_group_shift": {
+        "eu": 16,
+        "technical_reference": 17
+      },
+      "rescue_base_command_count": 258,
+      "rescue_base_french_text_count": 78,
+      "title_command_count": 10,
+      "progression": "Tiny Woods conquered; SCENARIO_MAIN 3,0; EVENT_DIVIDE",
+      "runtime_status": "PENDING"
     }
   },
   "resume": {
     "restore": "bash tools/restore_pmdred_eu_validation_runtime.sh",
     "verify_ground_checkpoint": "python3 tools/update_pmdred_eu_validation_progress.py --check",
     "reproduce_latest_milestone": "bash docs/pmdred_eu/playable/tiny_woods/scene_runtime/commands.sh",
-    "next_phase": "tiny_woods_command_complete_choreography_rewards_and_post_g3_route",
-    "rule": "Preserve the route v2 and French scene-core PASSes; continue in a new create-only fixture and do not promote d01p02 or live Ground scripts until every remaining EU cue and post-g3 transition passes."
+    "next_phase": "tiny_woods_command_complete_choreography_naming_rewards_and_native_corrected_post_g3_route",
+    "rule": "Preserve route v2, French scene-core, and EU-ROM post-route PASSes; continue in a new create-only fixture and do not promote d01p02 or live Ground scripts until every remaining EU cue and corrected post-g3 transition passes natively.",
+    "reproduce_post_route_audit": "python3 tools/audit_pmdred_eu_tiny_woods_post_route.py .runtime-cache/downloads/pmdred-eu.gba --pret-root .runtime-cache/pmd-red-reference --report /tmp/eu_post_route_graph.json"
   },
   "limitations": [
     "A route PASS is not narrative completion.",
