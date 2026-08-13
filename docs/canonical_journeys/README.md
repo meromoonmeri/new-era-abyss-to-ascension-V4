@@ -50,11 +50,21 @@ du tileset procédural Sinister Woods et la politique de suppression des blobs
 doivent être prouvés séparément. Les Grounds certifiés, scripts de chapitres
 1–5 et routes FugitiveArc restent intacts.
 
+## Garde runtime dormant
+
+`Data/Script/halcyon/pmdred_eu/CanonicalJourneyRegistry.lua` expose les 27
+chaînes et leurs neuf composants au namespace technique PMD Red. Il ne require
+aucun service et n'enregistre aucune route. `AssertReady(id)` refuse donc toute
+entrée tant que la chaîne n'est pas complètement validée ; cela empêche qu'un
+Ground certifié soit confondu avec un parcours canonique terminé.
+
 ## Reproduction
 
 ```bash
 python3 tools/build_canonical_journey_registry.py \
-  --output docs/canonical_journeys/CANONICAL_JOURNEY_REGISTRY.json
+  --output docs/canonical_journeys/CANONICAL_JOURNEY_REGISTRY.json \
+  --report docs/canonical_journeys/JOURNEY_STATUS.md \
+  --lua-output Data/Script/halcyon/pmdred_eu/CanonicalJourneyRegistry.lua
 
 python3 tools/test_canonical_journey_registry.py \
   --authority .runtime-cache/canonical-authority

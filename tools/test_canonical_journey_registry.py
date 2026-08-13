@@ -20,7 +20,7 @@ class CanonicalJourneyRegistryTests(unittest.TestCase):
     def setUpClass(cls):
         cls.authority = Path(AUTHORITY).resolve()
 
-    def command(self, output: Path, report: Path | None = None):
+    def command(self, output: Path, report: Path | None = None, lua_output: Path | None = None):
         command = [
             "python3", str(ROOT / "tools/build_canonical_journey_registry.py"),
             "--repo", str(ROOT),
@@ -35,6 +35,8 @@ class CanonicalJourneyRegistryTests(unittest.TestCase):
         ]
         if report is not None:
             command.extend(("--report", str(report)))
+        if lua_output is not None:
+            command.extend(("--lua-output", str(lua_output)))
         return command
 
     def test_registry_is_complete_conservative_and_deterministic(self):
@@ -68,9 +70,15 @@ class CanonicalJourneyRegistryTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=ROOT / ".runtime-cache") as temp:
             rebuilt = Path(temp) / "registry.json"
             report = Path(temp) / "report.md"
-            subprocess.run(self.command(rebuilt, report), cwd=ROOT, check=True, capture_output=True)
+            lua_output = Path(temp) / "registry.lua"
+            subprocess.run(self.command(rebuilt, report, lua_output), cwd=ROOT, check=True, capture_output=True)
             self.assertEqual(hashlib.sha256(documented.read_bytes()).hexdigest(), hashlib.sha256(rebuilt.read_bytes()).hexdigest())
             self.assertEqual((ROOT / "docs/canonical_journeys/JOURNEY_STATUS.md").read_bytes(), report.read_bytes())
+            self.assertEqual((ROOT / "Data/Script/halcyon/pmdred_eu/CanonicalJourneyRegistry.lua").read_bytes(), lua_output.read_bytes())
+            lua = lua_output.read_text()
+            self.assertNotIn("EnterDungeon", lua)
+            self.assertNotIn("EnterGroundMap", lua)
+            self.assertIn("function Registry.AssertReady", lua)
 
 
 if __name__ == "__main__":

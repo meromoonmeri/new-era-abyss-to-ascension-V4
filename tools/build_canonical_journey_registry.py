@@ -293,6 +293,51 @@ def markdown_report(result: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
+def lua_registry(result: dict[str, Any]) -> str:
+    lines = [
+        "-- Generated canonical journey gate. No production route is registered here.",
+        "local Registry = {}",
+        "Registry.REQUIRED_COMPONENTS = {",
+    ]
+    lines.extend(f"  '{component}'," for component in result["pmd_red_eu"]["required_components"])
+    lines += ["}", "Registry.CHAINS = {"]
+    for row in result["pmd_red_eu"]["chains"]:
+        lines += [
+            f"  {row['stable_ground_id']} = {{",
+            f"    name_fr = {json.dumps(row['name_fr'], ensure_ascii=False)},",
+            f"    floor_count = {row['playable_floor_count']},",
+            f"    authority = '{row['eu_authority_status']}',",
+            f"    migration_status = '{row['migration_status']}',",
+            f"    production_ready = {str(row['production_ready']).lower()},",
+            "    components = {",
+        ]
+        lines.extend(f"      {component} = '{status}'," for component, status in row["components"].items())
+        lines += ["    },", "  },"]
+    lines += [
+        "}",
+        "Registry.ENVIRONMENT_CANDIDATES = {",
+    ]
+    for row in result["environment_libraries"]["candidates"]:
+        lines.append(
+            f"  {row['dungeon_id']} = {{ game_id = '{row['game_id']}', status = '{row['status']}', production_ready = false }},"
+        )
+    lines += [
+        "}",
+        "function Registry.Get(id)",
+        "  return Registry.CHAINS[id]",
+        "end",
+        "function Registry.AssertReady(id)",
+        "  local chain = Registry.CHAINS[id]",
+        "  if chain == nil then error('unknown canonical PMD Red journey: '..tostring(id)) end",
+        "  if not chain.production_ready then error('canonical PMD Red journey is blocked: '..tostring(id)) end",
+        "  return chain",
+        "end",
+        "return Registry",
+        "",
+    ]
+    return "\n".join(lines)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     repo = Path(__file__).resolve().parents[1]
@@ -306,6 +351,7 @@ def main() -> int:
     parser.add_argument("--relict-manifest", type=Path, default=repo / "external/BIBLIOTHEQUE_WORKSPACE/games/relict/conversion/pmdo_dungeons/manifest.json")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--report", type=Path)
+    parser.add_argument("--lua-output", type=Path)
     args = parser.parse_args()
     result = build(args)
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -313,6 +359,9 @@ def main() -> int:
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)
         args.report.write_text(markdown_report(result), encoding="utf-8")
+    if args.lua_output:
+        args.lua_output.parent.mkdir(parents=True, exist_ok=True)
+        args.lua_output.write_text(lua_registry(result), encoding="utf-8")
     print(json.dumps({
         "result": result["result"],
         "pmd_red_scenes": result["pmd_red_eu"]["scene_count"],
