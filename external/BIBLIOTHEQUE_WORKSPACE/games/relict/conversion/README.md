@@ -42,7 +42,8 @@ panorama, brouillard ni commande visuelle. Ses livrables sont sous :
 - `pmdo_renders/maps/` pour les 34 PNG finaux ;
 - `pmdo_renders/contact_sheet.png` pour la planche globale annotée.
 
-Le pilote ne couvre pas encore les collisions directionnelles partielles, les
-placements d'acteurs, les timelines de cinématique ni les VFX scriptés. Ces
-sémantiques sont toutefois conservées par l'IR et doivent être exercées par des
-pilotes suivants avant conversion en série.
+Le pilote historique reste inchangé. Le lot exhaustif canonique est désormais
+sous `pmdo_candidates/` : 28 Grounds à 16 px/`TexSize=2`, 8 atlas, 28 previews,
+28 sidecars et deux preuves runtime exactes (Maps 012 et 002). Les Maps 002,
+007 et 014 restent `ADAPTATION_REQUIRED` pour leurs passages directionnels
+partiels conservés en sidecar. Voir `reports/RELICT_PMDO_CONVERSION.md`.
