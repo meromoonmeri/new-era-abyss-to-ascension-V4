@@ -11,47 +11,97 @@ Checkpoint du `2026-08-13`, branche
 - Petit Bois, ouverture/escaliers/sortie/échec/retry/sauvetage/nettoyage :
   **PASS v2** dans [`tiny_woods/route_runtime_v2`](tiny_woods/route_runtime_v2),
   avec les facings Red `4=North` corrigés. La v1 reste conservée avec erratum.
-- Graphe scènes EU : **697 commandes / 117 textes français authentifiés**.
-- Noyau jouable des quatre scènes : **PARTIAL PASS** — 74 lignes neutres,
-  menus natifs, acteurs, facings, musique ROM et chorégraphie principale.
-- Destination post-`g3` : **EU-ROM PASS** dans
-  [`tiny_woods/post_route`](tiny_woods/post_route) — `b01p00a` puis
-  `s02_fre`, conquête Petit Bois, scénario `3,0`, division d'événement.
-- Restitution commande-par-commande et exécution native de cette destination :
-  **PENDING**.
+- Graphe scènes d’ouverture EU : **697 commandes / 117 textes français**.
+- Route après sauvetage EU : **278 commandes / 78 textes français**, destination
+  corrigée `d01p02:g1 → d01p01:g3 → b01p00a:g16 → s02_fre:g2`.
+- Surface combinée : **27 tableaux / 975 adresses uniques / 61 opcodes / 195
+  associations françaises**, conservée dans
+  [`tiny_woods/command_plan.json`](tiny_woods/command_plan.json).
+- Overlay privé jouable de la branche canonique sélectionnée : **NATIVE PASS v2**
+  dans [`tiny_woods/command_complete_runtime_v2`](tiny_woods/command_complete_runtime_v2).
+  Les deux exécutions isolées chargent chacune les 975 enregistrements avec
+  opérandes/handlers exacts, puis exécutent 94 dialogues français avec fermeture
+  de 94 menus, le renommage du héros après la ligne 23, un refus suivi d’une
+  acceptation, le renommage d’équipe, les trois récompenses, les six BGM et les
+  onze cues authentifiés.
+- Progression post-`g3` : **NATIVE PASS** — Petit Bois `Completed`, scénario
+  `3,0`, `EVENT_DIVIDE`, avec les index `master_zone` 141/308/329 et les Grounds
+  promus `b01p00a` et `s02_fre` montés sans modification.
 
-La route certifiée exécute trois scénarios PMDO 0.8.12 indépendants. Le scénario
-complet soumet 143 actions natives, dont trois actions d’escalier et deux
-attaques contre des occupants hostiles naturels. Les 28 replans d’occupation,
-les trois étages, `d01p02:g1`, `d01p01:g3`, les acteurs, positions, collision,
-musique EU et nettoyage de réentrée sont attestés. Les trois processus se
-terminent par `LoadPhase.Unload`, `NORMAL_EXIT`, rc 0, sans signal ni orphelin.
+Les deux processus PMDO 0.8.12 se terminent par `LoadPhase.Unload`,
+`NORMAL_EXIT`, rc 0, `terminal=true`, `graceful=true`, sans watchdog, signal,
+SIGSEGV, kill forcé ni orphelin. Le rapport durable est
+[`native_command_complete_validation.json`](tiny_woods/command_complete_runtime_v2/native_command_complete_validation.json),
+SHA-256 `2a6fa101d35b9ad84656835b1583a6163d39a3ff4bf8b13100f4fdd084f5f97b`.
+Le manifeste fixture a le SHA-256
+`afbfde161c7f5280333b2411786a329ec600d450ea0696e32d1abeea890f6f65`.
+
+La première archive `command_complete_runtime` reste conservée. Ses onze Ogg
+sont octet pour octet identiques à la v2 et son PASS natif reste valide, mais
+son manifeste fanfare nommait un hash de source intermédiaire non suivi. Elle
+est donc supplantée **uniquement pour la reproductibilité de provenance**. La
+v2 archive les manifestes audio et
+[`provenance.json`](tiny_woods/command_complete_runtime_v2/provenance.json),
+qui lie le renderer suivi au SHA-256
+`eec95deff18c4e22514541e21986c76843af3850caa6e3f4549df69ec6e53f10`.
+
+## Portée exacte du PASS
+
+Le PASS natif couvre la branche grammaticale D1/neutre déjà sélectionnée par le
+plan de scène, avec une itération de la boucle de refus. Les 27 tableaux, les
+975 commandes et les 195 associations françaises sont tous préservés et
+contrôlés adresse par adresse dans l’overlay. Les alternatives grammaticales et
+les chemins de contrôle non sélectionnés ne sont pas prétendus exécutés dans
+une seule partie. La preuve historique `scene_runtime` reste un **PARTIAL PASS**
+et n’est ni remplacée ni réécrite.
+
+Ce checkpoint ne promeut pas encore les scripts Ground de l’overlay dans la
+quête live : la prochaine passe doit donner une sémantique PMDO exécutable aux
+handlers de contrôle/chorégraphie secondaires non parcourus, tester leurs
+branches, puis intégrer l’overlay étroitement sans modifier les preuves
+historiques.
 
 ## Reprise exacte
 
 ```bash
 bash tools/restore_pmdred_eu_validation_runtime.sh
 python3 tools/update_pmdred_eu_validation_progress.py --check
-bash docs/pmdred_eu/playable/tiny_woods/scene_runtime/commands.sh
-python3 tools/audit_pmdred_eu_tiny_woods_post_route.py \
-  .runtime-cache/downloads/pmdred-eu.gba \
-  --pret-root .runtime-cache/pmd-red-reference \
-  --report /tmp/eu_post_route_graph.json
+bash docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/commands.sh
 ```
 
-Les fixtures et preuves sont create-only. Si les noms `*-repro` existent,
-utiliser de nouvelles destinations plutôt que les écraser.
+Rejouer également les régressions sans `pytest` :
+
+```bash
+PYTHONPATH=tools .runtime-cache/test-venv/bin/python -m unittest \
+  tools.test_build_pmdred_tiny_woods \
+  tools.test_pmdred_tiny_woods_native \
+  tools.test_pmdred_tiny_woods_route \
+  tools.test_pmdred_tiny_woods_scenes \
+  tools.test_pmdred_tiny_woods_post_route \
+  tools.test_build_pmdred_tiny_woods_command_plan \
+  tools.test_build_pmdred_tiny_woods_command_complete_overlay \
+  tools.test_pmdred_tiny_woods_command_complete -v
+```
+
+Les rendus audio, fixtures et preuves sont create-only. Si les destinations
+`*-repro-v2` existent, choisir un nouveau suffixe cohérent dans `commands.sh`
+plutôt que les écraser.
 
 ## Étape suivante
 
-Étendre dans un nouvel overlay le noyau certifié sans le réécrire :
+Phase `tiny_woods_opcode_semantic_choreography_and_production_integration` :
 
-- interpréter chaque cue restant des 697 commandes authentifiées ;
-- reproduire fanfares, portraits/émotions, chemins de marche et caméra ;
-- brancher le renommage interactif et les récompenses réelles ;
-- exécuter nativement la route corrigée `b01p00a → s02_fre`, les états de
-  conquête/scénario et la division d'événement désormais authentifiés ;
-- rejouer ouverture, défaite/retry et sauvetage complet avec terminaison stricte.
+1. transformer les handlers déclaratifs des 61 opcodes en exécution PMDO sûre,
+   en respectant appels, retours, labels, branches grammaticales et attentes ;
+2. restituer et tester les émotions/portraits, rotations, marches, animations,
+   caméra et synchronisations secondaires que la branche native actuelle ne
+   parcourt pas encore ;
+3. exécuter des scénarios isolés pour les alternatives et les retries sans
+   affaiblir les gates de terminaison ;
+4. seulement après ces preuves, intégrer étroitement les scripts et assets de
+   l’overlay à la quête live, puis certifier un playthrough ouverture → donjon →
+   sauvetage → base → titre.
 
-Les références aplaties existantes ne sont pas canoniques par défaut. Ne
-promouvoir ni `d01p02` ni les scripts Ground live avant ce gate exhaustif.
+Les références aplaties existantes ne sont pas canoniques par défaut. Les octets
+EU restent l’autorité de contenu ; `pret/pmd-red` reste une référence structurelle
+uniquement.

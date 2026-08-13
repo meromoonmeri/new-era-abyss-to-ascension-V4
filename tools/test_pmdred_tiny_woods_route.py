@@ -96,8 +96,12 @@ class TinyWoodsRouteTests(unittest.TestCase):
         )
         self.assertEqual(progress["tiny_woods"]["narrative_scenes"]["status"], "PARTIAL_PASS")
         self.assertEqual(
+            progress["tiny_woods"]["narrative_scenes"]["command_complete_selected_route_extension"]["status"],
+            "PASS",
+        )
+        self.assertEqual(
             progress["resume"]["next_phase"],
-            "tiny_woods_command_complete_choreography_rewards_and_post_g3_route",
+            "tiny_woods_opcode_semantic_choreography_and_production_integration",
         )
 
 

@@ -1,9 +1,9 @@
 {
   "schema": "new-era.pmdred-eu-playable-reconstruction-progress.v1",
-  "generated_at": "2026-08-13T18:56:36+00:00",
+  "generated_at": "2026-08-13T21:25:52+00:00",
   "repository": {
     "branch": "arena/019ff05e-new-era-abyss-to-ascension-v4",
-    "parent_checkpoint": "bff31f9562a58c1a0069fd3560ce057ee13f4fa4"
+    "parent_checkpoint": "6bb4c63776ddb454f3f38ae67c4d74538898c7c2"
   },
   "authority": {
     "region": "EU",
@@ -51,7 +51,61 @@
         "d01p02:g1",
         "d01p01:g3"
       ],
-      "remaining": "command-complete cues, secondary emotions/portraits, every walk path, interactive rename, reward messages/items, and native post-g3 execution"
+      "remaining": "PMDO semantics and branch execution for non-selected secondary control/choreography handlers, followed by narrow live integration",
+      "command_complete_selected_route_extension": {
+        "status": "PASS",
+        "report": "docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/native_command_complete_validation.json",
+        "report_sha256": "2a6fa101d35b9ad84656835b1583a6163d39a3ff4bf8b13100f4fdd084f5f97b",
+        "fixture_manifest_sha256": "afbfde161c7f5280333b2411786a329ec600d450ea0696e32d1abeea890f6f65",
+        "command_plan": "docs/pmdred_eu/playable/tiny_woods/command_plan.json",
+        "command_plan_sha256": "ab9f2a8dcf857181a4dd188e28687cb953ba4789c9b6f39430c50fee4b94c37b",
+        "arrays": 27,
+        "unique_command_addresses_per_mode": 975,
+        "opcodes": 61,
+        "french_associations_preserved": 195,
+        "isolated_native_modes": [
+          "opening_naming",
+          "post_route"
+        ],
+        "selected_french_dialogues_executed_and_closed": 94,
+        "authenticated_bgm_ids": [
+          1,
+          10,
+          46,
+          101,
+          103,
+          114
+        ],
+        "authenticated_cue_ids": [
+          450,
+          455,
+          457,
+          463,
+          465,
+          466,
+          468,
+          469,
+          470,
+          473,
+          482
+        ],
+        "hero_naming_after_opening_row": 23,
+        "refusal_iterations": 1,
+        "rewards": [
+          "berry_oran",
+          "berry_pecha",
+          "berry_rawst"
+        ],
+        "strict_graceful_terminations": 2,
+        "scope": "D1/default grammatical branch and one refusal iteration execute natively; all command records/associations are preserved and loaded, while non-selected alternative control/choreography handlers remain the next semantic-execution phase.",
+        "fanfare_source_manifest_sha256": "ec2f94f966581a78028625872968fd339ca66e33699b376a22327939aae4c96c",
+        "music_source_manifest_sha256": "dff44863cd741332b63485f7171ad0ef28ed99c296c9343916a772ef9961636b",
+        "provenance_report": "docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/provenance.json",
+        "provenance_report_sha256": "cf1dbe64b9a36af7ce4deb57f032b71742bb17e264833d42ed58620c13201bde",
+        "renderer_source_sha256": "eec95deff18c4e22514541e21986c76843af3850caa6e3f4549df69ec6e53f10",
+        "superseded_report": "docs/pmdred_eu/playable/tiny_woods/command_complete_runtime/native_command_complete_validation.json",
+        "supersession_scope": "source-provenance reproducibility only; prior native result and audio bytes remain valid"
+      }
     },
     "post_g3_route_authentication": {
       "status": "PASS",
@@ -78,19 +132,35 @@
       "rescue_base_french_text_count": 78,
       "title_command_count": 10,
       "progression": "Tiny Woods conquered; SCENARIO_MAIN 3,0; EVENT_DIVIDE",
-      "runtime_status": "PENDING"
+      "runtime_status": "PASS",
+      "runtime_report": "docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/native_command_complete_validation.json",
+      "runtime_report_sha256": "2a6fa101d35b9ad84656835b1583a6163d39a3ff4bf8b13100f4fdd084f5f97b",
+      "native_rewards": [
+        "berry_oran",
+        "berry_pecha",
+        "berry_rawst"
+      ],
+      "native_progression": {
+        "dungeon_unlock": "Completed",
+        "scenario_main": 3,
+        "scenario_level": 0,
+        "event_division": "EVENT_DIVIDE"
+      },
+      "superseded_runtime_report": "docs/pmdred_eu/playable/tiny_woods/command_complete_runtime/native_command_complete_validation.json"
     }
   },
   "resume": {
     "restore": "bash tools/restore_pmdred_eu_validation_runtime.sh",
     "verify_ground_checkpoint": "python3 tools/update_pmdred_eu_validation_progress.py --check",
-    "reproduce_latest_milestone": "bash docs/pmdred_eu/playable/tiny_woods/scene_runtime/commands.sh",
-    "next_phase": "tiny_woods_command_complete_choreography_naming_rewards_and_native_corrected_post_g3_route",
-    "rule": "Preserve route v2, French scene-core, and EU-ROM post-route PASSes; continue in a new create-only fixture and do not promote d01p02 or live Ground scripts until every remaining EU cue and corrected post-g3 transition passes natively.",
-    "reproduce_post_route_audit": "python3 tools/audit_pmdred_eu_tiny_woods_post_route.py .runtime-cache/downloads/pmdred-eu.gba --pret-root .runtime-cache/pmd-red-reference --report /tmp/eu_post_route_graph.json"
+    "reproduce_latest_milestone": "bash docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/commands.sh",
+    "next_phase": "tiny_woods_opcode_semantic_choreography_and_production_integration",
+    "rule": "Preserve all 219/219, route v2, scene-core, post-route audit, and command-complete selected-route native evidence. Implement and branch-test the remaining secondary opcode semantics before narrowly promoting overlay scripts into the live quest.",
+    "reproduce_post_route_audit": "python3 tools/audit_pmdred_eu_tiny_woods_post_route.py .runtime-cache/downloads/pmdred-eu.gba --pret-root .runtime-cache/pmd-red-reference --report /tmp/eu_post_route_graph.json",
+    "reproduce_command_complete": "bash docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/commands.sh"
   },
   "limitations": [
     "A route PASS is not narrative completion.",
-    "The failed route uses a genuine GiveUp GameAction carrying ResultType.Failed; natural combat defeat remains a later combat milestone."
+    "The failed route uses a genuine GiveUp GameAction carrying ResultType.Failed; natural combat defeat remains a later combat milestone.",
+    "The command-complete native extension executes the selected D1/default route and one refusal loop; loading all 975 exact command records is not claimed as execution of every non-selected alternative branch."
   ]
 }

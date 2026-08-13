@@ -22,13 +22,18 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 ROM_SHA256 = "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd"
-TRACKS = (
+LOOPING_TRACKS = (
+    (1, "Rescue Team Base", "PMD Red - Rescue Team Base.ogg"),
     (10, "There's Trouble", "PMD Red - There's Trouble.ogg"),
     (101, "Heartwarming", "PMD Red - Heartwarming.ogg"),
     (103, "A Successful Rescue", "PMD Red - A Successful Rescue.ogg"),
     (114, "In the Depths of the Pit", "PMD Red - In the Depths of the Pit.ogg"),
 )
+TERMINATING_TRACKS = (
+    (46, "Aftermath", "PMD Red - Aftermath.ogg"),
+)
 LOOP_RE = re.compile(r"tracks=(\d+) samples=(\d+) loop_start=(\d+) loop_length=(\d+)")
+TERMINATING_RE = re.compile(r"tracks=(\d+) samples=(\d+) completion=TRACK_CLEAR")
 
 
 def load_renderer():
@@ -75,6 +80,27 @@ def invoke(
     return tracks, samples, detected_start, detected_length, result.stdout.strip()
 
 
+def invoke_terminating(
+    executable: Path, rom: Path, song: int, output: Path, title: str,
+    expected_samples: int,
+) -> tuple[int, int, str]:
+    result = subprocess.run(
+        [str(executable), str(rom), str(song), str(output), ROM_SHA256,
+         title, str(expected_samples), "TERMINATING_BGM"],
+        check=False, text=True, capture_output=True,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(
+            f"terminating renderer failed for song {song} ({result.returncode}): "
+            f"stdout={result.stdout!r} stderr={result.stderr!r}"
+        )
+    match = TERMINATING_RE.search(result.stdout)
+    if match is None:
+        raise RuntimeError(f"renderer omitted TRACK-clear evidence for song {song}: {result.stdout!r}")
+    tracks, samples = map(int, match.groups())
+    return tracks, samples, result.stdout.strip()
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--rom", type=Path, required=True)
@@ -107,14 +133,14 @@ def main() -> int:
     with tempfile.TemporaryDirectory(prefix="pmdred-scene-music-") as temporary:
         build = Path(temporary)
         executable = frozen.build_renderer(
-            compiler,
-            ROOT / "tools/pmdred_m4a_to_ogg_general.c",
-            m4play,
-            ogg,
-            vorbis,
-            build,
+            compiler, ROOT / "tools/pmdred_m4a_to_ogg_general.c",
+            m4play, ogg, vorbis, build / "looping",
         )
-        for song, title, filename in TRACKS:
+        terminating_executable = frozen.build_renderer(
+            compiler, ROOT / "tools/pmdred_m4a_fanfare_to_ogg.c",
+            m4play, ogg, vorbis, build / "terminating",
+        )
+        for song, title, filename in LOOPING_TRACKS:
             probe = build / f"{song}-probe.ogg"
             tracks, samples, loop_start, loop_length, discovery = invoke(
                 executable, rom, song, probe, title, 0, 0
@@ -142,6 +168,7 @@ def main() -> int:
             shutil.copyfile(first, destination)
             records.append({
                 "song_index": song,
+                "playback_kind": "looping_bgm",
                 "title": title,
                 "filename": filename,
                 "bytes": destination.stat().st_size,
@@ -154,15 +181,55 @@ def main() -> int:
                 "discovery_run": discovery,
                 "deterministic_runs": 2,
             })
+        for song, title, filename in TERMINATING_TRACKS:
+            probe = build / f"{song}-probe.ogg"
+            tracks, samples, discovery = invoke_terminating(
+                terminating_executable, rom, song, probe, title, 0
+            )
+            if samples <= 0 or samples % (frozen.SAMPLE_RATE // 60) != 0:
+                raise RuntimeError(f"song {song}: invalid frame-aligned completion count {samples}")
+            first = build / f"{song}-first.ogg"
+            second = build / f"{song}-second.ogg"
+            first_run = invoke_terminating(terminating_executable, rom, song, first, title, samples)
+            second_run = invoke_terminating(terminating_executable, rom, song, second, title, samples)
+            if first_run[:2] != second_run[:2] or first.read_bytes() != second.read_bytes():
+                raise RuntimeError(f"song {song}: independent gated renders differ")
+            granule, comments = frozen.parse_ogg(first)
+            expected_comments = {
+                "TITLE": title, "SOURCE": "Pokemon Mystery Dungeon Red Rescue Team EU ROM",
+                "SOURCE_ROM_SHA256": ROM_SHA256, "PMDRED_M4A_KIND": "TERMINATING_BGM",
+                "M4A_SONG_TABLE_INDEX": str(song),
+            }
+            if granule != samples or any(comments.get(k) != v for k, v in expected_comments.items()):
+                raise RuntimeError(f"song {song}: Ogg metadata/granule differs")
+            destination = output / filename
+            shutil.copyfile(first, destination)
+            records.append({
+                "song_index": song, "playback_kind": "terminating_bgm",
+                "title": title, "filename": filename,
+                "bytes": destination.stat().st_size, "sha256": sha256(destination),
+                "sample_rate": frozen.SAMPLE_RATE, "samples": samples, "tracks": tracks,
+                "completion_condition": "(gMPlayInfo_BGM.status & MUSICPLAYER_STATUS_TRACK) == 0",
+                "discovery_run": discovery, "deterministic_runs": 2,
+            })
+        records.sort(key=lambda row: row["song_index"])
 
     manifest = {
         "schema": "new-era.pmdred-eu-scene-music.v1",
         "authority": {"region": "EU", "rom_sha256": ROM_SHA256},
-        "renderer": {
-            "source": "tools/pmdred_m4a_to_ogg_general.c",
-            "source_sha256": sha256(ROOT / "tools/pmdred_m4a_to_ogg_general.c"),
-            "sample_rate": frozen.SAMPLE_RATE,
-            "method": "fresh loop-discovery process plus two byte-identical fresh gated renders",
+        "renderers": {
+            "looping_bgm": {
+                "source": "tools/pmdred_m4a_to_ogg_general.c",
+                "source_sha256": sha256(ROOT / "tools/pmdred_m4a_to_ogg_general.c"),
+                "sample_rate": frozen.SAMPLE_RATE,
+                "method": "fresh synchronized-loop discovery plus two byte-identical gated renders",
+            },
+            "terminating_bgm": {
+                "source": "tools/pmdred_m4a_fanfare_to_ogg.c",
+                "source_sha256": sha256(ROOT / "tools/pmdred_m4a_fanfare_to_ogg.c"),
+                "sample_rate": frozen.SAMPLE_RATE,
+                "method": "fresh TRACK-clear discovery plus two byte-identical gated renders",
+            },
         },
         "dependencies": {
             "m4play": frozen.EXPECTED_M4PLAY_COMMIT,
