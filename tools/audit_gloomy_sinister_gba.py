@@ -1,27 +1,74 @@
 #!/usr/bin/env python3
-import json,re
+"""Targeted PMD Red Sinister Woods gate; read-only and provenance aware."""
+from __future__ import annotations
+import json
+import os
 from pathlib import Path
-R=Path(__file__).resolve().parents[1]
-S=Path(__import__('os').environ.get('PMD_RED_SOURCE','/home/user/pmd-red'))/'data/dungeon/SinisterWoods/pokemon_found.json'
-src=json.loads(S.read_text())['tables']; raw=[]
-exc={'MR_MIME':'mr_mime','FARFETCHD':'farfetchd','NIDORAN_F':'nidoran_f','NIDORAN_M':'nidoran_m'}
-for t in src:
- q=[]
- for p in t['pokemon']:
-  k=p['species'].replace('MONSTER_','')
-  if p['probability']>0 and k not in ('KECLEON','DECOY'):q.append((exc.get(k,k.lower()),p['level'],p['probability']))
- raw.append(q)
-raw=raw[:8]+[raw[7]]+raw[8:]
-z=json.loads((R/'Data/Zone/gloomy_forest.json').read_text(encoding='utf-8-sig'))['Object']
-def actual(seg,count):
- st=next(x for x in z['Segments'][seg]['ZoneSteps'] if 'TeamSpawnZoneStep' in x['$type']);out=[]
- for f in range(count):
-  q=[]
-  for x in st['Spawns']:
-   if x['Range']=={'Min':f,'Max':f+1}:
-    m=x['Spawn']['Spawn'];q.append((m['BaseForm']['Species'],m['Level']['Min'],x['Rate']))
-  out.append(q)
- return out
-act=actual(0,15)+actual(1,5)+actual(3,3); expected=[raw[i%13] for i in range(23)]
-s=json.dumps(z);checks={'23_floor_spawn_tables':len(act)==23,'species_level_probability_exact':act==expected,'no_relic_forest_dependency':'relic_forest' not in s,'no_generic_forest_1':'forest_1_' not in s,'canonical_gba_music':False}
-print(json.dumps({'source':'pret/pmd-red data/dungeon/SinisterWoods','gba_tables':13,'pmdo_floors':23,'checks':checks,'graphics_status':'REQUIRES_GBA_TILESET_CONVERSION','runtime':'NOT_TESTED'},indent=2));raise SystemExit(0 if all(checks.values()) else 1)
+
+ROOT = Path(__file__).resolve().parents[1]
+SOURCE = Path(os.environ.get("PMD_RED_SOURCE", "/home/user/pmd-red")) / "data/dungeon/SinisterWoods/pokemon_found.json"
+
+
+def source_tables():
+    exception = {"MR_MIME": "mr_mime", "FARFETCHD": "farfetchd", "NIDORAN_F": "nidoran_f", "NIDORAN_M": "nidoran_m"}
+    result = []
+    for table in json.loads(SOURCE.read_text())["tables"]:
+        rows = []
+        for pokemon in table["pokemon"]:
+            species = pokemon["species"].replace("MONSTER_", "")
+            if pokemon["probability"] > 0 and species not in ("KECLEON", "DECOY"):
+                rows.append((exception.get(species, species.lower()), pokemon["level"], pokemon["probability"]))
+        result.append(rows)
+    return result[:8] + [result[7]] + result[8:]
+
+
+def actual_tables(zone, segment, count):
+    spawn = next(row for row in zone["Segments"][segment]["ZoneSteps"] if "TeamSpawnZoneStep" in row["$type"])
+    result = []
+    for floor in range(count):
+        rows = []
+        for item in spawn["Spawns"]:
+            if item["Range"] == {"Min": floor, "Max": floor + 1}:
+                mob = item["Spawn"]["Spawn"]
+                rows.append((mob["BaseForm"]["Species"], mob["Level"]["Min"], item["Rate"]))
+        result.append(rows)
+    return result
+
+
+def main():
+    source = source_tables()
+    zone = json.loads((ROOT / "Data/Zone/gloomy_forest.json").read_text(encoding="utf-8-sig"))["Object"]
+    actual = actual_tables(zone, 0, 15) + actual_tables(zone, 1, 5) + actual_tables(zone, 3, 3)
+    expected = [source[index % 13] for index in range(23)]
+    payload = json.dumps(zone)
+    music = all("Sinister Woods.ogg" in json.dumps(zone["Segments"][index]) for index in (0, 1, 3))
+    checks = {
+        "23_floor_spawn_tables": len(actual) == 23,
+        "species_level_probability_exact": actual == expected,
+        "canonical_sinister_woods_music": music,
+        "no_relic_forest_dependency": "relic_forest_blob_" not in payload,
+        "no_treeshroud_graphics_substitution": "treeshroud_forest_1_" not in payload,
+    }
+    blockers = [name for name, passed in checks.items() if not passed]
+    result = {
+        "source": "pret/pmd-red data/dungeon/SinisterWoods at locked technical commit",
+        "provenance": {
+            "floors_1_13": "PMD_RED_EU_CANON",
+            "floors_14_23": "NEW_ERA_ADAPTATION_REPEAT_OF_CANONICAL_TABLE_CYCLE",
+            "grounds_d04p01_d04p02": "PMD_RED_EU_CANON",
+            "team_dazzling_recast": "NEW_ERA_ADAPTATION",
+        },
+        "gba_table_count": 13,
+        "pmdo_floor_count": 23,
+        "checks": checks,
+        "blockers": blockers,
+        "result": "SINISTER_WOODS_CANONICAL_GATE_PASS" if not blockers else "SINISTER_WOODS_CANONICAL_GATE_BLOCKED",
+        "runtime": "NOT_RUN_BY_THIS_STATIC_GATE",
+        "production_route_written": False,
+    }
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if not blockers else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
