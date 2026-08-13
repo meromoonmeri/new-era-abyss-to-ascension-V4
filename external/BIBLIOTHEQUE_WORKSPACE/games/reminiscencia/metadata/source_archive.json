@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "game_id": "reminiscencia",
+  "priority_before": "nova",
+  "repository": "https://github.com/meromoonmeri/BIBLIOTHEQUE",
+  "source_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f",
+  "source_pointer": "Reminiscencia/ReminiscenciaV2_3.zip",
+  "git_lfs": {
+    "oid_algorithm": "sha256",
+    "oid": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "size_bytes": 341630283,
+    "pointer_size_bytes": 134
+  },
+  "independent_identity_confirmation": {
+    "url": "https://pokemon-reminiscencia.en.uptodown.com/windows/download",
+    "version": "2.3",
+    "file_type": "ZIP",
+    "published_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "published_size": "325.8 MB"
+  },
+  "acquisition_status": "LFS_OBJECT_PINNED_NOT_MATERIALIZED",
+  "source_code_executed": false,
+  "raw_archive_tracked_in_new_era": false,
+  "renderer": "tools/render_rmxp_archive_maps.py",
+  "target_output": "games/reminiscencia/conversion/pmdo_renders"
+}
