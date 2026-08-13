@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0.0",
+  "result": "SMART_DUNGEON_GENERATION_PASS",
+  "name": "Sanctuaire des Échos",
+  "slug": "sanctuaire_des_echos",
+  "seed": 424242,
+  "floor_count": 12,
+  "mean_quality_score": 87.728,
+  "minimum_quality_score": 81.116,
+  "asset_catalog": "asset_catalog.json",
+  "visual_language": {
+    "cluster_id": "visual_cluster_002",
+    "cluster_score": 1.99,
+    "theme_tokens": [
+      "ancien",
+      "inquiétant",
+      "majestueux"
+    ],
+    "roles": {
+      "common": [
+        "A02p03_Base"
+      ],
+      "secondary": [
+        "A02p03_Base"
+      ],
+      "focal": [
+        "A02p03_Base"
+      ],
+      "rare": [
+        "A02p03_Base"
+      ]
+    },
+    "texture_bundle": "dungeon_texture:chasm_cave_floor|chasm_cave_wall|chasm_cave_secondary",
+    "texture_values": [
+      "chasm_cave_floor",
+      "chasm_cave_wall",
+      "chasm_cave_secondary"
+    ],
+    "asset_count": 1,
+    "manual_override_applied": false
+  },
+  "compiler": {
+    "reference_zone": "mt_blaze",
+    "zone_file": "zone/sanctuaire_des_echos.json",
+    "floor_count": 12,
+    "roster": [
+      "meowth",
+      "charizard",
+      "kabuto",
+      "pineco",
+      "applin",
+      "shuppet",
+      "espeon",
+      "shuckle",
+      "corsola",
+      "aerodactyl",
+      "seviper",
+      "vigoroth",
+      "kecleon",
+      "amaura",
+      "vivillon",
+      "flareon",
+      "staravia",
+      "shedinja",
+      "rhyhorn",
+      "ninetales",
+      "umbreon",
+      "drifloon",
+      "golurk",
+      "voltorb"
+    ],
+    "boss_contract": {
+      "floor": 12,
+      "species": "voltorb",
+      "arena_position": [
+        25,
+        21
+      ],
+      "integration": "generated_arena_plus_story_battle_hook"
+    },
+    "mini_boss_contracts": [
+      {
+        "floor": 3,
+        "species": "golurk",
+        "arena_position": [
+          16,
+          14
+        ],
+        "integration": "generated_arena_plus_battle_hook"
+      },
+      {
+        "floor": 9,
+        "species": "drifloon",
+        "arena_position": [
+          16,
+          12
+        ],
+        "integration": "generated_arena_plus_battle_hook"
+      }
+    ],
+    "relay_contracts": [
+      {
+        "floor": 4,
+        "position": [
+          32,
+          15
+        ],
+        "integration": "refuge_contract"
+      },
+      {
+        "floor": 6,
+        "position": [
+          18,
+          27
+        ],
+        "integration": "refuge_contract"
+      }
+    ]
+  },
+  "locks_file": "locks.json",
+  "overrides_file": "asset_overrides.json",
+  "reproducible": true
+}

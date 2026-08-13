@@ -1,0 +1,405 @@
+{
+  "accepted_floor_count": 12,
+  "floor_count": 12,
+  "mean_score": 87.728,
+  "minimum_score": 81.116,
+  "violations": {},
+  "candidate_comparisons": [
+    {
+      "floor": 1,
+      "candidates": [
+        {
+          "seed": 2086675093,
+          "score": 85.2,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 2104857858,
+          "score": 86.064,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 732689328,
+          "score": 85.041,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 772023893,
+          "score": 80.623,
+          "accepted": true,
+          "violations": [
+            "LONG_CORRIDOR"
+          ]
+        }
+      ],
+      "selected_seed": 2104857858,
+      "selected_score": 86.064
+    },
+    {
+      "floor": 2,
+      "candidates": [
+        {
+          "seed": 23336206,
+          "score": 78.755,
+          "accepted": true,
+          "violations": [
+            "LONG_CORRIDOR"
+          ]
+        },
+        {
+          "seed": 179240755,
+          "score": 77.471,
+          "accepted": true,
+          "violations": [
+            "LONG_CORRIDOR"
+          ]
+        },
+        {
+          "seed": 1040515979,
+          "score": 79.972,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 23821259,
+          "score": 81.116,
+          "accepted": true,
+          "violations": []
+        }
+      ],
+      "selected_seed": 23821259,
+      "selected_score": 81.116
+    },
+    {
+      "floor": 3,
+      "candidates": [
+        {
+          "seed": 658892953,
+          "score": 88.444,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 1299877171,
+          "score": 88.402,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 671794161,
+          "score": 87.079,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 1097443633,
+          "score": 87.615,
+          "accepted": true,
+          "violations": []
+        }
+      ],
+      "selected_seed": 658892953,
+      "selected_score": 88.444
+    },
+    {
+      "floor": 4,
+      "candidates": [
+        {
+          "seed": 1632979137,
+          "score": 82.903,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 1237442150,
+          "score": 82.824,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 1455436726,
+          "score": 82.224,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 6036409,
+          "score": 78.812,
+          "accepted": true,
+          "violations": [
+            "LONG_CORRIDOR"
+          ]
+        }
+      ],
+      "selected_seed": 1632979137,
+      "selected_score": 82.903
+    },
+    {
+      "floor": 5,
+      "candidates": [
+        {
+          "seed": 1815511953,
+          "score": 88.916,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 1323023542,
+          "score": 92.13,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 825869058,
+          "score": 90.729,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 222331425,
+          "score": 86.985,
+          "accepted": true,
+          "violations": []
+        }
+      ],
+      "selected_seed": 1323023542,
+      "selected_score": 92.13
+    },
+    {
+      "floor": 6,
+      "candidates": [
+        {
+          "seed": 1050823730,
+          "score": 83.207,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 1892717699,
+          "score": 87.29,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 211849351,
+          "score": 81.398,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 1659716559,
+          "score": 79.678,
+          "accepted": true,
+          "violations": [
+            "LONG_CORRIDOR"
+          ]
+        }
+      ],
+      "selected_seed": 1892717699,
+      "selected_score": 87.29
+    },
+    {
+      "floor": 7,
+      "candidates": [
+        {
+          "seed": 188398654,
+          "score": 87.456,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 743097684,
+          "score": 89.883,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 1900309171,
+          "score": 84.934,
+          "accepted": true,
+          "violations": [
+            "LONG_CORRIDOR"
+          ]
+        },
+        {
+          "seed": 1224013811,
+          "score": 87.935,
+          "accepted": true,
+          "violations": []
+        }
+      ],
+      "selected_seed": 743097684,
+      "selected_score": 89.883
+    },
+    {
+      "floor": 8,
+      "candidates": [
+        {
+          "seed": 455137637,
+          "score": 90.054,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 742889705,
+          "score": 85.967,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 1872259278,
+          "score": 83.834,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 1222666106,
+          "score": 89.811,
+          "accepted": true,
+          "violations": []
+        }
+      ],
+      "selected_seed": 455137637,
+      "selected_score": 90.054
+    },
+    {
+      "floor": 9,
+      "candidates": [
+        {
+          "seed": 1643829053,
+          "score": 88.824,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 874246778,
+          "score": 89.803,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 654084829,
+          "score": 89.02,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 1908372950,
+          "score": 83.605,
+          "accepted": true,
+          "violations": [
+            "LONG_CORRIDOR"
+          ]
+        }
+      ],
+      "selected_seed": 874246778,
+      "selected_score": 89.803
+    },
+    {
+      "floor": 10,
+      "candidates": [
+        {
+          "seed": 957262899,
+          "score": 86.387,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 1803057073,
+          "score": 80.326,
+          "accepted": true,
+          "violations": [
+            "LONG_CORRIDOR"
+          ]
+        },
+        {
+          "seed": 2093120178,
+          "score": 84.986,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 2026534279,
+          "score": 85.914,
+          "accepted": true,
+          "violations": [
+            "LONG_CORRIDOR"
+          ]
+        }
+      ],
+      "selected_seed": 957262899,
+      "selected_score": 86.387
+    },
+    {
+      "floor": 11,
+      "candidates": [
+        {
+          "seed": 235974539,
+          "score": 80.674,
+          "accepted": true,
+          "violations": [
+            "LONG_CORRIDOR"
+          ]
+        },
+        {
+          "seed": 1605259021,
+          "score": 81.731,
+          "accepted": true,
+          "violations": [
+            "LONG_CORRIDOR"
+          ]
+        },
+        {
+          "seed": 903603479,
+          "score": 89.363,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 1106460199,
+          "score": 84.687,
+          "accepted": true,
+          "violations": [
+            "LONG_CORRIDOR"
+          ]
+        }
+      ],
+      "selected_seed": 903603479,
+      "selected_score": 89.363
+    },
+    {
+      "floor": 12,
+      "candidates": [
+        {
+          "seed": 242773399,
+          "score": 88.092,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 1994681192,
+          "score": 84.261,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 485646610,
+          "score": 87.179,
+          "accepted": true,
+          "violations": []
+        },
+        {
+          "seed": 349805927,
+          "score": 89.303,
+          "accepted": true,
+          "violations": []
+        }
+      ],
+      "selected_seed": 349805927,
+      "selected_score": 89.303
+    }
+  ]
+}

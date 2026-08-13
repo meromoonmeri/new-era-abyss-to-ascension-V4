@@ -1,0 +1,122 @@
+[
+  {
+    "floor": 1,
+    "phase": "introduction",
+    "special": null,
+    "archetype": "open",
+    "complexity": 0.25,
+    "decoration_density": 0.374,
+    "danger": 0.574,
+    "mood": "majestueux"
+  },
+  {
+    "floor": 2,
+    "phase": "introduction",
+    "special": null,
+    "archetype": "open",
+    "complexity": 0.303,
+    "decoration_density": 0.392,
+    "danger": 0.611,
+    "mood": "majestueux"
+  },
+  {
+    "floor": 3,
+    "phase": "development",
+    "special": "mini_boss",
+    "archetype": "arena",
+    "complexity": 0.72,
+    "decoration_density": 0.4,
+    "danger": 0.869,
+    "mood": "majestueux"
+  },
+  {
+    "floor": 4,
+    "phase": "development",
+    "special": "relay",
+    "archetype": "refuge",
+    "complexity": 0.265,
+    "decoration_density": 0.308,
+    "danger": 0.309,
+    "mood": "majestueux"
+  },
+  {
+    "floor": 5,
+    "phase": "development",
+    "special": null,
+    "archetype": "irregular",
+    "complexity": 0.461,
+    "decoration_density": 0.446,
+    "danger": 0.723,
+    "mood": "transition"
+  },
+  {
+    "floor": 6,
+    "phase": "development",
+    "special": "relay",
+    "archetype": "refuge",
+    "complexity": 0.334,
+    "decoration_density": 0.334,
+    "danger": 0.342,
+    "mood": "transition"
+  },
+  {
+    "floor": 7,
+    "phase": "escalation",
+    "special": null,
+    "archetype": "branching",
+    "complexity": 0.566,
+    "decoration_density": 0.482,
+    "danger": 0.798,
+    "mood": "transition"
+  },
+  {
+    "floor": 8,
+    "phase": "escalation",
+    "special": null,
+    "archetype": "labyrinth",
+    "complexity": 0.619,
+    "decoration_density": 0.5,
+    "danger": 0.835,
+    "mood": "transition"
+  },
+  {
+    "floor": 9,
+    "phase": "escalation",
+    "special": "mini_boss",
+    "archetype": "arena",
+    "complexity": 0.72,
+    "decoration_density": 0.4,
+    "danger": 1,
+    "mood": "inquiétant"
+  },
+  {
+    "floor": 10,
+    "phase": "climax",
+    "special": null,
+    "archetype": "labyrinth",
+    "complexity": 0.725,
+    "decoration_density": 0.536,
+    "danger": 0.909,
+    "mood": "inquiétant"
+  },
+  {
+    "floor": 11,
+    "phase": "climax",
+    "special": null,
+    "archetype": "labyrinth",
+    "complexity": 0.777,
+    "decoration_density": 0.554,
+    "danger": 0.947,
+    "mood": "inquiétant"
+  },
+  {
+    "floor": 12,
+    "phase": "finale",
+    "special": "boss",
+    "archetype": "arena",
+    "complexity": 0.8,
+    "decoration_density": 0.32,
+    "danger": 1,
+    "mood": "inquiétant"
+  }
+]

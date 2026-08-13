@@ -1,0 +1,40 @@
+{
+  "name": "Sanctuaire des Échos",
+  "slug": "sanctuaire_des_echos",
+  "intent": "Un donjon ancien et majestueux de 12 étages, ouvert au début puis progressivement labyrinthique et inquiétant, avec un boss final, deux mini-boss, deux relais et une immense salle centrale avant le boss.",
+  "floors": 12,
+  "difficulty": "difficile",
+  "boss": true,
+  "mini_bosses": 2,
+  "relays": 2,
+  "seed": 424242,
+  "theme_tokens": [
+    "ancien",
+    "majestueux",
+    "inquiétant"
+  ],
+  "mood_start": "majestueux",
+  "mood_end": "inquiétant",
+  "topology_start": "open",
+  "topology_end": "labyrinth",
+  "water_policy": "auto",
+  "decoration_bias": 0.52,
+  "danger_bias": 0.82,
+  "constraints": [
+    "central_landmark"
+  ],
+  "requested_specials": [
+    {
+      "kind": "boss",
+      "count": 1
+    },
+    {
+      "kind": "mini_boss",
+      "count": 2
+    },
+    {
+      "kind": "relay",
+      "count": 2
+    }
+  ]
+}

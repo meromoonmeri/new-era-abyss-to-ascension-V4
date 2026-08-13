@@ -745,6 +745,19 @@ est confirmé (`SideQuests.AllDone` conditionne la progression de chapitre,
 `guild_heros_room/init.lua:157-217`) mais leur jouabilité ne l'est pas.
 
 
+## Session 2026-08-13 — Smart Dungeon Designer PMDO/RogueElements
+
+- Nouvel outil : `tools/smart_dungeon.py` et package `tools/smart_dungeon/`.
+- Pipeline : analyse sémantique des assets réels, intention naturelle, progression,
+  plans hiérarchiques, décoration, score multi-critères, réparations locales,
+  comparaison de variantes et compilation `ZoneData` RogueElements.
+- Régénération partielle : étage, salle ou décoration ; verrous persistants et seed.
+- Exemple validé : `docs/smart_dungeon/example_sanctuaire/`, 12 étages,
+  score moyen 87,728, minimum 81,116, 24 `FloorStairsStep` dans le ZoneData.
+- Tests : `tests/test_smart_dungeon_designer.py`.
+- Aucun Ground, Zone ou asset certifié n'est modifié par la génération ; la sortie
+  reste dans le dossier projet choisi jusqu'à promotion explicite.
+
 ## Charte et Manifeste d'Architecture et d'Identité des Donjons (2026-08-04, agent Arena.ai)
 
 ### 1. Directive maîtresse actée (Ch6 à Ch32)
