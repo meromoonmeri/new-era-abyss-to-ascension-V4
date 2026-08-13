@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+import argparse
+import hashlib
+import json
+import subprocess
+import tempfile
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+class DungeonSceneIRTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.authority = Path(AUTHORITY).resolve()
+
+    def command(self, output):
+        return [
+            "python3", str(ROOT / "tools/build_pmdred_dungeon_scene_ir.py"),
+            "--source-actions", str(self.authority / "source_action_index.json"),
+            "--narrative-scope", str(self.authority / "narrative_scope.json"),
+            "--dungeon-manifest", str(self.authority / "dungeon_manifest.json"),
+            "--output", str(output),
+        ]
+
+    def test_all_dungeon_actions_are_preserved_and_fail_closed(self):
+        documented = ROOT / "docs/canonical_journeys/PMD_RED_DUNGEON_SCENE_IR.json"
+        with tempfile.TemporaryDirectory(dir=ROOT / ".runtime-cache") as temp:
+            first, second = Path(temp) / "a.json", Path(temp) / "b.json"
+            subprocess.run(self.command(first), cwd=ROOT, check=True, capture_output=True)
+            subprocess.run(self.command(second), cwd=ROOT, check=True, capture_output=True)
+            self.assertEqual(first.read_bytes(), second.read_bytes())
+            self.assertEqual(hashlib.sha256(documented.read_bytes()).hexdigest(), hashlib.sha256(first.read_bytes()).hexdigest())
+            data = json.loads(first.read_text())
+        self.assertEqual(data["result"], "PMD_RED_DUNGEON_SCENE_IR_PASS")
+        self.assertEqual(data["asset_count"], 27)
+        self.assertEqual(data["script_array_count"], 267)
+        self.assertEqual(data["action_count"], 4967)
+        self.assertGreater(data["unknown_action_count"], 0)
+        self.assertEqual(data["runtime_ready_asset_count"], 0)
+        self.assertEqual(data["production_route_count"], 0)
+        self.assertEqual(len({row["asset"] for row in data["assets"]}), 27)
+        for asset in data["assets"]:
+            self.assertFalse(asset["runtime_ready"])
+            self.assertFalse(asset["production_route_written"])
+            self.assertEqual([row["sequence"] for row in asset["script_arrays"]], list(range(asset["script_array_count"])))
+            for array in asset["script_arrays"]:
+                self.assertEqual([row["sequence"] for row in array["actions"]], list(range(array["action_count"])))
+                for action in array["actions"]:
+                    if action["kind"].startswith(("RAW_OPCODE_", "CMD_UNK_", "CJUMP_UNK_")):
+                        self.assertEqual(action["adapter_status"], "UNMAPPED_PRESERVED")
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument("--authority", required=True)
+    args, remaining = parser.parse_known_args()
+    AUTHORITY = args.authority
+    unittest.main(argv=[__file__, *remaining], verbosity=2)

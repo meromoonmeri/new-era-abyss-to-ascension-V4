@@ -50,6 +50,15 @@ du tileset procédural Sinister Woods et la politique de suppression des blobs
 doivent être prouvés séparément. Les Grounds certifiés, scripts de chapitres
 1–5 et routes FugitiveArc restent intacts.
 
+## IR des cinématiques de donjon
+
+`PMD_RED_DUNGEON_SCENE_IR.json` conserve dans l'ordre les **4 967 actions** des
+**267 tableaux** appartenant aux 27 relations dungeon-backed. Les 712 actions
+brutes ou inconnues ne sont jamais supprimées : elles portent
+`UNMAPPED_PRESERVED` et maintiennent chaque scène en état non routable. Le texte
+n'est conservé que par hash d'autorité ; aucun corps de dialogue protégé n'est
+recopié dans ce registre.
+
 ## Garde runtime dormant
 
 `Data/Script/halcyon/pmdred_eu/CanonicalJourneyRegistry.lua` expose les 27
@@ -66,7 +75,12 @@ python3 tools/build_canonical_journey_registry.py \
   --report docs/canonical_journeys/JOURNEY_STATUS.md \
   --lua-output Data/Script/halcyon/pmdred_eu/CanonicalJourneyRegistry.lua
 
+python3 tools/build_pmdred_dungeon_scene_ir.py \
+  --output docs/canonical_journeys/PMD_RED_DUNGEON_SCENE_IR.json
+
 python3 tools/test_canonical_journey_registry.py \
+  --authority .runtime-cache/canonical-authority
+python3 tools/test_pmdred_dungeon_scene_ir.py \
   --authority .runtime-cache/canonical-authority
 ```
 
