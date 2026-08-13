@@ -54,13 +54,14 @@ def source_library_files(root: Path):
 
 
 def tree_hashes(root: Path) -> dict[str, str]:
-    # Manifest coverage/content is gated separately. Excluding the manifest's
-    # own bytes keeps source reproducibility independent from staged-conversion
-    # boundary rows while still comparing every generated source artifact.
+    # These manifests are gated separately. source_manifest inventories every
+    # tool in the shared multi-game workspace and legitimately changes when an
+    # isolated Reminiscencia converter is added.
+    excluded = {"manifests/generated_hashes.sha256", "manifests/source_manifest.json"}
     return {
         path.relative_to(root).as_posix(): sha256_file(path)
         for path in source_library_files(root)
-        if path.relative_to(root).as_posix() != "manifests/generated_hashes.sha256"
+        if path.relative_to(root).as_posix() not in excluded
     }
 
 

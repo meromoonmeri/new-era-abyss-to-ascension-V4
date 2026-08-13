@@ -1,0 +1,57 @@
+{
+  "actor_exclusion_rect": {
+    "height": 64,
+    "width": 48,
+    "x": 136,
+    "y": 80
+  },
+  "asset": "reminiscencia_map_213",
+  "forbidden_content_check": {
+    "audio_binary_exported": false,
+    "dialogue_exported": false,
+    "fixture_actor_pixels_exported": false,
+    "script_body_exported": false,
+    "source_actor_pixels_exported": false
+  },
+  "ground_sha256": "ff876113096f23d63c99ee814e8d11ee5981b5c8d6a3abb3949d5eb881d3b60f",
+  "headless_sdl_sha256": "2cec7b5f9603a8a856a94b3a5e4fb5bd5e93e3ed0d04b85431625d5acb14e71f",
+  "map_id": 213,
+  "pmdo_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+  "result": "REMINISCENCIA_PMDO_RUNTIME_PASS",
+  "runtime_destination_written": false,
+  "runtime_probes": {
+    "blocked_movement": "PASS",
+    "ground_load": "PASS",
+    "successful_movement": "PASS",
+    "terminal_event": "PASS"
+  },
+  "schema_version": "1.0.0",
+  "tex_size": 2,
+  "tile_sha256": "da28ed6d3ff59d2b7d6c8c9e6514a074b35e98b5f21b4854276c6830c691f32c",
+  "tile_sheet": "reminiscencia_tileset_001_Base",
+  "validation_status": "PMDO_VALIDATED",
+  "viewport_px": [
+    320,
+    240
+  ],
+  "visual_validation": {
+    "actor_excluded_pixel_count": 255,
+    "dimensions_px": [
+      320,
+      240
+    ],
+    "environment_different_pixel_count": 579,
+    "environment_evidence_sha256": "02395e751a18fb95f7b40a1d0b05c931a86b3aa853c5ecda3cfd26b39b46c000",
+    "environment_max_channel_delta": 1,
+    "expected_sha256": "068c0554a365a68e85a82b000109a7c34236317b45a75c476c29293d4dd99a91",
+    "raw_difference_bounds_inclusive": [
+      68,
+      53,
+      187,
+      203
+    ],
+    "raw_different_pixel_count": 834,
+    "raw_runtime_pixels_exported": false,
+    "raw_runtime_sha256": "1104296ad7d8e1e949203180c50e24ac21f6d8f334b1fa62cec0a39364c05c72"
+  }
+}

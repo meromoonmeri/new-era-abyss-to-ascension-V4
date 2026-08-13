@@ -1,0 +1,82 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_170.rsground",
+    "ground_sha256": "7af66d7216e2c1b083fae0f1a03289948eeda4faedacbe01274c6433abb317e3",
+    "preview": "conversion/pmdo_candidates/previews/map_170.png",
+    "preview_sha256": "11f90347f14ade87853132f2689d1940814faea0883841328f50adbcd0e70079",
+    "runtime_report": null,
+    "runtime_report_sha256": null,
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_170.json",
+    "sidecar_sha256": "75d31c413899831908b500c06855d8e13db661d5ae4985c3789b31d0391aada7",
+    "source_render": "conversion/pmdo_renders/maps/map_170.png",
+    "source_render_sha256": "e912fce8e6b148b51bb1e0ae3b0ada1bcd2c52839b3fb9beb01e7a92bbcb3291",
+    "visual_timeline": "vfx/timelines/maps/map_170.json",
+    "visual_timeline_sha256": "9bf2a6537f29d54b87d71124c5e9d79476e424b0cc8473b37edee57045545a6d"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": []
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 0,
+    "source_event_count": 0
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": true,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      320,
+      240
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      640,
+      480
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      20,
+      15
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 0,
+    "environment_sprite_page_context_count": 0,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": false,
+    "fog_name": "",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 170,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "PriSalidaOeste_w_2_h_8_salidaPrisionOeste",
+    "source_order": 170,
+    "tileset_id": 14,
+    "tileset_name": "CarcelInterior"
+  },
+  "status": "PMDO_CONVERTED"
+}

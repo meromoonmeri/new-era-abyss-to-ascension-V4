@@ -36,7 +36,9 @@ class ReminiscenciaRendersTest(unittest.TestCase):
         self.assertEqual(metadata["acquisition_status"], "LFS_OBJECT_MATERIALIZED_AND_HASH_VERIFIED")
         self.assertFalse(metadata["source_code_executed"])
         self.assertFalse(metadata["raw_archive_tracked_in_new_era"])
-        self.assertFalse(any(GAME.rglob("*.zip")))
+        zips = [path.relative_to(GAME).as_posix() for path in GAME.rglob("*.zip")]
+        self.assertEqual(zips, ["conversion/pmdo_candidates/reminiscencia_grounds.zip"])
+        self.assertNotIn("ReminiscenciaV2_3.zip", zips)
 
     def test_02_every_map_has_one_hashed_png_at_source_dimensions(self):
         self.assertEqual(self.manifest["map_count"], 552)

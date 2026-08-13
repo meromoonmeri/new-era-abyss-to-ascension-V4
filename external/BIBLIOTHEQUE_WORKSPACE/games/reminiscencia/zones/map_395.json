@@ -1,0 +1,82 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_395.rsground",
+    "ground_sha256": "5774fed5b14545b08482ae0894acff2caba86304866a190756fff055443cc63c",
+    "preview": "conversion/pmdo_candidates/previews/map_395.png",
+    "preview_sha256": "419c8b293bf6206a4b5b31a94b281ca3d7e79aaadfc38cd944e3499465400c1b",
+    "runtime_report": null,
+    "runtime_report_sha256": null,
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_395.json",
+    "sidecar_sha256": "e06e662aa2fa4124d2ba82118c2893f7992043d49b1c8426238f3ec9c95305d2",
+    "source_render": "conversion/pmdo_renders/maps/map_395.png",
+    "source_render_sha256": "9b0d975759f5f38c117690f7b4df45b6cbd45b1cba908d559dd47a766f848afe",
+    "visual_timeline": "vfx/timelines/maps/map_395.json",
+    "visual_timeline_sha256": "7e5edbbd49806c4096061de1ade2e937b0a08814169c5367c3371fdde162329e"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": []
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 15,
+    "source_event_count": 6
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": false,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      320,
+      256
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      640,
+      512
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      20,
+      16
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 0,
+    "environment_sprite_page_context_count": 0,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": false,
+    "fog_name": "",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 395,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "Transicion Torre de Isla Glauco",
+    "source_order": 395,
+    "tileset_id": 12,
+    "tileset_name": "TorreInterior"
+  },
+  "status": "PMDO_CONVERTED"
+}

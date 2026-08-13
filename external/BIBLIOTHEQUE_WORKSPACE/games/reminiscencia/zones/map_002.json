@@ -1,0 +1,82 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_002.rsground",
+    "ground_sha256": "82ec0ae6e4d8521871124c868f55390cb78744177d76729a23499c14964c7e30",
+    "preview": "conversion/pmdo_candidates/previews/map_002.png",
+    "preview_sha256": "94fd943b56f39635a2308a9a7c20faa6391f12f95e0b3ec26ae3dfb5beb983c9",
+    "runtime_report": "conversion/pmdo_candidates/runtime/map_002/runtime_report.json",
+    "runtime_report_sha256": "94bde5d300111a7ade46ae98b0083ed5974348323b4bb9b09e1252095bd3e274",
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_002.json",
+    "sidecar_sha256": "b709d261d71c24e444529ea3ac25bac45230cf7aae7c324396df9477af7f7ef7",
+    "source_render": "conversion/pmdo_renders/maps/map_002.png",
+    "source_render_sha256": "9d29f154eee6f24c55c8171211127f51280f320ee13a285270a3f4417873e339",
+    "visual_timeline": "vfx/timelines/maps/map_002.json",
+    "visual_timeline_sha256": "284dc9386fe24e32bc9e3405ec6f19da622ad3bac0021c6c9de95bd04c0b36ab"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": []
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 17,
+    "source_event_count": 8
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": false,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      480,
+      640
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      960,
+      1280
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      30,
+      40
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 0,
+    "environment_sprite_page_context_count": 0,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": true,
+    "fog_name": "Nubes",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 2,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "Entrada a Cueva de Isla Brizo",
+    "source_order": 2,
+    "tileset_id": 8,
+    "tileset_name": "Pueblo Trigo"
+  },
+  "status": "ADAPTATION_REQUIRED"
+}

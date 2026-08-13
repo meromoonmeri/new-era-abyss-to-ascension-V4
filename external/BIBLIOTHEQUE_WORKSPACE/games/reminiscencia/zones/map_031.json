@@ -1,0 +1,85 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_031.rsground",
+    "ground_sha256": "6bf73e1e04e618fb64d431a4caa22fc4c533322efae1338ea894917dd3089483",
+    "preview": "conversion/pmdo_candidates/previews/map_031.png",
+    "preview_sha256": "d78232f09ecccec0100a9e6059eb020bdb2b3f9ad345eec8914eff5023dcf078",
+    "runtime_report": null,
+    "runtime_report_sha256": null,
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_031.json",
+    "sidecar_sha256": "87e5f7fdef5ac3f833bf1ca08cdec2113066fa26e24c3190a5a5002bf23ac611",
+    "source_render": "conversion/pmdo_renders/maps/map_031.png",
+    "source_render_sha256": "94ce26100354558ea200f5e1ceb6d9fde5dc44dac62e0af1430af6945eba706b",
+    "visual_timeline": "vfx/timelines/maps/map_031.json",
+    "visual_timeline_sha256": "61d80abdec83f3896d80ac59294783bc49c833c9cd60cb74537ae15536436516"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": [
+      3,
+      7
+    ]
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 13,
+    "source_event_count": 7
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": false,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      640,
+      416
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      1280,
+      832
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      40,
+      26
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 0,
+    "environment_sprite_page_context_count": 0,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": false,
+    "fog_name": "",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 31,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "Acantilado de Isla Pontos",
+    "source_order": 31,
+    "tileset_id": 9,
+    "tileset_name": "Volcaino"
+  },
+  "status": "ADAPTATION_REQUIRED"
+}

@@ -1,0 +1,3504 @@
+{
+  "authorities": {
+    "animations_manifest": {
+      "file": "animations/manifest.json",
+      "sha256": "ce7ce8b90840a1e0bb583ce40aa76da28682f37eef3f90ce2f720998988537fa"
+    },
+    "candidate_report": {
+      "file": "conversion/pmdo_candidates/conversion_report.json",
+      "sha256": "90133002fd073b9f06f0b4e2b5d8b995e9a21923b74fec5f2eca8faf435c6790"
+    },
+    "vfx_manifest": {
+      "file": "vfx/manifest.json",
+      "sha256": "bceb80750898ff9aba04f1e53e619c97d3aca97d845d98ab6d6758132199d052"
+    }
+  },
+  "game_id": "reminiscencia",
+  "map_count": 552,
+  "result": "REMINISCENCIA_ENCYCLOPEDIC_CATALOG_PASS",
+  "runtime_validated_map_ids": [
+    2,
+    74,
+    213,
+    488,
+    501
+  ],
+  "schema_version": "1.0.0",
+  "status_counts": {
+    "ADAPTATION_REQUIRED": 139,
+    "PMDO_CONVERTED": 412,
+    "UNSUPPORTED": 1
+  },
+  "tileset_count": 31,
+  "tilesets": [
+    {
+      "file": "tilesets/tileset_001.json",
+      "sha256": "7439e339363ee6055100f33baef449ea14de43adce3968536f9ef394bb55fa84",
+      "tileset_id": 1
+    },
+    {
+      "file": "tilesets/tileset_002.json",
+      "sha256": "a68ae8730f967845eb002f2d28489a8fe3761a7af6e19ac22707fca7824db3bd",
+      "tileset_id": 2
+    },
+    {
+      "file": "tilesets/tileset_003.json",
+      "sha256": "a63ac38a568e9deeb47ff499c30bffc1bbf81f78c56eb522aa15c3f191b9ae6e",
+      "tileset_id": 3
+    },
+    {
+      "file": "tilesets/tileset_004.json",
+      "sha256": "acc971eddf8f6ed14321a8cb1f08d718accde008d2f0bf7ebfb11e54b50e856a",
+      "tileset_id": 4
+    },
+    {
+      "file": "tilesets/tileset_005.json",
+      "sha256": "20262c9de57e210ea19cfcee92e0dcf16e1876aced7c6b2a1234f811af993af2",
+      "tileset_id": 5
+    },
+    {
+      "file": "tilesets/tileset_006.json",
+      "sha256": "d34bb6ec6ef4ae99ce344e516e57dba462ec963fc51f51b346337e622e77abf6",
+      "tileset_id": 6
+    },
+    {
+      "file": "tilesets/tileset_008.json",
+      "sha256": "4aed850adb6e1e54d2044034d24c011d9107202be9b80b894e6598a843ad939c",
+      "tileset_id": 8
+    },
+    {
+      "file": "tilesets/tileset_009.json",
+      "sha256": "5635142e632fc26129b55a352860e09b7ed45e2ac50e208f38a1a0c4afab0e95",
+      "tileset_id": 9
+    },
+    {
+      "file": "tilesets/tileset_010.json",
+      "sha256": "782767f986d5a645a4b3701ecb8ca2d1928b5683bf5f150d3189e8ac3e1f218b",
+      "tileset_id": 10
+    },
+    {
+      "file": "tilesets/tileset_011.json",
+      "sha256": "25e28c01c798aedd239c9edc3e7797a618bd2928119a2f8e0218bf3f152a4075",
+      "tileset_id": 11
+    },
+    {
+      "file": "tilesets/tileset_012.json",
+      "sha256": "bfe10081e700f62bb3c3c6d8b61936350179547606029f6ca479d849883b5202",
+      "tileset_id": 12
+    },
+    {
+      "file": "tilesets/tileset_013.json",
+      "sha256": "6e55098c758a97f1628d7279985950bbd2421a47074a09f6b8979cbc49c767c5",
+      "tileset_id": 13
+    },
+    {
+      "file": "tilesets/tileset_014.json",
+      "sha256": "faafb28c965ec138ee93fc8fa11bfad81bfbebbc1f23fd4cd82213aea3ed8c9d",
+      "tileset_id": 14
+    },
+    {
+      "file": "tilesets/tileset_015.json",
+      "sha256": "b35d7858cde6b2198a8f082f3b2e4be764f1bda40b6b045576c002c0cfc9098b",
+      "tileset_id": 15
+    },
+    {
+      "file": "tilesets/tileset_016.json",
+      "sha256": "4285c0c20e2bcf5202f2ab414c45f961b3307d1890d03afff16260dd0f5d119c",
+      "tileset_id": 16
+    },
+    {
+      "file": "tilesets/tileset_017.json",
+      "sha256": "242842e49a15c50d606b81f92ac1bdc83f8eae6407b77c54eae2a02c634a5817",
+      "tileset_id": 17
+    },
+    {
+      "file": "tilesets/tileset_018.json",
+      "sha256": "1f42778f42304246c142822076c77c1cd0041fb39eeaba6c0f8f3c8d2753ca01",
+      "tileset_id": 18
+    },
+    {
+      "file": "tilesets/tileset_019.json",
+      "sha256": "39d73cd19d48076d03404f3bbb058009d4475dc42d565323919a8c98b1e399e7",
+      "tileset_id": 19
+    },
+    {
+      "file": "tilesets/tileset_020.json",
+      "sha256": "9b59a225738adabc44d3631fa0444f2f89a1f3da49952286d476f53e202d7e33",
+      "tileset_id": 20
+    },
+    {
+      "file": "tilesets/tileset_022.json",
+      "sha256": "5977862490d685d87ad8768bb8c8f8860ea1d7614530c285d49223403907e4c4",
+      "tileset_id": 22
+    },
+    {
+      "file": "tilesets/tileset_023.json",
+      "sha256": "b1d301d0817040ddbf1fdfbe2a028c4cfd2881e697032ffcbe40c918ec88c635",
+      "tileset_id": 23
+    },
+    {
+      "file": "tilesets/tileset_024.json",
+      "sha256": "ff2a7060a5782f80ab1a72900f39c96ea51e1e22c3d2bac9726d128795a509c3",
+      "tileset_id": 24
+    },
+    {
+      "file": "tilesets/tileset_025.json",
+      "sha256": "e553155570bba31357efd467f317df7df019e16e7bd3a4034f8eb9d20a2df11f",
+      "tileset_id": 25
+    },
+    {
+      "file": "tilesets/tileset_026.json",
+      "sha256": "2e50fea2d214466b00da1f946d01611b649083af27ebb8dc5a0ccc1e8e86da63",
+      "tileset_id": 26
+    },
+    {
+      "file": "tilesets/tileset_027.json",
+      "sha256": "d6e901d55c370a93ffaaae2c275e36df1230f42d243c43b82b00ddd7f96fceeb",
+      "tileset_id": 27
+    },
+    {
+      "file": "tilesets/tileset_028.json",
+      "sha256": "9ed864d6c1693744132af8b1c9f4401c89476b7459850dec41de09b334b11471",
+      "tileset_id": 28
+    },
+    {
+      "file": "tilesets/tileset_029.json",
+      "sha256": "05cc159b22c372731bf467de0ec473ddee2ad4b10b72e177d1658efd82f9f957",
+      "tileset_id": 29
+    },
+    {
+      "file": "tilesets/tileset_030.json",
+      "sha256": "22ac7f8d80a3bd240e926cf64d91fd36203258e14bd14b0777482bddaec75a73",
+      "tileset_id": 30
+    },
+    {
+      "file": "tilesets/tileset_031.json",
+      "sha256": "af8f2fd12284ffa6b7d3df3fa656d01e4377d88d4b1675720082043532bc095b",
+      "tileset_id": 31
+    },
+    {
+      "file": "tilesets/tileset_032.json",
+      "sha256": "8329444d043faf9cbaf87688b466dda452624ac3e9831febf64938955a8d53d4",
+      "tileset_id": 32
+    },
+    {
+      "file": "tilesets/tileset_033.json",
+      "sha256": "e909171cb5cc799987bce396ae93155273558394b1e5dd4f7e839acd337e0512",
+      "tileset_id": 33
+    }
+  ],
+  "zones": [
+    {
+      "file": "zones/map_001.json",
+      "map_id": 1,
+      "sha256": "56fe8fe759fb927be054b763c3c5a035a9594c471d4c9ef03328b2b503c90d49",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_002.json",
+      "map_id": 2,
+      "sha256": "0e9cdf03897113cf7d3d300e428c30dced9c6b8e9a210f30ff0e3212a84f8d79",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_003.json",
+      "map_id": 3,
+      "sha256": "c2904c39c1efa98488961e6e8de1d0aed7ada2559e9d5b61e5ad318354298388",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_004.json",
+      "map_id": 4,
+      "sha256": "6dc2399094704bff2182a9c5816feb27bde5c3cd0f78bf4a01e3ed964bd44ff7",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_005.json",
+      "map_id": 5,
+      "sha256": "c7de36a923031be42d0beacab0f22eae76de9831ceb803c141f30b2c908d1ffc",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_006.json",
+      "map_id": 6,
+      "sha256": "56a60554586ade93adb0309997ff310d2b8255fb430d5ce15ff03dcbbd32199e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_007.json",
+      "map_id": 7,
+      "sha256": "034bc33fb770e32f7f99b6f201794fcbbbf179bf89c756c8e3dd465a1abb95bf",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_008.json",
+      "map_id": 8,
+      "sha256": "278b484d9f1c4fd27302194ec7e637c288d7e532e0984c2e3192e4e62901d709",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_009.json",
+      "map_id": 9,
+      "sha256": "0ff51cb88cc7f5a00e3790e527ed0fb1f36a56703d10b00e1e639d05fd7c0066",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_010.json",
+      "map_id": 10,
+      "sha256": "c059e5c405b39bfea74c36d57a0e1d2564e9928e9f3397802cc159e2ecc1c63b",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_011.json",
+      "map_id": 11,
+      "sha256": "82889d0966b0b084ac28061a552c950f73c3d3ed2ef726afba8888e3b05e003e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_012.json",
+      "map_id": 12,
+      "sha256": "3f616a93acf59a26d386c4cf28433b18f8d625bb9df531632927ab67093d2df5",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_013.json",
+      "map_id": 13,
+      "sha256": "c2fd8f46f84a41a008855fb689fe32ad75e4c92a1cf573718383b7ec677053cf",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_014.json",
+      "map_id": 14,
+      "sha256": "d59e50cc00af8013c836492c710e904fc64e7feb1ea4346f7e095cdec634db31",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_015.json",
+      "map_id": 15,
+      "sha256": "d23ca7176a225f8929d0e8a2af7f2e51bad70f4034a537aab2512f6813196e98",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_016.json",
+      "map_id": 16,
+      "sha256": "d7a3f4fe2006d38f03ad4c08266cf3d265cbe8ac25e5acd0016c7eda44af8e31",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_017.json",
+      "map_id": 17,
+      "sha256": "971c96484df6df3fe73feb7cc04a6072b2252e0a427560b2fd17193b22d50b5a",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_018.json",
+      "map_id": 18,
+      "sha256": "a18706420f41e48d673a691d36a43228ec14f578616d10a824c4b0d73e905941",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_019.json",
+      "map_id": 19,
+      "sha256": "ccbd95386a0c744c15758dd7ca2f2133f07370f6a50c029501f2199b880e7034",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_020.json",
+      "map_id": 20,
+      "sha256": "efa7954af5abe59d2bbe54793bd6259859d33b55cfec2749acb3c33e51623223",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_021.json",
+      "map_id": 21,
+      "sha256": "56972e90fbffca00f5556d4f0fbe1816051531adba3e40b8003c949c40f81191",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_022.json",
+      "map_id": 22,
+      "sha256": "d9361e1335db225686bb1008d5c5b9d56593eb8f4cf302d02e1cacca7915e174",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_023.json",
+      "map_id": 23,
+      "sha256": "1afee90e2cc75c9e43323974dda59ab22d12c8ef100d5abbeaf349f1dab52166",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_024.json",
+      "map_id": 24,
+      "sha256": "64ae5a86cea8056704e5116547fe6f272025ccf9cb2e0b510a5bda92c15d5f14",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_025.json",
+      "map_id": 25,
+      "sha256": "5b55db5b73054b5b0d8f152478a984b38b75f01d827d1bf38fd8f9a7417e6635",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_026.json",
+      "map_id": 26,
+      "sha256": "d6003fd0015eb0dbc3aa111b478533e0190e1eda7574b0a917b66fa830ff4bcd",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_027.json",
+      "map_id": 27,
+      "sha256": "b1b781e0039bd24a24a1b19a7c8eefa4dbaccf183669d8c1477bc24dd289c036",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_028.json",
+      "map_id": 28,
+      "sha256": "1855705adbeb85d1c2a7c125859d8355d5a4d2c4baa53013b682b16138db3b95",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_029.json",
+      "map_id": 29,
+      "sha256": "7f62d868d121989735871174472e1d6b8342ca1e74c47344d5b69d615d5c8c7e",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_030.json",
+      "map_id": 30,
+      "sha256": "2158d7711083b93847332406fb22cfd8970f67978f5218ea901665eb7aebe0e5",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_031.json",
+      "map_id": 31,
+      "sha256": "b01b5057dcfd780056024379418dd2bf46326281431aae44edc8c7d033bce27c",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_032.json",
+      "map_id": 32,
+      "sha256": "a81fd016e1c7c2a8a6ad04f8c6ab1728494c5a84f08fab9e3246aba7f9e9aec5",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_033.json",
+      "map_id": 33,
+      "sha256": "9a4e89b47615a584c73d55e7cf4c2bbc9a69c06b19dd515388b5c4692c35081c",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_034.json",
+      "map_id": 34,
+      "sha256": "adcf17682e6ea72aad90d443c9a45a0a087050483a3b0a65613174c8408583c3",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_035.json",
+      "map_id": 35,
+      "sha256": "2b9e93c112467adc10a01644ba2d5355a483e1b49c8fa59cbd6cbd96b28cc5c9",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_036.json",
+      "map_id": 36,
+      "sha256": "a61b32ff4704dbe79e5098b6496a1ad8ef1dbb93ef7e307a3965d4aec024e86b",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_037.json",
+      "map_id": 37,
+      "sha256": "8f364ba1febebfc1bfb21655ca824b4f319bace86dc05206aa168c3e44697c95",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_038.json",
+      "map_id": 38,
+      "sha256": "435a22864d83b563b248a6ae708577c473803c648c0327065ad49af3b8064736",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_039.json",
+      "map_id": 39,
+      "sha256": "4a038990e3eddd377a7a00ecf6a2ee40a4fa268673e0deb3d6e4bacea854b097",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_040.json",
+      "map_id": 40,
+      "sha256": "45d84deb52e40ccc3fe19a0dd7891bdcb0d033b3649a6d1c329bc089df165653",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_041.json",
+      "map_id": 41,
+      "sha256": "97794821bd97fdc5e9fabdc9c8b5486e6d2120121b594935e2be6492818edbd2",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_042.json",
+      "map_id": 42,
+      "sha256": "3b9db720765e6ba1abdfc478e8e0f97c7fbea63e9af9acf0a66997e175b3cf3d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_043.json",
+      "map_id": 43,
+      "sha256": "001919c4e139ffa27c59647a07fedbaa76e0d62d33689e76726b675c456dd5b7",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_044.json",
+      "map_id": 44,
+      "sha256": "c28046ed5cb2dcc9e43557a73c8c0ad838d38756948075b7e3144713093386de",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_045.json",
+      "map_id": 45,
+      "sha256": "51d14a943e64e923461589e4052de6eb2df99cd4d7914a59b7b2ed8a7f14bafa",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_046.json",
+      "map_id": 46,
+      "sha256": "20044a825e3cd35676fbc3e844eb44defcb58d68fd732728e8e5d2b23f27f139",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_047.json",
+      "map_id": 47,
+      "sha256": "a2e5bbd950c7eecb970c4b99bcf8c931edb3e5f3c2d08ebc21dd6bcf0fdb6eef",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_048.json",
+      "map_id": 48,
+      "sha256": "5b752187ab48a00bdd9b194d5d5580fc045d5477ddeaa5624f7e037670f98c36",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_049.json",
+      "map_id": 49,
+      "sha256": "10aed33351ed3ac6a4b2b2d82c975bf4c2d0b7343408f75481a416b3df48bb3c",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_050.json",
+      "map_id": 50,
+      "sha256": "ed70c1459f65262a986a5b89a120afe4edf3a02b4f7f1ac37156a90f4a1e228e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_051.json",
+      "map_id": 51,
+      "sha256": "cbedaca92d61b7e7c45d861ec9d234ab12e12ffd619a3658111d44c43779e4e4",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_052.json",
+      "map_id": 52,
+      "sha256": "6d6ab782819116dec9ec6df564138f2958772d0a52c1393333f9feac53f01838",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_053.json",
+      "map_id": 53,
+      "sha256": "c89deb4fabb80392d95d071061a5b81e6e3f61a0f9bfce170dfe479d4801280b",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_054.json",
+      "map_id": 54,
+      "sha256": "d31a24fbe7fb598cb9bc4553cbe6da11f631b7052ce9d4023d4593fd262931b6",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_055.json",
+      "map_id": 55,
+      "sha256": "c0797cd4d316aa0e3964e9d0862e2deae2351ca9eb1a9b56d50a4e36ce1b51a7",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_056.json",
+      "map_id": 56,
+      "sha256": "43693532ddcc8d1713725ee2da73af17b2bb896a9792e43c7d62907387514ffb",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_057.json",
+      "map_id": 57,
+      "sha256": "d5fdd57f1238115139b04d298e6586326cc15e1334228d4b77dc95d82f7c2243",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_058.json",
+      "map_id": 58,
+      "sha256": "2ed0d831abf0890b60c836e9d0ff8e8a88ac74720484220b00c0df219fb09817",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_059.json",
+      "map_id": 59,
+      "sha256": "e3366515e21b0d31051fad8d44bde257ed82ef7f8d0bca9a21bf65e356272e85",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_060.json",
+      "map_id": 60,
+      "sha256": "0a19e5e348f952316dbad352cdb63017ec3e2c843c860d81a30f68a8e89300ed",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_061.json",
+      "map_id": 61,
+      "sha256": "d985c307e8f4e6a92e207256205aceb8d0960836278c9fdfe4a2b238c67cbff7",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_062.json",
+      "map_id": 62,
+      "sha256": "c225cacf3a40d3084e4de3ab15782083f83d47ba7f49fbee0c2b9c26441c8edf",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_063.json",
+      "map_id": 63,
+      "sha256": "69cd5710c6556a6ad065886540ead81cc9ce8ab2e620b0a935ceb430a276a190",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_064.json",
+      "map_id": 64,
+      "sha256": "3351515b6f3a91eacfadd31eeb85a3c12225158fe9b890fca79fee180e164cb3",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_065.json",
+      "map_id": 65,
+      "sha256": "d5603821606ff95501e0eeb964b5563c695b9ed6347dd6add1962507ff8c066e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_066.json",
+      "map_id": 66,
+      "sha256": "161938dd2628b4006c522ee7fd31695e0b1d75f5a1b274ac04b18df771705794",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_067.json",
+      "map_id": 67,
+      "sha256": "da78f4cebc09d0baa1aa93c543c0d8ceb4f740c7d288762437c20d9f1d91875d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_068.json",
+      "map_id": 68,
+      "sha256": "82adbecea700a01ce320f4cdcc9a5dbf7f3ae632f70a0a05b04fc074b26186ff",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_069.json",
+      "map_id": 69,
+      "sha256": "a8d990a47909ebd4b2475f20ceaf5db9aebe04658e05a55bb9879e50c0e3d0a5",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_070.json",
+      "map_id": 70,
+      "sha256": "c2173aaece49058d472119c041ce1eba33f6ea5445ee3c21e1ab3c9fd3a43b3a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_071.json",
+      "map_id": 71,
+      "sha256": "6b72e5c74199b6379cd35ea899e22d0dc00ed3a8aa4156ec3883dc442c30fac6",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_072.json",
+      "map_id": 72,
+      "sha256": "51315b552c42fa316548945e2334af524c94152ce983e372dd7fa39386f3becf",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_073.json",
+      "map_id": 73,
+      "sha256": "c9d10a93e8acb169647c186d902e9ba9077c97d74d0110b8ff190e0cfccda164",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_074.json",
+      "map_id": 74,
+      "sha256": "7dd4a5210fa4df4ca0639f70e8ff393c382ff9db82b4536774fee447a2500625",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_075.json",
+      "map_id": 75,
+      "sha256": "87786bb6b048def85b9ac6104b9310230126c749948686fab3e4dc0af5de06f4",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_076.json",
+      "map_id": 76,
+      "sha256": "a180095777d26b7c9db7694e6ca5cb3e256bc2f362972dd3133d197011fa1728",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_077.json",
+      "map_id": 77,
+      "sha256": "79c682e1f9ad00d6a3d339c3372b62f5bf06532199ab7e3fac87a71061430401",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_078.json",
+      "map_id": 78,
+      "sha256": "97a8a748eb4533b81b8395a69a586864818acc805119de4ba34b1adb1cea5c7d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_079.json",
+      "map_id": 79,
+      "sha256": "8b5482e17e5419b1947492087845935f4b230fc32f1c92c345940097f4d04cd1",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_080.json",
+      "map_id": 80,
+      "sha256": "4130ee091aa2953ccd020425b7f1b4cb84d163fb0249682f3b546e62df98eb90",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_081.json",
+      "map_id": 81,
+      "sha256": "2afbd5f995726cd6cb1aeb06949e7dea80ac8cd5dfce0d14ce11091c4fd6c456",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_082.json",
+      "map_id": 82,
+      "sha256": "67e247a763ea7e6f41ebcc0835ce66cef504c916b59bc025ba5004d648bd708b",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_083.json",
+      "map_id": 83,
+      "sha256": "5b864c3ffc203c4225a279a05638bdf25a50dcda00c753b2f588e4b9015b2a1f",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_084.json",
+      "map_id": 84,
+      "sha256": "18bbb3fa415332b1a41ba3c1b4344cb255e74f7b55c4e453c1481fc6c2a0ffa5",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_085.json",
+      "map_id": 85,
+      "sha256": "1c990c9bf513e2d3e686cb3d46289f0a61c14b1022088cc54281e9945d2148e4",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_086.json",
+      "map_id": 86,
+      "sha256": "0c9243745c7709df1d0d73ecfdfd2c4afe639bc6a9a32309b9c2b413d2f25523",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_087.json",
+      "map_id": 87,
+      "sha256": "6c2469f528b4a490e08101a03a600081f5674fd5cde7ea3b1285c7d070b24d4e",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_088.json",
+      "map_id": 88,
+      "sha256": "cf69bb177f55e86f7033c3196f1889e32c18eb3eac63a36e61526b9235f3d933",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_089.json",
+      "map_id": 89,
+      "sha256": "855e13e19ede131689ab4acbbe2e0bdc72c06ac0e29bf6731613fac58ab97fae",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_090.json",
+      "map_id": 90,
+      "sha256": "33d65c5b70cf1f6fd9bb07f1c6d108cd2c931d6150b78be3ca9fdccda7be9740",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_091.json",
+      "map_id": 91,
+      "sha256": "ed05fe35d9f5c8b9997eb4508a994565dc9a885aaa7843fa2621cfe91ddfd875",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_092.json",
+      "map_id": 92,
+      "sha256": "21ff0d088d8078e028dcfdf0de44cfc19dc50337274060880d067b8d1150dc68",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_093.json",
+      "map_id": 93,
+      "sha256": "f73d6883174e15b9db90044182460a0161db1bc846bf4a45cb760e285c2a6703",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_094.json",
+      "map_id": 94,
+      "sha256": "5bd442daf3022b0c25cfa7b68b2228427080a39d18696f0b107304f842a9caca",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_095.json",
+      "map_id": 95,
+      "sha256": "f85fd7f5753b2c9e9145200126af36663a54c44a8247592308fc4d637e3eba9a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_096.json",
+      "map_id": 96,
+      "sha256": "be55a4116d0d26a04292cab4204fa285fd492ab19096c120a9632257e00ca285",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_097.json",
+      "map_id": 97,
+      "sha256": "73001115f38940f06c78171dc16b2191868ac4314ec097dcb8dd6a46bf05819b",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_098.json",
+      "map_id": 98,
+      "sha256": "6cdaa25b16c0dcdc85cc204cbf2d0080c8860fe97e8eb8a0a71a08e7f136ee7e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_099.json",
+      "map_id": 99,
+      "sha256": "b92402043c1657c0c0f33a3ef951aa02fc0deeed27d85c1e6be897801c22858a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_100.json",
+      "map_id": 100,
+      "sha256": "fd329323fc7718c5823106f03446550d0a7aaafe419090a0f83838600b440ec5",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_101.json",
+      "map_id": 101,
+      "sha256": "bc5be651ba01e7c740e582e36ceaa6b38815e655c42f52e8b811235bb82595ba",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_102.json",
+      "map_id": 102,
+      "sha256": "4db1ceb8a5cf16fd5b8ba28ec5f4eb2405ae1b5970923bb58defecc87b5e84d1",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_103.json",
+      "map_id": 103,
+      "sha256": "9e86e7bfd02a4ac786d442efb64b6d232470a57585b535aa1270bd5d337403d7",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_104.json",
+      "map_id": 104,
+      "sha256": "c082ded113ad6ac848ca77645e19d3dbac171dd44d1f8f85e702b4a5e60b2206",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_105.json",
+      "map_id": 105,
+      "sha256": "4b0e4f5fe58e6e9cd9554a6c06f18a39dfff46f5fed3b90649ae7c9fbd75a987",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_106.json",
+      "map_id": 106,
+      "sha256": "fa9854eff80c37a339a7c32804a8f72af1b9ff13edac861093243fad2fac74d6",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_107.json",
+      "map_id": 107,
+      "sha256": "ab9355ada1926647c07b90c984c073e7b0e5205deba329d9de4fddf1afb070dc",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_108.json",
+      "map_id": 108,
+      "sha256": "b9664b95264dac71ed471caa60870f0dfcc9c4737b0d8834356717a7beff716f",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_109.json",
+      "map_id": 109,
+      "sha256": "d243c0473f1b17168a7268ab7b3c9df098e99c609e6fff40f32bc365234e132d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_110.json",
+      "map_id": 110,
+      "sha256": "ce68692bd8b6c531e152cffa365a8e7712c9a2f556a3fda7e8f6eab6267cecdf",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_111.json",
+      "map_id": 111,
+      "sha256": "cf0477d418d0e4dbf10d57eeba047b43f7c09977027d3e91d55aa750029fa228",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_112.json",
+      "map_id": 112,
+      "sha256": "adbcada0c3e36fb80f935ccb8e65f00b796109c605ef0e754135e2de2db38cce",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_113.json",
+      "map_id": 113,
+      "sha256": "ef3a3befa8bcc219ee05d88a0e1c34942eaa387f68e7d9fa70330d28509d0540",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_114.json",
+      "map_id": 114,
+      "sha256": "22a9fe735bfadcdf69577cd64f98d4b440c8a2d61d871f165df142ea5be9c982",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_115.json",
+      "map_id": 115,
+      "sha256": "db59e0577c8d2d3544f1de7195ffb1f924de19f6298649431ce635323b77caf4",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_116.json",
+      "map_id": 116,
+      "sha256": "851108082ae05cf0d091320e6f63bd1d3cd2f1674a34332dcc8608a4a384605a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_117.json",
+      "map_id": 117,
+      "sha256": "69c977a45e73ddd0ec62c76328383402478f8a7f659939e87347c248b0d896b5",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_118.json",
+      "map_id": 118,
+      "sha256": "75ab72e4740388a2bbaa828ddcadd653ad608a6ae4a66414339d9f2039eefb0a",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_119.json",
+      "map_id": 119,
+      "sha256": "fd4fe309c69a2c244edf027c04a07110750b088c84b66abc742ad4fec89dfe2d",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_120.json",
+      "map_id": 120,
+      "sha256": "c5115d056498e7ef1335e95f3a636a674eae849c0724503c159053642d70981f",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_121.json",
+      "map_id": 121,
+      "sha256": "9ec799022cb241b5617b85af9f22d0e3a55de76b2192c17ccac683730c7f90bd",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_122.json",
+      "map_id": 122,
+      "sha256": "44c5cb72ae4e08f1717211b9245c4a3ca069a162f67a5313fac111fce4e769b2",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_123.json",
+      "map_id": 123,
+      "sha256": "2a397429b57e424b1149f7c9e3936c899b3bf96a68f9d1e5c1fe81fc4f92e893",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_124.json",
+      "map_id": 124,
+      "sha256": "df8af82714719e343e45d6aa5d9f3800503ee2353dafb8fca52adfacced2bebe",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_125.json",
+      "map_id": 125,
+      "sha256": "125ac17f0534cf548e3f52b17d28efb885dad4eb0e72bd1c47d6f6533e6462f8",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_126.json",
+      "map_id": 126,
+      "sha256": "ecf4bfb2a8af03634f797ce0a27c04d7c095c6e82599c1508839727dc248a5d9",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_127.json",
+      "map_id": 127,
+      "sha256": "a0ba8f25dd4670ddea6c52bbfd2e4e1c7e6bbfc32e0f9184a693abff1ffa0558",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_128.json",
+      "map_id": 128,
+      "sha256": "54bf29b284e472caa6337c4fe1b2fed54386f5aa382b50e70647924756b452d7",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_129.json",
+      "map_id": 129,
+      "sha256": "e6c2350a548c5c86180ed85f622ffa7c8441e06996b8a7f1129e4bdfb817adf9",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_130.json",
+      "map_id": 130,
+      "sha256": "9fdb15447725a824ed7ae2cbea241a11ceb635bb8fb2811d8d662c41d61c201a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_131.json",
+      "map_id": 131,
+      "sha256": "6d79619788aa73c9f22bc070560df4d1016f7ff6dc19f13aa3bb94d913297b46",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_132.json",
+      "map_id": 132,
+      "sha256": "4cbc707f58f0611f5c5bc16820e49d4176827b299076500db26c05c69e102b6d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_133.json",
+      "map_id": 133,
+      "sha256": "f35229f172c1019c55eca8e57c2f5e8230c9295c36a11780ec6129621a4f763c",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_134.json",
+      "map_id": 134,
+      "sha256": "e486f7014a0ac13388b47520c69084d6d80a6c2d41a7af3563836c1727cb4bb9",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_135.json",
+      "map_id": 135,
+      "sha256": "2167f8960d0054b9e867e35565fdd3241db2441d6655191b528fbc20a3b4cf91",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_136.json",
+      "map_id": 136,
+      "sha256": "dc8c1e848b4d78cd42a2d397644673b1be85ad8c88bb8d5ce8fecd4e81f5a72d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_137.json",
+      "map_id": 137,
+      "sha256": "e489cbfd78532368649037ee30849368807b132f6319ab1ab8b23764e6df7bac",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_138.json",
+      "map_id": 138,
+      "sha256": "6721b27760506ea32816f9301197cb9a15588196364e483aff4023aaab696d71",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_139.json",
+      "map_id": 139,
+      "sha256": "4cf29cf8f5bafb2b0fd204a44a289d10b6efc655eddf082a059893e7386690bf",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_140.json",
+      "map_id": 140,
+      "sha256": "6bdc000b1498d473391d4c4a2d1339de61d7b2cf15eb4570a7d65e62363bf13a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_141.json",
+      "map_id": 141,
+      "sha256": "9107f478ea37b948270ec8e7e817e49ef636e8021db1131e39943e0454f6b491",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_142.json",
+      "map_id": 142,
+      "sha256": "7c386670228baef6f2e97015d42c5ed2d04d7d8de4e3d2a8086c44bc892190c3",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_143.json",
+      "map_id": 143,
+      "sha256": "a22f7b8fc697e63a16e0f86152bb89a5d1321ca6b91c3d763a95489ad50cbc1d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_144.json",
+      "map_id": 144,
+      "sha256": "fda38aecb43db5d31957919532b2979fde0f716d89a99960b0c3b9fb29ee6d1f",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_145.json",
+      "map_id": 145,
+      "sha256": "cd22acfc5d0083ce87ade985a9872bd62e3f07f3f516e328558610a49c2fc629",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_146.json",
+      "map_id": 146,
+      "sha256": "5d2431a667f5f7470a90b53f04e5a0134cc1bcdf4c398f26787807a3827844c2",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_147.json",
+      "map_id": 147,
+      "sha256": "c3f44a1a944fb19774746f471e85405d49d5503fe4a7e79c64c09d4785e95e06",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_148.json",
+      "map_id": 148,
+      "sha256": "66d33ff1d2b2a3d5d5860c5dbc24710a98b1dc4031fb36f1435472d678ee999d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_149.json",
+      "map_id": 149,
+      "sha256": "3ec7dcec4744e549e1a9ddd27aadc76373b35472da4ebfccd218e2461545b3a1",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_150.json",
+      "map_id": 150,
+      "sha256": "90cce367eb2cc25c57bed48e29f3ba1399eae192cd49997b90211b4e2c0cf774",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_151.json",
+      "map_id": 151,
+      "sha256": "28f48228dfef52505847ce3a34e26a24f0f9d0e0b324d0a79ef12315cff0f427",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_152.json",
+      "map_id": 152,
+      "sha256": "ed9ac3b8c42b34fcebefe1e4ef16378bca4045d11033d4929faae395ae56b28d",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_153.json",
+      "map_id": 153,
+      "sha256": "4e1fe71d156b5473e6ebf874611e73890f098cb7b350f5d72c747ec048de5bf0",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_154.json",
+      "map_id": 154,
+      "sha256": "4abf726f48ff6ac9659d63fcf77fc9ba79a03998a58b702a9a1e79fa06a75f71",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_155.json",
+      "map_id": 155,
+      "sha256": "295169229391823ee7d3783c9bdf9f9e56f1e7c0298acfc7127b9df7385923ff",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_156.json",
+      "map_id": 156,
+      "sha256": "640ebb50deed3c09a855318fc39860dee6c84b0688f235d4f781616977818b22",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_157.json",
+      "map_id": 157,
+      "sha256": "0d59c40daedbb0b071f76353c07a9b24eec5c5afc5e0e08f12cff823726959e5",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_158.json",
+      "map_id": 158,
+      "sha256": "ec7ac205640ef6c6d9110efac29a8ce9abab6530426e7d153fdba31658335f43",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_159.json",
+      "map_id": 159,
+      "sha256": "d48aedc8880d3661910e085a0e48e936b7d6be6fbadef483f900a787a9a0c684",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_160.json",
+      "map_id": 160,
+      "sha256": "3c83063becedd74506133a3be5b51917497618dd0a0aadbcba80448f95277b16",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_161.json",
+      "map_id": 161,
+      "sha256": "ece6fbad1bbf9b27848fd50ce2a04dfc3f675f15de55e85d0f1b6b2654bb8aec",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_162.json",
+      "map_id": 162,
+      "sha256": "cb6f5f01edb281338daed04330a244d648f1ddf37eaa6a5addb1c1100440bb6a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_163.json",
+      "map_id": 163,
+      "sha256": "6a394307917bb795ddd6ba6ef35204138f392fe8feefabb20502f9024497ce73",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_164.json",
+      "map_id": 164,
+      "sha256": "893392b917627a7142cc6a1143f6cd6ce8c2c92e7849858836f6e80c763af9c2",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_165.json",
+      "map_id": 165,
+      "sha256": "2f4bef13f2e93e63d45990cebbf8eff15175be1575766345e0879ed120e53678",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_166.json",
+      "map_id": 166,
+      "sha256": "c751ba07c784d4eb0323c2cdbd9c4e8bf05c67b1ddf99fd274bec6a68018c6a2",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_167.json",
+      "map_id": 167,
+      "sha256": "ee369c7ae9e57c8925eafa92ee756d5190d20e76f26d832315a69d9909f7046e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_168.json",
+      "map_id": 168,
+      "sha256": "5b26f6ff3f3ddbe213b1579d1da4d4fb26729e80bdd52ed04090931b2571d33b",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_169.json",
+      "map_id": 169,
+      "sha256": "90330f9587bdfd89d003e2c02295787704b4d9158b1170a6934f6b9ebbb77909",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_170.json",
+      "map_id": 170,
+      "sha256": "01fa2dfff3e9b0b40e89090d1ac49f2834ecea8ad7d637d2dc7bcc549338483c",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_171.json",
+      "map_id": 171,
+      "sha256": "0621db334bc23c7d8818b00a7454c6599a49df667e7b17d0b5907b08c4abc81b",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_172.json",
+      "map_id": 172,
+      "sha256": "4e9c7ff33e48c3c24823ddf6b05292a202962d4bd6e2e1bc070ca98d0ee1bdfc",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_173.json",
+      "map_id": 173,
+      "sha256": "4d70e6fdc77d1641d0e69351f6d3818e606452078babf7c483c6b613feb86e43",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_174.json",
+      "map_id": 174,
+      "sha256": "d8f9f968bb59dc253ec40cd9bc1b77d25843649875270aa33bde407f52a66a07",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_175.json",
+      "map_id": 175,
+      "sha256": "701c4f206a5e060d94174b2a2a16b52e49794a7362e35a5a72f3a643dd7c6244",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_176.json",
+      "map_id": 176,
+      "sha256": "63579a859b85eae86dae731a3111f7c52e3fbb525d12e01825ebe52ada3dd717",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_177.json",
+      "map_id": 177,
+      "sha256": "194e27a9f5149c80f55898c07aec3f7c8c7fd9652d22a975fb5693a996d81c2d",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_178.json",
+      "map_id": 178,
+      "sha256": "8cb3327ef0d00c8fd51f695124f325a7cebe4f7175f93a473e4a8f1979569b92",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_179.json",
+      "map_id": 179,
+      "sha256": "289b11abee32497f3ad09547912a88848e5b1358fef9385bd5cbbecba141f513",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_180.json",
+      "map_id": 180,
+      "sha256": "27040f7ab9ff9c8e83f214fd364c6b78439e9bd8ac840a7ac0749fe689be120c",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_181.json",
+      "map_id": 181,
+      "sha256": "c8065affe9c92aa0e6eafa229ab4858acdf2ed7524805326c3fab2b724fa5ea1",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_182.json",
+      "map_id": 182,
+      "sha256": "f839ed7cfe59f3c1274704a4f6eae1a7c03c96094cf3274bece47e1fd8c5d687",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_183.json",
+      "map_id": 183,
+      "sha256": "9e005976be0e5856f37c05f9f1b81a20a1d3cf6b724c949a172dc79a37c5b019",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_184.json",
+      "map_id": 184,
+      "sha256": "3b443e84d4b0e1fb5e205dc42a1a75d8b52d8c7a99828cfad1d3e8c25bd3d2f3",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_185.json",
+      "map_id": 185,
+      "sha256": "6f8a931eae9ada34d586eef01252fd8ce6690f2dc7b6ee431def8a4ae28f4020",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_186.json",
+      "map_id": 186,
+      "sha256": "5b9b91473f05ccb2409d7d3810fe053ff922e4c5d365bad0f5b497db061d9da1",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_187.json",
+      "map_id": 187,
+      "sha256": "68f4e0fb489779418ef1148894bd6c93cae8292c1e3f2a782d35d3182e5f7253",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_188.json",
+      "map_id": 188,
+      "sha256": "b8976020854bceaeec96a7351643015f7fff481f5e95b8a8de3a6ff0f6286769",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_189.json",
+      "map_id": 189,
+      "sha256": "cda6c1b0dab0fdbb1f5bd9d4263fb30f09febdc61a9441bf014cc1f8d48e5909",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_190.json",
+      "map_id": 190,
+      "sha256": "13baf878de706169f97c048e6185c212f933a433eab5209d0a235115dc32792f",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_191.json",
+      "map_id": 191,
+      "sha256": "5cd080557a22b918c1a18dd09af42e8ac9a7a86d4a58f07faa55b4afb84b4ae0",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_192.json",
+      "map_id": 192,
+      "sha256": "0cb4b1ac92d47508ca3df2943d9a2fcab84eea1ddc3f24309381060ae4ff5074",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_193.json",
+      "map_id": 193,
+      "sha256": "f4dab2569d191fb5386163b9b24810bd59009f3cf9fe0d28a579b24af44128d0",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_194.json",
+      "map_id": 194,
+      "sha256": "aa44f885b897be89bba296cb6deda9875cc7b8bc552d4502d04791c143530d4a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_195.json",
+      "map_id": 195,
+      "sha256": "052d08e1ca6b5fd2b8a3459c9ec23f5cd43b795885e011fc64cf5c03953e1963",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_196.json",
+      "map_id": 196,
+      "sha256": "e22c96672e9f560f6bb797e4adacd06fd8b112396dc9cec709e9abed73df0d15",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_197.json",
+      "map_id": 197,
+      "sha256": "a191b35d8d687c04dd4754eb5a4b1dcb345fc85580b82537d6eb8ef8d41aad10",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_198.json",
+      "map_id": 198,
+      "sha256": "e43afae606bf8937a42f5b3e8c6471753cb42e7f7db0ae7dc2b7d5cb34a0c951",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_199.json",
+      "map_id": 199,
+      "sha256": "1b9f45dde7f41a30d470af5319fd321b60328fb344f9a91848021c410a30d99f",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_200.json",
+      "map_id": 200,
+      "sha256": "8a99247f5a5b2e0dd5c6964c54ebf312964a19b0e18ce646f2357374e0afa845",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_201.json",
+      "map_id": 201,
+      "sha256": "c2c805f10df5854a1fe3f30c3d1a3583b1e21c38e2f5a7a059287b0209eefbe4",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_202.json",
+      "map_id": 202,
+      "sha256": "603af92720243332fee3d91e943852e115bec880b724afa938e0be7b1b46ae1f",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_203.json",
+      "map_id": 203,
+      "sha256": "88a3406887f69f4eb1ed3323bf12f3b8bbb6e8f2d89038454ce546e0516ce31b",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_204.json",
+      "map_id": 204,
+      "sha256": "23de1ed3e8636261b3850fe4daa72ab0b9d1e79de5feebccb3955df427a202d2",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_205.json",
+      "map_id": 205,
+      "sha256": "02942956ed324852dac8218ee0ceb48572de50b47456465155c5362ca7fcc75b",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_206.json",
+      "map_id": 206,
+      "sha256": "74a086f8519af950705301ef9d52d64fed0be5fd532460a9da83ae147a1931c9",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_207.json",
+      "map_id": 207,
+      "sha256": "0ed4cd00b19758970ab56cdfe0264578dd305830146d168dc8e9f685fe9be45d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_208.json",
+      "map_id": 208,
+      "sha256": "a6f14f83e16184cc4116d7aa0c59423fdaddeae3c52ccc3065647b38b0fb3f34",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_209.json",
+      "map_id": 209,
+      "sha256": "431370b7726b2834f7bda113ff30a7715d1b3c374af68db03f4483182a74e609",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_210.json",
+      "map_id": 210,
+      "sha256": "fd73425538839e6505650656e88e2ad4d1b63d47e6ea9984f9661847623f466d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_211.json",
+      "map_id": 211,
+      "sha256": "08a0d1b34eaacf76ee8de5a9bb3eede8df8b2d8664e18f30ba0fda30ba3aa04a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_212.json",
+      "map_id": 212,
+      "sha256": "2d6d576dbecdc190c45398978c6e3b74d5b50e89277b2818718b3719385827a9",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_213.json",
+      "map_id": 213,
+      "sha256": "213e5be37456fe8116e4e39b7e9655b4408efd9726d7c24baa0ce67caabe403c",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_214.json",
+      "map_id": 214,
+      "sha256": "6d21af36cb32476fd51bbbb066ee7c12a39780f140ef04daa62e0cfbfd28303e",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_215.json",
+      "map_id": 215,
+      "sha256": "d8a6f285b9695b81812346c17c601017269ad7a353326512823a3561de236eaf",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_216.json",
+      "map_id": 216,
+      "sha256": "9cd6810a0ce5a7b428aff93d4ec549e4f00c2f06b2f7dd113226cde41705bc3e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_217.json",
+      "map_id": 217,
+      "sha256": "52a1513ea73a4405a62f0459badf320c9601ffab509b9e24a4e2d4a95a5f4001",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_218.json",
+      "map_id": 218,
+      "sha256": "7a8af2899cc650c0cc123535347043770528e5cdf1d12ca6abdbc29fffe60a7f",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_219.json",
+      "map_id": 219,
+      "sha256": "9c7f90ffe9f97aa63c28f4759baf7b9ed2192ed5000cb3bd586daec68af90fe8",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_220.json",
+      "map_id": 220,
+      "sha256": "135716e9b8ee0b681bd7267dc5e8470056cd66802fc78650c054aa847c6c1385",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_221.json",
+      "map_id": 221,
+      "sha256": "041ceda7994d37e8bbbeac2f66ecb8f5c2eb7da5e8f397399289a8ab17418a5e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_222.json",
+      "map_id": 222,
+      "sha256": "53d075bcb16e1aa1fdcc5952954cb8333a5389da8942d95484a22fa76a2062b0",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_223.json",
+      "map_id": 223,
+      "sha256": "237c090929e13ac8b9d439aa8a9330d8c953d086ebb00ab6efa595ccb8ec278d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_224.json",
+      "map_id": 224,
+      "sha256": "371b4c85d79e0ba7a5089edf072939cf3de6a76f3bc1eabaa0c72f6fb94d7a2d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_225.json",
+      "map_id": 225,
+      "sha256": "85849ac7cb24d4eaf808d3629cd92b68842769a1f7ce99d5011dff84ab059336",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_226.json",
+      "map_id": 226,
+      "sha256": "5ab78afaa2542568f7e1b97932deb966a44596acecd6ae3168fb8c9dc318835e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_227.json",
+      "map_id": 227,
+      "sha256": "6eefcaa372ba9ea65a5663fe70efc1a49cac5404d7c9e1bb75721ef5c5547a2f",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_228.json",
+      "map_id": 228,
+      "sha256": "44a16e7bede778f1d11dc5683d7cae20853060d162bd9d0122d0fe45d530ec1b",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_229.json",
+      "map_id": 229,
+      "sha256": "abc8f2291e6c4694cd989648308a357d0e65f0fc0c227676419d51d6b503d54c",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_230.json",
+      "map_id": 230,
+      "sha256": "355988c14b06207af65b7b5a5f40bf434877ef2bda1b513fe4177054b1f055b5",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_231.json",
+      "map_id": 231,
+      "sha256": "3ac2b9d816b2795d137a7249b61186a46a9fe55af25f505ba068a7af5fb0043a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_232.json",
+      "map_id": 232,
+      "sha256": "609b88ee80c9a88038597181db424d75a48df7ea4f208171f492c4819d2cb056",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_233.json",
+      "map_id": 233,
+      "sha256": "6caec8b4e2b4e94bb8b7643f2667e5673af8f9765bf88d24b8c231d8c4189e8b",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_234.json",
+      "map_id": 234,
+      "sha256": "cfaecf261e7e39cd5f855129eebaace87658a3ef36c03cb4140791fb60c22119",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_235.json",
+      "map_id": 235,
+      "sha256": "b5c5b566e831a18dd6bc9f7395829f5de266935f8b108a564dddb538bc5dfbf8",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_236.json",
+      "map_id": 236,
+      "sha256": "af94ce7c199af2f5fbead9a8c67d7c8ded6dc6d7d65171b13d20e31c41afebe1",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_237.json",
+      "map_id": 237,
+      "sha256": "3edea6f6a35f67c95fff68d79e2bb776b50b3e2d26cc849e5c4d3d217e3b8a46",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_238.json",
+      "map_id": 238,
+      "sha256": "ae7d1209b125a69405feda88b70b873c65cb55956bc3f2918e7ef9440b929c03",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_239.json",
+      "map_id": 239,
+      "sha256": "1142cc1a6d0f8393218a342443ace39f1466ebad3d05daa33b7fb615086c5a65",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_240.json",
+      "map_id": 240,
+      "sha256": "a44152e5d8db81f252e36e8f32b0bbd8a634de19e16f53807b5eae8c3b3180e2",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_241.json",
+      "map_id": 241,
+      "sha256": "1b7d2bbcf20cdb60dca3d6e3ee3085e47eeebc208444c88f022c48f18324acd4",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_242.json",
+      "map_id": 242,
+      "sha256": "5df499f0303f60ddd783dd072e694ac28f262eb086cc1d29877fcd65010b9f88",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_243.json",
+      "map_id": 243,
+      "sha256": "9b6dbe90ccc85cf578194312914cdf9bd229465deeb8ff25e2621c6e0b7f879e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_244.json",
+      "map_id": 244,
+      "sha256": "b507b70a89332353cae6caedf1f8b07ac58e70d994b8860c243c2f8470fd3958",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_245.json",
+      "map_id": 245,
+      "sha256": "6616e8fa55c211741206f043741295211fe9049549275f39e3f47fd4ce7b2f46",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_246.json",
+      "map_id": 246,
+      "sha256": "657a3ab2ef862bc5314dbec0b4fcfcbf47b11bcd81ce2844fb2f2433606e4f8d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_247.json",
+      "map_id": 247,
+      "sha256": "d63f0f6bc57589a56c664631df69900734a84a6723d0a928f63a71095a4ca326",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_248.json",
+      "map_id": 248,
+      "sha256": "874bbcb05a38bba651d6c6297c983a0a24c4b36173b905ae827cfccb756241c2",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_249.json",
+      "map_id": 249,
+      "sha256": "48773f1990c8e3699f747b7975189bdf960afd0044745676daea5a8b55f888ad",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_250.json",
+      "map_id": 250,
+      "sha256": "5ddb6840ab21289e6f92f791077ad2b6e1c7546d257afe6b235d2d0883e281eb",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_251.json",
+      "map_id": 251,
+      "sha256": "3ee14fc6b79a965131d0cd27d6f10f30cf2af4cda95701155e4ae585bee0735a",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_252.json",
+      "map_id": 252,
+      "sha256": "f55676e6fec5d24c36ab285806de45767269d5e0daca3d661bca4892e925ad3f",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_253.json",
+      "map_id": 253,
+      "sha256": "ffafc2ef8f71dbb64536efeddb754e0d45834586c33bba22db66b57f12de4787",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_254.json",
+      "map_id": 254,
+      "sha256": "d5322a8074c3383964ae9236bcbabde0ade0da99d8c855487daeb07d51ad3bc8",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_255.json",
+      "map_id": 255,
+      "sha256": "49a6c38695c9e47f7ec59b384ab568548a4be3d13a28b50988db0c0cd4be86d8",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_256.json",
+      "map_id": 256,
+      "sha256": "1b3a81ba5d802557e2d5faecef3a56d30c2d197fd1bd109c614267aad57955e9",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_257.json",
+      "map_id": 257,
+      "sha256": "fc0af96e96f58417f579f1a0202f66b895f91560144b7680dcea2775284db083",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_258.json",
+      "map_id": 258,
+      "sha256": "a59cbbd868dbc061ebcd98fee8286ff5e32c136c9defdc7469c18ba418f8cbc6",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_259.json",
+      "map_id": 259,
+      "sha256": "7797323f2bbecb023b4cde4caa840e324df8b8393d51d9990a0966c8deffb9bd",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_260.json",
+      "map_id": 260,
+      "sha256": "a0fba77d34e56726df15fc332475bd60d9d7386a4ac79ec850e2cb32ff1f942f",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_261.json",
+      "map_id": 261,
+      "sha256": "7a1738564d629c8bc3e5eb31c4f1e37a13be53af962a01e6153064f16ad4d1b5",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_262.json",
+      "map_id": 262,
+      "sha256": "a389869f10be06ee033cb53b0e7741e730f2b667b4912d6377ba35e8cd381c14",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_263.json",
+      "map_id": 263,
+      "sha256": "6988acf946bcdb813905545db96a8ab3c08b55f654f4ee18d4be77de56ce5bd0",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_264.json",
+      "map_id": 264,
+      "sha256": "e402cc91da74e0239e71a5fcc2f43a0ef7799afcfa7b031f71bb1935542a1d19",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_265.json",
+      "map_id": 265,
+      "sha256": "098b6214663eb13e51aa3a05dfe18ca02d7a9e3caba6b978c5051eecbb92bd44",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_266.json",
+      "map_id": 266,
+      "sha256": "9e226b367a70d061f7793738795834fd36ceceab6e30809b52aed912d1d6ed6e",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_267.json",
+      "map_id": 267,
+      "sha256": "61d9bfcee78a5cca75bad2931c8216bf4e8c2251e535af8dbd9f60820257a941",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_268.json",
+      "map_id": 268,
+      "sha256": "16742bced2cbc6bc7db0d9d0f05f3e40b93dd1eb1cc207ebbc88f9d22bc3bdb6",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_269.json",
+      "map_id": 269,
+      "sha256": "c715f4430c01109beee34b4164d8772c0a7bbf8110e80d8c512265107023f3ce",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_270.json",
+      "map_id": 270,
+      "sha256": "c54032e61173f15a9f4558b10eef06285be956cdb2984432363438bd7d3d4a0e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_271.json",
+      "map_id": 271,
+      "sha256": "feb4e8f6d5141a73bd22710143319106b062cc518225f13c9a5aecf35aea901e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_272.json",
+      "map_id": 272,
+      "sha256": "f64b9a0a28a70469d776ced20499d645d529df080dd64dfb864a5647f7007e6a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_273.json",
+      "map_id": 273,
+      "sha256": "ec987d2acd0e9b84aa8a3632c60e80971d383d0a076bceadeee545ac2317f726",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_274.json",
+      "map_id": 274,
+      "sha256": "3fa4dfbbe099b1f6d1452f05be6c6e1a170519b9fa706d100c5a51e08d84eee2",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_275.json",
+      "map_id": 275,
+      "sha256": "edb2f4036716effac374043ac15fd0477bab9025eb540d77672ef5f7a4f52126",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_276.json",
+      "map_id": 276,
+      "sha256": "2f59fe8d27798ff2dd99c1d44ee26b8803bf4d96a5e20a0bc37593a0f350fce8",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_277.json",
+      "map_id": 277,
+      "sha256": "6839ab362bf4515b228d59481379964e2e991a5b8969ac94d376b990e98b7a1f",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_278.json",
+      "map_id": 278,
+      "sha256": "f4646db9a5e7d2435fb498e7105ab6caf6053bf72dae082d94e55b7cd3a42bf8",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_279.json",
+      "map_id": 279,
+      "sha256": "045260788013dfc074cf89605ad875a3bb6e72c96f2d03f9648f98094ec5c4ae",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_280.json",
+      "map_id": 280,
+      "sha256": "f667c62c91f195bb7b8293af0df4562603cf9afa4b9d962c1df379045cae49ba",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_281.json",
+      "map_id": 281,
+      "sha256": "30348231369f8ff4aa3ed4cb9a6cb38759c6e2a48e5930c143d1c7b5302c50d0",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_282.json",
+      "map_id": 282,
+      "sha256": "4f4144eec11d3bb368b6279a32e12d08bea5cdd66753b54b48aab8ce673865eb",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_283.json",
+      "map_id": 283,
+      "sha256": "1b09ecb2b3b32685cea57c02b5adbe23b6ba4e81c011f027ddba95948d738df4",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_284.json",
+      "map_id": 284,
+      "sha256": "53b6e8dbf24402afdaed0fa332179190d9a2ec2dbac0fc5ded149f3b5326235f",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_285.json",
+      "map_id": 285,
+      "sha256": "5f3af6131298063ea34bb80f1067a62fb0650f2cbe3f253902d3ce1d1abe2145",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_286.json",
+      "map_id": 286,
+      "sha256": "a29db1a395a8cf2b014dfe23f6923917f0503eeaead7eea564f564ac568e1a22",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_287.json",
+      "map_id": 287,
+      "sha256": "a93431dc6a17bdc5f21d94056a7eb77a0677ef13b8cdba76b55d138774e430d8",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_288.json",
+      "map_id": 288,
+      "sha256": "80c0d3cef1849c7510a5f72b74806f73b98de083c67cec08a5546a214ec422f0",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_289.json",
+      "map_id": 289,
+      "sha256": "e2e75db37d7db9075921fb6dd5eaed6e3b96d2dd21c262459bd4e1185564945b",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_290.json",
+      "map_id": 290,
+      "sha256": "58f87ce63e67b238f89aaae5a13744e9c79baa4e84a03dd05744c69acad64eea",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_291.json",
+      "map_id": 291,
+      "sha256": "130d7f77d96f1416c3206f5ef1e3ce2b08a2ab25f82b8972ee3296b4a784a302",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_292.json",
+      "map_id": 292,
+      "sha256": "d7b68d841b365775f4d4225847ca2d2735b4ca911dd121b8e177698424539438",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_293.json",
+      "map_id": 293,
+      "sha256": "da708215dad1e508bd5d6f638a95480c274b5423f616758e117cc42c54ca7b08",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_294.json",
+      "map_id": 294,
+      "sha256": "234aa076d40ec18d071cd7f2a990261ec2bbf5515c358b4ad21409f6b6161797",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_295.json",
+      "map_id": 295,
+      "sha256": "21a53d50e6d0ec8c135251cfe8e4a19bc2acab5f4d38144846e6d46ec85d87da",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_296.json",
+      "map_id": 296,
+      "sha256": "a0c8a109d68866559342dba6af25477f063682891619585948e89f7baacd8683",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_297.json",
+      "map_id": 297,
+      "sha256": "8b35975c06731016a5a4738f32d12018d77199e7e9d4bed504a489f0ce2b4a21",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_298.json",
+      "map_id": 298,
+      "sha256": "1fec77f2038872c9f29679cc4ab41973471e65a8532aa4f9b33927e0d17b6f35",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_299.json",
+      "map_id": 299,
+      "sha256": "6f6a36e88c0da9f484a9e406f8e18dd054956aaded9ea28e5832b9bda58bcadb",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_300.json",
+      "map_id": 300,
+      "sha256": "14904d4b3e21006e9b05e98e5a07466aa6bfe624c74ffc058d340508bb459e10",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_301.json",
+      "map_id": 301,
+      "sha256": "a32dabbc45a1d152ad9280b5329d65f65685ee15425e76548b88e493bbc27cf4",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_302.json",
+      "map_id": 302,
+      "sha256": "76ca74dda0eb65614855d36f9df8f46643069a55401a7752a91357724b8a31b5",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_303.json",
+      "map_id": 303,
+      "sha256": "c5dac9cd026e57c34be3d2415624a5df67af49c2f373880335383628ac4b6b38",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_304.json",
+      "map_id": 304,
+      "sha256": "56974c8abc29a653119a123e790e7b3e1bc6195aa96318db4e288350664837cb",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_305.json",
+      "map_id": 305,
+      "sha256": "a1841cb643d67c1c84746c21c2ac4e3b1856ba5cc8e5925374ad551c3392520e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_306.json",
+      "map_id": 306,
+      "sha256": "6ab6ec78550eb1ad6a6d98a9143442ff95804807c486e0a8f5f8c201a88fac0e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_307.json",
+      "map_id": 307,
+      "sha256": "267b9b9b3b08b27ec38f447511e23d6b73541ee105d0fa8f408aa2dbeaac343e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_308.json",
+      "map_id": 308,
+      "sha256": "90111e3d7f96e2eead20cb91db1c3e093ea7a6474bb4ad016f1dba6bcb952197",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_309.json",
+      "map_id": 309,
+      "sha256": "c6e153ae9a177cc02b121304323dcbcd611ff9a14f3bc44d9b2e30debacb7f88",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_310.json",
+      "map_id": 310,
+      "sha256": "2034c14ee60ae8f31a19d53538ca795249402993193514269ab45f0e4c3dafe3",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_311.json",
+      "map_id": 311,
+      "sha256": "ae07a4734d24187cd76195f74df0acf5959791f7150010d69f0cf594d81b19fe",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_312.json",
+      "map_id": 312,
+      "sha256": "db684410da0fb268afdd3ef11054ad6e09aa972774d1d0ee40d74a1ad3c63d85",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_313.json",
+      "map_id": 313,
+      "sha256": "555c6341ef99f872b1886f3a5a558442abee54c897cecf1c8b84468556ea9c9b",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_314.json",
+      "map_id": 314,
+      "sha256": "d2b224d058ebfaeb2ff5c0092499b5f45b5144ef08cc4699adc23512cc56ecda",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_315.json",
+      "map_id": 315,
+      "sha256": "c6261823f943f01b7bdd3ea48be2f164fe604b324ca085586a079a781e960129",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_316.json",
+      "map_id": 316,
+      "sha256": "7d39623dd783ce4fe2c10365d024a66affd0ca820489f83409d56401765424ba",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_317.json",
+      "map_id": 317,
+      "sha256": "b16587b2926c8f299ed1e197e3bb1fc2057b457fb4af5132c9436e6379447feb",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_318.json",
+      "map_id": 318,
+      "sha256": "0d0615f04ce122d3f9824fd37fb58ed4bc4f29997e606373b011c5c07bcec56b",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_319.json",
+      "map_id": 319,
+      "sha256": "bb5c26fea325cdf560c00383db642c389abc6bffc3637c78d71a5d58a00e1918",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_320.json",
+      "map_id": 320,
+      "sha256": "4293d20c5589c3228837cfb91230aa0c601fd30306c76699c3f72c377dd629d0",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_321.json",
+      "map_id": 321,
+      "sha256": "4ca74a126da2810f0577432efd4ec75686b25083ef5179a04b1b98db5ff44085",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_322.json",
+      "map_id": 322,
+      "sha256": "d71e0cc5a04b5e1525369ef5e062dd3cd78cc528c7e7f48675cd801d45916f09",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_323.json",
+      "map_id": 323,
+      "sha256": "703dad8d4c740e40e07f4183a63402f6f19be304b83186f1b7686602b6c36fba",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_324.json",
+      "map_id": 324,
+      "sha256": "83f67bc3ae99a9cbac464babcfb9f7742b5e1ef972f85786d5733398f90bbaef",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_325.json",
+      "map_id": 325,
+      "sha256": "4a3b078de65d26077cab3a14bf01ab3479b21508bd781a4ff542efe1fb926a97",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_326.json",
+      "map_id": 326,
+      "sha256": "77df27797f579b1390ff865c1a33906e84a4740f581e64fd7e98f10fbde13db9",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_327.json",
+      "map_id": 327,
+      "sha256": "66c807bcf02752c4093f69dc5bc01368669654c0d6f45c3ebef83782105fed66",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_328.json",
+      "map_id": 328,
+      "sha256": "9abbae6c1009a5de4b2752070bee8870938c7f1916e939c1646bc2dc4301c495",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_329.json",
+      "map_id": 329,
+      "sha256": "a1c4fe77b50d3184747d21b0b3804da016aa67a9c334f020e26beeede51b182e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_330.json",
+      "map_id": 330,
+      "sha256": "d8e5b8675213866ade1bbaf4c5ed89ded3573c0eee507c1a0afc140973910d17",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_331.json",
+      "map_id": 331,
+      "sha256": "e1994a45cd7a99d19ca984eb12b7d6c076813c2d35c205c424bf698ab12c2241",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_332.json",
+      "map_id": 332,
+      "sha256": "8e2c70a43e2765f8117fe8686170fcda36c6fb40cb8284363b363b2d90dd3e89",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_333.json",
+      "map_id": 333,
+      "sha256": "906e6ea7e6559fee13ac0b80630133455a2b326d33cdf6941e9070639367c2e0",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_334.json",
+      "map_id": 334,
+      "sha256": "680ce9854b9250cf671f937e795817835f1e5adf050a660da76384d84941b05d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_335.json",
+      "map_id": 335,
+      "sha256": "ee01d48092c1c8d4da931327be4495e37cc33c5deed66e78a556b4c3e065a216",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_336.json",
+      "map_id": 336,
+      "sha256": "98154ddfadb09158dbab0bdb0d00a381c66ae950a8266d66ed78ed40e6d66635",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_337.json",
+      "map_id": 337,
+      "sha256": "ec0de4a21e38e0d17dbd4d4794e37c4167ae3b9491f6905a021848d9da754b73",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_338.json",
+      "map_id": 338,
+      "sha256": "ccba266cd0527f64f7e73a87d49c0f38a698e0dd4a01c151896f5f7dcd55970a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_339.json",
+      "map_id": 339,
+      "sha256": "4001c060fc33749d5f0625a0944cfed66871cc50471d69b3f4482a7780f92bce",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_340.json",
+      "map_id": 340,
+      "sha256": "e4e1876aed3d85264ca3e2c67e642c779447dcbdba39fadd2ceaa50c743f6ec6",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_341.json",
+      "map_id": 341,
+      "sha256": "8cd4a43b79a97875f18cad0f548937af8d0031d7f7fa9f282bfc81f8ce4eba2a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_342.json",
+      "map_id": 342,
+      "sha256": "2133e5420268b973cf84f6a69018576b6ebd3d1d1ed949daeae863f9852dbcb1",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_343.json",
+      "map_id": 343,
+      "sha256": "a9bb3c81df8614e9c3c73357fac066f6ee64d6deeb41709eb6ea4acb74075b61",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_344.json",
+      "map_id": 344,
+      "sha256": "35bb9f07fe9294a12ba38b4b7b61d7338679cd8144c40b450ce8cb3a3e1352a4",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_345.json",
+      "map_id": 345,
+      "sha256": "7d37d63cf730c9d8b1e12f469072f29fa78672f80495ba2eb6b14c34518a7892",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_346.json",
+      "map_id": 346,
+      "sha256": "489ace61690f5e4f5e33e92dcac453c0d0fc0050b41beb8538a88057fda04ca5",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_347.json",
+      "map_id": 347,
+      "sha256": "e4d674963ea6fb46046bcc58c9f1b091ccdc583f6909f428e0d5728ee60fdc79",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_348.json",
+      "map_id": 348,
+      "sha256": "7c53eda27a19ed44341d47e391cfd217d386fc335a0b30e18894a106b7cce078",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_349.json",
+      "map_id": 349,
+      "sha256": "3d1fdf88116855213ff3e389d1525d950ca6116e50885e5c3830f80eb89bc749",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_350.json",
+      "map_id": 350,
+      "sha256": "17e708221d0795163e67a4e9fc2c0bcc56d6f257372e593f93f51a0dbf69ba7d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_351.json",
+      "map_id": 351,
+      "sha256": "02c0a0a63941003eb74fedd048c3a667ccf36a048def5c5c8471193b23e8af66",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_352.json",
+      "map_id": 352,
+      "sha256": "ef635c56ff449c020ebdb3461f673aebf05cf30534981054ed4ca4cef7ac57fc",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_353.json",
+      "map_id": 353,
+      "sha256": "7297ba2fc9c4fa4d6eb48bdecfa46b2c91e4c6313e9b13427ccb6b7da75d0b48",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_354.json",
+      "map_id": 354,
+      "sha256": "33d5947add01e792fa0ea566f5f25403c964be80b445eaeb7e9aefb2c5b02f3d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_355.json",
+      "map_id": 355,
+      "sha256": "c14aee9d4f02e8c24b08bb6a44f22bf564f6af1df17fd5700053007d1f348cdd",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_356.json",
+      "map_id": 356,
+      "sha256": "80ad6239d35465b99bcef59b87e694e790afd4b7e71ad0157cdd64658d31f504",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_357.json",
+      "map_id": 357,
+      "sha256": "5a308e67db228e484b865341c0a0078a8db867be9d5c7032f09b3f2a3f24f002",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_358.json",
+      "map_id": 358,
+      "sha256": "dced6d8718848813a4025cd263ac3ffbbfe80e64a8b26dcff972e55735e96a58",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_359.json",
+      "map_id": 359,
+      "sha256": "cd42b1749958431fe2d78caed15fba9f22f31d8e00ba13623007a9f3d76f5fbc",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_360.json",
+      "map_id": 360,
+      "sha256": "3e51fe4b3405a51f7d3eb25dcaa800d82f37f723b6a650c324bd3c1cca413261",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_361.json",
+      "map_id": 361,
+      "sha256": "315dd4555edfb94fe12aaa60bbc402477b3db4a56839d23e24aa1d71312ba2db",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_362.json",
+      "map_id": 362,
+      "sha256": "28cfa0b938b99b7fb695916178bf8bd672655f5014f6a191b39dd57d60a6d261",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_363.json",
+      "map_id": 363,
+      "sha256": "9deae9e641028fc092d5358370acfbaf6c6e04ecf272b295bd7186ddd2adb9d1",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_364.json",
+      "map_id": 364,
+      "sha256": "738635104e8ffdc08ef121e2b2b6721406c312cd87cef92b09b006829c2cc72c",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_365.json",
+      "map_id": 365,
+      "sha256": "8bf169fe719b579c000982b7f1304e76fe80ae97c958fc2f116aba5f54b4997e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_366.json",
+      "map_id": 366,
+      "sha256": "4f22c9408aa4c0b0d4cb583b829c7d4d6e5852cafc587a7c5e05772ea91ef119",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_367.json",
+      "map_id": 367,
+      "sha256": "c564c45e16c65a58d7a69d700df21b01252d67fd46aa1b23be1343d45dbe7502",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_368.json",
+      "map_id": 368,
+      "sha256": "fb62d8e8257ba37d131f565f98ec55bde74b5e750eaaa4ef2631eec9d402d859",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_369.json",
+      "map_id": 369,
+      "sha256": "007882b23048acde5b15e7d2c4a5b3cac4a2eca368ef02185dcb13bbfa6474b7",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_370.json",
+      "map_id": 370,
+      "sha256": "0ec727a64776c7a6860908ee1482635582edd43fa9b53d291d02bbdaf3c89149",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_371.json",
+      "map_id": 371,
+      "sha256": "3bd5a5fb6dec1bd452a2ce82ff5c86706d4efe913290a9211ad727edc51d7c7f",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_372.json",
+      "map_id": 372,
+      "sha256": "47bbc36e4fe7a623d40fb6f8666265a877abb8c7f42c92e13962c88bb02ea3b2",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_373.json",
+      "map_id": 373,
+      "sha256": "bfd55ba444d9131f100f55ba6b95c4ae44da5aede91f5b139c99b3e3ea88c6e6",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_374.json",
+      "map_id": 374,
+      "sha256": "546181903283565ddd7836a40ca39c2d49bcd1a7854424d2cae636227d693716",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_375.json",
+      "map_id": 375,
+      "sha256": "5d7f0fbb94d8c8265f357101fbd9737b4723fecaa444b98d7ae8451a869dce8b",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_376.json",
+      "map_id": 376,
+      "sha256": "43b06397499a500bfe1057c5b972e624d2c8d3963574ac07a93303cee618935d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_377.json",
+      "map_id": 377,
+      "sha256": "07f7e4c50f9af0920af3cd74c817b052091affe179475912b8f5dc7c78886e61",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_378.json",
+      "map_id": 378,
+      "sha256": "1e3e02a2dd010bb5dab9e27a07053e7603bac1fed7873cba243272a55d0e3085",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_379.json",
+      "map_id": 379,
+      "sha256": "828d485ab1d40f1e306e580a104f07c7073edabf73084ef042e668c79dd42ba2",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_380.json",
+      "map_id": 380,
+      "sha256": "4b3e09c734d3aa296ef88ecef9143b326591a25a495eab0a80e9efe8a662404a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_381.json",
+      "map_id": 381,
+      "sha256": "a53cf4457fc86717de8d2536ca4520aadc801fc74bd5743a58b87089fb7e092a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_382.json",
+      "map_id": 382,
+      "sha256": "26b379a34acf7521d553afd2737ae02744cc0ef13f582be0d1edbfd91f6bb24c",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_383.json",
+      "map_id": 383,
+      "sha256": "39aab1f1a6e8c12c97caf7672b642d81ad8c7be997d6cfbebb1f33b6e744e00c",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_384.json",
+      "map_id": 384,
+      "sha256": "079a53f0a539ce276e137fc32d5a8e90c298e15a5cc8140f9e2f16c0d0547229",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_385.json",
+      "map_id": 385,
+      "sha256": "2185248cba0adabced7afd5dfd06840b5da0b7436563a367eb987a7613db9bb5",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_386.json",
+      "map_id": 386,
+      "sha256": "51d43c55655c276d2bf92389a375b1b394e6944b4f38f2e81c9ad92012228e03",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_387.json",
+      "map_id": 387,
+      "sha256": "4c8b57070e8853065fc1e12b9818a220a9555f5b25838f2e32bb66eca011f7a7",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_388.json",
+      "map_id": 388,
+      "sha256": "8b97c1ce7b03a6fe1e480ee4d0c40476d36f4ee6e2d03b61161051399af75194",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_389.json",
+      "map_id": 389,
+      "sha256": "763bb36595f658e9314fe107269596274c3db0163edc92b2c591225e1a49b397",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_390.json",
+      "map_id": 390,
+      "sha256": "43f31ca4d68f34895815893831768325a5103006e9d266400fca4ff81f2b8f30",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_391.json",
+      "map_id": 391,
+      "sha256": "5323ce98add64186a7c7192e15495dde5203120093401fdc3b4d69cc079c972c",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_392.json",
+      "map_id": 392,
+      "sha256": "0888b6041bf49f4598c377f2142bb5b40d8a318a1ff56a9c915e19f240650634",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_393.json",
+      "map_id": 393,
+      "sha256": "8d65882cd0fc62b4da554dfc3387f65982fff125181bb89d8469133744e4bbfa",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_394.json",
+      "map_id": 394,
+      "sha256": "42d01a248355087be5f088481767e7a217e450e89e497e70c21df7bb99a8b055",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_395.json",
+      "map_id": 395,
+      "sha256": "ea15b3452f0870d16af0243f1416bb71cb5be61a857ad44aa524b0e6d961b2cc",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_396.json",
+      "map_id": 396,
+      "sha256": "53f75def7eee6b4fcd0d7dc72e5389f790d2e200d03875d24a8aba7312965b0e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_397.json",
+      "map_id": 397,
+      "sha256": "802dda3dee26956f045a081af4717431dccd7e9bfbc461f45a0bfa403d7675b8",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_398.json",
+      "map_id": 398,
+      "sha256": "346d64977f28fa00f21bc5727137638f54cdfeb340ecf8e8034fba39f9f984a8",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_399.json",
+      "map_id": 399,
+      "sha256": "18269f5dc891075ec85c0368fedbc23a34f57ab9c7171b7d23b20ed3703d11de",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_400.json",
+      "map_id": 400,
+      "sha256": "31d2dbdb0bde85b28f663739af866852f88a0aa350ebbc4df9a3d59e9973205a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_401.json",
+      "map_id": 401,
+      "sha256": "d4f9f8b84a9fe57cad80729c23c7bb1f3067a3663ceddeba6bdf3b6a9201b432",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_402.json",
+      "map_id": 402,
+      "sha256": "7299a9c1c4bce86820ecae4fffe8a36dec91bf480af29c329d0262545c554442",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_403.json",
+      "map_id": 403,
+      "sha256": "d82b2116b8e2141bb843a0dc2734f596ca4dcdddcc323ac969ef755c2fdb1587",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_404.json",
+      "map_id": 404,
+      "sha256": "29b6674337556a20428ae833955ae82d73eca26cd420b14aaa8782ccdd675dbb",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_405.json",
+      "map_id": 405,
+      "sha256": "5b3548dced92a69ae6aa05a86fca20f6d9daf6ac91eb570b049feb047a0ce5ef",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_406.json",
+      "map_id": 406,
+      "sha256": "6d4e402140583865345bcb500b7cfa37db3b7afcab94030f30145d100d0d59e5",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_407.json",
+      "map_id": 407,
+      "sha256": "cd327760d4231e387cf75dfd2864638c3c6838d1c5e42f76a53dc9f88913364b",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_408.json",
+      "map_id": 408,
+      "sha256": "420295edba5f2cae0abbaa7f669828636bbcefb9c9a6e69a9021fc3ddcbd017a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_409.json",
+      "map_id": 409,
+      "sha256": "a95397b61652e490a5daff0050c279012cc4aa108b49e570cc307474b2f993f6",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_410.json",
+      "map_id": 410,
+      "sha256": "f20df4002359b40b2baecd6295064fa2ca86b15223a0d59f5b3b61a03a097ed8",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_411.json",
+      "map_id": 411,
+      "sha256": "724096832b8ba705fac1925eae73e580f8b6d196dcf869f32f95c05b211bc8ef",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_412.json",
+      "map_id": 412,
+      "sha256": "4ea17f9197ffa3d637cc49f00eab883d81d923f9d1a401d7e42854fdd619f94d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_413.json",
+      "map_id": 413,
+      "sha256": "1df07c24b7d04f0724be64321820b53533ae0cb54a1bf6debc0bda3b9c9f2021",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_414.json",
+      "map_id": 414,
+      "sha256": "1742d1ddf25a76f1928933126d69310ba3f48f88133880313c3252b739fc0e9b",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_415.json",
+      "map_id": 415,
+      "sha256": "4a2e9a7033cb9d6f01b0b4f613498c29986bd09652cc7a8c0f0c2138e06e2ab2",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_416.json",
+      "map_id": 416,
+      "sha256": "e3bd875bc1714329ceb2de6b4eb3e1d6bb4fba8b81a7a41121eaf04ae40d3a88",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_417.json",
+      "map_id": 417,
+      "sha256": "7cf2aa5128ec68dcec20be52da056da3b2303e1b4ee94b05153a272d42b35fea",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_418.json",
+      "map_id": 418,
+      "sha256": "2c64fe7433732c743cbfd2a5bcd65262fe261b0d791d2aea8b335e3b2bd910bf",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_419.json",
+      "map_id": 419,
+      "sha256": "c23d2ed1f94fa40511cebd9c2f09d701205837f12e470055e8682288acfc9d77",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_420.json",
+      "map_id": 420,
+      "sha256": "888fe4cc7ac1f4e039195be1d99b85de298b33c9206a772cd6abc0e562c4cb07",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_421.json",
+      "map_id": 421,
+      "sha256": "40ac02fc5d578b524c666e3c76d3cf1b75be0e74a10022f233537ff17ec2ff1e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_422.json",
+      "map_id": 422,
+      "sha256": "d5320434f832b70fd880937df883944ad086798d961467cd41751984a8dd2a62",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_423.json",
+      "map_id": 423,
+      "sha256": "3d5f8eef91cee8f3fa9e64780b76decf58f6629595efc181a0dfa519049a0e1c",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_424.json",
+      "map_id": 424,
+      "sha256": "bf393d59161eae2f0a61469828d82a45b45c17702f9b6e01c671235227ed1e92",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_425.json",
+      "map_id": 425,
+      "sha256": "4c23a2a727261cd4467f5bd439a313031879af8785e09956841cad2a01781404",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_426.json",
+      "map_id": 426,
+      "sha256": "6ccc1da255724d01a6b5affae602540e4ec5628950188981f4367044adacccea",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_427.json",
+      "map_id": 427,
+      "sha256": "57c7b353c6b7296b1eeeac2632a179ed8f34db603566edc7fd338363f09dca98",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_428.json",
+      "map_id": 428,
+      "sha256": "34040353ae17b811198257e5aac77f58a5d40fcd22cbec91ca38c5dd47b85e72",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_429.json",
+      "map_id": 429,
+      "sha256": "d6302171cbe777d6d7174b0daeca8c163ec3c7d84ce86a20ea5b610c79325cf7",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_430.json",
+      "map_id": 430,
+      "sha256": "8f7bb886b283a3af63c6092667d93d7cda16977b9341ab551bf83d58feda62ec",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_431.json",
+      "map_id": 431,
+      "sha256": "cff36905d4f24dc81ad36ac23fd027a28d93110c0717c7e1e6d3746c1b6b1304",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_432.json",
+      "map_id": 432,
+      "sha256": "455b7c02142ac3f46fbd7bb3e681dfff6c0b7cd7312b9658ec2212a6fe495685",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_433.json",
+      "map_id": 433,
+      "sha256": "f572f5fe07054c7486bde86e1ae3dd4454a06fa83ea143bc0b79e8e917c24d10",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_434.json",
+      "map_id": 434,
+      "sha256": "e253fede3c073f2fe25a3a1251e96d295bd6dc89a7c3edd50040f56cff98e20b",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_435.json",
+      "map_id": 435,
+      "sha256": "221d40e1ac74eb0dbb1e5ddf848691fe54f40e747b0aa80c4a96ed9f4f3b1c2b",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_436.json",
+      "map_id": 436,
+      "sha256": "118260ddff46a06499810e8e5cb3985651ddbf796c2b2cccc47a827d33ecdc28",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_437.json",
+      "map_id": 437,
+      "sha256": "dd974652dba282cc02b149963e520de69c75f97c59b456dc577ae4ba625932a7",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_438.json",
+      "map_id": 438,
+      "sha256": "f7b52ef225ecaec12b44d18c857cca3bf6fd1728d419bf139982b468892b5a4c",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_439.json",
+      "map_id": 439,
+      "sha256": "d2b47fabce4071733efd2c9f6eb27c4b437190cd00e90dd4193b39fcaa3799f5",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_440.json",
+      "map_id": 440,
+      "sha256": "3c98a16b2d21e96a0f32af8d8a8fbe7bb9916f59e092c4cbe446b49d4486e08b",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_441.json",
+      "map_id": 441,
+      "sha256": "38672b6fb54b35ca96e4d85463841fdffa4db068747a56f5f58ccc2ce3b8ec64",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_442.json",
+      "map_id": 442,
+      "sha256": "418edecf22637487a6b4c2b3acf2f0bf6d936552c81d3c4153e89091a1638b3c",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_443.json",
+      "map_id": 443,
+      "sha256": "d2ca3394732e621a14f0571780cb01baf8e441c2fafef44a39afefafbe61c535",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_444.json",
+      "map_id": 444,
+      "sha256": "0e584bf39f9997711dc133edd3a07563a96a2f8b96b7f9abf4997fc2060e8854",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_445.json",
+      "map_id": 445,
+      "sha256": "33aefcf174aca32a3d73751dd1f5e4af9fe5848cf3c322bcc2975232d05e8bc8",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_446.json",
+      "map_id": 446,
+      "sha256": "494a6924e0aff19393bfaed140492e867a47ec86b5b66f2cd676debdf2d58b6a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_447.json",
+      "map_id": 447,
+      "sha256": "0b4ee18b944bf00102d70429de0c7bf0e70963165841202a2d27b942103d3478",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_448.json",
+      "map_id": 448,
+      "sha256": "5a3a809476ac31306912d87250c7a4381f2961bf4b1822979db4582ed07de507",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_449.json",
+      "map_id": 449,
+      "sha256": "cb1c03ac7d0b489d09909d9afea79a9978062a324733d5dca3f38a6dca08f2b1",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_450.json",
+      "map_id": 450,
+      "sha256": "406310343d9135f46f9be57e58278dd9b759b4a5140be15f22400bf8066f5d23",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_451.json",
+      "map_id": 451,
+      "sha256": "a3cf5644a3caa4908b11740703a83ca2dbbf266250d8ef5ae3e72df2381e9640",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_452.json",
+      "map_id": 452,
+      "sha256": "c8a38c7279e659570f7dc323f5d05e6ea198b6660423b3bcbc729413c011870f",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_453.json",
+      "map_id": 453,
+      "sha256": "3d9cf14b21d7d74d2899d1e2907595f7b85d81bc94ce27e3bb2eca6674eef9df",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_454.json",
+      "map_id": 454,
+      "sha256": "f9d096334c16f5bb7f1ddbb1d36fc7b6dd19c41a25c74cbcf19306aa4f88625b",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_455.json",
+      "map_id": 455,
+      "sha256": "3daa0e5942b8b3cf58327620ea95fc61b02afb1bd2e15220259579d7d57878e6",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_456.json",
+      "map_id": 456,
+      "sha256": "244093195a72b020e2ab9bddf1f440e069155efd53afa8494db156b43a73fe33",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_457.json",
+      "map_id": 457,
+      "sha256": "0a80b45ce584da32355ce6d6adcbf304a5ac7a7db090a7d57d7aacf35b09753b",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_458.json",
+      "map_id": 458,
+      "sha256": "db481848dc393a5699eb8a39c6cfeda81fb2dd96e08c06be1149d83dfdd6816c",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_459.json",
+      "map_id": 459,
+      "sha256": "b6cae5470d2a4592cd3b46c03ba648f4b471004f4b424942dc192a496440afc1",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_460.json",
+      "map_id": 460,
+      "sha256": "f1fc7651f06001b8d3bf0e9daa4b27df40fc8e01cfd1a9b5c7c8ee80945d64c2",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_461.json",
+      "map_id": 461,
+      "sha256": "5c67b9db9719ff5b25791d1aee418ec3e4b0726bc88b7f30930d0860ff791cb2",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_462.json",
+      "map_id": 462,
+      "sha256": "8e542670c24dc33675615be61ec2f8c066ae5c64d3e21365e049fd4e31599049",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_463.json",
+      "map_id": 463,
+      "sha256": "01ce10df5b358333eec45b09e3d30132ebaf9979c0198bf94a115349bf16296a",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "file": "zones/map_464.json",
+      "map_id": 464,
+      "sha256": "ff2e44946d96517ccaf8eeb1d45a3671930116935df9f2eea3f1ded9e14100f4",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_465.json",
+      "map_id": 465,
+      "sha256": "9b7b16da38816786501612d9b1f090743d5f0fda660b651a66267425e1f910e5",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_466.json",
+      "map_id": 466,
+      "sha256": "124f9fe54e3134e237300ca2f0a64450d544655fdf01a20a101666a97ba5e5f5",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_467.json",
+      "map_id": 467,
+      "sha256": "cc8b9ab6722767825cd6dc61e072744f77dfbf6f8f820016ac184987739c7b71",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_468.json",
+      "map_id": 468,
+      "sha256": "08e485c91b597f6f1fe0671f49551b4e8c6a2b354535a668ebdd022462e09f1e",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_469.json",
+      "map_id": 469,
+      "sha256": "260ba115acee6d561ef1ab21812a1dd52374db6227abce49cb8307ab0df83f30",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_470.json",
+      "map_id": 470,
+      "sha256": "c60eaf9b956d8e11f9703e12bc66f5ba7a97e10db964fc50397d96270d49a9d0",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_471.json",
+      "map_id": 471,
+      "sha256": "65839e6b531331b6709a43de10c3578b32559960bbd7a624a4dfde3da7732c8f",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_472.json",
+      "map_id": 472,
+      "sha256": "9ecc416a8e83bc791c0fcbf7c17c9d3c13fbc8ed489529813479bb5d64c87221",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_473.json",
+      "map_id": 473,
+      "sha256": "f2ecfe6eb3de50fcbaa8b6cea6ea9951c12c79418e41e32d0923fa86f3cee7b1",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_474.json",
+      "map_id": 474,
+      "sha256": "d1c2a811f81fff0324db979e43e841b55df4a98189ff9c5fa473e349b2e0b4fe",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_475.json",
+      "map_id": 475,
+      "sha256": "f5c4fc99731973412038d484fa32904fb8294e5609053fd7a90fa3cba4cab195",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_476.json",
+      "map_id": 476,
+      "sha256": "4be3b14abc93494daf9ccbba7905afbc451f34f952809f7d7b62efc37c7a4d3d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_477.json",
+      "map_id": 477,
+      "sha256": "e347baaf6df76c8b44dd1c97fc6a2194ae233dd46fba9d228aeafc2493e113c2",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_478.json",
+      "map_id": 478,
+      "sha256": "549158336f8ac85618f714a922cf7bbbf9b884f6ec8bd967100668c9e600d0e6",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_479.json",
+      "map_id": 479,
+      "sha256": "8e905c0d55d052140ae12eb63cd6f6e2d97d3602b6d936e63a79bcda0dc09b70",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_480.json",
+      "map_id": 480,
+      "sha256": "3df77712243ee6cf3c866288446b92134a1843bd3c33952aae6ee6917663a179",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_481.json",
+      "map_id": 481,
+      "sha256": "bed61b0776255a8628858a78fc69746720bcc322025ad5f8f22b25d721662783",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_482.json",
+      "map_id": 482,
+      "sha256": "648b57a8f7e7f8d858afb60be81b2d4653e7eaf836fab7b4dee36089ab6f56a2",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_483.json",
+      "map_id": 483,
+      "sha256": "7004f30c7791238c6dc4e51de63ca2bb1fd675c950bd1ce7abb7007d1fd27fcf",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_484.json",
+      "map_id": 484,
+      "sha256": "921e2d0c06ec9c61444762639748af07200188b9f4b5461f1b36b02bb557ef97",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_485.json",
+      "map_id": 485,
+      "sha256": "5bfdad7c5f862a34f43eaaef8e10d6dba5a01c111da036483aea905f27bb79b7",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_486.json",
+      "map_id": 486,
+      "sha256": "e9bcf0c4daa03c5054e4e5a4fd6b601bb475e5021f1aec3883e92079a82ab0b6",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_487.json",
+      "map_id": 487,
+      "sha256": "309e333e9edee8a444421bceb04896261a3b2e53c68026315e4ff62ca50df10a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_488.json",
+      "map_id": 488,
+      "sha256": "5235605e0e8b7bf8842b073c08e0d54bdd9b2c425f991beb8d3c59f3f43c5498",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_489.json",
+      "map_id": 489,
+      "sha256": "b1920c511824ef4b36ad15acc11b461732121db32370d1040cfe31d2306f39f0",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_490.json",
+      "map_id": 490,
+      "sha256": "7f55a4cd7cf2fe3a399f9cb7a07327f949d5f689a73cf1d80a0d4e7f89d5510f",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_491.json",
+      "map_id": 491,
+      "sha256": "01e1966736232a918e22098530a5c82816f5941b7bc3281a188e7fa4f36bcb94",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_492.json",
+      "map_id": 492,
+      "sha256": "9050d2e2085c29334b794931b03b3eea750b9aaefa282b83eadb18ae8981b70a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_493.json",
+      "map_id": 493,
+      "sha256": "68f89668fcdd71a7acaccf9889f7a551365614eca4e3c90862346a151dd270f2",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_494.json",
+      "map_id": 494,
+      "sha256": "dfe675a8b5920e032c2c0af80bdafe075ca5fa5ce6e7366e0b5d0dc3fa8f8b17",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_495.json",
+      "map_id": 495,
+      "sha256": "fb0164ab7f7009114c216cad7c54755485a81a3aab47f8bf9b64e88a5dd320f3",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_496.json",
+      "map_id": 496,
+      "sha256": "b3956805bc7c144fb9a098a40327d21fbaa211d54713b9d1ff1e8d6167f99798",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_497.json",
+      "map_id": 497,
+      "sha256": "a61f456f937e71204d2a0446e2f90bf5b0c63b3262506734b7310220b58d3190",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_498.json",
+      "map_id": 498,
+      "sha256": "3ec3f39dba03f95d37985b3b277efff4f05f82fa6da19ff1df283c2db38f6d3a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_499.json",
+      "map_id": 499,
+      "sha256": "e161b39113e42cd5e490d934840c4053e9ce5eaf6c383539ac3dded29b1f0582",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_500.json",
+      "map_id": 500,
+      "sha256": "6fb04134f410d0752536dd70a0fa5596f257262c71475e79b67f6e50bb244681",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_501.json",
+      "map_id": 501,
+      "sha256": "c3fb0c4e2dfa3999d03ba71d4ecf7fb57346f4965269c2070893f6952afe2a64",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_502.json",
+      "map_id": 502,
+      "sha256": "c4714bad3eaeb9bfbd0c675355bc0b28ee0d99bcf5798c6bccf9684cad47bca8",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_503.json",
+      "map_id": 503,
+      "sha256": "35e8e01d29d48016f1b2814680a21e3c67b87e7ba1bcd8a3d3922eea53cbc43b",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_504.json",
+      "map_id": 504,
+      "sha256": "19143e8f5248ac1361858ed93b45062afce91c1b669468c98b987d4ede844c02",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_505.json",
+      "map_id": 505,
+      "sha256": "04bb88fa779983631cadd7fe6a24cf416f3571cf543ddab77aaf4dcfef83e459",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_506.json",
+      "map_id": 506,
+      "sha256": "7781d67d5487b18476346d9dcc68884e8fe93555bfaa96a7c85122618ea0b427",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_507.json",
+      "map_id": 507,
+      "sha256": "60e5a54a027b7ad7bbd69bffe94ed6bcff5ad889b6507cbb96f024fa883ce95d",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_508.json",
+      "map_id": 508,
+      "sha256": "8c0bf11999c7da072bd4fa19d996dd51403867d751b1376ca086411da17ca206",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_509.json",
+      "map_id": 509,
+      "sha256": "b0dcecc8c2a9b8b9d9ba8a40a50569412d181b06d068a100507972d6df54c9d2",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_510.json",
+      "map_id": 510,
+      "sha256": "ccba42de573a6cce5a221a23dfcc89eab3889dca97e5fbbc638caa7c3528b9c8",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_511.json",
+      "map_id": 511,
+      "sha256": "7271c63dca4031ad1a47e5bf52bbd6161702c500139396e140f859eb8091efea",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_512.json",
+      "map_id": 512,
+      "sha256": "b9c7f80898c725d688852eb8df35a4b0589e5b3ea66ee626f394ea941f486435",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_513.json",
+      "map_id": 513,
+      "sha256": "8b52422977d0e152e6d5b8d7583d2749f94c8bc614f6e4238caff0e5222a4e85",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_514.json",
+      "map_id": 514,
+      "sha256": "bc202a18800064a4f69e260e3ad4ddd5604533d2b4da69991abd80bef27259d3",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_515.json",
+      "map_id": 515,
+      "sha256": "ccb00f3f861f2f4880150f9c29f2e9b9b03f7b130df9af0c50c47d8a9df7e9a8",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_516.json",
+      "map_id": 516,
+      "sha256": "0c4912d90ece4f15bbfbe4a51c773dbb1258d6a5fafefa7c182afb0ea5b484f4",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_517.json",
+      "map_id": 517,
+      "sha256": "7d66fc435add2859aa9b68c3e4b34f6358846ee3be3667da8535812b0f606478",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_518.json",
+      "map_id": 518,
+      "sha256": "f2ca31d1c06181116f868072f0ff238c727bf0aca8fadaea071419dc891c34ba",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_519.json",
+      "map_id": 519,
+      "sha256": "98429d06e247f743fba7f8021414efa0b4f77dc3559d71852e5068e38a751e7f",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_520.json",
+      "map_id": 520,
+      "sha256": "71470f9c73eaf291ba75eb28c6b09957ddf39d162939fd686d5482187cbc73cf",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_521.json",
+      "map_id": 521,
+      "sha256": "8b04ca4598d38f68539d327c8dfdea7f278c44c49d6e8b1d611b5d428d3cbd45",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_522.json",
+      "map_id": 522,
+      "sha256": "5abddb042a3b761ca414261b6c49845b291822462dba6daebaca77f1e2eb70f4",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_523.json",
+      "map_id": 523,
+      "sha256": "3795a01a5bd37733063099537aa1cbd5380021d072d8dc474289107cafe4e195",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_524.json",
+      "map_id": 524,
+      "sha256": "aab2b5c5d845fbeafd0dbf887920a0e7adfb07de3c9929b997f728f60565f681",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_525.json",
+      "map_id": 525,
+      "sha256": "39c1714015ba0acd932a77adbb6062759049d5ad87e0abfa9b7812b344cc2258",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_526.json",
+      "map_id": 526,
+      "sha256": "354303b52e2e79f7f7b849a719198197609d365c122e6ea0e91318b555a47c3c",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_527.json",
+      "map_id": 527,
+      "sha256": "4567214b29e5dadf78499761d1c9e0ba5df9dc0f7f8b641f95d0f509bec54a91",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_528.json",
+      "map_id": 528,
+      "sha256": "ea0f5a15c97189a702d45c491677a5c533038520b65af45aa0fcd8556d38378b",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_529.json",
+      "map_id": 529,
+      "sha256": "cb83dc35e72030cf5719cbbf93bc4417faa572d06eab6798f86d0350de187453",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_530.json",
+      "map_id": 530,
+      "sha256": "0bf7027e9d18ce385a3c77c796e45ef7993a94d498e503212e124384b89629c5",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_531.json",
+      "map_id": 531,
+      "sha256": "61df46b9fc7056fda1dd7673367255e160e2bf235d70794d6a77c5b3243cbb0e",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_532.json",
+      "map_id": 532,
+      "sha256": "ec5c626f130da3edb5978dfdd21a6a666e0e6c834ca63949a5716119e82e4c42",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_533.json",
+      "map_id": 533,
+      "sha256": "87556b9c341b4ee91b3be08d920cd38217a0afd32b5182917f0a7e97d3950153",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_534.json",
+      "map_id": 534,
+      "sha256": "ae7fe8e403c8242a3f2a9a642cc3cef6c54b93a1155c15e15180b9e43582a831",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_535.json",
+      "map_id": 535,
+      "sha256": "773a9d7c04b2bbcf2dcb928fe71e541bd8682dc793a533b04969957e38b6e965",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_536.json",
+      "map_id": 536,
+      "sha256": "58e72898905ed3c48852e9e5721bd92837746ee38bff17ebd272dcf50e7d446e",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_537.json",
+      "map_id": 537,
+      "sha256": "ac90cbbae609f0c27f0da1371f791d57beec1b7e8edaeef0958cfdc2c08a68c1",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_538.json",
+      "map_id": 538,
+      "sha256": "cc0f0cbf7930b0af5912efb5e9b83aac759f67894b750637c6ddb71f5bbef00a",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_539.json",
+      "map_id": 539,
+      "sha256": "8bfae3b68be12d39b9a70eae419899ab297a39c644add595c5201e07a2979e52",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_540.json",
+      "map_id": 540,
+      "sha256": "40d948fa51c79e8c545ac0c617ac9b63fae9475e118cf59963021ef8fa7fcafe",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_541.json",
+      "map_id": 541,
+      "sha256": "829542a24282894a4393dfc9f8ee329272a4330a4c3b035273728805d0a0629c",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_542.json",
+      "map_id": 542,
+      "sha256": "17ba05a746be0ef60afaca4c687cadfd061eea423c32559c67e19ca1af4e55ae",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_543.json",
+      "map_id": 543,
+      "sha256": "4debe3a6bcd6ac2d68925ce0b3b6c1b0b0cc81b63c4cdf9ffc72e716970a6e33",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_544.json",
+      "map_id": 544,
+      "sha256": "d7164de4ddad315af6335b1c2764bcdbab5d6e58ac4713ffce348e84b73bad80",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_545.json",
+      "map_id": 545,
+      "sha256": "0d5f3ed51f12b1fd861316efc5d7a76dafd861ba78ffa74bb8dbfd3c4dee4f7a",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_546.json",
+      "map_id": 546,
+      "sha256": "7354030c4bcee28086af0efcb914f0562b9f85bbcd87235a22ed8a596fb1f978",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_547.json",
+      "map_id": 547,
+      "sha256": "9f5acdd2ff3f635d0190a9f4f286d427bd64cb937a32e06927b5051e54eb7231",
+      "status": "PMDO_CONVERTED"
+    },
+    {
+      "file": "zones/map_548.json",
+      "map_id": 548,
+      "sha256": "3283652e79f2c80c54b498978a02e3d2e508eb34483a9a7b5bc88ff4fb0aa805",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_549.json",
+      "map_id": 549,
+      "sha256": "6ca3ea1f481870e25585847a69138e10924c86c2de020575dbe8ecfe712370f3",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_550.json",
+      "map_id": 550,
+      "sha256": "c1ec9ddc97a127a246f7387b52fc908afaf7a487d85c758726039404f3c47297",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_551.json",
+      "map_id": 551,
+      "sha256": "7696ed8e4b7202e558f362ee1ed3d2e8c6b89f20ff049cad1bbdcebbf91f2e5c",
+      "status": "ADAPTATION_REQUIRED"
+    },
+    {
+      "file": "zones/map_552.json",
+      "map_id": 552,
+      "sha256": "81338667dc7dd77a0179be1a481ecdf6301f4c7559afced2c4b365d295cfce4c",
+      "status": "PMDO_CONVERTED"
+    }
+  ]
+}

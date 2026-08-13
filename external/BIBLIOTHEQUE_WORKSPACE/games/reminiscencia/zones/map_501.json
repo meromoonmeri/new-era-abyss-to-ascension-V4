@@ -1,0 +1,82 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_501.rsground",
+    "ground_sha256": "69f64072956da588a40f628b412ba5cbd2891437c575252a0eec6546d1bdd6aa",
+    "preview": "conversion/pmdo_candidates/previews/map_501.png",
+    "preview_sha256": "48d432a4a66da24045a9ce2b3b369bf4e447b497e9276ed4306d8631d468cb8b",
+    "runtime_report": "conversion/pmdo_candidates/runtime/map_501/runtime_report.json",
+    "runtime_report_sha256": "cee959d1e9e1686e0cd754f274d086b5407a55d61bee121e1a81c469fa8ea353",
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_501.json",
+    "sidecar_sha256": "6ccc24abfd7f04545c88df61f6ac5561adfc642a58b6d0f3add8c848ae8de15c",
+    "source_render": "conversion/pmdo_renders/maps/map_501.png",
+    "source_render_sha256": "d46295e77cd3f2b7ebd6a51ae8d2e0b19ff3f8dfec127b8b305c863e9465ef71",
+    "visual_timeline": "vfx/timelines/maps/map_501.json",
+    "visual_timeline_sha256": "901ea865d48a3d9f14e9c345e1bb1f064a1d5d41324548c7a4dab9cb82bc2bc6"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": []
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 41,
+    "source_event_count": 24
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": false,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      480,
+      480
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      960,
+      960
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      30,
+      30
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 4,
+    "environment_sprite_page_context_count": 4,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": true,
+    "fog_name": "PetalosGIF",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 501,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "Entrada Torre Quemada",
+    "source_order": 501,
+    "tileset_id": 30,
+    "tileset_name": "Torre_Entrada"
+  },
+  "status": "ADAPTATION_REQUIRED"
+}

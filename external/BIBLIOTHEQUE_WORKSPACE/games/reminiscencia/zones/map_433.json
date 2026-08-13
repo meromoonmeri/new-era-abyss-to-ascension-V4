@@ -1,0 +1,82 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_433.rsground",
+    "ground_sha256": "cc5d86c66430fe3e37044091d99a99605c17064dbe576a40cb59de62be1f850f",
+    "preview": "conversion/pmdo_candidates/previews/map_433.png",
+    "preview_sha256": "70ca2f577a6de5ac6dd677a82a96bd2bfbc1b98f099e00edfce092011fd1e146",
+    "runtime_report": null,
+    "runtime_report_sha256": null,
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_433.json",
+    "sidecar_sha256": "e856bf85c5d25a90f889b4ac7e027581786b181d6b2cf72b1ee23831f5a1dcd2",
+    "source_render": "conversion/pmdo_renders/maps/map_433.png",
+    "source_render_sha256": "09b9def1fad7c78fd7920b380febb2297781264a447cafdd0851a907b77f130a",
+    "visual_timeline": "vfx/timelines/maps/map_433.json",
+    "visual_timeline_sha256": "7507c4413d3a79e8b37596ca4268864e4fccd4dbf2bfb39336193136a4d9e483"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": []
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 17,
+    "source_event_count": 11
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": false,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      560,
+      560
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      1120,
+      1120
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      35,
+      35
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 1,
+    "environment_sprite_page_context_count": 1,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": false,
+    "fog_name": "",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 433,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "Isla Desierta",
+    "source_order": 433,
+    "tileset_id": 23,
+    "tileset_name": "PlayaDungeon"
+  },
+  "status": "PMDO_CONVERTED"
+}

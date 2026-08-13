@@ -1,0 +1,82 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_027.rsground",
+    "ground_sha256": "ad16d7f680ed4300c1d86abf307c37e56f8974a704f6781455956ee0295902ed",
+    "preview": "conversion/pmdo_candidates/previews/map_027.png",
+    "preview_sha256": "ee2196e01c2479658396d03e898c394e4b2415d5191cf0ba84f3966ed20149bf",
+    "runtime_report": null,
+    "runtime_report_sha256": null,
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_027.json",
+    "sidecar_sha256": "d08813776f164825a7ab5410d31d88330798982840dd8cfa5511107949e3dc6e",
+    "source_render": "conversion/pmdo_renders/maps/map_027.png",
+    "source_render_sha256": "4ca51090274d4932caddff583a454e6cc63b64ca0a7a2045035422fd474f43ac",
+    "visual_timeline": "vfx/timelines/maps/map_027.json",
+    "visual_timeline_sha256": "a976f056810d1e01c184ae0407cfffa5d81379e374edc901d9ca88e8e1ed69d5"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": []
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 42,
+    "source_event_count": 29
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": false,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      544,
+      496
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      1088,
+      992
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      34,
+      31
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 8,
+    "environment_sprite_page_context_count": 8,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": false,
+    "fog_name": "",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 27,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "Taberna",
+    "source_order": 27,
+    "tileset_id": 3,
+    "tileset_name": "Interiores"
+  },
+  "status": "PMDO_CONVERTED"
+}

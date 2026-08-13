@@ -1,0 +1,31 @@
+{
+  "game_id": "reminiscencia",
+  "map_ids": [
+    8,
+    19,
+    22,
+    156,
+    409,
+    444,
+    447
+  ],
+  "missing_tile_ids": [],
+  "pmdo": {
+    "atlas_payload_count": 663,
+    "environment_sprite_payload_count": 26,
+    "environment_sprite_sheet_count": 3,
+    "file": "tiles/reminiscencia_tileset_004_Base.tile",
+    "fog_frame_count": 0,
+    "fog_source_name": null,
+    "panorama_source_name": null,
+    "sha256": "8c2947da293ab52dc935c213cad0d77bf13602a5599ac87606077591c8517b02",
+    "sheet": "reminiscencia_tileset_004_Base",
+    "size_bytes": 144244,
+    "tile_size_px": 16,
+    "used_tile_id_count": 538
+  },
+  "schema_version": "1.0.0",
+  "source_name": "CasaAnthony",
+  "tileset_id": 4,
+  "unresolved_dependencies": []
+}

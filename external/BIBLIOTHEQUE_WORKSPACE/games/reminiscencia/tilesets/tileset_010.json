@@ -1,0 +1,25 @@
+{
+  "game_id": "reminiscencia",
+  "map_ids": [
+    69
+  ],
+  "missing_tile_ids": [],
+  "pmdo": {
+    "atlas_payload_count": 753,
+    "environment_sprite_payload_count": 35,
+    "environment_sprite_sheet_count": 3,
+    "file": "tiles/reminiscencia_tileset_010_Base.tile",
+    "fog_frame_count": 0,
+    "fog_source_name": null,
+    "panorama_source_name": null,
+    "sha256": "23d03774242372799e72f85a3399352941251b8e0bdc7bcf6b832d19b5a00a48",
+    "sheet": "reminiscencia_tileset_010_Base",
+    "size_bytes": 147163,
+    "tile_size_px": 16,
+    "used_tile_id_count": 686
+  },
+  "schema_version": "1.0.0",
+  "source_name": "Lluvia",
+  "tileset_id": 10,
+  "unresolved_dependencies": []
+}

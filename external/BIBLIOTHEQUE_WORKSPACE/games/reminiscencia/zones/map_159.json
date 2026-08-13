@@ -1,0 +1,82 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_159.rsground",
+    "ground_sha256": "33ac469bb051b8a47e45fb4916c92f4604c46a65e7911d2e9c5d371e13032c8e",
+    "preview": "conversion/pmdo_candidates/previews/map_159.png",
+    "preview_sha256": "265a03bf9e59b967a590ac3df2c8be595722c62c0d867ac7881a78e9bdb46182",
+    "runtime_report": null,
+    "runtime_report_sha256": null,
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_159.json",
+    "sidecar_sha256": "6733c0fd7bc744d7a086713f00ed970b7416aefa4ec384e1c20a3640fa2e7498",
+    "source_render": "conversion/pmdo_renders/maps/map_159.png",
+    "source_render_sha256": "6540790fad95f0364869e5208cb206a00916d7713bef960729e9bd358b6c8128",
+    "visual_timeline": "vfx/timelines/maps/map_159.json",
+    "visual_timeline_sha256": "fc4c2a298cf5bfb16bb02a00baa53be2b8869aa03ae437abdcb663b95ceb1509"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": []
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 5,
+    "source_event_count": 4
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": false,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      352,
+      288
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      704,
+      576
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      22,
+      18
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 0,
+    "environment_sprite_page_context_count": 0,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": true,
+    "fog_name": "Submarino",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 159,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "Escena Auto",
+    "source_order": 159,
+    "tileset_id": 1,
+    "tileset_name": "Templo_Submarino"
+  },
+  "status": "ADAPTATION_REQUIRED"
+}

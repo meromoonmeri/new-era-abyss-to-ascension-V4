@@ -1,0 +1,82 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_463.rsground",
+    "ground_sha256": "b8c309033ecf62986115e56f17dc2d312ab06cfb37eae7d1da166529fdd54d5d",
+    "preview": "conversion/pmdo_candidates/previews/map_463.png",
+    "preview_sha256": "b0c523e334225ce01bb599d4a7d43b32aff22ad6991aed4e858c123f161234d6",
+    "runtime_report": null,
+    "runtime_report_sha256": null,
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_463.json",
+    "sidecar_sha256": "f99e285390be86f1c62326e04a20dae53791e0db5bf5f6a729458694b94daba8",
+    "source_render": "conversion/pmdo_renders/maps/map_463.png",
+    "source_render_sha256": "4d3e960cbeb74d49227e4bfdbacba7ae20ff8c44bdc070d9f0865d59f89b9ec3",
+    "visual_timeline": "vfx/timelines/maps/map_463.json",
+    "visual_timeline_sha256": "e28d1c35f17e1473bb71398ce1759a94996bb7e37d48f9eb2cb1c7ea9792873c"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": []
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 0,
+    "source_event_count": 0
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": false,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      640,
+      384
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      1280,
+      768
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      40,
+      24
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 0,
+    "environment_sprite_page_context_count": 0,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": "CASTING_OR_UI_BAKED_TILE_SCENE",
+    "fog_materialized": false,
+    "fog_name": "",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 463,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "Mapa",
+    "source_order": 463,
+    "tileset_id": 25,
+    "tileset_name": "REDACTED"
+  },
+  "status": "UNSUPPORTED"
+}

@@ -1,0 +1,82 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_488.rsground",
+    "ground_sha256": "6b0aaa3b0e30997441c6dfa8166d9344d3547a26b986a0a552a56305e0165711",
+    "preview": "conversion/pmdo_candidates/previews/map_488.png",
+    "preview_sha256": "3d720d362ab57bf0d7601e8a40e2aa66fd10715d8849b2e171e37e685a91b74c",
+    "runtime_report": "conversion/pmdo_candidates/runtime/map_488/runtime_report.json",
+    "runtime_report_sha256": "b3fc8f583b246aecd9c26b0af2ab2b6b897ad8cbda1d0b87738905df03f9456c",
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_488.json",
+    "sidecar_sha256": "c7d0a9c2c7a25542d423c4bb032f484ffc077f166b414a31319ccde4d547f119",
+    "source_render": "conversion/pmdo_renders/maps/map_488.png",
+    "source_render_sha256": "eb939c1b81fc21a3bced08ff0171a4225490c8b189f072a551bde6076f6fad25",
+    "visual_timeline": "vfx/timelines/maps/map_488.json",
+    "visual_timeline_sha256": "e141f86a95d96d61ed0ae3dbc5a9f7cdc2dd287fa4b584ac9b63c0706d219f86"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": []
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 34,
+    "source_event_count": 10
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": false,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      640,
+      640
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      1280,
+      1280
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      40,
+      40
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 0,
+    "environment_sprite_page_context_count": 0,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": true,
+    "fog_name": "Clouds",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 488,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "Torre Campana Cima",
+    "source_order": 488,
+    "tileset_id": 29,
+    "tileset_name": "BurnedTowerTop"
+  },
+  "status": "ADAPTATION_REQUIRED"
+}

@@ -1,0 +1,82 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_074.rsground",
+    "ground_sha256": "c8b4be2c031ecfc054807326c0650363d21c720df27870d37e563ad66dc5b231",
+    "preview": "conversion/pmdo_candidates/previews/map_074.png",
+    "preview_sha256": "2098adb4d625649b1c623841ba02c2d933b82fb9df6f4ca3c71cff1422dd9a54",
+    "runtime_report": "conversion/pmdo_candidates/runtime/map_074/runtime_report.json",
+    "runtime_report_sha256": "36c18309905e0b3fab4aa81221bce49a0e8979828ccb9032d4d3e6efebbb1ef5",
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_074.json",
+    "sidecar_sha256": "80a040a7d4e6619a1158b52eaa06befd181bec482916178b4519439f7ea970b5",
+    "source_render": "conversion/pmdo_renders/maps/map_074.png",
+    "source_render_sha256": "db12ce5121e4b525f0dad706d3385caa68279540116cbf4e3a75a0a571f9b4df",
+    "visual_timeline": "vfx/timelines/maps/map_074.json",
+    "visual_timeline_sha256": "c14bd55c27ff3bb0558aabad033e2c9ff970f4cec33550b2b186e97db957690a"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": []
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 0,
+    "source_event_count": 0
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": true,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      320,
+      240
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      640,
+      480
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      20,
+      15
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 0,
+    "environment_sprite_page_context_count": 0,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": false,
+    "fog_name": "",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 74,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "Palmeral",
+    "source_order": 74,
+    "tileset_id": 23,
+    "tileset_name": "PlayaDungeon"
+  },
+  "status": "PMDO_CONVERTED"
+}

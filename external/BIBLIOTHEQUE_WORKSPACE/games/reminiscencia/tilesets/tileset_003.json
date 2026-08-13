@@ -1,0 +1,32 @@
+{
+  "game_id": "reminiscencia",
+  "map_ids": [
+    1,
+    5,
+    27,
+    68,
+    71,
+    73,
+    442,
+    514
+  ],
+  "missing_tile_ids": [],
+  "pmdo": {
+    "atlas_payload_count": 652,
+    "environment_sprite_payload_count": 134,
+    "environment_sprite_sheet_count": 4,
+    "file": "tiles/reminiscencia_tileset_003_Base.tile",
+    "fog_frame_count": 0,
+    "fog_source_name": null,
+    "panorama_source_name": null,
+    "sha256": "63db86c6e8adcbf06220f95ba3049f4cc3c2297d24d32635f1c9e19da98f445b",
+    "sheet": "reminiscencia_tileset_003_Base",
+    "size_bytes": 117158,
+    "tile_size_px": 16,
+    "used_tile_id_count": 624
+  },
+  "schema_version": "1.0.0",
+  "source_name": "Interiores",
+  "tileset_id": 3,
+  "unresolved_dependencies": []
+}

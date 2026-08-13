@@ -1,0 +1,82 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_261.rsground",
+    "ground_sha256": "79ff933bc2dd4dcf4da0cf2908b52cb14ab9f702c55b3c54c374e3010a909360",
+    "preview": "conversion/pmdo_candidates/previews/map_261.png",
+    "preview_sha256": "49d3d95b4a3de74566f627c46dc8a5ddef500279d06e11468b79ab85e14ef2b6",
+    "runtime_report": null,
+    "runtime_report_sha256": null,
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_261.json",
+    "sidecar_sha256": "a992f0bcb78d45dc2057156996a7690e39b92aed50e2186b37f8ff828a1a486a",
+    "source_render": "conversion/pmdo_renders/maps/map_261.png",
+    "source_render_sha256": "24a1a428dc4b168f9e89af4b9a28b819cafe843b0f727f67d32fc52b6dff0adf",
+    "visual_timeline": "vfx/timelines/maps/map_261.json",
+    "visual_timeline_sha256": "0b43c7d118f43ae85e22387db45f7f8e2be74372b744f51e46784284aca5c8c8"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": []
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 0,
+    "source_event_count": 0
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": true,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      320,
+      240
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      640,
+      480
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      20,
+      15
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 0,
+    "environment_sprite_page_context_count": 0,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": true,
+    "fog_name": "Submarino",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 261,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "CoralNara_w_3_h_3_scatterBloqTemplo",
+    "source_order": 261,
+    "tileset_id": 1,
+    "tileset_name": "Templo_Submarino"
+  },
+  "status": "ADAPTATION_REQUIRED"
+}

@@ -1,0 +1,84 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_435.rsground",
+    "ground_sha256": "9616fa8af426c89fcf08b7ae38889684e4bd38b5f5c43e3b0719396cbb97f0a8",
+    "preview": "conversion/pmdo_candidates/previews/map_435.png",
+    "preview_sha256": "7b6756e15feca62b6d14b6885014a6910e1278fb77834307c2788ca239f70e8f",
+    "runtime_report": null,
+    "runtime_report_sha256": null,
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_435.json",
+    "sidecar_sha256": "a30da745d2f965054b20e4bd69f8d8da056680cda00ce778a6d1ae174710c7a0",
+    "source_render": "conversion/pmdo_renders/maps/map_435.png",
+    "source_render_sha256": "48dff11a3471f8e4877a3c459393b7cb3be3ebf053c691e480b6a1048f4b0475",
+    "visual_timeline": "vfx/timelines/maps/map_435.json",
+    "visual_timeline_sha256": "0b98130550f2ad33d4f881d08041003f822d882cff45846e8ee4c1a365b1c000"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": [
+      9
+    ]
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 29,
+    "source_event_count": 11
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": false,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      464,
+      320
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      928,
+      640
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      29,
+      20
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 1,
+    "environment_sprite_page_context_count": 1,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": false,
+    "fog_name": "",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 435,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "Acceso al Volcan",
+    "source_order": 435,
+    "tileset_id": 20,
+    "tileset_name": "LavaVolcan"
+  },
+  "status": "ADAPTATION_REQUIRED"
+}

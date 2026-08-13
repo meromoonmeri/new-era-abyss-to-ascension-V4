@@ -1,0 +1,85 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_082.rsground",
+    "ground_sha256": "9ef5919b66606939bf4d22f983980edef0511e7f6919c49631f21238b1a845ac",
+    "preview": "conversion/pmdo_candidates/previews/map_082.png",
+    "preview_sha256": "13bc421e8968d071b0d9e49b1ff9dca32f2fa0327c5c1303d2454f02116f1f0b",
+    "runtime_report": null,
+    "runtime_report_sha256": null,
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_082.json",
+    "sidecar_sha256": "e1c286c3afd512f82ad218ee5f22627dd7a7657e368a3ac670175b1f8703ed52",
+    "source_render": "conversion/pmdo_renders/maps/map_082.png",
+    "source_render_sha256": "450b6810eae7d7972d8e5223661e44a8bdb2ce5f7b4d466d199314527b55f2b7",
+    "visual_timeline": "vfx/timelines/maps/map_082.json",
+    "visual_timeline_sha256": "03f1b2be24cf5911ab30f0b4290721db161c7fd39d0df7f3a70935fa0ca24582"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": [
+      7,
+      14
+    ]
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 78,
+    "source_event_count": 42
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": false,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      1088,
+      1168
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      2176,
+      2336
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      68,
+      73
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 9,
+    "environment_sprite_page_context_count": 9,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": false,
+    "fog_name": "",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 82,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "Ciudad de Isla Talasa",
+    "source_order": 82,
+    "tileset_id": 13,
+    "tileset_name": "Nieve"
+  },
+  "status": "ADAPTATION_REQUIRED"
+}

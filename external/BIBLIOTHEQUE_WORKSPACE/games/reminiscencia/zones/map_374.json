@@ -1,0 +1,82 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_374.rsground",
+    "ground_sha256": "9c2d9d484df2e98890c40e65d7b6dd9ceb98b02e118afff9cba9807a8db42680",
+    "preview": "conversion/pmdo_candidates/previews/map_374.png",
+    "preview_sha256": "0f0c9a908f3c70161ada3e0cb8a1329586d6233c862dbdb2ff397ea96925f26c",
+    "runtime_report": null,
+    "runtime_report_sha256": null,
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_374.json",
+    "sidecar_sha256": "aa9686d9dcdc0cc1aedf76230796a75a30973863ec1f0edd4226bc84badc43f7",
+    "source_render": "conversion/pmdo_renders/maps/map_374.png",
+    "source_render_sha256": "5bb3e936eb3d943d8ee7068f9832e4d0c82eef9b2b342e40a147f1629af44460",
+    "visual_timeline": "vfx/timelines/maps/map_374.json",
+    "visual_timeline_sha256": "f69661c76bd2fc00c8792aef5163bbee8b2fe50b3d430405b09dccf2de64b924"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": []
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 0,
+    "source_event_count": 0
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": true,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      320,
+      240
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      640,
+      480
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      20,
+      15
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 0,
+    "environment_sprite_page_context_count": 0,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": false,
+    "fog_name": "",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 374,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "MinaAgua2_w_3_h_3_scatterBloqMina",
+    "source_order": 374,
+    "tileset_id": 19,
+    "tileset_name": "Mina"
+  },
+  "status": "PMDO_CONVERTED"
+}

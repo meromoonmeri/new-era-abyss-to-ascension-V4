@@ -1,0 +1,82 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_342.rsground",
+    "ground_sha256": "d7ffd978b45e26a3ca213d3f04c397a3ba4a732f08f203294725bbe5e9d7e27b",
+    "preview": "conversion/pmdo_candidates/previews/map_342.png",
+    "preview_sha256": "0a3675008f3863a908a471e11ca2a4a418c6a36c7a9c52a6eff465af68035ca4",
+    "runtime_report": null,
+    "runtime_report_sha256": null,
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_342.json",
+    "sidecar_sha256": "afe6762c89f71fb042c23862a64070a6155d40ab42b095dc9af794cf4f4cb237",
+    "source_render": "conversion/pmdo_renders/maps/map_342.png",
+    "source_render_sha256": "57fba8f1d9b633ec6eb4a8f61f01869a0a1bdbb1985de86d315877b1a08a9fd3",
+    "visual_timeline": "vfx/timelines/maps/map_342.json",
+    "visual_timeline_sha256": "0c48ea79ebfba893a69887d75da6d6c3a0832fb234dd20a892e820939966c60c"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": []
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 0,
+    "source_event_count": 0
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": true,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      320,
+      240
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      640,
+      480
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      20,
+      15
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 0,
+    "environment_sprite_page_context_count": 0,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": false,
+    "fog_name": "",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 342,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "TriSalidaOeste_w_3_h_5_salidaTrigalOeste",
+    "source_order": 342,
+    "tileset_id": 22,
+    "tileset_name": "Granja_Maz"
+  },
+  "status": "PMDO_CONVERTED"
+}

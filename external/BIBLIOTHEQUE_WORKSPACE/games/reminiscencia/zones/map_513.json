@@ -1,0 +1,82 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_513.rsground",
+    "ground_sha256": "1dd9bc312557cb777f939690ffeaf53342e884e340c6be69e30ab5b3d62ed88d",
+    "preview": "conversion/pmdo_candidates/previews/map_513.png",
+    "preview_sha256": "3522f313040aed9346664bba8482d2718506733231bb1876984aba99e11ddd4c",
+    "runtime_report": null,
+    "runtime_report_sha256": null,
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_513.json",
+    "sidecar_sha256": "c47ddfe85caa256a3c2cb2f0c2c02378152a477f2bcd51b8be887008a0403e92",
+    "source_render": "conversion/pmdo_renders/maps/map_513.png",
+    "source_render_sha256": "0bf3cdb82ca49b4999b09164145f618fb68f28ae26567d0b008ddb31b5d7e0f5",
+    "visual_timeline": "vfx/timelines/maps/map_513.json",
+    "visual_timeline_sha256": "f4988d16707d7873542a3652982e296a4a46c47a1f3ed98b0c5c91293109e4ae"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": []
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 42,
+    "source_event_count": 21
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": false,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      320,
+      320
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      640,
+      640
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      20,
+      20
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 3,
+    "environment_sprite_page_context_count": 3,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": false,
+    "fog_name": "",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 513,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "Tienda de Kyle",
+    "source_order": 513,
+    "tileset_id": 31,
+    "tileset_name": "KyleChoza"
+  },
+  "status": "PMDO_CONVERTED"
+}

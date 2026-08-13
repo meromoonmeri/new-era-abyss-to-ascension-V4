@@ -1,4 +1,8 @@
-# Reminiscencia — 552 rendus PNG PMDO
+# Reminiscencia — 552 rendus PNG source normalisés
+
+> Archive statique : la cible active est désormais `TexSize=2`, 16 px et
+> 320×240, décrite dans `REMINISCENCIA_PMDO_CONVERSION.md`. Les mentions
+> `TexSize=4` ci-dessous concernent uniquement l'ancienne passe source.
 
 ## Résultat
 

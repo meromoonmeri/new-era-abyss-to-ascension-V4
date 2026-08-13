@@ -1,0 +1,82 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_486.rsground",
+    "ground_sha256": "a7c7d91edca0ba74470ca1992bbd299c51a505a8f2e3ffc268f126a087099a07",
+    "preview": "conversion/pmdo_candidates/previews/map_486.png",
+    "preview_sha256": "34798d676e47b2276b0cce3066a9c644f9dcd53de1a732f73a80ed8a4194e4fc",
+    "runtime_report": null,
+    "runtime_report_sha256": null,
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_486.json",
+    "sidecar_sha256": "4eab549dabdde7dc9a89f017b44eed3654d656d89b656c7238826cff58a179ce",
+    "source_render": "conversion/pmdo_renders/maps/map_486.png",
+    "source_render_sha256": "672d05964a437cfea337255ecde6c2ac25e02080ae4185434ce8eede44baa061",
+    "visual_timeline": "vfx/timelines/maps/map_486.json",
+    "visual_timeline_sha256": "5b4d90dd5490d3cf7ddae26e033529f4e96a3835fed8d054b5f15d77018e41de"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": []
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 29,
+    "source_event_count": 26
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": false,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      640,
+      640
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      1280,
+      1280
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      40,
+      40
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 23,
+    "environment_sprite_page_context_count": 23,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": true,
+    "fog_name": "Clouds",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 486,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "Torre Quemada Cima",
+    "source_order": 486,
+    "tileset_id": 29,
+    "tileset_name": "BurnedTowerTop"
+  },
+  "status": "ADAPTATION_REQUIRED"
+}

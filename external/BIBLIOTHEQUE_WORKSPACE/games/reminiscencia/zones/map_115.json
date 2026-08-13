@@ -1,0 +1,82 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_115.rsground",
+    "ground_sha256": "e2d72e1e722325e8606374d71a2447cbcfdbe85d9f28d6d93cf7b30095a48549",
+    "preview": "conversion/pmdo_candidates/previews/map_115.png",
+    "preview_sha256": "98c1c811b28da81d91310649bf8be7b56b5b8ed0449fdb8f1d8520fa882961d0",
+    "runtime_report": null,
+    "runtime_report_sha256": null,
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_115.json",
+    "sidecar_sha256": "f9316e38d7e4e8b14f80a0a271bb7a571743bfe5d4794857a15880b69b0450dd",
+    "source_render": "conversion/pmdo_renders/maps/map_115.png",
+    "source_render_sha256": "951cfb8c167593404f710c124434d1ec782a16cd0c0ff0ca2c00a7966b0d763f",
+    "visual_timeline": "vfx/timelines/maps/map_115.json",
+    "visual_timeline_sha256": "74dc7ba6fb67798c81b9f6e74d784d1f5f5e9ddacd4a5b63c27acc09582ed8f9"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": []
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 48,
+    "source_event_count": 27
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": false,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      672,
+      576
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      1344,
+      1152
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      42,
+      36
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 0,
+    "environment_sprite_page_context_count": 0,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": false,
+    "fog_name": "",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 115,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "Carcel de Isla Talasa",
+    "source_order": 115,
+    "tileset_id": 14,
+    "tileset_name": "CarcelInterior"
+  },
+  "status": "PMDO_CONVERTED"
+}

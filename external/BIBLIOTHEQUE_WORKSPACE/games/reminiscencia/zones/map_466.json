@@ -1,0 +1,84 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_466.rsground",
+    "ground_sha256": "a4af1c3b148ead5cfeeaaf553120e6f97d07e70c660b8cdf97d434fd4fcaa7a1",
+    "preview": "conversion/pmdo_candidates/previews/map_466.png",
+    "preview_sha256": "3a2e37495b86af4120a8cb4341b3ec3476ea85abe6c894808b2cb32732589ff4",
+    "runtime_report": null,
+    "runtime_report_sha256": null,
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_466.json",
+    "sidecar_sha256": "554850563dfebdc4d9b669a9cead4281b3eb5f964fa2827033d5331ce213354a",
+    "source_render": "conversion/pmdo_renders/maps/map_466.png",
+    "source_render_sha256": "6d2e36204e3b7178a0ef841d1efe4223f76d2d978694b7387db470f6b9ad8c5d",
+    "visual_timeline": "vfx/timelines/maps/map_466.json",
+    "visual_timeline_sha256": "1f51d652560b387ad8cd0ae2224a6f5b59fc242e56fbcb585831767a1f48b3f4"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": [
+      7
+    ]
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 175,
+    "source_event_count": 75
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": false,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      1440,
+      1424
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      2880,
+      2848
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      90,
+      89
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 3,
+    "environment_sprite_page_context_count": 3,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": true,
+    "fog_name": "PetalosGIF",
+    "missing_tile_ids": [],
+    "panorama_converted": true,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 466,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "Isla",
+    "source_order": 466,
+    "tileset_id": 26,
+    "tileset_name": "IslaAmapolas"
+  },
+  "status": "ADAPTATION_REQUIRED"
+}

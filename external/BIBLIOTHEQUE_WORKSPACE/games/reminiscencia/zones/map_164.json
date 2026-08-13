@@ -1,0 +1,84 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_164.rsground",
+    "ground_sha256": "114fa06deadfdee8e53dbd3f85a1acd2928774991169e8b962131720b700f41b",
+    "preview": "conversion/pmdo_candidates/previews/map_164.png",
+    "preview_sha256": "eb8ab7ea8b6349a9e1407294d1723ac708336c88766dcd32c8148fa4bfc1ebac",
+    "runtime_report": null,
+    "runtime_report_sha256": null,
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_164.json",
+    "sidecar_sha256": "343dad50d0b77765b502bdc0843b788be719d9bda8746badad9e1974c6bacb03",
+    "source_render": "conversion/pmdo_renders/maps/map_164.png",
+    "source_render_sha256": "c3f6c1dad87abe9b1938e09f7ca69a5bb48a045817ac9d1e1f72272a04866e35",
+    "visual_timeline": "vfx/timelines/maps/map_164.json",
+    "visual_timeline_sha256": "5614ede53a6e6683ebabb16e8339751e7e9b65f2245d4c3d1aaf4c45d4a491b9"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": [
+      9
+    ]
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 4,
+    "source_event_count": 3
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": true,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      320,
+      240
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      640,
+      480
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      20,
+      15
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 0,
+    "environment_sprite_page_context_count": 0,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": false,
+    "fog_name": "",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 164,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "Prision",
+    "source_order": 164,
+    "tileset_id": 14,
+    "tileset_name": "CarcelInterior"
+  },
+  "status": "ADAPTATION_REQUIRED"
+}

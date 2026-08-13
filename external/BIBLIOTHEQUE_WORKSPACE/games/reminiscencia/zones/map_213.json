@@ -1,0 +1,84 @@
+{
+  "artifacts": {
+    "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
+    "ground_member": "grounds/reminiscencia_map_213.rsground",
+    "ground_sha256": "ff876113096f23d63c99ee814e8d11ee5981b5c8d6a3abb3949d5eb881d3b60f",
+    "preview": "conversion/pmdo_candidates/previews/map_213.png",
+    "preview_sha256": "068c0554a365a68e85a82b000109a7c34236317b45a75c476c29293d4dd99a91",
+    "runtime_report": "conversion/pmdo_candidates/runtime/map_213/runtime_report.json",
+    "runtime_report_sha256": "5c7921fbab573fe41119ede9d94b41b6ee1cd0e4e6f3fc5d581b9f1af63da273",
+    "sidecar": "conversion/pmdo_candidates/sidecars/map_213.json",
+    "sidecar_sha256": "fd6df449ab720f4be4b40cf31d4e747f92487f3f3955c46dd321740818e7a6ca",
+    "source_render": "conversion/pmdo_renders/maps/map_213.png",
+    "source_render_sha256": "f7d5ae69efdfe0276f89243a610807a1485e32b3544b89f1997690899efc251e",
+    "visual_timeline": "vfx/timelines/maps/map_213.json",
+    "visual_timeline_sha256": "2fe4b77e9f79f9df8e3c0b5448c4c19ae938e2fe8b1a644d23a41055016652fb"
+  },
+  "collision": {
+    "exact_mask_in_sidecar": true,
+    "native_policy": "CONSERVATIVE_FULL_BLOCK_IN_GROUND_EXACT_MASK_IN_SIDECAR",
+    "partial_direction_masks": [
+      9
+    ]
+  },
+  "entities": {
+    "casting_pixels_exported": false,
+    "identities_redacted": true,
+    "page_placement_count": 4,
+    "source_event_count": 3
+  },
+  "game_id": "reminiscencia",
+  "geometry": {
+    "default_viewport_exact_fit": true,
+    "default_viewport_px": [
+      320,
+      240
+    ],
+    "edge_view": "Clamp",
+    "pmdo_collision_size_px": 8,
+    "pmdo_pixels": [
+      320,
+      240
+    ],
+    "pmdo_tex_size": 2,
+    "pmdo_tile_size_px": 16,
+    "source_pixels": [
+      640,
+      480
+    ],
+    "source_tile_size_px": 32,
+    "source_tiles": [
+      20,
+      15
+    ]
+  },
+  "layers_and_visuals": {
+    "environment_sprite_entity_count": 0,
+    "environment_sprite_page_context_count": 0,
+    "environmental_tile_event_count": 0,
+    "excluded_visual_scene": null,
+    "fog_materialized": true,
+    "fog_name": "Submarino",
+    "missing_tile_ids": [],
+    "panorama_converted": false,
+    "source_tile_layer_count": 3,
+    "unresolved_dependencies": []
+  },
+  "map_id": 213,
+  "provenance": {
+    "conversion_scale": [
+      1,
+      2
+    ],
+    "source_archive_sha256": "cf74db06c2c06b36cdd88c3139ab8c123b932269c34e7b0f10349f05e475be08",
+    "source_repository_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f"
+  },
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "name": "Templo Varuna",
+    "source_order": 213,
+    "tileset_id": 1,
+    "tileset_name": "Templo_Submarino"
+  },
+  "status": "ADAPTATION_REQUIRED"
+}
