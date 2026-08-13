@@ -2,39 +2,58 @@
 
 ## Objectif
 
-L'outil construit un donjon comme un processus de level design et non comme une
-simple suite de salles aléatoires. Il sépare explicitement :
+Le Smart Dungeon Designer construit un donjon comme un processus de level design
+déterministe et explicable. Il ne maximise pas simplement un score et ne remplit
+pas une carte avec des décorations. Son ordre de décision est :
 
-1. analyse des ressources réellement disponibles ;
-2. interprétation d'une intention en langage naturel ;
-3. planification de la progression complète ;
-4. architecture spatiale de chaque étage ;
-5. composition visuelle et décoration hiérarchisée ;
-6. évaluation multi-critères ;
-7. réparations locales et comparaison de variantes ;
-8. compilation en `ZoneData` PMDO/RogueElements.
+1. analyse multi-source des ressources réellement disponibles ;
+2. interprétation de l'intention naturelle ;
+3. direction artistique procédurale du donjon ;
+4. actes, courbe de spectacle et identité de chaque étage ;
+5. stratégie spatiale et fonctions des salles ;
+6. rythme, approches, régions et landmarks ;
+7. composition décorative groupée ;
+8. validation structurelle et artistique séparée ;
+9. réparations et sélection explicable de variantes ;
+10. compilation en `ZoneData` PMDO/RogueElements.
 
-Point d'entrée : `python3 tools/smart_dungeon.py`.
+Point d'entrée :
 
-## Analyse de bibliothèque
+```bash
+python3 tools/smart_dungeon.py
+```
 
-`analyze-assets` inspecte :
+La conception détaillée de la deuxième phase se trouve dans
+`docs/SMART_DUNGEON_PHASE2_DESIGN.md`.
 
-- les atlas `.tile` disponibles ;
-- des échantillons PNG réels ;
-- la taille des tuiles ;
-- palette dominante, luminosité, saturation et alpha ;
-- densité de contours, détail et symétrie ;
-- l'usage réel des feuilles dans les Grounds et leur corrélation aux collisions ;
-- les bundles `MapTextureStep` déjà employés dans les zones PMDO.
+## Analyse multi-source de la bibliothèque
 
-L'outil infère des scores pour les rôles `floor`, `wall`, `border`,
-`structure`, `decoration`, `hazard`, `water`, `transition` et `focal`. Il bâtit
-ensuite un graphe de compatibilité combinant palette, style, transparence,
-détail, dimensions et vocabulaire de nommage. Les clusters ne supposent jamais
-qu'un biome possède une recette fixe.
+`analyze-assets` inspecte sans modifier les sources :
 
-Les corrections humaines sont persistantes :
+- atlas `.tile` et échantillons PNG réels ;
+- dimensions, palette, luminosité, saturation et transparence ;
+- contours, détail et symétrie ;
+- utilisation observée dans les Grounds ;
+- couches, fréquences et cooccurrences ;
+- corrélation avec les collisions ;
+- bundles `MapTextureStep` et zones PMDO qui les emploient ;
+- vocabulaire des noms, lorsqu'il est informatif.
+
+Chaque `AssetProfile` conserve ses sources de preuve, contextes d'utilisation,
+confiance, ambiguïtés et raisons d'incertitude. Les matériaux sont décrits comme
+*apparents* ou comme propriétés graphiques : l'analyse ne transforme pas une
+palette sombre en fait narratif.
+
+Lorsqu'un asset est ambigu, il n'est jamais choisi comme élément exceptionnel
+sans preuve forte ou override. Il peut seulement servir de fond ou de support
+conservateur, ou être écarté. La commande suivante expose ce raisonnement :
+
+```bash
+python3 tools/smart_dungeon.py explain-assets \
+  --project WORK/DONJON --query crystal
+```
+
+Les corrections humaines restent persistantes :
 
 ```bash
 python3 tools/smart_dungeon.py override-asset \
@@ -42,9 +61,28 @@ python3 tools/smart_dungeon.py override-asset \
   --tags pierre ancien --rarity 0.25
 ```
 
-## Intentions naturelles
+## Direction artistique procédurale
 
-Exemple :
+`art_direction.json` est construit depuis l'intention et les métriques réelles,
+sans table fixe de biomes. Il contient :
+
+- axes de luminosité, saturation, détail, symétrie et contraste ;
+- palette observée ;
+- vocabulaire **principal**, **secondaire**, **de transition** et
+  **exceptionnel** ;
+- rôle de composition et raison d'emploi de chaque asset ;
+- confiance et preuves ;
+- budgets globaux, particulièrement stricts pour l'exceptionnel ;
+- assets ambigus ou rejetés ;
+- quatre actes artistiques ;
+- stratégies spatiales préférées ;
+- décisions expliquant le choix.
+
+La compatibilité n'est qu'un filtre. Un élément n'est retenu que s'il soutient la
+base visuelle, une variation locale, une transition ou un moment exceptionnel.
+Les assets compatibles non nécessaires restent inutilisés.
+
+## Intentions naturelles
 
 ```bash
 python3 tools/smart_dungeon.py create \
@@ -56,107 +94,211 @@ python3 tools/smart_dungeon.py create \
   --boss --mini-bosses 2 --relays 3 --seed 424242
 ```
 
-L'intention devient un `DesignBrief` explicite : thème, courbe émotionnelle,
-transition topologique, danger, décoration, eau, contraintes et salles
-spéciales. Les relais sont placés après des pics de tension ou avant le climax,
-pas automatiquement tous les cinq étages.
+Le `DesignBrief` explicite désormais aussi :
 
-## Architecture spatiale
+- préférences de composition ;
+- mots-clés visuels ;
+- intensité du spectacle ;
+- budget de surprise contrôlée ;
+- progression topologique et émotionnelle.
 
-Le planificateur produit notamment :
+Deux intentions employant le même catalogue peuvent donc produire des directions
+et séquences de familles différentes.
 
-- salles rectangulaires, irrégulières, rondes et cruciformes ;
-- petites et grandes salles ;
-- salles centrales et arènes ;
-- arbres de circulation complétés par des boucles et raccourcis ;
-- couloirs à plusieurs coudes ;
-- branches, alcôves et espaces respiratoires ;
-- entrée, sortie, points focaux et salles spéciales protégés.
+## Identité et rythme du donjon
 
-La progression fait évoluer subtilement la complexité, la densité, le danger,
-la taille des pièces, les boucles et le rythme. Chaque étage possède un
-sous-thème local mais conserve le cluster visuel du donjon.
+Avant de générer les salles, le planificateur fixe pour chaque étage :
 
-## Qualité et réparation itérative
+- acte et phase ;
+- famille principale et stratégie secondaire ;
+- signature géométrique ;
+- gradient de densité ;
+- rôle du landmark ;
+- niveau de spectacle ;
+- rythme spatial prévu ;
+- approche vers le prochain événement ;
+- priorité du vocabulaire visuel.
 
-Chaque variante est notée sur 100 avec :
+La courbe de spectacle réserve ses pics aux moments importants. Les relais
+abaissent tension et densité. Les étages précédant un boss simplifient leur
+circulation et réduisent les distractions. Le boss final constitue le maximum de
+la courbe.
+
+## Familles de composition adaptables
+
+Les familles ne sont pas des templates rigides. Elles orientent le placement,
+la fonction des salles, le graphe et les paramètres RogueElements :
+
+- grande salle centrale ;
+- centre protégé ;
+- progression circulaire ;
+- boucle dominante ;
+- colonne de couloirs ;
+- succession de chambres ;
+- îlots de salles ;
+- branches et poches secondaires ;
+- gradient asymétrique ;
+- grande zone ouverte ;
+- scènes dédiées de boss/mini-boss ;
+- relais conçu comme refuge.
+
+Une stratégie secondaire compatible introduit des transitions naturelles. Les
+régions partagent d'abord un vocabulaire principal, puis font varier la densité
+et les accents au lieu de remplacer brutalement tous les assets.
+
+## Fonctions de salles et contexte spatial
+
+Chaque salle explique désormais sa géométrie par une fonction :
+
+- orientation ;
+- exploration ;
+- découverte ;
+- tension ;
+- respiration ;
+- récompense ;
+- préparation ;
+- transition ;
+- récupération ;
+- climax.
+
+Une arène n'est plus une salle ronde isolée : elle possède une porte d'approche,
+un espace de préparation, une scène focale et un chemin principal. Un relais est
+entouré de tension, récupération et reprise d'orientation. Ces décisions sont
+présentes dans les plans et dans les contrats exportés par le compilateur.
+
+## Landmarks, régions et composition décorative
+
+Chaque étage peut contenir des régions neutres, de transition, de support et
+focales. Un landmark est attaché à une salle importante, possède une fonction
+d'orientation et conserve la raison de son placement.
+
+La décoration n'est plus une suite de tirages indépendants. Elle emploie des
+groupes transformables :
+
+- ancre et satellites ;
+- paire d'encadrement ;
+- groupe de coin ;
+- rythme de bordure ;
+- écho asymétrique ;
+- marqueurs de seuil ;
+- cour de landmark.
+
+Chaque groupe conserve ancre, rotation, miroir, positions, motif et raison. La
+mémoire locale empêche les répétitions immédiates. La mémoire globale suit les
+assets, motifs, familles et landmarks déjà employés. Les budgets empêchent un
+asset focal de réapparaître parce qu'il possède simplement un bon score.
+
+Des salles restent volontairement sobres. Une surprise contrôlée peut utiliser
+le vocabulaire de transition, mais jamais sortir arbitrairement de la direction
+artistique.
+
+## Double validation
+
+### Qualité structurelle
 
 - accessibilité et connexité ;
-- lisibilité ;
 - distance entrée/escalier ;
-- variété des tailles et formes ;
-- nombre de boucles ;
-- longueur maximale des couloirs droits ;
+- variété de tailles et formes ;
+- boucles ;
+- longueur des couloirs ;
 - densité marchable ;
-- symétrie involontaire ;
-- équilibre spatial de la décoration ;
-- dégagement des entrées, sorties et points d'intérêt ;
-- cohérence visuelle du cluster d'assets.
+- symétrie voulue ou involontaire ;
+- dégagement des points critiques.
 
-Les violations déclenchent des réparations locales : connexion de composantes,
-création d'une boucle, alcôve asymétrique, remodelage d'une salle,
-redistribution des décorations ou dégagement d'un point critique. Plusieurs
-variantes sont comparées et la meilleure est conservée. Les plans, variantes,
-notes et réparations sont enregistrés.
+### Qualité artistique
 
-## Décoration
+- hiérarchie des régions et points focaux ;
+- espaces de respiration ;
+- variation des densités ;
+- répétition des assets ;
+- diversité des motifs ;
+- couverture par des groupes composés ;
+- discipline des éléments rares ;
+- qualité des landmarks ;
+- force de l'identité ;
+- rythme spatial ;
+- transitions ;
+- relation fonction/géométrie ;
+- surprise contrôlée.
 
-La décoration utilise quatre niveaux : commun, secondaire, rare et focal.
+### Qualité globale du donjon
 
-- les petits éléments vont près des murs et dans les coins ;
-- les éléments focaux occupent un espace ouvert protégé ;
-- les éléments détaillés/rares sont utilisés avec parcimonie ;
-- une distance minimale évite les rythmes mécaniques ;
-- les entrées, escaliers et points d'intérêt restent dégagés ;
-- certaines zones restent volontairement vides.
+- diversité des familles et signatures ;
+- différenciation des étages adjacents ;
+- progression du spectacle ;
+- répétition des landmarks ;
+- respect des budgets globaux.
 
-## Verrous et régénération partielle
+`structural_score` et `visual_score` restent séparés. `score` est un agrégat à
+fort effet de goulot : une excellente structure ne masque pas une mauvaise
+composition. Un étage structurellement valide mais visuellement faible est
+rejeté.
+
+La sélection des variantes suit cet ordre :
+
+1. admissibilité structurelle **et** artistique ;
+2. plus faible des deux notes ;
+3. identité réalisée ;
+4. nouveauté par rapport à la mémoire ;
+5. agrégat final.
+
+## Explication des décisions
 
 ```bash
-# Verrouiller l'étage final
+python3 tools/smart_dungeon.py explain-design \
+  --project WORK/sanctuaire_echo --floor 12
+```
+
+La réponse expose direction artistique, fonctions des salles, signature,
+landmarks, groupes, réparations, notes séparées et raisons de sélection. Il n'y
+a aucune génération opaque.
+
+## Verrous et régénérations
+
+```bash
 python3 tools/smart_dungeon.py lock --project WORK/sanctuaire_echo --floor 25
-
-# Verrouiller une salle
 python3 tools/smart_dungeon.py lock --project WORK/sanctuaire_echo --floor 12 --room 3
-
-# Régénérer une structure, une salle ou uniquement la décoration
 python3 tools/smart_dungeon.py regenerate --project WORK/sanctuaire_echo --scope floor:8
 python3 tools/smart_dungeon.py regenerate --project WORK/sanctuaire_echo --scope room:8:2
 python3 tools/smart_dungeon.py regenerate --project WORK/sanctuaire_echo --scope decor:8
 ```
 
-Une seed identique, une bibliothèque identique et des overrides identiques
-produisent le même résultat.
+La mémoire est reconstruite dans l'ordre des étages lors d'une régénération. Les
+étages et salles verrouillés restent inchangés. `decor:N` conserve tiles et
+salles puis recompose uniquement la couche décorative.
 
 ## Compilation RogueElements
 
-Le compilateur choisit une zone PMDO procédurale compatible dans la bibliothèque
-et produit un `RangeDictSegment` natif. Chaque étage reçoit son propre
-`GridFloorGen` paramétré à partir du plan sélectionné : grille, taille de cellule,
-ratio de salles, branches, tunnels, tailles de salles, tournants de couloir et
-distance des escaliers.
+Le compilateur conserve un `RangeDictSegment` natif, `FloorStairsStep`,
+`MapTextureStep`, spawns, équipes, objets et Monster Houses PMDO. Les nouvelles
+familles règlent de manière distincte :
 
-Sont conservés :
+- grille ;
+- taille des cellules et salles ;
+- ratios de salles et branches ;
+- tournants ;
+- tunnels, boucles et impasses ;
+- distance d'escalier.
 
-- `FloorStairsStep` natif ;
-- `MapTextureStep` compatible ;
-- spawns d'objets, argent, Monster Houses et effets PMDO ;
-- roster déduit des zones disponibles les plus proches du thème ;
-- équipes et pression ennemie adaptées à la difficulté.
-
-Boss, mini-boss et relais disposent d'un contrat de placement exporté. Leur
-script narratif/combat reste une étape d'intégration volontairement séparée afin
-de ne pas inventer un boss ou un routage historique.
+Le `floor_design_contracts` explique la traduction. Boss, mini-boss et relais
+exportent aussi leur approche et leurs beats. Le scripting narratif/combat reste
+un point d'intégration explicite : l'outil ne l'invente pas.
 
 ## Sorties d'un projet
 
-- `asset_catalog.json` : compréhension des ressources ;
+- `asset_catalog.json` : observations et incertitudes ;
 - `asset_overrides.json` : corrections humaines ;
 - `brief.json` : intention normalisée ;
-- `progression.json` : rythme du donjon ;
-- `plans/floor_NNN.json` : architecture complète ;
-- `previews/floor_NNN.svg`, `contact_sheet.svg` et `special_rooms.svg` ;
-- `quality_report.json` : scores, violations et variantes ;
+- `art_direction.json` : direction artistique et budgets ;
+- `progression.json` : actes, signatures, rythme et spectacle ;
+- `plans/floor_NNN.json` : architecture et composition complètes ;
+- `previews/floor_NNN.svg` : régions, groupes et landmarks ;
+- `previews/contact_sheet.svg` : comparaison de tous les étages ;
+- `previews/design_board.svg` : vocabulaire et courbe de spectacle ;
+- `previews/special_rooms.svg` : scènes et approches importantes ;
+- `quality_report.json` : notes par couche et variantes ;
+- `artistic_quality_report.json` : validation globale ;
+- `decision_log.json` : raisons détaillées ;
 - `locks.json` ;
 - `zone/<nom>.json` : candidat PMDO ;
 - `project.json` et `generation_manifest.json`.
@@ -167,12 +309,12 @@ de ne pas inventer un boss ou un routage historique.
 python3 tools/smart_dungeon.py validate --project WORK/sanctuaire_echo
 ```
 
-Le validateur réévalue les plans et vérifie que le ZoneData compilé possède bien
-un escalier RogueElements par étage. Si la fixture Agent A est disponible :
+Le validateur recalcule les deux couches, la qualité globale et vérifie un
+`FloorStairsStep` natif par étage. Si la fixture PMDO 0.8.12 Agent A est
+présente :
 
 ```bash
 python3 tools/smart_dungeon.py runtime-index --project WORK/sanctuaire_echo
 ```
 
-Cette commande exécute l'indexeur PMDO 0.8.12 exact dans un overlay ignoré et
-n'écrit jamais dans `Data/Zone`.
+Cette commande utilise un overlay isolé et n'écrit jamais dans `Data/Zone`.

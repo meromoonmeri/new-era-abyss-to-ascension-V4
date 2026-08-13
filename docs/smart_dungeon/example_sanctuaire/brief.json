@@ -36,5 +36,15 @@
       "kind": "relay",
       "count": 2
     }
-  ]
+  ],
+  "composition_preferences": [
+    "central_landmark"
+  ],
+  "visual_keywords": [
+    "ancien",
+    "inquiétant",
+    "majestueux"
+  ],
+  "spectacle_bias": 0.55,
+  "surprise_budget": 0.08
 }

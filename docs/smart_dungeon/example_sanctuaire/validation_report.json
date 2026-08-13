@@ -1,8 +1,13 @@
 {
   "result": "SMART_DUNGEON_VALIDATION_PASS",
   "floor_count": 12,
-  "mean_score": 87.728,
-  "minimum_score": 81.116,
+  "mean_score": 84.47,
+  "minimum_score": 80.478,
+  "mean_structural_score": 86.991,
+  "minimum_structural_score": 82.573,
+  "mean_visual_score": 83.667,
+  "minimum_visual_score": 79.725,
+  "dungeon_artistic_score": 89.838,
   "stairs_step_count": 24,
   "errors": []
 }

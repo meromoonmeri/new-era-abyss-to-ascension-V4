@@ -803,3 +803,38 @@ est confirmé (`SideQuests.AllDone` conditionne la progression de chapitre,
 - **Récompense & Retour Automatique (`SideQuests.OnDungeonClear`)** : une fois le donjon accompli (`ResultType.Cleared`), le joueur est automatiquement téléporté **face au PNJ en ville (`metano_town`)** ou **face au Job Board de Bekipan à la guilde (`guild_second_floor`)**, déclenchant la cinématique de félicitation et de remise de prime sans transition manuelle.
 
 
+
+
+## Session 2026-08-13 — Smart Dungeon Designer Phase 2
+
+- Conception préalable : `docs/SMART_DUNGEON_PHASE2_DESIGN.md` documente l'audit
+  de Phase 1, les points d'extension, les nouvelles structures et les critères de
+  validation avant implémentation.
+- Analyse multi-source enrichie : pixels, Grounds, couches, collisions,
+  cooccurrences, zones natives, preuves, confiance, ambiguïtés, matériaux
+  apparents et ponts visuels. Un asset ambigu n'est pas employé comme élément
+  exceptionnel sans preuve forte ou override.
+- Direction artistique procédurale : vocabulaire principal, secondaire,
+  exceptionnel et de transition, fonctions de composition, budgets, quatre
+  actes, axes visuels et décisions explicables dans `art_direction.json`.
+- Level design hiérarchique : familles adaptables, signatures, fonctions de
+  salles, régions, rythme spatial, approches de boss/relais, landmarks, courbe de
+  spectacle et surprise contrôlée.
+- Décoration composée : groupes transformables, respiration, mémoire locale et
+  globale, budgets et raisons de placement; plus de placement indépendant comme
+  logique principale.
+- Qualité séparée : structure, art par étage et cohérence globale du donjon. La
+  sélection privilégie admissibilité, goulot structure/visuel, identité,
+  nouveauté, puis agrégat — jamais le seul score total.
+- Explicabilité : `decision_log.json`, `artistic_quality_report.json`,
+  `previews/design_board.svg` et commande `explain-design`.
+- Démonstration Phase 2 `docs/smart_dungeon/example_sanctuaire/` : 12 étages,
+  8 familles de composition, score structurel moyen 86,991 (min. 82,573), score
+  visuel moyen 83,667 (min. 79,725), qualité artistique globale 89,838, 24
+  `FloorStairsStep`, validation complète réussie.
+- Tests Phase 2 : 12 tests vérifient déterminisme, double validation, rejet d'un
+  étage structurellement valide mais visuellement plat, différenciation de deux
+  intentions avec la même bibliothèque, mémoire/budgets, scènes spéciales,
+  verrous, régénérations et compilation.
+- Aucun fichier de `Data/Ground`, `Content/Tile` ou `Data/Zone` n'est écrit ou
+  modifié par le Smart Dungeon Designer.

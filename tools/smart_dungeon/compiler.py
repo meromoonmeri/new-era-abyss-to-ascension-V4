@@ -54,28 +54,39 @@ def _floor_generators(zone):
    if nodes:return s,[copy.deepcopy(n['Item']) for n in nodes]
  raise ValueError('Reference has no procedural floor generators')
 def _tune_floor(gen:dict,plan:FloorPlan,texture:list[str]|None):
+ family=plan.identity.get('composition_family',plan.archetype)
  avgw=sum(r.width for r in plan.rooms)/max(1,len(plan.rooms));avgh=sum(r.height for r in plan.rooms)/max(1,len(plan.rooms));loops=max(0,len(plan.edges)-len(plan.rooms)+1);density=plan.quality.get('metrics',{}).get('walkable_density',.35)
+ family_rules={
+  'open_field':{'cells':4,'room':88,'branch':38,'turn':72,'dead':False,'scale':1.18},
+  'island_clusters':{'cells':5,'room':72,'branch':48,'turn':58,'dead':True,'scale':1.05},
+  'central_landmark':{'cells':5,'room':78,'branch':55,'turn':62,'dead':False,'scale':1.12},
+  'protected_core':{'cells':5,'room':76,'branch':64,'turn':58,'dead':False,'scale':1.10},
+  'circular_progression':{'cells':6,'room':68,'branch':78,'turn':48,'dead':False,'scale':.95},
+  'dominant_loop':{'cells':6,'room':64,'branch':82,'turn':44,'dead':False,'scale':.92},
+  'branching_pockets':{'cells':6,'room':62,'branch':72,'turn':42,'dead':True,'scale':.88},
+  'asymmetric_gradient':{'cells':6,'room':66,'branch':63,'turn':38,'dead':True,'scale':1.0},
+  'chamber_sequence':{'cells':6,'room':58,'branch':30,'turn':70,'dead':False,'scale':.76},
+  'corridor_spine':{'cells':6,'room':56,'branch':28,'turn':78,'dead':True,'scale':.82},
+  'relay_haven':{'cells':4,'room':76,'branch':42,'turn':68,'dead':False,'scale':1.04},
+  'boss_stage':{'cells':3,'room':88,'branch':38,'turn':72,'dead':False,'scale':1.30},
+  'mini_boss_stage':{'cells':3,'room':84,'branch':42,'turn':68,'dead':False,'scale':1.18},
+ }
+ rule=family_rules.get(family,{'cells':max(3,min(7,round(math.sqrt(max(4,len(plan.rooms)))))),'room':round(density*190),'branch':52,'turn':55,'dead':plan.archetype in ('labyrinth','branching'),'scale':1})
  for step in typed(gen,'MapDataStep'):
   step['TimeLimit']=1800;step['ClampCamera']=False
  for step in typed(gen,'InitGridPlanStep'):
-  cells=max(3,min(7,round(math.sqrt(max(4,len(plan.rooms))))));step['CellX']=cells;step['CellY']=max(3,min(7,round(cells*plan.height/plan.width)));step['CellWidth']=max(6,min(14,round(avgw)));step['CellHeight']=max(6,min(14,round(avgh)));step['CellWall']=max(2,min(6,round((avgw+avgh)/5)))
+  cells=rule['cells'];step['CellX']=cells;step['CellY']=max(3,min(7,round(cells*plan.height/plan.width)));step['CellWidth']=max(6,min(16,round(avgw*rule['scale'])));step['CellHeight']=max(6,min(15,round(avgh*rule['scale'])));step['CellWall']=max(2,min(6,round((avgw+avgh)/5)))
  for step in typed(gen,'GridPathBranch'):
-  step['RoomRatio']={'Min':max(45,round(density*180)),'Max':min(100,max(55,round(density*210)))};step['BranchRatio']={'Min':35+min(35,loops*7),'Max':75+min(25,loops*6)};step['NoForcedBranches']=plan.archetype=='linear'
+  room=max(42,min(94,rule['room']));branch=max(20,min(90,rule['branch']+min(12,loops*3)));step['RoomRatio']={'Min':room,'Max':min(101,room+14)};step['BranchRatio']={'Min':branch,'Max':min(101,branch+22)};step['NoForcedBranches']=family in ('corridor_spine','chamber_sequence')
  for step in typed(gen,'RoomGen'):
-  if isinstance(step.get('Width'),dict):step['Width']={'Min':max(4,round(avgw*.65)),'Max':max(7,round(avgw*1.3))}
-  if isinstance(step.get('Height'),dict):step['Height']={'Min':max(4,round(avgh*.65)),'Max':max(7,round(avgh*1.3))}
- for step in typed(gen,'RoomGenAngledHall'):
-  step['HallTurnBias']=45 if plan.archetype=='labyrinth' else 65
+  if isinstance(step.get('Width'),dict):step['Width']={'Min':max(4,round(avgw*.58*rule['scale'])),'Max':max(7,round(avgw*1.28*rule['scale']))}
+  if isinstance(step.get('Height'),dict):step['Height']={'Min':max(4,round(avgh*.58*rule['scale'])),'Max':max(7,round(avgh*1.28*rule['scale']))}
+ for step in typed(gen,'RoomGenAngledHall'):step['HallTurnBias']=rule['turn']
  for step in typed(gen,'AddTunnelStep'):
-  step['TurnLength']={'Min':2,'Max':5};step['MaxLength']={'Min':3,'Max':8};step['AllowDeadEnd']=plan.archetype in ('labyrinth','branching');step['Halls']={'Min':max(2,loops+2),'Max':max(5,loops+6)}
- for step in typed(gen,'FloorStairsStep'):
-  step['MinDistance']=max(8,min(40,round(plan.quality.get('metrics',{}).get('exit_distance',20)*.55)))
+  step['TurnLength']={'Min':2,'Max':5};step['MaxLength']={'Min':3,'Max':9 if rule['dead'] else 7};step['AllowDeadEnd']=rule['dead'];step['Halls']={'Min':max(2,loops+2),'Max':max(5,loops+6)}
+ for step in typed(gen,'FloorStairsStep'):step['MinDistance']=max(8,min(40,round(plan.quality.get('metrics',{}).get('exit_distance',20)*.55)))
  if texture and len(texture)>=3:
   for step in typed(gen,'MapTextureStep'):step['GroundTileset'],step['BlockTileset'],step['WaterTileset']=texture[:3]
- # A final arena is intentionally spacious and low-noise.
- if plan.special in ('boss','mini_boss'):
-  for step in typed(gen,'InitGridPlanStep'):step['CellX']=3;step['CellY']=3;step['CellWidth']=14 if plan.special=='boss' else 11;step['CellHeight']=12 if plan.special=='boss' else 10
-  for step in typed(gen,'GridPathBranch'):step['RoomRatio']={'Min':82,'Max':101};step['BranchRatio']={'Min':35,'Max':61}
  return gen
 def _replace_roster(segment,roster,brief):
  steps=typed(segment,'TeamSpawnZoneStep')
@@ -92,6 +103,17 @@ def _replace_roster(segment,roster,brief):
   if isinstance(x.get('Respawn'),dict):x['Respawn']['MaxFoes']=x['MaxFoes'];x['Respawn']['RespawnTime']=x['RespawnTime']
 def compile_zone(repo:Path,brief:DesignBrief,plans:list[FloorPlan],selection:dict,output:Path,reference:str|None=None,roster_size:int=24):
  ref_name,ref_path=choose_reference(repo,brief,selection,reference);zone=load_json(ref_path);segment,generators=_floor_generators(zone);nodes=[]
- for i,plan in enumerate(plans):nodes.append({'Item':_tune_floor(copy.deepcopy(generators[i%len(generators)]),plan,selection.get('texture_values')),'Range':{'Min':i,'Max':i+1}})
- segment=copy.deepcopy(segment);segment['Floors']={'nodes':nodes};segment['Comment']=f'{brief.name} — conçu par Smart Dungeon Designer, seed {brief.seed}';roster=derive_roster(repo,brief,roster_size,brief.seed);_replace_roster(segment,roster,brief);o=zone['Object'];o['Name']={'DefaultText':brief.name,'LocalTexts':{'fr':brief.name}};o['Released']=True;o['Comment']=f'Génération intelligente reproductible; référence PMDO {ref_name}; seed {brief.seed}.';o['Segments']=[segment];o['GroundMaps']=[];o['Level']={'facile':10,'normal':18,'difficile':26,'extrême':34}.get(brief.difficulty,18);o['LevelCap']=False;o['TeamSize']=4;o['BagSize']=32
- output.parent.mkdir(parents=True,exist_ok=True);output.write_text('\ufeff'+json.dumps(zone,ensure_ascii=False,indent=1),encoding='utf-8');return {'reference_zone':ref_name,'zone_file':str(output),'floor_count':len(plans),'roster':roster,'boss_contract':next(({'floor':p.floor,'species':roster[-1],'arena_position':p.points_of_interest[0]['position'] if p.points_of_interest else None,'integration':'generated_arena_plus_story_battle_hook'} for p in plans if p.special=='boss'),None),'mini_boss_contracts':[{'floor':p.floor,'species':roster[-2-(i%max(1,len(roster)-2))],'arena_position':p.points_of_interest[0]['position'] if p.points_of_interest else None,'integration':'generated_arena_plus_battle_hook'} for i,p in enumerate(x for x in plans if x.special=='mini_boss')],'relay_contracts':[{'floor':p.floor,'position':p.points_of_interest[0]['position'] if p.points_of_interest else None,'integration':'refuge_contract'} for p in plans if p.special=='relay']}
+ for i,plan in enumerate(plans):
+  nodes.append({'Item':_tune_floor(copy.deepcopy(generators[i%len(generators)]),plan,selection.get('texture_values')),'Range':{'Min':i,'Max':i+1}})
+ segment=copy.deepcopy(segment);segment['Floors']={'nodes':nodes};segment['Comment']=f'{brief.name} — conçu par Smart Dungeon Designer Phase 2, seed {brief.seed}'
+ roster=derive_roster(repo,brief,roster_size,brief.seed);_replace_roster(segment,roster,brief);obj=zone['Object'];obj['Name']={'DefaultText':brief.name,'LocalTexts':{'fr':brief.name}};obj['Released']=True;obj['Comment']=f'Génération explicable reproductible; référence PMDO {ref_name}; seed {brief.seed}.';obj['Segments']=[segment];obj['GroundMaps']=[];obj['Level']={'facile':10,'normal':18,'difficile':26,'extrême':34}.get(brief.difficulty,18);obj['LevelCap']=False;obj['TeamSize']=4;obj['BagSize']=32
+ output.parent.mkdir(parents=True,exist_ok=True);output.write_text('\ufeff'+json.dumps(zone,ensure_ascii=False,indent=1),encoding='utf-8')
+ def contract(plan,kind,species=None):
+  focus=next((point['position'] for point in plan.points_of_interest if point.get('kind')==kind),None);approach=[{'room_id':room.room_id,'function':room.function} for room in plan.rooms if room.function in ('gateway','preparation','tension','recovery')]
+  result={'floor':plan.floor,'position':focus,'composition_family':plan.identity.get('composition_family'),'approach_rooms':approach,'spatial_beats':plan.spatial_beats,'integration':'generated_stage_plus_explicit_hook' if kind in ('boss','mini_boss') else 'generated_recovery_context_plus_relay_hook'}
+  if species:result['species']=species
+  return result
+ boss=next((contract(plan,'boss',roster[-1]) for plan in plans if plan.special=='boss'),None)
+ minis=[contract(plan,'mini_boss',roster[-2-(index%max(1,len(roster)-2))]) for index,plan in enumerate(item for item in plans if item.special=='mini_boss')]
+ relays=[contract(plan,'relay') for plan in plans if plan.special=='relay']
+ return {'reference_zone':ref_name,'zone_file':str(output),'floor_count':len(plans),'roster':roster,'boss_contract':boss,'mini_boss_contracts':minis,'relay_contracts':relays,'floor_design_contracts':[{'floor':plan.floor,'composition_family':plan.identity.get('composition_family'),'signature':plan.identity.get('signature'),'spectacle':plan.identity.get('spectacle'),'structural_score':plan.quality.get('structural_score'),'visual_score':plan.quality.get('visual_score')} for plan in plans]}

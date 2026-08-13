@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="520" viewBox="0 0 1180 520">
+<rect width="100%" height="100%" fill="#11141a"/>
+<text x="22" y="31" fill="#f3f0df" font-family="sans-serif" font-weight="bold" font-size="20">Direction artistique et rythme du donjon</text>
+<text x="22" y="52" fill="#aeb8c6" font-family="sans-serif" font-size="11">direction_259884558e8a</text>
+<text x="22" y="84" fill="#d4d9e2" font-family="sans-serif" font-size="10">PRINCIPAL</text>
+<rect x="22" y="94" width="42" height="42" rx="4" fill="#a87848" stroke="#e4e0d5" stroke-width="1"><title>Apple Woods Entrance Layer 1 — proche des axes visuels et suffisamment sobre pour soutenir la scène</title></rect>
+<rect x="72" y="94" width="42" height="42" rx="4" fill="#603048" stroke="#e4e0d5" stroke-width="1"><title>A02p04_Base — proche des axes visuels et suffisamment sobre pour soutenir la scène</title></rect>
+<rect x="122" y="94" width="42" height="42" rx="4" fill="#c09078" stroke="#e4e0d5" stroke-width="1"><title>Aegis Cave Entrance Layer 1 — proche des axes visuels et suffisamment sobre pour soutenir la scène</title></rect>
+<text x="302" y="84" fill="#d4d9e2" font-family="sans-serif" font-size="10">SECONDAIRE</text>
+<rect x="302" y="94" width="42" height="42" rx="4" fill="#606030" stroke="#e4e0d5" stroke-width="1"><title>Aegis_Regi_Arena_Base — compatible avec le vocabulaire principal mais assez distinct pour structurer une zone</title></rect>
+<rect x="352" y="94" width="42" height="42" rx="4" fill="#306018" stroke="#e4e0d5" stroke-width="1"><title>Apple Woods End Layer 2 — compatible avec le vocabulaire principal mais assez distinct pour structurer une zone</title></rect>
+<rect x="402" y="94" width="42" height="42" rx="4" fill="#607848" stroke="#e4e0d5" stroke-width="1"><title>AntreDragon_Base — compatible avec le vocabulaire principal mais assez distinct pour structurer une zone</title></rect>
+<text x="582" y="84" fill="#d4d9e2" font-family="sans-serif" font-size="10">TRANSITION</text>
+<rect x="582" y="94" width="42" height="42" rx="4" fill="#184818" stroke="#e4e0d5" stroke-width="1"><title>Apricorn_Glade_Big_Tree — distance visuelle intermédiaire ou relation avec plusieurs familles</title></rect>
+<rect x="632" y="94" width="42" height="42" rx="4" fill="#a83030" stroke="#e4e0d5" stroke-width="1"><title>A02p02_Base — distance visuelle intermédiaire ou relation avec plusieurs familles</title></rect>
+<text x="862" y="84" fill="#d4d9e2" font-family="sans-serif" font-size="10">EXCEPTIONNEL</text>
+<rect x="862" y="94" width="42" height="42" rx="4" fill="#786048" stroke="#e4e0d5" stroke-width="1"><title>Altere_Pond_Objects_Under — détail ou rareté élevés; usage réservé à un moment visuel</title></rect>
+<rect x="912" y="94" width="42" height="42" rx="4" fill="#184818" stroke="#e4e0d5" stroke-width="1"><title>Altere_Pond_Objects — détail ou rareté élevés; usage réservé à un moment visuel</title></rect>
+<rect x="48" y="185" width="1085" height="150" fill="#171c24" stroke="#3f4857"/>
+<polyline points="48.0,314.0 146.6,306.6 245.3,224.0 343.9,308.0 442.5,281.6 541.2,308.0 639.8,274.2 738.5,272.0 837.1,224.0 935.7,261.2 1034.4,272.0 1133.0,185.0" fill="none" stroke="#f1c75b" stroke-width="3"/>
+<circle cx="48.0" cy="314.0" r="5" fill="#78b7d0"/><text x="43.0" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">1</text>
+<circle cx="146.6" cy="306.6" r="5" fill="#78b7d0"/><text x="141.6" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">2</text>
+<circle cx="245.3" cy="224.0" r="5" fill="#ff685f"/><text x="240.3" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">3</text>
+<circle cx="343.9" cy="308.0" r="5" fill="#62c98a"/><text x="338.9" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">4</text>
+<circle cx="442.5" cy="281.6" r="5" fill="#78b7d0"/><text x="437.5" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">5</text>
+<circle cx="541.2" cy="308.0" r="5" fill="#62c98a"/><text x="536.2" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">6</text>
+<circle cx="639.8" cy="274.2" r="5" fill="#78b7d0"/><text x="634.8" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">7</text>
+<circle cx="738.5" cy="272.0" r="5" fill="#78b7d0"/><text x="733.5" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">8</text>
+<circle cx="837.1" cy="224.0" r="5" fill="#ff685f"/><text x="832.1" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">9</text>
+<circle cx="935.7" cy="261.2" r="5" fill="#78b7d0"/><text x="930.7" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">10</text>
+<circle cx="1034.4" cy="272.0" r="5" fill="#78b7d0"/><text x="1029.4" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">11</text>
+<circle cx="1133.0" cy="185.0" r="5" fill="#ff685f"/><text x="1128.0" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">12</text>
+<text x="48" y="175" fill="#f1c75b" font-family="sans-serif" font-size="12">Courbe de spectacle (pics volontairement rares)</text>
+<text x="22" y="375" fill="#e3e6ea" font-family="sans-serif" font-size="10">01 · protected_core</text>
+<text x="22" y="389" fill="#8793a3" font-family="sans-serif" font-size="8">guarded_center_and_outer_ring</text>
+<text x="310" y="375" fill="#e3e6ea" font-family="sans-serif" font-size="10">02 · chamber_sequence</text>
+<text x="310" y="389" fill="#8793a3" font-family="sans-serif" font-size="8">succession_of_small_thresholds</text>
+<text x="598" y="375" fill="#e3e6ea" font-family="sans-serif" font-size="10">03 · mini_boss_stage</text>
+<text x="598" y="389" fill="#8793a3" font-family="sans-serif" font-size="8">mini_boss_stage</text>
+<text x="886" y="375" fill="#e3e6ea" font-family="sans-serif" font-size="10">04 · relay_haven</text>
+<text x="886" y="389" fill="#8793a3" font-family="sans-serif" font-size="8">relay_haven</text>
+<text x="22" y="417" fill="#e3e6ea" font-family="sans-serif" font-size="10">05 · circular_progression</text>
+<text x="22" y="431" fill="#8793a3" font-family="sans-serif" font-size="8">ring_with_cross_connections</text>
+<text x="310" y="417" fill="#e3e6ea" font-family="sans-serif" font-size="10">06 · relay_haven</text>
+<text x="310" y="431" fill="#8793a3" font-family="sans-serif" font-size="8">relay_haven</text>
+<text x="598" y="417" fill="#e3e6ea" font-family="sans-serif" font-size="10">07 · chamber_sequence</text>
+<text x="598" y="431" fill="#8793a3" font-family="sans-serif" font-size="8">succession_of_small_thresholds</text>
+<text x="886" y="417" fill="#e3e6ea" font-family="sans-serif" font-size="10">08 · island_clusters</text>
+<text x="886" y="431" fill="#8793a3" font-family="sans-serif" font-size="8">three_room_islands</text>
+<text x="22" y="459" fill="#e3e6ea" font-family="sans-serif" font-size="10">09 · mini_boss_stage</text>
+<text x="22" y="473" fill="#8793a3" font-family="sans-serif" font-size="8">mini_boss_stage</text>
+<text x="310" y="459" fill="#e3e6ea" font-family="sans-serif" font-size="10">10 · circular_progression</text>
+<text x="310" y="473" fill="#8793a3" font-family="sans-serif" font-size="8">ring_with_cross_connections</text>
+<text x="598" y="459" fill="#e3e6ea" font-family="sans-serif" font-size="10">11 · corridor_spine</text>
+<text x="598" y="473" fill="#8793a3" font-family="sans-serif" font-size="8">dominant_directional_spine</text>
+<text x="886" y="459" fill="#e3e6ea" font-family="sans-serif" font-size="10">12 · boss_stage</text>
+<text x="886" y="473" fill="#8793a3" font-family="sans-serif" font-size="8">boss_stage</text>
+</svg>

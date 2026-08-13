@@ -1,14 +1,20 @@
 # Smart Dungeon Designer
 
-Voir [`docs/SMART_DUNGEON_DESIGNER.md`](../../docs/SMART_DUNGEON_DESIGNER.md).
-
-Démarrage rapide :
+Level designer procédural déterministe et explicable pour PMDO/RogueElements.
 
 ```bash
-python3 tools/smart_dungeon.py create \
-  --project WORK/mon_donjon \
-  --name "Mon donjon" \
-  --intent "25 étages, début ouvert, fin labyrinthique, deux mini-boss, trois relais et un boss final" \
-  --boss --mini-bosses 2 --relays 3 --seed 42
-python3 tools/smart_dungeon.py validate --project WORK/mon_donjon
+python3 tools/smart_dungeon.py --help
+python3 tools/smart_dungeon.py create --help
+python3 tools/smart_dungeon.py explain-design --help
 ```
+
+La Phase 2 ajoute direction artistique déduite des assets, identités d'étages,
+familles de composition, fonctions de salles, rythme spatial, landmarks,
+groupes décoratifs, mémoire globale et validation structurelle/artistique
+séparée.
+
+Documentation :
+
+- `docs/SMART_DUNGEON_DESIGNER.md`
+- `docs/SMART_DUNGEON_PHASE2_DESIGN.md`
+- exemple : `docs/smart_dungeon/example_sanctuaire/`

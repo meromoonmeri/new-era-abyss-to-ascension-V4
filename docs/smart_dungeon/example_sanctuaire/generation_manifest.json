@@ -1,16 +1,20 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "2.0.0",
   "result": "SMART_DUNGEON_GENERATION_PASS",
   "name": "Sanctuaire des Échos",
   "slug": "sanctuaire_des_echos",
   "seed": 424242,
   "floor_count": 12,
-  "mean_quality_score": 87.728,
-  "minimum_quality_score": 81.116,
+  "mean_quality_score": 84.47,
+  "mean_structural_score": 86.991,
+  "mean_visual_score": 83.667,
+  "dungeon_artistic_score": 89.838,
   "asset_catalog": "asset_catalog.json",
+  "art_direction": "art_direction.json",
+  "decision_log": "decision_log.json",
   "visual_language": {
     "cluster_id": "visual_cluster_002",
-    "cluster_score": 1.99,
+    "cluster_score": 1.255,
     "theme_tokens": [
       "ancien",
       "inquiétant",
@@ -18,26 +22,33 @@
     ],
     "roles": {
       "common": [
-        "A02p03_Base"
+        "Apple Woods Entrance Layer 1",
+        "A02p04_Base",
+        "Aegis Cave Entrance Layer 1"
       ],
       "secondary": [
-        "A02p03_Base"
-      ],
-      "focal": [
-        "A02p03_Base"
+        "Aegis_Regi_Arena_Base",
+        "Apple Woods End Layer 2",
+        "AntreDragon_Base"
       ],
       "rare": [
-        "A02p03_Base"
+        "Apricorn_Glade_Big_Tree",
+        "A02p02_Base"
+      ],
+      "focal": [
+        "Altere_Pond_Objects_Under",
+        "Altere_Pond_Objects"
       ]
     },
-    "texture_bundle": "dungeon_texture:chasm_cave_floor|chasm_cave_wall|chasm_cave_secondary",
+    "texture_bundle": "dungeon_texture:western_cave_1_floor|western_cave_1_wall|western_cave_1_secondary",
     "texture_values": [
-      "chasm_cave_floor",
-      "chasm_cave_wall",
-      "chasm_cave_secondary"
+      "western_cave_1_floor",
+      "western_cave_1_wall",
+      "western_cave_1_secondary"
     ],
-    "asset_count": 1,
-    "manual_override_applied": false
+    "asset_count": 10,
+    "manual_override_applied": false,
+    "direction_id": "direction_259884558e8a"
   },
   "compiler": {
     "reference_zone": "mt_blaze",
@@ -71,49 +82,428 @@
     ],
     "boss_contract": {
       "floor": 12,
-      "species": "voltorb",
-      "arena_position": [
-        25,
-        21
+      "position": [
+        44,
+        20
       ],
-      "integration": "generated_arena_plus_story_battle_hook"
+      "composition_family": "boss_stage",
+      "approach_rooms": [
+        {
+          "room_id": 1,
+          "function": "preparation"
+        },
+        {
+          "room_id": 2,
+          "function": "gateway"
+        }
+      ],
+      "spatial_beats": [
+        {
+          "order": 0,
+          "room_id": 2,
+          "beat": "orientation",
+          "reason": "géométrie rect dimensionnée pour la fonction gateway dans la stratégie boss_stage"
+        },
+        {
+          "order": 1,
+          "room_id": 3,
+          "beat": "discovery",
+          "reason": "géométrie irregular dimensionnée pour la fonction discovery dans la stratégie boss_stage"
+        },
+        {
+          "order": 2,
+          "room_id": 1,
+          "beat": "preparation",
+          "reason": "géométrie rect dimensionnée pour la fonction preparation dans la stratégie boss_stage"
+        },
+        {
+          "order": 3,
+          "room_id": 0,
+          "beat": "climax",
+          "reason": "géométrie round dimensionnée pour la fonction climax dans la stratégie boss_stage"
+        }
+      ],
+      "integration": "generated_stage_plus_explicit_hook",
+      "species": "voltorb"
     },
     "mini_boss_contracts": [
       {
         "floor": 3,
-        "species": "golurk",
-        "arena_position": [
-          16,
-          14
+        "position": [
+          44,
+          22
         ],
-        "integration": "generated_arena_plus_battle_hook"
+        "composition_family": "mini_boss_stage",
+        "approach_rooms": [
+          {
+            "room_id": 1,
+            "function": "preparation"
+          },
+          {
+            "room_id": 2,
+            "function": "gateway"
+          }
+        ],
+        "spatial_beats": [
+          {
+            "order": 0,
+            "room_id": 2,
+            "beat": "orientation",
+            "reason": "géométrie rect dimensionnée pour la fonction gateway dans la stratégie mini_boss_stage"
+          },
+          {
+            "order": 1,
+            "room_id": 5,
+            "beat": "reward",
+            "reason": "géométrie cross dimensionnée pour la fonction reward dans la stratégie mini_boss_stage"
+          },
+          {
+            "order": 2,
+            "room_id": 1,
+            "beat": "preparation",
+            "reason": "géométrie rect dimensionnée pour la fonction preparation dans la stratégie mini_boss_stage"
+          },
+          {
+            "order": 3,
+            "room_id": 0,
+            "beat": "climax",
+            "reason": "géométrie round dimensionnée pour la fonction climax dans la stratégie mini_boss_stage"
+          }
+        ],
+        "integration": "generated_stage_plus_explicit_hook",
+        "species": "golurk"
       },
       {
         "floor": 9,
-        "species": "drifloon",
-        "arena_position": [
-          16,
-          12
+        "position": [
+          44,
+          22
         ],
-        "integration": "generated_arena_plus_battle_hook"
+        "composition_family": "mini_boss_stage",
+        "approach_rooms": [
+          {
+            "room_id": 1,
+            "function": "preparation"
+          },
+          {
+            "room_id": 2,
+            "function": "gateway"
+          }
+        ],
+        "spatial_beats": [
+          {
+            "order": 0,
+            "room_id": 2,
+            "beat": "orientation",
+            "reason": "géométrie rect dimensionnée pour la fonction gateway dans la stratégie mini_boss_stage"
+          },
+          {
+            "order": 1,
+            "room_id": 5,
+            "beat": "reward",
+            "reason": "géométrie cross dimensionnée pour la fonction reward dans la stratégie mini_boss_stage"
+          },
+          {
+            "order": 2,
+            "room_id": 1,
+            "beat": "preparation",
+            "reason": "géométrie rect dimensionnée pour la fonction preparation dans la stratégie mini_boss_stage"
+          },
+          {
+            "order": 3,
+            "room_id": 0,
+            "beat": "climax",
+            "reason": "géométrie round dimensionnée pour la fonction climax dans la stratégie mini_boss_stage"
+          }
+        ],
+        "integration": "generated_stage_plus_explicit_hook",
+        "species": "drifloon"
       }
     ],
     "relay_contracts": [
       {
         "floor": 4,
         "position": [
-          32,
-          15
+          34,
+          22
         ],
-        "integration": "refuge_contract"
+        "composition_family": "relay_haven",
+        "approach_rooms": [
+          {
+            "room_id": 0,
+            "function": "recovery"
+          },
+          {
+            "room_id": 1,
+            "function": "tension"
+          }
+        ],
+        "spatial_beats": [
+          {
+            "order": 0,
+            "room_id": 5,
+            "beat": "reward",
+            "reason": "géométrie round dimensionnée pour la fonction reward dans la stratégie relay_haven"
+          },
+          {
+            "order": 1,
+            "room_id": 1,
+            "beat": "tension",
+            "reason": "géométrie irregular dimensionnée pour la fonction tension dans la stratégie relay_haven"
+          },
+          {
+            "order": 2,
+            "room_id": 6,
+            "beat": "orientation",
+            "reason": "géométrie rect dimensionnée pour la fonction orientation dans la stratégie relay_haven"
+          },
+          {
+            "order": 3,
+            "room_id": 0,
+            "beat": "recovery",
+            "reason": "géométrie octagon dimensionnée pour la fonction recovery dans la stratégie relay_haven"
+          },
+          {
+            "order": 4,
+            "room_id": 4,
+            "beat": "breathing",
+            "reason": "géométrie irregular dimensionnée pour la fonction breathing dans la stratégie relay_haven"
+          }
+        ],
+        "integration": "generated_recovery_context_plus_relay_hook"
       },
       {
         "floor": 6,
         "position": [
-          18,
-          27
+          35,
+          19
         ],
-        "integration": "refuge_contract"
+        "composition_family": "relay_haven",
+        "approach_rooms": [
+          {
+            "room_id": 0,
+            "function": "recovery"
+          },
+          {
+            "room_id": 1,
+            "function": "tension"
+          }
+        ],
+        "spatial_beats": [
+          {
+            "order": 0,
+            "room_id": 6,
+            "beat": "orientation",
+            "reason": "géométrie irregular dimensionnée pour la fonction orientation dans la stratégie relay_haven"
+          },
+          {
+            "order": 1,
+            "room_id": 1,
+            "beat": "tension",
+            "reason": "géométrie irregular dimensionnée pour la fonction tension dans la stratégie relay_haven"
+          },
+          {
+            "order": 2,
+            "room_id": 0,
+            "beat": "recovery",
+            "reason": "géométrie octagon dimensionnée pour la fonction recovery dans la stratégie relay_haven"
+          },
+          {
+            "order": 3,
+            "room_id": 3,
+            "beat": "discovery",
+            "reason": "géométrie round dimensionnée pour la fonction discovery dans la stratégie relay_haven"
+          },
+          {
+            "order": 4,
+            "room_id": 4,
+            "beat": "breathing",
+            "reason": "géométrie rect dimensionnée pour la fonction breathing dans la stratégie relay_haven"
+          }
+        ],
+        "integration": "generated_recovery_context_plus_relay_hook"
+      }
+    ],
+    "floor_design_contracts": [
+      {
+        "floor": 1,
+        "composition_family": "protected_core",
+        "signature": {
+          "signature_id": "F001-protected_core-60",
+          "geometry": "guarded_center_and_outer_ring",
+          "secondary_strategy": "central_landmark",
+          "density_gradient": "quiet_edges_focal_center",
+          "landmark_rule": "local_orientation_marker",
+          "intentional_symmetry": false
+        },
+        "spectacle": 0.14,
+        "structural_score": 88.373,
+        "visual_score": 86.435
+      },
+      {
+        "floor": 2,
+        "composition_family": "chamber_sequence",
+        "signature": {
+          "signature_id": "F002-chamber_sequence-15",
+          "geometry": "succession_of_small_thresholds",
+          "secondary_strategy": "circular_progression",
+          "density_gradient": "alternating",
+          "landmark_rule": "local_orientation_marker",
+          "intentional_symmetry": false
+        },
+        "spectacle": 0.189,
+        "structural_score": 82.738,
+        "visual_score": 79.725
+      },
+      {
+        "floor": 3,
+        "composition_family": "mini_boss_stage",
+        "signature": {
+          "signature_id": "F003-mini_boss_stage-13",
+          "geometry": "mini_boss_stage",
+          "secondary_strategy": "corridor_spine",
+          "density_gradient": "alternating",
+          "landmark_rule": "exceptional_asset",
+          "intentional_symmetry": false
+        },
+        "spectacle": 0.74,
+        "structural_score": 88.239,
+        "visual_score": 88.906
+      },
+      {
+        "floor": 4,
+        "composition_family": "relay_haven",
+        "signature": {
+          "signature_id": "F004-relay_haven-85",
+          "geometry": "relay_haven",
+          "secondary_strategy": "central_landmark",
+          "density_gradient": "alternating",
+          "landmark_rule": "local_orientation_marker",
+          "intentional_symmetry": false
+        },
+        "spectacle": 0.18,
+        "structural_score": 87.203,
+        "visual_score": 83.752
+      },
+      {
+        "floor": 5,
+        "composition_family": "circular_progression",
+        "signature": {
+          "signature_id": "F005-circular_progression-17",
+          "geometry": "ring_with_cross_connections",
+          "secondary_strategy": "central_landmark",
+          "density_gradient": "alternating",
+          "landmark_rule": "local_orientation_marker",
+          "intentional_symmetry": false
+        },
+        "spectacle": 0.356,
+        "structural_score": 82.573,
+        "visual_score": 81.345
+      },
+      {
+        "floor": 6,
+        "composition_family": "relay_haven",
+        "signature": {
+          "signature_id": "F006-relay_haven-86",
+          "geometry": "relay_haven",
+          "secondary_strategy": "dominant_loop",
+          "density_gradient": "alternating",
+          "landmark_rule": "local_orientation_marker",
+          "intentional_symmetry": false
+        },
+        "spectacle": 0.18,
+        "structural_score": 88.207,
+        "visual_score": 81.988
+      },
+      {
+        "floor": 7,
+        "composition_family": "chamber_sequence",
+        "signature": {
+          "signature_id": "F007-chamber_sequence-23",
+          "geometry": "succession_of_small_thresholds",
+          "secondary_strategy": "central_landmark",
+          "density_gradient": "alternating",
+          "landmark_rule": "local_orientation_marker",
+          "intentional_symmetry": false
+        },
+        "spectacle": 0.405,
+        "structural_score": 89.911,
+        "visual_score": 81.15
+      },
+      {
+        "floor": 8,
+        "composition_family": "island_clusters",
+        "signature": {
+          "signature_id": "F008-island_clusters-18",
+          "geometry": "three_room_islands",
+          "secondary_strategy": "corridor_spine",
+          "density_gradient": "alternating",
+          "landmark_rule": "structural_anchor",
+          "intentional_symmetry": false
+        },
+        "spectacle": 0.42,
+        "structural_score": 83.834,
+        "visual_score": 80.405
+      },
+      {
+        "floor": 9,
+        "composition_family": "mini_boss_stage",
+        "signature": {
+          "signature_id": "F009-mini_boss_stage-84",
+          "geometry": "mini_boss_stage",
+          "secondary_strategy": "branching_pockets",
+          "density_gradient": "alternating",
+          "landmark_rule": "exceptional_asset",
+          "intentional_symmetry": false
+        },
+        "spectacle": 0.74,
+        "structural_score": 85.945,
+        "visual_score": 82.471
+      },
+      {
+        "floor": 10,
+        "composition_family": "circular_progression",
+        "signature": {
+          "signature_id": "F010-circular_progression-73",
+          "geometry": "ring_with_cross_connections",
+          "secondary_strategy": "central_landmark",
+          "density_gradient": "alternating",
+          "landmark_rule": "structural_anchor",
+          "intentional_symmetry": false
+        },
+        "spectacle": 0.492,
+        "structural_score": 88.995,
+        "visual_score": 85.81
+      },
+      {
+        "floor": 11,
+        "composition_family": "corridor_spine",
+        "signature": {
+          "signature_id": "F011-corridor_spine-23",
+          "geometry": "dominant_directional_spine",
+          "secondary_strategy": "dominant_loop",
+          "density_gradient": "alternating",
+          "landmark_rule": "structural_anchor",
+          "intentional_symmetry": false
+        },
+        "spectacle": 0.42,
+        "structural_score": 88.711,
+        "visual_score": 83.346
+      },
+      {
+        "floor": 12,
+        "composition_family": "boss_stage",
+        "signature": {
+          "signature_id": "F012-boss_stage-67",
+          "geometry": "boss_stage",
+          "secondary_strategy": "chamber_sequence",
+          "density_gradient": "alternating",
+          "landmark_rule": "exceptional_asset",
+          "intentional_symmetry": false
+        },
+        "spectacle": 1,
+        "structural_score": 89.158,
+        "visual_score": 88.67
       }
     ]
   },

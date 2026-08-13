@@ -9,7 +9,7 @@
    }
   },
   "Released": true,
-  "Comment": "Génération intelligente reproductible; référence PMDO mt_blaze; seed 424242.",
+  "Comment": "Génération explicable reproductible; référence PMDO mt_blaze; seed 424242.",
   "NoEXP": false,
   "ExpPercent": 100,
   "Level": 26,
@@ -60,10 +60,10 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 10,
-              "CellHeight": 8,
-              "CellX": 3,
-              "CellY": 3,
+              "CellWidth": 11,
+              "CellHeight": 10,
+              "CellX": 5,
+              "CellY": 4,
               "CellWall": 4,
               "Wrap": false
              }
@@ -89,11 +89,11 @@
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 6,
-                   "Max": 13
+                   "Max": 14
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 6,
+                   "Max": 12
                   }
                  },
                  "Rate": 10
@@ -103,11 +103,11 @@
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 6,
-                   "Max": 13
+                   "Max": 14
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 6,
+                   "Max": 12
                   }
                  },
                  "Rate": 10
@@ -117,11 +117,11 @@
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 6,
-                   "Max": 13
+                   "Max": 14
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 6,
+                   "Max": 12
                   }
                  },
                  "Rate": 10
@@ -140,17 +140,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 65,
+                  "HallTurnBias": 58,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
                    "Min": 6,
-                   "Max": 13
+                   "Max": 14
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 6,
+                   "Max": 12
                   }
                  },
                  "Rate": 10
@@ -229,7 +229,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 35,
+              "MinDistance": 26,
               "Entrances": [
                {
                 "Loc": {
@@ -363,9 +363,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -549,10 +549,10 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 10,
-              "CellHeight": 8,
-              "CellX": 3,
-              "CellY": 3,
+              "CellWidth": 11,
+              "CellHeight": 10,
+              "CellX": 5,
+              "CellY": 4,
               "CellWall": 4,
               "Wrap": false
              }
@@ -578,11 +578,11 @@
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 6,
-                   "Max": 13
+                   "Max": 14
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 6,
+                   "Max": 12
                   }
                  },
                  "Rate": 10
@@ -592,11 +592,11 @@
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 6,
-                   "Max": 13
+                   "Max": 14
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 6,
+                   "Max": 12
                   }
                  },
                  "Rate": 10
@@ -606,11 +606,11 @@
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 6,
-                   "Max": 13
+                   "Max": 14
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 6,
+                   "Max": 12
                   }
                  },
                  "Rate": 10
@@ -629,17 +629,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 65,
+                  "HallTurnBias": 58,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
                    "Min": 6,
-                   "Max": 13
+                   "Max": 14
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 6,
+                   "Max": 12
                   }
                  },
                  "Rate": 10
@@ -718,7 +718,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 35,
+              "MinDistance": 26,
               "Entrances": [
                {
                 "Loc": {
@@ -886,9 +886,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -1083,10 +1083,10 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 10,
+              "CellWidth": 6,
               "CellHeight": 6,
-              "CellX": 3,
-              "CellY": 3,
+              "CellX": 6,
+              "CellY": 4,
               "CellWall": 3,
               "Wrap": false
              }
@@ -1111,12 +1111,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 13
+                   "Min": 4,
+                   "Max": 7
                   },
                   "Height": {
                    "Min": 4,
-                   "Max": 8
+                   "Max": 7
                   }
                  },
                  "Rate": 10
@@ -1125,12 +1125,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 13
+                   "Min": 4,
+                   "Max": 7
                   },
                   "Height": {
                    "Min": 4,
-                   "Max": 8
+                   "Max": 7
                   }
                  },
                  "Rate": 10
@@ -1139,12 +1139,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 13
+                   "Min": 4,
+                   "Max": 7
                   },
                   "Height": {
                    "Min": 4,
-                   "Max": 8
+                   "Max": 7
                   }
                  },
                  "Rate": 10
@@ -1163,17 +1163,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 65,
+                  "HallTurnBias": 70,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
-                   "Min": 6,
-                   "Max": 13
+                   "Min": 4,
+                   "Max": 7
                   },
                   "Height": {
                    "Min": 4,
-                   "Max": 8
+                   "Max": 7
                   }
                  },
                  "Rate": 10
@@ -1252,7 +1252,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 35,
+              "MinDistance": 32,
               "Entrances": [
                {
                 "Loc": {
@@ -1386,9 +1386,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -1572,10 +1572,10 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 10,
+              "CellWidth": 6,
               "CellHeight": 6,
-              "CellX": 3,
-              "CellY": 3,
+              "CellX": 6,
+              "CellY": 4,
               "CellWall": 3,
               "Wrap": false
              }
@@ -1600,12 +1600,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 13
+                   "Min": 4,
+                   "Max": 7
                   },
                   "Height": {
                    "Min": 4,
-                   "Max": 8
+                   "Max": 7
                   }
                  },
                  "Rate": 10
@@ -1614,12 +1614,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 13
+                   "Min": 4,
+                   "Max": 7
                   },
                   "Height": {
                    "Min": 4,
-                   "Max": 8
+                   "Max": 7
                   }
                  },
                  "Rate": 10
@@ -1628,12 +1628,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 13
+                   "Min": 4,
+                   "Max": 7
                   },
                   "Height": {
                    "Min": 4,
-                   "Max": 8
+                   "Max": 7
                   }
                  },
                  "Rate": 10
@@ -1652,17 +1652,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 65,
+                  "HallTurnBias": 70,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
-                   "Min": 6,
-                   "Max": 13
+                   "Min": 4,
+                   "Max": 7
                   },
                   "Height": {
                    "Min": 4,
-                   "Max": 8
+                   "Max": 7
                   }
                  },
                  "Rate": 10
@@ -1741,7 +1741,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 35,
+              "MinDistance": 32,
               "Entrances": [
                {
                 "Loc": {
@@ -1909,9 +1909,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -2106,11 +2106,11 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 11,
-              "CellHeight": 10,
+              "CellWidth": 12,
+              "CellHeight": 11,
               "CellX": 3,
               "CellY": 3,
-              "CellWall": 5,
+              "CellWall": 4,
               "Wrap": false
              }
             },
@@ -2134,11 +2134,11 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 9,
-                   "Max": 17
+                   "Min": 7,
+                   "Max": 16
                   },
                   "Height": {
-                   "Min": 7,
+                   "Min": 6,
                    "Max": 14
                   }
                  },
@@ -2148,11 +2148,11 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 9,
-                   "Max": 17
+                   "Min": 7,
+                   "Max": 16
                   },
                   "Height": {
-                   "Min": 7,
+                   "Min": 6,
                    "Max": 14
                   }
                  },
@@ -2162,11 +2162,11 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 9,
-                   "Max": 17
+                   "Min": 7,
+                   "Max": 16
                   },
                   "Height": {
-                   "Min": 7,
+                   "Min": 6,
                    "Max": 14
                   }
                  },
@@ -2186,16 +2186,16 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 65,
+                  "HallTurnBias": 68,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
-                   "Min": 9,
-                   "Max": 17
+                   "Min": 7,
+                   "Max": 16
                   },
                   "Height": {
-                   "Min": 7,
+                   "Min": 6,
                    "Max": 14
                   }
                  },
@@ -2275,7 +2275,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 21,
+              "MinDistance": 34,
               "Entrances": [
                {
                 "Loc": {
@@ -2409,9 +2409,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -2595,11 +2595,11 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 11,
-              "CellHeight": 10,
+              "CellWidth": 12,
+              "CellHeight": 11,
               "CellX": 3,
               "CellY": 3,
-              "CellWall": 5,
+              "CellWall": 4,
               "Wrap": false
              }
             },
@@ -2623,11 +2623,11 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 9,
-                   "Max": 17
+                   "Min": 7,
+                   "Max": 16
                   },
                   "Height": {
-                   "Min": 7,
+                   "Min": 6,
                    "Max": 14
                   }
                  },
@@ -2637,11 +2637,11 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 9,
-                   "Max": 17
+                   "Min": 7,
+                   "Max": 16
                   },
                   "Height": {
-                   "Min": 7,
+                   "Min": 6,
                    "Max": 14
                   }
                  },
@@ -2651,11 +2651,11 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 9,
-                   "Max": 17
+                   "Min": 7,
+                   "Max": 16
                   },
                   "Height": {
-                   "Min": 7,
+                   "Min": 6,
                    "Max": 14
                   }
                  },
@@ -2675,16 +2675,16 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 65,
+                  "HallTurnBias": 68,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
-                   "Min": 9,
-                   "Max": 17
+                   "Min": 7,
+                   "Max": 16
                   },
                   "Height": {
-                   "Min": 7,
+                   "Min": 6,
                    "Max": 14
                   }
                  },
@@ -2764,7 +2764,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 21,
+              "MinDistance": 34,
               "Entrances": [
                {
                 "Loc": {
@@ -2932,9 +2932,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -3129,11 +3129,11 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 9,
-              "CellHeight": 8,
-              "CellX": 3,
+              "CellWidth": 11,
+              "CellHeight": 9,
+              "CellX": 4,
               "CellY": 3,
-              "CellWall": 3,
+              "CellWall": 4,
               "Wrap": false
              }
             },
@@ -3158,7 +3158,7 @@
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 6,
-                   "Max": 12
+                   "Max": 14
                   },
                   "Height": {
                    "Min": 5,
@@ -3172,7 +3172,7 @@
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 6,
-                   "Max": 12
+                   "Max": 14
                   },
                   "Height": {
                    "Min": 5,
@@ -3186,7 +3186,7 @@
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 6,
-                   "Max": 12
+                   "Max": 14
                   },
                   "Height": {
                    "Min": 5,
@@ -3209,13 +3209,13 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 65,
+                  "HallTurnBias": 68,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
                    "Min": 6,
-                   "Max": 12
+                   "Max": 14
                   },
                   "Height": {
                    "Min": 5,
@@ -3298,7 +3298,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 25,
+              "MinDistance": 40,
               "Entrances": [
                {
                 "Loc": {
@@ -3432,9 +3432,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -3618,11 +3618,11 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 9,
-              "CellHeight": 8,
-              "CellX": 3,
+              "CellWidth": 11,
+              "CellHeight": 9,
+              "CellX": 4,
               "CellY": 3,
-              "CellWall": 3,
+              "CellWall": 4,
               "Wrap": false
              }
             },
@@ -3647,7 +3647,7 @@
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 6,
-                   "Max": 12
+                   "Max": 14
                   },
                   "Height": {
                    "Min": 5,
@@ -3661,7 +3661,7 @@
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 6,
-                   "Max": 12
+                   "Max": 14
                   },
                   "Height": {
                    "Min": 5,
@@ -3675,7 +3675,7 @@
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 6,
-                   "Max": 12
+                   "Max": 14
                   },
                   "Height": {
                    "Min": 5,
@@ -3698,13 +3698,13 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 65,
+                  "HallTurnBias": 68,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
                    "Min": 6,
-                   "Max": 12
+                   "Max": 14
                   },
                   "Height": {
                    "Min": 5,
@@ -3787,7 +3787,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 25,
+              "MinDistance": 40,
               "Entrances": [
                {
                 "Loc": {
@@ -3955,9 +3955,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -4152,11 +4152,11 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 10,
-              "CellHeight": 8,
-              "CellX": 3,
-              "CellY": 3,
-              "CellWall": 4,
+              "CellWidth": 8,
+              "CellHeight": 6,
+              "CellX": 6,
+              "CellY": 5,
+              "CellWall": 3,
               "Wrap": false
              }
             },
@@ -4180,12 +4180,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 4,
+                   "Max": 10
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   }
                  },
                  "Rate": 10
@@ -4194,12 +4194,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 4,
+                   "Max": 10
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   }
                  },
                  "Rate": 10
@@ -4208,12 +4208,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 4,
+                   "Max": 10
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   }
                  },
                  "Rate": 10
@@ -4232,17 +4232,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 65,
+                  "HallTurnBias": 48,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 4,
+                   "Max": 10
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   }
                  },
                  "Rate": 10
@@ -4321,7 +4321,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 38,
+              "MinDistance": 40,
               "Entrances": [
                {
                 "Loc": {
@@ -4455,9 +4455,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -4641,11 +4641,11 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 10,
-              "CellHeight": 8,
-              "CellX": 3,
-              "CellY": 3,
-              "CellWall": 4,
+              "CellWidth": 8,
+              "CellHeight": 6,
+              "CellX": 6,
+              "CellY": 5,
+              "CellWall": 3,
               "Wrap": false
              }
             },
@@ -4669,12 +4669,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 4,
+                   "Max": 10
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   }
                  },
                  "Rate": 10
@@ -4683,12 +4683,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 4,
+                   "Max": 10
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   }
                  },
                  "Rate": 10
@@ -4697,12 +4697,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 4,
+                   "Max": 10
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   }
                  },
                  "Rate": 10
@@ -4721,17 +4721,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 65,
+                  "HallTurnBias": 48,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 4,
+                   "Max": 10
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   }
                  },
                  "Rate": 10
@@ -4810,7 +4810,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 38,
+              "MinDistance": 40,
               "Entrances": [
                {
                 "Loc": {
@@ -4978,9 +4978,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -5176,8 +5176,8 @@
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
               "CellWidth": 11,
-              "CellHeight": 10,
-              "CellX": 3,
+              "CellHeight": 9,
+              "CellX": 4,
               "CellY": 3,
               "CellWall": 4,
               "Wrap": false
@@ -5203,12 +5203,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 7,
+                   "Min": 6,
                    "Max": 14
                   },
                   "Height": {
-                   "Min": 7,
-                   "Max": 13
+                   "Min": 5,
+                   "Max": 11
                   }
                  },
                  "Rate": 10
@@ -5217,12 +5217,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 7,
+                   "Min": 6,
                    "Max": 14
                   },
                   "Height": {
-                   "Min": 7,
-                   "Max": 13
+                   "Min": 5,
+                   "Max": 11
                   }
                  },
                  "Rate": 10
@@ -5231,12 +5231,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 7,
+                   "Min": 6,
                    "Max": 14
                   },
                   "Height": {
-                   "Min": 7,
-                   "Max": 13
+                   "Min": 5,
+                   "Max": 11
                   }
                  },
                  "Rate": 10
@@ -5255,17 +5255,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 65,
+                  "HallTurnBias": 68,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
-                   "Min": 7,
+                   "Min": 6,
                    "Max": 14
                   },
                   "Height": {
-                   "Min": 7,
-                   "Max": 13
+                   "Min": 5,
+                   "Max": 11
                   }
                  },
                  "Rate": 10
@@ -5344,7 +5344,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 24,
+              "MinDistance": 38,
               "Entrances": [
                {
                 "Loc": {
@@ -5478,9 +5478,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -5665,8 +5665,8 @@
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
               "CellWidth": 11,
-              "CellHeight": 10,
-              "CellX": 3,
+              "CellHeight": 9,
+              "CellX": 4,
               "CellY": 3,
               "CellWall": 4,
               "Wrap": false
@@ -5692,12 +5692,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 7,
+                   "Min": 6,
                    "Max": 14
                   },
                   "Height": {
-                   "Min": 7,
-                   "Max": 13
+                   "Min": 5,
+                   "Max": 11
                   }
                  },
                  "Rate": 10
@@ -5706,12 +5706,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 7,
+                   "Min": 6,
                    "Max": 14
                   },
                   "Height": {
-                   "Min": 7,
-                   "Max": 13
+                   "Min": 5,
+                   "Max": 11
                   }
                  },
                  "Rate": 10
@@ -5720,12 +5720,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 7,
+                   "Min": 6,
                    "Max": 14
                   },
                   "Height": {
-                   "Min": 7,
-                   "Max": 13
+                   "Min": 5,
+                   "Max": 11
                   }
                  },
                  "Rate": 10
@@ -5744,17 +5744,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 65,
+                  "HallTurnBias": 68,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
-                   "Min": 7,
+                   "Min": 6,
                    "Max": 14
                   },
                   "Height": {
-                   "Min": 7,
-                   "Max": 13
+                   "Min": 5,
+                   "Max": 11
                   }
                  },
                  "Rate": 10
@@ -5833,7 +5833,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 24,
+              "MinDistance": 38,
               "Entrances": [
                {
                 "Loc": {
@@ -6001,9 +6001,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -6198,10 +6198,10 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 9,
-              "CellHeight": 8,
-              "CellX": 3,
-              "CellY": 3,
+              "CellWidth": 6,
+              "CellHeight": 6,
+              "CellX": 6,
+              "CellY": 4,
               "CellWall": 3,
               "Wrap": false
              }
@@ -6226,12 +6226,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 10
+                   "Min": 4,
+                   "Max": 7
                   }
                  },
                  "Rate": 10
@@ -6240,12 +6240,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 10
+                   "Min": 4,
+                   "Max": 7
                   }
                  },
                  "Rate": 10
@@ -6254,12 +6254,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 10
+                   "Min": 4,
+                   "Max": 7
                   }
                  },
                  "Rate": 10
@@ -6278,17 +6278,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 65,
+                  "HallTurnBias": 70,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
-                   "Min": 6,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 10
+                   "Min": 4,
+                   "Max": 7
                   }
                  },
                  "Rate": 10
@@ -6367,7 +6367,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 30,
+              "MinDistance": 36,
               "Entrances": [
                {
                 "Loc": {
@@ -6501,9 +6501,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -6687,10 +6687,10 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 9,
-              "CellHeight": 8,
-              "CellX": 3,
-              "CellY": 3,
+              "CellWidth": 6,
+              "CellHeight": 6,
+              "CellX": 6,
+              "CellY": 4,
               "CellWall": 3,
               "Wrap": false
              }
@@ -6715,12 +6715,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 10
+                   "Min": 4,
+                   "Max": 7
                   }
                  },
                  "Rate": 10
@@ -6729,12 +6729,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 10
+                   "Min": 4,
+                   "Max": 7
                   }
                  },
                  "Rate": 10
@@ -6743,12 +6743,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 10
+                   "Min": 4,
+                   "Max": 7
                   }
                  },
                  "Rate": 10
@@ -6767,17 +6767,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 65,
+                  "HallTurnBias": 70,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
-                   "Min": 6,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 10
+                   "Min": 4,
+                   "Max": 7
                   }
                  },
                  "Rate": 10
@@ -6856,7 +6856,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 30,
+              "MinDistance": 36,
               "Entrances": [
                {
                 "Loc": {
@@ -7024,9 +7024,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -7221,11 +7221,11 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 9,
-              "CellHeight": 7,
-              "CellX": 3,
+              "CellWidth": 10,
+              "CellHeight": 8,
+              "CellX": 5,
               "CellY": 3,
-              "CellWall": 3,
+              "CellWall": 4,
               "Wrap": false
              }
             },
@@ -7250,11 +7250,11 @@
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 6,
-                   "Max": 11
+                   "Max": 13
                   },
                   "Height": {
                    "Min": 5,
-                   "Max": 9
+                   "Max": 11
                   }
                  },
                  "Rate": 10
@@ -7264,11 +7264,11 @@
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 6,
-                   "Max": 11
+                   "Max": 13
                   },
                   "Height": {
                    "Min": 5,
-                   "Max": 9
+                   "Max": 11
                   }
                  },
                  "Rate": 10
@@ -7278,11 +7278,11 @@
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 6,
-                   "Max": 11
+                   "Max": 13
                   },
                   "Height": {
                    "Min": 5,
-                   "Max": 9
+                   "Max": 11
                   }
                  },
                  "Rate": 10
@@ -7301,17 +7301,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 45,
+                  "HallTurnBias": 58,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
                    "Min": 6,
-                   "Max": 11
+                   "Max": 13
                   },
                   "Height": {
                    "Min": 5,
-                   "Max": 9
+                   "Max": 11
                   }
                  },
                  "Rate": 10
@@ -7390,7 +7390,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 40,
+              "MinDistance": 38,
               "Entrances": [
                {
                 "Loc": {
@@ -7524,9 +7524,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -7710,11 +7710,11 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 9,
-              "CellHeight": 7,
-              "CellX": 3,
+              "CellWidth": 10,
+              "CellHeight": 8,
+              "CellX": 5,
               "CellY": 3,
-              "CellWall": 3,
+              "CellWall": 4,
               "Wrap": false
              }
             },
@@ -7739,11 +7739,11 @@
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 6,
-                   "Max": 11
+                   "Max": 13
                   },
                   "Height": {
                    "Min": 5,
-                   "Max": 9
+                   "Max": 11
                   }
                  },
                  "Rate": 10
@@ -7753,11 +7753,11 @@
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 6,
-                   "Max": 11
+                   "Max": 13
                   },
                   "Height": {
                    "Min": 5,
-                   "Max": 9
+                   "Max": 11
                   }
                  },
                  "Rate": 10
@@ -7767,11 +7767,11 @@
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 6,
-                   "Max": 11
+                   "Max": 13
                   },
                   "Height": {
                    "Min": 5,
-                   "Max": 9
+                   "Max": 11
                   }
                  },
                  "Rate": 10
@@ -7790,17 +7790,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 45,
+                  "HallTurnBias": 58,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
                    "Min": 6,
-                   "Max": 11
+                   "Max": 13
                   },
                   "Height": {
                    "Min": 5,
-                   "Max": 9
+                   "Max": 11
                   }
                  },
                  "Rate": 10
@@ -7879,7 +7879,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 40,
+              "MinDistance": 38,
               "Entrances": [
                {
                 "Loc": {
@@ -8047,9 +8047,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -8244,7 +8244,7 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 11,
+              "CellWidth": 12,
               "CellHeight": 10,
               "CellX": 3,
               "CellY": 3,
@@ -8273,11 +8273,11 @@
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 7,
-                   "Max": 14
+                   "Max": 15
                   },
                   "Height": {
                    "Min": 6,
-                   "Max": 13
+                   "Max": 12
                   }
                  },
                  "Rate": 10
@@ -8287,11 +8287,11 @@
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 7,
-                   "Max": 14
+                   "Max": 15
                   },
                   "Height": {
                    "Min": 6,
-                   "Max": 13
+                   "Max": 12
                   }
                  },
                  "Rate": 10
@@ -8301,11 +8301,11 @@
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 7,
-                   "Max": 14
+                   "Max": 15
                   },
                   "Height": {
                    "Min": 6,
-                   "Max": 13
+                   "Max": 12
                   }
                  },
                  "Rate": 10
@@ -8324,17 +8324,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 65,
+                  "HallTurnBias": 68,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
                    "Min": 7,
-                   "Max": 14
+                   "Max": 15
                   },
                   "Height": {
                    "Min": 6,
-                   "Max": 13
+                   "Max": 12
                   }
                  },
                  "Rate": 10
@@ -8413,7 +8413,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 26,
+              "MinDistance": 29,
               "Entrances": [
                {
                 "Loc": {
@@ -8547,9 +8547,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -8733,7 +8733,7 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 11,
+              "CellWidth": 12,
               "CellHeight": 10,
               "CellX": 3,
               "CellY": 3,
@@ -8762,11 +8762,11 @@
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 7,
-                   "Max": 14
+                   "Max": 15
                   },
                   "Height": {
                    "Min": 6,
-                   "Max": 13
+                   "Max": 12
                   }
                  },
                  "Rate": 10
@@ -8776,11 +8776,11 @@
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 7,
-                   "Max": 14
+                   "Max": 15
                   },
                   "Height": {
                    "Min": 6,
-                   "Max": 13
+                   "Max": 12
                   }
                  },
                  "Rate": 10
@@ -8790,11 +8790,11 @@
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
                    "Min": 7,
-                   "Max": 14
+                   "Max": 15
                   },
                   "Height": {
                    "Min": 6,
-                   "Max": 13
+                   "Max": 12
                   }
                  },
                  "Rate": 10
@@ -8813,17 +8813,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 65,
+                  "HallTurnBias": 68,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
                    "Min": 7,
-                   "Max": 14
+                   "Max": 15
                   },
                   "Height": {
                    "Min": 6,
-                   "Max": 13
+                   "Max": 12
                   }
                  },
                  "Rate": 10
@@ -8902,7 +8902,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 26,
+              "MinDistance": 29,
               "Entrances": [
                {
                 "Loc": {
@@ -9070,9 +9070,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -9267,11 +9267,11 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 9,
-              "CellHeight": 8,
-              "CellX": 3,
-              "CellY": 3,
-              "CellWall": 4,
+              "CellWidth": 8,
+              "CellHeight": 7,
+              "CellX": 6,
+              "CellY": 5,
+              "CellWall": 3,
               "Wrap": false
              }
             },
@@ -9295,12 +9295,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 5,
+                   "Max": 10
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 9
                   }
                  },
                  "Rate": 10
@@ -9309,12 +9309,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 5,
+                   "Max": 10
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 9
                   }
                  },
                  "Rate": 10
@@ -9323,12 +9323,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 5,
+                   "Max": 10
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 9
                   }
                  },
                  "Rate": 10
@@ -9347,17 +9347,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 45,
+                  "HallTurnBias": 48,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 5,
+                   "Max": 10
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 9
                   }
                  },
                  "Rate": 10
@@ -9436,7 +9436,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 40,
+              "MinDistance": 39,
               "Entrances": [
                {
                 "Loc": {
@@ -9570,9 +9570,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -9756,11 +9756,11 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 9,
-              "CellHeight": 8,
-              "CellX": 3,
-              "CellY": 3,
-              "CellWall": 4,
+              "CellWidth": 8,
+              "CellHeight": 7,
+              "CellX": 6,
+              "CellY": 5,
+              "CellWall": 3,
               "Wrap": false
              }
             },
@@ -9784,12 +9784,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 5,
+                   "Max": 10
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 9
                   }
                  },
                  "Rate": 10
@@ -9798,12 +9798,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 5,
+                   "Max": 10
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 9
                   }
                  },
                  "Rate": 10
@@ -9812,12 +9812,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 5,
+                   "Max": 10
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 9
                   }
                  },
                  "Rate": 10
@@ -9836,17 +9836,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 45,
+                  "HallTurnBias": 48,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 5,
+                   "Max": 10
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 9
                   }
                  },
                  "Rate": 10
@@ -9925,7 +9925,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 40,
+              "MinDistance": 39,
               "Entrances": [
                {
                 "Loc": {
@@ -10093,9 +10093,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -10290,10 +10290,10 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 9,
-              "CellHeight": 8,
-              "CellX": 3,
-              "CellY": 3,
+              "CellWidth": 7,
+              "CellHeight": 6,
+              "CellX": 6,
+              "CellY": 5,
               "CellWall": 3,
               "Wrap": false
              }
@@ -10318,12 +10318,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 9
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   }
                  },
                  "Rate": 10
@@ -10332,12 +10332,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 9
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   }
                  },
                  "Rate": 10
@@ -10346,12 +10346,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 9
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   }
                  },
                  "Rate": 10
@@ -10370,17 +10370,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 45,
+                  "HallTurnBias": 78,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
-                   "Min": 6,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 9
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   }
                  },
                  "Rate": 10
@@ -10459,7 +10459,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 28,
+              "MinDistance": 29,
               "Entrances": [
                {
                 "Loc": {
@@ -10593,9 +10593,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -10779,10 +10779,10 @@
              },
              "Value": {
               "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-              "CellWidth": 9,
-              "CellHeight": 8,
-              "CellX": 3,
-              "CellY": 3,
+              "CellWidth": 7,
+              "CellHeight": 6,
+              "CellX": 6,
+              "CellY": 5,
               "CellWall": 3,
               "Wrap": false
              }
@@ -10807,12 +10807,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 9
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   }
                  },
                  "Rate": 10
@@ -10821,12 +10821,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 9
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   }
                  },
                  "Rate": 10
@@ -10835,12 +10835,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 6,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 9
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   }
                  },
                  "Rate": 10
@@ -10859,17 +10859,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 45,
+                  "HallTurnBias": 78,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
-                   "Min": 6,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 9
                   },
                   "Height": {
-                   "Min": 5,
-                   "Max": 11
+                   "Min": 4,
+                   "Max": 8
                   }
                  },
                  "Rate": 10
@@ -10948,7 +10948,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 28,
+              "MinDistance": 29,
               "Entrances": [
                {
                 "Loc": {
@@ -11116,9 +11116,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -11341,12 +11341,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 7,
-                   "Max": 14
+                   "Min": 8,
+                   "Max": 18
                   },
                   "Height": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 7,
+                   "Max": 15
                   }
                  },
                  "Rate": 10
@@ -11355,12 +11355,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 7,
-                   "Max": 14
+                   "Min": 8,
+                   "Max": 18
                   },
                   "Height": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 7,
+                   "Max": 15
                   }
                  },
                  "Rate": 10
@@ -11369,12 +11369,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 7,
-                   "Max": 14
+                   "Min": 8,
+                   "Max": 18
                   },
                   "Height": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 7,
+                   "Max": 15
                   }
                  },
                  "Rate": 10
@@ -11393,17 +11393,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 65,
+                  "HallTurnBias": 72,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
-                   "Min": 7,
-                   "Max": 14
+                   "Min": 8,
+                   "Max": 18
                   },
                   "Height": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 7,
+                   "Max": 15
                   }
                  },
                  "Rate": 10
@@ -11482,7 +11482,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 26,
+              "MinDistance": 31,
               "Entrances": [
                {
                 "Loc": {
@@ -11616,9 +11616,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -11830,12 +11830,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 7,
-                   "Max": 14
+                   "Min": 8,
+                   "Max": 18
                   },
                   "Height": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 7,
+                   "Max": 15
                   }
                  },
                  "Rate": 10
@@ -11844,12 +11844,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 7,
-                   "Max": 14
+                   "Min": 8,
+                   "Max": 18
                   },
                   "Height": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 7,
+                   "Max": 15
                   }
                  },
                  "Rate": 10
@@ -11858,12 +11858,12 @@
                  "Spawn": {
                   "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "Width": {
-                   "Min": 7,
-                   "Max": 14
+                   "Min": 8,
+                   "Max": 18
                   },
                   "Height": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 7,
+                   "Max": 15
                   }
                  },
                  "Rate": 10
@@ -11882,17 +11882,17 @@
                 {
                  "Spawn": {
                   "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "HallTurnBias": 65,
+                  "HallTurnBias": 72,
                   "Brush": {
                    "$type": "RogueElements.DefaultHallBrush, RogueElements"
                   },
                   "Width": {
-                   "Min": 7,
-                   "Max": 14
+                   "Min": 8,
+                   "Max": 18
                   },
                   "Height": {
-                   "Min": 6,
-                   "Max": 12
+                   "Min": 7,
+                   "Max": 15
                   }
                  },
                  "Rate": 10
@@ -11971,7 +11971,7 @@
              },
              "Value": {
               "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-              "MinDistance": 26,
+              "MinDistance": 31,
               "Entrances": [
                {
                 "Loc": {
@@ -12139,9 +12139,9 @@
              },
              "Value": {
               "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-              "GroundTileset": "chasm_cave_floor",
-              "BlockTileset": "chasm_cave_wall",
-              "WaterTileset": "chasm_cave_secondary",
+              "GroundTileset": "western_cave_1_floor",
+              "BlockTileset": "western_cave_1_wall",
+              "WaterTileset": "western_cave_1_secondary",
               "LayeredGround": false,
               "IndependentGround": false,
               "GroundElement": "fire"
@@ -16705,7 +16705,7 @@
      }
     ],
     "IsRelevant": true,
-    "Comment": "Sanctuaire des Échos — conçu par Smart Dungeon Designer, seed 424242"
+    "Comment": "Sanctuaire des Échos — conçu par Smart Dungeon Designer Phase 2, seed 424242"
    }
   ],
   "GroundMaps": []

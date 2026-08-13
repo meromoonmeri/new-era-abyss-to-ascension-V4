@@ -1,43 +1,158 @@
 #!/usr/bin/env python3
 """Command-line interface for Smart Dungeon Designer."""
 from __future__ import annotations
-import argparse,json,sys
+import argparse
+import json
 from pathlib import Path
 from .assets import analyze_library
-from .project import generate_project,read,regenerate,validate_project,write
+from .project import generate_project, read, regenerate, validate_project, write
 from .runtime import validate_runtime_index
+
+
 def parser():
- p=argparse.ArgumentParser(prog='smart-dungeon',description='Level designer procédural intelligent PMDO/RogueElements');p.add_argument('--repo',type=Path,default=Path.cwd());sub=p.add_subparsers(dest='command',required=True)
- a=sub.add_parser('analyze-assets',help='Analyse sémantiquement la bibliothèque disponible');a.add_argument('--output',type=Path,required=True);a.add_argument('--overrides',type=Path);a.add_argument('--max-sheets',type=int,default=0);a.add_argument('--max-grounds',type=int,default=96);a.add_argument('--samples',type=int,default=24)
- c=sub.add_parser('create',help='Crée un donjon complet depuis une intention naturelle');c.add_argument('--project',type=Path,required=True);c.add_argument('--name',required=True);c.add_argument('--intent',required=True);c.add_argument('--floors',type=int);c.add_argument('--difficulty');c.add_argument('--boss',action=argparse.BooleanOptionalAction,default=None);c.add_argument('--mini-bosses',type=int);c.add_argument('--relays',type=int);c.add_argument('--seed',type=int);c.add_argument('--reference-zone');c.add_argument('--variants',type=int,default=6);c.add_argument('--max-assets',type=int,default=0)
- r=sub.add_parser('regenerate',help='Régénère tout ou seulement une partie');r.add_argument('--project',type=Path,required=True);r.add_argument('--scope',default='all',help='all, floor:N, room:N:M ou decor:N');r.add_argument('--seed',type=int);r.add_argument('--force-unlock',action='store_true');r.add_argument('--variants',type=int,default=6)
- v=sub.add_parser('validate',help='Réévalue la qualité et le ZoneData');v.add_argument('--project',type=Path,required=True);v.add_argument('--output',type=Path)
- rv=sub.add_parser('runtime-index',help='Valide le ZoneData dans PMDO 0.8.12 exact');rv.add_argument('--project',type=Path,required=True)
- l=sub.add_parser('lock',help='Verrouille/déverrouille un étage ou une salle');l.add_argument('--project',type=Path,required=True);l.add_argument('--floor',type=int,required=True);l.add_argument('--room',type=int);l.add_argument('--unlock',action='store_true')
- o=sub.add_parser('override-asset',help='Corrige une classification apprise');o.add_argument('--project',type=Path,required=True);o.add_argument('--asset',required=True);o.add_argument('--role',choices=['floor','wall','border','structure','decoration','hazard','water','transition','focal']);o.add_argument('--tags',nargs='*');o.add_argument('--rarity',type=float)
- e=sub.add_parser('explain-assets',help='Affiche pourquoi les assets ont été classés');e.add_argument('--project',type=Path,required=True);e.add_argument('--query',default='');e.add_argument('--limit',type=int,default=20)
- return p
+    root = argparse.ArgumentParser(prog="smart-dungeon", description="Level designer procédural explicable PMDO/RogueElements")
+    root.add_argument("--repo", type=Path, default=Path.cwd())
+    commands = root.add_subparsers(dest="command", required=True)
+    analyze = commands.add_parser("analyze-assets", help="Analyse la bibliothèque par plusieurs sources")
+    analyze.add_argument("--output", type=Path, required=True)
+    analyze.add_argument("--overrides", type=Path)
+    analyze.add_argument("--max-sheets", type=int, default=0)
+    analyze.add_argument("--max-grounds", type=int, default=96)
+    analyze.add_argument("--samples", type=int, default=24)
+    create = commands.add_parser("create", help="Crée un donjon complet depuis une intention naturelle")
+    create.add_argument("--project", type=Path, required=True)
+    create.add_argument("--name", required=True)
+    create.add_argument("--intent", required=True)
+    create.add_argument("--floors", type=int)
+    create.add_argument("--difficulty")
+    create.add_argument("--boss", action=argparse.BooleanOptionalAction, default=None)
+    create.add_argument("--mini-bosses", type=int)
+    create.add_argument("--relays", type=int)
+    create.add_argument("--seed", type=int)
+    create.add_argument("--reference-zone")
+    create.add_argument("--variants", type=int, default=6)
+    create.add_argument("--max-assets", type=int, default=0)
+    regen = commands.add_parser("regenerate", help="Régénère tout ou seulement une partie")
+    regen.add_argument("--project", type=Path, required=True)
+    regen.add_argument("--scope", default="all", help="all, floor:N, room:N:M ou decor:N")
+    regen.add_argument("--seed", type=int)
+    regen.add_argument("--force-unlock", action="store_true")
+    regen.add_argument("--variants", type=int, default=6)
+    validate = commands.add_parser("validate", help="Réévalue séparément structure, art et ZoneData")
+    validate.add_argument("--project", type=Path, required=True)
+    validate.add_argument("--output", type=Path)
+    runtime = commands.add_parser("runtime-index", help="Valide le ZoneData dans PMDO 0.8.12 exact")
+    runtime.add_argument("--project", type=Path, required=True)
+    lock = commands.add_parser("lock", help="Verrouille/déverrouille un étage ou une salle")
+    lock.add_argument("--project", type=Path, required=True)
+    lock.add_argument("--floor", type=int, required=True)
+    lock.add_argument("--room", type=int)
+    lock.add_argument("--unlock", action="store_true")
+    override = commands.add_parser("override-asset", help="Corrige une classification apprise")
+    override.add_argument("--project", type=Path, required=True)
+    override.add_argument("--asset", required=True)
+    override.add_argument("--role", choices=["floor", "wall", "border", "structure", "decoration", "hazard", "water", "transition", "focal"])
+    override.add_argument("--tags", nargs="*")
+    override.add_argument("--rarity", type=float)
+    explain_assets = commands.add_parser("explain-assets", help="Explique preuves, confiance et ambiguïtés des assets")
+    explain_assets.add_argument("--project", type=Path, required=True)
+    explain_assets.add_argument("--query", default="")
+    explain_assets.add_argument("--limit", type=int, default=20)
+    explain_design = commands.add_parser("explain-design", help="Explique la direction et les décisions d'un étage")
+    explain_design.add_argument("--project", type=Path, required=True)
+    explain_design.add_argument("--floor", type=int)
+    return root
+
+
 def main(argv=None):
- p=parser();a=p.parse_args(argv);repo=a.repo.resolve()
- if a.command=='analyze-assets':result=analyze_library(repo,a.output,a.overrides,a.max_sheets,a.max_grounds,a.samples);summary={k:result[k] for k in ('result','asset_count','ground_sheet_count','dungeon_texture_bundle_count','cluster_count')}
- elif a.command=='create':
-  result=generate_project(repo,a.project,a.name,a.intent,a.floors,a.difficulty,a.boss,a.mini_bosses,a.relays,a.seed,a.reference_zone,a.variants,a.max_assets);summary={'result':'SMART_DUNGEON_GENERATION_PASS','project':str(a.project),'seed':result.brief.seed,'floors':len(result.floors),'mean_score':result.quality_summary['mean_score'],'zone':result.compiler['zone_file']}
- elif a.command=='regenerate':
-  result=regenerate(repo,a.project,a.scope,a.seed,a.force_unlock,a.variants);summary={'result':'SMART_DUNGEON_REGENERATION_PASS','scope':a.scope,'seed':result.brief.seed,'mean_score':result.quality_summary['mean_score']}
- elif a.command=='validate':
-  summary=validate_project(a.project);write(a.output or a.project/'validation_report.json',summary)
- elif a.command=='runtime-index':summary=validate_runtime_index(repo,a.project)
- elif a.command=='lock':
-  path=a.project/'locks.json';data=read(path,{'floors':{},'regions':[]});f=data.setdefault('floors',{}).setdefault(str(a.floor),{});f['locked']=not a.unlock
-  if a.room is not None:f.setdefault('rooms',{})[str(a.room)]={'locked':not a.unlock}
-  write(path,data);summary={'result':'LOCK_UPDATED','floor':a.floor,'room':a.room,'locked':not a.unlock}
- elif a.command=='override-asset':
-  path=a.project/'asset_overrides.json';data=read(path,{'assets':{},'visual_language':{}});row=data.setdefault('assets',{}).setdefault(a.asset,{})
-  if a.role:row['role']=a.role
-  if a.tags is not None:row['tags']=a.tags
-  if a.rarity is not None:row['rarity']=max(0,min(1,a.rarity))
-  write(path,data);summary={'result':'ASSET_OVERRIDE_UPDATED','asset':a.asset,'override':row}
- else:
-  data=read(a.project/'asset_catalog.json',{'assets':[]});q=a.query.casefold();rows=[x for x in data['assets'] if q in x['asset_id'].casefold()][:a.limit];summary={'result':'ASSET_EXPLANATION','assets':[{'asset_id':x['asset_id'],'kind':x['kind'],'roles':sorted(x['role_scores'].items(),key=lambda z:z[1],reverse=True)[:3],'tags':x['tags'],'rarity':x['rarity'],'cluster':x['cluster_id'],'confidence':x['confidence'],'compatible':x['compatible'][:5]} for x in rows]}
- print(json.dumps(summary,ensure_ascii=False,indent=2));return 0 if not str(summary.get('result','')).endswith('FAIL') else 1
-if __name__=='__main__':raise SystemExit(main())
+    args = parser().parse_args(argv)
+    repo = args.repo.resolve()
+    if args.command == "analyze-assets":
+        result = analyze_library(repo, args.output, args.overrides, args.max_sheets, args.max_grounds, args.samples)
+        summary = {key: result[key] for key in ("result", "asset_count", "ground_sheet_count", "dungeon_texture_bundle_count", "cluster_count", "ambiguous_asset_count")}
+    elif args.command == "create":
+        result = generate_project(repo, args.project, args.name, args.intent, args.floors, args.difficulty, args.boss, args.mini_bosses, args.relays, args.seed, args.reference_zone, args.variants, args.max_assets)
+        summary = {
+            "result": "SMART_DUNGEON_GENERATION_PASS", "project": str(args.project),
+            "seed": result.brief.seed, "floors": len(result.floors),
+            "mean_score": result.quality_summary["mean_score"],
+            "mean_structural_score": result.quality_summary["mean_structural_score"],
+            "mean_visual_score": result.quality_summary["mean_visual_score"],
+            "dungeon_artistic_score": result.artistic_quality_summary["score"],
+            "zone": result.compiler["zone_file"],
+        }
+    elif args.command == "regenerate":
+        result = regenerate(repo, args.project, args.scope, args.seed, args.force_unlock, args.variants)
+        summary = {
+            "result": "SMART_DUNGEON_REGENERATION_PASS", "scope": args.scope,
+            "seed": result.brief.seed, "mean_score": result.quality_summary["mean_score"],
+            "mean_structural_score": result.quality_summary["mean_structural_score"],
+            "mean_visual_score": result.quality_summary["mean_visual_score"],
+        }
+    elif args.command == "validate":
+        summary = validate_project(args.project)
+        write(args.output or args.project / "validation_report.json", summary)
+    elif args.command == "runtime-index":
+        summary = validate_runtime_index(repo, args.project)
+    elif args.command == "lock":
+        path = args.project / "locks.json"
+        data = read(path, {"floors": {}, "regions": []})
+        floor = data.setdefault("floors", {}).setdefault(str(args.floor), {})
+        floor["locked"] = not args.unlock
+        if args.room is not None:
+            floor.setdefault("rooms", {})[str(args.room)] = {"locked": not args.unlock}
+        write(path, data)
+        summary = {"result": "LOCK_UPDATED", "floor": args.floor, "room": args.room, "locked": not args.unlock}
+    elif args.command == "override-asset":
+        path = args.project / "asset_overrides.json"
+        data = read(path, {"assets": {}, "visual_language": {}})
+        row = data.setdefault("assets", {}).setdefault(args.asset, {})
+        if args.role:
+            row["role"] = args.role
+        if args.tags is not None:
+            row["tags"] = args.tags
+        if args.rarity is not None:
+            row["rarity"] = max(0, min(1, args.rarity))
+        write(path, data)
+        summary = {"result": "ASSET_OVERRIDE_UPDATED", "asset": args.asset, "override": row}
+    elif args.command == "explain-assets":
+        data = read(args.project / "asset_catalog.json", {"assets": []})
+        query = args.query.casefold()
+        rows = [row for row in data["assets"] if query in row["asset_id"].casefold()][:args.limit]
+        summary = {
+            "result": "ASSET_EXPLANATION",
+            "assets": [{
+                "asset_id": row["asset_id"], "kind": row["kind"],
+                "roles": sorted(row["role_scores"].items(), key=lambda item: item[1], reverse=True)[:3],
+                "tags": row["tags"], "rarity": row["rarity"], "cluster": row["cluster_id"],
+                "confidence": row["confidence"], "ambiguous": row.get("ambiguous", False),
+                "uncertainty_reasons": row.get("uncertainty_reasons", []),
+                "evidence_sources": row.get("evidence_sources", []),
+                "usage_contexts": row.get("usage_contexts", []),
+                "compatible": row["compatible"][:5],
+            } for row in rows],
+        }
+    else:
+        project = read(args.project / "project.json", {})
+        floors = project.get("floors", [])
+        selected = next((row for row in floors if row["floor"] == args.floor), None) if args.floor else None
+        summary = {
+            "result": "DESIGN_EXPLANATION",
+            "art_direction": project.get("art_direction", {}).get("decisions", []),
+            "vocabulary": project.get("art_direction", {}).get("vocabulary", {}),
+            "dungeon_artistic_quality": project.get("artistic_quality_summary", {}),
+            "floor": ({
+                "floor": selected["floor"], "identity": selected.get("identity", {}),
+                "rooms": [{"room_id": room["room_id"], "function": room.get("function"), "reason": room.get("design_reason")} for room in selected["rooms"]],
+                "landmarks": selected.get("landmarks", []),
+                "decoration_groups": selected.get("decoration_groups", []),
+                "decisions": selected.get("decisions", []),
+                "quality": selected.get("quality", {}),
+            } if selected else None),
+        }
+    print(json.dumps(summary, ensure_ascii=False, indent=2))
+    return 0 if not str(summary.get("result", "")).endswith("FAIL") else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
