@@ -63,6 +63,8 @@
     "Data/Tilesets.rxdata",
     "Data/Map*.rxdata",
     "Data/CommonEvents.rxdata (visual commands only; dialogue and scripts redacted)",
+    "Data/Animations.rxdata (only animation IDs used by map timelines)",
+    "Data/Scripts/005_Sprites/008_Sprite_AnimationSprite.rb (static visual timing/placement authority only)",
     "Data/Scripts/006_Map renderer/001_TilemapRenderer.rb (static timing constants only; content never exported)",
     "Graphics/Tilesets",
     "Graphics/Autotiles",

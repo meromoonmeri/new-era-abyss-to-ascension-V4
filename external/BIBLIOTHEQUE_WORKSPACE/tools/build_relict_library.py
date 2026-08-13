@@ -9,6 +9,7 @@ from pathlib import Path
 
 import extract_relict_autotile_animations as animations
 import extract_relict_environmental_vfx as vfx
+import extract_relict_map_animations as map_animations
 import inventory_relict as inventory
 import render_relict_previews as previews
 
@@ -30,6 +31,7 @@ def build(source: Path, output: Path) -> dict:
     source_summary = inventory.build(source, output)
     animation_summary = animations.build(source, output)
     vfx_summary = vfx.build(source, output)
+    map_animation_summary = map_animations.build(source, output)
     preview_summary = previews.build(source, output)
     result = {
         "schema_version": "1.0.0",
@@ -43,6 +45,10 @@ def build(source: Path, output: Path) -> dict:
         "vfx": {
             key: value for key, value in vfx_summary.items()
             if key not in ("timelines", "environment_assets", "excluded_assets", "review_queue")
+        },
+        "map_animations": {
+            key: value for key, value in map_animation_summary.items()
+            if key != "animations"
         },
         "previews": {
             key: value for key, value in preview_summary.items()
@@ -66,6 +72,7 @@ def main() -> int:
         result["inventory"]["result"] == "SOURCE_INVENTORY_PASS"
         and result["animations"]["result"] == "AUTOTILE_FRAME_EXTRACTION_PASS"
         and result["vfx"]["result"] == "ENVIRONMENTAL_VFX_AUDIT_PASS"
+        and result["map_animations"]["result"] == "MAP_ANIMATION_EXTRACTION_PASS"
         and result["previews"]["result"] == "PREVIEW_RENDER_PASS"
     )
     return 0 if success else 1

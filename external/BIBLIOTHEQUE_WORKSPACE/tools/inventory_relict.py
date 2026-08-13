@@ -809,12 +809,15 @@ def build(source: Path, output: Path) -> dict[str, Any]:
 
     manifest_files = []
     timing_script = source / "Data/Scripts/006_Map renderer/001_TilemapRenderer.rb"
+    animation_script = source / "Data/Scripts/005_Sprites/008_Sprite_AnimationSprite.rb"
     involved_paths = {
         source / "Data/MapInfos.rxdata",
         source / "Data/Tilesets.rxdata",
         source / "Data/CommonEvents.rxdata",
+        source / "Data/Animations.rxdata",
         source / "mkxp.json",
         timing_script,
+        animation_script,
     }
     involved_paths.update(canonical.values())
     involved_paths.update(path for values in variants.values() for _, path in values)
@@ -826,7 +829,7 @@ def build(source: Path, output: Path) -> dict[str, Any]:
             "size_bytes": path.stat().st_size,
             "classification": (
                 "STATIC_VISUAL_TIMING_AUTHORITY"
-                if path in (timing_script, source / "mkxp.json")
+                if path in (timing_script, animation_script, source / "mkxp.json")
                 else "REDACTED_VISUAL_TIMELINE_SOURCE"
                 if path == source / "Data/CommonEvents.rxdata"
                 else "INCLUDED_ENVIRONMENTAL_SOURCE"

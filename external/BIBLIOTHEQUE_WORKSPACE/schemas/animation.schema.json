@@ -9,6 +9,11 @@
     "schema_version": {"const": "1.0.0"},
     "animation_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
     "game_id": {"type": "string"},
+    "source_animation_id": {"type": "integer", "minimum": 1},
+    "position": {"type": "integer"},
+    "cells_by_frame": {"type": "array", "items": {"type": "object"}},
+    "source_timings": {"type": "array", "items": {"type": "object"}},
+    "render_note": {"type": "string"},
     "status": {"$ref": "status.schema.json"},
     "frame_count": {"type": "integer", "minimum": 1},
     "loop": {"type": "boolean"},
@@ -24,7 +29,7 @@
         "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
         "method": {"enum": ["STATIC_SCRIPT_CONSTANT", "GIF_GRAPHIC_CONTROL_EXTENSION"]},
         "constant": {"type": ["integer", "null"], "minimum": 1},
-        "units": {"enum": ["1/20 second", "1/100 second"]},
+        "units": {"enum": ["1/20 second", "1/100 second", "frames per second"]},
         "static_audit_only": {"type": "boolean"}
       }
     },
@@ -71,6 +76,7 @@
         "height_px": {"type": "integer", "minimum": 1}
       }
     },
+    "definition_provenance": {"$ref": "provenance.schema.json"},
     "provenance": {"$ref": "provenance.schema.json"}
   }
 }

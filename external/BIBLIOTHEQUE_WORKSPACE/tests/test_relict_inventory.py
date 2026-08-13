@@ -271,6 +271,30 @@ class RelictInventoryQualification(unittest.TestCase):
             [(4, [300]), (12, [100]), (144, [70, 100])],
         )
 
+    def test_map_triggered_animation_frames_and_transforms_are_documented(self):
+        manifest = load_json(TRACKED / "animations/map_effects/manifest.json")
+        self.assertEqual(manifest["result"], "MAP_ANIMATION_EXTRACTION_PASS")
+        self.assertEqual(manifest["used_animation_count"], 10)
+        self.assertEqual(manifest["total_frame_count"], 231)
+        self.assertEqual(manifest["timing_exact_count"], 10)
+        self.assertEqual(manifest["unsupported_transform_count"], 0)
+        self.assertFalse(manifest["audio_pixels_or_binaries_exported"])
+        self.assertEqual(
+            {row["source_animation_id"] for row in manifest["animations"]},
+            {3, 4, 8, 9, 10, 11, 12, 17, 18, 19},
+        )
+        for row in manifest["animations"]:
+            metadata_path = TRACKED / row["metadata"]
+            self.assertEqual(sha256_file(metadata_path), row["metadata_sha256"])
+            metadata = load_json(metadata_path)
+            self.assertEqual(metadata["timing_authority"], "SOURCE_EXACT")
+            self.assertEqual(metadata["timing_provenance"]["constant"], 20)
+            self.assertEqual(metadata["frame_count"], len(metadata["cells_by_frame"]))
+            self.assertTrue(metadata["contexts"])
+            self.assertTrue(all(frame["duration_ms"] == 50 for frame in metadata["layers"][0]["frames"]))
+            for timing in metadata["source_timings"]:
+                self.assertFalse(timing["audio_exported"])
+
     def test_generated_hash_manifest_covers_every_output(self):
         manifest_path = TRACKED / "manifests/generated_hashes.sha256"
         rows = {}
@@ -319,6 +343,7 @@ class RelictInventoryQualification(unittest.TestCase):
             self.assertEqual(result["previews"]["map_preview_count"], 34)
             self.assertEqual(result["animations"]["animated_autotile_count"], 17)
             self.assertEqual(result["vfx"]["result"], "ENVIRONMENTAL_VFX_AUDIT_PASS")
+            self.assertEqual(result["map_animations"]["used_animation_count"], 10)
             self.assertEqual(tree_hashes(output), tree_hashes(TRACKED))
 
 

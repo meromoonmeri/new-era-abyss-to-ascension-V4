@@ -3,6 +3,12 @@
   "execution_policy": "NO_SOURCE_CODE_EXECUTION",
   "files": [
     {
+      "classification": "INCLUDED_ENVIRONMENTAL_SOURCE",
+      "path": "Data/Animations.rxdata",
+      "sha256": "0194c20a1ba32313c8d9384ddc940bbc8eedd00a36c7109988643b048aa113c0",
+      "size_bytes": 20951
+    },
+    {
       "classification": "REDACTED_VISUAL_TIMELINE_SOURCE",
       "path": "Data/CommonEvents.rxdata",
       "sha256": "ca10aba92b19f0612afdef378ae676da382ce42d3a1ffe613e51c5c622df7098",
@@ -229,6 +235,12 @@
       "path": "Data/MapInfos.rxdata",
       "sha256": "f479075861f0ab8dae90aced400b85449c51e4909e4fa3730ee5dd14061789f7",
       "size_bytes": 1425
+    },
+    {
+      "classification": "STATIC_VISUAL_TIMING_AUTHORITY",
+      "path": "Data/Scripts/005_Sprites/008_Sprite_AnimationSprite.rb",
+      "sha256": "f74937f37b0fadb82e9b7480de54fd94181d68d4b02441c8bd10b00942a053da",
+      "size_bytes": 10498
     },
     {
       "classification": "STATIC_VISUAL_TIMING_AUTHORITY",
@@ -509,19 +521,20 @@
   ],
   "game_id": "relict",
   "pipeline_tool_hashes": {
-    "tools/build_relict_library.py": "d2fc53c13de611d2c5f5d540aeb6c889bc1328654509856a75213bd86a234fa7",
+    "tools/build_relict_library.py": "04926e410cdb228025f7c6462ee29afb36b0fde6072941a518b96592e1c0d8ba",
     "tools/extract_relict_autotile_animations.py": "3109c3fc1c0d032e2394d7c111ee446a80cade64079895c0eea728ca08d27c44",
     "tools/extract_relict_environmental_vfx.py": "92e59fdc845a416b4b34dedaf3e1370719244a02c64a1582a992a0bc02b7f08c",
-    "tools/inventory_relict.py": "f15fb32370763d1e7ec0ee6759776c26e9b30b963604400ae29d4f43229aee03",
+    "tools/extract_relict_map_animations.py": "9c60770d136e82e56a5c1b7e7407bcf3bc49b76d6c79d5d0791b468302fae05c",
+    "tools/inventory_relict.py": "65fbb5ca8aca22bd687b3c052b534f76d96147b9581d2a0655edc40e51ff3d1f",
     "tools/png_rgba.py": "5db7749bd903b422136ff2f8aaa219d625c3b6b9c6d564981de10fbdd37f1b8a",
     "tools/render_relict_previews.py": "c6383fae3d28b8366f80ba80d699fde4ace6b8216ed08763606bf0fc952dac8e",
     "tools/ruby_marshal.py": "3f7d6135b29f3840d61e62be394a1a46abf4845b8a01716c855b4835fa9bcf3f"
   },
   "policy_hashes": {
-    "policies/environment_scope.json": "34a2b69e27af11acda2bda39f55066e71ebc7f4899bf1d15665aafa47747494b"
+    "policies/environment_scope.json": "b1a573b2ad083027e2e24a0439513d4e888ddd93f4e7ee3318c20af20a4f368c"
   },
   "schema_hashes": {
-    "schemas/animation.schema.json": "b06fe3a2bfbafaa756d6eb3c357cea17f3ba6ce26d65f0ac69f4e9600b86ff6c",
+    "schemas/animation.schema.json": "117d473c743df4dc90d09277f0bff7d015cecae40eac82b89c2b5365e92cb614",
     "schemas/asset.schema.json": "cf9b9ef3ec687f123aee23fa156bb6c5991960269b71322dcf007cbd6e178992",
     "schemas/collision.schema.json": "d8e12f666509d04e6db49bc0c60ecaae4b73788a0a64584325e0ba804f35c262",
     "schemas/entity-placement.schema.json": "95fec579618fe51dd71e6a344d5a0cff4315b1792a5d28b7a62b68255c85512e",

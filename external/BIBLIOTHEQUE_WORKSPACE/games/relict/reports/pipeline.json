@@ -34,6 +34,15 @@
     "used_tileset_count": 10,
     "variant_map_count": 8
   },
+  "map_animations": {
+    "audio_pixels_or_binaries_exported": false,
+    "result": "MAP_ANIMATION_EXTRACTION_PASS",
+    "schema_version": "1.0.0",
+    "timing_exact_count": 10,
+    "total_frame_count": 231,
+    "unsupported_transform_count": 0,
+    "used_animation_count": 10
+  },
   "pmdo_conversion_started": false,
   "previews": {
     "canonical_preview_count": 28,
