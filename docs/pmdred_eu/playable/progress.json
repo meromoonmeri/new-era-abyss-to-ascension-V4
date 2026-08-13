@@ -51,7 +51,7 @@
         "d01p02:g1",
         "d01p01:g3"
       ],
-      "remaining": "PMDO semantics and branch execution for non-selected secondary control/choreography handlers, followed by narrow live integration",
+      "remaining": "Semantic execution and branch tests for non-palette actor/control/camera/animation handlers, followed by narrow live quest integration",
       "command_complete_selected_route_extension": {
         "status": "PASS",
         "report": "docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/native_command_complete_validation.json",
@@ -117,6 +117,60 @@
           "source_manifest_byte_identity": true,
           "strict_graceful_terminations": 2
         }
+      },
+      "palette_semantic_extension": {
+        "status": "PASS",
+        "scope": "Source-pinned semantics and isolated PMDO adapter for the exact EU opcodes 0x22/0x23/0x25/0x26, integrated into all six affected Tiny Woods station/title choreographies without changing command_plan.json fallback handlers",
+        "semantics": "docs/pmdred_eu/playable/tiny_woods/secondary_palette_semantics_v1.json",
+        "semantics_sha256": "c3e7b71dc3929680b665b2ef441624185e92b8bcb517257fb2f20fe007dbbb73",
+        "archive": "docs/pmdred_eu/playable/tiny_woods/palette_semantics_runtime_v1",
+        "report": "docs/pmdred_eu/playable/tiny_woods/palette_semantics_runtime_v1/native_palette_validation.json",
+        "report_sha256": "6ca93529cf35868ed0125fc7e03d459cb082a9625e5137e7e5130f9ad54e10fb",
+        "fixture_manifest_sha256": "6e9c1c8e8141d38f18ab1da606d50baaddfee89395e4d2cc6a69e46b5e4c9107",
+        "certificate": "docs/pmdred_eu/playable/tiny_woods/palette_semantics_runtime_v1/palette_certificate.json",
+        "certificate_sha256": "e952b9118becfd2472ebec9366ac469567686c9d73d6254e1bbace9c5f85d0a1",
+        "evidence_hashes_sha256": "578f002bc5a4500e46cd76ef245474e4f9e2ffb4b8d143beaf8f738e91d4b68d",
+        "opcode_counts": {
+          "0x22": 6,
+          "0x23": 5,
+          "0x25": 2,
+          "0x26": 2
+        },
+        "exact_commands": 15,
+        "affected_arrays": 6,
+        "integrated_scenes": [
+          "d01p01:g1",
+          "d01p01:g2",
+          "d01p01:g3",
+          "d01p02:g1",
+          "b01p00a:g16",
+          "s02_fre:g2"
+        ],
+        "selected_route_integrated_commands": 14,
+        "native_modes": [
+          "opening_naming",
+          "post_route",
+          "palette_adapter_all"
+        ],
+        "selected_french_dialogues_executed_and_closed": 94,
+        "strict_graceful_terminations": 3,
+        "channels": {
+          "main": [
+            "0x22",
+            "0x23"
+          ],
+          "front": [
+            "0x25",
+            "0x26"
+          ]
+        },
+        "source_durations_frames": [
+          0,
+          30,
+          60
+        ],
+        "zero_frame_runtime_policy": "one PMDO frame because ScreenFadeFX fadeTime=0 cannot change a non-target state; source duration remains 0 in trace",
+        "planning_unknown_fallback_retained": true
       }
     },
     "post_g3_route_authentication": {
@@ -164,15 +218,17 @@
   "resume": {
     "restore": "bash tools/restore_pmdred_eu_validation_runtime.sh",
     "verify_ground_checkpoint": "python3 tools/update_pmdred_eu_validation_progress.py --check",
-    "reproduce_latest_milestone": "bash docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/commands.sh",
-    "next_phase": "tiny_woods_opcode_semantic_choreography_and_production_integration",
-    "rule": "Preserve all 219/219, route v2, scene-core, post-route audit, and command-complete selected-route native evidence. Implement and branch-test the remaining secondary opcode semantics before narrowly promoting overlay scripts into the live quest.",
+    "reproduce_latest_milestone": "bash docs/pmdred_eu/playable/tiny_woods/palette_semantics_runtime_v1/commands.sh",
+    "next_phase": "tiny_woods_actor_camera_animation_semantics_and_live_integration",
+    "rule": "Preserve all 219/219, route v2, scene-core, post-route, command-complete, clean-reproduction, and palette-semantic native evidence. Keep the command-plan unknown fallback until each remaining opcode family is source-backed and natively branch-tested; then integrate narrowly into the live quest.",
     "reproduce_post_route_audit": "python3 tools/audit_pmdred_eu_tiny_woods_post_route.py .runtime-cache/downloads/pmdred-eu.gba --pret-root .runtime-cache/pmd-red-reference --report /tmp/eu_post_route_graph.json",
-    "reproduce_command_complete": "bash docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/commands.sh"
+    "reproduce_command_complete": "bash docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/commands.sh",
+    "reproduce_palette_semantics": "bash docs/pmdred_eu/playable/tiny_woods/palette_semantics_runtime_v1/commands.sh"
   },
   "limitations": [
     "A route PASS is not narrative completion.",
     "The failed route uses a genuine GiveUp GameAction carrying ResultType.Failed; natural combat defeat remains a later combat milestone.",
-    "The command-complete native extension executes the selected D1/default route and one refusal loop; loading all 975 exact command records is not claimed as execution of every non-selected alternative branch."
+    "The command-complete native extension executes the selected D1/default route and one refusal loop; loading all 975 exact command records is not claimed as execution of every non-selected alternative branch.",
+    "The palette milestone promotes only 0x22/0x23/0x25/0x26 through an address-gated adapter; all other unresolved command handlers remain on the default actor.control_unknown planning fallback."
   ]
 }

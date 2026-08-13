@@ -49,6 +49,31 @@ nouveaux streams/logs/terminaisons et la fixture ne diffère que par ses racines
 absolues create-only. Les deux nouvelles terminaisons satisfont les mêmes gates
 stricts.
 
+La première famille de handlers secondaires est maintenant certifiée : les 15
+commandes palette exactes `0x22/0x23/0x25/0x26`, réparties dans six tableaux,
+ont une sémantique épinglée aux sources pret et RogueEssence dans
+[`secondary_palette_semantics_v1.json`](tiny_woods/secondary_palette_semantics_v1.json),
+SHA-256 `c3e7b71dc3929680b665b2ef441624185e92b8bcb517257fb2f20fe007dbbb73`.
+L’adaptateur applique les canaux principal/front, les sens entrée/sortie et les
+durées EU 0/30/60 ; une durée source nulle est tracée comme telle mais exécutée
+en une frame PMDO, car `ScreenFadeFX` ne rejoint pas un nouvel endpoint avec
+`fadeTime=0`.
+
+Trois exécutions natives strictes — `opening_naming`, `post_route` et
+`palette_adapter_all` — sont **PASS**. Les deux parcours intégrés exécutent 14
+transitions et ferment toujours les 94 dialogues ; le mode isolé adresse les
+15/15 commandes dans l’ordre authentifié, y compris la transition retry non
+sélectionnée `0x084CFFE8`. Toutes chargent et contrôlent encore les 975
+commandes. L’archive durable create-only est
+[`tiny_woods/palette_semantics_runtime_v1`](tiny_woods/palette_semantics_runtime_v1) ;
+le rapport natif a le SHA-256
+`6ca93529cf35868ed0125fc7e03d459cb082a9625e5137e7e5130f9ad54e10fb`
+et le certificat le SHA-256
+`e952b9118becfd2472ebec9366ac469567686c9d73d6254e1bbace9c5f85d0a1`.
+Les trois terminaisons passent `LoadPhase.Unload`, `NORMAL_EXIT`, rc 0,
+`terminal/graceful=true`, sans watchdog, signal, SIGSEGV, kill forcé ni
+orphelin.
+
 La première archive `command_complete_runtime` reste conservée. Ses onze Ogg
 sont octet pour octet identiques à la v2 et son PASS natif reste valide, mais
 son manifeste fanfare nommait un hash de source intermédiaire non suivi. Elle
@@ -60,26 +85,28 @@ qui lie le renderer suivi au SHA-256
 
 ## Portée exacte du PASS
 
-Le PASS natif couvre la branche grammaticale D1/neutre déjà sélectionnée par le
-plan de scène, avec une itération de la boucle de refus. Les 27 tableaux, les
-975 commandes et les 195 associations françaises sont tous préservés et
-contrôlés adresse par adresse dans l’overlay. Les alternatives grammaticales et
-les chemins de contrôle non sélectionnés ne sont pas prétendus exécutés dans
-une seule partie. La preuve historique `scene_runtime` reste un **PARTIAL PASS**
-et n’est ni remplacée ni réécrite.
+Le PASS natif de parcours couvre la branche grammaticale D1/neutre déjà
+sélectionnée par le plan de scène, avec une itération de la boucle de refus. Les
+27 tableaux, les 975 commandes et les 195 associations françaises sont tous
+préservés et contrôlés adresse par adresse dans l’overlay. La passe palette
+ajoute l’exécution sémantique des 15 commandes concernées : 14 sur le parcours
+sélectionné et 15/15 dans le dispatcher isolé. Elle ne prétend pas exécuter les
+autres familles d’opcodes ni toutes les alternatives grammaticales dans une
+seule partie. La preuve historique `scene_runtime` reste un **PARTIAL PASS** et
+n’est ni remplacée ni réécrite. Le fallback déclaratif `actor.control_unknown`
+du plan reste volontairement intact tant qu’une famille n’est pas certifiée.
 
 Ce checkpoint ne promeut pas encore les scripts Ground de l’overlay dans la
 quête live : la prochaine passe doit donner une sémantique PMDO exécutable aux
-handlers de contrôle/chorégraphie secondaires non parcourus, tester leurs
-branches, puis intégrer l’overlay étroitement sans modifier les preuves
-historiques.
+handlers acteur/caméra/animation restants, tester leurs branches, puis intégrer
+l’overlay étroitement sans modifier les preuves historiques.
 
 ## Reprise exacte
 
 ```bash
 bash tools/restore_pmdred_eu_validation_runtime.sh
 python3 tools/update_pmdred_eu_validation_progress.py --check
-bash docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/commands.sh
+bash docs/pmdred_eu/playable/tiny_woods/palette_semantics_runtime_v1/commands.sh
 ```
 
 Rejouer également les régressions sans `pytest` :
@@ -93,7 +120,8 @@ PYTHONPATH=tools .runtime-cache/test-venv/bin/python -m unittest \
   tools.test_pmdred_tiny_woods_post_route \
   tools.test_build_pmdred_tiny_woods_command_plan \
   tools.test_build_pmdred_tiny_woods_command_complete_overlay \
-  tools.test_pmdred_tiny_woods_command_complete -v
+  tools.test_pmdred_tiny_woods_command_complete \
+  tools.test_pmdred_tiny_woods_palette_semantics -v
 ```
 
 Les rendus audio, fixtures et preuves sont create-only. Si les destinations
@@ -102,15 +130,14 @@ plutôt que les écraser.
 
 ## Étape suivante
 
-Phase `tiny_woods_opcode_semantic_choreography_and_production_integration` :
+Phase `tiny_woods_actor_camera_animation_semantics_and_live_integration` :
 
-1. transformer les handlers déclaratifs des 61 opcodes en exécution PMDO sûre,
-   en respectant appels, retours, labels, branches grammaticales et attentes ;
-2. restituer et tester les émotions/portraits, rotations, marches, animations,
-   caméra et synchronisations secondaires que la branche native actuelle ne
-   parcourt pas encore ;
-3. exécuter des scénarios isolés pour les alternatives et les retries sans
-   affaiblir les gates de terminaison ;
+1. poursuivre l’approche étroite et source-pinned de la palette pour les
+   rotations, marches, animations, caméra, émotions/portraits et attentes ;
+2. respecter les appels, retours, labels et branches grammaticales, sans
+   modifier le fallback des familles non encore prouvées ;
+3. exécuter des scénarios isolés pour les alternatives et retries, puis le
+   parcours sélectionné, sans affaiblir les gates de terminaison ;
 4. seulement après ces preuves, intégrer étroitement les scripts et assets de
    l’overlay à la quête live, puis certifier un playthrough ouverture → donjon →
    sauvetage → base → titre.

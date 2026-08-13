@@ -1,0 +1,16 @@
+{
+  "schema": "pmdred-eu-tiny-woods-palette-certificate-v1",
+  "date": "2026-08-13",
+  "status": "PASS",
+  "native_report_sha256": "6ca93529cf35868ed0125fc7e03d459cb082a9625e5137e7e5130f9ad54e10fb",
+  "fixture_manifest_sha256": "6e9c1c8e8141d38f18ab1da606d50baaddfee89395e4d2cc6a69e46b5e4c9107",
+  "semantics_sha256": "c3e7b71dc3929680b665b2ef441624185e92b8bcb517257fb2f20fe007dbbb73",
+  "provenance_sha256": "4f37a2d9009e4630e8d42492d089acdc79b45b408af09d27b4c9be81f870351f",
+  "modes": 3,
+  "exact_palette_commands": 15,
+  "selected_route_integrated_commands": 14,
+  "selected_route_dialogues_closed": 94,
+  "strict_native_terminations": 3,
+  "unknown_planning_fallback_retained": true,
+  "result": "TINY_WOODS_PALETTE_NATIVE_PASS modes=3 commands=15 selected_route=14 dialogues=94"
+}

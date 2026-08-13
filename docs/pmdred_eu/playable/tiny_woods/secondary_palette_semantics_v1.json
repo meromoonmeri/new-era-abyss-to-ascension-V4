@@ -1,0 +1,589 @@
+{
+  "schema": "pmdred-eu-tiny-woods-palette-semantics-v1",
+  "date": "2026-08-13",
+  "status": "source_pinned_semantics_pass",
+  "scope": {
+    "content_authority": "authenticated PMD Red EU command_plan.json extracted from ROM bytes",
+    "technical_references_only": [
+      "pret/pmd-red",
+      "RogueEssence/PMDO 0.8.12 engine source"
+    ],
+    "commands": 15,
+    "affected_arrays": 6,
+    "opcode_counts": {
+      "0x22": 6,
+      "0x23": 5,
+      "0x25": 2,
+      "0x26": 2
+    },
+    "durations_frames": [
+      0,
+      30,
+      60
+    ],
+    "all_arg_byte_one_and_blocking": true
+  },
+  "authority": {
+    "region": "EU",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "command_plan": {
+      "path": "docs/pmdred_eu/playable/tiny_woods/command_plan.json",
+      "sha256": "ab9f2a8dcf857181a4dd188e28687cb953ba4789c9b6f39430c50fee4b94c37b",
+      "relevant_lines": "exact 27-array/975-command decoded surface"
+    }
+  },
+  "technical_sources": {
+    "pret_commit": "bf0092d0e34fd8e49b859a0b5f96f00740faa42d",
+    "pret_files": [
+      {
+        "path": ".runtime-cache/pmd-red-reference/src/ground_script.c",
+        "sha256": "c457af6617ca0e9edc8efc59ffd0ec8df8e012ccafc4f3beffb97b066eb906f3",
+        "relevant_lines": "550-554 completion dispatch; 1913-1942 opcode dispatch"
+      },
+      {
+        "path": ".runtime-cache/pmd-red-reference/src/palette_util.c",
+        "sha256": "ca62dee4397d98cab94c7cb3fdb74a403a95125db58e600f33b22a3b2b6888f4",
+        "relevant_lines": "125-166 target scheduling; 252-265 channel entry points; 340-370 completion; 436-462 palette indices"
+      }
+    ],
+    "rogueessence_commit": "4961b2271bb0cace74f40f6a85e799e8e4848ace",
+    "rogueessence_files": [
+      {
+        "path": ".runtime-cache/RogueEssence-source/RogueEssence/Lua/ScriptGame.cs",
+        "sha256": "371c85bf96e15103c214380624f037ac37b871f18b315fe28656d85843b88bdb",
+        "relevant_lines": "238-275 blocking Lua front APIs; 277-313 blocking Lua main APIs; 1588-1591 coroutine bindings"
+      },
+      {
+        "path": ".runtime-cache/RogueEssence-source/RogueEssence/Scene/GameManager.cs",
+        "sha256": "52cc6b561eed74ce23401eddc3907d64228d88d6746f0a9ef10f81071269bd2d",
+        "relevant_lines": "390-425 main/front fade targets"
+      },
+      {
+        "path": ".runtime-cache/RogueEssence-source/RogueEssence/Scene/FadeEffect.cs",
+        "sha256": "aec95c8b44e900eacf3c5dd76792d64ad4b940e569693e738e849149fa8437bb",
+        "relevant_lines": "30-72 frame scheduler and immediate-target behavior"
+      }
+    ]
+  },
+  "opcode_semantics": {
+    "0x22": {
+      "semantic_name": "main_palette_fade_in",
+      "gba_function": "sub_80999E8",
+      "gba_channel_state": "gUnknown_2039958",
+      "gba_palette_indices": "0-13,16-30,32 except explicit exemptions",
+      "gba_target_brightness": "0x100",
+      "pmdo_api": "GAME:FadeIn(frames)",
+      "pmdo_channel": "main",
+      "target": "visible"
+    },
+    "0x23": {
+      "semantic_name": "main_palette_fade_out",
+      "gba_function": "sub_80999FC",
+      "gba_channel_state": "gUnknown_2039958",
+      "gba_palette_indices": "0-13,16-30,32 except explicit exemptions",
+      "gba_target_brightness": "0x000",
+      "pmdo_api": "GAME:FadeOut(false, frames)",
+      "pmdo_channel": "main",
+      "target": "black"
+    },
+    "0x25": {
+      "semantic_name": "reserved_palette_fade_in",
+      "gba_function": "sub_8099A34",
+      "gba_channel_state": "gUnknown_2039968",
+      "gba_palette_indices": "14,15,31",
+      "gba_target_brightness": "0x100",
+      "pmdo_api": "GAME:FadeInFront(frames)",
+      "pmdo_channel": "front",
+      "target": "visible"
+    },
+    "0x26": {
+      "semantic_name": "reserved_palette_fade_out",
+      "gba_function": "sub_8099A48",
+      "gba_channel_state": "gUnknown_2039968",
+      "gba_palette_indices": "14,15,31",
+      "gba_target_brightness": "0x000",
+      "pmdo_api": "GAME:FadeOutFront(false, frames)",
+      "pmdo_channel": "front",
+      "target": "black"
+    }
+  },
+  "affected_arrays": [
+    "tiny_woods_scene:s_gs178_g1_s0_station_sref_script",
+    "tiny_woods_scene:s_gs178_g2_s0_station_sref_script",
+    "tiny_woods_scene:s_gs178_g3_s0_station_sref_script",
+    "tiny_woods_scene:s_gs179_g1_s0_station_sref_script",
+    "post_route:s_gs9_g17_s0_station_sref_script",
+    "post_route:title_group/script"
+  ],
+  "commands": [
+    {
+      "ordinal": 1,
+      "array_id": "tiny_woods_scene:s_gs178_g1_s0_station_sref_script",
+      "index": 2,
+      "address": "0x084CB130",
+      "opcode": "0x23",
+      "opcode_value": 35,
+      "source_name": "CMD_UNK_23",
+      "arg_byte": 1,
+      "source_frames": 0,
+      "blocking": true,
+      "planning_handler_retained": "actor.control_unknown",
+      "semantic_name": "main_palette_fade_out",
+      "channel": "main",
+      "target": "black",
+      "pmdo_api": "GAME:FadeOut(false, frames)",
+      "previous_command": {
+        "index": 1,
+        "address": "0x084CB118",
+        "opcode": "0x47",
+        "name": "BGM_STOP"
+      },
+      "next_command": {
+        "index": 3,
+        "address": "0x084CB148",
+        "opcode": "0x26",
+        "name": "CMD_UNK_26"
+      }
+    },
+    {
+      "ordinal": 2,
+      "array_id": "tiny_woods_scene:s_gs178_g1_s0_station_sref_script",
+      "index": 3,
+      "address": "0x084CB148",
+      "opcode": "0x26",
+      "opcode_value": 38,
+      "source_name": "CMD_UNK_26",
+      "arg_byte": 1,
+      "source_frames": 0,
+      "blocking": true,
+      "planning_handler_retained": "actor.control_unknown",
+      "semantic_name": "reserved_palette_fade_out",
+      "channel": "front",
+      "target": "black",
+      "pmdo_api": "GAME:FadeOutFront(false, frames)",
+      "previous_command": {
+        "index": 2,
+        "address": "0x084CB130",
+        "opcode": "0x23",
+        "name": "CMD_UNK_23"
+      },
+      "next_command": {
+        "index": 4,
+        "address": "0x084CB160",
+        "opcode": "0x08",
+        "name": "SELECT_MAP"
+      }
+    },
+    {
+      "ordinal": 3,
+      "array_id": "tiny_woods_scene:s_gs178_g1_s0_station_sref_script",
+      "index": 20,
+      "address": "0x084CB2E0",
+      "opcode": "0x25",
+      "opcode_value": 37,
+      "source_name": "CMD_UNK_25",
+      "arg_byte": 1,
+      "source_frames": 0,
+      "blocking": true,
+      "planning_handler_retained": "actor.control_unknown",
+      "semantic_name": "reserved_palette_fade_in",
+      "channel": "front",
+      "target": "visible",
+      "pmdo_api": "GAME:FadeInFront(frames)",
+      "previous_command": {
+        "index": 19,
+        "address": "0x084CB2C8",
+        "opcode": "0xDB",
+        "name": "WAIT"
+      },
+      "next_command": {
+        "index": 21,
+        "address": "0x084CB2F8",
+        "opcode": "0x34",
+        "name": "MSG_NPC"
+      }
+    },
+    {
+      "ordinal": 4,
+      "array_id": "tiny_woods_scene:s_gs178_g1_s0_station_sref_script",
+      "index": 32,
+      "address": "0x084CB400",
+      "opcode": "0x22",
+      "opcode_value": 34,
+      "source_name": "CMD_UNK_22",
+      "arg_byte": 1,
+      "source_frames": 60,
+      "blocking": true,
+      "planning_handler_retained": "actor.control_unknown",
+      "semantic_name": "main_palette_fade_in",
+      "channel": "main",
+      "target": "visible",
+      "pmdo_api": "GAME:FadeIn(frames)",
+      "previous_command": {
+        "index": 31,
+        "address": "0x084CB3E8",
+        "opcode": "0x45",
+        "name": "BGM_FADEIN"
+      },
+      "next_command": {
+        "index": 33,
+        "address": "0x084CB418",
+        "opcode": "0x3B",
+        "name": "CONDITIONAL_SPECIAL_TEXT"
+      }
+    },
+    {
+      "ordinal": 5,
+      "array_id": "tiny_woods_scene:s_gs178_g2_s0_station_sref_script",
+      "index": 9,
+      "address": "0x084CFFE8",
+      "opcode": "0x22",
+      "opcode_value": 34,
+      "source_name": "CMD_UNK_22",
+      "arg_byte": 1,
+      "source_frames": 60,
+      "blocking": true,
+      "planning_handler_retained": "actor.control_unknown",
+      "semantic_name": "main_palette_fade_in",
+      "channel": "main",
+      "target": "visible",
+      "pmdo_api": "GAME:FadeIn(frames)",
+      "previous_command": {
+        "index": 8,
+        "address": "0x084CFFD0",
+        "opcode": "0x0C",
+        "name": "SELECT_ENTITIES"
+      },
+      "next_command": {
+        "index": 10,
+        "address": "0x084D0000",
+        "opcode": "0x3B",
+        "name": "CONDITIONAL_SPECIAL_TEXT"
+      }
+    },
+    {
+      "ordinal": 6,
+      "array_id": "tiny_woods_scene:s_gs178_g3_s0_station_sref_script",
+      "index": 4,
+      "address": "0x084D1C54",
+      "opcode": "0x22",
+      "opcode_value": 34,
+      "source_name": "CMD_UNK_22",
+      "arg_byte": 1,
+      "source_frames": 30,
+      "blocking": true,
+      "planning_handler_retained": "actor.control_unknown",
+      "semantic_name": "main_palette_fade_in",
+      "channel": "main",
+      "target": "visible",
+      "pmdo_api": "GAME:FadeIn(frames)",
+      "previous_command": {
+        "index": 3,
+        "address": "0x084D1C3C",
+        "opcode": "0x44",
+        "name": "BGM_SWITCH"
+      },
+      "next_command": {
+        "index": 5,
+        "address": "0x084D1C6C",
+        "opcode": "0xE3",
+        "name": "AWAIT_CUE"
+      }
+    },
+    {
+      "ordinal": 7,
+      "array_id": "tiny_woods_scene:s_gs178_g3_s0_station_sref_script",
+      "index": 7,
+      "address": "0x084D1C9C",
+      "opcode": "0x23",
+      "opcode_value": 35,
+      "source_name": "CMD_UNK_23",
+      "arg_byte": 1,
+      "source_frames": 30,
+      "blocking": true,
+      "planning_handler_retained": "actor.control_unknown",
+      "semantic_name": "main_palette_fade_out",
+      "channel": "main",
+      "target": "black",
+      "pmdo_api": "GAME:FadeOut(false, frames)",
+      "previous_command": {
+        "index": 6,
+        "address": "0x084D1C84",
+        "opcode": "0x48",
+        "name": "BGM_FADEOUT"
+      },
+      "next_command": {
+        "index": 8,
+        "address": "0x084D1CB4",
+        "opcode": "0xDB",
+        "name": "WAIT"
+      }
+    },
+    {
+      "ordinal": 8,
+      "array_id": "tiny_woods_scene:s_gs179_g1_s0_station_sref_script",
+      "index": 3,
+      "address": "0x084D4C90",
+      "opcode": "0x22",
+      "opcode_value": 34,
+      "source_name": "CMD_UNK_22",
+      "arg_byte": 1,
+      "source_frames": 30,
+      "blocking": true,
+      "planning_handler_retained": "actor.control_unknown",
+      "semantic_name": "main_palette_fade_in",
+      "channel": "main",
+      "target": "visible",
+      "pmdo_api": "GAME:FadeIn(frames)",
+      "previous_command": {
+        "index": 2,
+        "address": "0x084D4C78",
+        "opcode": "0x44",
+        "name": "BGM_SWITCH"
+      },
+      "next_command": {
+        "index": 4,
+        "address": "0x084D4CA8",
+        "opcode": "0xE3",
+        "name": "AWAIT_CUE"
+      }
+    },
+    {
+      "ordinal": 9,
+      "array_id": "tiny_woods_scene:s_gs179_g1_s0_station_sref_script",
+      "index": 5,
+      "address": "0x084D4CC0",
+      "opcode": "0x23",
+      "opcode_value": 35,
+      "source_name": "CMD_UNK_23",
+      "arg_byte": 1,
+      "source_frames": 30,
+      "blocking": true,
+      "planning_handler_retained": "actor.control_unknown",
+      "semantic_name": "main_palette_fade_out",
+      "channel": "main",
+      "target": "black",
+      "pmdo_api": "GAME:FadeOut(false, frames)",
+      "previous_command": {
+        "index": 4,
+        "address": "0x084D4CA8",
+        "opcode": "0xE3",
+        "name": "AWAIT_CUE"
+      },
+      "next_command": {
+        "index": 6,
+        "address": "0x084D4CD8",
+        "opcode": "0xDB",
+        "name": "WAIT"
+      }
+    },
+    {
+      "ordinal": 10,
+      "array_id": "post_route:s_gs9_g17_s0_station_sref_script",
+      "index": 4,
+      "address": "0x0838D21C",
+      "opcode": "0x22",
+      "opcode_value": 34,
+      "source_name": "CMD_UNK_22",
+      "arg_byte": 1,
+      "source_frames": 30,
+      "blocking": true,
+      "planning_handler_retained": "actor.control_unknown",
+      "semantic_name": "main_palette_fade_in",
+      "channel": "main",
+      "target": "visible",
+      "pmdo_api": "GAME:FadeIn(frames)",
+      "previous_command": {
+        "index": 3,
+        "address": "0x0838D204",
+        "opcode": "0x44",
+        "name": "BGM_SWITCH"
+      },
+      "next_command": {
+        "index": 5,
+        "address": "0x0838D234",
+        "opcode": "0xE3",
+        "name": "AWAIT_CUE"
+      }
+    },
+    {
+      "ordinal": 11,
+      "array_id": "post_route:s_gs9_g17_s0_station_sref_script",
+      "index": 8,
+      "address": "0x0838D27C",
+      "opcode": "0x23",
+      "opcode_value": 35,
+      "source_name": "CMD_UNK_23",
+      "arg_byte": 1,
+      "source_frames": 60,
+      "blocking": true,
+      "planning_handler_retained": "actor.control_unknown",
+      "semantic_name": "main_palette_fade_out",
+      "channel": "main",
+      "target": "black",
+      "pmdo_api": "GAME:FadeOut(false, frames)",
+      "previous_command": {
+        "index": 7,
+        "address": "0x0838D264",
+        "opcode": "0x48",
+        "name": "BGM_FADEOUT"
+      },
+      "next_command": {
+        "index": 9,
+        "address": "0x0838D294",
+        "opcode": "0x26",
+        "name": "CMD_UNK_26"
+      }
+    },
+    {
+      "ordinal": 12,
+      "array_id": "post_route:s_gs9_g17_s0_station_sref_script",
+      "index": 9,
+      "address": "0x0838D294",
+      "opcode": "0x26",
+      "opcode_value": 38,
+      "source_name": "CMD_UNK_26",
+      "arg_byte": 1,
+      "source_frames": 0,
+      "blocking": true,
+      "planning_handler_retained": "actor.control_unknown",
+      "semantic_name": "reserved_palette_fade_out",
+      "channel": "front",
+      "target": "black",
+      "pmdo_api": "GAME:FadeOutFront(false, frames)",
+      "previous_command": {
+        "index": 8,
+        "address": "0x0838D27C",
+        "opcode": "0x23",
+        "name": "CMD_UNK_23"
+      },
+      "next_command": {
+        "index": 10,
+        "address": "0x0838D2AC",
+        "opcode": "0x2D",
+        "name": "CMD_UNK_2D"
+      }
+    },
+    {
+      "ordinal": 13,
+      "array_id": "post_route:s_gs9_g17_s0_station_sref_script",
+      "index": 18,
+      "address": "0x0838D36C",
+      "opcode": "0x25",
+      "opcode_value": 37,
+      "source_name": "CMD_UNK_25",
+      "arg_byte": 1,
+      "source_frames": 0,
+      "blocking": true,
+      "planning_handler_retained": "actor.control_unknown",
+      "semantic_name": "reserved_palette_fade_in",
+      "channel": "front",
+      "target": "visible",
+      "pmdo_api": "GAME:FadeInFront(frames)",
+      "previous_command": {
+        "index": 17,
+        "address": "0x0838D354",
+        "opcode": "0xDB",
+        "name": "WAIT"
+      },
+      "next_command": {
+        "index": 19,
+        "address": "0x0838D384",
+        "opcode": "0xEF",
+        "name": "RET"
+      }
+    },
+    {
+      "ordinal": 14,
+      "array_id": "post_route:title_group/script",
+      "index": 5,
+      "address": "0x0856280C",
+      "opcode": "0x22",
+      "opcode_value": 34,
+      "source_name": "CMD_UNK_22",
+      "arg_byte": 1,
+      "source_frames": 60,
+      "blocking": true,
+      "planning_handler_retained": "actor.control_unknown",
+      "semantic_name": "main_palette_fade_in",
+      "channel": "main",
+      "target": "visible",
+      "pmdo_api": "GAME:FadeIn(frames)",
+      "previous_command": {
+        "index": 4,
+        "address": "0x085627F4",
+        "opcode": "0xDB",
+        "name": "WAIT"
+      },
+      "next_command": {
+        "index": 6,
+        "address": "0x08562824",
+        "opcode": "0xDB",
+        "name": "WAIT"
+      }
+    },
+    {
+      "ordinal": 15,
+      "array_id": "post_route:title_group/script",
+      "index": 8,
+      "address": "0x08562854",
+      "opcode": "0x23",
+      "opcode_value": 35,
+      "source_name": "CMD_UNK_23",
+      "arg_byte": 1,
+      "source_frames": 30,
+      "blocking": true,
+      "planning_handler_retained": "actor.control_unknown",
+      "semantic_name": "main_palette_fade_out",
+      "channel": "main",
+      "target": "black",
+      "pmdo_api": "GAME:FadeOut(false, frames)",
+      "previous_command": {
+        "index": 7,
+        "address": "0x0856283C",
+        "opcode": "0x48",
+        "name": "BGM_FADEOUT"
+      },
+      "next_command": {
+        "index": 9,
+        "address": "0x0856286C",
+        "opcode": "0xEF",
+        "name": "RET"
+      }
+    }
+  ],
+  "adapter_contract": {
+    "isolated_module": "halcyon.pmdred_palette_adapter",
+    "only_promoted_opcodes": [
+      "0x22",
+      "0x23",
+      "0x25",
+      "0x26"
+    ],
+    "all_other_unknown_opcodes_keep_actor_control_unknown_fallback": true,
+    "trace_fields": [
+      "address",
+      "array_id",
+      "index",
+      "opcode",
+      "source_frames",
+      "runtime_frames",
+      "channel",
+      "target",
+      "blocking",
+      "api",
+      "before_tick",
+      "after_tick",
+      "elapsed_frames"
+    ],
+    "zero_frame_policy": {
+      "source_frames_preserved_in_trace": 0,
+      "runtime_frames": 1,
+      "reason": "RogueEssence ScreenFadeFX.Fade with fadeTime=0 leaves a non-target fadeAmount unchanged; one PMDO frame is the narrow public-API immediate transition equivalent."
+    }
+  },
+  "limitations": [
+    "pret/pmd-red establishes interpreter and palette-channel structure only; EU ROM-derived command operands and ordering remain content authority.",
+    "The PMDO front overlay is the engine-native independent layer above menus; native certification must still prove actual call order, blocking frame progress, strict termination, and selected-route integration."
+  ]
+}
