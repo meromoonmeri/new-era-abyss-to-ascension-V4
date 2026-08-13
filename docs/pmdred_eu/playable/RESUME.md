@@ -36,6 +36,19 @@ SHA-256 `2a6fa101d35b9ad84656835b1583a6163d39a3ff4bf8b13100f4fdd084f5f97b`.
 Le manifeste fixture a le SHA-256
 `afbfde161c7f5280333b2411786a329ec600d450ea0696e32d1abeea890f6f65`.
 
+Le script v2 a également été exécuté de bout en bout le `2026-08-13` dans
+quatre nouvelles destinations create-only : rendu frais des six BGM et onze
+cues, construction d'un overlay privé frais, puis deux nouvelles exécutions
+natives. Cette **CLEAN REPRODUCTION PASS** est archivée sans modifier la v2 dans
+[`tiny_woods/command_complete_clean_reproduction_v1`](tiny_woods/command_complete_clean_reproduction_v1).
+Son certificat SHA-256 est
+`2a2f86efc88d242a2345ca6d5e7ccce8b3c9af5598cf477021279882324dfda9`.
+Les deux manifestes audio frais sont identiques octet pour octet aux manifestes
+v2 ; le rapport est sémantiquement identique à la v2 hors hashes propres aux
+nouveaux streams/logs/terminaisons et la fixture ne diffère que par ses racines
+absolues create-only. Les deux nouvelles terminaisons satisfont les mêmes gates
+stricts.
+
 La première archive `command_complete_runtime` reste conservée. Ses onze Ogg
 sont octet pour octet identiques à la v2 et son PASS natif reste valide, mais
 son manifeste fanfare nommait un hash de source intermédiaire non suivi. Elle

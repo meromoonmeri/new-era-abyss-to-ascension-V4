@@ -10,6 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 EVIDENCE = ROOT / "docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2"
+CLEAN_REPRODUCTION = ROOT / "docs/pmdred_eu/playable/tiny_woods/command_complete_clean_reproduction_v1"
 
 
 def sha256(path: Path) -> str:
@@ -70,6 +71,34 @@ class TinyWoodsCommandCompleteNativeTests(unittest.TestCase):
         self.assertTrue(all(row["byte_identical_to_superseded_snapshot"] for row in provenance["cue_identity"]))
         self.assertIn("non-selected", extension["scope"])
         self.assertEqual(progress["resume"]["next_phase"], "tiny_woods_opcode_semantic_choreography_and_production_integration")
+
+    def test_clean_reproduction_archive_and_checkpoint(self) -> None:
+        for line in (CLEAN_REPRODUCTION / "evidence_hashes.sha256").read_text().splitlines():
+            expected, name = line.split(None, 1)
+            path = CLEAN_REPRODUCTION / name.removeprefix("./")
+            self.assertTrue(path.is_file(), name)
+            self.assertEqual(sha256(path), expected, name)
+        certificate_path = CLEAN_REPRODUCTION / "clean_reproduction_certificate.json"
+        certificate = json.loads(certificate_path.read_text())
+        self.assertEqual(certificate["status"], "pass")
+        self.assertTrue(certificate["claims"]["v2_commands_executed_end_to_end_from_fresh_render_directories"])
+        self.assertTrue(certificate["claims"]["both_native_modes_passed_strict_graceful_termination"])
+        self.assertEqual(certificate["native_result"]["modes"], 2)
+        self.assertEqual(certificate["native_result"]["commands_per_mode"], 975)
+        self.assertEqual(certificate["native_result"]["selected_route_dialogues_closed"], 94)
+        for termination in certificate["native_result"]["terminations"].values():
+            self.assertEqual(termination["exit_classification"], "NORMAL_EXIT")
+            self.assertEqual(termination["return_code"], 0)
+            self.assertTrue(termination["load_phase_unload"])
+            self.assertFalse(termination["watchdog"])
+            self.assertFalse(termination["forced_kill"])
+            self.assertFalse(termination["orphan_process"])
+        progress = json.loads((ROOT / "docs/pmdred_eu/playable/progress.json").read_text())
+        checkpoint = progress["tiny_woods"]["narrative_scenes"]["command_complete_selected_route_extension"]["clean_reproduction"]
+        self.assertEqual(checkpoint["status"], "PASS")
+        self.assertEqual(checkpoint["certificate_sha256"], sha256(certificate_path))
+        self.assertEqual(checkpoint["fresh_report_sha256"], sha256(CLEAN_REPRODUCTION / "native_command_complete_validation.json"))
+        self.assertEqual(checkpoint["fresh_fixture_manifest_sha256"], sha256(CLEAN_REPRODUCTION / "fixture_manifest.json"))
 
 
 if __name__ == "__main__":

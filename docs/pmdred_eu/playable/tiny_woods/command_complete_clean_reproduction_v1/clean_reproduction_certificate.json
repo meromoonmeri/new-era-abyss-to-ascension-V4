@@ -1,0 +1,87 @@
+{
+  "schema": "pmdred-eu-tiny-woods-command-complete-clean-reproduction-v1",
+  "date": "2026-08-13",
+  "status": "pass",
+  "scope": "fresh source rendering, fresh private-overlay build, and two fresh isolated native runs",
+  "authority": {
+    "region": "EU",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "pmdo_version": "0.8.12.0",
+    "pmdo_executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+    "authoritative_checkpoint": "docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2",
+    "authoritative_report_sha256": "2a6fa101d35b9ad84656835b1583a6163d39a3ff4bf8b13100f4fdd084f5f97b",
+    "authoritative_fixture_manifest_sha256": "afbfde161c7f5280333b2411786a329ec600d450ea0696e32d1abeea890f6f65"
+  },
+  "reproduction": {
+    "commands": "docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/commands.sh",
+    "commands_sha256": "078c30a69ef5993f68d49d5e11e443fc03ced795ca9920202c24bc7d2cbb4249",
+    "create_only_destinations": {
+      "music": ".runtime-cache/pmdred-tiny-woods-scene-music-repro-v4",
+      "fanfares": ".runtime-cache/pmdred-tiny-woods-fanfares-repro-v4",
+      "fixture_evidence": ".runtime-cache/pmdred-tiny-woods-command-complete-evidence-repro-v2"
+    },
+    "fresh_report_sha256": "7f908ee9cc6a56d32ad405ba87b4a2d80ff856685436d320c2c6b060d660a556",
+    "fresh_fixture_manifest_sha256": "5cba8922448a815a431e5383c4eda3bb65d6f728d38c09ab4889d75d08bebb8d",
+    "fresh_command_plan_sha256": "ab9f2a8dcf857181a4dd188e28687cb953ba4789c9b6f39430c50fee4b94c37b",
+    "source_manifests": {
+      "music": {
+        "fresh_sha256": "dff44863cd741332b63485f7171ad0ef28ed99c296c9343916a772ef9961636b",
+        "authoritative_sha256": "dff44863cd741332b63485f7171ad0ef28ed99c296c9343916a772ef9961636b",
+        "byte_identical": true
+      },
+      "fanfares": {
+        "fresh_sha256": "ec2f94f966581a78028625872968fd339ca66e33699b376a22327939aae4c96c",
+        "authoritative_sha256": "ec2f94f966581a78028625872968fd339ca66e33699b376a22327939aae4c96c",
+        "byte_identical": true
+      }
+    },
+    "semantic_report_identical_to_authoritative_v2": true,
+    "fixture_identical_except_create_only_absolute_roots": true,
+    "command_plan_byte_identical_to_authoritative_v2": true
+  },
+  "native_result": {
+    "modes": 2,
+    "commands_per_mode": 975,
+    "arrays_per_mode": 27,
+    "opcodes": 61,
+    "selected_route_dialogues_closed": 94,
+    "cues": 11,
+    "terminations": {
+      "opening_naming": {
+        "sha256": "cafd066cb6602802b2c9eb07a424e568b84143bd67a264c3d9de8f6ef807a0aa",
+        "result": "PASS",
+        "exit_classification": "NORMAL_EXIT",
+        "return_code": 0,
+        "load_phase_unload": true,
+        "terminal": true,
+        "graceful": true,
+        "watchdog": false,
+        "requested_signal": null,
+        "sigsegv": false,
+        "forced_kill": false,
+        "orphan_process": false
+      },
+      "post_route": {
+        "sha256": "cb0003739e2af51e50fe106b9924d9e45efc9a88701b86078029492052a4e94b",
+        "result": "PASS",
+        "exit_classification": "NORMAL_EXIT",
+        "return_code": 0,
+        "load_phase_unload": true,
+        "terminal": true,
+        "graceful": true,
+        "watchdog": false,
+        "requested_signal": null,
+        "sigsegv": false,
+        "forced_kill": false,
+        "orphan_process": false
+      }
+    }
+  },
+  "claims": {
+    "v2_commands_executed_end_to_end_from_fresh_render_directories": true,
+    "six_bgm_and_eleven_cues_reproduced_with_byte_identical_source_manifests": true,
+    "private_overlay_built_at_a_fresh_destination": true,
+    "both_native_modes_passed_strict_graceful_termination": true,
+    "historical_v2_checkpoint_modified": false
+  }
+}

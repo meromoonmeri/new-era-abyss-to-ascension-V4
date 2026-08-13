@@ -104,7 +104,19 @@
         "provenance_report_sha256": "cf1dbe64b9a36af7ce4deb57f032b71742bb17e264833d42ed58620c13201bde",
         "renderer_source_sha256": "eec95deff18c4e22514541e21986c76843af3850caa6e3f4549df69ec6e53f10",
         "superseded_report": "docs/pmdred_eu/playable/tiny_woods/command_complete_runtime/native_command_complete_validation.json",
-        "supersession_scope": "source-provenance reproducibility only; prior native result and audio bytes remain valid"
+        "supersession_scope": "source-provenance reproducibility only; prior native result and audio bytes remain valid",
+        "clean_reproduction": {
+          "status": "PASS",
+          "scope": "v2 commands executed end to end from fresh source-render, private-overlay, and native-evidence destinations",
+          "archive": "docs/pmdred_eu/playable/tiny_woods/command_complete_clean_reproduction_v1",
+          "certificate": "docs/pmdred_eu/playable/tiny_woods/command_complete_clean_reproduction_v1/clean_reproduction_certificate.json",
+          "certificate_sha256": "2a2f86efc88d242a2345ca6d5e7ccce8b3c9af5598cf477021279882324dfda9",
+          "fresh_report_sha256": "7f908ee9cc6a56d32ad405ba87b4a2d80ff856685436d320c2c6b060d660a556",
+          "fresh_fixture_manifest_sha256": "5cba8922448a815a431e5383c4eda3bb65d6f728d38c09ab4889d75d08bebb8d",
+          "evidence_hashes_sha256": "f47fd6cd7e43399c6605b1df40f921de81ddb20bf0576f56caac1b9e86e7f7fa",
+          "source_manifest_byte_identity": true,
+          "strict_graceful_terminations": 2
+        }
       }
     },
     "post_g3_route_authentication": {
