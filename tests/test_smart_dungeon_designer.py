@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import hashlib
 import json
 import random
 import shutil
@@ -14,7 +15,9 @@ from smart_dungeon.art_direction import build_art_direction
 from smart_dungeon.assets import analyze_library
 from smart_dungeon.ground_gen import generate_ground
 from smart_dungeon.ground_library import interpret_ground_intent
+from smart_dungeon.ground_runtime import _dark_walkable_cells
 from smart_dungeon.intent import parse_intent
+from png_rgba import RGBAImage, save_png
 from smart_dungeon.knowledge import analyze_references
 from smart_dungeon.layout import progression, repair, select_best
 from smart_dungeon.model import FloorPlan, Room
@@ -371,12 +374,14 @@ class TestSmartDungeonDesigner(unittest.TestCase):
         data = json.loads(Path(first["ground_file"]).read_text(encoding="utf-8-sig"))["Object"]
         self.assertEqual([len(data["obstacles"]), len(data["obstacles"][0])], [64, 48])
         self.assertTrue(all(len(layer["Tiles"]) == 64 and all(len(column) == 48 for column in layer["Tiles"]) for layer in data["Layers"]))
+        base = next(layer for layer in data["Layers"] if layer["Name"] == "Base")
+        self.assertTrue(all(cell.get("AutoTileset") or cell.get("Layers") for column in base["Tiles"] for cell in column))
         self.assertTrue(Path(first["preview_file"]).exists())
         self.assertIn("data:image/png;base64", Path(first["preview_file"]).read_text())
 
     def test_16_multiple_ground_strategies_are_functionally_distinct(self):
-        canyon = generate_ground(REPO, self.temp / "ground_canyon", "canyon", "Un canyon sinueux avec poches latérales", 10, 1, "altere_pond", 40, 32)
-        courtyard = generate_ground(REPO, self.temp / "ground_courtyard", "courtyard", "Une cour de ruines anciennes avec structure centrale et piliers", 11, 1, "altere_pond", 40, 32)
+        canyon = generate_ground(REPO, self.temp / "ground_canyon", "canyon", "Un canyon sinueux avec poches latérales", 10, 1, "mount_windswept_entrance", 40, 32)
+        courtyard = generate_ground(REPO, self.temp / "ground_courtyard", "courtyard", "Une cour de ruines anciennes avec structure centrale et piliers", 11, 1, "ledian_dojo", 40, 32)
         self.assertEqual(canyon["validation"]["result"], "GROUND_VALIDATION_PASS")
         self.assertEqual(courtyard["validation"]["result"], "GROUND_VALIDATION_PASS")
         self.assertEqual(canyon["concept"], "winding_canyon")
@@ -400,13 +405,44 @@ class TestSmartDungeonDesigner(unittest.TestCase):
         )
         self.assertEqual(crystal["concept"], "crystal_cavern")
         self.assertGreaterEqual(crystal["validation"]["geometry"]["functional_region_count"], 3)
-        self.assertEqual(crystal["validation"]["result"], "GROUND_VALIDATION_PASS")
+        self.assertEqual(crystal["validation"]["result"], "GROUND_VALIDATION_FAIL")
+        self.assertIn("SEMANTIC_REFERENCE_MISMATCH", {row["code"] for row in crystal["validation"]["errors"]})
         self.assertEqual(arena["concept"], "boss_arena")
         self.assertLessEqual(arena["validation"]["geometry"]["boss_distance"], 6)
         self.assertEqual(arena["validation"]["result"], "GROUND_VALIDATION_PASS")
         ambiguous = interpret_ground_intent("Un endroit étrange")
         self.assertEqual(ambiguous["concept"], "organic_exploration")
         self.assertLess(ambiguous["confidence"], 0.55)
+
+    def test_18_runtime_capture_gate_rejects_dark_walkable_holes(self):
+        payload = {
+            "Object": {
+                "obstacles": [[{"Tags": 0}, {"Tags": 1}], [{"Tags": 1}, {"Tags": 1}]],
+            }
+        }
+        path = self.temp / "runtime-dark-hole.png"
+        image = RGBAImage.empty(16, 16, (15, 18, 20, 255))
+        save_png(image, path)
+        self.assertEqual(_dark_walkable_cells(path, payload), [[0, 0]])
+        for y in range(8):
+            for x in range(8):
+                offset = (y * image.width + x) * 4
+                image.pixels[offset:offset + 4] = bytes((120, 150, 90, 255))
+        save_png(image, path)
+        self.assertEqual(_dark_walkable_cells(path, payload), [])
+
+    def test_19_documented_runtime_campaign_matches_generated_candidates(self):
+        campaign = json.loads((REPO / "docs/smart_dungeon/GROUND_RUNTIME_VALIDATION_2026-08-13.json").read_text())
+        self.assertEqual(campaign["result"], "SMART_GROUND_RUNTIME_CAMPAIGN_PASS")
+        self.assertEqual(campaign["authority"]["pmdo_version"], "0.8.12")
+        self.assertEqual(len(campaign["validated"]), 4)
+        for row in campaign["validated"]:
+            matches = list((REPO / "docs/smart_dungeon").rglob(f"{row['ground_id']}.rsground"))
+            self.assertEqual(len(matches), 1)
+            self.assertEqual(hashlib.sha256(matches[0].read_bytes()).hexdigest(), row["ground_sha256"])
+            self.assertEqual(row["runtime_verdict"], "RUNTIME_PASS")
+            self.assertEqual(row["dark_walkable_holes"], 0)
+        self.assertEqual(campaign["rejected"][0]["errors"][0]["code"], "SEMANTIC_REFERENCE_MISMATCH")
 
 
 if __name__ == "__main__":

@@ -40,7 +40,7 @@ def _layer_role(name):
         return "decoration"
     if any(word in text for word in ("shadow", "ombre")):
         return "shadow"
-    if any(word in text for word in ("cliff", "wall", "mur")):
+    if any(word in text for word in ("cliff", "wall", "mur", "ceiling", "plafond")):
         return "structure"
     return "base"
 
@@ -309,24 +309,34 @@ def _abstract_clearing(width, height, rng, lake_count):
 def _abstract_canyon(width, height, rng):
     classes = [["wall" for _ in range(height)] for _ in range(width)]
     points = [(width // 2, height - 3)]
-    for index in range(1, 6):
-        points.append((round(width * (.32 if index % 2 else .68) + rng.randint(-3, 3)), round(height - 3 - index * (height - 6) / 6)))
+    for index in range(1, 4):
+        points.append((round(width * (.26 if index % 2 else .74) + rng.randint(-2, 2)), round(height - 3 - index * (height - 6) / 4)))
     points.append((width // 2, 2))
-    path = _carve_path(classes, points, 3)
+    path = _carve_path(classes, points, 2)
     regions = []
     for index, point in enumerate(points[1:-1]):
-        if index % 2 == 0:
-            cells = _carve_disk(classes, point[0], point[1], rng.randint(5, 8), rng.randint(4, 6))
-            regions.append({"kind": "canyon_pocket", "center": list(point), "cell_count": len(cells)})
-    # A narrow native rock spine interrupts the entrance→exit sightline while
-    # the broad carved corridor keeps a readable route on both sides.
+        cells = _carve_disk(classes, point[0], point[1], rng.randint(4, 5), rng.randint(3, 4))
+        regions.append({"kind": "canyon_pocket", "center": list(point), "cell_count": len(cells)})
+    # A compact native rock mass interrupts the entrance→exit sightline while
+    # a deliberately carved side bypass preserves navigation.
+    center_x, center_y = width // 2, height // 2
+    bypass = _carve_path(classes, [
+        (center_x, center_y + 5),
+        (center_x - 5, center_y),
+        (center_x, center_y - 5),
+    ], 1)
+    path |= bypass
     blocker = []
-    for y in range(height // 2 - 2, height // 2 + 3):
-        point = (width // 2, y)
-        classes[point[0]][point[1]] = "wall"
-        path.discard(point)
-        blocker.append(point)
-    regions.append({"kind": "sightline_blocker", "center": [width // 2, height // 2], "cell_count": len(blocker)})
+    for x in range(center_x - 1, center_x + 2):
+        for y in range(center_y - 1, center_y + 2):
+            point = (x, y)
+            classes[x][y] = "wall"
+            path.discard(point)
+            blocker.append(point)
+    regions.append({
+        "kind": "sightline_blocker", "center": [width // 2, height // 2],
+        "cell_count": len(blocker), "context_effect": "forces_short_side_bypass",
+    })
     return classes, {"entrance": list(points[0]), "exit": list(points[-1]), "poi": list(points[len(points) // 2])}, path, [], regions
 
 
@@ -336,11 +346,21 @@ def _abstract_courtyard(width, height, rng):
     for x in range(round(width * .18), round(width * .82)):
         for y in range(round(height * .20), round(height * .80)):
             classes[x][y] = "open"
-    # Protected center and four intentional architectural arms.
+    # Protected court, readable approach around a central monument, and a
+    # secondary lateral loop. The focal mass changes how the room is crossed.
     center = _carve_disk(classes, cx, cy, 8, 6)
-    path = _carve_path(classes, [(cx, height - 3), (cx, cy), (cx, 2)], 2)
-    for target in ((round(width * .18), cy), (round(width * .82), cy)):
-        path |= _carve_path(classes, [(cx, cy), target], 2)
+    left_approach = (cx - 5, cy)
+    right_approach = (cx + 5, cy)
+    path = _carve_path(classes, [(cx, height - 3), (cx - 5, cy + 5), (cx - 5, cy - 5), (cx, 2)], 2)
+    path |= _carve_path(classes, [left_approach, (cx - 5, cy + 5), (cx + 5, cy + 5), right_approach], 2)
+    path |= _carve_path(classes, [left_approach, (round(width * .18), cy)], 2)
+    path |= _carve_path(classes, [right_approach, (round(width * .82), cy)], 2)
+    monument = []
+    for x in range(cx - 2, cx + 3):
+        for y in range(cy - 2, cy + 3):
+            classes[x][y] = "wall"
+            path.discard((x, y))
+            monument.append((x, y))
     # Four pillars are functional masses, not scattered decoration.
     pillars = []
     for px in (cx - 9, cx + 9):
@@ -349,8 +369,12 @@ def _abstract_courtyard(width, height, rng):
                 for y in range(py - 1, py + 2):
                     classes[x][y] = "wall"
                     pillars.append((x, y))
-    regions = [{"kind": "central_court", "center": [cx, cy], "cell_count": len(center)}, {"kind": "pillar_group", "cell_count": len(pillars), "intentional_symmetry": True}]
-    return classes, {"entrance": [cx, height - 3], "exit": [cx, 2], "poi": [cx, cy]}, path, [], regions
+    regions = [
+        {"kind": "central_court", "center": [cx, cy], "cell_count": len(center)},
+        {"kind": "central_monument", "center": [cx, cy], "cell_count": len(monument), "context_effect": "forces_split_approach"},
+        {"kind": "pillar_group", "cell_count": len(pillars), "intentional_symmetry": True},
+    ]
+    return classes, {"entrance": [cx, height - 3], "exit": [cx, 2], "poi": [cx - 4, cy]}, path, [], regions
 
 
 def _abstract_cavern(width, height, rng, water_count):
@@ -498,7 +522,11 @@ def _hamming(left, right):
     return (left ^ right).bit_count()
 
 
-def _coherent_source_choice(cells, preferred, rng):
+def _coherent_source_choice(cells, preferred, rng, quality=None):
+    if quality:
+        best = max(quality.get(point, 0) for point in cells)
+        if best > 0:
+            cells = [point for point in cells if quality.get(point, 0) == best]
     if not preferred:
         return cells[rng.randrange(len(cells))]
     def distance(point):
@@ -508,10 +536,10 @@ def _coherent_source_choice(cells, preferred, rng):
     return nearest[rng.randrange(len(nearest))]
 
 
-def _pick_source(pools, cell_class, mask, signature, rng, preferred=None):
+def _pick_source(pools, cell_class, mask, signature, rng, preferred=None, quality=None):
     exact = pools.get((cell_class, mask, signature), [])
     if exact:
-        return _coherent_source_choice(exact, preferred, rng), True, 0, "exact_class_mask_transition_local_adjacency"
+        return _coherent_source_choice(exact, preferred, rng, quality), True, 0, "exact_class_mask_transition_local_adjacency"
     same_class = [(key_mask, key_signature, cells) for (key_class, key_mask, key_signature), cells in pools.items() if key_class == cell_class]
     if not same_class and cell_class == "path":
         same_class = [(key_mask, key_signature, cells) for (key_class, key_mask, key_signature), cells in pools.items() if key_class == "open"]
@@ -526,7 +554,7 @@ def _pick_source(pools, cell_class, mask, signature, rng, preferred=None):
     minimum = min(distance(row) for row in same_class)
     nearest = [cells for row_mask, row_signature, cells in same_class if distance((row_mask, row_signature, cells)) == minimum]
     cells = [point for group in nearest for point in group]
-    return _coherent_source_choice(cells, preferred, rng), False, minimum, "nearest_same_functional_class_local_adjacency"
+    return _coherent_source_choice(cells, preferred, rng, quality), False, minimum, "nearest_same_functional_class_local_adjacency"
 
 
 def _empty_cell():
@@ -601,7 +629,7 @@ def _apply_motifs(data, classes, motifs, anchors, primary_path, rng, target_coun
             if near_mass and _distance_to_critical((x, y), critical) >= 4:
                 candidates.append((x, y))
     rng.shuffle(candidates)
-    for motif in sorted(motifs, key=lambda row: (use[row["signature"]], row["signature"])):
+    for motif in sorted(motifs, key=lambda row: (-len(row["cells"]), -(row["width"] * row["height"]), row["signature"])):
         if len(groups) >= target_count:
             break
         if use[motif["signature"]] >= 2:
@@ -624,7 +652,8 @@ def _apply_motifs(data, classes, motifs, anchors, primary_path, rng, target_coun
                 "group_id": f"DG{len(groups)+1:02d}", "motif_id": motif["motif_id"],
                 "signature": motif["signature"], "layer": motif["layer_name"],
                 "origin": [x0, y0], "cell_count": len(placements),
-                "transformed": False, "purpose": "mass_edge_accent",
+                "transformed": False,
+                "purpose": "major_native_cluster" if len(placements) >= 8 else "supporting_native_cluster" if len(placements) >= 4 else "mass_edge_accent",
                 "reason": "motif multicellule natif placé sans rotation et hors route critique",
             })
             use[motif["signature"]] += 1
@@ -846,6 +875,14 @@ def _candidate(repo, selection, ground_id, seed, variant, width, height, water_c
     source = load_json(base_path)
     source_obj = source["Object"]
     source_classes, pools, transitions = build_cell_grammar(source_obj, repo)
+    shoreline_layers = [
+        layer for layer in _aligned_layers(source_obj)
+        if _layer_role(layer.get("Name", "")) in ("structure", "shadow")
+    ]
+    shoreline_quality = {
+        (x, y): sum(_has_visual(layer["Tiles"][x][y]) and _valid_visual_cell(layer["Tiles"][x][y]) for layer in shoreline_layers)
+        for x in range(len(source_classes)) for y in range(len(source_classes[0]))
+    }
     rng = random.Random(int.from_bytes(hashlib.sha256(f"{seed}|ground-v2|{variant}".encode()).digest()[:8], "little"))
     concept = selection["intent"]["concept"]
     classes, anchors, primary_path, water_regions, regions = _abstract_layout(concept, width, height, rng, water_count)
@@ -874,7 +911,14 @@ def _candidate(repo, selection, ground_id, seed, variant, width, height, water_c
                 preferred.append((sources[x][y - 1][0], sources[x][y - 1][1] + 1))
             functional_class = "path" if classes[x][y] == "open" and (x, y) in primary_path and mask == 255 else classes[x][y]
             render_functions[x][y] = functional_class
-            source_cell, is_exact, distance, rule = _pick_source(pools, functional_class, mask, signature, rng, preferred)
+            shoreline_target = (
+                (classes[x][y] == "water" and any(value != "water" for value in signature))
+                or (classes[x][y] != "water" and "water" in signature)
+            )
+            source_cell, is_exact, distance, rule = _pick_source(
+                pools, functional_class, mask, signature, rng, preferred,
+                shoreline_quality if shoreline_target else None,
+            )
             sources[x][y] = source_cell
             exact += is_exact
             fallback += not is_exact
@@ -887,6 +931,25 @@ def _candidate(repo, selection, ground_id, seed, variant, width, height, water_c
                     "source": list(source_cell), "distance": distance, "rule": rule,
                 })
     source_layers = {layer.get("Name"): layer for layer in source_obj["Layers"]}
+    base_source_layers = [layer for layer in source_obj["Layers"] if _layer_role(layer.get("Name", "")) == "base"]
+    prototype_candidates = sorted({
+        point for (functional_class, _, _), cells in pools.items()
+        if functional_class == "open" for point in cells
+    })
+    base_prototype = next((
+        point for point in prototype_candidates
+        if any(_has_visual(layer["Tiles"][point[0]][point[1]]) and _valid_visual_cell(layer["Tiles"][point[0]][point[1]]) for layer in base_source_layers)
+    ), None)
+    if base_prototype is None:
+        raise ValueError("No valid native base-floor prototype in selected Ground")
+    path_candidates = sorted({
+        point for (functional_class, _, _), cells in pools.items()
+        if functional_class == "path" for point in cells
+    })
+    path_prototype = next((
+        point for point in path_candidates
+        if any(_has_visual(layer["Tiles"][point[0]][point[1]]) and _valid_visual_cell(layer["Tiles"][point[0]][point[1]]) for layer in base_source_layers)
+    ), base_prototype)
     for layer in layers:
         role = _layer_role(layer.get("Name", ""))
         source_layer = source_layers[layer.get("Name")]
@@ -901,10 +964,20 @@ def _candidate(repo, selection, ground_id, seed, variant, width, height, water_c
                 )
                 if role == "decoration" and (classes[x][y] != "wall" or not near_walkable):
                     continue
-                if role in ("structure", "shadow") and (classes[x][y] != "wall" or not near_walkable):
-                    continue
+                near_water = classes[x][y] == "water" or any(
+                    0 <= x + dx < width and 0 <= y + dy < height and classes[x + dx][y + dy] == "water"
+                    for dx in range(-2, 3) for dy in range(-2, 3)
+                )
+                if role in ("structure", "shadow"):
+                    if classes[x][y] == "wall" and not near_walkable:
+                        continue
+                    if classes[x][y] != "wall" and not near_water:
+                        continue
                 sx, sy = sources[x][y]
                 source_visual = source_layer["Tiles"][sx][sy]
+                if role == "base":
+                    prototype = path_prototype if (x, y) in primary_path else base_prototype
+                    source_visual = source_layer["Tiles"][prototype[0]][prototype[1]]
                 if not _valid_visual_cell(source_visual):
                     continue
                 layer["Tiles"][x][y] = copy.deepcopy(source_visual)
@@ -924,7 +997,7 @@ def _candidate(repo, selection, ground_id, seed, variant, width, height, water_c
                 layer["Tiles"] = [[_empty_cell() for _ in range(height)] for _ in range(width)]
                 obj["Layers"].append(layer)
                 existing.add(layer.get("Name"))
-    decoration_groups = _apply_motifs(obj and data, classes, motifs, anchors, primary_path, rng, target_count=max(4, round(width * height / 450)))
+    decoration_groups = _apply_motifs(obj and data, classes, motifs, anchors, primary_path, rng, target_count=max(5, round(width * height / 350)))
     # Entity layer is rebuilt; inherited characters/controllers never leak.
     entity_template = copy.deepcopy(source_obj.get("Entities", [{}])[0])
     entity_template.update({"Name": "Smart Dungeon Entities", "MapChars": [], "Spawners": [], "GroundObjects": [], "Markers": []})
@@ -945,6 +1018,15 @@ def _candidate(repo, selection, ground_id, seed, variant, width, height, water_c
         "fallback_details": fallback_details,
     }
     validation = _validate_ground(repo, data, classes, anchors, regions, primary_path, resolution, decoration_groups, concept)
+    if concept != "organic_exploration" and not selection.get("theme_match", False):
+        validation["errors"].append({
+            "code": "SEMANTIC_REFERENCE_MISMATCH",
+            "location": "reference_selection",
+            "rule": "requested_biome_requires_nonzero_native_theme_family_match",
+            "asset": selection["base"]["ground_id"],
+            "concept": concept,
+        })
+        validation["result"] = "GROUND_VALIDATION_FAIL"
     metrics = validation["geometry"]
     structural_quality = max(0, min(100,
         55 + metrics["reachable_ratio"] * 25
@@ -979,7 +1061,8 @@ def _candidate(repo, selection, ground_id, seed, variant, width, height, water_c
             "base_ground": selection["base"]["ground_id"],
             "decoration_ground": selection["decoration"]["ground_id"],
             "strategy": selection["strategy"], "compatibility": selection["compatibility"],
-            "confidence": selection["confidence"], "ranked_candidates": selection["ranked_candidates"],
+            "confidence": selection["confidence"], "theme_match": selection.get("theme_match", False),
+            "ranked_candidates": selection["ranked_candidates"],
             "base_sha256": hashlib.sha256(base_path.read_bytes()).hexdigest(),
             "decoration_sha256": hashlib.sha256(decor_path.read_bytes()).hexdigest(),
         },

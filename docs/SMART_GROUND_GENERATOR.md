@@ -56,6 +56,10 @@ La référence structurelle est choisie selon :
    saturation, détail et densité de contours ;
 7. confiance de l'analyse.
 
+Une intention explicite doit aussi avoir une correspondance de famille native
+non nulle. Une caverne demandée avec une référence uniquement forestière ou
+lacustre produit `SEMANTIC_REFERENCE_MISMATCH` au lieu d'un faux succès.
+
 Une seconde bibliothèque peut fournir des motifs décoratifs seulement si :
 
 - la taille native des tiles est compatible ;
@@ -170,6 +174,21 @@ Pour chaque Ground :
 Le renderer PNG expérimental a été retiré : il ne doit pas servir de preuve
 visuelle tant que sa composition n'est pas strictement équivalente au runtime
 PMDO.
+
+La preuve visuelle autoritative passe désormais par l'overlay ignoré d'Agent A :
+
+```bash
+python3 tools/smart_dungeon.py validate-ground-runtime \
+  --ground chemin/candidat.rsground \
+  --metadata chemin/candidat.metadata.json \
+  --output .runtime-cache/candidat-runtime
+```
+
+Cette commande indexe et charge le candidat dans **PMDO 0.8.12 exact**, vérifie
+un déplacement libre et un déplacement bloqué, fixe les ticks d'animation,
+puis capture entrée, point d'intérêt et masses d'eau. Elle rejette aussi les
+cellules praticables rendues comme des blocs noirs uniformes. Ces captures sont
+une preuve moteur, mais l'acceptation artistique finale reste humaine.
 
 Le controller peut recevoir une destination explicite avec `--exit-ground` et
 `--exit-marker`. Sans destination, il reste volontairement un candidat et ne

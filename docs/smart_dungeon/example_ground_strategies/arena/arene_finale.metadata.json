@@ -33,6 +33,7 @@
     "strategy": "single_library_conservative",
     "compatibility": 1.0,
     "confidence": 0.93,
+    "theme_match": true,
     "ranked_candidates": [
       {
         "ground_id": "ledian_dojo",
@@ -147,10 +148,11 @@
     "repair_log": []
   },
   "tile_grammar": {
-    "source_rule_count": 103,
-    "transition_rule_count": 41,
+    "source_rule_count": 123,
+    "transition_rule_count": 50,
     "functional_source_cells": {
-      "open": 921,
+      "open": 251,
+      "path": 907,
       "wall": 479
     },
     "topology_roles": {
@@ -170,9 +172,9 @@
       "wall:interior": 793
     },
     "resolution": {
-      "exact_cells": 1369,
-      "fallback_cells": 143,
-      "mean_distance": 0.1257,
+      "exact_cells": 1404,
+      "fallback_cells": 108,
+      "mean_distance": 0.1276,
       "fallback_details": [
         {
           "target": [
@@ -1176,8 +1178,8 @@
             "wall"
           ],
           "source": [
-            41,
-            16
+            39,
+            12
           ],
           "distance": 1,
           "rule": "nearest_same_functional_class_local_adjacency"
@@ -1197,8 +1199,8 @@
             "wall"
           ],
           "source": [
-            41,
-            17
+            40,
+            13
           ],
           "distance": 1,
           "rule": "nearest_same_functional_class_local_adjacency"
@@ -1281,8 +1283,8 @@
             "wall"
           ],
           "source": [
-            35,
-            11
+            34,
+            30
           ],
           "distance": 1,
           "rule": "nearest_same_functional_class_local_adjacency"
@@ -1302,8 +1304,8 @@
             "wall"
           ],
           "source": [
-            34,
-            11
+            33,
+            30
           ],
           "distance": 1,
           "rule": "nearest_same_functional_class_local_adjacency"
@@ -1327,6 +1329,27 @@
             31
           ],
           "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            13,
+            9
+          ],
+          "functional_class": "open",
+          "topology_role": "corner",
+          "target_mask": "66",
+          "transition": [
+            "wall",
+            "open",
+            "open",
+            "wall"
+          ],
+          "source": [
+            38,
+            24
+          ],
+          "distance": 1,
           "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
@@ -1394,6 +1417,27 @@
         },
         {
           "target": [
+            16,
+            8
+          ],
+          "functional_class": "open",
+          "topology_role": "corner",
+          "target_mask": "66",
+          "transition": [
+            "wall",
+            "open",
+            "open",
+            "wall"
+          ],
+          "source": [
+            39,
+            18
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
             17,
             0
           ],
@@ -1457,132 +1501,6 @@
         },
         {
           "target": [
-            19,
-            21
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            34
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            19,
-            22
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            35
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            19,
-            23
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            19,
-            24
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            19,
-            25
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            19,
-            26
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
             20,
             0
           ],
@@ -1600,174 +1518,6 @@
             31
           ],
           "distance": 2,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            20,
-            20
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            34
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            20,
-            21
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            34
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            20,
-            22
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            35
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            20,
-            23
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            20,
-            24
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            20,
-            25
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            20,
-            26
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            20,
-            27
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            36
-          ],
-          "distance": 0,
           "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
@@ -1827,10 +1577,10 @@
             "wall"
           ],
           "source": [
-            49,
-            22
+            40,
+            18
           ],
-          "distance": 3,
+          "distance": 4,
           "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
@@ -1848,199 +1598,10 @@
             "open"
           ],
           "source": [
-            49,
-            23
+            37,
+            28
           ],
           "distance": 1,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            21,
-            19
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            34
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            21,
-            20
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            35
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            21,
-            21
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            34
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            21,
-            22
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            35
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            21,
-            23
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            21,
-            24
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            21,
-            25
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            21,
-            26
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            21,
-            27
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
           "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
@@ -2142,178 +1703,10 @@
             "open"
           ],
           "source": [
-            47,
-            22
+            33,
+            17
           ],
           "distance": 1,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            22,
-            20
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            35
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            22,
-            21
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            36
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            22,
-            22
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            22,
-            23
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            22,
-            24
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            22,
-            25
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            22,
-            26
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            22,
-            27
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
           "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
@@ -2356,132 +1749,6 @@
             31
           ],
           "distance": 2,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            23,
-            21
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            36
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            23,
-            22
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            23,
-            23
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            23,
-            24
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            23,
-            25
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            23,
-            26
-          ],
-          "functional_class": "path",
-          "topology_role": "interior",
-          "target_mask": "ff",
-          "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            49,
-            37
-          ],
-          "distance": 0,
           "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
@@ -3171,7 +2438,7 @@
             "wall"
           ],
           "source": [
-            20,
+            37,
             38
           ],
           "distance": 2,
@@ -3187,58 +2454,72 @@
     "groups": [
       {
         "group_id": "DG01",
-        "motif_id": "ledian_dojo:Objects:33:29",
-        "signature": "0e28d2744d16",
-        "layer": "Objects",
-        "origin": [
-          8,
-          22
-        ],
-        "cell_count": 4,
-        "transformed": false,
-        "purpose": "mass_edge_accent",
-        "reason": "motif multicellule natif placé sans rotation et hors route critique"
-      },
-      {
-        "group_id": "DG02",
-        "motif_id": "ledian_dojo:Objects Under:30:10",
-        "signature": "3bde4fac9f72",
-        "layer": "Objects Under",
-        "origin": [
-          10,
-          25
-        ],
-        "cell_count": 4,
-        "transformed": false,
-        "purpose": "mass_edge_accent",
-        "reason": "motif multicellule natif placé sans rotation et hors route critique"
-      },
-      {
-        "group_id": "DG03",
         "motif_id": "ledian_dojo:Objects:28:11",
         "signature": "40722df80853",
         "layer": "Objects",
         "origin": [
-          22,
-          2
+          2,
+          19
         ],
         "cell_count": 20,
         "transformed": false,
-        "purpose": "mass_edge_accent",
+        "purpose": "major_native_cluster",
         "reason": "motif multicellule natif placé sans rotation et hors route critique"
       },
       {
-        "group_id": "DG04",
+        "group_id": "DG02",
+        "motif_id": "ledian_dojo:Objects:14:25",
+        "signature": "a0a88841effe",
+        "layer": "Objects",
+        "origin": [
+          2,
+          13
+        ],
+        "cell_count": 19,
+        "transformed": false,
+        "purpose": "major_native_cluster",
+        "reason": "motif multicellule natif placé sans rotation et hors route critique"
+      },
+      {
+        "group_id": "DG03",
         "motif_id": "ledian_dojo:Objects:34:25",
         "signature": "490daabdd235",
         "layer": "Objects",
         "origin": [
-          4,
-          15
+          19,
+          4
         ],
         "cell_count": 9,
         "transformed": false,
-        "purpose": "mass_edge_accent",
+        "purpose": "major_native_cluster",
+        "reason": "motif multicellule natif placé sans rotation et hors route critique"
+      },
+      {
+        "group_id": "DG04",
+        "motif_id": "ledian_dojo:Objects:33:29",
+        "signature": "0e28d2744d16",
+        "layer": "Objects",
+        "origin": [
+          11,
+          25
+        ],
+        "cell_count": 4,
+        "transformed": false,
+        "purpose": "supporting_native_cluster",
+        "reason": "motif multicellule natif placé sans rotation et hors route critique"
+      },
+      {
+        "group_id": "DG05",
+        "motif_id": "ledian_dojo:Objects Under:30:10",
+        "signature": "3bde4fac9f72",
+        "layer": "Objects Under",
+        "origin": [
+          31,
+          25
+        ],
+        "cell_count": 4,
+        "transformed": false,
+        "purpose": "supporting_native_cluster",
         "reason": "motif multicellule natif placé sans rotation et hors route critique"
       }
     ],
@@ -3263,7 +2544,7 @@
   "quality_scores": {
     "technical_validity": 100,
     "structural": 89.55,
-    "artistic": 87.586,
+    "artistic": 89.964,
     "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
   },
   "validation": {
@@ -3289,11 +2570,11 @@
     "navigation_reachable_cells": 491,
     "water_component_count": 0,
     "referenced_sheet_count": 7,
-    "animation_cell_count": 11,
+    "animation_cell_count": 12,
     "water_animation_coverage": 0.0,
-    "topology_exact_ratio": 0.9054,
-    "topology_fallback_ratio": 0.0946,
-    "decoration_group_count": 4,
+    "topology_exact_ratio": 0.9286,
+    "topology_fallback_ratio": 0.0714,
+    "decoration_group_count": 5,
     "decoration_motif_diversity": 1.0,
     "viewport_policy": "local_follow_camera_no_forced_zoom",
     "size_cells": [
@@ -3305,7 +2586,7 @@
       288
     ]
   },
-  "score": 1234.829,
+  "score": 1239.469,
   "decisions": [
     {
       "stage": "reference_search",
@@ -3335,11 +2616,11 @@
   "candidate_comparison": [
     {
       "variant": 0,
-      "score": 1234.829,
+      "score": 1239.469,
       "quality_scores": {
         "technical_validity": 100,
         "structural": 89.55,
-        "artistic": 87.586,
+        "artistic": 89.964,
         "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
       },
       "validation": "GROUND_VALIDATION_PASS",
@@ -3363,11 +2644,11 @@
     },
     {
       "variant": 1,
-      "score": 1234.829,
+      "score": 1239.469,
       "quality_scores": {
         "technical_validity": 100,
         "structural": 89.55,
-        "artistic": 87.586,
+        "artistic": 89.964,
         "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
       },
       "validation": "GROUND_VALIDATION_PASS",
@@ -3391,11 +2672,11 @@
     },
     {
       "variant": 2,
-      "score": 1234.829,
+      "score": 1239.469,
       "quality_scores": {
         "technical_validity": 100,
         "structural": 89.55,
-        "artistic": 87.586,
+        "artistic": 89.964,
         "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
       },
       "validation": "GROUND_VALIDATION_PASS",

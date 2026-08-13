@@ -22,6 +22,8 @@ AutoTiles. `generate-ground` choisit automatiquement des références compatible
 compose plusieurs familles de géométrie abstraite, résout les cellules par
 classe/voisins/transitions, place des motifs multicellules natifs puis valide
 collisions, animations, navigation, viewport et controller.
+`validate-ground-runtime` étend l'overlay ignoré d'Agent A pour charger le
+candidat dans PMDO 0.8.12, sonder les collisions et capturer les ticks natifs.
 
 Documentation :
 

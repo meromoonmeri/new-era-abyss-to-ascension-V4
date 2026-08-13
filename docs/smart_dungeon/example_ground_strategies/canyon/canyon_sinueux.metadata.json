@@ -2,7 +2,7 @@
   "schema_version": "2.0.0",
   "ground_id": "canyon_sinueux",
   "seed": 10101,
-  "variant": 2,
+  "variant": 0,
   "concept": "winding_canyon",
   "intent_analysis": {
     "concept": "winding_canyon",
@@ -35,6 +35,7 @@
     "strategy": "single_library_conservative",
     "compatibility": 1.0,
     "confidence": 0.93,
+    "theme_match": true,
     "ranked_candidates": [
       {
         "ground_id": "mount_windswept_entrance",
@@ -121,26 +122,26 @@
       {
         "kind": "canyon_pocket",
         "center": [
-          14,
-          26
+          11,
+          24
         ],
-        "cell_count": 145
+        "cell_count": 45
       },
       {
         "kind": "canyon_pocket",
         "center": [
-          17,
+          31,
           17
         ],
-        "cell_count": 113
+        "cell_count": 35
       },
       {
         "kind": "canyon_pocket",
         "center": [
-          12,
-          8
+          10,
+          10
         ],
-        "cell_count": 87
+        "cell_count": 45
       },
       {
         "kind": "sightline_blocker",
@@ -148,7 +149,8 @@
           22,
           17
         ],
-        "cell_count": 5
+        "cell_count": 9,
+        "context_effect": "forces_short_side_bypass"
       }
     ],
     "anchors": {
@@ -161,11 +163,11 @@
         2
       ],
       "poi": [
-        17,
+        31,
         17
       ]
     },
-    "primary_path_cell_count": 616,
+    "primary_path_cell_count": 447,
     "repair_log": []
   },
   "tile_grammar": {
@@ -177,31 +179,29 @@
       "wall": 970
     },
     "topology_roles": {
-      "open:corner": 29,
-      "open:edge_toward_E": 24,
-      "open:edge_toward_N": 22,
-      "open:edge_toward_S": 24,
-      "open:edge_toward_W": 17,
-      "open:endcap_E": 3,
-      "open:endcap_S": 1,
-      "open:endcap_W": 1,
-      "open:interior": 575,
-      "wall:corner": 37,
-      "wall:edge_toward_E": 43,
-      "wall:edge_toward_N": 49,
-      "wall:edge_toward_S": 46,
-      "wall:edge_toward_W": 53,
-      "wall:endcap_E": 1,
-      "wall:endcap_N": 1,
-      "wall:endcap_S": 1,
-      "wall:interior": 548,
-      "wall:straight_ew": 18,
-      "wall:straight_ns": 3
+      "open:corner": 30,
+      "open:edge_toward_E": 21,
+      "open:edge_toward_N": 50,
+      "open:edge_toward_S": 52,
+      "open:edge_toward_W": 21,
+      "open:endcap_E": 2,
+      "open:endcap_S": 4,
+      "open:endcap_W": 2,
+      "open:interior": 296,
+      "open:straight_ew": 3,
+      "wall:corner": 54,
+      "wall:edge_toward_E": 47,
+      "wall:edge_toward_N": 74,
+      "wall:edge_toward_S": 68,
+      "wall:edge_toward_W": 49,
+      "wall:endcap_E": 2,
+      "wall:interior": 702,
+      "wall:straight_ew": 19
     },
     "resolution": {
-      "exact_cells": 1431,
-      "fallback_cells": 65,
-      "mean_distance": 0.0769,
+      "exact_cells": 1437,
+      "fallback_cells": 59,
+      "mean_distance": 0.0709,
       "fallback_details": [
         {
           "target": [
@@ -332,7 +332,7 @@
         {
           "target": [
             4,
-            8
+            10
           ],
           "functional_class": "wall",
           "topology_role": "edge_toward_E",
@@ -374,7 +374,7 @@
         {
           "target": [
             5,
-            8
+            10
           ],
           "functional_class": "open",
           "topology_role": "endcap_E",
@@ -395,7 +395,7 @@
         {
           "target": [
             5,
-            26
+            24
           ],
           "functional_class": "wall",
           "topology_role": "edge_toward_E",
@@ -437,7 +437,7 @@
         {
           "target": [
             6,
-            8
+            10
           ],
           "functional_class": "open",
           "topology_role": "interior",
@@ -449,8 +449,8 @@
             "open"
           ],
           "source": [
-            6,
-            57
+            3,
+            22
           ],
           "distance": 1,
           "rule": "nearest_same_functional_class_local_adjacency"
@@ -458,7 +458,7 @@
         {
           "target": [
             6,
-            26
+            24
           ],
           "functional_class": "open",
           "topology_role": "endcap_E",
@@ -500,7 +500,7 @@
         {
           "target": [
             7,
-            26
+            24
           ],
           "functional_class": "open",
           "topology_role": "interior",
@@ -512,8 +512,8 @@
             "open"
           ],
           "source": [
-            6,
-            57
+            3,
+            22
           ],
           "distance": 1,
           "rule": "nearest_same_functional_class_local_adjacency"
@@ -584,91 +584,7 @@
         {
           "target": [
             10,
-            17
-          ],
-          "functional_class": "wall",
-          "topology_role": "edge_toward_E",
-          "target_mask": "fd",
-          "transition": [
-            "wall",
-            "open",
-            "wall",
-            "wall"
-          ],
-          "source": [
-            14,
-            30
-          ],
-          "distance": 1,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            11,
-            0
-          ],
-          "functional_class": "wall",
-          "topology_role": "edge_toward_N",
-          "target_mask": "6e",
-          "transition": [
-            "outside",
-            "wall",
-            "wall",
-            "wall"
-          ],
-          "source": [
-            47,
-            18
-          ],
-          "distance": 2,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            11,
-            17
-          ],
-          "functional_class": "open",
-          "topology_role": "endcap_E",
-          "target_mask": "32",
-          "transition": [
-            "wall",
-            "open",
-            "wall",
-            "wall"
-          ],
-          "source": [
-            1,
-            61
-          ],
-          "distance": 2,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            12,
-            0
-          ],
-          "functional_class": "wall",
-          "topology_role": "edge_toward_N",
-          "target_mask": "6e",
-          "transition": [
-            "outside",
-            "wall",
-            "wall",
-            "wall"
-          ],
-          "source": [
-            47,
-            18
-          ],
-          "distance": 2,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            12,
-            3
+            6
           ],
           "functional_class": "wall",
           "topology_role": "edge_toward_S",
@@ -680,31 +596,52 @@
             "wall"
           ],
           "source": [
-            42,
-            19
+            3,
+            20
           ],
           "distance": 1,
           "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
-            12,
-            17
+            11,
+            0
           ],
-          "functional_class": "open",
-          "topology_role": "interior",
-          "target_mask": "3f",
+          "functional_class": "wall",
+          "topology_role": "edge_toward_N",
+          "target_mask": "6e",
           "transition": [
-            "open",
-            "open",
-            "open",
-            "open"
+            "outside",
+            "wall",
+            "wall",
+            "wall"
           ],
           "source": [
-            6,
-            57
+            47,
+            18
           ],
-          "distance": 1,
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            12,
+            0
+          ],
+          "functional_class": "wall",
+          "topology_role": "edge_toward_N",
+          "target_mask": "6e",
+          "transition": [
+            "outside",
+            "wall",
+            "wall",
+            "wall"
+          ],
+          "source": [
+            47,
+            18
+          ],
+          "distance": 2,
           "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
@@ -840,6 +777,69 @@
           ],
           "functional_class": "wall",
           "topology_role": "edge_toward_N",
+          "target_mask": "6e",
+          "transition": [
+            "outside",
+            "wall",
+            "wall",
+            "wall"
+          ],
+          "source": [
+            47,
+            18
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            19,
+            20
+          ],
+          "functional_class": "wall",
+          "topology_role": "endcap_E",
+          "target_mask": "02",
+          "transition": [
+            "open",
+            "wall",
+            "open",
+            "open"
+          ],
+          "source": [
+            38,
+            18
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            20,
+            0
+          ],
+          "functional_class": "wall",
+          "topology_role": "edge_toward_N",
+          "target_mask": "6e",
+          "transition": [
+            "outside",
+            "wall",
+            "wall",
+            "wall"
+          ],
+          "source": [
+            47,
+            18
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            21,
+            0
+          ],
+          "functional_class": "wall",
+          "topology_role": "edge_toward_N",
           "target_mask": "4e",
           "transition": [
             "outside",
@@ -856,12 +856,12 @@
         },
         {
           "target": [
-            20,
+            22,
             0
           ],
           "functional_class": "wall",
           "topology_role": "straight_ew",
-          "target_mask": "4a",
+          "target_mask": "6a",
           "transition": [
             "outside",
             "wall",
@@ -869,91 +869,7 @@
             "wall"
           ],
           "source": [
-            12,
-            21
-          ],
-          "distance": 2,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            21,
-            0
-          ],
-          "functional_class": "wall",
-          "topology_role": "straight_ew",
-          "target_mask": "0a",
-          "transition": [
-            "outside",
-            "wall",
-            "open",
-            "wall"
-          ],
-          "source": [
-            13,
-            21
-          ],
-          "distance": 2,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
             22,
-            0
-          ],
-          "functional_class": "wall",
-          "topology_role": "straight_ew",
-          "target_mask": "0a",
-          "transition": [
-            "outside",
-            "wall",
-            "open",
-            "wall"
-          ],
-          "source": [
-            14,
-            21
-          ],
-          "distance": 2,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            22,
-            14
-          ],
-          "functional_class": "open",
-          "topology_role": "edge_toward_S",
-          "target_mask": "fb",
-          "transition": [
-            "open",
-            "open",
-            "wall",
-            "open"
-          ],
-          "source": [
-            26,
-            43
-          ],
-          "distance": 1,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            22,
-            15
-          ],
-          "functional_class": "wall",
-          "topology_role": "endcap_S",
-          "target_mask": "04",
-          "transition": [
-            "open",
-            "open",
-            "wall",
-            "open"
-          ],
-          "source": [
-            0,
             17
           ],
           "distance": 2,
@@ -961,91 +877,7 @@
         },
         {
           "target": [
-            22,
-            19
-          ],
-          "functional_class": "wall",
-          "topology_role": "endcap_N",
-          "target_mask": "01",
-          "transition": [
-            "wall",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            40,
-            15
-          ],
-          "distance": 3,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            22,
-            20
-          ],
-          "functional_class": "open",
-          "topology_role": "edge_toward_N",
-          "target_mask": "fe",
-          "transition": [
-            "wall",
-            "open",
-            "open",
-            "open"
-          ],
-          "source": [
-            20,
-            45
-          ],
-          "distance": 1,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
             23,
-            0
-          ],
-          "functional_class": "wall",
-          "topology_role": "straight_ew",
-          "target_mask": "0a",
-          "transition": [
-            "outside",
-            "wall",
-            "open",
-            "wall"
-          ],
-          "source": [
-            15,
-            21
-          ],
-          "distance": 2,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            24,
-            0
-          ],
-          "functional_class": "wall",
-          "topology_role": "straight_ew",
-          "target_mask": "2a",
-          "transition": [
-            "outside",
-            "wall",
-            "open",
-            "wall"
-          ],
-          "source": [
-            65,
-            20
-          ],
-          "distance": 2,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            25,
             0
           ],
           "functional_class": "wall",
@@ -1058,7 +890,7 @@
             "wall"
           ],
           "source": [
-            66,
+            7,
             20
           ],
           "distance": 2,
@@ -1066,7 +898,49 @@
         },
         {
           "target": [
-            25,
+            23,
+            13
+          ],
+          "functional_class": "open",
+          "topology_role": "corner",
+          "target_mask": "cc",
+          "transition": [
+            "wall",
+            "wall",
+            "open",
+            "open"
+          ],
+          "source": [
+            38,
+            19
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            24,
+            0
+          ],
+          "functional_class": "wall",
+          "topology_role": "edge_toward_N",
+          "target_mask": "6e",
+          "transition": [
+            "outside",
+            "wall",
+            "wall",
+            "wall"
+          ],
+          "source": [
+            8,
+            20
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            24,
             3
           ],
           "functional_class": "open",
@@ -1079,36 +953,15 @@
             "open"
           ],
           "source": [
-            37,
-            13
+            23,
+            19
           ],
           "distance": 1,
           "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
-            25,
-            30
-          ],
-          "functional_class": "wall",
-          "topology_role": "endcap_E",
-          "target_mask": "22",
-          "transition": [
-            "open",
-            "wall",
-            "open",
-            "open"
-          ],
-          "source": [
-            38,
-            18
-          ],
-          "distance": 1,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            25,
+            24,
             31
           ],
           "functional_class": "open",
@@ -1129,6 +982,27 @@
         },
         {
           "target": [
+            25,
+            0
+          ],
+          "functional_class": "wall",
+          "topology_role": "edge_toward_N",
+          "target_mask": "6e",
+          "transition": [
+            "outside",
+            "wall",
+            "wall",
+            "wall"
+          ],
+          "source": [
+            8,
+            20
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
             26,
             0
           ],
@@ -1142,8 +1016,8 @@
             "wall"
           ],
           "source": [
-            66,
-            24
+            8,
+            20
           ],
           "distance": 2,
           "rule": "nearest_same_functional_class_local_adjacency"
@@ -1163,8 +1037,8 @@
             "wall"
           ],
           "source": [
-            66,
-            24
+            8,
+            20
           ],
           "distance": 2,
           "rule": "nearest_same_functional_class_local_adjacency"
@@ -1184,8 +1058,8 @@
             "wall"
           ],
           "source": [
-            66,
-            24
+            8,
+            20
           ],
           "distance": 2,
           "rule": "nearest_same_functional_class_local_adjacency"
@@ -1205,8 +1079,8 @@
             "wall"
           ],
           "source": [
-            66,
-            24
+            8,
+            20
           ],
           "distance": 2,
           "rule": "nearest_same_functional_class_local_adjacency"
@@ -1226,8 +1100,8 @@
             "wall"
           ],
           "source": [
-            66,
-            24
+            8,
+            20
           ],
           "distance": 2,
           "rule": "nearest_same_functional_class_local_adjacency"
@@ -1247,10 +1121,31 @@
             "wall"
           ],
           "source": [
-            66,
-            24
+            8,
+            20
           ],
           "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            31,
+            13
+          ],
+          "functional_class": "wall",
+          "topology_role": "edge_toward_S",
+          "target_mask": "fb",
+          "transition": [
+            "wall",
+            "wall",
+            "open",
+            "wall"
+          ],
+          "source": [
+            9,
+            31
+          ],
+          "distance": 1,
           "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
@@ -1268,8 +1163,8 @@
             "wall"
           ],
           "source": [
-            66,
-            24
+            8,
+            20
           ],
           "distance": 2,
           "rule": "nearest_same_functional_class_local_adjacency"
@@ -1289,8 +1184,8 @@
             "wall"
           ],
           "source": [
-            66,
-            24
+            8,
+            20
           ],
           "distance": 2,
           "rule": "nearest_same_functional_class_local_adjacency"
@@ -1310,31 +1205,10 @@
             "wall"
           ],
           "source": [
-            66,
-            24
+            8,
+            20
           ],
           "distance": 2,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            34,
-            12
-          ],
-          "functional_class": "open",
-          "topology_role": "corner",
-          "target_mask": "cc",
-          "transition": [
-            "wall",
-            "wall",
-            "open",
-            "open"
-          ],
-          "source": [
-            53,
-            30
-          ],
-          "distance": 1,
           "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
@@ -1352,10 +1226,31 @@
             "wall"
           ],
           "source": [
-            66,
-            24
+            8,
+            20
           ],
           "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            35,
+            17
+          ],
+          "functional_class": "open",
+          "topology_role": "endcap_W",
+          "target_mask": "c8",
+          "transition": [
+            "wall",
+            "wall",
+            "wall",
+            "open"
+          ],
+          "source": [
+            67,
+            23
+          ],
+          "distance": 1,
           "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
@@ -1373,31 +1268,10 @@
             "wall"
           ],
           "source": [
-            66,
-            24
+            8,
+            20
           ],
           "distance": 2,
-          "rule": "nearest_same_functional_class_local_adjacency"
-        },
-        {
-          "target": [
-            36,
-            22
-          ],
-          "functional_class": "open",
-          "topology_role": "corner",
-          "target_mask": "cc",
-          "transition": [
-            "wall",
-            "wall",
-            "open",
-            "open"
-          ],
-          "source": [
-            53,
-            30
-          ],
-          "distance": 1,
           "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
@@ -1415,8 +1289,8 @@
             "wall"
           ],
           "source": [
-            66,
-            24
+            8,
+            20
           ],
           "distance": 2,
           "rule": "nearest_same_functional_class_local_adjacency"
@@ -1436,8 +1310,8 @@
             "wall"
           ],
           "source": [
-            66,
-            24
+            8,
+            20
           ],
           "distance": 2,
           "rule": "nearest_same_functional_class_local_adjacency"
@@ -1457,8 +1331,8 @@
             "wall"
           ],
           "source": [
-            66,
-            24
+            8,
+            20
           ],
           "distance": 2,
           "rule": "nearest_same_functional_class_local_adjacency"
@@ -1478,8 +1352,8 @@
             "wall"
           ],
           "source": [
-            66,
-            24
+            8,
+            20
           ],
           "distance": 2,
           "rule": "nearest_same_functional_class_local_adjacency"
@@ -1499,8 +1373,8 @@
             "wall"
           ],
           "source": [
-            66,
-            24
+            8,
+            20
           ],
           "distance": 2,
           "rule": "nearest_same_functional_class_local_adjacency"
@@ -1520,8 +1394,8 @@
             "wall"
           ],
           "source": [
-            66,
-            24
+            8,
+            20
           ],
           "distance": 2,
           "rule": "nearest_same_functional_class_local_adjacency"
@@ -1541,7 +1415,7 @@
             "wall"
           ],
           "source": [
-            38,
+            31,
             0
           ],
           "distance": 2,
@@ -1582,54 +1456,68 @@
         "signature": "02475a6c7864",
         "layer": "Objects",
         "origin": [
-          7,
-          17
+          3,
+          4
         ],
         "cell_count": 20,
         "transformed": false,
-        "purpose": "mass_edge_accent",
+        "purpose": "major_native_cluster",
         "reason": "motif multicellule natif placé sans rotation et hors route critique"
       },
       {
         "group_id": "DG02",
-        "motif_id": "mount_windswept_entrance:Objects:45:18",
-        "signature": "03b28b6ef730",
-        "layer": "Objects",
-        "origin": [
-          2,
-          5
-        ],
-        "cell_count": 11,
-        "transformed": false,
-        "purpose": "mass_edge_accent",
-        "reason": "motif multicellule natif placé sans rotation et hors route critique"
-      },
-      {
-        "group_id": "DG03",
-        "motif_id": "mount_windswept_entrance:Objects:3:62",
-        "signature": "0508227f4b85",
-        "layer": "Objects",
-        "origin": [
-          5,
-          15
-        ],
-        "cell_count": 2,
-        "transformed": false,
-        "purpose": "mass_edge_accent",
-        "reason": "motif multicellule natif placé sans rotation et hors route critique"
-      },
-      {
-        "group_id": "DG04",
         "motif_id": "mount_windswept_entrance:Objects:47:46",
         "signature": "194898e644c6",
         "layer": "Objects",
         "origin": [
           4,
-          21
+          19
         ],
         "cell_count": 19,
         "transformed": false,
-        "purpose": "mass_edge_accent",
+        "purpose": "major_native_cluster",
+        "reason": "motif multicellule natif placé sans rotation et hors route critique"
+      },
+      {
+        "group_id": "DG03",
+        "motif_id": "mount_windswept_entrance:Objects:62:42",
+        "signature": "8a9a7622156e",
+        "layer": "Objects",
+        "origin": [
+          12,
+          2
+        ],
+        "cell_count": 16,
+        "transformed": false,
+        "purpose": "major_native_cluster",
+        "reason": "motif multicellule natif placé sans rotation et hors route critique"
+      },
+      {
+        "group_id": "DG04",
+        "motif_id": "mount_windswept_entrance:Objects:23:44",
+        "signature": "a206accab6af",
+        "layer": "Objects",
+        "origin": [
+          30,
+          9
+        ],
+        "cell_count": 15,
+        "transformed": false,
+        "purpose": "major_native_cluster",
+        "reason": "motif multicellule natif placé sans rotation et hors route critique"
+      },
+      {
+        "group_id": "DG05",
+        "motif_id": "mount_windswept_entrance:Objects:45:18",
+        "signature": "03b28b6ef730",
+        "layer": "Objects",
+        "origin": [
+          2,
+          14
+        ],
+        "cell_count": 11,
+        "transformed": false,
+        "purpose": "major_native_cluster",
         "reason": "motif multicellule natif placé sans rotation et hors route critique"
       }
     ],
@@ -1654,7 +1542,7 @@
   "quality_scores": {
     "technical_validity": 100,
     "structural": 100,
-    "artistic": 89.89,
+    "artistic": 91.404,
     "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
   },
   "validation": {
@@ -1663,28 +1551,28 @@
     "warnings": [],
     "geometry": {
       "reachable_ratio": 1.0,
-      "shortest_path_length": 32,
-      "path_directness": 0.9062,
+      "shortest_path_length": 48,
+      "path_directness": 0.6042,
       "boss_distance": null,
-      "path_width_mean": 5.875,
-      "path_width_variation": 3.12,
+      "path_width_mean": 3.2917,
+      "path_width_variation": 2.2726,
       "choke_points": 0,
-      "junctions": 32,
-      "dead_end_count": 5,
-      "circulation_loop_density": 0.8865,
+      "junctions": 48,
+      "dead_end_count": 8,
+      "circulation_loop_density": 0.7588,
       "direct_line_of_sight_clear": false,
-      "open_ratio": 0.4652,
+      "open_ratio": 0.3215,
       "functional_region_count": 4,
       "primary_path_protected": true
     },
-    "navigation_reachable_cells": 696,
+    "navigation_reachable_cells": 481,
     "water_component_count": 0,
     "referenced_sheet_count": 6,
     "animation_cell_count": 0,
     "water_animation_coverage": 0.0,
-    "topology_exact_ratio": 0.9566,
-    "topology_fallback_ratio": 0.0434,
-    "decoration_group_count": 4,
+    "topology_exact_ratio": 0.9606,
+    "topology_fallback_ratio": 0.0394,
+    "decoration_group_count": 5,
     "decoration_motif_diversity": 1.0,
     "viewport_policy": "local_follow_camera_no_forced_zoom",
     "size_cells": [
@@ -1696,7 +1584,7 @@
       272
     ]
   },
-  "score": 1261.32,
+  "score": 1262.12,
   "decisions": [
     {
       "stage": "reference_search",
@@ -1726,27 +1614,27 @@
   "candidate_comparison": [
     {
       "variant": 0,
-      "score": 1260.78,
+      "score": 1262.12,
       "quality_scores": {
         "technical_validity": 100,
         "structural": 100,
-        "artistic": 89.769,
+        "artistic": 91.404,
         "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
       },
       "validation": "GROUND_VALIDATION_PASS",
       "geometry": {
         "reachable_ratio": 1.0,
-        "shortest_path_length": 32,
-        "path_directness": 0.9062,
+        "shortest_path_length": 48,
+        "path_directness": 0.6042,
         "boss_distance": null,
-        "path_width_mean": 5.875,
-        "path_width_variation": 3.12,
+        "path_width_mean": 3.2917,
+        "path_width_variation": 2.2726,
         "choke_points": 0,
-        "junctions": 32,
-        "dead_end_count": 6,
-        "circulation_loop_density": 0.875,
+        "junctions": 48,
+        "dead_end_count": 8,
+        "circulation_loop_density": 0.7588,
         "direct_line_of_sight_clear": false,
-        "open_ratio": 0.4064,
+        "open_ratio": 0.3215,
         "functional_region_count": 4,
         "primary_path_protected": true
       },
@@ -1754,27 +1642,27 @@
     },
     {
       "variant": 1,
-      "score": 1261.18,
+      "score": 1261.72,
       "quality_scores": {
         "technical_validity": 100,
         "structural": 100,
-        "artistic": 89.859,
+        "artistic": 91.314,
         "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
       },
       "validation": "GROUND_VALIDATION_PASS",
       "geometry": {
         "reachable_ratio": 1.0,
-        "shortest_path_length": 32,
-        "path_directness": 0.9062,
+        "shortest_path_length": 52,
+        "path_directness": 0.5577,
         "boss_distance": null,
-        "path_width_mean": 5.875,
-        "path_width_variation": 3.12,
+        "path_width_mean": 3.1923,
+        "path_width_variation": 2.2278,
         "choke_points": 0,
-        "junctions": 32,
-        "dead_end_count": 5,
-        "circulation_loop_density": 0.8957,
+        "junctions": 52,
+        "dead_end_count": 8,
+        "circulation_loop_density": 0.7642,
         "direct_line_of_sight_clear": false,
-        "open_ratio": 0.5127,
+        "open_ratio": 0.3402,
         "functional_region_count": 4,
         "primary_path_protected": true
       },
@@ -1782,27 +1670,27 @@
     },
     {
       "variant": 2,
-      "score": 1261.32,
+      "score": 1262.12,
       "quality_scores": {
         "technical_validity": 100,
         "structural": 100,
-        "artistic": 89.89,
+        "artistic": 91.404,
         "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
       },
       "validation": "GROUND_VALIDATION_PASS",
       "geometry": {
         "reachable_ratio": 1.0,
-        "shortest_path_length": 32,
-        "path_directness": 0.9062,
+        "shortest_path_length": 46,
+        "path_directness": 0.6304,
         "boss_distance": null,
-        "path_width_mean": 5.875,
-        "path_width_variation": 3.12,
+        "path_width_mean": 3.3478,
+        "path_width_variation": 2.2957,
         "choke_points": 0,
-        "junctions": 32,
-        "dead_end_count": 5,
-        "circulation_loop_density": 0.8865,
+        "junctions": 46,
+        "dead_end_count": 8,
+        "circulation_loop_density": 0.7617,
         "direct_line_of_sight_clear": false,
-        "open_ratio": 0.4652,
+        "open_ratio": 0.3422,
         "functional_region_count": 4,
         "primary_path_protected": true
       },

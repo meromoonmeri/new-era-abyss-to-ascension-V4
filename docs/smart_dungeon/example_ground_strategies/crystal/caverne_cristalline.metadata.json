@@ -35,6 +35,7 @@
     "strategy": "single_library_conservative",
     "compatibility": 1.0,
     "confidence": 0.93,
+    "theme_match": false,
     "ranked_candidates": [
       {
         "ground_id": "altere_pond",
@@ -1150,58 +1151,72 @@
     "groups": [
       {
         "group_id": "DG01",
-        "motif_id": "altere_pond:Objects:36:58",
-        "signature": "04b0fedf633a",
+        "motif_id": "altere_pond:Objects:84:46",
+        "signature": "993b3f30f5f3",
         "layer": "Objects",
         "origin": [
-          10,
-          16
+          16,
+          7
         ],
-        "cell_count": 5,
+        "cell_count": 21,
         "transformed": false,
-        "purpose": "mass_edge_accent",
+        "purpose": "major_native_cluster",
         "reason": "motif multicellule natif placé sans rotation et hors route critique"
       },
       {
         "group_id": "DG02",
-        "motif_id": "altere_pond:Objects Under:18:9",
-        "signature": "0508227f4b85",
-        "layer": "Objects Under",
+        "motif_id": "altere_pond:Objects:100:67",
+        "signature": "7f0d88745d25",
+        "layer": "Objects",
         "origin": [
-          12,
-          5
+          10,
+          9
         ],
-        "cell_count": 2,
+        "cell_count": 17,
         "transformed": false,
-        "purpose": "mass_edge_accent",
+        "purpose": "major_native_cluster",
         "reason": "motif multicellule natif placé sans rotation et hors route critique"
       },
       {
         "group_id": "DG03",
-        "motif_id": "altere_pond:Objects Under:109:81",
-        "signature": "0508227f4b85",
-        "layer": "Objects Under",
-        "origin": [
-          4,
-          11
-        ],
-        "cell_count": 2,
-        "transformed": false,
-        "purpose": "mass_edge_accent",
-        "reason": "motif multicellule natif placé sans rotation et hors route critique"
-      },
-      {
-        "group_id": "DG04",
-        "motif_id": "altere_pond:Objects Under:84:9",
-        "signature": "053f915952b8",
-        "layer": "Objects Under",
+        "motif_id": "altere_pond:Objects:80:54",
+        "signature": "8a1e71ddb973",
+        "layer": "Objects",
         "origin": [
           21,
           8
         ],
-        "cell_count": 12,
+        "cell_count": 17,
         "transformed": false,
-        "purpose": "mass_edge_accent",
+        "purpose": "major_native_cluster",
+        "reason": "motif multicellule natif placé sans rotation et hors route critique"
+      },
+      {
+        "group_id": "DG04",
+        "motif_id": "altere_pond:Objects:111:29",
+        "signature": "4ae19de6d836",
+        "layer": "Objects",
+        "origin": [
+          7,
+          16
+        ],
+        "cell_count": 16,
+        "transformed": false,
+        "purpose": "major_native_cluster",
+        "reason": "motif multicellule natif placé sans rotation et hors route critique"
+      },
+      {
+        "group_id": "DG05",
+        "motif_id": "altere_pond:Objects:38:37",
+        "signature": "a0ad496378f1",
+        "layer": "Objects",
+        "origin": [
+          4,
+          19
+        ],
+        "cell_count": 15,
+        "transformed": false,
+        "purpose": "major_native_cluster",
         "reason": "motif multicellule natif placé sans rotation et hors route critique"
       }
     ],
@@ -1226,14 +1241,22 @@
   },
   "asset_policy": "existing serialized PMDO cells and compatible native motifs only",
   "quality_scores": {
-    "technical_validity": 100,
-    "structural": 100,
-    "artistic": 87.989,
+    "technical_validity": 0,
+    "structural": 82.0,
+    "artistic": 91.822,
     "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
   },
   "validation": {
-    "result": "GROUND_VALIDATION_PASS",
-    "errors": [],
+    "result": "GROUND_VALIDATION_FAIL",
+    "errors": [
+      {
+        "code": "SEMANTIC_REFERENCE_MISMATCH",
+        "location": "reference_selection",
+        "rule": "requested_biome_requires_nonzero_native_theme_family_match",
+        "asset": "altere_pond",
+        "concept": "crystal_cavern"
+      }
+    ],
     "warnings": [],
     "geometry": {
       "reachable_ratio": 1.0,
@@ -1254,12 +1277,12 @@
     "navigation_reachable_cells": 711,
     "water_component_count": 1,
     "referenced_sheet_count": 8,
-    "animation_cell_count": 17,
+    "animation_cell_count": 37,
     "water_animation_coverage": 1.0,
     "topology_exact_ratio": 0.9699,
     "topology_fallback_ratio": 0.0301,
-    "decoration_group_count": 4,
-    "decoration_motif_diversity": 0.75,
+    "decoration_group_count": 5,
+    "decoration_motif_diversity": 1.0,
     "viewport_policy": "local_follow_camera_no_forced_zoom",
     "size_cells": [
       42,
@@ -1270,7 +1293,7 @@
       272
     ]
   },
-  "score": 1257.73,
+  "score": 263.98,
   "decisions": [
     {
       "stage": "reference_search",
@@ -1300,14 +1323,14 @@
   "candidate_comparison": [
     {
       "variant": 0,
-      "score": 1253.67,
+      "score": 259.92,
       "quality_scores": {
-        "technical_validity": 100,
-        "structural": 100,
-        "artistic": 87.075,
+        "technical_validity": 0,
+        "structural": 82.0,
+        "artistic": 90.909,
         "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
       },
-      "validation": "GROUND_VALIDATION_PASS",
+      "validation": "GROUND_VALIDATION_FAIL",
       "geometry": {
         "reachable_ratio": 1.0,
         "shortest_path_length": 52,
@@ -1328,14 +1351,14 @@
     },
     {
       "variant": 1,
-      "score": 1256.47,
+      "score": 262.72,
       "quality_scores": {
-        "technical_validity": 100,
-        "structural": 100,
-        "artistic": 87.705,
+        "technical_validity": 0,
+        "structural": 82.0,
+        "artistic": 91.539,
         "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
       },
-      "validation": "GROUND_VALIDATION_PASS",
+      "validation": "GROUND_VALIDATION_FAIL",
       "geometry": {
         "reachable_ratio": 1.0,
         "shortest_path_length": 52,
@@ -1356,14 +1379,14 @@
     },
     {
       "variant": 2,
-      "score": 1257.73,
+      "score": 263.98,
       "quality_scores": {
-        "technical_validity": 100,
-        "structural": 100,
-        "artistic": 87.989,
+        "technical_validity": 0,
+        "structural": 82.0,
+        "artistic": 91.822,
         "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
       },
-      "validation": "GROUND_VALIDATION_PASS",
+      "validation": "GROUND_VALIDATION_FAIL",
       "geometry": {
         "reachable_ratio": 1.0,
         "shortest_path_length": 52,

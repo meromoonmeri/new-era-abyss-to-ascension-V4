@@ -254,6 +254,10 @@ python3 tools/smart_dungeon.py generate-ground \
   --intent "Une clairière forestière avec trois petits lacs" \
   --seed 20260813 --variants 4 \
   --exit-ground altere_pond
+
+python3 tools/smart_dungeon.py validate-ground-runtime \
+  --ground WORK/clairiere/clairiere_aux_trois_lacs.rsground \
+  --metadata WORK/clairiere/clairiere_aux_trois_lacs.metadata.json
 ```
 
 Le générateur sépare géométrie et rendu. Il supporte clairières à lacs,
@@ -278,7 +282,10 @@ les pics avant le rendu.
 
 La validation couvre navigation intégrale, path width, étranglements, carrefours,
 eau et animation, dimensions, collisions, layers, frames, sheets, entités,
-raccords/fallbacks localisés, motifs, viewport et distance de boss.
+raccords/fallbacks localisés, motifs, correspondance sémantique, viewport et
+distance de boss. Le gate runtime étend sans la remplacer la méthode headless
+d'Agent A : chargement PMDO 0.8.12, mouvement libre/bloqué et captures aux ticks
+natifs. Un candidat techniquement dessinable mais sémantiquement faux est rejeté.
 
 Documentation : `docs/SMART_GROUND_GENERATOR.md`.
 Exemple : `docs/smart_dungeon/example_ground_clairiere/`.

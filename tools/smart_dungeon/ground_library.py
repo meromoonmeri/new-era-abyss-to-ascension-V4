@@ -173,6 +173,7 @@ def select_ground_sources(repo: Path, intent: str, explicit_reference: str | Non
             "decoration": base, "decoration_visual": base_profile,
             "compatibility": 1.0, "confidence": .99,
             "strategy": "explicit_user_reference", "ranked_candidates": [],
+            "theme_match": _theme_score(base, interpreted) > 0,
             "knowledge_summary": {"ground_count": knowledge.get("ground_count", len(grounds))},
         }
     intent_tokens = set(interpreted["intent_words"])
@@ -244,6 +245,7 @@ def select_ground_sources(repo: Path, intent: str, explicit_reference: str | Non
         "decoration": decor_row["ground"], "decoration_visual": decor_row["profile"],
         "compatibility": round(1 - distance, 4), "confidence": round(confidence, 4),
         "strategy": strategy,
+        "theme_match": _theme_score(base_row["ground"], interpreted) > 0,
         "ranked_candidates": [{"ground_id": row["ground"]["ground_id"], "score": round(row["score"], 4), "visual_confidence": round(row["profile"]["confidence"], 3)} for row in ranked],
         "knowledge_summary": {"ground_count": knowledge.get("ground_count", len(grounds)), "autotile_count": knowledge.get("autotile_count", 0), "map_template_count": knowledge.get("map_template_count", 0)},
     }

@@ -24,6 +24,9 @@ PMDO_ARCHIVE_SHA=c64f72afd27b96d5a870f71e44d05ee1e952909e86b9a53d0479163763c6157
 PMDO_EXE_SHA=faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327
 ROM_SHA=0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd
 DUMP_ARCHIVE_SHA=956ad1047c8e66ea545c26033119e7e2fc3c1ff614ecfd37f96f57912178eb17
+# GitHub codeload recompressed the same locked commit in August 2026. Both
+# authenticated transports extract to the exact tree manifest below.
+DUMP_ARCHIVE_SHA_RECOMPRESSED=216d97a6757782b540b657f3684a9342bda00fd233b2ecae0a240e855f0a96ce
 DUMP_TREE_MANIFEST_SHA=42be740813125641bb5c3a15adefcb24b53e70fa5401863e3913b77ea0c2356d
 EXTRACTION_TREE_MANIFEST_SHA=931c9e0363b6dc0936502e9fc58b61fb705a1dd07d9f25861b635c542bba00a5
 CANDIDATE_TREE_MANIFEST_SHA=dbf91db99f988f596d32869a5eaf73e85c3de52688d72a7e303304ad8e387184
@@ -53,6 +56,17 @@ verify_file() {
     [[ $(stat -c %s "$path") == "$expected_bytes" ]] || fail "size mismatch: $path"
   fi
   echo "FILE_PASS $path"
+}
+verify_dump_archive_transport() {
+  local path=$1 digest bytes
+  [[ -f $path ]] || fail "required file missing: $path"
+  digest=$(actual_sha "$path"); bytes=$(stat -c %s "$path")
+  if [[ $digest == "$DUMP_ARCHIVE_SHA" && $bytes == 338722101 ]] || \
+     [[ $digest == "$DUMP_ARCHIVE_SHA_RECOMPRESSED" && $bytes == 338682930 ]]; then
+    echo "DUMP_TRANSPORT_PASS $path $digest"
+  else
+    fail "unrecognized DumpAsset transport: $path sha=$digest bytes=$bytes"
+  fi
 }
 copy_create_only() {
   local src=$1 dst=$2 expected_sha=$3 expected_bytes=${4:-}
@@ -158,10 +172,10 @@ if [[ ! -e .runtime-cache/DumpAsset ]]; then
     timeout --signal=TERM --kill-after=15 1800 gh api \
       -H 'Accept: application/vnd.github+json' \
       "repos/audinowho/DumpAsset/tarball/$DUMP_COMMIT" > "$tmp"
-    verify_file "$tmp" "$DUMP_ARCHIVE_SHA" 338722101
+    verify_dump_archive_transport "$tmp"
     mv -n "$tmp" "$DUMP_ARCHIVE"
   fi
-  verify_file "$DUMP_ARCHIVE" "$DUMP_ARCHIVE_SHA" 338722101
+  verify_dump_archive_transport "$DUMP_ARCHIVE"
   tmp=".runtime-cache/DumpAsset.extract.$$"
   mkdir "$tmp"
   tar -xzf "$DUMP_ARCHIVE" -C "$tmp" --strip-components=1

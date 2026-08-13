@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 from .assets import analyze_library
 from .ground_gen import generate_ground
+from .ground_runtime import validate_runtime as validate_ground_runtime
 from .knowledge import analyze_references
 from .project import generate_project, read, regenerate, validate_project, write
 from .runtime import validate_runtime_index
@@ -52,6 +53,13 @@ def parser():
     ground.add_argument("--height", type=int, default=48)
     ground.add_argument("--exit-ground", help="Ground destination explicite du controller")
     ground.add_argument("--exit-marker", default="Main_Entrance_Marker")
+    ground_runtime = commands.add_parser("validate-ground-runtime", help="Charge et capture un Ground dans PMDO 0.8.12 exact")
+    ground_runtime.add_argument("--ground", type=Path, required=True)
+    ground_runtime.add_argument("--metadata", type=Path)
+    ground_runtime.add_argument("--fixture-root", type=Path, default=Path(".runtime-cache/smart-ground-fixture"))
+    ground_runtime.add_argument("--output", type=Path, default=Path(".runtime-cache/smart-ground-runtime"))
+    ground_runtime.add_argument("--ticks", default="0,15")
+    ground_runtime.add_argument("--timeout", type=int, default=180)
     regen = commands.add_parser("regenerate", help="Régénère tout ou seulement une partie")
     regen.add_argument("--project", type=Path, required=True)
     regen.add_argument("--scope", default="all", help="all, floor:N, room:N:M ou decor:N")
@@ -96,6 +104,14 @@ def main(argv=None):
     elif args.command == "generate-ground":
         result = generate_ground(repo, args.output_dir, args.id, args.intent, args.seed, args.variants, args.reference_ground, args.width, args.height, None, args.exit_ground, args.exit_marker)
         summary = {"result": result["validation"]["result"], "ground": result["ground_file"], "metadata": result["metadata_file"], "preview": result["preview_file"], "controller": result["controller_file"], "concept": result["concept"], "references": result["reference_selection"], "score": result["score"], "validation": result["validation"]}
+    elif args.command == "validate-ground-runtime":
+        ticks = sorted({int(value.strip()) for value in args.ticks.split(",") if value.strip()})
+        result = validate_ground_runtime(repo, args.ground, args.metadata, args.fixture_root, args.output, ticks, args.timeout)
+        summary = {
+            "result": result["result"], "ground": result["candidate"]["asset"],
+            "runtime_probes": result["runtime_probes"], "captures": result["captures"],
+            "report": str(args.output / "runtime_report.json"),
+        }
     elif args.command == "create":
         result = generate_project(repo, args.project, args.name, args.intent, args.floors, args.difficulty, args.boss, args.mini_bosses, args.relays, args.seed, args.reference_zone, args.variants, args.max_assets, args.boss_species, args.boss_category, args.narrative_prompt)
         summary = {
