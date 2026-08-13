@@ -149,6 +149,18 @@ class TileRenderer:
         return result
 
 
+def resize_nearest(image: RGBAImage, width: int, height: int) -> RGBAImage:
+    result = RGBAImage.empty(width, height)
+    for y in range(height):
+        source_y = min(image.height - 1, y * image.height // height)
+        for x in range(width):
+            source_x = min(image.width - 1, x * image.width // width)
+            source_index = (source_y * image.width + source_x) * 4
+            target_index = (y * width + x) * 4
+            result.pixels[target_index : target_index + 4] = image.pixels[source_index : source_index + 4]
+    return result
+
+
 def render_layers(layer_payload: dict[str, Any], renderer: TileRenderer) -> tuple[list[RGBAImage], RGBAImage]:
     width = layer_payload["width"]
     height = layer_payload["height"]
@@ -284,6 +296,28 @@ def build(source: Path, inventory_root: Path) -> dict[str, Any]:
             path = preview_root / "tilesets" / f"{sheet_key}_reference.png"
             save_png(renderer.reference_sheet(), path)
             tileset_sheets[sheet_key] = png_record(path, inventory_root)
+    contact_columns = 5
+    thumb_width, thumb_height = 160, 120
+    contact_rows = (len(outputs) + contact_columns - 1) // contact_columns
+    contact = RGBAImage.empty(
+        contact_columns * thumb_width, contact_rows * thumb_height, (28, 28, 28, 255)
+    )
+    contact_order = []
+    for index, row in enumerate(outputs):
+        composite_record = next(
+            record for record in row["files"] if Path(record["file"]).name == "composite.png"
+        )
+        image = load_png(inventory_root / composite_record["file"])
+        contact.alpha_over(
+            resize_nearest(image, thumb_width, thumb_height),
+            (index % contact_columns) * thumb_width,
+            (index // contact_columns) * thumb_height,
+        )
+        contact_order.append(row["preview_id"])
+    contact_path = preview_root / "maps_contact_sheet.png"
+    save_png(contact, contact_path)
+    contact_record = png_record(contact_path, inventory_root)
+
     result = {
         "schema_version": "1.0.0",
         "result": "PREVIEW_RENDER_PASS" if not missing_ids else "PREVIEW_RENDER_MISSING_TILES",
@@ -297,6 +331,8 @@ def build(source: Path, inventory_root: Path) -> dict[str, Any]:
             "ENVIRONMENTAL_TILE_ENTITY": "cyan outline",
             "LOGIC_MARKER": "yellow marker",
         },
+        "map_contact_sheet": contact_record,
+        "map_contact_sheet_order": contact_order,
         "previews": outputs,
         "tileset_references": tileset_sheets,
     }

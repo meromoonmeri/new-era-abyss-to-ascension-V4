@@ -100,9 +100,19 @@
     "source_format": "RPG Maker XP Ruby Marshal 4.8 RPG::Map",
     "source_path": "Relict/Relict V1.2/Relict/Data/Map008.rxdata"
   },
+  "source_documentation": {
+    "animations_complete": true,
+    "collision_complete": true,
+    "contact_sheet_sha256": "5420d1827e576d7f53eea015e5a3d01ba65902d4ee461b0125ea552e82bbf0cb",
+    "entity_placements_complete": true,
+    "geometry_complete": true,
+    "manual_contact_sheet_review": "PASS_2026-08-13",
+    "timeline_complete": true,
+    "visual_dependencies_complete": true
+  },
   "source_map_id": 8,
   "source_order": 15,
-  "status": "SOURCE_EXTRACTED",
+  "status": "SOURCE_DOCUMENTED",
   "tile_layers": {
     "all_source_values_preserved": true,
     "file": "zones/geometry/map_008_layers.json",

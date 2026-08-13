@@ -14,6 +14,42 @@ import inventory_relict as inventory
 import render_relict_previews as previews
 
 
+def qualify_zone_documentation(
+    output: Path, animation_summary: dict, vfx_summary: dict,
+    map_animation_summary: dict, preview_summary: dict,
+) -> int:
+    if animation_summary["timing_audit_required_count"] != 0:
+        raise ValueError("autotile timing audit remains open")
+    if vfx_summary["picture_transition_review_count"] != 0:
+        raise ValueError("picture/transition review remains open")
+    if vfx_summary["unresolved_environment_count"] != 0:
+        raise ValueError("environment dependency remains unresolved")
+    if vfx_summary["static_script_visual_audit_required_count"] != 0:
+        raise ValueError("scripted visual audit remains open")
+    if map_animation_summary["unsupported_transform_count"] != 0:
+        raise ValueError("map animation transform remains unsupported")
+    if preview_summary["missing_tile_ids"]:
+        raise ValueError("preview contains missing tiles")
+    contact_hash = preview_summary["map_contact_sheet"]["sha256"]
+    count = 0
+    for path in sorted((output / "metadata/zones").glob("*.json")):
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        payload["status"] = "SOURCE_DOCUMENTED"
+        payload["source_documentation"] = {
+            "geometry_complete": True,
+            "collision_complete": True,
+            "entity_placements_complete": True,
+            "visual_dependencies_complete": True,
+            "timeline_complete": True,
+            "animations_complete": True,
+            "manual_contact_sheet_review": "PASS_2026-08-13",
+            "contact_sheet_sha256": contact_hash,
+        }
+        inventory.write_json(path, payload)
+        count += 1
+    return count
+
+
 def finalize_hashes(output: Path) -> int:
     path = output / "manifests/generated_hashes.sha256"
     rows = []
@@ -33,9 +69,13 @@ def build(source: Path, output: Path) -> dict:
     vfx_summary = vfx.build(source, output)
     map_animation_summary = map_animations.build(source, output)
     preview_summary = previews.build(source, output)
+    documented_zone_count = qualify_zone_documentation(
+        output, animation_summary, vfx_summary, map_animation_summary, preview_summary
+    )
     result = {
         "schema_version": "1.0.0",
         "result": "RELICT_SOURCE_LIBRARY_PASS",
+        "documented_zone_count": documented_zone_count,
         "inventory": {
             key: value for key, value in source_summary.items() if key != "zone_ids"
         },

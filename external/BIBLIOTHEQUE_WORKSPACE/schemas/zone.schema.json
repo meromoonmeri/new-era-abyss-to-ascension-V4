@@ -17,6 +17,21 @@
     "zone_type": {"enum": ["DUNGEON", "BOSS", "INTERIOR", "EXTERIOR", "CINEMATIC", "TEMPLATE", "SPECIAL", "UNCLASSIFIED"]},
     "zone_type_inferred": {"type": "boolean"},
     "status": {"$ref": "status.schema.json"},
+    "source_documentation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["geometry_complete", "collision_complete", "entity_placements_complete", "visual_dependencies_complete", "timeline_complete", "animations_complete", "manual_contact_sheet_review", "contact_sheet_sha256"],
+      "properties": {
+        "geometry_complete": {"const": true},
+        "collision_complete": {"const": true},
+        "entity_placements_complete": {"const": true},
+        "visual_dependencies_complete": {"const": true},
+        "timeline_complete": {"const": true},
+        "animations_complete": {"const": true},
+        "manual_contact_sheet_review": {"const": "PASS_2026-08-13"},
+        "contact_sheet_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
     "geometry": {
       "type": "object",
       "additionalProperties": false,

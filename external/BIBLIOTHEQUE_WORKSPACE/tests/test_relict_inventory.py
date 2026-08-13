@@ -83,6 +83,8 @@ class RelictInventoryQualification(unittest.TestCase):
         self.assertEqual(self.summary["divergent_variant_count"], 6)
         self.assertEqual(len(self.zones), 28)
         self.assertEqual({row["source_map_id"] for row in self.zones}, set(range(1, 29)))
+        self.assertTrue(all(row["status"] == "SOURCE_DOCUMENTED" for row in self.zones))
+        self.assertTrue(all(row["source_documentation"]["collision_complete"] for row in self.zones))
         self.assertEqual(self.summary["entity_event_count"], 100)
         self.assertEqual(self.summary["entity_page_placement_count"], 115)
         self.assertEqual(self.summary["cast_placeholder_count"], 68)
@@ -172,6 +174,10 @@ class RelictInventoryQualification(unittest.TestCase):
         self.assertEqual(manifest["map_preview_count"], 34)
         self.assertEqual(manifest["tileset_reference_count"], 10)
         self.assertEqual(manifest["missing_tile_ids"], [])
+        self.assertEqual(len(manifest["map_contact_sheet_order"]), 34)
+        contact_path = TRACKED / manifest["map_contact_sheet"]["file"]
+        self.assertEqual(sha256_file(contact_path), manifest["map_contact_sheet"]["sha256"])
+        self.assertEqual((load_png(contact_path).width, load_png(contact_path).height), (800, 840))
         placeholder_difference_seen = False
         collision_colors = set()
         for preview in manifest["previews"]:
@@ -340,6 +346,7 @@ class RelictInventoryQualification(unittest.TestCase):
             result = PIPELINE.build(SOURCE, output)
             self.assertEqual(result["result"], "RELICT_SOURCE_LIBRARY_PASS")
             self.assertEqual(result["inventory"]["canonical_map_count"], 28)
+            self.assertEqual(result["documented_zone_count"], 28)
             self.assertEqual(result["previews"]["map_preview_count"], 34)
             self.assertEqual(result["animations"]["animated_autotile_count"], 17)
             self.assertEqual(result["vfx"]["result"], "ENVIRONMENTAL_VFX_AUDIT_PASS")

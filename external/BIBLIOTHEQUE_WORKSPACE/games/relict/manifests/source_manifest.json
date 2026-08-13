@@ -521,13 +521,13 @@
   ],
   "game_id": "relict",
   "pipeline_tool_hashes": {
-    "tools/build_relict_library.py": "04926e410cdb228025f7c6462ee29afb36b0fde6072941a518b96592e1c0d8ba",
+    "tools/build_relict_library.py": "ba5896760e00d6914de59796dedf0d672bcf733df74211117baa49db4acd88c0",
     "tools/extract_relict_autotile_animations.py": "3109c3fc1c0d032e2394d7c111ee446a80cade64079895c0eea728ca08d27c44",
     "tools/extract_relict_environmental_vfx.py": "92e59fdc845a416b4b34dedaf3e1370719244a02c64a1582a992a0bc02b7f08c",
     "tools/extract_relict_map_animations.py": "9c60770d136e82e56a5c1b7e7407bcf3bc49b76d6c79d5d0791b468302fae05c",
     "tools/inventory_relict.py": "65fbb5ca8aca22bd687b3c052b534f76d96147b9581d2a0655edc40e51ff3d1f",
     "tools/png_rgba.py": "5db7749bd903b422136ff2f8aaa219d625c3b6b9c6d564981de10fbdd37f1b8a",
-    "tools/render_relict_previews.py": "c6383fae3d28b8366f80ba80d699fde4ace6b8216ed08763606bf0fc952dac8e",
+    "tools/render_relict_previews.py": "1c108750d85188df25c124d5f4cfa5b81133f6185fa760e8361fdaf8fc900745",
     "tools/ruby_marshal.py": "3f7d6135b29f3840d61e62be394a1a46abf4845b8a01716c855b4835fa9bcf3f"
   },
   "policy_hashes": {
@@ -541,7 +541,7 @@
     "schemas/provenance.schema.json": "0f285e435858a159ad791b24cb61fde5c9b9d1e221f8a04d3dc1ecd78d94ea5d",
     "schemas/status.schema.json": "61584795e689985827c537f98e6eb707ef72988672a3888a16c88437925da89c",
     "schemas/visual-timeline.schema.json": "37b1516f8ffb7295ab6f69da5b04e1fa3d0537945820016c5c6e4da1cfedb172",
-    "schemas/zone.schema.json": "d9431df375cea7f3969dbcaed36703ae78e8eb1201f98b940176d08e8282187d"
+    "schemas/zone.schema.json": "c89411e8c54a8503b949af006b89bf78fe2575101226b2492a4bf6a945531e2a"
   },
   "schema_version": "1.0.0",
   "source_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f",
