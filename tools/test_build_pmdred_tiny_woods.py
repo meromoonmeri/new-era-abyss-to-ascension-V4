@@ -157,6 +157,20 @@ class TinyWoodsBuilderTests(unittest.TestCase):
                     ("tiny_woods_floor", "tiny_woods_wall", "tiny_woods_secondary"),
                 )
 
+    def test_manifest_points_to_passed_native_generation_evidence(self) -> None:
+        manifest = tiny.build_manifest(
+            tiny.canonical_json_bytes(self.zone),
+            {"rom_sha256": tiny.EXPECTED_EU_ROM_SHA256},
+            None,
+        )
+        native = manifest["validation"]["native_generation"]
+        self.assertEqual(native["status"], "passed")
+        self.assertEqual(
+            native["report"],
+            "docs/pmdred_eu/playable/tiny_woods/native_runtime/native_generation_validation.json",
+        )
+        self.assertEqual(manifest["validation"]["entry_exit_route"], "pending")
+
     def test_serialization_is_deterministic(self) -> None:
         first = tiny.canonical_json_bytes(tiny.build_zone())
         second = tiny.canonical_json_bytes(tiny.build_zone())

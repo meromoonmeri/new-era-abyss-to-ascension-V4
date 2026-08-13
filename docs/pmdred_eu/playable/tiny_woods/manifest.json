@@ -371,7 +371,11 @@
       "status": "passed",
       "report": "docs/pmdred_eu/playable/tiny_woods/pmdo_zone_index_validation.json"
     },
-    "native_generation": "pending",
+    "native_generation": {
+      "status": "passed",
+      "report": "docs/pmdred_eu/playable/tiny_woods/native_runtime/native_generation_validation.json",
+      "scope": "all three floors plus deterministic 1F repeat in exact PMDO 0.8.12"
+    },
     "entry_exit_route": "pending"
   }
 }

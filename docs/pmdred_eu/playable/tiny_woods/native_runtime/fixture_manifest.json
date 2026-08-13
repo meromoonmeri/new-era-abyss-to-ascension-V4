@@ -1,0 +1,68 @@
+{
+  "kind": "ignored_symlink_overlay",
+  "quest": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/tiny-woods-native-fixture-v2/quest",
+  "quest_name": "pmdred_eu_fixture",
+  "asset_root": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/tiny-woods-native-fixture-v2/asset/",
+  "appdata": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/tiny-woods-native-fixture-v2/appdata/",
+  "conversion_set": "remaining",
+  "candidate_count": 1,
+  "master_zone_ground_count": 401,
+  "replaced_fixture_local_tile_index_nodes": [],
+  "reference_plan": ".runtime-cache/pmdred-eu-reference-plan-v2.json",
+  "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+  "entity_integrated_ids": [],
+  "canonical_baseline_root": null,
+  "entries": [
+    {
+      "id": "d01p01",
+      "zone_index": 308,
+      "spawn": {
+        "x": 208,
+        "y": 176,
+        "clear_move_directions": 4,
+        "movement_probes": {
+          "successful": {
+            "x": 208,
+            "y": 176,
+            "direction": "Down",
+            "expected_delta": [
+              0,
+              8
+            ]
+          },
+          "blocked": null,
+          "blocked_expectation": "NO_BMA_COLLISION_LAYER_OR_SOLIDS",
+          "solid_cells": 0
+        }
+      },
+      "preview_ticks": [
+        0
+      ],
+      "source_ground": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/grounds/d01p01.rsground",
+      "source_tile": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/tiles/d01p01_Base.tile",
+      "source_ground_sha256": "85b5d0ffaec562825adc08f7b011d3bc2727caad9b4dd0c7ffc77b3f2d53359e",
+      "source_tile_sha256": "1ab9bac0f3256b52f5dc58fed78684d3b4297fafc2e69a8e32dfbe7d898be39b"
+    }
+  ],
+  "tiny_woods_native": {
+    "schema": "pmdred-eu-tiny-woods-native-fixture-v1",
+    "authority": {
+      "region": "EU",
+      "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+      "zone_source": "Data/Zone/tiny_woods.json",
+      "zone_sha256": "e4f3edaf4af60bc625ce8e5c3b9d1d36372c2a1b009b4b1d21d13774e7eb92f7"
+    },
+    "launcher": {
+      "ground": "d01p01",
+      "master_zone_index": 308,
+      "silent_restrictions": true
+    },
+    "validator": {
+      "source": "tools/pmdred_tiny_woods_native_validator.lua",
+      "source_sha256": "2017ce13ba419cb2c2930835c978335b41c044794315e81deabc3f9ace78fda9",
+      "fixture_sha256": "ad600d851c9c4998ef4dd926eb0ca7fe80eb58040ec6e93a838a67750517bd8f",
+      "opt_in": "PMDO_GROUND_VALIDATOR=tiny_woods_native_fixture"
+    },
+    "pending_operation": "exact PMDO 0.8.12 zone indexing before native execution"
+  }
+}

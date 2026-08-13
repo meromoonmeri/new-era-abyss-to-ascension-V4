@@ -52,26 +52,54 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def pmdo_env() -> dict[str, str]:
+def pmdo_env(
+    validator_mode: str = "pmdred_eu_native_fixture",
+    overrides: dict[str, str] | None = None,
+) -> dict[str, str]:
+    """Return the complete exact-runtime environment for one native probe.
+
+    The Ground campaign remains the default.  Narrow later gameplay validators
+    may select a different opt-in service and add explicit environment values
+    without copying this security- and termination-sensitive runner.
+    """
+    exact_runtime = {
+        "DOTNET_BUNDLE_EXTRACT_BASE_DIR": str(DOTNET),
+        "LD_LIBRARY_PATH": str(BUNDLE),
+        "SDL_VIDEODRIVER": "offscreen",
+        "SDL_AUDIODRIVER": "dummy",
+        "SDL_VIDEO_GL_DRIVER": str(BUNDLE / "libGLESv2.so"),
+        "SDL_VIDEO_EGL_DRIVER": str(BUNDLE / "libEGL.so"),
+        "PMDO_HEADLESS_ANGLE_DEFAULT_DISPLAY": "1",
+        "PMDO_HEADLESS_DISMISS_SPLASH": "1",
+        "FNA3D_FORCE_DRIVER": "OpenGL",
+        "FNA3D_OPENGL_FORCE_ES3": "1",
+        "ANGLE_DEFAULT_PLATFORM": "vulkan",
+        "VK_ICD_FILENAMES": str(BUNDLE / "vk_swiftshader_icd.absolute.json"),
+        "PMDO_GROUND_VALIDATOR": validator_mode,
+    }
+    overrides = overrides or {}
+    protected = sorted(set(exact_runtime).intersection(overrides))
+    if protected:
+        raise ValueError(
+            "validator environment may not override exact-runtime values: "
+            + ", ".join(protected)
+        )
     env = dict(os.environ)
-    env.update(
-        {
-            "DOTNET_BUNDLE_EXTRACT_BASE_DIR": str(DOTNET),
-            "LD_LIBRARY_PATH": str(BUNDLE),
-            "SDL_VIDEODRIVER": "offscreen",
-            "SDL_AUDIODRIVER": "dummy",
-            "SDL_VIDEO_GL_DRIVER": str(BUNDLE / "libGLESv2.so"),
-            "SDL_VIDEO_EGL_DRIVER": str(BUNDLE / "libEGL.so"),
-            "PMDO_HEADLESS_ANGLE_DEFAULT_DISPLAY": "1",
-            "PMDO_HEADLESS_DISMISS_SPLASH": "1",
-            "FNA3D_FORCE_DRIVER": "OpenGL",
-            "FNA3D_OPENGL_FORCE_ES3": "1",
-            "ANGLE_DEFAULT_PLATFORM": "vulkan",
-            "VK_ICD_FILENAMES": str(BUNDLE / "vk_swiftshader_icd.absolute.json"),
-            "PMDO_GROUND_VALIDATOR": "pmdred_eu_native_fixture",
-        }
-    )
+    env.update(exact_runtime)
+    env.update(overrides)
     return env
+
+
+def parse_environment(values: list[str] | None) -> dict[str, str]:
+    result: dict[str, str] = {}
+    for value in values or []:
+        if "=" not in value:
+            raise ValueError(f"--environment requires NAME=VALUE, got {value!r}")
+        name, item = value.split("=", 1)
+        if not name or not all(char.isalnum() or char == "_" for char in name):
+            raise ValueError(f"invalid environment name: {name!r}")
+        result[name] = item
+    return result
 
 
 def read_events(path: Path, *, strict: bool = False) -> list[dict[str, Any]]:
@@ -182,11 +210,13 @@ def run(args: argparse.Namespace) -> int:
             f"deadline={args.timeout_seconds}s",
             flush=True,
         )
+        validator_mode = getattr(args, "validator_mode", "pmdred_eu_native_fixture")
+        environment_overrides = parse_environment(getattr(args, "environment", None))
         with runtime_log.open("wb") as stream:
             proc = subprocess.Popen(
                 command,
                 cwd=ROOT,
-                env=pmdo_env(),
+                env=pmdo_env(validator_mode, environment_overrides),
                 stdout=stream,
                 stderr=subprocess.STDOUT,
                 start_new_session=True,
@@ -308,6 +338,8 @@ def run(args: argparse.Namespace) -> int:
             "ground": args.ground,
             "result": result,
             "command": command,
+            "validator_mode": validator_mode,
+            "environment_overrides": environment_overrides,
             "started_at": started_at,
             "ended_at": ended_at,
             "duration_seconds": round(time.monotonic() - start, 3),
@@ -365,6 +397,14 @@ def parser() -> argparse.ArgumentParser:
     result.add_argument("--expected-screenshots", type=int, required=True)
     result.add_argument("--timeout-seconds", type=int, default=1800)
     result.add_argument("--events", type=Path, default=DEFAULT_EVENTS)
+    result.add_argument(
+        "--validator-mode", default="pmdred_eu_native_fixture",
+        help="exact opt-in value exported as PMDO_GROUND_VALIDATOR",
+    )
+    result.add_argument(
+        "--environment", action="append", default=[], metavar="NAME=VALUE",
+        help="additional explicit validator environment value; repeat as needed",
+    )
     return result
 
 
