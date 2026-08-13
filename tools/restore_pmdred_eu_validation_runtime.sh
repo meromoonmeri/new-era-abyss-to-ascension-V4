@@ -12,10 +12,13 @@ IFS=$'\n\t'
 
 ROOT=$(git rev-parse --show-toplevel)
 cd "$ROOT"
-[[ $(git branch --show-current) == arena/019ff05e-new-era-abyss-to-ascension-v4 ]] || {
-  echo "ERROR: run on arena/019ff05e-new-era-abyss-to-ascension-v4" >&2
-  exit 2
-}
+case $(git branch --show-current) in
+  arena/019ff05e-new-era-abyss-to-ascension-v4|arena/019ff57e-new-era-abyss-to-ascension-v4) ;;
+  *)
+    echo "ERROR: run on the Agent A reference branch or this Arena continuation branch" >&2
+    exit 2
+    ;;
+esac
 
 PMDO_ARCHIVE_SHA=c64f72afd27b96d5a870f71e44d05ee1e952909e86b9a53d0479163763c61577
 PMDO_EXE_SHA=faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327
@@ -72,6 +75,12 @@ ensure_checkout() {
     local tmp="${dst}.clone.$$"
     [[ ! -e $tmp ]] || fail "temporary path already exists: $tmp"
     timeout --signal=TERM --kill-after=15 900 gh repo clone "$repo" "$tmp" -- --depth 1
+    if [[ $(git -C "$tmp" rev-parse HEAD) != "$commit" ]]; then
+      # A pinned dependency may no longer be the repository's default-branch tip.
+      # Fetch only the authenticated lock commit instead of accepting a newer HEAD.
+      timeout --signal=TERM --kill-after=15 900 git -C "$tmp" fetch --depth 1 origin "$commit"
+      git -C "$tmp" checkout --detach "$commit"
+    fi
     [[ $(git -C "$tmp" rev-parse HEAD) == "$commit" ]] || fail "unexpected head for $repo"
     mv -n "$tmp" "$dst"
   fi
@@ -139,18 +148,20 @@ done
 # The codeload tarball is the only large source that is not duplicated as a
 # checkout. GitHub CLI supplies authenticated bounded transport when absent.
 DUMP_ARCHIVE=.runtime-cache/downloads/DumpAsset-${DUMP_COMMIT}.tar.gz
-if [[ ! -e $DUMP_ARCHIVE ]]; then
-  command -v gh >/dev/null || fail "gh is required to restore DumpAsset"
-  gh auth status >/dev/null 2>&1 || fail "GitHub authentication is not connected"
-  tmp="${DUMP_ARCHIVE}.download.$$"
-  timeout --signal=TERM --kill-after=15 1800 gh api \
-    -H 'Accept: application/vnd.github+json' \
-    "repos/audinowho/DumpAsset/tarball/$DUMP_COMMIT" > "$tmp"
-  verify_file "$tmp" "$DUMP_ARCHIVE_SHA" 338722101
-  mv -n "$tmp" "$DUMP_ARCHIVE"
-fi
-verify_file "$DUMP_ARCHIVE" "$DUMP_ARCHIVE_SHA" 338722101
+# Once the exact extracted tree exists, its locked 11,485-file manifest is the
+# durable authority; a codeload gzip transport is not required on later runs.
 if [[ ! -e .runtime-cache/DumpAsset ]]; then
+  if [[ ! -e $DUMP_ARCHIVE ]]; then
+    command -v gh >/dev/null || fail "gh is required to restore DumpAsset"
+    gh auth status >/dev/null 2>&1 || fail "GitHub authentication is not connected"
+    tmp="${DUMP_ARCHIVE}.download.$$"
+    timeout --signal=TERM --kill-after=15 1800 gh api \
+      -H 'Accept: application/vnd.github+json' \
+      "repos/audinowho/DumpAsset/tarball/$DUMP_COMMIT" > "$tmp"
+    verify_file "$tmp" "$DUMP_ARCHIVE_SHA" 338722101
+    mv -n "$tmp" "$DUMP_ARCHIVE"
+  fi
+  verify_file "$DUMP_ARCHIVE" "$DUMP_ARCHIVE_SHA" 338722101
   tmp=".runtime-cache/DumpAsset.extract.$$"
   mkdir "$tmp"
   tar -xzf "$DUMP_ARCHIVE" -C "$tmp" --strip-components=1

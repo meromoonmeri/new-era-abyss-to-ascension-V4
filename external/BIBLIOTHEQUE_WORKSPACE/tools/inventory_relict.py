@@ -541,8 +541,16 @@ def build(source: Path, output: Path) -> dict[str, Any]:
     if not (source / "Data/MapInfos.rxdata").is_file():
         raise ValueError(f"Relict source not found: {source}")
     if output.exists():
-        shutil.rmtree(output)
-    output.mkdir(parents=True)
+        # Source rebuilds must never erase the independently staged conversion
+        # tree. All source-library outputs are still rebuilt from scratch.
+        for child in output.iterdir():
+            if child.name == "conversion":
+                continue
+            if child.is_dir():
+                shutil.rmtree(child)
+            else:
+                child.unlink()
+    output.mkdir(parents=True, exist_ok=True)
 
     commit = git_source_commit(source)
     map_infos = load(source / "Data/MapInfos.rxdata")
@@ -945,6 +953,10 @@ uniquement par des acteurs approuvés de New Era.
     for relative, content in phase_readmes.items():
         path = output / relative
         path.parent.mkdir(parents=True, exist_ok=True)
+        # Conversion becomes an independent staged pipeline after source
+        # qualification. Never overwrite its live architecture/procedure note.
+        if relative == "conversion/README.md" and path.exists():
+            continue
         path.write_text(content, encoding="utf-8")
     return summary
 

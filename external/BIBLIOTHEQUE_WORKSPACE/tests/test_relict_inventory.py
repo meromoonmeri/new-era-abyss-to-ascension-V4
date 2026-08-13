@@ -42,10 +42,25 @@ def sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def source_library_files(root: Path):
+    return [
+        path for path in sorted(root.rglob("*"))
+        if path.is_file()
+        and not (
+            path.relative_to(root).parts
+            and path.relative_to(root).parts[0] == "conversion"
+        )
+    ]
+
+
 def tree_hashes(root: Path) -> dict[str, str]:
+    # Manifest coverage/content is gated separately. Excluding the manifest's
+    # own bytes keeps source reproducibility independent from staged-conversion
+    # boundary rows while still comparing every generated source artifact.
     return {
         path.relative_to(root).as_posix(): sha256_file(path)
-        for path in sorted(root.rglob("*")) if path.is_file()
+        for path in source_library_files(root)
+        if path.relative_to(root).as_posix() != "manifests/generated_hashes.sha256"
     }
 
 
@@ -142,9 +157,7 @@ class RelictInventoryQualification(unittest.TestCase):
             "Graphics/Characters", "Graphics/Pokemon", "Graphics/Trainers",
             "Graphics/UI", "Game.exe", "Scripts.rxdata", ".dll",
         )
-        for path in TRACKED.rglob("*"):
-            if not path.is_file():
-                continue
+        for path in source_library_files(TRACKED):
             self.assertIn(path.suffix, {".json", ".md", ".sha256", ".png"})
             if path.suffix == ".png":
                 self.assertEqual(path.read_bytes()[:8], b"\x89PNG\r\n\x1a\n")
@@ -309,8 +322,8 @@ class RelictInventoryQualification(unittest.TestCase):
             rows[relative] = digest
         expected_paths = {
             path.relative_to(TRACKED).as_posix()
-            for path in TRACKED.rglob("*")
-            if path.is_file() and path != manifest_path
+            for path in source_library_files(TRACKED)
+            if path != manifest_path
         }
         self.assertEqual(set(rows), expected_paths)
         for relative, digest in rows.items():

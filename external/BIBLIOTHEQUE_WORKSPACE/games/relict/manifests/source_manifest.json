@@ -521,14 +521,18 @@
   ],
   "game_id": "relict",
   "pipeline_tool_hashes": {
-    "tools/build_relict_library.py": "ba5896760e00d6914de59796dedf0d672bcf733df74211117baa49db4acd88c0",
+    "tools/build_common_map_ir.py": "f864d6f94bfc85d8b6046c5bfd32f820d9f09e131e020b4185ce3fcde51312b9",
+    "tools/build_pmdo_runtime_fixture.py": "359560478649bc7402fe82d49ab871a5ad7227788624ceb888362f2a979a8bb5",
+    "tools/build_relict_library.py": "7a65824b75c4f060768ae61ee7d0a38191bc5d36dcdc3d0fcae93d9f4bc5ae91",
+    "tools/convert_map_ir_to_pmdo.py": "e48046dbdbecc12ec39381b677a3320039f4bbe66c7c80d4d2064f092908e1dc",
     "tools/extract_relict_autotile_animations.py": "3109c3fc1c0d032e2394d7c111ee446a80cade64079895c0eea728ca08d27c44",
     "tools/extract_relict_environmental_vfx.py": "92e59fdc845a416b4b34dedaf3e1370719244a02c64a1582a992a0bc02b7f08c",
     "tools/extract_relict_map_animations.py": "9c60770d136e82e56a5c1b7e7407bcf3bc49b76d6c79d5d0791b468302fae05c",
-    "tools/inventory_relict.py": "65fbb5ca8aca22bd687b3c052b534f76d96147b9581d2a0655edc40e51ff3d1f",
-    "tools/png_rgba.py": "5db7749bd903b422136ff2f8aaa219d625c3b6b9c6d564981de10fbdd37f1b8a",
+    "tools/inventory_relict.py": "6dfd676bc065d9134f9d1ef07667807634bd9c402867ff7aed79b0a098d23c2a",
+    "tools/png_rgba.py": "ce88f8da9158c7532e0c8524a8f5a4998c975b0d25d9c03c475bd455e92533f9",
     "tools/render_relict_previews.py": "1c108750d85188df25c124d5f4cfa5b81133f6185fa760e8361fdaf8fc900745",
-    "tools/ruby_marshal.py": "3f7d6135b29f3840d61e62be394a1a46abf4845b8a01716c855b4835fa9bcf3f"
+    "tools/ruby_marshal.py": "3f7d6135b29f3840d61e62be394a1a46abf4845b8a01716c855b4835fa9bcf3f",
+    "tools/validate_pmdo_runtime.py": "cd30ed50ef4058f72b8dcd70a6d21ed81a6688440f4f0328735a4623b4682233"
   },
   "policy_hashes": {
     "policies/environment_scope.json": "b1a573b2ad083027e2e24a0439513d4e888ddd93f4e7ee3318c20af20a4f368c"
@@ -538,6 +542,7 @@
     "schemas/asset.schema.json": "cf9b9ef3ec687f123aee23fa156bb6c5991960269b71322dcf007cbd6e178992",
     "schemas/collision.schema.json": "d8e12f666509d04e6db49bc0c60ecaae4b73788a0a64584325e0ba804f35c262",
     "schemas/entity-placement.schema.json": "95fec579618fe51dd71e6a344d5a0cff4315b1792a5d28b7a62b68255c85512e",
+    "schemas/map_ir.schema.json": "a0069dbaa81454f1300eeac2aa569fb5e6c0a2c0d5b0598b6f51bd8e60dec5fe",
     "schemas/provenance.schema.json": "0f285e435858a159ad791b24cb61fde5c9b9d1e221f8a04d3dc1ecd78d94ea5d",
     "schemas/status.schema.json": "61584795e689985827c537f98e6eb707ef72988672a3888a16c88437925da89c",
     "schemas/visual-timeline.schema.json": "37b1516f8ffb7295ab6f69da5b04e1fa3d0537945820016c5c6e4da1cfedb172",

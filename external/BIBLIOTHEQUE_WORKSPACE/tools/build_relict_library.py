@@ -54,6 +54,11 @@ def finalize_hashes(output: Path) -> int:
     path = output / "manifests/generated_hashes.sha256"
     rows = []
     for item in sorted(output.rglob("*")):
+        relative = item.relative_to(output)
+        # The source-library gate remains independently reproducible after
+        # staged conversions are added under the explicitly separate boundary.
+        if relative.parts and relative.parts[0] == "conversion":
+            continue
         if item.is_file() and item != path:
             rows.append(f"{inventory.sha256_file(item)}  {inventory.relpath(item, output)}")
     path.parent.mkdir(parents=True, exist_ok=True)

@@ -223,19 +223,24 @@ def _chunk(kind: bytes, payload: bytes) -> bytes:
     )
 
 
-def save_png(image: RGBAImage, path: Path | str) -> None:
-    path = Path(path)
-    path.parent.mkdir(parents=True, exist_ok=True)
+def png_bytes(image: RGBAImage) -> bytes:
+    """Encode an image as deterministic, non-interlaced RGBA PNG bytes."""
+
     raw = bytearray()
     stride = image.width * 4
     for y in range(image.height):
         raw.append(0)
         start = y * stride
         raw.extend(image.pixels[start : start + stride])
-    payload = (
+    return (
         PNG_SIGNATURE
         + _chunk(b"IHDR", struct.pack(">IIBBBBB", image.width, image.height, 8, 6, 0, 0, 0))
         + _chunk(b"IDAT", zlib.compress(bytes(raw), 9))
         + _chunk(b"IEND", b"")
     )
-    path.write_bytes(payload)
+
+
+def save_png(image: RGBAImage, path: Path | str) -> None:
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(png_bytes(image))
