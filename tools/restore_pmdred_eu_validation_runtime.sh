@@ -378,22 +378,26 @@ import hashlib, json, subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 root = Path.cwd()
-progress_path = Path('docs/pmdred_eu/pmdo_validation/progress.json')
-progress = json.loads(progress_path.read_text()) if progress_path.is_file() else {}
-next_ground = progress.get('summary', {}).get('next_ground', 't01p07')
-next_command = progress.get('resume', {}).get('next_command')
+ground_progress_path = Path('docs/pmdred_eu/pmdo_validation/progress.json')
+ground_progress = json.loads(ground_progress_path.read_text()) if ground_progress_path.is_file() else {}
+playable_progress_path = Path('docs/pmdred_eu/playable/progress.json')
+playable_progress = json.loads(playable_progress_path.read_text()) if playable_progress_path.is_file() else {}
+next_ground = ground_progress.get('summary', {}).get('next_ground')
+next_phase = playable_progress.get('resume', {}).get('next_phase') or 'playable_reconstruction'
+next_command = playable_progress.get('resume', {}).get('reproduce_latest_milestone')
 if not next_command:
-    template = progress.get('resume', {}).get(
-        'next_recipe_template',
-        'docs/pmdred_eu/pmdo_validation/t01p07_exhaustive_pass/commands.sh',
+    next_command = (
+        '.runtime-cache/test-venv/bin/python '
+        'tools/build_pmdred_tiny_woods_route_fixture.py '
+        '--output .runtime-cache/tiny-woods-route-fixture-repro'
     )
-    next_command = f'cp {template} .runtime-cache/{next_ground}-working-recipe.sh'
 status = {
     'schema': 'new-era.pmdred-eu-runtime-restoration-status.v1',
     'checked_at': datetime.now(timezone.utc).isoformat(timespec='seconds'),
     'result': 'PASS',
     'pmdo_version': '0.8.12',
     'next_ground': next_ground,
+    'next_playable_phase': next_phase,
     'gates': {
         'pmdo_executable_sha256': hashlib.sha256(Path('.runtime-cache/pmdo-headless-bundle/PMDO').read_bytes()).hexdigest(),
         'eu_rom_sha256': hashlib.sha256(Path('.runtime-cache/downloads/pmdred-eu.gba').read_bytes()).hexdigest(),
@@ -411,5 +415,5 @@ status = {
 path = Path('.runtime-cache/recovery/runtime_restoration_status.json')
 path.write_text(json.dumps(status, indent=2) + '\n')
 print('RUNTIME_RESTORATION_STATUS', path)
-print('PMDRED_EU_RUNTIME_RESTORATION_PASS next=' + next_ground)
+print('PMDRED_EU_RUNTIME_RESTORATION_PASS next=' + next_phase)
 PY

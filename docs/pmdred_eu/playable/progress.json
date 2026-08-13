@@ -1,0 +1,54 @@
+{
+  "schema": "new-era.pmdred-eu-playable-reconstruction-progress.v1",
+  "generated_at": "2026-08-13T17:19:51+00:00",
+  "repository": {
+    "branch": "arena/019ff05e-new-era-abyss-to-ascension-v4",
+    "parent_checkpoint": "637a3da21b7a608dd9b1ccbadcb11aa88cb02749"
+  },
+  "authority": {
+    "region": "EU",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "technical_reference_role": "structure only; ROM bytes remain content authority"
+  },
+  "grounds": {
+    "canonical_count": 219,
+    "runtime_pass_and_promoted_count": 219,
+    "remaining_count": 0,
+    "historical_checkpoint": "docs/pmdred_eu/pmdo_validation/progress.json",
+    "status": "PRESERVED"
+  },
+  "tiny_woods": {
+    "zone_id": "tiny_woods",
+    "french_name": "Petit Bois",
+    "playable_floors": 3,
+    "procedural_generation": {
+      "status": "PASS",
+      "report": "docs/pmdred_eu/playable/tiny_woods/native_runtime/native_generation_validation.json"
+    },
+    "entry_exit_retry_rescue_cleanup": {
+      "status": "PASS",
+      "report": "docs/pmdred_eu/playable/tiny_woods/route_runtime/native_route_validation.json",
+      "report_sha256": "6f32eef49cdb8ddcb4cbcb832ce435edc35beb5b51d083a1ddaa9c390be294b7",
+      "scenarios": 3,
+      "clear_run_native_actions": 143,
+      "natural_hostile_attacks": 2,
+      "occupancy_replans": 28,
+      "strict_graceful_terminations": 3
+    },
+    "narrative_scenes": {
+      "status": "PENDING",
+      "scope": "authenticated French EU dialogue, complete d01p01 g1/g2/g3 and d01p02 g1 choreography, portraits, camera, effects, timing, and progression dispatch"
+    }
+  },
+  "resume": {
+    "restore": "bash tools/restore_pmdred_eu_validation_runtime.sh",
+    "verify_ground_checkpoint": "python3 tools/update_pmdred_eu_validation_progress.py --check",
+    "reproduce_latest_milestone": "bash docs/pmdred_eu/playable/tiny_woods/route_runtime/commands.sh",
+    "next_phase": "tiny_woods_eu_dialogue_and_choreography",
+    "rule": "Preserve the route PASS and continue in a new create-only fixture; do not promote d01p02 or replace live scripts until the complete EU scene gate passes."
+  },
+  "limitations": [
+    "A route PASS is not narrative completion.",
+    "The failed route uses a genuine GiveUp GameAction carrying ResultType.Failed; natural combat defeat remains a later combat milestone."
+  ]
+}

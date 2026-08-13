@@ -1,0 +1,17 @@
+{"event":"bootstrap_new_game","mode":"defeat_retry","seed":424242}
+{"event":"ground_route","ground":"d01p01","group":"g1","visit":1,"hero_x":200,"hero_y":196,"direction":"Down: 0"}
+{"event":"attempt_started","attempt":1,"seed":424242}
+{"event":"dungeon_floor_entered","floor":0,"visit":1,"attempt":1,"mode":"defeat_retry"}
+{"event":"failed_result_action","result":"Failed","argument":1}
+{"event":"player_action","number":1,"kind":"GiveUp","direction":"None","floor":0,"native_type":"GiveUp: 20","native_direction":"None: -1","native_argument0":"1"}
+{"event":"native_action_queue","number":1,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+{"event":"defeat_message_log","menu_count":1,"action":"native_close"}
+{"event":"native_action_consumed","number":1,"scene_outcome":"nil"}
+{"event":"ground_route","ground":"d01p01","group":"g2","visit":2,"hero_x":200,"hero_y":196,"direction":"Down: 0"}
+{"event":"attempt_started","attempt":2,"seed":424242}
+{"event":"dungeon_floor_entered","floor":0,"visit":2,"attempt":2,"mode":"defeat_retry"}
+{"event":"scenario_verdict","mode":"defeat_retry","verdict":"PASS","attempts":2,"defeats":1,"floors_entered":2,"floors_cleared":0,"rescue_complete":false,"actions":1,"replans":0,"occupancy_replans":0,"hostile_blocks":0,"ally_blocks":0}
+{"event":"load_phase_unload_requested","before":"Ready","before_raw":"Ready: 2","requested":"Unload","readback":"Unload","readback_raw":"Unload: 3"}
+{"event":"native_deinit","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"native_graphics_unload","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"end","terminal":true,"graceful":true,"load_phase":"Unload","load_phase_raw":"Unload: 3"}

@@ -787,7 +787,7 @@
         "ground": "t01p07",
         "path": "tools/restore_pmdred_eu_validation_runtime.sh",
         "expected_sha256": "4a27e187e438bbd755a3077f5805ee313da307881e72dbcae13214e0b40b3d2d",
-        "actual_sha256": "e80e1c7a3cac49be28d6238856f4e1f82552a5629109d9a8030827021a985652"
+        "actual_sha256": "6c5f61192acb069309d97acaf3a1897538b0f9c328832f07456d9bde482d1c77"
       },
       {
         "ground": "t01p07",
@@ -4970,7 +4970,7 @@
             {
               "path": "tools/restore_pmdred_eu_validation_runtime.sh",
               "expected_sha256": "4a27e187e438bbd755a3077f5805ee313da307881e72dbcae13214e0b40b3d2d",
-              "actual_sha256": "e80e1c7a3cac49be28d6238856f4e1f82552a5629109d9a8030827021a985652"
+              "actual_sha256": "6c5f61192acb069309d97acaf3a1897538b0f9c328832f07456d9bde482d1c77"
             },
             {
               "path": "tools/test_pmdred_eu_runtime_validation.py",

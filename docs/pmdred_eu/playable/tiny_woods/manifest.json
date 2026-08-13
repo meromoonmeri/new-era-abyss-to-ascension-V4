@@ -376,6 +376,17 @@
       "report": "docs/pmdred_eu/playable/tiny_woods/native_runtime/native_generation_validation.json",
       "scope": "all three floors plus deterministic 1F repeat in exact PMDO 0.8.12"
     },
-    "entry_exit_route": "pending"
+    "entry_exit_route": {
+      "status": "passed",
+      "report": "docs/pmdred_eu/playable/tiny_woods/route_runtime/native_route_validation.json",
+      "scope": "d01p01:g1 opening, native three-floor traversal, failed retry through g2, d01p02:g1 clear/rescue, g3 post-rescue relay, and re-entry cleanup",
+      "ending_bgm": {
+        "eu_command_address": "0x084D4C78",
+        "eu_opcode": "0x44",
+        "eu_music_id": 114,
+        "filename": "In the Depths of the Pit.ogg",
+        "sha256": "4b22c99be63e4ec61055c9a32ea0951e4910132551a8258f58fe2f1a6f9d9cd2"
+      }
+    }
   }
 }
