@@ -14,6 +14,12 @@ from pathlib import Path
 from typing import Any
 
 
+# Only primitives with an implementation-level equivalence certified by
+# PMD_RED_OPCODE_REGISTRY.json and implemented fail-closed in
+# CanonicalPrimitiveAdapters.lua may appear here.
+PROVEN_ADAPTER_KINDS = {"WAIT", "BGM_FADEOUT", "SET_DIR_WAIT"}
+
+
 def read(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8-sig"))
 
@@ -29,6 +35,21 @@ def channel(name: str) -> dict[str, Any]:
 
 def text_hashes(signature: str) -> list[str]:
     return re.findall(r"<TEXT_SHA256:([0-9a-f]+)>", signature)
+
+
+def proved_operands(kind: str, signature: str) -> dict[str, Any]:
+    if kind in {"WAIT", "BGM_FADEOUT"}:
+        match = re.fullmatch(rf"{kind}\((\d+)\)", signature)
+        if match is None:
+            raise ValueError(f"invalid proved {kind} signature: {signature}")
+        return {"frames": int(match.group(1))}
+    if kind == "SET_DIR_WAIT":
+        match = re.fullmatch(r"SET_DIR_WAIT\((DIRECTION_[A-Z]+|-1),\s*(\d+)\)", signature)
+        if match is None:
+            raise ValueError(f"invalid proved SET_DIR_WAIT signature: {signature}")
+        direction: str | int = -1 if match.group(1) == "-1" else match.group(1)
+        return {"direction": direction, "frames": int(match.group(2))}
+    raise ValueError(f"no proved operand compiler for {kind}")
 
 
 def build(action_index: dict[str, Any], scope: dict[str, Any], dungeon_manifest: dict[str, Any]) -> dict[str, Any]:
@@ -61,13 +82,22 @@ def build(action_index: dict[str, Any], scope: dict[str, Any], dungeon_manifest:
                 global_kinds[kind] += 1
                 if kind.startswith(("RAW_OPCODE_", "CMD_UNK_", "CJUMP_UNK_")):
                     unknown[kind] += 1
-                actions.append({
+                if kind.startswith(("RAW_OPCODE_", "CMD_UNK_", "CJUMP_UNK_")):
+                    adapter_status = "UNMAPPED_PRESERVED"
+                elif kind in PROVEN_ADAPTER_KINDS:
+                    adapter_status = "ADAPTER_PROVEN"
+                else:
+                    adapter_status = "MAPPING_REQUIRED"
+                compiled_action = {
                     "sequence": action_index_value,
                     "kind": kind,
                     "signature": signature,
                     "text_hashes": hashes,
-                    "adapter_status": "UNMAPPED_PRESERVED" if kind.startswith(("RAW_OPCODE_", "CMD_UNK_", "CJUMP_UNK_")) else "MAPPING_REQUIRED",
-                })
+                    "adapter_status": adapter_status,
+                }
+                if adapter_status == "ADAPTER_PROVEN":
+                    compiled_action["operands"] = proved_operands(kind, signature)
+                actions.append(compiled_action)
             arrays.append({
                 "sequence": array_index,
                 "name": script["name"],
@@ -107,10 +137,16 @@ def build(action_index: dict[str, Any], scope: dict[str, Any], dungeon_manifest:
             "runtime_ready": False,
             "production_route_written": False,
         })
+    adapter_counts = Counter(
+        action["adapter_status"]
+        for asset in assets
+        for array in asset["script_arrays"]
+        for action in array["actions"]
+    )
     result = {
-        "schema": "new-era.pmdred-eu-dungeon-scene-ir.v1",
+        "schema": "new-era.pmdred-eu-dungeon-scene-ir.v2",
         "result": "PMD_RED_DUNGEON_SCENE_IR_PASS",
-        "meaning": "all source actions preserved; adapters, text binding and runtime validation remain required",
+        "meaning": "all source actions preserved; only separately proved primitives are adapted; text binding and runtime validation remain required",
         "pret_commit": action_index["pret_commit"],
         "asset_count": len(assets),
         "script_array_count": total_arrays,
@@ -119,6 +155,8 @@ def build(action_index: dict[str, Any], scope: dict[str, Any], dungeon_manifest:
         "unknown_action_count": sum(
             count for asset in assets for count in asset["unknown_opcode_counts"].values()
         ),
+        "adapter_status_action_counts": dict(sorted(adapter_counts.items())),
+        "adapter_proven_action_count": adapter_counts["ADAPTER_PROVEN"],
         "runtime_ready_asset_count": 0,
         "production_route_count": 0,
         "assets": assets,
@@ -141,7 +179,7 @@ def main() -> int:
     result = build(read(args.source_actions), read(args.narrative_scope), read(args.dungeon_manifest))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({key: result[key] for key in ("result", "asset_count", "script_array_count", "action_count", "unknown_action_count", "runtime_ready_asset_count")}, ensure_ascii=False))
+    print(json.dumps({key: result[key] for key in ("result", "asset_count", "script_array_count", "action_count", "unknown_action_count", "adapter_proven_action_count", "runtime_ready_asset_count")}, ensure_ascii=False))
     return 0
 
 
