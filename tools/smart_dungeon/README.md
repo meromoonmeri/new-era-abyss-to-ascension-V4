@@ -17,9 +17,11 @@ Les relais sont des Grounds médians à statue Kangourex séparant deux
 `RangeDictSegment`, jamais des salles procédurales internes. Le boss utilise un
 Ground d'introduction/conclusion et un segment de combat sans escalier.
 
-`analyze-references` indexe Zones, Grounds, maps et AutoTiles.
-`generate-ground` compose une géométrie abstraite puis résout les cellules par
-grammaire de voisinage observée, avec collisions et animations natives.
+`analyze-references` indexe par défaut toutes les Zones, Grounds, maps et
+AutoTiles. `generate-ground` choisit automatiquement des références compatibles,
+compose plusieurs familles de géométrie abstraite, résout les cellules par
+classe/voisins/transitions, place des motifs multicellules natifs puis valide
+collisions, animations, navigation, viewport et controller.
 
 Documentation :
 

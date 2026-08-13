@@ -75,9 +75,9 @@ def _ensure_catalog(repo, project, overrides, max_assets=0):
 def _ensure_reference_knowledge(repo, project):
     path = project / "reference_knowledge.json"
     existing = read(path)
-    if existing and existing.get("schema_version") == "1.2.0":
+    if existing and existing.get("schema_version") == "1.4.0":
         return existing
-    return analyze_references(repo, path, max_zones=0, max_grounds=96)
+    return analyze_references(repo, path, max_zones=0, max_grounds=0)
 
 
 def _summaries(plans, comparisons, artistic, changes=None):
@@ -194,7 +194,7 @@ def generate_project(
         asset_selection=selection, progression=rows, floors=plans,
         quality_summary=quality, compiler=compiler, art_direction=direction,
         artistic_quality_summary=artistic, decision_log=decisions, relays=relays,
-        dungeon_profile=profile, reference_knowledge={"schema_version": knowledge["schema_version"], "zone_count": knowledge["zone_count"], "ground_count": knowledge["ground_count"], "shop_reference_zones": knowledge["shop_reference_zones"], "neutral_reference_zones": knowledge["neutral_reference_zones"]},
+        dungeon_profile=profile, reference_knowledge={"schema_version": knowledge["schema_version"], "zone_count": knowledge["zone_count"], "ground_count": knowledge["ground_count"], "map_template_count": knowledge["map_template_count"], "autotile_count": knowledge["autotile_count"], "controller_count": knowledge["controller_count"], "shop_reference_zones": knowledge["shop_reference_zones"], "neutral_reference_zones": knowledge["neutral_reference_zones"]},
         boss_encounter=boss_encounter, generated_grounds=generated_grounds,
     )
     _write_visuals(project, plans, direction, relays)
@@ -327,7 +327,7 @@ def regenerate(repo: Path, project: Path, scope: str = "all", seed: int | None =
         asset_selection=selection, progression=rows, floors=plans,
         quality_summary=quality, compiler=compiler, art_direction=direction,
         artistic_quality_summary=artistic, decision_log=decisions, relays=relays,
-        dungeon_profile=profile, reference_knowledge={"schema_version": knowledge["schema_version"], "zone_count": knowledge["zone_count"], "ground_count": knowledge["ground_count"]},
+        dungeon_profile=profile, reference_knowledge={"schema_version": knowledge["schema_version"], "zone_count": knowledge["zone_count"], "ground_count": knowledge["ground_count"], "map_template_count": knowledge["map_template_count"], "autotile_count": knowledge["autotile_count"], "controller_count": knowledge["controller_count"]},
         boss_encounter=boss_encounter, generated_grounds=generated_grounds,
     )
     _write_visuals(project, plans, direction, relays)

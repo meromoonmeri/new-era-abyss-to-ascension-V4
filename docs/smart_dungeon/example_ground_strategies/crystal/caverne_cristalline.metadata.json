@@ -1,0 +1,1400 @@
+{
+  "schema_version": "2.0.0",
+  "ground_id": "caverne_cristalline",
+  "seed": 30303,
+  "variant": 2,
+  "concept": "crystal_cavern",
+  "intent_analysis": {
+    "concept": "crystal_cavern",
+    "confidence": 0.9,
+    "requires_water": true,
+    "intent_words": [
+      "bassins",
+      "calmes",
+      "cave",
+      "chambres",
+      "cristalline",
+      "distincts",
+      "espaces",
+      "masses",
+      "ramifiees",
+      "reperes",
+      "rocheuses"
+    ],
+    "visual_target": {
+      "luma": 0.48,
+      "saturation": 0.35,
+      "detail": 0.6799999999999999,
+      "edge": 0.52
+    }
+  },
+  "ambiguity_policy": "resolved_from_explicit_semantic_cues",
+  "reference_selection": {
+    "base_ground": "altere_pond",
+    "decoration_ground": "altere_pond",
+    "strategy": "single_library_conservative",
+    "compatibility": 1.0,
+    "confidence": 0.93,
+    "ranked_candidates": [
+      {
+        "ground_id": "altere_pond",
+        "score": 40.3122,
+        "visual_confidence": 0.93
+      },
+      {
+        "ground_id": "poisonous_forest_entrance",
+        "score": 35.4772,
+        "visual_confidence": 0.93
+      },
+      {
+        "ground_id": "illuminant_riverbed_entrance",
+        "score": 32.5856,
+        "visual_confidence": 0.93
+      },
+      {
+        "ground_id": "searing_tunnel_miniboss",
+        "score": 1.3377,
+        "visual_confidence": 0.93
+      },
+      {
+        "ground_id": "searing_tunnel_entrance",
+        "score": 0.5985,
+        "visual_confidence": 0.93
+      },
+      {
+        "ground_id": "crooked_cavern_entrance",
+        "score": -3.1579,
+        "visual_confidence": 0.81
+      },
+      {
+        "ground_id": "grotte_lazuli_fond",
+        "score": -5.2227,
+        "visual_confidence": 0.57
+      },
+      {
+        "ground_id": "grotte_lazuli_seuil",
+        "score": -5.3686,
+        "visual_confidence": 0.57
+      },
+      {
+        "ground_id": "crooked_den",
+        "score": -7.9187,
+        "visual_confidence": 0.57
+      },
+      {
+        "ground_id": "antre_occident",
+        "score": -8.1902,
+        "visual_confidence": 0.57
+      },
+      {
+        "ground_id": "cap_dents_mer",
+        "score": -8.3981,
+        "visual_confidence": 0.57
+      },
+      {
+        "ground_id": "gorge_ardente_porte",
+        "score": -8.4182,
+        "visual_confidence": 0.57
+      },
+      {
+        "ground_id": "gorge_ardente_coeur",
+        "score": -8.8925,
+        "visual_confidence": 0.57
+      },
+      {
+        "ground_id": "fosse_ardente",
+        "score": -9.3889,
+        "visual_confidence": 0.57
+      }
+    ],
+    "base_sha256": "665f18eaa290284898797673a243bd79a22aa607952192931673f4ece8846091",
+    "decoration_sha256": "665f18eaa290284898797673a243bd79a22aa607952192931673f4ece8846091"
+  },
+  "geometry": {
+    "classes": [
+      "open",
+      "path",
+      "wall",
+      "water"
+    ],
+    "regions": [
+      {
+        "kind": "cavern_chamber",
+        "index": 1,
+        "center": [
+          10,
+          23
+        ],
+        "cell_count": 143
+      },
+      {
+        "kind": "cavern_chamber",
+        "index": 2,
+        "center": [
+          20,
+          15
+        ],
+        "cell_count": 206
+      },
+      {
+        "kind": "cavern_chamber",
+        "index": 3,
+        "center": [
+          32,
+          10
+        ],
+        "cell_count": 188
+      },
+      {
+        "kind": "cavern_chamber",
+        "index": 4,
+        "center": [
+          30,
+          24
+        ],
+        "cell_count": 110
+      },
+      {
+        "kind": "sightline_crystal_mass",
+        "center": [
+          21,
+          16
+        ],
+        "cell_count": 9
+      },
+      {
+        "kind": "subterranean_pool",
+        "index": 1,
+        "cell_count": 5
+      }
+    ],
+    "anchors": {
+      "entrance": [
+        10,
+        31
+      ],
+      "exit": [
+        32,
+        2
+      ],
+      "poi": [
+        20,
+        15
+      ]
+    },
+    "primary_path_cell_count": 282,
+    "repair_log": [
+      {
+        "action": "remove_single_cell_spike",
+        "position": [
+          27,
+          20
+        ],
+        "from": "wall",
+        "to": "open"
+      },
+      {
+        "action": "connect_critical_anchor",
+        "anchor": "poi"
+      }
+    ]
+  },
+  "tile_grammar": {
+    "source_rule_count": 370,
+    "transition_rule_count": 135,
+    "functional_source_cells": {
+      "open": 7560,
+      "path": 99,
+      "wall": 1377,
+      "water": 701
+    },
+    "topology_roles": {
+      "open:corner": 55,
+      "open:edge_toward_E": 21,
+      "open:edge_toward_N": 26,
+      "open:edge_toward_S": 30,
+      "open:edge_toward_W": 18,
+      "open:endcap_S": 1,
+      "open:interior": 560,
+      "wall:corner": 52,
+      "wall:edge_toward_E": 35,
+      "wall:edge_toward_N": 54,
+      "wall:edge_toward_S": 47,
+      "wall:edge_toward_W": 39,
+      "wall:endcap_E": 1,
+      "wall:endcap_S": 1,
+      "wall:endcap_W": 1,
+      "wall:interior": 453,
+      "wall:isolated": 1,
+      "wall:straight_ew": 15,
+      "wall:straight_ns": 13,
+      "water:corner": 3,
+      "water:endcap_E": 1,
+      "water:endcap_S": 1
+    },
+    "resolution": {
+      "exact_cells": 1385,
+      "fallback_cells": 43,
+      "mean_distance": 0.0462,
+      "fallback_details": [
+        {
+          "target": [
+            0,
+            0
+          ],
+          "functional_class": "wall",
+          "topology_role": "corner",
+          "target_mask": "26",
+          "transition": [
+            "outside",
+            "wall",
+            "wall",
+            "outside"
+          ],
+          "source": [
+            0,
+            77
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            0,
+            21
+          ],
+          "functional_class": "wall",
+          "topology_role": "edge_toward_W",
+          "target_mask": "17",
+          "transition": [
+            "wall",
+            "wall",
+            "wall",
+            "outside"
+          ],
+          "source": [
+            0,
+            78
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            0,
+            22
+          ],
+          "functional_class": "wall",
+          "topology_role": "straight_ns",
+          "target_mask": "15",
+          "transition": [
+            "wall",
+            "open",
+            "wall",
+            "outside"
+          ],
+          "source": [
+            17,
+            82
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            0,
+            23
+          ],
+          "functional_class": "wall",
+          "topology_role": "straight_ns",
+          "target_mask": "05",
+          "transition": [
+            "wall",
+            "open",
+            "wall",
+            "outside"
+          ],
+          "source": [
+            17,
+            83
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            0,
+            24
+          ],
+          "functional_class": "wall",
+          "topology_role": "straight_ns",
+          "target_mask": "25",
+          "transition": [
+            "wall",
+            "open",
+            "wall",
+            "outside"
+          ],
+          "source": [
+            17,
+            78
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            0,
+            25
+          ],
+          "functional_class": "wall",
+          "topology_role": "edge_toward_W",
+          "target_mask": "27",
+          "transition": [
+            "wall",
+            "wall",
+            "wall",
+            "outside"
+          ],
+          "source": [
+            0,
+            78
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            0,
+            33
+          ],
+          "functional_class": "wall",
+          "topology_role": "corner",
+          "target_mask": "13",
+          "transition": [
+            "wall",
+            "wall",
+            "outside",
+            "outside"
+          ],
+          "source": [
+            0,
+            79
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            8,
+            33
+          ],
+          "functional_class": "wall",
+          "topology_role": "edge_toward_S",
+          "target_mask": "8b",
+          "transition": [
+            "wall",
+            "wall",
+            "outside",
+            "wall"
+          ],
+          "source": [
+            12,
+            95
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            9,
+            33
+          ],
+          "functional_class": "wall",
+          "topology_role": "straight_ew",
+          "target_mask": "8a",
+          "transition": [
+            "open",
+            "wall",
+            "outside",
+            "wall"
+          ],
+          "source": [
+            37,
+            95
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            12,
+            28
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_E",
+          "target_mask": "fd",
+          "transition": [
+            "open",
+            "wall",
+            "open",
+            "open"
+          ],
+          "source": [
+            47,
+            72
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            13,
+            28
+          ],
+          "functional_class": "wall",
+          "topology_role": "endcap_E",
+          "target_mask": "02",
+          "transition": [
+            "open",
+            "wall",
+            "open",
+            "open"
+          ],
+          "source": [
+            36,
+            95
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            17,
+            26
+          ],
+          "functional_class": "wall",
+          "topology_role": "endcap_S",
+          "target_mask": "44",
+          "transition": [
+            "open",
+            "open",
+            "wall",
+            "open"
+          ],
+          "source": [
+            99,
+            70
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            21,
+            15
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_E",
+          "target_mask": "fd",
+          "transition": [
+            "open",
+            "wall",
+            "open",
+            "open"
+          ],
+          "source": [
+            43,
+            20
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            21,
+            33
+          ],
+          "functional_class": "wall",
+          "topology_role": "straight_ew",
+          "target_mask": "1a",
+          "transition": [
+            "open",
+            "wall",
+            "outside",
+            "wall"
+          ],
+          "source": [
+            37,
+            95
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            22,
+            15
+          ],
+          "functional_class": "wall",
+          "topology_role": "isolated",
+          "target_mask": "00",
+          "transition": [
+            "open",
+            "open",
+            "open",
+            "open"
+          ],
+          "source": [
+            44,
+            20
+          ],
+          "distance": 4,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            22,
+            16
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_N",
+          "target_mask": "fe",
+          "transition": [
+            "wall",
+            "open",
+            "open",
+            "open"
+          ],
+          "source": [
+            47,
+            23
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            22,
+            33
+          ],
+          "functional_class": "wall",
+          "topology_role": "edge_toward_S",
+          "target_mask": "1b",
+          "transition": [
+            "wall",
+            "wall",
+            "outside",
+            "wall"
+          ],
+          "source": [
+            12,
+            95
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            23,
+            15
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_W",
+          "target_mask": "f7",
+          "transition": [
+            "open",
+            "open",
+            "open",
+            "wall"
+          ],
+          "source": [
+            36,
+            20
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            25,
+            21
+          ],
+          "functional_class": "wall",
+          "topology_role": "endcap_W",
+          "target_mask": "48",
+          "transition": [
+            "open",
+            "open",
+            "open",
+            "wall"
+          ],
+          "source": [
+            9,
+            0
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            26,
+            21
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_W",
+          "target_mask": "f7",
+          "transition": [
+            "open",
+            "open",
+            "open",
+            "wall"
+          ],
+          "source": [
+            34,
+            17
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            31,
+            27
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_E",
+          "target_mask": "fd",
+          "transition": [
+            "open",
+            "water",
+            "open",
+            "open"
+          ],
+          "source": [
+            50,
+            46
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            32,
+            0
+          ],
+          "functional_class": "wall",
+          "topology_role": "straight_ew",
+          "target_mask": "6a",
+          "transition": [
+            "outside",
+            "wall",
+            "open",
+            "wall"
+          ],
+          "source": [
+            44,
+            0
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            32,
+            26
+          ],
+          "functional_class": "open",
+          "topology_role": "corner",
+          "target_mask": "d9",
+          "transition": [
+            "open",
+            "water",
+            "water",
+            "open"
+          ],
+          "source": [
+            71,
+            35
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            32,
+            27
+          ],
+          "functional_class": "water",
+          "topology_role": "endcap_E",
+          "target_mask": "12",
+          "transition": [
+            "open",
+            "water",
+            "open",
+            "open"
+          ],
+          "source": [
+            58,
+            53
+          ],
+          "distance": 3,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            32,
+            28
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_N",
+          "target_mask": "ee",
+          "transition": [
+            "water",
+            "open",
+            "open",
+            "open"
+          ],
+          "source": [
+            58,
+            54
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            33,
+            25
+          ],
+          "functional_class": "open",
+          "topology_role": "corner",
+          "target_mask": "d9",
+          "transition": [
+            "open",
+            "water",
+            "water",
+            "open"
+          ],
+          "source": [
+            71,
+            35
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            33,
+            26
+          ],
+          "functional_class": "water",
+          "topology_role": "corner",
+          "target_mask": "56",
+          "transition": [
+            "open",
+            "water",
+            "water",
+            "open"
+          ],
+          "source": [
+            72,
+            35
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            33,
+            27
+          ],
+          "functional_class": "water",
+          "topology_role": "corner",
+          "target_mask": "19",
+          "transition": [
+            "water",
+            "open",
+            "open",
+            "water"
+          ],
+          "source": [
+            75,
+            58
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            33,
+            28
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_N",
+          "target_mask": "5e",
+          "transition": [
+            "water",
+            "open",
+            "open",
+            "open"
+          ],
+          "source": [
+            60,
+            54
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            34,
+            24
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_S",
+          "target_mask": "fb",
+          "transition": [
+            "open",
+            "open",
+            "water",
+            "open"
+          ],
+          "source": [
+            66,
+            35
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            34,
+            25
+          ],
+          "functional_class": "water",
+          "topology_role": "endcap_S",
+          "target_mask": "44",
+          "transition": [
+            "open",
+            "open",
+            "water",
+            "open"
+          ],
+          "source": [
+            66,
+            36
+          ],
+          "distance": 4,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            34,
+            26
+          ],
+          "functional_class": "water",
+          "topology_role": "corner",
+          "target_mask": "49",
+          "transition": [
+            "water",
+            "open",
+            "open",
+            "water"
+          ],
+          "source": [
+            84,
+            46
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            35,
+            25
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_W",
+          "target_mask": "b7",
+          "transition": [
+            "open",
+            "open",
+            "open",
+            "water"
+          ],
+          "source": [
+            72,
+            30
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            41,
+            0
+          ],
+          "functional_class": "wall",
+          "topology_role": "corner",
+          "target_mask": "4c",
+          "transition": [
+            "outside",
+            "outside",
+            "wall",
+            "wall"
+          ],
+          "source": [
+            29,
+            0
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            41,
+            6
+          ],
+          "functional_class": "wall",
+          "topology_role": "edge_toward_E",
+          "target_mask": "8d",
+          "transition": [
+            "wall",
+            "outside",
+            "wall",
+            "wall"
+          ],
+          "source": [
+            115,
+            55
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            41,
+            7
+          ],
+          "functional_class": "wall",
+          "topology_role": "straight_ns",
+          "target_mask": "85",
+          "transition": [
+            "wall",
+            "outside",
+            "wall",
+            "open"
+          ],
+          "source": [
+            17,
+            53
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            41,
+            8
+          ],
+          "functional_class": "wall",
+          "topology_role": "straight_ns",
+          "target_mask": "05",
+          "transition": [
+            "wall",
+            "outside",
+            "wall",
+            "open"
+          ],
+          "source": [
+            55,
+            34
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            41,
+            9
+          ],
+          "functional_class": "wall",
+          "topology_role": "straight_ns",
+          "target_mask": "05",
+          "transition": [
+            "wall",
+            "outside",
+            "wall",
+            "open"
+          ],
+          "source": [
+            55,
+            34
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            41,
+            10
+          ],
+          "functional_class": "wall",
+          "topology_role": "straight_ns",
+          "target_mask": "05",
+          "transition": [
+            "wall",
+            "outside",
+            "wall",
+            "open"
+          ],
+          "source": [
+            55,
+            34
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            41,
+            11
+          ],
+          "functional_class": "wall",
+          "topology_role": "straight_ns",
+          "target_mask": "05",
+          "transition": [
+            "wall",
+            "outside",
+            "wall",
+            "open"
+          ],
+          "source": [
+            55,
+            34
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            41,
+            12
+          ],
+          "functional_class": "wall",
+          "topology_role": "straight_ns",
+          "target_mask": "45",
+          "transition": [
+            "wall",
+            "outside",
+            "wall",
+            "open"
+          ],
+          "source": [
+            95,
+            35
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            41,
+            13
+          ],
+          "functional_class": "wall",
+          "topology_role": "edge_toward_E",
+          "target_mask": "4d",
+          "transition": [
+            "wall",
+            "outside",
+            "wall",
+            "wall"
+          ],
+          "source": [
+            115,
+            54
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            41,
+            33
+          ],
+          "functional_class": "wall",
+          "topology_role": "corner",
+          "target_mask": "89",
+          "transition": [
+            "wall",
+            "outside",
+            "outside",
+            "wall"
+          ],
+          "source": [
+            13,
+            95
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        }
+      ]
+    },
+    "neighbor_mask": "8-neighbor_same-class_plus-4-neighbor-transition-signature_plus-source-local-adjacency",
+    "orientation_policy": "native_variants_only_no_flip_no_rotation"
+  },
+  "decoration": {
+    "available_native_motifs": 173,
+    "groups": [
+      {
+        "group_id": "DG01",
+        "motif_id": "altere_pond:Objects:36:58",
+        "signature": "04b0fedf633a",
+        "layer": "Objects",
+        "origin": [
+          10,
+          16
+        ],
+        "cell_count": 5,
+        "transformed": false,
+        "purpose": "mass_edge_accent",
+        "reason": "motif multicellule natif placé sans rotation et hors route critique"
+      },
+      {
+        "group_id": "DG02",
+        "motif_id": "altere_pond:Objects Under:18:9",
+        "signature": "0508227f4b85",
+        "layer": "Objects Under",
+        "origin": [
+          12,
+          5
+        ],
+        "cell_count": 2,
+        "transformed": false,
+        "purpose": "mass_edge_accent",
+        "reason": "motif multicellule natif placé sans rotation et hors route critique"
+      },
+      {
+        "group_id": "DG03",
+        "motif_id": "altere_pond:Objects Under:109:81",
+        "signature": "0508227f4b85",
+        "layer": "Objects Under",
+        "origin": [
+          4,
+          11
+        ],
+        "cell_count": 2,
+        "transformed": false,
+        "purpose": "mass_edge_accent",
+        "reason": "motif multicellule natif placé sans rotation et hors route critique"
+      },
+      {
+        "group_id": "DG04",
+        "motif_id": "altere_pond:Objects Under:84:9",
+        "signature": "053f915952b8",
+        "layer": "Objects Under",
+        "origin": [
+          21,
+          8
+        ],
+        "cell_count": 12,
+        "transformed": false,
+        "purpose": "mass_edge_accent",
+        "reason": "motif multicellule natif placé sans rotation et hors route critique"
+      }
+    ],
+    "hierarchy": [
+      "macro_mass",
+      "native_multicell_cluster",
+      "micro_detail"
+    ]
+  },
+  "layers": {
+    "kept": [
+      "Base",
+      "River",
+      "Cliffs",
+      "Shadows",
+      "Objects Under",
+      "Objects",
+      "Objects Over",
+      "Fringe"
+    ],
+    "excluded": []
+  },
+  "asset_policy": "existing serialized PMDO cells and compatible native motifs only",
+  "quality_scores": {
+    "technical_validity": 100,
+    "structural": 100,
+    "artistic": 87.989,
+    "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
+  },
+  "validation": {
+    "result": "GROUND_VALIDATION_PASS",
+    "errors": [],
+    "warnings": [],
+    "geometry": {
+      "reachable_ratio": 1.0,
+      "shortest_path_length": 52,
+      "path_directness": 0.9808,
+      "boss_distance": null,
+      "path_width_mean": 4.3077,
+      "path_width_variation": 3.2078,
+      "choke_points": 2,
+      "junctions": 50,
+      "dead_end_count": 1,
+      "circulation_loop_density": 0.8551,
+      "direct_line_of_sight_clear": false,
+      "open_ratio": 0.4979,
+      "functional_region_count": 6,
+      "primary_path_protected": true
+    },
+    "navigation_reachable_cells": 711,
+    "water_component_count": 1,
+    "referenced_sheet_count": 8,
+    "animation_cell_count": 17,
+    "water_animation_coverage": 1.0,
+    "topology_exact_ratio": 0.9699,
+    "topology_fallback_ratio": 0.0301,
+    "decoration_group_count": 4,
+    "decoration_motif_diversity": 0.75,
+    "viewport_policy": "local_follow_camera_no_forced_zoom",
+    "size_cells": [
+      42,
+      34
+    ],
+    "size_pixels": [
+      336,
+      272
+    ]
+  },
+  "score": 1257.73,
+  "decisions": [
+    {
+      "stage": "reference_search",
+      "why": "all indexed Grounds filtered by function, alignment, visuals and confidence"
+    },
+    {
+      "stage": "macro_geometry",
+      "why": "regions, routes and masses precede tile selection"
+    },
+    {
+      "stage": "local_geometry",
+      "why": "class, 8-neighbor mask and transition signature resolve each native cell"
+    },
+    {
+      "stage": "decoration",
+      "why": "native multicell motifs, no transform, route-critical exclusion"
+    },
+    {
+      "stage": "repair",
+      "why": "single-cell spikes and disconnected anchors corrected before render"
+    },
+    {
+      "stage": "viewport",
+      "why": "camera follows locally; no global zoom override"
+    }
+  ],
+  "candidate_comparison": [
+    {
+      "variant": 0,
+      "score": 1253.67,
+      "quality_scores": {
+        "technical_validity": 100,
+        "structural": 100,
+        "artistic": 87.075,
+        "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
+      },
+      "validation": "GROUND_VALIDATION_PASS",
+      "geometry": {
+        "reachable_ratio": 1.0,
+        "shortest_path_length": 52,
+        "path_directness": 0.9808,
+        "boss_distance": null,
+        "path_width_mean": 5.1538,
+        "path_width_variation": 3.1094,
+        "choke_points": 2,
+        "junctions": 50,
+        "dead_end_count": 2,
+        "circulation_loop_density": 0.8613,
+        "direct_line_of_sight_clear": false,
+        "open_ratio": 0.5553,
+        "functional_region_count": 6,
+        "primary_path_protected": true
+      },
+      "warnings": []
+    },
+    {
+      "variant": 1,
+      "score": 1256.47,
+      "quality_scores": {
+        "technical_validity": 100,
+        "structural": 100,
+        "artistic": 87.705,
+        "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
+      },
+      "validation": "GROUND_VALIDATION_PASS",
+      "geometry": {
+        "reachable_ratio": 1.0,
+        "shortest_path_length": 52,
+        "path_directness": 0.9808,
+        "boss_distance": null,
+        "path_width_mean": 4.8462,
+        "path_width_variation": 2.8513,
+        "choke_points": 2,
+        "junctions": 50,
+        "dead_end_count": 1,
+        "circulation_loop_density": 0.8885,
+        "direct_line_of_sight_clear": false,
+        "open_ratio": 0.5777,
+        "functional_region_count": 6,
+        "primary_path_protected": true
+      },
+      "warnings": []
+    },
+    {
+      "variant": 2,
+      "score": 1257.73,
+      "quality_scores": {
+        "technical_validity": 100,
+        "structural": 100,
+        "artistic": 87.989,
+        "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
+      },
+      "validation": "GROUND_VALIDATION_PASS",
+      "geometry": {
+        "reachable_ratio": 1.0,
+        "shortest_path_length": 52,
+        "path_directness": 0.9808,
+        "boss_distance": null,
+        "path_width_mean": 4.3077,
+        "path_width_variation": 3.2078,
+        "choke_points": 2,
+        "junctions": 50,
+        "dead_end_count": 1,
+        "circulation_loop_density": 0.8551,
+        "direct_line_of_sight_clear": false,
+        "open_ratio": 0.4979,
+        "functional_region_count": 6,
+        "primary_path_protected": true
+      },
+      "warnings": []
+    }
+  ],
+  "controller": {
+    "file": "caverne_cristalline.init.lua",
+    "status": "routed",
+    "destination": {
+      "ground": "crooked_cavern_entrance",
+      "marker": "Main_Entrance_Marker"
+    },
+    "callbacks": [
+      "Init",
+      "Enter",
+      "Update",
+      "North_Exit_Touch"
+    ]
+  }
+}

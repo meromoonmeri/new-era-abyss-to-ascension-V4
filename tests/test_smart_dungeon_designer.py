@@ -13,6 +13,7 @@ sys.path.insert(0, str(REPO / "tools"))
 from smart_dungeon.art_direction import build_art_direction
 from smart_dungeon.assets import analyze_library
 from smart_dungeon.ground_gen import generate_ground
+from smart_dungeon.ground_library import interpret_ground_intent
 from smart_dungeon.intent import parse_intent
 from smart_dungeon.knowledge import analyze_references
 from smart_dungeon.layout import progression, repair, select_best
@@ -106,6 +107,8 @@ class TestSmartDungeonDesigner(unittest.TestCase):
             "relais et une grande salle centrale."
         )
         cls.plan1 = generate_project(REPO, cls.p1, "Sanctuaire Test", cls.intent, 8, "difficile", True, 1, 2, 12345, None, 3, 5)
+        cls.p2.mkdir(exist_ok=True)
+        shutil.copy2(cls.p1 / "reference_knowledge.json", cls.p2 / "reference_knowledge.json")
         cls.plan2 = generate_project(REPO, cls.p2, "Sanctuaire Test", cls.intent, 8, "difficile", True, 1, 2, 12345, None, 3, 5)
 
     @classmethod
@@ -284,7 +287,11 @@ class TestSmartDungeonDesigner(unittest.TestCase):
     def test_13_reference_knowledge_reuses_native_gameplay_models(self):
         knowledge = json.loads((self.p1 / "reference_knowledge.json").read_text())
         self.assertEqual(knowledge["result"], "REFERENCE_KNOWLEDGE_PASS")
+        self.assertEqual(knowledge["ground_count"], len(list((REPO / "Data/Ground").glob("*.rsground"))))
+        self.assertGreater(knowledge["map_template_count"], 0)
         self.assertGreater(knowledge["autotile_count"], 0)
+        self.assertGreater(knowledge["controller_count"], 0)
+        self.assertTrue(knowledge["external_libraries"])
         self.assertTrue(any(row["variant_count"] >= 16 and row["orientation_policy"] == "native_neighbor_variant_keys_no_arbitrary_flip" for row in knowledge["autotiles"]))
         self.assertIn("vast_steppe", knowledge["shop_reference_zones"])
         self.assertIn("desert_oublies", knowledge["neutral_reference_zones"])
@@ -340,19 +347,68 @@ class TestSmartDungeonDesigner(unittest.TestCase):
 
     def test_15_topology_aware_ground_generation_with_animated_lakes(self):
         first_dir, second_dir = self.temp / "ground_first", self.temp / "ground_second"
-        first = generate_ground(REPO, first_dir, "clairiere_lacs", "Une clairière forestière avec trois petits lacs", 20260813, 3)
-        second = generate_ground(REPO, second_dir, "clairiere_lacs", "Une clairière forestière avec trois petits lacs", 20260813, 3)
+        knowledge = json.loads((self.p1 / "reference_knowledge.json").read_text())
+        intent = "Une clairière de forêt sombre avec trois petits lacs animés, des groupes d'arbres et des rochers"
+        first = generate_ground(REPO, first_dir, "clairiere_lacs", intent, 20260813, 3, None, 64, 48, knowledge, "altere_pond")
+        second = generate_ground(REPO, second_dir, "clairiere_lacs", intent, 20260813, 3, None, 64, 48, knowledge, "altere_pond")
         self.assertEqual(first["validation"]["result"], "GROUND_VALIDATION_PASS")
         self.assertEqual(first["validation"]["water_component_count"], 3)
-        self.assertGreater(first["validation"]["topology_exact_ratio"], .85)
-        self.assertGreater(first["validation"]["animation_cell_count"], 0)
+        self.assertGreater(first["validation"]["topology_exact_ratio"], .90)
+        self.assertGreater(first["validation"]["water_animation_coverage"], .9)
+        self.assertGreaterEqual(first["validation"]["decoration_group_count"], 4)
+        self.assertTrue(all(not group["transformed"] for group in first["decoration"]["groups"]))
+        self.assertNotIn("metano", first["reference_selection"]["base_ground"])
+        self.assertGreater(first["reference_selection"]["confidence"], .5)
+        self.assertTrue(first["tile_grammar"]["topology_roles"])
+        self.assertGreater(first["quality_scores"]["structural"], 70)
+        self.assertGreater(first["quality_scores"]["artistic"], 70)
+        self.assertIn("not_scalar_only", first["quality_scores"]["selection_policy"])
         self.assertEqual(first["validation"]["viewport_policy"], "local_follow_camera_no_forced_zoom")
+        self.assertEqual(first["controller"]["status"], "routed")
+        self.assertIn("EnterGroundMap", Path(first["controller_file"]).read_text())
         self.assertEqual(Path(first["ground_file"]).read_bytes(), Path(second["ground_file"]).read_bytes())
         self.assertEqual(Path(first["metadata_file"]).read_bytes(), Path(second["metadata_file"]).read_bytes())
         data = json.loads(Path(first["ground_file"]).read_text(encoding="utf-8-sig"))["Object"]
         self.assertEqual([len(data["obstacles"]), len(data["obstacles"][0])], [64, 48])
         self.assertTrue(all(len(layer["Tiles"]) == 64 and all(len(column) == 48 for column in layer["Tiles"]) for layer in data["Layers"]))
         self.assertTrue(Path(first["preview_file"]).exists())
+        self.assertIn("data:image/png;base64", Path(first["preview_file"]).read_text())
+        self.assertTrue(Path(first["png_file"]).exists())
+        self.assertEqual(Path(first["png_file"]).read_bytes(), Path(second["png_file"]).read_bytes())
+
+    def test_16_multiple_ground_strategies_are_functionally_distinct(self):
+        canyon = generate_ground(REPO, self.temp / "ground_canyon", "canyon", "Un canyon sinueux avec poches latérales", 10, 1, "altere_pond", 40, 32)
+        courtyard = generate_ground(REPO, self.temp / "ground_courtyard", "courtyard", "Une cour de ruines anciennes avec structure centrale et piliers", 11, 1, "altere_pond", 40, 32)
+        self.assertEqual(canyon["validation"]["result"], "GROUND_VALIDATION_PASS")
+        self.assertEqual(courtyard["validation"]["result"], "GROUND_VALIDATION_PASS")
+        self.assertEqual(canyon["concept"], "winding_canyon")
+        self.assertEqual(courtyard["concept"], "ancient_courtyard")
+        self.assertNotEqual(canyon["geometry"]["regions"], courtyard["geometry"]["regions"])
+        self.assertNotEqual(Path(canyon["ground_file"]).read_bytes(), Path(courtyard["ground_file"]).read_bytes())
+        self.assertTrue(any(region["kind"] == "canyon_pocket" for region in canyon["geometry"]["regions"]))
+        self.assertTrue(any(region.get("intentional_symmetry") for region in courtyard["geometry"]["regions"]))
+        self.assertTrue(all(not group["transformed"] for result in (canyon, courtyard) for group in result["decoration"]["groups"]))
+
+    def test_17_crystal_cavern_boss_contract_and_ambiguity_policy(self):
+        crystal = generate_ground(
+            REPO, self.temp / "ground_crystal", "caverne_cristalline",
+            "Une caverne cristalline avec bassins, ramifications et chambres latérales",
+            8080, 2, "altere_pond", 38, 30,
+        )
+        arena = generate_ground(
+            REPO, self.temp / "ground_arena", "arene_boss",
+            "Une arène finale spectaculaire avec boss, entrée resserrée et espaces tactiques",
+            9090, 2, "searing_tunnel_miniboss", 40, 32,
+        )
+        self.assertEqual(crystal["concept"], "crystal_cavern")
+        self.assertGreaterEqual(crystal["validation"]["geometry"]["functional_region_count"], 3)
+        self.assertEqual(crystal["validation"]["result"], "GROUND_VALIDATION_PASS")
+        self.assertEqual(arena["concept"], "boss_arena")
+        self.assertLessEqual(arena["validation"]["geometry"]["boss_distance"], 6)
+        self.assertEqual(arena["validation"]["result"], "GROUND_VALIDATION_PASS")
+        ambiguous = interpret_ground_intent("Un endroit étrange")
+        self.assertEqual(ambiguous["concept"], "organic_exploration")
+        self.assertLess(ambiguous["confidence"], 0.55)
 
 
 if __name__ == "__main__":

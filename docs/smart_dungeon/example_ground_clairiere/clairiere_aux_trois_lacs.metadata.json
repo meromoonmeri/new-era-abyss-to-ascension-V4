@@ -1,26 +1,148 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "2.0.0",
   "ground_id": "clairiere_aux_trois_lacs",
   "seed": 20260813,
-  "variant": 3,
-  "concept": "clairiere_forestiere_petits_lacs",
-  "source_ground": "altere_pond",
-  "source_sha256": "665f18eaa290284898797673a243bd79a22aa607952192931673f4ece8846091",
+  "variant": 1,
+  "concept": "clearing_lakes",
+  "intent_analysis": {
+    "concept": "clearing_lakes",
+    "confidence": 0.9,
+    "requires_water": true,
+    "intent_words": [
+      "animes",
+      "chemin",
+      "clearing",
+      "dark",
+      "espaces",
+      "forest",
+      "groupes",
+      "petits",
+      "principal",
+      "respiration",
+      "rock",
+      "tree",
+      "trois",
+      "water"
+    ],
+    "visual_target": {
+      "luma": 0.49999999999999994,
+      "saturation": 0.47,
+      "detail": 0.5,
+      "edge": 0.52
+    }
+  },
+  "ambiguity_policy": "resolved_from_explicit_semantic_cues",
+  "reference_selection": {
+    "base_ground": "altere_pond",
+    "decoration_ground": "poisonous_forest_entrance",
+    "strategy": "compatible_cross_library_decoration",
+    "compatibility": 0.9421,
+    "confidence": 0.93,
+    "ranked_candidates": [
+      {
+        "ground_id": "altere_pond",
+        "score": 58.3663,
+        "visual_confidence": 0.93
+      },
+      {
+        "ground_id": "poisonous_forest_entrance",
+        "score": 57.917,
+        "visual_confidence": 0.93
+      },
+      {
+        "ground_id": "illuminant_riverbed_entrance",
+        "score": 51.9973,
+        "visual_confidence": 0.93
+      },
+      {
+        "ground_id": "relic_forest",
+        "score": -0.3694,
+        "visual_confidence": 0.93
+      },
+      {
+        "ground_id": "apricorn_glade",
+        "score": -5.1617,
+        "visual_confidence": 0.93
+      },
+      {
+        "ground_id": "sinister_woods_clearing",
+        "score": -8.6616,
+        "visual_confidence": 0.57
+      },
+      {
+        "ground_id": "gloomy_forest_entrance",
+        "score": -9.0101,
+        "visual_confidence": 0.57
+      },
+      {
+        "ground_id": "frosty_forest_midpoint",
+        "score": -9.9729,
+        "visual_confidence": 0.57
+      },
+      {
+        "ground_id": "searing_tunnel_miniboss",
+        "score": -10.5027,
+        "visual_confidence": 0.93
+      },
+      {
+        "ground_id": "searing_tunnel_entrance",
+        "score": -11.2303,
+        "visual_confidence": 0.93
+      },
+      {
+        "ground_id": "vast_steppe_guardian",
+        "score": -11.3757,
+        "visual_confidence": 0.93
+      },
+      {
+        "ground_id": "mount_windswept_entrance",
+        "score": -11.8448,
+        "visual_confidence": 0.93
+      },
+      {
+        "ground_id": "vast_steppe_entrance",
+        "score": -12.4525,
+        "visual_confidence": 0.93
+      },
+      {
+        "ground_id": "mount_windswept_miniboss",
+        "score": -13.4353,
+        "visual_confidence": 0.93
+      }
+    ],
+    "base_sha256": "665f18eaa290284898797673a243bd79a22aa607952192931673f4ece8846091",
+    "decoration_sha256": "055751edfef600f1930f279fb489dc0fdec58844902d083af9c4d078bb49ee87"
+  },
   "geometry": {
-    "macro": "open_clearing_with_peripheral_mass",
-    "path": "south_to_north_with_secondary_space",
-    "water_regions": [
+    "classes": [
+      "open",
+      "path",
+      "wall",
+      "water"
+    ],
+    "regions": [
       {
+        "kind": "clearing",
+        "center": [
+          32,
+          24
+        ],
+        "role": "primary_open_space"
+      },
+      {
+        "kind": "lake",
         "index": 1,
-        "cell_count": 60
+        "cell_count": 92
       },
       {
+        "kind": "lake",
         "index": 2,
-        "cell_count": 54
+        "cell_count": 52
       },
       {
+        "kind": "lake",
         "index": 3,
-        "cell_count": 62
+        "cell_count": 55
       }
     ],
     "anchors": {
@@ -36,196 +158,598 @@
         32,
         24
       ]
-    }
+    },
+    "primary_path_cell_count": 245,
+    "repair_log": [
+      {
+        "action": "remove_single_cell_spike",
+        "position": [
+          6,
+          26
+        ],
+        "from": "wall",
+        "to": "open"
+      },
+      {
+        "action": "seal_unreachable_open_pocket",
+        "cell_count": 2,
+        "origin": [
+          13,
+          11
+        ]
+      }
+    ]
   },
   "tile_grammar": {
-    "source_rule_count": 261,
+    "source_rule_count": 370,
+    "transition_rule_count": 135,
+    "functional_source_cells": {
+      "open": 7560,
+      "path": 99,
+      "wall": 1377,
+      "water": 701
+    },
+    "topology_roles": {
+      "open:corner": 75,
+      "open:edge_toward_E": 30,
+      "open:edge_toward_N": 39,
+      "open:edge_toward_S": 42,
+      "open:edge_toward_W": 26,
+      "open:endcap_E": 3,
+      "open:endcap_N": 5,
+      "open:endcap_S": 5,
+      "open:endcap_W": 2,
+      "open:interior": 1140,
+      "open:straight_ew": 4,
+      "wall:corner": 56,
+      "wall:edge_toward_E": 65,
+      "wall:edge_toward_N": 84,
+      "wall:edge_toward_S": 85,
+      "wall:edge_toward_W": 66,
+      "wall:endcap_E": 1,
+      "wall:endcap_N": 3,
+      "wall:endcap_S": 4,
+      "wall:endcap_W": 2,
+      "wall:interior": 1130,
+      "wall:straight_ew": 6,
+      "water:corner": 33,
+      "water:edge_toward_E": 6,
+      "water:edge_toward_N": 15,
+      "water:edge_toward_S": 13,
+      "water:edge_toward_W": 8,
+      "water:endcap_N": 3,
+      "water:endcap_W": 1,
+      "water:interior": 120
+    },
     "resolution": {
-      "exact_cells": 2872,
-      "fallback_cells": 200,
-      "mean_hamming_distance": 0.1351,
+      "exact_cells": 2976,
+      "fallback_cells": 96,
+      "mean_distance": 0.0433,
       "fallback_details": [
         {
           "target": [
-            5,
-            26
-          ],
-          "functional_class": "open",
-          "target_mask": "17",
-          "source": [
-            44,
-            4
-          ],
-          "hamming_distance": 1
-        },
-        {
-          "target": [
-            5,
-            27
-          ],
-          "functional_class": "open",
-          "target_mask": "11",
-          "source": [
             0,
-            41
-          ],
-          "hamming_distance": 1
-        },
-        {
-          "target": [
-            5,
-            28
+            0
           ],
           "functional_class": "wall",
-          "target_mask": "de",
-          "source": [
-            107,
-            59
+          "topology_role": "corner",
+          "target_mask": "26",
+          "transition": [
+            "outside",
+            "wall",
+            "wall",
+            "outside"
           ],
-          "hamming_distance": 1
+          "source": [
+            0,
+            77
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            0,
+            47
+          ],
+          "functional_class": "wall",
+          "topology_role": "corner",
+          "target_mask": "13",
+          "transition": [
+            "wall",
+            "wall",
+            "outside",
+            "outside"
+          ],
+          "source": [
+            0,
+            79
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            6,
+            21
+          ],
+          "functional_class": "wall",
+          "topology_role": "endcap_W",
+          "target_mask": "c8",
+          "transition": [
+            "open",
+            "open",
+            "open",
+            "wall"
+          ],
+          "source": [
+            24,
+            11
+          ],
+          "distance": 3,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
             7,
-            29
+            17
           ],
           "functional_class": "open",
-          "target_mask": "3b",
+          "topology_role": "endcap_E",
+          "target_mask": "22",
+          "transition": [
+            "wall",
+            "open",
+            "wall",
+            "wall"
+          ],
           "source": [
-            30,
+            29,
             2
           ],
-          "hamming_distance": 1
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
-            14,
+            7,
+            18
+          ],
+          "functional_class": "wall",
+          "topology_role": "endcap_W",
+          "target_mask": "88",
+          "transition": [
+            "open",
+            "open",
+            "open",
+            "wall"
+          ],
+          "source": [
+            62,
+            60
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            7,
+            21
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_W",
+          "target_mask": "f7",
+          "transition": [
+            "open",
+            "open",
+            "open",
+            "wall"
+          ],
+          "source": [
+            34,
+            56
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            8,
+            18
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_W",
+          "target_mask": "f7",
+          "transition": [
+            "open",
+            "open",
+            "open",
+            "wall"
+          ],
+          "source": [
+            34,
+            17
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            11,
+            13
+          ],
+          "functional_class": "wall",
+          "topology_role": "corner",
+          "target_mask": "99",
+          "transition": [
+            "wall",
+            "water",
+            "open",
+            "wall"
+          ],
+          "source": [
+            50,
+            39
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            12,
+            12
+          ],
+          "functional_class": "wall",
+          "topology_role": "edge_toward_S",
+          "target_mask": "db",
+          "transition": [
+            "wall",
+            "wall",
+            "water",
+            "wall"
+          ],
+          "source": [
+            6,
+            2
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            12,
+            32
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_E",
+          "target_mask": "dd",
+          "transition": [
+            "open",
+            "water",
+            "open",
+            "open"
+          ],
+          "source": [
+            50,
+            41
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            12,
+            35
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_W",
+          "target_mask": "a7",
+          "transition": [
+            "open",
+            "open",
+            "open",
+            "wall"
+          ],
+          "source": [
+            32,
             15
           ],
-          "functional_class": "water",
-          "target_mask": "36",
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            13,
+            11
+          ],
+          "functional_class": "wall",
+          "topology_role": "edge_toward_E",
+          "target_mask": "cd",
+          "transition": [
+            "wall",
+            "water",
+            "wall",
+            "wall"
+          ],
           "source": [
-            82,
+            29,
+            4
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            13,
+            12
+          ],
+          "functional_class": "wall",
+          "topology_role": "corner",
+          "target_mask": "89",
+          "transition": [
+            "wall",
+            "water",
+            "water",
+            "wall"
+          ],
+          "source": [
+            50,
+            39
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            13,
+            18
+          ],
+          "functional_class": "water",
+          "topology_role": "edge_toward_W",
+          "target_mask": "97",
+          "transition": [
+            "water",
+            "water",
+            "water",
+            "open"
+          ],
+          "source": [
+            52,
             47
           ],
-          "hamming_distance": 1
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
-            14,
-            16
+            13,
+            19
           ],
           "functional_class": "water",
-          "target_mask": "37",
+          "topology_role": "endcap_N",
+          "target_mask": "11",
+          "transition": [
+            "water",
+            "open",
+            "open",
+            "open"
+          ],
           "source": [
-            62,
-            42
-          ],
-          "hamming_distance": 2
-        },
-        {
-          "target": [
-            14,
-            17
-          ],
-          "functional_class": "water",
-          "target_mask": "37",
-          "source": [
-            62,
-            43
-          ],
-          "hamming_distance": 2
-        },
-        {
-          "target": [
-            14,
-            18
-          ],
-          "functional_class": "water",
-          "target_mask": "33",
-          "source": [
-            51,
-            7
-          ],
-          "hamming_distance": 1
-        },
-        {
-          "target": [
-            15,
-            13
-          ],
-          "functional_class": "water",
-          "target_mask": "26",
-          "source": [
-            60,
-            57
-          ],
-          "hamming_distance": 1
-        },
-        {
-          "target": [
-            15,
-            14
-          ],
-          "functional_class": "water",
-          "target_mask": "77",
-          "source": [
-            80,
+            58,
             53
           ],
-          "hamming_distance": 2
+          "distance": 3,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
-            15,
-            15
+            13,
+            20
           ],
-          "functional_class": "water",
-          "target_mask": "7f",
+          "functional_class": "open",
+          "topology_role": "edge_toward_N",
+          "target_mask": "fe",
+          "transition": [
+            "water",
+            "open",
+            "open",
+            "open"
+          ],
           "source": [
-            61,
-            57
-          ],
-          "hamming_distance": 3
-        },
-        {
-          "target": [
-            15,
-            16
-          ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
+            77,
             58
           ],
-          "hamming_distance": 3
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
-            15,
-            17
+            13,
+            32
           ],
           "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
+          "topology_role": "corner",
+          "target_mask": "26",
+          "transition": [
+            "open",
+            "water",
+            "water",
+            "open"
           ],
-          "hamming_distance": 3
+          "source": [
+            68,
+            36
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
-            15,
+            13,
+            35
+          ],
+          "functional_class": "open",
+          "topology_role": "corner",
+          "target_mask": "ec",
+          "transition": [
+            "water",
+            "water",
+            "open",
+            "open"
+          ],
+          "source": [
+            52,
+            50
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            14,
+            10
+          ],
+          "functional_class": "open",
+          "topology_role": "endcap_E",
+          "target_mask": "02",
+          "transition": [
+            "wall",
+            "open",
+            "water",
+            "wall"
+          ],
+          "source": [
+            83,
+            80
+          ],
+          "distance": 3,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            14,
+            11
+          ],
+          "functional_class": "water",
+          "topology_role": "corner",
+          "target_mask": "26",
+          "transition": [
+            "open",
+            "water",
+            "water",
+            "wall"
+          ],
+          "source": [
+            52,
+            36
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            14,
             18
           ],
           "functional_class": "water",
-          "target_mask": "bf",
+          "topology_role": "edge_toward_S",
+          "target_mask": "fb",
+          "transition": [
+            "water",
+            "water",
+            "open",
+            "water"
+          ],
           "source": [
-            61,
+            57,
+            51
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            14,
+            19
+          ],
+          "functional_class": "open",
+          "topology_role": "endcap_S",
+          "target_mask": "64",
+          "transition": [
+            "water",
+            "water",
+            "open",
+            "water"
+          ],
+          "source": [
+            76,
             58
           ],
-          "hamming_distance": 2
+          "distance": 3,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            14,
+            35
+          ],
+          "functional_class": "water",
+          "topology_role": "corner",
+          "target_mask": "93",
+          "transition": [
+            "water",
+            "water",
+            "open",
+            "open"
+          ],
+          "source": [
+            58,
+            53
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            14,
+            36
+          ],
+          "functional_class": "open",
+          "topology_role": "straight_ew",
+          "target_mask": "aa",
+          "transition": [
+            "water",
+            "open",
+            "wall",
+            "open"
+          ],
+          "source": [
+            22,
+            8
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            15,
+            10
+          ],
+          "functional_class": "open",
+          "topology_role": "straight_ew",
+          "target_mask": "0a",
+          "transition": [
+            "wall",
+            "open",
+            "water",
+            "open"
+          ],
+          "source": [
+            49,
+            37
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
@@ -233,103 +757,104 @@
             19
           ],
           "functional_class": "water",
+          "topology_role": "corner",
           "target_mask": "b3",
-          "source": [
-            60,
-            58
+          "transition": [
+            "water",
+            "water",
+            "open",
+            "open"
           ],
-          "hamming_distance": 1
+          "source": [
+            52,
+            49
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            15,
+            20
+          ],
+          "functional_class": "open",
+          "topology_role": "corner",
+          "target_mask": "ec",
+          "transition": [
+            "water",
+            "water",
+            "open",
+            "open"
+          ],
+          "source": [
+            52,
+            50
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            15,
+            36
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_N",
+          "target_mask": "2e",
+          "transition": [
+            "water",
+            "open",
+            "open",
+            "open"
+          ],
+          "source": [
+            58,
+            54
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
             16,
-            13
+            10
           ],
-          "functional_class": "water",
-          "target_mask": "6e",
+          "functional_class": "open",
+          "topology_role": "straight_ew",
+          "target_mask": "0a",
+          "transition": [
+            "wall",
+            "open",
+            "water",
+            "open"
+          ],
           "source": [
-            73,
-            57
+            49,
+            37
           ],
-          "hamming_distance": 1
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
             16,
-            14
+            20
           ],
           "functional_class": "water",
-          "target_mask": "ff",
+          "topology_role": "corner",
+          "target_mask": "93",
+          "transition": [
+            "water",
+            "water",
+            "open",
+            "open"
+          ],
           "source": [
-            61,
-            58
+            58,
+            53
           ],
-          "hamming_distance": 3
-        },
-        {
-          "target": [
-            16,
-            15
-          ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 3
-        },
-        {
-          "target": [
-            16,
-            16
-          ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 3
-        },
-        {
-          "target": [
-            16,
-            17
-          ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 3
-        },
-        {
-          "target": [
-            16,
-            18
-          ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 3
-        },
-        {
-          "target": [
-            16,
-            19
-          ],
-          "functional_class": "water",
-          "target_mask": "9f",
-          "source": [
-            74,
-            58
-          ],
-          "hamming_distance": 2
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
@@ -337,549 +862,1498 @@
             21
           ],
           "functional_class": "open",
-          "target_mask": "fe",
-          "source": [
-            56,
-            3
+          "topology_role": "edge_toward_N",
+          "target_mask": "ee",
+          "transition": [
+            "water",
+            "open",
+            "open",
+            "open"
           ],
-          "hamming_distance": 1
+          "source": [
+            58,
+            54
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
             16,
-            34
+            36
+          ],
+          "functional_class": "open",
+          "topology_role": "corner",
+          "target_mask": "6c",
+          "transition": [
+            "water",
+            "water",
+            "open",
+            "open"
+          ],
+          "source": [
+            57,
+            52
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            17,
+            10
+          ],
+          "functional_class": "open",
+          "topology_role": "straight_ew",
+          "target_mask": "1a",
+          "transition": [
+            "wall",
+            "open",
+            "water",
+            "open"
+          ],
+          "source": [
+            89,
+            40
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            17,
+            35
           ],
           "functional_class": "water",
-          "target_mask": "32",
-          "source": [
-            59,
-            57
+          "topology_role": "interior",
+          "target_mask": "9f",
+          "transition": [
+            "water",
+            "water",
+            "water",
+            "water"
           ],
-          "hamming_distance": 1
+          "source": [
+            62,
+            53
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
-            16,
+            17,
+            36
+          ],
+          "functional_class": "water",
+          "topology_role": "endcap_N",
+          "target_mask": "91",
+          "transition": [
+            "water",
+            "open",
+            "open",
+            "open"
+          ],
+          "source": [
+            75,
+            58
+          ],
+          "distance": 3,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            17,
             37
           ],
           "functional_class": "open",
-          "target_mask": "af",
+          "topology_role": "edge_toward_N",
+          "target_mask": "fe",
+          "transition": [
+            "water",
+            "open",
+            "open",
+            "open"
+          ],
           "source": [
-            57,
-            57
-          ],
-          "hamming_distance": 1
-        },
-        {
-          "target": [
-            17,
-            13
-          ],
-          "functional_class": "water",
-          "target_mask": "6e",
-          "source": [
-            60,
-            57
-          ],
-          "hamming_distance": 1
-        },
-        {
-          "target": [
-            17,
-            14
-          ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
+            77,
             58
           ],
-          "hamming_distance": 3
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
-            17,
-            15
+            18,
+            10
           ],
-          "functional_class": "water",
-          "target_mask": "ff",
+          "functional_class": "open",
+          "topology_role": "edge_toward_S",
+          "target_mask": "3b",
+          "transition": [
+            "open",
+            "open",
+            "water",
+            "open"
+          ],
           "source": [
-            61,
-            58
+            66,
+            35
           ],
-          "hamming_distance": 3
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
-            17,
-            16
-          ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 3
-        },
-        {
-          "target": [
-            17,
-            17
-          ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 3
-        },
-        {
-          "target": [
-            17,
-            18
-          ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 3
-        },
-        {
-          "target": [
-            17,
-            19
-          ],
-          "functional_class": "water",
-          "target_mask": "fb",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 2
-        },
-        {
-          "target": [
-            17,
-            30
-          ],
-          "functional_class": "water",
-          "target_mask": "36",
-          "source": [
-            83,
-            44
-          ],
-          "hamming_distance": 1
-        },
-        {
-          "target": [
-            17,
-            31
-          ],
-          "functional_class": "water",
-          "target_mask": "37",
-          "source": [
-            62,
-            48
-          ],
-          "hamming_distance": 2
-        },
-        {
-          "target": [
-            17,
-            32
-          ],
-          "functional_class": "water",
-          "target_mask": "37",
-          "source": [
-            64,
-            31
-          ],
-          "hamming_distance": 2
-        },
-        {
-          "target": [
-            17,
-            33
-          ],
-          "functional_class": "water",
-          "target_mask": "77",
-          "source": [
-            73,
-            57
-          ],
-          "hamming_distance": 2
-        },
-        {
-          "target": [
-            17,
-            34
-          ],
-          "functional_class": "water",
-          "target_mask": "3f",
-          "source": [
-            73,
-            58
-          ],
-          "hamming_distance": 2
-        },
-        {
-          "target": [
-            17,
+            18,
             35
           ],
           "functional_class": "water",
-          "target_mask": "b7",
-          "source": [
-            60,
-            58
+          "topology_role": "edge_toward_S",
+          "target_mask": "fb",
+          "transition": [
+            "water",
+            "water",
+            "open",
+            "water"
           ],
-          "hamming_distance": 2
+          "source": [
+            61,
+            53
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
-            17,
+            18,
+            36
+          ],
+          "functional_class": "open",
+          "topology_role": "endcap_S",
+          "target_mask": "64",
+          "transition": [
+            "water",
+            "water",
+            "open",
+            "water"
+          ],
+          "source": [
+            76,
+            58
+          ],
+          "distance": 3,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            19,
+            35
+          ],
+          "functional_class": "water",
+          "topology_role": "interior",
+          "target_mask": "9f",
+          "transition": [
+            "water",
+            "water",
+            "water",
+            "water"
+          ],
+          "source": [
+            62,
+            53
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            19,
             36
           ],
           "functional_class": "water",
-          "target_mask": "13",
-          "source": [
-            60,
-            58
+          "topology_role": "endcap_N",
+          "target_mask": "91",
+          "transition": [
+            "water",
+            "open",
+            "open",
+            "open"
           ],
-          "hamming_distance": 1
+          "source": [
+            77,
+            57
+          ],
+          "distance": 3,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
-            17,
+            19,
+            37
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_N",
+          "target_mask": "fe",
+          "transition": [
+            "water",
+            "open",
+            "open",
+            "open"
+          ],
+          "source": [
+            77,
+            58
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            21,
+            11
+          ],
+          "functional_class": "water",
+          "topology_role": "corner",
+          "target_mask": "4c",
+          "transition": [
+            "open",
+            "open",
+            "water",
+            "water"
+          ],
+          "source": [
+            66,
+            36
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            22,
+            11
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_W",
+          "target_mask": "b7",
+          "transition": [
+            "open",
+            "open",
+            "open",
+            "water"
+          ],
+          "source": [
+            72,
+            30
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            22,
+            13
+          ],
+          "functional_class": "water",
+          "topology_role": "corner",
+          "target_mask": "cc",
+          "transition": [
+            "open",
+            "open",
+            "water",
+            "water"
+          ],
+          "source": [
+            63,
+            35
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            22,
+            18
+          ],
+          "functional_class": "water",
+          "topology_role": "corner",
+          "target_mask": "89",
+          "transition": [
+            "water",
+            "open",
+            "open",
+            "water"
+          ],
+          "source": [
+            83,
+            49
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            22,
+            41
+          ],
+          "functional_class": "open",
+          "topology_role": "endcap_N",
+          "target_mask": "91",
+          "transition": [
+            "open",
+            "wall",
+            "wall",
+            "wall"
+          ],
+          "source": [
+            44,
+            5
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            22,
+            42
+          ],
+          "functional_class": "wall",
+          "topology_role": "edge_toward_N",
+          "target_mask": "fe",
+          "transition": [
+            "open",
+            "wall",
+            "wall",
+            "wall"
+          ],
+          "source": [
+            25,
+            13
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            23,
+            13
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_W",
+          "target_mask": "b7",
+          "transition": [
+            "open",
+            "open",
+            "open",
+            "water"
+          ],
+          "source": [
+            72,
+            30
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            23,
+            15
+          ],
+          "functional_class": "water",
+          "topology_role": "corner",
+          "target_mask": "cc",
+          "transition": [
+            "open",
+            "open",
+            "water",
+            "water"
+          ],
+          "source": [
+            63,
+            35
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            23,
+            41
+          ],
+          "functional_class": "wall",
+          "topology_role": "endcap_S",
+          "target_mask": "64",
+          "transition": [
+            "open",
+            "open",
+            "wall",
+            "open"
+          ],
+          "source": [
+            44,
+            20
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            24,
+            6
+          ],
+          "functional_class": "wall",
+          "topology_role": "interior",
+          "target_mask": "9f",
+          "transition": [
+            "wall",
+            "wall",
+            "wall",
+            "wall"
+          ],
+          "source": [
+            20,
+            15
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            24,
+            7
+          ],
+          "functional_class": "wall",
+          "topology_role": "endcap_N",
+          "target_mask": "91",
+          "transition": [
+            "wall",
+            "open",
+            "open",
+            "open"
+          ],
+          "source": [
+            114,
+            28
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            24,
+            8
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_N",
+          "target_mask": "fe",
+          "transition": [
+            "wall",
+            "open",
+            "open",
+            "open"
+          ],
+          "source": [
+            32,
+            19
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            24,
+            15
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_W",
+          "target_mask": "b7",
+          "transition": [
+            "open",
+            "open",
+            "open",
+            "water"
+          ],
+          "source": [
+            72,
+            30
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            24,
+            32
+          ],
+          "functional_class": "water",
+          "topology_role": "corner",
+          "target_mask": "4c",
+          "transition": [
+            "open",
+            "open",
+            "water",
+            "water"
+          ],
+          "source": [
+            66,
+            36
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            25,
+            32
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_W",
+          "target_mask": "b7",
+          "transition": [
+            "open",
+            "open",
+            "open",
+            "water"
+          ],
+          "source": [
+            72,
+            30
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            26,
+            42
+          ],
+          "functional_class": "open",
+          "topology_role": "endcap_N",
+          "target_mask": "91",
+          "transition": [
+            "open",
+            "wall",
+            "wall",
+            "wall"
+          ],
+          "source": [
+            44,
+            5
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            26,
+            43
+          ],
+          "functional_class": "wall",
+          "topology_role": "edge_toward_N",
+          "target_mask": "fe",
+          "transition": [
+            "open",
+            "wall",
+            "wall",
+            "wall"
+          ],
+          "source": [
+            25,
+            13
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            27,
+            42
+          ],
+          "functional_class": "wall",
+          "topology_role": "endcap_S",
+          "target_mask": "44",
+          "transition": [
+            "open",
+            "open",
+            "wall",
+            "open"
+          ],
+          "source": [
+            99,
+            70
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            28,
+            47
+          ],
+          "functional_class": "wall",
+          "topology_role": "edge_toward_S",
+          "target_mask": "8b",
+          "transition": [
+            "wall",
+            "wall",
+            "outside",
+            "wall"
+          ],
+          "source": [
+            12,
+            95
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            29,
+            6
+          ],
+          "functional_class": "wall",
+          "topology_role": "endcap_N",
+          "target_mask": "81",
+          "transition": [
+            "wall",
+            "open",
+            "open",
+            "open"
+          ],
+          "source": [
+            33,
+            18
+          ],
+          "distance": 3,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            29,
+            7
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_N",
+          "target_mask": "fe",
+          "transition": [
+            "wall",
+            "open",
+            "open",
+            "open"
+          ],
+          "source": [
+            32,
+            19
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            29,
+            47
+          ],
+          "functional_class": "wall",
+          "topology_role": "straight_ew",
+          "target_mask": "8a",
+          "transition": [
+            "open",
+            "wall",
+            "outside",
+            "wall"
+          ],
+          "source": [
+            37,
+            95
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            32,
+            0
+          ],
+          "functional_class": "wall",
+          "topology_role": "straight_ew",
+          "target_mask": "6a",
+          "transition": [
+            "outside",
+            "wall",
+            "open",
+            "wall"
+          ],
+          "source": [
+            44,
+            0
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            33,
+            45
+          ],
+          "functional_class": "open",
+          "topology_role": "interior",
+          "target_mask": "cf",
+          "transition": [
+            "open",
+            "open",
+            "open",
+            "open"
+          ],
+          "source": [
+            58,
+            58
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            33,
+            47
+          ],
+          "functional_class": "wall",
+          "topology_role": "straight_ew",
+          "target_mask": "1a",
+          "transition": [
+            "open",
+            "wall",
+            "outside",
+            "wall"
+          ],
+          "source": [
+            37,
+            95
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            34,
+            45
+          ],
+          "functional_class": "open",
+          "topology_role": "endcap_W",
+          "target_mask": "c8",
+          "transition": [
+            "wall",
+            "wall",
+            "wall",
+            "open"
+          ],
+          "source": [
+            80,
+            80
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            34,
+            47
+          ],
+          "functional_class": "wall",
+          "topology_role": "edge_toward_S",
+          "target_mask": "1b",
+          "transition": [
+            "wall",
+            "wall",
+            "outside",
+            "wall"
+          ],
+          "source": [
+            12,
+            95
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            36,
+            5
+          ],
+          "functional_class": "wall",
+          "topology_role": "interior",
+          "target_mask": "9f",
+          "transition": [
+            "wall",
+            "wall",
+            "wall",
+            "wall"
+          ],
+          "source": [
+            44,
+            9
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            36,
+            6
+          ],
+          "functional_class": "wall",
+          "topology_role": "endcap_N",
+          "target_mask": "91",
+          "transition": [
+            "wall",
+            "open",
+            "open",
+            "open"
+          ],
+          "source": [
+            114,
+            28
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            36,
+            7
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_N",
+          "target_mask": "fe",
+          "transition": [
+            "wall",
+            "open",
+            "open",
+            "open"
+          ],
+          "source": [
+            48,
+            13
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            36,
+            42
+          ],
+          "functional_class": "wall",
+          "topology_role": "endcap_S",
+          "target_mask": "64",
+          "transition": [
+            "open",
+            "open",
+            "wall",
+            "open"
+          ],
+          "source": [
+            44,
+            20
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            37,
+            42
+          ],
+          "functional_class": "open",
+          "topology_role": "endcap_N",
+          "target_mask": "91",
+          "transition": [
+            "open",
+            "wall",
+            "wall",
+            "wall"
+          ],
+          "source": [
+            44,
+            5
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            37,
+            43
+          ],
+          "functional_class": "wall",
+          "topology_role": "edge_toward_N",
+          "target_mask": "fe",
+          "transition": [
+            "open",
+            "wall",
+            "wall",
+            "wall"
+          ],
+          "source": [
+            25,
+            13
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            41,
+            18
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_E",
+          "target_mask": "dd",
+          "transition": [
+            "open",
+            "water",
+            "open",
+            "open"
+          ],
+          "source": [
+            50,
+            41
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            42,
+            16
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_E",
+          "target_mask": "dd",
+          "transition": [
+            "open",
+            "water",
+            "open",
+            "open"
+          ],
+          "source": [
+            50,
+            41
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            43,
+            16
+          ],
+          "functional_class": "water",
+          "topology_role": "corner",
+          "target_mask": "26",
+          "transition": [
+            "open",
+            "water",
+            "water",
+            "open"
+          ],
+          "source": [
+            68,
+            36
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            43,
+            22
+          ],
+          "functional_class": "open",
+          "topology_role": "corner",
+          "target_mask": "ec",
+          "transition": [
+            "water",
+            "water",
+            "open",
+            "open"
+          ],
+          "source": [
+            51,
+            47
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            44,
+            22
+          ],
+          "functional_class": "water",
+          "topology_role": "corner",
+          "target_mask": "93",
+          "transition": [
+            "water",
+            "water",
+            "open",
+            "open"
+          ],
+          "source": [
+            58,
+            53
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            44,
+            23
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_N",
+          "target_mask": "ee",
+          "transition": [
+            "water",
+            "open",
+            "open",
+            "open"
+          ],
+          "source": [
+            58,
+            54
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            46,
             39
           ],
           "functional_class": "open",
-          "target_mask": "91",
-          "source": [
-            39,
-            95
+          "topology_role": "edge_toward_E",
+          "target_mask": "9d",
+          "transition": [
+            "open",
+            "wall",
+            "open",
+            "open"
           ],
-          "hamming_distance": 1
+          "source": [
+            80,
+            66
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
-            17,
+            46,
             40
           ],
-          "functional_class": "wall",
-          "target_mask": "fe",
-          "source": [
-            44,
-            6
+          "functional_class": "open",
+          "topology_role": "endcap_N",
+          "target_mask": "81",
+          "transition": [
+            "open",
+            "wall",
+            "wall",
+            "wall"
           ],
-          "hamming_distance": 1
-        },
-        {
-          "target": [
-            18,
-            13
-          ],
-          "functional_class": "water",
-          "target_mask": "6e",
           "source": [
-            74,
+            107,
             57
           ],
-          "hamming_distance": 1
+          "distance": 3,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
-            18,
-            14
+            46,
+            41
           ],
-          "functional_class": "water",
-          "target_mask": "ff",
+          "functional_class": "wall",
+          "topology_role": "edge_toward_N",
+          "target_mask": "fe",
+          "transition": [
+            "open",
+            "wall",
+            "wall",
+            "wall"
+          ],
           "source": [
-            61,
+            107,
             58
           ],
-          "hamming_distance": 3
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
-            18,
+            48,
             15
           ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 3
-        },
-        {
-          "target": [
-            18,
-            16
-          ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 3
-        },
-        {
-          "target": [
-            18,
-            17
-          ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 3
-        },
-        {
-          "target": [
-            18,
-            18
-          ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 3
-        },
-        {
-          "target": [
-            18,
-            19
-          ],
-          "functional_class": "water",
-          "target_mask": "9f",
-          "source": [
-            60,
-            58
-          ],
-          "hamming_distance": 2
-        },
-        {
-          "target": [
-            18,
-            21
-          ],
           "functional_class": "open",
-          "target_mask": "fe",
+          "topology_role": "corner",
+          "target_mask": "b3",
+          "transition": [
+            "open",
+            "open",
+            "water",
+            "water"
+          ],
           "source": [
-            34,
-            94
-          ],
-          "hamming_distance": 1
-        },
-        {
-          "target": [
-            18,
-            29
-          ],
-          "functional_class": "water",
-          "target_mask": "76",
-          "source": [
-            73,
-            57
-          ],
-          "hamming_distance": 1
-        },
-        {
-          "target": [
-            18,
-            30
-          ],
-          "functional_class": "water",
-          "target_mask": "7f",
-          "source": [
-            75,
-            57
-          ],
-          "hamming_distance": 3
-        },
-        {
-          "target": [
-            18,
-            31
-          ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 3
-        },
-        {
-          "target": [
-            18,
-            32
-          ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 3
-        },
-        {
-          "target": [
-            18,
-            33
-          ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 3
-        },
-        {
-          "target": [
-            18,
-            34
-          ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 3
-        },
-        {
-          "target": [
-            18,
+            64,
             35
           ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 3
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
-            18,
-            36
-          ],
-          "functional_class": "water",
-          "target_mask": "bb",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 1
-        },
-        {
-          "target": [
-            18,
-            38
-          ],
-          "functional_class": "open",
-          "target_mask": "eb",
-          "source": [
-            61,
-            85
-          ],
-          "hamming_distance": 1
-        },
-        {
-          "target": [
-            19,
-            14
-          ],
-          "functional_class": "water",
-          "target_mask": "ef",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 2
-        },
-        {
-          "target": [
-            19,
-            15
-          ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
-          ],
-          "hamming_distance": 3
-        },
-        {
-          "target": [
-            19,
+            49,
             16
           ],
-          "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
+          "functional_class": "open",
+          "topology_role": "corner",
+          "target_mask": "b3",
+          "transition": [
+            "open",
+            "open",
+            "water",
+            "water"
           ],
-          "hamming_distance": 3
+          "source": [
+            64,
+            35
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
-            19,
+            49,
             17
           ],
           "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
+          "topology_role": "corner",
+          "target_mask": "cc",
+          "transition": [
+            "open",
+            "open",
+            "water",
+            "water"
           ],
-          "hamming_distance": 3
+          "source": [
+            63,
+            35
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
-            19,
-            18
+            49,
+            20
           ],
           "functional_class": "water",
-          "target_mask": "ff",
-          "source": [
-            61,
-            58
+          "topology_role": "interior",
+          "target_mask": "cf",
+          "transition": [
+            "water",
+            "water",
+            "water",
+            "water"
           ],
-          "hamming_distance": 3
+          "source": [
+            63,
+            36
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
         },
         {
           "target": [
-            19,
-            19
+            50,
+            17
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_W",
+          "target_mask": "b7",
+          "transition": [
+            "open",
+            "open",
+            "open",
+            "water"
+          ],
+          "source": [
+            72,
+            30
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            50,
+            20
           ],
           "functional_class": "water",
-          "target_mask": "db",
-          "source": [
-            74,
-            58
+          "topology_role": "endcap_W",
+          "target_mask": "c8",
+          "transition": [
+            "open",
+            "open",
+            "open",
+            "water"
           ],
-          "hamming_distance": 2
+          "source": [
+            84,
+            46
+          ],
+          "distance": 3,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            51,
+            20
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_W",
+          "target_mask": "f7",
+          "transition": [
+            "open",
+            "open",
+            "open",
+            "water"
+          ],
+          "source": [
+            84,
+            49
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            52,
+            13
+          ],
+          "functional_class": "open",
+          "topology_role": "edge_toward_E",
+          "target_mask": "fd",
+          "transition": [
+            "open",
+            "wall",
+            "open",
+            "open"
+          ],
+          "source": [
+            42,
+            9
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            53,
+            12
+          ],
+          "functional_class": "open",
+          "topology_role": "endcap_W",
+          "target_mask": "48",
+          "transition": [
+            "wall",
+            "wall",
+            "wall",
+            "open"
+          ],
+          "source": [
+            43,
+            6
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            53,
+            13
+          ],
+          "functional_class": "wall",
+          "topology_role": "endcap_E",
+          "target_mask": "12",
+          "transition": [
+            "open",
+            "wall",
+            "open",
+            "open"
+          ],
+          "source": [
+            97,
+            72
+          ],
+          "distance": 1,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            63,
+            0
+          ],
+          "functional_class": "wall",
+          "topology_role": "corner",
+          "target_mask": "4c",
+          "transition": [
+            "outside",
+            "outside",
+            "wall",
+            "wall"
+          ],
+          "source": [
+            29,
+            0
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
+        },
+        {
+          "target": [
+            63,
+            47
+          ],
+          "functional_class": "wall",
+          "topology_role": "corner",
+          "target_mask": "89",
+          "transition": [
+            "wall",
+            "outside",
+            "outside",
+            "wall"
+          ],
+          "source": [
+            115,
+            73
+          ],
+          "distance": 2,
+          "rule": "nearest_same_functional_class_local_adjacency"
         }
       ]
     },
-    "neighbor_mask": "8-neighbor_same-functional-class"
+    "neighbor_mask": "8-neighbor_same-class_plus-4-neighbor-transition-signature_plus-source-local-adjacency",
+    "orientation_policy": "native_variants_only_no_flip_no_rotation"
+  },
+  "decoration": {
+    "available_native_motifs": 11,
+    "groups": [
+      {
+        "group_id": "DG01",
+        "motif_id": "poisonous_forest_entrance:Objects Under:18:9",
+        "signature": "053f915952b8",
+        "layer": "Objects Under",
+        "origin": [
+          6,
+          24
+        ],
+        "cell_count": 12,
+        "transformed": false,
+        "purpose": "mass_edge_accent",
+        "reason": "motif multicellule natif placé sans rotation et hors route critique"
+      },
+      {
+        "group_id": "DG02",
+        "motif_id": "poisonous_forest_entrance:Objects:10:34",
+        "signature": "30c6172490cc",
+        "layer": "Objects",
+        "origin": [
+          22,
+          32
+        ],
+        "cell_count": 9,
+        "transformed": false,
+        "purpose": "mass_edge_accent",
+        "reason": "motif multicellule natif placé sans rotation et hors route critique"
+      },
+      {
+        "group_id": "DG03",
+        "motif_id": "poisonous_forest_entrance:Objects Under:10:0",
+        "signature": "42db4f5ae9c4",
+        "layer": "Objects Under",
+        "origin": [
+          42,
+          7
+        ],
+        "cell_count": 10,
+        "transformed": false,
+        "purpose": "mass_edge_accent",
+        "reason": "motif multicellule natif placé sans rotation et hors route critique"
+      },
+      {
+        "group_id": "DG04",
+        "motif_id": "poisonous_forest_entrance:Objects Under:27:12",
+        "signature": "6d8d55c4ce3a",
+        "layer": "Objects Under",
+        "origin": [
+          53,
+          14
+        ],
+        "cell_count": 6,
+        "transformed": false,
+        "purpose": "mass_edge_accent",
+        "reason": "motif multicellule natif placé sans rotation et hors route critique"
+      },
+      {
+        "group_id": "DG05",
+        "motif_id": "poisonous_forest_entrance:Objects Under:19:1",
+        "signature": "b1bd349e0523",
+        "layer": "Objects Under",
+        "origin": [
+          40,
+          7
+        ],
+        "cell_count": 2,
+        "transformed": false,
+        "purpose": "mass_edge_accent",
+        "reason": "motif multicellule natif placé sans rotation et hors route critique"
+      },
+      {
+        "group_id": "DG06",
+        "motif_id": "poisonous_forest_entrance:Objects:1:15",
+        "signature": "c436b2f14051",
+        "layer": "Objects",
+        "origin": [
+          43,
+          18
+        ],
+        "cell_count": 6,
+        "transformed": false,
+        "purpose": "mass_edge_accent",
+        "reason": "motif multicellule natif placé sans rotation et hors route critique"
+      },
+      {
+        "group_id": "DG07",
+        "motif_id": "poisonous_forest_entrance:Objects:5:39",
+        "signature": "fe6f894bf0b5",
+        "layer": "Objects",
+        "origin": [
+          17,
+          19
+        ],
+        "cell_count": 3,
+        "transformed": false,
+        "purpose": "mass_edge_accent",
+        "reason": "motif multicellule natif placé sans rotation et hors route critique"
+      }
+    ],
+    "hierarchy": [
+      "macro_mass",
+      "native_multicell_cluster",
+      "micro_detail"
+    ]
   },
   "layers": {
     "kept": [
@@ -892,35 +2366,44 @@
       "Objects Over",
       "Fringe"
     ],
-    "excluded": [
-      {
-        "name": "Objects Under",
-        "reason": "unsafe_multicell_decoration_not_fragmented"
-      },
-      {
-        "name": "Objects",
-        "reason": "unsafe_multicell_decoration_not_fragmented"
-      },
-      {
-        "name": "Objects Over",
-        "reason": "unsafe_multicell_decoration_not_fragmented"
-      },
-      {
-        "name": "Fringe",
-        "reason": "unsafe_multicell_decoration_not_fragmented"
-      }
-    ]
+    "excluded": []
   },
-  "asset_policy": "only serialized source cells; native frames and orientation preserved; no arbitrary flip",
+  "asset_policy": "existing serialized PMDO cells and compatible native motifs only",
+  "quality_scores": {
+    "technical_validity": 100,
+    "structural": 100,
+    "artistic": 93.106,
+    "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
+  },
   "validation": {
     "result": "GROUND_VALIDATION_PASS",
     "errors": [],
-    "navigation_reachable_cells": 1427,
+    "warnings": [],
+    "geometry": {
+      "reachable_ratio": 1.0,
+      "shortest_path_length": 44,
+      "path_directness": 0.9773,
+      "boss_distance": null,
+      "path_width_mean": 7.8636,
+      "path_width_variation": 2.3509,
+      "choke_points": 0,
+      "junctions": 44,
+      "dead_end_count": 15,
+      "circulation_loop_density": 0.8767,
+      "direct_line_of_sight_clear": true,
+      "open_ratio": 0.4463,
+      "functional_region_count": 4,
+      "primary_path_protected": true
+    },
+    "navigation_reachable_cells": 1371,
     "water_component_count": 3,
-    "referenced_sheet_count": 4,
-    "animation_cell_count": 3550,
-    "topology_exact_ratio": 0.9349,
-    "topology_fallback_ratio": 0.0651,
+    "referenced_sheet_count": 9,
+    "animation_cell_count": 240,
+    "water_animation_coverage": 1.0,
+    "topology_exact_ratio": 0.9688,
+    "topology_fallback_ratio": 0.0312,
+    "decoration_group_count": 7,
+    "decoration_motif_diversity": 1.0,
     "viewport_policy": "local_follow_camera_no_forced_zoom",
     "size_cells": [
       64,
@@ -931,45 +2414,159 @@
       384
     ]
   },
-  "score": 1173.848,
+  "score": 1263.76,
   "decisions": [
     {
-      "stage": "macro",
-      "why": "clairière ouverte avant sélection des tiles"
+      "stage": "reference_search",
+      "why": "all indexed Grounds filtered by function, alignment, visuals and confidence"
     },
     {
-      "stage": "water",
-      "why": "trois régions logiques et contours calculés avant rendu"
+      "stage": "macro_geometry",
+      "why": "regions, routes and masses precede tile selection"
     },
     {
-      "stage": "tile_resolution",
-      "why": "cellule source choisie par classe et masque de voisinage"
+      "stage": "local_geometry",
+      "why": "class, 8-neighbor mask and transition signature resolve each native cell"
+    },
+    {
+      "stage": "decoration",
+      "why": "native multicell motifs, no transform, route-critical exclusion"
+    },
+    {
+      "stage": "repair",
+      "why": "single-cell spikes and disconnected anchors corrected before render"
     },
     {
       "stage": "viewport",
-      "why": "caméra locale suiveuse; aucun dézoom global"
+      "why": "camera follows locally; no global zoom override"
     }
   ],
   "candidate_comparison": [
     {
       "variant": 0,
-      "score": 1165.539,
-      "validation": "GROUND_VALIDATION_PASS"
+      "score": 1263.48,
+      "quality_scores": {
+        "technical_validity": 100,
+        "structural": 100,
+        "artistic": 93.043,
+        "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
+      },
+      "validation": "GROUND_VALIDATION_PASS",
+      "geometry": {
+        "reachable_ratio": 1.0,
+        "shortest_path_length": 44,
+        "path_directness": 0.9773,
+        "boss_distance": null,
+        "path_width_mean": 7.8636,
+        "path_width_variation": 2.3509,
+        "choke_points": 0,
+        "junctions": 44,
+        "dead_end_count": 13,
+        "circulation_loop_density": 0.8837,
+        "direct_line_of_sight_clear": true,
+        "open_ratio": 0.4561,
+        "functional_region_count": 4,
+        "primary_path_protected": true
+      },
+      "warnings": []
     },
     {
       "variant": 1,
-      "score": 1167.784,
-      "validation": "GROUND_VALIDATION_PASS"
+      "score": 1263.76,
+      "quality_scores": {
+        "technical_validity": 100,
+        "structural": 100,
+        "artistic": 93.106,
+        "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
+      },
+      "validation": "GROUND_VALIDATION_PASS",
+      "geometry": {
+        "reachable_ratio": 1.0,
+        "shortest_path_length": 44,
+        "path_directness": 0.9773,
+        "boss_distance": null,
+        "path_width_mean": 7.8636,
+        "path_width_variation": 2.3509,
+        "choke_points": 0,
+        "junctions": 44,
+        "dead_end_count": 15,
+        "circulation_loop_density": 0.8767,
+        "direct_line_of_sight_clear": true,
+        "open_ratio": 0.4463,
+        "functional_region_count": 4,
+        "primary_path_protected": true
+      },
+      "warnings": []
     },
     {
       "variant": 2,
-      "score": 1167.407,
-      "validation": "GROUND_VALIDATION_PASS"
+      "score": 1263.56,
+      "quality_scores": {
+        "technical_validity": 100,
+        "structural": 100,
+        "artistic": 93.061,
+        "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
+      },
+      "validation": "GROUND_VALIDATION_PASS",
+      "geometry": {
+        "reachable_ratio": 1.0,
+        "shortest_path_length": 44,
+        "path_directness": 0.9773,
+        "boss_distance": null,
+        "path_width_mean": 7.9545,
+        "path_width_variation": 2.1527,
+        "choke_points": 0,
+        "junctions": 44,
+        "dead_end_count": 17,
+        "circulation_loop_density": 0.8779,
+        "direct_line_of_sight_clear": true,
+        "open_ratio": 0.4531,
+        "functional_region_count": 4,
+        "primary_path_protected": true
+      },
+      "warnings": []
     },
     {
       "variant": 3,
-      "score": 1173.848,
-      "validation": "GROUND_VALIDATION_PASS"
+      "score": 1263.22,
+      "quality_scores": {
+        "technical_validity": 100,
+        "structural": 100,
+        "artistic": 92.985,
+        "selection_policy": "validity_then_balanced_minimum_then_combined_quality_not_scalar_only"
+      },
+      "validation": "GROUND_VALIDATION_PASS",
+      "geometry": {
+        "reachable_ratio": 1.0,
+        "shortest_path_length": 44,
+        "path_directness": 0.9773,
+        "boss_distance": null,
+        "path_width_mean": 8,
+        "path_width_variation": 2.1106,
+        "choke_points": 0,
+        "junctions": 44,
+        "dead_end_count": 11,
+        "circulation_loop_density": 0.8763,
+        "direct_line_of_sight_clear": true,
+        "open_ratio": 0.4368,
+        "functional_region_count": 4,
+        "primary_path_protected": true
+      },
+      "warnings": []
     }
-  ]
+  ],
+  "controller": {
+    "file": "clairiere_aux_trois_lacs.init.lua",
+    "status": "routed",
+    "destination": {
+      "ground": "altere_pond",
+      "marker": "Main_Entrance_Marker"
+    },
+    "callbacks": [
+      "Init",
+      "Enter",
+      "Update",
+      "North_Exit_Touch"
+    ]
+  }
 }

@@ -64841,9 +64841,12 @@
     }
   },
   "reference_knowledge": {
-    "schema_version": "1.2.0",
+    "schema_version": "1.4.0",
     "zone_count": 57,
-    "ground_count": 96,
+    "ground_count": 262,
+    "map_template_count": 95,
+    "autotile_count": 8,
+    "controller_count": 216,
     "shop_reference_zones": [
       "bassin_tari",
       "carriere_cuivre",

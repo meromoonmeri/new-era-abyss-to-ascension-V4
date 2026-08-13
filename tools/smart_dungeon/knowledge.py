@@ -3,6 +3,7 @@
 from __future__ import annotations
 import hashlib
 import json
+import re
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
@@ -230,6 +231,31 @@ def _autotile_profile(path: Path):
     }
 
 
+def _external_library_summary(repo):
+    result = []
+    games_root = repo / "external/BIBLIOTHEQUE_WORKSPACE/games"
+    if games_root.exists():
+        for game in sorted(path for path in games_root.iterdir() if path.is_dir()):
+            counts = Counter()
+            for path in game.rglob("*"):
+                if path.is_file():
+                    category = path.relative_to(game).parts[0] if len(path.relative_to(game).parts) > 1 else "root"
+                    counts[category] += 1
+            result.append({
+                "library": game.name, "scope": "environment_only",
+                "file_count": sum(counts.values()), "categories": dict(sorted(counts.items())),
+                "root": f"external/BIBLIOTHEQUE_WORKSPACE/games/{game.name}",
+                "policy": "metadata_and_materialized_environment_assets_only_no_cast_no_audio_engine",
+            })
+    result.append({
+        "library": "PMDODump_and_DungeonPack_imports",
+        "scope": "already_imported_project_references",
+        "root": "Data + docs/INVENTAIRE_PMDODUMP_ET_DUNGEON_PACK.md",
+        "policy": "reuse_imported_native_models_before_new_implementation",
+    })
+    return result
+
+
 def analyze_references(repo: Path, output: Path | None = None, max_zones: int = 0, max_grounds: int = 96):
     repo = repo.resolve()
     zone_paths = sorted((repo / "Data/Zone").glob("*.json"))[:max_zones or None]
@@ -266,14 +292,22 @@ def analyze_references(repo: Path, output: Path | None = None, max_zones: int = 
             autotiles.append(_autotile_profile(path))
         except Exception as exception:
             errors.append({"file": f"Data/AutoTile/{path.name}", "error": str(exception)})
+    controller_paths = sorted((repo / "Data/Script/halcyon/ground").glob("*/init.lua")) + sorted((repo / "Data/Script/halcyon/zone").glob("*/init.lua"))
+    controllers = [{
+        "scope": "ground" if "/ground/" in path.as_posix() else "zone",
+        "owner_id": path.parent.name,
+        "source_file": path.relative_to(repo).as_posix(),
+        "callbacks": sorted(set(re.findall(r"function\s+[A-Za-z0-9_]+\.([A-Za-z0-9_]+)\s*\(", path.read_text(encoding="utf-8-sig", errors="ignore")))),
+    } for path in controller_paths]
     payload = {
-        "schema_version": "1.2.0",
+        "schema_version": "1.4.0",
         "result": "REFERENCE_KNOWLEDGE_PASS" if not errors else "REFERENCE_KNOWLEDGE_PARTIAL",
-        "zone_count": len(zones), "ground_count": len(grounds), "map_template_count": len(maps), "autotile_count": len(autotiles),
+        "zone_count": len(zones), "ground_count": len(grounds), "map_template_count": len(maps), "autotile_count": len(autotiles), "controller_count": len(controllers),
         "shop_reference_zones": [row["zone_id"] for row in zones if row["shops"]],
         "neutral_reference_zones": [row["zone_id"] for row in zones if row["neutral_encounters"]],
         "boss_reference_grounds": sorted({ground for row in zones for ground in row["mapped_boss_grounds"]}),
-        "zones": zones, "grounds": grounds, "map_templates": maps, "autotiles": autotiles, "errors": errors,
+        "zones": zones, "grounds": grounds, "map_templates": maps, "autotiles": autotiles, "controllers": controllers,
+        "external_libraries": _external_library_summary(repo), "errors": errors,
         "principles": {
             "implementation_source_of_truth": "repository_pmdo_data",
             "external_docs_role": "data_shape_only",

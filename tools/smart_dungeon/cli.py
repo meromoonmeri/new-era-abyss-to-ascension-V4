@@ -40,7 +40,7 @@ def parser():
     references = commands.add_parser("analyze-references", help="Indexe zones, Grounds, shops, PNJ, boss et grammaires de tiles")
     references.add_argument("--output", type=Path, required=True)
     references.add_argument("--max-zones", type=int, default=0)
-    references.add_argument("--max-grounds", type=int, default=96)
+    references.add_argument("--max-grounds", type=int, default=0, help="0 = tous les Grounds du dépôt")
     ground = commands.add_parser("generate-ground", help="Compose un Ground par géométrie abstraite et grammaire de tiles")
     ground.add_argument("--output-dir", type=Path, required=True)
     ground.add_argument("--id", required=True)
@@ -50,6 +50,8 @@ def parser():
     ground.add_argument("--reference-ground")
     ground.add_argument("--width", type=int, default=64)
     ground.add_argument("--height", type=int, default=48)
+    ground.add_argument("--exit-ground", help="Ground destination explicite du controller")
+    ground.add_argument("--exit-marker", default="Main_Entrance_Marker")
     regen = commands.add_parser("regenerate", help="Régénère tout ou seulement une partie")
     regen.add_argument("--project", type=Path, required=True)
     regen.add_argument("--scope", default="all", help="all, floor:N, room:N:M ou decor:N")
@@ -90,10 +92,10 @@ def main(argv=None):
         summary = {key: result[key] for key in ("result", "asset_count", "ground_sheet_count", "dungeon_texture_bundle_count", "cluster_count", "ambiguous_asset_count")}
     elif args.command == "analyze-references":
         result = analyze_references(repo, args.output, args.max_zones, args.max_grounds)
-        summary = {key: result[key] for key in ("result", "zone_count", "ground_count", "map_template_count", "autotile_count", "shop_reference_zones", "neutral_reference_zones", "boss_reference_grounds")}
+        summary = {key: result[key] for key in ("result", "zone_count", "ground_count", "map_template_count", "autotile_count", "controller_count", "shop_reference_zones", "neutral_reference_zones", "boss_reference_grounds")}
     elif args.command == "generate-ground":
-        result = generate_ground(repo, args.output_dir, args.id, args.intent, args.seed, args.variants, args.reference_ground, args.width, args.height)
-        summary = {"result": result["validation"]["result"], "ground": result["ground_file"], "metadata": result["metadata_file"], "preview": result["preview_file"], "score": result["score"], "validation": result["validation"]}
+        result = generate_ground(repo, args.output_dir, args.id, args.intent, args.seed, args.variants, args.reference_ground, args.width, args.height, None, args.exit_ground, args.exit_marker)
+        summary = {"result": result["validation"]["result"], "ground": result["ground_file"], "metadata": result["metadata_file"], "preview": result["preview_file"], "png": result["png_file"], "controller": result["controller_file"], "concept": result["concept"], "references": result["reference_selection"], "score": result["score"], "validation": result["validation"]}
     elif args.command == "create":
         result = generate_project(repo, args.project, args.name, args.intent, args.floors, args.difficulty, args.boss, args.mini_bosses, args.relays, args.seed, args.reference_zone, args.variants, args.max_assets, args.boss_species, args.boss_category, args.narrative_prompt)
         summary = {

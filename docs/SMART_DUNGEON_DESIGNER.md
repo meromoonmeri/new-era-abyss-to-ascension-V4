@@ -252,20 +252,35 @@ python3 tools/smart_dungeon.py generate-ground \
   --output-dir WORK/clairiere \
   --id clairiere_aux_trois_lacs \
   --intent "Une clairière forestière avec trois petits lacs" \
-  --seed 20260813 --variants 4
+  --seed 20260813 --variants 4 \
+  --exit-ground altere_pond
 ```
 
-Le générateur livré sépare géométrie et rendu : masse périphérique, clairière,
-chemin, lacs et navigation sont construits avant les tiles. Il apprend ensuite
-une grammaire de cellules depuis un Ground compatible : classe fonctionnelle,
-collision et masque de huit voisins. Chaque cellule source conserve ses sheets,
-frames, timing et orientation native ; aucune rotation arbitraire n'est faite.
+Le générateur sépare géométrie et rendu. Il supporte clairières à lacs,
+cavernes, canyons sinueux, cours anciennes, exploration organique et arènes. Les
+régions, chemins, masses, eau, piliers et anchors sont construits avant les
+tiles.
 
-Les couches décoratives multicellules qui ne peuvent pas être fragmentées sans
-preuve sont laissées vides et signalées, plutôt que coupées. La validation couvre
-navigation, nombre de régions d'eau, dimensions, entités, références de sheets,
-animations, raccords exacts/fallbacks et caméra locale sans dézoom forcé.
+La référence structurelle est choisie automatiquement dans l'index complet par
+fonction, alignement, richesse topologique, proportions et métriques visuelles
+réelles des `.tile`. Une seconde bibliothèque décorative n'est admise qu'après
+preuve de compatibilité graphique, dimensionnelle et sémantique. Metano n'est
+jamais transformé en skin global implicite.
 
+La grammaire combine classe fonctionnelle, masque de huit voisins, transition
+N/E/S/O et rôle nommé : intérieur, bord orienté, coin, ligne ou extrémité. Chaque
+cellule source conserve sheets, frames, timing et orientation native.
+
+Les décorations sont réutilisées sous forme de motifs multicellules complets,
+sans rotation ni découpe, groupés hors des routes critiques. Les réparations
+locales ferment les vides inaccessibles, reconnectent les anchors et suppriment
+les pics avant le rendu.
+
+La validation couvre navigation intégrale, path width, étranglements, carrefours,
+eau et animation, dimensions, collisions, layers, frames, sheets, entités,
+raccords/fallbacks localisés, motifs, viewport et distance de boss.
+
+Documentation : `docs/SMART_GROUND_GENERATOR.md`.
 Exemple : `docs/smart_dungeon/example_ground_clairiere/`.
 
 ## Landmarks, régions et composition décorative
