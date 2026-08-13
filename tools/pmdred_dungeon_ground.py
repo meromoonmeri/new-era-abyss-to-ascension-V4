@@ -654,10 +654,198 @@ def parse_french_dungeon_names(rom: bytes) -> list[dict[str, Any]]:
     return records
 
 
+FLOOR_PROPERTY_FIELDS = (
+    "layout",
+    "room_density",
+    "tileset",
+    "music",
+    "weather",
+    "floor_connectivity",
+    "enemy_density",
+    "kecleon_shop_chance",
+    "monster_house_chance",
+    "maze_room_chance",
+    "item_sticky_chance",
+    "allow_dead_ends",
+    "secondary_structures_budget",
+    "room_flags",
+    "unused_flag",
+    "item_density",
+    "trap_density",
+    "floor_number",
+    "fixed_room_number",
+    "extra_hallways",
+    "buried_item_density",
+    "standalone_lake_density",
+    "visibility_range",
+    "money_upper_bound",
+    "kecleon_shop_layout",
+    "itemless_monster_house_chance",
+    "unused_1a",
+    "unused_1b",
+)
+ITEM_CATEGORY_COUNT = 12
+ITEM_ID_COUNT = 240
+ITEM_TABLE_VALUE_COUNT = ITEM_CATEGORY_COUNT + ITEM_ID_COUNT
+ITEM_TABLE_SKIP_BASE = 30_000
+MAPPARAM_TRAP_COUNT = 20
+MAPPARAM_MONSTER_RECORD_SIZE = 8
+
+
+def _parse_mapparam_pointer_table(
+    archive: DungeonArchive, address: int, count: int, purpose: str
+) -> tuple[PhysicalSpan, list[int]]:
+    span = archive.rom.resolve(address, count * 4, purpose, alignment=4)
+    values = list(struct.unpack_from(f"<{count}I", archive.rom.data, span.offset))
+    for index, pointer in enumerate(values):
+        archive.rom.resolve(pointer, 1, f"{purpose} entry {index}", alignment=2)
+    return span, values
+
+
+def _parse_item_spawn_record(
+    archive: DungeonArchive, pointer: int, index: int
+) -> dict[str, Any]:
+    """Expand one mapparam run-length encoded item table.
+
+    The runtime expands each value at or above 30000 into that many zeroes and
+    otherwise copies one cumulative probability.  The result is exactly twelve
+    category values followed by all 240 Red Rescue Team item IDs.
+    """
+
+    start = archive.rom.resolve(
+        pointer, 2, f"mapparam item spawn {index}", alignment=2
+    ).offset
+    cursor = start
+    compressed: list[int] = []
+    expanded: list[int] = []
+    while len(expanded) < ITEM_TABLE_VALUE_COUNT:
+        require(
+            cursor + 2 <= len(archive.rom.data),
+            f"mapparam item spawn {index}: truncated compressed table",
+        )
+        value = struct.unpack_from("<H", archive.rom.data, cursor)[0]
+        compressed.append(value)
+        cursor += 2
+        if value >= ITEM_TABLE_SKIP_BASE:
+            skip = value - ITEM_TABLE_SKIP_BASE
+            require(skip > 0, f"mapparam item spawn {index}: zero-length skip")
+            require(
+                len(expanded) + skip <= ITEM_TABLE_VALUE_COUNT,
+                f"mapparam item spawn {index}: skip exceeds decoded table",
+            )
+            expanded.extend([0] * skip)
+        else:
+            expanded.append(value)
+
+    span = archive.rom.span(start, cursor - start, f"mapparam item spawn {index}")
+    categories = expanded[:ITEM_CATEGORY_COUNT]
+    items = expanded[ITEM_CATEGORY_COUNT:]
+    return {
+        "index": index,
+        "span": span.as_dict(),
+        "raw_sha256": sha256(archive.rom.bytes(span)),
+        "compressed_values": compressed,
+        "category_cumulative": categories,
+        "item_cumulative": items,
+        "active_categories": [
+            {"category_id": item_id, "cumulative_probability": probability}
+            for item_id, probability in enumerate(categories)
+            if probability
+        ],
+        "active_items": [
+            {"item_id": item_id, "cumulative_probability": probability}
+            for item_id, probability in enumerate(items)
+            if probability
+        ],
+    }
+
+
+def _parse_monster_spawn_record(
+    archive: DungeonArchive, pointer: int, index: int
+) -> dict[str, Any]:
+    """Decode EU Red's padded eight-byte SpawnPokemonData records."""
+
+    start = archive.rom.resolve(
+        pointer, MAPPARAM_MONSTER_RECORD_SIZE,
+        f"mapparam monster spawn {index}",
+        alignment=4,
+    ).offset
+    cursor = start
+    entries: list[dict[str, Any]] = []
+    for record_index in range(64):
+        require(
+            cursor + MAPPARAM_MONSTER_RECORD_SIZE <= len(archive.rom.data),
+            f"mapparam monster spawn {index}: missing terminator",
+        )
+        bits, first, second, padding = struct.unpack_from(
+            "<Hhh2s", archive.rom.data, cursor
+        )
+        require(
+            padding == b"\0\0",
+            f"mapparam monster spawn {index} record {record_index}: nonzero EU padding",
+        )
+        cursor += MAPPARAM_MONSTER_RECORD_SIZE
+        species = bits & 0x1FF
+        if species == 0:
+            break
+        entries.append(
+            {
+                "record_index": record_index,
+                "species_id": species,
+                "level": (bits >> 9) & 0x7F,
+                "packed_bits": bits,
+                "cumulative_probability": [first, second],
+            }
+        )
+    else:
+        raise ReconstructionError(
+            f"mapparam monster spawn {index}: no terminator in 64 records"
+        )
+
+    span = archive.rom.span(start, cursor - start, f"mapparam monster spawn {index}")
+    return {
+        "index": index,
+        "span": span.as_dict(),
+        "raw_sha256": sha256(archive.rom.bytes(span)),
+        "entries": entries,
+    }
+
+
+def _parse_trap_spawn_record(
+    archive: DungeonArchive, pointer: int, index: int
+) -> dict[str, Any]:
+    # The EU Red mapparam ABI has 20 u16 entries.  This is intentionally not
+    # pret/pmd-red's later 26-entry symbolic enum: ROM bytes are authoritative.
+    span = archive.rom.resolve(
+        pointer,
+        MAPPARAM_TRAP_COUNT * 2,
+        f"mapparam trap spawn {index}",
+        alignment=4,
+    )
+    probabilities = list(
+        struct.unpack_from(
+            f"<{MAPPARAM_TRAP_COUNT}H", archive.rom.data, span.offset
+        )
+    )
+    return {
+        "index": index,
+        "span": span.as_dict(),
+        "raw_sha256": sha256(archive.rom.bytes(span)),
+        "cumulative_probabilities": probabilities,
+        "active_traps": [
+            {"trap_id": trap_id, "cumulative_probability": probability}
+            for trap_id, probability in enumerate(probabilities)
+            if probability
+        ],
+    }
+
+
 def parse_mapparam(
     archive: DungeonArchive,
     floor_counts: Sequence[dict[str, Any]],
 ) -> dict[str, Any]:
+    """Parse selectors, floor properties, and every referenced spawn table."""
+
     entry = archive.entry("mapparam")
     root = archive.siro_root(entry, minimum_size=20)
     root = archive.rom.span(root.offset, 20, "mapparam logical root")
@@ -670,6 +858,9 @@ def parse_mapparam(
 
     selector_rows: list[dict[str, Any]] = []
     property_indices: set[int] = set()
+    item_indices: set[int] = set()
+    monster_indices: set[int] = set()
+    trap_indices: set[int] = set()
     for dungeon_id in range(64):
         floor_row = floor_counts[dungeon_id]
         count = floor_row.get("selector_row_count", floor_row.get("floor_count"))
@@ -688,15 +879,22 @@ def parse_mapparam(
                 "<8h", archive.rom.data, rows_span.offset + row_index * 16
             )
             require(
-                values[0] >= 0,
-                f"mapparam dungeon {dungeon_id} row {row_index}: negative property",
+                all(value >= 0 for value in values),
+                f"mapparam dungeon {dungeon_id} row {row_index}: negative index",
             )
             property_indices.add(values[0])
+            monster_indices.add(values[1])
+            trap_indices.add(values[2])
+            item_indices.update(values[3:8])
             rows.append(
                 {
                     "row_index": row_index,
                     "fields": list(values),
                     "property_index": values[0],
+                    "monster_spawn_index": values[1],
+                    "trap_spawn_index": values[2],
+                    "item_spawn_indices": list(values[3:7]),
+                    "unused_item_spawn_index": values[7],
                 }
             )
         selector_rows.append(
@@ -722,14 +920,49 @@ def parse_mapparam(
             properties_span.offset + index * 28 : properties_span.offset
             + (index + 1) * 28
         ]
+        decoded = dict(zip(FLOOR_PROPERTY_FIELDS, raw))
+        decoded["room_density"] = struct.unpack_from("<b", raw, 1)[0]
+        decoded["enemy_density"] = struct.unpack_from("<b", raw, 6)[0]
         properties.append(
             {
                 "index": index,
-                "tileset": raw[2],
+                **decoded,
                 "raw_hex": raw.hex(),
                 "referenced": index in property_indices,
             }
         )
+
+    item_pointer_span, item_pointers = _parse_mapparam_pointer_table(
+        archive,
+        pointers["items"],
+        max(item_indices) + 1,
+        "mapparam referenced item spawn pointers",
+    )
+    monster_pointer_span, monster_pointers = _parse_mapparam_pointer_table(
+        archive,
+        pointers["monsters"],
+        max(monster_indices) + 1,
+        "mapparam referenced monster spawn pointers",
+    )
+    trap_pointer_span, trap_pointers = _parse_mapparam_pointer_table(
+        archive,
+        pointers["traps"],
+        max(trap_indices) + 1,
+        "mapparam referenced trap spawn pointers",
+    )
+
+    item_spawns = {
+        index: _parse_item_spawn_record(archive, item_pointers[index], index)
+        for index in sorted(item_indices)
+    }
+    monster_spawns = {
+        index: _parse_monster_spawn_record(archive, monster_pointers[index], index)
+        for index in sorted(monster_indices)
+    }
+    trap_spawns = {
+        index: _parse_trap_spawn_record(archive, trap_pointers[index], index)
+        for index in sorted(trap_indices)
+    }
 
     return {
         "archive_entry_index": entry.index,
@@ -741,6 +974,12 @@ def parse_mapparam(
         "selectors": selector_rows,
         "referenced_properties_span": properties_span.as_dict(),
         "properties": properties,
+        "item_spawn_pointer_table_span": item_pointer_span.as_dict(),
+        "monster_spawn_pointer_table_span": monster_pointer_span.as_dict(),
+        "trap_spawn_pointer_table_span": trap_pointer_span.as_dict(),
+        "item_spawns": item_spawns,
+        "monster_spawns": monster_spawns,
+        "trap_spawns": trap_spawns,
     }
 
 

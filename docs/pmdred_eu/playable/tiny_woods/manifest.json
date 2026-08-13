@@ -1,0 +1,377 @@
+{
+  "schema": "pmdred-eu-playable-dungeon-v1",
+  "zone_id": "tiny_woods",
+  "canonical_identity": {
+    "rom_dungeon_id": 0,
+    "french_name": "Petit Bois",
+    "playable_floors": 3,
+    "route": [
+      "d01p01",
+      "tiny_woods:0-2",
+      "d01p02"
+    ]
+  },
+  "authority": {
+    "region": "EU",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "mapparam": {
+      "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+      "mapparam_archive_entry": 370,
+      "mapparam_root_span": {
+        "purpose": "mapparam logical root",
+        "offset": 7720932,
+        "offset_hex": "0x0075CFE4",
+        "address_hex": "0x0875CFE4",
+        "size": 20,
+        "end_offset": 7720952,
+        "end_offset_hex": "0x0075CFF8"
+      },
+      "selector_rows_span": {
+        "purpose": "mapparam dungeon 0 selectors",
+        "offset": 7553972,
+        "offset_hex": "0x007343B4",
+        "address_hex": "0x087343B4",
+        "size": 64,
+        "end_offset": 7554036,
+        "end_offset_hex": "0x007343F4"
+      },
+      "floor_property_span": {
+        "purpose": "mapparam referenced floor properties",
+        "offset": 7583524,
+        "offset_hex": "0x0073B724",
+        "address_hex": "0x0873B724",
+        "size": 49392,
+        "end_offset": 7632916,
+        "end_offset_hex": "0x00747814"
+      },
+      "item_spawn_pointer_span": {
+        "purpose": "mapparam referenced item spawn pointers",
+        "offset": 7720220,
+        "offset_hex": "0x0075CD1C",
+        "address_hex": "0x0875CD1C",
+        "size": 712,
+        "end_offset": 7720932,
+        "end_offset_hex": "0x0075CFE4"
+      },
+      "monster_spawn_pointer_span": {
+        "purpose": "mapparam referenced monster spawn pointers",
+        "offset": 7684684,
+        "offset_hex": "0x0075424C",
+        "address_hex": "0x0875424C",
+        "size": 3356,
+        "end_offset": 7688040,
+        "end_offset_hex": "0x00754F68"
+      },
+      "trap_spawn_pointer_span": {
+        "purpose": "mapparam referenced trap spawn pointers",
+        "offset": 7693960,
+        "offset_hex": "0x00756688",
+        "address_hex": "0x08756688",
+        "size": 592,
+        "end_offset": 7694552,
+        "end_offset_hex": "0x007568D8"
+      },
+      "selector_rows": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          3,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          4,
+          1,
+          2,
+          3,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          5,
+          1,
+          2,
+          3,
+          0
+        ]
+      ],
+      "properties": [
+        {
+          "layout": 1,
+          "room_density": 5,
+          "tileset": 14,
+          "music": 1,
+          "floor_connectivity": 15,
+          "enemy_density": 4,
+          "item_density": 2,
+          "trap_density": 0,
+          "extra_hallways": 5,
+          "visibility_range": 0
+        },
+        {
+          "layout": 1,
+          "room_density": 6,
+          "tileset": 14,
+          "music": 1,
+          "floor_connectivity": 15,
+          "enemy_density": 4,
+          "item_density": 2,
+          "trap_density": 0,
+          "extra_hallways": 5,
+          "visibility_range": 0
+        },
+        {
+          "layout": 1,
+          "room_density": 6,
+          "tileset": 14,
+          "music": 1,
+          "floor_connectivity": 15,
+          "enemy_density": 4,
+          "item_density": 2,
+          "trap_density": 0,
+          "extra_hallways": 5,
+          "visibility_range": 0
+        }
+      ],
+      "monster_weight_deltas": [
+        [
+          3333,
+          3334,
+          3333
+        ],
+        [
+          2857,
+          1429,
+          2857,
+          2857
+        ]
+      ]
+    },
+    "technical_runtime": {
+      "pmdo_version": "0.8.12",
+      "zone_format": "RogueEssence.Data.ZoneData"
+    }
+  },
+  "adaptation": {
+    "geometry_distribution_keys": [
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ]
+    ],
+    "geometry_weights": [
+      [
+        11161202,
+        26042804,
+        13641469,
+        12776833,
+        20668892,
+        12777434,
+        2781036,
+        150330
+      ],
+      [
+        3599998,
+        17999991,
+        28799986,
+        6508858,
+        17708900,
+        18091114,
+        6636574,
+        654579
+      ],
+      [
+        3599998,
+        17999991,
+        28799986,
+        6508858,
+        17708900,
+        18091114,
+        6636574,
+        654579
+      ]
+    ],
+    "weight_denominator": 100000000,
+    "extents": {
+      "2_rows": [
+        28,
+        32
+      ],
+      "3_rows": [
+        28,
+        30
+      ]
+    },
+    "room_size_ranges": {
+      "width": [
+        5,
+        10
+      ],
+      "height_2_rows": [
+        4,
+        13
+      ],
+      "height_3_rows": [
+        4,
+        7
+      ]
+    },
+    "spawn_filters": "RoomFilterDefaultGen(Negate=true)",
+    "item_count_weights": [
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "enemy_count_weights": [
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "money_amount_weights": [
+      [
+        4,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        14,
+        1
+      ],
+      [
+        22,
+        31
+      ],
+      [
+        26,
+        31
+      ],
+      [
+        34,
+        19
+      ],
+      [
+        38,
+        15
+      ]
+    ],
+    "berry_weights": [
+      [
+        "berry_oran",
+        7500
+      ],
+      [
+        "berry_pecha",
+        2500
+      ]
+    ],
+    "respawn_turns": 36,
+    "normal_room_enemy_cap": 4,
+    "known_native_adaptations": [
+      "GridPathBranch is not instruction-identical to Red's momentum walk",
+      "AddTunnelStep is not instruction-identical to Red's five extra-hallway attempts",
+      "PMDO fixed weighted counts differ from Red's finite shuffle with TV 1.1498270606414207e-06 on floor 1"
+    ]
+  },
+  "music": {
+    "filename": "Tiny Woods.ogg",
+    "path": "Content/Music/Tiny Woods.ogg",
+    "m4a_song_table_index": 125,
+    "status": "authenticated-rom-render",
+    "size": 1573904,
+    "sha256": "38c62cb4ce6df879812ce7e6812f0d55b0729a86a52f66c7208c821c37c1fe0a",
+    "sample_rate": 48000,
+    "samples": 4264800,
+    "loop_start": 2216800,
+    "loop_length": 2048000,
+    "renderer": "tools/render_pmdred_tiny_woods_music.py",
+    "validation_report": "docs/pmdred_eu/playable/tiny_woods/music_render_validation.json",
+    "dependencies": {
+      "m4play": "e16a7964acdd8ef5aff10a0e729c9618d3da0e75",
+      "libogg": "e1774cd77f471443541596e09078e78fdc342e4f",
+      "libvorbis": "0657aee69dec8508a0011f47f3b69d7538e9d262"
+    }
+  },
+  "outputs": {
+    "zone": {
+      "path": "Data/Zone/tiny_woods.json",
+      "size": 617106,
+      "sha256": "e4f3edaf4af60bc625ce8e5c3b9d1d36372c2a1b009b4b1d21d13774e7eb92f7"
+    }
+  },
+  "validation": {
+    "builder_tests": "tools/test_build_pmdred_tiny_woods.py",
+    "zone_index": {
+      "status": "passed",
+      "report": "docs/pmdred_eu/playable/tiny_woods/pmdo_zone_index_validation.json"
+    },
+    "native_generation": "pending",
+    "entry_exit_route": "pending"
+  }
+}

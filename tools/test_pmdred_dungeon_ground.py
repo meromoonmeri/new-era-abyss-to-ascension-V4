@@ -400,6 +400,88 @@ class AuthoritativeEuRomTests(unittest.TestCase):
             ]["tileset"]
         self.assertEqual(actual, expected)
 
+    def test_tiny_woods_floor_properties_are_decoded_from_eu_mapparam(self) -> None:
+        counts = ground_audit.parse_dungeon_floor_counts(self.rom)
+        params = parse_mapparam(self.archive, counts)
+        rows = params["selectors"][0]["rows"]
+        self.assertEqual(
+            [row["fields"] for row in rows],
+            [
+                [0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 1, 2, 3, 0],
+                [1, 0, 0, 4, 1, 2, 3, 0],
+                [2, 1, 0, 5, 1, 2, 3, 0],
+            ],
+        )
+        expected = [
+            (5, 1, 2, 0),
+            (6, 2, 2, 0),
+            (6, 3, 2, 0),
+        ]
+        actual = []
+        for row in rows[1:]:
+            prop = params["properties"][row["property_index"]]
+            self.assertEqual(prop["layout"], 1)
+            self.assertEqual(prop["tileset"], 14)
+            self.assertEqual(prop["music"], 1)
+            self.assertEqual(prop["floor_connectivity"], 15)
+            self.assertEqual(prop["enemy_density"], 4)
+            self.assertEqual(prop["trap_density"], 0)
+            self.assertEqual(prop["extra_hallways"], 5)
+            actual.append(
+                (
+                    prop["room_density"],
+                    prop["floor_number"],
+                    prop["item_density"],
+                    prop["visibility_range"],
+                )
+            )
+        self.assertEqual(actual, expected)
+
+    def test_tiny_woods_spawn_tables_are_decoded_from_eu_mapparam(self) -> None:
+        counts = ground_audit.parse_dungeon_floor_counts(self.rom)
+        params = parse_mapparam(self.archive, counts)
+
+        first = params["monster_spawns"][0]["entries"]
+        third = params["monster_spawns"][1]["entries"]
+        self.assertEqual(
+            [entry["species_id"] for entry in first], [16, 191, 290, 380, 421]
+        )
+        self.assertEqual(
+            [entry["species_id"] for entry in third],
+            [16, 102, 191, 290, 380, 421],
+        )
+        self.assertEqual(
+            [entry["cumulative_probability"][0] for entry in first[:3]],
+            [3333, 6667, 10000],
+        )
+        self.assertEqual(
+            [entry["cumulative_probability"][0] for entry in third[:4]],
+            [2857, 4286, 7143, 10000],
+        )
+        self.assertTrue(
+            all(entry["level"] == 1 for entry in first[:3] + third[:4])
+        )
+
+        money = params["item_spawns"][0]
+        berries = params["item_spawns"][5]
+        self.assertEqual(money["active_categories"], [
+            {"category_id": 6, "cumulative_probability": 10000}
+        ])
+        self.assertEqual(money["active_items"], [
+            {"item_id": 105, "cumulative_probability": 10000}
+        ])
+        self.assertEqual(berries["active_categories"], [
+            {"category_id": 2, "cumulative_probability": 10000}
+        ])
+        self.assertEqual(berries["active_items"], [
+            {"item_id": 55, "cumulative_probability": 7500},
+            {"item_id": 66, "cumulative_probability": 10000},
+        ])
+        self.assertEqual(params["trap_spawns"][0]["active_traps"], [
+            {"trap_id": 17, "cumulative_probability": 10000}
+        ])
+
     def test_french_names_expand_runtime_hex_escapes(self) -> None:
         names = parse_french_dungeon_names(self.rom)
         self.assertEqual(names[20]["primary"], "Fosse d'Argent")
