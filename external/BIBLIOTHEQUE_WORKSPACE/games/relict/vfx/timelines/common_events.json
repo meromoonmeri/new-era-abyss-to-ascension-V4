@@ -297,6 +297,31 @@
           "source_index": 7
         },
         {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 8,
+                "tone": [
+                  -255,
+                  -255,
+                  -255,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "436e0bfcf22541917993e6550b0b0946073bdd416b1ceb4826de09ecee0fccf4",
+            "source_text_exported": false
+          },
+          "source_index": 8
+        },
+        {
           "category": "wait",
           "code": 106,
           "indent": 0,
@@ -329,6 +354,31 @@
             1
           ],
           "source_index": 12
+        },
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 0,
+                "tone": [
+                  -255,
+                  -255,
+                  -255,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "34573b63d3ff7f28f59be4aeb90d0eed765bdb9eac9e97a19e86cb5d02e755f1",
+            "source_text_exported": false
+          },
+          "source_index": 13
         }
       ],
       "trigger": 0
@@ -343,6 +393,31 @@
       },
       "source_name_sha256": "6eb8907fc912f84a51073bc601ed8c38ba8820bca5b8648c5bb5d25e9e65ac6e",
       "timeline": [
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 8,
+                "tone": [
+                  -255,
+                  -255,
+                  -255,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "436e0bfcf22541917993e6550b0b0946073bdd416b1ceb4826de09ecee0fccf4",
+            "source_text_exported": false
+          },
+          "source_index": 1
+        },
         {
           "category": "wait",
           "code": 106,
@@ -382,6 +457,31 @@
           "source_index": 6
         },
         {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 8,
+                "tone": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "83e09ca38821b1628061fc5525f24c7195c9a1f60b70c290ca5655b723853fa9",
+            "source_text_exported": false
+          },
+          "source_index": 7
+        },
+        {
           "category": "wait",
           "code": 106,
           "indent": 0,
@@ -404,6 +504,31 @@
       },
       "source_name_sha256": "02e5a386e6f10fbc6d359f0f710b589393ca001622f17dfdf982ec9d87974323",
       "timeline": [
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 8,
+                "tone": [
+                  -255,
+                  -255,
+                  -255,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "436e0bfcf22541917993e6550b0b0946073bdd416b1ceb4826de09ecee0fccf4",
+            "source_text_exported": false
+          },
+          "source_index": 1
+        },
         {
           "category": "wait",
           "code": 106,
@@ -441,6 +566,31 @@
             1
           ],
           "source_index": 6
+        },
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 8,
+                "tone": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "83e09ca38821b1628061fc5525f24c7195c9a1f60b70c290ca5655b723853fa9",
+            "source_text_exported": false
+          },
+          "source_index": 7
         },
         {
           "category": "wait",
@@ -496,6 +646,31 @@
           "indent": 0,
           "parameters": [],
           "source_index": 2
+        },
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 8,
+                "tone": [
+                  -255,
+                  -255,
+                  -255,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "436e0bfcf22541917993e6550b0b0946073bdd416b1ceb4826de09ecee0fccf4",
+            "source_text_exported": false
+          },
+          "source_index": 4
         },
         {
           "category": "wait",
@@ -592,6 +767,31 @@
           "source_index": 16
         },
         {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 3,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 8,
+                "tone": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "83e09ca38821b1628061fc5525f24c7195c9a1f60b70c290ca5655b723853fa9",
+            "source_text_exported": false
+          },
+          "source_index": 17
+        },
+        {
           "category": "else",
           "code": 411,
           "indent": 2,
@@ -611,6 +811,31 @@
             1
           ],
           "source_index": 20
+        },
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 3,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 8,
+                "tone": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "83e09ca38821b1628061fc5525f24c7195c9a1f60b70c290ca5655b723853fa9",
+            "source_text_exported": false
+          },
+          "source_index": 21
         },
         {
           "category": "branch_end",
@@ -646,6 +871,31 @@
             1
           ],
           "source_index": 29
+        },
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 1,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 8,
+                "tone": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "83e09ca38821b1628061fc5525f24c7195c9a1f60b70c290ca5655b723853fa9",
+            "source_text_exported": false
+          },
+          "source_index": 30
         },
         {
           "category": "branch_end",

@@ -31,6 +31,31 @@
       "source_event_id": 1,
       "timeline": [
         {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 0,
+                "tone": [
+                  -255,
+                  -255,
+                  -255,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "524b710adff892435606541b908324b32ce6cb843bb6812b6b6ac7ba23228a4f",
+            "source_text_exported": false
+          },
+          "source_index": 0
+        },
+        {
           "category": "forced_move_route",
           "code": 209,
           "indent": 0,
@@ -123,6 +148,31 @@
             ]
           },
           "source_index": 10
+        },
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 24,
+                "tone": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "530c059dd866c77f1e01921253d05aea0d107ed0313cf6a4e353ee9255d7d0ec",
+            "source_text_exported": false
+          },
+          "source_index": 12
         },
         {
           "category": "wait",
@@ -329,6 +379,31 @@
           "source_index": 56
         },
         {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 24,
+                "tone": [
+                  -255,
+                  -255,
+                  -255,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "aa3043e70721153c5bc729b4df4a1df6269251490d58dc1d828ec543a0dc0c60",
+            "source_text_exported": false
+          },
+          "source_index": 57
+        },
+        {
           "category": "wait",
           "code": 106,
           "indent": 0,
@@ -483,6 +558,31 @@
           "source_index": 75
         },
         {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 8,
+                "tone": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "83e09ca38821b1628061fc5525f24c7195c9a1f60b70c290ca5655b723853fa9",
+            "source_text_exported": false
+          },
+          "source_index": 76
+        },
+        {
           "category": "wait",
           "code": 106,
           "indent": 0,
@@ -511,6 +611,7 @@
     "picture_erase": 4,
     "picture_move": 2,
     "picture_show_review_required": 1,
+    "script_visual_block": 4,
     "wait": 10,
     "wait_for_move_completion": 4
   }

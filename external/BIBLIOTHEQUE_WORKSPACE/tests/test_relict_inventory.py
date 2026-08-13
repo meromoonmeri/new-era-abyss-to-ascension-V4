@@ -228,7 +228,10 @@ class RelictInventoryQualification(unittest.TestCase):
         self.assertGreater(manifest["picture_transition_review_count"], 0)
         self.assertFalse(manifest["dialogue_contents_exported"])
         self.assertFalse(manifest["script_bodies_exported"])
-        self.assertGreater(manifest["static_script_visual_audit_required_count"], 0)
+        self.assertEqual(manifest["redacted_script_command_count"], 1143)
+        self.assertEqual(manifest["script_visual_block_count"], 199)
+        self.assertEqual(manifest["script_visual_call_count"], 204)
+        self.assertEqual(manifest["static_script_visual_audit_required_count"], 0)
         self.assertEqual(manifest["event_timing_authority"]["nominal_frame_rate"], 40)
         self.assertFalse(manifest["event_timing_authority"]["fixed_framerate_override_active"])
         for row in manifest["timelines"]:

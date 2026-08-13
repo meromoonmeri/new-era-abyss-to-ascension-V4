@@ -56,12 +56,28 @@ Neuf Pictures/Transitions utilisées par des scènes restent en file
 `REVIEW_REQUIRED`. Leurs identités et hashes source sont conservés, mais aucun
 pixel n'est exporté avant classification manuelle environnement/casting.
 
-## Limite explicitement ouverte
+## Audit statique des commandes de script
 
-Les événements contiennent 1 140 commandes de script redacted. Certaines
-peuvent piloter des caméras ou VFX. Elles ne sont pas exécutées et leur corps
-n'est pas exporté. Un audit statique ciblé des appels visuels constitue donc le
-prochain lot obligatoire avant de déclarer les cinématiques entièrement
-documentées.
+Les événements contiennent 1 143 commandes de script/continuation, toujours
+redacted et jamais exécutées. L'analyseur regroupe les continuations par bloc,
+hashe le corps sans l'exporter et n'extrait que les appels visuels reconnus.
+
+Résultat : 199 blocs visuels et 204 appels structurés :
+
+- 113 changements de tone ;
+- 27 scrolls caméra ;
+- 16 cadrages caméra sur entité ;
+- 14 démarrages et 14 arrêts de camera shake ;
+- 13 resets caméra ;
+- 5 animations utilisateur positionnées ;
+- 2 attentes exprimées en secondes.
+
+Tous leurs paramètres numériques, tones, coordonnées, durées, cibles et plages
+aléatoires sont conservés. Aucun bloc contenant un mot-clé visuel ne reste sans
+classification (`static_script_visual_audit_required_count = 0`). Les autres
+commandes restent uniquement comptées comme gameplay/script redacted.
+
+La file manuelle encore ouverte concerne donc les neuf Pictures, pas les appels
+caméra/tone/VFX des scripts.
 
 Aucune conversion PMDO n'est commencée.

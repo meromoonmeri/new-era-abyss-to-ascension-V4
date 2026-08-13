@@ -33,6 +33,31 @@
       "source_event_id": 7,
       "timeline": [
         {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 0,
+                "tone": [
+                  -255,
+                  -255,
+                  -255,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "524b710adff892435606541b908324b32ce6cb843bb6812b6b6ac7ba23228a4f",
+            "source_text_exported": false
+          },
+          "source_index": 0
+        },
+        {
           "category": "forced_move_route",
           "code": 209,
           "indent": 0,
@@ -132,6 +157,31 @@
             ]
           },
           "source_index": 10
+        },
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 24,
+                "tone": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "530c059dd866c77f1e01921253d05aea0d107ed0313cf6a4e353ee9255d7d0ec",
+            "source_text_exported": false
+          },
+          "source_index": 12
         },
         {
           "category": "wait",
@@ -766,6 +816,28 @@
           "source_index": 107
         },
         {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "arguments": [
+                  25,
+                  15
+                ],
+                "call": "camera_scroll_to"
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "882211a0aac3520b7ba8c3b30dfde4f71cb32a3b1ed49ffdc79bafd7b358264d",
+            "source_text_exported": false
+          },
+          "source_index": 108
+        },
+        {
           "category": "wait",
           "code": 106,
           "indent": 0,
@@ -876,6 +948,28 @@
             "nominal_ms_at_rgss_40fps": 200
           },
           "source_index": 123
+        },
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "arguments": [
+                  11,
+                  15
+                ],
+                "call": "camera_scroll_to"
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "3f157aa2e634f723e9eaab5b34a55887ae1fb4770f1a3ded678fa1c15cd04686",
+            "source_text_exported": false
+          },
+          "source_index": 124
         },
         {
           "category": "wait",
@@ -990,6 +1084,28 @@
           "source_index": 139
         },
         {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "arguments": [
+                  18,
+                  8
+                ],
+                "call": "camera_scroll_to"
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "e834073543424244857fef5205ccb29d5767a13911f2a9e0f9acdba950115a77",
+            "source_text_exported": false
+          },
+          "source_index": 140
+        },
+        {
           "category": "wait",
           "code": 106,
           "indent": 0,
@@ -1068,6 +1184,25 @@
             "nominal_ms_at_rgss_40fps": 200
           },
           "source_index": 166
+        },
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "arguments": [],
+                "call": "camera_reset"
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "0df138cf557bd70ca736b7d7a36f93ed1399af419748f8c1cb835cacb663265e",
+            "source_text_exported": false
+          },
+          "source_index": 167
         },
         {
           "category": "wait",
@@ -1399,6 +1534,28 @@
             "nominal_ms_at_rgss_40fps": 200
           },
           "source_index": 207
+        },
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "arguments": [
+                  18,
+                  13
+                ],
+                "call": "camera_scroll_to"
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "1a5a93dac5e1d566b561f8aa20b0bb07bd64ba7a98f2d487a841ccd0c3beb04d",
+            "source_text_exported": false
+          },
+          "source_index": 208
         },
         {
           "category": "wait",
@@ -1825,6 +1982,28 @@
           "source_index": 305
         },
         {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "arguments": [
+                  18,
+                  8
+                ],
+                "call": "camera_scroll_to"
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "e834073543424244857fef5205ccb29d5767a13911f2a9e0f9acdba950115a77",
+            "source_text_exported": false
+          },
+          "source_index": 306
+        },
+        {
           "category": "wait",
           "code": 106,
           "indent": 0,
@@ -1843,6 +2022,28 @@
             "nominal_ms_at_rgss_40fps": 200
           },
           "source_index": 318
+        },
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "arguments": [
+                  18,
+                  13
+                ],
+                "call": "camera_scroll_to"
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "1a5a93dac5e1d566b561f8aa20b0bb07bd64ba7a98f2d487a841ccd0c3beb04d",
+            "source_text_exported": false
+          },
+          "source_index": 319
         },
         {
           "category": "wait",
@@ -1977,6 +2178,27 @@
           "source_index": 358
         },
         {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "arguments": [
+                  3
+                ],
+                "call": "camera_shake"
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "b2f089827db7a89c46c87e40467000ac9aebc245aec9bc287a82ac9ad47cfa62",
+            "source_text_exported": false
+          },
+          "source_index": 359
+        },
+        {
           "category": "forced_move_route",
           "code": 209,
           "indent": 0,
@@ -2027,6 +2249,25 @@
             "nominal_ms_at_rgss_40fps": 200
           },
           "source_index": 364
+        },
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "arguments": [],
+                "call": "camera_shake_off"
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "aea74e371be678a169a7c980f6811b2f8d742ab941a71f09184cd35654c1acf6",
+            "source_text_exported": false
+          },
+          "source_index": 365
         },
         {
           "category": "animation_on_entity",
@@ -2587,6 +2828,31 @@
           "source_index": 439
         },
         {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 24,
+                "tone": [
+                  -255,
+                  -255,
+                  -255,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "a6e7d20f76a326202dcf3b8693c1393d536e4fe76a75aa3ff255826e9bcb02b1",
+            "source_text_exported": false
+          },
+          "source_index": 440
+        },
+        {
           "category": "wait",
           "code": 106,
           "indent": 0,
@@ -2634,6 +2900,7 @@
     "map_visual_settings": 1,
     "picture_erase": 3,
     "picture_show_review_required": 1,
+    "script_visual_block": 12,
     "wait": 67,
     "wait_for_move_completion": 23
   }

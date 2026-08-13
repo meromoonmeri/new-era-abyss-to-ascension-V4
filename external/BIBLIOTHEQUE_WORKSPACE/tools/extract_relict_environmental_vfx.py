@@ -183,14 +183,117 @@ def resolve_asset(source: Path, directory: str, name: str) -> Path | None:
     return matches[0] if matches else None
 
 
+def safe_script_expression(expression: str) -> Any:
+    expression = expression.strip()
+    if re.fullmatch(r"-?\d+", expression):
+        return int(expression)
+    if re.fullmatch(r"-?\d+\.\d+", expression):
+        return float(expression)
+    if expression in ("true", "false"):
+        return expression == "true"
+    match = re.fullmatch(r"rand\(\s*(-?\d+)\.\.(-?\d+)\s*\)", expression)
+    if match:
+        return {"random_integer_range": [int(match.group(1)), int(match.group(2))]}
+    return {"redacted_expression_sha256": sha256_bytes(expression.encode())}
+
+
+def split_script_arguments(arguments: str) -> list[Any]:
+    # Recognized visual calls in this source use only flat arguments or rand(a..b).
+    # Splitting commas outside parentheses keeps the random ranges intact.
+    result = []
+    start = depth = 0
+    for index, char in enumerate(arguments):
+        if char == "(":
+            depth += 1
+        elif char == ")":
+            depth = max(0, depth - 1)
+        elif char == "," and depth == 0:
+            result.append(safe_script_expression(arguments[start:index]))
+            start = index + 1
+    if arguments[start:].strip():
+        result.append(safe_script_expression(arguments[start:]))
+    return result
+
+
+def parse_script_visual_block(text: str) -> dict[str, Any] | None:
+    calls = []
+    tone_pattern = re.compile(
+        r"pbToneChangeAll\s*\(\s*Tone\.new\(\s*(-?\d+)\s*,\s*(-?\d+)\s*,\s*(-?\d+)\s*,\s*(-?\d+)\s*\)\s*,\s*([0-9.]+)\s*\)"
+    )
+    for match in tone_pattern.finditer(text):
+        calls.append({
+            "call": "tone_change_all",
+            "tone": [int(match.group(index)) for index in range(1, 5)],
+            "duration_rgss_frames": safe_script_expression(match.group(5)),
+        })
+    patterns = (
+        (r"pbCameraScrollTo\s*\(([^)]*)\)", "camera_scroll_to"),
+        (r"pbCameraToEvent\s*\(([^)]*)\)", "camera_to_event"),
+        (r"pbCameraShake\s*\(([^)]*)\)", "camera_shake"),
+        (r"pbWait\s*\(([^)]*)\)", "wait_seconds"),
+        (r"addUserAnimation\s*\(([^)]*(?:rand\([^)]*\)[^)]*)?)\)", "user_animation"),
+    )
+    for pattern, call_name in patterns:
+        for match in re.finditer(pattern, text):
+            calls.append({"call": call_name, "arguments": split_script_arguments(match.group(1))})
+    for pattern, call_name in (
+        (r"\bpbCameraReset\b(?!\s*\()", "camera_reset"),
+        (r"\bpbCameraShakeOff\b(?!\s*\()", "camera_shake_off"),
+    ):
+        calls.extend({"call": call_name, "arguments": []} for _ in re.finditer(pattern, text))
+    source_hash = sha256_bytes(text.encode())
+    repeat_counts = [int(value) for value in re.findall(r"\b(\d+)\.times\s+do\b", text)]
+    if calls:
+        return {
+            "category": "script_visual_block",
+            "source_block_sha256": source_hash,
+            "source_text_exported": False,
+            "line_count": len(text.splitlines()),
+            "fixed_repeat_counts": repeat_counts,
+            "calls": calls,
+        }
+    if re.search(r"(?i)\b(camera|tone|animation|shake|fog|weather|picture|panorama|fade|screen)\b", text):
+        return {
+            "category": "script_visual_candidate_review",
+            "source_block_sha256": source_hash,
+            "source_text_exported": False,
+            "line_count": len(text.splitlines()),
+            "fixed_repeat_counts": repeat_counts,
+            "calls": [],
+        }
+    return None
+
+
 def timeline_for_commands(commands: list[Any]) -> tuple[list[dict[str, Any]], list[dict[str, str]], Counter]:
     timeline = []
     references = []
     excluded = Counter()
-    for source_index, command in enumerate(commands):
+    source_index = 0
+    while source_index < len(commands):
+        command = commands[source_index]
         if not isinstance(command, RubyObject):
+            source_index += 1
             continue
         code = int(ivar(command, "code", 0))
+        if code == 355:
+            parts = [decode_text((ivar(command, "parameters", []) or [""])[0])]
+            excluded[EXCLUDED_COMMANDS[355]] += 1
+            next_index = source_index + 1
+            while next_index < len(commands) and int(ivar(commands[next_index], "code", 0)) == 655:
+                parts.append(decode_text((ivar(commands[next_index], "parameters", []) or [""])[0]))
+                excluded[EXCLUDED_COMMANDS[655]] += 1
+                next_index += 1
+            visual_script = parse_script_visual_block("\n".join(parts))
+            if visual_script:
+                timeline.append({
+                    "code": code,
+                    "category": visual_script["category"],
+                    "indent": int(ivar(command, "indent", 0)),
+                    "parameters": visual_script,
+                    "source_index": source_index,
+                })
+            source_index = next_index
+            continue
         if code in EXCLUDED_COMMANDS:
             excluded[EXCLUDED_COMMANDS[code]] += 1
         record, reference = command_record(command)
@@ -201,6 +304,7 @@ def timeline_for_commands(commands: list[Any]) -> tuple[list[dict[str, Any]], li
             reference = dict(reference)
             reference["source_index"] = source_index
             references.append(reference)
+        source_index += 1
     return timeline, references, excluded
 
 
@@ -390,6 +494,7 @@ def build(source: Path, inventory_root: Path) -> dict[str, Any]:
     timeline_rows = []
     timeline_counts = Counter()
     excluded_timeline_counts = Counter()
+    script_visual_call_count = 0
     map_jobs = []
     data_root = source / "Data"
     for zone_path in sorted((inventory_root / "metadata/zones").glob("*.json")):
@@ -407,6 +512,12 @@ def build(source: Path, inventory_root: Path) -> dict[str, Any]:
         all_references.extend(references)
         timeline_counts.update(payload["visual_command_counts"])
         excluded_timeline_counts.update(payload["excluded_command_counts"])
+        script_visual_call_count += sum(
+            len(command["parameters"]["calls"])
+            for sequence in payload["sequences"]
+            for command in sequence["timeline"]
+            if command["category"] == "script_visual_block"
+        )
         timeline_rows.append({
             "map_id": map_id,
             "variant": variant,
@@ -419,6 +530,8 @@ def build(source: Path, inventory_root: Path) -> dict[str, Any]:
         excluded_timeline_counts.update(event["excluded_command_counts"])
         for command in event["timeline"]:
             timeline_counts[command["category"]] += 1
+            if command["category"] == "script_visual_block":
+                script_visual_call_count += len(command["parameters"]["calls"])
     common_path = output / "timelines/common_events.json"
     write_json(common_path, common_payload)
     all_references.extend(common_refs)
@@ -525,9 +638,14 @@ def build(source: Path, inventory_root: Path) -> dict[str, Any]:
         "common_event_timeline_count": common_payload["event_count"],
         "visual_command_counts": dict(sorted(timeline_counts.items())),
         "excluded_command_counts": dict(sorted(excluded_timeline_counts.items())),
-        "static_script_visual_audit_required_count": (
+        "redacted_script_command_count": (
             excluded_timeline_counts.get("script_commands_redacted", 0)
             + excluded_timeline_counts.get("script_continuation_commands_redacted", 0)
+        ),
+        "script_visual_block_count": timeline_counts.get("script_visual_block", 0),
+        "script_visual_call_count": script_visual_call_count,
+        "static_script_visual_audit_required_count": timeline_counts.get(
+            "script_visual_candidate_review", 0
         ),
         "environment_asset_count": len(environment_assets),
         "animated_environment_count": animated_environment_count,

@@ -3,7 +3,7 @@
   "common_event_timeline_count": 6,
   "common_events": {
     "file": "vfx/timelines/common_events.json",
-    "sha256": "ca7e8f3ca594ca5afe0fda57789b4a018f11280da086bbc569cd1c941ceda743"
+    "sha256": "e0a767f189a476e10cffe44b56db860fd596adc9cfaad55940c03948cd7510c8"
   },
   "dialogue_contents_exported": false,
   "environment_asset_count": 4,
@@ -139,7 +139,7 @@
     "choice_commands_redacted": 2,
     "dialogue_commands_redacted": 558,
     "dialogue_continuation_commands_redacted": 6,
-    "script_commands_redacted": 1006,
+    "script_commands_redacted": 1009,
     "script_continuation_commands_redacted": 134
   },
   "image_magick_authority": {
@@ -148,6 +148,7 @@
   },
   "map_timeline_count": 34,
   "picture_transition_review_count": 9,
+  "redacted_script_command_count": 1143,
   "result": "ENVIRONMENTAL_VFX_AUDIT_PASS",
   "review_queue": [
     {
@@ -354,20 +355,22 @@
   ],
   "schema_version": "1.0.0",
   "script_bodies_exported": false,
-  "static_script_visual_audit_required_count": 1140,
+  "script_visual_block_count": 199,
+  "script_visual_call_count": 204,
+  "static_script_visual_audit_required_count": 0,
   "timelines": [
     {
       "file": "vfx/timelines/maps/map_001.json",
       "map_id": 1,
       "sequence_count": 1,
-      "sha256": "03809bd623564ee232392ebbf4bef7c7424880b3dcac41d741f53755d8a2efbd",
+      "sha256": "2121a75f13262ea9e7e1abd59ce59da1ee0255bf85b8d1efdf0c2b426b7a0e8a",
       "variant": null
     },
     {
       "file": "vfx/timelines/maps/map_002.json",
       "map_id": 2,
       "sequence_count": 7,
-      "sha256": "72fa1d3e475d12a1587a84b478dd3b79458aad9ad9910d30c2c1c8fb3600a2d3",
+      "sha256": "532b191ffa89b4fbf66c5e7528ec1d4c77a04e41bd814b8aca49069f80b91e4c",
       "variant": null
     },
     {
@@ -402,56 +405,56 @@
       "file": "vfx/timelines/maps/map_005.json",
       "map_id": 5,
       "sequence_count": 2,
-      "sha256": "af347b10b0261a5f270565518c968d5677d49d8dff275f857be946bc8155a668",
+      "sha256": "aeb2d758c205083ab433b78f9ba477bc0dc047565a31b249d7a8bdb69c026670",
       "variant": null
     },
     {
       "file": "vfx/timelines/maps/map_005_variant_mies_conflicted_copy_2025_12_18.json",
       "map_id": 5,
       "sequence_count": 2,
-      "sha256": "e21c36bb797efa01bb96efe0c975280f676c26319e43f3e7805c706f40e38261",
+      "sha256": "8d4d02ab718d25473edbf707c5547fefd6bb01209e70ba0a449ab5b58438fe7f",
       "variant": "Mie's conflicted copy 2025-12-18"
     },
     {
       "file": "vfx/timelines/maps/map_005_variant_mies_conflicted_copy_2026_01_01.json",
       "map_id": 5,
       "sequence_count": 2,
-      "sha256": "c19404a60d42c4c38a9eba3d9674a36c2c44952bf9b62f18b9d3c0f10db96944",
+      "sha256": "a853690b9090bb3a30cb84478e30a3cc2243f40a90d2f104ebf0ddbda70007de",
       "variant": "Mie's conflicted copy 2026-01-01"
     },
     {
       "file": "vfx/timelines/maps/map_006.json",
       "map_id": 6,
-      "sequence_count": 2,
-      "sha256": "e6c785550f34ce76cd1f6f9bdfd6d56f4da8c6bd95f8db06f05fdc74e6beee17",
+      "sequence_count": 3,
+      "sha256": "c481b78da6f8035b0ec9e882af471c13aea1eb87a5d5daa8b49cabd27568bd1b",
       "variant": null
     },
     {
       "file": "vfx/timelines/maps/map_006_variant_mies_conflicted_copy_2025_12_18.json",
       "map_id": 6,
-      "sequence_count": 2,
-      "sha256": "c262cd7347bd80b18c3a3d14349a38c20aa06ba72d25e2e67b232af6c3f3e731",
+      "sequence_count": 3,
+      "sha256": "254f8c11032ce7aad3924d8272a6cc7437905e12478d091901d9542c4325dbc3",
       "variant": "Mie's conflicted copy 2025-12-18"
     },
     {
       "file": "vfx/timelines/maps/map_006_variant_mies_conflicted_copy_2026_01_01.json",
       "map_id": 6,
-      "sequence_count": 2,
-      "sha256": "7ca92533541aac5ecc306dbb659c2f7aaafbf52b72073022f387b74fc9dad0ed",
+      "sequence_count": 3,
+      "sha256": "dfeb054d38aaae282560414eb35a2056b43772f8d90cdc4fb80efc9fe7cd6533",
       "variant": "Mie's conflicted copy 2026-01-01"
     },
     {
       "file": "vfx/timelines/maps/map_007.json",
       "map_id": 7,
       "sequence_count": 3,
-      "sha256": "d0477e3d25cfc9209e6b791be4a5b55c0d0440d9747d5db957c51f76cea20dd6",
+      "sha256": "f6ab484fff82a8d01b9af7d571c93667f17f4369f3f8070d4c2257ae265346f4",
       "variant": null
     },
     {
       "file": "vfx/timelines/maps/map_008.json",
       "map_id": 8,
       "sequence_count": 1,
-      "sha256": "6ab3066ed54646fbb8a5d9051d90e82db63a352759c64a4badd7f855018de8fc",
+      "sha256": "e3e203a75bd207fe01ae570bd40d499fc0bcce565727e0c8225264fe674686f2",
       "variant": null
     },
     {
@@ -507,91 +510,91 @@
       "file": "vfx/timelines/maps/map_016.json",
       "map_id": 16,
       "sequence_count": 1,
-      "sha256": "cf6e2a3dde76cc282db0e4b52ec88582e2646aa83eeb3cdf4fa83f7c6b7f03ce",
+      "sha256": "938b62716d673b60f7c58824d83289a82ecb6f6824aae369fb08196a5ad7288d",
       "variant": null
     },
     {
       "file": "vfx/timelines/maps/map_017.json",
       "map_id": 17,
       "sequence_count": 1,
-      "sha256": "34c8deb888b4109a135c61ebee40d209e20d2fa3809422f2a2383655a78315fb",
+      "sha256": "659419c02de32232f46008c0deb303e51937fed62a33b92641f8fc3c66723eef",
       "variant": null
     },
     {
       "file": "vfx/timelines/maps/map_018.json",
       "map_id": 18,
       "sequence_count": 1,
-      "sha256": "8235e99598a1ad52ecc55e8d9c3edb7422ebc11f3f1e67e8f74b109fdf20d891",
+      "sha256": "accdfe02c1aff58cbb1aa05511b8d2fdbec154c1b52fe5abd0edc7b0d41e0014",
       "variant": null
     },
     {
       "file": "vfx/timelines/maps/map_019.json",
       "map_id": 19,
       "sequence_count": 1,
-      "sha256": "16275887b3b3d2764fec8bef3bd38d3ba0a1095d6fa56ff808e30d87a50c0e16",
+      "sha256": "d5217dd52b0a659a6c2dd38d322a44a981275d07f4f1c72623a12202ae741dda",
       "variant": null
     },
     {
       "file": "vfx/timelines/maps/map_020.json",
       "map_id": 20,
       "sequence_count": 1,
-      "sha256": "2e08ec4bc50d5b5b7fb36dae8301fddb8d05d946e7c941bf52802bda248d6da2",
+      "sha256": "c0cf253326b9cf3f4265c581f5ab1d40fa93b213d0ea341eddd859a60f50cfe4",
       "variant": null
     },
     {
       "file": "vfx/timelines/maps/map_021.json",
       "map_id": 21,
       "sequence_count": 1,
-      "sha256": "87135c2da9918b60a95b9756a67038e41f41d9d135e68f18ad2426139f28a6ff",
+      "sha256": "20ebcc02af04272b1d7f347079fde5a5252c3cbf3164236255ab100862514496",
       "variant": null
     },
     {
       "file": "vfx/timelines/maps/map_022.json",
       "map_id": 22,
       "sequence_count": 2,
-      "sha256": "d340bd3929766869f36f8174697b138e2452f1149abc3243378a99c965db39dd",
+      "sha256": "ea932a11d551a974cd3fc7789b5e6f5e383f6f6c9827d3d65daedfe10f246bb9",
       "variant": null
     },
     {
       "file": "vfx/timelines/maps/map_023.json",
       "map_id": 23,
       "sequence_count": 1,
-      "sha256": "de4bf84c73822b112da534d4b235709fffc70fa515ec2bfcb998709a9b251577",
+      "sha256": "6fd08bedf0f73c9c23e0d45d0a093e43a8e60d2a0dca44a5e8cc0a2b571c2852",
       "variant": null
     },
     {
       "file": "vfx/timelines/maps/map_024.json",
       "map_id": 24,
       "sequence_count": 1,
-      "sha256": "8cc0fc3ee93b186ab7430baf80c0361bbdd2187e29d598d26485a23e41435004",
+      "sha256": "618f2a1632698f7f241485ee00ad5e95d917c87c09546d2f85a515ac33145c27",
       "variant": null
     },
     {
       "file": "vfx/timelines/maps/map_025.json",
       "map_id": 25,
       "sequence_count": 1,
-      "sha256": "92495c4882f480e84362d597c2c7e8de6e1e1c63312dd48d980dd18b6899ab5c",
+      "sha256": "778ef0fc01934b26ab912f5e9e32b90ef0d4542295a40aa39738a330d0c5f1f6",
       "variant": null
     },
     {
       "file": "vfx/timelines/maps/map_026.json",
       "map_id": 26,
       "sequence_count": 1,
-      "sha256": "34af734c329adc2103b8faf660e8c393ad11e0c35b8dde9bd2912063df086d88",
+      "sha256": "a5effdd3a54a9234364b17fc404bcb33357d741b8b4b4e98256ff17ba3a2ab1f",
       "variant": null
     },
     {
       "file": "vfx/timelines/maps/map_027.json",
       "map_id": 27,
       "sequence_count": 1,
-      "sha256": "bdcea1e31a2b8307bae0ba604ddff4c858e6b101c28134ec516bbf920e5b3161",
+      "sha256": "c801b52e6609410d547be308ce0e583b52063b271770701407121eee6ca597e7",
       "variant": null
     },
     {
       "file": "vfx/timelines/maps/map_028.json",
       "map_id": 28,
       "sequence_count": 1,
-      "sha256": "0f059b50eb623e72da4f0a58a950d6648892ec1a6c8a76fc6ebe457a2382c1eb",
+      "sha256": "45c85834caa399524ed0b9b680d1d3b1b07a12d6722bef018ccdb9bc1fdcb0e1",
       "variant": null
     }
   ],
@@ -612,6 +615,7 @@
     "picture_erase": 51,
     "picture_move": 14,
     "picture_show_review_required": 17,
+    "script_visual_block": 199,
     "wait": 680,
     "wait_for_move_completion": 262
   }

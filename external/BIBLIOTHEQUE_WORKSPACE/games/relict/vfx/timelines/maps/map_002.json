@@ -150,6 +150,31 @@
           "source_index": 3
         },
         {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 1,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 8,
+                "tone": [
+                  -255,
+                  -255,
+                  -255,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "436e0bfcf22541917993e6550b0b0946073bdd416b1ceb4826de09ecee0fccf4",
+            "source_text_exported": false
+          },
+          "source_index": 5
+        },
+        {
           "category": "wait",
           "code": 106,
           "indent": 1,
@@ -186,6 +211,31 @@
             1
           ],
           "source_index": 9
+        },
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 1,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 8,
+                "tone": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "83e09ca38821b1628061fc5525f24c7195c9a1f60b70c290ca5655b723853fa9",
+            "source_text_exported": false
+          },
+          "source_index": 10
         },
         {
           "category": "branch_end",
@@ -492,6 +542,31 @@
             "nominal_ms_at_rgss_40fps": 100
           },
           "source_index": 7
+        },
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 0,
+                "tone": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "9e70823cf070d0fce68bb3c08f8a426098c8c1d8acf8e5227c4fa2cff41e43ee",
+            "source_text_exported": false
+          },
+          "source_index": 8
         },
         {
           "category": "wait",
@@ -844,6 +919,29 @@
           "source_index": 72
         },
         {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "arguments": [
+                  17,
+                  13,
+                  1
+                ],
+                "call": "camera_scroll_to"
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "2d3a299bba9bc74413f1490c2618676a880296661387e2b1a01aa58b3c5566ec",
+            "source_text_exported": false
+          },
+          "source_index": 73
+        },
+        {
           "category": "wait",
           "code": 106,
           "indent": 0,
@@ -904,6 +1002,29 @@
             "nominal_ms_at_rgss_40fps": 200
           },
           "source_index": 150
+        },
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "arguments": [
+                  17,
+                  11,
+                  1
+                ],
+                "call": "camera_scroll_to"
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "d5bbaa3a24caeb61a644ea475781040a0b5a423f8b6043bf6aafc1fedb86b0f6",
+            "source_text_exported": false
+          },
+          "source_index": 151
         },
         {
           "category": "wait",
@@ -1008,6 +1129,25 @@
           "source_index": 169
         },
         {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "arguments": [],
+                "call": "camera_reset"
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "0df138cf557bd70ca736b7d7a36f93ed1399af419748f8c1cb835cacb663265e",
+            "source_text_exported": false
+          },
+          "source_index": 170
+        },
+        {
           "category": "wait",
           "code": 106,
           "indent": 0,
@@ -1089,6 +1229,28 @@
             "nominal_ms_at_rgss_40fps": 200
           },
           "source_index": 7
+        },
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "arguments": [
+                  1,
+                  1
+                ],
+                "call": "camera_to_event"
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "586048138a9c43d6cde12c0f3468921a72ba6fdc8719d41c37b255928d3b8533",
+            "source_text_exported": false
+          },
+          "source_index": 8
         },
         {
           "category": "wait",
@@ -1176,6 +1338,25 @@
             "nominal_ms_at_rgss_40fps": 200
           },
           "source_index": 29
+        },
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "arguments": [],
+                "call": "camera_reset"
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "0df138cf557bd70ca736b7d7a36f93ed1399af419748f8c1cb835cacb663265e",
+            "source_text_exported": false
+          },
+          "source_index": 30
         },
         {
           "category": "wait",
@@ -1267,6 +1448,7 @@
     "picture_erase": 1,
     "picture_move": 2,
     "picture_show_review_required": 1,
+    "script_visual_block": 8,
     "wait": 29,
     "wait_for_move_completion": 15
   }

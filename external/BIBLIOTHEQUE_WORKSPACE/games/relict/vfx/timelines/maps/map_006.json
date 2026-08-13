@@ -1,12 +1,12 @@
 {
   "dialogue_contents_exported": false,
   "excluded_command_counts": {
-    "script_commands_redacted": 13
+    "script_commands_redacted": 14
   },
   "map_id": 6,
   "schema_version": "1.0.0",
   "script_bodies_exported": false,
-  "sequence_count": 2,
+  "sequence_count": 3,
   "sequences": [
     {
       "condition_flags": {
@@ -117,6 +117,53 @@
       "page_index": 0,
       "source_event_id": 4,
       "timeline": [
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 8,
+                "tone": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "83e09ca38821b1628061fc5525f24c7195c9a1f60b70c290ca5655b723853fa9",
+            "source_text_exported": false
+          },
+          "source_index": 1
+        },
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "arguments": [
+                  5,
+                  1
+                ],
+                "call": "camera_to_event"
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "67475c22ecd18162a0f4cd58c832d015f6227a65dbb4694c69101fb8ec6ab0ce",
+            "source_text_exported": false
+          },
+          "source_index": 2
+        },
         {
           "category": "forced_move_route",
           "code": 209,
@@ -328,6 +375,28 @@
           "source_index": 28
         },
         {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 1,
+          "parameters": {
+            "calls": [
+              {
+                "arguments": [
+                  17,
+                  17
+                ],
+                "call": "camera_scroll_to"
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "4db9fde34bd2a929d3b87220ee10a5bda6d2391ab1acfe920239a8078f284909",
+            "source_text_exported": false
+          },
+          "source_index": 29
+        },
+        {
           "category": "wait",
           "code": 106,
           "indent": 1,
@@ -413,6 +482,25 @@
             "nominal_ms_at_rgss_40fps": 200
           },
           "source_index": 38
+        },
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 1,
+          "parameters": {
+            "calls": [
+              {
+                "arguments": [],
+                "call": "camera_reset"
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "0df138cf557bd70ca736b7d7a36f93ed1399af419748f8c1cb835cacb663265e",
+            "source_text_exported": false
+          },
+          "source_index": 39
         },
         {
           "category": "wait",
@@ -553,6 +641,52 @@
         }
       ],
       "trigger": 3
+    },
+    {
+      "condition_flags": {
+        "self_switch_ch": "A",
+        "self_switch_valid": false,
+        "switch1_id": 63,
+        "switch1_valid": true,
+        "switch2_id": 1,
+        "switch2_valid": false,
+        "variable_id": 1,
+        "variable_valid": false,
+        "variable_value": 0
+      },
+      "excluded_command_counts": {
+        "script_commands_redacted": 1
+      },
+      "page_index": 1,
+      "source_event_id": 4,
+      "timeline": [
+        {
+          "category": "script_visual_block",
+          "code": 355,
+          "indent": 0,
+          "parameters": {
+            "calls": [
+              {
+                "call": "tone_change_all",
+                "duration_rgss_frames": 8,
+                "tone": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "category": "script_visual_block",
+            "fixed_repeat_counts": [],
+            "line_count": 1,
+            "source_block_sha256": "83e09ca38821b1628061fc5525f24c7195c9a1f60b70c290ca5655b723853fa9",
+            "source_text_exported": false
+          },
+          "source_index": 0
+        }
+      ],
+      "trigger": 3
     }
   ],
   "timing": {
@@ -571,6 +705,7 @@
     "else": 3,
     "exit_event": 1,
     "forced_move_route": 7,
+    "script_visual_block": 5,
     "wait": 8,
     "wait_for_move_completion": 6
   }
