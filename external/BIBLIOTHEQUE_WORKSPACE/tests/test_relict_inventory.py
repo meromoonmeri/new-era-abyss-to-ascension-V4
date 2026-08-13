@@ -224,8 +224,11 @@ class RelictInventoryQualification(unittest.TestCase):
         self.assertEqual(manifest["map_timeline_count"], 34)
         self.assertEqual(manifest["unresolved_environment_count"], 0)
         self.assertGreater(manifest["common_event_timeline_count"], 0)
-        self.assertGreater(manifest["environment_asset_count"], 0)
-        self.assertGreater(manifest["picture_transition_review_count"], 0)
+        self.assertEqual(manifest["environment_asset_count"], 9)
+        self.assertEqual(manifest["picture_transition_review_count"], 0)
+        self.assertEqual(manifest["manual_picture_decision_count"], 9)
+        self.assertEqual(manifest["excluded_picture_count"], 4)
+        self.assertEqual(manifest["included_environmental_picture_count"], 5)
         self.assertFalse(manifest["dialogue_contents_exported"])
         self.assertFalse(manifest["script_bodies_exported"])
         self.assertEqual(manifest["redacted_script_command_count"], 1143)
@@ -248,14 +251,25 @@ class RelictInventoryQualification(unittest.TestCase):
             self.assertFalse(row["pixels_exported"])
             self.assertNotIn("name", row)
             self.assertNotIn("source_path", row)
+        self.assertEqual(manifest["review_queue"], [])
+        for row in manifest["excluded_assets"]:
+            self.assertIn(row["status"], {"EXCLUDED_CHARACTER", "EXCLUDED_UI"})
+            self.assertFalse(row["pixels_exported"])
+            self.assertNotIn("name", row)
+            self.assertNotIn("source_path", row)
         animated = [row for row in manifest["environment_assets"] if "/animations/" in row["output"]]
         self.assertEqual(len(animated), manifest["animated_environment_count"])
+        timing_rows = []
         for row in animated:
             metadata = load_json(TRACKED / row["output"])
             self.assertEqual(metadata["timing_authority"], "SOURCE_EXACT")
-            self.assertEqual(metadata["frame_count"], 12)
             self.assertTrue(metadata["loop"])
-            self.assertTrue(all(frame["duration_ms"] == 100 for frame in metadata["layers"][0]["frames"]))
+            durations = sorted({frame["duration_ms"] for frame in metadata["layers"][0]["frames"]})
+            timing_rows.append((metadata["frame_count"], durations))
+        self.assertEqual(
+            sorted(timing_rows),
+            [(4, [300]), (12, [100]), (144, [70, 100])],
+        )
 
     def test_generated_hash_manifest_covers_every_output(self):
         manifest_path = TRACKED / "manifests/generated_hashes.sha256"

@@ -52,14 +52,14 @@
   "result": "RELICT_SOURCE_LIBRARY_PASS",
   "schema_version": "1.0.0",
   "vfx": {
-    "animated_environment_count": 1,
+    "animated_environment_count": 3,
     "common_event_timeline_count": 6,
     "common_events": {
       "file": "vfx/timelines/common_events.json",
       "sha256": "e0a767f189a476e10cffe44b56db860fd596adc9cfaad55940c03948cd7510c8"
     },
     "dialogue_contents_exported": false,
-    "environment_asset_count": 4,
+    "environment_asset_count": 9,
     "event_timing_authority": {
       "fixed_framerate_override_active": false,
       "frame_duration_ms": 25,
@@ -75,12 +75,15 @@
       "script_commands_redacted": 1009,
       "script_continuation_commands_redacted": 134
     },
+    "excluded_picture_count": 4,
     "image_magick_authority": {
       "executable_sha256": "98cde8b245cd229a92e8a89505786098175e97d43f4b958874bbaaf05f3924af",
       "version": "Version: ImageMagick 6.9.11-60 Q16 x86_64 2021-01-25 https://imagemagick.org"
     },
+    "included_environmental_picture_count": 5,
+    "manual_picture_decision_count": 9,
     "map_timeline_count": 34,
-    "picture_transition_review_count": 9,
+    "picture_transition_review_count": 0,
     "redacted_script_command_count": 1143,
     "result": "ENVIRONMENTAL_VFX_AUDIT_PASS",
     "schema_version": "1.0.0",

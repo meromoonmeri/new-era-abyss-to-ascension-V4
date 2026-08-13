@@ -42,7 +42,7 @@ def build(source: Path, output: Path) -> dict:
         },
         "vfx": {
             key: value for key, value in vfx_summary.items()
-            if key not in ("timelines", "environment_assets", "review_queue")
+            if key not in ("timelines", "environment_assets", "excluded_assets", "review_queue")
         },
         "previews": {
             key: value for key, value in preview_summary.items()

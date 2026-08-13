@@ -52,9 +52,18 @@ coalescing ImageMagick est normalisé ensuite par le codec PNG déterministe du
 pipeline ; la version et le hash de l'exécutable sont verrouillés dans le
 manifest.
 
-Neuf Pictures/Transitions utilisées par des scènes restent en file
-`REVIEW_REQUIRED`. Leurs identités et hashes source sont conservés, mais aucun
-pixel n'est exporté avant classification manuelle environnement/casting.
+Les neuf Pictures utilisées par des scènes ont été examinées pixel par pixel et
+verrouillées par hash source :
+
+- 3 images avec humains/Pokémon : `EXCLUDED_CHARACTER` ;
+- 1 écran texte de fin : `EXCLUDED_UI` ;
+- 5 overlays/fonds strictement environnementaux : inclus.
+
+La file `REVIEW_REQUIRED` est vide. Les quatre exclusions ne conservent que hash
+et contextes, sans pixels ni nom source. Parmi les cinq inclusions, deux GIF
+animés sont exportés frame par frame : 144 frames avec durées exactes de 70 ou
+100 ms selon leur Graphic Control Extension, et 4 frames à 300 ms. Les trois
+autres overlays sont normalisés en PNG avec provenance complète.
 
 ## Audit statique des commandes de script
 
@@ -77,7 +86,7 @@ aléatoires sont conservés. Aucun bloc contenant un mot-clé visuel ne reste sa
 classification (`static_script_visual_audit_required_count = 0`). Les autres
 commandes restent uniquement comptées comme gameplay/script redacted.
 
-La file manuelle encore ouverte concerne donc les neuf Pictures, pas les appels
-caméra/tone/VFX des scripts.
+Aucun appel caméra/tone/VFX connu et aucune Picture utilisée ne restent sans
+classification. Les systèmes et contenus non visuels restent redacted.
 
 Aucune conversion PMDO n'est commencée.

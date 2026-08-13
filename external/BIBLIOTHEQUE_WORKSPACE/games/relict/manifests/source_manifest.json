@@ -509,9 +509,9 @@
   ],
   "game_id": "relict",
   "pipeline_tool_hashes": {
-    "tools/build_relict_library.py": "1f75e6f236e23729369b2f5c0794141ba14a44b7bfaef1b7ec2b00a7d66c23b8",
+    "tools/build_relict_library.py": "d2fc53c13de611d2c5f5d540aeb6c889bc1328654509856a75213bd86a234fa7",
     "tools/extract_relict_autotile_animations.py": "3109c3fc1c0d032e2394d7c111ee446a80cade64079895c0eea728ca08d27c44",
-    "tools/extract_relict_environmental_vfx.py": "fe10a4f9739d5b8d2edf55de744499855d83118b33b9068c27e1565ceeb039b5",
+    "tools/extract_relict_environmental_vfx.py": "92e59fdc845a416b4b34dedaf3e1370719244a02c64a1582a992a0bc02b7f08c",
     "tools/inventory_relict.py": "f15fb32370763d1e7ec0ee6759776c26e9b30b963604400ae29d4f43229aee03",
     "tools/png_rgba.py": "5db7749bd903b422136ff2f8aaa219d625c3b6b9c6d564981de10fbdd37f1b8a",
     "tools/render_relict_previews.py": "c6383fae3d28b8366f80ba80d699fde4ace6b8216ed08763606bf0fc952dac8e",

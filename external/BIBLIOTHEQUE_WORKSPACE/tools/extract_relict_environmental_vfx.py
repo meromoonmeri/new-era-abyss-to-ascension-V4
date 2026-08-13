@@ -44,6 +44,18 @@ EXTRA_VISUAL_COMMANDS = {
 ENVIRONMENT_SETTING_TYPES = {0: ("PANORAMA", "Panoramas"), 1: ("FOG", "Fogs")}
 PICTURE_DIR = "Pictures"
 TRANSITION_DIR = "Transitions"
+# Manual pixel review, pinned by source hash so cast filenames never enter outputs.
+PICTURE_REVIEW_DECISIONS = {
+    "ce9caad932a047ecd83243b907a0cf01098a7bc36d2438d56f03420b94fcdeb9": "EXCLUDED_CHARACTER",
+    "991ab657b1b9fb26a3128a69a474bf7e3da489e818025e75060f4c0647774501": "EXCLUDED_CHARACTER",
+    "2b351a6b853f2762e37c8aa71da5f4811e9ef20f664be134ae5ac50d53247484": "EXCLUDED_CHARACTER",
+    "dd16ee6a8d15539bb8b4d3347f0dddfd915343fbd88eec2568daf6e8653f97b6": "EXCLUDED_UI",
+    "a1b36573aad184257d9c4b8329f412d85d97adef8ac47656d008cf3565a50686": "INCLUDED_ENVIRONMENTAL",
+    "6dc7876f1f0c8cc407a74d902557e6b3a812eda4abd767cca91d8f48c6777b19": "INCLUDED_ENVIRONMENTAL",
+    "991e68ad1d07b375faa43f3851cd4445f1b859c73f76d7134208521a0eaff2f9": "INCLUDED_ENVIRONMENTAL",
+    "918406c1bcc2043309306aa87c5054166ac5d65f3f45878d5ce2d41c01b4d376": "INCLUDED_ENVIRONMENTAL",
+    "9e82336999bfe1efff290d0aeaefe3526005bfa5613feb3e106969846c5554f1": "INCLUDED_ENVIRONMENTAL",
+}
 
 
 def load_json(path: Path) -> Any:
@@ -447,7 +459,13 @@ def extract_gif_frames(source_path: Path, destination: Path) -> tuple[list[dict[
     delays, loop_count = gif_control_metadata(source_path)
     with tempfile.TemporaryDirectory() as temp:
         pattern = str(Path(temp) / "frame_%03d.png")
-        subprocess.run(["convert", str(source_path), "-coalesce", pattern], check=True)
+        subprocess.run(
+            [
+                "convert", str(source_path), "-coalesce", "-depth", "8",
+                "-define", "png:color-type=6", pattern,
+            ],
+            check=True,
+        )
         generated = sorted(Path(temp).glob("frame_*.png"))
         if len(generated) != len(delays):
             raise ValueError("ImageMagick frame count differs from GIF control blocks")
@@ -464,14 +482,16 @@ def extract_gif_frames(source_path: Path, destination: Path) -> tuple[list[dict[
                 "sha256": sha256_file(frame_path),
             })
             contact_images.append(image)
-    width = sum(image.width for image in contact_images)
-    height = max(image.height for image in contact_images)
+    columns = min(12, len(contact_images))
+    rows = (len(contact_images) + columns - 1) // columns
+    cell_width = max(image.width for image in contact_images)
+    cell_height = max(image.height for image in contact_images)
+    width = columns * cell_width
+    height = rows * cell_height
     from png_rgba import RGBAImage
     contact = RGBAImage.empty(width, height)
-    x = 0
-    for image in contact_images:
-        contact.alpha_over(image, x, 0)
-        x += image.width
+    for index, image in enumerate(contact_images):
+        contact.alpha_over(image, (index % columns) * cell_width, (index // columns) * cell_height)
     contact_path = destination / "contact_sheet.png"
     save_png(contact, contact_path)
     return frames, {
@@ -544,23 +564,38 @@ def build(source: Path, inventory_root: Path) -> dict[str, Any]:
 
     environment_assets = []
     picture_reviews = []
+    excluded_assets = []
     animated_environment_count = 0
     image_magick = subprocess.check_output(["convert", "-version"], text=True).splitlines()[0]
     for (kind, directory, name), contexts in sorted(reference_usage.items()):
         source_path = resolve_asset(source, directory, name)
         source_hash = sha256_file(source_path) if source_path else None
         if kind.endswith("_REVIEW"):
-            picture_reviews.append({
-                "kind": kind,
-                "source_identity_sha256": sha256_bytes(name.encode()),
-                "resolved": source_path is not None,
-                "source_sha256": source_hash,
-                "size_bytes": source_path.stat().st_size if source_path else None,
-                "contexts": contexts,
-                "pixels_exported": False,
-                "status": "REVIEW_REQUIRED",
-            })
-            continue
+            decision = PICTURE_REVIEW_DECISIONS.get(source_hash)
+            if decision in ("EXCLUDED_CHARACTER", "EXCLUDED_UI"):
+                excluded_assets.append({
+                    "kind": kind,
+                    "source_identity_sha256": sha256_bytes(name.encode()),
+                    "source_sha256": source_hash,
+                    "contexts": contexts,
+                    "pixels_exported": False,
+                    "status": decision,
+                })
+                continue
+            if decision == "INCLUDED_ENVIRONMENTAL":
+                kind = "ENVIRONMENT_OVERLAY"
+            else:
+                picture_reviews.append({
+                    "kind": kind,
+                    "source_identity_sha256": sha256_bytes(name.encode()),
+                    "resolved": source_path is not None,
+                    "source_sha256": source_hash,
+                    "size_bytes": source_path.stat().st_size if source_path else None,
+                    "contexts": contexts,
+                    "pixels_exported": False,
+                    "status": "REVIEW_REQUIRED",
+                })
+                continue
         if source_path is None:
             environment_assets.append({
                 "kind": kind, "name": name, "resolved": False,
@@ -650,6 +685,13 @@ def build(source: Path, inventory_root: Path) -> dict[str, Any]:
         "environment_asset_count": len(environment_assets),
         "animated_environment_count": animated_environment_count,
         "picture_transition_review_count": len(picture_reviews),
+        "manual_picture_decision_count": len(excluded_assets) + sum(
+            row["kind"] == "ENVIRONMENT_OVERLAY" for row in environment_assets
+        ),
+        "excluded_picture_count": len(excluded_assets),
+        "included_environmental_picture_count": sum(
+            row["kind"] == "ENVIRONMENT_OVERLAY" for row in environment_assets
+        ),
         "unresolved_environment_count": sum(not row["resolved"] for row in environment_assets),
         "dialogue_contents_exported": False,
         "script_bodies_exported": False,
@@ -664,14 +706,16 @@ def build(source: Path, inventory_root: Path) -> dict[str, Any]:
             "sha256": sha256_file(common_path),
         },
         "environment_assets": environment_assets,
+        "excluded_assets": excluded_assets,
         "review_queue": picture_reviews,
     }
     write_json(output / "manifest.json", manifest)
     (output / "README.md").write_text(
         "# VFX et timelines environnementales Relict\n\n"
         "Les commandes visuelles, attentes, routes forcées, branches, fogs, panoramas "
-        "et effets de carte sont conservés sans dialogue ni corps de script. Les images "
-        "de Pictures/Transitions restent dans une file REVIEW_REQUIRED sans export de pixels.\n",
+        "et effets de carte sont conservés sans dialogue ni corps de script. Les neuf "
+        "Pictures utilisées ont une décision verrouillée par hash : cinq overlays "
+        "environnementaux inclus et quatre images casting/UI exclues sans export de pixels.\n",
         encoding="utf-8",
     )
     return manifest
@@ -683,7 +727,10 @@ def main() -> int:
     parser.add_argument("--inventory-root", type=Path, default=DEFAULT_OUTPUT)
     args = parser.parse_args()
     result = build(args.source, args.inventory_root)
-    print(json.dumps({key: value for key, value in result.items() if key not in ("timelines", "environment_assets", "review_queue")}, sort_keys=True))
+    print(json.dumps({
+        key: value for key, value in result.items()
+        if key not in ("timelines", "environment_assets", "excluded_assets", "review_queue")
+    }, sort_keys=True))
     return 0 if result["unresolved_environment_count"] == 0 else 1
 
 

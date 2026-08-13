@@ -1,12 +1,12 @@
 {
-  "animated_environment_count": 1,
+  "animated_environment_count": 3,
   "common_event_timeline_count": 6,
   "common_events": {
     "file": "vfx/timelines/common_events.json",
     "sha256": "e0a767f189a476e10cffe44b56db860fd596adc9cfaad55940c03948cd7510c8"
   },
   "dialogue_contents_exported": false,
-  "environment_asset_count": 4,
+  "environment_asset_count": 9,
   "environment_assets": [
     {
       "asset_id": "relict_fog_forest_2c6a4251474f",
@@ -125,84 +125,9 @@
       "source_path": "Graphics/Panoramas/eclipsePan.png",
       "source_sha256": "cc73003140c0c98bbef36c5f8dbebaa8b6c46827b48683edde2236360ab43913",
       "status": "SOURCE_DOCUMENTED"
-    }
-  ],
-  "event_timing_authority": {
-    "fixed_framerate_override_active": false,
-    "frame_duration_ms": 25,
-    "nominal_frame_rate": 40,
-    "sha256": "62aeae4e5c10804e25cb91ac24ff264c1137639ae395826ecbb51e02bb0cf40e",
-    "source_path": "mkxp.json"
-  },
-  "excluded_command_counts": {
-    "audio_commands_redacted": 82,
-    "choice_commands_redacted": 2,
-    "dialogue_commands_redacted": 558,
-    "dialogue_continuation_commands_redacted": 6,
-    "script_commands_redacted": 1009,
-    "script_continuation_commands_redacted": 134
-  },
-  "image_magick_authority": {
-    "executable_sha256": "98cde8b245cd229a92e8a89505786098175e97d43f4b958874bbaaf05f3924af",
-    "version": "Version: ImageMagick 6.9.11-60 Q16 x86_64 2021-01-25 https://imagemagick.org"
-  },
-  "map_timeline_count": 34,
-  "picture_transition_review_count": 9,
-  "redacted_script_command_count": 1143,
-  "result": "ENVIRONMENTAL_VFX_AUDIT_PASS",
-  "review_queue": [
-    {
-      "contexts": [
-        {
-          "event_id": 3,
-          "map_id": 20,
-          "page_index": 0,
-          "source_index": 148
-        }
-      ],
-      "kind": "PICTURE_REVIEW",
-      "pixels_exported": false,
-      "resolved": true,
-      "size_bytes": 16694,
-      "source_identity_sha256": "6f76da46c3b7dac10a4805a73ad8e911ad8c5f2f5543f4852bbd978250c5edce",
-      "source_sha256": "ce9caad932a047ecd83243b907a0cf01098a7bc36d2438d56f03420b94fcdeb9",
-      "status": "REVIEW_REQUIRED"
     },
     {
-      "contexts": [
-        {
-          "event_id": 4,
-          "map_id": 19,
-          "page_index": 0,
-          "source_index": 107
-        }
-      ],
-      "kind": "PICTURE_REVIEW",
-      "pixels_exported": false,
-      "resolved": true,
-      "size_bytes": 15930,
-      "source_identity_sha256": "4c65422ea9f80ca0d08da7388783c7de5598fb44c739925bf1f1beab14ddd757",
-      "source_sha256": "991ab657b1b9fb26a3128a69a474bf7e3da489e818025e75060f4c0647774501",
-      "status": "REVIEW_REQUIRED"
-    },
-    {
-      "contexts": [
-        {
-          "event_id": 4,
-          "map_id": 27,
-          "page_index": 0,
-          "source_index": 206
-        }
-      ],
-      "kind": "PICTURE_REVIEW",
-      "pixels_exported": false,
-      "resolved": true,
-      "size_bytes": 13239,
-      "source_identity_sha256": "b8651f9aac10fc72fb3468a45658fa0a5cdfbab6e7ddc659c99996596ef3d648",
-      "source_sha256": "2b351a6b853f2762e37c8aa71da5f4811e9ef20f664be134ae5ac50d53247484",
-      "status": "REVIEW_REQUIRED"
-    },
-    {
+      "asset_id": "relict_environment_overlay_eclipse_a1b36573aad1",
       "contexts": [
         {
           "event_id": 1,
@@ -211,32 +136,17 @@
           "source_index": 6
         }
       ],
-      "kind": "PICTURE_REVIEW",
-      "pixels_exported": false,
+      "kind": "ENVIRONMENT_OVERLAY",
+      "name": "Eclipse",
+      "output": "vfx/animations/relict_environment_overlay_eclipse_a1b36573aad1/metadata.json",
+      "output_sha256": "aba214cafd10def186d38bf0c90ef5a96ed84c7b23caa39c180fbfe91a538c28",
       "resolved": true,
-      "size_bytes": 1015001,
-      "source_identity_sha256": "de24e677d5541604808bbe583f958d702c8e2067e5a554af3d856ceac17c6354",
+      "source_path": "Graphics/Pictures/Eclipse.gif",
       "source_sha256": "a1b36573aad184257d9c4b8329f412d85d97adef8ac47656d008cf3565a50686",
-      "status": "REVIEW_REQUIRED"
+      "status": "SOURCE_DOCUMENTED"
     },
     {
-      "contexts": [
-        {
-          "event_id": 1,
-          "map_id": 28,
-          "page_index": 0,
-          "source_index": 64
-        }
-      ],
-      "kind": "PICTURE_REVIEW",
-      "pixels_exported": false,
-      "resolved": true,
-      "size_bytes": 3505,
-      "source_identity_sha256": "5a2af601e7a29281ca731ce1a9647cc70f51b0902dc18ca62f3d99c46840a6ed",
-      "source_sha256": "dd16ee6a8d15539bb8b4d3347f0dddfd915343fbd88eec2568daf6e8653f97b6",
-      "status": "REVIEW_REQUIRED"
-    },
-    {
+      "asset_id": "relict_environment_overlay_shinyoverlay_6dc7876f1f0c",
       "contexts": [
         {
           "event_id": 1,
@@ -281,15 +191,17 @@
           "source_index": 9
         }
       ],
-      "kind": "PICTURE_REVIEW",
-      "pixels_exported": false,
+      "kind": "ENVIRONMENT_OVERLAY",
+      "name": "ShinyOverlay",
+      "output": "vfx/assets/environment_overlay/relict_environment_overlay_shinyoverlay_6dc7876f1f0c.png",
+      "output_sha256": "976b4b00f1fd5697e9271f4b22c15e1b890cdbff41eff5d9f14039d9c76873db",
       "resolved": true,
-      "size_bytes": 2042,
-      "source_identity_sha256": "65935bff6af0138b7f88e657ed32f5fe313741440ecae2b2de0fa226bbab3f5a",
+      "source_path": "Graphics/Pictures/ShinyOverlay.png",
       "source_sha256": "6dc7876f1f0c8cc407a74d902557e6b3a812eda4abd767cca91d8f48c6777b19",
-      "status": "REVIEW_REQUIRED"
+      "status": "SOURCE_DOCUMENTED"
     },
     {
+      "asset_id": "relict_environment_overlay_sunlight_991e68ad1d07",
       "contexts": [
         {
           "event_id": 8,
@@ -310,15 +222,17 @@
           "source_index": 10
         }
       ],
-      "kind": "PICTURE_REVIEW",
-      "pixels_exported": false,
+      "kind": "ENVIRONMENT_OVERLAY",
+      "name": "Sunlight",
+      "output": "vfx/animations/relict_environment_overlay_sunlight_991e68ad1d07/metadata.json",
+      "output_sha256": "0482347ece99ee3e9c8517f9c0702eb50458055ee6e941309d6fcaa832770380",
       "resolved": true,
-      "size_bytes": 21353,
-      "source_identity_sha256": "9761b559f8d66a38f0018e5d365c46aad10594991f872b85e557551c151191b6",
+      "source_path": "Graphics/Pictures/Sunlight.gif",
       "source_sha256": "991e68ad1d07b375faa43f3851cd4445f1b859c73f76d7134208521a0eaff2f9",
-      "status": "REVIEW_REQUIRED"
+      "status": "SOURCE_DOCUMENTED"
     },
     {
+      "asset_id": "relict_environment_overlay_tawa_918406c1bcc2",
       "contexts": [
         {
           "event_id": 2,
@@ -327,15 +241,17 @@
           "source_index": 14
         }
       ],
-      "kind": "PICTURE_REVIEW",
-      "pixels_exported": false,
+      "kind": "ENVIRONMENT_OVERLAY",
+      "name": "Tawa",
+      "output": "vfx/assets/environment_overlay/relict_environment_overlay_tawa_918406c1bcc2.png",
+      "output_sha256": "55b757556fffe5cc778c0f7c2cabd70966f10650325342f41311c530828f929f",
       "resolved": true,
-      "size_bytes": 16152,
-      "source_identity_sha256": "1eb8ede23f54c5ec712dc25b54b3c41a75149883e3fa64196121383efb93fed8",
+      "source_path": "Graphics/Pictures/Tawa.png",
       "source_sha256": "918406c1bcc2043309306aa87c5054166ac5d65f3f45878d5ce2d41c01b4d376",
-      "status": "REVIEW_REQUIRED"
+      "status": "SOURCE_DOCUMENTED"
     },
     {
+      "asset_id": "relict_environment_overlay_black_arcy_9e82336999bf",
       "contexts": [
         {
           "event_id": 7,
@@ -344,15 +260,105 @@
           "source_index": 5
         }
       ],
-      "kind": "PICTURE_REVIEW",
-      "pixels_exported": false,
+      "kind": "ENVIRONMENT_OVERLAY",
+      "name": "black_arcy",
+      "output": "vfx/assets/environment_overlay/relict_environment_overlay_black_arcy_9e82336999bf.png",
+      "output_sha256": "6893f195429d3e87305bfc6c503c2dadb64b24a2938bde4130e7da3f4ded9572",
       "resolved": true,
-      "size_bytes": 2760,
-      "source_identity_sha256": "f9e360a9887d6c17ed487edc17dee00c6f42a81bfdeaf185437c953deac9122f",
+      "source_path": "Graphics/Pictures/black_arcy.png",
       "source_sha256": "9e82336999bfe1efff290d0aeaefe3526005bfa5613feb3e106969846c5554f1",
-      "status": "REVIEW_REQUIRED"
+      "status": "SOURCE_DOCUMENTED"
     }
   ],
+  "event_timing_authority": {
+    "fixed_framerate_override_active": false,
+    "frame_duration_ms": 25,
+    "nominal_frame_rate": 40,
+    "sha256": "62aeae4e5c10804e25cb91ac24ff264c1137639ae395826ecbb51e02bb0cf40e",
+    "source_path": "mkxp.json"
+  },
+  "excluded_assets": [
+    {
+      "contexts": [
+        {
+          "event_id": 3,
+          "map_id": 20,
+          "page_index": 0,
+          "source_index": 148
+        }
+      ],
+      "kind": "PICTURE_REVIEW",
+      "pixels_exported": false,
+      "source_identity_sha256": "6f76da46c3b7dac10a4805a73ad8e911ad8c5f2f5543f4852bbd978250c5edce",
+      "source_sha256": "ce9caad932a047ecd83243b907a0cf01098a7bc36d2438d56f03420b94fcdeb9",
+      "status": "EXCLUDED_CHARACTER"
+    },
+    {
+      "contexts": [
+        {
+          "event_id": 4,
+          "map_id": 19,
+          "page_index": 0,
+          "source_index": 107
+        }
+      ],
+      "kind": "PICTURE_REVIEW",
+      "pixels_exported": false,
+      "source_identity_sha256": "4c65422ea9f80ca0d08da7388783c7de5598fb44c739925bf1f1beab14ddd757",
+      "source_sha256": "991ab657b1b9fb26a3128a69a474bf7e3da489e818025e75060f4c0647774501",
+      "status": "EXCLUDED_CHARACTER"
+    },
+    {
+      "contexts": [
+        {
+          "event_id": 4,
+          "map_id": 27,
+          "page_index": 0,
+          "source_index": 206
+        }
+      ],
+      "kind": "PICTURE_REVIEW",
+      "pixels_exported": false,
+      "source_identity_sha256": "b8651f9aac10fc72fb3468a45658fa0a5cdfbab6e7ddc659c99996596ef3d648",
+      "source_sha256": "2b351a6b853f2762e37c8aa71da5f4811e9ef20f664be134ae5ac50d53247484",
+      "status": "EXCLUDED_CHARACTER"
+    },
+    {
+      "contexts": [
+        {
+          "event_id": 1,
+          "map_id": 28,
+          "page_index": 0,
+          "source_index": 64
+        }
+      ],
+      "kind": "PICTURE_REVIEW",
+      "pixels_exported": false,
+      "source_identity_sha256": "5a2af601e7a29281ca731ce1a9647cc70f51b0902dc18ca62f3d99c46840a6ed",
+      "source_sha256": "dd16ee6a8d15539bb8b4d3347f0dddfd915343fbd88eec2568daf6e8653f97b6",
+      "status": "EXCLUDED_UI"
+    }
+  ],
+  "excluded_command_counts": {
+    "audio_commands_redacted": 82,
+    "choice_commands_redacted": 2,
+    "dialogue_commands_redacted": 558,
+    "dialogue_continuation_commands_redacted": 6,
+    "script_commands_redacted": 1009,
+    "script_continuation_commands_redacted": 134
+  },
+  "excluded_picture_count": 4,
+  "image_magick_authority": {
+    "executable_sha256": "98cde8b245cd229a92e8a89505786098175e97d43f4b958874bbaaf05f3924af",
+    "version": "Version: ImageMagick 6.9.11-60 Q16 x86_64 2021-01-25 https://imagemagick.org"
+  },
+  "included_environmental_picture_count": 5,
+  "manual_picture_decision_count": 9,
+  "map_timeline_count": 34,
+  "picture_transition_review_count": 0,
+  "redacted_script_command_count": 1143,
+  "result": "ENVIRONMENTAL_VFX_AUDIT_PASS",
+  "review_queue": [],
   "schema_version": "1.0.0",
   "script_bodies_exported": false,
   "script_visual_block_count": 199,
