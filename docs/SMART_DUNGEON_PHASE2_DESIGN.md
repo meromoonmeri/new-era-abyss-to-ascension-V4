@@ -158,6 +158,28 @@ franchissent leurs seuils. La sélection ne maximise plus aveuglément une note 
 elle privilégie d'abord les variantes admissibles, puis leur faiblesse la plus
 basse, l'identité réalisée, la nouveauté et seulement enfin la note agrégée.
 
+## Correction du contrat des relais
+
+L'audit des références `searing_tunnel_midpoint`, `crooked_cavern_midpoint`,
+`MidpointTemplate.lua` et des zones multi-segments confirme qu'un relais PMDO
+est un **Ground médian entre deux segments**, pas un archétype de salle. Il porte
+la statue `Kangaskhan_Rock`, une arrivée, une route avant et une route arrière.
+
+La représentation corrigée est donc indépendante des `FloorPlan` :
+
+- `RelayPlan` sérialise la frontière, les deux segments et les services ;
+- les relais divisent les étages en `N+1` segments sans consommer d'étage ;
+- un Ground candidat est cloné depuis une référence PMDO en lecture seule ;
+- tout casting et tout spawner hérité est retiré ;
+- les trois objets de gameplay et le marker sont validés ;
+- deux scripts candidats routent Ground et Zone ;
+- `GroundMaps`, `segment_contracts` et `relay_contracts` documentent la
+  compilation ;
+- `previews/relays.svg` rend la collision, Kangourex et les deux sorties.
+
+La promotion dans les index runtime reste explicite afin de ne pas toucher aux
+Grounds certifiés ou à `master_zone`.
+
 ## Compatibilité et non-régression
 
 Les ajouts sont additifs. Les anciens plans restent chargeables. `score` reste un

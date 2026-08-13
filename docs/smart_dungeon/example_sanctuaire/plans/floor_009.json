@@ -3466,32 +3466,20 @@
   ],
   "decorations": [
     {
-      "x": 48,
+      "x": 51,
       "y": 25,
       "asset_id": "AntreDragon_Base",
       "hierarchy": "secondary",
       "blocking": false,
-      "placement_rule": "edge_rhythm",
+      "placement_rule": "asymmetric_echo",
       "group_id": "F009-G01",
       "purpose": "variation_locale_et_accent_secondaire",
       "visual_zone": "focal",
-      "reason": "élément principal du motif edge_rhythm dans une salle climax"
+      "reason": "élément principal du motif asymmetric_echo dans une salle climax"
     },
     {
-      "x": 51,
-      "y": 25,
-      "asset_id": "Apple Woods Entrance Layer 1",
-      "hierarchy": "common",
-      "blocking": false,
-      "placement_rule": "edge_rhythm",
-      "group_id": "F009-G01",
-      "purpose": "base_visuelle_et_rythme_commun",
-      "visual_zone": "focal",
-      "reason": "élément secondaire du motif edge_rhythm dans une salle climax"
-    },
-    {
-      "x": 32,
-      "y": 17,
+      "x": 26,
+      "y": 22,
       "asset_id": "Aegis_Regi_Arena_Base",
       "hierarchy": "secondary",
       "blocking": false,
@@ -3503,8 +3491,20 @@
     },
     {
       "x": 28,
+      "y": 22,
+      "asset_id": "Apple Woods Entrance Layer 1",
+      "hierarchy": "common",
+      "blocking": false,
+      "placement_rule": "threshold_markers",
+      "group_id": "F009-G02",
+      "purpose": "base_visuelle_et_rythme_commun",
+      "visual_zone": "focal",
+      "reason": "élément secondaire du motif threshold_markers dans une salle preparation"
+    },
+    {
+      "x": 28,
       "y": 7,
-      "asset_id": "Apple Woods End Layer 2",
+      "asset_id": "AntreDragon_Base",
       "hierarchy": "secondary",
       "blocking": false,
       "placement_rule": "anchor_satellites",
@@ -3516,7 +3516,7 @@
     {
       "x": 27,
       "y": 6,
-      "asset_id": "A02p04_Base",
+      "asset_id": "Aegis Cave Entrance Layer 1",
       "hierarchy": "common",
       "blocking": false,
       "placement_rule": "anchor_satellites",
@@ -3528,7 +3528,7 @@
     {
       "x": 29,
       "y": 6,
-      "asset_id": "A02p04_Base",
+      "asset_id": "Aegis Cave Entrance Layer 1",
       "hierarchy": "common",
       "blocking": false,
       "placement_rule": "anchor_satellites",
@@ -3540,7 +3540,7 @@
     {
       "x": 28,
       "y": 5,
-      "asset_id": "A02p04_Base",
+      "asset_id": "Aegis Cave Entrance Layer 1",
       "hierarchy": "common",
       "blocking": false,
       "placement_rule": "anchor_satellites",
@@ -3552,9 +3552,9 @@
   ],
   "quality": {
     "accepted": true,
-    "score": 83.34,
+    "score": 83.576,
     "structural_score": 85.945,
-    "visual_score": 82.471,
+    "visual_score": 82.786,
     "structural": {
       "accepted": true,
       "score": 85.945,
@@ -3573,10 +3573,10 @@
     },
     "artistic": {
       "accepted": true,
-      "score": 82.471,
+      "score": 82.786,
       "metrics": {
         "visual_hierarchy": 0.725,
-        "negative_space": 0,
+        "negative_space": 0.0349,
         "density_variation": 1,
         "asset_repetition_control": 0.6914,
         "motif_diversity": 1.0101,
@@ -3602,7 +3602,7 @@
       "readability": 0.8462,
       "spatial_quality": 0.8763,
       "visual_visual_hierarchy": 0.725,
-      "visual_negative_space": 0,
+      "visual_negative_space": 0.0349,
       "visual_density_variation": 1,
       "visual_asset_repetition_control": 0.6914,
       "visual_motif_diversity": 1.0101,
@@ -3615,9 +3615,9 @@
       "visual_functional_geometry": 1.0,
       "visual_surprise_control": 0.3974,
       "structural_score": 85.945,
-      "visual_score": 82.471,
+      "visual_score": 82.786,
       "visual_compatibility": 1.0,
-      "score": 83.3395
+      "score": 83.57575
     },
     "violations": []
   },
@@ -3625,11 +3625,11 @@
   "locked_regions": [],
   "identity": {
     "composition_family": "mini_boss_stage",
-    "secondary_strategy": "branching_pockets",
+    "secondary_strategy": "dominant_loop",
     "signature": {
       "signature_id": "F009-mini_boss_stage-84",
       "geometry": "mini_boss_stage",
-      "secondary_strategy": "branching_pockets",
+      "secondary_strategy": "dominant_loop",
       "density_gradient": "alternating",
       "landmark_rule": "exceptional_asset",
       "intentional_symmetry": false
@@ -3686,16 +3686,16 @@
       "decoration_density_realized": 0.0111,
       "group_count": 3
     },
-    "novelty_against_memory": 0.625,
+    "novelty_against_memory": 0.7429,
     "variant_selection": {
       "policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
       "why": "une excellente structure ne peut pas masquer une composition visuelle faible",
       "selected_key": [
         true,
-        82.471,
+        82.786,
         1,
-        0.625,
-        83.34
+        0.7429,
+        83.576
       ]
     }
   },
@@ -3782,7 +3782,7 @@
   "decoration_groups": [
     {
       "group_id": "F009-G01",
-      "motif": "edge_rhythm",
+      "motif": "asymmetric_echo",
       "room_id": 0,
       "anchor": [
         51,
@@ -3791,10 +3791,6 @@
       "rotation": 0,
       "mirrored": false,
       "positions": [
-        [
-          48,
-          25
-        ],
         [
           51,
           25
@@ -3808,15 +3804,19 @@
       "motif": "threshold_markers",
       "room_id": 1,
       "anchor": [
-        33,
-        17
+        27,
+        22
       ],
       "rotation": 3,
       "mirrored": true,
       "positions": [
         [
-          32,
-          17
+          26,
+          22
+        ],
+        [
+          28,
+          22
         ]
       ],
       "purpose": "point_fort",
@@ -3862,7 +3862,7 @@
       "signature": {
         "signature_id": "F009-mini_boss_stage-84",
         "geometry": "mini_boss_stage",
-        "secondary_strategy": "branching_pockets",
+        "secondary_strategy": "dominant_loop",
         "density_gradient": "alternating",
         "landmark_rule": "exceptional_asset",
         "intentional_symmetry": false
@@ -3880,7 +3880,7 @@
     },
     {
       "stage": "spatial_transition",
-      "decision": "branching_pockets",
+      "decision": "dominant_loop",
       "why": "stratégie secondaire compatible pour éviter une rupture brutale"
     },
     {
@@ -3900,7 +3900,7 @@
         1
       ],
       "motifs": [
-        "edge_rhythm",
+        "asymmetric_echo",
         "threshold_markers",
         "anchor_satellites"
       ]
@@ -3908,10 +3908,10 @@
   ],
   "visual_quality": {
     "accepted": true,
-    "score": 82.471,
+    "score": 82.786,
     "metrics": {
       "visual_hierarchy": 0.725,
-      "negative_space": 0,
+      "negative_space": 0.0349,
       "density_variation": 1,
       "asset_repetition_control": 0.6914,
       "motif_diversity": 1.0101,

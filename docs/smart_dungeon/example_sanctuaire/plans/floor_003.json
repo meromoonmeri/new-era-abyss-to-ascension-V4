@@ -3747,12 +3747,12 @@
     },
     "spectacle": 0.74,
     "surprise_budget": 0.065,
-    "approach_to": "relay",
+    "approach_to": null,
     "spatial_rhythm_intent": [
       "orientation",
       "tension",
       "preparation",
-      "threshold"
+      "climax"
     ],
     "selection_reason": "mini_boss_stage traduit l'acte development, la topologie open→labyrinth et évite les deux familles récentes",
     "mood": "majestueux",
@@ -4013,9 +4013,9 @@
       "why": "ordre réel des salles sur le chemin principal"
     },
     {
-      "stage": "special_approach",
-      "decision": "relay",
-      "why": "densité et circulation simplifiées avant l'événement"
+      "stage": "spatial_transition",
+      "decision": "corridor_spine",
+      "why": "stratégie secondaire compatible pour éviter une rupture brutale"
     },
     {
       "stage": "landmark",

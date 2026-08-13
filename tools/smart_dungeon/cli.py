@@ -79,6 +79,7 @@ def main(argv=None):
             "mean_structural_score": result.quality_summary["mean_structural_score"],
             "mean_visual_score": result.quality_summary["mean_visual_score"],
             "dungeon_artistic_score": result.artistic_quality_summary["score"],
+            "relays": len(result.relays), "segments": result.compiler.get("segment_count", 1),
             "zone": result.compiler["zone_file"],
         }
     elif args.command == "regenerate":
@@ -141,6 +142,7 @@ def main(argv=None):
             "art_direction": project.get("art_direction", {}).get("decisions", []),
             "vocabulary": project.get("art_direction", {}).get("vocabulary", {}),
             "dungeon_artistic_quality": project.get("artistic_quality_summary", {}),
+            "relays": project.get("relays", []),
             "floor": ({
                 "floor": selected["floor"], "identity": selected.get("identity", {}),
                 "rooms": [{"room_id": room["room_id"], "function": room.get("function"), "reason": room.get("design_reason")} for room in selected["rooms"]],

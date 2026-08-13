@@ -182,9 +182,9 @@
         "why": "ordre réel des salles sur le chemin principal"
       },
       {
-        "stage": "special_approach",
-        "decision": "relay",
-        "why": "densité et circulation simplifiées avant l'événement"
+        "stage": "spatial_transition",
+        "decision": "corridor_spine",
+        "why": "stratégie secondaire compatible pour éviter une rupture brutale"
       },
       {
         "stage": "landmark",
@@ -229,13 +229,13 @@
     "decisions": [
       {
         "stage": "floor_identity",
-        "decision": "relay_haven",
-        "why": "relay_haven traduit l'acte development, la topologie open→labyrinth et évite les deux familles récentes",
+        "decision": "central_landmark",
+        "why": "central_landmark traduit l'acte development, la topologie open→labyrinth et évite les deux familles récentes",
         "signature": {
-          "signature_id": "F004-relay_haven-85",
-          "geometry": "relay_haven",
-          "secondary_strategy": "central_landmark",
-          "density_gradient": "alternating",
+          "signature_id": "F004-central_landmark-85",
+          "geometry": "large_center_with_satellites",
+          "secondary_strategy": "asymmetric_gradient",
+          "density_gradient": "quiet_edges_focal_center",
           "landmark_rule": "local_orientation_marker",
           "intentional_symmetry": false
         }
@@ -243,38 +243,42 @@
       {
         "stage": "spatial_rhythm",
         "decision": [
-          "reward",
-          "tension",
           "orientation",
-          "recovery",
+          "orientation",
           "breathing"
         ],
         "why": "ordre réel des salles sur le chemin principal"
       },
       {
-        "stage": "spatial_transition",
-        "decision": "central_landmark",
-        "why": "stratégie secondaire compatible pour éviter une rupture brutale"
+        "stage": "special_approach",
+        "decision": "relay",
+        "why": "densité et circulation simplifiées avant l'événement"
       },
       {
         "stage": "landmark",
         "decision": "AntreDragon_Base",
         "room_id": 0,
-        "why": "la fonction recovery et son importance 0.90 nécessitent un repère mémorisable",
+        "why": "la fonction orientation et son importance 0.88 nécessitent un repère mémorisable",
         "evidence": [
           "pixel_metrics"
         ]
       },
       {
         "stage": "decoration",
-        "decision": "3 groupes, 7 éléments",
+        "decision": "9 groupes, 21 éléments",
         "why": "densité différenciée par fonction; salles de respiration volontairement sobres",
         "negative_space_rooms": [
           4
         ],
         "motifs": [
-          "edge_rhythm",
+          "framing_pair",
           "anchor_satellites",
+          "edge_rhythm",
+          "corner_cluster",
+          "asymmetric_echo",
+          "threshold_markers",
+          "anchor_satellites",
+          "threshold_markers",
           "landmark_court"
         ]
       }
@@ -284,10 +288,10 @@
       "why": "une excellente structure ne peut pas masquer une composition visuelle faible",
       "selected_key": [
         true,
-        83.752,
+        89.785,
         1,
-        0.7429,
-        84.615
+        0.6143,
+        89.809
       ]
     }
   },
@@ -297,12 +301,12 @@
     "decisions": [
       {
         "stage": "floor_identity",
-        "decision": "circular_progression",
-        "why": "circular_progression traduit l'acte development, la topologie open→labyrinth et évite les deux familles récentes",
+        "decision": "chamber_sequence",
+        "why": "chamber_sequence traduit l'acte development, la topologie open→labyrinth et évite les deux familles récentes",
         "signature": {
-          "signature_id": "F005-circular_progression-17",
-          "geometry": "ring_with_cross_connections",
-          "secondary_strategy": "central_landmark",
+          "signature_id": "F005-chamber_sequence-17",
+          "geometry": "succession_of_small_thresholds",
+          "secondary_strategy": "protected_core",
           "density_gradient": "alternating",
           "landmark_rule": "local_orientation_marker",
           "intentional_symmetry": false
@@ -312,10 +316,199 @@
         "stage": "spatial_rhythm",
         "decision": [
           "orientation",
-          "orientation",
-          "breathing",
-          "discovery",
           "tension",
+          "breathing",
+          "orientation",
+          "exploration",
+          "tension"
+        ],
+        "why": "ordre réel des salles sur le chemin principal"
+      },
+      {
+        "stage": "spatial_transition",
+        "decision": "protected_core",
+        "why": "stratégie secondaire compatible pour éviter une rupture brutale"
+      },
+      {
+        "stage": "decoration",
+        "decision": "4 groupes, 10 éléments",
+        "why": "densité différenciée par fonction; salles de respiration volontairement sobres",
+        "negative_space_rooms": [
+          0
+        ],
+        "motifs": [
+          "threshold_markers",
+          "anchor_satellites",
+          "asymmetric_echo",
+          "framing_pair"
+        ]
+      }
+    ],
+    "variant_selection": {
+      "policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
+      "why": "une excellente structure ne peut pas masquer une composition visuelle faible",
+      "selected_key": [
+        true,
+        82.026,
+        1,
+        0.3393,
+        83.157
+      ]
+    }
+  },
+  {
+    "scope": "floor",
+    "floor": 6,
+    "decisions": [
+      {
+        "stage": "floor_identity",
+        "decision": "dominant_loop",
+        "why": "dominant_loop traduit l'acte development, la topologie open→labyrinth et évite les deux familles récentes",
+        "signature": {
+          "signature_id": "F006-dominant_loop-86",
+          "geometry": "one_memorable_main_loop",
+          "secondary_strategy": "corridor_spine",
+          "density_gradient": "alternating",
+          "landmark_rule": "local_orientation_marker",
+          "intentional_symmetry": false
+        }
+      },
+      {
+        "stage": "spatial_rhythm",
+        "decision": [
+          "orientation",
+          "exploration",
+          "tension",
+          "discovery",
+          "orientation",
+          "exploration"
+        ],
+        "why": "ordre réel des salles sur le chemin principal"
+      },
+      {
+        "stage": "spatial_transition",
+        "decision": "corridor_spine",
+        "why": "stratégie secondaire compatible pour éviter une rupture brutale"
+      },
+      {
+        "stage": "decoration",
+        "decision": "6 groupes, 13 éléments",
+        "why": "densité différenciée par fonction; salles de respiration volontairement sobres",
+        "negative_space_rooms": [
+          0
+        ],
+        "motifs": [
+          "threshold_markers",
+          "asymmetric_echo",
+          "edge_rhythm",
+          "threshold_markers",
+          "asymmetric_echo",
+          "corner_cluster"
+        ]
+      }
+    ],
+    "variant_selection": {
+      "policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
+      "why": "une excellente structure ne peut pas masquer une composition visuelle faible",
+      "selected_key": [
+        true,
+        84.208,
+        1,
+        0.7,
+        85.454
+      ]
+    }
+  },
+  {
+    "scope": "floor",
+    "floor": 7,
+    "decisions": [
+      {
+        "stage": "floor_identity",
+        "decision": "branching_pockets",
+        "why": "branching_pockets traduit l'acte escalation, la topologie open→labyrinth et évite les deux familles récentes",
+        "signature": {
+          "signature_id": "F007-branching_pockets-23",
+          "geometry": "spine_and_optional_pockets",
+          "secondary_strategy": "circular_progression",
+          "density_gradient": "quiet_to_dense",
+          "landmark_rule": "local_orientation_marker",
+          "intentional_symmetry": false
+        }
+      },
+      {
+        "stage": "spatial_rhythm",
+        "decision": [
+          "orientation",
+          "discovery",
+          "orientation",
+          "exploration",
+          "breathing"
+        ],
+        "why": "ordre réel des salles sur le chemin principal"
+      },
+      {
+        "stage": "spatial_transition",
+        "decision": "circular_progression",
+        "why": "stratégie secondaire compatible pour éviter une rupture brutale"
+      },
+      {
+        "stage": "decoration",
+        "decision": "9 groupes, 17 éléments",
+        "why": "densité différenciée par fonction; salles de respiration volontairement sobres",
+        "negative_space_rooms": [
+          0,
+          4
+        ],
+        "motifs": [
+          "threshold_markers",
+          "anchor_satellites",
+          "framing_pair",
+          "asymmetric_echo",
+          "threshold_markers",
+          "threshold_markers",
+          "anchor_satellites",
+          "corner_cluster",
+          "threshold_markers"
+        ]
+      }
+    ],
+    "variant_selection": {
+      "policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
+      "why": "une excellente structure ne peut pas masquer une composition visuelle faible",
+      "selected_key": [
+        true,
+        84.056,
+        1,
+        0.6063,
+        84.999
+      ]
+    }
+  },
+  {
+    "scope": "floor",
+    "floor": 8,
+    "decisions": [
+      {
+        "stage": "floor_identity",
+        "decision": "circular_progression",
+        "why": "circular_progression traduit l'acte escalation, la topologie open→labyrinth et évite les deux familles récentes",
+        "signature": {
+          "signature_id": "F008-circular_progression-18",
+          "geometry": "ring_with_cross_connections",
+          "secondary_strategy": "asymmetric_gradient",
+          "density_gradient": "alternating",
+          "landmark_rule": "structural_anchor",
+          "intentional_symmetry": false
+        }
+      },
+      {
+        "stage": "spatial_rhythm",
+        "decision": [
+          "orientation",
+          "exploration",
+          "tension",
+          "orientation",
           "exploration"
         ],
         "why": "ordre réel des salles sur le chemin principal"
@@ -327,207 +520,18 @@
       },
       {
         "stage": "decoration",
-        "decision": "3 groupes, 5 éléments",
-        "why": "densité différenciée par fonction; salles de respiration volontairement sobres",
-        "negative_space_rooms": [
-          0
-        ],
-        "motifs": [
-          "asymmetric_echo",
-          "framing_pair",
-          "corner_cluster"
-        ]
-      }
-    ],
-    "variant_selection": {
-      "policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
-      "why": "une excellente structure ne peut pas masquer une composition visuelle faible",
-      "selected_key": [
-        true,
-        81.345,
-        1,
-        0.6786,
-        81.652
-      ]
-    }
-  },
-  {
-    "scope": "floor",
-    "floor": 6,
-    "decisions": [
-      {
-        "stage": "floor_identity",
-        "decision": "relay_haven",
-        "why": "relay_haven traduit l'acte development, la topologie open→labyrinth et évite les deux familles récentes",
-        "signature": {
-          "signature_id": "F006-relay_haven-86",
-          "geometry": "relay_haven",
-          "secondary_strategy": "dominant_loop",
-          "density_gradient": "alternating",
-          "landmark_rule": "local_orientation_marker",
-          "intentional_symmetry": false
-        }
-      },
-      {
-        "stage": "spatial_rhythm",
-        "decision": [
-          "orientation",
-          "tension",
-          "recovery",
-          "discovery",
-          "breathing"
-        ],
-        "why": "ordre réel des salles sur le chemin principal"
-      },
-      {
-        "stage": "spatial_transition",
-        "decision": "dominant_loop",
-        "why": "stratégie secondaire compatible pour éviter une rupture brutale"
-      },
-      {
-        "stage": "landmark",
-        "decision": "Aegis_Regi_Arena_Base",
-        "room_id": 0,
-        "why": "la fonction recovery et son importance 0.90 nécessitent un repère mémorisable",
-        "evidence": [
-          "pixel_metrics"
-        ]
-      },
-      {
-        "stage": "decoration",
-        "decision": "2 groupes, 5 éléments",
-        "why": "densité différenciée par fonction; salles de respiration volontairement sobres",
-        "negative_space_rooms": [
-          4
-        ],
-        "motifs": [
-          "anchor_satellites",
-          "landmark_court"
-        ]
-      }
-    ],
-    "variant_selection": {
-      "policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
-      "why": "une excellente structure ne peut pas masquer une composition visuelle faible",
-      "selected_key": [
-        true,
-        81.988,
-        1,
-        0.5964,
-        83.543
-      ]
-    }
-  },
-  {
-    "scope": "floor",
-    "floor": 7,
-    "decisions": [
-      {
-        "stage": "floor_identity",
-        "decision": "chamber_sequence",
-        "why": "chamber_sequence traduit l'acte escalation, la topologie open→labyrinth et évite les deux familles récentes",
-        "signature": {
-          "signature_id": "F007-chamber_sequence-23",
-          "geometry": "succession_of_small_thresholds",
-          "secondary_strategy": "central_landmark",
-          "density_gradient": "alternating",
-          "landmark_rule": "local_orientation_marker",
-          "intentional_symmetry": false
-        }
-      },
-      {
-        "stage": "spatial_rhythm",
-        "decision": [
-          "orientation",
-          "tension",
-          "discovery",
-          "orientation",
-          "tension",
-          "breathing"
-        ],
-        "why": "ordre réel des salles sur le chemin principal"
-      },
-      {
-        "stage": "spatial_transition",
-        "decision": "central_landmark",
-        "why": "stratégie secondaire compatible pour éviter une rupture brutale"
-      },
-      {
-        "stage": "decoration",
-        "decision": "4 groupes, 10 éléments",
-        "why": "densité différenciée par fonction; salles de respiration volontairement sobres",
-        "negative_space_rooms": [
-          0,
-          4
-        ],
-        "motifs": [
-          "framing_pair",
-          "asymmetric_echo",
-          "anchor_satellites",
-          "corner_cluster"
-        ]
-      }
-    ],
-    "variant_selection": {
-      "policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
-      "why": "une excellente structure ne peut pas masquer une composition visuelle faible",
-      "selected_key": [
-        true,
-        81.15,
-        1,
-        0.6786,
-        83.34
-      ]
-    }
-  },
-  {
-    "scope": "floor",
-    "floor": 8,
-    "decisions": [
-      {
-        "stage": "floor_identity",
-        "decision": "island_clusters",
-        "why": "island_clusters traduit l'acte escalation, la topologie open→labyrinth et évite les deux familles récentes",
-        "signature": {
-          "signature_id": "F008-island_clusters-18",
-          "geometry": "three_room_islands",
-          "secondary_strategy": "corridor_spine",
-          "density_gradient": "alternating",
-          "landmark_rule": "structural_anchor",
-          "intentional_symmetry": false
-        }
-      },
-      {
-        "stage": "spatial_rhythm",
-        "decision": [
-          "orientation",
-          "discovery",
-          "orientation",
-          "exploration",
-          "breathing",
-          "exploration",
-          "discovery"
-        ],
-        "why": "ordre réel des salles sur le chemin principal"
-      },
-      {
-        "stage": "special_approach",
-        "decision": "mini_boss",
-        "why": "densité et circulation simplifiées avant l'événement"
-      },
-      {
-        "stage": "decoration",
-        "decision": "5 groupes, 9 éléments",
+        "decision": "6 groupes, 12 éléments",
         "why": "densité différenciée par fonction; salles de respiration volontairement sobres",
         "negative_space_rooms": [
           0
         ],
         "motifs": [
           "threshold_markers",
-          "asymmetric_echo",
           "edge_rhythm",
-          "corner_cluster",
-          "asymmetric_echo"
+          "asymmetric_echo",
+          "threshold_markers",
+          "framing_pair",
+          "anchor_satellites"
         ]
       }
     ],
@@ -536,10 +540,10 @@
       "why": "une excellente structure ne peut pas masquer une composition visuelle faible",
       "selected_key": [
         true,
-        80.405,
+        83.018,
         1,
-        0.55,
-        81.262
+        0.6625,
+        84.851
       ]
     }
   },
@@ -554,7 +558,7 @@
         "signature": {
           "signature_id": "F009-mini_boss_stage-84",
           "geometry": "mini_boss_stage",
-          "secondary_strategy": "branching_pockets",
+          "secondary_strategy": "dominant_loop",
           "density_gradient": "alternating",
           "landmark_rule": "exceptional_asset",
           "intentional_symmetry": false
@@ -572,7 +576,7 @@
       },
       {
         "stage": "spatial_transition",
-        "decision": "branching_pockets",
+        "decision": "dominant_loop",
         "why": "stratégie secondaire compatible pour éviter une rupture brutale"
       },
       {
@@ -592,7 +596,7 @@
           1
         ],
         "motifs": [
-          "edge_rhythm",
+          "asymmetric_echo",
           "threshold_markers",
           "anchor_satellites"
         ]
@@ -603,10 +607,10 @@
       "why": "une excellente structure ne peut pas masquer une composition visuelle faible",
       "selected_key": [
         true,
-        82.471,
+        82.786,
         1,
-        0.625,
-        83.34
+        0.7429,
+        83.576
       ]
     }
   },
@@ -616,76 +620,12 @@
     "decisions": [
       {
         "stage": "floor_identity",
-        "decision": "circular_progression",
-        "why": "circular_progression traduit l'acte climax, la topologie open→labyrinth et évite les deux familles récentes",
+        "decision": "chamber_sequence",
+        "why": "chamber_sequence traduit l'acte climax, la topologie open→labyrinth et évite les deux familles récentes",
         "signature": {
-          "signature_id": "F010-circular_progression-73",
-          "geometry": "ring_with_cross_connections",
+          "signature_id": "F010-chamber_sequence-73",
+          "geometry": "succession_of_small_thresholds",
           "secondary_strategy": "central_landmark",
-          "density_gradient": "alternating",
-          "landmark_rule": "structural_anchor",
-          "intentional_symmetry": false
-        }
-      },
-      {
-        "stage": "spatial_rhythm",
-        "decision": [
-          "orientation",
-          "exploration",
-          "reward",
-          "tension",
-          "exploration"
-        ],
-        "why": "ordre réel des salles sur le chemin principal"
-      },
-      {
-        "stage": "spatial_transition",
-        "decision": "central_landmark",
-        "why": "stratégie secondaire compatible pour éviter une rupture brutale"
-      },
-      {
-        "stage": "decoration",
-        "decision": "7 groupes, 18 éléments",
-        "why": "densité différenciée par fonction; salles de respiration volontairement sobres",
-        "negative_space_rooms": [
-          0,
-          4
-        ],
-        "motifs": [
-          "corner_cluster",
-          "edge_rhythm",
-          "framing_pair",
-          "corner_cluster",
-          "threshold_markers",
-          "anchor_satellites",
-          "asymmetric_echo"
-        ]
-      }
-    ],
-    "variant_selection": {
-      "policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
-      "why": "une excellente structure ne peut pas masquer une composition visuelle faible",
-      "selected_key": [
-        true,
-        85.81,
-        1,
-        0.6625,
-        86.606
-      ]
-    }
-  },
-  {
-    "scope": "floor",
-    "floor": 11,
-    "decisions": [
-      {
-        "stage": "floor_identity",
-        "decision": "corridor_spine",
-        "why": "corridor_spine traduit l'acte climax, la topologie open→labyrinth et évite les deux familles récentes",
-        "signature": {
-          "signature_id": "F011-corridor_spine-23",
-          "geometry": "dominant_directional_spine",
-          "secondary_strategy": "dominant_loop",
           "density_gradient": "alternating",
           "landmark_rule": "structural_anchor",
           "intentional_symmetry": false
@@ -697,8 +637,72 @@
           "orientation",
           "tension",
           "breathing",
-          "exploration",
-          "breathing"
+          "reward",
+          "orientation",
+          "tension"
+        ],
+        "why": "ordre réel des salles sur le chemin principal"
+      },
+      {
+        "stage": "spatial_transition",
+        "decision": "central_landmark",
+        "why": "stratégie secondaire compatible pour éviter une rupture brutale"
+      },
+      {
+        "stage": "decoration",
+        "decision": "5 groupes, 13 éléments",
+        "why": "densité différenciée par fonction; salles de respiration volontairement sobres",
+        "negative_space_rooms": [
+          0,
+          4
+        ],
+        "motifs": [
+          "edge_rhythm",
+          "corner_cluster",
+          "threshold_markers",
+          "anchor_satellites",
+          "framing_pair"
+        ]
+      }
+    ],
+    "variant_selection": {
+      "policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
+      "why": "une excellente structure ne peut pas masquer une composition visuelle faible",
+      "selected_key": [
+        true,
+        83.509,
+        1,
+        0.6143,
+        85.597
+      ]
+    }
+  },
+  {
+    "scope": "floor",
+    "floor": 11,
+    "decisions": [
+      {
+        "stage": "floor_identity",
+        "decision": "dominant_loop",
+        "why": "dominant_loop traduit l'acte climax, la topologie open→labyrinth et évite les deux familles récentes",
+        "signature": {
+          "signature_id": "F011-dominant_loop-23",
+          "geometry": "one_memorable_main_loop",
+          "secondary_strategy": "corridor_spine",
+          "density_gradient": "alternating",
+          "landmark_rule": "structural_anchor",
+          "intentional_symmetry": false
+        }
+      },
+      {
+        "stage": "spatial_rhythm",
+        "decision": [
+          "orientation",
+          "orientation",
+          "reward",
+          "breathing",
+          "tension",
+          "exploration"
         ],
         "why": "ordre réel des salles sur le chemin principal"
       },
@@ -709,17 +713,18 @@
       },
       {
         "stage": "decoration",
-        "decision": "5 groupes, 12 éléments",
+        "decision": "5 groupes, 13 éléments",
         "why": "densité différenciée par fonction; salles de respiration volontairement sobres",
         "negative_space_rooms": [
-          0
+          0,
+          4
         ],
         "motifs": [
           "threshold_markers",
-          "anchor_satellites",
-          "threshold_markers",
+          "asymmetric_echo",
           "corner_cluster",
-          "asymmetric_echo"
+          "threshold_markers",
+          "anchor_satellites"
         ]
       }
     ],
@@ -728,10 +733,10 @@
       "why": "une excellente structure ne peut pas masquer une composition visuelle faible",
       "selected_key": [
         true,
-        83.346,
+        82.357,
         1,
-        0.55,
-        84.687
+        0.6143,
+        83.949
       ]
     }
   },
@@ -746,7 +751,7 @@
         "signature": {
           "signature_id": "F012-boss_stage-67",
           "geometry": "boss_stage",
-          "secondary_strategy": "chamber_sequence",
+          "secondary_strategy": "branching_pockets",
           "density_gradient": "alternating",
           "landmark_rule": "exceptional_asset",
           "intentional_symmetry": false
@@ -764,7 +769,7 @@
       },
       {
         "stage": "spatial_transition",
-        "decision": "chamber_sequence",
+        "decision": "branching_pockets",
         "why": "stratégie secondaire compatible pour éviter une rupture brutale"
       },
       {
@@ -786,8 +791,8 @@
         ],
         "motifs": [
           "threshold_markers",
-          "corner_cluster",
           "edge_rhythm",
+          "corner_cluster",
           "anchor_satellites",
           "anchor_satellites",
           "landmark_court"
@@ -801,9 +806,81 @@
         true,
         88.67,
         1,
-        0.6625,
+        0.6063,
         88.792
       ]
+    }
+  },
+  {
+    "scope": "relay",
+    "relay_id": "sanctuaire_des_echos_relais_01",
+    "after_floor": 4,
+    "decisions": [
+      {
+        "decision": "segment_boundary",
+        "why": "sépare les étages 1–4 de la partie suivante"
+      },
+      {
+        "decision": "kangaskhan_checkpoint",
+        "why": "repère immédiatement reconnaissable offrant soin, stockage et sauvegarde"
+      },
+      {
+        "decision": "two_routes",
+        "why": "North_Exit avance; South_Exit revient au segment précédent"
+      },
+      {
+        "decision": "source_template",
+        "source": "searing_tunnel_midpoint",
+        "confidence": 0.25,
+        "why": "Ground PMDO existant avec collisions et placements fiables; choix visuel déclaré conservateur si ses sheets ne figurent pas dans le catalogue analysé; original non modifié"
+      }
+    ],
+    "validation": {
+      "result": "RELAY_VALIDATION_PASS",
+      "two_distinct_routes": true,
+      "kangaskhan_rock": true,
+      "north_exit": true,
+      "south_exit": true,
+      "main_entrance_marker": true,
+      "inherited_cast_count": 0,
+      "inherited_spawner_count": 0,
+      "errors": []
+    }
+  },
+  {
+    "scope": "relay",
+    "relay_id": "sanctuaire_des_echos_relais_02",
+    "after_floor": 8,
+    "decisions": [
+      {
+        "decision": "segment_boundary",
+        "why": "sépare les étages 1–8 de la partie suivante"
+      },
+      {
+        "decision": "kangaskhan_checkpoint",
+        "why": "repère immédiatement reconnaissable offrant soin, stockage et sauvegarde"
+      },
+      {
+        "decision": "two_routes",
+        "why": "North_Exit avance; South_Exit revient au segment précédent"
+      },
+      {
+        "decision": "source_template",
+        "source": "crooked_cavern_midpoint",
+        "confidence": 0.25,
+        "why": "Ground PMDO existant avec collisions et placements fiables; choix visuel déclaré conservateur si ses sheets ne figurent pas dans le catalogue analysé; original non modifié"
+      }
+    ],
+    "validation": {
+      "result": "RELAY_VALIDATION_PASS",
+      "two_distinct_routes": true,
+      "kangaskhan_rock": true,
+      "north_exit": true,
+      "south_exit": true,
+      "main_entrance_marker": true,
+      "inherited_cast_count": 0,
+      "inherited_spawner_count": 0,
+      "errors": []
     }
   },
   {
@@ -1001,60 +1078,60 @@
     "candidates": [
       {
         "seed": 1632979137,
-        "score": 81.284,
-        "structural_score": 83.905,
-        "visual_score": 80.41,
-        "bottleneck": 80.41,
+        "score": 89.913,
+        "structural_score": 89.642,
+        "visual_score": 90.727,
+        "bottleneck": 89.642,
         "identity_strength": 1,
-        "novelty": 0.8071,
+        "novelty": 0.6143,
         "accepted": true,
         "selected": false,
         "violations": []
       },
       {
         "seed": 1237442150,
-        "score": 82.424,
-        "structural_score": 83.834,
-        "visual_score": 81.954,
-        "bottleneck": 81.954,
+        "score": 89.65,
+        "structural_score": 89.697,
+        "visual_score": 89.635,
+        "bottleneck": 89.635,
         "identity_strength": 1,
-        "novelty": 0.8071,
+        "novelty": 0.6143,
         "accepted": true,
         "selected": false,
         "violations": []
       },
       {
         "seed": 1455436726,
-        "score": 77.145,
-        "structural_score": 86.775,
-        "visual_score": 73.935,
-        "bottleneck": 73.935,
+        "score": 90.63,
+        "structural_score": 93.241,
+        "visual_score": 89.759,
+        "bottleneck": 89.759,
         "identity_strength": 1,
-        "novelty": 0.8875,
-        "accepted": false,
+        "novelty": 0.6143,
+        "accepted": true,
         "selected": false,
-        "violations": [
-          "RARE_ASSET_OVERUSE"
-        ]
+        "violations": []
       },
       {
         "seed": 6036409,
-        "score": 84.615,
-        "structural_score": 87.203,
-        "visual_score": 83.752,
-        "bottleneck": 83.752,
+        "score": 89.809,
+        "structural_score": 89.883,
+        "visual_score": 89.785,
+        "bottleneck": 89.785,
         "identity_strength": 1,
-        "novelty": 0.7429,
+        "novelty": 0.6143,
         "accepted": true,
         "selected": true,
-        "violations": []
+        "violations": [
+          "WEAK_SPATIAL_RHYTHM"
+        ]
       }
     ],
     "selected_seed": 6036409,
     "selected_policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
-    "selected_structural_score": 87.203,
-    "selected_visual_score": 83.752,
-    "selected_score": 84.615
+    "selected_structural_score": 89.883,
+    "selected_visual_score": 89.785,
+    "selected_score": 89.809
   },
   {
     "scope": "candidate_comparison",
@@ -1062,58 +1139,60 @@
     "candidates": [
       {
         "seed": 1815511953,
-        "score": 79.843,
-        "structural_score": 86.942,
-        "visual_score": 77.476,
-        "bottleneck": 77.476,
+        "score": 79.047,
+        "structural_score": 85.814,
+        "visual_score": 76.791,
+        "bottleneck": 76.791,
         "identity_strength": 1,
-        "novelty": 0.775,
+        "novelty": 0.4036,
         "accepted": true,
         "selected": false,
         "violations": []
       },
       {
         "seed": 1323023542,
-        "score": 81.652,
-        "structural_score": 82.573,
-        "visual_score": 81.345,
-        "bottleneck": 81.345,
+        "score": 80.846,
+        "structural_score": 83.657,
+        "visual_score": 79.909,
+        "bottleneck": 79.909,
         "identity_strength": 1,
-        "novelty": 0.6786,
+        "novelty": 0.4036,
         "accepted": true,
-        "selected": true,
-        "violations": []
+        "selected": false,
+        "violations": [
+          "ACCIDENTAL_SYMMETRY"
+        ]
       },
       {
         "seed": 825869058,
-        "score": 77.805,
-        "structural_score": 87.697,
-        "visual_score": 74.507,
-        "bottleneck": 74.507,
+        "score": 82.302,
+        "structural_score": 90.727,
+        "visual_score": 79.493,
+        "bottleneck": 79.493,
         "identity_strength": 1,
-        "novelty": 0.8313,
+        "novelty": 0.4036,
         "accepted": true,
         "selected": false,
         "violations": []
       },
       {
         "seed": 222331425,
-        "score": 80.812,
-        "structural_score": 88.343,
-        "visual_score": 78.302,
-        "bottleneck": 78.302,
+        "score": 83.157,
+        "structural_score": 86.549,
+        "visual_score": 82.026,
+        "bottleneck": 82.026,
         "identity_strength": 1,
-        "novelty": 0.7188,
+        "novelty": 0.3393,
         "accepted": true,
-        "selected": false,
+        "selected": true,
         "violations": []
       }
     ],
-    "selected_seed": 1323023542,
+    "selected_seed": 222331425,
     "selected_policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
-    "selected_structural_score": 82.573,
-    "selected_visual_score": 81.345,
-    "selected_score": 81.652
+    "selected_structural_score": 86.549,
+    "selected_visual_score": 82.026,
+    "selected_score": 83.157
   },
   {
     "scope": "candidate_comparison",
@@ -1121,70 +1200,58 @@
     "candidates": [
       {
         "seed": 1050823730,
-        "score": 76.191,
-        "structural_score": 84.068,
-        "visual_score": 73.566,
-        "bottleneck": 73.566,
+        "score": 76.979,
+        "structural_score": 87.251,
+        "visual_score": 73.555,
+        "bottleneck": 73.555,
         "identity_strength": 1,
-        "novelty": 0.6125,
-        "accepted": false,
+        "novelty": 0.7188,
+        "accepted": true,
         "selected": false,
-        "violations": [
-          "RARE_ASSET_OVERUSE"
-        ]
+        "violations": []
       },
       {
         "seed": 1892717699,
-        "score": 66.575,
-        "structural_score": 86.343,
-        "visual_score": 59.986,
-        "bottleneck": 59.986,
+        "score": 85.454,
+        "structural_score": 89.193,
+        "visual_score": 84.208,
+        "bottleneck": 84.208,
         "identity_strength": 1,
-        "novelty": 0.6607,
-        "accepted": false,
-        "selected": false,
-        "violations": [
-          "VISUAL_MONOTONY",
-          "FLAT_VISUAL_DENSITY",
-          "MOTIF_REPETITION",
-          "RARE_ASSET_OVERUSE"
-        ]
-      },
-      {
-        "seed": 211849351,
-        "score": 83.543,
-        "structural_score": 88.207,
-        "visual_score": 81.988,
-        "bottleneck": 81.988,
-        "identity_strength": 1,
-        "novelty": 0.5964,
+        "novelty": 0.7,
         "accepted": true,
         "selected": true,
         "violations": []
       },
       {
-        "seed": 1659716559,
-        "score": 65.881,
-        "structural_score": 83.601,
-        "visual_score": 59.974,
-        "bottleneck": 59.974,
+        "seed": 211849351,
+        "score": 82.503,
+        "structural_score": 87.314,
+        "visual_score": 80.899,
+        "bottleneck": 80.899,
         "identity_strength": 1,
-        "novelty": 0.6607,
-        "accepted": false,
+        "novelty": 0.6143,
+        "accepted": true,
         "selected": false,
-        "violations": [
-          "VISUAL_MONOTONY",
-          "FLAT_VISUAL_DENSITY",
-          "MOTIF_REPETITION",
-          "RARE_ASSET_OVERUSE"
-        ]
+        "violations": []
+      },
+      {
+        "seed": 1659716559,
+        "score": 83.925,
+        "structural_score": 86.259,
+        "visual_score": 83.147,
+        "bottleneck": 83.147,
+        "identity_strength": 1,
+        "novelty": 0.6143,
+        "accepted": true,
+        "selected": false,
+        "violations": []
       }
     ],
-    "selected_seed": 211849351,
+    "selected_seed": 1892717699,
     "selected_policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
-    "selected_structural_score": 88.207,
-    "selected_visual_score": 81.988,
-    "selected_score": 83.543
+    "selected_structural_score": 89.193,
+    "selected_visual_score": 84.208,
+    "selected_score": 85.454
   },
   {
     "scope": "candidate_comparison",
@@ -1192,58 +1259,60 @@
     "candidates": [
       {
         "seed": 188398654,
-        "score": 81.405,
-        "structural_score": 90.917,
-        "visual_score": 78.234,
-        "bottleneck": 78.234,
+        "score": 84.999,
+        "structural_score": 87.828,
+        "visual_score": 84.056,
+        "bottleneck": 84.056,
         "identity_strength": 1,
-        "novelty": 0.7429,
+        "novelty": 0.6063,
         "accepted": true,
-        "selected": false,
+        "selected": true,
         "violations": []
       },
       {
         "seed": 743097684,
-        "score": 81.069,
-        "structural_score": 84.349,
-        "visual_score": 79.975,
-        "bottleneck": 79.975,
+        "score": 80.827,
+        "structural_score": 90.342,
+        "visual_score": 77.655,
+        "bottleneck": 77.655,
         "identity_strength": 1,
-        "novelty": 0.6143,
+        "novelty": 0.6625,
         "accepted": true,
         "selected": false,
         "violations": []
       },
       {
         "seed": 1900309171,
-        "score": 83.34,
-        "structural_score": 89.911,
-        "visual_score": 81.15,
-        "bottleneck": 81.15,
+        "score": 79.219,
+        "structural_score": 89.004,
+        "visual_score": 75.957,
+        "bottleneck": 75.957,
         "identity_strength": 1,
-        "novelty": 0.6786,
+        "novelty": 0.6063,
         "accepted": true,
-        "selected": true,
+        "selected": false,
         "violations": []
       },
       {
         "seed": 1224013811,
-        "score": 80.993,
-        "structural_score": 85.624,
-        "visual_score": 79.449,
-        "bottleneck": 79.449,
+        "score": 77.929,
+        "structural_score": 82.107,
+        "visual_score": 76.536,
+        "bottleneck": 76.536,
         "identity_strength": 1,
-        "novelty": 0.6786,
+        "novelty": 0.775,
         "accepted": true,
         "selected": false,
-        "violations": []
+        "violations": [
+          "LONG_CORRIDOR"
+        ]
       }
     ],
-    "selected_seed": 1900309171,
+    "selected_seed": 188398654,
     "selected_policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
-    "selected_structural_score": 89.911,
-    "selected_visual_score": 81.15,
-    "selected_score": 83.34
+    "selected_structural_score": 87.828,
+    "selected_visual_score": 84.056,
+    "selected_score": 84.999
   },
   {
     "scope": "candidate_comparison",
@@ -1251,48 +1320,48 @@
     "candidates": [
       {
         "seed": 455137637,
-        "score": 80.346,
-        "structural_score": 82.122,
-        "visual_score": 79.754,
-        "bottleneck": 79.754,
+        "score": 80.178,
+        "structural_score": 90.468,
+        "visual_score": 76.748,
+        "bottleneck": 76.748,
         "identity_strength": 1,
-        "novelty": 0.6143,
+        "novelty": 0.7429,
         "accepted": true,
         "selected": false,
         "violations": []
       },
       {
         "seed": 742889705,
-        "score": 78.527,
-        "structural_score": 77.227,
-        "visual_score": 82.427,
-        "bottleneck": 77.227,
+        "score": 81.3,
+        "structural_score": 84.994,
+        "visual_score": 80.069,
+        "bottleneck": 80.069,
         "identity_strength": 1,
-        "novelty": 0.7,
+        "novelty": 0.7429,
         "accepted": true,
         "selected": false,
         "violations": []
       },
       {
         "seed": 1872259278,
-        "score": 79.74,
-        "structural_score": 79.39,
-        "visual_score": 80.792,
-        "bottleneck": 79.39,
+        "score": 80.028,
+        "structural_score": 87.605,
+        "visual_score": 77.503,
+        "bottleneck": 77.503,
         "identity_strength": 1,
-        "novelty": 0.55,
+        "novelty": 0.7188,
         "accepted": true,
         "selected": false,
         "violations": []
       },
       {
         "seed": 1222666106,
-        "score": 81.262,
-        "structural_score": 83.834,
-        "visual_score": 80.405,
-        "bottleneck": 80.405,
+        "score": 84.851,
+        "structural_score": 90.348,
+        "visual_score": 83.018,
+        "bottleneck": 83.018,
         "identity_strength": 1,
-        "novelty": 0.55,
+        "novelty": 0.6625,
         "accepted": true,
         "selected": true,
         "violations": []
@@ -1300,9 +1369,9 @@
     ],
     "selected_seed": 1222666106,
     "selected_policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
-    "selected_structural_score": 83.834,
-    "selected_visual_score": 80.405,
-    "selected_score": 81.262
+    "selected_structural_score": 90.348,
+    "selected_visual_score": 83.018,
+    "selected_score": 84.851
   },
   {
     "scope": "candidate_comparison",
@@ -1310,22 +1379,34 @@
     "candidates": [
       {
         "seed": 1643829053,
-        "score": 83.34,
+        "score": 83.576,
         "structural_score": 85.945,
-        "visual_score": 82.471,
-        "bottleneck": 82.471,
+        "visual_score": 82.786,
+        "bottleneck": 82.786,
         "identity_strength": 1,
-        "novelty": 0.625,
+        "novelty": 0.7429,
         "accepted": true,
         "selected": true,
         "violations": []
       },
       {
         "seed": 874246778,
-        "score": 81.153,
+        "score": 82.882,
         "structural_score": 88.778,
-        "visual_score": 78.611,
-        "bottleneck": 78.611,
+        "visual_score": 80.917,
+        "bottleneck": 80.917,
+        "identity_strength": 1,
+        "novelty": 0.7188,
+        "accepted": true,
+        "selected": false,
+        "violations": []
+      },
+      {
+        "seed": 654084829,
+        "score": 83.207,
+        "structural_score": 86.179,
+        "visual_score": 82.217,
+        "bottleneck": 82.217,
         "identity_strength": 1,
         "novelty": 0.6786,
         "accepted": true,
@@ -1333,25 +1414,13 @@
         "violations": []
       },
       {
-        "seed": 654084829,
-        "score": 81.278,
-        "structural_score": 86.179,
-        "visual_score": 79.644,
-        "bottleneck": 79.644,
-        "identity_strength": 1,
-        "novelty": 0.775,
-        "accepted": true,
-        "selected": false,
-        "violations": []
-      },
-      {
         "seed": 1908372950,
-        "score": 81.187,
+        "score": 83.319,
         "structural_score": 85.87,
-        "visual_score": 79.626,
-        "bottleneck": 79.626,
+        "visual_score": 82.468,
+        "bottleneck": 82.468,
         "identity_strength": 1,
-        "novelty": 0.775,
+        "novelty": 0.6786,
         "accepted": true,
         "selected": false,
         "violations": []
@@ -1360,8 +1429,8 @@
     "selected_seed": 1643829053,
     "selected_policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
     "selected_structural_score": 85.945,
-    "selected_visual_score": 82.471,
-    "selected_score": 83.34
+    "selected_visual_score": 82.786,
+    "selected_score": 83.576
   },
   {
     "scope": "candidate_comparison",
@@ -1369,58 +1438,58 @@
     "candidates": [
       {
         "seed": 957262899,
-        "score": 83.328,
-        "structural_score": 86.812,
-        "visual_score": 82.167,
-        "bottleneck": 82.167,
+        "score": 81.79,
+        "structural_score": 89.69,
+        "visual_score": 79.156,
+        "bottleneck": 79.156,
         "identity_strength": 1,
-        "novelty": 0.6625,
+        "novelty": 0.6143,
         "accepted": true,
         "selected": false,
         "violations": []
       },
       {
         "seed": 1803057073,
-        "score": 83.366,
-        "structural_score": 88.436,
-        "visual_score": 81.676,
-        "bottleneck": 81.676,
+        "score": 82.484,
+        "structural_score": 89.226,
+        "visual_score": 80.236,
+        "bottleneck": 80.236,
         "identity_strength": 1,
-        "novelty": 0.55,
+        "novelty": 0.6786,
         "accepted": true,
         "selected": false,
         "violations": []
       },
       {
         "seed": 2093120178,
-        "score": 83.428,
-        "structural_score": 89.664,
-        "visual_score": 81.35,
-        "bottleneck": 81.35,
+        "score": 85.597,
+        "structural_score": 91.859,
+        "visual_score": 83.509,
+        "bottleneck": 83.509,
         "identity_strength": 1,
-        "novelty": 0.55,
+        "novelty": 0.6143,
         "accepted": true,
-        "selected": false,
+        "selected": true,
         "violations": []
       },
       {
         "seed": 2026534279,
-        "score": 86.606,
-        "structural_score": 88.995,
-        "visual_score": 85.81,
-        "bottleneck": 85.81,
+        "score": 82.451,
+        "structural_score": 89.211,
+        "visual_score": 80.198,
+        "bottleneck": 80.198,
         "identity_strength": 1,
-        "novelty": 0.6625,
+        "novelty": 0.7188,
         "accepted": true,
-        "selected": true,
+        "selected": false,
         "violations": []
       }
     ],
-    "selected_seed": 2026534279,
+    "selected_seed": 2093120178,
     "selected_policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
-    "selected_structural_score": 88.995,
-    "selected_visual_score": 85.81,
-    "selected_score": 86.606
+    "selected_structural_score": 91.859,
+    "selected_visual_score": 83.509,
+    "selected_score": 85.597
   },
   {
     "scope": "candidate_comparison",
@@ -1428,48 +1497,48 @@
     "candidates": [
       {
         "seed": 235974539,
-        "score": 81.47,
-        "structural_score": 86.153,
-        "visual_score": 79.909,
-        "bottleneck": 79.909,
+        "score": 83.77,
+        "structural_score": 88.763,
+        "visual_score": 82.106,
+        "bottleneck": 82.106,
         "identity_strength": 1,
-        "novelty": 0.6143,
+        "novelty": 0.7429,
         "accepted": true,
         "selected": false,
         "violations": []
       },
       {
         "seed": 1605259021,
-        "score": 84.687,
-        "structural_score": 88.711,
-        "visual_score": 83.346,
-        "bottleneck": 83.346,
+        "score": 83.949,
+        "structural_score": 88.724,
+        "visual_score": 82.357,
+        "bottleneck": 82.357,
         "identity_strength": 1,
-        "novelty": 0.55,
+        "novelty": 0.6143,
         "accepted": true,
         "selected": true,
         "violations": []
       },
       {
         "seed": 903603479,
-        "score": 82.781,
-        "structural_score": 88.197,
-        "visual_score": 80.976,
-        "bottleneck": 80.976,
+        "score": 82.431,
+        "structural_score": 89.843,
+        "visual_score": 79.96,
+        "bottleneck": 79.96,
         "identity_strength": 1,
-        "novelty": 0.55,
+        "novelty": 0.7429,
         "accepted": true,
         "selected": false,
         "violations": []
       },
       {
         "seed": 1106460199,
-        "score": 82.113,
-        "structural_score": 90.243,
-        "visual_score": 79.403,
-        "bottleneck": 79.403,
+        "score": 81.38,
+        "structural_score": 87.241,
+        "visual_score": 79.426,
+        "bottleneck": 79.426,
         "identity_strength": 1,
-        "novelty": 0.625,
+        "novelty": 0.55,
         "accepted": true,
         "selected": false,
         "violations": []
@@ -1477,9 +1546,9 @@
     ],
     "selected_seed": 1605259021,
     "selected_policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
-    "selected_structural_score": 88.711,
-    "selected_visual_score": 83.346,
-    "selected_score": 84.687
+    "selected_structural_score": 88.724,
+    "selected_visual_score": 82.357,
+    "selected_score": 83.949
   },
   {
     "scope": "candidate_comparison",
@@ -1487,36 +1556,36 @@
     "candidates": [
       {
         "seed": 242773399,
-        "score": 88.726,
+        "score": 86.942,
         "structural_score": 90.157,
-        "visual_score": 88.249,
-        "bottleneck": 88.249,
+        "visual_score": 85.871,
+        "bottleneck": 85.871,
         "identity_strength": 1,
-        "novelty": 0.6143,
+        "novelty": 0.7188,
         "accepted": true,
         "selected": false,
         "violations": []
       },
       {
         "seed": 1994681192,
-        "score": 85.505,
+        "score": 85.538,
         "structural_score": 85.32,
-        "visual_score": 86.059,
+        "visual_score": 86.193,
         "bottleneck": 85.32,
         "identity_strength": 1,
-        "novelty": 0.775,
+        "novelty": 0.8,
         "accepted": true,
         "selected": false,
         "violations": []
       },
       {
         "seed": 485646610,
-        "score": 88.736,
+        "score": 88.602,
         "structural_score": 88.15,
-        "visual_score": 90.495,
+        "visual_score": 89.959,
         "bottleneck": 88.15,
         "identity_strength": 1,
-        "novelty": 0.6625,
+        "novelty": 0.6063,
         "accepted": true,
         "selected": false,
         "violations": []
@@ -1528,7 +1597,7 @@
         "visual_score": 88.67,
         "bottleneck": 88.67,
         "identity_strength": 1,
-        "novelty": 0.6625,
+        "novelty": 0.6063,
         "accepted": true,
         "selected": true,
         "violations": []

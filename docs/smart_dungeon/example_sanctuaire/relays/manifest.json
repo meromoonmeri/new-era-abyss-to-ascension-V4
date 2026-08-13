@@ -1,0 +1,209 @@
+{
+  "schema_version": "1.0.0",
+  "relay_count": 2,
+  "zone_script_candidate": "relays/scripts/zone/sanctuaire_des_echos/init.lua",
+  "relays": [
+    {
+      "relay_id": "sanctuaire_des_echos_relais_01",
+      "order": 1,
+      "after_floor": 4,
+      "previous_segment": 0,
+      "next_segment": 1,
+      "source_ground": "searing_tunnel_midpoint",
+      "ground_file": "relays/grounds/sanctuaire_des_echos_relais_01.rsground",
+      "script_file": "relays/scripts/ground/sanctuaire_des_echos_relais_01/init.lua",
+      "north_route": {
+        "direction": "avant",
+        "segment": 1,
+        "entry_floor": 0
+      },
+      "south_route": {
+        "direction": "arrière",
+        "segment": 0,
+        "entry_floor": 0
+      },
+      "services": [
+        "soin",
+        "stockage",
+        "sauvegarde"
+      ],
+      "required_entities": [
+        "Kangaskhan_Rock",
+        "North_Exit",
+        "South_Exit",
+        "Main_Entrance_Marker"
+      ],
+      "composition": {
+        "role": "point_median_entre_segments",
+        "sheet_vocabulary": [
+          "D06p11a_Base"
+        ],
+        "statue_position": {
+          "X": 336,
+          "Y": 224,
+          "Width": 24,
+          "Height": 24
+        },
+        "north_exit_collider": {
+          "X": 272,
+          "Y": 80,
+          "Width": 48,
+          "Height": 8
+        },
+        "south_exit_collider": {
+          "X": 272,
+          "Y": 384,
+          "Width": 48,
+          "Height": 8
+        },
+        "entrance_marker": {
+          "X": 288,
+          "Y": 232,
+          "Width": 16,
+          "Height": 16
+        },
+        "source_sha256": "0d2fe10ddbdf36654fab2334932b079e99681e6139174f5f969ce4547107e6d2",
+        "source_modified": false,
+        "cast_policy": "environment_only_no_inherited_cast",
+        "template_selection": {
+          "confidence": 0.25,
+          "analyzed_sheets": [],
+          "selected_vocabulary_sheets": [],
+          "strategy": "canonical_structural_fallback_no_visual_claim"
+        }
+      },
+      "decisions": [
+        {
+          "decision": "segment_boundary",
+          "why": "sépare les étages 1–4 de la partie suivante"
+        },
+        {
+          "decision": "kangaskhan_checkpoint",
+          "why": "repère immédiatement reconnaissable offrant soin, stockage et sauvegarde"
+        },
+        {
+          "decision": "two_routes",
+          "why": "North_Exit avance; South_Exit revient au segment précédent"
+        },
+        {
+          "decision": "source_template",
+          "source": "searing_tunnel_midpoint",
+          "confidence": 0.25,
+          "why": "Ground PMDO existant avec collisions et placements fiables; choix visuel déclaré conservateur si ses sheets ne figurent pas dans le catalogue analysé; original non modifié"
+        }
+      ],
+      "validation": {
+        "result": "RELAY_VALIDATION_PASS",
+        "two_distinct_routes": true,
+        "kangaskhan_rock": true,
+        "north_exit": true,
+        "south_exit": true,
+        "main_entrance_marker": true,
+        "inherited_cast_count": 0,
+        "inherited_spawner_count": 0,
+        "errors": []
+      }
+    },
+    {
+      "relay_id": "sanctuaire_des_echos_relais_02",
+      "order": 2,
+      "after_floor": 8,
+      "previous_segment": 1,
+      "next_segment": 2,
+      "source_ground": "crooked_cavern_midpoint",
+      "ground_file": "relays/grounds/sanctuaire_des_echos_relais_02.rsground",
+      "script_file": "relays/scripts/ground/sanctuaire_des_echos_relais_02/init.lua",
+      "north_route": {
+        "direction": "avant",
+        "segment": 2,
+        "entry_floor": 0
+      },
+      "south_route": {
+        "direction": "arrière",
+        "segment": 1,
+        "entry_floor": 0
+      },
+      "services": [
+        "soin",
+        "stockage",
+        "sauvegarde"
+      ],
+      "required_entities": [
+        "Kangaskhan_Rock",
+        "North_Exit",
+        "South_Exit",
+        "Main_Entrance_Marker"
+      ],
+      "composition": {
+        "role": "point_median_entre_segments",
+        "sheet_vocabulary": [
+          "CaveStop"
+        ],
+        "statue_position": {
+          "X": 288,
+          "Y": 144,
+          "Width": 24,
+          "Height": 24
+        },
+        "north_exit_collider": {
+          "X": 0,
+          "Y": 120,
+          "Width": 456,
+          "Height": 4
+        },
+        "south_exit_collider": {
+          "X": 0,
+          "Y": 452,
+          "Width": 456,
+          "Height": 4
+        },
+        "entrance_marker": {
+          "X": 188,
+          "Y": 272,
+          "Width": 16,
+          "Height": 16
+        },
+        "source_sha256": "fafbdabd49b5cd2540f0470aa55f9f23590ec1318fc70a2aa9668edadf4f8b2d",
+        "source_modified": false,
+        "cast_policy": "environment_only_no_inherited_cast",
+        "template_selection": {
+          "confidence": 0.25,
+          "analyzed_sheets": [],
+          "selected_vocabulary_sheets": [],
+          "strategy": "canonical_structural_fallback_no_visual_claim"
+        }
+      },
+      "decisions": [
+        {
+          "decision": "segment_boundary",
+          "why": "sépare les étages 1–8 de la partie suivante"
+        },
+        {
+          "decision": "kangaskhan_checkpoint",
+          "why": "repère immédiatement reconnaissable offrant soin, stockage et sauvegarde"
+        },
+        {
+          "decision": "two_routes",
+          "why": "North_Exit avance; South_Exit revient au segment précédent"
+        },
+        {
+          "decision": "source_template",
+          "source": "crooked_cavern_midpoint",
+          "confidence": 0.25,
+          "why": "Ground PMDO existant avec collisions et placements fiables; choix visuel déclaré conservateur si ses sheets ne figurent pas dans le catalogue analysé; original non modifié"
+        }
+      ],
+      "validation": {
+        "result": "RELAY_VALIDATION_PASS",
+        "two_distinct_routes": true,
+        "kangaskhan_rock": true,
+        "north_exit": true,
+        "south_exit": true,
+        "main_entrance_marker": true,
+        "inherited_cast_count": 0,
+        "inherited_spawner_count": 0,
+        "errors": []
+      }
+    }
+  ]
+}

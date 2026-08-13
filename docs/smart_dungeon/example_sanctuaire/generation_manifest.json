@@ -5,10 +5,21 @@
   "slug": "sanctuaire_des_echos",
   "seed": 424242,
   "floor_count": 12,
-  "mean_quality_score": 84.47,
-  "mean_structural_score": 86.991,
-  "mean_visual_score": 83.667,
-  "dungeon_artistic_score": 89.838,
+  "mean_quality_score": 85.499,
+  "mean_structural_score": 88.236,
+  "mean_visual_score": 84.623,
+  "dungeon_artistic_score": 89.368,
+  "relay_count": 2,
+  "segment_count": 3,
+  "relay_ground_candidates": [
+    "relays/grounds/sanctuaire_des_echos_relais_01.rsground",
+    "relays/grounds/sanctuaire_des_echos_relais_02.rsground"
+  ],
+  "relay_script_candidates": [
+    "relays/scripts/ground/sanctuaire_des_echos_relais_01/init.lua",
+    "relays/scripts/ground/sanctuaire_des_echos_relais_02/init.lua"
+  ],
+  "zone_script_candidate": "relays/scripts/zone/sanctuaire_des_echos/init.lua",
   "asset_catalog": "asset_catalog.json",
   "art_direction": "art_direction.json",
   "decision_log": "decision_log.json",
@@ -54,6 +65,55 @@
     "reference_zone": "mt_blaze",
     "zone_file": "zone/sanctuaire_des_echos.json",
     "floor_count": 12,
+    "segment_count": 3,
+    "segment_contracts": [
+      {
+        "segment": 0,
+        "global_floor_range": [
+          1,
+          4
+        ],
+        "floor_count": 4,
+        "entry": {
+          "map_id": 0,
+          "entry_point": 0
+        },
+        "relay_before": null,
+        "relay_after": "sanctuaire_des_echos_relais_01"
+      },
+      {
+        "segment": 1,
+        "global_floor_range": [
+          5,
+          8
+        ],
+        "floor_count": 4,
+        "entry": {
+          "map_id": 0,
+          "entry_point": 0
+        },
+        "relay_before": "sanctuaire_des_echos_relais_01",
+        "relay_after": "sanctuaire_des_echos_relais_02"
+      },
+      {
+        "segment": 2,
+        "global_floor_range": [
+          9,
+          12
+        ],
+        "floor_count": 4,
+        "entry": {
+          "map_id": 0,
+          "entry_point": 0
+        },
+        "relay_before": "sanctuaire_des_echos_relais_02",
+        "relay_after": null
+      }
+    ],
+    "ground_maps": [
+      "sanctuaire_des_echos_relais_01",
+      "sanctuaire_des_echos_relais_02"
+    ],
     "roster": [
       "meowth",
       "charizard",
@@ -222,106 +282,80 @@
     ],
     "relay_contracts": [
       {
-        "floor": 4,
-        "position": [
-          34,
-          22
-        ],
-        "composition_family": "relay_haven",
-        "approach_rooms": [
-          {
-            "room_id": 0,
-            "function": "recovery"
+        "relay_id": "sanctuaire_des_echos_relais_01",
+        "after_floor": 4,
+        "previous_segment": 0,
+        "next_segment": 1,
+        "ground_file": "relays/grounds/sanctuaire_des_echos_relais_01.rsground",
+        "script_file": "relays/scripts/ground/sanctuaire_des_echos_relais_01/init.lua",
+        "kangaskhan_rock": true,
+        "two_routes": {
+          "north": {
+            "direction": "avant",
+            "segment": 1,
+            "entry_floor": 0
           },
-          {
-            "room_id": 1,
-            "function": "tension"
+          "south": {
+            "direction": "arrière",
+            "segment": 0,
+            "entry_floor": 0
           }
+        },
+        "services": [
+          "soin",
+          "stockage",
+          "sauvegarde"
         ],
-        "spatial_beats": [
-          {
-            "order": 0,
-            "room_id": 5,
-            "beat": "reward",
-            "reason": "géométrie round dimensionnée pour la fonction reward dans la stratégie relay_haven"
-          },
-          {
-            "order": 1,
-            "room_id": 1,
-            "beat": "tension",
-            "reason": "géométrie irregular dimensionnée pour la fonction tension dans la stratégie relay_haven"
-          },
-          {
-            "order": 2,
-            "room_id": 6,
-            "beat": "orientation",
-            "reason": "géométrie rect dimensionnée pour la fonction orientation dans la stratégie relay_haven"
-          },
-          {
-            "order": 3,
-            "room_id": 0,
-            "beat": "recovery",
-            "reason": "géométrie octagon dimensionnée pour la fonction recovery dans la stratégie relay_haven"
-          },
-          {
-            "order": 4,
-            "room_id": 4,
-            "beat": "breathing",
-            "reason": "géométrie irregular dimensionnée pour la fonction breathing dans la stratégie relay_haven"
-          }
-        ],
-        "integration": "generated_recovery_context_plus_relay_hook"
+        "validation": {
+          "result": "RELAY_VALIDATION_PASS",
+          "two_distinct_routes": true,
+          "kangaskhan_rock": true,
+          "north_exit": true,
+          "south_exit": true,
+          "main_entrance_marker": true,
+          "inherited_cast_count": 0,
+          "inherited_spawner_count": 0,
+          "errors": []
+        },
+        "integration": "native_ground_midpoint_between_range_segments"
       },
       {
-        "floor": 6,
-        "position": [
-          35,
-          19
-        ],
-        "composition_family": "relay_haven",
-        "approach_rooms": [
-          {
-            "room_id": 0,
-            "function": "recovery"
+        "relay_id": "sanctuaire_des_echos_relais_02",
+        "after_floor": 8,
+        "previous_segment": 1,
+        "next_segment": 2,
+        "ground_file": "relays/grounds/sanctuaire_des_echos_relais_02.rsground",
+        "script_file": "relays/scripts/ground/sanctuaire_des_echos_relais_02/init.lua",
+        "kangaskhan_rock": true,
+        "two_routes": {
+          "north": {
+            "direction": "avant",
+            "segment": 2,
+            "entry_floor": 0
           },
-          {
-            "room_id": 1,
-            "function": "tension"
+          "south": {
+            "direction": "arrière",
+            "segment": 1,
+            "entry_floor": 0
           }
+        },
+        "services": [
+          "soin",
+          "stockage",
+          "sauvegarde"
         ],
-        "spatial_beats": [
-          {
-            "order": 0,
-            "room_id": 6,
-            "beat": "orientation",
-            "reason": "géométrie irregular dimensionnée pour la fonction orientation dans la stratégie relay_haven"
-          },
-          {
-            "order": 1,
-            "room_id": 1,
-            "beat": "tension",
-            "reason": "géométrie irregular dimensionnée pour la fonction tension dans la stratégie relay_haven"
-          },
-          {
-            "order": 2,
-            "room_id": 0,
-            "beat": "recovery",
-            "reason": "géométrie octagon dimensionnée pour la fonction recovery dans la stratégie relay_haven"
-          },
-          {
-            "order": 3,
-            "room_id": 3,
-            "beat": "discovery",
-            "reason": "géométrie round dimensionnée pour la fonction discovery dans la stratégie relay_haven"
-          },
-          {
-            "order": 4,
-            "room_id": 4,
-            "beat": "breathing",
-            "reason": "géométrie rect dimensionnée pour la fonction breathing dans la stratégie relay_haven"
-          }
-        ],
-        "integration": "generated_recovery_context_plus_relay_hook"
+        "validation": {
+          "result": "RELAY_VALIDATION_PASS",
+          "two_distinct_routes": true,
+          "kangaskhan_rock": true,
+          "north_exit": true,
+          "south_exit": true,
+          "main_entrance_marker": true,
+          "inherited_cast_count": 0,
+          "inherited_spawner_count": 0,
+          "errors": []
+        },
+        "integration": "native_ground_midpoint_between_range_segments"
       }
     ],
     "floor_design_contracts": [
@@ -372,78 +406,78 @@
       },
       {
         "floor": 4,
-        "composition_family": "relay_haven",
+        "composition_family": "central_landmark",
         "signature": {
-          "signature_id": "F004-relay_haven-85",
-          "geometry": "relay_haven",
-          "secondary_strategy": "central_landmark",
-          "density_gradient": "alternating",
+          "signature_id": "F004-central_landmark-85",
+          "geometry": "large_center_with_satellites",
+          "secondary_strategy": "asymmetric_gradient",
+          "density_gradient": "quiet_edges_focal_center",
           "landmark_rule": "local_orientation_marker",
           "intentional_symmetry": false
         },
-        "spectacle": 0.18,
-        "structural_score": 87.203,
-        "visual_score": 83.752
+        "spectacle": 0.277,
+        "structural_score": 89.883,
+        "visual_score": 89.785
       },
       {
         "floor": 5,
-        "composition_family": "circular_progression",
+        "composition_family": "chamber_sequence",
         "signature": {
-          "signature_id": "F005-circular_progression-17",
-          "geometry": "ring_with_cross_connections",
-          "secondary_strategy": "central_landmark",
+          "signature_id": "F005-chamber_sequence-17",
+          "geometry": "succession_of_small_thresholds",
+          "secondary_strategy": "protected_core",
           "density_gradient": "alternating",
           "landmark_rule": "local_orientation_marker",
           "intentional_symmetry": false
         },
         "spectacle": 0.356,
-        "structural_score": 82.573,
-        "visual_score": 81.345
+        "structural_score": 86.549,
+        "visual_score": 82.026
       },
       {
         "floor": 6,
-        "composition_family": "relay_haven",
+        "composition_family": "dominant_loop",
         "signature": {
-          "signature_id": "F006-relay_haven-86",
-          "geometry": "relay_haven",
-          "secondary_strategy": "dominant_loop",
+          "signature_id": "F006-dominant_loop-86",
+          "geometry": "one_memorable_main_loop",
+          "secondary_strategy": "corridor_spine",
           "density_gradient": "alternating",
           "landmark_rule": "local_orientation_marker",
           "intentional_symmetry": false
         },
-        "spectacle": 0.18,
-        "structural_score": 88.207,
-        "visual_score": 81.988
+        "spectacle": 0.385,
+        "structural_score": 89.193,
+        "visual_score": 84.208
       },
       {
         "floor": 7,
-        "composition_family": "chamber_sequence",
+        "composition_family": "branching_pockets",
         "signature": {
-          "signature_id": "F007-chamber_sequence-23",
-          "geometry": "succession_of_small_thresholds",
-          "secondary_strategy": "central_landmark",
-          "density_gradient": "alternating",
+          "signature_id": "F007-branching_pockets-23",
+          "geometry": "spine_and_optional_pockets",
+          "secondary_strategy": "circular_progression",
+          "density_gradient": "quiet_to_dense",
           "landmark_rule": "local_orientation_marker",
           "intentional_symmetry": false
         },
         "spectacle": 0.405,
-        "structural_score": 89.911,
-        "visual_score": 81.15
+        "structural_score": 87.828,
+        "visual_score": 84.056
       },
       {
         "floor": 8,
-        "composition_family": "island_clusters",
+        "composition_family": "circular_progression",
         "signature": {
-          "signature_id": "F008-island_clusters-18",
-          "geometry": "three_room_islands",
-          "secondary_strategy": "corridor_spine",
+          "signature_id": "F008-circular_progression-18",
+          "geometry": "ring_with_cross_connections",
+          "secondary_strategy": "asymmetric_gradient",
           "density_gradient": "alternating",
           "landmark_rule": "structural_anchor",
           "intentional_symmetry": false
         },
-        "spectacle": 0.42,
-        "structural_score": 83.834,
-        "visual_score": 80.405
+        "spectacle": 0.424,
+        "structural_score": 90.348,
+        "visual_score": 83.018
       },
       {
         "floor": 9,
@@ -451,44 +485,44 @@
         "signature": {
           "signature_id": "F009-mini_boss_stage-84",
           "geometry": "mini_boss_stage",
-          "secondary_strategy": "branching_pockets",
+          "secondary_strategy": "dominant_loop",
           "density_gradient": "alternating",
           "landmark_rule": "exceptional_asset",
           "intentional_symmetry": false
         },
         "spectacle": 0.74,
         "structural_score": 85.945,
-        "visual_score": 82.471
+        "visual_score": 82.786
       },
       {
         "floor": 10,
-        "composition_family": "circular_progression",
+        "composition_family": "chamber_sequence",
         "signature": {
-          "signature_id": "F010-circular_progression-73",
-          "geometry": "ring_with_cross_connections",
+          "signature_id": "F010-chamber_sequence-73",
+          "geometry": "succession_of_small_thresholds",
           "secondary_strategy": "central_landmark",
           "density_gradient": "alternating",
           "landmark_rule": "structural_anchor",
           "intentional_symmetry": false
         },
         "spectacle": 0.492,
-        "structural_score": 88.995,
-        "visual_score": 85.81
+        "structural_score": 91.859,
+        "visual_score": 83.509
       },
       {
         "floor": 11,
-        "composition_family": "corridor_spine",
+        "composition_family": "dominant_loop",
         "signature": {
-          "signature_id": "F011-corridor_spine-23",
-          "geometry": "dominant_directional_spine",
-          "secondary_strategy": "dominant_loop",
+          "signature_id": "F011-dominant_loop-23",
+          "geometry": "one_memorable_main_loop",
+          "secondary_strategy": "corridor_spine",
           "density_gradient": "alternating",
           "landmark_rule": "structural_anchor",
           "intentional_symmetry": false
         },
         "spectacle": 0.42,
-        "structural_score": 88.711,
-        "visual_score": 83.346
+        "structural_score": 88.724,
+        "visual_score": 82.357
       },
       {
         "floor": 12,
@@ -496,7 +530,7 @@
         "signature": {
           "signature_id": "F012-boss_stage-67",
           "geometry": "boss_stage",
-          "secondary_strategy": "chamber_sequence",
+          "secondary_strategy": "branching_pockets",
           "density_gradient": "alternating",
           "landmark_rule": "exceptional_asset",
           "intentional_symmetry": false
@@ -505,7 +539,8 @@
         "structural_score": 89.158,
         "visual_score": 88.67
       }
-    ]
+    ],
+    "zone_script_candidate": "relays/scripts/zone/sanctuaire_des_echos/init.lua"
   },
   "locks_file": "locks.json",
   "overrides_file": "asset_overrides.json",

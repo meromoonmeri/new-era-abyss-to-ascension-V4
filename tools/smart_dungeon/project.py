@@ -11,8 +11,9 @@ from .compiler import compile_zone
 from .composition import compose_decor, initial_memory, update_memory
 from .intent import parse_intent
 from .layout import progression, select_best, stable_seed
-from .model import DesignBrief, DungeonPlan, FloorPlan, Room
+from .model import DesignBrief, DungeonPlan, FloorPlan, RelayPlan, Room
 from .quality import evaluate, evaluate_dungeon
+from .relay import design_relays, relay_sheet_svg, validate_relay_file
 from .visual import contact_svg, design_board_svg, special_rooms_svg, svg_preview
 
 
@@ -37,6 +38,11 @@ def floor_from(data):
     data["rooms"] = [Room(**{key: value for key, value in row.items() if key in room_fields}) for row in data["rooms"]]
     floor_fields = FloorPlan.__dataclass_fields__
     return FloorPlan(**{key: value for key, value in data.items() if key in floor_fields})
+
+
+def relay_from(data):
+    fields = RelayPlan.__dataclass_fields__
+    return RelayPlan(**{key: value for key, value in data.items() if key in fields})
 
 
 def copy_floor(plan):
@@ -78,23 +84,28 @@ def _summaries(plans, comparisons, artistic, changes=None):
     return result
 
 
-def _decision_log(direction, plans, comparisons):
+def _decision_log(direction, plans, comparisons, relays=None):
     return [
         {"scope": "art_direction", **decision} for decision in direction.get("decisions", [])
     ] + [
         {"scope": "floor", "floor": plan.floor, "decisions": plan.decisions,
          "variant_selection": plan.identity.get("variant_selection", {})}
         for plan in plans
+    ] + [
+        {"scope": "relay", "relay_id": relay.relay_id, "after_floor": relay.after_floor,
+         "decisions": relay.decisions, "validation": relay.validation}
+        for relay in (relays or [])
     ] + [{"scope": "candidate_comparison", **row} for row in comparisons]
 
 
-def _write_visuals(project, plans, direction):
+def _write_visuals(project, plans, direction, relays=None):
     for plan in plans:
         write(project / f"plans/floor_{plan.floor:03d}.json", plan.to_dict())
         svg_preview(plan, project / f"previews/floor_{plan.floor:03d}.svg")
     contact_svg(plans, project / "previews/contact_sheet.svg")
     special_rooms_svg(plans, project / "previews/special_rooms.svg")
     design_board_svg(plans, direction, project / "previews/design_board.svg")
+    relay_sheet_svg(relays or [], project, project / "previews/relays.svg")
 
 
 def generate_project(
@@ -141,21 +152,24 @@ def generate_project(
 
     artistic = evaluate_dungeon(plans, direction)
     quality = _summaries(plans, comparisons, artistic)
-    compiler = compile_zone(repo, brief, plans, selection, project / f"zone/{brief.slug}.json", reference)
+    relays, zone_script = design_relays(repo, project, brief, rows, catalog, direction)
+    compiler = compile_zone(repo, brief, plans, selection, project / f"zone/{brief.slug}.json", reference, relays=relays)
     compiler["zone_file"] = Path(compiler["zone_file"]).relative_to(project).as_posix()
-    decisions = _decision_log(direction, plans, comparisons)
+    compiler["zone_script_candidate"] = zone_script
+    decisions = _decision_log(direction, plans, comparisons, relays)
     dungeon = DungeonPlan(
-        schema_version="2.0.0", brief=brief, asset_cluster=selection["cluster_id"],
+        schema_version="2.1.0", brief=brief, asset_cluster=selection["cluster_id"],
         asset_selection=selection, progression=rows, floors=plans,
         quality_summary=quality, compiler=compiler, art_direction=direction,
-        artistic_quality_summary=artistic, decision_log=decisions,
+        artistic_quality_summary=artistic, decision_log=decisions, relays=relays,
     )
-    _write_visuals(project, plans, direction)
+    _write_visuals(project, plans, direction, relays)
     write(project / "brief.json", brief.to_dict())
     write(project / "progression.json", rows)
     write(project / "art_direction.json", direction)
     write(project / "artistic_quality_report.json", artistic)
     write(project / "decision_log.json", decisions)
+    write(project / "relays/manifest.json", {"schema_version": "1.0.0", "relay_count": len(relays), "zone_script_candidate": zone_script, "relays": [relay.to_dict() for relay in relays]})
     write(project / "quality_report.json", quality)
     write(project / "project.json", dungeon.to_dict())
     write(project / "generation_manifest.json", {
@@ -166,6 +180,10 @@ def generate_project(
         "mean_structural_score": quality["mean_structural_score"],
         "mean_visual_score": quality["mean_visual_score"],
         "dungeon_artistic_score": artistic["score"],
+        "relay_count": len(relays), "segment_count": len(relays) + 1,
+        "relay_ground_candidates": [relay.ground_file for relay in relays],
+        "relay_script_candidates": [relay.script_file for relay in relays],
+        "zone_script_candidate": zone_script,
         "asset_catalog": catalog_path.name, "art_direction": "art_direction.json",
         "decision_log": "decision_log.json", "visual_language": selection,
         "compiler": compiler, "locks_file": "locks.json",
@@ -251,21 +269,24 @@ def regenerate(repo: Path, project: Path, scope: str = "all", seed: int | None =
 
     artistic = evaluate_dungeon(plans, direction)
     quality = _summaries(plans, comparisons, artistic, changes)
-    compiler = compile_zone(repo, brief, plans, selection, project / f"zone/{brief.slug}.json", old.get("compiler", {}).get("reference_zone"))
+    relays, zone_script = design_relays(repo, project, brief, rows, catalog, direction)
+    compiler = compile_zone(repo, brief, plans, selection, project / f"zone/{brief.slug}.json", old.get("compiler", {}).get("reference_zone"), relays=relays)
     compiler["zone_file"] = Path(compiler["zone_file"]).relative_to(project).as_posix()
-    decisions = _decision_log(direction, plans, comparisons)
+    compiler["zone_script_candidate"] = zone_script
+    decisions = _decision_log(direction, plans, comparisons, relays)
     dungeon = DungeonPlan(
-        schema_version="2.0.0", brief=brief, asset_cluster=selection["cluster_id"],
+        schema_version="2.1.0", brief=brief, asset_cluster=selection["cluster_id"],
         asset_selection=selection, progression=rows, floors=plans,
         quality_summary=quality, compiler=compiler, art_direction=direction,
-        artistic_quality_summary=artistic, decision_log=decisions,
+        artistic_quality_summary=artistic, decision_log=decisions, relays=relays,
     )
-    _write_visuals(project, plans, direction)
+    _write_visuals(project, plans, direction, relays)
     write(project / "brief.json", brief.to_dict())
     write(project / "progression.json", rows)
     write(project / "art_direction.json", direction)
     write(project / "artistic_quality_report.json", artistic)
     write(project / "decision_log.json", decisions)
+    write(project / "relays/manifest.json", {"schema_version": "1.0.0", "relay_count": len(relays), "zone_script_candidate": zone_script, "relays": [relay.to_dict() for relay in relays]})
     write(project / "quality_report.json", quality)
     write(project / "project.json", dungeon.to_dict())
     write(project / "generation_manifest.json", {
@@ -275,6 +296,9 @@ def regenerate(repo: Path, project: Path, scope: str = "all", seed: int | None =
         "mean_structural_score": quality["mean_structural_score"],
         "mean_visual_score": quality["mean_visual_score"],
         "dungeon_artistic_score": artistic["score"],
+        "relay_count": len(relays), "segment_count": len(relays) + 1,
+        "relay_ground_candidates": [relay.ground_file for relay in relays],
+        "zone_script_candidate": zone_script,
         "locked_floor_count": sum(bool(row.get("locked")) for row in locks.get("floors", {}).values()),
         "reproducible": True,
     })
@@ -305,14 +329,36 @@ def validate_project(project: Path):
     artistic = evaluate_dungeon(plans, direction)
     if not artistic["accepted"]:
         errors.append({"dungeon_artistic_quality": artistic["violations"]})
+    relays = [relay_from(row) for row in data.get("relays", [])]
+    if len(relays) != data["brief"].get("relays", 0):
+        errors.append({"relay_count": {"expected": data["brief"].get("relays", 0), "actual": len(relays)}})
+    if any(plan.special == "relay" for plan in plans):
+        errors.append({"relay_model": "a relay must be a Ground boundary, not a procedural floor"})
+    for relay in relays:
+        validation = validate_relay_file(project, relay)
+        if validation.get("result") != "RELAY_VALIDATION_PASS":
+            errors.append({"relay": relay.relay_id, "validation": validation})
+        if not (project / relay.script_file).exists():
+            errors.append({"relay": relay.relay_id, "script_missing": relay.script_file})
     zone = project / data["compiler"]["zone_file"]
     try:
         zone_data = read(zone)
         segments = zone_data["Object"]["Segments"]
+        segment_count = len(segments)
+        compiled_floor_count = sum(len(segment.get("Floors", {}).get("nodes", [])) for segment in segments)
+        ground_maps = zone_data["Object"].get("GroundMaps", [])
         stairs = sum(1 for item in _walk(segments) if isinstance(item, dict) and "FloorStairsStep" in item.get("$type", ""))
+        if segment_count != len(relays) + 1:
+            errors.append({"segment_count": {"expected": len(relays) + 1, "actual": segment_count}})
+        if compiled_floor_count != len(plans):
+            errors.append({"compiled_floor_count": {"expected": len(plans), "actual": compiled_floor_count}})
+        if ground_maps != [relay.relay_id for relay in relays]:
+            errors.append({"ground_maps": {"expected": [relay.relay_id for relay in relays], "actual": ground_maps}})
     except Exception as exception:
         errors.append({"zone": str(exception)})
         stairs = 0
+        segment_count = 0
+        compiled_floor_count = 0
     passed = not errors and stairs >= len(plans)
     return {
         "result": "SMART_DUNGEON_VALIDATION_PASS" if passed else "SMART_DUNGEON_VALIDATION_FAIL",
@@ -324,6 +370,9 @@ def validate_project(project: Path):
         "mean_visual_score": round(mean(visual_scores), 3),
         "minimum_visual_score": min(visual_scores),
         "dungeon_artistic_score": artistic["score"],
+        "relay_count": len(relays),
+        "segment_count": segment_count,
+        "compiled_floor_count": compiled_floor_count,
         "stairs_step_count": stairs,
         "errors": errors,
     }

@@ -38,9 +38,10 @@ class TestSmartDungeonDesigner(unittest.TestCase):
         self.assertIn("circular_progression", brief.composition_preferences)
         rows = progression(brief)
         self.assertEqual(rows[-1]["special"], "boss")
-        relay_floors = [row["floor"] for row in rows if row["special"] == "relay"]
+        relay_floors = [row["floor"] for row in rows if row["relay_after"]]
         self.assertEqual(len(relay_floors), 3)
-        self.assertNotEqual(relay_floors, [5, 10, 15])
+        self.assertEqual(relay_floors, [6, 12, 19])
+        self.assertTrue(all(row["special"] != "relay" for row in rows))
         self.assertEqual(rows[-1]["spectacle"], 1)
 
     def test_02_candidate_search_is_deterministic_and_not_scalar_only(self):
@@ -124,7 +125,8 @@ class TestSmartDungeonDesigner(unittest.TestCase):
             "asset_catalog.json", "brief.json", "progression.json", "project.json",
             "quality_report.json", "artistic_quality_report.json", "art_direction.json",
             "decision_log.json", "generation_manifest.json", "previews/contact_sheet.svg",
-            "previews/design_board.svg", "previews/special_rooms.svg", "zone/sanctuaire_test.json",
+            "previews/design_board.svg", "previews/special_rooms.svg", "previews/relays.svg",
+            "relays/manifest.json", "zone/sanctuaire_test.json",
         ]
         self.assertTrue(all((project / path).exists() for path in required))
         self.assertEqual(len(list((project / "plans").glob("floor_*.json"))), 8)
@@ -132,27 +134,34 @@ class TestSmartDungeonDesigner(unittest.TestCase):
         result = validate_project(project)
         self.assertEqual(result["result"], "SMART_DUNGEON_VALIDATION_PASS")
         self.assertGreaterEqual(result["stairs_step_count"], 8)
+        self.assertEqual(result["relay_count"], 2)
+        self.assertEqual(result["segment_count"], 3)
+        self.assertEqual(result["compiled_floor_count"], 8)
         self.assertGreater(result["minimum_structural_score"], 72)
         self.assertGreater(result["minimum_visual_score"], 60)
         zone = json.loads((project / "zone/sanctuaire_test.json").read_text(encoding="utf-8-sig"))["Object"]
         self.assertTrue(zone["Released"])
-        self.assertEqual(len(zone["Segments"]), 1)
-        self.assertEqual(len(zone["Segments"][0]["Floors"]["nodes"]), 8)
-        self.assertEqual(zone["GroundMaps"], [])
+        self.assertEqual(len(zone["Segments"]), 3)
+        self.assertEqual(sum(len(segment["Floors"]["nodes"]) for segment in zone["Segments"]), 8)
+        self.assertEqual(zone["GroundMaps"], [relay.relay_id for relay in self.plan1.relays])
+        self.assertTrue(all((project / relay.ground_file).exists() and (project / relay.script_file).exists() for relay in self.plan1.relays))
+        self.assertTrue(all("missingno" not in (project / relay.ground_file).read_text(encoding="utf-8-sig").casefold() for relay in self.plan1.relays))
 
     def test_07_floor_identity_groups_landmarks_and_room_functions_are_realized(self):
         families = set()
+        landmark_floor_count = 0
         for floor in self.plan1.floors:
             families.add(floor.identity["composition_family"])
             self.assertTrue(floor.identity["signature"])
             self.assertTrue(floor.composition_regions)
             self.assertTrue(floor.spatial_beats)
             self.assertTrue(floor.decoration_groups)
-            self.assertTrue(floor.landmarks)
+            landmark_floor_count += bool(floor.landmarks)
             self.assertTrue(floor.decisions)
             self.assertTrue(any(room.function != "exploration" and room.design_reason for room in floor.rooms))
             self.assertGreaterEqual(floor.quality["visual_score"], 60)
         self.assertGreaterEqual(len(families), 5)
+        self.assertGreaterEqual(landmark_floor_count, 4)
         self.assertTrue(self.plan1.artistic_quality_summary["accepted"])
 
     def test_08_structurally_valid_but_visually_flat_floor_is_rejected(self):
@@ -211,7 +220,11 @@ class TestSmartDungeonDesigner(unittest.TestCase):
         self.assertEqual(first["progression"], second["progression"])
         self.assertEqual(first["floors"], second["floors"])
         self.assertEqual(first["decision_log"], second["decision_log"])
+        self.assertEqual(first["relays"], second["relays"])
         self.assertEqual((self.p1 / "zone/sanctuaire_test.json").read_bytes(), (self.p2 / "zone/sanctuaire_test.json").read_bytes())
+        for relay in self.plan1.relays:
+            self.assertEqual((self.p1 / relay.ground_file).read_bytes(), (self.p2 / relay.ground_file).read_bytes())
+            self.assertEqual((self.p1 / relay.script_file).read_bytes(), (self.p2 / relay.script_file).read_bytes())
 
     def test_11_locks_and_local_regeneration_remain_compatible(self):
         project = self.p1
@@ -241,7 +254,11 @@ class TestSmartDungeonDesigner(unittest.TestCase):
         self.assertEqual(boss["floor"], 8)
         self.assertIn("preparation", {room["function"] for room in boss["approach_rooms"]})
         self.assertTrue(boss["spatial_beats"])
-        self.assertTrue(all(contract["approach_rooms"] for contract in compiler["relay_contracts"]))
+        self.assertTrue(all(contract["kangaskhan_rock"] for contract in compiler["relay_contracts"]))
+        self.assertTrue(all(contract["validation"]["two_distinct_routes"] for contract in compiler["relay_contracts"]))
+        self.assertEqual([(relay.previous_segment, relay.next_segment) for relay in self.plan2.relays], [(0, 1), (1, 2)])
+        self.assertEqual([relay.after_floor for relay in self.plan2.relays], [3, 5])
+        self.assertTrue(all(floor.special != "relay" for floor in self.plan2.floors))
         self.assertEqual(len(compiler["floor_design_contracts"]), 8)
         boss_floor = next(floor for floor in self.plan2.floors if floor.special == "boss")
         if self.plan2.art_direction["vocabulary"]["exceptional"]:

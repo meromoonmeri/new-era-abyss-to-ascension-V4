@@ -4,7 +4,7 @@ from __future__ import annotations
 import copy,json,math,random,re
 from pathlib import Path
 from typing import Any
-from .model import DesignBrief,FloorPlan
+from .model import DesignBrief,FloorPlan,RelayPlan
 def load_json(path):return json.loads(path.read_text(encoding='utf-8-sig'))
 def walk(x):
  yield x
@@ -101,19 +101,22 @@ def _replace_roster(segment,roster,brief):
  for x in typed(segment,'MobSpawnSettingsStep'):
   x['MaxFoes']=8+round(brief.danger_bias*7);x['RespawnTime']=max(18,round(55-brief.danger_bias*30))
   if isinstance(x.get('Respawn'),dict):x['Respawn']['MaxFoes']=x['MaxFoes'];x['Respawn']['RespawnTime']=x['RespawnTime']
-def compile_zone(repo:Path,brief:DesignBrief,plans:list[FloorPlan],selection:dict,output:Path,reference:str|None=None,roster_size:int=24):
- ref_name,ref_path=choose_reference(repo,brief,selection,reference);zone=load_json(ref_path);segment,generators=_floor_generators(zone);nodes=[]
- for i,plan in enumerate(plans):
-  nodes.append({'Item':_tune_floor(copy.deepcopy(generators[i%len(generators)]),plan,selection.get('texture_values')),'Range':{'Min':i,'Max':i+1}})
- segment=copy.deepcopy(segment);segment['Floors']={'nodes':nodes};segment['Comment']=f'{brief.name} — conçu par Smart Dungeon Designer Phase 2, seed {brief.seed}'
- roster=derive_roster(repo,brief,roster_size,brief.seed);_replace_roster(segment,roster,brief);obj=zone['Object'];obj['Name']={'DefaultText':brief.name,'LocalTexts':{'fr':brief.name}};obj['Released']=True;obj['Comment']=f'Génération explicable reproductible; référence PMDO {ref_name}; seed {brief.seed}.';obj['Segments']=[segment];obj['GroundMaps']=[];obj['Level']={'facile':10,'normal':18,'difficile':26,'extrême':34}.get(brief.difficulty,18);obj['LevelCap']=False;obj['TeamSize']=4;obj['BagSize']=32
+def compile_zone(repo:Path,brief:DesignBrief,plans:list[FloorPlan],selection:dict,output:Path,reference:str|None=None,roster_size:int=24,relays:list[RelayPlan]|None=None):
+ relays=relays or [];ref_name,ref_path=choose_reference(repo,brief,selection,reference);zone=load_json(ref_path);base_segment,generators=_floor_generators(zone);roster=derive_roster(repo,brief,roster_size,brief.seed)
+ boundaries=[relay.after_floor for relay in sorted(relays,key=lambda item:item.order)]+[len(plans)];segments=[];segment_contracts=[];start=0
+ for segment_index,end in enumerate(boundaries):
+  segment_plans=plans[start:end];nodes=[]
+  for local_index,plan in enumerate(segment_plans):
+   global_index=start+local_index;nodes.append({'Item':_tune_floor(copy.deepcopy(generators[global_index%len(generators)]),plan,selection.get('texture_values')),'Range':{'Min':local_index,'Max':local_index+1}})
+  segment=copy.deepcopy(base_segment);segment['Floors']={'nodes':nodes};segment['Comment']=f'{brief.name} — partie {segment_index+1}/{len(boundaries)}, étages globaux {start+1}-{end}, seed {brief.seed}';_replace_roster(segment,roster,brief);segments.append(segment)
+  segment_contracts.append({'segment':segment_index,'global_floor_range':[start+1,end],'floor_count':len(segment_plans),'entry':{'map_id':0,'entry_point':0},'relay_before':relays[segment_index-1].relay_id if segment_index>0 else None,'relay_after':relays[segment_index].relay_id if segment_index<len(relays) else None})
+  start=end
+ obj=zone['Object'];obj['Name']={'DefaultText':brief.name,'LocalTexts':{'fr':brief.name}};obj['Released']=True;obj['Comment']=f'Génération explicable reproductible; {len(segments)} segment(s), {len(relays)} relais Ground; référence PMDO {ref_name}; seed {brief.seed}.';obj['Segments']=segments;obj['GroundMaps']=[relay.relay_id for relay in relays];obj['Level']={'facile':10,'normal':18,'difficile':26,'extrême':34}.get(brief.difficulty,18);obj['LevelCap']=False;obj['TeamSize']=4;obj['BagSize']=32
  output.parent.mkdir(parents=True,exist_ok=True);output.write_text('\ufeff'+json.dumps(zone,ensure_ascii=False,indent=1),encoding='utf-8')
- def contract(plan,kind,species=None):
-  focus=next((point['position'] for point in plan.points_of_interest if point.get('kind')==kind),None);approach=[{'room_id':room.room_id,'function':room.function} for room in plan.rooms if room.function in ('gateway','preparation','tension','recovery')]
-  result={'floor':plan.floor,'position':focus,'composition_family':plan.identity.get('composition_family'),'approach_rooms':approach,'spatial_beats':plan.spatial_beats,'integration':'generated_stage_plus_explicit_hook' if kind in ('boss','mini_boss') else 'generated_recovery_context_plus_relay_hook'}
+ def combat_contract(plan,kind,species=None):
+  focus=next((point['position'] for point in plan.points_of_interest if point.get('kind')==kind),None);approach=[{'room_id':room.room_id,'function':room.function} for room in plan.rooms if room.function in ('gateway','preparation','tension','recovery')];result={'floor':plan.floor,'position':focus,'composition_family':plan.identity.get('composition_family'),'approach_rooms':approach,'spatial_beats':plan.spatial_beats,'integration':'generated_stage_plus_explicit_hook'}
   if species:result['species']=species
   return result
- boss=next((contract(plan,'boss',roster[-1]) for plan in plans if plan.special=='boss'),None)
- minis=[contract(plan,'mini_boss',roster[-2-(index%max(1,len(roster)-2))]) for index,plan in enumerate(item for item in plans if item.special=='mini_boss')]
- relays=[contract(plan,'relay') for plan in plans if plan.special=='relay']
- return {'reference_zone':ref_name,'zone_file':str(output),'floor_count':len(plans),'roster':roster,'boss_contract':boss,'mini_boss_contracts':minis,'relay_contracts':relays,'floor_design_contracts':[{'floor':plan.floor,'composition_family':plan.identity.get('composition_family'),'signature':plan.identity.get('signature'),'spectacle':plan.identity.get('spectacle'),'structural_score':plan.quality.get('structural_score'),'visual_score':plan.quality.get('visual_score')} for plan in plans]}
+ boss=next((combat_contract(plan,'boss',roster[-1]) for plan in plans if plan.special=='boss'),None);minis=[combat_contract(plan,'mini_boss',roster[-2-(index%max(1,len(roster)-2))]) for index,plan in enumerate(item for item in plans if item.special=='mini_boss')]
+ relay_contracts=[{'relay_id':relay.relay_id,'after_floor':relay.after_floor,'previous_segment':relay.previous_segment,'next_segment':relay.next_segment,'ground_file':relay.ground_file,'script_file':relay.script_file,'kangaskhan_rock':True,'two_routes':{'north':relay.north_route,'south':relay.south_route},'services':relay.services,'validation':relay.validation,'integration':'native_ground_midpoint_between_range_segments'} for relay in relays]
+ return {'reference_zone':ref_name,'zone_file':str(output),'floor_count':len(plans),'segment_count':len(segments),'segment_contracts':segment_contracts,'ground_maps':[relay.relay_id for relay in relays],'roster':roster,'boss_contract':boss,'mini_boss_contracts':minis,'relay_contracts':relay_contracts,'floor_design_contracts':[{'floor':plan.floor,'composition_family':plan.identity.get('composition_family'),'signature':plan.identity.get('signature'),'spectacle':plan.identity.get('spectacle'),'structural_score':plan.quality.get('structural_score'),'visual_score':plan.quality.get('visual_score')} for plan in plans]}

@@ -17,15 +17,15 @@
 <rect x="862" y="94" width="42" height="42" rx="4" fill="#786048" stroke="#e4e0d5" stroke-width="1"><title>Altere_Pond_Objects_Under — détail ou rareté élevés; usage réservé à un moment visuel</title></rect>
 <rect x="912" y="94" width="42" height="42" rx="4" fill="#184818" stroke="#e4e0d5" stroke-width="1"><title>Altere_Pond_Objects — détail ou rareté élevés; usage réservé à un moment visuel</title></rect>
 <rect x="48" y="185" width="1085" height="150" fill="#171c24" stroke="#3f4857"/>
-<polyline points="48.0,314.0 146.6,306.6 245.3,224.0 343.9,308.0 442.5,281.6 541.2,308.0 639.8,274.2 738.5,272.0 837.1,224.0 935.7,261.2 1034.4,272.0 1133.0,185.0" fill="none" stroke="#f1c75b" stroke-width="3"/>
+<polyline points="48.0,314.0 146.6,306.6 245.3,224.0 343.9,293.4 442.5,281.6 541.2,277.2 639.8,274.2 738.5,271.4 837.1,224.0 935.7,261.2 1034.4,272.0 1133.0,185.0" fill="none" stroke="#f1c75b" stroke-width="3"/>
 <circle cx="48.0" cy="314.0" r="5" fill="#78b7d0"/><text x="43.0" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">1</text>
 <circle cx="146.6" cy="306.6" r="5" fill="#78b7d0"/><text x="141.6" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">2</text>
 <circle cx="245.3" cy="224.0" r="5" fill="#ff685f"/><text x="240.3" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">3</text>
-<circle cx="343.9" cy="308.0" r="5" fill="#62c98a"/><text x="338.9" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">4</text>
+<circle cx="343.9" cy="293.4" r="5" fill="#78b7d0"/><text x="338.9" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">4</text>
 <circle cx="442.5" cy="281.6" r="5" fill="#78b7d0"/><text x="437.5" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">5</text>
-<circle cx="541.2" cy="308.0" r="5" fill="#62c98a"/><text x="536.2" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">6</text>
+<circle cx="541.2" cy="277.2" r="5" fill="#78b7d0"/><text x="536.2" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">6</text>
 <circle cx="639.8" cy="274.2" r="5" fill="#78b7d0"/><text x="634.8" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">7</text>
-<circle cx="738.5" cy="272.0" r="5" fill="#78b7d0"/><text x="733.5" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">8</text>
+<circle cx="738.5" cy="271.4" r="5" fill="#78b7d0"/><text x="733.5" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">8</text>
 <circle cx="837.1" cy="224.0" r="5" fill="#ff685f"/><text x="832.1" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">9</text>
 <circle cx="935.7" cy="261.2" r="5" fill="#78b7d0"/><text x="930.7" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">10</text>
 <circle cx="1034.4" cy="272.0" r="5" fill="#78b7d0"/><text x="1029.4" y="352" fill="#aeb8c6" font-family="sans-serif" font-size="9">11</text>
@@ -37,22 +37,22 @@
 <text x="310" y="389" fill="#8793a3" font-family="sans-serif" font-size="8">succession_of_small_thresholds</text>
 <text x="598" y="375" fill="#e3e6ea" font-family="sans-serif" font-size="10">03 · mini_boss_stage</text>
 <text x="598" y="389" fill="#8793a3" font-family="sans-serif" font-size="8">mini_boss_stage</text>
-<text x="886" y="375" fill="#e3e6ea" font-family="sans-serif" font-size="10">04 · relay_haven</text>
-<text x="886" y="389" fill="#8793a3" font-family="sans-serif" font-size="8">relay_haven</text>
-<text x="22" y="417" fill="#e3e6ea" font-family="sans-serif" font-size="10">05 · circular_progression</text>
-<text x="22" y="431" fill="#8793a3" font-family="sans-serif" font-size="8">ring_with_cross_connections</text>
-<text x="310" y="417" fill="#e3e6ea" font-family="sans-serif" font-size="10">06 · relay_haven</text>
-<text x="310" y="431" fill="#8793a3" font-family="sans-serif" font-size="8">relay_haven</text>
-<text x="598" y="417" fill="#e3e6ea" font-family="sans-serif" font-size="10">07 · chamber_sequence</text>
-<text x="598" y="431" fill="#8793a3" font-family="sans-serif" font-size="8">succession_of_small_thresholds</text>
-<text x="886" y="417" fill="#e3e6ea" font-family="sans-serif" font-size="10">08 · island_clusters</text>
-<text x="886" y="431" fill="#8793a3" font-family="sans-serif" font-size="8">three_room_islands</text>
+<text x="886" y="375" fill="#e3e6ea" font-family="sans-serif" font-size="10">04 · central_landmark</text>
+<text x="886" y="389" fill="#8793a3" font-family="sans-serif" font-size="8">large_center_with_satellites</text>
+<text x="22" y="417" fill="#e3e6ea" font-family="sans-serif" font-size="10">05 · chamber_sequence</text>
+<text x="22" y="431" fill="#8793a3" font-family="sans-serif" font-size="8">succession_of_small_thresholds</text>
+<text x="310" y="417" fill="#e3e6ea" font-family="sans-serif" font-size="10">06 · dominant_loop</text>
+<text x="310" y="431" fill="#8793a3" font-family="sans-serif" font-size="8">one_memorable_main_loop</text>
+<text x="598" y="417" fill="#e3e6ea" font-family="sans-serif" font-size="10">07 · branching_pockets</text>
+<text x="598" y="431" fill="#8793a3" font-family="sans-serif" font-size="8">spine_and_optional_pockets</text>
+<text x="886" y="417" fill="#e3e6ea" font-family="sans-serif" font-size="10">08 · circular_progression</text>
+<text x="886" y="431" fill="#8793a3" font-family="sans-serif" font-size="8">ring_with_cross_connections</text>
 <text x="22" y="459" fill="#e3e6ea" font-family="sans-serif" font-size="10">09 · mini_boss_stage</text>
 <text x="22" y="473" fill="#8793a3" font-family="sans-serif" font-size="8">mini_boss_stage</text>
-<text x="310" y="459" fill="#e3e6ea" font-family="sans-serif" font-size="10">10 · circular_progression</text>
-<text x="310" y="473" fill="#8793a3" font-family="sans-serif" font-size="8">ring_with_cross_connections</text>
-<text x="598" y="459" fill="#e3e6ea" font-family="sans-serif" font-size="10">11 · corridor_spine</text>
-<text x="598" y="473" fill="#8793a3" font-family="sans-serif" font-size="8">dominant_directional_spine</text>
+<text x="310" y="459" fill="#e3e6ea" font-family="sans-serif" font-size="10">10 · chamber_sequence</text>
+<text x="310" y="473" fill="#8793a3" font-family="sans-serif" font-size="8">succession_of_small_thresholds</text>
+<text x="598" y="459" fill="#e3e6ea" font-family="sans-serif" font-size="10">11 · dominant_loop</text>
+<text x="598" y="473" fill="#8793a3" font-family="sans-serif" font-size="8">one_memorable_main_loop</text>
 <text x="886" y="459" fill="#e3e6ea" font-family="sans-serif" font-size="10">12 · boss_stage</text>
 <text x="886" y="473" fill="#8793a3" font-family="sans-serif" font-size="8">boss_stage</text>
 </svg>

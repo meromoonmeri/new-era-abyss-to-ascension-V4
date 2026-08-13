@@ -119,10 +119,10 @@ Avant de générer les salles, le planificateur fixe pour chaque étage :
 - approche vers le prochain événement ;
 - priorité du vocabulaire visuel.
 
-La courbe de spectacle réserve ses pics aux moments importants. Les relais
-abaissent tension et densité. Les étages précédant un boss simplifient leur
-circulation et réduisent les distractions. Le boss final constitue le maximum de
-la courbe.
+La courbe de spectacle réserve ses pics aux moments importants. Les frontières
+de relais préparent une baisse de tension sans consommer un étage procédural. Les
+étages précédant un boss simplifient leur circulation et réduisent les
+distractions. Le boss final constitue le maximum de la courbe.
 
 ## Familles de composition adaptables
 
@@ -139,8 +139,10 @@ la fonction des salles, le graphe et les paramètres RogueElements :
 - branches et poches secondaires ;
 - gradient asymétrique ;
 - grande zone ouverte ;
-- scènes dédiées de boss/mini-boss ;
-- relais conçu comme refuge.
+- scènes dédiées de boss/mini-boss.
+
+Les relais ne font pas partie de cette liste de familles : ce ne sont pas des
+salles procédurales mais des Grounds de frontière entre segments.
 
 Une stratégie secondaire compatible introduit des transitions naturelles. Les
 régions partagent d'abord un vocabulaire principal, puis font varier la densité
@@ -162,9 +164,32 @@ Chaque salle explique désormais sa géométrie par une fonction :
 - climax.
 
 Une arène n'est plus une salle ronde isolée : elle possède une porte d'approche,
-un espace de préparation, une scène focale et un chemin principal. Un relais est
-entouré de tension, récupération et reprise d'orientation. Ces décisions sont
-présentes dans les plans et dans les contrats exportés par le compilateur.
+un espace de préparation, une scène focale et un chemin principal.
+
+## Relais : Grounds médians entre segments
+
+Un relais n'est **jamais** une salle de repos placée dans un étage. Pour `N`
+relais, les étages demandés sont répartis entre `N+1` `RangeDictSegment` natifs.
+Chaque frontière produit un Ground candidat dédié, dérivé en lecture seule d'un
+relais PMDO existant et contenant obligatoirement :
+
+- `Kangaskhan_Rock` : soin, stockage et sauvegarde ;
+- `Main_Entrance_Marker` : arrivée au palier ;
+- `North_Exit` : chemin vers le segment suivant ;
+- `South_Exit` : chemin vers le segment précédent ;
+- aucune troupe, aucun PNJ hérité et aucun `MissingNo` ;
+- collisions et placements fiables du Ground source conservés.
+
+Les relais ne consomment pas le nombre d'étages demandé. Douze étages et deux
+relais donnent par exemple trois segments de quatre étages, avec un relais après
+les étages 4 et 8. Le compilateur produit également les scripts Ground des deux
+chemins et un routeur Zone candidat. Leur promotion vers `Data/Ground`, les
+scripts runtime et l'index `master_zone` reste explicite : l'outil ne modifie
+jamais ces fichiers certifiés de lui-même.
+
+Lorsque les feuilles graphiques du Ground source n'ont pas été analysées, le
+choix est marqué comme fallback structurel à faible confiance au lieu de
+revendiquer une compatibilité visuelle inventée.
 
 ## Landmarks, régions et composition décorative
 
@@ -269,9 +294,11 @@ salles puis recompose uniquement la couche décorative.
 
 ## Compilation RogueElements
 
-Le compilateur conserve un `RangeDictSegment` natif, `FloorStairsStep`,
-`MapTextureStep`, spawns, équipes, objets et Monster Houses PMDO. Les nouvelles
-familles règlent de manière distincte :
+Le compilateur conserve des `RangeDictSegment` natifs, `FloorStairsStep`,
+`MapTextureStep`, spawns, équipes, objets et Monster Houses PMDO. Les frontières
+de relais découpent la liste d'étages en plusieurs segments et les Grounds de
+relais sont déclarés dans `GroundMaps`. Les nouvelles familles règlent de manière
+distincte :
 
 - grille ;
 - taille des cellules et salles ;
@@ -280,9 +307,11 @@ familles règlent de manière distincte :
 - tunnels, boucles et impasses ;
 - distance d'escalier.
 
-Le `floor_design_contracts` explique la traduction. Boss, mini-boss et relais
-exportent aussi leur approche et leurs beats. Le scripting narratif/combat reste
-un point d'intégration explicite : l'outil ne l'invente pas.
+Le `floor_design_contracts` explique la traduction. Boss et mini-boss exportent
+leur approche et leurs beats. `segment_contracts` et `relay_contracts` décrivent
+les frontières, Grounds, statue, services et deux routes de chaque relais. Le
+scripting narratif/combat et la destination finale restent des points
+d'intégration explicites : l'outil ne les invente pas.
 
 ## Sorties d'un projet
 
@@ -295,7 +324,12 @@ un point d'intégration explicite : l'outil ne l'invente pas.
 - `previews/floor_NNN.svg` : régions, groupes et landmarks ;
 - `previews/contact_sheet.svg` : comparaison de tous les étages ;
 - `previews/design_board.svg` : vocabulaire et courbe de spectacle ;
-- `previews/special_rooms.svg` : scènes et approches importantes ;
+- `previews/special_rooms.svg` : scènes et approches de combat ;
+- `previews/relays.svg` : Grounds médians, statue, arrivée et deux chemins ;
+- `relays/grounds/*.rsground` : copies candidates, jamais les Grounds certifiés ;
+- `relays/scripts/ground/*/init.lua` : interactions Kangourex et routes ;
+- `relays/scripts/zone/*/init.lua` : routeur de frontières candidat ;
+- `relays/manifest.json` : provenance, confiance, segments et validation ;
 - `quality_report.json` : notes par couche et variantes ;
 - `artistic_quality_report.json` : validation globale ;
 - `decision_log.json` : raisons détaillées ;

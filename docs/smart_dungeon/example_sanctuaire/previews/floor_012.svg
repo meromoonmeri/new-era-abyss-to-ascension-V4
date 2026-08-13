@@ -2436,24 +2436,24 @@
 <rect x="495" y="369" width="9" height="9" fill="#171a20"/>
 <rect x="504" y="369" width="9" height="9" fill="#171a20"/>
 <rect x="513" y="369" width="9" height="9" fill="#171a20"/>
-<polyline points="310.5,211.5 310.5,202.5 319.5,211.5" fill="none" stroke="#e9e1c7" stroke-width="1" opacity=".25"/>
-<polyline points="418.5,103.5 418.5,130.5" fill="none" stroke="#e9e1c7" stroke-width="1" opacity=".25"/>
+<polyline points="310.5,211.5 310.5,184.5" fill="none" stroke="#e9e1c7" stroke-width="1" opacity=".25"/>
+<polyline points="418.5,103.5 418.5,112.5 409.5,103.5" fill="none" stroke="#e9e1c7" stroke-width="1" opacity=".25"/>
 <polyline points="265.5,67.5 256.5,76.5 274.5,76.5 265.5,85.5" fill="none" stroke="#e9e1c7" stroke-width="1" opacity=".25"/>
 <polyline points="238.5,283.5 229.5,274.5 247.5,274.5 238.5,265.5" fill="none" stroke="#e9e1c7" stroke-width="1" opacity=".25"/>
 <circle cx="220.5" cy="184.5" r="2.16" fill="#c28bc9" opacity=".9"><title>Apricorn_Glade_Big_Tree — élément principal du motif threshold_markers dans une salle preparation</title></circle>
-<circle cx="310.5" cy="211.5" r="2.16" fill="#72a5ad" opacity=".9"><title>Aegis_Regi_Arena_Base — élément principal du motif corner_cluster dans une salle climax</title></circle>
-<circle cx="310.5" cy="202.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Apple Woods Entrance Layer 1 — élément secondaire du motif corner_cluster dans une salle climax</title></circle>
-<circle cx="319.5" cy="211.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Apple Woods Entrance Layer 1 — élément secondaire du motif corner_cluster dans une salle climax</title></circle>
-<circle cx="418.5" cy="103.5" r="2.16" fill="#6b9b58" opacity=".9"><title>A02p04_Base — élément secondaire du motif edge_rhythm dans une salle climax</title></circle>
-<circle cx="418.5" cy="130.5" r="2.16" fill="#6b9b58" opacity=".9"><title>A02p04_Base — élément secondaire du motif edge_rhythm dans une salle climax</title></circle>
+<circle cx="310.5" cy="211.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Apple Woods Entrance Layer 1 — élément secondaire du motif edge_rhythm dans une salle climax</title></circle>
+<circle cx="310.5" cy="184.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Apple Woods Entrance Layer 1 — élément secondaire du motif edge_rhythm dans une salle climax</title></circle>
+<circle cx="418.5" cy="103.5" r="2.16" fill="#72a5ad" opacity=".9"><title>Apple Woods End Layer 2 — élément principal du motif corner_cluster dans une salle climax</title></circle>
+<circle cx="418.5" cy="112.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Aegis Cave Entrance Layer 1 — élément secondaire du motif corner_cluster dans une salle climax</title></circle>
+<circle cx="409.5" cy="103.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Aegis Cave Entrance Layer 1 — élément secondaire du motif corner_cluster dans une salle climax</title></circle>
 <circle cx="265.5" cy="67.5" r="2.16" fill="#72a5ad" opacity=".9"><title>AntreDragon_Base — élément principal du motif anchor_satellites dans une salle breathing</title></circle>
-<circle cx="256.5" cy="76.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Aegis Cave Entrance Layer 1 — élément secondaire du motif anchor_satellites dans une salle breathing</title></circle>
-<circle cx="274.5" cy="76.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Aegis Cave Entrance Layer 1 — élément secondaire du motif anchor_satellites dans une salle breathing</title></circle>
-<circle cx="265.5" cy="85.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Aegis Cave Entrance Layer 1 — élément secondaire du motif anchor_satellites dans une salle breathing</title></circle>
-<circle cx="238.5" cy="283.5" r="2.16" fill="#72a5ad" opacity=".9"><title>Apple Woods End Layer 2 — élément principal du motif anchor_satellites dans une salle orientation</title></circle>
-<circle cx="229.5" cy="274.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Apple Woods Entrance Layer 1 — élément secondaire du motif anchor_satellites dans une salle orientation</title></circle>
-<circle cx="247.5" cy="274.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Apple Woods Entrance Layer 1 — élément secondaire du motif anchor_satellites dans une salle orientation</title></circle>
-<circle cx="238.5" cy="265.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Apple Woods Entrance Layer 1 — élément secondaire du motif anchor_satellites dans une salle orientation</title></circle>
+<circle cx="256.5" cy="76.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Apple Woods Entrance Layer 1 — élément secondaire du motif anchor_satellites dans une salle breathing</title></circle>
+<circle cx="274.5" cy="76.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Apple Woods Entrance Layer 1 — élément secondaire du motif anchor_satellites dans une salle breathing</title></circle>
+<circle cx="265.5" cy="85.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Apple Woods Entrance Layer 1 — élément secondaire du motif anchor_satellites dans une salle breathing</title></circle>
+<circle cx="238.5" cy="283.5" r="2.16" fill="#72a5ad" opacity=".9"><title>Aegis_Regi_Arena_Base — élément principal du motif anchor_satellites dans une salle orientation</title></circle>
+<circle cx="229.5" cy="274.5" r="2.16" fill="#6b9b58" opacity=".9"><title>A02p04_Base — élément secondaire du motif anchor_satellites dans une salle orientation</title></circle>
+<circle cx="247.5" cy="274.5" r="2.16" fill="#6b9b58" opacity=".9"><title>A02p04_Base — élément secondaire du motif anchor_satellites dans une salle orientation</title></circle>
+<circle cx="238.5" cy="265.5" r="2.16" fill="#6b9b58" opacity=".9"><title>A02p04_Base — élément secondaire du motif anchor_satellites dans une salle orientation</title></circle>
 <circle cx="382.5" cy="184.5" r="3.06" fill="#f1c75b" opacity=".9"><title>Altere_Pond_Objects — placé près du centre fonctionnel sans bloquer le point interactif</title></circle>
 <circle cx="400.5" cy="184.5" r="6.3" fill="none" stroke="#ffd45e" stroke-width="2"><title>Landmark: Altere_Pond_Objects</title></circle>
 <rect x="91" y="199" width="7" height="7" fill="#56d3ff"><title>Entrée</title></rect>

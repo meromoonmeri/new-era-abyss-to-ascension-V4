@@ -140,6 +140,28 @@ class FloorPlan:
 
 
 @dataclass
+class RelayPlan:
+    relay_id: str
+    order: int
+    after_floor: int
+    previous_segment: int
+    next_segment: int
+    source_ground: str
+    ground_file: str
+    script_file: str
+    north_route: dict[str, Any]
+    south_route: dict[str, Any]
+    services: list[str] = field(default_factory=lambda: ["soin", "stockage", "sauvegarde"])
+    required_entities: list[str] = field(default_factory=lambda: ["Kangaskhan_Rock", "North_Exit", "South_Exit", "Main_Entrance_Marker"])
+    composition: dict[str, Any] = field(default_factory=dict)
+    decisions: list[dict[str, Any]] = field(default_factory=list)
+    validation: dict[str, Any] = field(default_factory=dict)
+
+    def to_dict(self):
+        return asdict(self)
+
+
+@dataclass
 class DungeonPlan:
     schema_version: str
     brief: DesignBrief
@@ -152,6 +174,7 @@ class DungeonPlan:
     art_direction: dict[str, Any] = field(default_factory=dict)
     artistic_quality_summary: dict[str, Any] = field(default_factory=dict)
     decision_log: list[dict[str, Any]] = field(default_factory=list)
+    relays: list[RelayPlan] = field(default_factory=list)
 
     def to_dict(self):
         return asdict(self)

@@ -11,7 +11,8 @@ python3 tools/smart_dungeon.py explain-design --help
 La Phase 2 ajoute direction artistique déduite des assets, identités d'étages,
 familles de composition, fonctions de salles, rythme spatial, landmarks,
 groupes décoratifs, mémoire globale et validation structurelle/artistique
-séparée.
+séparée. Les relais sont des Grounds médians à statue Kangourex séparant deux
+`RangeDictSegment`, jamais des salles procédurales internes.
 
 Documentation :
 

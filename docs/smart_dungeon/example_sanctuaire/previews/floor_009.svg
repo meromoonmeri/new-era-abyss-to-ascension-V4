@@ -2436,20 +2436,20 @@
 <rect x="495" y="369" width="9" height="9" fill="#171a20"/>
 <rect x="504" y="369" width="9" height="9" fill="#171a20"/>
 <rect x="513" y="369" width="9" height="9" fill="#171a20"/>
-<polyline points="436.5,229.5 463.5,229.5" fill="none" stroke="#e9e1c7" stroke-width="1" opacity=".25"/>
+<polyline points="238.5,202.5 256.5,202.5" fill="none" stroke="#e9e1c7" stroke-width="1" opacity=".25"/>
 <polyline points="256.5,67.5 247.5,58.5 265.5,58.5 256.5,49.5" fill="none" stroke="#e9e1c7" stroke-width="1" opacity=".25"/>
-<circle cx="436.5" cy="229.5" r="2.16" fill="#72a5ad" opacity=".9"><title>AntreDragon_Base — élément principal du motif edge_rhythm dans une salle climax</title></circle>
-<circle cx="463.5" cy="229.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Apple Woods Entrance Layer 1 — élément secondaire du motif edge_rhythm dans une salle climax</title></circle>
-<circle cx="292.5" cy="157.5" r="2.16" fill="#72a5ad" opacity=".9"><title>Aegis_Regi_Arena_Base — élément principal du motif threshold_markers dans une salle preparation</title></circle>
-<circle cx="256.5" cy="67.5" r="2.16" fill="#72a5ad" opacity=".9"><title>Apple Woods End Layer 2 — élément principal du motif anchor_satellites dans une salle breathing</title></circle>
-<circle cx="247.5" cy="58.5" r="2.16" fill="#6b9b58" opacity=".9"><title>A02p04_Base — élément secondaire du motif anchor_satellites dans une salle breathing</title></circle>
-<circle cx="265.5" cy="58.5" r="2.16" fill="#6b9b58" opacity=".9"><title>A02p04_Base — élément secondaire du motif anchor_satellites dans une salle breathing</title></circle>
-<circle cx="256.5" cy="49.5" r="2.16" fill="#6b9b58" opacity=".9"><title>A02p04_Base — élément secondaire du motif anchor_satellites dans une salle breathing</title></circle>
+<circle cx="463.5" cy="229.5" r="2.16" fill="#72a5ad" opacity=".9"><title>AntreDragon_Base — élément principal du motif asymmetric_echo dans une salle climax</title></circle>
+<circle cx="238.5" cy="202.5" r="2.16" fill="#72a5ad" opacity=".9"><title>Aegis_Regi_Arena_Base — élément principal du motif threshold_markers dans une salle preparation</title></circle>
+<circle cx="256.5" cy="202.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Apple Woods Entrance Layer 1 — élément secondaire du motif threshold_markers dans une salle preparation</title></circle>
+<circle cx="256.5" cy="67.5" r="2.16" fill="#72a5ad" opacity=".9"><title>AntreDragon_Base — élément principal du motif anchor_satellites dans une salle breathing</title></circle>
+<circle cx="247.5" cy="58.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Aegis Cave Entrance Layer 1 — élément secondaire du motif anchor_satellites dans une salle breathing</title></circle>
+<circle cx="265.5" cy="58.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Aegis Cave Entrance Layer 1 — élément secondaire du motif anchor_satellites dans une salle breathing</title></circle>
+<circle cx="256.5" cy="49.5" r="2.16" fill="#6b9b58" opacity=".9"><title>Aegis Cave Entrance Layer 1 — élément secondaire du motif anchor_satellites dans une salle breathing</title></circle>
 <circle cx="400.5" cy="202.5" r="6.3" fill="none" stroke="#ffd45e" stroke-width="2"><title>Landmark: structural_landmark</title></circle>
 <rect x="82" y="199" width="7" height="7" fill="#56d3ff"><title>Entrée</title></rect>
 <rect x="397" y="199" width="7" height="7" fill="#ffef68"><title>Escalier</title></rect>
 <polygon points="400.5,198 405,207 396,207" fill="#ff685f"><title>mini_boss</title></polygon>
 <rect x="4" y="4" width="390" height="35" rx="4" fill="#101217" opacity=".84"/>
 <text x="9" y="18" fill="white" font-family="sans-serif" font-size="12">Étage 9 — mini_boss_stage</text>
-<text x="9" y="33" fill="#c7cfdb" font-family="sans-serif" font-size="10">structure 85.9 · visuel 82.5 · spectacle 0.74</text>
+<text x="9" y="33" fill="#c7cfdb" font-family="sans-serif" font-size="10">structure 85.9 · visuel 82.8 · spectacle 0.74</text>
 </svg>

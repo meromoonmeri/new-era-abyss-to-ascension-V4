@@ -3670,62 +3670,62 @@
     {
       "x": 34,
       "y": 23,
-      "asset_id": "Aegis_Regi_Arena_Base",
+      "asset_id": "Apple Woods Entrance Layer 1",
+      "hierarchy": "common",
+      "blocking": false,
+      "placement_rule": "edge_rhythm",
+      "group_id": "F012-G02",
+      "purpose": "base_visuelle_et_rythme_commun",
+      "visual_zone": "focal",
+      "reason": "élément secondaire du motif edge_rhythm dans une salle climax"
+    },
+    {
+      "x": 34,
+      "y": 20,
+      "asset_id": "Apple Woods Entrance Layer 1",
+      "hierarchy": "common",
+      "blocking": false,
+      "placement_rule": "edge_rhythm",
+      "group_id": "F012-G02",
+      "purpose": "base_visuelle_et_rythme_commun",
+      "visual_zone": "focal",
+      "reason": "élément secondaire du motif edge_rhythm dans une salle climax"
+    },
+    {
+      "x": 46,
+      "y": 11,
+      "asset_id": "Apple Woods End Layer 2",
       "hierarchy": "secondary",
       "blocking": false,
       "placement_rule": "corner_cluster",
-      "group_id": "F012-G02",
+      "group_id": "F012-G03",
       "purpose": "variation_locale_et_accent_secondaire",
       "visual_zone": "focal",
       "reason": "élément principal du motif corner_cluster dans une salle climax"
     },
     {
-      "x": 34,
-      "y": 22,
-      "asset_id": "Apple Woods Entrance Layer 1",
-      "hierarchy": "common",
-      "blocking": false,
-      "placement_rule": "corner_cluster",
-      "group_id": "F012-G02",
-      "purpose": "base_visuelle_et_rythme_commun",
-      "visual_zone": "focal",
-      "reason": "élément secondaire du motif corner_cluster dans une salle climax"
-    },
-    {
-      "x": 35,
-      "y": 23,
-      "asset_id": "Apple Woods Entrance Layer 1",
-      "hierarchy": "common",
-      "blocking": false,
-      "placement_rule": "corner_cluster",
-      "group_id": "F012-G02",
-      "purpose": "base_visuelle_et_rythme_commun",
-      "visual_zone": "focal",
-      "reason": "élément secondaire du motif corner_cluster dans une salle climax"
-    },
-    {
       "x": 46,
+      "y": 12,
+      "asset_id": "Aegis Cave Entrance Layer 1",
+      "hierarchy": "common",
+      "blocking": false,
+      "placement_rule": "corner_cluster",
+      "group_id": "F012-G03",
+      "purpose": "base_visuelle_et_rythme_commun",
+      "visual_zone": "focal",
+      "reason": "élément secondaire du motif corner_cluster dans une salle climax"
+    },
+    {
+      "x": 45,
       "y": 11,
-      "asset_id": "A02p04_Base",
+      "asset_id": "Aegis Cave Entrance Layer 1",
       "hierarchy": "common",
       "blocking": false,
-      "placement_rule": "edge_rhythm",
+      "placement_rule": "corner_cluster",
       "group_id": "F012-G03",
       "purpose": "base_visuelle_et_rythme_commun",
       "visual_zone": "focal",
-      "reason": "élément secondaire du motif edge_rhythm dans une salle climax"
-    },
-    {
-      "x": 46,
-      "y": 14,
-      "asset_id": "A02p04_Base",
-      "hierarchy": "common",
-      "blocking": false,
-      "placement_rule": "edge_rhythm",
-      "group_id": "F012-G03",
-      "purpose": "base_visuelle_et_rythme_commun",
-      "visual_zone": "focal",
-      "reason": "élément secondaire du motif edge_rhythm dans une salle climax"
+      "reason": "élément secondaire du motif corner_cluster dans une salle climax"
     },
     {
       "x": 29,
@@ -3742,7 +3742,7 @@
     {
       "x": 28,
       "y": 8,
-      "asset_id": "Aegis Cave Entrance Layer 1",
+      "asset_id": "Apple Woods Entrance Layer 1",
       "hierarchy": "common",
       "blocking": false,
       "placement_rule": "anchor_satellites",
@@ -3754,7 +3754,7 @@
     {
       "x": 30,
       "y": 8,
-      "asset_id": "Aegis Cave Entrance Layer 1",
+      "asset_id": "Apple Woods Entrance Layer 1",
       "hierarchy": "common",
       "blocking": false,
       "placement_rule": "anchor_satellites",
@@ -3766,7 +3766,7 @@
     {
       "x": 29,
       "y": 9,
-      "asset_id": "Aegis Cave Entrance Layer 1",
+      "asset_id": "Apple Woods Entrance Layer 1",
       "hierarchy": "common",
       "blocking": false,
       "placement_rule": "anchor_satellites",
@@ -3778,7 +3778,7 @@
     {
       "x": 26,
       "y": 31,
-      "asset_id": "Apple Woods End Layer 2",
+      "asset_id": "Aegis_Regi_Arena_Base",
       "hierarchy": "secondary",
       "blocking": false,
       "placement_rule": "anchor_satellites",
@@ -3790,7 +3790,7 @@
     {
       "x": 25,
       "y": 30,
-      "asset_id": "Apple Woods Entrance Layer 1",
+      "asset_id": "A02p04_Base",
       "hierarchy": "common",
       "blocking": false,
       "placement_rule": "anchor_satellites",
@@ -3802,7 +3802,7 @@
     {
       "x": 27,
       "y": 30,
-      "asset_id": "Apple Woods Entrance Layer 1",
+      "asset_id": "A02p04_Base",
       "hierarchy": "common",
       "blocking": false,
       "placement_rule": "anchor_satellites",
@@ -3814,7 +3814,7 @@
     {
       "x": 26,
       "y": 29,
-      "asset_id": "Apple Woods Entrance Layer 1",
+      "asset_id": "A02p04_Base",
       "hierarchy": "common",
       "blocking": false,
       "placement_rule": "anchor_satellites",
@@ -3911,11 +3911,11 @@
   "locked_regions": [],
   "identity": {
     "composition_family": "boss_stage",
-    "secondary_strategy": "chamber_sequence",
+    "secondary_strategy": "branching_pockets",
     "signature": {
       "signature_id": "F012-boss_stage-67",
       "geometry": "boss_stage",
-      "secondary_strategy": "chamber_sequence",
+      "secondary_strategy": "branching_pockets",
       "density_gradient": "alternating",
       "landmark_rule": "exceptional_asset",
       "intentional_symmetry": false
@@ -3972,7 +3972,7 @@
       "decoration_density_realized": 0.0195,
       "group_count": 6
     },
-    "novelty_against_memory": 0.6625,
+    "novelty_against_memory": 0.6063,
     "variant_selection": {
       "policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
       "why": "une excellente structure ne peut pas masquer une composition visuelle faible",
@@ -3980,7 +3980,7 @@
         true,
         88.67,
         1,
-        0.6625,
+        0.6063,
         88.792
       ]
     }
@@ -4087,7 +4087,7 @@
     },
     {
       "group_id": "F012-G02",
-      "motif": "corner_cluster",
+      "motif": "edge_rhythm",
       "room_id": 0,
       "anchor": [
         34,
@@ -4102,11 +4102,7 @@
         ],
         [
           34,
-          22
-        ],
-        [
-          35,
-          23
+          20
         ]
       ],
       "purpose": "point_fort",
@@ -4114,7 +4110,7 @@
     },
     {
       "group_id": "F012-G03",
-      "motif": "edge_rhythm",
+      "motif": "corner_cluster",
       "room_id": 0,
       "anchor": [
         46,
@@ -4129,7 +4125,11 @@
         ],
         [
           46,
-          14
+          12
+        ],
+        [
+          45,
+          11
         ]
       ],
       "purpose": "point_fort",
@@ -4225,7 +4225,7 @@
       "signature": {
         "signature_id": "F012-boss_stage-67",
         "geometry": "boss_stage",
-        "secondary_strategy": "chamber_sequence",
+        "secondary_strategy": "branching_pockets",
         "density_gradient": "alternating",
         "landmark_rule": "exceptional_asset",
         "intentional_symmetry": false
@@ -4243,7 +4243,7 @@
     },
     {
       "stage": "spatial_transition",
-      "decision": "chamber_sequence",
+      "decision": "branching_pockets",
       "why": "stratégie secondaire compatible pour éviter une rupture brutale"
     },
     {
@@ -4265,8 +4265,8 @@
       ],
       "motifs": [
         "threshold_markers",
-        "corner_cluster",
         "edge_rhythm",
+        "corner_cluster",
         "anchor_satellites",
         "anchor_satellites",
         "landmark_court"

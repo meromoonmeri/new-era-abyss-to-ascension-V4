@@ -31,15 +31,17 @@ def schedule(brief: DesignBrief):
         target = max(3, min(count - 2, target + (1 if index % 2 else -1)))
         mini_floors.append(target)
         special[target] = "mini_boss"
+    # A relay is a boundary AFTER a procedural floor. It never consumes one of
+    # the requested dungeon floors. Multiple relays divide the run into near-
+    # equal native segments, with deterministic one-floor adjustments only to
+    # avoid duplicate boundaries.
     relay_floors = []
-    anchors = [.22, .48, .73, .88]
     for index in range(brief.relays):
-        target = round(count * anchors[index % len(anchors)]) + index // len(anchors)
-        while target in special and target < count - 1:
+        target = round(count * (index + 1) / (brief.relays + 1))
+        target = max(2, min(count - 2, target))
+        while target in relay_floors and target < count - 2:
             target += 1
-        target = max(2, min(count - 1, target))
         relay_floors.append(target)
-        special[target] = "relay"
     if brief.boss and "preboss_calm" in brief.constraints and count - 1 not in special:
         special[count - 1] = "calm"
     return special, mini_floors, relay_floors
@@ -113,20 +115,21 @@ def _signature(family, secondary, floor, spectacle, brief):
 
 
 def progression(brief: DesignBrief, direction: dict | None = None):
-    special, _, _ = schedule(brief)
+    special, _, relay_floors = schedule(brief)
     preferences = (direction or {}).get("strategy_preferences", DEFAULT_STRATEGIES)
     rows, recent = [], []
     for floor in range(1, brief.floors + 1):
         progress = (floor - 1) / max(1, brief.floors - 1)
         phase = _phase(floor - 1, brief.floors)
         event = special.get(floor)
+        relay_after = floor in relay_floors
         family = _choose_strategy(brief, floor, progress, preferences, recent)
         if event == "boss":
             family = "boss_stage"
         elif event == "mini_boss":
             family = "mini_boss_stage"
-        elif event in ("relay", "calm"):
-            family = "relay_haven"
+        elif event == "calm":
+            family = "open_field"
         secondary_candidates = STRATEGY_COMPATIBILITY.get(recent[-1], preferences) if recent else preferences
         secondary = next((item for item in secondary_candidates if item != family), "asymmetric_gradient")
 
@@ -134,7 +137,7 @@ def progression(brief: DesignBrief, direction: dict | None = None):
         density = brief.decoration_bias * (.70 + .34 * progress)
         danger = brief.danger_bias * (.70 + .5 * progress)
         spectacle = min(.64, .14 + progress * .43 + (stable_seed(brief.intent, "spectacle", floor) % 9) / 100)
-        if event in ("relay", "calm"):
+        if event == "calm":
             complexity *= .62
             density *= .54
             danger *= .42
@@ -145,14 +148,14 @@ def progression(brief: DesignBrief, direction: dict | None = None):
             complexity, density, danger, spectacle = .82, .28, 1, 1
 
         next_event = special.get(floor + 1)
-        approach_to = next_event if next_event in ("boss", "mini_boss", "relay") else None
+        approach_to = "relay" if relay_after else next_event if next_event in ("boss", "mini_boss") else None
         if approach_to in ("boss", "mini_boss"):
             density *= .62
             complexity *= .82
             spectacle = min(spectacle, .42)
         rhythm = (
             ["orientation", "tension", "preparation", "climax"] if event in ("boss", "mini_boss")
-            else ["tension", "discovery", "recovery", "orientation"] if event in ("relay", "calm")
+            else ["orientation", "exploration", "breathing", "threshold"] if event == "calm"
             else ["orientation", "exploration", "discovery", "tension", "reward", "breathing"]
         )
         if approach_to:
@@ -172,6 +175,8 @@ def progression(brief: DesignBrief, direction: dict | None = None):
             "act": 1 + min(3, int(progress * 4)),
             "vocabulary_priority": "exceptional" if event == "boss" else "secondary" if progress >= .25 else "primary",
             "special": event,
+            "relay_after": relay_after,
+            "segment_boundary": relay_floors.index(floor) + 1 if relay_after else None,
             "archetype": archetype,
             "composition_family": family,
             "secondary_strategy": secondary,
@@ -184,7 +189,7 @@ def progression(brief: DesignBrief, direction: dict | None = None):
             "spatial_rhythm": rhythm,
             "approach_to": approach_to,
             "surprise_budget": round(brief.surprise_budget * (.7 + progress * .6), 3),
-            "visual_role": "focal" if event in ("boss", "mini_boss") else "breathing" if event in ("relay", "calm") else "support",
+            "visual_role": "focal" if event in ("boss", "mini_boss") else "breathing" if event == "calm" else "support",
             "decision_reason": f"{family} traduit l'acte {phase}, la topologie {brief.topology_start}→{brief.topology_end} et évite les deux familles récentes",
         }
         rows.append(row)

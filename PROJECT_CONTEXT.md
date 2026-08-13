@@ -829,8 +829,9 @@ est confirmé (`SideQuests.AllDone` conditionne la progression de chapitre,
 - Explicabilité : `decision_log.json`, `artistic_quality_report.json`,
   `previews/design_board.svg` et commande `explain-design`.
 - Démonstration Phase 2 `docs/smart_dungeon/example_sanctuaire/` : 12 étages,
-  8 familles de composition, score structurel moyen 86,991 (min. 82,573), score
-  visuel moyen 83,667 (min. 79,725), qualité artistique globale 89,838, 24
+  familles de composition variées, score structurel moyen 88,236 (min. 82,738),
+  score visuel moyen 84,623 (min. 79,725), qualité artistique globale 89,368,
+  24
   `FloorStairsStep`, validation complète réussie.
 - Tests Phase 2 : 12 tests vérifient déterminisme, double validation, rejet d'un
   étage structurellement valide mais visuellement plat, différenciation de deux
@@ -838,3 +839,25 @@ est confirmé (`SideQuests.AllDone` conditionne la progression de chapitre,
   verrous, régénérations et compilation.
 - Aucun fichier de `Data/Ground`, `Content/Tile` ou `Data/Zone` n'est écrit ou
   modifié par le Smart Dungeon Designer.
+
+## Correction 2026-08-13 — contrat des relais Smart Dungeon
+
+- Correction utilisateur actée : un relais n'est pas une salle `refuge` dans un
+  étage procédural. C'est un Ground médian entre deux `RangeDictSegment`, selon
+  les références `searing_tunnel_midpoint`, `crooked_cavern_midpoint` et
+  `MidpointTemplate.lua`.
+- Les relais ne consomment plus d'étage. Douze étages et deux relais compilent
+  maintenant trois segments 1–4, 5–8 et 9–12, avec Grounds après 4 et 8.
+- Chaque `RelayPlan` impose `Kangaskhan_Rock`, `Main_Entrance_Marker`,
+  `North_Exit` vers le segment suivant et `South_Exit` vers le précédent, ainsi
+  que soin, stockage et sauvegarde.
+- Les Grounds candidats sont clonés dans le dossier projet depuis des références
+  certifiées lues sans modification. Casting et spawners hérités sont retirés;
+  aucun `MissingNo` n'est présent. Provenance et SHA-256 source sont conservés.
+- Sorties : `relays/grounds/`, scripts Ground/Zone candidats,
+  `relays/manifest.json`, contrats de segments/relais et `previews/relays.svg`.
+- Si les sheets du Ground source ne figurent pas dans le catalogue limité, le
+  choix est explicitement marqué `canonical_structural_fallback_no_visual_claim`
+  avec confiance 0,25; aucune compatibilité visuelle n'est inventée.
+- Démonstration : deux relais validés, 3 segments, 12 étages compilés, 24
+  `FloorStairsStep`; aucun Ground, script historique ou `Data/Zone` modifié.
