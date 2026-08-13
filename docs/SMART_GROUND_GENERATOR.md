@@ -165,8 +165,11 @@ Pour chaque Ground :
 - `<id>.rsground` ;
 - `<id>.metadata.json` ;
 - `<id>.svg` : audit interactif avec frames natives incorporées ;
-- `<id>.png` : rendu aplati des véritables frames `.tile`, sans placeholder ;
 - `<id>.init.lua`.
+
+Le renderer PNG expérimental a été retiré : il ne doit pas servir de preuve
+visuelle tant que sa composition n'est pas strictement équivalente au runtime
+PMDO.
 
 Le controller peut recevoir une destination explicite avec `--exit-ground` et
 `--exit-marker`. Sans destination, il reste volontairement un candidat et ne

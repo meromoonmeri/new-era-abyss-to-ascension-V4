@@ -95,7 +95,7 @@ def main(argv=None):
         summary = {key: result[key] for key in ("result", "zone_count", "ground_count", "map_template_count", "autotile_count", "controller_count", "shop_reference_zones", "neutral_reference_zones", "boss_reference_grounds")}
     elif args.command == "generate-ground":
         result = generate_ground(repo, args.output_dir, args.id, args.intent, args.seed, args.variants, args.reference_ground, args.width, args.height, None, args.exit_ground, args.exit_marker)
-        summary = {"result": result["validation"]["result"], "ground": result["ground_file"], "metadata": result["metadata_file"], "preview": result["preview_file"], "png": result["png_file"], "controller": result["controller_file"], "concept": result["concept"], "references": result["reference_selection"], "score": result["score"], "validation": result["validation"]}
+        summary = {"result": result["validation"]["result"], "ground": result["ground_file"], "metadata": result["metadata_file"], "preview": result["preview_file"], "controller": result["controller_file"], "concept": result["concept"], "references": result["reference_selection"], "score": result["score"], "validation": result["validation"]}
     elif args.command == "create":
         result = generate_project(repo, args.project, args.name, args.intent, args.floors, args.difficulty, args.boss, args.mini_bosses, args.relays, args.seed, args.reference_zone, args.variants, args.max_assets, args.boss_species, args.boss_category, args.narrative_prompt)
         summary = {

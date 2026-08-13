@@ -373,8 +373,6 @@ class TestSmartDungeonDesigner(unittest.TestCase):
         self.assertTrue(all(len(layer["Tiles"]) == 64 and all(len(column) == 48 for column in layer["Tiles"]) for layer in data["Layers"]))
         self.assertTrue(Path(first["preview_file"]).exists())
         self.assertIn("data:image/png;base64", Path(first["preview_file"]).read_text())
-        self.assertTrue(Path(first["png_file"]).exists())
-        self.assertEqual(Path(first["png_file"]).read_bytes(), Path(second["png_file"]).read_bytes())
 
     def test_16_multiple_ground_strategies_are_functionally_distinct(self):
         canyon = generate_ground(REPO, self.temp / "ground_canyon", "canyon", "Un canyon sinueux avec poches latérales", 10, 1, "altere_pond", 40, 32)

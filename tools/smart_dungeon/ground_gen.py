@@ -8,12 +8,10 @@ import html
 import json
 import math
 import random
-import tempfile
 from collections import Counter, defaultdict, deque
 from pathlib import Path
 from statistics import mean, pstdev
 from .assets import _tile_entries
-from png_rgba import RGBAImage, load_png, save_png
 from .ground_library import interpret_ground_intent, select_ground_sources
 
 _TILE_PAYLOAD_CACHE = {}
@@ -1113,54 +1111,6 @@ def _preview_svg(repo, data, metadata, path):
     path.write_text("\n".join(parts), encoding="utf-8")
 
 
-def _preview_png(repo, data, path):
-    """Flatten first native animation frames exactly as an engine-style PNG."""
-    obj = data["Object"]
-    width, height = len(obj.get("obstacles", [])), len(obj.get("obstacles", [[]])[0])
-    output = RGBAImage.empty(width * 8, height * 8, (17, 20, 26, 255))
-    sheet_cache, image_cache = {}, {}
-    with tempfile.TemporaryDirectory(prefix="smart-ground-preview-") as temp_dir:
-        temp = Path(temp_dir)
-        for ground_layer in obj.get("Layers", []):
-            for x, column in enumerate(ground_layer.get("Tiles", [])):
-                for y, cell in enumerate(column):
-                    for tile_layer in cell.get("Layers", []):
-                        frames = tile_layer.get("Frames", [])
-                        if not frames or not frames[0].get("Sheet"):
-                            continue
-                        frame = frames[0]
-                        sheet = frame["Sheet"]
-                        tex = frame.get("TexLoc", {})
-                        if sheet not in sheet_cache:
-                            source = repo / "Content/Tile" / f"{sheet}.tile"
-                            sheet_cache[sheet] = dict(_tile_entries(source)[1]) if source.exists() else {}
-                        key = (int(tex.get("Y", 0)) << 32) | (int(tex.get("X", 0)) & 0xFFFFFFFF)
-                        payload = sheet_cache[sheet].get(key)
-                        if payload is None:
-                            continue
-                        digest = hashlib.sha256(payload).hexdigest()
-                        if digest not in image_cache:
-                            source_png = temp / f"{digest}.png"
-                            source_png.write_bytes(payload)
-                            image_cache[digest] = load_png(source_png)
-                        image = image_cache[digest]
-                        for image_y in range(min(8, image.height)):
-                            for image_x in range(min(8, image.width)):
-                                source_index = (image_y * image.width + image_x) * 4
-                                target_index = ((y * 8 + image_y) * output.width + x * 8 + image_x) * 4
-                                red, green, blue, alpha = image.pixels[source_index:source_index + 4]
-                                if not alpha:
-                                    continue
-                                old_red, old_green, old_blue, _ = output.pixels[target_index:target_index + 4]
-                                ratio = alpha / 255
-                                output.pixels[target_index:target_index + 4] = bytes((
-                                    round(red * ratio + old_red * (1 - ratio)),
-                                    round(green * ratio + old_green * (1 - ratio)),
-                                    round(blue * ratio + old_blue * (1 - ratio)), 255,
-                                ))
-    save_png(output, path)
-
-
 def generate_ground(repo: Path, output_dir: Path, ground_id: str, intent: str, seed: int, variants: int = 4, reference: str | None = None, width: int = 64, height: int = 48, knowledge: dict | None = None, exit_ground: str | None = None, exit_marker: str = "Main_Entrance_Marker"):
     repo, output_dir = repo.resolve(), output_dir.resolve()
     interpreted = interpret_ground_intent(intent)
@@ -1196,7 +1146,6 @@ def generate_ground(repo: Path, output_dir: Path, ground_id: str, intent: str, s
     ground_path = output_dir / f"{ground_id}.rsground"
     metadata_path = output_dir / f"{ground_id}.metadata.json"
     preview_path = output_dir / f"{ground_id}.svg"
-    png_path = output_dir / f"{ground_id}.png"
     controller_path = output_dir / f"{ground_id}.init.lua"
     ground_path.write_text("\ufeff" + json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     metadata["controller"] = {
@@ -1208,9 +1157,8 @@ def generate_ground(repo: Path, output_dir: Path, ground_id: str, intent: str, s
     metadata_path.write_text(json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8")
     controller_path.write_text(_controller_script(ground_id, metadata["concept"], exit_ground, exit_marker), encoding="utf-8")
     _preview_svg(repo, data, metadata, preview_path)
-    _preview_png(repo, data, png_path)
     return {
         "ground_file": ground_path.as_posix(), "metadata_file": metadata_path.as_posix(),
-        "preview_file": preview_path.as_posix(), "png_file": png_path.as_posix(), "controller_file": controller_path.as_posix(),
+        "preview_file": preview_path.as_posix(), "controller_file": controller_path.as_posix(),
         **metadata,
     }
