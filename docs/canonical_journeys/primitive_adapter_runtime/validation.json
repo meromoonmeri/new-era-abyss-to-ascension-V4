@@ -1,0 +1,59 @@
+{
+  "schema": "new-era.pmdred-eu-primitive-adapter-runtime-validation.v1",
+  "result": "PASS_EXACT_PMDO_0_8_12",
+  "meaning": "three dormant primitive adapters loaded and executed; no canonical scene or journey is runtime-ready",
+  "runtime": {
+    "name": "PMDO",
+    "version": "0.8.12",
+    "executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+    "rogue_essence_commit": "4961b2271bb0cace74f40f6a85e799e8e4848ace"
+  },
+  "authority": {
+    "pret_commit": "bf0092d0e34fd8e49b859a0b5f96f00740faa42d"
+  },
+  "validated_primitives": {
+    "WAIT": {
+      "frames": 3,
+      "managed_coroutine_resumed": true
+    },
+    "BGM_FADEOUT": {
+      "frames": 5
+    },
+    "SET_DIR_WAIT": {
+      "direction_symbol_count": 8,
+      "preserve_direction_minus_one": true
+    }
+  },
+  "fail_closed": {
+    "numeric_direction_rejected": true,
+    "unknown_opcode_rejected": true,
+    "missing_actor_rejected": true
+  },
+  "scope": {
+    "executed_ground": "pmdred_eu_validation_sink",
+    "executed_ground_kind": "IGNORED_SYNTHETIC_FIXTURE_ONLY",
+    "certified_ground_revalidated": false,
+    "production_ground_modified": false,
+    "production_zone_modified": false,
+    "production_route_written": false,
+    "runtime_ready_asset_count": 0
+  },
+  "evidence": {
+    "events.jsonl": {
+      "bytes": 1136,
+      "sha256": "74ea6dad9cc26029ec7d76bb9ec338ad96a5704e5fa8bac72aeb13b1bcff65d7"
+    },
+    "index.log": {
+      "bytes": 393,
+      "sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8"
+    },
+    "runtime.log": {
+      "bytes": 3773,
+      "sha256": "e98ab2c73545deeb5e707046d78c6e9cfa5fd6bd7a9f2dbd99043e289b0a872b"
+    },
+    "fixture_manifest.json": {
+      "bytes": 945,
+      "sha256": "305438afc9c6fa0272aa2f2783022300c75d30194bbfbda7fc61490151456064"
+    }
+  }
+}

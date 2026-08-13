@@ -79,6 +79,11 @@ l'instant une équivalence d'implémentation prouvée : `WAIT`, `BGM_FADEOUT` et
 - refuse tout opérande invalide et tout opcode hors de ces trois primitives ;
 - n'enregistre aucune route et ne modifie aucun Ground ou Zone.
 
+Ces trois primitives passent aussi le harness moteur
+`primitive_adapter_runtime/` dans l'exécutable exact PMDO 0.8.12. Le harness
+emploie uniquement son Ground synthétique ignoré : aucun Ground certifié n'est
+revalidé.
+
 Cela ne rend toujours aucune scène jouable : acteurs, textes EU, assets audio,
 graphes de branches, cues concurrents, waypoints et transitions restent à lier
 et à valider dans le runtime exact.
@@ -121,7 +126,12 @@ python3 tools/test_pmdred_opcode_registry.py \
   --pmdo-pdb .runtime-cache/pmdo-api-proof/RogueEssence.pdb
 .runtime-cache/test-venv/bin/python \
   tools/test_pmdred_primitive_adapters.py
+python3 tools/test_pmdred_primitive_adapter_runtime.py \
+  --pmdo .runtime-cache/pmdo-headless-bundle/PMDO
 ```
+
+La reproduction moteur complète est documentée dans
+`primitive_adapter_runtime/README.md`.
 
 Les autorités, checkouts verrouillés et environnements d'exécution sous
 `.runtime-cache/` sont ignorés. Les artefacts publiés ne contiennent aucun de
