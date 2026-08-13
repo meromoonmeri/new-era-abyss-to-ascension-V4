@@ -23,8 +23,37 @@ Point d'entrée :
 python3 tools/smart_dungeon.py
 ```
 
-La conception détaillée de la deuxième phase se trouve dans
-`docs/SMART_DUNGEON_PHASE2_DESIGN.md`.
+Conceptions détaillées :
+
+- `docs/SMART_DUNGEON_PHASE2_DESIGN.md` ;
+- `docs/SMART_DUNGEON_COMPLETE_JOURNEY_DESIGN.md`.
+
+## Parcours complet, pas collection de maps
+
+La version 3 produit désormais `dungeon_profile.json`, profil data-driven qui
+relie : biome global, états progressifs, segments, relais, règles par étage,
+populations, loot, shops, approche finale, Ground de boss, segment de combat et
+conclusion.
+
+Chaque étage possède explicitement :
+
+- table ennemie pondérée et niveaux ;
+- table de loot au sol et enterré ;
+- quantité d'objets et d'ennemis initiaux ;
+- règles d'eau, obscurité, pièges et Monster House ;
+- probabilité Kecleon et assortiment de sa tranche ;
+- probabilité de Pokémon neutre/PNJ ;
+- permissions de salles spéciales.
+
+Les tables proviennent de zones PMDO proches et gardent leur provenance. Deux
+segments voisins conservent environ la moitié de leur population afin de faire
+évoluer le biome sans le remplacer brutalement.
+
+`reference_knowledge.json` indexe les modèles réellement présents :
+`TeamSpawnZoneStep`, `ItemSpawnZoneStep`, `ShopStep`, neutres du Dungeon Pack,
+Grounds, maps, arènes, couches, collisions et  grammaires `Data/AutoTile`.
+Bulbapedia/Aegis Cave sert uniquement de modèle conceptuel de sections et tables,
+jamais de source d'assets ou de données copiées.
 
 ## Analyse multi-source de la bibliothèque
 
@@ -191,6 +220,54 @@ Lorsque les feuilles graphiques du Ground source n'ont pas été analysées, le
 choix est marqué comme fallback structurel à faible confiance au lieu de
 revendiquer une compatibilité visuelle inventée.
 
+## Arène et flow de boss
+
+Le boss ne fait plus partie des `FloorPlan`. Le dernier étage est une approche
+finale et possède encore ses escaliers normaux. Sa réussite route vers un Ground
+d'arène séparé, puis vers un `LayeredSegment` chargé par `MappedRoomStep`.
+
+Le flow reprend `vast_steppe_guardian` et `searing_crucible` :
+
+1. arrivée au Ground ;
+2. placement et caméra locale ;
+3. apparition et dialogue ;
+4. `COMMON.BossTransition` ;
+5. segment de combat sans `FloorStairsStep` ;
+6. retour au Ground sur victoire ou défaite ;
+7. dialogue/conclusion ;
+8. fin scriptée du donjon.
+
+Le validateur impose une distance Manhattan joueur/boss ≤ 6, interdit escalier
+et sortie physique dans l'arène et refuse les Grounds trop grands pour le
+viewport retenu. Les sous-évolutions ne sont ajoutées qu'avec une preuve locale
+d'évolution ; faute de données fiables, la liste reste vide.
+
+## Générateur intelligent de Grounds
+
+```bash
+python3 tools/smart_dungeon.py analyze-references \
+  --output WORK/reference_knowledge.json
+
+python3 tools/smart_dungeon.py generate-ground \
+  --output-dir WORK/clairiere \
+  --id clairiere_aux_trois_lacs \
+  --intent "Une clairière forestière avec trois petits lacs" \
+  --seed 20260813 --variants 4
+```
+
+Le générateur livré sépare géométrie et rendu : masse périphérique, clairière,
+chemin, lacs et navigation sont construits avant les tiles. Il apprend ensuite
+une grammaire de cellules depuis un Ground compatible : classe fonctionnelle,
+collision et masque de huit voisins. Chaque cellule source conserve ses sheets,
+frames, timing et orientation native ; aucune rotation arbitraire n'est faite.
+
+Les couches décoratives multicellules qui ne peuvent pas être fragmentées sans
+preuve sont laissées vides et signalées, plutôt que coupées. La validation couvre
+navigation, nombre de régions d'eau, dimensions, entités, références de sheets,
+animations, raccords exacts/fallbacks et caméra locale sans dézoom forcé.
+
+Exemple : `docs/smart_dungeon/example_ground_clairiere/`.
+
 ## Landmarks, régions et composition décorative
 
 Chaque étage peut contenir des régions neutres, de transition, de support et
@@ -315,9 +392,11 @@ d'intégration explicites : l'outil ne les invente pas.
 
 ## Sorties d'un projet
 
-- `asset_catalog.json` : observations et incertitudes ;
+- `asset_catalog.json` : observations et incertitudes visuelles ;
+- `reference_knowledge.json` : zones, Grounds, maps, AutoTiles et modèles gameplay ;
 - `asset_overrides.json` : corrections humaines ;
 - `brief.json` : intention normalisée ;
+- `dungeon_profile.json` : biome, tranches et contenu de chaque étage ;
 - `art_direction.json` : direction artistique et budgets ;
 - `progression.json` : actes, signatures, rythme et spectacle ;
 - `plans/floor_NNN.json` : architecture et composition complètes ;
@@ -330,6 +409,10 @@ d'intégration explicites : l'outil ne les invente pas.
 - `relays/scripts/ground/*/init.lua` : interactions Kangourex et routes ;
 - `relays/scripts/zone/*/init.lua` : routeur de frontières candidat ;
 - `relays/manifest.json` : provenance, confiance, segments et validation ;
+- `finale/ground/*.rsground` : arène compacte sans sortie générique ;
+- `finale/scripts/ground/` : introduction, dialogue, combat et conclusion ;
+- `finale/boss_encounter.json` : positions, distance, flow et validation ;
+- `finale/previews/*.svg` : collision, caméra et distance joueur/boss ;
 - `quality_report.json` : notes par couche et variantes ;
 - `artistic_quality_report.json` : validation globale ;
 - `decision_log.json` : raisons détaillées ;
@@ -337,15 +420,32 @@ d'intégration explicites : l'outil ne les invente pas.
 - `zone/<nom>.json` : candidat PMDO ;
 - `project.json` et `generation_manifest.json`.
 
+## Démonstrations v3
+
+`docs/smart_dungeon/example_sanctuaire/` :
+
+- 12 étages procéduraux ;
+- 3 segments d'exploration et 2 relais ;
+- 1 segment final mappé sans escalier ;
+- boss Absol à 6 cases du joueur ;
+- profil complet par étage et shops Kecleon natifs ;
+- structure moyenne 88,216 ; visuel moyen 84,770 ; artistique globale 89,419 ;
+- 24 `FloorStairsStep`, tous limités aux étages d'exploration.
+
+`docs/smart_dungeon/example_ground_clairiere/` : Ground 64×48 avec trois lacs,
+93,49 % de raccords exacts, navigation valide, animations natives et caméra
+locale.
+
 ## Validation
 
 ```bash
 python3 tools/smart_dungeon.py validate --project WORK/sanctuaire_echo
 ```
 
-Le validateur recalcule les deux couches, la qualité globale et vérifie un
-`FloorStairsStep` natif par étage. Si la fixture PMDO 0.8.12 Agent A est
-présente :
+Le validateur recalcule les deux couches et la qualité globale, vérifie un
+`FloorStairsStep` natif par étage procédural, les tables de contenu, les Grounds
+de relais, le Ground et le segment de boss, l'absence d'escalier dans l'arène et
+la distance de confrontation. Si la fixture PMDO 0.8.12 Agent A est présente :
 
 ```bash
 python3 tools/smart_dungeon.py runtime-index --project WORK/sanctuaire_echo

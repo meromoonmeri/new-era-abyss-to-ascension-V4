@@ -7,13 +7,16 @@ from pathlib import Path
 from statistics import mean
 from .art_direction import build_art_direction
 from .assets import analyze_library
+from .boss import design_boss_encounter, validate_boss_ground
 from .compiler import compile_zone
 from .composition import compose_decor, initial_memory, update_memory
 from .intent import parse_intent
+from .journey import build_dungeon_profile, validate_profile
+from .knowledge import analyze_references
 from .layout import progression, select_best, stable_seed
-from .model import DesignBrief, DungeonPlan, FloorPlan, RelayPlan, Room
+from .model import BossEncounterPlan, DesignBrief, DungeonPlan, FloorPlan, RelayPlan, Room
 from .quality import evaluate, evaluate_dungeon
-from .relay import design_relays, relay_sheet_svg, validate_relay_file
+from .relay import design_relays, relay_sheet_svg, validate_relay_file, write_zone_router
 from .visual import contact_svg, design_board_svg, special_rooms_svg, svg_preview
 
 
@@ -45,6 +48,13 @@ def relay_from(data):
     return RelayPlan(**{key: value for key, value in data.items() if key in fields})
 
 
+def boss_from(data):
+    if not data:
+        return None
+    fields = BossEncounterPlan.__dataclass_fields__
+    return BossEncounterPlan(**{key: value for key, value in data.items() if key in fields})
+
+
 def copy_floor(plan):
     return floor_from(plan.to_dict())
 
@@ -60,6 +70,14 @@ def _ensure_catalog(repo, project, overrides, max_assets=0):
     if not existing or existing.get("schema_version") != "2.0.0":
         return analyze_library(repo, path, overrides, max_assets), path
     return existing, path
+
+
+def _ensure_reference_knowledge(repo, project):
+    path = project / "reference_knowledge.json"
+    existing = read(path)
+    if existing and existing.get("schema_version") == "1.2.0":
+        return existing
+    return analyze_references(repo, path, max_zones=0, max_grounds=96)
 
 
 def _summaries(plans, comparisons, artistic, changes=None):
@@ -122,13 +140,17 @@ def generate_project(
     reference: str | None = None,
     variants: int = 6,
     max_assets: int = 0,
+    boss_species: str | None = None,
+    boss_category: str = "auto",
+    narrative_prompt: str = "",
 ):
     repo, project = repo.resolve(), project.resolve()
     project.mkdir(parents=True, exist_ok=True)
-    brief = parse_intent(name, intent, floors, difficulty, boss, mini_bosses, relays, seed)
+    brief = parse_intent(name, intent, floors, difficulty, boss, mini_bosses, relays, seed, boss_species, boss_category, narrative_prompt)
     overrides = read(project / "asset_overrides.json", {"assets": {}, "visual_language": {}})
     locks = read(project / "locks.json", {"floors": {}, "regions": []})
     catalog, catalog_path = _ensure_catalog(repo, project, project / "asset_overrides.json", max_assets)
+    knowledge = _ensure_reference_knowledge(repo, project)
     direction = build_art_direction(catalog, brief, overrides)
     selection = direction["runtime_selection"]
     rows = progression(brief, direction)
@@ -153,34 +175,52 @@ def generate_project(
     artistic = evaluate_dungeon(plans, direction)
     quality = _summaries(plans, comparisons, artistic)
     relays, zone_script = design_relays(repo, project, brief, rows, catalog, direction)
-    compiler = compile_zone(repo, brief, plans, selection, project / f"zone/{brief.slug}.json", reference, relays=relays)
+    profile = build_dungeon_profile(knowledge, brief, plans, rows, relays, direction, selection)
+    boss_encounter = design_boss_encounter(repo, project, brief, profile, len(relays) + 1) if brief.boss else None
+    zone_script = write_zone_router(project, brief, relays, boss_encounter)
+    compiler = compile_zone(repo, brief, plans, selection, project / f"zone/{brief.slug}.json", reference, relays=relays, profile=profile, boss_encounter=boss_encounter)
     compiler["zone_file"] = Path(compiler["zone_file"]).relative_to(project).as_posix()
     compiler["zone_script_candidate"] = zone_script
     decisions = _decision_log(direction, plans, comparisons, relays)
+    decisions += [{"scope": "journey_profile", "profile_id": profile["profile_id"], "validation": profile["validation"]}]
+    if boss_encounter:
+        decisions += [{"scope": "boss_encounter", "arena_id": boss_encounter.arena_id, "decisions": boss_encounter.decisions, "validation": boss_encounter.validation}]
+    generated_grounds = [
+        {"kind": "relay", "ground_id": relay.relay_id, "file": relay.ground_file, "validation": relay.validation}
+        for relay in relays
+    ] + ([{"kind": "boss_arena", "ground_id": boss_encounter.arena_id, "file": boss_encounter.ground_file, "validation": boss_encounter.validation}] if boss_encounter else [])
     dungeon = DungeonPlan(
-        schema_version="2.1.0", brief=brief, asset_cluster=selection["cluster_id"],
+        schema_version="3.0.0", brief=brief, asset_cluster=selection["cluster_id"],
         asset_selection=selection, progression=rows, floors=plans,
         quality_summary=quality, compiler=compiler, art_direction=direction,
         artistic_quality_summary=artistic, decision_log=decisions, relays=relays,
+        dungeon_profile=profile, reference_knowledge={"schema_version": knowledge["schema_version"], "zone_count": knowledge["zone_count"], "ground_count": knowledge["ground_count"], "shop_reference_zones": knowledge["shop_reference_zones"], "neutral_reference_zones": knowledge["neutral_reference_zones"]},
+        boss_encounter=boss_encounter, generated_grounds=generated_grounds,
     )
     _write_visuals(project, plans, direction, relays)
     write(project / "brief.json", brief.to_dict())
     write(project / "progression.json", rows)
     write(project / "art_direction.json", direction)
     write(project / "artistic_quality_report.json", artistic)
+    write(project / "dungeon_profile.json", profile)
+    if boss_encounter:
+        write(project / "finale/boss_encounter.json", boss_encounter.to_dict())
     write(project / "decision_log.json", decisions)
     write(project / "relays/manifest.json", {"schema_version": "1.0.0", "relay_count": len(relays), "zone_script_candidate": zone_script, "relays": [relay.to_dict() for relay in relays]})
     write(project / "quality_report.json", quality)
     write(project / "project.json", dungeon.to_dict())
     write(project / "generation_manifest.json", {
-        "schema_version": "2.0.0", "result": "SMART_DUNGEON_GENERATION_PASS",
+        "schema_version": "3.0.0", "result": "SMART_DUNGEON_GENERATION_PASS",
         "name": brief.name, "slug": brief.slug, "seed": brief.seed,
         "floor_count": brief.floors,
         "mean_quality_score": quality["mean_score"],
         "mean_structural_score": quality["mean_structural_score"],
         "mean_visual_score": quality["mean_visual_score"],
         "dungeon_artistic_score": artistic["score"],
-        "relay_count": len(relays), "segment_count": len(relays) + 1,
+        "relay_count": len(relays), "procedural_segment_count": len(relays) + 1,
+        "segment_count": compiler["segment_count"], "content_profile": "dungeon_profile.json",
+        "boss_arena": boss_encounter.ground_file if boss_encounter else None,
+        "boss_distance_tiles": boss_encounter.distance_tiles if boss_encounter else None,
         "relay_ground_candidates": [relay.ground_file for relay in relays],
         "relay_script_candidates": [relay.script_file for relay in relays],
         "zone_script_candidate": zone_script,
@@ -208,6 +248,7 @@ def regenerate(repo: Path, project: Path, scope: str = "all", seed: int | None =
     brief = brief_from(old["brief"])
     brief.seed = seed if seed is not None else brief.seed
     catalog = read(project / "asset_catalog.json")
+    knowledge = _ensure_reference_knowledge(repo, project)
     overrides = read(project / "asset_overrides.json", {})
     direction = build_art_direction(catalog, brief, overrides)
     selection = direction["runtime_selection"]
@@ -270,33 +311,48 @@ def regenerate(repo: Path, project: Path, scope: str = "all", seed: int | None =
     artistic = evaluate_dungeon(plans, direction)
     quality = _summaries(plans, comparisons, artistic, changes)
     relays, zone_script = design_relays(repo, project, brief, rows, catalog, direction)
-    compiler = compile_zone(repo, brief, plans, selection, project / f"zone/{brief.slug}.json", old.get("compiler", {}).get("reference_zone"), relays=relays)
+    profile = build_dungeon_profile(knowledge, brief, plans, rows, relays, direction, selection)
+    boss_encounter = design_boss_encounter(repo, project, brief, profile, len(relays) + 1) if brief.boss else None
+    zone_script = write_zone_router(project, brief, relays, boss_encounter)
+    compiler = compile_zone(repo, brief, plans, selection, project / f"zone/{brief.slug}.json", old.get("compiler", {}).get("reference_zone"), relays=relays, profile=profile, boss_encounter=boss_encounter)
     compiler["zone_file"] = Path(compiler["zone_file"]).relative_to(project).as_posix()
     compiler["zone_script_candidate"] = zone_script
     decisions = _decision_log(direction, plans, comparisons, relays)
+    decisions += [{"scope": "journey_profile", "profile_id": profile["profile_id"], "validation": profile["validation"]}]
+    if boss_encounter:
+        decisions += [{"scope": "boss_encounter", "arena_id": boss_encounter.arena_id, "decisions": boss_encounter.decisions, "validation": boss_encounter.validation}]
+    generated_grounds = [{"kind": "relay", "ground_id": relay.relay_id, "file": relay.ground_file, "validation": relay.validation} for relay in relays] + ([{"kind": "boss_arena", "ground_id": boss_encounter.arena_id, "file": boss_encounter.ground_file, "validation": boss_encounter.validation}] if boss_encounter else [])
     dungeon = DungeonPlan(
-        schema_version="2.1.0", brief=brief, asset_cluster=selection["cluster_id"],
+        schema_version="3.0.0", brief=brief, asset_cluster=selection["cluster_id"],
         asset_selection=selection, progression=rows, floors=plans,
         quality_summary=quality, compiler=compiler, art_direction=direction,
         artistic_quality_summary=artistic, decision_log=decisions, relays=relays,
+        dungeon_profile=profile, reference_knowledge={"schema_version": knowledge["schema_version"], "zone_count": knowledge["zone_count"], "ground_count": knowledge["ground_count"]},
+        boss_encounter=boss_encounter, generated_grounds=generated_grounds,
     )
     _write_visuals(project, plans, direction, relays)
     write(project / "brief.json", brief.to_dict())
     write(project / "progression.json", rows)
     write(project / "art_direction.json", direction)
     write(project / "artistic_quality_report.json", artistic)
+    write(project / "dungeon_profile.json", profile)
+    if boss_encounter:
+        write(project / "finale/boss_encounter.json", boss_encounter.to_dict())
     write(project / "decision_log.json", decisions)
     write(project / "relays/manifest.json", {"schema_version": "1.0.0", "relay_count": len(relays), "zone_script_candidate": zone_script, "relays": [relay.to_dict() for relay in relays]})
     write(project / "quality_report.json", quality)
     write(project / "project.json", dungeon.to_dict())
     write(project / "generation_manifest.json", {
-        "schema_version": "2.0.0", "result": "SMART_DUNGEON_REGENERATION_PASS",
+        "schema_version": "3.0.0", "result": "SMART_DUNGEON_REGENERATION_PASS",
         "seed": brief.seed, "scope": scope, "changes": changes,
         "mean_quality_score": quality["mean_score"],
         "mean_structural_score": quality["mean_structural_score"],
         "mean_visual_score": quality["mean_visual_score"],
         "dungeon_artistic_score": artistic["score"],
-        "relay_count": len(relays), "segment_count": len(relays) + 1,
+        "relay_count": len(relays), "procedural_segment_count": len(relays) + 1,
+        "segment_count": compiler["segment_count"], "content_profile": "dungeon_profile.json",
+        "boss_arena": boss_encounter.ground_file if boss_encounter else None,
+        "boss_distance_tiles": boss_encounter.distance_tiles if boss_encounter else None,
         "relay_ground_candidates": [relay.ground_file for relay in relays],
         "zone_script_candidate": zone_script,
         "locked_floor_count": sum(bool(row.get("locked")) for row in locks.get("floors", {}).values()),
@@ -340,20 +396,50 @@ def validate_project(project: Path):
             errors.append({"relay": relay.relay_id, "validation": validation})
         if not (project / relay.script_file).exists():
             errors.append({"relay": relay.relay_id, "script_missing": relay.script_file})
+    profile = data.get("dungeon_profile", read(project / "dungeon_profile.json", {}))
+    profile_validation = validate_profile(profile, brief_from(data["brief"]))
+    if profile_validation["result"] != "DUNGEON_PROFILE_PASS":
+        errors.append({"dungeon_profile": profile_validation})
+    boss_encounter = boss_from(data.get("boss_encounter"))
+    if data["brief"].get("boss") and not boss_encounter:
+        errors.append({"boss_encounter": "missing"})
+    if boss_encounter:
+        boss_ground = project / boss_encounter.ground_file
+        if not boss_ground.exists():
+            errors.append({"boss_ground_missing": boss_encounter.ground_file})
+        else:
+            boss_validation = validate_boss_ground(read(boss_ground), boss_encounter)
+            if boss_validation["result"] != "BOSS_ENCOUNTER_PASS":
+                errors.append({"boss_encounter": boss_validation})
+        for script in (boss_encounter.ground_script_file, boss_encounter.scene_script_file):
+            if not (project / script).exists():
+                errors.append({"boss_script_missing": script})
+        if not (project / boss_encounter.preview_file).exists():
+            errors.append({"boss_preview_missing": boss_encounter.preview_file})
+    if any(plan.special == "boss" for plan in plans):
+        errors.append({"boss_model": "boss arena must be a Ground and mapped battle segment, not a normal floor"})
     zone = project / data["compiler"]["zone_file"]
     try:
         zone_data = read(zone)
         segments = zone_data["Object"]["Segments"]
         segment_count = len(segments)
-        compiled_floor_count = sum(len(segment.get("Floors", {}).get("nodes", [])) for segment in segments)
+        compiled_floor_count = sum(len(segment.get("Floors", {}).get("nodes", [])) for segment in segments if isinstance(segment.get("Floors"), dict))
         ground_maps = zone_data["Object"].get("GroundMaps", [])
         stairs = sum(1 for item in _walk(segments) if isinstance(item, dict) and "FloorStairsStep" in item.get("$type", ""))
-        if segment_count != len(relays) + 1:
-            errors.append({"segment_count": {"expected": len(relays) + 1, "actual": segment_count}})
+        expected_segments = len(relays) + 1 + (1 if boss_encounter else 0)
+        if segment_count != expected_segments:
+            errors.append({"segment_count": {"expected": expected_segments, "actual": segment_count}})
         if compiled_floor_count != len(plans):
             errors.append({"compiled_floor_count": {"expected": len(plans), "actual": compiled_floor_count}})
-        if ground_maps != [relay.relay_id for relay in relays]:
-            errors.append({"ground_maps": {"expected": [relay.relay_id for relay in relays], "actual": ground_maps}})
+        expected_grounds = [relay.relay_id for relay in relays] + ([boss_encounter.arena_id] if boss_encounter else [])
+        if ground_maps != expected_grounds:
+            errors.append({"ground_maps": {"expected": expected_grounds, "actual": ground_maps}})
+        if boss_encounter:
+            boss_segment = segments[boss_encounter.battle_segment]
+            boss_stairs = sum(1 for item in _walk(boss_segment) if isinstance(item, dict) and "FloorStairsStep" in item.get("$type", ""))
+            mapped = any(isinstance(item, dict) and item.get("MapID") == boss_encounter.arena_id for item in _walk(boss_segment))
+            if boss_stairs or not mapped:
+                errors.append({"boss_segment": {"stairs": boss_stairs, "mapped_arena": mapped}})
     except Exception as exception:
         errors.append({"zone": str(exception)})
         stairs = 0
@@ -373,6 +459,9 @@ def validate_project(project: Path):
         "relay_count": len(relays),
         "segment_count": segment_count,
         "compiled_floor_count": compiled_floor_count,
+        "boss_distance_tiles": boss_encounter.distance_tiles if boss_encounter else None,
+        "boss_segment": boss_encounter.battle_segment if boss_encounter else None,
+        "profile_validation": profile_validation["result"],
         "stairs_step_count": stairs,
         "errors": errors,
     }

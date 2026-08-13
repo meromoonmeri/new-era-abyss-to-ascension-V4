@@ -60,6 +60,9 @@ def parse_intent(
     mini_bosses: int | None = None,
     relays: int | None = None,
     seed: int | None = None,
+    boss_species: str | None = None,
+    boss_category: str = "auto",
+    narrative_prompt: str = "",
 ):
     text = norm(intent)
     count_text = text
@@ -162,4 +165,7 @@ def parse_intent(
         visual_keywords=visual_keywords,
         spectacle_bias=spectacle,
         surprise_budget=surprise,
+        boss_species=boss_species.casefold().strip() if boss_species else None,
+        boss_category=boss_category,
+        narrative_prompt=narrative_prompt,
     )

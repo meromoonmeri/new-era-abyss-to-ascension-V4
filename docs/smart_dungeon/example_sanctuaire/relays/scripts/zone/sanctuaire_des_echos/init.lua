@@ -1,5 +1,4 @@
--- Generated Smart Dungeon segment/relay router.
--- Requires promotion of the generated Ground candidates and their scripts.
+-- Generated Smart Dungeon complete journey router.
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 
@@ -9,7 +8,10 @@ local RELAY_AFTER_SEGMENT = {
   [1] = 'sanctuaire_des_echos_relais_02',
 }
 
-function sanctuaire_des_echos.Init(zone) end
+function sanctuaire_des_echos.Init(zone)
+  SV.smart_dungeon = SV.smart_dungeon or {}
+  SV.smart_dungeon['sanctuaire_des_echos'] = SV.smart_dungeon['sanctuaire_des_echos'] or {seen=false, won=false, lost=false, completed=false}
+end
 
 function sanctuaire_des_echos.EnterSegment(zone, rescuing, segmentID, mapID)
   GeneralFunctions.CheckAllowSetRescue(zone.ID)
@@ -21,8 +23,19 @@ function sanctuaire_des_echos.ExitSegment(zone, result, rescue, segmentID, mapID
     GAME:EnterGroundMap(relay, 'Main_Entrance_Marker')
     return
   end
-  -- Final completion/failure policy remains an explicit integration hook;
-  -- no narrative destination is invented by the designer.
+  if segmentID == 2 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+    GAME:EnterGroundMap('sanctuaire_des_echos_arene_finale', 'Main_Entrance_Marker')
+    return
+  end
+  if segmentID == 3 then
+    if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+      SV.smart_dungeon['sanctuaire_des_echos'].won = true
+    else
+      SV.smart_dungeon['sanctuaire_des_echos'].lost = true
+    end
+    GAME:EnterGroundMap('sanctuaire_des_echos_arene_finale', 'Main_Entrance_Marker')
+    return
+  end
 end
 
 function sanctuaire_des_echos.Rescued(zone, name, mail)

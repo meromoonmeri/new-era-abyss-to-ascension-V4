@@ -5,6 +5,8 @@ import argparse
 import json
 from pathlib import Path
 from .assets import analyze_library
+from .ground_gen import generate_ground
+from .knowledge import analyze_references
 from .project import generate_project, read, regenerate, validate_project, write
 from .runtime import validate_runtime_index
 
@@ -32,6 +34,22 @@ def parser():
     create.add_argument("--reference-zone")
     create.add_argument("--variants", type=int, default=6)
     create.add_argument("--max-assets", type=int, default=0)
+    create.add_argument("--boss-species", help="Espèce explicite du boss; sinon inférence conservatrice")
+    create.add_argument("--boss-category", choices=["auto", "classique", "legendaire", "fabuleux"], default="auto")
+    create.add_argument("--narrative-prompt", default="", help="Contexte servant aux contrats de scène et dialogue")
+    references = commands.add_parser("analyze-references", help="Indexe zones, Grounds, shops, PNJ, boss et grammaires de tiles")
+    references.add_argument("--output", type=Path, required=True)
+    references.add_argument("--max-zones", type=int, default=0)
+    references.add_argument("--max-grounds", type=int, default=96)
+    ground = commands.add_parser("generate-ground", help="Compose un Ground par géométrie abstraite et grammaire de tiles")
+    ground.add_argument("--output-dir", type=Path, required=True)
+    ground.add_argument("--id", required=True)
+    ground.add_argument("--intent", required=True)
+    ground.add_argument("--seed", type=int, required=True)
+    ground.add_argument("--variants", type=int, default=4)
+    ground.add_argument("--reference-ground")
+    ground.add_argument("--width", type=int, default=64)
+    ground.add_argument("--height", type=int, default=48)
     regen = commands.add_parser("regenerate", help="Régénère tout ou seulement une partie")
     regen.add_argument("--project", type=Path, required=True)
     regen.add_argument("--scope", default="all", help="all, floor:N, room:N:M ou decor:N")
@@ -70,8 +88,14 @@ def main(argv=None):
     if args.command == "analyze-assets":
         result = analyze_library(repo, args.output, args.overrides, args.max_sheets, args.max_grounds, args.samples)
         summary = {key: result[key] for key in ("result", "asset_count", "ground_sheet_count", "dungeon_texture_bundle_count", "cluster_count", "ambiguous_asset_count")}
+    elif args.command == "analyze-references":
+        result = analyze_references(repo, args.output, args.max_zones, args.max_grounds)
+        summary = {key: result[key] for key in ("result", "zone_count", "ground_count", "map_template_count", "autotile_count", "shop_reference_zones", "neutral_reference_zones", "boss_reference_grounds")}
+    elif args.command == "generate-ground":
+        result = generate_ground(repo, args.output_dir, args.id, args.intent, args.seed, args.variants, args.reference_ground, args.width, args.height)
+        summary = {"result": result["validation"]["result"], "ground": result["ground_file"], "metadata": result["metadata_file"], "preview": result["preview_file"], "score": result["score"], "validation": result["validation"]}
     elif args.command == "create":
-        result = generate_project(repo, args.project, args.name, args.intent, args.floors, args.difficulty, args.boss, args.mini_bosses, args.relays, args.seed, args.reference_zone, args.variants, args.max_assets)
+        result = generate_project(repo, args.project, args.name, args.intent, args.floors, args.difficulty, args.boss, args.mini_bosses, args.relays, args.seed, args.reference_zone, args.variants, args.max_assets, args.boss_species, args.boss_category, args.narrative_prompt)
         summary = {
             "result": "SMART_DUNGEON_GENERATION_PASS", "project": str(args.project),
             "seed": result.brief.seed, "floors": len(result.floors),
@@ -80,6 +104,9 @@ def main(argv=None):
             "mean_visual_score": result.quality_summary["mean_visual_score"],
             "dungeon_artistic_score": result.artistic_quality_summary["score"],
             "relays": len(result.relays), "segments": result.compiler.get("segment_count", 1),
+            "content_profile": result.dungeon_profile.get("profile_id"),
+            "boss_arena": result.boss_encounter.ground_file if result.boss_encounter else None,
+            "boss_distance_tiles": result.boss_encounter.distance_tiles if result.boss_encounter else None,
             "zone": result.compiler["zone_file"],
         }
     elif args.command == "regenerate":
@@ -142,7 +169,9 @@ def main(argv=None):
             "art_direction": project.get("art_direction", {}).get("decisions", []),
             "vocabulary": project.get("art_direction", {}).get("vocabulary", {}),
             "dungeon_artistic_quality": project.get("artistic_quality_summary", {}),
+            "dungeon_profile": project.get("dungeon_profile", {}),
             "relays": project.get("relays", []),
+            "boss_encounter": project.get("boss_encounter"),
             "floor": ({
                 "floor": selected["floor"], "identity": selected.get("identity", {}),
                 "rooms": [{"room_id": room["room_id"], "function": room.get("function"), "reason": room.get("design_reason")} for room in selected["rooms"]],

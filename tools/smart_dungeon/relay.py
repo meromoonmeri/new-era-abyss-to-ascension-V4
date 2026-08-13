@@ -174,13 +174,10 @@ return {relay_id}
 '''
 
 
-def _zone_script(brief, relays):
-    routes = "\n".join(
-        f"  [{relay.previous_segment}] = '{relay.relay_id}',"
-        for relay in relays
-    )
-    return f'''-- Generated Smart Dungeon segment/relay router.
--- Requires promotion of the generated Ground candidates and their scripts.
+def _zone_script(brief, relays, boss=None):
+    routes = "\n".join(f"  [{relay.previous_segment}] = '{relay.relay_id}'," for relay in relays)
+    final_procedural=len(relays);boss_segment=boss.battle_segment if boss else -1;arena=boss.arena_id if boss else ''
+    return f'''-- Generated Smart Dungeon complete journey router.
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 
@@ -189,7 +186,10 @@ local RELAY_AFTER_SEGMENT = {{
 {routes}
 }}
 
-function {brief.slug}.Init(zone) end
+function {brief.slug}.Init(zone)
+  SV.smart_dungeon = SV.smart_dungeon or {{}}
+  SV.smart_dungeon['{brief.slug}'] = SV.smart_dungeon['{brief.slug}'] or {{seen=false, won=false, lost=false, completed=false}}
+end
 
 function {brief.slug}.EnterSegment(zone, rescuing, segmentID, mapID)
   GeneralFunctions.CheckAllowSetRescue(zone.ID)
@@ -201,8 +201,19 @@ function {brief.slug}.ExitSegment(zone, result, rescue, segmentID, mapID)
     GAME:EnterGroundMap(relay, 'Main_Entrance_Marker')
     return
   end
-  -- Final completion/failure policy remains an explicit integration hook;
-  -- no narrative destination is invented by the designer.
+  if segmentID == {final_procedural} and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+    GAME:EnterGroundMap('{arena}', 'Main_Entrance_Marker')
+    return
+  end
+  if segmentID == {boss_segment} then
+    if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+      SV.smart_dungeon['{brief.slug}'].won = true
+    else
+      SV.smart_dungeon['{brief.slug}'].lost = true
+    end
+    GAME:EnterGroundMap('{arena}', 'Main_Entrance_Marker')
+    return
+  end
 end
 
 function {brief.slug}.Rescued(zone, name, mail)
@@ -211,6 +222,10 @@ end
 
 return {brief.slug}
 '''
+
+
+def write_zone_router(project, brief, relays, boss=None):
+    path=project/'relays/scripts/zone'/brief.slug/'init.lua';path.parent.mkdir(parents=True,exist_ok=True);path.write_text(_zone_script(brief,relays,boss),encoding='utf-8');return path.relative_to(project).as_posix()
 
 
 def _validate_generated(data, relay):
@@ -315,10 +330,8 @@ def design_relays(repo: Path, project: Path, brief: DesignBrief, rows: list[dict
         )
         relay.validation = _validate_generated(data, relay)
         relays.append(relay)
-    zone_script = project / "relays/scripts/zone" / brief.slug / "init.lua"
-    zone_script.parent.mkdir(parents=True, exist_ok=True)
-    zone_script.write_text(_zone_script(brief, relays), encoding="utf-8")
-    return relays, zone_script.relative_to(project).as_posix()
+    zone_script = write_zone_router(project, brief, relays)
+    return relays, zone_script
 
 
 def validate_relay_file(project: Path, relay: RelayPlan):

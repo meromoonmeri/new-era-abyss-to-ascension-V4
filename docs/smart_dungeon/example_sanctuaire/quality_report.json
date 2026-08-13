@@ -1,11 +1,11 @@
 {
   "accepted_floor_count": 12,
   "floor_count": 12,
-  "mean_score": 85.499,
+  "mean_score": 85.539,
   "minimum_score": 80.478,
-  "mean_structural_score": 88.236,
+  "mean_structural_score": 88.216,
   "minimum_structural_score": 82.738,
-  "mean_visual_score": 84.623,
+  "mean_visual_score": 84.77,
   "minimum_visual_score": 79.725,
   "violations": {
     "1": [
@@ -637,46 +637,104 @@
       "candidates": [
         {
           "seed": 235974539,
-          "score": 83.77,
-          "structural_score": 88.763,
-          "visual_score": 82.106,
-          "bottleneck": 82.106,
+          "score": 81.69,
+          "structural_score": 86.153,
+          "visual_score": 80.202,
+          "bottleneck": 80.202,
           "identity_strength": 1,
-          "novelty": 0.7429,
+          "novelty": 0.55,
           "accepted": true,
           "selected": false,
           "violations": []
         },
         {
           "seed": 1605259021,
-          "score": 83.949,
-          "structural_score": 88.724,
-          "visual_score": 82.357,
-          "bottleneck": 82.357,
+          "score": 82.281,
+          "structural_score": 88.777,
+          "visual_score": 80.115,
+          "bottleneck": 80.115,
           "identity_strength": 1,
-          "novelty": 0.6143,
-          "accepted": true,
-          "selected": true,
-          "violations": []
-        },
-        {
-          "seed": 903603479,
-          "score": 82.431,
-          "structural_score": 89.843,
-          "visual_score": 79.96,
-          "bottleneck": 79.96,
-          "identity_strength": 1,
-          "novelty": 0.7429,
+          "novelty": 0.55,
           "accepted": true,
           "selected": false,
           "violations": []
         },
         {
+          "seed": 903603479,
+          "score": 83.195,
+          "structural_score": 87.999,
+          "visual_score": 81.593,
+          "bottleneck": 81.593,
+          "identity_strength": 1,
+          "novelty": 0.625,
+          "accepted": true,
+          "selected": true,
+          "violations": []
+        },
+        {
           "seed": 1106460199,
-          "score": 81.38,
-          "structural_score": 87.241,
-          "visual_score": 79.426,
-          "bottleneck": 79.426,
+          "score": 80.633,
+          "structural_score": 90.243,
+          "visual_score": 77.43,
+          "bottleneck": 77.43,
+          "identity_strength": 1,
+          "novelty": 0.775,
+          "accepted": true,
+          "selected": false,
+          "violations": []
+        }
+      ],
+      "selected_seed": 903603479,
+      "selected_policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
+      "selected_structural_score": 87.999,
+      "selected_visual_score": 81.593,
+      "selected_score": 83.195
+    },
+    {
+      "floor": 12,
+      "candidates": [
+        {
+          "seed": 242773399,
+          "score": 85.141,
+          "structural_score": 85.991,
+          "visual_score": 84.858,
+          "bottleneck": 84.858,
+          "identity_strength": 1,
+          "novelty": 0.55,
+          "accepted": true,
+          "selected": false,
+          "violations": []
+        },
+        {
+          "seed": 1994681192,
+          "score": 88.811,
+          "structural_score": 89.201,
+          "visual_score": 88.681,
+          "bottleneck": 88.681,
+          "identity_strength": 1,
+          "novelty": 0.55,
+          "accepted": true,
+          "selected": false,
+          "violations": []
+        },
+        {
+          "seed": 485646610,
+          "score": 90.027,
+          "structural_score": 89.639,
+          "visual_score": 91.193,
+          "bottleneck": 89.639,
+          "identity_strength": 1,
+          "novelty": 0.55,
+          "accepted": true,
+          "selected": true,
+          "violations": []
+        },
+        {
+          "seed": 349805927,
+          "score": 87.921,
+          "structural_score": 87.472,
+          "visual_score": 89.267,
+          "bottleneck": 87.472,
           "identity_strength": 1,
           "novelty": 0.55,
           "accepted": true,
@@ -684,79 +742,21 @@
           "violations": []
         }
       ],
-      "selected_seed": 1605259021,
+      "selected_seed": 485646610,
       "selected_policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
-      "selected_structural_score": 88.724,
-      "selected_visual_score": 82.357,
-      "selected_score": 83.949
-    },
-    {
-      "floor": 12,
-      "candidates": [
-        {
-          "seed": 242773399,
-          "score": 86.942,
-          "structural_score": 90.157,
-          "visual_score": 85.871,
-          "bottleneck": 85.871,
-          "identity_strength": 1,
-          "novelty": 0.7188,
-          "accepted": true,
-          "selected": false,
-          "violations": []
-        },
-        {
-          "seed": 1994681192,
-          "score": 85.538,
-          "structural_score": 85.32,
-          "visual_score": 86.193,
-          "bottleneck": 85.32,
-          "identity_strength": 1,
-          "novelty": 0.8,
-          "accepted": true,
-          "selected": false,
-          "violations": []
-        },
-        {
-          "seed": 485646610,
-          "score": 88.602,
-          "structural_score": 88.15,
-          "visual_score": 89.959,
-          "bottleneck": 88.15,
-          "identity_strength": 1,
-          "novelty": 0.6063,
-          "accepted": true,
-          "selected": false,
-          "violations": []
-        },
-        {
-          "seed": 349805927,
-          "score": 88.792,
-          "structural_score": 89.158,
-          "visual_score": 88.67,
-          "bottleneck": 88.67,
-          "identity_strength": 1,
-          "novelty": 0.6063,
-          "accepted": true,
-          "selected": true,
-          "violations": []
-        }
-      ],
-      "selected_seed": 349805927,
-      "selected_policy": "admissibility_then_bottleneck_then_identity_then_novelty_then_aggregate",
-      "selected_structural_score": 89.158,
-      "selected_visual_score": 88.67,
-      "selected_score": 88.792
+      "selected_structural_score": 89.639,
+      "selected_visual_score": 91.193,
+      "selected_score": 90.027
     }
   ],
   "dungeon_artistic_quality": {
     "accepted": true,
-    "score": 89.368,
+    "score": 89.419,
     "metrics": {
-      "mean_visual_quality": 0.8462,
+      "mean_visual_quality": 0.8477,
       "composition_family_diversity": 1,
       "signature_diversity": 1,
-      "adjacent_floor_differentiation": 0.5372,
+      "adjacent_floor_differentiation": 0.5383,
       "spectacle_progression": 1.0,
       "focal_asset_repetition_control": 1.0,
       "asset_budget_discipline": 1
@@ -773,8 +773,8 @@
       "circular_progression",
       "mini_boss_stage",
       "chamber_sequence",
-      "dominant_loop",
-      "boss_stage"
+      "corridor_spine",
+      "protected_core"
     ],
     "spectacle_curve": [
       0.14,
@@ -787,23 +787,21 @@
       0.424,
       0.74,
       0.492,
-      0.42,
-      1
+      0.62,
+      0.82
     ],
     "asset_usage": {
       "A02p02_Base": 4,
       "A02p04_Base": 32,
-      "Aegis Cave Entrance Layer 1": 30,
+      "Aegis Cave Entrance Layer 1": 31,
       "Aegis_Regi_Arena_Base": 15,
-      "Altere_Pond_Objects": 1,
       "Altere_Pond_Objects_Under": 1,
       "AntreDragon_Base": 15,
-      "Apple Woods End Layer 2": 14,
-      "Apple Woods Entrance Layer 1": 31,
-      "Apricorn_Glade_Big_Tree": 5
+      "Apple Woods End Layer 2": 16,
+      "Apple Woods Entrance Layer 1": 32,
+      "Apricorn_Glade_Big_Tree": 3
     },
     "focal_asset_usage": {
-      "Altere_Pond_Objects": 1,
       "Altere_Pond_Objects_Under": 1
     }
   }

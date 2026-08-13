@@ -861,3 +861,42 @@ est confirmé (`SideQuests.AllDone` conditionne la progression de chapitre,
   avec confiance 0,25; aucune compatibilité visuelle n'est inventée.
 - Démonstration : deux relais validés, 3 segments, 12 étages compilés, 24
   `FloorStairsStep`; aucun Ground, script historique ou `Data/Zone` modifié.
+
+## Session 2026-08-13 — parcours complet et Grounds intelligents (v3)
+
+- Audit préalable documenté dans `docs/SMART_DUNGEON_COMPLETE_JOURNEY_DESIGN.md` :
+  modèles Searing Tunnel, Vast Steppe ShopStep, neutres Dungeon Pack, arènes
+  Vast Steppe/Searing Crucible/Mount Windswept, Grounds, maps et AutoTiles.
+- `reference_knowledge.json` indexe 57 zones, 96 Grounds, 95 maps et 8 familles
+  AutoTile dans la démonstration, avec provenance et SHA-256; aucune ressource
+  certifiée n'est écrite.
+- `dungeon_profile.json` relie biome progressif, segments, règles de chaque
+  étage, ennemis pondérés/niveaux, neutres, loot sol/enterré/rare, argent,
+  pièges, eau, obscurité, Monster Houses, Kecleon et salles spéciales.
+- Les populations de segments voisins gardent environ 50 % de recouvrement et
+  les textures partagent un vocabulaire non générique, afin d'exprimer une
+  évolution du même biome plutôt que des biomes indépendants.
+- Chaque étage éligible reçoit un `SpreadPlanChance` Kecleon natif distinct; le
+  `ShopStep`, `ShopkeeperInteract`, `shop_security`, assortiment et prix sont
+  dérivés des modèles du dépôt. Les `TeamSpawnZoneStep` sont compilés par étage.
+- Les Pokémon inoffensifs utilisent le contrat natif
+  `PresetMultiTeamSpawner + Ally=true + wait_only + MobSpawnInteractable`; aucun
+  dialogue de biome erroné n'est copié.
+- Le boss n'est plus un FloorPlan. Le dernier étage est une approche; le Ground
+  final joue introduction/dialogue, `BossTransition`, segment `LayeredSegment`
+  mappé sans escalier, retour victoire/défaite et conclusion scriptée. Distance
+  joueur/Absol = 6 cases, arène 45×42, caméra locale, aucune sortie physique.
+- Le générateur de Grounds `generate-ground` sépare géométrie abstraite et
+  rendu. Démonstration `example_ground_clairiere` : 64×48, 3 lacs, navigation
+  valide, 93,49 % de raccords exacts, 6,51 % de fallbacks localisés, frames et
+  timings natifs conservés, aucun dézoom forcé.
+- Démonstration donjon : 12 étages, 3 segments procéduraux + 1 segment boss,
+  2 relais, 24 FloorStairsStep sur les seuls étages procéduraux, structure
+  moyenne 88,216, visuel moyen 84,770, artistique globale 89,419, minimums
+  82,738/79,725, validation complète réussie.
+- Suite : 15 tests réussis, couvrant notamment tables par étage, shops natifs,
+  neutres, boss ≤6, arène sans escalier, connaissances du dépôt, grammaire de
+  tiles, animations, navigation, déterminisme, verrous et régénérations.
+- Référence externe méthodologique : Bulbapedia Aegis Cave, consultée le
+  2026-08-13, utilisée uniquement pour la forme « sections + tables par tranche
+  + règles par étage », sans copie de données ni d'assets.

@@ -70,6 +70,9 @@ class DesignBrief:
     visual_keywords: list[str] = field(default_factory=list)
     spectacle_bias: float = 0.55
     surprise_budget: float = 0.08
+    boss_species: str | None = None
+    boss_category: str = "auto"
+    narrative_prompt: str = ""
 
     def to_dict(self):
         return asdict(self)
@@ -162,6 +165,31 @@ class RelayPlan:
 
 
 @dataclass
+class BossEncounterPlan:
+    arena_id: str
+    source_ground: str
+    ground_file: str
+    ground_script_file: str
+    scene_script_file: str
+    preview_file: str
+    battle_segment: int
+    boss_species: str
+    boss_category: str
+    player_position: list[int]
+    boss_position: list[int]
+    distance_tiles: int
+    companions: list[dict[str, Any]] = field(default_factory=list)
+    flow: list[str] = field(default_factory=lambda: ["arrivee", "introduction", "dialogue_precombat", "transition_combat", "combat", "victoire", "conclusion", "fin_donjon"])
+    dialogue: dict[str, Any] = field(default_factory=dict)
+    completion: dict[str, Any] = field(default_factory=dict)
+    validation: dict[str, Any] = field(default_factory=dict)
+    decisions: list[dict[str, Any]] = field(default_factory=list)
+
+    def to_dict(self):
+        return asdict(self)
+
+
+@dataclass
 class DungeonPlan:
     schema_version: str
     brief: DesignBrief
@@ -175,6 +203,10 @@ class DungeonPlan:
     artistic_quality_summary: dict[str, Any] = field(default_factory=dict)
     decision_log: list[dict[str, Any]] = field(default_factory=list)
     relays: list[RelayPlan] = field(default_factory=list)
+    dungeon_profile: dict[str, Any] = field(default_factory=dict)
+    reference_knowledge: dict[str, Any] = field(default_factory=dict)
+    boss_encounter: BossEncounterPlan | None = None
+    generated_grounds: list[dict[str, Any]] = field(default_factory=list)
 
     def to_dict(self):
         return asdict(self)

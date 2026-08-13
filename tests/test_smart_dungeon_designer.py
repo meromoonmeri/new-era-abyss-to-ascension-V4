@@ -12,7 +12,9 @@ sys.path.insert(0, str(REPO / "tools"))
 
 from smart_dungeon.art_direction import build_art_direction
 from smart_dungeon.assets import analyze_library
+from smart_dungeon.ground_gen import generate_ground
 from smart_dungeon.intent import parse_intent
+from smart_dungeon.knowledge import analyze_references
 from smart_dungeon.layout import progression, repair, select_best
 from smart_dungeon.model import FloorPlan, Room
 from smart_dungeon.project import copy_floor, generate_project, regenerate, validate_project, write
@@ -37,12 +39,14 @@ class TestSmartDungeonDesigner(unittest.TestCase):
         self.assertEqual(brief.water_policy, "forbid")
         self.assertIn("circular_progression", brief.composition_preferences)
         rows = progression(brief)
-        self.assertEqual(rows[-1]["special"], "boss")
+        self.assertIsNone(rows[-1]["special"])
+        self.assertTrue(rows[-1]["final_approach"])
+        self.assertEqual(rows[-1]["approach_to"], "boss_ground")
         relay_floors = [row["floor"] for row in rows if row["relay_after"]]
         self.assertEqual(len(relay_floors), 3)
         self.assertEqual(relay_floors, [6, 12, 19])
         self.assertTrue(all(row["special"] != "relay" for row in rows))
-        self.assertEqual(rows[-1]["spectacle"], 1)
+        self.assertGreaterEqual(rows[-1]["spectacle"], .8)
 
     def test_02_candidate_search_is_deterministic_and_not_scalar_only(self):
         brief = parse_intent("Test", "12 étages, début ouvert puis labyrinthique, boss final", seed=777, boss=True)
@@ -122,9 +126,9 @@ class TestSmartDungeonDesigner(unittest.TestCase):
     def test_06_complete_project_has_two_quality_layers_and_native_zone(self):
         project = self.p1
         required = [
-            "asset_catalog.json", "brief.json", "progression.json", "project.json",
-            "quality_report.json", "artistic_quality_report.json", "art_direction.json",
-            "decision_log.json", "generation_manifest.json", "previews/contact_sheet.svg",
+            "asset_catalog.json", "reference_knowledge.json", "brief.json", "progression.json", "project.json",
+            "dungeon_profile.json", "quality_report.json", "artistic_quality_report.json", "art_direction.json",
+            "decision_log.json", "finale/boss_encounter.json", "generation_manifest.json", "previews/contact_sheet.svg",
             "previews/design_board.svg", "previews/special_rooms.svg", "previews/relays.svg",
             "relays/manifest.json", "zone/sanctuaire_test.json",
         ]
@@ -135,17 +139,25 @@ class TestSmartDungeonDesigner(unittest.TestCase):
         self.assertEqual(result["result"], "SMART_DUNGEON_VALIDATION_PASS")
         self.assertGreaterEqual(result["stairs_step_count"], 8)
         self.assertEqual(result["relay_count"], 2)
-        self.assertEqual(result["segment_count"], 3)
+        self.assertEqual(result["segment_count"], 4)
         self.assertEqual(result["compiled_floor_count"], 8)
+        self.assertLessEqual(result["boss_distance_tiles"], 6)
+        self.assertEqual(result["profile_validation"], "DUNGEON_PROFILE_PASS")
         self.assertGreater(result["minimum_structural_score"], 72)
         self.assertGreater(result["minimum_visual_score"], 60)
         zone = json.loads((project / "zone/sanctuaire_test.json").read_text(encoding="utf-8-sig"))["Object"]
         self.assertTrue(zone["Released"])
-        self.assertEqual(len(zone["Segments"]), 3)
-        self.assertEqual(sum(len(segment["Floors"]["nodes"]) for segment in zone["Segments"]), 8)
-        self.assertEqual(zone["GroundMaps"], [relay.relay_id for relay in self.plan1.relays])
+        self.assertEqual(len(zone["Segments"]), 4)
+        self.assertEqual(sum(len(segment["Floors"]["nodes"]) for segment in zone["Segments"] if isinstance(segment.get("Floors"), dict)), 8)
+        self.assertEqual(zone["GroundMaps"], [relay.relay_id for relay in self.plan1.relays] + [self.plan1.boss_encounter.arena_id])
+        boss_segment = zone["Segments"][self.plan1.boss_encounter.battle_segment]
+        self.assertNotIn("FloorStairsStep", json.dumps(boss_segment))
+        self.assertIn(self.plan1.boss_encounter.arena_id, json.dumps(boss_segment))
         self.assertTrue(all((project / relay.ground_file).exists() and (project / relay.script_file).exists() for relay in self.plan1.relays))
         self.assertTrue(all("missingno" not in (project / relay.ground_file).read_text(encoding="utf-8-sig").casefold() for relay in self.plan1.relays))
+        boss = self.plan1.boss_encounter
+        self.assertTrue((project / boss.ground_file).exists() and (project / boss.ground_script_file).exists() and (project / boss.scene_script_file).exists() and (project / boss.preview_file).exists())
+        self.assertNotIn("missingno", (project / boss.ground_file).read_text(encoding="utf-8-sig").casefold())
 
     def test_07_floor_identity_groups_landmarks_and_room_functions_are_realized(self):
         families = set()
@@ -221,10 +233,14 @@ class TestSmartDungeonDesigner(unittest.TestCase):
         self.assertEqual(first["floors"], second["floors"])
         self.assertEqual(first["decision_log"], second["decision_log"])
         self.assertEqual(first["relays"], second["relays"])
+        self.assertEqual(first["dungeon_profile"], second["dungeon_profile"])
+        self.assertEqual(first["boss_encounter"], second["boss_encounter"])
         self.assertEqual((self.p1 / "zone/sanctuaire_test.json").read_bytes(), (self.p2 / "zone/sanctuaire_test.json").read_bytes())
         for relay in self.plan1.relays:
             self.assertEqual((self.p1 / relay.ground_file).read_bytes(), (self.p2 / relay.ground_file).read_bytes())
             self.assertEqual((self.p1 / relay.script_file).read_bytes(), (self.p2 / relay.script_file).read_bytes())
+        for path in (self.plan1.boss_encounter.ground_file, self.plan1.boss_encounter.ground_script_file, self.plan1.boss_encounter.scene_script_file, self.plan1.boss_encounter.preview_file):
+            self.assertEqual((self.p1 / path).read_bytes(), (self.p2 / path).read_bytes())
 
     def test_11_locks_and_local_regeneration_remain_compatible(self):
         project = self.p1
@@ -251,21 +267,92 @@ class TestSmartDungeonDesigner(unittest.TestCase):
         self.assertIsNotNone(boss)
         self.assertEqual(len(compiler["mini_boss_contracts"]), 1)
         self.assertEqual(len(compiler["relay_contracts"]), 2)
-        self.assertEqual(boss["floor"], 8)
-        self.assertIn("preparation", {room["function"] for room in boss["approach_rooms"]})
-        self.assertTrue(boss["spatial_beats"])
+        self.assertEqual(boss["battle_segment"], 3)
+        self.assertLessEqual(boss["distance_tiles"], 6)
+        self.assertFalse(boss["completion"]["stairs"])
+        self.assertFalse(boss["completion"]["physical_exit"])
+        self.assertEqual(boss["validation"]["result"], "BOSS_ENCOUNTER_PASS")
+        self.assertEqual(boss["flow"], ["arrivee", "introduction", "dialogue_precombat", "transition_combat", "combat", "victoire", "conclusion", "fin_donjon"])
         self.assertTrue(all(contract["kangaskhan_rock"] for contract in compiler["relay_contracts"]))
         self.assertTrue(all(contract["validation"]["two_distinct_routes"] for contract in compiler["relay_contracts"]))
         self.assertEqual([(relay.previous_segment, relay.next_segment) for relay in self.plan2.relays], [(0, 1), (1, 2)])
         self.assertEqual([relay.after_floor for relay in self.plan2.relays], [3, 5])
-        self.assertTrue(all(floor.special != "relay" for floor in self.plan2.floors))
+        self.assertTrue(all(floor.special not in ("relay", "boss") for floor in self.plan2.floors))
+        self.assertTrue(self.plan2.floors[-1].identity["approach_to"] == "boss_ground")
         self.assertEqual(len(compiler["floor_design_contracts"]), 8)
-        boss_floor = next(floor for floor in self.plan2.floors if floor.special == "boss")
-        if self.plan2.art_direction["vocabulary"]["exceptional"]:
-            self.assertTrue(boss_floor.landmarks[0]["rare"])
-        else:
-            self.assertFalse(boss_floor.landmarks[0]["rare"])
-        self.assertEqual(boss_floor.identity["spectacle"], max(floor.identity["spectacle"] for floor in self.plan2.floors))
+
+    def test_13_reference_knowledge_reuses_native_gameplay_models(self):
+        knowledge = json.loads((self.p1 / "reference_knowledge.json").read_text())
+        self.assertEqual(knowledge["result"], "REFERENCE_KNOWLEDGE_PASS")
+        self.assertGreater(knowledge["autotile_count"], 0)
+        self.assertTrue(any(row["variant_count"] >= 16 and row["orientation_policy"] == "native_neighbor_variant_keys_no_arbitrary_flip" for row in knowledge["autotiles"]))
+        self.assertIn("vast_steppe", knowledge["shop_reference_zones"])
+        self.assertIn("desert_oublies", knowledge["neutral_reference_zones"])
+        self.assertIn("vast_steppe_guardian", knowledge["boss_reference_grounds"])
+        tunnel = next(zone for zone in knowledge["zones"] if zone["zone_id"] == "searing_tunnel")
+        self.assertGreaterEqual(tunnel["segment_count"], 3)
+        self.assertTrue(tunnel["shops"] and tunnel["species_ids"] and tunnel["item_ids"])
+        altere = next(ground for ground in knowledge["grounds"] if ground["ground_id"] == "altere_pond")
+        self.assertTrue(altere["topology_grammar"])
+        self.assertGreater(altere["water_visual_cell_count"], 0)
+        self.assertTrue(altere["animation_frame_lengths"])
+
+    def test_14_each_floor_has_own_population_loot_shop_and_rule_tables(self):
+        profile = self.plan1.dungeon_profile
+        self.assertEqual(profile["validation"]["result"], "DUNGEON_PROFILE_PASS")
+        self.assertEqual(len(profile["floor_rules"]), 8)
+        for floor in profile["floor_rules"]:
+            self.assertTrue(floor["enemy_table"])
+            self.assertTrue(floor["ground_loot_table"])
+            self.assertIn("chance_percent", floor["shop"])
+            self.assertIn("starting_enemies", floor["rules"])
+            self.assertFalse(floor["special_room_permissions"]["relay"])
+            self.assertFalse(floor["special_room_permissions"]["boss_arena"])
+        for left, right in zip(profile["segments"], profile["segments"][1:]):
+            overlap = {row["species"] for row in left["enemy_table"]} & {row["species"] for row in right["enemy_table"]}
+            self.assertGreaterEqual(len(overlap), 4)
+        neutral = [row for stage in profile["segments"] for row in stage["neutral_table"]]
+        self.assertTrue(neutral)
+        self.assertTrue(all(row["behavior"] == "neutral_interactable" and row["ally"] for row in neutral))
+        zone = json.loads((self.p1 / "zone/sanctuaire_test.json").read_text(encoding="utf-8-sig"))
+        self.assertIn("SpreadPlanChance", json.dumps(zone))
+        self.assertIn("ShopkeeperInteract", json.dumps(zone))
+        for segment, stage in zip(zone["Object"]["Segments"][:3], profile["segments"]):
+            shop_steps = []
+            def collect(value):
+                if isinstance(value, dict):
+                    if "ShopStep" in value.get("$type", ""):
+                        shop_steps.append(value)
+                    for child in value.values():
+                        collect(child)
+                elif isinstance(value, list):
+                    for child in value:
+                        collect(child)
+            collect(segment)
+            eligible_count = sum(1 for floor in profile["floor_rules"] if floor["segment"] == stage["segment"] and floor["shop"]["eligible"])
+            self.assertEqual(bool(shop_steps), eligible_count > 0)
+            if eligible_count:
+                self.assertEqual(len(shop_steps), eligible_count * 2)  # two native Kecleon variants per eligible floor
+            profile_items = {row["item_id"] for row in stage["kecleon"]["assortment"]}
+            for shop_step in shop_steps:
+                compiled_items = {row["Spawn"]["Value"] for row in shop_step["Items"]}
+                self.assertEqual(compiled_items, profile_items)
+
+    def test_15_topology_aware_ground_generation_with_animated_lakes(self):
+        first_dir, second_dir = self.temp / "ground_first", self.temp / "ground_second"
+        first = generate_ground(REPO, first_dir, "clairiere_lacs", "Une clairière forestière avec trois petits lacs", 20260813, 3)
+        second = generate_ground(REPO, second_dir, "clairiere_lacs", "Une clairière forestière avec trois petits lacs", 20260813, 3)
+        self.assertEqual(first["validation"]["result"], "GROUND_VALIDATION_PASS")
+        self.assertEqual(first["validation"]["water_component_count"], 3)
+        self.assertGreater(first["validation"]["topology_exact_ratio"], .85)
+        self.assertGreater(first["validation"]["animation_cell_count"], 0)
+        self.assertEqual(first["validation"]["viewport_policy"], "local_follow_camera_no_forced_zoom")
+        self.assertEqual(Path(first["ground_file"]).read_bytes(), Path(second["ground_file"]).read_bytes())
+        self.assertEqual(Path(first["metadata_file"]).read_bytes(), Path(second["metadata_file"]).read_bytes())
+        data = json.loads(Path(first["ground_file"]).read_text(encoding="utf-8-sig"))["Object"]
+        self.assertEqual([len(data["obstacles"]), len(data["obstacles"][0])], [64, 48])
+        self.assertTrue(all(len(layer["Tiles"]) == 64 and all(len(column) == 48 for column in layer["Tiles"]) for layer in data["Layers"]))
+        self.assertTrue(Path(first["preview_file"]).exists())
 
 
 if __name__ == "__main__":

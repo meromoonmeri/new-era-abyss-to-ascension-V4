@@ -1,0 +1,82 @@
+{
+  "arena_id": "sanctuaire_des_echos_arene_finale",
+  "source_ground": "mount_windswept_guardian",
+  "ground_file": "finale/ground/sanctuaire_des_echos_arene_finale.rsground",
+  "ground_script_file": "finale/scripts/ground/sanctuaire_des_echos_arene_finale/init.lua",
+  "scene_script_file": "finale/scripts/ground/sanctuaire_des_echos_arene_finale/sanctuaire_des_echos_arene_finale_scene.lua",
+  "preview_file": "finale/previews/sanctuaire_des_echos_arene_finale.svg",
+  "battle_segment": 3,
+  "boss_species": "absol",
+  "boss_category": "classique",
+  "player_position": [
+    22,
+    11
+  ],
+  "boss_position": [
+    22,
+    17
+  ],
+  "distance_tiles": 6,
+  "companions": [],
+  "flow": [
+    "arrivee",
+    "introduction",
+    "dialogue_precombat",
+    "transition_combat",
+    "combat",
+    "victoire",
+    "conclusion",
+    "fin_donjon"
+  ],
+  "dialogue": {
+    "status": "derived_from_user_narrative_prompt",
+    "pre_combat": [
+      "Vous avez atteint le cœur de ce lieu. Montrez-moi votre détermination !"
+    ],
+    "post_combat": [
+      "Votre force est réelle. Le passage peut désormais s'achever."
+    ],
+    "narrative_prompt": "Absol garde le cœur ancien du sanctuaire et éprouve la détermination de l’équipe.",
+    "language": "fr-FR"
+  },
+  "completion": {
+    "mode": "scripted_after_victory",
+    "fallback": "master_zone ground 1",
+    "physical_exit": false,
+    "stairs": false
+  },
+  "validation": {
+    "result": "BOSS_ENCOUNTER_PASS",
+    "errors": [],
+    "distance_tiles": 6,
+    "distance_limit": 6,
+    "stairs": false,
+    "physical_exit": false,
+    "viewport_policy": "local_camera_no_forced_zoom"
+  },
+  "decisions": [
+    {
+      "decision": "canonical_flow",
+      "source": "vast_steppe_guardian+mount_windswept_guardian",
+      "why": "Ground introduction, BossTransition, mapped battle segment, Ground conclusion"
+    },
+    {
+      "decision": "arena_scale",
+      "size_cells": [
+        45,
+        42
+      ],
+      "why": "arène compacte validée avec caméra locale"
+    },
+    {
+      "decision": "boss_distance",
+      "distance": 6,
+      "limit": 6
+    },
+    {
+      "decision": "companions",
+      "value": [],
+      "why": "aucune donnée locale d'évolution fiable; aucune sous-évolution inventée"
+    }
+  ]
+}

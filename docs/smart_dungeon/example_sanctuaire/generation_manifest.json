@@ -1,16 +1,20 @@
 {
-  "schema_version": "2.0.0",
+  "schema_version": "3.0.0",
   "result": "SMART_DUNGEON_GENERATION_PASS",
   "name": "Sanctuaire des Échos",
   "slug": "sanctuaire_des_echos",
   "seed": 424242,
   "floor_count": 12,
-  "mean_quality_score": 85.499,
-  "mean_structural_score": 88.236,
-  "mean_visual_score": 84.623,
-  "dungeon_artistic_score": 89.368,
+  "mean_quality_score": 85.539,
+  "mean_structural_score": 88.216,
+  "mean_visual_score": 84.77,
+  "dungeon_artistic_score": 89.419,
   "relay_count": 2,
-  "segment_count": 3,
+  "procedural_segment_count": 3,
+  "segment_count": 4,
+  "content_profile": "dungeon_profile.json",
+  "boss_arena": "finale/ground/sanctuaire_des_echos_arene_finale.rsground",
+  "boss_distance_tiles": 6,
   "relay_ground_candidates": [
     "relays/grounds/sanctuaire_des_echos_relais_01.rsground",
     "relays/grounds/sanctuaire_des_echos_relais_02.rsground"
@@ -65,7 +69,9 @@
     "reference_zone": "mt_blaze",
     "zone_file": "zone/sanctuaire_des_echos.json",
     "floor_count": 12,
-    "segment_count": 3,
+    "procedural_segment_count": 3,
+    "segment_count": 4,
+    "boss_segment": 3,
     "segment_contracts": [
       {
         "segment": 0,
@@ -74,6 +80,40 @@
           4
         ],
         "floor_count": 4,
+        "stage_name": "seuil",
+        "texture_bundle": [
+          "western_cave_1_floor",
+          "western_cave_1_wall",
+          "western_cave_1_secondary"
+        ],
+        "enemy_species": [
+          "applin",
+          "abra",
+          "dratini",
+          "flapple",
+          "caterpie",
+          "starly",
+          "sunkern",
+          "seedot",
+          "weedle"
+        ],
+        "loot_items": [
+          "ammo_cacnea_spike",
+          "ammo_stick",
+          "seed_reviver",
+          "berry_jaboca",
+          "berry_rowap",
+          "berry_apicot",
+          "berry_liechi",
+          "berry_ganlon",
+          "berry_salac",
+          "berry_petaya",
+          "wand_path",
+          "wand_fear",
+          "wand_vanish",
+          "machine_recall_box"
+        ],
+        "shop_chance_percent": 12.1,
         "entry": {
           "map_id": 0,
           "entry_point": 0
@@ -88,6 +128,44 @@
           8
         ],
         "floor_count": 4,
+        "stage_name": "profondeurs",
+        "texture_bundle": [
+          "western_cave_2_floor",
+          "western_cave_2_wall",
+          "western_cave_2_secondary"
+        ],
+        "enemy_species": [
+          "caterpie",
+          "starly",
+          "sunkern",
+          "seedot",
+          "weedle",
+          "diglett",
+          "swablu",
+          "sentret",
+          "hoppip"
+        ],
+        "loot_items": [
+          "ammo_cacnea_spike",
+          "ammo_stick",
+          "seed_reviver",
+          "berry_jaboca",
+          "berry_rowap",
+          "berry_apicot",
+          "berry_liechi",
+          "berry_ganlon",
+          "berry_salac",
+          "berry_petaya",
+          "wand_path",
+          "wand_fear",
+          "wand_vanish",
+          "machine_recall_box",
+          "machine_ability_capsule",
+          "orb_monster",
+          "evo_fire_stone",
+          "evo_water_stone"
+        ],
+        "shop_chance_percent": 14.1,
         "entry": {
           "map_id": 0,
           "entry_point": 0
@@ -102,6 +180,48 @@
           12
         ],
         "floor_count": 4,
+        "stage_name": "approche_finale",
+        "texture_bundle": [
+          "lapis_cave_floor",
+          "lapis_cave_wall",
+          "lapis_cave_secondary"
+        ],
+        "enemy_species": [
+          "weedle",
+          "diglett",
+          "swablu",
+          "sentret",
+          "hoppip",
+          "electrike",
+          "burmy",
+          "snubbull",
+          "machop"
+        ],
+        "loot_items": [
+          "ammo_cacnea_spike",
+          "ammo_stick",
+          "seed_reviver",
+          "berry_jaboca",
+          "berry_rowap",
+          "berry_apicot",
+          "berry_liechi",
+          "berry_ganlon",
+          "berry_salac",
+          "berry_petaya",
+          "wand_path",
+          "wand_fear",
+          "wand_vanish",
+          "machine_recall_box",
+          "machine_ability_capsule",
+          "orb_monster",
+          "machine_assembly_box",
+          "held_mobile_scarf",
+          "held_pass_scarf",
+          "evo_fire_stone",
+          "evo_water_stone",
+          "evo_moon_stone"
+        ],
+        "shop_chance_percent": 16.1,
         "entry": {
           "map_id": 0,
           "entry_point": 0
@@ -112,172 +232,128 @@
     ],
     "ground_maps": [
       "sanctuaire_des_echos_relais_01",
-      "sanctuaire_des_echos_relais_02"
+      "sanctuaire_des_echos_relais_02",
+      "sanctuaire_des_echos_arene_finale"
     ],
     "roster": [
-      "meowth",
-      "charizard",
-      "kabuto",
-      "pineco",
       "applin",
-      "shuppet",
-      "espeon",
-      "shuckle",
-      "corsola",
-      "aerodactyl",
-      "seviper",
-      "vigoroth",
-      "kecleon",
-      "amaura",
-      "vivillon",
-      "flareon",
-      "staravia",
-      "shedinja",
-      "rhyhorn",
-      "ninetales",
-      "umbreon",
-      "drifloon",
-      "golurk",
-      "voltorb"
+      "abra",
+      "dratini",
+      "flapple",
+      "caterpie",
+      "starly",
+      "sunkern",
+      "seedot",
+      "weedle",
+      "diglett",
+      "swablu",
+      "sentret",
+      "hoppip",
+      "electrike",
+      "burmy",
+      "snubbull",
+      "machop"
     ],
     "boss_contract": {
-      "floor": 12,
-      "position": [
-        44,
-        20
+      "arena_id": "sanctuaire_des_echos_arene_finale",
+      "source_ground": "mount_windswept_guardian",
+      "ground_file": "finale/ground/sanctuaire_des_echos_arene_finale.rsground",
+      "ground_script_file": "finale/scripts/ground/sanctuaire_des_echos_arene_finale/init.lua",
+      "scene_script_file": "finale/scripts/ground/sanctuaire_des_echos_arene_finale/sanctuaire_des_echos_arene_finale_scene.lua",
+      "preview_file": "finale/previews/sanctuaire_des_echos_arene_finale.svg",
+      "battle_segment": 3,
+      "boss_species": "absol",
+      "boss_category": "classique",
+      "player_position": [
+        22,
+        11
       ],
-      "composition_family": "boss_stage",
-      "approach_rooms": [
+      "boss_position": [
+        22,
+        17
+      ],
+      "distance_tiles": 6,
+      "companions": [],
+      "flow": [
+        "arrivee",
+        "introduction",
+        "dialogue_precombat",
+        "transition_combat",
+        "combat",
+        "victoire",
+        "conclusion",
+        "fin_donjon"
+      ],
+      "dialogue": {
+        "status": "derived_from_user_narrative_prompt",
+        "pre_combat": [
+          "Vous avez atteint le cœur de ce lieu. Montrez-moi votre détermination !"
+        ],
+        "post_combat": [
+          "Votre force est réelle. Le passage peut désormais s'achever."
+        ],
+        "narrative_prompt": "Absol garde le cœur ancien du sanctuaire et éprouve la détermination de l’équipe.",
+        "language": "fr-FR"
+      },
+      "completion": {
+        "mode": "scripted_after_victory",
+        "fallback": "master_zone ground 1",
+        "physical_exit": false,
+        "stairs": false
+      },
+      "validation": {
+        "result": "BOSS_ENCOUNTER_PASS",
+        "errors": [],
+        "distance_tiles": 6,
+        "distance_limit": 6,
+        "stairs": false,
+        "physical_exit": false,
+        "viewport_policy": "local_camera_no_forced_zoom"
+      },
+      "decisions": [
         {
-          "room_id": 1,
-          "function": "preparation"
+          "decision": "canonical_flow",
+          "source": "vast_steppe_guardian+mount_windswept_guardian",
+          "why": "Ground introduction, BossTransition, mapped battle segment, Ground conclusion"
         },
         {
-          "room_id": 2,
-          "function": "gateway"
+          "decision": "arena_scale",
+          "size_cells": [
+            45,
+            42
+          ],
+          "why": "arène compacte validée avec caméra locale"
+        },
+        {
+          "decision": "boss_distance",
+          "distance": 6,
+          "limit": 6
+        },
+        {
+          "decision": "companions",
+          "value": [],
+          "why": "aucune donnée locale d'évolution fiable; aucune sous-évolution inventée"
         }
-      ],
-      "spatial_beats": [
-        {
-          "order": 0,
-          "room_id": 2,
-          "beat": "orientation",
-          "reason": "géométrie rect dimensionnée pour la fonction gateway dans la stratégie boss_stage"
-        },
-        {
-          "order": 1,
-          "room_id": 3,
-          "beat": "discovery",
-          "reason": "géométrie irregular dimensionnée pour la fonction discovery dans la stratégie boss_stage"
-        },
-        {
-          "order": 2,
-          "room_id": 1,
-          "beat": "preparation",
-          "reason": "géométrie rect dimensionnée pour la fonction preparation dans la stratégie boss_stage"
-        },
-        {
-          "order": 3,
-          "room_id": 0,
-          "beat": "climax",
-          "reason": "géométrie round dimensionnée pour la fonction climax dans la stratégie boss_stage"
-        }
-      ],
-      "integration": "generated_stage_plus_explicit_hook",
-      "species": "voltorb"
+      ]
     },
     "mini_boss_contracts": [
       {
         "floor": 3,
+        "species": "snubbull",
         "position": [
           44,
           22
         ],
-        "composition_family": "mini_boss_stage",
-        "approach_rooms": [
-          {
-            "room_id": 1,
-            "function": "preparation"
-          },
-          {
-            "room_id": 2,
-            "function": "gateway"
-          }
-        ],
-        "spatial_beats": [
-          {
-            "order": 0,
-            "room_id": 2,
-            "beat": "orientation",
-            "reason": "géométrie rect dimensionnée pour la fonction gateway dans la stratégie mini_boss_stage"
-          },
-          {
-            "order": 1,
-            "room_id": 5,
-            "beat": "reward",
-            "reason": "géométrie cross dimensionnée pour la fonction reward dans la stratégie mini_boss_stage"
-          },
-          {
-            "order": 2,
-            "room_id": 1,
-            "beat": "preparation",
-            "reason": "géométrie rect dimensionnée pour la fonction preparation dans la stratégie mini_boss_stage"
-          },
-          {
-            "order": 3,
-            "room_id": 0,
-            "beat": "climax",
-            "reason": "géométrie round dimensionnée pour la fonction climax dans la stratégie mini_boss_stage"
-          }
-        ],
-        "integration": "generated_stage_plus_explicit_hook",
-        "species": "golurk"
+        "integration": "generated_stage_plus_battle_hook"
       },
       {
         "floor": 9,
+        "species": "burmy",
         "position": [
           44,
           22
         ],
-        "composition_family": "mini_boss_stage",
-        "approach_rooms": [
-          {
-            "room_id": 1,
-            "function": "preparation"
-          },
-          {
-            "room_id": 2,
-            "function": "gateway"
-          }
-        ],
-        "spatial_beats": [
-          {
-            "order": 0,
-            "room_id": 2,
-            "beat": "orientation",
-            "reason": "géométrie rect dimensionnée pour la fonction gateway dans la stratégie mini_boss_stage"
-          },
-          {
-            "order": 1,
-            "room_id": 5,
-            "beat": "reward",
-            "reason": "géométrie cross dimensionnée pour la fonction reward dans la stratégie mini_boss_stage"
-          },
-          {
-            "order": 2,
-            "room_id": 1,
-            "beat": "preparation",
-            "reason": "géométrie rect dimensionnée pour la fonction preparation dans la stratégie mini_boss_stage"
-          },
-          {
-            "order": 3,
-            "room_id": 0,
-            "beat": "climax",
-            "reason": "géométrie round dimensionnée pour la fonction climax dans la stratégie mini_boss_stage"
-          }
-        ],
-        "integration": "generated_stage_plus_explicit_hook",
-        "species": "drifloon"
+        "integration": "generated_stage_plus_battle_hook"
       }
     ],
     "relay_contracts": [
@@ -358,6 +434,7 @@
         "integration": "native_ground_midpoint_between_range_segments"
       }
     ],
+    "content_profile_id": "journey_d1dab1447c18",
     "floor_design_contracts": [
       {
         "floor": 1,
@@ -511,33 +588,33 @@
       },
       {
         "floor": 11,
-        "composition_family": "dominant_loop",
+        "composition_family": "corridor_spine",
         "signature": {
-          "signature_id": "F011-dominant_loop-23",
-          "geometry": "one_memorable_main_loop",
-          "secondary_strategy": "corridor_spine",
+          "signature_id": "F011-corridor_spine-23",
+          "geometry": "dominant_directional_spine",
+          "secondary_strategy": "asymmetric_gradient",
           "density_gradient": "alternating",
           "landmark_rule": "structural_anchor",
           "intentional_symmetry": false
         },
-        "spectacle": 0.42,
-        "structural_score": 88.724,
-        "visual_score": 82.357
+        "spectacle": 0.62,
+        "structural_score": 87.999,
+        "visual_score": 81.593
       },
       {
         "floor": 12,
-        "composition_family": "boss_stage",
+        "composition_family": "protected_core",
         "signature": {
-          "signature_id": "F012-boss_stage-67",
-          "geometry": "boss_stage",
-          "secondary_strategy": "branching_pockets",
-          "density_gradient": "alternating",
+          "signature_id": "F012-protected_core-67",
+          "geometry": "guarded_center_and_outer_ring",
+          "secondary_strategy": "chamber_sequence",
+          "density_gradient": "quiet_edges_focal_center",
           "landmark_rule": "exceptional_asset",
-          "intentional_symmetry": false
+          "intentional_symmetry": true
         },
-        "spectacle": 1,
-        "structural_score": 89.158,
-        "visual_score": 88.67
+        "spectacle": 0.82,
+        "structural_score": 89.639,
+        "visual_score": 91.193
       }
     ],
     "zone_script_candidate": "relays/scripts/zone/sanctuaire_des_echos/init.lua"

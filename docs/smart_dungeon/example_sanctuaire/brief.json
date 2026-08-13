@@ -46,5 +46,8 @@
     "majestueux"
   ],
   "spectacle_bias": 0.55,
-  "surprise_budget": 0.08
+  "surprise_budget": 0.08,
+  "boss_species": "absol",
+  "boss_category": "classique",
+  "narrative_prompt": "Absol garde le cœur ancien du sanctuaire et éprouve la détermination de l’équipe."
 }

@@ -1,0 +1,975 @@
+{
+  "schema_version": "1.0.0",
+  "ground_id": "clairiere_aux_trois_lacs",
+  "seed": 20260813,
+  "variant": 3,
+  "concept": "clairiere_forestiere_petits_lacs",
+  "source_ground": "altere_pond",
+  "source_sha256": "665f18eaa290284898797673a243bd79a22aa607952192931673f4ece8846091",
+  "geometry": {
+    "macro": "open_clearing_with_peripheral_mass",
+    "path": "south_to_north_with_secondary_space",
+    "water_regions": [
+      {
+        "index": 1,
+        "cell_count": 60
+      },
+      {
+        "index": 2,
+        "cell_count": 54
+      },
+      {
+        "index": 3,
+        "cell_count": 62
+      }
+    ],
+    "anchors": {
+      "entrance": [
+        32,
+        45
+      ],
+      "exit": [
+        32,
+        2
+      ],
+      "poi": [
+        32,
+        24
+      ]
+    }
+  },
+  "tile_grammar": {
+    "source_rule_count": 261,
+    "resolution": {
+      "exact_cells": 2872,
+      "fallback_cells": 200,
+      "mean_hamming_distance": 0.1351,
+      "fallback_details": [
+        {
+          "target": [
+            5,
+            26
+          ],
+          "functional_class": "open",
+          "target_mask": "17",
+          "source": [
+            44,
+            4
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            5,
+            27
+          ],
+          "functional_class": "open",
+          "target_mask": "11",
+          "source": [
+            0,
+            41
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            5,
+            28
+          ],
+          "functional_class": "wall",
+          "target_mask": "de",
+          "source": [
+            107,
+            59
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            7,
+            29
+          ],
+          "functional_class": "open",
+          "target_mask": "3b",
+          "source": [
+            30,
+            2
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            14,
+            15
+          ],
+          "functional_class": "water",
+          "target_mask": "36",
+          "source": [
+            82,
+            47
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            14,
+            16
+          ],
+          "functional_class": "water",
+          "target_mask": "37",
+          "source": [
+            62,
+            42
+          ],
+          "hamming_distance": 2
+        },
+        {
+          "target": [
+            14,
+            17
+          ],
+          "functional_class": "water",
+          "target_mask": "37",
+          "source": [
+            62,
+            43
+          ],
+          "hamming_distance": 2
+        },
+        {
+          "target": [
+            14,
+            18
+          ],
+          "functional_class": "water",
+          "target_mask": "33",
+          "source": [
+            51,
+            7
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            15,
+            13
+          ],
+          "functional_class": "water",
+          "target_mask": "26",
+          "source": [
+            60,
+            57
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            15,
+            14
+          ],
+          "functional_class": "water",
+          "target_mask": "77",
+          "source": [
+            80,
+            53
+          ],
+          "hamming_distance": 2
+        },
+        {
+          "target": [
+            15,
+            15
+          ],
+          "functional_class": "water",
+          "target_mask": "7f",
+          "source": [
+            61,
+            57
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            15,
+            16
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            15,
+            17
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            15,
+            18
+          ],
+          "functional_class": "water",
+          "target_mask": "bf",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 2
+        },
+        {
+          "target": [
+            15,
+            19
+          ],
+          "functional_class": "water",
+          "target_mask": "b3",
+          "source": [
+            60,
+            58
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            16,
+            13
+          ],
+          "functional_class": "water",
+          "target_mask": "6e",
+          "source": [
+            73,
+            57
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            16,
+            14
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            16,
+            15
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            16,
+            16
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            16,
+            17
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            16,
+            18
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            16,
+            19
+          ],
+          "functional_class": "water",
+          "target_mask": "9f",
+          "source": [
+            74,
+            58
+          ],
+          "hamming_distance": 2
+        },
+        {
+          "target": [
+            16,
+            21
+          ],
+          "functional_class": "open",
+          "target_mask": "fe",
+          "source": [
+            56,
+            3
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            16,
+            34
+          ],
+          "functional_class": "water",
+          "target_mask": "32",
+          "source": [
+            59,
+            57
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            16,
+            37
+          ],
+          "functional_class": "open",
+          "target_mask": "af",
+          "source": [
+            57,
+            57
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            17,
+            13
+          ],
+          "functional_class": "water",
+          "target_mask": "6e",
+          "source": [
+            60,
+            57
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            17,
+            14
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            17,
+            15
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            17,
+            16
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            17,
+            17
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            17,
+            18
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            17,
+            19
+          ],
+          "functional_class": "water",
+          "target_mask": "fb",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 2
+        },
+        {
+          "target": [
+            17,
+            30
+          ],
+          "functional_class": "water",
+          "target_mask": "36",
+          "source": [
+            83,
+            44
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            17,
+            31
+          ],
+          "functional_class": "water",
+          "target_mask": "37",
+          "source": [
+            62,
+            48
+          ],
+          "hamming_distance": 2
+        },
+        {
+          "target": [
+            17,
+            32
+          ],
+          "functional_class": "water",
+          "target_mask": "37",
+          "source": [
+            64,
+            31
+          ],
+          "hamming_distance": 2
+        },
+        {
+          "target": [
+            17,
+            33
+          ],
+          "functional_class": "water",
+          "target_mask": "77",
+          "source": [
+            73,
+            57
+          ],
+          "hamming_distance": 2
+        },
+        {
+          "target": [
+            17,
+            34
+          ],
+          "functional_class": "water",
+          "target_mask": "3f",
+          "source": [
+            73,
+            58
+          ],
+          "hamming_distance": 2
+        },
+        {
+          "target": [
+            17,
+            35
+          ],
+          "functional_class": "water",
+          "target_mask": "b7",
+          "source": [
+            60,
+            58
+          ],
+          "hamming_distance": 2
+        },
+        {
+          "target": [
+            17,
+            36
+          ],
+          "functional_class": "water",
+          "target_mask": "13",
+          "source": [
+            60,
+            58
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            17,
+            39
+          ],
+          "functional_class": "open",
+          "target_mask": "91",
+          "source": [
+            39,
+            95
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            17,
+            40
+          ],
+          "functional_class": "wall",
+          "target_mask": "fe",
+          "source": [
+            44,
+            6
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            18,
+            13
+          ],
+          "functional_class": "water",
+          "target_mask": "6e",
+          "source": [
+            74,
+            57
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            18,
+            14
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            18,
+            15
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            18,
+            16
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            18,
+            17
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            18,
+            18
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            18,
+            19
+          ],
+          "functional_class": "water",
+          "target_mask": "9f",
+          "source": [
+            60,
+            58
+          ],
+          "hamming_distance": 2
+        },
+        {
+          "target": [
+            18,
+            21
+          ],
+          "functional_class": "open",
+          "target_mask": "fe",
+          "source": [
+            34,
+            94
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            18,
+            29
+          ],
+          "functional_class": "water",
+          "target_mask": "76",
+          "source": [
+            73,
+            57
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            18,
+            30
+          ],
+          "functional_class": "water",
+          "target_mask": "7f",
+          "source": [
+            75,
+            57
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            18,
+            31
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            18,
+            32
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            18,
+            33
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            18,
+            34
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            18,
+            35
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            18,
+            36
+          ],
+          "functional_class": "water",
+          "target_mask": "bb",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            18,
+            38
+          ],
+          "functional_class": "open",
+          "target_mask": "eb",
+          "source": [
+            61,
+            85
+          ],
+          "hamming_distance": 1
+        },
+        {
+          "target": [
+            19,
+            14
+          ],
+          "functional_class": "water",
+          "target_mask": "ef",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 2
+        },
+        {
+          "target": [
+            19,
+            15
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            19,
+            16
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            19,
+            17
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            19,
+            18
+          ],
+          "functional_class": "water",
+          "target_mask": "ff",
+          "source": [
+            61,
+            58
+          ],
+          "hamming_distance": 3
+        },
+        {
+          "target": [
+            19,
+            19
+          ],
+          "functional_class": "water",
+          "target_mask": "db",
+          "source": [
+            74,
+            58
+          ],
+          "hamming_distance": 2
+        }
+      ]
+    },
+    "neighbor_mask": "8-neighbor_same-functional-class"
+  },
+  "layers": {
+    "kept": [
+      "Base",
+      "River",
+      "Cliffs",
+      "Shadows",
+      "Objects Under",
+      "Objects",
+      "Objects Over",
+      "Fringe"
+    ],
+    "excluded": [
+      {
+        "name": "Objects Under",
+        "reason": "unsafe_multicell_decoration_not_fragmented"
+      },
+      {
+        "name": "Objects",
+        "reason": "unsafe_multicell_decoration_not_fragmented"
+      },
+      {
+        "name": "Objects Over",
+        "reason": "unsafe_multicell_decoration_not_fragmented"
+      },
+      {
+        "name": "Fringe",
+        "reason": "unsafe_multicell_decoration_not_fragmented"
+      }
+    ]
+  },
+  "asset_policy": "only serialized source cells; native frames and orientation preserved; no arbitrary flip",
+  "validation": {
+    "result": "GROUND_VALIDATION_PASS",
+    "errors": [],
+    "navigation_reachable_cells": 1427,
+    "water_component_count": 3,
+    "referenced_sheet_count": 4,
+    "animation_cell_count": 3550,
+    "topology_exact_ratio": 0.9349,
+    "topology_fallback_ratio": 0.0651,
+    "viewport_policy": "local_follow_camera_no_forced_zoom",
+    "size_cells": [
+      64,
+      48
+    ],
+    "size_pixels": [
+      512,
+      384
+    ]
+  },
+  "score": 1173.848,
+  "decisions": [
+    {
+      "stage": "macro",
+      "why": "clairière ouverte avant sélection des tiles"
+    },
+    {
+      "stage": "water",
+      "why": "trois régions logiques et contours calculés avant rendu"
+    },
+    {
+      "stage": "tile_resolution",
+      "why": "cellule source choisie par classe et masque de voisinage"
+    },
+    {
+      "stage": "viewport",
+      "why": "caméra locale suiveuse; aucun dézoom global"
+    }
+  ],
+  "candidate_comparison": [
+    {
+      "variant": 0,
+      "score": 1165.539,
+      "validation": "GROUND_VALIDATION_PASS"
+    },
+    {
+      "variant": 1,
+      "score": 1167.784,
+      "validation": "GROUND_VALIDATION_PASS"
+    },
+    {
+      "variant": 2,
+      "score": 1167.407,
+      "validation": "GROUND_VALIDATION_PASS"
+    },
+    {
+      "variant": 3,
+      "score": 1173.848,
+      "validation": "GROUND_VALIDATION_PASS"
+    }
+  ]
+}
