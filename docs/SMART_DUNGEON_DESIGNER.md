@@ -155,7 +155,7 @@ de ne pas inventer un boss ou un routage historique.
 - `brief.json` : intention normalisée ;
 - `progression.json` : rythme du donjon ;
 - `plans/floor_NNN.json` : architecture complète ;
-- `previews/floor_NNN.svg` et `contact_sheet.svg` ;
+- `previews/floor_NNN.svg`, `contact_sheet.svg` et `special_rooms.svg` ;
 - `quality_report.json` : scores, violations et variantes ;
 - `locks.json` ;
 - `zone/<nom>.json` : candidat PMDO ;

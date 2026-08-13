@@ -37,6 +37,25 @@ def svg_preview(plan:FloorPlan,path:Path,cell:int=9):
  for poi in plan.points_of_interest:
   x,y=poi['position'];parts.append(f'<polygon points="{(x+.5)*cell},{y*cell} {(x+1)*cell},{(y+1)*cell} {x*cell},{(y+1)*cell}" fill="#ff685f"><title>{html.escape(poi["kind"])}</title></polygon>')
  parts.append(f'<text x="8" y="16" fill="white" font-family="sans-serif" font-size="12">Étage {plan.floor} — {html.escape(plan.archetype)} — score {plan.quality.get("score",0):.1f}</text>');parts.append('</svg>');path.parent.mkdir(parents=True,exist_ok=True);path.write_text('\n'.join(parts),encoding='utf-8')
+def special_rooms_svg(plans:list[FloorPlan],path:Path):
+ selected=[p for p in plans if p.special in ('relay','mini_boss','boss')]
+ panel_w,panel_h,cols=390,350,3;rows=math.ceil(len(selected)/cols);parts=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{panel_w*cols}" height="{panel_h*rows+54}" viewBox="0 0 {panel_w*cols} {panel_h*rows+54}"><rect width="100%" height="100%" fill="#11141a"/>',f'<text x="18" y="28" fill="#f3f0df" font-family="sans-serif" font-weight="bold" font-size="19">Salles spéciales — architecture réellement sélectionnée</text>',f'<text x="18" y="47" fill="#a9b4c4" font-family="sans-serif" font-size="12">Vert = refuge/relais · rouge = combat · jaune = point focal · bleu = entrée · ivoire = escalier</text>']
+ labels={'relay':'Relais / refuge','mini_boss':'Arène de mini-boss','boss':'Arène finale'}
+ for i,p in enumerate(selected):
+  ox=(i%cols)*panel_w;oy=54+(i//cols)*panel_h;focus=p.rooms[0];x0=max(0,focus.x-5);y0=max(0,focus.y-5);x1=min(p.width,focus.x+focus.width+5);y1=min(p.height,focus.y+focus.height+5);scale=min((panel_w-28)/(x1-x0),(panel_h-70)/(y1-y0));accent={'relay':'#62c98a','mini_boss':'#e67a64','boss':'#ff4f4f'}[p.special];parts.append(f'<rect x="{ox+5}" y="{oy+5}" width="{panel_w-10}" height="{panel_h-10}" rx="8" fill="#191d25" stroke="{accent}" stroke-width="2"/>');parts.append(f'<text x="{ox+15}" y="{oy+27}" fill="{accent}" font-family="sans-serif" font-weight="bold" font-size="15">Étage {p.floor} — {labels[p.special]}</text>');parts.append(f'<text x="{ox+15}" y="{oy+44}" fill="#b9c0ca" font-family="sans-serif" font-size="11">{focus.kind}, {focus.width}×{focus.height} · score {p.quality.get("score",0):.1f}</text>')
+  bx=ox+14;by=oy+55
+  for y in range(y0,y1):
+   for x in range(x0,x1):
+    tile=p.get(x,y);color={'wall':'#252a34','room':'#7d826f','corridor':'#b2a27c','secret':'#575d70'}.get(tile,'#555');parts.append(f'<rect x="{bx+(x-x0)*scale:.2f}" y="{by+(y-y0)*scale:.2f}" width="{scale+.15:.2f}" height="{scale+.15:.2f}" fill="{color}"/>')
+  for d in p.decorations:
+   if x0<=d['x']<x1 and y0<=d['y']<y1:
+    color={'common':'#6ca45d','secondary':'#72acb8','rare':'#c38bcc','focal':'#f4ce63'}.get(d['hierarchy'],'#fff');parts.append(f'<circle cx="{bx+(d["x"]-x0+.5)*scale:.2f}" cy="{by+(d["y"]-y0+.5)*scale:.2f}" r="{max(1.5,scale*.22):.2f}" fill="{color}"><title>{html.escape(d["asset_id"])}</title></circle>')
+  for loc,color,label in [(p.entrance,'#45bde8','Entrée'),(p.exit,'#fff0a0','Escalier')]:
+   if x0<=loc[0]<x1 and y0<=loc[1]<y1:parts.append(f'<rect x="{bx+(loc[0]-x0+.15)*scale:.2f}" y="{by+(loc[1]-y0+.15)*scale:.2f}" width="{scale*.7:.2f}" height="{scale*.7:.2f}" fill="{color}"><title>{label}</title></rect>')
+  for poi in p.points_of_interest:
+   x,y=poi['position']
+   if x0<=x<x1 and y0<=y<y1:parts.append(f'<circle cx="{bx+(x-x0+.5)*scale:.2f}" cy="{by+(y-y0+.5)*scale:.2f}" r="{max(4,scale*.42):.2f}" fill="none" stroke="{accent}" stroke-width="3"><title>{html.escape(poi["kind"])}</title></circle>')
+ parts.append('</svg>');path.parent.mkdir(parents=True,exist_ok=True);path.write_text('\n'.join(parts),encoding='utf-8')
 def contact_svg(plans:list[FloorPlan],path:Path):
  thumbw,thumbh=240,190;cols=4;rows=math.ceil(len(plans)/cols);parts=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{cols*thumbw}" height="{rows*thumbh}" viewBox="0 0 {cols*thumbw} {rows*thumbh}"><rect width="100%" height="100%" fill="#11141a"/>']
  for i,p in enumerate(plans):

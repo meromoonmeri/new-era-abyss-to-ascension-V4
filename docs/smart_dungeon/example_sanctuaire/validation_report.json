@@ -1,8 +1,0 @@
-{
-  "result": "SMART_DUNGEON_VALIDATION_PASS",
-  "floor_count": 12,
-  "mean_score": 87.728,
-  "minimum_score": 81.116,
-  "stairs_step_count": 24,
-  "errors": []
-}
