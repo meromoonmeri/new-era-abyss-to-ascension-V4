@@ -7,15 +7,16 @@ racine du dépôt indépendant `meromoonmeri/BIBLIOTHEQUE`.
 
 ## Phase active
 
-**Relict qualifié ; pilote source → IR commun → Ground PMDO validé ; inventaire
-Nova suivant.**
+**Relict qualifié ; pilote source → IR commun → Ground PMDO validé ; 34 rendus
+PMDO finaux disponibles ; inventaire Nova suivant.**
 
-Les 28 Zones Relict sont `SOURCE_DOCUMENTED`. La conversion est désormais
-autorisée uniquement dans `games/<game>/conversion/`, hors destinations runtime
-New Era. Le pilote Map 012 atteint `PMDO_VALIDATED` après validation headless
-PMDO 0.8.12, tout en restant `ADAPTATION_REQUIRED` pour les tags terrain et
-l'intégration narrative. Chaque Map conserve toutes ses couches, collisions et
-placements d'entité/page ; les identités de casting restent expurgées.
+Les 28 Zones Relict sont `SOURCE_DOCUMENTED`. La conversion est autorisée
+uniquement dans `games/<game>/conversion/`, hors destinations runtime New Era.
+Le pilote Map 012 atteint `PMDO_VALIDATED` après validation headless PMDO 0.8.12.
+Les 28 Maps canoniques et leurs six variantes divergentes possèdent maintenant
+un PNG final assemblant couches, panoramas, décors-tuiles et VFX représentatifs.
+Les tags terrain et l'intégration narrative restent `ADAPTATION_REQUIRED` ; les
+identités de casting demeurent expurgées.
 
 ## Arborescence
 

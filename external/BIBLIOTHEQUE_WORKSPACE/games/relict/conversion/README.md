@@ -38,7 +38,9 @@ panorama, brouillard ni commande visuelle. Ses livrables sont sous :
 - `pmdo_pilot/map_012/Data/Ground/` ;
 - `pmdo_pilot/map_012/Content/Tile/` ;
 - `pmdo_pilot/map_012/reports/` ;
-- `pmdo_pilot/map_012/runtime/`.
+- `pmdo_pilot/map_012/runtime/` ;
+- `pmdo_renders/maps/` pour les 34 PNG finaux ;
+- `pmdo_renders/contact_sheet.png` pour la planche globale annotée.
 
 Le pilote ne couvre pas encore les collisions directionnelles partielles, les
 placements d'acteurs, les timelines de cinématique ni les VFX scriptés. Ces
