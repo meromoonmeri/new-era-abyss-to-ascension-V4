@@ -1,0 +1,95 @@
+{"event":"bootstrap_new_game","mode":"opening_scene","seed":424242}
+{"event":"scene_trace","kind":"staging","scene":"d01p01_g1","sequence":0,"pointer":"","speaker":"","text":"","detail":"d01p01_g1","music":""}
+{"event":"scene_trace","kind":"actor","scene":"d01p01_g1","sequence":0,"pointer":"","speaker":"PLAYER","text":"turtwig","detail":"200,196,Down: 0","music":""}
+{"event":"scene_trace","kind":"actor","scene":"d01p01_g1","sequence":0,"pointer":"","speaker":"PARTNER","text":"piplup","detail":"232,196,Left: 2","music":""}
+{"event":"scene_trace","kind":"actor","scene":"d01p01_g1","sequence":0,"pointer":"","speaker":"BUTTERFREE","text":"butterfree","detail":"72,188,Right: 6","music":""}
+{"event":"scene_trace","kind":"scene_start","scene":"d01p01_g1","sequence":0,"pointer":"","speaker":"","text":"","detail":"d01p01_g1","music":""}
+{"event":"scene_trace","kind":"choreography","scene":"d01p01_g1","sequence":0,"pointer":"","speaker":"","text":"","detail":"hero_sleep","music":""}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":1,"pointer":"0x084CBACC","speaker":"narrator","text":"Où suis-je?","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":1,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":2,"pointer":"0x084CBA64","speaker":"narrator","text":"Est-ce que je rêve?","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":2,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":3,"pointer":"0x084CB9B8","speaker":"narrator","text":"Il y a une légère brise... C'est agréable.","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":3,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":4,"pointer":"0x084CB90C","speaker":"narrator","text":"J'entends... une voix?","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":4,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":5,"pointer":"0x084CB740","speaker":"narrator","text":"Qui est-ce?","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":5,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":6,"pointer":"0x084CB724","speaker":"unknown","text":"...","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":6,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":7,"pointer":"0x084CB6FC","speaker":"unknown","text":"... ...","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":7,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":8,"pointer":"0x084CB6B8","speaker":"unknown","text":"... ... ... ...","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":8,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":9,"pointer":"0x084CB584","speaker":"partner","text":"Hé, ho!","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":9,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":10,"pointer":"0x084CB490","speaker":"partner","text":"Bon, tu as assez dormi...[pause=30]\nAllez, réveille-toi!","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":10,"menu_count":1}
+{"event":"scene_trace","kind":"choreography","scene":"d01p01_g1","sequence":0,"pointer":"","speaker":"","text":"","detail":"hero_wake_music_fadein","music":"PMD Red - Heartwarming.ogg"}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":11,"pointer":"0x084CF5B4","speaker":"partner","text":"Tu te réveilles enfin!","detail":"","music":"PMD Red - Heartwarming.ogg"}
+{"event":"dialogue_menu_closed","number":11,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":12,"pointer":"0x084CF554","speaker":"hero_thought","text":"(Où suis-je?)","detail":"","music":"PMD Red - Heartwarming.ogg"}
+{"event":"dialogue_menu_closed","number":12,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":13,"pointer":"0x084CF170","speaker":"partner","text":"Tu étais à terre, sans connaissance.\nJe suis content que tu te réveilles!","detail":"","music":"PMD Red - Heartwarming.ogg"}
+{"event":"dialogue_menu_closed","number":13,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":14,"pointer":"0x084CEF10","speaker":"partner","text":"Je suis [color=#FFFF00]LONG_NAME!![color].\nContent de te rencontrer!","detail":"","music":"PMD Red - Heartwarming.ogg"}
+{"event":"dialogue_menu_closed","number":14,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":15,"pointer":"0x084CEB24","speaker":"partner","text":"Et tu es?[pause=30]\nC'est la première fois que je te vois.","detail":"","music":"PMD Red - Heartwarming.ogg"}
+{"event":"dialogue_menu_closed","number":15,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":16,"pointer":"0x084CE694","speaker":"partner","text":"Quoi?[pause=30]\nTu es un humain?","detail":"","music":"PMD Red - Heartwarming.ogg"}
+{"event":"dialogue_menu_closed","number":16,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":17,"pointer":"0x084CE59C","speaker":"partner","text":"Mais tu ressembles à un\nTurtwig à tout point de vue.","detail":"","music":"PMD Red - Heartwarming.ogg"}
+{"event":"dialogue_menu_closed","number":17,"menu_count":1}
+{"event":"scene_trace","kind":"choreography","scene":"d01p01_g1","sequence":0,"pointer":"","speaker":"","text":"","detail":"hero_look_around","music":"PMD Red - Heartwarming.ogg"}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":18,"pointer":"0x084CE52C","speaker":"hero_thought","text":"(C'est... c'est vrai???)","detail":"","music":"PMD Red - Heartwarming.ogg"}
+{"event":"dialogue_menu_closed","number":18,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":19,"pointer":"0x084CE4A8","speaker":"hero_thought","text":"(Je suis un Turtwig?)","detail":"","music":"PMD Red - Heartwarming.ogg"}
+{"event":"dialogue_menu_closed","number":19,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":20,"pointer":"0x084CE3B8","speaker":"hero_thought","text":"(Mais pourquoi?\nJe ne me rappelle de rien...)","detail":"","music":"PMD Red - Heartwarming.ogg"}
+{"event":"dialogue_menu_closed","number":20,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":21,"pointer":"0x084CE190","speaker":"partner","text":"Hum...[pause=30]\nTu es un peu étrange...","detail":"","music":"PMD Red - Heartwarming.ogg"}
+{"event":"dialogue_menu_closed","number":21,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":22,"pointer":"0x084CE0E4","speaker":"partner","text":"Bon.[pause=30]\nTu veux bien me dire ton nom?","detail":"","music":"PMD Red - Heartwarming.ogg"}
+{"event":"dialogue_menu_closed","number":22,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":23,"pointer":"0x084CE018","speaker":"hero_thought","text":"(Mon nom?[pause=30]\nEuh, mon nom est...)","detail":"","music":"PMD Red - Heartwarming.ogg"}
+{"event":"dialogue_menu_closed","number":23,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":24,"pointer":"0x084CDE20","speaker":"partner","text":"Oh.\n[color=#009CFF]BIG_AF_NAME[color] est ton nom?\n[color=#009CFF]BIG_AF_NAME[color]?[pause=30] Eh bien...","detail":"","music":"PMD Red - Heartwarming.ogg"}
+{"event":"dialogue_menu_closed","number":24,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":25,"pointer":"0x084CDC84","speaker":"partner","text":"C'est un nom marrant!","detail":"","music":"PMD Red - Heartwarming.ogg"}
+{"event":"dialogue_menu_closed","number":25,"menu_count":1}
+{"event":"scene_trace","kind":"choreography","scene":"d01p01_g1","sequence":0,"pointer":"","speaker":"","text":"","detail":"butterfree_enters","music":""}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":26,"pointer":"0x084CDBD8","speaker":"butterfree","text":"S'il vous plaît! A l'aide!","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":26,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":27,"pointer":"0x084CDA4C","speaker":"partner","text":"Hein? J'ai entendu crier par\nlà...","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":27,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":28,"pointer":"0x084CD998","speaker":"partner","text":"Qu'y a-t-il?","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":28,"menu_count":1}
+{"event":"scene_trace","kind":"choreography","scene":"d01p01_g1","sequence":0,"pointer":"","speaker":"","text":"","detail":"trouble_music","music":"PMD Red - There's Trouble.ogg"}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":29,"pointer":"0x084CD818","speaker":"butterfree","text":"C'est horrible!\nMon Chenipan est tombé dans une\ngrotte! Mon pauvre bébé!","detail":"","music":"PMD Red - There's Trouble.ogg"}
+{"event":"dialogue_menu_closed","number":29,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":30,"pointer":"0x084CD7EC","speaker":"partner","text":"Quoi???","detail":"","music":"PMD Red - There's Trouble.ogg"}
+{"event":"dialogue_menu_closed","number":30,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":31,"pointer":"0x084CD680","speaker":"butterfree","text":"Une énorme fissure s'est\nouverte dans le sol et mon Chenipan\nest tombé dedans!","detail":"","music":"PMD Red - There's Trouble.ogg"}
+{"event":"dialogue_menu_closed","number":31,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":32,"pointer":"0x084CD58C","speaker":"butterfree","text":"Il est trop jeune pour en\nsortir tout seul!","detail":"","music":"PMD Red - There's Trouble.ogg"}
+{"event":"dialogue_menu_closed","number":32,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":33,"pointer":"0x084CD424","speaker":"butterfree","text":"Et lorsque j'ai essayé de\nl'aider, des Pokémon m'ont attaquée!","detail":"","music":"PMD Red - There's Trouble.ogg"}
+{"event":"dialogue_menu_closed","number":33,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":34,"pointer":"0x084CD318","speaker":"partner","text":"Hein? Vous avez été\nattaquée?[pause=30]\nPar d'autres Pokémon?","detail":"","music":"PMD Red - There's Trouble.ogg"}
+{"event":"dialogue_menu_closed","number":34,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":35,"pointer":"0x084CD15C","speaker":"butterfree","text":"Peut-être qu'ils sont en\ncolère à cause de la fissure... En tout cas,\nils sont fous furieux!","detail":"","music":"PMD Red - There's Trouble.ogg"}
+{"event":"dialogue_menu_closed","number":35,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":36,"pointer":"0x084CCF88","speaker":"butterfree","text":"Je ne suis pas assez forte\npour affronter ces Pokémon sauvages...[pause=30]\nQue va-t-il advenir de mon bébé?","detail":"","music":"PMD Red - There's Trouble.ogg"}
+{"event":"dialogue_menu_closed","number":36,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":37,"pointer":"0x084CCE94","speaker":"butterfree","text":"Oh! Que dois-je faire???\nJe ne sais plus où j'en suis...","detail":"","music":"PMD Red - There's Trouble.ogg"}
+{"event":"dialogue_menu_closed","number":37,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g1","sequence":38,"pointer":"0x084CCC60","speaker":"partner","text":"Ça a l'air grave!\nNous devons les aider!","detail":"","music":"PMD Red - There's Trouble.ogg"}
+{"event":"dialogue_menu_closed","number":38,"menu_count":1}
+{"event":"scene_trace","kind":"choreography","scene":"d01p01_g1","sequence":0,"pointer":"","speaker":"","text":"","detail":"party_faces_dungeon","music":"PMD Red - There's Trouble.ogg"}
+{"event":"scene_trace","kind":"scene_complete","scene":"d01p01_g1","sequence":0,"pointer":"","speaker":"","text":"","detail":"d01p01_g1","music":"PMD Red - There's Trouble.ogg"}
+{"event":"scene_destination","mode":"opening_scene","zone":"tiny_woods","floor":0}
+{"event":"scene_verdict","mode":"opening_scene","verdict":"PASS","dialogues":38,"menus_closed":38,"expected_dialogues":38,"choreography":6,"attempts":1,"defeats":0,"rescue_complete":false}
+{"event":"load_phase_unload_requested","before":"Ready","before_raw":"Ready: 2","requested":"Unload","readback":"Unload","readback_raw":"Unload: 3"}
+{"event":"native_deinit","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"native_graphics_unload","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"end","terminal":true,"graceful":true,"load_phase":"Unload","load_phase_raw":"Unload: 3"}

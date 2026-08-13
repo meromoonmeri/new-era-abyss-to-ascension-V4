@@ -1,0 +1,816 @@
+{
+  "schema": "new-era.pmdred-eu-tiny-woods-scene-plan.v1",
+  "authority": {
+    "region": "EU",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "scene_graph": "docs/pmdred_eu/playable/tiny_woods/eu_scene_graph.json",
+    "scene_graph_sha256": "6cc155b0302602e7edb223243a43e65aa3b0b3ff296df7742e79686db07ee1d1"
+  },
+  "variant_policy": {
+    "selected": "D1/default neutral Red branch",
+    "reason": "PMDO has no authenticated mapping for Red PARTNER_TALK_KIND; all alternatives remain in eu_scene_graph.json",
+    "invented_text_count": 0
+  },
+  "scenes": {
+    "d01p01_g1": {
+      "music": [
+        "stop",
+        "PMD Red - Heartwarming.ogg",
+        "fadeout",
+        "PMD Red - There's Trouble.ogg"
+      ],
+      "actors": {
+        "hero": [
+          200,
+          196
+        ],
+        "partner": [
+          232,
+          196
+        ],
+        "butterfree_entry": [
+          72,
+          188
+        ]
+      },
+      "choreography": [
+        "hero_sleep_wake",
+        "hero_look_around",
+        "butterfree_enters",
+        "party_turns_to_butterfree",
+        "party_exits_west"
+      ],
+      "destination": "tiny_woods:0",
+      "dialogue_count": 38,
+      "dialogue": [
+        {
+          "sequence": 1,
+          "speaker": "narrator",
+          "pointer": "0x084CBACC",
+          "owner_script": "s_gs178_g1_s0_station_sref_script",
+          "raw_hex": "232b4ff920737569732d6a653f",
+          "raw_text": "#+Où suis-je?",
+          "pmdo_text": "Où suis-je?"
+        },
+        {
+          "sequence": 2,
+          "speaker": "narrator",
+          "pointer": "0x084CBA64",
+          "owner_script": "s_gs178_g1_s0_station_sref_script",
+          "raw_hex": "232b4573742d636520717565206a652072ea76653f",
+          "raw_text": "#+Est-ce que je rêve?",
+          "pmdo_text": "Est-ce que je rêve?"
+        },
+        {
+          "sequence": 3,
+          "speaker": "narrator",
+          "pointer": "0x084CB9B8",
+          "owner_script": "s_gs178_g1_s0_station_sref_script",
+          "raw_hex": "232b496c2079206120756e65206ce967e872652062726973652e2e2e20437e323765737420616772e961626c652e",
+          "raw_text": "#+Il y a une légère brise... C~27est agréable.",
+          "pmdo_text": "Il y a une légère brise... C'est agréable."
+        },
+        {
+          "sequence": 4,
+          "speaker": "narrator",
+          "pointer": "0x084CB90C",
+          "owner_script": "s_gs178_g1_s0_station_sref_script",
+          "raw_hex": "232b4a7e3237656e74656e64732e2e2e20756e6520766f69783f",
+          "raw_text": "#+J~27entends... une voix?",
+          "pmdo_text": "J'entends... une voix?"
+        },
+        {
+          "sequence": 5,
+          "speaker": "narrator",
+          "pointer": "0x084CB740",
+          "owner_script": "s_gs178_g1_s0_station_sref_script",
+          "raw_hex": "232b517569206573742d63653f",
+          "raw_text": "#+Qui est-ce?",
+          "pmdo_text": "Qui est-ce?"
+        },
+        {
+          "sequence": 6,
+          "speaker": "unknown",
+          "pointer": "0x084CB724",
+          "owner_script": "s_gs178_g1_s0_station_sref_script",
+          "raw_hex": "202e2e2e",
+          "raw_text": " ...",
+          "pmdo_text": "..."
+        },
+        {
+          "sequence": 7,
+          "speaker": "unknown",
+          "pointer": "0x084CB6FC",
+          "owner_script": "s_gs178_g1_s0_station_sref_script",
+          "raw_hex": "202e2e2e202e2e2e",
+          "raw_text": " ... ...",
+          "pmdo_text": "... ..."
+        },
+        {
+          "sequence": 8,
+          "speaker": "unknown",
+          "pointer": "0x084CB6B8",
+          "owner_script": "s_gs178_g1_s0_station_sref_script",
+          "raw_hex": "202e2e2e202e2e2e202e2e2e202e2e2e",
+          "raw_text": " ... ... ... ...",
+          "pmdo_text": "... ... ... ..."
+        },
+        {
+          "sequence": 9,
+          "speaker": "partner",
+          "pointer": "0x084CB584",
+          "owner_script": "s_gs178_g1_s0_station_sref_script",
+          "raw_hex": "2048e97e326320686f21",
+          "raw_text": " Hé~2c ho!",
+          "pmdo_text": "Hé, ho!"
+        },
+        {
+          "sequence": 10,
+          "speaker": "partner",
+          "pointer": "0x084CB490",
+          "owner_script": "s_gs178_g1_s0_station_sref_script",
+          "raw_hex": "20426f6e7e326320747520617320617373657a20646f726d692e2e2e23570a416c6c657a7e32632072e97665696c6c652d746f6921",
+          "raw_text": " Bon~2c tu as assez dormi...#W\nAllez~2c réveille-toi!",
+          "pmdo_text": "Bon, tu as assez dormi...[pause=30]\nAllez, réveille-toi!"
+        },
+        {
+          "sequence": 11,
+          "speaker": "partner",
+          "pointer": "0x084CF5B4",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "2054752074652072e97665696c6c657320656e66696e21",
+          "raw_text": " Tu te réveilles enfin!",
+          "pmdo_text": "Tu te réveilles enfin!"
+        },
+        {
+          "sequence": 12,
+          "speaker": "hero_thought",
+          "pointer": "0x084CF554",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "284ff920737569732d6a653f29",
+          "raw_text": "(Où suis-je?)",
+          "pmdo_text": "(Où suis-je?)"
+        },
+        {
+          "sequence": 13,
+          "speaker": "partner",
+          "pointer": "0x084CF170",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "20547520e97461697320e02074657272657e32632073616e7320636f6e6e61697373616e63652e0a4a65207375697320636f6e74656e74207175652074752074652072e97665696c6c657321",
+          "raw_text": " Tu étais à terre~2c sans connaissance.\nJe suis content que tu te réveilles!",
+          "pmdo_text": "Tu étais à terre, sans connaissance.\nJe suis content que tu te réveilles!"
+        },
+        {
+          "sequence": 14,
+          "speaker": "partner",
+          "pointer": "0x084CEF10",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "204a65207375697320246e312e0a436f6e74656e742064652074652072656e636f6e7472657221",
+          "raw_text": " Je suis $n1.\nContent de te rencontrer!",
+          "pmdo_text": "Je suis {partner}.\nContent de te rencontrer!"
+        },
+        {
+          "sequence": 15,
+          "speaker": "partner",
+          "pointer": "0x084CEB24",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "2045742074752065733f23570a437e3237657374206c61207072656d69e8726520666f697320717565206a6520746520766f69732e",
+          "raw_text": " Et tu es?#W\nC~27est la première fois que je te vois.",
+          "pmdo_text": "Et tu es?[pause=30]\nC'est la première fois que je te vois."
+        },
+        {
+          "sequence": 16,
+          "speaker": "partner",
+          "pointer": "0x084CE694",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "2051756f693f23570a547520657320756e2068756d61696e3f",
+          "raw_text": " Quoi?#W\nTu es un humain?",
+          "pmdo_text": "Quoi?[pause=30]\nTu es un humain?"
+        },
+        {
+          "sequence": 17,
+          "speaker": "partner",
+          "pointer": "0x084CE59C",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "204d6169732074752072657373656d626c657320e020756e0a246d3020e020746f757420706f696e74206465207675652e",
+          "raw_text": " Mais tu ressembles à un\n$m0 à tout point de vue.",
+          "pmdo_text": "Mais tu ressembles à un\n{hero_species} à tout point de vue."
+        },
+        {
+          "sequence": 18,
+          "speaker": "hero_thought",
+          "pointer": "0x084CE52C",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "28437e32376573742e2e2e20637e323765737420767261693f3f3f234334235229",
+          "raw_text": "(C~27est... c~27est vrai???#C4#R)",
+          "pmdo_text": "(C'est... c'est vrai???)"
+        },
+        {
+          "sequence": 19,
+          "speaker": "hero_thought",
+          "pointer": "0x084CE4A8",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "284a65207375697320756e20246d303f29",
+          "raw_text": "(Je suis un $m0?)",
+          "pmdo_text": "(Je suis un {hero_species}?)"
+        },
+        {
+          "sequence": 20,
+          "speaker": "hero_thought",
+          "pointer": "0x084CE3B8",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "284d61697320706f757271756f693f0a4a65206e65206d652072617070656c6c65206465207269656e2e2e2e29",
+          "raw_text": "(Mais pourquoi?\nJe ne me rappelle de rien...)",
+          "pmdo_text": "(Mais pourquoi?\nJe ne me rappelle de rien...)"
+        },
+        {
+          "sequence": 21,
+          "speaker": "partner",
+          "pointer": "0x084CE190",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "2048756d2e2e2e23570a547520657320756e2070657520e97472616e67652e2e2e",
+          "raw_text": " Hum...#W\nTu es un peu étrange...",
+          "pmdo_text": "Hum...[pause=30]\nTu es un peu étrange..."
+        },
+        {
+          "sequence": 22,
+          "speaker": "partner",
+          "pointer": "0x084CE0E4",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "20426f6e2e23570a54752076657578206269656e206d65206469726520746f6e206e6f6d3f",
+          "raw_text": " Bon.#W\nTu veux bien me dire ton nom?",
+          "pmdo_text": "Bon.[pause=30]\nTu veux bien me dire ton nom?"
+        },
+        {
+          "sequence": 23,
+          "speaker": "hero_thought",
+          "pointer": "0x084CE018",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "284d6f6e206e6f6d3f23570a4575687e3263206d6f6e206e6f6d206573742e2e2e29",
+          "raw_text": "(Mon nom?#W\nEuh~2c mon nom est...)",
+          "pmdo_text": "(Mon nom?[pause=30]\nEuh, mon nom est...)"
+        },
+        {
+          "sequence": 24,
+          "speaker": "partner",
+          "pointer": "0x084CDE20",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "204f682e0a246e302065737420746f6e206e6f6d3f0a246e303f2357204568206269656e2e2e2e",
+          "raw_text": " Oh.\n$n0 est ton nom?\n$n0?#W Eh bien...",
+          "pmdo_text": "Oh.\n{hero} est ton nom?\n{hero}?[pause=30] Eh bien..."
+        },
+        {
+          "sequence": 25,
+          "speaker": "partner",
+          "pointer": "0x084CDC84",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "20437e323765737420756e206e6f6d206d617272616e7421",
+          "raw_text": " C~27est un nom marrant!",
+          "pmdo_text": "C'est un nom marrant!"
+        },
+        {
+          "sequence": 26,
+          "speaker": "butterfree",
+          "pointer": "0x084CDBD8",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "20537e3237696c20766f757320706c61ee74212041206c7e32376169646521",
+          "raw_text": " S~27il vous plaît! A l~27aide!",
+          "pmdo_text": "S'il vous plaît! A l'aide!"
+        },
+        {
+          "sequence": 27,
+          "speaker": "partner",
+          "pointer": "0x084CDA4C",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "204865696e3f204a7e3237616920656e74656e6475206372696572207061720a6ce02e2e2e",
+          "raw_text": " Hein? J~27ai entendu crier par\nlà...",
+          "pmdo_text": "Hein? J'ai entendu crier par\nlà..."
+        },
+        {
+          "sequence": 28,
+          "speaker": "partner",
+          "pointer": "0x084CD998",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "2051757e32377920612d742d696c3f",
+          "raw_text": " Qu~27y a-t-il?",
+          "pmdo_text": "Qu'y a-t-il?"
+        },
+        {
+          "sequence": 29,
+          "speaker": "butterfree",
+          "pointer": "0x084CD818",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "20437e323765737420686f727269626c65210a4d6f6e20246e332065737420746f6d62e92064616e7320756e650a67726f74746521204d6f6e207061757672652062e962e921",
+          "raw_text": " C~27est horrible!\nMon $n3 est tombé dans une\ngrotte! Mon pauvre bébé!",
+          "pmdo_text": "C'est horrible!\nMon Chenipan est tombé dans une\ngrotte! Mon pauvre bébé!"
+        },
+        {
+          "sequence": 30,
+          "speaker": "partner",
+          "pointer": "0x084CD7EC",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "2051756f693f3f3f",
+          "raw_text": " Quoi???",
+          "pmdo_text": "Quoi???"
+        },
+        {
+          "sequence": 31,
+          "speaker": "butterfree",
+          "pointer": "0x084CD680",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "20556e6520e96e6f726d65206669737375726520737e32376573740a6f7576657274652064616e73206c6520736f6c206574206d6f6e20246e330a65737420746f6d62e920646564616e7321",
+          "raw_text": " Une énorme fissure s~27est\nouverte dans le sol et mon $n3\nest tombé dedans!",
+          "pmdo_text": "Une énorme fissure s'est\nouverte dans le sol et mon Chenipan\nest tombé dedans!"
+        },
+        {
+          "sequence": 32,
+          "speaker": "butterfree",
+          "pointer": "0x084CD58C",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "20496c206573742074726f70206a65756e6520706f757220656e0a736f7274697220746f7574207365756c21",
+          "raw_text": " Il est trop jeune pour en\nsortir tout seul!",
+          "pmdo_text": "Il est trop jeune pour en\nsortir tout seul!"
+        },
+        {
+          "sequence": 33,
+          "speaker": "butterfree",
+          "pointer": "0x084CD424",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "204574206c6f7273717565206a7e32376169206573736179e92064650a6c7e323761696465727e32632064657320506f6be96d6f6e206d7e32376f6e7420617474617175e96521",
+          "raw_text": " Et lorsque j~27ai essayé de\nl~27aider~2c des Pokémon m~27ont attaquée!",
+          "pmdo_text": "Et lorsque j'ai essayé de\nl'aider, des Pokémon m'ont attaquée!"
+        },
+        {
+          "sequence": 34,
+          "speaker": "partner",
+          "pointer": "0x084CD318",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "204865696e3f20566f7573206176657a20e974e90a617474617175e9653f23570a50617220647e323761757472657320506f6be96d6f6e3f",
+          "raw_text": " Hein? Vous avez été\nattaquée?#W\nPar d~27autres Pokémon?",
+          "pmdo_text": "Hein? Vous avez été\nattaquée?[pause=30]\nPar d'autres Pokémon?"
+        },
+        {
+          "sequence": 35,
+          "speaker": "butterfree",
+          "pointer": "0x084CD15C",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "20506575742dea7472652071757e3237696c7320736f6e7420656e0a636f6ce8726520e0206361757365206465206c6120666973737572652e2e2e20456e20746f7574206361737e32630a696c7320736f6e7420666f7573206675726965757821",
+          "raw_text": " Peut-être qu~27ils sont en\ncolère à cause de la fissure... En tout cas~2c\nils sont fous furieux!",
+          "pmdo_text": "Peut-être qu'ils sont en\ncolère à cause de la fissure... En tout cas,\nils sont fous furieux!"
+        },
+        {
+          "sequence": 36,
+          "speaker": "butterfree",
+          "pointer": "0x084CCF88",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "204a65206e6520737569732070617320617373657a20666f7274650a706f757220616666726f6e7465722063657320506f6be96d6f6e2073617576616765732e2e2e23570a5175652076612d742d696c20616476656e6972206465206d6f6e2062e962e93f",
+          "raw_text": " Je ne suis pas assez forte\npour affronter ces Pokémon sauvages...#W\nQue va-t-il advenir de mon bébé?",
+          "pmdo_text": "Je ne suis pas assez forte\npour affronter ces Pokémon sauvages...[pause=30]\nQue va-t-il advenir de mon bébé?"
+        },
+        {
+          "sequence": 37,
+          "speaker": "butterfree",
+          "pointer": "0x084CCE94",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "204f68212051756520646f69732d6a652066616972653f3f3f0a4a65206e65207361697320706c7573206ff9206a7e3237656e20737569732e2e2e",
+          "raw_text": " Oh! Que dois-je faire???\nJe ne sais plus où j~27en suis...",
+          "pmdo_text": "Oh! Que dois-je faire???\nJe ne sais plus où j'en suis..."
+        },
+        {
+          "sequence": 38,
+          "speaker": "partner",
+          "pointer": "0x084CCC60",
+          "owner_script": "s_gs178_g1_s0_lives0_dlg0",
+          "raw_hex": "20c7612061206c7e3237616972206772617665210a4e6f7573206465766f6e73206c657320616964657221",
+          "raw_text": " Ça a l~27air grave!\nNous devons les aider!",
+          "pmdo_text": "Ça a l'air grave!\nNous devons les aider!"
+        }
+      ]
+    },
+    "d01p01_g2": {
+      "music": [
+        "stop"
+      ],
+      "actors": {
+        "hero": [
+          200,
+          196
+        ],
+        "partner": [
+          232,
+          196
+        ],
+        "butterfree": [
+          216,
+          172
+        ]
+      },
+      "choreography": [
+        "hero_partner_sleep_wake",
+        "look_around",
+        "turn_to_butterfree",
+        "party_exits_west"
+      ],
+      "destination": "tiny_woods:0",
+      "dialogue_count": 11,
+      "dialogue": [
+        {
+          "sequence": 39,
+          "speaker": "hero",
+          "pointer": "0x084D0060",
+          "owner_script": "s_gs178_g2_s0_station_sref_script",
+          "raw_hex": "20426f6e6a6f75723f23570a426f6e6a6f757221",
+          "raw_text": " Bonjour?#W\nBonjour!",
+          "pmdo_text": "Bonjour?[pause=30]\nBonjour!"
+        },
+        {
+          "sequence": 40,
+          "speaker": "butterfree",
+          "pointer": "0x084D1624",
+          "owner_script": "s_gs178_g2_s0_lives0_dlg0",
+          "raw_hex": "20c76120616c6f7273210a4a65207375697320636f6e74656e746520646520766f757320766f697221",
+          "raw_text": " Ça alors!\nJe suis contente de vous voir!",
+          "pmdo_text": "Ça alors!\nJe suis contente de vous voir!"
+        },
+        {
+          "sequence": 41,
+          "speaker": "partner",
+          "pointer": "0x084D15D4",
+          "owner_script": "s_gs178_g2_s0_lives0_dlg0",
+          "raw_hex": "204ff920736f6d6d65732d6e6f75733f",
+          "raw_text": " Où sommes-nous?",
+          "pmdo_text": "Où sommes-nous?"
+        },
+        {
+          "sequence": 42,
+          "speaker": "butterfree",
+          "pointer": "0x084D158C",
+          "owner_script": "s_gs178_g2_s0_lives0_dlg0",
+          "raw_hex": "2044616e73206c6120666f72ea742e",
+          "raw_text": " Dans la forêt.",
+          "pmdo_text": "Dans la forêt."
+        },
+        {
+          "sequence": 43,
+          "speaker": "butterfree",
+          "pointer": "0x084D1484",
+          "owner_script": "s_gs178_g2_s0_lives0_dlg0",
+          "raw_hex": "20566f7573206176657a2074656e74e9206465207365636f757269720a6d6f6e20246e337e3263206d6169732e2e2e",
+          "raw_text": " Vous avez tenté de secourir\nmon $n3~2c mais...",
+          "pmdo_text": "Vous avez tenté de secourir\nmon Chenipan, mais..."
+        },
+        {
+          "sequence": 44,
+          "speaker": "partner",
+          "pointer": "0x084D11F4",
+          "owner_script": "s_gs178_g2_s0_lives0_dlg0",
+          "raw_hex": "204e6f75732061766f6e732061747465727269206963697e3263206e6f75730a6e65207361766f6e732070617320636f6d6d656e742e2e2e",
+          "raw_text": " Nous avons atterri ici~2c nous\nne savons pas comment...",
+          "pmdo_text": "Nous avons atterri ici, nous\nne savons pas comment..."
+        },
+        {
+          "sequence": 45,
+          "speaker": "partner",
+          "pointer": "0x084D0DD4",
+          "owner_script": "s_gs178_g2_s0_lives0_dlg0",
+          "raw_hex": "204a652063726f697320717565207369206f6e20746f6d62650a4b2e4f2e20656e20636f75727320646520726f7574657e3263206f6e2072657669656e7420617520706f696e740a64652064e9706172742e2e2e",
+          "raw_text": " Je crois que si on tombe\nK.O. en cours de route~2c on revient au point\nde départ...",
+          "pmdo_text": "Je crois que si on tombe\nK.O. en cours de route, on revient au point\nde départ..."
+        },
+        {
+          "sequence": 46,
+          "speaker": "partner",
+          "pointer": "0x084D0D04",
+          "owner_script": "s_gs178_g2_s0_lives0_dlg0",
+          "raw_hex": "20437e323765737420756e20646f6e6a6f6e206d797374e972696575787e32630a6a652070617269652e",
+          "raw_text": " C~27est un donjon mystérieux~2c\nje parie.",
+          "pmdo_text": "C'est un donjon mystérieux,\nje parie."
+        },
+        {
+          "sequence": 47,
+          "speaker": "butterfree",
+          "pointer": "0x084D0BE0",
+          "owner_script": "s_gs178_g2_s0_lives0_dlg0",
+          "raw_hex": "204f686868210a4573742d636520717565206d6f6e2070617576726520246e33206573740a7361696e20657420736175663f3f3f20506175767265206465206d6f692e2e2e",
+          "raw_text": " Ohhh!\nEst-ce que mon pauvre $n3 est\nsain et sauf??? Pauvre de moi...",
+          "pmdo_text": "Ohhh!\nEst-ce que mon pauvre Chenipan est\nsain et sauf??? Pauvre de moi..."
+        },
+        {
+          "sequence": 48,
+          "speaker": "partner",
+          "pointer": "0x084D08D8",
+          "owner_script": "s_gs178_g2_s0_lives0_dlg0",
+          "raw_hex": "20437e32376573742076726169210a4e6f7573206465766f6e73206e6f75732064e970ea6368657221",
+          "raw_text": " C~27est vrai!\nNous devons nous dépêcher!",
+          "pmdo_text": "C'est vrai!\nNous devons nous dépêcher!"
+        },
+        {
+          "sequence": 49,
+          "speaker": "partner",
+          "pointer": "0x084D0824",
+          "owner_script": "s_gs178_g2_s0_lives0_dlg0",
+          "raw_hex": "20246e302120416c6c6f6e732d7921",
+          "raw_text": " $n0! Allons-y!",
+          "pmdo_text": "{hero}! Allons-y!"
+        }
+      ]
+    },
+    "d01p02_g1": {
+      "music": [
+        "PMD Red - In the Depths of the Pit.ogg"
+      ],
+      "actors": {
+        "hero": [
+          164,
+          276
+        ],
+        "partner": [
+          196,
+          276
+        ],
+        "caterpie": [
+          180,
+          148
+        ]
+      },
+      "choreography": [
+        "caterpie_cry",
+        "hero_partner_approach",
+        "caterpie_turns_south",
+        "caterpie_happy"
+      ],
+      "destination": "d01p01:g3",
+      "dialogue_count": 6,
+      "dialogue": [
+        {
+          "sequence": 50,
+          "speaker": "caterpie",
+          "pointer": "0x084D5478",
+          "owner_script": "s_gs179_g1_s0_lives0_dlg0",
+          "raw_hex": "204f75696969696969696e2e2e2e",
+          "raw_text": " Ouiiiiiiin...",
+          "pmdo_text": "Ouiiiiiiin..."
+        },
+        {
+          "sequence": 51,
+          "speaker": "caterpie",
+          "pointer": "0x084D53D0",
+          "owner_script": "s_gs179_g1_s0_lives0_dlg0",
+          "raw_hex": "204d616d616e2e2e2e0a4ff92065732d74753f20536e6966662e2e2e",
+          "raw_text": " Maman...\nOù es-tu? Sniff...",
+          "pmdo_text": "Maman...\nOù es-tu? Sniff..."
+        },
+        {
+          "sequence": 52,
+          "speaker": "partner",
+          "pointer": "0x084D51F4",
+          "owner_script": "s_gs179_g1_s0_lives0_dlg0",
+          "raw_hex": "204e6f757320736f6d6d6573206ce020706f75722074650a7361757665722e",
+          "raw_text": " Nous sommes là pour te\nsauver.",
+          "pmdo_text": "Nous sommes là pour te\nsauver."
+        },
+        {
+          "sequence": 53,
+          "speaker": "caterpie",
+          "pointer": "0x084D51D4",
+          "owner_script": "s_gs179_g1_s0_lives0_dlg0",
+          "raw_hex": "204865696e3f",
+          "raw_text": " Hein?",
+          "pmdo_text": "Hein?"
+        },
+        {
+          "sequence": 54,
+          "speaker": "partner",
+          "pointer": "0x084D50E4",
+          "owner_script": "s_gs179_g1_s0_lives0_dlg0",
+          "raw_hex": "205461206d616d616e20747e3237617474656e642e0a536f72746f6e7320647e323769636921",
+          "raw_text": " Ta maman t~27attend.\nSortons d~27ici!",
+          "pmdo_text": "Ta maman t'attend.\nSortons d'ici!"
+        },
+        {
+          "sequence": 55,
+          "speaker": "caterpie",
+          "pointer": "0x084D50BC",
+          "owner_script": "s_gs179_g1_s0_lives0_dlg0",
+          "raw_hex": "20447e32376163636f72642e",
+          "raw_text": " D~27accord.",
+          "pmdo_text": "D'accord."
+        }
+      ]
+    },
+    "d01p01_g3": {
+      "music": [
+        "PMD Red - A Successful Rescue.ogg",
+        "fadeout"
+      ],
+      "actors": {
+        "hero": [
+          200,
+          196
+        ],
+        "partner": [
+          232,
+          196
+        ],
+        "butterfree": [
+          232,
+          172
+        ],
+        "caterpie": [
+          200,
+          172
+        ]
+      },
+      "choreography": [
+        "caterpie_admires_hero",
+        "reward_sequence",
+        "butterfree_caterpie_exit_east",
+        "partner_invites_hero",
+        "party_exits_east"
+      ],
+      "destination": "post_tiny_woods_continuation_pending",
+      "dialogue_count": 19,
+      "dialogue": [
+        {
+          "sequence": 56,
+          "speaker": "butterfree",
+          "pointer": "0x084D42C4",
+          "owner_script": "s_gs178_g3_s0_lives0_dlg0",
+          "raw_hex": "204d6f6e2062e962e920657374207361696e2065740a736175662e2e2e2357204a65206e65207361697320636f6d6d656e7420766f75730a72656d6572636965722e2e2e",
+          "raw_text": " Mon bébé est sain et\nsauf...#W Je ne sais comment vous\nremercier...",
+          "pmdo_text": "Mon bébé est sain et\nsauf...[pause=30] Je ne sais comment vous\nremercier..."
+        },
+        {
+          "sequence": 57,
+          "speaker": "partner",
+          "pointer": "0x084D3D58",
+          "owner_script": "s_gs178_g3_s0_lives0_dlg0",
+          "raw_hex": "204a6520766f757320656e20707269652e23570a437e323765737420646576656e752064616e6765726575787e3263206465726e69e872656d656e747e32630a6176656320746f7574657320636573207365636f7573736573206574206365732066697373757265732e",
+          "raw_text": " Je vous en prie.#W\nC~27est devenu dangereux~2c dernièrement~2c\navec toutes ces secousses et ces fissures.",
+          "pmdo_text": "Je vous en prie.[pause=30]\nC'est devenu dangereux, dernièrement,\navec toutes ces secousses et ces fissures."
+        },
+        {
+          "sequence": 58,
+          "speaker": "partner",
+          "pointer": "0x084D3C30",
+          "owner_script": "s_gs178_g3_s0_lives0_dlg0",
+          "raw_hex": "20c761206e6f7573206661697420706c616973697220647e323761766f69720a70752072656e64726520736572766963652e",
+          "raw_text": " Ça nous fait plaisir d~27avoir\npu rendre service.",
+          "pmdo_text": "Ça nous fait plaisir d'avoir\npu rendre service."
+        },
+        {
+          "sequence": 59,
+          "speaker": "butterfree",
+          "pointer": "0x084D3B44",
+          "owner_script": "s_gs178_g3_s0_lives0_dlg0",
+          "raw_hex": "20537e3237696c20766f757320706c61ee747e32632064697465732d6d6f690a766f73206e6f6d737e3263206175206d6f696e732e2e2e",
+          "raw_text": " S~27il vous plaît~2c dites-moi\nvos noms~2c au moins...",
+          "pmdo_text": "S'il vous plaît, dites-moi\nvos noms, au moins..."
+        },
+        {
+          "sequence": 60,
+          "speaker": "partner",
+          "pointer": "0x084D3A5C",
+          "owner_script": "s_gs178_g3_s0_lives0_dlg0",
+          "raw_hex": "204d6f6e206e6f6d2065737420246e312e",
+          "raw_text": " Mon nom est $n1.",
+          "pmdo_text": "Mon nom est {partner}."
+        },
+        {
+          "sequence": 61,
+          "speaker": "partner",
+          "pointer": "0x084D39F0",
+          "owner_script": "s_gs178_g3_s0_lives0_dlg0",
+          "raw_hex": "20457420766f69636920246e302e",
+          "raw_text": " Et voici $n0.",
+          "pmdo_text": "Et voici {hero}."
+        },
+        {
+          "sequence": 62,
+          "speaker": "caterpie",
+          "pointer": "0x084D3974",
+          "owner_script": "s_gs178_g3_s0_lives0_dlg0",
+          "raw_hex": "202e2e2e202e2e2e202e2e2e202e2e2e23570a436f6f6c2e2e2e",
+          "raw_text": " ... ... ... ...#W\nCool...",
+          "pmdo_text": "... ... ... ...[pause=30]\nCool..."
+        },
+        {
+          "sequence": 63,
+          "speaker": "hero_thought",
+          "pointer": "0x084D3894",
+          "owner_script": "s_gs178_g3_s0_lives0_dlg0",
+          "raw_hex": "28496c7e3263206575682e2e2e2357206d65207265676172646520617665632061646f726174696f6e2e2e2e29",
+          "raw_text": "(Il~2c euh...#W me regarde avec adoration...)",
+          "pmdo_text": "(Il, euh...[pause=30] me regarde avec adoration...)"
+        },
+        {
+          "sequence": 64,
+          "speaker": "hero_thought",
+          "pointer": "0x084D375C",
+          "owner_script": "s_gs178_g3_s0_lives0_dlg0",
+          "raw_hex": "284365732079657578206272696c6c616e74732e2e2e0a437e323765737420756e207065752067ea6e616e742e2e2e29",
+          "raw_text": "(Ces yeux brillants...\nC~27est un peu gênant...)",
+          "pmdo_text": "(Ces yeux brillants...\nC'est un peu gênant...)"
+        },
+        {
+          "sequence": 65,
+          "speaker": "hero_thought",
+          "pointer": "0x084D35F4",
+          "owner_script": "s_gs178_g3_s0_lives0_dlg0",
+          "raw_hex": "284d6169737e3263206365206e7e323765737420706173206d616c206e6f6e20706c75732e0a4a7e32376169206c7e3237696d7072657373696f6e20647e323761766f6972206163636f6d706c6920756e20616374650a68e9726fef7175652e29",
+          "raw_text": "(Mais~2c ce n~27est pas mal non plus.\nJ~27ai l~27impression d~27avoir accompli un acte\nhéroïque.)",
+          "pmdo_text": "(Mais, ce n'est pas mal non plus.\nJ'ai l'impression d'avoir accompli un acte\nhéroïque.)"
+        },
+        {
+          "sequence": 66,
+          "speaker": "hero_thought",
+          "pointer": "0x084D349C",
+          "owner_script": "s_gs178_g3_s0_lives0_dlg0",
+          "raw_hex": "2841696465722064657320506f6be96d6f6e20656e20646966666963756c74e92065737420756e650a657870e97269656e636520706c7574f47420616772e961626c652e29",
+          "raw_text": "(Aider des Pokémon en difficulté est une\nexpérience plutôt agréable.)",
+          "pmdo_text": "(Aider des Pokémon en difficulté est une\nexpérience plutôt agréable.)"
+        },
+        {
+          "sequence": 67,
+          "speaker": "caterpie",
+          "pointer": "0x084D341C",
+          "owner_script": "s_gs178_g3_s0_lives0_dlg0",
+          "raw_hex": "204d657263697e326320246e312065740a246e3021",
+          "raw_text": " Merci~2c $n1 et\n$n0!",
+          "pmdo_text": "Merci, {partner} et\n{hero}!"
+        },
+        {
+          "sequence": 68,
+          "speaker": "butterfree",
+          "pointer": "0x084D3220",
+          "owner_script": "s_gs178_g3_s0_lives0_dlg0",
+          "raw_hex": "204a65207361697320717565206365206e7e3237657374207061730a6772616e642d63686f73657e3263206d61697320766f69636920756e2067616765206465206e6f7472650a6772617469747564652e20416363657074657a2d6c657e3263206a6520766f757320656e20707269652e",
+          "raw_text": " Je sais que ce n~27est pas\ngrand-chose~2c mais voici un gage de notre\ngratitude. Acceptez-le~2c je vous en prie.",
+          "pmdo_text": "Je sais que ce n'est pas\ngrand-chose, mais voici un gage de notre\ngratitude. Acceptez-le, je vous en prie."
+        },
+        {
+          "sequence": 69,
+          "speaker": "butterfree",
+          "pointer": "0x084D3180",
+          "owner_script": "s_gs178_g3_s0_lives0_dlg0",
+          "raw_hex": "204d657263692062656175636f7570210a4175207265766f697221",
+          "raw_text": " Merci beaucoup!\nAu revoir!",
+          "pmdo_text": "Merci beaucoup!\nAu revoir!"
+        },
+        {
+          "sequence": 70,
+          "speaker": "partner",
+          "pointer": "0x084D3050",
+          "owner_script": "s_gs178_g3_s0_lives0_dlg0",
+          "raw_hex": "204d6572636920706f757220746f6e206169646521",
+          "raw_text": " Merci pour ton aide!",
+          "pmdo_text": "Merci pour ton aide!"
+        },
+        {
+          "sequence": 71,
+          "speaker": "partner",
+          "pointer": "0x084D2DDC",
+          "owner_script": "s_gs178_g3_s0_lives0_dlg0",
+          "raw_hex": "2054752074652064e962726f75696c6c6573206269656e2120437e32376573740a696d7072657373696f6e6e616e7421",
+          "raw_text": " Tu te débrouilles bien! C~27est\nimpressionnant!",
+          "pmdo_text": "Tu te débrouilles bien! C'est\nimpressionnant!"
+        },
+        {
+          "sequence": 72,
+          "speaker": "partner",
+          "pointer": "0x084D2B78",
+          "owner_script": "s_gs178_g3_s0_lives0_dlg0",
+          "raw_hex": "20416c6f72732e2e2e0a517565207661732d74752066616972653f0a5475206173206465732070726f6a6574733f",
+          "raw_text": " Alors...\nQue vas-tu faire?\nTu as des projets?",
+          "pmdo_text": "Alors...\nQue vas-tu faire?\nTu as des projets?"
+        },
+        {
+          "sequence": 73,
+          "speaker": "hero_thought",
+          "pointer": "0x084D2B30",
+          "owner_script": "s_gs178_g3_s0_lives0_dlg0",
+          "raw_hex": "282e2e2e202e2e2e202e2e2e202e2e2e29",
+          "raw_text": "(... ... ... ...)",
+          "pmdo_text": "(... ... ... ...)"
+        },
+        {
+          "sequence": 74,
+          "speaker": "partner",
+          "pointer": "0x084D27D0",
+          "owner_script": "s_gs178_g3_s0_lives0_dlg0",
+          "raw_hex": "202e2e2e23572045636f7574657e32630a246e302e2357205369207475206e7e3237617320617563756e20656e64726f69740a6ff92076697672657e326320747520646576726169732076656e69722061766563206d6f692e",
+          "raw_text": " ...#W Ecoute~2c\n$n0.#W Si tu n~27as aucun endroit\noù vivre~2c tu devrais venir avec moi.",
+          "pmdo_text": "...[pause=30] Ecoute,\n{hero}.[pause=30] Si tu n'as aucun endroit\noù vivre, tu devrais venir avec moi."
+        }
+      ]
+    }
+  },
+  "totals": {
+    "scene_count": 4,
+    "selected_french_dialogue_count": 74,
+    "authenticated_french_text_pool": 117
+  },
+  "validation": {
+    "status": "pass"
+  }
+}

@@ -94,9 +94,10 @@ class TinyWoodsRouteTests(unittest.TestCase):
         self.assertEqual(
             route["report_sha256"], sha256(EVIDENCE / "native_route_validation.json")
         )
-        self.assertEqual(progress["tiny_woods"]["narrative_scenes"]["status"], "PENDING")
+        self.assertEqual(progress["tiny_woods"]["narrative_scenes"]["status"], "PARTIAL_PASS")
         self.assertEqual(
-            progress["resume"]["next_phase"], "tiny_woods_eu_dialogue_and_choreography"
+            progress["resume"]["next_phase"],
+            "tiny_woods_command_complete_choreography_rewards_and_post_g3_route",
         )
 
 

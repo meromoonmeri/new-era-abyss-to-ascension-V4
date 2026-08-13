@@ -388,6 +388,16 @@
         "filename": "In the Depths of the Pit.ogg",
         "sha256": "4b22c99be63e4ec61055c9a32ea0951e4910132551a8258f58fe2f1a6f9d9cd2"
       }
+    },
+    "narrative_scene_core": {
+      "status": "partial_pass",
+      "report": "docs/pmdred_eu/playable/tiny_woods/scene_runtime/native_scene_validation.json",
+      "authenticated_scene_graph": "docs/pmdred_eu/playable/tiny_woods/eu_scene_graph.json",
+      "authenticated_command_count": 697,
+      "authenticated_french_text_count": 117,
+      "executed_default_branch_text_count": 74,
+      "scene_groups": ["d01p01:g1", "d01p01:g2", "d01p02:g1", "d01p01:g3"],
+      "remaining_gate": "all secondary cues, full paths/camera, rename, rewards, and canonical post-g3 destination"
     }
   }
 }

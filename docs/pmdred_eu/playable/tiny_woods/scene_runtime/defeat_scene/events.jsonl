@@ -1,0 +1,38 @@
+{"event":"bootstrap_new_game","mode":"defeat_scene","seed":424242}
+{"event":"scene_trace","kind":"staging","scene":"d01p01_g2","sequence":0,"pointer":"","speaker":"","text":"","detail":"d01p01_g2","music":""}
+{"event":"scene_trace","kind":"actor","scene":"d01p01_g2","sequence":0,"pointer":"","speaker":"PLAYER","text":"turtwig","detail":"200,196,Down: 0","music":""}
+{"event":"scene_trace","kind":"actor","scene":"d01p01_g2","sequence":0,"pointer":"","speaker":"PARTNER","text":"piplup","detail":"232,196,Down: 0","music":""}
+{"event":"scene_trace","kind":"actor","scene":"d01p01_g2","sequence":0,"pointer":"","speaker":"BUTTERFREE","text":"butterfree","detail":"216,172,Down: 0","music":""}
+{"event":"scene_trace","kind":"scene_start","scene":"d01p01_g2","sequence":0,"pointer":"","speaker":"","text":"","detail":"d01p01_g2","music":""}
+{"event":"scene_trace","kind":"choreography","scene":"d01p01_g2","sequence":0,"pointer":"","speaker":"","text":"","detail":"party_sleep","music":""}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":39,"pointer":"0x084D0060","speaker":"hero","text":"Bonjour?[pause=30]\nBonjour!","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":1,"menu_count":1}
+{"event":"scene_trace","kind":"choreography","scene":"d01p01_g2","sequence":0,"pointer":"","speaker":"","text":"","detail":"party_wake","music":""}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":40,"pointer":"0x084D1624","speaker":"butterfree","text":"Ça alors!\nJe suis contente de vous voir!","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":2,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":41,"pointer":"0x084D15D4","speaker":"partner","text":"Où sommes-nous?","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":3,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":42,"pointer":"0x084D158C","speaker":"butterfree","text":"Dans la forêt.","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":4,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":43,"pointer":"0x084D1484","speaker":"butterfree","text":"Vous avez tenté de secourir\nmon Chenipan, mais...","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":5,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":44,"pointer":"0x084D11F4","speaker":"partner","text":"Nous avons atterri ici, nous\nne savons pas comment...","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":6,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":45,"pointer":"0x084D0DD4","speaker":"partner","text":"Je crois que si on tombe\nK.O. en cours de route, on revient au point\nde départ...","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":7,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":46,"pointer":"0x084D0D04","speaker":"partner","text":"C'est un donjon mystérieux,\nje parie.","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":8,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":47,"pointer":"0x084D0BE0","speaker":"butterfree","text":"Ohhh!\nEst-ce que mon pauvre Chenipan est\nsain et sauf??? Pauvre de moi...","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":9,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":48,"pointer":"0x084D08D8","speaker":"partner","text":"C'est vrai!\nNous devons nous dépêcher!","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":10,"menu_count":1}
+{"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":49,"pointer":"0x084D0824","speaker":"partner","text":"[color=#009CFF]BIG_AF_NAME[color]! Allons-y!","detail":"","music":""}
+{"event":"dialogue_menu_closed","number":11,"menu_count":1}
+{"event":"scene_trace","kind":"choreography","scene":"d01p01_g2","sequence":0,"pointer":"","speaker":"","text":"","detail":"party_returns_to_dungeon","music":""}
+{"event":"scene_trace","kind":"scene_complete","scene":"d01p01_g2","sequence":0,"pointer":"","speaker":"","text":"","detail":"d01p01_g2","music":""}
+{"event":"scene_destination","mode":"defeat_scene","zone":"tiny_woods","floor":0}
+{"event":"scene_verdict","mode":"defeat_scene","verdict":"PASS","dialogues":11,"menus_closed":11,"expected_dialogues":11,"choreography":3,"attempts":2,"defeats":1,"rescue_complete":false}
+{"event":"load_phase_unload_requested","before":"Ready","before_raw":"Ready: 2","requested":"Unload","readback":"Unload","readback_raw":"Unload: 3"}
+{"event":"native_deinit","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"native_graphics_unload","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"end","terminal":true,"graceful":true,"load_phase":"Unload","load_phase_raw":"Unload: 3"}

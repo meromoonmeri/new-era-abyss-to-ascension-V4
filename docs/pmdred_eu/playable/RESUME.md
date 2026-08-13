@@ -11,7 +11,10 @@ Checkpoint du `2026-08-13`, branche
 - Petit Bois, ouverture/escaliers/sortie/échec/retry/sauvetage/nettoyage :
   **PASS v2** dans [`tiny_woods/route_runtime_v2`](tiny_woods/route_runtime_v2),
   avec les facings Red `4=North` corrigés. La v1 reste conservée avec erratum.
-- Scènes narratives françaises complètes de Petit Bois : **PENDING**.
+- Graphe scènes EU : **697 commandes / 117 textes français authentifiés**.
+- Noyau jouable des quatre scènes : **PARTIAL PASS** — 74 lignes neutres,
+  menus natifs, acteurs, facings, musique ROM et chorégraphie principale.
+- Restitution commande-par-commande et destination post-`g3` : **PENDING**.
 
 La route certifiée exécute trois scénarios PMDO 0.8.12 indépendants. Le scénario
 complet soumet 143 actions natives, dont trois actions d’escalier et deux
@@ -25,7 +28,7 @@ terminent par `LoadPhase.Unload`, `NORMAL_EXIT`, rc 0, sans signal ni orphelin.
 ```bash
 bash tools/restore_pmdred_eu_validation_runtime.sh
 python3 tools/update_pmdred_eu_validation_progress.py --check
-bash docs/pmdred_eu/playable/tiny_woods/route_runtime_v2/commands.sh
+bash docs/pmdred_eu/playable/tiny_woods/scene_runtime/commands.sh
 ```
 
 Les fixtures et preuves sont create-only. Si les noms `*-repro` existent,
@@ -33,16 +36,13 @@ utiliser de nouvelles destinations plutôt que les écraser.
 
 ## Étape suivante
 
-Construire dans un nouvel overlay isolé les scènes EU de :
+Étendre dans un nouvel overlay le noyau certifié sans le réécrire :
 
-- `d01p01:g1` — ouverture et entrée au Petit Bois ;
-- `d01p01:g2` — défaite et nouvelle tentative ;
-- `d01p02:g1` — rencontre et sauvetage de Chenipan ;
-- `d01p01:g3` — relais post-sauvetage.
+- interpréter chaque cue restant des 697 commandes authentifiées ;
+- reproduire fanfares, portraits/émotions, chemins de marche et caméra ;
+- brancher le renommage interactif et les récompenses réelles ;
+- identifier puis certifier la destination canonique après `d01p01:g3` ;
+- rejouer ouverture, défaite/retry et sauvetage complet avec terminaison stricte.
 
-L’adaptation doit provenir des commandes et textes français authentifiés de
-`docs/pmdred_eu/ground_scripts.json`, avec acteurs, portraits, déplacements,
-caméra, animations, effets, musique et rythme. Les références aplaties
-existantes ne sont pas canoniques par défaut. Ne promouvoir ni `d01p02` ni les
-scripts live avant une preuve PMDO fonctionnelle complète et une terminaison
-native stricte.
+Les références aplaties existantes ne sont pas canoniques par défaut. Ne
+promouvoir ni `d01p02` ni les scripts Ground live avant ce gate exhaustif.

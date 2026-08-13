@@ -1,0 +1,107 @@
+Loading default script variable values..
+Script variables default values loaded! [build 2026-08-04-K]
+DebugTools:initialize()
+MenuTools:initialize()
+UpgradeTools:initialize()
+ConfigTools:initialize()
+NREProbe:initialize()
+[NREPROBE] build 2026-08-04-K charge (main.lua) — PREMIERE ligne attendue, au LANCEMENT du jeu. Si absente: la copie du mod chargee par le jeu n est PAS celle du depot.
+
+<!> DebugTools: Init..
+
+<!> ConfigTools: Init..
+[NREPROBE] service nre_probe ACTIF (EngineServiceEvents.Init) — build 2026-07-27-C
+[TINY_WOODS_SCENES] {"event":"bootstrap_new_game","mode":"defeat_scene","seed":424242}
+Loading default script variable values..
+Script variables default values loaded! [build 2026-08-04-K]
+[NREPROBE] LoadSavedData <-- sauvegarde chargee (menu Continuer) | zone= seg=? map=? | Save.Team=0 leader=<nil> | DungeonMap=nil TeamAttachee=n/a foes=n/a
+
+<!> ExampleSvc: Preparing debug save file
+[DevUnlock] exclu: barren_tundra
+[DevUnlock] exclu: bravery_road
+[DevUnlock] exclu: cave_of_solace
+[DevUnlock] exclu: cave_of_whispers
+[DevUnlock] exclu: debug_zone
+[DevUnlock] exclu: deserted_fortress
+[DevUnlock] exclu: energy_garden
+[DevUnlock] exclu: eon_island
+[DevUnlock] exclu: guildmaster_island
+[DevUnlock] exclu: hope_road
+[DevUnlock] exclu: inscribed_cave
+[DevUnlock] exclu: labyrinth_of_the_lost
+[DevUnlock] exclu: master_zone
+[DevUnlock] exclu: prism_isles
+[DevUnlock] exclu: royal_halls
+[DevUnlock] exclu: sacred_tower
+[DevUnlock] exclu: starfall_heights
+[DevUnlock] exclu: the_abyss
+[DevUnlock] exclu: the_sky
+[DevUnlock] exclu: training_maze
+[DevUnlock] exclu: uncharted_waters
+[DevUnlock] exclu: wisdom_road
+[NREPROBE] NewGame | zone= seg=? map=? | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>> Init_master_zone
+[NREPROBE] ZoneInit | zone=master_zone seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] DungeonSegmentStart (Lua EnterSegment va tourner) | zone=master_zone seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] GroundModeBegin | zone=master_zone seg=-1 map=308 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"staging","scene":"d01p01_g2","sequence":0,"pointer":"","speaker":"","text":"","detail":"d01p01_g2","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"actor","scene":"d01p01_g2","sequence":0,"pointer":"","speaker":"PLAYER","text":"turtwig","detail":"200,196,Down: 0","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"actor","scene":"d01p01_g2","sequence":0,"pointer":"","speaker":"PARTNER","text":"piplup","detail":"232,196,Down: 0","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"actor","scene":"d01p01_g2","sequence":0,"pointer":"","speaker":"BUTTERFREE","text":"butterfree","detail":"216,172,Down: 0","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"scene_start","scene":"d01p01_g2","sequence":0,"pointer":"","speaker":"","text":"","detail":"d01p01_g2","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"choreography","scene":"d01p01_g2","sequence":0,"pointer":"","speaker":"","text":"","detail":"party_sleep","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":39,"pointer":"0x084D0060","speaker":"hero","text":"Bonjour?[pause=30]\nBonjour!","detail":"","music":""}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":1,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"choreography","scene":"d01p01_g2","sequence":0,"pointer":"","speaker":"","text":"","detail":"party_wake","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":40,"pointer":"0x084D1624","speaker":"butterfree","text":"Ça alors!\nJe suis contente de vous voir!","detail":"","music":""}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":2,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":41,"pointer":"0x084D15D4","speaker":"partner","text":"Où sommes-nous?","detail":"","music":""}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":3,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":42,"pointer":"0x084D158C","speaker":"butterfree","text":"Dans la forêt.","detail":"","music":""}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":4,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":43,"pointer":"0x084D1484","speaker":"butterfree","text":"Vous avez tenté de secourir\nmon Chenipan, mais...","detail":"","music":""}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":5,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":44,"pointer":"0x084D11F4","speaker":"partner","text":"Nous avons atterri ici, nous\nne savons pas comment...","detail":"","music":""}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":6,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":45,"pointer":"0x084D0DD4","speaker":"partner","text":"Je crois que si on tombe\nK.O. en cours de route, on revient au point\nde départ...","detail":"","music":""}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":7,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":46,"pointer":"0x084D0D04","speaker":"partner","text":"C'est un donjon mystérieux,\nje parie.","detail":"","music":""}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":8,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":47,"pointer":"0x084D0BE0","speaker":"butterfree","text":"Ohhh!\nEst-ce que mon pauvre Chenipan est\nsain et sauf??? Pauvre de moi...","detail":"","music":""}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":9,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":48,"pointer":"0x084D08D8","speaker":"partner","text":"C'est vrai!\nNous devons nous dépêcher!","detail":"","music":""}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":10,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g2","sequence":49,"pointer":"0x084D0824","speaker":"partner","text":"[color=#009CFF]BIG_AF_NAME[color]! Allons-y!","detail":"","music":""}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":11,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"choreography","scene":"d01p01_g2","sequence":0,"pointer":"","speaker":"","text":"","detail":"party_returns_to_dungeon","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"scene_complete","scene":"d01p01_g2","sequence":0,"pointer":"","speaker":"","text":"","detail":"d01p01_g2","music":""}
+[NREPROBE] GroundMapEnter | zone=master_zone seg=-1 map=308 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] GroundMapExit | zone=master_zone seg=-1 map=308 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>_ENV pre-cleanup:179
+=>_ENV post cleanup:178
+[NREPROBE] GroundModeEnd | zone=master_zone seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>_ENV pre-cleanup:178
+=>_ENV post cleanup:177
+[NREPROBE] ZoneInit | zone=tiny_woods seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+Checking Mission: 1
+Checking Mission: 2
+Checking Mission: 3
+Checking Mission: 4
+Checking Mission: 5
+Checking Mission: 6
+Checking Mission: 7
+Checking Mission: 8
+[NREPROBE] DungeonSegmentStart (Lua EnterSegment va tourner) | zone=tiny_woods seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] DungeonModeBegin | zone=tiny_woods seg=0 map=0 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=NON <- IsGameOver() CRASHERAIT ICI foes=2
+[NREPROBE] DungeonMapInit map= | zone=tiny_woods seg=0 map=0 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=2
+[NREPROBE] DungeonFloorEnter <-- equipe DOIT etre attachee ici | zone=tiny_woods seg=0 map=0 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=2
+[TINY_WOODS_SCENES] {"event":"scene_destination","mode":"defeat_scene","zone":"tiny_woods","floor":0}
+[TINY_WOODS_SCENES] {"event":"scene_verdict","mode":"defeat_scene","verdict":"PASS","dialogues":11,"menus_closed":11,"expected_dialogues":11,"choreography":3,"attempts":2,"defeats":1,"rescue_complete":false}
+[TINY_WOODS_SCENES] {"event":"load_phase_unload_requested","before":"Ready","before_raw":"Ready: 2","requested":"Unload","readback":"Unload","readback_raw":"Unload: 3"}
+
+<!> DebugTools: Deinit..
+
+<!> ConfigTools: Deinit..
+[TINY_WOODS_SCENES] {"event":"native_deinit","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+[TINY_WOODS_SCENES] {"event":"native_graphics_unload","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+[TINY_WOODS_SCENES] {"event":"end","terminal":true,"graceful":true,"load_phase":"Unload","load_phase_raw":"Unload: 3"}
