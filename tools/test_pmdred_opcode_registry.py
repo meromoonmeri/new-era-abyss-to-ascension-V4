@@ -10,7 +10,7 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PROVEN = {"WAIT", "BGM_FADEOUT", "SET_DIR_WAIT", "ROTATE_TO"}
+PROVEN = {"WAIT", "BGM_FADEOUT", "SET_DIR_WAIT", "ROTATE_TO", "CMD_UNK_92"}
 
 
 class OpcodeRegistryTests(unittest.TestCase):
@@ -51,8 +51,8 @@ class OpcodeRegistryTests(unittest.TestCase):
         self.assertEqual(data["asset_count"], 27)
         self.assertEqual(data["action_kind_count"], 88)
         self.assertEqual(data["action_count"], 4967)
-        self.assertEqual(data["adapter_proven_kind_count"], 4)
-        self.assertEqual(data["adapter_proven_action_count"], 771)
+        self.assertEqual(data["adapter_proven_kind_count"], 5)
+        self.assertEqual(data["adapter_proven_action_count"], 782)
         self.assertEqual(data["runtime_ready_kind_count"], 0)
         self.assertEqual(data["runtime_ready_asset_count"], 0)
         self.assertEqual(data["production_route_count"], 0)

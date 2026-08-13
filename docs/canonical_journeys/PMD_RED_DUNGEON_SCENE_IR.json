@@ -98,11 +98,11 @@
   },
   "unknown_action_count": 712,
   "adapter_status_action_counts": {
-    "ADAPTER_PROVEN": 771,
+    "ADAPTER_PROVEN": 782,
     "MAPPING_REQUIRED": 3484,
-    "UNMAPPED_PRESERVED": 712
+    "UNMAPPED_PRESERVED": 701
   },
-  "adapter_proven_action_count": 771,
+  "adapter_proven_action_count": 782,
   "runtime_ready_asset_count": 0,
   "production_route_count": 0,
   "assets": [
@@ -43843,7 +43843,12 @@
               "kind": "CMD_UNK_92",
               "signature": "CMD_UNK_92(4, 1, DIR_TRANS_SPINRIGHT2)",
               "text_hashes": [],
-              "adapter_status": "UNMAPPED_PRESERVED"
+              "adapter_status": "ADAPTER_PROVEN",
+              "operands": {
+                "step_frames": 4,
+                "turn_step": 1,
+                "target_transform": "DIR_TRANS_SPINRIGHT2"
+              }
             },
             {
               "sequence": 72,
@@ -43860,7 +43865,12 @@
               "kind": "CMD_UNK_92",
               "signature": "CMD_UNK_92(4, 2, DIR_TRANS_FLIP)",
               "text_hashes": [],
-              "adapter_status": "UNMAPPED_PRESERVED"
+              "adapter_status": "ADAPTER_PROVEN",
+              "operands": {
+                "step_frames": 4,
+                "turn_step": 2,
+                "target_transform": "DIR_TRANS_FLIP"
+              }
             },
             {
               "sequence": 74,
@@ -43877,7 +43887,12 @@
               "kind": "CMD_UNK_92",
               "signature": "CMD_UNK_92(4, 1, DIR_TRANS_SPINRIGHT2)",
               "text_hashes": [],
-              "adapter_status": "UNMAPPED_PRESERVED"
+              "adapter_status": "ADAPTER_PROVEN",
+              "operands": {
+                "step_frames": 4,
+                "turn_step": 1,
+                "target_transform": "DIR_TRANS_SPINRIGHT2"
+              }
             },
             {
               "sequence": 76,
@@ -43969,7 +43984,12 @@
               "kind": "CMD_UNK_92",
               "signature": "CMD_UNK_92(4, 1, DIR_TRANS_SPINRIGHT2)",
               "text_hashes": [],
-              "adapter_status": "UNMAPPED_PRESERVED"
+              "adapter_status": "ADAPTER_PROVEN",
+              "operands": {
+                "step_frames": 4,
+                "turn_step": 1,
+                "target_transform": "DIR_TRANS_SPINRIGHT2"
+              }
             },
             {
               "sequence": 87,
@@ -43986,7 +44006,12 @@
               "kind": "CMD_UNK_92",
               "signature": "CMD_UNK_92(4, 2, DIR_TRANS_FLIP)",
               "text_hashes": [],
-              "adapter_status": "UNMAPPED_PRESERVED"
+              "adapter_status": "ADAPTER_PROVEN",
+              "operands": {
+                "step_frames": 4,
+                "turn_step": 2,
+                "target_transform": "DIR_TRANS_FLIP"
+              }
             },
             {
               "sequence": 89,
@@ -44003,7 +44028,12 @@
               "kind": "CMD_UNK_92",
               "signature": "CMD_UNK_92(4, 2, DIR_TRANS_SPINLEFT2)",
               "text_hashes": [],
-              "adapter_status": "UNMAPPED_PRESERVED"
+              "adapter_status": "ADAPTER_PROVEN",
+              "operands": {
+                "step_frames": 4,
+                "turn_step": 2,
+                "target_transform": "DIR_TRANS_SPINLEFT2"
+              }
             },
             {
               "sequence": 91,
@@ -44020,7 +44050,12 @@
               "kind": "CMD_UNK_92",
               "signature": "CMD_UNK_92(4, 2, DIR_TRANS_FLIP)",
               "text_hashes": [],
-              "adapter_status": "UNMAPPED_PRESERVED"
+              "adapter_status": "ADAPTER_PROVEN",
+              "operands": {
+                "step_frames": 4,
+                "turn_step": 2,
+                "target_transform": "DIR_TRANS_FLIP"
+              }
             },
             {
               "sequence": 93,
@@ -44449,7 +44484,7 @@
             }
           ],
           "action_count": 145,
-          "actions_sha256": "09732cb8091a06b889e74146a4e420783dd54a0f9882f1a98da190a8d3293a7a"
+          "actions_sha256": "ea555081c6b3310a3e5fcba44f3f1f81650cabdc5f3e70b8cb1de23e948ed3ce"
         },
         {
           "sequence": 3,
@@ -44943,7 +44978,12 @@
               "kind": "CMD_UNK_92",
               "signature": "CMD_UNK_92(4, 2, DIR_TRANS_FLIP)",
               "text_hashes": [],
-              "adapter_status": "UNMAPPED_PRESERVED"
+              "adapter_status": "ADAPTER_PROVEN",
+              "operands": {
+                "step_frames": 4,
+                "turn_step": 2,
+                "target_transform": "DIR_TRANS_FLIP"
+              }
             },
             {
               "sequence": 62,
@@ -44960,7 +45000,12 @@
               "kind": "CMD_UNK_92",
               "signature": "CMD_UNK_92(4, 2, DIR_TRANS_SPINLEFT2)",
               "text_hashes": [],
-              "adapter_status": "UNMAPPED_PRESERVED"
+              "adapter_status": "ADAPTER_PROVEN",
+              "operands": {
+                "step_frames": 4,
+                "turn_step": 2,
+                "target_transform": "DIR_TRANS_SPINLEFT2"
+              }
             },
             {
               "sequence": 64,
@@ -44977,7 +45022,12 @@
               "kind": "CMD_UNK_92",
               "signature": "CMD_UNK_92(4, 2, DIR_TRANS_FLIP)",
               "text_hashes": [],
-              "adapter_status": "UNMAPPED_PRESERVED"
+              "adapter_status": "ADAPTER_PROVEN",
+              "operands": {
+                "step_frames": 4,
+                "turn_step": 2,
+                "target_transform": "DIR_TRANS_FLIP"
+              }
             },
             {
               "sequence": 66,
@@ -44994,7 +45044,12 @@
               "kind": "CMD_UNK_92",
               "signature": "CMD_UNK_92(4, 1, DIR_TRANS_SPINRIGHT2)",
               "text_hashes": [],
-              "adapter_status": "UNMAPPED_PRESERVED"
+              "adapter_status": "ADAPTER_PROVEN",
+              "operands": {
+                "step_frames": 4,
+                "turn_step": 1,
+                "target_transform": "DIR_TRANS_SPINRIGHT2"
+              }
             },
             {
               "sequence": 68,
@@ -45099,7 +45154,7 @@
             }
           ],
           "action_count": 82,
-          "actions_sha256": "e983a54c7398edbbcfbe3e40fb262be70e6b129d592c8eacfdada5893353be45"
+          "actions_sha256": "cc22d05696c10578faca20d70d0a09cbdc5a297a91b6ba5b08c5d1adc36b9b73"
         },
         {
           "sequence": 4,
@@ -45625,7 +45680,7 @@
           "actions_sha256": "05d10a91dcb3642899f16b45ab9304b0c876cef5e269d240364bf2a4be1717dc"
         }
       ],
-      "ir_sha256": "b73d648a38f11d17b224faa043115885a62197e67b085e5f08117401b2c2a1dd",
+      "ir_sha256": "012c1dac3072d39e3f8d42d10f7dd4b6203edd0e990603fcc947e744e8a8c501",
       "runtime_ready": false,
       "production_route_written": false
     },
@@ -47042,5 +47097,5 @@
       "production_route_written": false
     }
   ],
-  "ir_sha256": "91f0a4cbb6206691bbe9c5803f6556d61fb4bfa3e87144a6ae7ee41b06e0281e"
+  "ir_sha256": "e6ee21bd2a3fbb2d46ae8c5336e7c0d5d3a88ed0234820902c47157bd50f6912"
 }

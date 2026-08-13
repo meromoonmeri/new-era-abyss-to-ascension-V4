@@ -6,7 +6,7 @@ Cette preuve charge le module de production dormant
 `Data/Script/halcyon/pmdred_eu/CanonicalPrimitiveAdapters.lua` dans
 l'exécutable PMDO 0.8.12 verrouillé (SHA-256
 `faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327`).
-Elle exécute uniquement les quatre primitives dont l'équivalence a été établie
+Elle exécute uniquement les cinq primitives dont l'équivalence a été établie
 par le registre sémantique :
 
 - `WAIT` dans une coroutine Ground gérée par PMDO ;
@@ -15,7 +15,9 @@ par le registre sémantique :
   et conservation de la direction pour la valeur source `-1` ;
 - `ROTATE_TO` pour les quatre politiques réellement présentes dans le corpus :
   rotation forcée droite/gauche, chemin le plus court par pas d'une direction
-  et chemin le plus court par pas de deux directions.
+  et chemin le plus court par pas de deux directions ;
+- `CMD_UNK_92`, désormais identifié, pour ses trois formes canoniques : cible
+  relative à deux directions vers la droite/gauche et demi-tour.
 
 Le test confirme aussi le refus fail-closed d'une direction numérique, d'un
 opcode non adapté, d'un acteur manquant et d'une politique de rotation non

@@ -17,7 +17,7 @@ from typing import Any
 # Only primitives with an implementation-level equivalence certified by
 # PMD_RED_OPCODE_REGISTRY.json and implemented fail-closed in
 # CanonicalPrimitiveAdapters.lua may appear here.
-PROVEN_ADAPTER_KINDS = {"WAIT", "BGM_FADEOUT", "SET_DIR_WAIT", "ROTATE_TO"}
+PROVEN_ADAPTER_KINDS = {"WAIT", "BGM_FADEOUT", "SET_DIR_WAIT", "ROTATE_TO", "CMD_UNK_92"}
 
 
 def read(path: Path) -> dict[str, Any]:
@@ -57,6 +57,14 @@ def proved_operands(kind: str, signature: str) -> dict[str, Any]:
         if match is None:
             raise ValueError(f"invalid proved ROTATE_TO signature: {signature}")
         return {"step_frames": int(match.group(1)), "transition": match.group(2), "direction": match.group(3)}
+    if kind == "CMD_UNK_92":
+        match = re.fullmatch(
+            r"CMD_UNK_92\((\d+),\s*([12]),\s*(DIR_TRANS_(?:SPINRIGHT2|SPINLEFT2|FLIP))\)",
+            signature,
+        )
+        if match is None:
+            raise ValueError(f"invalid proved CMD_UNK_92 signature: {signature}")
+        return {"step_frames": int(match.group(1)), "turn_step": int(match.group(2)), "target_transform": match.group(3)}
     raise ValueError(f"no proved operand compiler for {kind}")
 
 
@@ -90,10 +98,10 @@ def build(action_index: dict[str, Any], scope: dict[str, Any], dungeon_manifest:
                 global_kinds[kind] += 1
                 if kind.startswith(("RAW_OPCODE_", "CMD_UNK_", "CJUMP_UNK_")):
                     unknown[kind] += 1
-                if kind.startswith(("RAW_OPCODE_", "CMD_UNK_", "CJUMP_UNK_")):
-                    adapter_status = "UNMAPPED_PRESERVED"
-                elif kind in PROVEN_ADAPTER_KINDS:
+                if kind in PROVEN_ADAPTER_KINDS:
                     adapter_status = "ADAPTER_PROVEN"
+                elif kind.startswith(("RAW_OPCODE_", "CMD_UNK_", "CJUMP_UNK_")):
+                    adapter_status = "UNMAPPED_PRESERVED"
                 else:
                     adapter_status = "MAPPING_REQUIRED"
                 compiled_action = {

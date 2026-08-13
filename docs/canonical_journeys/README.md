@@ -54,8 +54,9 @@ doivent être prouvés séparément. Les Grounds certifiés, scripts de chapitre
 
 `PMD_RED_DUNGEON_SCENE_IR.json` conserve dans l'ordre les **4 967 actions** des
 **267 tableaux** appartenant aux 27 relations dungeon-backed. Les 712 actions
-brutes ou inconnues ne sont jamais supprimées : elles portent
-`UNMAPPED_PRESERVED` et maintiennent chaque scène en état non routable. Le texte
+initialement brutes ou inconnues ne sont jamais supprimées : 701 portent encore
+`UNMAPPED_PRESERVED`, tandis que les 11 `CMD_UNK_92` désormais prouvées portent
+`ADAPTER_PROVEN`. Chaque scène reste néanmoins non routable. Le texte
 n'est conservé que par hash d'autorité ; aucun corps de dialogue protégé n'est
 recopié dans ce registre.
 
@@ -69,17 +70,17 @@ runtime verrouillé contient un Source Link vers le commit RogueEssence
 
 Le registre classe **4 731 actions** avec une sémantique source prouvée et
 conserve **236 actions** derrière une sémantique seulement partielle (callbacks
-ou contrôleurs encore non nommés). Quatre primitives seulement ont pour
+ou contrôleurs encore non nommés). Cinq primitives seulement ont pour
 l'instant une équivalence d'implémentation prouvée : `WAIT`, `BGM_FADEOUT`,
-`SET_DIR_WAIT` et `ROTATE_TO`, soit **771 occurrences**. Leur module dormant
+`SET_DIR_WAIT`, `ROTATE_TO` et `CMD_UNK_92`, soit **782 occurrences**. Leur module dormant
 `CanonicalPrimitiveAdapters.lua` :
 
 - remappe les huit directions par symbole, car les valeurs numériques
   est/ouest de PMD Red et RogueElements sont inversées ;
-- refuse tout opérande invalide et tout opcode hors de ces quatre primitives ;
+- refuse tout opérande invalide et tout opcode hors de ces cinq primitives ;
 - n'enregistre aucune route et ne modifie aucun Ground ou Zone.
 
-Ces quatre primitives passent aussi le harness moteur
+Ces cinq primitives passent aussi le harness moteur
 `primitive_adapter_runtime/` dans l'exécutable exact PMDO 0.8.12. Le harness
 emploie uniquement son Ground synthétique ignoré : aucun Ground certifié n'est
 revalidé.

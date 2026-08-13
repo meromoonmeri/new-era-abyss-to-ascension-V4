@@ -60,7 +60,7 @@ class PrimitiveAdapterTests(unittest.TestCase):
         }
         lua, adapters = self.runtime()
         exposed = {key for key, value in adapters["PROVEN"].items() if value}
-        self.assertEqual(proved, {"WAIT", "BGM_FADEOUT", "SET_DIR_WAIT", "ROTATE_TO"})
+        self.assertEqual(proved, {"WAIT", "BGM_FADEOUT", "SET_DIR_WAIT", "ROTATE_TO", "CMD_UNK_92"})
         self.assertEqual(exposed, proved)
 
     def test_wait_and_bgm_fade_preserve_frame_operands(self):
@@ -108,6 +108,18 @@ class PrimitiveAdapterTests(unittest.TestCase):
             adapters["ROTATE_TO"](actor, 4, transition, source_target)
             self.assertEqual(actor["Direction"], pmdo_target)
 
+    def test_relative_target_rotation_matches_all_corpus_forms(self):
+        lua, adapters = self.runtime()
+        cases = [
+            (1, "DIR_TRANS_SPINRIGHT2", "pmdo_left"),
+            (2, "DIR_TRANS_SPINLEFT2", "pmdo_right"),
+            (2, "DIR_TRANS_FLIP", "pmdo_up"),
+        ]
+        for turn_step, transform, pmdo_target in cases:
+            actor = lua.table(Direction="pmdo_down")
+            adapters["CMD_UNK_92"](actor, 4, turn_step, transform)
+            self.assertEqual(actor["Direction"], pmdo_target)
+
     def test_invalid_or_unmapped_inputs_fail_closed(self):
         lua, adapters = self.runtime()
         execute = adapters["Execute"]
@@ -119,6 +131,8 @@ class PrimitiveAdapterTests(unittest.TestCase):
             adapters["SET_DIR_WAIT"](None, "DIRECTION_NORTH", 0)
         with self.assertRaises(Exception):
             adapters["ROTATE_TO"](lua.table(Direction="pmdo_down"), 4, "DIR_TRANS_RAND", "DIRECTION_NORTH")
+        with self.assertRaises(Exception):
+            adapters["CMD_UNK_92"](lua.table(Direction="pmdo_down"), 4, 1, "DIR_TRANS_RAND")
         with self.assertRaises(Exception):
             execute("RAW_OPCODE_0X62", lua.table(), lua.table())
 

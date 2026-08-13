@@ -85,6 +85,21 @@ PROVEN_ADAPTERS = {
         },
         "proof": "The locked source rotates one direction per delay for forced left/right and shortest policy 10, or two directions per delay for shortest policy 11; the adapter reproduces those visible steps.",
     },
+    "CMD_UNK_92": {
+        "rule": "CMD_UNK_92(step_frames, turn_step, target_transform) -> derive target from current direction, then perform the same forced animated turn",
+        "pmdo_calls": ["GROUND:CharAnimateTurn"],
+        "preconditions": [
+            "the compiler resolves the parent action to one GroundChar",
+            "turn_step and target_transform are one of the three combinations occurring in the corpus",
+            "step_frames is a positive integer",
+        ],
+        "source_helper_proof": {
+            "path": "src/direction_util.c",
+            "blob_sha": "ba6d169507615e34988dae40135ba39011ef840f",
+            "lines": [30, 86],
+        },
+        "proof": "The locked executor derives a fixed target with TransformDirection1, then uses TransformDirection2 for a forced one-direction step after each delay; the PMDO forced-turn primitive matches that sequence after explicit enum remapping.",
+    },
 }
 
 PMDO_METHODS = {
@@ -190,7 +205,7 @@ def initialize_kind_meta() -> None:
     define("CANCEL_OBJECTS CANCEL_EFFECTS", "Cancels the selected source object/effect group and sector.", "GROUND_CONTEXT_REQUIRED", [], ["transient entity ownership and cancellation parity"])
     define("SELECT_ANIMATION", "Selects the parent entity animation/event index.", "ANIMATION_BINDING_REQUIRED", ["GROUND:CharSetAnim"], ["source animation index to PMDO animation name", "parent entity type"])
     define("ROTATE_TO", "Rotates the current parent toward an explicit source direction using a source transition policy and step delay.", "ADAPTER_PROVEN", ["GROUND:CharAnimateTurn", "GROUND:CharAnimateTurnTo", "GROUND:EntTurn", "GAME:WaitFrames"], ["current parent actor is compiler context"])
-    define("CMD_UNK_92", "Rotates toward a direction derived from the current direction by a source direction transformation.", "ORIENTATION_BINDING_REQUIRED", ["GROUND:CharAnimateTurn"], ["direction transformation lowering", "parent actor"])
+    define("CMD_UNK_92", "Rotates toward a direction derived from the current direction by a source direction transformation.", "ADAPTER_PROVEN", ["GROUND:CharAnimateTurn"], ["current parent actor is compiler context"])
     define("CMD_UNK_93", "Rotates toward a resolved source entity using a source direction transition policy.", "ORIENTATION_BINDING_REQUIRED", ["GROUND:CharAnimateTurn", "GROUND:CharAnimateTurnTo"], ["target and parent actor binding", "transition policy lowering"])
     define("WALK_RELATIVE", "Walks from current position to a relative pixel target at fixed 24.8 speed, updating facing and stopping on collision.", "ENTITY_AND_GEOMETRY_BINDING_REQUIRED", ["GROUND:MoveToPosition"], ["parent actor", "fixed-point speed conversion", "collision-stop equivalence"])
     define("WALK_GRID", "Walks to a source Ground link/waypoint at fixed 24.8 speed, updating facing and stopping on collision.", "ENTITY_AND_GEOMETRY_BINDING_REQUIRED", ["GROUND:MoveToPosition"], ["source link geometry", "parent actor", "collision-stop equivalence"])

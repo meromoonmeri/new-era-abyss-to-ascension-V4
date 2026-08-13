@@ -16,6 +16,7 @@ Adapters.PROVEN = {
   BGM_FADEOUT = true,
   SET_DIR_WAIT = true,
   ROTATE_TO = true,
+  CMD_UNK_92 = true,
 }
 
 -- PMD Red and RogueElements enumerate east/west in opposite numeric order.
@@ -145,6 +146,35 @@ function Adapters.ROTATE_TO(actor, step_frames, transition, source_direction)
   end
 end
 
+function Adapters.CMD_UNK_92(actor, step_frames, turn_step, target_transform)
+  if actor == nil then
+    error('CMD_UNK_92 requires the source parent actor')
+  end
+  step_frames = positive_integer('step_frames', step_frames)
+  local current = SOURCE_INDEX_BY_PMDO[actor.Direction]
+  if current == nil then
+    error('CMD_UNK_92 received an unsupported PMDO direction')
+  end
+  local offset
+  if target_transform == 'DIR_TRANS_SPINRIGHT2' then
+    offset = 6
+  elseif target_transform == 'DIR_TRANS_SPINLEFT2' then
+    offset = 2
+  elseif target_transform == 'DIR_TRANS_FLIP' then
+    offset = 4
+  else
+    error('unsupported PMD Red CMD_UNK_92 target transform: ' .. tostring(target_transform))
+  end
+  local target = PMDO_BY_SOURCE_INDEX[(current + offset) % 8]
+  if turn_step == 1 then
+    GROUND:CharAnimateTurn(actor, target, step_frames, false)
+  elseif turn_step == 2 then
+    GROUND:CharAnimateTurn(actor, target, step_frames, true)
+  else
+    error('unsupported PMD Red CMD_UNK_92 turn step: ' .. tostring(turn_step))
+  end
+end
+
 function Adapters.Execute(kind, operands, context)
   operands = operands or {}
   context = context or {}
@@ -157,6 +187,10 @@ function Adapters.Execute(kind, operands, context)
   elseif kind == 'ROTATE_TO' then
     return Adapters.ROTATE_TO(
       context.actor, operands.step_frames, operands.transition, operands.direction
+    )
+  elseif kind == 'CMD_UNK_92' then
+    return Adapters.CMD_UNK_92(
+      context.actor, operands.step_frames, operands.turn_step, operands.target_transform
     )
   end
   error('unmapped PMD Red primitive (fail-closed): ' .. tostring(kind))

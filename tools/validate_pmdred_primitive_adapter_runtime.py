@@ -27,6 +27,11 @@ ROTATIONS = [
     ("DIR_TRANS_10", "DIRECTION_WEST"),
     ("DIR_TRANS_11", "DIRECTION_NORTHEAST"),
 ]
+RELATIVE_ROTATIONS = [
+    (1, "DIR_TRANS_SPINRIGHT2"),
+    (2, "DIR_TRANS_SPINLEFT2"),
+    (2, "DIR_TRANS_FLIP"),
+]
 
 
 def digest(path: Path) -> str:
@@ -74,6 +79,7 @@ def main() -> int:
         "begin", "module_loaded", "wait_pass", "bgm_fadeout_pass",
         *("direction_pass" for _ in DIRECTIONS),
         *("rotation_pass" for _ in ROTATIONS),
+        *("relative_rotation_pass" for _ in RELATIVE_ROTATIONS),
         "fail_closed_pass", "end",
     ]
     if kinds != expected_kinds:
@@ -93,16 +99,22 @@ def main() -> int:
     for event, (transition, target) in zip(events[12:16], ROTATIONS):
         if event != {"event": "rotation_pass", "transition": transition, "target": target}:
             raise ValueError(f"rotation adapter mismatch: {event}")
-    fail_closed = events[16]
+    for event, (turn_step, target_transform) in zip(events[16:19], RELATIVE_ROTATIONS):
+        if event != {
+            "event": "relative_rotation_pass", "turn_step": turn_step, "target_transform": target_transform,
+        }:
+            raise ValueError(f"relative rotation adapter mismatch: {event}")
+    fail_closed = events[19]
     if fail_closed != {
         "event": "fail_closed_pass",
         "numeric_direction": True,
         "unknown_opcode": True,
         "missing_actor": True,
         "unsupported_rotation": True,
+        "unsupported_relative_rotation": True,
     }:
         raise ValueError("adapter fail-closed checks did not all pass")
-    end = events[17]
+    end = events[20]
     if end != {
         "event": "end", "verdict": "PASS", "ground_loaded": "fixture_sink_only",
         "production_route_written": False,
@@ -123,7 +135,7 @@ def main() -> int:
     result = {
         "schema": "new-era.pmdred-eu-primitive-adapter-runtime-validation.v1",
         "result": "PASS_EXACT_PMDO_0_8_12",
-        "meaning": "four dormant primitive adapters loaded and executed; no canonical scene or journey is runtime-ready",
+        "meaning": "five dormant primitive adapters loaded and executed; no canonical scene or journey is runtime-ready",
         "runtime": {
             "name": "PMDO",
             "version": "0.8.12",
@@ -136,12 +148,14 @@ def main() -> int:
             "BGM_FADEOUT": {"frames": 5},
             "SET_DIR_WAIT": {"direction_symbol_count": 8, "preserve_direction_minus_one": True},
             "ROTATE_TO": {"transition_policy_count": 4, "step_frames": 2},
+            "CMD_UNK_92": {"corpus_form_count": 3, "step_frames": 2},
         },
         "fail_closed": {
             "numeric_direction_rejected": True,
             "unknown_opcode_rejected": True,
             "missing_actor_rejected": True,
             "unsupported_rotation_rejected": True,
+            "unsupported_relative_rotation_rejected": True,
         },
         "scope": {
             "executed_ground": "pmdred_eu_validation_sink",

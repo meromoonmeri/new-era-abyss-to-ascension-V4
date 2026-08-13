@@ -81,12 +81,24 @@ function V:validate_async()
     assert(actor.Direction==item[3])
     emit('{"event":"rotation_pass","transition":"'..item[1]..'","target":"'..item[2]..'"}')
   end
+  local relative_rotations={
+    {1,'DIR_TRANS_SPINRIGHT2',Direction.Left},
+    {2,'DIR_TRANS_SPINLEFT2',Direction.Right},
+    {2,'DIR_TRANS_FLIP',Direction.Up},
+  }
+  for _,item in ipairs(relative_rotations) do
+    GROUND:EntTurn(actor,Direction.Down)
+    A.Execute('CMD_UNK_92',{step_frames=2,turn_step=item[1],target_transform=item[2]},{actor=actor})
+    assert(actor.Direction==item[3])
+    emit('{"event":"relative_rotation_pass","turn_step":'..item[1]..',"target_transform":"'..item[2]..'"}')
+  end
   local numeric_ok=pcall(function()A.ResolveDirection(2)end)
   local unknown_ok=pcall(function()A.Execute('RAW_OPCODE_0X62',{}, {})end)
   local missing_actor_ok=pcall(function()A.Execute('SET_DIR_WAIT',{direction='DIRECTION_NORTH',frames=0},{})end)
   local rotation_ok=pcall(function()A.Execute('ROTATE_TO',{step_frames=2,transition='DIR_TRANS_RAND',direction='DIRECTION_NORTH'},{actor=actor})end)
-  assert(not numeric_ok and not unknown_ok and not missing_actor_ok and not rotation_ok)
-  emit('{"event":"fail_closed_pass","numeric_direction":true,"unknown_opcode":true,"missing_actor":true,"unsupported_rotation":true}')
+  local relative_ok=pcall(function()A.Execute('CMD_UNK_92',{step_frames=2,turn_step=1,target_transform='DIR_TRANS_RAND'},{actor=actor})end)
+  assert(not numeric_ok and not unknown_ok and not missing_actor_ok and not rotation_ok and not relative_ok)
+  emit('{"event":"fail_closed_pass","numeric_direction":true,"unknown_opcode":true,"missing_actor":true,"unsupported_rotation":true,"unsupported_relative_rotation":true}')
 end
 function V:begin()
   if not self.enabled or self.started then return end

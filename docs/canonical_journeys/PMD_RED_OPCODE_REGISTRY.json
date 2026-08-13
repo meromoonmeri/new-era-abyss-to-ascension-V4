@@ -77,7 +77,7 @@
     "PROVEN": 4731
   },
   "adapter_status_kind_counts": {
-    "ADAPTER_PROVEN": 4,
+    "ADAPTER_PROVEN": 5,
     "ANIMATION_BINDING_REQUIRED": 2,
     "AUDIO_BINDING_REQUIRED": 8,
     "CAMERA_BINDING_REQUIRED": 2,
@@ -87,7 +87,7 @@
     "ENTITY_FLAG_BINDING_REQUIRED": 2,
     "GROUND_CONTEXT_REQUIRED": 8,
     "NO_EQUIVALENT_PROVEN": 12,
-    "ORIENTATION_BINDING_REQUIRED": 2,
+    "ORIENTATION_BINDING_REQUIRED": 1,
     "PORTRAIT_BINDING_REQUIRED": 4,
     "ROUTE_BINDING_REQUIRED": 3,
     "STATE_BINDING_REQUIRED": 2,
@@ -95,7 +95,7 @@
     "TEXT_BINDING_REQUIRED": 3
   },
   "adapter_status_action_counts": {
-    "ADAPTER_PROVEN": 771,
+    "ADAPTER_PROVEN": 782,
     "ANIMATION_BINDING_REQUIRED": 261,
     "AUDIO_BINDING_REQUIRED": 248,
     "CAMERA_BINDING_REQUIRED": 11,
@@ -105,15 +105,15 @@
     "ENTITY_FLAG_BINDING_REQUIRED": 58,
     "GROUND_CONTEXT_REQUIRED": 140,
     "NO_EQUIVALENT_PROVEN": 340,
-    "ORIENTATION_BINDING_REQUIRED": 36,
+    "ORIENTATION_BINDING_REQUIRED": 25,
     "PORTRAIT_BINDING_REQUIRED": 183,
     "ROUTE_BINDING_REQUIRED": 23,
     "STATE_BINDING_REQUIRED": 52,
     "TEXT_AND_ACTOR_BINDING_REQUIRED": 503,
     "TEXT_BINDING_REQUIRED": 58
   },
-  "adapter_proven_kind_count": 4,
-  "adapter_proven_action_count": 771,
+  "adapter_proven_kind_count": 5,
+  "adapter_proven_action_count": 782,
   "runtime_ready_kind_count": 0,
   "runtime_ready_asset_count": 0,
   "production_route_count": 0,
@@ -626,7 +626,7 @@
           "line": 368
         }
       },
-      "adapter_status": "ORIENTATION_BINDING_REQUIRED",
+      "adapter_status": "ADAPTER_PROVEN",
       "pmdo_api_candidates": [
         {
           "api": "GROUND:CharAnimateTurn",
@@ -637,10 +637,29 @@
         }
       ],
       "remaining_blockers": [
-        "direction transformation lowering",
-        "parent actor"
+        "current parent actor is compiler context"
       ],
-      "runtime_ready": false
+      "runtime_ready": false,
+      "proved_adapter": {
+        "rule": "CMD_UNK_92(step_frames, turn_step, target_transform) -> derive target from current direction, then perform the same forced animated turn",
+        "pmdo_calls": [
+          "GROUND:CharAnimateTurn"
+        ],
+        "preconditions": [
+          "the compiler resolves the parent action to one GroundChar",
+          "turn_step and target_transform are one of the three combinations occurring in the corpus",
+          "step_frames is a positive integer"
+        ],
+        "source_helper_proof": {
+          "path": "src/direction_util.c",
+          "blob_sha": "ba6d169507615e34988dae40135ba39011ef840f",
+          "lines": [
+            30,
+            86
+          ]
+        },
+        "proof": "The locked executor derives a fixed target with TransformDirection1, then uses TransformDirection2 for a forced one-direction step after each delay; the PMDO forced-turn primitive matches that sequence after explicit enum remapping."
+      }
     },
     {
       "kind": "CMD_UNK_93",
@@ -3118,5 +3137,5 @@
       "runtime_ready": false
     }
   ],
-  "registry_sha256": "fa536267f7c087fa2034e0faf2407aadbf007207f5d45749073232c65a4c3297"
+  "registry_sha256": "b26dcd25566890da37cd58f99ec8d3a911781b2331494ad5a26863bc10872388"
 }
