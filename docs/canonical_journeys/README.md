@@ -69,17 +69,17 @@ runtime verrouillé contient un Source Link vers le commit RogueEssence
 
 Le registre classe **4 731 actions** avec une sémantique source prouvée et
 conserve **236 actions** derrière une sémantique seulement partielle (callbacks
-ou contrôleurs encore non nommés). Trois primitives seulement ont pour
-l'instant une équivalence d'implémentation prouvée : `WAIT`, `BGM_FADEOUT` et
-`SET_DIR_WAIT`, soit **586 occurrences**. Leur module dormant
+ou contrôleurs encore non nommés). Quatre primitives seulement ont pour
+l'instant une équivalence d'implémentation prouvée : `WAIT`, `BGM_FADEOUT`,
+`SET_DIR_WAIT` et `ROTATE_TO`, soit **771 occurrences**. Leur module dormant
 `CanonicalPrimitiveAdapters.lua` :
 
 - remappe les huit directions par symbole, car les valeurs numériques
   est/ouest de PMD Red et RogueElements sont inversées ;
-- refuse tout opérande invalide et tout opcode hors de ces trois primitives ;
+- refuse tout opérande invalide et tout opcode hors de ces quatre primitives ;
 - n'enregistre aucune route et ne modifie aucun Ground ou Zone.
 
-Ces trois primitives passent aussi le harness moteur
+Ces quatre primitives passent aussi le harness moteur
 `primitive_adapter_runtime/` dans l'exécutable exact PMDO 0.8.12. Le harness
 emploie uniquement son Ground synthétique ignoré : aucun Ground certifié n'est
 revalidé.

@@ -10,5 +10,9 @@
 {"event":"direction_pass","source":"DIRECTION_NORTHWEST","pmdo":"UpLeft: 3"}
 {"event":"direction_pass","source":"DIRECTION_WEST","pmdo":"Left: 2"}
 {"event":"direction_pass","source":"DIRECTION_SOUTHWEST","pmdo":"DownLeft: 1"}
-{"event":"fail_closed_pass","numeric_direction":true,"unknown_opcode":true,"missing_actor":true}
+{"event":"rotation_pass","transition":"DIR_TRANS_SPINRIGHT1","target":"DIRECTION_NORTH"}
+{"event":"rotation_pass","transition":"DIR_TRANS_SPINLEFT1","target":"DIRECTION_EAST"}
+{"event":"rotation_pass","transition":"DIR_TRANS_10","target":"DIRECTION_WEST"}
+{"event":"rotation_pass","transition":"DIR_TRANS_11","target":"DIRECTION_NORTHEAST"}
+{"event":"fail_closed_pass","numeric_direction":true,"unknown_opcode":true,"missing_actor":true,"unsupported_rotation":true}
 {"event":"end","verdict":"PASS","ground_loaded":"fixture_sink_only","production_route_written":false}

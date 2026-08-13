@@ -17,7 +17,7 @@ from typing import Any
 # Only primitives with an implementation-level equivalence certified by
 # PMD_RED_OPCODE_REGISTRY.json and implemented fail-closed in
 # CanonicalPrimitiveAdapters.lua may appear here.
-PROVEN_ADAPTER_KINDS = {"WAIT", "BGM_FADEOUT", "SET_DIR_WAIT"}
+PROVEN_ADAPTER_KINDS = {"WAIT", "BGM_FADEOUT", "SET_DIR_WAIT", "ROTATE_TO"}
 
 
 def read(path: Path) -> dict[str, Any]:
@@ -49,6 +49,14 @@ def proved_operands(kind: str, signature: str) -> dict[str, Any]:
             raise ValueError(f"invalid proved SET_DIR_WAIT signature: {signature}")
         direction: str | int = -1 if match.group(1) == "-1" else match.group(1)
         return {"direction": direction, "frames": int(match.group(2))}
+    if kind == "ROTATE_TO":
+        match = re.fullmatch(
+            r"ROTATE_TO\((\d+),\s*(DIR_TRANS_(?:SPINRIGHT1|SPINLEFT1|10|11)),\s*(DIRECTION_[A-Z]+)\)",
+            signature,
+        )
+        if match is None:
+            raise ValueError(f"invalid proved ROTATE_TO signature: {signature}")
+        return {"step_frames": int(match.group(1)), "transition": match.group(2), "direction": match.group(3)}
     raise ValueError(f"no proved operand compiler for {kind}")
 
 

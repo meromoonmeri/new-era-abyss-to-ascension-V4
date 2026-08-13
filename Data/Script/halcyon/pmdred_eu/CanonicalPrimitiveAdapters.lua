@@ -1,8 +1,8 @@
 -- Proven PMD Red primitive adapters for exact PMDO 0.8.12.
 --
 -- This module is dormant: it registers no route, mutates no Ground, and never
--- skips an unsupported source command.  Only the three equivalences certified
--- in PMD_RED_OPCODE_REGISTRY.json are executable here.
+-- skips an unsupported source command.  Only equivalences certified in
+-- PMD_RED_OPCODE_REGISTRY.json are executable here.
 local Adapters = {}
 
 Adapters.AUTHORITY = {
@@ -15,6 +15,7 @@ Adapters.PROVEN = {
   WAIT = true,
   BGM_FADEOUT = true,
   SET_DIR_WAIT = true,
+  ROTATE_TO = true,
 }
 
 -- PMD Red and RogueElements enumerate east/west in opposite numeric order.
@@ -29,10 +30,38 @@ local DIRECTIONS = {
   DIRECTION_WEST = Direction.Left,
   DIRECTION_SOUTHWEST = Direction.DownLeft,
 }
+local SOURCE_INDEX_BY_PMDO = {
+  [Direction.Down] = 0,
+  [Direction.DownRight] = 1,
+  [Direction.Right] = 2,
+  [Direction.UpRight] = 3,
+  [Direction.Up] = 4,
+  [Direction.UpLeft] = 5,
+  [Direction.Left] = 6,
+  [Direction.DownLeft] = 7,
+}
+local PMDO_BY_SOURCE_INDEX = {
+  [0] = Direction.Down,
+  [1] = Direction.DownRight,
+  [2] = Direction.Right,
+  [3] = Direction.UpRight,
+  [4] = Direction.Up,
+  [5] = Direction.UpLeft,
+  [6] = Direction.Left,
+  [7] = Direction.DownLeft,
+}
 
 local function nonnegative_integer(name, value)
   if type(value) ~= 'number' or value < 0 or value ~= math.floor(value) then
     error('PMD Red adapter expected non-negative integer ' .. name)
+  end
+  return value
+end
+
+local function positive_integer(name, value)
+  value = nonnegative_integer(name, value)
+  if value == 0 then
+    error('PMD Red adapter expected positive integer ' .. name)
   end
   return value
 end
@@ -73,6 +102,49 @@ function Adapters.SET_DIR_WAIT(actor, source_direction, frames)
   end
 end
 
+local function shortest_source_step(current, target)
+  if current == target then
+    return current
+  end
+  local delta = (target + 8 - current) % 8
+  if delta <= 3 then
+    return (current + 1) % 8
+  end
+  return (current + 7) % 8
+end
+
+function Adapters.ROTATE_TO(actor, step_frames, transition, source_direction)
+  if actor == nil then
+    error('ROTATE_TO requires the source parent actor')
+  end
+  step_frames = positive_integer('step_frames', step_frames)
+  local target = Adapters.ResolveDirection(source_direction)
+  if transition == 'DIR_TRANS_SPINRIGHT1' then
+    -- Source -1 is PMDO +1 because the horizontal enum ordering is mirrored.
+    GROUND:CharAnimateTurn(actor, target, step_frames, false)
+  elseif transition == 'DIR_TRANS_SPINLEFT1' then
+    GROUND:CharAnimateTurn(actor, target, step_frames, true)
+  elseif transition == 'DIR_TRANS_10' then
+    GROUND:CharAnimateTurnTo(actor, target, step_frames)
+  elseif transition == 'DIR_TRANS_11' then
+    local target_index = SOURCE_INDEX_BY_PMDO[target]
+    local current = SOURCE_INDEX_BY_PMDO[actor.Direction]
+    if target_index == nil or current == nil then
+      error('ROTATE_TO received an unsupported PMDO direction')
+    end
+    while current ~= target_index do
+      -- The locked source deliberately applies its shortest one-step helper
+      -- twice before each wait for transition policy 11.
+      current = shortest_source_step(current, target_index)
+      current = shortest_source_step(current, target_index)
+      GROUND:EntTurn(actor, PMDO_BY_SOURCE_INDEX[current])
+      GAME:WaitFrames(step_frames)
+    end
+  else
+    error('unsupported PMD Red ROTATE_TO transition: ' .. tostring(transition))
+  end
+end
+
 function Adapters.Execute(kind, operands, context)
   operands = operands or {}
   context = context or {}
@@ -82,6 +154,10 @@ function Adapters.Execute(kind, operands, context)
     return Adapters.BGM_FADEOUT(operands.frames)
   elseif kind == 'SET_DIR_WAIT' then
     return Adapters.SET_DIR_WAIT(context.actor, operands.direction, operands.frames)
+  elseif kind == 'ROTATE_TO' then
+    return Adapters.ROTATE_TO(
+      context.actor, operands.step_frames, operands.transition, operands.direction
+    )
   end
   error('unmapped PMD Red primitive (fail-closed): ' .. tostring(kind))
 end

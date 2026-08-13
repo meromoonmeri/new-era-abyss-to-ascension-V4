@@ -39,10 +39,10 @@ class DungeonSceneIRTests(unittest.TestCase):
         self.assertEqual(data["script_array_count"], 267)
         self.assertEqual(data["action_count"], 4967)
         self.assertEqual(data["unknown_action_count"], 712)
-        self.assertEqual(data["adapter_proven_action_count"], 586)
+        self.assertEqual(data["adapter_proven_action_count"], 771)
         self.assertEqual(data["adapter_status_action_counts"], {
-            "ADAPTER_PROVEN": 586,
-            "MAPPING_REQUIRED": 3669,
+            "ADAPTER_PROVEN": 771,
+            "MAPPING_REQUIRED": 3484,
             "UNMAPPED_PRESERVED": 712,
         })
         self.assertEqual(data["runtime_ready_asset_count"], 0)
@@ -57,13 +57,20 @@ class DungeonSceneIRTests(unittest.TestCase):
                 for action in array["actions"]:
                     if action["kind"].startswith(("RAW_OPCODE_", "CMD_UNK_", "CJUMP_UNK_")):
                         self.assertEqual(action["adapter_status"], "UNMAPPED_PRESERVED")
-                    elif action["kind"] in {"WAIT", "BGM_FADEOUT", "SET_DIR_WAIT"}:
+                    elif action["kind"] in {"WAIT", "BGM_FADEOUT", "SET_DIR_WAIT", "ROTATE_TO"}:
                         self.assertEqual(action["adapter_status"], "ADAPTER_PROVEN")
                         self.assertIn("operands", action)
-                        self.assertIsInstance(action["operands"]["frames"], int)
-                        self.assertGreaterEqual(action["operands"]["frames"], 0)
-                        if action["kind"] == "SET_DIR_WAIT":
+                        if action["kind"] == "ROTATE_TO":
+                            self.assertGreater(action["operands"]["step_frames"], 0)
+                            self.assertIn(action["operands"]["transition"], {
+                                "DIR_TRANS_SPINRIGHT1", "DIR_TRANS_SPINLEFT1", "DIR_TRANS_10", "DIR_TRANS_11",
+                            })
                             self.assertIn("direction", action["operands"])
+                        else:
+                            self.assertIsInstance(action["operands"]["frames"], int)
+                            self.assertGreaterEqual(action["operands"]["frames"], 0)
+                            if action["kind"] == "SET_DIR_WAIT":
+                                self.assertIn("direction", action["operands"])
                     else:
                         self.assertEqual(action["adapter_status"], "MAPPING_REQUIRED")
                         self.assertNotIn("operands", action)

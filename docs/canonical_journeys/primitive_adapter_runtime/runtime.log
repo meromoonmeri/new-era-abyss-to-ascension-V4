@@ -56,5 +56,9 @@ Script variables default values loaded! [build 2026-08-04-K]
 [PMDRED_PRIMITIVE_ADAPTER] {"event":"direction_pass","source":"DIRECTION_NORTHWEST","pmdo":"UpLeft: 3"}
 [PMDRED_PRIMITIVE_ADAPTER] {"event":"direction_pass","source":"DIRECTION_WEST","pmdo":"Left: 2"}
 [PMDRED_PRIMITIVE_ADAPTER] {"event":"direction_pass","source":"DIRECTION_SOUTHWEST","pmdo":"DownLeft: 1"}
-[PMDRED_PRIMITIVE_ADAPTER] {"event":"fail_closed_pass","numeric_direction":true,"unknown_opcode":true,"missing_actor":true}
+[PMDRED_PRIMITIVE_ADAPTER] {"event":"rotation_pass","transition":"DIR_TRANS_SPINRIGHT1","target":"DIRECTION_NORTH"}
+[PMDRED_PRIMITIVE_ADAPTER] {"event":"rotation_pass","transition":"DIR_TRANS_SPINLEFT1","target":"DIRECTION_EAST"}
+[PMDRED_PRIMITIVE_ADAPTER] {"event":"rotation_pass","transition":"DIR_TRANS_10","target":"DIRECTION_WEST"}
+[PMDRED_PRIMITIVE_ADAPTER] {"event":"rotation_pass","transition":"DIR_TRANS_11","target":"DIRECTION_NORTHEAST"}
+[PMDRED_PRIMITIVE_ADAPTER] {"event":"fail_closed_pass","numeric_direction":true,"unknown_opcode":true,"missing_actor":true,"unsupported_rotation":true}
 [PMDRED_PRIMITIVE_ADAPTER] {"event":"end","verdict":"PASS","ground_loaded":"fixture_sink_only","production_route_written":false}

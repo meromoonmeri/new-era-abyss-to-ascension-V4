@@ -10,6 +10,7 @@
         "include/data_script.h": "5ed91e16fcb93817cc7a098908b0a6542bb6c01e",
         "include/constants/direction.h": "c2a1d19f632b0dc8817177f5a27f72b64ae4e4b4",
         "src/ground_script.c": "87431714802987dedbc0330b7338ad90f390ce0b",
+        "src/direction_util.c": "ba6d169507615e34988dae40135ba39011ef840f",
         "src/textbox.c": "f2e66d8da1fa14b3ee216350c00a131698fa5a9a",
         "src/palette_util.c": "926d28d1ede0270717649e587edf569639245a27",
         "src/ground_lives.c": "d4a101ff03a49375cd363188ae6df16fec71d3ea",
@@ -76,7 +77,7 @@
     "PROVEN": 4731
   },
   "adapter_status_kind_counts": {
-    "ADAPTER_PROVEN": 3,
+    "ADAPTER_PROVEN": 4,
     "ANIMATION_BINDING_REQUIRED": 2,
     "AUDIO_BINDING_REQUIRED": 8,
     "CAMERA_BINDING_REQUIRED": 2,
@@ -86,7 +87,7 @@
     "ENTITY_FLAG_BINDING_REQUIRED": 2,
     "GROUND_CONTEXT_REQUIRED": 8,
     "NO_EQUIVALENT_PROVEN": 12,
-    "ORIENTATION_BINDING_REQUIRED": 3,
+    "ORIENTATION_BINDING_REQUIRED": 2,
     "PORTRAIT_BINDING_REQUIRED": 4,
     "ROUTE_BINDING_REQUIRED": 3,
     "STATE_BINDING_REQUIRED": 2,
@@ -94,7 +95,7 @@
     "TEXT_BINDING_REQUIRED": 3
   },
   "adapter_status_action_counts": {
-    "ADAPTER_PROVEN": 586,
+    "ADAPTER_PROVEN": 771,
     "ANIMATION_BINDING_REQUIRED": 261,
     "AUDIO_BINDING_REQUIRED": 248,
     "CAMERA_BINDING_REQUIRED": 11,
@@ -104,15 +105,15 @@
     "ENTITY_FLAG_BINDING_REQUIRED": 58,
     "GROUND_CONTEXT_REQUIRED": 140,
     "NO_EQUIVALENT_PROVEN": 340,
-    "ORIENTATION_BINDING_REQUIRED": 221,
+    "ORIENTATION_BINDING_REQUIRED": 36,
     "PORTRAIT_BINDING_REQUIRED": 183,
     "ROUTE_BINDING_REQUIRED": 23,
     "STATE_BINDING_REQUIRED": 52,
     "TEXT_AND_ACTOR_BINDING_REQUIRED": 503,
     "TEXT_BINDING_REQUIRED": 58
   },
-  "adapter_proven_kind_count": 3,
-  "adapter_proven_action_count": 586,
+  "adapter_proven_kind_count": 4,
+  "adapter_proven_action_count": 771,
   "runtime_ready_kind_count": 0,
   "runtime_ready_asset_count": 0,
   "production_route_count": 0,
@@ -2338,7 +2339,7 @@
           "line": 366
         }
       },
-      "adapter_status": "ORIENTATION_BINDING_REQUIRED",
+      "adapter_status": "ADAPTER_PROVEN",
       "pmdo_api_candidates": [
         {
           "api": "GROUND:CharAnimateTurn",
@@ -2353,14 +2354,50 @@
           "source_blob_sha": "a23124550a82a2daa30c5fb9d01f0d1d2302d447",
           "line": 370,
           "member": "_CharAnimateTurnTo"
+        },
+        {
+          "api": "GROUND:EntTurn",
+          "source_path": "RogueEssence/Lua/ScriptGround.cs",
+          "source_blob_sha": "a23124550a82a2daa30c5fb9d01f0d1d2302d447",
+          "line": 331,
+          "member": "EntTurn"
+        },
+        {
+          "api": "GAME:WaitFrames",
+          "source_path": "RogueEssence/Lua/ScriptGame.cs",
+          "source_blob_sha": "87251bb66a58c4056b60c5ac10c903ee1ddb95d7",
+          "line": 1498,
+          "member": "_WaitFrames"
         }
       ],
       "remaining_blockers": [
-        "direction-symbol remap",
-        "transition policy lowering",
-        "parent actor"
+        "current parent actor is compiler context"
       ],
-      "runtime_ready": false
+      "runtime_ready": false,
+      "proved_adapter": {
+        "rule": "ROTATE_TO(step_frames, transition, direction) -> symbol-remapped PMDO animated turn with the same one-step or two-step policy",
+        "pmdo_calls": [
+          "GROUND:CharAnimateTurn",
+          "GROUND:CharAnimateTurnTo",
+          "GROUND:EntTurn",
+          "GAME:WaitFrames"
+        ],
+        "preconditions": [
+          "the compiler resolves the parent action to one GroundChar",
+          "transition is one of the four policies occurring in the 27-asset corpus",
+          "PMD Red direction symbols are remapped by name, never cast numerically",
+          "step_frames is a positive integer"
+        ],
+        "source_helper_proof": {
+          "path": "src/direction_util.c",
+          "blob_sha": "ba6d169507615e34988dae40135ba39011ef840f",
+          "lines": [
+            90,
+            153
+          ]
+        },
+        "proof": "The locked source rotates one direction per delay for forced left/right and shortest policy 10, or two directions per delay for shortest policy 11; the adapter reproduces those visible steps."
+      }
     },
     {
       "kind": "SELECT_ANIMATION",
@@ -3081,5 +3118,5 @@
       "runtime_ready": false
     }
   ],
-  "registry_sha256": "335f3361654962b53b04c6d2ba06032255d70add01706bbe39f5f1f6fdc96986"
+  "registry_sha256": "fa536267f7c087fa2034e0faf2407aadbf007207f5d45749073232c65a4c3297"
 }

@@ -29,6 +29,7 @@ EXPECTED_PRET_BLOBS = {
     "include/data_script.h": "5ed91e16fcb93817cc7a098908b0a6542bb6c01e",
     "include/constants/direction.h": "c2a1d19f632b0dc8817177f5a27f72b64ae4e4b4",
     "src/ground_script.c": "87431714802987dedbc0330b7338ad90f390ce0b",
+    "src/direction_util.c": "ba6d169507615e34988dae40135ba39011ef840f",
     "src/textbox.c": "f2e66d8da1fa14b3ee216350c00a131698fa5a9a",
     "src/palette_util.c": "926d28d1ede0270717649e587edf569639245a27",
     "src/ground_lives.c": "d4a101ff03a49375cd363188ae6df16fec71d3ea",
@@ -67,6 +68,22 @@ PROVEN_ADAPTERS = {
             "frames is an integer greater than or equal to zero",
         ],
         "proof": "The source command sets the parent direction unless it is -1 and then waits; both exact PMDO primitives expose those operations.",
+    },
+    "ROTATE_TO": {
+        "rule": "ROTATE_TO(step_frames, transition, direction) -> symbol-remapped PMDO animated turn with the same one-step or two-step policy",
+        "pmdo_calls": ["GROUND:CharAnimateTurn", "GROUND:CharAnimateTurnTo", "GROUND:EntTurn", "GAME:WaitFrames"],
+        "preconditions": [
+            "the compiler resolves the parent action to one GroundChar",
+            "transition is one of the four policies occurring in the 27-asset corpus",
+            "PMD Red direction symbols are remapped by name, never cast numerically",
+            "step_frames is a positive integer",
+        ],
+        "source_helper_proof": {
+            "path": "src/direction_util.c",
+            "blob_sha": "ba6d169507615e34988dae40135ba39011ef840f",
+            "lines": [90, 153],
+        },
+        "proof": "The locked source rotates one direction per delay for forced left/right and shortest policy 10, or two directions per delay for shortest policy 11; the adapter reproduces those visible steps.",
     },
 }
 
@@ -172,7 +189,7 @@ def initialize_kind_meta() -> None:
     define("SELECT_EVENTS", "Selects source events for a group/sector.", "GROUND_CONTEXT_REQUIRED", [], ["source events to PMDO controller binding"])
     define("CANCEL_OBJECTS CANCEL_EFFECTS", "Cancels the selected source object/effect group and sector.", "GROUND_CONTEXT_REQUIRED", [], ["transient entity ownership and cancellation parity"])
     define("SELECT_ANIMATION", "Selects the parent entity animation/event index.", "ANIMATION_BINDING_REQUIRED", ["GROUND:CharSetAnim"], ["source animation index to PMDO animation name", "parent entity type"])
-    define("ROTATE_TO", "Rotates the current parent toward an explicit source direction using a source transition policy and step delay.", "ORIENTATION_BINDING_REQUIRED", ["GROUND:CharAnimateTurn", "GROUND:CharAnimateTurnTo"], ["direction-symbol remap", "transition policy lowering", "parent actor"])
+    define("ROTATE_TO", "Rotates the current parent toward an explicit source direction using a source transition policy and step delay.", "ADAPTER_PROVEN", ["GROUND:CharAnimateTurn", "GROUND:CharAnimateTurnTo", "GROUND:EntTurn", "GAME:WaitFrames"], ["current parent actor is compiler context"])
     define("CMD_UNK_92", "Rotates toward a direction derived from the current direction by a source direction transformation.", "ORIENTATION_BINDING_REQUIRED", ["GROUND:CharAnimateTurn"], ["direction transformation lowering", "parent actor"])
     define("CMD_UNK_93", "Rotates toward a resolved source entity using a source direction transition policy.", "ORIENTATION_BINDING_REQUIRED", ["GROUND:CharAnimateTurn", "GROUND:CharAnimateTurnTo"], ["target and parent actor binding", "transition policy lowering"])
     define("WALK_RELATIVE", "Walks from current position to a relative pixel target at fixed 24.8 speed, updating facing and stopping on collision.", "ENTITY_AND_GEOMETRY_BINDING_REQUIRED", ["GROUND:MoveToPosition"], ["parent actor", "fixed-point speed conversion", "collision-stop equivalence"])
