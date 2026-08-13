@@ -4,7 +4,7 @@
   "title": "BIBLIOTHEQUE layered environmental animation",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "animation_id", "game_id", "status", "frame_count", "loop", "timing_authority", "layers", "contexts", "dependencies", "provenance"],
+  "required": ["schema_version", "animation_id", "game_id", "status", "frame_count", "loop", "timing_authority", "timing_provenance", "layers", "contexts", "dependencies", "provenance"],
   "properties": {
     "schema_version": {"const": "1.0.0"},
     "animation_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
@@ -15,6 +15,19 @@
     "loop_start": {"type": ["integer", "null"], "minimum": 0},
     "timing_authority": {"enum": ["SOURCE_EXACT", "RGSS1_DEFAULT_UNVALIDATED", "UNKNOWN_REQUIRES_AUDIT"]},
     "source_frame_layout": {"type": "string"},
+    "timing_provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_path", "sha256", "method", "units", "static_audit_only"],
+      "properties": {
+        "source_path": {"type": "string"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "method": {"enum": ["STATIC_SCRIPT_CONSTANT", "GIF_GRAPHIC_CONTROL_EXTENSION"]},
+        "constant": {"type": ["integer", "null"], "minimum": 1},
+        "units": {"enum": ["1/20 second", "1/100 second"]},
+        "static_audit_only": {"type": "boolean"}
+      }
+    },
     "layers": {
       "type": "array",
       "minItems": 1,

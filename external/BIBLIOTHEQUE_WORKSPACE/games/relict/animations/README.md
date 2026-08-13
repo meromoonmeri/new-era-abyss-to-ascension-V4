@@ -1,3 +1,3 @@
 # Animations autotile Relict
 
-Chaque frame source est exportée séparément, sans aplatir les couches. Le format image permet de déterminer l'ordre et la boucle, mais pas une durée exacte indépendante des scripts : les timings restent donc `ADAPTATION_REQUIRED` jusqu'à audit statique ciblé.
+Chaque frame source est exportée séparément, sans aplatir les couches. L'ordre, la boucle et les durées exactes proviennent de l'autorité statique `TilemapRenderer::AUTOTILE_FRAME_DURATION` (unités de 1/20 seconde). Aucun script source n'est exécuté ni copié.

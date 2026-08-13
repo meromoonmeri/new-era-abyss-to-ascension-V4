@@ -3,6 +3,12 @@
   "execution_policy": "NO_SOURCE_CODE_EXECUTION",
   "files": [
     {
+      "classification": "REDACTED_VISUAL_TIMELINE_SOURCE",
+      "path": "Data/CommonEvents.rxdata",
+      "sha256": "ca10aba92b19f0612afdef378ae676da382ce42d3a1ffe613e51c5c622df7098",
+      "size_bytes": 5857
+    },
+    {
       "classification": "INCLUDED_ENVIRONMENTAL_SOURCE",
       "path": "Data/Map001.rxdata",
       "sha256": "15682311653629633f1ef6a33af16b9eaec46a7ac9881324883b99259af73a83",
@@ -223,6 +229,12 @@
       "path": "Data/MapInfos.rxdata",
       "sha256": "f479075861f0ab8dae90aced400b85449c51e4909e4fa3730ee5dd14061789f7",
       "size_bytes": 1425
+    },
+    {
+      "classification": "STATIC_VISUAL_TIMING_AUTHORITY",
+      "path": "Data/Scripts/006_Map renderer/001_TilemapRenderer.rb",
+      "sha256": "5ccca09476a6843bcda02bfd384b6d7efa9e101877541a0161a408c8a5cada01",
+      "size_bytes": 21796
     },
     {
       "classification": "INCLUDED_ENVIRONMENTAL_SOURCE",
@@ -487,27 +499,35 @@
       "path": "Graphics/Tilesets/dungeon7.png",
       "sha256": "4f10a2b5783749876714f70b91c1e1397cb01a4e5966cf0557553dd9be8c0ab1",
       "size_bytes": 10320
+    },
+    {
+      "classification": "STATIC_VISUAL_TIMING_AUTHORITY",
+      "path": "mkxp.json",
+      "sha256": "62aeae4e5c10804e25cb91ac24ff264c1137639ae395826ecbb51e02bb0cf40e",
+      "size_bytes": 6032
     }
   ],
   "game_id": "relict",
   "pipeline_tool_hashes": {
-    "tools/build_relict_library.py": "af180f597ee003341bfc64cd1a9bce65a2b3c05d78f40126570d4116f7ff1944",
-    "tools/extract_relict_autotile_animations.py": "d043cbc0ac1fe717e90e27cad904a9fcf68b686397c87ff1bb00980c3724bbbe",
-    "tools/inventory_relict.py": "20427fc8d73becf87405f6e38ed7478c8f49baab0b72eadf678259eedd8b99c8",
-    "tools/png_rgba.py": "3c626fe581c700209ef79d33533df85b673a70e9303c98d022d7365d58cb4b7e",
+    "tools/build_relict_library.py": "1f75e6f236e23729369b2f5c0794141ba14a44b7bfaef1b7ec2b00a7d66c23b8",
+    "tools/extract_relict_autotile_animations.py": "3109c3fc1c0d032e2394d7c111ee446a80cade64079895c0eea728ca08d27c44",
+    "tools/extract_relict_environmental_vfx.py": "891e7bb46566d1b3457861f34d799532b92bb323c7ed0cfdccaea9b1264d0d3d",
+    "tools/inventory_relict.py": "f15fb32370763d1e7ec0ee6759776c26e9b30b963604400ae29d4f43229aee03",
+    "tools/png_rgba.py": "5db7749bd903b422136ff2f8aaa219d625c3b6b9c6d564981de10fbdd37f1b8a",
     "tools/render_relict_previews.py": "c6383fae3d28b8366f80ba80d699fde4ace6b8216ed08763606bf0fc952dac8e",
     "tools/ruby_marshal.py": "3f7d6135b29f3840d61e62be394a1a46abf4845b8a01716c855b4835fa9bcf3f"
   },
   "policy_hashes": {
-    "policies/environment_scope.json": "9764479b6bca6d6abf4fd75d1565311258174ba979b813ec592c11f8ca959434"
+    "policies/environment_scope.json": "34a2b69e27af11acda2bda39f55066e71ebc7f4899bf1d15665aafa47747494b"
   },
   "schema_hashes": {
-    "schemas/animation.schema.json": "6a4b3a020cf583af64cdd29200b1b1bdf402b87c76463e9d90ea67a2dcb55988",
+    "schemas/animation.schema.json": "b06fe3a2bfbafaa756d6eb3c357cea17f3ba6ce26d65f0ac69f4e9600b86ff6c",
     "schemas/asset.schema.json": "cf9b9ef3ec687f123aee23fa156bb6c5991960269b71322dcf007cbd6e178992",
     "schemas/collision.schema.json": "d8e12f666509d04e6db49bc0c60ecaae4b73788a0a64584325e0ba804f35c262",
     "schemas/entity-placement.schema.json": "95fec579618fe51dd71e6a344d5a0cff4315b1792a5d28b7a62b68255c85512e",
     "schemas/provenance.schema.json": "0f285e435858a159ad791b24cb61fde5c9b9d1e221f8a04d3dc1ecd78d94ea5d",
     "schemas/status.schema.json": "61584795e689985827c537f98e6eb707ef72988672a3888a16c88437925da89c",
+    "schemas/visual-timeline.schema.json": "37b1516f8ffb7295ab6f69da5b04e1fa3d0537945820016c5c6e4da1cfedb172",
     "schemas/zone.schema.json": "d9431df375cea7f3969dbcaed36703ae78e8eb1201f98b940176d08e8282187d"
   },
   "schema_version": "1.0.0",

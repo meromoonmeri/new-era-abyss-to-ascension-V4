@@ -7,7 +7,7 @@ racine du dépôt indépendant `meromoonmeri/BIBLIOTHEQUE`.
 
 ## Phase active
 
-**Sprint 0–1 : schémas v1 et inventaire exhaustif de Relict.**
+**Sprints 0–3 : inventaire, collisions, previews, animations et timelines VFX de Relict.**
 
 Aucune conversion PMDO, reconstruction, modification d'image ou intégration
 New Era n'est autorisée pendant ce lot. Chaque Map conserve toutefois toutes
@@ -28,13 +28,16 @@ permettre leur futur remplacement par le casting New Era.
 Depuis la racine New Era :
 
 ```bash
-python3 external/BIBLIOTHEQUE_WORKSPACE/tools/inventory_relict.py
+python3 external/BIBLIOTHEQUE_WORKSPACE/tools/build_relict_library.py
 python3 external/BIBLIOTHEQUE_WORKSPACE/tests/test_relict_inventory.py
 ```
 
 Le pipeline ne charge pas `Scripts.rxdata`, ne lance pas Ruby et n'exécute
-jamais `Game.exe`. Il parse uniquement le format Ruby Marshal avec un lecteur
-pur Python borné.
+jamais `Game.exe`. Ruby Marshal et PNG sont traités par des lecteurs purs Python
+bornés. Le seul outil externe est ImageMagick, version et hash verrouillés, pour
+coalescer les frames GIF avant normalisation PNG déterministe. Un seul script
+source ciblé est lu statiquement afin d'établir la durée exacte des autotiles ;
+il n'est ni exécuté ni recopié.
 
 ## Autorité de source
 

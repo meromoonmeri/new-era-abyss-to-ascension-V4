@@ -60,10 +60,11 @@ layers/layer_00/frame_001.png
 ...
 ```
 
-L'ordre et la boucle sont préservés. La durée exacte n'étant pas encodée dans
-les PNG et les scripts propriétaires n'étant pas exécutés, les 17 timings sont
-marqués `RGSS1_DEFAULT_UNVALIDATED` et `ADAPTATION_REQUIRED`. Aucun timing n'est
-inventé.
+L'ordre et la boucle sont préservés. Un audit statique ciblé de
+`TilemapRenderer::AUTOTILE_FRAME_DURATION` établit une durée source exacte de
+5/20 seconde, soit **250 ms par frame**, pour les 17 noms utilisés (aucun suffixe
+de durée). Le script n'est ni exécuté ni copié ; seuls son hash et la constante
+font autorité.
 
 ## Reproductibilité
 

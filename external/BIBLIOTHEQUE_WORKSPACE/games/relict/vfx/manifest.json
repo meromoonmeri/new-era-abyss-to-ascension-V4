@@ -1,0 +1,618 @@
+{
+  "animated_environment_count": 1,
+  "common_event_timeline_count": 6,
+  "common_events": {
+    "file": "vfx/timelines/common_events.json",
+    "sha256": "ca7e8f3ca594ca5afe0fda57789b4a018f11280da086bbc569cd1c941ceda743"
+  },
+  "dialogue_contents_exported": false,
+  "environment_asset_count": 4,
+  "environment_assets": [
+    {
+      "asset_id": "relict_fog_forest_2c6a4251474f",
+      "contexts": [
+        {
+          "event_id": 8,
+          "map_id": 17,
+          "page_index": 0,
+          "source_index": 11
+        },
+        {
+          "event_id": 2,
+          "map_id": 18,
+          "page_index": 0,
+          "source_index": 10
+        },
+        {
+          "event_id": 4,
+          "map_id": 21,
+          "page_index": 0,
+          "source_index": 10
+        },
+        {
+          "event_id": 3,
+          "map_id": 22,
+          "page_index": 0,
+          "source_index": 4
+        },
+        {
+          "event_id": 8,
+          "map_id": 22,
+          "page_index": 0,
+          "source_index": 9
+        },
+        {
+          "event_id": 7,
+          "map_id": 23,
+          "page_index": 0,
+          "source_index": 10
+        },
+        {
+          "event_id": 2,
+          "map_id": 24,
+          "page_index": 0,
+          "source_index": 10
+        },
+        {
+          "event_id": 8,
+          "map_id": 26,
+          "page_index": 0,
+          "source_index": 11
+        }
+      ],
+      "kind": "FOG",
+      "name": "forest",
+      "output": "vfx/animations/relict_fog_forest_2c6a4251474f/metadata.json",
+      "output_sha256": "a17fafae3d7ef7640b45e90a45c146c48e260ae0d56906f5f30a9bd87e81ee83",
+      "resolved": true,
+      "source_path": "Graphics/Fogs/forest.gif",
+      "source_sha256": "2c6a4251474f854a2d4a4679f5330c0b4f0d8e24dad30e53568653445d024e23",
+      "status": "SOURCE_DOCUMENTED"
+    },
+    {
+      "asset_id": "relict_panorama_daylightpan_84f7c858e922",
+      "contexts": [
+        {
+          "event_id": 1,
+          "map_id": 28,
+          "page_index": 0,
+          "source_index": 10
+        }
+      ],
+      "kind": "PANORAMA",
+      "name": "DaylightPan",
+      "output": "vfx/assets/panorama/relict_panorama_daylightpan_84f7c858e922.png",
+      "output_sha256": "feb7f4b51d89410f216dc4686075407405522f605744381922fbeb8d363c0276",
+      "resolved": true,
+      "source_path": "Graphics/Panoramas/DaylightPan.png",
+      "source_sha256": "84f7c858e922b25cbcc6be72f53cc9746cee9b4bec2aba73e24d39ec4a0650ee",
+      "status": "SOURCE_DOCUMENTED"
+    },
+    {
+      "asset_id": "relict_panorama_summit_ec6dadd00474",
+      "contexts": [
+        {
+          "event_id": 2,
+          "map_id": 7,
+          "page_index": 0,
+          "source_index": 0
+        }
+      ],
+      "kind": "PANORAMA",
+      "name": "Summit",
+      "output": "vfx/assets/panorama/relict_panorama_summit_ec6dadd00474.png",
+      "output_sha256": "dcb5256ca785a5e4f18e936c2d5439552a07f0668a6757186b9b1cd9535988cf",
+      "resolved": true,
+      "source_path": "Graphics/Panoramas/Summit.png",
+      "source_sha256": "ec6dadd004740ace35c7f7ed6124cb9a9cbbb69dc8cdca92586da95163416f8d",
+      "status": "SOURCE_DOCUMENTED"
+    },
+    {
+      "asset_id": "relict_panorama_eclipsepan_cc73003140c0",
+      "contexts": [
+        {
+          "event_id": 1,
+          "map_id": 16,
+          "page_index": 0,
+          "source_index": 18
+        }
+      ],
+      "kind": "PANORAMA",
+      "name": "eclipsePan",
+      "output": "vfx/assets/panorama/relict_panorama_eclipsepan_cc73003140c0.png",
+      "output_sha256": "389277924f281129c48ee59e18da097d365f1ef89dfad1b30534e086d5fee947",
+      "resolved": true,
+      "source_path": "Graphics/Panoramas/eclipsePan.png",
+      "source_sha256": "cc73003140c0c98bbef36c5f8dbebaa8b6c46827b48683edde2236360ab43913",
+      "status": "SOURCE_DOCUMENTED"
+    }
+  ],
+  "event_timing_authority": {
+    "fixed_framerate_override_active": false,
+    "frame_duration_ms": 25,
+    "nominal_frame_rate": 40,
+    "sha256": "62aeae4e5c10804e25cb91ac24ff264c1137639ae395826ecbb51e02bb0cf40e",
+    "source_path": "mkxp.json"
+  },
+  "excluded_command_counts": {
+    "audio_commands_redacted": 82,
+    "choice_commands_redacted": 2,
+    "dialogue_commands_redacted": 558,
+    "dialogue_continuation_commands_redacted": 6,
+    "script_commands_redacted": 1006,
+    "script_continuation_commands_redacted": 134
+  },
+  "image_magick_authority": {
+    "executable_sha256": "98cde8b245cd229a92e8a89505786098175e97d43f4b958874bbaaf05f3924af",
+    "version": "Version: ImageMagick 6.9.11-60 Q16 x86_64 2021-01-25 https://imagemagick.org"
+  },
+  "map_timeline_count": 34,
+  "picture_transition_review_count": 9,
+  "result": "ENVIRONMENTAL_VFX_AUDIT_PASS",
+  "review_queue": [
+    {
+      "contexts": [
+        {
+          "event_id": 3,
+          "map_id": 20,
+          "page_index": 0,
+          "source_index": 148
+        }
+      ],
+      "kind": "PICTURE_REVIEW",
+      "pixels_exported": false,
+      "resolved": true,
+      "size_bytes": 16694,
+      "source_identity_sha256": "6f76da46c3b7dac10a4805a73ad8e911ad8c5f2f5543f4852bbd978250c5edce",
+      "source_sha256": "ce9caad932a047ecd83243b907a0cf01098a7bc36d2438d56f03420b94fcdeb9",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "contexts": [
+        {
+          "event_id": 4,
+          "map_id": 19,
+          "page_index": 0,
+          "source_index": 107
+        }
+      ],
+      "kind": "PICTURE_REVIEW",
+      "pixels_exported": false,
+      "resolved": true,
+      "size_bytes": 15930,
+      "source_identity_sha256": "4c65422ea9f80ca0d08da7388783c7de5598fb44c739925bf1f1beab14ddd757",
+      "source_sha256": "991ab657b1b9fb26a3128a69a474bf7e3da489e818025e75060f4c0647774501",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "contexts": [
+        {
+          "event_id": 4,
+          "map_id": 27,
+          "page_index": 0,
+          "source_index": 206
+        }
+      ],
+      "kind": "PICTURE_REVIEW",
+      "pixels_exported": false,
+      "resolved": true,
+      "size_bytes": 13239,
+      "source_identity_sha256": "b8651f9aac10fc72fb3468a45658fa0a5cdfbab6e7ddc659c99996596ef3d648",
+      "source_sha256": "2b351a6b853f2762e37c8aa71da5f4811e9ef20f664be134ae5ac50d53247484",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "contexts": [
+        {
+          "event_id": 1,
+          "map_id": 16,
+          "page_index": 0,
+          "source_index": 6
+        }
+      ],
+      "kind": "PICTURE_REVIEW",
+      "pixels_exported": false,
+      "resolved": true,
+      "size_bytes": 1015001,
+      "source_identity_sha256": "de24e677d5541604808bbe583f958d702c8e2067e5a554af3d856ceac17c6354",
+      "source_sha256": "a1b36573aad184257d9c4b8329f412d85d97adef8ac47656d008cf3565a50686",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "contexts": [
+        {
+          "event_id": 1,
+          "map_id": 28,
+          "page_index": 0,
+          "source_index": 64
+        }
+      ],
+      "kind": "PICTURE_REVIEW",
+      "pixels_exported": false,
+      "resolved": true,
+      "size_bytes": 3505,
+      "source_identity_sha256": "5a2af601e7a29281ca731ce1a9647cc70f51b0902dc18ca62f3d99c46840a6ed",
+      "source_sha256": "dd16ee6a8d15539bb8b4d3347f0dddfd915343fbd88eec2568daf6e8653f97b6",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "contexts": [
+        {
+          "event_id": 1,
+          "map_id": 16,
+          "page_index": 0,
+          "source_index": 16
+        },
+        {
+          "event_id": 2,
+          "map_id": 18,
+          "page_index": 0,
+          "source_index": 9
+        },
+        {
+          "event_id": 4,
+          "map_id": 21,
+          "page_index": 0,
+          "source_index": 9
+        },
+        {
+          "event_id": 3,
+          "map_id": 22,
+          "page_index": 0,
+          "source_index": 3
+        },
+        {
+          "event_id": 8,
+          "map_id": 22,
+          "page_index": 0,
+          "source_index": 8
+        },
+        {
+          "event_id": 7,
+          "map_id": 23,
+          "page_index": 0,
+          "source_index": 9
+        },
+        {
+          "event_id": 2,
+          "map_id": 24,
+          "page_index": 0,
+          "source_index": 9
+        }
+      ],
+      "kind": "PICTURE_REVIEW",
+      "pixels_exported": false,
+      "resolved": true,
+      "size_bytes": 2042,
+      "source_identity_sha256": "65935bff6af0138b7f88e657ed32f5fe313741440ecae2b2de0fa226bbab3f5a",
+      "source_sha256": "6dc7876f1f0c8cc407a74d902557e6b3a812eda4abd767cca91d8f48c6777b19",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "contexts": [
+        {
+          "event_id": 8,
+          "map_id": 17,
+          "page_index": 0,
+          "source_index": 10
+        },
+        {
+          "event_id": 3,
+          "map_id": 20,
+          "page_index": 0,
+          "source_index": 10
+        },
+        {
+          "event_id": 8,
+          "map_id": 26,
+          "page_index": 0,
+          "source_index": 10
+        }
+      ],
+      "kind": "PICTURE_REVIEW",
+      "pixels_exported": false,
+      "resolved": true,
+      "size_bytes": 21353,
+      "source_identity_sha256": "9761b559f8d66a38f0018e5d365c46aad10594991f872b85e557551c151191b6",
+      "source_sha256": "991e68ad1d07b375faa43f3851cd4445f1b859c73f76d7134208521a0eaff2f9",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "contexts": [
+        {
+          "event_id": 2,
+          "map_id": 1,
+          "page_index": 0,
+          "source_index": 14
+        }
+      ],
+      "kind": "PICTURE_REVIEW",
+      "pixels_exported": false,
+      "resolved": true,
+      "size_bytes": 16152,
+      "source_identity_sha256": "1eb8ede23f54c5ec712dc25b54b3c41a75149883e3fa64196121383efb93fed8",
+      "source_sha256": "918406c1bcc2043309306aa87c5054166ac5d65f3f45878d5ce2d41c01b4d376",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "contexts": [
+        {
+          "event_id": 7,
+          "map_id": 2,
+          "page_index": 0,
+          "source_index": 5
+        }
+      ],
+      "kind": "PICTURE_REVIEW",
+      "pixels_exported": false,
+      "resolved": true,
+      "size_bytes": 2760,
+      "source_identity_sha256": "f9e360a9887d6c17ed487edc17dee00c6f42a81bfdeaf185437c953deac9122f",
+      "source_sha256": "9e82336999bfe1efff290d0aeaefe3526005bfa5613feb3e106969846c5554f1",
+      "status": "REVIEW_REQUIRED"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "script_bodies_exported": false,
+  "static_script_visual_audit_required_count": 1140,
+  "timelines": [
+    {
+      "file": "vfx/timelines/maps/map_001.json",
+      "map_id": 1,
+      "sequence_count": 1,
+      "sha256": "03809bd623564ee232392ebbf4bef7c7424880b3dcac41d741f53755d8a2efbd",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_002.json",
+      "map_id": 2,
+      "sequence_count": 7,
+      "sha256": "72fa1d3e475d12a1587a84b478dd3b79458aad9ad9910d30c2c1c8fb3600a2d3",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_003.json",
+      "map_id": 3,
+      "sequence_count": 2,
+      "sha256": "096a01037adf5adc88ce303b6adcfd7b3f8ca8aa7f0ff9dc8b03eed59b385f93",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_003_variant_mies_conflicted_copy_2025_12_18.json",
+      "map_id": 3,
+      "sequence_count": 2,
+      "sha256": "5370c6d8d861e89873337f935e756d7cbf11e17ee480809685a31b74d25e9af5",
+      "variant": "Mie's conflicted copy 2025-12-18"
+    },
+    {
+      "file": "vfx/timelines/maps/map_003_variant_mies_conflicted_copy_2026_01_01.json",
+      "map_id": 3,
+      "sequence_count": 2,
+      "sha256": "45663aa0724f4aa6d1860fbf5225913c9b5efe05b0cd664e99a1cf1228720aae",
+      "variant": "Mie's conflicted copy 2026-01-01"
+    },
+    {
+      "file": "vfx/timelines/maps/map_004.json",
+      "map_id": 4,
+      "sequence_count": 0,
+      "sha256": "c2a8a89b1e2c90bde28606e2f2f5ba1919f6d1b846d04996d9bf4e5b1ec4639f",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_005.json",
+      "map_id": 5,
+      "sequence_count": 2,
+      "sha256": "af347b10b0261a5f270565518c968d5677d49d8dff275f857be946bc8155a668",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_005_variant_mies_conflicted_copy_2025_12_18.json",
+      "map_id": 5,
+      "sequence_count": 2,
+      "sha256": "e21c36bb797efa01bb96efe0c975280f676c26319e43f3e7805c706f40e38261",
+      "variant": "Mie's conflicted copy 2025-12-18"
+    },
+    {
+      "file": "vfx/timelines/maps/map_005_variant_mies_conflicted_copy_2026_01_01.json",
+      "map_id": 5,
+      "sequence_count": 2,
+      "sha256": "c19404a60d42c4c38a9eba3d9674a36c2c44952bf9b62f18b9d3c0f10db96944",
+      "variant": "Mie's conflicted copy 2026-01-01"
+    },
+    {
+      "file": "vfx/timelines/maps/map_006.json",
+      "map_id": 6,
+      "sequence_count": 2,
+      "sha256": "e6c785550f34ce76cd1f6f9bdfd6d56f4da8c6bd95f8db06f05fdc74e6beee17",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_006_variant_mies_conflicted_copy_2025_12_18.json",
+      "map_id": 6,
+      "sequence_count": 2,
+      "sha256": "c262cd7347bd80b18c3a3d14349a38c20aa06ba72d25e2e67b232af6c3f3e731",
+      "variant": "Mie's conflicted copy 2025-12-18"
+    },
+    {
+      "file": "vfx/timelines/maps/map_006_variant_mies_conflicted_copy_2026_01_01.json",
+      "map_id": 6,
+      "sequence_count": 2,
+      "sha256": "7ca92533541aac5ecc306dbb659c2f7aaafbf52b72073022f387b74fc9dad0ed",
+      "variant": "Mie's conflicted copy 2026-01-01"
+    },
+    {
+      "file": "vfx/timelines/maps/map_007.json",
+      "map_id": 7,
+      "sequence_count": 3,
+      "sha256": "d0477e3d25cfc9209e6b791be4a5b55c0d0440d9747d5db957c51f76cea20dd6",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_008.json",
+      "map_id": 8,
+      "sequence_count": 1,
+      "sha256": "6ab3066ed54646fbb8a5d9051d90e82db63a352759c64a4badd7f855018de8fc",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_009.json",
+      "map_id": 9,
+      "sequence_count": 1,
+      "sha256": "182fe9c653dbff774f675804d42fe735ab9cbb0eea804260bc0518b299eb3164",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_010.json",
+      "map_id": 10,
+      "sequence_count": 0,
+      "sha256": "d51fdeff0b61d3ff156efce81bc31e2653507ad9ecaceadbb6385aabf458fcad",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_011.json",
+      "map_id": 11,
+      "sequence_count": 0,
+      "sha256": "4b95c4689e219e8bcbb06f35ca4411c7a2050a5250a5f1ee72b950b9898a1b5b",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_012.json",
+      "map_id": 12,
+      "sequence_count": 0,
+      "sha256": "43a6142992024bcc7272bbd1079027ba44d417bc285420d70822d6e6473e0f15",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_013.json",
+      "map_id": 13,
+      "sequence_count": 0,
+      "sha256": "9e15b339f8434b77278ed16f4c77e364f9c8bfac6d4a54e652bcdc7446f30a51",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_014.json",
+      "map_id": 14,
+      "sequence_count": 0,
+      "sha256": "8083f095c52e597b1206214781864783c66ef1de58425700b1b9d8606e06cef0",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_015.json",
+      "map_id": 15,
+      "sequence_count": 1,
+      "sha256": "8916a5c11a665f84c5870b4187c775d4e9f0e587ad587cf456b557978ea78f57",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_016.json",
+      "map_id": 16,
+      "sequence_count": 1,
+      "sha256": "cf6e2a3dde76cc282db0e4b52ec88582e2646aa83eeb3cdf4fa83f7c6b7f03ce",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_017.json",
+      "map_id": 17,
+      "sequence_count": 1,
+      "sha256": "34c8deb888b4109a135c61ebee40d209e20d2fa3809422f2a2383655a78315fb",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_018.json",
+      "map_id": 18,
+      "sequence_count": 1,
+      "sha256": "8235e99598a1ad52ecc55e8d9c3edb7422ebc11f3f1e67e8f74b109fdf20d891",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_019.json",
+      "map_id": 19,
+      "sequence_count": 1,
+      "sha256": "16275887b3b3d2764fec8bef3bd38d3ba0a1095d6fa56ff808e30d87a50c0e16",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_020.json",
+      "map_id": 20,
+      "sequence_count": 1,
+      "sha256": "2e08ec4bc50d5b5b7fb36dae8301fddb8d05d946e7c941bf52802bda248d6da2",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_021.json",
+      "map_id": 21,
+      "sequence_count": 1,
+      "sha256": "87135c2da9918b60a95b9756a67038e41f41d9d135e68f18ad2426139f28a6ff",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_022.json",
+      "map_id": 22,
+      "sequence_count": 2,
+      "sha256": "d340bd3929766869f36f8174697b138e2452f1149abc3243378a99c965db39dd",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_023.json",
+      "map_id": 23,
+      "sequence_count": 1,
+      "sha256": "de4bf84c73822b112da534d4b235709fffc70fa515ec2bfcb998709a9b251577",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_024.json",
+      "map_id": 24,
+      "sequence_count": 1,
+      "sha256": "8cc0fc3ee93b186ab7430baf80c0361bbdd2187e29d598d26485a23e41435004",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_025.json",
+      "map_id": 25,
+      "sequence_count": 1,
+      "sha256": "92495c4882f480e84362d597c2c7e8de6e1e1c63312dd48d980dd18b6899ab5c",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_026.json",
+      "map_id": 26,
+      "sequence_count": 1,
+      "sha256": "34af734c329adc2103b8faf660e8c393ad11e0c35b8dde9bd2912063df086d88",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_027.json",
+      "map_id": 27,
+      "sequence_count": 1,
+      "sha256": "bdcea1e31a2b8307bae0ba604ddff4c858e6b101c28134ec516bbf920e5b3161",
+      "variant": null
+    },
+    {
+      "file": "vfx/timelines/maps/map_028.json",
+      "map_id": 28,
+      "sequence_count": 1,
+      "sha256": "0f059b50eb623e72da4f0a58a950d6648892ec1a6c8a76fc6ebe457a2382c1eb",
+      "variant": null
+    }
+  ],
+  "unresolved_environment_count": 0,
+  "visual_command_counts": {
+    "animation_on_entity": 123,
+    "branch_end": 36,
+    "common_event_call": 20,
+    "conditional_branch": 36,
+    "else": 18,
+    "entity_relocation": 20,
+    "exit_event": 4,
+    "forced_move_route": 332,
+    "label_jump_redacted": 5,
+    "label_redacted": 2,
+    "map_transfer": 28,
+    "map_visual_settings": 14,
+    "picture_erase": 51,
+    "picture_move": 14,
+    "picture_show_review_required": 17,
+    "wait": 680,
+    "wait_for_move_completion": 262
+  }
+}

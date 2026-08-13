@@ -115,6 +115,7 @@ def load_png(path: Path | str) -> RGBAImage:
     palette = None
     palette_alpha = None
     transparent_rgb = None
+    transparent_gray = None
     width = height = depth = color_type = interlace = None
     while position < len(data):
         length = struct.unpack(">I", data[position : position + 4])[0]
@@ -134,15 +135,17 @@ def load_png(path: Path | str) -> RGBAImage:
                 palette_alpha = payload
             elif color_type == 2 and len(payload) == 6:
                 transparent_rgb = tuple(value >> 8 for value in struct.unpack(">HHH", payload))
+            elif color_type == 0 and len(payload) == 2:
+                transparent_gray = struct.unpack(">H", payload)[0] >> 8
         elif kind == b"IDAT":
             idat.extend(payload)
         elif kind == b"IEND":
             break
-    if depth != 8 or interlace != 0 or color_type not in (2, 3, 6):
+    if depth != 8 or interlace != 0 or color_type not in (0, 2, 3, 4, 6):
         raise ValueError(
             f"unsupported PNG format depth={depth} color={color_type} interlace={interlace}: {path}"
         )
-    bytes_per_pixel = {2: 3, 3: 1, 6: 4}[color_type]
+    bytes_per_pixel = {0: 1, 2: 3, 3: 1, 4: 2, 6: 4}[color_type]
     packed = zlib.decompress(bytes(idat))
     stride = width * bytes_per_pixel
     if len(packed) != height * (stride + 1):
@@ -186,6 +189,16 @@ def load_png(path: Path | str) -> RGBAImage:
                 rgb = tuple(row[index : index + 3])
                 rgba[output : output + 3] = bytes(rgb)
                 rgba[output + 3] = 0 if transparent_rgb == rgb else 255
+                output += 4
+        elif color_type == 4:
+            for index in range(0, len(row), 2):
+                gray, alpha = row[index : index + 2]
+                rgba[output : output + 4] = bytes((gray, gray, gray, alpha))
+                output += 4
+        elif color_type == 0:
+            for gray in row:
+                alpha = 0 if transparent_gray == gray else 255
+                rgba[output : output + 4] = bytes((gray, gray, gray, alpha))
                 output += 4
         else:
             if palette is None:

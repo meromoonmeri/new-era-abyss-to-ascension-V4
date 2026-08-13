@@ -4,8 +4,13 @@
     "result": "AUTOTILE_FRAME_EXTRACTION_PASS",
     "schema_version": "1.0.0",
     "static_autotile_count": 16,
-    "timing_audit_required_count": 17,
-    "timing_exact_count": 0,
+    "timing_audit_required_count": 0,
+    "timing_authority": {
+      "default_duration_ms": 250,
+      "sha256": "5ccca09476a6843bcda02bfd384b6d7efa9e101877541a0161a408c8a5cada01",
+      "source_path": "Data/Scripts/006_Map renderer/001_TilemapRenderer.rb"
+    },
+    "timing_exact_count": 17,
     "unsupported_autotile_count": 0
   },
   "inventory": {
@@ -45,5 +50,60 @@
     "tileset_reference_count": 10
   },
   "result": "RELICT_SOURCE_LIBRARY_PASS",
-  "schema_version": "1.0.0"
+  "schema_version": "1.0.0",
+  "vfx": {
+    "animated_environment_count": 1,
+    "common_event_timeline_count": 6,
+    "common_events": {
+      "file": "vfx/timelines/common_events.json",
+      "sha256": "ca7e8f3ca594ca5afe0fda57789b4a018f11280da086bbc569cd1c941ceda743"
+    },
+    "dialogue_contents_exported": false,
+    "environment_asset_count": 4,
+    "event_timing_authority": {
+      "fixed_framerate_override_active": false,
+      "frame_duration_ms": 25,
+      "nominal_frame_rate": 40,
+      "sha256": "62aeae4e5c10804e25cb91ac24ff264c1137639ae395826ecbb51e02bb0cf40e",
+      "source_path": "mkxp.json"
+    },
+    "excluded_command_counts": {
+      "audio_commands_redacted": 82,
+      "choice_commands_redacted": 2,
+      "dialogue_commands_redacted": 558,
+      "dialogue_continuation_commands_redacted": 6,
+      "script_commands_redacted": 1006,
+      "script_continuation_commands_redacted": 134
+    },
+    "image_magick_authority": {
+      "executable_sha256": "98cde8b245cd229a92e8a89505786098175e97d43f4b958874bbaaf05f3924af",
+      "version": "Version: ImageMagick 6.9.11-60 Q16 x86_64 2021-01-25 https://imagemagick.org"
+    },
+    "map_timeline_count": 34,
+    "picture_transition_review_count": 9,
+    "result": "ENVIRONMENTAL_VFX_AUDIT_PASS",
+    "schema_version": "1.0.0",
+    "script_bodies_exported": false,
+    "static_script_visual_audit_required_count": 1140,
+    "unresolved_environment_count": 0,
+    "visual_command_counts": {
+      "animation_on_entity": 123,
+      "branch_end": 36,
+      "common_event_call": 20,
+      "conditional_branch": 36,
+      "else": 18,
+      "entity_relocation": 20,
+      "exit_event": 4,
+      "forced_move_route": 332,
+      "label_jump_redacted": 5,
+      "label_redacted": 2,
+      "map_transfer": 28,
+      "map_visual_settings": 14,
+      "picture_erase": 51,
+      "picture_move": 14,
+      "picture_show_review_required": 17,
+      "wait": 680,
+      "wait_for_move_completion": 262
+    }
+  }
 }

@@ -5,12 +5,35 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import shutil
 from pathlib import Path
 from typing import Any
 
 from inventory_relict import DEFAULT_OUTPUT, DEFAULT_SOURCE, sha256_file, slug, write_json
 from png_rgba import RGBAImage, load_png, save_png
+
+TIMING_SCRIPT = Path("Data/Scripts/006_Map renderer/001_TilemapRenderer.rb")
+
+
+def timing_authority(source: Path, filename: str) -> tuple[int, dict[str, Any]]:
+    script_path = source / TIMING_SCRIPT
+    script = script_path.read_text(encoding="utf-8")
+    match = re.search(r"^\s*AUTOTILE_FRAME_DURATION\s*=\s*(\d+)", script, re.MULTILINE)
+    if not match or "duration.to_f / 20" not in script:
+        raise ValueError("autotile timing authority is not recognized")
+    units = int(match.group(1))
+    override = re.search(r"\[\s*(\d+)\s*\]\s*$", filename)
+    if override:
+        units = int(override.group(1))
+    return units * 50, {
+        "source_path": TIMING_SCRIPT.as_posix(),
+        "sha256": sha256_file(script_path),
+        "method": "STATIC_SCRIPT_CONSTANT",
+        "constant": units,
+        "units": "1/20 second",
+        "static_audit_only": True,
+    }
 
 
 def load_json(path: Path) -> Any:
@@ -52,6 +75,7 @@ def build(source: Path, inventory_root: Path) -> dict[str, Any]:
             continue
         animation_id = f"relict_autotile_{slug(source_path.stem)}_{asset['provenance']['sha256'][:12]}"
         destination = output / "autotiles" / animation_id
+        duration_ms, timing_source = timing_authority(source, source_path.stem)
         frames = []
         contact = RGBAImage.empty(frame_width * count, frame_height)
         for index in range(count):
@@ -62,7 +86,7 @@ def build(source: Path, inventory_root: Path) -> dict[str, Any]:
             frames.append({
                 "index": index,
                 "file": frame_path.relative_to(destination).as_posix(),
-                "duration_ms": None,
+                "duration_ms": duration_ms,
                 "sha256": sha256_file(frame_path),
             })
         contact_path = destination / "contact_sheet.png"
@@ -71,11 +95,12 @@ def build(source: Path, inventory_root: Path) -> dict[str, Any]:
             "schema_version": "1.0.0",
             "animation_id": animation_id,
             "game_id": "relict",
-            "status": "ADAPTATION_REQUIRED",
+            "status": "SOURCE_DOCUMENTED",
             "frame_count": count,
             "loop": True,
             "loop_start": 0,
-            "timing_authority": "RGSS1_DEFAULT_UNVALIDATED",
+            "timing_authority": "SOURCE_EXACT",
+            "timing_provenance": timing_source,
             "source_frame_layout": layout_name,
             "layers": [{
                 "layer_id": "layer_00",
@@ -105,7 +130,8 @@ def build(source: Path, inventory_root: Path) -> dict[str, Any]:
             "metadata_sha256": sha256_file(metadata_path),
             "frame_count": count,
             "layout": layout_name,
-            "timing_status": "REQUIRES_SOURCE_AUDIT",
+            "timing_status": "SOURCE_EXACT",
+            "duration_ms": duration_ms,
         })
     manifest = {
         "schema_version": "1.0.0",
@@ -113,17 +139,22 @@ def build(source: Path, inventory_root: Path) -> dict[str, Any]:
         "animated_autotile_count": len(records),
         "static_autotile_count": static_count,
         "unsupported_autotile_count": unsupported_count,
-        "timing_exact_count": 0,
-        "timing_audit_required_count": len(records),
+        "timing_exact_count": len(records),
+        "timing_audit_required_count": 0,
+        "timing_authority": {
+            "source_path": TIMING_SCRIPT.as_posix(),
+            "sha256": sha256_file(source / TIMING_SCRIPT),
+            "default_duration_ms": timing_authority(source, "no_override")[0]
+        },
         "animations": records,
     }
     write_json(output / "manifest.json", manifest)
     (output / "README.md").write_text(
         "# Animations autotile Relict\n\n"
         "Chaque frame source est exportée séparément, sans aplatir les couches. "
-        "Le format image permet de déterminer l'ordre et la boucle, mais pas une "
-        "durée exacte indépendante des scripts : les timings restent donc "
-        "`ADAPTATION_REQUIRED` jusqu'à audit statique ciblé.\n",
+        "L'ordre, la boucle et les durées exactes proviennent de l'autorité statique "
+        "`TilemapRenderer::AUTOTILE_FRAME_DURATION` (unités de 1/20 seconde). "
+        "Aucun script source n'est exécuté ni copié.\n",
         encoding="utf-8",
     )
     return manifest

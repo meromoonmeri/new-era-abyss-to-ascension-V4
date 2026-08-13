@@ -200,20 +200,59 @@ class RelictInventoryQualification(unittest.TestCase):
         self.assertEqual(manifest["result"], "AUTOTILE_FRAME_EXTRACTION_PASS")
         self.assertEqual(manifest["animated_autotile_count"], 17)
         self.assertEqual(manifest["unsupported_autotile_count"], 0)
-        self.assertEqual(manifest["timing_exact_count"], 0)
-        self.assertEqual(manifest["timing_audit_required_count"], 17)
+        self.assertEqual(manifest["timing_exact_count"], 17)
+        self.assertEqual(manifest["timing_audit_required_count"], 0)
+        self.assertEqual(manifest["timing_authority"]["default_duration_ms"], 250)
         self.assertEqual(sum(row["frame_count"] for row in manifest["animations"]), 88)
         for row in manifest["animations"]:
             metadata_path = TRACKED / row["metadata"]
             self.assertEqual(sha256_file(metadata_path), row["metadata_sha256"])
             metadata = load_json(metadata_path)
             self.assertEqual(metadata["frame_count"], len(metadata["layers"][0]["frames"]))
-            self.assertEqual(metadata["status"], "ADAPTATION_REQUIRED")
-            self.assertEqual(metadata["timing_authority"], "RGSS1_DEFAULT_UNVALIDATED")
+            self.assertEqual(metadata["status"], "SOURCE_DOCUMENTED")
+            self.assertEqual(metadata["timing_authority"], "SOURCE_EXACT")
+            self.assertEqual(metadata["timing_provenance"]["units"], "1/20 second")
             for index, frame in enumerate(metadata["layers"][0]["frames"]):
+                self.assertEqual(frame["duration_ms"], 250)
                 self.assertEqual(frame["file"], f"layers/layer_00/frame_{index:03d}.png")
                 frame_path = metadata_path.parent / frame["file"]
                 self.assertEqual(sha256_file(frame_path), frame["sha256"])
+
+    def test_environmental_timelines_fogs_overlays_and_review_queue(self):
+        manifest = load_json(TRACKED / "vfx/manifest.json")
+        self.assertEqual(manifest["result"], "ENVIRONMENTAL_VFX_AUDIT_PASS")
+        self.assertEqual(manifest["map_timeline_count"], 34)
+        self.assertEqual(manifest["unresolved_environment_count"], 0)
+        self.assertGreater(manifest["common_event_timeline_count"], 0)
+        self.assertGreater(manifest["environment_asset_count"], 0)
+        self.assertGreater(manifest["picture_transition_review_count"], 0)
+        self.assertFalse(manifest["dialogue_contents_exported"])
+        self.assertFalse(manifest["script_bodies_exported"])
+        self.assertGreater(manifest["static_script_visual_audit_required_count"], 0)
+        self.assertEqual(manifest["event_timing_authority"]["nominal_frame_rate"], 40)
+        self.assertFalse(manifest["event_timing_authority"]["fixed_framerate_override_active"])
+        for row in manifest["timelines"]:
+            path = TRACKED / row["file"]
+            self.assertEqual(sha256_file(path), row["sha256"])
+            payload = load_json(path)
+            self.assertFalse(payload["dialogue_contents_exported"])
+            self.assertFalse(payload["script_bodies_exported"])
+            for sequence in payload["sequences"]:
+                indices = [command["source_index"] for command in sequence["timeline"]]
+                self.assertEqual(indices, sorted(indices))
+        for row in manifest["review_queue"]:
+            self.assertRegex(row["source_identity_sha256"], r"^[0-9a-f]{64}$")
+            self.assertFalse(row["pixels_exported"])
+            self.assertNotIn("name", row)
+            self.assertNotIn("source_path", row)
+        animated = [row for row in manifest["environment_assets"] if "/animations/" in row["output"]]
+        self.assertEqual(len(animated), manifest["animated_environment_count"])
+        for row in animated:
+            metadata = load_json(TRACKED / row["output"])
+            self.assertEqual(metadata["timing_authority"], "SOURCE_EXACT")
+            self.assertEqual(metadata["frame_count"], 12)
+            self.assertTrue(metadata["loop"])
+            self.assertTrue(all(frame["duration_ms"] == 100 for frame in metadata["layers"][0]["frames"]))
 
     def test_generated_hash_manifest_covers_every_output(self):
         manifest_path = TRACKED / "manifests/generated_hashes.sha256"
@@ -241,7 +280,8 @@ class RelictInventoryQualification(unittest.TestCase):
         )
         for name in (
             "asset.schema.json", "animation.schema.json", "collision.schema.json",
-            "entity-placement.schema.json", "provenance.schema.json", "zone.schema.json",
+            "entity-placement.schema.json", "provenance.schema.json", "visual-timeline.schema.json",
+            "zone.schema.json",
         ):
             self.assertFalse(schemas[name]["additionalProperties"], name)
             self.assertTrue(schemas[name]["required"], name)
@@ -261,6 +301,7 @@ class RelictInventoryQualification(unittest.TestCase):
             self.assertEqual(result["inventory"]["canonical_map_count"], 28)
             self.assertEqual(result["previews"]["map_preview_count"], 34)
             self.assertEqual(result["animations"]["animated_autotile_count"], 17)
+            self.assertEqual(result["vfx"]["result"], "ENVIRONMENTAL_VFX_AUDIT_PASS")
             self.assertEqual(tree_hashes(output), tree_hashes(TRACKED))
 
 
