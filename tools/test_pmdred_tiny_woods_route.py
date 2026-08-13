@@ -10,7 +10,7 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-EVIDENCE = ROOT / "docs/pmdred_eu/playable/tiny_woods/route_runtime"
+EVIDENCE = ROOT / "docs/pmdred_eu/playable/tiny_woods/route_runtime_v2"
 
 
 def load_runner():
@@ -81,6 +81,9 @@ class TinyWoodsRouteTests(unittest.TestCase):
         self.assertNotIn('quest / "Data/Tile/d01p02_DirectBase.tile"', builder)
         self.assertIn("SOUND:PlayBGM('In the Depths of the Pit.ogg', false)", builder)
         self.assertIn("SOUND:GetCurrentSong()=='In the Depths of the Pit.ogg'", validator)
+        self.assertIn("hero.Direction==Direction.Up", validator)
+        self.assertIn("partner.Direction==Direction.Up and caterpie.Direction==Direction.Up", validator)
+        self.assertIn("direction=4", builder)
         self.assertNotIn("GROUND:Teleport", validator)
         self.assertIn("ProcessPlayerInput", validator)
 

@@ -27,8 +27,10 @@
     },
     "entry_exit_retry_rescue_cleanup": {
       "status": "PASS",
-      "report": "docs/pmdred_eu/playable/tiny_woods/route_runtime/native_route_validation.json",
-      "report_sha256": "6f32eef49cdb8ddcb4cbcb832ce435edc35beb5b51d083a1ddaa9c390be294b7",
+      "report": "docs/pmdred_eu/playable/tiny_woods/route_runtime_v2/native_route_validation.json",
+      "report_sha256": "baebd47f9334388565425555a98f18426359ffa20c1063070627515122790bd2",
+      "superseded_report": "docs/pmdred_eu/playable/tiny_woods/route_runtime/native_route_validation.json",
+      "direction_correction": "Red 4=North maps to PMDO Up/4 for d01p02 and d01p01:g3",
       "scenarios": 3,
       "clear_run_native_actions": 143,
       "natural_hostile_attacks": 2,
@@ -43,7 +45,7 @@
   "resume": {
     "restore": "bash tools/restore_pmdred_eu_validation_runtime.sh",
     "verify_ground_checkpoint": "python3 tools/update_pmdred_eu_validation_progress.py --check",
-    "reproduce_latest_milestone": "bash docs/pmdred_eu/playable/tiny_woods/route_runtime/commands.sh",
+    "reproduce_latest_milestone": "bash docs/pmdred_eu/playable/tiny_woods/route_runtime_v2/commands.sh",
     "next_phase": "tiny_woods_eu_dialogue_and_choreography",
     "rule": "Preserve the route PASS and continue in a new create-only fixture; do not promote d01p02 or replace live scripts until the complete EU scene gate passes."
   },

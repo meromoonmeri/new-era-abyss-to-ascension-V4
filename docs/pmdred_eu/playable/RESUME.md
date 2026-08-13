@@ -9,7 +9,8 @@ Checkpoint du `2026-08-13`, branche
   [`../pmdo_validation/progress.json`](../pmdo_validation/progress.json).
 - Petit Bois, génération procédurale 1–3F : **PASS**.
 - Petit Bois, ouverture/escaliers/sortie/échec/retry/sauvetage/nettoyage :
-  **PASS** dans [`tiny_woods/route_runtime`](tiny_woods/route_runtime).
+  **PASS v2** dans [`tiny_woods/route_runtime_v2`](tiny_woods/route_runtime_v2),
+  avec les facings Red `4=North` corrigés. La v1 reste conservée avec erratum.
 - Scènes narratives françaises complètes de Petit Bois : **PENDING**.
 
 La route certifiée exécute trois scénarios PMDO 0.8.12 indépendants. Le scénario
@@ -24,7 +25,7 @@ terminent par `LoadPhase.Unload`, `NORMAL_EXIT`, rc 0, sans signal ni orphelin.
 ```bash
 bash tools/restore_pmdred_eu_validation_runtime.sh
 python3 tools/update_pmdred_eu_validation_progress.py --check
-bash docs/pmdred_eu/playable/tiny_woods/route_runtime/commands.sh
+bash docs/pmdred_eu/playable/tiny_woods/route_runtime_v2/commands.sh
 ```
 
 Les fixtures et preuves sont create-only. Si les noms `*-repro` existent,

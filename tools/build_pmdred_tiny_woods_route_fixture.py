@@ -38,7 +38,10 @@ local Route = require 'halcyon.pmdred_tiny_woods_route'
 local d01p01 = {}
 function d01p01.Init(map) DEBUG.EnableDbgCoro() end
 function d01p01.Enter(map)
-  Route.DispatchGround('d01p01')
+  local group = Route.DispatchGround('d01p01')
+  local hero = GAME:GetCurrentGround():GetChar('PLAYER')
+  -- Red direction values: g1/g2 = South (0), g3 = North (4).
+  hero.Direction = group == 'g3' and Direction.Up or Direction.Down
   SOUND:StopBGM()
 end
 function d01p01.Exit(map) end
@@ -75,11 +78,11 @@ local function spawn_scene_cast()
   local partnerData = GAME:GetPlayerPartyMember(1)
   if partnerData == nil then error('Tiny Woods route fixture requires the canonical partner slot') end
   add_actor(RogueEssence.Ground.GroundChar(
-    partnerData, RogueElements.Loc(196, 276), Direction.Down, 'PARTNER'))
+    partnerData, RogueElements.Loc(196, 276), Direction.Up, 'PARTNER'))
   local caterpieID = RogueEssence.Dungeon.MonsterID(
     'caterpie', 0, 'normal', RogueEssence.Data.Gender.Unknown)
   add_actor(RogueEssence.Ground.GroundChar(
-    caterpieID, RogueElements.Loc(180, 148), Direction.Down, 'Caterpie', 'CATERPIE'))
+    caterpieID, RogueElements.Loc(180, 148), Direction.Up, 'Caterpie', 'CATERPIE'))
 end
 function d01p02.Init(map) DEBUG.EnableDbgCoro() end
 function d01p02.Enter(map)
@@ -152,8 +155,8 @@ def dump_json(path: Path, value: Any) -> None:
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def marker(name: str, x: int, y: int, direction: int = 0) -> dict[str, Any]:
-    """Create a PMDO marker facing Down (EU/GBA source direction code 4)."""
+def marker(name: str, x: int, y: int, direction: int) -> dict[str, Any]:
+    """Create a fixture marker with an explicitly translated PMDO direction."""
     return {
         "EntName": name,
         "Direction": direction,
@@ -166,13 +169,13 @@ def marker(name: str, x: int, y: int, direction: int = 0) -> dict[str, Any]:
     }
 
 
-def install_marker(ground: dict[str, Any], *, x: int, y: int) -> None:
+def install_marker(ground: dict[str, Any], *, x: int, y: int, direction: int) -> None:
     layers = ground["Object"]["Entities"]
     if not layers:
         raise ValueError("Ground has no entity layer")
     markers = layers[0].setdefault("Markers", [])
     markers[:] = [item for item in markers if item.get("EntName") != "Main_Entrance_Marker"]
-    markers.append(marker("Main_Entrance_Marker", x, y))
+    markers.append(marker("Main_Entrance_Marker", x, y, direction))
 
 
 def materialize_script_tree(fixture: Path) -> Path:
@@ -225,12 +228,12 @@ def build(output: Path) -> dict[str, Any]:
 
     d01p01_path = quest / "Data/Ground/d01p01.rsground"
     d01p01 = load_json(d01p01_path)
-    install_marker(d01p01, x=200, y=196)
+    install_marker(d01p01, x=200, y=196, direction=0)
     dump_json(d01p01_path, d01p01)
 
     d01p02_path = quest / "Data/Ground/d01p02.rsground"
     d01p02 = load_json(ENDING_GROUND)
-    install_marker(d01p02, x=164, y=276)
+    install_marker(d01p02, x=164, y=276, direction=4)
     dump_json(d01p02_path, d01p02)
 
     # Ground-layer sheets are Content/Tile assets, not dungeon effect Data/Tile
@@ -307,13 +310,19 @@ def build(output: Path) -> dict[str, Any]:
         "placements": {
             "direction_translation": {
                 "eu_gba_source_code": 4,
-                "pmdo_name": "Down",
-                "pmdo_serialized_value": 0,
+                "eu_gba_name": "North",
+                "pmdo_name": "Up",
+                "pmdo_serialized_value": 4,
             },
-            "d01p01_hero": {"x": 200, "y": 196, "direction": "Down"},
-            "d01p02_hero": {"x": 164, "y": 276, "direction": "Down"},
-            "d01p02_partner": {"x": 196, "y": 276, "direction": "Down"},
-            "d01p02_caterpie": {"x": 180, "y": 148, "direction": "Down"},
+            "d01p01_hero": {
+                "x": 200,
+                "y": 196,
+                "g1_g2_direction": "Down",
+                "g3_direction": "Up"
+            },
+            "d01p02_hero": {"x": 164, "y": 276, "direction": "Up"},
+            "d01p02_partner": {"x": 196, "y": 276, "direction": "Up"},
+            "d01p02_caterpie": {"x": 180, "y": 148, "direction": "Up"},
         },
         "fixture_isolation": {
             "script_root_is_overlay_directory": not script.is_symlink() and script.is_dir(),

@@ -172,7 +172,7 @@ def authenticate_fixture(fixture: Path) -> tuple[dict[str, Any], Path]:
         ending_data.get("AssetName") != "d01p02"
         or len(markers) != 1
         or markers[0].get("EntName") != "Main_Entrance_Marker"
-        or markers[0].get("Direction") != 0
+        or markers[0].get("Direction") != 4
         or markers[0].get("Collider") != {"X": 164, "Y": 276, "Width": 16, "Height": 16}
     ):
         raise ValueError("d01p02 private identity/entry marker differs")
@@ -247,8 +247,12 @@ def validate_mode(mode: str, items: list[dict[str, Any]]) -> dict[str, Any]:
     actions = [item for item in items if item.get("event") == "player_action"]
     if not routes or routes[0].get("ground") != "d01p01" or routes[0].get("group") != "g1":
         raise ValueError(f"{mode}: canonical d01p01:g1 opening is absent")
-    if routes[0].get("hero_x") != 200 or routes[0].get("hero_y") != 196:
-        raise ValueError(f"{mode}: opening hero placement differs")
+    if (
+        routes[0].get("hero_x") != 200
+        or routes[0].get("hero_y") != 196
+        or routes[0].get("direction") != "Down: 0"
+    ):
+        raise ValueError(f"{mode}: opening hero placement/direction differs")
 
     if mode == "opening_entry":
         if (
@@ -333,9 +337,14 @@ def validate_mode(mode: str, items: list[dict[str, Any]]) -> dict[str, Any]:
             or ending[0].get("cleanup") is not False
             or ending[0].get("verdict") != "PASS"
             or ending[0].get("solid_cells") != 1503
+            or ending[0].get("hero_direction") != "Up: 4"
             or ending[0].get("partner") is not True
+            or ending[0].get("partner_direction") != "Up: 4"
             or ending[0].get("caterpie") is not True
+            or ending[0].get("caterpie_direction") != "Up: 4"
             or ending[0].get("music") != ENDING_MUSIC
+            or routes[-1].get("group") != "g3"
+            or routes[-1].get("direction") != "Up: 4"
             or ending[1].get("cleanup") is not True
             or ending[1].get("partner") is not False
             or ending[1].get("caterpie") is not False
@@ -467,7 +476,7 @@ def run(args: argparse.Namespace) -> int:
             "natural_clear_routes_to_d01p02_g1": True,
             "failed_result_routes_to_d01p01_g2_and_retry_1f": True,
             "rescue_completion_routes_to_d01p01_g3": True,
-            "ending_ground_geometry_collision_actors_placements_and_eu_bgm": True,
+            "ending_ground_geometry_collision_actors_placements_north_facings_and_eu_bgm": True,
             "ending_sheet_installed_in_content_tile_and_binary_index": True,
             "natural_hostile_occupancy_replanned_and_attacked": True,
             "temporary_actors_and_bgm_cleaned_before_reentry": True,

@@ -378,8 +378,9 @@
     },
     "entry_exit_route": {
       "status": "passed",
-      "report": "docs/pmdred_eu/playable/tiny_woods/route_runtime/native_route_validation.json",
-      "scope": "d01p01:g1 opening, native three-floor traversal, failed retry through g2, d01p02:g1 clear/rescue, g3 post-rescue relay, and re-entry cleanup",
+      "report": "docs/pmdred_eu/playable/tiny_woods/route_runtime_v2/native_route_validation.json",
+      "supersedes": "docs/pmdred_eu/playable/tiny_woods/route_runtime/native_route_validation.json",
+      "scope": "d01p01:g1 opening, native three-floor traversal, failed retry through g2, d01p02:g1 clear/rescue with authenticated North facings, g3 post-rescue relay, and re-entry cleanup",
       "ending_bgm": {
         "eu_command_address": "0x084D4C78",
         "eu_opcode": "0x44",

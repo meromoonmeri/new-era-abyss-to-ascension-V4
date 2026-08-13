@@ -357,7 +357,7 @@ end
 function V:OnNewGame()
   if not self.enabled or self.started then return end
   self.started=true;Route.Reset()
-  GAME:EnterZone('master_zone',-1,@@LAUNCHER_GROUND_INDEX@@,0)
+  GAME:EnterZone('master_zone',-1,308,0)
 end
 function V:OnGroundMapEnter()
   if not self.enabled or self.finishing then return end
