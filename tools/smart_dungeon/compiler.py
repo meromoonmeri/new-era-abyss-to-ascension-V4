@@ -43,7 +43,7 @@ def choose_reference(repo:Path,brief:DesignBrief,selection:dict,explicit:str|Non
   except:continue
   if not any('RangeDictSegment' in s.get('$type','') and isinstance(s.get('Floors'),dict) and s['Floors'].get('nodes') for s in segments):continue
   text=(p.stem+' '+_name_text(z)).casefold();score=sum(t in text for t in brief.theme_tokens)*3
-  texture=selection.get('texture_values') or [];score+=sum(any(t and t.casefold() in text for t in texture) for _ in [0])
+  texture=selection.get('texture_values') or [];zone_textures={str(v.get(k,'')) for v in walk(z) if isinstance(v,dict) and 'GroundTileset' in v for k in ('GroundTileset','BlockTileset','WaterTileset')};score+=sum(6 for t in texture if t and t in zone_textures)
   candidates.append((score,p.stem,p))
  if not candidates:raise ValueError('No native RangeDictSegment reference found')
  _,name,path=max(candidates,key=lambda x:(x[0],-len(x[1]),x[1]));return name,path
