@@ -26,9 +26,9 @@
     "fog_frame_count": 0,
     "fog_source_name": null,
     "panorama_source_name": null,
-    "sha256": "125df63aa1da65ad3c3ed0989da94f3c68fdca726aba902bba84ac59b1c936b5",
+    "sha256": "d09ab8b9f5bd3933d646f7abf314ef92d2c4bbc838f63381cc07bd9ce5808acf",
     "sheet": "reminiscencia_tileset_015_Base",
-    "size_bytes": 78159,
+    "size_bytes": 280680,
     "tile_size_px": 16,
     "used_tile_id_count": 362
   },

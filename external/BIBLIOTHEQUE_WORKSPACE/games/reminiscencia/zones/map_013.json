@@ -2,17 +2,85 @@
   "artifacts": {
     "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
     "ground_member": "grounds/reminiscencia_map_013.rsground",
-    "ground_sha256": "d24d5c4f2e6362d67c1240b7f75d820e1600e4aa8c42383a265aa08669f6fcd9",
+    "ground_sha256": "97e9a7d2edbe0b3a2d331d4209eb3c03c3b0decf5491aabce240adf079f5a03e",
     "preview": "conversion/pmdo_candidates/previews/map_013.png",
-    "preview_sha256": "5946efebdb0933b31008da277d6ce4a10c5876deea5882d31fa0964abe538f22",
+    "preview_sha256": "040ad2088be89c9353ed529b3c1801da06fd01f045dd6f2ff5784a62dce8328e",
     "runtime_report": null,
     "runtime_report_sha256": null,
     "sidecar": "conversion/pmdo_candidates/sidecars/map_013.json",
-    "sidecar_sha256": "0a232ca01aff8ac5c3a3b4295c6601fc928fecfe328f307e37f17b6e7d518293",
+    "sidecar_sha256": "85f4491a1473caac4524d208e3b74bd11e5332179db4ccec8858108cece18972",
     "source_render": "conversion/pmdo_renders/maps/map_013.png",
     "source_render_sha256": "5b3a223cf4bf05b0d1414ea6bb7018ea55283e40ed202717d0597b0cea3f32da",
     "visual_timeline": "vfx/timelines/maps/map_013.json",
     "visual_timeline_sha256": "bc6ae4c0913e08cc1c45a933231d71836c94bb6f6cb9de27a3079e053145c17b"
+  },
+  "assembly": {
+    "all_dynamic_states": [
+      {
+        "blend_type": 0,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "LluviaOverlay",
+        "opacity": 1,
+        "scale_x": 100,
+        "scale_y": 100,
+        "slot": 1,
+        "source_index": 44,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "dynamic_environment_materialized": [
+      {
+        "blend_type": 0,
+        "frame_count": 1,
+        "frame_duration_ms": 1000,
+        "height_cells": 15,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "LluviaOverlay",
+        "offset_px": [
+          0,
+          0
+        ],
+        "opacity": 1,
+        "repeat": false,
+        "scale_x": 100,
+        "scale_y": 100,
+        "scroll": [
+          0,
+          0
+        ],
+        "slot": 1,
+        "source_index": 44,
+        "width_cells": 20,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "role": "STANDARD_MAP",
+    "transfers": [
+      {
+        "page_index": 0,
+        "safe_parameters": [
+          0,
+          20,
+          9,
+          8,
+          8,
+          1
+        ],
+        "source_event_id": 1,
+        "target_map_id": 20
+      }
+    ],
+    "viewport_policy": {
+      "mode": "PLAYER_FOLLOW_CLAMP",
+      "reason": "Grande zone: exploration locale façon PMDO/Metano, sans afficher toute la carte.",
+      "viewport_px": [
+        320,
+        240
+      ],
+      "zoom_change": false
+    }
   },
   "collision": {
     "exact_mask_in_sidecar": true,

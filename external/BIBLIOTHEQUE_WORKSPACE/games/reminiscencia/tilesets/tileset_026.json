@@ -12,9 +12,9 @@
     "fog_frame_count": 20,
     "fog_source_name": "PetalosGIF",
     "panorama_source_name": "Amapolas",
-    "sha256": "698ec31f6b70f560352663cf618739688caf8ca6d6b42049f7cd99f3b8463b47",
+    "sha256": "bc087d3b8847df40f48ce2920f29a16220162960772431f59fe8515456599ea0",
     "sheet": "reminiscencia_tileset_026_Base",
-    "size_bytes": 365888,
+    "size_bytes": 433310,
     "tile_size_px": 16,
     "used_tile_id_count": 1204
   },

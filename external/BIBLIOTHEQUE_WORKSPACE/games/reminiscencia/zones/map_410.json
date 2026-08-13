@@ -2,17 +2,148 @@
   "artifacts": {
     "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
     "ground_member": "grounds/reminiscencia_map_410.rsground",
-    "ground_sha256": "bfcbb87a4e7d449efd60adff2e436ac784d6e8f3f9e4b4c22856c181c59d1432",
+    "ground_sha256": "53923e1bfdb0a3063066285ace728527a07c7d24fd19927e8b6cb2464868e8e0",
     "preview": "conversion/pmdo_candidates/previews/map_410.png",
-    "preview_sha256": "2ab3ba59e823839f6d198eb5b4fef2308cd41da2903e4c64d321f18196e77712",
+    "preview_sha256": "39fc1d0977b1f93c66c402672f47c9f718c993e684c19ab934a5540ef163777a",
     "runtime_report": null,
     "runtime_report_sha256": null,
     "sidecar": "conversion/pmdo_candidates/sidecars/map_410.json",
-    "sidecar_sha256": "ad50f2f68498495862866e0926db1033044a7b39ac4b7a01454a01bf8d001fd3",
+    "sidecar_sha256": "1731bc6dcab8f8d0ba6a65b5ef6c726ccbc41af7c2039ca960e0aba7bf06ed98",
     "source_render": "conversion/pmdo_renders/maps/map_410.png",
     "source_render_sha256": "836f497e15652818c079fdda34f2b7363a5073456b4c62c594a42c5daf5bb0e2",
     "visual_timeline": "vfx/timelines/maps/map_410.json",
     "visual_timeline_sha256": "96e747e6bc634901446ae386af76b51682b01960b650c368126228afd1133a2f"
+  },
+  "assembly": {
+    "all_dynamic_states": [
+      {
+        "blend_type": 0,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "Darkness",
+        "opacity": 255,
+        "scale_x": 100,
+        "scale_y": 100,
+        "slot": 1,
+        "source_index": 0,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "blend_type": 1,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "RayitoTOTAL",
+        "opacity": 50,
+        "scale_x": 100,
+        "scale_y": 100,
+        "slot": 2,
+        "source_index": 1,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "dynamic_environment_materialized": [
+      {
+        "blend_type": 0,
+        "frame_count": 1,
+        "frame_duration_ms": 1000,
+        "height_cells": 15,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "Darkness",
+        "offset_px": [
+          0,
+          0
+        ],
+        "opacity": 255,
+        "repeat": false,
+        "scale_x": 100,
+        "scale_y": 100,
+        "scroll": [
+          0,
+          0
+        ],
+        "slot": 1,
+        "source_index": 0,
+        "width_cells": 20,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "blend_type": 1,
+        "frame_count": 4,
+        "frame_duration_ms": 300,
+        "height_cells": 15,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "RayitoTOTAL",
+        "offset_px": [
+          0,
+          0
+        ],
+        "opacity": 50,
+        "repeat": false,
+        "scale_x": 100,
+        "scale_y": 100,
+        "scroll": [
+          0,
+          0
+        ],
+        "slot": 2,
+        "source_index": 1,
+        "width_cells": 20,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "role": "STANDARD_MAP",
+    "transfers": [
+      {
+        "page_index": 0,
+        "safe_parameters": [
+          0,
+          410,
+          13,
+          16,
+          8,
+          1
+        ],
+        "source_event_id": 2,
+        "target_map_id": 410
+      },
+      {
+        "page_index": 0,
+        "safe_parameters": [
+          0,
+          410,
+          13,
+          11,
+          2,
+          1
+        ],
+        "source_event_id": 9,
+        "target_map_id": 410
+      },
+      {
+        "page_index": 0,
+        "safe_parameters": [
+          0,
+          2,
+          20,
+          29,
+          2,
+          1
+        ],
+        "source_event_id": 9,
+        "target_map_id": 2
+      }
+    ],
+    "viewport_policy": {
+      "mode": "PLAYER_FOLLOW_CLAMP",
+      "reason": "Grande zone: exploration locale façon PMDO/Metano, sans afficher toute la carte.",
+      "viewport_px": [
+        320,
+        240
+      ],
+      "zoom_change": false
+    }
   },
   "collision": {
     "exact_mask_in_sidecar": true,

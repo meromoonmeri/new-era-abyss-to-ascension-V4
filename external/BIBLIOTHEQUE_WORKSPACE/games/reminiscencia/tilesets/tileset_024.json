@@ -24,9 +24,9 @@
     "fog_frame_count": 0,
     "fog_source_name": null,
     "panorama_source_name": "Nebula",
-    "sha256": "bb2ec07882fd3e0c68a3fe844a3e9b6fa6849e351100c07ed40fdea9eec70173",
+    "sha256": "7563d4f65ffd1896d73cfb069bed90727bb6ecc92ee847d308dba7618aa21ec2",
     "sheet": "reminiscencia_tileset_024_Base",
-    "size_bytes": 45819,
+    "size_bytes": 46156,
     "tile_size_px": 16,
     "used_tile_id_count": 13
   },

@@ -2,17 +2,32 @@
   "artifacts": {
     "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
     "ground_member": "grounds/reminiscencia_map_407.rsground",
-    "ground_sha256": "bf38056e832a5afda43b3844152503fe31c6fb4d1991d86a2807c9be858e4926",
+    "ground_sha256": "fbae20e0ba53da82ef4f12b1553adb8f4cde87b1292079526e38263ffd985f81",
     "preview": "conversion/pmdo_candidates/previews/map_407.png",
     "preview_sha256": "c08aba634a254a15be9dc851424e56868df96d7ed42ce3dacdd3ae6adf510377",
     "runtime_report": null,
     "runtime_report_sha256": null,
     "sidecar": "conversion/pmdo_candidates/sidecars/map_407.json",
-    "sidecar_sha256": "effd87f36e42fba407b3f6667b231d9962126732c02feb59db2d1720523000de",
+    "sidecar_sha256": "32488043e09a3742467c43811450267739045401d281c6a6dab8b42606d9fc13",
     "source_render": "conversion/pmdo_renders/maps/map_407.png",
     "source_render_sha256": "d3760c392cc7158cbccb95ac7b56cfc5326e56f10b8a447ce18198a241f7a979",
     "visual_timeline": "vfx/timelines/maps/map_407.json",
     "visual_timeline_sha256": "69216054f7db1d3e77a3478c4305e91b1ed74bd6f79919d0d35adcd02340bbfb"
+  },
+  "assembly": {
+    "all_dynamic_states": [],
+    "dynamic_environment_materialized": [],
+    "role": "STANDARD_MAP",
+    "transfers": [],
+    "viewport_policy": {
+      "mode": "ORIGINAL_ONE_SCREEN_CLAMP",
+      "reason": "La vue originale à échelle entière est déjà lisible.",
+      "viewport_px": [
+        320,
+        240
+      ],
+      "zoom_change": false
+    }
   },
   "collision": {
     "exact_mask_in_sidecar": true,

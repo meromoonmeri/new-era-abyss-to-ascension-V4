@@ -2,17 +2,29 @@
   "artifacts": {
     "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
     "ground_member": "grounds/reminiscencia_map_494.rsground",
-    "ground_sha256": "a4638baa2d7238189f6f9ef24a8400d4746d698a1406c956d0aba7c6c575da06",
+    "ground_sha256": "64112730468c74d0a621735623a564cbe8b77dba4a97183746085b52227c85a0",
     "preview": "conversion/pmdo_candidates/previews/map_494.png",
-    "preview_sha256": "296dd1e103921e8047e100cc28beeb70c4c55b99e25817204109b21b9347bd84",
+    "preview_sha256": "4f866293890d0a24534b183c5d375529f527bd0d4eed507ed4dc83c0b5ad9e23",
     "runtime_report": null,
     "runtime_report_sha256": null,
     "sidecar": "conversion/pmdo_candidates/sidecars/map_494.json",
-    "sidecar_sha256": "0e520e7e172e70619c5c3d9206d3634aee3fddf317e31b6b393e925b2bae5878",
+    "sidecar_sha256": "29dc2f5d0f57f00f32be43de8a53d751e6611136d7d4354889187e8bc50a45cd",
     "source_render": "conversion/pmdo_renders/maps/map_494.png",
     "source_render_sha256": "dfe368d277156d8759ffaa8d750d06fa926b8d29afbca4df67ac5b714fb61604",
     "visual_timeline": "vfx/timelines/maps/map_494.json",
     "visual_timeline_sha256": "5b244ad16f35567c1ee20b9bc307539455a17d545f5f6c5988c8772bfd863c52"
+  },
+  "assembly": {
+    "all_dynamic_states": [],
+    "dynamic_environment_materialized": [],
+    "role": "COMPONENT_TEMPLATE",
+    "transfers": [],
+    "viewport_policy": {
+      "mode": "INHERIT_GENERATED_DUNGEON",
+      "reason": "Composant non explorable; le cadrage appartient au donjon assemblé.",
+      "viewport_px": null,
+      "zoom_change": false
+    }
   },
   "collision": {
     "exact_mask_in_sidecar": true,
@@ -27,7 +39,7 @@
   },
   "game_id": "reminiscencia",
   "geometry": {
-    "default_viewport_exact_fit": true,
+    "default_viewport_exact_fit": false,
     "default_viewport_px": [
       320,
       240
@@ -35,8 +47,8 @@
     "edge_view": "Clamp",
     "pmdo_collision_size_px": 8,
     "pmdo_pixels": [
-      320,
-      240
+      32,
+      32
     ],
     "pmdo_tex_size": 2,
     "pmdo_tile_size_px": 16,

@@ -2,17 +2,139 @@
   "artifacts": {
     "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
     "ground_member": "grounds/reminiscencia_map_119.rsground",
-    "ground_sha256": "178e8f8096a48541bcf9347ac3a4ad0f6b17a7fa1ee53ffea98a1cf0b19529e9",
+    "ground_sha256": "09b2886bc477618f6e4f1c28b952174c516981939df6d311238044aeddf7517c",
     "preview": "conversion/pmdo_candidates/previews/map_119.png",
-    "preview_sha256": "7e82cbe8b33d7157491238e627e626ab65415f88cdeac7a9b56d2ce77626c4a2",
+    "preview_sha256": "2d54023cfacb02ab825991b6a33b1724cd3560b85b20e74a089f102a689cfd07",
     "runtime_report": null,
     "runtime_report_sha256": null,
     "sidecar": "conversion/pmdo_candidates/sidecars/map_119.json",
-    "sidecar_sha256": "e280ba3e6b34b26e9ba22dc42c1d20bed3c5e8f1485ebcb299eabef922648e85",
+    "sidecar_sha256": "1c79fef185244af42bdd73049ecdfd6edec92ecab80f3b19f1516160ee33aaff",
     "source_render": "conversion/pmdo_renders/maps/map_119.png",
     "source_render_sha256": "b312e1435c50126c6d022a511972f8d6176d1bfd8c9fb4596e55705c8aca285c",
     "visual_timeline": "vfx/timelines/maps/map_119.json",
     "visual_timeline_sha256": "6a7f17efc4472381f3ee0341f50d7f353067a80be644f3ce487598924c2c257a"
+  },
+  "assembly": {
+    "all_dynamic_states": [
+      {
+        "blend_type": 0,
+        "hue": 0,
+        "kind": "FOG",
+        "name": "Bosque",
+        "opacity": 255,
+        "scroll_x": 0,
+        "scroll_y": 0,
+        "source_index": 0,
+        "zoom_percent": 100
+      },
+      {
+        "blend_type": 0,
+        "hue": 0,
+        "kind": "FOG",
+        "name": "Bosque1",
+        "opacity": 255,
+        "scroll_x": 0,
+        "scroll_y": 0,
+        "source_index": 2,
+        "zoom_percent": 100
+      },
+      {
+        "blend_type": 0,
+        "hue": 0,
+        "kind": "FOG",
+        "name": "Bosque",
+        "opacity": 255,
+        "scroll_x": 0,
+        "scroll_y": 0,
+        "source_index": 4,
+        "zoom_percent": 100
+      },
+      {
+        "blend_type": 0,
+        "hue": 0,
+        "kind": "FOG",
+        "name": "Bosque2",
+        "opacity": 255,
+        "scroll_x": 0,
+        "scroll_y": 0,
+        "source_index": 6,
+        "zoom_percent": 100
+      },
+      {
+        "blend_type": 0,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "LluviaOverlay",
+        "opacity": 255,
+        "scale_x": 100,
+        "scale_y": 100,
+        "slot": 1,
+        "source_index": 0,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "dynamic_environment_materialized": [
+      {
+        "blend_type": 0,
+        "frame_count": 1,
+        "frame_duration_ms": 1000,
+        "height_cells": 15,
+        "hue": 0,
+        "kind": "FOG",
+        "name": "Bosque",
+        "offset_px": [
+          0,
+          0
+        ],
+        "opacity": 255,
+        "repeat": true,
+        "scroll": [
+          0,
+          0
+        ],
+        "scroll_x": 0,
+        "scroll_y": 0,
+        "source_index": 0,
+        "width_cells": 20,
+        "zoom_percent": 100
+      },
+      {
+        "blend_type": 0,
+        "frame_count": 1,
+        "frame_duration_ms": 1000,
+        "height_cells": 15,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "LluviaOverlay",
+        "offset_px": [
+          0,
+          0
+        ],
+        "opacity": 255,
+        "repeat": false,
+        "scale_x": 100,
+        "scale_y": 100,
+        "scroll": [
+          0,
+          0
+        ],
+        "slot": 1,
+        "source_index": 0,
+        "width_cells": 20,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "role": "STANDARD_MAP",
+    "transfers": [],
+    "viewport_policy": {
+      "mode": "ORIGINAL_ONE_SCREEN_CLAMP",
+      "reason": "La vue originale à échelle entière est déjà lisible.",
+      "viewport_px": [
+        320,
+        240
+      ],
+      "zoom_change": false
+    }
   },
   "collision": {
     "exact_mask_in_sidecar": true,

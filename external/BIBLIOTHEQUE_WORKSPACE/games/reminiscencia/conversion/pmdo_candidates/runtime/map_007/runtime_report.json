@@ -2,10 +2,10 @@
   "actor_exclusion_rect": {
     "height": 64,
     "width": 48,
-    "x": 216,
-    "y": 208
+    "x": 136,
+    "y": 80
   },
-  "asset": "reminiscencia_map_501",
+  "asset": "reminiscencia_map_007",
   "forbidden_content_check": {
     "audio_binary_exported": false,
     "dialogue_exported": false,
@@ -13,9 +13,9 @@
     "script_body_exported": false,
     "source_actor_pixels_exported": false
   },
-  "ground_sha256": "69f64072956da588a40f628b412ba5cbd2891437c575252a0eec6546d1bdd6aa",
+  "ground_sha256": "8756b92eae479100e9ea5ca17286413357768a857c78cbd8af97c80fdd082073",
   "headless_sdl_sha256": "2cec7b5f9603a8a856a94b3a5e4fb5bd5e93e3ed0d04b85431625d5acb14e71f",
-  "map_id": 501,
+  "map_id": 7,
   "pmdo_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
   "result": "REMINISCENCIA_PMDO_RUNTIME_PASS",
   "runtime_destination_written": false,
@@ -27,8 +27,8 @@
   },
   "schema_version": "1.0.0",
   "tex_size": 2,
-  "tile_sha256": "ad7bd8fb3156d9afbab7cf22b69f02b59200cc8594c474ed3da86587c29651af",
-  "tile_sheet": "reminiscencia_tileset_030_Base",
+  "tile_sha256": "465e50bf2a6994cdf81e0a2c24fca96e45efb6d241c3a345ebc4cdb256537e4e",
+  "tile_sheet": "reminiscencia_tileset_002_Base",
   "validation_status": "PMDO_VALIDATED",
   "viewport_px": [
     320,
@@ -37,21 +37,21 @@
   "visual_validation": {
     "actor_excluded_pixel_count": 200,
     "dimensions_px": [
-      480,
-      480
+      320,
+      240
     ],
-    "environment_different_pixel_count": 1,
-    "environment_evidence_sha256": "24f42370d710d3ee7f5615b59da00ea9022e308bec8f860c56d60e8534a49e0e",
+    "environment_different_pixel_count": 1166,
+    "environment_evidence_sha256": "2c2dfd716092e83e463d90969e682436969e8a2d42ec1e47f6304e4ea0b5c316",
     "environment_max_channel_delta": 1,
-    "expected_sha256": "48d432a4a66da24045a9ce2b3b369bf4e447b497e9276ed4306d8631d468cb8b",
+    "expected_sha256": "9a673b49a718501c1949ffcb8fa4a0dae484a0689fa8f5b82ea19a706b3d265e",
     "raw_difference_bounds_inclusive": [
-      209,
-      235,
-      246,
-      299
+      0,
+      0,
+      236,
+      126
     ],
-    "raw_different_pixel_count": 201,
+    "raw_different_pixel_count": 1366,
     "raw_runtime_pixels_exported": false,
-    "raw_runtime_sha256": "1c90b593bb56fddbd71b39444f0380ca6f674fddc17ca2863ef08b647ffc6b86"
+    "raw_runtime_sha256": "ac7180f54866d1d9011181d8c8ea9affb494b657ea228335119622f5bf615cb7"
   }
 }

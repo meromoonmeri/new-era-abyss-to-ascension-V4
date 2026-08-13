@@ -13,7 +13,7 @@
     "script_body_exported": false,
     "source_actor_pixels_exported": false
   },
-  "ground_sha256": "5764acd65974d636a247534b2f4be7f3ad8fbae0b621cbca5f62cf9f9d085223",
+  "ground_sha256": "b44f9393294567d302bf3aae384f828ed718cd07bd365113d7e1fa9c6c9fb031",
   "headless_sdl_sha256": "2cec7b5f9603a8a856a94b3a5e4fb5bd5e93e3ed0d04b85431625d5acb14e71f",
   "map_id": 2,
   "pmdo_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
@@ -27,7 +27,7 @@
   },
   "schema_version": "1.0.0",
   "tex_size": 2,
-  "tile_sha256": "2fac1523484a672d145e7368f60668ca963a282c73b5ce6883fe494cee3add7f",
+  "tile_sha256": "142bd204ec498292fca32c4e87e58e4e4cd55b83377155492c840bfb8863a4e6",
   "tile_sheet": "relict_tileset_007_Base",
   "validation_status": "PMDO_VALIDATED",
   "viewport_px": [

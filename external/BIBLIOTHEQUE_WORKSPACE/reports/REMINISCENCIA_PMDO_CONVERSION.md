@@ -6,7 +6,10 @@ L'autorité PMDO 0.8.12 `Base/GFXParams.xml` fixe la viewport logique à
 **320×240 px** et la collision Ground à **8 px**. Reminiscencia utilise
 **640×480 px** et des tuiles de **32 px**. Le port applique donc l'échelle
 exacte 1/2 : tuile 16 px, `TexSize=2`, collision 8 px, `EdgeView=Clamp`.
-Une Map 20×15 remplit exactement la viewport ; 460 Maps satisfont ce cas.
+Une vraie zone 20×15 remplit exactement la viewport. Après interprétation de
+`MapTemplates.dat`, 121 Maps autonomes satisfont ce cas ; les 339 conteneurs de
+templates héritent du viewport de leur donjon et ne sont plus comptés comme de
+fausses zones 20×15.
 
 ## Livrables
 
@@ -31,7 +34,10 @@ reste expurgée car casting/UI est encodé dans son tileset.
 
 ## Visuels et animations
 
-Les 14 panoramas par défaut sont des couches distinctes avant les couches Map.
+Les 14 panoramas par défaut restent distincts. La passe d'assemblage restaure
+aussi les états pilotés par événement : au total, 95 Maps reçoivent désormais
+au moins un panorama, fog ou overlay dynamique matérialisé. Les panoramas sont
+placés avant les couches Map ; les fogs et overlays après celles-ci.
 Les fogs de 56 Maps matérialisent pixels, zoom, opacité et frames après les
 décors. `PetalosGIF` garde ses 20 frames de 130 ms, représentées à 8 ticks.
 Défilement, blend additif et durée 7,8 ticks restent sidecar-autoritaires et

@@ -2,17 +2,159 @@
   "artifacts": {
     "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
     "ground_member": "grounds/reminiscencia_map_076.rsground",
-    "ground_sha256": "2efe18e95f1e9b5dc1e7b2c85022a0470e3c960b8bccab0a1d5e2826e5f05470",
+    "ground_sha256": "60c5ebcd719f9390ae1c9529c1cb530f88ff5ebb6831760c4283d29deb8f1e71",
     "preview": "conversion/pmdo_candidates/previews/map_076.png",
-    "preview_sha256": "523350880936768dc238af1b970873742006d0fe9bf51c8204ba388482fc6980",
+    "preview_sha256": "9a8cbe8a8eda8c16b5ef9d1f1b3f60d271689243f993af6fe618dfaa03bbb425",
     "runtime_report": null,
     "runtime_report_sha256": null,
     "sidecar": "conversion/pmdo_candidates/sidecars/map_076.json",
-    "sidecar_sha256": "177044343adb85fc683c4a6c25f287b17b315c3927a2783602476994e2386de9",
+    "sidecar_sha256": "de4971b046c8e23ed7ee3081ba4a3537bb670cce6d306f8ffea47d2cc9ac4025",
     "source_render": "conversion/pmdo_renders/maps/map_076.png",
     "source_render_sha256": "e3350752acfd957461bbfeb73defac905414b85f3bea73e3b58d5e8290c4c994",
     "visual_timeline": "vfx/timelines/maps/map_076.json",
     "visual_timeline_sha256": "a19febee9f5116c1b8ffb47864f8b5ff1130a9ec0a0fd340ca67e424caa43d43"
+  },
+  "assembly": {
+    "all_dynamic_states": [
+      {
+        "hue": 0,
+        "kind": "PANORAMA",
+        "name": "Torre de Isla Glauco",
+        "source_index": 2
+      },
+      {
+        "blend_type": 0,
+        "hue": 0,
+        "kind": "FOG",
+        "name": "Niebla",
+        "opacity": 255,
+        "scroll_x": 3,
+        "scroll_y": 3,
+        "source_index": 1,
+        "zoom_percent": 200
+      },
+      {
+        "blend_type": 0,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "LluviaOverlay",
+        "opacity": 255,
+        "scale_x": 100,
+        "scale_y": 100,
+        "slot": 1,
+        "source_index": 0,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "dynamic_environment_materialized": [
+      {
+        "blend_type": 0,
+        "frame_count": 1,
+        "frame_duration_ms": 1000,
+        "height_cells": 28,
+        "hue": 0,
+        "kind": "PANORAMA",
+        "name": "Torre de Isla Glauco",
+        "offset_px": [
+          0,
+          0
+        ],
+        "repeat": true,
+        "scroll": [
+          0,
+          0
+        ],
+        "source_index": 2,
+        "width_cells": 30
+      },
+      {
+        "blend_type": 0,
+        "frame_count": 1,
+        "frame_duration_ms": 1000,
+        "height_cells": 16,
+        "hue": 0,
+        "kind": "FOG",
+        "name": "Niebla",
+        "offset_px": [
+          0,
+          0
+        ],
+        "opacity": 255,
+        "repeat": true,
+        "scroll": [
+          3,
+          3
+        ],
+        "scroll_x": 3,
+        "scroll_y": 3,
+        "source_index": 1,
+        "width_cells": 16,
+        "zoom_percent": 200
+      },
+      {
+        "blend_type": 0,
+        "frame_count": 1,
+        "frame_duration_ms": 1000,
+        "height_cells": 15,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "LluviaOverlay",
+        "offset_px": [
+          0,
+          0
+        ],
+        "opacity": 255,
+        "repeat": false,
+        "scale_x": 100,
+        "scale_y": 100,
+        "scroll": [
+          0,
+          0
+        ],
+        "slot": 1,
+        "source_index": 0,
+        "width_cells": 20,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "role": "STANDARD_MAP",
+    "transfers": [
+      {
+        "page_index": 0,
+        "safe_parameters": [
+          0,
+          76,
+          14,
+          23,
+          8,
+          1
+        ],
+        "source_event_id": 2,
+        "target_map_id": 76
+      },
+      {
+        "page_index": 3,
+        "safe_parameters": [
+          0,
+          69,
+          14,
+          21,
+          6,
+          1
+        ],
+        "source_event_id": 2,
+        "target_map_id": 69
+      }
+    ],
+    "viewport_policy": {
+      "mode": "PLAYER_FOLLOW_CLAMP",
+      "reason": "Grande zone: exploration locale façon PMDO/Metano, sans afficher toute la carte.",
+      "viewport_px": [
+        320,
+        240
+      ],
+      "zoom_change": false
+    }
   },
   "collision": {
     "exact_mask_in_sidecar": true,

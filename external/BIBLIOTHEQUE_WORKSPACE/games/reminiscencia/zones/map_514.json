@@ -2,17 +2,135 @@
   "artifacts": {
     "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
     "ground_member": "grounds/reminiscencia_map_514.rsground",
-    "ground_sha256": "d9f6378f8bb2710dadb2b02cfd11bc175e638ee66afc556501d9d446baa99f52",
+    "ground_sha256": "c94c2b4991a9abf81d082561b01599eda0dd392d4e0fa7c946fa4caf7b64609c",
     "preview": "conversion/pmdo_candidates/previews/map_514.png",
-    "preview_sha256": "e099285f303bfbff8fac1300383afad72398cd1493f3788ab9b991dde0131a3b",
+    "preview_sha256": "05d8c5ce8ef1fbf2520da402b78669f545c5787514fc418f7b0b18c6fdb88464",
     "runtime_report": null,
     "runtime_report_sha256": null,
     "sidecar": "conversion/pmdo_candidates/sidecars/map_514.json",
-    "sidecar_sha256": "bc6721936e6e8802d439dd06da1322182ccb391974169deb1f38a88f6c6fb11f",
+    "sidecar_sha256": "81a8f2748c67e3224c4cc347979950cdd614a046174191f6f86130e6f0433a97",
     "source_render": "conversion/pmdo_renders/maps/map_514.png",
     "source_render_sha256": "4124c7d03c2518071a19ae03caad96c3a938f4a2b1aabbfa90a08b5443df25bb",
     "visual_timeline": "vfx/timelines/maps/map_514.json",
     "visual_timeline_sha256": "eeb821bdf24853ffaa70fbb27a97d7bd7885366def4bd5d2d0d6d5eb89ab0c2d"
+  },
+  "assembly": {
+    "all_dynamic_states": [
+      {
+        "blend_type": 0,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "CicloStoryBubble",
+        "opacity": 1,
+        "scale_x": 100,
+        "scale_y": 100,
+        "slot": 1,
+        "source_index": 78,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "blend_type": 0,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "PrimichanBurbujaOverlay",
+        "opacity": 1,
+        "scale_x": 100,
+        "scale_y": 100,
+        "slot": 2,
+        "source_index": 99,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "dynamic_environment_materialized": [
+      {
+        "blend_type": 0,
+        "frame_count": 12,
+        "frame_duration_ms": 100,
+        "height_cells": 15,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "CicloStoryBubble",
+        "offset_px": [
+          0,
+          0
+        ],
+        "opacity": 1,
+        "repeat": false,
+        "scale_x": 100,
+        "scale_y": 100,
+        "scroll": [
+          0,
+          0
+        ],
+        "slot": 1,
+        "source_index": 78,
+        "width_cells": 20,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "blend_type": 0,
+        "frame_count": 12,
+        "frame_duration_ms": 100,
+        "height_cells": 15,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "PrimichanBurbujaOverlay",
+        "offset_px": [
+          0,
+          0
+        ],
+        "opacity": 1,
+        "repeat": false,
+        "scale_x": 100,
+        "scale_y": 100,
+        "scroll": [
+          0,
+          0
+        ],
+        "slot": 2,
+        "source_index": 99,
+        "width_cells": 20,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "role": "STANDARD_MAP",
+    "transfers": [
+      {
+        "page_index": 1,
+        "safe_parameters": [
+          0,
+          466,
+          57,
+          39,
+          2,
+          1
+        ],
+        "source_event_id": 7,
+        "target_map_id": 466
+      },
+      {
+        "page_index": 1,
+        "safe_parameters": [
+          0,
+          466,
+          57,
+          39,
+          2,
+          1
+        ],
+        "source_event_id": 10,
+        "target_map_id": 466
+      }
+    ],
+    "viewport_policy": {
+      "mode": "PLAYER_FOLLOW_CLAMP",
+      "reason": "Grande zone: exploration locale façon PMDO/Metano, sans afficher toute la carte.",
+      "viewport_px": [
+        320,
+        240
+      ],
+      "zoom_change": false
+    }
   },
   "collision": {
     "exact_mask_in_sidecar": true,

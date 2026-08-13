@@ -2,17 +2,46 @@
   "artifacts": {
     "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
     "ground_member": "grounds/reminiscencia_map_156.rsground",
-    "ground_sha256": "3a9a7d5834f2ad8669ec7a059de4757cdd3b6ecd9f6b4402fe5600535cbc4a61",
+    "ground_sha256": "76e0cd85b572542fcd611abc0307bb75788be42baabb360e340d90d42311057c",
     "preview": "conversion/pmdo_candidates/previews/map_156.png",
     "preview_sha256": "29a1721a25721c684fe2b2c61d9d7843629ec2e34fd38a5c559cc5e9064d7b40",
     "runtime_report": null,
     "runtime_report_sha256": null,
     "sidecar": "conversion/pmdo_candidates/sidecars/map_156.json",
-    "sidecar_sha256": "5721140b9bf7f0beba2a07cdf6934760e4722f39a5c50c96cee9b85f1d5a5aa8",
+    "sidecar_sha256": "d00a7380255eb94d6709418475536a12bad879b9b4bb7245a7a0160efe7eb48f",
     "source_render": "conversion/pmdo_renders/maps/map_156.png",
     "source_render_sha256": "9a6271fcc900fb1474dc0339dcfd355cad0d649a20e73dc6b1089bb71831b574",
     "visual_timeline": "vfx/timelines/maps/map_156.json",
     "visual_timeline_sha256": "a3beed5d7aecb865344c5445507c8292ece2aca13598629cc71b99800f933a46"
+  },
+  "assembly": {
+    "all_dynamic_states": [],
+    "dynamic_environment_materialized": [],
+    "role": "STANDARD_MAP",
+    "transfers": [
+      {
+        "page_index": 0,
+        "safe_parameters": [
+          0,
+          442,
+          15,
+          11,
+          0,
+          1
+        ],
+        "source_event_id": 1,
+        "target_map_id": 442
+      }
+    ],
+    "viewport_policy": {
+      "mode": "PLAYER_FOLLOW_CLAMP",
+      "reason": "Grande zone: exploration locale façon PMDO/Metano, sans afficher toute la carte.",
+      "viewport_px": [
+        320,
+        240
+      ],
+      "zoom_change": false
+    }
   },
   "collision": {
     "exact_mask_in_sidecar": true,

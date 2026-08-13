@@ -15,9 +15,9 @@
     "fog_frame_count": 1,
     "fog_source_name": "Clouds",
     "panorama_source_name": null,
-    "sha256": "6780de2e8da13be1b0b65ca5b3011a2390cd930ae81ae2e9563b9188ed20907b",
+    "sha256": "9fc33858a0f865e0c8970ae2dd7755bbd2199fb18f2db406e5017ad0c1f0eabd",
     "sheet": "reminiscencia_tileset_029_Base",
-    "size_bytes": 198046,
+    "size_bytes": 780214,
     "tile_size_px": 16,
     "used_tile_id_count": 965
   },

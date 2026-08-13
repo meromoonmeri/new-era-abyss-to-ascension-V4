@@ -2,17 +2,172 @@
   "artifacts": {
     "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
     "ground_member": "grounds/reminiscencia_map_511.rsground",
-    "ground_sha256": "11041886e623630d11dc7ff9e679bfadc5620414ce7df6a2c9c9ce5cf5841617",
+    "ground_sha256": "d682be45a4991903667b3811133467f3ad6c453fc5c1c9e304a2e82007b46d3b",
     "preview": "conversion/pmdo_candidates/previews/map_511.png",
-    "preview_sha256": "0dedc768f62c3d26ec0db9c3eaa0393fefbd9a5747eaafbd0a37a4487fac0c5a",
+    "preview_sha256": "d5a99c6b3dda275d85dea02e744384755607406528c8dbc8a0b4f968731e5ab6",
     "runtime_report": null,
     "runtime_report_sha256": null,
     "sidecar": "conversion/pmdo_candidates/sidecars/map_511.json",
-    "sidecar_sha256": "6b37e376076d186338b8ae3692388516a149fbeafe362b5caf3364bf85eb29c4",
+    "sidecar_sha256": "483e758f71074980c0c096d253a9c36d22e2c0ec5bc4f346cc47ad4db659768b",
     "source_render": "conversion/pmdo_renders/maps/map_511.png",
     "source_render_sha256": "906e6197156aaf36e0954910ebd0d0dae7509721bcac8edd5bec3ddce9e9f699",
     "visual_timeline": "vfx/timelines/maps/map_511.json",
     "visual_timeline_sha256": "35ee1e22c6fa4afc4a6ffbcb5497927ccff833b8e42660177eb42b287a9dc68a"
+  },
+  "assembly": {
+    "all_dynamic_states": [
+      {
+        "blend_type": 0,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "Darkness",
+        "opacity": 255,
+        "scale_x": 100,
+        "scale_y": 100,
+        "slot": 1,
+        "source_index": 0,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "blend_type": 0,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "PrimichanBurbujaOverlay",
+        "opacity": 1,
+        "scale_x": 100,
+        "scale_y": 100,
+        "slot": 3,
+        "source_index": 7,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "blend_type": 0,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "Crack1",
+        "opacity": 255,
+        "scale_x": 100,
+        "scale_y": 100,
+        "slot": 2,
+        "source_index": 199,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "dynamic_environment_materialized": [
+      {
+        "blend_type": 0,
+        "frame_count": 1,
+        "frame_duration_ms": 1000,
+        "height_cells": 15,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "Darkness",
+        "offset_px": [
+          0,
+          0
+        ],
+        "opacity": 255,
+        "repeat": false,
+        "scale_x": 100,
+        "scale_y": 100,
+        "scroll": [
+          0,
+          0
+        ],
+        "slot": 1,
+        "source_index": 0,
+        "width_cells": 20,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "blend_type": 0,
+        "frame_count": 12,
+        "frame_duration_ms": 100,
+        "height_cells": 15,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "PrimichanBurbujaOverlay",
+        "offset_px": [
+          0,
+          0
+        ],
+        "opacity": 1,
+        "repeat": false,
+        "scale_x": 100,
+        "scale_y": 100,
+        "scroll": [
+          0,
+          0
+        ],
+        "slot": 3,
+        "source_index": 7,
+        "width_cells": 20,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "blend_type": 0,
+        "frame_count": 1,
+        "frame_duration_ms": 1000,
+        "height_cells": 15,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "Crack1",
+        "offset_px": [
+          0,
+          0
+        ],
+        "opacity": 255,
+        "repeat": false,
+        "scale_x": 100,
+        "scale_y": 100,
+        "scroll": [
+          0,
+          0
+        ],
+        "slot": 2,
+        "source_index": 199,
+        "width_cells": 20,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "role": "STANDARD_MAP",
+    "transfers": [
+      {
+        "page_index": 1,
+        "safe_parameters": [
+          0,
+          511,
+          22,
+          31,
+          8,
+          1
+        ],
+        "source_event_id": 4,
+        "target_map_id": 511
+      },
+      {
+        "page_index": 3,
+        "safe_parameters": [
+          0,
+          513,
+          9,
+          10,
+          0,
+          1
+        ],
+        "source_event_id": 4,
+        "target_map_id": 513
+      }
+    ],
+    "viewport_policy": {
+      "mode": "PLAYER_FOLLOW_CLAMP",
+      "reason": "Grande zone: exploration locale façon PMDO/Metano, sans afficher toute la carte.",
+      "viewport_px": [
+        320,
+        240
+      ],
+      "zoom_change": false
+    }
   },
   "collision": {
     "exact_mask_in_sidecar": true,

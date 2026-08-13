@@ -29,6 +29,16 @@ sidecar et utilisent un blocage Ground conservateur. Aucun masque n'est perdu.
 Les six variantes divergentes restent documentées et rendues séparément, mais
 ne remplacent pas automatiquement leur Map canonique dans le lot Ground.
 
+La passe d'assemblage restaure les panoramas, fogs et overlays événementiels de
+13 Maps. Les Maps 003, 004, 010 et 015 restent des contrôleurs sans layout ;
+les vides des Maps 013, 019, 025 et 027 sont intentionnels et conservés. La
+Map001 reçoit désormais son overlay de scène au lieu d'un écran entièrement
+noir.
+
+Le viewport est choisi par rôle : caméra locale suiveuse avec `Clamp` pour les
+grandes zones, cadrage original pour les scènes compactes, aucun viewport
+artificiel pour les contrôleurs. Aucun dézoom global n'est appliqué.
+
 ## Validation runtime exacte
 
 - Map012 : chargement, mouvement libre, mouvement bloqué et rendu PASS ;

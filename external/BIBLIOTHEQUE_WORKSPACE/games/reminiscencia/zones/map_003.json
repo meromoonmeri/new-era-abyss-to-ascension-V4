@@ -2,17 +2,68 @@
   "artifacts": {
     "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
     "ground_member": "grounds/reminiscencia_map_003.rsground",
-    "ground_sha256": "08a2faf8833dd51bf823c8b2eddd76d77e38364b44833d0e47b763acb4575012",
+    "ground_sha256": "e619ad014cd0a62ca213a7611eca00da4965d9bdc3545499ab91ec91fc3388ac",
     "preview": "conversion/pmdo_candidates/previews/map_003.png",
-    "preview_sha256": "6260b459f25ebb1d1fda20e492d3bf4b62193ed3207c4c8a07368a8193197bd8",
+    "preview_sha256": "2606d8ac1d24e71a612655e9bbd9f258e310aa185b9d89bec2dab040d2fa0178",
     "runtime_report": null,
     "runtime_report_sha256": null,
     "sidecar": "conversion/pmdo_candidates/sidecars/map_003.json",
-    "sidecar_sha256": "4ebd711c7e824851277d71c0853bd139938fe8b4f86f3e743a9da04d32c4766a",
+    "sidecar_sha256": "2530fa039cc25db826fb571e45c6a74cea57884db895d581561639b6bb6125fb",
     "source_render": "conversion/pmdo_renders/maps/map_003.png",
     "source_render_sha256": "d3760c392cc7158cbccb95ac7b56cfc5326e56f10b8a447ce18198a241f7a979",
     "visual_timeline": "vfx/timelines/maps/map_003.json",
     "visual_timeline_sha256": "9310b36be1848522806918acdc12a87ea79f83aa4c2fc5997a2d93a885ccbad5"
+  },
+  "assembly": {
+    "all_dynamic_states": [
+      {
+        "blend_type": 0,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "blackscreen",
+        "opacity": 255,
+        "scale_x": 100,
+        "scale_y": 100,
+        "slot": 3,
+        "source_index": 15,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "dynamic_environment_materialized": [
+      {
+        "blend_type": 0,
+        "frame_count": 1,
+        "frame_duration_ms": 1000,
+        "height_cells": 15,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "blackscreen",
+        "offset_px": [
+          0,
+          0
+        ],
+        "opacity": 255,
+        "repeat": false,
+        "scale_x": 100,
+        "scale_y": 100,
+        "scroll": [
+          0,
+          0
+        ],
+        "slot": 3,
+        "source_index": 15,
+        "width_cells": 20,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "role": "CINEMATIC_CONTROLLER",
+    "transfers": [],
+    "viewport_policy": {
+      "mode": "NO_EXPLORATION_VIEWPORT",
+      "reason": "Contrôleur logique/cinématique sans environnement exportable; aucun remplissage artificiel.",
+      "viewport_px": null,
+      "zoom_change": false
+    }
   },
   "collision": {
     "exact_mask_in_sidecar": true,

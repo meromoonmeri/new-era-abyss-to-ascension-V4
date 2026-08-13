@@ -2,17 +2,59 @@
   "artifacts": {
     "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
     "ground_member": "grounds/reminiscencia_map_008.rsground",
-    "ground_sha256": "38a6b8d9dfc0029c446fc3306ea1477aa44697fa61b40268fb1d3854c619f785",
+    "ground_sha256": "3861f4fe05b4f9858d970c628721e1069a2b1c7c2377df14f7655ad995c69163",
     "preview": "conversion/pmdo_candidates/previews/map_008.png",
     "preview_sha256": "6f973823352c604fa7f74db07ac9accfa9f4ec8579b71544fea37a1bb0113dba",
     "runtime_report": null,
     "runtime_report_sha256": null,
     "sidecar": "conversion/pmdo_candidates/sidecars/map_008.json",
-    "sidecar_sha256": "d627e80ba137b9f84dbb96ec5a8a7d30718a7b66b7b4fe4afaf9916460cfb0b9",
+    "sidecar_sha256": "da182238900945b875eede0c2a1be50ea6f3e25f719daddf5c9fc74bf6828309",
     "source_render": "conversion/pmdo_renders/maps/map_008.png",
     "source_render_sha256": "95c49142182ffc70603a6ce138bcb91b5145b801619aeeb4da42f743625a4fcc",
     "visual_timeline": "vfx/timelines/maps/map_008.json",
     "visual_timeline_sha256": "da427ad55b610c2a7278b3961cbb35e9d5ea82eafc63d770ee96b2f966043d2d"
+  },
+  "assembly": {
+    "all_dynamic_states": [],
+    "dynamic_environment_materialized": [],
+    "role": "STANDARD_MAP",
+    "transfers": [
+      {
+        "page_index": 0,
+        "safe_parameters": [
+          0,
+          5,
+          26,
+          18,
+          4,
+          1
+        ],
+        "source_event_id": 7,
+        "target_map_id": 5
+      },
+      {
+        "page_index": 1,
+        "safe_parameters": [
+          0,
+          5,
+          6,
+          21,
+          6,
+          1
+        ],
+        "source_event_id": 7,
+        "target_map_id": 5
+      }
+    ],
+    "viewport_policy": {
+      "mode": "PLAYER_FOLLOW_CLAMP",
+      "reason": "Grande zone: exploration locale façon PMDO/Metano, sans afficher toute la carte.",
+      "viewport_px": [
+        320,
+        240
+      ],
+      "zoom_change": false
+    }
   },
   "collision": {
     "exact_mask_in_sidecar": true,

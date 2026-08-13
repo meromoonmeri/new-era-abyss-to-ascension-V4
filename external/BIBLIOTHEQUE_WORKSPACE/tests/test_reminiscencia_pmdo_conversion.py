@@ -11,7 +11,7 @@ class Test(unittest.TestCase):
  @classmethod
  def setUpClass(c):c.r=load(ROOT/"conversion_report.json")
  def test_01_contract(self):
-  self.assertEqual(self.r["map_count"],552);self.assertEqual(self.r["default_viewport_exact_fit_count"],460);self.assertEqual(self.r["viewport_contract"]["pmdo_viewport_px"],[320,240]);self.assertEqual(self.r["viewport_contract"]["pmdo_tile_size_px"],16);self.assertEqual(self.r["viewport_contract"]["pmdo_collision_size_px"],8);self.assertEqual(self.r["viewport_contract"]["pmdo_tex_size"],2)
+  self.assertEqual(self.r["map_count"],552);self.assertEqual(self.r["default_viewport_exact_fit_count"],121);self.assertEqual(self.r["viewport_contract"]["pmdo_viewport_px"],[320,240]);self.assertEqual(self.r["viewport_contract"]["pmdo_tile_size_px"],16);self.assertEqual(self.r["viewport_contract"]["pmdo_collision_size_px"],8);self.assertEqual(self.r["viewport_contract"]["pmdo_tex_size"],2);self.assertEqual(self.r["assembly"]["viewport_policy"],"PER_MAP_NO_GLOBAL_ZOOM")
  def test_02_bundle(self):
   b=ROOT/self.r["ground_storage"]["file"];self.assertEqual(sha(b),self.r["ground_storage"]["sha256"])
   with zipfile.ZipFile(b) as z:
@@ -34,7 +34,7 @@ class Test(unittest.TestCase):
    p=ROOT/row["preview"];self.assertEqual(sha(p),row["preview_sha256"]);im=load_png(p);self.assertEqual([im.width,im.height],row["pmdo_dimensions_px"])
   self.assertEqual(sha(ROOT/self.r["contact_sheet"]["file"]),self.r["contact_sheet"]["sha256"]);self.assertEqual(len(self.r["contact_pages"]),12)
  def test_07_runtime(self):
-  dims={2:[480,640],74:[320,240],213:[320,240],488:[640,640],501:[480,480]}
+  dims={2:[480,640],7:[320,240],74:[320,240],213:[320,240]}
   for mid,dim in dims.items():
    d=load(ROOT/f"runtime/map_{mid:03d}/runtime_report.json");self.assertEqual(d["result"],"REMINISCENCIA_PMDO_RUNTIME_PASS");self.assertEqual(d["viewport_px"],[320,240]);self.assertEqual(d["visual_validation"]["dimensions_px"],dim);self.assertLessEqual(d["visual_validation"]["environment_max_channel_delta"],1);self.assertTrue(all(x=="PASS" for x in d["runtime_probes"].values()))
  def test_08_boundary(self):

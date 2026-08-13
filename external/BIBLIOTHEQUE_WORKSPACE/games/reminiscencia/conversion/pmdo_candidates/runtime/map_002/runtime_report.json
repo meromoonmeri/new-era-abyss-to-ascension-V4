@@ -13,7 +13,7 @@
     "script_body_exported": false,
     "source_actor_pixels_exported": false
   },
-  "ground_sha256": "82ec0ae6e4d8521871124c868f55390cb78744177d76729a23499c14964c7e30",
+  "ground_sha256": "9f52bcb6c24ee1788751d09cb59112c13983650640d680b8ac1b9503e550c928",
   "headless_sdl_sha256": "2cec7b5f9603a8a856a94b3a5e4fb5bd5e93e3ed0d04b85431625d5acb14e71f",
   "map_id": 2,
   "pmdo_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
@@ -27,7 +27,7 @@
   },
   "schema_version": "1.0.0",
   "tex_size": 2,
-  "tile_sha256": "ef631737ca15066837d3c637049c8285102e45b4887b443e4f8c6360c799d62a",
+  "tile_sha256": "bae61fa7700e8c1bd7d0abb2b9ad7b65daace3f7303b0ecdee5eefa644734c1f",
   "tile_sheet": "reminiscencia_tileset_008_Base",
   "validation_status": "PMDO_VALIDATED",
   "viewport_px": [
@@ -35,22 +35,22 @@
     240
   ],
   "visual_validation": {
-    "actor_excluded_pixel_count": 225,
+    "actor_excluded_pixel_count": 207,
     "dimensions_px": [
       480,
       640
     ],
-    "environment_different_pixel_count": 2690,
-    "environment_evidence_sha256": "2c91abf1fe15a879d06fb662131d39ae54a79e044af8b31aada55ee82ab8626d",
+    "environment_different_pixel_count": 815,
+    "environment_evidence_sha256": "676e82c36962c87fc6a793d52b8c2e88f731cadf57bde5aba88794039aec4d19",
     "environment_max_channel_delta": 1,
-    "expected_sha256": "94fd943b56f39635a2308a9a7c20faa6391f12f95e0b3ec26ae3dfb5beb983c9",
+    "expected_sha256": "2c7b56c525f1ac19d15d089e6409bbf72b2c47bd5dc66ed9f600e27153992651",
     "raw_difference_bounds_inclusive": [
-      18,
-      10,
+      27,
+      13,
       479,
-      639
+      593
     ],
-    "raw_different_pixel_count": 2915,
+    "raw_different_pixel_count": 1022,
     "raw_runtime_pixels_exported": false,
     "raw_runtime_sha256": "591b0915f1705a935b0467ee889fec1ea803d73044cb5de21aec4c919b5f90ec"
   }

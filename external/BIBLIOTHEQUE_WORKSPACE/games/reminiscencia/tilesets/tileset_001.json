@@ -54,9 +54,9 @@
     "fog_frame_count": 1,
     "fog_source_name": "Submarino",
     "panorama_source_name": null,
-    "sha256": "da28ed6d3ff59d2b7d6c8c9e6514a074b35e98b5f21b4854276c6830c691f32c",
+    "sha256": "d008f6e3b4d30e43d593b9e7d822f8d1843f3fb4a5840bbfffb6e46a9d609a3a",
     "sheet": "reminiscencia_tileset_001_Base",
-    "size_bytes": 66528,
+    "size_bytes": 141732,
     "tile_size_px": 16,
     "used_tile_id_count": 259
   },

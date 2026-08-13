@@ -32,7 +32,7 @@ class Test(unittest.TestCase):
    for f in d["frames"]:self.assertEqual(sha(p.parent/f["file"]),f["sha256"])
   self.assertEqual(total,205)
  def test_06_catalog(self):
-  c=load(GAME/"manifests/pmdo_catalog.json");self.assertEqual(c["result"],"REMINISCENCIA_ENCYCLOPEDIC_CATALOG_PASS");self.assertEqual(c["map_count"],552);self.assertEqual(c["tileset_count"],31);self.assertEqual(c["runtime_validated_map_ids"],[2,74,213,488,501])
+  c=load(GAME/"manifests/pmdo_catalog.json");self.assertEqual(c["result"],"REMINISCENCIA_ENCYCLOPEDIC_CATALOG_PASS");self.assertEqual(c["map_count"],552);self.assertEqual(c["tileset_count"],31);self.assertEqual(c["runtime_validated_map_ids"],[2,7,74,213])
   for r in c["zones"]:self.assertEqual(sha(GAME/r["file"]),r["sha256"])
   for r in c["tilesets"]:self.assertEqual(sha(GAME/r["file"]),r["sha256"])
 if __name__=="__main__":unittest.main(verbosity=2)

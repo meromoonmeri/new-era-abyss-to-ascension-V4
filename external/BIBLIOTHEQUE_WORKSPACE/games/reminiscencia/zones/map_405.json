@@ -2,17 +2,97 @@
   "artifacts": {
     "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
     "ground_member": "grounds/reminiscencia_map_405.rsground",
-    "ground_sha256": "30f183d41cda729b8d5ec1685d691f01a0767fa3934a7dc9243fe5b797b39d15",
+    "ground_sha256": "6fbbc934a18bcce9667d870112252c1963f59f36c589e3182e8dd80f569434e4",
     "preview": "conversion/pmdo_candidates/previews/map_405.png",
-    "preview_sha256": "265a03bf9e59b967a590ac3df2c8be595722c62c0d867ac7881a78e9bdb46182",
+    "preview_sha256": "57d9f989879fa95897a21b2bc224d6a743677aac9961329456a009f1c647700b",
     "runtime_report": null,
     "runtime_report_sha256": null,
     "sidecar": "conversion/pmdo_candidates/sidecars/map_405.json",
-    "sidecar_sha256": "9f2e615313f52c7db1a051f18f87970d73102e5a007a0517c8c587b435400711",
+    "sidecar_sha256": "3771b795e30afe7db74274e9c7ed6b01bf05572038b614ef18511b3a5d3c5828",
     "source_render": "conversion/pmdo_renders/maps/map_405.png",
     "source_render_sha256": "6540790fad95f0364869e5208cb206a00916d7713bef960729e9bd358b6c8128",
     "visual_timeline": "vfx/timelines/maps/map_405.json",
     "visual_timeline_sha256": "9ec5e18854665aa2ce024c03ae94aa5ea4d0461c6c8b3e5d37387419801c9833"
+  },
+  "assembly": {
+    "all_dynamic_states": [
+      {
+        "hue": 0,
+        "kind": "PANORAMA",
+        "name": "Escena Auto",
+        "source_index": 0
+      },
+      {
+        "blend_type": 0,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "Darkness",
+        "opacity": 255,
+        "scale_x": 100,
+        "scale_y": 100,
+        "slot": 1,
+        "source_index": 1,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "dynamic_environment_materialized": [
+      {
+        "blend_type": 0,
+        "frame_count": 1,
+        "frame_duration_ms": 1000,
+        "height_cells": 18,
+        "hue": 0,
+        "kind": "PANORAMA",
+        "name": "Escena Auto",
+        "offset_px": [
+          0,
+          0
+        ],
+        "repeat": true,
+        "scroll": [
+          0,
+          0
+        ],
+        "source_index": 0,
+        "width_cells": 22
+      },
+      {
+        "blend_type": 0,
+        "frame_count": 1,
+        "frame_duration_ms": 1000,
+        "height_cells": 15,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "Darkness",
+        "offset_px": [
+          0,
+          0
+        ],
+        "opacity": 255,
+        "repeat": false,
+        "scale_x": 100,
+        "scale_y": 100,
+        "scroll": [
+          0,
+          0
+        ],
+        "slot": 1,
+        "source_index": 1,
+        "width_cells": 20,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "role": "CINEMATIC_TRANSITION",
+    "transfers": [],
+    "viewport_policy": {
+      "mode": "FIXED_SCENE_320x240",
+      "reason": "État visuel plein écran piloté par événement.",
+      "viewport_px": [
+        320,
+        240
+      ],
+      "zoom_change": false
+    }
   },
   "collision": {
     "exact_mask_in_sidecar": true,

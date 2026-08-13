@@ -2,17 +2,29 @@
   "artifacts": {
     "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
     "ground_member": "grounds/reminiscencia_map_009.rsground",
-    "ground_sha256": "8debb658a27a6157a42e05a0f3e004e874ba5eed31a0ab7a4f7915e9ee6f41ad",
+    "ground_sha256": "4bfb754f97bcb08271cbfc8458d8d7091c1c457eed8ed713e218822b979d5e6e",
     "preview": "conversion/pmdo_candidates/previews/map_009.png",
     "preview_sha256": "e168c453bb6a78bd95c7cb53540c92ecbc06684a0febaf4177cf63726e7c1535",
     "runtime_report": null,
     "runtime_report_sha256": null,
     "sidecar": "conversion/pmdo_candidates/sidecars/map_009.json",
-    "sidecar_sha256": "bb0b0f4df57a0e16325f4045f835168d8160a11e97518aeaa635452fd8678884",
+    "sidecar_sha256": "91ed7df603c4b6fc853aa13e19d12daa78d291e3fe6c8b6e7be2661a0f02b531",
     "source_render": "conversion/pmdo_renders/maps/map_009.png",
     "source_render_sha256": "bfcf19121a21f3b707e5a8fcb757c4011f40e138cc823f32866454c4671027db",
     "visual_timeline": "vfx/timelines/maps/map_009.json",
     "visual_timeline_sha256": "f146fa6044ca4378b091f92747b8a795381477cd2dd5b3ce5d1fccb32448ec74"
+  },
+  "assembly": {
+    "all_dynamic_states": [],
+    "dynamic_environment_materialized": [],
+    "role": "LOGIC_CONTROLLER",
+    "transfers": [],
+    "viewport_policy": {
+      "mode": "NO_EXPLORATION_VIEWPORT",
+      "reason": "Contrôleur logique/cinématique sans environnement exportable; aucun remplissage artificiel.",
+      "viewport_px": null,
+      "zoom_change": false
+    }
   },
   "collision": {
     "exact_mask_in_sidecar": true,

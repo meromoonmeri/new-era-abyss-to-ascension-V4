@@ -2,17 +2,132 @@
   "artifacts": {
     "ground_bundle": "conversion/pmdo_candidates/reminiscencia_grounds.zip",
     "ground_member": "grounds/reminiscencia_map_365.rsground",
-    "ground_sha256": "b41988878d0067d036e48d98913d8d64a6d4638287bc3ca71644fc90134d1285",
+    "ground_sha256": "d0bbec2d803996db1d7837b862fe45bcf8703eba546a96e23840fdfb9587fc9d",
     "preview": "conversion/pmdo_candidates/previews/map_365.png",
-    "preview_sha256": "419c8b293bf6206a4b5b31a94b281ca3d7e79aaadfc38cd944e3499465400c1b",
+    "preview_sha256": "8d99572ce58f2920ae2d7cef9e81e61acced8d2e056eea491ce88284ac6930fd",
     "runtime_report": null,
     "runtime_report_sha256": null,
     "sidecar": "conversion/pmdo_candidates/sidecars/map_365.json",
-    "sidecar_sha256": "347586bf0e08bc7554455d76f509fe02f7482678e9ca505523185821b2c4c8ec",
+    "sidecar_sha256": "c57f49ae501064bf27ab70ba983c0261ac301469e94d4aecf04c88d4379d0d96",
     "source_render": "conversion/pmdo_renders/maps/map_365.png",
     "source_render_sha256": "9b0d975759f5f38c117690f7b4df45b6cbd45b1cba908d559dd47a766f848afe",
     "visual_timeline": "vfx/timelines/maps/map_365.json",
     "visual_timeline_sha256": "311470236668cc12c907ceb2656850227b7f5ccd9eba83c32dce544b0ae1c019"
+  },
+  "assembly": {
+    "all_dynamic_states": [
+      {
+        "hue": 0,
+        "kind": "PANORAMA",
+        "name": "Transicion Bosque Nevado",
+        "source_index": 1
+      },
+      {
+        "blend_type": 0,
+        "hue": 0,
+        "kind": "FOG",
+        "name": "BosqueTransicion",
+        "opacity": 255,
+        "scroll_x": 0,
+        "scroll_y": 0,
+        "source_index": 0,
+        "zoom_percent": 100
+      },
+      {
+        "blend_type": 0,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "LluviaOverlay",
+        "opacity": 255,
+        "scale_x": 100,
+        "scale_y": 100,
+        "slot": 1,
+        "source_index": 2,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "dynamic_environment_materialized": [
+      {
+        "blend_type": 0,
+        "frame_count": 1,
+        "frame_duration_ms": 1000,
+        "height_cells": 15,
+        "hue": 0,
+        "kind": "PANORAMA",
+        "name": "Transicion Bosque Nevado",
+        "offset_px": [
+          0,
+          0
+        ],
+        "repeat": true,
+        "scroll": [
+          0,
+          0
+        ],
+        "source_index": 1,
+        "width_cells": 20
+      },
+      {
+        "blend_type": 0,
+        "frame_count": 1,
+        "frame_duration_ms": 1000,
+        "height_cells": 15,
+        "hue": 0,
+        "kind": "FOG",
+        "name": "BosqueTransicion",
+        "offset_px": [
+          0,
+          0
+        ],
+        "opacity": 255,
+        "repeat": true,
+        "scroll": [
+          0,
+          0
+        ],
+        "scroll_x": 0,
+        "scroll_y": 0,
+        "source_index": 0,
+        "width_cells": 28,
+        "zoom_percent": 100
+      },
+      {
+        "blend_type": 0,
+        "frame_count": 1,
+        "frame_duration_ms": 1000,
+        "height_cells": 15,
+        "kind": "ENVIRONMENT_OVERLAY",
+        "name": "LluviaOverlay",
+        "offset_px": [
+          0,
+          0
+        ],
+        "opacity": 255,
+        "repeat": false,
+        "scale_x": 100,
+        "scale_y": 100,
+        "scroll": [
+          0,
+          0
+        ],
+        "slot": 1,
+        "source_index": 2,
+        "width_cells": 20,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "role": "CINEMATIC_TRANSITION",
+    "transfers": [],
+    "viewport_policy": {
+      "mode": "FIXED_SCENE_320x240",
+      "reason": "État visuel plein écran piloté par événement.",
+      "viewport_px": [
+        320,
+        240
+      ],
+      "zoom_change": false
+    }
   },
   "collision": {
     "exact_mask_in_sidecar": true,
