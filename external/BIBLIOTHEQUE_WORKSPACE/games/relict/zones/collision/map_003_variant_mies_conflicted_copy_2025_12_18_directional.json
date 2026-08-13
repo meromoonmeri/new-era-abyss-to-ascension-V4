@@ -1003,7 +1003,7 @@
     ]
   ],
   "height": 15,
-  "method": "RGSS1_STANDARD_TOP_DOWN_PASSAGE_FLAGS",
+  "method": "RGSS1_STANDARD_PRIORITY_AND_PASSAGE_FLAGS",
   "schema_version": "1.0.0",
   "width": 20
 }

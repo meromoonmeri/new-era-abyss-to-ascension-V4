@@ -25,6 +25,8 @@
   "schema_version": "1.0.0",
   "status": "SOURCE_EXTRACTED",
   "used_by_zones": [
-    "relict_map_002"
+    "relict_map_002",
+    "relict_map_002:variant:mies_conflicted_copy_2025_12_18",
+    "relict_map_002:variant:mies_conflicted_copy_2026_01_01"
   ]
 }

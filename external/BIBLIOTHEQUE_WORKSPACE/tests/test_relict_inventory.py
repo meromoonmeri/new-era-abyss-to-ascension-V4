@@ -26,6 +26,13 @@ assert SPEC and SPEC.loader
 INVENTORY = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(INVENTORY)
 
+BUILD_SPEC = importlib.util.spec_from_file_location("build_relict_library", TOOLS / "build_relict_library.py")
+assert BUILD_SPEC and BUILD_SPEC.loader
+PIPELINE = importlib.util.module_from_spec(BUILD_SPEC)
+BUILD_SPEC.loader.exec_module(PIPELINE)
+
+from png_rgba import load_png
+
 
 def load_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
@@ -136,7 +143,10 @@ class RelictInventoryQualification(unittest.TestCase):
         for path in TRACKED.rglob("*"):
             if not path.is_file():
                 continue
-            self.assertIn(path.suffix, {".json", ".md", ".sha256"})
+            self.assertIn(path.suffix, {".json", ".md", ".sha256", ".png"})
+            if path.suffix == ".png":
+                self.assertEqual(path.read_bytes()[:8], b"\x89PNG\r\n\x1a\n")
+                continue
             text = path.read_text(encoding="utf-8")
             for value in forbidden_paths:
                 self.assertNotIn(value, text, f"{path}: {value}")
@@ -153,6 +163,57 @@ class RelictInventoryQualification(unittest.TestCase):
         self.assertFalse(self.summary["dialogue_contents_exported"])
         self.assertFalse(self.summary["script_bodies_exported"])
         self.assertFalse(self.summary["pmdo_conversion_started"])
+
+    def test_multilayer_collision_and_placeholder_previews_are_complete(self):
+        manifest = load_json(TRACKED / "previews/manifest.json")
+        self.assertEqual(manifest["result"], "PREVIEW_RENDER_PASS")
+        self.assertEqual(manifest["canonical_preview_count"], 28)
+        self.assertEqual(manifest["divergent_variant_preview_count"], 6)
+        self.assertEqual(manifest["map_preview_count"], 34)
+        self.assertEqual(manifest["tileset_reference_count"], 10)
+        self.assertEqual(manifest["missing_tile_ids"], [])
+        placeholder_difference_seen = False
+        collision_colors = set()
+        for preview in manifest["previews"]:
+            files = {Path(row["file"]).name: row for row in preview["files"]}
+            self.assertTrue({"layer_00.png", "layer_01.png", "layer_02.png", "composite.png", "collision.png", "entities_placeholders.png"} <= set(files))
+            for row in preview["files"]:
+                path = TRACKED / row["file"]
+                self.assertEqual(sha256_file(path), row["sha256"])
+                image = load_png(path)
+                self.assertEqual(image.width, row["width_px"])
+                self.assertEqual(image.height, row["height_px"])
+            composite = TRACKED / files["composite.png"]["file"]
+            entities = TRACKED / files["entities_placeholders.png"]["file"]
+            placeholder_difference_seen |= composite.read_bytes() != entities.read_bytes()
+            collision = load_png(TRACKED / files["collision.png"]["file"])
+            collision_colors.update(
+                tuple(collision.pixels[index : index + 4])
+                for index in range(0, len(collision.pixels), 4)
+            )
+        self.assertTrue(placeholder_difference_seen)
+        self.assertIn((38, 170, 70, 190), collision_colors)
+        self.assertIn((215, 45, 45, 220), collision_colors)
+
+    def test_animated_autotiles_are_exported_frame_by_frame(self):
+        manifest = load_json(TRACKED / "animations/manifest.json")
+        self.assertEqual(manifest["result"], "AUTOTILE_FRAME_EXTRACTION_PASS")
+        self.assertEqual(manifest["animated_autotile_count"], 17)
+        self.assertEqual(manifest["unsupported_autotile_count"], 0)
+        self.assertEqual(manifest["timing_exact_count"], 0)
+        self.assertEqual(manifest["timing_audit_required_count"], 17)
+        self.assertEqual(sum(row["frame_count"] for row in manifest["animations"]), 88)
+        for row in manifest["animations"]:
+            metadata_path = TRACKED / row["metadata"]
+            self.assertEqual(sha256_file(metadata_path), row["metadata_sha256"])
+            metadata = load_json(metadata_path)
+            self.assertEqual(metadata["frame_count"], len(metadata["layers"][0]["frames"]))
+            self.assertEqual(metadata["status"], "ADAPTATION_REQUIRED")
+            self.assertEqual(metadata["timing_authority"], "RGSS1_DEFAULT_UNVALIDATED")
+            for index, frame in enumerate(metadata["layers"][0]["frames"]):
+                self.assertEqual(frame["file"], f"layers/layer_00/frame_{index:03d}.png")
+                frame_path = metadata_path.parent / frame["file"]
+                self.assertEqual(sha256_file(frame_path), frame["sha256"])
 
     def test_generated_hash_manifest_covers_every_output(self):
         manifest_path = TRACKED / "manifests/generated_hashes.sha256"
@@ -195,8 +256,11 @@ class RelictInventoryQualification(unittest.TestCase):
         (REPO_ROOT / ".runtime-cache").mkdir(exist_ok=True)
         with tempfile.TemporaryDirectory(dir=REPO_ROOT / ".runtime-cache") as temp:
             output = Path(temp) / "relict"
-            result = INVENTORY.build(SOURCE, output)
-            self.assertEqual(result, self.summary)
+            result = PIPELINE.build(SOURCE, output)
+            self.assertEqual(result["result"], "RELICT_SOURCE_LIBRARY_PASS")
+            self.assertEqual(result["inventory"]["canonical_map_count"], 28)
+            self.assertEqual(result["previews"]["map_preview_count"], 34)
+            self.assertEqual(result["animations"]["animated_autotile_count"], 17)
             self.assertEqual(tree_hashes(output), tree_hashes(TRACKED))
 
 

@@ -303,7 +303,9 @@ def tileset_tables(tileset_id: int, tileset: RubyObject) -> dict[str, Any]:
     }
 
 
-def derived_collision(table: RubyTable, passages: list[int], terrain_tags: list[int]) -> dict[str, Any]:
+def derived_collision(
+    table: RubyTable, passages: list[int], priorities: list[int], terrain_tags: list[int]
+) -> dict[str, Any]:
     plane = table.x_size * table.y_size
     direction_rows = []
     terrain_rows = []
@@ -318,18 +320,27 @@ def derived_collision(table: RubyTable, passages: list[int], terrain_tags: list[
             effective_tile = 0
             terrain = 0
             for _, bit in DIRECTION_BITS:
-                direction_allowed = False
+                # RGSS1 checks layers top-down. A directional passage bit blocks
+                # immediately; otherwise only a priority-0 tile decides passability.
+                # Higher-priority overlays (including empty tile 0 here) are skipped.
+                direction_allowed = True
                 for tile_id in reversed(tile_stack):
-                    flag = passages[tile_id] if tile_id < len(passages) else 0x0F
-                    if flag & 0x10:
-                        continue
-                    direction_allowed = (flag & bit) == 0
-                    break
+                    if tile_id >= len(passages) or tile_id >= len(priorities):
+                        direction_allowed = False
+                        break
+                    flag = passages[tile_id]
+                    if (flag & bit) or (flag & 0x0F) == 0x0F:
+                        direction_allowed = False
+                        break
+                    if priorities[tile_id] == 0:
+                        direction_allowed = True
+                        break
                 if direction_allowed:
                     allowed |= bit
             for tile_id in reversed(tile_stack):
-                flag = passages[tile_id] if tile_id < len(passages) else 0x0F
-                if flag & 0x10:
+                if tile_id >= len(priorities):
+                    break
+                if priorities[tile_id] != 0:
                     continue
                 effective_tile = tile_id
                 terrain = terrain_tags[tile_id] if tile_id < len(terrain_tags) else 0
@@ -342,7 +353,7 @@ def derived_collision(table: RubyTable, passages: list[int], terrain_tags: list[
         top_tile_rows.append(top_tile_row)
     return {
         "schema_version": SCHEMA_VERSION,
-        "method": "RGSS1_STANDARD_TOP_DOWN_PASSAGE_FLAGS",
+        "method": "RGSS1_STANDARD_PRIORITY_AND_PASSAGE_FLAGS",
         "custom_script_overrides_executed": False,
         "directions": {name: bit for name, bit in DIRECTION_BITS},
         "width": table.x_size,
@@ -407,6 +418,18 @@ def dependency_record(kind: str, name: str, source: Path, index: dict[str, dict[
         "ambiguous_match_count": len(matches),
         "problems": ["AMBIGUOUS_CASE_INSENSITIVE_MATCH"] if len(matches) > 1 else [],
         "source_commit": commit,
+    }
+
+
+def tileset_descriptor(tileset_id: int, tileset: RubyObject) -> dict[str, Any]:
+    names = [decode_text(name) for name in (ivar(tileset, "autotile_names", []) or [])]
+    names = (names + [""] * 7)[:7]
+    return {
+        "source_id": tileset_id,
+        "name": decode_text(ivar(tileset, "tileset_name", "")),
+        "autotile_slots": [{"slot": index, "name": name} for index, name in enumerate(names)],
+        "panorama": decode_text(ivar(tileset, "panorama_name", "")),
+        "fog": decode_text(ivar(tileset, "fog_name", "")),
     }
 
 
@@ -488,9 +511,12 @@ def process_map_artifacts(
     layers_hash = write_json(layers_path, layer_payload)
 
     passages = tileset_table["passages"]
+    priorities = tileset_table["priorities"]
     terrain_tags = tileset_table["terrain_tags"]
     collision_path = output / "zones/collision" / f"{prefix}_directional.json"
-    collision_hash = write_json(collision_path, derived_collision(table, passages, terrain_tags))
+    collision_hash = write_json(
+        collision_path, derived_collision(table, passages, priorities, terrain_tags)
+    )
 
     entities_payload, entity_counts = entity_placements(map_id, ivar(map_obj, "events", {}))
     entities_path = output / "zones/entities" / f"{prefix}_entities.json"
@@ -599,20 +625,37 @@ def build(source: Path, output: Path) -> dict[str, Any]:
         for label, variant_path in sorted(variants.get(map_id, [])):
             variant_hash = sha256_file(variant_path)
             equivalent = variant_hash == canonical_hash
+            variant_obj, variant_table = parsed_variants[variant_path]
+            variant_tileset_id = int(ivar(variant_obj, "tileset_id", 0))
+            variant_dependencies = visual_dependencies(
+                tilesets[variant_tileset_id], source, graphics, commit
+            )
+            variant_usage_id = f"{zone_id}:variant:{slug(label)}"
+            for record in variant_dependencies:
+                if record.get("resolved"):
+                    key = (record["kind"], record["source_path"])
+                    asset_usage[key].add(variant_usage_id)
+                    asset_records[key] = record
             row = {
                 "source_path": relpath(variant_path, source),
                 "source_label": label,
                 "sha256": variant_hash,
                 "size_bytes": variant_path.stat().st_size,
                 "byte_identical_to_canonical": equivalent,
+                "tileset_id": variant_tileset_id,
+                "tileset": tileset_descriptor(variant_tileset_id, tilesets[variant_tileset_id]),
+                "geometry": {
+                    "width_tiles": variant_table.x_size,
+                    "height_tiles": variant_table.y_size,
+                    "layer_count": variant_table.z_size,
+                },
+                "visual_dependencies": variant_dependencies,
             }
             if equivalent:
                 equivalent_variants += 1
                 row["derived_artifacts"] = "REUSE_CANONICAL_BYTE_IDENTICAL"
             else:
                 divergent_variants += 1
-                variant_obj, variant_table = parsed_variants[variant_path]
-                variant_tileset_id = int(ivar(variant_obj, "tileset_id", 0))
                 variant_prefix = f"map_{map_id:03d}_variant_{slug(label)}"
                 variant_artifacts = process_map_artifacts(
                     map_id=map_id, map_obj=variant_obj, table=variant_table,
@@ -661,6 +704,7 @@ def build(source: Path, output: Path) -> dict[str, Any]:
                 "height_px": table.y_size * TILE_SIZE,
                 "layer_count": table.z_size,
             },
+            "tileset": tileset_descriptor(tileset_id, tileset),
             "tile_layers": {
                 "file": generated_ref(artifacts["layers_path"], output),
                 "sha256": artifacts["layers_hash"],
@@ -690,7 +734,7 @@ def build(source: Path, output: Path) -> dict[str, Any]:
                 "derived_directional_grid": {
                     "file": generated_ref(artifacts["collision_path"], output),
                     "sha256": artifacts["collision_hash"],
-                    "method": "RGSS1_STANDARD_TOP_DOWN_PASSAGE_FLAGS",
+                    "method": "RGSS1_STANDARD_PRIORITY_AND_PASSAGE_FLAGS",
                     "directions": ["down", "left", "right", "up"],
                     "custom_script_overrides_executed": False,
                 },
@@ -796,8 +840,10 @@ def build(source: Path, output: Path) -> dict[str, Any]:
         "files": manifest_files,
         "schema_hashes": schema_hashes,
         "policy_hashes": policy_hashes,
-        "extractor_sha256": sha256_file(Path(__file__)),
-        "marshal_reader_sha256": sha256_file(Path(__file__).with_name("ruby_marshal.py")),
+        "pipeline_tool_hashes": {
+            relpath(path, WORKSPACE): sha256_file(path)
+            for path in sorted((WORKSPACE / "tools").glob("*.py"))
+        },
     }
     write_json(output / "manifests/source_manifest.json", source_manifest)
 
@@ -884,12 +930,6 @@ uniquement par des acteurs approuvés de New Era.
         path = output / relative
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(content, encoding="utf-8")
-    generated_hashes_path = output / "manifests/generated_hashes.sha256"
-    generated_rows = []
-    for path in sorted(output.rglob("*")):
-        if path.is_file() and path != generated_hashes_path:
-            generated_rows.append(f"{sha256_file(path)}  {relpath(path, output)}")
-    generated_hashes_path.write_text("\n".join(generated_rows) + "\n", encoding="utf-8")
     return summary
 
 

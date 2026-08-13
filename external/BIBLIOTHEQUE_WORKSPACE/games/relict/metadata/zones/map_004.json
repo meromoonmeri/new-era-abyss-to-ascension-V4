@@ -16,8 +16,8 @@
         "up"
       ],
       "file": "zones/collision/map_004_directional.json",
-      "method": "RGSS1_STANDARD_TOP_DOWN_PASSAGE_FLAGS",
-      "sha256": "2bc38bc2daaab9014805fb554c0734277fde28b52316db0b755d675ca003c8af"
+      "method": "RGSS1_STANDARD_PRIORITY_AND_PASSAGE_FLAGS",
+      "sha256": "845a24cec2dcb1c08f2ae72d629f7674cc5fb147dfc1281a1b5fabfa280d8d76"
     },
     "dynamic_entities": {
       "file": "zones/entities/map_004_entities.json",
@@ -98,6 +98,42 @@
     "all_source_values_preserved": true,
     "file": "zones/geometry/map_004_layers.json",
     "sha256": "32bd003d0ecc64dd522a944176c88aa0935e7ccb2dba585d398faded5a5118b3"
+  },
+  "tileset": {
+    "autotile_slots": [
+      {
+        "name": "grassDungeon12",
+        "slot": 0
+      },
+      {
+        "name": "waterDungeon12",
+        "slot": 1
+      },
+      {
+        "name": "pathDungeon12",
+        "slot": 2
+      },
+      {
+        "name": "ShiningStar1",
+        "slot": 3
+      },
+      {
+        "name": "ShiningStar2",
+        "slot": 4
+      },
+      {
+        "name": "",
+        "slot": 5
+      },
+      {
+        "name": "",
+        "slot": 6
+      }
+    ],
+    "fog": "",
+    "name": "dungeon12",
+    "panorama": "",
+    "source_id": 13
   },
   "variants": [],
   "visual_dependencies": [

@@ -3,7 +3,7 @@
 - Maps canoniques : **28**
 - Variantes : **8** (2 identiques, 6 divergentes)
 - Tilesets utilisés : **10**
-- Assets environnementaux résolus : **35**
+- Assets environnementaux résolus : **43**
 - Événements placés : **100**
 - Placements par page : **115**
 - Placeholders de casting : **68**

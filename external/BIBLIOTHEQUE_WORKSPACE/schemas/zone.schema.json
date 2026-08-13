@@ -4,7 +4,7 @@
   "title": "BIBLIOTHEQUE source zone",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "zone_id", "game_id", "source", "name", "zone_type", "status", "geometry", "tile_layers", "collision", "entities", "visual_dependencies", "variants", "cinematic_visuals", "problems", "pmdo"],
+  "required": ["schema_version", "zone_id", "game_id", "source", "name", "zone_type", "status", "geometry", "tileset", "tile_layers", "collision", "entities", "visual_dependencies", "variants", "cinematic_visuals", "problems", "pmdo"],
   "properties": {
     "schema_version": {"const": "1.0.0"},
     "zone_id": {"type": "string", "pattern": "^relict_map_[0-9]{3}$"},
@@ -28,6 +28,31 @@
         "width_px": {"type": "integer", "minimum": 32},
         "height_px": {"type": "integer", "minimum": 32},
         "layer_count": {"type": "integer", "minimum": 1}
+      }
+    },
+    "tileset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "name", "autotile_slots", "panorama", "fog"],
+      "properties": {
+        "source_id": {"type": "integer", "minimum": 1},
+        "name": {"type": "string"},
+        "autotile_slots": {
+          "type": "array",
+          "minItems": 7,
+          "maxItems": 7,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["slot", "name"],
+            "properties": {
+              "slot": {"type": "integer", "minimum": 0, "maximum": 6},
+              "name": {"type": "string"}
+            }
+          }
+        },
+        "panorama": {"type": "string"},
+        "fog": {"type": "string"}
       }
     },
     "tile_layers": {

@@ -28,8 +28,8 @@
         "up"
       ],
       "file": "zones/collision/map_022_directional.json",
-      "method": "RGSS1_STANDARD_TOP_DOWN_PASSAGE_FLAGS",
-      "sha256": "089df9f41a011b498395175184d484e813c01034b9356745c3b85f27f7924b9a"
+      "method": "RGSS1_STANDARD_PRIORITY_AND_PASSAGE_FLAGS",
+      "sha256": "b6fc03460f5e66bc23a29e45b39d1a225722f69d6369425df8f5dd0f3d0ce3a5"
     },
     "dynamic_entities": {
       "file": "zones/entities/map_022_entities.json",
@@ -110,6 +110,42 @@
     "all_source_values_preserved": true,
     "file": "zones/geometry/map_022_layers.json",
     "sha256": "184ea797cf766fdaa35dc836633c6453aaa337b705e0756b4b0ec7910cb8d536"
+  },
+  "tileset": {
+    "autotile_slots": [
+      {
+        "name": "pathDungeon0",
+        "slot": 0
+      },
+      {
+        "name": "waterDungeon0",
+        "slot": 1
+      },
+      {
+        "name": "snow",
+        "slot": 2
+      },
+      {
+        "name": "pathDungeon2",
+        "slot": 3
+      },
+      {
+        "name": "waterDungeon2",
+        "slot": 4
+      },
+      {
+        "name": "pathEvent",
+        "slot": 5
+      },
+      {
+        "name": "waterDungeon11",
+        "slot": 6
+      }
+    ],
+    "fog": "",
+    "name": "EventStuff",
+    "panorama": "",
+    "source_id": 14
   },
   "variants": [],
   "visual_dependencies": [

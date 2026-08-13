@@ -11,7 +11,7 @@ Inventaire obtenu :
 - 28 Maps canoniques ;
 - 8 variantes conflictuelles, dont 2 byte-identiques et 6 divergentes ;
 - 10 tilesets utilisés ;
-- 35 assets environnementaux résolus ;
+- 43 assets environnementaux résolus, variantes incluses ;
 - aucune dépendance visuelle manquante ;
 - 100 événements source ;
 - 115 placements par page ;
@@ -27,7 +27,7 @@ Pour chaque Map canonique et chaque variante divergente, le pipeline conserve :
 2. les dimensions en tiles et en pixels de 32 px ;
 3. les tables complètes `passages`, `priorities` et `terrain_tags` du tileset ;
 4. une grille directionnelle dérivée (`down`, `left`, `right`, `up`) selon
-   l'algorithme standard RGSS1 top-down ;
+   l'algorithme standard RGSS1 top-down fondé sur priorités et passages ;
 5. le tile effectif et le terrain tag effectif par cellule ;
 6. le hash de chaque sortie et de chaque fichier source impliqué.
 

@@ -1,6 +1,3 @@
 # Prévisualisations Relict
 
-Aucun rendu n'est encore qualifié. Les futurs PNG devront être générés à partir
-des couches inventoriées, appliquer les collisions séparément et remplacer les
-68 placements de casting par des placeholders neutres. Aucune couche ne devra
-être aplatie comme substitut à la donnée source.
+Chaque Map possède ses couches séparées, un composite, un masque de collision et une vue où les entités sont remplacées par des placeholders neutres. Les variantes byte-identiques réutilisent la preview canonique ; les variantes divergentes ont leur propre rendu.

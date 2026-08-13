@@ -1,7 +1,6 @@
 {
   "canonical_map_count": 28,
   "execution_policy": "NO_SOURCE_CODE_EXECUTION",
-  "extractor_sha256": "50785838a5355dc60052ac4229121a6500b91b200c909c5f7aa564a855606bc1",
   "files": [
     {
       "classification": "INCLUDED_ENVIRONMENTAL_SOURCE",
@@ -287,9 +286,21 @@
     },
     {
       "classification": "INCLUDED_ENVIRONMENTAL_SOURCE",
+      "path": "Graphics/Autotiles/grassDungeon5.png",
+      "sha256": "19fbf982450edf0304318785d7116788906142c11203c3c5b8ebf8af1170affa",
+      "size_bytes": 9261
+    },
+    {
+      "classification": "INCLUDED_ENVIRONMENTAL_SOURCE",
       "path": "Graphics/Autotiles/grassDungeon6.png",
       "sha256": "7576c53ecfcf68439e461fc8f81e1040fc796e7eb14e9539d6c32cf1fd04218e",
       "size_bytes": 9367
+    },
+    {
+      "classification": "INCLUDED_ENVIRONMENTAL_SOURCE",
+      "path": "Graphics/Autotiles/grassDungeon7.png",
+      "sha256": "d8363e33d504e9fd75e32dce74f1db6a0b54420bd9cdf6837555ef1560f945aa",
+      "size_bytes": 2789
     },
     {
       "classification": "INCLUDED_ENVIRONMENTAL_SOURCE",
@@ -329,9 +340,21 @@
     },
     {
       "classification": "INCLUDED_ENVIRONMENTAL_SOURCE",
+      "path": "Graphics/Autotiles/pathDungeon5.png",
+      "sha256": "3a0f4628f376abf274ecc246a94ced9739a33732487d6d26695173e753bfd6c5",
+      "size_bytes": 1281
+    },
+    {
+      "classification": "INCLUDED_ENVIRONMENTAL_SOURCE",
       "path": "Graphics/Autotiles/pathDungeon6.png",
       "sha256": "b1a5d6a2aed55523d927b0b799f25da331072fd1e0d38fbc5e56f68608f32141",
       "size_bytes": 1146
+    },
+    {
+      "classification": "INCLUDED_ENVIRONMENTAL_SOURCE",
+      "path": "Graphics/Autotiles/pathDungeon7.png",
+      "sha256": "86e20db294051bd1e2569a540b11b5cf22c5add69746cb9cb0cc0bb4507ad374",
+      "size_bytes": 2425
     },
     {
       "classification": "INCLUDED_ENVIRONMENTAL_SOURCE",
@@ -389,9 +412,21 @@
     },
     {
       "classification": "INCLUDED_ENVIRONMENTAL_SOURCE",
+      "path": "Graphics/Autotiles/waterDungeon5.png",
+      "sha256": "3e6e58269ab816d2c31e8b1c16d42bc6db3f05c412fb861ed9feea1a3d7fccd9",
+      "size_bytes": 3273
+    },
+    {
+      "classification": "INCLUDED_ENVIRONMENTAL_SOURCE",
       "path": "Graphics/Autotiles/waterDungeon6.png",
       "sha256": "be8febe57a2feb2f7492188429d03deb77ca8911fa96bac21b67a35db4618c28",
       "size_bytes": 3268
+    },
+    {
+      "classification": "INCLUDED_ENVIRONMENTAL_SOURCE",
+      "path": "Graphics/Autotiles/waterDungeon7.png",
+      "sha256": "88535a0e59eeeab8a76e4f6c8d1faaf6529df8ad71342d63895f7578270b6532",
+      "size_bytes": 5439
     },
     {
       "classification": "INCLUDED_ENVIRONMENTAL_SOURCE",
@@ -437,24 +472,43 @@
     },
     {
       "classification": "INCLUDED_ENVIRONMENTAL_SOURCE",
+      "path": "Graphics/Tilesets/dungeon5.png",
+      "sha256": "27b1a95eab678c025a0d453544da072b50a9fb646719f3c13d0f56343cad4af0",
+      "size_bytes": 6556
+    },
+    {
+      "classification": "INCLUDED_ENVIRONMENTAL_SOURCE",
       "path": "Graphics/Tilesets/dungeon6.png",
       "sha256": "01314b02e3adb4cf939b5b370ba74a9510fda8325dbed2503af8298f256c0624",
       "size_bytes": 6130
+    },
+    {
+      "classification": "INCLUDED_ENVIRONMENTAL_SOURCE",
+      "path": "Graphics/Tilesets/dungeon7.png",
+      "sha256": "4f10a2b5783749876714f70b91c1e1397cb01a4e5966cf0557553dd9be8c0ab1",
+      "size_bytes": 10320
     }
   ],
   "game_id": "relict",
-  "marshal_reader_sha256": "3f7d6135b29f3840d61e62be394a1a46abf4845b8a01716c855b4835fa9bcf3f",
+  "pipeline_tool_hashes": {
+    "tools/build_relict_library.py": "af180f597ee003341bfc64cd1a9bce65a2b3c05d78f40126570d4116f7ff1944",
+    "tools/extract_relict_autotile_animations.py": "d043cbc0ac1fe717e90e27cad904a9fcf68b686397c87ff1bb00980c3724bbbe",
+    "tools/inventory_relict.py": "20427fc8d73becf87405f6e38ed7478c8f49baab0b72eadf678259eedd8b99c8",
+    "tools/png_rgba.py": "3c626fe581c700209ef79d33533df85b673a70e9303c98d022d7365d58cb4b7e",
+    "tools/render_relict_previews.py": "c6383fae3d28b8366f80ba80d699fde4ace6b8216ed08763606bf0fc952dac8e",
+    "tools/ruby_marshal.py": "3f7d6135b29f3840d61e62be394a1a46abf4845b8a01716c855b4835fa9bcf3f"
+  },
   "policy_hashes": {
     "policies/environment_scope.json": "9764479b6bca6d6abf4fd75d1565311258174ba979b813ec592c11f8ca959434"
   },
   "schema_hashes": {
-    "schemas/animation.schema.json": "6a6f25e9aee43c4798a9834bec1a6aba2bdc6e1e42f721953041a0cdd13ad9cc",
+    "schemas/animation.schema.json": "6a4b3a020cf583af64cdd29200b1b1bdf402b87c76463e9d90ea67a2dcb55988",
     "schemas/asset.schema.json": "cf9b9ef3ec687f123aee23fa156bb6c5991960269b71322dcf007cbd6e178992",
-    "schemas/collision.schema.json": "b8b5f88bf6717be4858fd7edebb6cd20025dd2036ab3f0de717004dfe4e4912c",
+    "schemas/collision.schema.json": "d8e12f666509d04e6db49bc0c60ecaae4b73788a0a64584325e0ba804f35c262",
     "schemas/entity-placement.schema.json": "95fec579618fe51dd71e6a344d5a0cff4315b1792a5d28b7a62b68255c85512e",
     "schemas/provenance.schema.json": "0f285e435858a159ad791b24cb61fde5c9b9d1e221f8a04d3dc1ecd78d94ea5d",
     "schemas/status.schema.json": "61584795e689985827c537f98e6eb707ef72988672a3888a16c88437925da89c",
-    "schemas/zone.schema.json": "49ba40b230c5cb3d34faeffee08178576ab64e8d31e345da4cfff99d3e2a45a7"
+    "schemas/zone.schema.json": "d9431df375cea7f3969dbcaed36703ae78e8eb1201f98b940176d08e8282187d"
   },
   "schema_version": "1.0.0",
   "source_commit": "6963878956ec4c53833c03f26aa6a9aafd17800f",

@@ -43,7 +43,7 @@
       "properties": {
         "file": {"type": "string"},
         "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
-        "method": {"const": "RGSS1_STANDARD_TOP_DOWN_PASSAGE_FLAGS"},
+        "method": {"const": "RGSS1_STANDARD_PRIORITY_AND_PASSAGE_FLAGS"},
         "directions": {"const": ["down", "left", "right", "up"]},
         "custom_script_overrides_executed": {"const": false}
       }

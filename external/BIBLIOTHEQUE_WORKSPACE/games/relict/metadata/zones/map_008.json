@@ -25,8 +25,8 @@
         "up"
       ],
       "file": "zones/collision/map_008_directional.json",
-      "method": "RGSS1_STANDARD_TOP_DOWN_PASSAGE_FLAGS",
-      "sha256": "9cddf0eb3baab8feabce05c536f048a7a7ff8dfffef83216957195d9feb70242"
+      "method": "RGSS1_STANDARD_PRIORITY_AND_PASSAGE_FLAGS",
+      "sha256": "0a447715b48b1d74052f9ca7e2e20644a6ca7bfb04181d91e26a3d9c5ae8272b"
     },
     "dynamic_entities": {
       "file": "zones/entities/map_008_entities.json",
@@ -107,6 +107,42 @@
     "all_source_values_preserved": true,
     "file": "zones/geometry/map_008_layers.json",
     "sha256": "f3f1a73aea88189f4c55009031b082e36e737a402c71a758ddbd6b0c38c6e74d"
+  },
+  "tileset": {
+    "autotile_slots": [
+      {
+        "name": "grassDungeon2",
+        "slot": 0
+      },
+      {
+        "name": "waterDungeon2",
+        "slot": 1
+      },
+      {
+        "name": "pathDungeon2",
+        "slot": 2
+      },
+      {
+        "name": "snow",
+        "slot": 3
+      },
+      {
+        "name": "",
+        "slot": 4
+      },
+      {
+        "name": "",
+        "slot": 5
+      },
+      {
+        "name": "",
+        "slot": 6
+      }
+    ],
+    "fog": "",
+    "name": "dungeon2",
+    "panorama": "",
+    "source_id": 3
   },
   "variants": [],
   "visual_dependencies": [
