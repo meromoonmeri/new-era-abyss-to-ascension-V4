@@ -11,7 +11,33 @@ from typing import Any
 from PIL import Image
 
 SEASONS = ("spring", "summer", "autumn", "winter")
-NATURAL_SPRING_PREFIXES = ("objtree", "objplant", "objgrass")
+# Exact assignments decompiled from gml_Object_objstage_Step_2.
+SEASON_TILESETS = {
+    "spring": {"grass1": 29, "grass0": 29, "ground": 29, "groundtex": 2, "water": 9, "cliff": 23, "cliff0": 23, "undergrass": 29},
+    "summer": {"grass1": 8, "grass0": 8, "ground": 8, "groundtex": 2, "water": 9, "cliff": 20, "cliff0": 20, "undergrass": 8},
+    "autumn": {"grass1": 21, "grass0": 21, "ground": 21, "groundtex": 4, "water": 9, "cliff": 24, "cliff0": 24, "undergrass": 21},
+    "winter": {"grass1": 27, "grass0": 27, "ground": 27, "groundtex": 5, "water": 17, "cliff": 12, "cliff0": 12, "undergrass": 27},
+}
+SEASON_VISIBILITY = {
+    "spring": {"groundplot": True, "vegetation": True, "endwater": False, "watereffect": True},
+    "summer": {"groundplot": True, "vegetation": True, "endwater": False, "watereffect": True},
+    "autumn": {"groundplot": True, "vegetation": False, "endwater": False, "watereffect": True},
+    "winter": {"groundplot": False, "vegetation": False, "endwater": False, "watereffect": False},
+}
+SEASON_SPRITE_PREFIX = {"spring": "ssp", "summer": "ssm", "autumn": "sau", "winter": "swn"}
+TREE_SPRITES = {
+    "spring": {"objtree": "bgtree", "objtree0": "bgtree0"},
+    "summer": {"objtree": "bgsmtree", "objtree0": "bgsmtree0"},
+    # The runtime chooses the underscore variant with probability 0.2 in autumn.
+    "autumn": {"objtree": "bgautree", "objtree0": "bgautree0"},
+    "winter": {"objtree": "bgwntree", "objtree0": "bgwntree0"},
+}
+BOULDER_SPRITES = {
+    "spring": {"objboulder0": "sboulder0", "objboulder1": "sboulder1"},
+    "summer": {"objboulder0": "sboulder0", "objboulder1": "sboulder1"},
+    "autumn": {"objboulder0": "sboulder0", "objboulder1": "sboulder1"},
+    "winter": {"objboulder0": "swnrock3", "objboulder1": "swnrock2"},
+}
 
 
 def read_json(path: Path) -> Any: return json.loads(path.read_text(encoding="utf-8"))
@@ -26,6 +52,8 @@ class Renderer:
         self.tpag = read_json(inventory / "texture-page-items.json")
         self.tilesets = read_json(inventory / "tilesets.json")
         self.objects = read_json(inventory / "objects.json")
+        self.sprite_by_name = {row["name"].casefold(): row for row in self.sprites}
+        self.sprite_id_by_name = {row["name"].casefold(): row["id"] for row in self.sprites}
         self.textures = {}
         self.sprite_cache = {}
         self.tileset_cache = {}
@@ -88,10 +116,34 @@ def seasonal_object(object_row: dict[str, Any], season: str, by_name: dict[str, 
         if family == "spring" and name.startswith("objsp"):
             return by_name.get(prefixes[season] + name[len("objsp"):])
         return None
-    if name in {"objtree", "objtree0"} and season != "spring":
-        suffix = name[len("obj"):]
-        return by_name.get(prefixes[season] + suffix)
+    # objtree/objtree0 are the same instances in every season; objstage changes
+    # only sprite_index, handled by exact_object_sprite().
     return object_row
+
+
+def exact_object_sprite(renderer: Renderer, object_row: dict[str, Any], season: str) -> int:
+    """Apply the exact objstage sprite assignments used for trees/boulders."""
+    name = object_row["name"].casefold()
+    sprite_name = TREE_SPRITES[season].get(name) or BOULDER_SPRITES[season].get(name)
+    if sprite_name:
+        return renderer.sprite_id_by_name.get(sprite_name.casefold(), -1)
+    return object_row.get("sprite_id", -1)
+
+
+def exact_asset_sprite(renderer: Renderer, sprite_id: int, layer_name: str, season: str) -> int:
+    """Apply objstage's `Below` layer prefix substitution exactly."""
+    if layer_name.casefold() != "below" or not 0 <= sprite_id < len(renderer.sprites):
+        return sprite_id
+    current = renderer.sprites[sprite_id]["name"]
+    if len(current) < 3:
+        return sprite_id
+    wanted = SEASON_SPRITE_PREFIX[season] + current[3:]
+    result = renderer.sprite_id_by_name.get(wanted.casefold(), sprite_id)
+    if season == "autumn" and result == 2566:
+        result = renderer.sprite_id_by_name.get("srm542", result)
+    elif season == "winter" and result == 2566:
+        result = renderer.sprite_id_by_name.get("srm543", result)
+    return result
 
 
 def transform(image: Image.Image, scale: list[float], rotation: float) -> Image.Image:
@@ -121,17 +173,26 @@ def render_room(extracted: Path, room_entry: dict[str, Any], output: Path, seaso
     canvas = Image.new("RGBA", (width, height), background)
     instances = {row["instance_id"]: row for row in room["instances"]}
     objects_by_name = {row["name"].casefold(): row for row in renderer.objects}
-    layers = sorted((layer for layer in room["layers"] if layer["visible"]), key=lambda row: row["depth"], reverse=True)
+    def effective_visible(layer: dict[str, Any]) -> bool:
+        override = SEASON_VISIBILITY[season].get(layer["name"].casefold())
+        return layer["visible"] if override is None else override
+
+    layers = sorted((layer for layer in room["layers"] if effective_visible(layer)), key=lambda row: row["depth"], reverse=True)
     for layer in layers:
         layer_type = layer["type"]
+        layer_name = layer["name"].casefold()
         if layer_type == 4 and layer.get("tileset_id", -1) >= 0:
-            tileset = renderer.tilesets[layer["tileset_id"]]
+            tileset_id = SEASON_TILESETS[season].get(layer_name, layer["tileset_id"])
+            # Winter keeps ordinary water in Blue Forest rooms.
+            if season == "winter" and layer_name == "water" and any(row["name"].casefold() == "blueforest" for row in room["layers"]):
+                tileset_id = 9
+            tileset = renderer.tilesets[tileset_id]
             grid_w, grid_h = layer["grid"]
             for gy in range(grid_h):
                 for gx in range(grid_w):
                     raw = layer["tile_data"][gy * grid_w + gx]
                     tile_id = raw & 0x0007FFFF
-                    image = renderer.tileset_tile(layer["tileset_id"], tile_id, tick)
+                    image = renderer.tileset_tile(tileset_id, tile_id, tick)
                     if image is None: continue
                     if raw & 0x10000000: image = image.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
                     if raw & 0x20000000: image = image.transpose(Image.Transpose.FLIP_TOP_BOTTOM)
@@ -139,10 +200,11 @@ def render_room(extracted: Path, room_entry: dict[str, Any], output: Path, seaso
                     canvas.alpha_composite(image, (round(layer["offset"][0]) + gx * tileset["tile_width"], round(layer["offset"][1]) + gy * tileset["tile_height"]))
         elif layer_type == 3:
             for placement in layer.get("sprite_placements", []):
-                sprite = renderer.sprites[placement["sprite_id"]] if 0 <= placement["sprite_id"] < len(renderer.sprites) else None
+                sprite_id = exact_asset_sprite(renderer, placement["sprite_id"], layer["name"], season)
+                sprite = renderer.sprites[sprite_id] if 0 <= sprite_id < len(renderer.sprites) else None
                 if not sprite: continue
                 frame = round(placement["frame_index"] + tick * placement["animation_speed"]) % max(1, sprite["frame_count"])
-                draw_sprite(canvas, renderer, placement["sprite_id"], placement["x"], placement["y"], placement["scale"], placement["rotation"], frame)
+                draw_sprite(canvas, renderer, sprite_id, placement["x"], placement["y"], placement["scale"], placement["rotation"], frame)
         elif layer_type == 2:
             for instance_id in layer.get("instance_ids", []):
                 instance = instances.get(instance_id)
@@ -151,7 +213,7 @@ def render_room(extracted: Path, room_entry: dict[str, Any], output: Path, seaso
                 if not 0 <= obj_id < len(renderer.objects): continue
                 obj = seasonal_object(renderer.objects[obj_id], season, objects_by_name)
                 if not obj or not obj["visible"]: continue
-                sprite_id = obj.get("sprite_id", -1)
+                sprite_id = exact_object_sprite(renderer, obj, season)
                 if not 0 <= sprite_id < len(renderer.sprites): continue
                 sprite = renderer.sprites[sprite_id]
                 frame = round(instance["image_index"] + tick * instance["image_speed"]) % max(1, sprite["frame_count"])
@@ -163,7 +225,12 @@ def render_room(extracted: Path, room_entry: dict[str, Any], output: Path, seaso
                 draw_sprite(canvas, renderer, sprite_id, round(layer["offset"][0]), round(layer["offset"][1]), [1, 1], 0, round(bg.get("first_frame", 0)))
     output.parent.mkdir(parents=True, exist_ok=True)
     canvas.convert("RGB").save(output, format="PNG", optimize=False, compress_level=9)
-    return {"room_id": room["id"], "room": room["name"], "season": season, "tick": tick, "output": str(output), "dimensions": [width, height]}
+    return {
+        "room_id": room["id"], "room": room["name"], "season": season,
+        "tick": tick, "output": str(output), "dimensions": [width, height],
+        "season_vm_policy": "exact objstage tileset/visibility/static/object substitutions",
+        "dynamic_particle_overlay": "not rasterized (objwinter logic preserved separately)",
+    }
 
 
 def main() -> int:

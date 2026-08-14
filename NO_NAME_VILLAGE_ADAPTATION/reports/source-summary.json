@@ -2,48 +2,31 @@
   "animated_sprite_count": 1593,
   "animated_tileset_count": 3,
   "counts": {
-    "code": 2144,
+    "code": 2188,
+    "collision_masks": 653,
+    "embedded_audio": 388,
     "objects": 727,
     "rooms": 98,
     "sounds": 388,
+    "sprite_frames": 9084,
     "sprites": 2775,
     "strings": 22228,
     "texture_page_items": 9134,
     "texture_pages": 96,
-    "tilesets": 30
+    "tilesets": 30,
+    "vm_instructions": 273883
   },
   "day_night": {
-    "resource_name_matches": [
-      "(... There was too much snow blocking my path yesterday.)\n(I should do something about that.)",
-      "I'm done for today.",
-      "The king worked day and night.",
-      "I can't just casually take some crops off the fields for you everyday.",
-      "timeofday",
-      "I heard Mum's cave farm got ruined the other day.",
-      "Nope! I've got grown-up duties today.",
-      "You're gonna play with us today Ruben?",
-      "This was supposed to be for Ruben, but he's been sick all morning.",
-      "Hey Morn, I know what we can do today!",
-      "All of us here had long since prepared ourselves to one day face the Black Sea falling onto us.",
-      "Morning Reg!",
-      "...This is a nightmare...",
-      "You've yet to see, what it means to live in a true nightmare.",
-      "No one saw it happened though... it just showed up one day.",
-      "(Reg, don't rub it in. We already made fun of him today.)",
-      "If you do that, won't you pile up more work the next day?",
-      "He brought a tadpole monster home last night.",
-      "Apparently the grown-ups have been searching for us all night.",
-      "However one day, there was suddenly no more space in the\nbubble!",
-      "steam_ugc_query_set_ranked_by_trend_days",
-      "sncutnightforest",
-      "sncutnightforest.ogg",
-      "snbgmorning",
-      "snbgmorning.ogg",
-      "sncutnightdrop",
-      "sncutnightdrop.ogg",
-      "objcutmorning"
+    "evidence": "time-system.json",
+    "observed_values": [
+      0,
+      1,
+      2,
+      3
     ],
-    "status": "UNVERIFIED"
+    "reference_count": 39,
+    "semantic_labels": "UNVERIFIED",
+    "status": "SOURCE_PROVEN_EXACT_VM_REFERENCES"
   },
   "layer_type_counts": {
     "1": 25,
@@ -53,42 +36,49 @@
     "6": 76
   },
   "maximum_sprite_frame_count": 79,
-  "phase2_pmdo": "BLOCKED until source rendering, season VM logic, collision and transition destinations are completely certified",
+  "official_extraction": "official-extraction.json",
+  "phase2_pmdo": "READY_FOR_ADAPTATION; no PMDO Ground exists yet and runtime certification remains pending",
   "previews": [
     {
       "bytes": 1246028,
+      "certified": false,
       "file": "/home/user/new-era-abyss-to-ascension-V4/NO_NAME_VILLAGE_ADAPTATION/reports/source-previews/rmvillage-spring.png",
-      "role": "source reconstruction audit only; never PMDO map texture",
+      "role": "legacy structural preview generated before exact VM decompilation; not PMDO input or acceptance evidence",
       "sha256": "e7fea4b0ca4bf3839075b04287ca9f3d2aeabc46ab3a829b5119e48e5ed9d183"
     },
     {
       "bytes": 1243461,
+      "certified": false,
       "file": "/home/user/new-era-abyss-to-ascension-V4/NO_NAME_VILLAGE_ADAPTATION/reports/source-previews/rmvillage-summer.png",
-      "role": "source reconstruction audit only; never PMDO map texture",
+      "role": "legacy structural preview generated before exact VM decompilation; not PMDO input or acceptance evidence",
       "sha256": "38094c106f8d763beb817306e6fdc43e9de759449de09cd34c17f80a47a094b5"
     },
     {
       "bytes": 1255558,
+      "certified": false,
       "file": "/home/user/new-era-abyss-to-ascension-V4/NO_NAME_VILLAGE_ADAPTATION/reports/source-previews/rmvillage-autumn.png",
-      "role": "source reconstruction audit only; never PMDO map texture",
+      "role": "legacy structural preview generated before exact VM decompilation; not PMDO input or acceptance evidence",
       "sha256": "2cad679871ea023641d87619ddc71043c5aa859957fd34fb33cee42cda06c180"
     },
     {
       "bytes": 1218781,
+      "certified": false,
       "file": "/home/user/new-era-abyss-to-ascension-V4/NO_NAME_VILLAGE_ADAPTATION/reports/source-previews/rmvillage-winter.png",
-      "role": "source reconstruction audit only; never PMDO map texture",
+      "role": "legacy structural preview generated before exact VM decompilation; not PMDO input or acceptance evidence",
       "sha256": "ba78148e9ba16a07fd59a64bfbb8f89791b45977cb35a808b367bf08fc7871b5"
     },
     {
       "bytes": 814741,
+      "certified": false,
       "file": "/home/user/new-era-abyss-to-ascension-V4/NO_NAME_VILLAGE_ADAPTATION/reports/source-previews/rmvillage-seasons.png",
-      "role": "source reconstruction audit only; never PMDO map texture",
+      "role": "legacy structural preview generated before exact VM decompilation; not PMDO input or acceptance evidence",
       "sha256": "e3c76e982dc09f0ee12cee9a73c5d030a87db338b1ff913bb2c5c5332c5f86c8"
     },
     {
       "bytes": 42422,
+      "certified": false,
       "file": "/home/user/new-era-abyss-to-ascension-V4/NO_NAME_VILLAGE_ADAPTATION/reports/source-previews/interiors.png",
-      "role": "source reconstruction audit only; never PMDO map texture",
+      "role": "legacy structural preview generated before exact VM decompilation; not PMDO input or acceptance evidence",
       "sha256": "742d35f78e5f51b569459fee515934ed855639d865634a99b73aaaf6f4bba248"
     }
   ],
@@ -99,8 +89,9 @@
     "world": 72
   },
   "runtime_family": "GameMaker 2022.9+ VM data.win",
-  "schema": "no-name-village.source-summary.v1",
+  "schema": "no-name-village.source-summary.v2",
   "season_system": {
+    "evidence": "season-vm-evidence.json",
     "mapping_count": 20,
     "states": [
       "spring",
@@ -108,7 +99,7 @@
       "autumn",
       "winter"
     ],
-    "status": "SOURCE_PROVEN_PARTIAL_VM_LOGIC"
+    "status": "SOURCE_PROVEN_EXACT_VM_LOGIC"
   },
   "solid_collision_instance_count": 10737,
   "sounds": {
@@ -433,7 +424,7 @@
     "data_win": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/no-name-village/source/data.win",
     "sha256": "2f33b595b450b40355554d73f5acc5d7272e5d54519e35cd8971e0f336401227"
   },
-  "status": "SOURCE_STRUCTURALLY_EXTRACTED",
+  "status": "SOURCE_OFFICIAL_MODEL_EXTRACTED_EXHAUSTIVELY",
   "transition_instance_count": 319,
   "village": {
     "category": "world",

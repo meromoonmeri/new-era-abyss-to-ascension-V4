@@ -49,6 +49,15 @@
     ],
     "repository": "meromoonmeri/nonamevillage"
   },
+  "official_extraction": {
+    "code_entries": 2188,
+    "embedded_audio": 388,
+    "reader": "UndertaleModLib 0.6.1.0",
+    "report": "official-extraction.json",
+    "rooms": 98,
+    "sprite_frames": 9084,
+    "status": "OFFICIAL_MODEL_EXTRACTED_EXHAUSTIVELY"
+  },
   "release": {
     "archive_bytes_received": 0,
     "asset_id": 514274912,
@@ -68,7 +77,7 @@
     "repository": "meromoonmeri/BIBLIOTHEQUE",
     "size_bytes": 287481958
   },
-  "status": "SOURCE_ACQUIRED",
+  "status": "SOURCE_ACQUIRED_AND_OFFICIALLY_EXTRACTED",
   "transport_resolution": {
     "assembled_data_win_bytes": 301037316,
     "assembled_data_win_sha256": "2f33b595b450b40355554d73f5acc5d7272e5d54519e35cd8971e0f336401227",
@@ -92,6 +101,7 @@
       }
     ],
     "repository_archive_bytes": 239421517,
+    "repository_archive_sha256": "21cd7fab2033112b3b0027ea752e1746b12e9293635fe2bc5586d1edb077375a",
     "result": "PASS"
   },
   "verified": {

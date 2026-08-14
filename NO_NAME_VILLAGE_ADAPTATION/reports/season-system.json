@@ -1,10 +1,7 @@
 {
+  "exact_vm_evidence": "season-vm-evidence.json",
   "global_variable": "season",
-  "limitations": [
-    "GameMaker VM bytecode is preserved but the audited Python decoder does not correctly decompile this runtime version.",
-    "Object substitution families are source-proven by complete resource counterparts; exact branch ordering remains UNVERIFIED.",
-    "Winter post-processing/ground snow and particles require controller-bytecode decompilation before PMDO certification."
-  ],
+  "limitations": [],
   "object_correspondence": {
     "objspawnpoint": {
       "autumn": null,
@@ -247,7 +244,7 @@
       "visible": true
     }
   ],
-  "schema": "no-name-village.seasons.v1",
+  "schema": "no-name-village.seasons.v2",
   "scripts": [
     "scrseasonmap",
     "scrrmsummercount",
@@ -3766,11 +3763,23 @@
       "width": 64
     }
   ],
+  "selection_stage_conditions": {
+    "autumn": "3 <= stage < 4",
+    "spring": "stage < 2",
+    "summer": "2 <= stage < 3",
+    "winter": "4 <= stage < 8"
+  },
+  "state_values": {
+    "autumn": 2,
+    "spring": 0,
+    "summer": 1,
+    "winter": 3
+  },
   "states": [
     "spring",
     "summer",
     "autumn",
     "winter"
   ],
-  "status": "SOURCE_PROVEN_PARTIAL_VM_LOGIC"
+  "status": "SOURCE_PROVEN_EXACT_VM_LOGIC"
 }

@@ -1,29 +1,34 @@
 # No Name Village — audit source GameMaker
 
-- **État :** `SOURCE_STRUCTURALLY_EXTRACTED`
+- **État :** `SOURCE_OFFICIAL_MODEL_EXTRACTED_EXHAUSTIVELY`
+- **Lecteur officiel :** UndertaleModLib 0.6.1.0 sous .NET 10.0.3/WASM
 - **Rooms :** 98
 - **Room principale :** `rmvillage`, 4992×4992 px, 18 layers, 886 instances
 - **Objets :** 727
-- **Sprites :** 2775 (1593 animés)
-- **Tilesets :** 30 (3 animés)
-- **Sons :** 388
+- **Sprites :** 2775, **9084 frames**, **653 masks**
+- **Tilesets :** 30 ; **9134 texture-page items** ; 96 pages QOI+BZip2
+- **Sons :** 388/388 extraits et reliés, 249 521 056 octets
+- **Code :** 2188 entrées, **273 883 instructions VM** conservées
+- **GML :** 2025 corps décompilés + 161 alias enfants ; 2 seuls échecs, tous deux dans les exemples Steam hors village et couverts par le VM brut
 - **Colliders solides placés :** 10737
 - **Transitions/portes placées :** 319
 
 ## Saisons
 
-Le système quatre saisons est réel : variable `season`, scripts `scrseasonmap`/compteurs saisonniers, familles complètes d’objets et sprites, contrôleurs hiver/neige et substitutions d’arbres/plantes. Les quatre variantes de `rmvillage` sont reconstruites depuis les layers, tilesets et instances — pas depuis une capture.
+La logique printemps/été/automne/hiver n'est plus `UNVERIFIED`. Le décompilateur officiel prouve :
 
-La logique VM exacte de post-traitement hiver reste `UNVERIFIED`; aucune conversion PMDO ne sera certifiée avant sa résolution.
+- la sélection par `global.season` et les seuils de `stage` ;
+- les substitutions exactes de tilesets pour `grass0`, `grass1`, `ground`, `groundtex`, `water`, `cliff` et `undergrass` ;
+- les substitutions exactes des sprites d'arbres, rochers, plantes et assets du layer `Below` ;
+- les changements de visibilité (`vegetation`, `groundplot`, `endwater`, `watereffect`) ;
+- le contrôleur `objwinter`, ses trois familles de particules, les traces et le son de pas neige.
 
-## Village
+Voir `season-vm-evidence.json`. Les anciens PNG de prévisualisation sont des contrôles structurels antérieurs et ne constituent pas une preuve saisonnière finale.
 
-- Layers : invisible, EndVillage, Above, plants, instances, trees, sHouseBelow, HouseBelow, EndVillage2, cliff, endwater, shadows, vegetation, Below, grass1, grass0, groundtex, ground
-- Portes/transitions : 8
-- Spawn points : 6
-- Maisons : 4
-- Colliders solides : 259
+## Heure / jour-nuit
+
+`global.timeofday` est une mécanique réelle avec les valeurs source 0, 1, 2 et 3, 39 références décompilées et des effets sur éclairage, surfaces, bloom, maisons, audio et un tileset intérieur. Aucun nom humain n'est inventé pour les quatre valeurs : voir `time-system.json`.
 
 ## Frontière PMDO
 
-Aucun `.rsground` n’est encore produit. Le prochain gate doit résoudre les destinations de chaque RoomCC, la logique saisonnière VM, les effets neige/jour-nuit et le rendu exhaustif des 98 rooms avant adaptation des bâtiments PMU.
+La source n'est plus bloquée. En revanche, aucun `.rsground` No Name Village n'est encore certifié. Le prochain gate est la reconstruction PMU/PMD structurée, puis le chargement et le rendu réels dans PMDO 0.8.12, sans toucher aux Grounds déjà certifiés.
