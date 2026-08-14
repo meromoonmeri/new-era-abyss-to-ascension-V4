@@ -2,9 +2,53 @@
   "accepted_transfers": [
     "direct Arena chat attachment",
     "multipart Arena chat attachments reassembled against the LFS SHA-256",
-    "archive contents committed as ordinary Git blobs under 100 MB each"
+    "archive contents committed as ordinary Git blobs under 100 MB each",
+    "data.win split as ordinary Git blobs named data.win.part-* under 100 MB each"
   ],
   "blocker": "Both Git LFS and release downloads redirect from reachable GitHub/API endpoints to blocked storage hosts. TLS is closed during handshake for media.githubusercontent.com, github-cloud.githubusercontent.com, release-assets.githubusercontent.com, the backing Azure Blob host, and the backing S3 host before any byte or Range response.",
+  "game_repository": {
+    "branch": "main",
+    "commit": "ddfc22818f34729d040d10cc1a21fddcfc9aef94",
+    "data_win": {
+      "archive_bytes_received": 0,
+      "bytes": 301037316,
+      "lfs_oid_sha256": "2f33b595b450b40355554d73f5acc5d7272e5d54519e35cd8971e0f336401227",
+      "storage": "Git LFS"
+    },
+    "engine_evidence": {
+      "engine": "GameMaker Windows runner",
+      "runner_markers": [
+        "Made with GameMaker",
+        "YoYoGames",
+        "VC_Runner",
+        "Room_Layers.cpp"
+      ],
+      "status": "PROVEN_FROM_EXECUTABLE_STRINGS",
+      "steam_app_id": 2201500
+    },
+    "ordinary_files": [
+      {
+        "bytes": 7020544,
+        "path": "Purple.exe",
+        "sha256": "c1ccce5a1d1e92b5f4d60e7d443cad3bbe338962fe653a2ff4a90ae9c2bf3122"
+      },
+      {
+        "bytes": 495616,
+        "path": "Steamworks_x64.dll",
+        "sha256": "03c6b308f2433a6f144e1731075481f50713b58dc3af1d5f90eb3c9ed037b404"
+      },
+      {
+        "bytes": 7289256,
+        "path": "steam_api64.dll",
+        "sha256": "2836c7c8e4ed91a7d6e743a514964ff7fe9bf2296d5583671593dc77b7d66f40"
+      },
+      {
+        "bytes": 183,
+        "path": "options.ini"
+      }
+    ],
+    "repository": "meromoonmeri/nonamevillage"
+  },
   "release": {
     "archive_bytes_received": 0,
     "asset_id": 514274912,
@@ -24,7 +68,7 @@
     "repository": "meromoonmeri/BIBLIOTHEQUE",
     "size_bytes": 287481958
   },
-  "status": "BLOCKED_TRANSPORT",
+  "status": "BLOCKED_LFS_TRANSPORT",
   "verified": {
     "archive_bytes_received": 0,
     "github_metadata": true,
