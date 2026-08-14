@@ -5,12 +5,12 @@
     "archive contents committed as ordinary Git blobs under 100 MB each",
     "data.win split as ordinary Git blobs named data.win.part-* under 100 MB each"
   ],
-  "blocker": "Both Git LFS and release downloads redirect from reachable GitHub/API endpoints to blocked storage hosts. TLS is closed during handshake for media.githubusercontent.com, github-cloud.githubusercontent.com, release-assets.githubusercontent.com, the backing Azure Blob host, and the backing S3 host before any byte or Range response.",
+  "blocker": null,
   "game_repository": {
     "branch": "main",
-    "commit": "ddfc22818f34729d040d10cc1a21fddcfc9aef94",
+    "commit": "d1245878861fc76dc5455dbad68bcb45c83f7e1f",
     "data_win": {
-      "archive_bytes_received": 0,
+      "archive_bytes_received": 301037316,
       "bytes": 301037316,
       "lfs_oid_sha256": "2f33b595b450b40355554d73f5acc5d7272e5d54519e35cd8971e0f336401227",
       "storage": "Git LFS"
@@ -68,7 +68,32 @@
     "repository": "meromoonmeri/BIBLIOTHEQUE",
     "size_bytes": 287481958
   },
-  "status": "BLOCKED_LFS_TRANSPORT",
+  "status": "SOURCE_ACQUIRED",
+  "transport_resolution": {
+    "assembled_data_win_bytes": 301037316,
+    "assembled_data_win_sha256": "2f33b595b450b40355554d73f5acc5d7272e5d54519e35cd8971e0f336401227",
+    "method": "GitHub source archive with Include Git LFS objects in archives enabled",
+    "parts": [
+      {
+        "bytes": 94371840,
+        "name": "data.win.part-000"
+      },
+      {
+        "bytes": 94371840,
+        "name": "data.win.part-001"
+      },
+      {
+        "bytes": 94371840,
+        "name": "data.win.part-002"
+      },
+      {
+        "bytes": 17921796,
+        "name": "data.win.part-003"
+      }
+    ],
+    "repository_archive_bytes": 239421517,
+    "result": "PASS"
+  },
   "verified": {
     "archive_bytes_received": 0,
     "github_metadata": true,
