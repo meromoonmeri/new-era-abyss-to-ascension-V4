@@ -177,9 +177,9 @@ def validate_and_certify(cache_root: Path, reports_directory: Path) -> dict[str,
         global_manifest["certification_scope"] = {
             "certified": "2,000-map public server SQL snapshot, canonical structured IR, source PNGs, animated states, hashes and dimensions",
             "partial": "137 encrypted client cache comparisons, blocked-only s3000, and six UNKNOWN tile semantics on s263/s268",
-            "phase_2_pmdo": "BLOCKED until the remaining phase-1 source gaps are resolved or explicitly accepted as irrecoverable",
+            "phase_2_pmdo": "AUTHORIZED only for the SOURCE_CERTIFIED 2,000-map public SQL snapshot; blocked for cache-only or unresolved alternate-source content",
         }
-        global_manifest["phase_2_pmdo"] = "BLOCKED: phase 1 remains globally PARTIAL despite SOURCE_CERTIFIED SQL snapshot"
+        global_manifest["phase_2_pmdo"] = "AUTHORIZED_FOR_CERTIFIED_SQL_SNAPSHOT_ONLY: use a separate adaptation pipeline; never overwrite phase-1 artifacts"
         atomic_write_json(global_path, global_manifest)
 
     report = {

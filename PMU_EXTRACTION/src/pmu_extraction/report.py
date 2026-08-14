@@ -153,7 +153,7 @@ def publish_reports(cache_root: Path, reports_directory: Path) -> dict:
         f"Le graphe contient {global_manifest['inventories'].get('connection_edges', 'UNKNOWN')} arêtes, dont {global_manifest['inventories'].get('scripted_static_edges', 'UNKNOWN')} transitions story/script prouvées statiquement. Les destinations calculées restent `UNVERIFIED`.", "",
         "## Certification et barrière de phase", "",
         "Le snapshot SQL public des 2 000 maps est `SOURCE_CERTIFIED` pour l’IR et le raster. L’état global reste `PARTIAL` : 137 caches standard recouvrant le snapshot ne peuvent pas être comparés, `s3000` n’existe que sous forme chiffrée bloquée, et six cellules gardent une sémantique inconnue.", "",
-        "L’adaptation PMDO reste donc **BLOCKED**. Aucun `.rsground` n’est produit par cette pipeline de phase 1 et aucune méthode runtime/headless existante n’est remplacée.", "",
+        "La phase 2 est autorisée **uniquement** pour ce snapshot SQL certifié et doit rester dans une pipeline séparée. Les contenus V9 bloqués, dont `s3000`, ne sont pas adaptables. Cette pipeline de phase 1 ne produit toujours aucun `.rsground` et ne remplace aucune méthode runtime/headless existante.", "",
         "## Index et artefacts", "",
         "- `canonical-map-index.json` : index JSON enrichi des 2 000 maps.",
         "- `canonical-map-table.md` : tableau `Map ID | Nom | Type | Dimensions | Tileset | PNG | Source | Statut`.",

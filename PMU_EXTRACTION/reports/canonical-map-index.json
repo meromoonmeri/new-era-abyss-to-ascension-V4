@@ -100179,7 +100179,7 @@
     }
   ],
   "phase": 1,
-  "phase_2_pmdo": "BLOCKED: phase 1 remains globally PARTIAL despite SOURCE_CERTIFIED SQL snapshot",
+  "phase_2_pmdo": "AUTHORIZED_FOR_CERTIFIED_SQL_SNAPSHOT_ONLY: use a separate adaptation pipeline; never overwrite phase-1 artifacts",
   "schema_version": 1,
   "scope": "all canonical standard maps available from SQL plus standard client V9 .dat maps",
   "source_selection_counts": {

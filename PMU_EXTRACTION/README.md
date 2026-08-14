@@ -1,6 +1,6 @@
 # PMU canonical source extraction (phase 1)
 
-This directory contains the reproducible, source-first recovery pipeline for **Pokémon Mystery Universe** maps. It deliberately does **not** contain a PMDO converter. The public SQL snapshot (`s1`–`s2000`) is source-certified, while the overall phase remains `PARTIAL`: all 140 public V9 caches are blocked by the unpublished deployment key, including cache-only `s3000`, and six historical tile values retain `UNKNOWN` semantics. Phase 2 therefore remains blocked.
+This directory contains the reproducible, source-first recovery pipeline for **Pokémon Mystery Universe** maps. It deliberately does **not** contain a PMDO converter. The public SQL snapshot (`s1`–`s2000`) is source-certified, while the overall discovery scope remains `PARTIAL`: all 140 public V9 caches are blocked by the unpublished deployment key, including cache-only `s3000`, and six historical tile values retain `UNKNOWN` semantics. Phase 2 is now authorized only for this explicitly certified SQL snapshot and lives in the separate `PMU_ADAPTATION/` pipeline; blocked or unresolved content is never promoted.
 
 ## Immutable input boundary
 
