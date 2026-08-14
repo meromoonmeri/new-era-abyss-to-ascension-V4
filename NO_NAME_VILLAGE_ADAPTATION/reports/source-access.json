@@ -1,24 +1,36 @@
 {
-  "schema": "bibliotheque.no-name-village.source-access.v1",
-  "status": "BLOCKED_TRANSPORT",
-  "source": {
-    "repository": "meromoonmeri/BIBLIOTHEQUE",
-    "commit": "7a213cb5f3c46840a14ddcd8e681206f34cd5a9c",
-    "file": "No.Name.Village.zip",
-    "git_blob_sha": "299a08687e8b67cf270d5a36714ffd2ecbc50ff7",
-    "lfs_oid_sha256": "a3c99eb1598167a9c01f57299f1a7003a5580d24cbce6504ec0e2343a9e76002",
-    "size_bytes": 287481958
-  },
-  "verified": {
-    "github_metadata": true,
-    "lfs_pointer": true,
-    "lfs_batch_download_action": true,
-    "archive_bytes_received": 0
-  },
-  "blocker": "TLS connection is closed during handshake for media.githubusercontent.com and github-cloud.githubusercontent.com before any byte or Range response. github.com and api.github.com remain reachable.",
   "accepted_transfers": [
     "direct Arena chat attachment",
     "multipart Arena chat attachments reassembled against the LFS SHA-256",
     "archive contents committed as ordinary Git blobs under 100 MB each"
-  ]
+  ],
+  "blocker": "Both Git LFS and release downloads redirect from reachable GitHub/API endpoints to blocked storage hosts. TLS is closed during handshake for media.githubusercontent.com, github-cloud.githubusercontent.com, release-assets.githubusercontent.com, the backing Azure Blob host, and the backing S3 host before any byte or Range response.",
+  "release": {
+    "archive_bytes_received": 0,
+    "asset_id": 514274912,
+    "asset_name": "No.Name.Village.zip",
+    "browser_download_url": "https://github.com/meromoonmeri/BIBLIOTHEQUE/releases/download/2.0.0/No.Name.Village.zip",
+    "download_redirect_obtained": true,
+    "metadata_verified": true,
+    "size_bytes": 287481958,
+    "tag": "2.0.0"
+  },
+  "schema": "bibliotheque.no-name-village.source-access.v1",
+  "source": {
+    "commit": "7a213cb5f3c46840a14ddcd8e681206f34cd5a9c",
+    "file": "No.Name.Village.zip",
+    "git_blob_sha": "299a08687e8b67cf270d5a36714ffd2ecbc50ff7",
+    "lfs_oid_sha256": "a3c99eb1598167a9c01f57299f1a7003a5580d24cbce6504ec0e2343a9e76002",
+    "repository": "meromoonmeri/BIBLIOTHEQUE",
+    "size_bytes": 287481958
+  },
+  "status": "BLOCKED_TRANSPORT",
+  "verified": {
+    "archive_bytes_received": 0,
+    "github_metadata": true,
+    "lfs_batch_download_action": true,
+    "lfs_pointer": true,
+    "release_asset_metadata": true,
+    "release_asset_redirect": true
+  }
 }
