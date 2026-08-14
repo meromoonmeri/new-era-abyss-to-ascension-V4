@@ -44,6 +44,22 @@ def main() -> None:
         assert by_id["s1991"]["pmdo_tex_size"] == 1
         # A generic town grammar is not enough to certify a snowy town.
         assert by_id["s1991"]["status"] == "ADAPTATION_REQUIRED"
+
+    representative = REPO / ".runtime-cache/pmu-adaptation/representative/report.json"
+    if representative.exists():
+        result = json.loads(representative.read_text(encoding="utf-8"))
+        assert result["phase1_integrity"] == "PASS"
+        assert result["validated_count"] == 0
+        assert result["status"] == "REPRESENTATIVE_REJECTED_NO_GENERALIZATION"
+        assert result["visual_review_status_counts"]["FAIL"] >= 1
+        assert all(row["validation_status"] != "VALIDATED" for row in result["maps_final"])
+        for row in result["maps_final"]:
+            manifest = json.loads((REPO / f".runtime-cache/pmu-adaptation/representative/{row['map_id']}/manifest.json").read_text(encoding="utf-8"))
+            if manifest.get("runtime_status") == "RUNTIME_TESTED":
+                runtime = json.loads(Path(manifest["outputs"]["runtime_report"]).read_text(encoding="utf-8"))
+                assert runtime["pmdo_version"] == "0.8.12"
+                assert runtime["probes"]["verdict"] == "RUNTIME_PASS"
+                assert runtime["source_png_used_by_runtime"] is False
     print("PMU adaptation tests: OK")
 
 

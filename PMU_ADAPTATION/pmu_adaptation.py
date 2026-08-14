@@ -2,7 +2,11 @@
 from pathlib import Path
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
+ROOT = Path(__file__).resolve().parent
+REPO = ROOT.parent
+sys.path.insert(0, str(ROOT / "src"))
+sys.path.insert(0, str(REPO / "PMU_EXTRACTION/src"))
+sys.path.insert(0, str(REPO / "tools"))
 from pmu_adaptation.cli import main
 
 if __name__ == "__main__":

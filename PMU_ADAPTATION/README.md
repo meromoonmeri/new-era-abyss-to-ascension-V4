@@ -11,6 +11,14 @@ or alternate data remains out of scope: `s3000` has no adaptation plan and the
 137 blocked overlap comparisons remain provenance caveats. Tile values 101 and
 103 stay `UNKNOWN` on `s263`/`s268`.
 
+A representative group now exercises actual native `.rsground`/`.tile`
+composition at TexSize 1, 2 and 4, canonical collision/anchor materialization,
+NPC mapping, PMDO 0.8.12 indexing/loading, free and blocked movement probes,
+runtime captures and the exact Agent A termination gate. Technical runtime
+success never bypasses artistic review: the current automatic composition is
+explicitly rejected for generalization where buildings, water, relief or source
+hierarchy remain visually incoherent.
+
 ## Why planning precedes Ground emission
 
 A valid phase-2 result must preserve source topology and identity while choosing
@@ -27,6 +35,10 @@ zoom, dimensions, skin or `TexSize`. A map with insufficient evidence remains
 
 ```bash
 .runtime-cache/pmu-venv/bin/python PMU_ADAPTATION/pmu_adaptation.py plan
+.runtime-cache/pmu-venv/bin/python PMU_ADAPTATION/pmu_adaptation.py compose-representative
+.runtime-cache/pmu-venv/bin/python PMU_ADAPTATION/pmu_adaptation.py validate-representative
+.runtime-cache/pmu-venv/bin/python PMU_ADAPTATION/pmu_adaptation.py review-representative
+.runtime-cache/pmu-venv/bin/python PMU_ADAPTATION/pmu_adaptation.py publish-representative
 .runtime-cache/pmu-venv/bin/python PMU_ADAPTATION/tests.py
 ```
 
@@ -46,4 +58,7 @@ A map may become `CERTIFIED` only after all of the following exist and pass:
 7. exact PMDO 0.8.12 load, free/blocked movement and animation probes through
    Agent A's ignored-overlay + patched-SDL + SwiftShader/ANGLE method.
 
-The planner does not emit a Ground and cannot mark one certified.
+The planner does not emit a Ground. The separate composer may emit candidates,
+but only the runtime + visual-review chain can advance their status; rejected
+representative candidates remain `RUNTIME_TESTED`/`BLOCKED` and are not
+generalized.
