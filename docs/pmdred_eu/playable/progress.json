@@ -1,9 +1,9 @@
 {
   "schema": "new-era.pmdred-eu-playable-reconstruction-progress.v1",
-  "generated_at": "2026-08-13T21:25:52+00:00",
+  "generated_at": "2026-08-15T00:35:00+02:00",
   "repository": {
     "branch": "arena/019ff05e-new-era-abyss-to-ascension-v4",
-    "parent_checkpoint": "6bb4c63776ddb454f3f38ae67c4d74538898c7c2"
+    "parent_checkpoint": "14b93fa3b9d0a8fb20b616a0d68302afdd5f57d0"
   },
   "authority": {
     "region": "EU",
@@ -171,6 +171,81 @@
         ],
         "zero_frame_runtime_policy": "one PMDO frame because ScreenFadeFX fadeTime=0 cannot change a non-target state; source duration remains 0 in trace",
         "planning_unknown_fallback_retained": true
+      },
+      "efob108_attachment_semantics": {
+        "status": "PASS",
+        "scope": "Native PMDO certification of Caterpie-owned EU 0x56(62,0) efob108 attachment and 0xDE completion boundary; coordinate-convention selection only, before the 304-command supplement integration gate",
+        "particle": "Content/Particle/PMDRed_Efob108.dir",
+        "particle_sha256": "18d392d82c2c8b6aa101aa0a49bab0af58aae16aa6e5aebba92a7bf288f46def",
+        "particle_manifest": "docs/pmdred_eu/playable/tiny_woods/efob108_particle_manifest.json",
+        "particle_manifest_sha256": "3d1d74e7b84e3517bb98ef820c8de82a87831291e4663aa2ac160acabf59085c",
+        "archive": "docs/pmdred_eu/playable/tiny_woods/efob108_attachment_runtime_v2",
+        "report": "docs/pmdred_eu/playable/tiny_woods/efob108_attachment_runtime_v2/native_attachment_validation.json",
+        "report_sha256": "7922fc3610c2ecccd5a5ff031f592ae739cb08c575fe17f706aa87a84895006f",
+        "fixture_manifest_sha256": "e57d8728aad06b582cdc3aee4b567ac3c8269403369cf85ed90e25165cc95919",
+        "evidence_hashes_sha256": "d2e5b348140141e9455ff084665abfa1f17bb24346800019e818927ffebd94de",
+        "source_owner": "s_gs179_g1_s0_lives2_dlg0",
+        "source_command_address": "0x084D5578",
+        "source_opcode": "0x56",
+        "source_arguments": [
+          62,
+          0
+        ],
+        "completion_command_address": "0x084D55A8",
+        "completion_opcode": "0xDE",
+        "literal_candidate": {
+          "pmdo_position": [
+            180,
+            148
+          ],
+          "terminal_head": [
+            187,
+            161
+          ]
+        },
+        "selected_coordinate_convention": "eu_center_to_pmdo_top_left_minus_8_minus_8",
+        "normalized_candidate": {
+          "pmdo_position": [
+            172,
+            140
+          ],
+          "terminal_head": [
+            179,
+            153
+          ],
+          "effect_center": [
+            179,
+            149
+          ]
+        },
+        "native_action": {
+          "type": "RogueEssence.Ground.IdleAnimGroundAction",
+          "animation": "Walk",
+          "anim_id": 2,
+          "loop": false,
+          "total_frames": 30,
+          "completion_sampled_before_idle_transition": true
+        },
+        "native_emote": {
+          "type": "RogueEssence.Content.Emote",
+          "frame_time": 2,
+          "frames": 13,
+          "cycles": 1,
+          "duration_frames": 26,
+          "loc_height": 4,
+          "draw_size": [
+            128,
+            128
+          ],
+          "finished_false_at_frame": 25,
+          "finished_true_at_frame": 26
+        },
+        "strict_graceful_terminations": 1,
+        "preserved_diagnostic": {
+          "archive": "docs/pmdred_eu/playable/tiny_woods/efob108_attachment_runtime_v1",
+          "status": "post-runtime parser cardinality failure preserved; native runtime itself PASS",
+          "evidence_hashes_sha256": "851909b39c515fc5469ff084665abfa1f17bb24346800019e818927ffebd94de"
+        }
       }
     },
     "post_g3_route_authentication": {
@@ -218,17 +293,19 @@
   "resume": {
     "restore": "bash tools/restore_pmdred_eu_validation_runtime.sh",
     "verify_ground_checkpoint": "python3 tools/update_pmdred_eu_validation_progress.py --check",
-    "reproduce_latest_milestone": "bash docs/pmdred_eu/playable/tiny_woods/palette_semantics_runtime_v1/commands.sh",
-    "next_phase": "tiny_woods_actor_camera_animation_semantics_and_live_integration",
-    "rule": "Preserve all 219/219, route v2, scene-core, post-route, command-complete, clean-reproduction, and palette-semantic native evidence. Keep the command-plan unknown fallback until each remaining opcode family is source-backed and natively branch-tested; then integrate narrowly into the live quest.",
+    "reproduce_latest_milestone": "bash docs/pmdred_eu/playable/tiny_woods/efob108_attachment_runtime_v2/commands.sh",
+    "next_phase": "tiny_woods_304_command_semantic_supplement_generation_integration_and_native_certification",
+    "rule": "Preserve all 219/219 and historical Tiny Woods evidence, including the v1 efob108 parser diagnostic and v2 native PASS. Use the selected EU-center to PMDO-top-left (-8,-8) actor convention and certified native Emote lifecycle to generate the exact 304-command supplement; do not mutate command_plan.json fallback handlers until complete native branch and selected-route gates pass.",
     "reproduce_post_route_audit": "python3 tools/audit_pmdred_eu_tiny_woods_post_route.py .runtime-cache/downloads/pmdred-eu.gba --pret-root .runtime-cache/pmd-red-reference --report /tmp/eu_post_route_graph.json",
     "reproduce_command_complete": "bash docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/commands.sh",
-    "reproduce_palette_semantics": "bash docs/pmdred_eu/playable/tiny_woods/palette_semantics_runtime_v1/commands.sh"
+    "reproduce_palette_semantics": "bash docs/pmdred_eu/playable/tiny_woods/palette_semantics_runtime_v1/commands.sh",
+    "reproduce_efob108_attachment": "bash docs/pmdred_eu/playable/tiny_woods/efob108_attachment_runtime_v2/commands.sh"
   },
   "limitations": [
     "A route PASS is not narrative completion.",
     "The failed route uses a genuine GiveUp GameAction carrying ResultType.Failed; natural combat defeat remains a later combat milestone.",
     "The command-complete native extension executes the selected D1/default route and one refusal loop; loading all 975 exact command records is not claimed as execution of every non-selected alternative branch.",
-    "The palette milestone promotes only 0x22/0x23/0x25/0x26 through an address-gated adapter; all other unresolved command handlers remain on the default actor.control_unknown planning fallback."
+    "The palette milestone promotes only 0x22/0x23/0x25/0x26 through an address-gated adapter; all other unresolved command handlers remain on the default actor.control_unknown planning fallback.",
+    "The efob108 attachment milestone proves the bounded 0x56/0xDE native mechanism and selects normalized (-8,-8) actor placement; it does not yet claim generation, integration, or execution of the full 304-command actor/camera/animation supplement."
   ]
 }

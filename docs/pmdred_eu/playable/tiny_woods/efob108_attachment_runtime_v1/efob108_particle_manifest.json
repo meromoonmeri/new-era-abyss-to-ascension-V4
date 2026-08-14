@@ -1,0 +1,79 @@
+{
+  "animation": {
+    "cycles": 1,
+    "duration_frames": 26,
+    "frame_ticks": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "poses": [
+      138,
+      139,
+      140,
+      141,
+      142,
+      143,
+      144,
+      145,
+      141,
+      142,
+      146,
+      147,
+      148
+    ],
+    "red_animation": 2
+  },
+  "authority": {
+    "game": "Pokemon Mystery Dungeon Red Rescue Team EU",
+    "rule": "EU ROM bytes are content authority"
+  },
+  "dir_sheet": {
+    "path": "Content/Particle/PMDRed_Efob108.dir",
+    "png_size": 1824,
+    "rotate_type": 0,
+    "sha256": "18d392d82c2c8b6aa101aa0a49bab0af58aae16aa6e5aebba92a7bf288f46def",
+    "size": 1848,
+    "tile_height": 128,
+    "tile_width": 128,
+    "total_frames": 13
+  },
+  "render": {
+    "anchor": [
+      64,
+      64
+    ],
+    "authenticated_pixel_differences": 0,
+    "canvas": [
+      128,
+      128
+    ],
+    "transparent_palette_index": 0
+  },
+  "schema": "pmdred-eu-efob108-particle-v1",
+  "technical_source": {
+    "authenticated_preview_path": ".runtime-cache/efob108_anim2.png",
+    "authenticated_preview_sha256": "1a385ca7390717a3338f127426afd948cadcd60d3630417bf0c558fe67a9406b",
+    "c_path": ".runtime-cache/pmd-red-reference/src/data/effects/efob108.c",
+    "c_sha256": "a17085e185a6ac3930d06e9160bb44f25ac65d2e85d10cc2df4b38c0d71be2fe",
+    "commit": "bf0092d0e34fd8e49b859a0b5f96f00740faa42d",
+    "repository": "pret/pmd-red",
+    "tile_sheet_path": ".runtime-cache/pmd-red-reference/data/effects/efob108.png",
+    "tile_sheet_sha256": "c3eab405ea3c819e49161272cfbd2ba5593cd2965985c69ab360d8af992ce282"
+  },
+  "tool": {
+    "path": "tools/build_pmdred_efob108_particle.py",
+    "version": "1.0.0"
+  },
+  "validation": "PASS"
+}

@@ -1,0 +1,180 @@
+{
+  "schema": "pmdred-eu-efob108-attachment-native-v1",
+  "date": "2026-08-15",
+  "status": "passed",
+  "authority": {
+    "region": "EU",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "source_owner": "s_gs179_g1_s0_lives2_dlg0",
+    "source_command_address": "0x084D5578",
+    "source_opcode": "0x56",
+    "source_arguments": [
+      62,
+      0
+    ],
+    "completion_command_address": "0x084D55A8",
+    "completion_opcode": "0xDE",
+    "particle_sha256": "18d392d82c2c8b6aa101aa0a49bab0af58aae16aa6e5aebba92a7bf288f46def",
+    "particle_manifest_sha256": "3d1d74e7b84e3517bb98ef820c8de82a87831291e4663aa2ac160acabf59085c"
+  },
+  "runtime": {
+    "version": "0.8.12.0",
+    "executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+    "validator_mode": "pmdred_efob108_attachment_fixture"
+  },
+  "index_gate": {
+    "schema": "pmdred-eu-efob108-attachment-zone-index-v1",
+    "command": [
+      "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdo-headless-bundle/PMDO",
+      "-asset",
+      "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdred-efob108-attachment-certification-v1/asset/",
+      "-appdata",
+      "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdred-efob108-attachment-certification-v1/appdata/",
+      "-quest",
+      "pmdred_eu_fixture",
+      "-index",
+      "zone"
+    ],
+    "return_code": 0,
+    "timed_out": false,
+    "status": "passed",
+    "index": {
+      "bytes": 7182,
+      "sha256": "76517c1ff94b3126d6f6c66488c9f36f29ab9df62c643901a0684c2f7ff4fc39"
+    },
+    "log": {
+      "bytes": 393,
+      "sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8"
+    }
+  },
+  "trace": {
+    "events": 44,
+    "route": [
+      "tiny_woods:-1:1",
+      "d01p02:g1"
+    ],
+    "terminal_walk": {
+      "anim_id": 2,
+      "native_type": "RogueEssence.Ground.IdleAnimGroundAction",
+      "total_frames": 30,
+      "completion_sampled_before_transition": true
+    },
+    "coordinate_candidates": [
+      {
+        "name": "eu_center_literal",
+        "position": [
+          180,
+          148
+        ],
+        "terminal_head": [
+          187,
+          161
+        ]
+      },
+      {
+        "name": "pmdo_top_left_normalized",
+        "position": [
+          172,
+          140
+        ],
+        "terminal_head": [
+          179,
+          153
+        ]
+      }
+    ],
+    "selected_coordinate_convention": "eu_center_to_pmdo_top_left_minus_8_minus_8",
+    "effect": {
+      "native_type": "RogueEssence.Content.Emote",
+      "frames": 13,
+      "frame_time": 2,
+      "cycles": 1,
+      "duration_frames": 26,
+      "loc_height": 4,
+      "draw_size": [
+        128,
+        128
+      ],
+      "effect_center": [
+        179,
+        149
+      ],
+      "frame_indices": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3,
+        4,
+        4,
+        5,
+        5,
+        6,
+        6,
+        7,
+        7,
+        8,
+        8,
+        9,
+        9,
+        10,
+        10,
+        11,
+        11,
+        12,
+        12
+      ],
+      "finished_at_frame": 26
+    }
+  },
+  "termination": {
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "terminal": true,
+    "graceful": true,
+    "watchdog": false,
+    "requested_signal": null,
+    "sigsegv": false,
+    "forced_kill": false,
+    "orphan_process": false
+  },
+  "evidence": {
+    "events.jsonl": {
+      "bytes": 7860,
+      "sha256": "12c2ddea675d11c6d32526b8a013d6ba3ed19b47bbab8e5315922e875667b182"
+    },
+    "runtime.log": {
+      "bytes": 11535,
+      "sha256": "1821543c309b9a752069f41fccd0411e960402591a0bd451136aeddd295c1b4f"
+    },
+    "termination.json": {
+      "bytes": 2358,
+      "sha256": "04c86cea63a3b7d1c73621786c694fb5e205245ad7a6949166d8fad59511d9f5"
+    }
+  },
+  "assertions": {
+    "direct_and_normalized_eu_coordinate_candidates_sampled_natively": true,
+    "normalized_minus_8_minus_8_matches_authenticated_ax_attachment": true,
+    "down_facing_non_looping_walk_terminal_frame_and_completion_sampled_before_idle_transition": true,
+    "actual_groundchar_startemote_path_updates_one_native_emote": true,
+    "actual_terminal_head_and_emote_loc_height_produce_effect_center_179_149": true,
+    "all_26_native_frame_selections_match_13_frame_two_tick_strip": true,
+    "finished_is_false_at_frame_25_and_true_at_frame_26": true,
+    "load_phase_unload_normal_exit_rc0_terminal_graceful_without_watchdog_signal_sigsegv_kill_or_orphan": true
+  },
+  "scope": [
+    "This bounded fixture selects the coordinate convention and certifies opcode 0x56/0xDE attachment semantics needed by the pending Tiny Woods command supplement.",
+    "It does not by itself claim integration of the remaining 304 pending commands; that is a subsequent serialized promotion gate."
+  ],
+  "reproduction": {
+    "commands": [
+      ".runtime-cache/test-venv/bin/python tools/build_pmdred_efob108_particle.py --output Content/Particle/PMDRed_Efob108.dir --manifest docs/pmdred_eu/playable/tiny_woods/efob108_particle_manifest.json",
+      ".runtime-cache/test-venv/bin/python tools/build_pmdred_efob108_attachment_fixture.py --output .runtime-cache/pmdred-efob108-attachment-repro",
+      ".runtime-cache/test-venv/bin/python tools/run_pmdred_efob108_attachment_certification.py --fixture .runtime-cache/pmdred-efob108-attachment-repro --evidence-dir .runtime-cache/pmdred-efob108-attachment-evidence-repro --seed 424242 --timeout-seconds 180"
+    ],
+    "immutability": "Particle, fixture, and evidence outputs are create-only and refuse overwrite."
+  }
+}

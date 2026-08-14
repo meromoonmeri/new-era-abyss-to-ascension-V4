@@ -28,7 +28,11 @@ class TinyWoodsPaletteSemanticsTests(unittest.TestCase):
         cls.plan = json.loads(PLAN.read_text(encoding="utf-8"))
 
     def test_source_pinned_semantics_inventory_and_fallback(self) -> None:
-        self.assertEqual(semantic_builder.build(), self.semantics)
+        rebuilt = semantic_builder.build()
+        # The archived date is milestone provenance, not semantic content.
+        # Normalize only this field when rebuilding on later dates.
+        rebuilt["date"] = self.semantics["date"]
+        self.assertEqual(rebuilt, self.semantics)
         self.assertEqual(self.semantics["schema"], "pmdred-eu-tiny-woods-palette-semantics-v1")
         self.assertEqual(self.semantics["status"], "source_pinned_semantics_pass")
         self.assertEqual(self.semantics["scope"]["opcode_counts"], {"0x22": 6, "0x23": 5, "0x25": 2, "0x26": 2})

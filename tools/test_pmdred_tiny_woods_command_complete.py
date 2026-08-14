@@ -70,7 +70,10 @@ class TinyWoodsCommandCompleteNativeTests(unittest.TestCase):
         self.assertTrue(provenance["current_renderer"]["source_hash_matches_manifest"])
         self.assertTrue(all(row["byte_identical_to_superseded_snapshot"] for row in provenance["cue_identity"]))
         self.assertIn("non-selected", extension["scope"])
-        self.assertEqual(progress["resume"]["next_phase"], "tiny_woods_actor_camera_animation_semantics_and_live_integration")
+        self.assertEqual(
+            progress["resume"]["next_phase"],
+            "tiny_woods_304_command_semantic_supplement_generation_integration_and_native_certification",
+        )
 
     def test_clean_reproduction_archive_and_checkpoint(self) -> None:
         for line in (CLEAN_REPRODUCTION / "evidence_hashes.sha256").read_text().splitlines():

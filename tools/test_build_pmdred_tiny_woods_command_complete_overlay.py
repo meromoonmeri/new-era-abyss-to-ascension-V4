@@ -21,6 +21,14 @@ def sha256(path: Path) -> str:
 class TinyWoodsCommandCompleteOverlayTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
+        # Rendered EU audio is intentionally ignored runtime material. A fresh
+        # checkout can still run every archive-level regression; only this
+        # create-only overlay reconstruction needs the restored render caches.
+        required = (builder.MUSIC_SOURCE / "manifest.json", builder.FANFARE_SOURCE / "manifest.json")
+        if not all(path.is_file() for path in required):
+            raise unittest.SkipTest(
+                "authenticated Tiny Woods music/fanfare render caches are not restored"
+            )
         cls.temp = tempfile.TemporaryDirectory(prefix="tw-command-overlay-", dir=ROOT / ".runtime-cache")
         cls.output = Path(cls.temp.name) / "fixture"
         cls.manifest = builder.build(cls.output)

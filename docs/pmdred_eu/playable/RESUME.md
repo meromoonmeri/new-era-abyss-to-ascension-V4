@@ -1,6 +1,6 @@
 # Reconstruction jouable PMD Red EU — checkpoint
 
-Checkpoint du `2026-08-13`, branche
+Checkpoint du `2026-08-15`, branche
 `arena/019ff05e-new-era-abyss-to-ascension-v4`.
 
 ## État autoritatif
@@ -27,6 +27,13 @@ Checkpoint du `2026-08-13`, branche
 - Progression post-`g3` : **NATIVE PASS** — Petit Bois `Completed`, scénario
   `3,0`, `EVENT_DIVIDE`, avec les index `master_zone` 141/308/329 et les Grounds
   promus `b01p00a` et `s02_fre` montés sans modification.
+- Attachement natif Chenipan `0x56(62,0)` / attente `0xDE` : **NATIVE PASS**
+  dans [`tiny_woods/efob108_attachment_runtime_v2`](tiny_woods/efob108_attachment_runtime_v2).
+  La convention authentifiée convertit le centre EU `(180,148)` en top-left
+  PMDO `(172,140)` ; le point `Head` terminal `(179,153)` et `LocHeight=4`
+  placent `PMDRed_Efob108` au centre AX exact `(179,149)`. L'action terminale
+  est `Walk`, non bouclée, et l'effet sélectionne les 13 poses authentifiées
+  deux ticks chacune, `Finished=false` à 25 puis `true` à 26.
 
 Les deux processus PMDO 0.8.12 se terminent par `LoadPhase.Unload`,
 `NORMAL_EXIT`, rc 0, `terminal=true`, `graceful=true`, sans watchdog, signal,
@@ -74,6 +81,21 @@ Les trois terminaisons passent `LoadPhase.Unload`, `NORMAL_EXIT`, rc 0,
 `terminal/graceful=true`, sans watchdog, signal, SIGSEGV, kill forcé ni
 orphelin.
 
+La certification d'attachement contient exactement 44 événements et termine
+elle aussi par `LoadPhase.Unload`, `NORMAL_EXIT`, rc 0,
+`terminal/graceful=true`, sans watchdog, signal, SIGSEGV, kill forcé ni
+orphelin. Le rapport
+[`native_attachment_validation.json`](tiny_woods/efob108_attachment_runtime_v2/native_attachment_validation.json)
+a le SHA-256
+`7922fc3610c2ecccd5a5ff031f592ae739cb08c575fe17f706aa87a84895006f` ;
+l'asset particle a le SHA-256
+`18d392d82c2c8b6aa101aa0a49bab0af58aae16aa6e5aebba92a7bf288f46def`.
+La première archive
+[`efob108_attachment_runtime_v1`](tiny_woods/efob108_attachment_runtime_v1)
+reste un diagnostic conservé : son exécution native était PASS, mais le wrapper
+post-runtime attendait par erreur 45 événements. Seul ce cardinal a été corrigé
+à 44 ; aucun gate natif ou sémantique n'a été relâché.
+
 La première archive `command_complete_runtime` reste conservée. Ses onze Ogg
 sont octet pour octet identiques à la v2 et son PASS natif reste valide, mais
 son manifeste fanfare nommait un hash de source intermédiaire non suivi. Elle
@@ -97,16 +119,18 @@ n’est ni remplacée ni réécrite. Le fallback déclaratif `actor.control_unkn
 du plan reste volontairement intact tant qu’une famille n’est pas certifiée.
 
 Ce checkpoint ne promeut pas encore les scripts Ground de l’overlay dans la
-quête live : la prochaine passe doit donner une sémantique PMDO exécutable aux
-handlers acteur/caméra/animation restants, tester leurs branches, puis intégrer
-l’overlay étroitement sans modifier les preuves historiques.
+quête live. Il certifie le mécanisme natif borné de `0x56/0xDE`, la convention
+spatiale et le cycle de vie de l'effet, mais ne prétend pas avoir généré,
+intégré ou exécuté le supplément complet de 304 commandes. La prochaine passe
+doit produire ce supplément en bulk depuis le plan immuable, tester ses branches
+puis l’intégrer étroitement sans modifier les preuves historiques.
 
 ## Reprise exacte
 
 ```bash
 bash tools/restore_pmdred_eu_validation_runtime.sh
 python3 tools/update_pmdred_eu_validation_progress.py --check
-bash docs/pmdred_eu/playable/tiny_woods/palette_semantics_runtime_v1/commands.sh
+bash docs/pmdred_eu/playable/tiny_woods/efob108_attachment_runtime_v2/commands.sh
 ```
 
 Rejouer également les régressions sans `pytest` :
@@ -121,26 +145,31 @@ PYTHONPATH=tools .runtime-cache/test-venv/bin/python -m unittest \
   tools.test_build_pmdred_tiny_woods_command_plan \
   tools.test_build_pmdred_tiny_woods_command_complete_overlay \
   tools.test_pmdred_tiny_woods_command_complete \
-  tools.test_pmdred_tiny_woods_palette_semantics -v
+  tools.test_pmdred_tiny_woods_palette_semantics \
+  tools.test_pmdred_efob108_attachment -v
 ```
 
 Les rendus audio, fixtures et preuves sont create-only. Si les destinations
-`*-repro-v2` existent, choisir un nouveau suffixe cohérent dans `commands.sh`
-plutôt que les écraser.
+`pmdred-efob108-attachment-repro-v1` ou
+`pmdred-efob108-attachment-evidence-repro-v1` existent, copier `commands.sh` et
+choisir un nouveau suffixe cohérent plutôt que les écraser.
 
 ## Étape suivante
 
-Phase `tiny_woods_actor_camera_animation_semantics_and_live_integration` :
+Phase `tiny_woods_304_command_semantic_supplement_generation_integration_and_native_certification` :
 
-1. poursuivre l’approche étroite et source-pinned de la palette pour les
-   rotations, marches, animations, caméra, émotions/portraits et attentes ;
-2. respecter les appels, retours, labels et branches grammaticales, sans
-   modifier le fallback des familles non encore prouvées ;
-3. exécuter des scénarios isolés pour les alternatives et retries, puis le
-   parcours sélectionné, sans affaiblir les gates de terminaison ;
-4. seulement après ces preuves, intégrer étroitement les scripts et assets de
-   l’overlay à la quête live, puis certifier un playthrough ouverture → donjon →
-   sauvetage → base → titre.
+1. générer en bulk depuis `command_plan.json` les **304** commandes restantes :
+   `0x2D=25`, `0x2E=54`, `0x54=18`, `0x56=1`, `0x62=1`, `0x6A=1`,
+   `0x6B=31`, `0x8B=8`, `0x91=46`, `0x95=2`, `0x98=1`, `0x99=1`,
+   `0xDB=108`, `0xDD=2`, `0xDE=1`, `0xDF=4` ;
+2. réutiliser la convention spatiale et le mécanisme d'attachement certifiés,
+   respecter appels, retours, labels et branches grammaticales, et garder le
+   fallback intact avant certification complète ;
+3. sérialiser les gates PMDO : inventaire exhaustif, scénarios isolés pour les
+   alternatives/retries, puis parcours sélectionné, avec terminaison stricte ;
+4. après seulement ces preuves, intégrer étroitement les scripts et assets à la
+   quête live puis certifier ouverture → donjon → sauvetage → base → titre avant
+   de poursuivre automatiquement la restitution des donjons.
 
 Les références aplaties existantes ne sont pas canoniques par défaut. Les octets
 EU restent l’autorité de contenu ; `pret/pmd-red` reste une référence structurelle

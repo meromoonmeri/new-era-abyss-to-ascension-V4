@@ -1,0 +1,25 @@
+{
+  "schema": "pmdred-eu-efob108-attachment-zone-index-v1",
+  "command": [
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdo-headless-bundle/PMDO",
+    "-asset",
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdred-efob108-attachment-certification-v1/asset/",
+    "-appdata",
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdred-efob108-attachment-certification-v1/appdata/",
+    "-quest",
+    "pmdred_eu_fixture",
+    "-index",
+    "zone"
+  ],
+  "return_code": 0,
+  "timed_out": false,
+  "status": "passed",
+  "index": {
+    "bytes": 7182,
+    "sha256": "76517c1ff94b3126d6f6c66488c9f36f29ab9df62c643901a0684c2f7ff4fc39"
+  },
+  "log": {
+    "bytes": 393,
+    "sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8"
+  }
+}

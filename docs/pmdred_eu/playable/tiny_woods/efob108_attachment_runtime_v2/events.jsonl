@@ -1,0 +1,44 @@
+{"event":"bootstrap_new_game","seed":424242,"validator":"pmdred_efob108_attachment_fixture"}
+{"event":"route_staged","attempts":1,"floors_cleared":3,"floors_entered":3,"status":"cleared"}
+{"event":"ground_enter","ground":"d01p02","visit":1}
+{"event":"fixture_begin","actor":"CATERPIE","initial_direction":"Up: 4","initial_x":180,"initial_y":148,"species":"caterpie"}
+{"event":"terminal_walk_sample","action_time_frames":28,"anim_id":2,"anim_total_time_frames":30,"candidate":"eu_center_literal","complete":false,"current_action_identity":true,"direction":"Down: 0","native_type":"RogueEssence.Ground.IdleAnimGroundAction","placement_x":180,"placement_y":148,"terminal_head_x":187,"terminal_head_y":161,"walk_anim_id":2}
+{"event":"terminal_walk_completion","action_time_frames":30,"anim_id":2,"anim_total_time_frames":30,"candidate":"eu_center_literal","complete":true,"current_action_identity":true,"native_type":"RogueEssence.Ground.IdleAnimGroundAction","terminal_head_x":187,"terminal_head_y":161}
+{"event":"terminal_walk_sample","action_time_frames":28,"anim_id":2,"anim_total_time_frames":30,"candidate":"pmdo_top_left_normalized","complete":false,"current_action_identity":true,"direction":"Down: 0","native_type":"RogueEssence.Ground.IdleAnimGroundAction","placement_x":172,"placement_y":140,"terminal_head_x":179,"terminal_head_y":153,"walk_anim_id":2}
+{"event":"attachment_started","actor":"CATERPIE","actor_loc_height":0,"anim_index":"PMDRed_Efob108","cycles":1,"draw_height":128,"draw_width":128,"duration_frames":26,"effect_center_x":179,"effect_center_y":149,"frame_time":2,"head_x":179,"head_y":153,"loc_height":4,"native_type":"RogueEssence.Content.Emote","selected_frames":13}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":0,"finished":false,"head_x":179,"head_y":153,"selected_frame":0,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":1,"finished":false,"head_x":179,"head_y":153,"selected_frame":0,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":2,"finished":false,"head_x":179,"head_y":153,"selected_frame":1,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":3,"finished":false,"head_x":179,"head_y":153,"selected_frame":1,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":4,"finished":false,"head_x":179,"head_y":153,"selected_frame":2,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":5,"finished":false,"head_x":179,"head_y":153,"selected_frame":2,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":6,"finished":false,"head_x":179,"head_y":153,"selected_frame":3,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":7,"finished":false,"head_x":179,"head_y":153,"selected_frame":3,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":8,"finished":false,"head_x":179,"head_y":153,"selected_frame":4,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":9,"finished":false,"head_x":179,"head_y":153,"selected_frame":4,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":10,"finished":false,"head_x":179,"head_y":153,"selected_frame":5,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":11,"finished":false,"head_x":179,"head_y":153,"selected_frame":5,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":12,"finished":false,"head_x":179,"head_y":153,"selected_frame":6,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":13,"finished":false,"head_x":179,"head_y":153,"selected_frame":6,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":14,"finished":false,"head_x":179,"head_y":153,"selected_frame":7,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":15,"finished":false,"head_x":179,"head_y":153,"selected_frame":7,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":16,"finished":false,"head_x":179,"head_y":153,"selected_frame":8,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":17,"finished":false,"head_x":179,"head_y":153,"selected_frame":8,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":18,"finished":false,"head_x":179,"head_y":153,"selected_frame":9,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":19,"finished":false,"head_x":179,"head_y":153,"selected_frame":9,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":20,"finished":false,"head_x":179,"head_y":153,"selected_frame":10,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":21,"finished":false,"head_x":179,"head_y":153,"selected_frame":10,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":22,"finished":false,"head_x":179,"head_y":153,"selected_frame":11,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":23,"finished":false,"head_x":179,"head_y":153,"selected_frame":11,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":24,"finished":false,"head_x":179,"head_y":153,"selected_frame":12,"terminal_walk_current":true}
+{"event":"attachment_frame","effect_center_x":179,"effect_center_y":149,"elapsed_frames":25,"finished":false,"head_x":179,"head_y":153,"selected_frame":12,"terminal_walk_current":true}
+{"event":"attachment_pre_boundary","elapsed_frames":25,"finished":false,"selected_frame":12}
+{"event":"attachment_boundary","elapsed_frames":26,"finished":true}
+{"event":"terminal_walk_completion","action_time_frames":30,"anim_id":2,"anim_total_time_frames":30,"candidate":"pmdo_top_left_normalized","complete":true,"current_action_identity":true,"native_type":"RogueEssence.Ground.IdleAnimGroundAction","terminal_head_x":179,"terminal_head_y":153}
+{"event":"coordinate_convention_selected","authenticated_ax_x":179,"authenticated_ax_y":149,"convention":"eu_center_to_pmdo_top_left_minus_8_minus_8","effect_center_x":179,"effect_center_y":149,"pmdo_position_x":172,"pmdo_position_y":140,"source_center_x":180,"source_center_y":148,"terminal_head_x":179,"terminal_head_y":153,"verdict":"PASS"}
+{"event":"fixture_complete","effect_frames":26,"selected_coordinate_convention":"normalized_minus_8_minus_8","verdict":"PASS"}
+{"event":"fixture_verdict","verdict":"PASS","visits":1}
+{"event":"load_phase_unload_requested","before":"Ready","before_raw":"Ready: 2","readback":"Unload","readback_raw":"Unload: 3","requested":"Unload"}
+{"event":"native_deinit","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"native_graphics_unload","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"end","graceful":true,"load_phase":"Unload","load_phase_raw":"Unload: 3","terminal":true}

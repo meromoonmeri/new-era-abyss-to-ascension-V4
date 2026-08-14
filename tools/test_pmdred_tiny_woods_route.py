@@ -101,7 +101,7 @@ class TinyWoodsRouteTests(unittest.TestCase):
         )
         self.assertEqual(
             progress["resume"]["next_phase"],
-            "tiny_woods_actor_camera_animation_semantics_and_live_integration",
+            "tiny_woods_304_command_semantic_supplement_generation_integration_and_native_certification",
         )
 
 
