@@ -476,6 +476,10 @@ def convert(repo: Path, room_name: str, season: str, extracted: Path, texture_ca
                     column.append({"AutoTileset": "", "Associates": [], "Layers": [{"Frames": [{"Sheet": sheet, "TexLoc": {"X": fx, "Y": fy}} for fx, fy in frames], "FrameLength": frame_length}], "NeighborCode": -1})
                     if layer_visible: source_canvas.alpha_composite(crop, (x * TARGET_CELL, y * TARGET_CELL))
                 columns.append(column)
+            expected_columns, expected_rows = int(room["Width"]) // TARGET_CELL, int(room["Height"]) // TARGET_CELL
+            while len(columns) < expected_columns: columns.append([_empty_cell() for _ in range(expected_rows)])
+            for column in columns:
+                while len(column) < expected_rows: column.append(_empty_cell())
             source_layers.append({"Name": f"NNV {layer['LayerName']}", "Layer": 0, "Visible": layer_visible, "Tiles": columns})
             source_tile_layers.append({"name": layer["LayerName"], "depth": layer.get("LayerDepth"), "background": bg["Name"], "matrix_sha256": canonical_sha(rows)})
         elif layer_type in {"Instances", "Assets"}:

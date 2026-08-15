@@ -105,5 +105,17 @@ les manifests restent `UNIMPLEMENTED`. Le runtime PMDO 0.8.12 réel charge
 l'été et valide mouvement, collision bloquée et 12 captures animées. Le harness
 corrigé demande explicitement `LoadPhase.Unload` après son événement terminal :
 la terminaison est désormais native, code 0, sans watchdog ni processus résiduel.
-Ce PASS reste un composant `RUNTIME_TESTED_PASS`, pas une certification globale :
-le switch des quatre saisons, les particules et les Pokémon restent ouverts.
+Les quatre variantes passent maintenant séparément le vrai runtime PMDO :
+chargement, mouvement, collision, 12 captures animées et terminaison native.
+Le routeur `NNVSeasonRouter.lua` résout explicitement les quatre IDs New Era
+sans fallback ; son passage entre les quatre Grounds dans un même processus
+reste cependant `NOT_RUN_AS_COMBINED_FLOW`. Les particules et Pokémon restent
+également ouverts : aucune certification globale n'est revendiquée.
+Il est gelé par `summer/runtime_baseline.json`; avant et après chaque lot :
+
+```bash
+python3 NO_NAME_VILLAGE_ADAPTATION/tools/verify_rmvillage_summer_baseline.py
+```
+
+Le garde refuse toute dérive des 24 preuves, toute élévation de statut et toute
+perte des probes, captures animées ou de la terminaison native.

@@ -5,8 +5,7 @@
     "canonical NNV objwinter particle families, snow trails, footprints and snow audio are not ported",
     "four-season runtime selector not validated",
     "native Pokemon living cast and TownLife/TownPlace routines are not bound yet",
-    "native Pokemon wild exploration population and encounter behavior are not bound",
-    "seasonal layer bundle not materialized as a standalone PMDO Ground"
+    "native Pokemon wild exploration population and encounter behavior are not bound"
   ],
   "canonical_environment_authority": {
     "generic_new_era_season_particles_allowed_as_substitute": false,
@@ -33,7 +32,7 @@
     "source_solid_instances": 251
   },
   "conversion_status": "UNIMPLEMENTED",
-  "manifest_semantic_sha256": "ec6e5672274e174a2f9a5c9d91d3c594d99c68795ef5162662c479ce2ade3341",
+  "manifest_semantic_sha256": "c1a881045cd38edb2bf43a3c43e15f17cabfda6f824f4d48969748d467443d53",
   "mapped_transitions": [
     {
       "edge": "Door_106508",
@@ -103,10 +102,12 @@
   "outputs": {
     "candidate_render": "validation/candidate_tick0.png",
     "candidate_render_sha256": "dbf51a62c7af280e5904d70f05e595e686017a89c73ada8d98d56f510babd284",
+    "runtime_report": "runtime/runtime_report.json",
+    "runtime_report_sha256": "80ac963addb08305b8ced9c3465e9e977bbe257fe19e469a32858b656c411213",
     "script": "Data/Script/halcyon/ground/nnv_rmvillage_winter/init.lua",
     "script_sha256": "067e2b08f91a9aac7236f4911ed8de0881cb9857a196fa1f2e50b4c9409da75b",
     "season_layers": "Data/Ground/nnv_rmvillage_winter.layers.json.gz",
-    "season_layers_sha256": "ab19f91d9282690900addf6f5e7b5491ab98fa09d01519998636140f42d7bc34",
+    "season_layers_sha256": "7caa4d3410613cbd589809c87bf3f4bb88e0a98817e5c3fc6c9cff61f3bc72be",
     "source_render": "validation/source_normalized_tick0.png",
     "source_render_sha256": "b6c8b7950d2076dabc14ed5bd357a9e3a9b51110e0676c122789ac30a07bad86",
     "tile": "Content/Tile/NNV_rmvillage_Winter_Source.tile",
@@ -114,7 +115,7 @@
   },
   "promotion_allowed": false,
   "room": "rmvillage",
-  "runtime_status": "NOT_RUN",
+  "runtime_status": "RUNTIME_TESTED_PASS",
   "schema": "new-era.nnv-pmdo-room-conversion.v1",
   "season": "winter",
   "source": {

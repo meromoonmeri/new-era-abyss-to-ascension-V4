@@ -1,19 +1,54 @@
 {
+  "all_four_variants_runtime_tested": true,
   "canonical_particles_validated": false,
   "contact_sheet": "seasons_contact_sheet.png",
   "contact_sheet_sha256": "58cc5fb9366f60670c41b02f12198b534e06aad3ff7119826282fb2c3e375095",
   "conversion_status": "UNIMPLEMENTED",
   "promotion_allowed": false,
   "room": "rmvillage",
-  "runtime_attempt": {
-    "functional_probes": "PASS",
-    "report": "summer/runtime/runtime_report.json",
-    "report_sha256": "977176d00ddb53e67b05c14cbe898d24970ab6d875a37e07aa6799eacd3f7075",
-    "season": "summer",
-    "status": "RUNTIME_TESTED_PASS",
-    "termination": "PASS"
-  },
   "runtime_switch_validated": false,
+  "runtime_variants": [
+    {
+      "animation_capture": "PASS",
+      "capture_count": 12,
+      "functional_probes": "PASS",
+      "report": "spring/runtime/runtime_report.json",
+      "report_sha256": "26866af442d799d1daff2608ae8f55f87ac3a575023abda89182bdb2575c7a2c",
+      "season": "spring",
+      "status": "RUNTIME_TESTED_PASS",
+      "termination": "PASS"
+    },
+    {
+      "animation_capture": "PASS",
+      "capture_count": 12,
+      "functional_probes": "PASS",
+      "report": "summer/runtime/runtime_report.json",
+      "report_sha256": "977176d00ddb53e67b05c14cbe898d24970ab6d875a37e07aa6799eacd3f7075",
+      "season": "summer",
+      "status": "RUNTIME_TESTED_PASS",
+      "termination": "PASS"
+    },
+    {
+      "animation_capture": "PASS",
+      "capture_count": 12,
+      "functional_probes": "PASS",
+      "report": "autumn/runtime/runtime_report.json",
+      "report_sha256": "0a2f8cc0f68d58956eb70c6aa385e83daf64c6e95f2f8adfd38df5fadf555640",
+      "season": "autumn",
+      "status": "RUNTIME_TESTED_PASS",
+      "termination": "PASS"
+    },
+    {
+      "animation_capture": "PASS",
+      "capture_count": 12,
+      "functional_probes": "PASS",
+      "report": "winter/runtime/runtime_report.json",
+      "report_sha256": "80ac963addb08305b8ced9c3465e9e977bbe257fe19e469a32858b656c411213",
+      "season": "winter",
+      "status": "RUNTIME_TESTED_PASS",
+      "termination": "PASS"
+    }
+  ],
   "schema": "new-era.nnv-four-season-gate.v1",
   "seasons": [
     {
@@ -61,7 +96,7 @@
       "status": "SEASON_LAYER_BUNDLE"
     }
   ],
-  "semantic_sha256": "34f10d885e9374e740068256840e3bb21cfca4d11a662a6b89e83a2b5b9fe77e",
+  "semantic_sha256": "d0ee8196612b28f770cd893e205f4cc15c1a698a6d74a86b29fa80849496c87d",
   "source_dimensions_px": [
     4992,
     4992

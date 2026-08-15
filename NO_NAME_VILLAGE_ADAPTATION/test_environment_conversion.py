@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import hashlib,json,struct,unittest
+import hashlib,json,struct,subprocess,sys,unittest
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parent
@@ -11,6 +11,10 @@ SYSTEMS=("halcyon.LivingWorld","halcyon.TownLife","halcyon.TownPlace","halcyon.S
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 
 class EnvironmentConversionTests(unittest.TestCase):
+ def test_validated_summer_runtime_baseline_is_immutable(self):
+  run=subprocess.run([sys.executable,str(ROOT/'tools/verify_rmvillage_summer_baseline.py')],cwd=ROOT.parent,capture_output=True,text=True)
+  self.assertEqual(run.returncode,0,run.stdout+run.stderr);self.assertIn('RMVILLAGE_SUMMER_BASELINE_PASS',run.stdout)
+
  def test_candidates_are_native_but_not_falsely_promoted(self):
   for room in CANDIDATES:
    root=VILLAGE/room;m=json.loads((root/"manifest.json").read_text())
@@ -40,7 +44,11 @@ class EnvironmentConversionTests(unittest.TestCase):
   for season in ("spring","summer","autumn","winter"):
    root=VILLAGE/season;m=json.loads((root/"manifest.json").read_text())
    self.assertEqual(m["season"],season);self.assertEqual(m["conversion_status"],"UNIMPLEMENTED")
-   self.assertEqual(m["runtime_status"],"RUNTIME_TESTED_PASS" if season=="summer" else "NOT_RUN");self.assertFalse(m["promotion_allowed"])
+   self.assertEqual(m["runtime_status"],"RUNTIME_TESTED_PASS");self.assertFalse(m["promotion_allowed"])
+   runtime=root/m["outputs"]["runtime_report"];self.assertEqual(sha(runtime),m["outputs"]["runtime_report_sha256"])
+   runtime_data=json.loads(runtime.read_text());self.assertEqual(runtime_data["functional_runtime_status"],"PASS");self.assertEqual(runtime_data["termination_status"],"PASS")
+   runtime_log=(root/"runtime/runtime.log").read_text().casefold()
+   for signature in ("exception depth","unhandled exception","failed to load","missing data:","index was outside the bounds"):self.assertNotIn(signature,runtime_log)
    self.assertTrue(all(m["checks"].values()));render_hashes.add(m["outputs"]["candidate_render_sha256"])
    for kind in ("tile","script","source_render","candidate_render"):
     self.assertEqual(sha(root/m["outputs"][kind]),m["outputs"][kind+"_sha256"])
@@ -56,6 +64,7 @@ class EnvironmentConversionTests(unittest.TestCase):
   self.assertEqual(len(render_hashes),4)
   summary=json.loads((VILLAGE/"seasons_summary.json").read_text())
   self.assertEqual(summary["visual_bundle_count"],4);self.assertTrue(summary["visual_bundles_generated"])
+  self.assertTrue(summary["all_four_variants_runtime_tested"]);self.assertEqual(len(summary["runtime_variants"]),4)
   self.assertFalse(summary["runtime_switch_validated"]);self.assertFalse(summary["canonical_particles_validated"])
   self.assertEqual(summary["conversion_status"],"UNIMPLEMENTED");self.assertFalse(summary["promotion_allowed"])
   self.assertEqual(sha(VILLAGE/summary["contact_sheet"]),summary["contact_sheet_sha256"])
@@ -72,6 +81,17 @@ class EnvironmentConversionTests(unittest.TestCase):
    self.assertEqual([width,height],row["source_dimensions"]);self.assertEqual(frames,row["frame_count"])
    self.assertEqual(loc_height,row["loc_height"]);self.assertEqual(row["pixel_transform"],"identity_1_to_1")
   self.assertTrue(m["blockers"]);self.assertEqual(m["footprint_audio"]["asset_status"],"MISSING_BINARY_OUTSIDE_TRACKED_EXTRACTION")
+
+ def test_four_season_router_is_explicit_but_not_falsely_runtime_validated(self):
+  manifest=json.loads((VILLAGE/"season_router_manifest.json").read_text());router=VILLAGE/manifest["router"]
+  self.assertEqual(sha(router),manifest["router_sha256"]);self.assertEqual(manifest["status"],"ROUTER_IMPLEMENTED")
+  self.assertEqual(manifest["runtime_status"],"NOT_RUN_AS_COMBINED_FLOW");self.assertEqual(manifest["conversion_status"],"UNIMPLEMENTED")
+  self.assertFalse(manifest["promotion_allowed"]);self.assertEqual(len(manifest["variants"]),4)
+  self.assertEqual(manifest["individual_variant_runtime_status"],"RUNTIME_TESTED_PASS")
+  self.assertTrue(all(row["runtime_status"]=="RUNTIME_TESTED_PASS" for row in manifest["variants"]))
+  text=router.read_text()
+  for season in ("printemps","ete","automne","hiver"):self.assertIn(season,text)
+  self.assertIn("error('unsupported canonical NNV season",text);self.assertNotIn("or 'nnv_rmvillage_summer'",text)
 
  def test_existing_new_era_living_systems_are_reused(self):
   for room in CANDIDATES:
