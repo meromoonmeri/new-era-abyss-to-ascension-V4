@@ -11,6 +11,14 @@ SYSTEMS=("halcyon.LivingWorld","halcyon.TownLife","halcyon.TownPlace","halcyon.S
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 
 class EnvironmentConversionTests(unittest.TestCase):
+ def test_black_tile_audit_passes_all_seasons_and_runtime_captures(self):
+  report=json.loads((VILLAGE/'black_tile_audit.json').read_text());self.assertEqual(report['result'],'BLACK_TILE_AUDIT_PASS')
+  self.assertEqual(report['problem_seasons'],[])
+  for season in report['seasons']:
+   self.assertEqual(season['missing_tile_references'],0);self.assertEqual(season['full_black_visual_cells'],[])
+   self.assertEqual(season['transparent_visual_cells'],[]);self.assertEqual(season['walkable_dark_holes_8px'],[])
+   self.assertEqual(season['runtime_capture_count'],12);self.assertTrue(all(not row['all_black'] and row['magenta_error_pixels']==0 for row in season['runtime_captures']))
+
  def test_validated_summer_runtime_baseline_is_immutable(self):
   run=subprocess.run([sys.executable,str(ROOT/'tools/verify_rmvillage_summer_baseline.py')],cwd=ROOT.parent,capture_output=True,text=True)
   self.assertEqual(run.returncode,0,run.stdout+run.stderr);self.assertIn('RMVILLAGE_SUMMER_BASELINE_PASS',run.stdout)

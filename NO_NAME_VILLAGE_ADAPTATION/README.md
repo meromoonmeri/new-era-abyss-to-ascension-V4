@@ -107,6 +107,11 @@ corrigé demande explicitement `LoadPhase.Unload` après son événement termina
 la terminaison est désormais native, code 0, sans watchdog ni processus résiduel.
 Les quatre variantes passent maintenant séparément le vrai runtime PMDO :
 chargement, mouvement, collision, 12 captures animées et terminaison native.
+L'audit dédié `audit_rmvillage_black_tiles.py` vérifie les packages, toutes les
+références de frames, les 6 084 cellules visuelles, les 389 376 cellules de
+collision et les 48 captures runtime : zéro cellule noire/transparente entière,
+zéro trou sombre marchable, zéro référence manquante et zéro pixel d'erreur
+magenta sur les captures.
 Le routeur `NNVSeasonRouter.lua` résout explicitement les quatre IDs New Era
 sans fallback ; son passage entre les quatre Grounds dans un même processus
 reste cependant `NOT_RUN_AS_COMBINED_FLOW`. Les particules et Pokémon restent
