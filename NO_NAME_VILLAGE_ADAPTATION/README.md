@@ -133,5 +133,10 @@ exactes, en plus des groupes ambiants de clairière. Les positions partent des s
 points source et ne sont corrigées que vers la case marchable la plus proche.
 `NNVLife.lua` réutilise les systèmes New Era, l'AI native, l'errance bornée,
 le regroupement, la fuite, la vigilance territoriale et la présence jour/nuit.
-Cette couche reste `LIFE_PATCH_GENERATED`/`NOT_RUN` tant qu'elle n'est pas
-fusionnée et testée dans les quatre variantes runtime.
+La variante été a maintenant un Ground `living` séparé contenant réellement les
+49 `MapChar`, sans modifier les pixels environnementaux et sans rasteriser les
+31 animaux source. Elle reste `LIFE_INTEGRATED_CANDIDATE`/`NOT_RUN` : l'AI, les
+routines, les dialogues et les groupes doivent encore passer le vrai runtime.
+Le cycle temporel canonique NNV reste également bloqué : ses quatre valeurs et
+ses contrôleurs lumière/maisons/bloom/audio ne sont pas encore mappés au cycle
+New Era.

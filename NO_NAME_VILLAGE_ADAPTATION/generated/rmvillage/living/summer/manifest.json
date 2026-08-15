@@ -1,0 +1,37 @@
+{
+  "blockers": [
+    "Pokemon AI/routines/dialogues not runtime tested",
+    "other three animal-free seasonal environments not regenerated",
+    "four-state NNV time/lighting/audio system not integrated",
+    "wild encounter/battle transition system not implemented",
+    "objwinter controller incomplete"
+  ],
+  "certification_status": "NOT_CERTIFIED",
+  "conversion_status": "UNIMPLEMENTED",
+  "environment_manifest": "NO_NAME_VILLAGE_ADAPTATION/generated/rmvillage/living/summer_environment/manifest.json",
+  "environment_manifest_sha256": "6cb7ad780fcb544db0cc3db96b4cf72bb6da3c43a0b28fc3ab7bd2b7e983934c",
+  "life_patch": "generated/rmvillage/life/entities_patch.json",
+  "life_patch_sha256": "c6fff87469679b7d4c25908c9d439c265960df2eaacac016b3fcaffce6b88445",
+  "mapchar_count": 49,
+  "outputs": {
+    "ground": "Data/Ground/nnv_rmvillage_summer_living.rsground",
+    "ground_script": "Data/Script/halcyon/ground/nnv_rmvillage_summer_living/init.lua",
+    "ground_script_sha256": "d34556fedd41060f066f2a5cd951ab6e006b383791d5aa3a891cb5c5315f987d",
+    "ground_sha256": "ee714eaea2be4abe6e77dd828bee0eb8b3a07a0a2b082e1b2b835de6386ee87a",
+    "life_script": "Data/Script/halcyon/NNVLife.lua",
+    "life_script_sha256": "df79555167a9f58488b88fc76cd1f28dd564b4bebd7f024180d96d7bf72af627",
+    "tile_sha256": "fbc9c6dcd011e533eac8784aadd08ffe7e3bcbad8c4d7ff6bcbbad6a4a0ff407",
+    "tile_source": "generated/rmvillage/living/summer_environment/Content/Tile/NNV_rmvillage_Summer_Source.tile"
+  },
+  "promotion_allowed": false,
+  "room": "rmvillage",
+  "runtime_status": "NOT_RUN",
+  "schema": "new-era.nnv-rmvillage-living-candidate.v1",
+  "season": "summer",
+  "semantic_sha256": "f77a8d6354ab1961dc0c22c800466771e0593c3443c86efd8c61eb7c006a9fb2",
+  "social_count": 5,
+  "source_animal_sprites_in_visual_layers": false,
+  "source_animals_converted": 31,
+  "status": "LIFE_INTEGRATED_CANDIDATE",
+  "wild_count": 44
+}

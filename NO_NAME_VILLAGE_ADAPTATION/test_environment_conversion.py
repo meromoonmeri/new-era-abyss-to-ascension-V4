@@ -123,6 +123,17 @@ class EnvironmentConversionTests(unittest.TestCase):
   self.assertIn("behavior='timid'",script);self.assertIn("behavior='territorial'",script);self.assertIn("behavior='nocturnal'",script)
   self.assertIn('Life.Update',script);self.assertIn('GROUND:MoveToPosition',script)
 
+ def test_living_summer_ground_contains_native_independent_mapchars_without_promotion(self):
+  root=VILLAGE/'living/summer';manifest=json.loads((root/'manifest.json').read_text())
+  self.assertEqual(manifest['status'],'LIFE_INTEGRATED_CANDIDATE');self.assertEqual(manifest['runtime_status'],'NOT_RUN')
+  self.assertEqual(manifest['conversion_status'],'UNIMPLEMENTED');self.assertEqual(manifest['certification_status'],'NOT_CERTIFIED');self.assertFalse(manifest['promotion_allowed'])
+  ground=json.loads((root/manifest['outputs']['ground']).read_text(encoding='utf-8-sig'))['Object'];chars=[c for layer in ground['Entities'] for c in layer['MapChars']]
+  self.assertEqual(len(chars),49);self.assertEqual(len({c['EntName'] for c in chars}),49);self.assertTrue(all(c['AIEnabled'] for c in chars))
+  self.assertEqual(sum(c['EntName'].startswith('NNV_SourceBird_') for c in chars),12);self.assertEqual(sum(c['EntName'].startswith('NNV_SourceButterfly_') for c in chars),19)
+  self.assertTrue(all(c['CollisionDisabled'] for c in chars if c['EntName'].startswith(('NNV_SourceBird_','NNV_SourceButterfly_'))))
+  tile=ROOT/manifest['outputs']['tile_source'];self.assertTrue(tile.is_file());self.assertEqual(sha(tile),manifest['outputs']['tile_sha256'])
+  self.assertFalse(manifest['source_animal_sprites_in_visual_layers'])
+
  def test_existing_new_era_living_systems_are_reused(self):
   for room in CANDIDATES:
    root=VILLAGE/room;m=json.loads((root/"manifest.json").read_text())
