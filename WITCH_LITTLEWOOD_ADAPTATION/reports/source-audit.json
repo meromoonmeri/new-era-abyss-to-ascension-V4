@@ -1,0 +1,37 @@
+{
+  "schema": "witch-littlewood.source-audit.v1",
+  "status": "SOURCE_ARCHIVE_IDENTIFIED_NOT_EXTRACTED",
+  "audited_at": "2026-08-15",
+  "repository": {
+    "url": "https://github.com/meromoonmeri/WitchLittlewood-TO-Pmdo",
+    "commit": "d247e92b969b5c576f8fd4527da4fa933439cf05",
+    "visibility": "public",
+    "default_branch": "main"
+  },
+  "archive": {
+    "format": "RAR5 split archive",
+    "parts": [
+      {"name":"Little-Witch-in-the-Woods-SteamRIP.com.rar.part-001","bytes":104857600,"sha256":"250aa4f742f09fbfdf8c9266cd0b8ec06935f3b08ae1e9ec5f0166d77f89fa44"},
+      {"name":"Little-Witch-in-the-Woods-SteamRIP.com.rar.part-002","bytes":104857600,"sha256":"79ecbd0cd3109382d976e378cfb6c6fb85f56cc4872888d9f00def9bcd7011a7"},
+      {"name":"Little-Witch-in-the-Woods-SteamRIP.com.rar.part-003","bytes":104857600,"sha256":"4cadaed0c2dc787cde8c883fbf1bf91c3b03eb08e6a7283bef4b88d170bc31b1"},
+      {"name":"Little-Witch-in-the-Woods-SteamRIP.com.rar.part-004","bytes":104857600,"sha256":"5aea412e2c7576efc00150b8d56bd47da2604f662cfdf7d454019db7a062cc11"},
+      {"name":"Little-Witch-in-the-Woods-SteamRIP.com.rar.part-005","bytes":104857600,"sha256":"868d7a4eedf4d037aa5d912a4a90fbdf89b330aff27c42630df0162a23c7d046"},
+      {"name":"Little-Witch-in-the-Woods-SteamRIP.com.rar.part-006","bytes":104857600,"sha256":"d1368efcc8ca843ffd55725e3e91118d6648bded9d4434458b4dbf820e7c51c3"},
+      {"name":"Little-Witch-in-the-Woods-SteamRIP.com.rar.part-007","bytes":64361644,"sha256":"e26ff652c9c5c0af6b608ba215e47cba4c9d99c0d4b3a4de7c15c67256e4dc9f"}
+    ],
+    "total_bytes": 693507244,
+    "part_001_magic_hex": "526172211a070100",
+    "git_lfs_policy_matches_parts": false,
+    "note": ".gitattributes matches *.rar, while repository files end in .rar.part-NNN and are ordinary Git blobs."
+  },
+  "extraction": {
+    "performed": false,
+    "reason": "The repository provides only a third-party redistributed commercial-game archive and no native source project, manifest, licence, provenance statement, or extraction instructions. It is quarantined pending a provenance-safe source path; no bytes were copied into New Era."
+  },
+  "next_safe_pipeline": [
+    "obtain a provenance-safe installed-game/source export",
+    "inventory engine-native maps, scenes, tiles, collision, scripts, audio and animation frames",
+    "produce hashes and structured reports before conversion",
+    "adapt only from native data and validate every PMDO Ground in the exact runtime"
+  ]
+}
