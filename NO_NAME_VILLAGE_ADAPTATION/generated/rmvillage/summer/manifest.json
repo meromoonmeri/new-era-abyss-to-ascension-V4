@@ -1,7 +1,6 @@
 {
   "asset": "nnv_rmvillage_summer",
   "blockers": [
-    "PMDO termination gate failed after functional probes; runtime is not valid",
     "canonical NNV four-season bundle selection and runtime switch are not validated",
     "canonical NNV objwinter particle families, snow trails, footprints and snow audio are not ported",
     "native Pokemon living cast and TownLife/TownPlace routines are not bound yet",
@@ -32,7 +31,7 @@
     "source_solid_instances": 251
   },
   "conversion_status": "UNIMPLEMENTED",
-  "manifest_semantic_sha256": "39468f699ad72f745c05b966ccad927d21d6c6c96297b66ad7f441e97c6e31ad",
+  "manifest_semantic_sha256": "0cd1f4a93f64263c2aa0378bbd5ad38418baafa35ae97bd520b1f917221f9313",
   "mapped_transitions": [
     {
       "edge": "Door_106508",
@@ -105,7 +104,7 @@
     "ground": "Data/Ground/nnv_rmvillage_summer.rsground",
     "ground_sha256": "849d2cfa40d291f0996a980dfbcf8eef1251c4c9c98db03d5e5e63ac8a1f7fb2",
     "runtime_report": "runtime/runtime_report.json",
-    "runtime_report_sha256": "a83115a26e67d2e1d1011c633418bfdb72238d317726df349df7f5294331c206",
+    "runtime_report_sha256": "977176d00ddb53e67b05c14cbe898d24970ab6d875a37e07aa6799eacd3f7075",
     "script": "Data/Script/halcyon/ground/nnv_rmvillage_summer/init.lua",
     "script_sha256": "76ccebcbe730e77171fee9a462b0ee869d0b0725da373c27f3bd5685ead37294",
     "source_render": "validation/source_normalized_tick0.png",
@@ -115,7 +114,7 @@
   },
   "promotion_allowed": false,
   "room": "rmvillage",
-  "runtime_status": "FAILED",
+  "runtime_status": "RUNTIME_TESTED_PASS",
   "schema": "new-era.nnv-pmdo-room-conversion.v1",
   "season": "summer",
   "source": {

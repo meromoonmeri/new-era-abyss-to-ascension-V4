@@ -9,40 +9,17 @@
     "-quest",
     "smart_ground_fixture"
   ],
-  "pmdo_pid": 9215,
+  "pmdo_pid": 9521,
   "requested_signal": 2,
   "requested_signal_name": "SIGINT",
-  "requested_signal_sent": true,
-  "pre_signal_process_state": {
-    "thread_count": 12,
-    "raw_masks": {
-      "SigBlk": "0000000000000000",
-      "SigIgn": "0000000000001000",
-      "SigCgt": "00000003000044fe"
-    },
-    "signals": {
-      "SIGINT": {
-        "number": 2,
-        "caught": true,
-        "ignored": false,
-        "blocked": false,
-        "disposition": "CAUGHT"
-      },
-      "SIGTERM": {
-        "number": 15,
-        "caught": true,
-        "ignored": false,
-        "blocked": false,
-        "disposition": "CAUGHT"
-      }
-    }
-  },
+  "requested_signal_sent": false,
+  "pre_signal_process_state": null,
   "terminal_seen": true,
   "graceful_exit_requested_by_fixture": true,
-  "graceful_exit_observed": false,
+  "graceful_exit_observed": true,
   "graceful_exit_timeout_seconds": 30.0,
-  "terminal_to_signal_seconds": 10.0,
-  "elapsed_seconds": 134.214805,
+  "terminal_to_signal_seconds": null,
+  "elapsed_seconds": 94.083819,
   "event_count": 28,
   "event_parse_error": null,
   "last_event": {
@@ -51,14 +28,14 @@
   "residual_processes_before_cleanup": [],
   "residual_processes_after_cleanup": [],
   "termination": {
-    "result": "FAIL",
-    "kind": "EXPECTED_SIGINT_SIGNAL",
-    "returncode": -2,
-    "wait_state": "SIGNALED",
-    "normal_exit": false,
-    "exit_code": null,
-    "exit_signal": 2,
-    "exit_signal_name": "SIGINT",
+    "result": "PASS",
+    "kind": "NORMAL_EXIT",
+    "returncode": 0,
+    "wait_state": "EXITED",
+    "normal_exit": true,
+    "exit_code": 0,
+    "exit_signal": null,
+    "exit_signal_name": null,
     "segmentation_fault": false,
     "forced_kill": false
   }

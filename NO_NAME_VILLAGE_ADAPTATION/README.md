@@ -101,7 +101,9 @@ bundles de layers déterministes afin de ne pas dupliquer la grille de collision
 Les sprites source exacts `ssnow1`, `ssnow2` et `spttrail01` sont déjà compilés
 1:1 en trois assets Particle PMDO sous `winter/particles/`; l'émetteur à trois
 familles, la surface de traces et l'audio restent explicitement bloqués. Tous
-les manifests restent `UNIMPLEMENTED`. Un premier runtime PMDO 0.8.12 réel a
-chargé l'été et validé mouvement, collision bloquée et 12 captures animées, mais
-la terminaison native a échoué après l'événement terminal (`SIGINT` requis) :
-le statut runtime est donc honnêtement `FAILED`, jamais `RUNTIME_VALID`.
+les manifests restent `UNIMPLEMENTED`. Le runtime PMDO 0.8.12 réel charge
+l'été et valide mouvement, collision bloquée et 12 captures animées. Le harness
+corrigé demande explicitement `LoadPhase.Unload` après son événement terminal :
+la terminaison est désormais native, code 0, sans watchdog ni processus résiduel.
+Ce PASS reste un composant `RUNTIME_TESTED_PASS`, pas une certification globale :
+le switch des quatre saisons, les particules et les Pokémon restent ouverts.

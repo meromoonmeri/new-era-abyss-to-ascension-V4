@@ -200,6 +200,7 @@ function V:validate_async()
  local verdict=(move_ok and block_ok) and 'RUNTIME_PASS' or 'RUNTIME_FAIL'
  emit(string.format('{{"event":"result","load":"PASS","movement":"%s","blocked":"%s","move_delta":"%d,%d","blocked_delta":"%d,%d","verdict":"%s"}}',move_ok and 'PASS' or 'FAIL',block_ok and 'PASS' or 'FAIL',mdx,mdy,bdx,bdy,verdict))
  emit('{{"event":"end"}}')
+ RogueEssence.GameBase.CurrentPhase=RogueEssence.GameBase.LoadPhase.Unload
 end
 function V:OnMapUpdate()
  if not self.enabled then return end
@@ -207,7 +208,7 @@ function V:OnMapUpdate()
  if not self.pending or self.busy then return end
  self.pending=false;self.busy=true
  local ok,err=xpcall(function()self:validate_async()end,debug.traceback)
- if not ok then emit('{{"event":"result","verdict":"RUNTIME_FAIL","error":"'..quote(err)..'"}}');emit('{{"event":"end"}}') end
+ if not ok then emit('{{"event":"result","verdict":"RUNTIME_FAIL","error":"'..quote(err)..'"}}');emit('{{"event":"end"}}');RogueEssence.GameBase.CurrentPhase=RogueEssence.GameBase.LoadPhase.Unload end
 end
 function V:OnUpdate()
  if self.enabled and self.capture_total~=nil then RogueEssence.Content.GraphicsManager.TotalFrameTick=self.capture_total end

@@ -8,10 +8,10 @@
   "runtime_attempt": {
     "functional_probes": "PASS",
     "report": "summer/runtime/runtime_report.json",
-    "report_sha256": "a83115a26e67d2e1d1011c633418bfdb72238d317726df349df7f5294331c206",
+    "report_sha256": "977176d00ddb53e67b05c14cbe898d24970ab6d875a37e07aa6799eacd3f7075",
     "season": "summer",
-    "status": "FAILED",
-    "termination": "FAILED"
+    "status": "RUNTIME_TESTED_PASS",
+    "termination": "PASS"
   },
   "runtime_switch_validated": false,
   "schema": "new-era.nnv-four-season-gate.v1",
@@ -61,7 +61,7 @@
       "status": "SEASON_LAYER_BUNDLE"
     }
   ],
-  "semantic_sha256": "db3faec8b9c5726f4582a9f544a726ba90f7a9a56c60d00f344e423f815f1a53",
+  "semantic_sha256": "34f10d885e9374e740068256840e3bb21cfca4d11a662a6b89e83a2b5b9fe77e",
   "source_dimensions_px": [
     4992,
     4992

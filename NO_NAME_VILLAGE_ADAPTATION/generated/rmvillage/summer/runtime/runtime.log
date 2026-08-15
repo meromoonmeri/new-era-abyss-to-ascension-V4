@@ -73,3 +73,7 @@ Script variables default values loaded! [build 2026-08-04-K]
 [SMART_GROUND_RUNTIME] {"event":"screenshot_completed","label":"water_1","tick":11}
 [SMART_GROUND_RUNTIME] {"event":"result","load":"PASS","movement":"PASS","blocked":"PASS","move_delta":"0,8","blocked_delta":"0,0","verdict":"RUNTIME_PASS"}
 [SMART_GROUND_RUNTIME] {"event":"end"}
+
+<!> DebugTools: Deinit..
+
+<!> ConfigTools: Deinit..

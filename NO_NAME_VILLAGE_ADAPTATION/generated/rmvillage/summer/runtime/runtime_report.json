@@ -11,12 +11,6 @@
       11
     ]
   },
-  "blockers": [
-    "PMDO process emitted terminal end but did not exit gracefully; SIGINT was required and gate returned failure",
-    "three non-summer seasonal layer bundles not runtime-switched",
-    "canonical NNV particle controller not runtime-integrated",
-    "social and wild Pokemon not integrated"
-  ],
   "captures": [
     {
       "bytes": 456555,
@@ -105,6 +99,7 @@
   ],
   "certification_status": "NOT_CERTIFIED",
   "conversion_status": "UNIMPLEMENTED",
+  "fixture_correction": "validator requests RogueEssence.GameBase.LoadPhase.Unload after terminal event",
   "functional_runtime_status": "PASS",
   "ground_sha256": "849d2cfa40d291f0996a980dfbcf8eef1251c4c9c98db03d5e5e63ac8a1f7fb2",
   "index": {
@@ -112,7 +107,7 @@
     "sha256": "ba292fb1338fd8c41e24943f5ed66065d47e9ef26f45a38e5efa7be95a7f5fbb",
     "status": "PASS"
   },
-  "method": "Agent A ignored overlay + patched SDL + SwiftShader/ANGLE + physical movement/collision probes",
+  "method": "Agent A ignored overlay + patched SDL + SwiftShader/ANGLE + exact LoadPhase.Unload termination",
   "pmdo_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
   "pmdo_version": "0.8.12",
   "probes": {
@@ -125,11 +120,16 @@
     "verdict": "RUNTIME_PASS"
   },
   "promotion_allowed": false,
+  "remaining_blockers": [
+    "three non-summer seasonal layer bundles not runtime-switched",
+    "canonical NNV particle controller not runtime-integrated",
+    "social and wild Pokemon not integrated"
+  ],
   "room": "rmvillage",
-  "runtime_status": "FAILED",
-  "schema": "new-era.nnv-rmvillage-runtime.v1",
+  "runtime_status": "RUNTIME_TESTED_PASS",
+  "schema": "new-era.nnv-rmvillage-runtime.v2",
   "season": "summer",
-  "semantic_sha256": "8569b5e36871a595c40a702ff4d07f89eeff16ca89e8d0e454e1649a299d5b80",
+  "semantic_sha256": "882378c140d6eb3f5bdd8e111ea1f3f7539b83bf7e9eacc4f110f1feb0062164",
   "termination": {
     "command": [
       "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdo-headless-bundle/PMDO",
@@ -140,61 +140,38 @@
       "-quest",
       "smart_ground_fixture"
     ],
-    "elapsed_seconds": 134.214805,
+    "elapsed_seconds": 94.083819,
     "event_count": 28,
     "event_parse_error": null,
-    "graceful_exit_observed": false,
+    "graceful_exit_observed": true,
     "graceful_exit_requested_by_fixture": true,
     "graceful_exit_timeout_seconds": 30.0,
     "last_event": {
       "event": "end"
     },
-    "pmdo_pid": 9215,
-    "pre_signal_process_state": {
-      "raw_masks": {
-        "SigBlk": "0000000000000000",
-        "SigCgt": "00000003000044fe",
-        "SigIgn": "0000000000001000"
-      },
-      "signals": {
-        "SIGINT": {
-          "blocked": false,
-          "caught": true,
-          "disposition": "CAUGHT",
-          "ignored": false,
-          "number": 2
-        },
-        "SIGTERM": {
-          "blocked": false,
-          "caught": true,
-          "disposition": "CAUGHT",
-          "ignored": false,
-          "number": 15
-        }
-      },
-      "thread_count": 12
-    },
+    "pmdo_pid": 9521,
+    "pre_signal_process_state": null,
     "requested_signal": 2,
     "requested_signal_name": "SIGINT",
-    "requested_signal_sent": true,
+    "requested_signal_sent": false,
     "residual_processes_after_cleanup": [],
     "residual_processes_before_cleanup": [],
     "schema": "new-era.pmdred-eu-pmdo-termination-gate.v2",
     "terminal_seen": true,
-    "terminal_to_signal_seconds": 10.0,
+    "terminal_to_signal_seconds": null,
     "termination": {
-      "exit_code": null,
-      "exit_signal": 2,
-      "exit_signal_name": "SIGINT",
+      "exit_code": 0,
+      "exit_signal": null,
+      "exit_signal_name": null,
       "forced_kill": false,
-      "kind": "EXPECTED_SIGINT_SIGNAL",
-      "normal_exit": false,
-      "result": "FAIL",
-      "returncode": -2,
+      "kind": "NORMAL_EXIT",
+      "normal_exit": true,
+      "result": "PASS",
+      "returncode": 0,
       "segmentation_fault": false,
-      "wait_state": "SIGNALED"
+      "wait_state": "EXITED"
     }
   },
-  "termination_status": "FAILED",
+  "termination_status": "PASS",
   "tile_sha256": "7873c39d2698cbe55b2c9ba003e4a22977755a1d968d171393fdbec00f8eaab9"
 }
