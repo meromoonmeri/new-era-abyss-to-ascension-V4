@@ -16,7 +16,7 @@ class EnvironmentConversionTests(unittest.TestCase):
    root=VILLAGE/room;m=json.loads((root/"manifest.json").read_text())
    self.assertEqual(m["status"],"GENERATED_CANDIDATE")
    self.assertEqual(m["conversion_status"],"UNIMPLEMENTED")
-   self.assertEqual(m["runtime_status"],"NOT_RUN")
+   self.assertEqual(m["runtime_status"],"FAILED")
    self.assertFalse(m["promotion_allowed"])
    self.assertTrue(all(m["checks"].values()))
    for kind in ("ground","tile","script","source_render","candidate_render"):
@@ -40,7 +40,7 @@ class EnvironmentConversionTests(unittest.TestCase):
   for season in ("spring","summer","autumn","winter"):
    root=VILLAGE/season;m=json.loads((root/"manifest.json").read_text())
    self.assertEqual(m["season"],season);self.assertEqual(m["conversion_status"],"UNIMPLEMENTED")
-   self.assertEqual(m["runtime_status"],"NOT_RUN");self.assertFalse(m["promotion_allowed"])
+   self.assertEqual(m["runtime_status"],"FAILED" if season=="summer" else "NOT_RUN");self.assertFalse(m["promotion_allowed"])
    self.assertTrue(all(m["checks"].values()));render_hashes.add(m["outputs"]["candidate_render_sha256"])
    for kind in ("tile","script","source_render","candidate_render"):
     self.assertEqual(sha(root/m["outputs"][kind]),m["outputs"][kind+"_sha256"])
@@ -97,6 +97,16 @@ class EnvironmentConversionTests(unittest.TestCase):
   g=json.loads((VILLAGE/"summer"/m["outputs"]["ground"]).read_text(encoding="utf-8-sig"))["Object"]
   frame_counts=[len(tl["Frames"]) for layer in g["Layers"] for col in layer["Tiles"] for cell in col for tl in cell.get("Layers",[])]
   self.assertGreater(max(frame_counts),1);self.assertIn(12,frame_counts)
+
+ def test_runtime_functional_probes_pass_but_termination_failure_blocks_validation(self):
+  root=VILLAGE/"summer";m=json.loads((root/"manifest.json").read_text());report=json.loads((root/m["outputs"]["runtime_report"]).read_text())
+  self.assertEqual(sha(root/m["outputs"]["runtime_report"]),m["outputs"]["runtime_report_sha256"])
+  self.assertEqual(report["functional_runtime_status"],"PASS");self.assertEqual(report["probes"]["load"],"PASS")
+  self.assertEqual(report["probes"]["movement"],"PASS");self.assertEqual(report["probes"]["blocked"],"PASS")
+  self.assertEqual(report["animation_capture"]["status"],"PASS");self.assertEqual(len(report["captures"]),12)
+  for capture in report["captures"]:self.assertEqual(sha(root/"runtime"/capture["file"]),capture["sha256"])
+  self.assertEqual(report["termination_status"],"FAILED");self.assertEqual(report["runtime_status"],"FAILED")
+  self.assertEqual(m["runtime_status"],"FAILED");self.assertFalse(report["promotion_allowed"])
 
  def test_visual_differential_is_bounded_by_pmdo_premultiplication(self):
   for room in CANDIDATES:

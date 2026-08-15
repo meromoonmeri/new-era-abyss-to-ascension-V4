@@ -101,4 +101,7 @@ bundles de layers déterministes afin de ne pas dupliquer la grille de collision
 Les sprites source exacts `ssnow1`, `ssnow2` et `spttrail01` sont déjà compilés
 1:1 en trois assets Particle PMDO sous `winter/particles/`; l'émetteur à trois
 familles, la surface de traces et l'audio restent explicitement bloqués. Tous
-les manifests restent `UNIMPLEMENTED`/`NOT_RUN`.
+les manifests restent `UNIMPLEMENTED`. Un premier runtime PMDO 0.8.12 réel a
+chargé l'été et validé mouvement, collision bloquée et 12 captures animées, mais
+la terminaison native a échoué après l'événement terminal (`SIGINT` requis) :
+le statut runtime est donc honnêtement `FAILED`, jamais `RUNTIME_VALID`.

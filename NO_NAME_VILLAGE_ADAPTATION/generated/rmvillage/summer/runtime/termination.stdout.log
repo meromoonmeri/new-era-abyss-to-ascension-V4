@@ -1,0 +1,1 @@
+PMDO_TERMINATION_GATE_FAIL kind=EXPECTED_SIGINT_SIGNAL returncode=-2 signal=SIGINT terminal=True graceful=False watchdog=True residual=0
