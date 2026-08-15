@@ -9,7 +9,7 @@
   },
   "candidate": {
     "asset": "no_name_village_winter",
-    "ground_sha256": "e1a838029979ed91055ed8060e037a2a6049422fa629baee72caca27f919b766"
+    "ground_sha256": "8050ad9f3578718e83b440431aa16a94b81cac426e93a380420a805c144babbc"
   },
   "runtime_probes": {
     "event": "result",
@@ -30,17 +30,17 @@
       "label": "spawn",
       "tick": 0,
       "file": "/home/user/new-era-abyss-to-ascension-V4/NO_NAME_VILLAGE_ADAPTATION/reports/runtime/no_name_village_winter/spawn_tick_000.png",
-      "sha256": "fd6cf330e09fed710e45d643b4ffdc3b62b194a1ed0e0da72e9b0d92300bd7dc",
+      "sha256": "f9aa36008b34bcc4a02cecbee2606fb06c51c56c0f69d373a45c6ba8e940a245",
       "uniform_dark_walkable_cells": []
     },
     {
       "label": "spawn",
       "tick": 15,
       "file": "/home/user/new-era-abyss-to-ascension-V4/NO_NAME_VILLAGE_ADAPTATION/reports/runtime/no_name_village_winter/spawn_tick_015.png",
-      "sha256": "0c01f007fc58c464fdcde733a19fd85d5fc06a2efc7a96668a84c5ebd4f6eb37",
+      "sha256": "14ece7d5859e47bc796c700098aae24b6f0441701b25d305d517e1814e8e4891",
       "uniform_dark_walkable_cells": []
     }
   ],
-  "fixture_manifest_sha256": "f34d34962c3043fda7822601952f48abb3690d2058558f0994cb07026288cd9a",
+  "fixture_manifest_sha256": "49a7c72149c8c674165e8241567247b76ab0f7361db784603473c731377a23c7",
   "fixture_entity_isolation": "Ignored fixture only; actors/triggers removed to isolate BMA movement. Candidate hash is unchanged."
 }

@@ -12,6 +12,9 @@ def ref(x):return ((x or {}).get('$resourceRef') or {}) if isinstance(x,dict) el
 def empty():return {'AutoTileset':'','Associates':[],'Layers':[],'NeighborCode':-1}
 def frame(sheet,x,y):return {'AutoTileset':'','Associates':[],'Layers':[{'Frames':[{'Sheet':sheet,'TexLoc':{'X':x,'Y':y}}],'FrameLength':999}],'NeighborCode':-1}
 def point_hash(x,y,salt=0):return (x*73856093^y*19349663^salt*83492791)&0xffffffff
+def animated_frame(sheet,count,offset=0):
+ frames=[{'Sheet':sheet,'TexLoc':{'X':(offset+i)%count,'Y':0}} for i in range(count)]
+ return {'AutoTileset':'','Associates':[],'Layers':[{'Frames':frames,'FrameLength':12}],'NeighborCode':-1}
 def classify(name,visible,sprite):
  n=name.lower();species=None;role='pmdo_mechanic';boss=False
  roles={'objherbalist':'meganium','objblacksmith':'torkoal','objcarpenter':'bibarel','objhunter':'decidueye','objlogger':'komala','objseamstress':'leavanny','objnpc':'audino','objnpcspawn':'audino'}
@@ -49,6 +52,15 @@ def tree_layer(room,season):
     x,y=ax-2+ix,ay-5+iy
     if 0<=x<78 and 0<=y<78:grid[x][y]=frame(sheet,ix,iy)
  return grid,set(anchors)
+def flora_layer(room,season,correspondence):
+ grid=[[empty() for _ in range(78)] for _ in range(78)];instances=0;cells=set();count=3 if season=='summer' else 4;sheet='No_Name_Village_Flora_'+season.capitalize()
+ for g in room['GameObjects']:
+  name=ref(g.get('ObjectDefinition')).get('name','')
+  if not name.startswith('objspplant') or name not in correspondence or correspondence[name].get(season) is None:continue
+  x,y=int(g['X']//64),int(g['Y']//64)
+  if 0<=x<78 and 0<=y<78:
+   grid[x][y]=animated_frame(sheet,count,point_hash(x,y,len(name))%count);instances+=1;cells.add((x,y))
+ return grid,instances,len(cells)
 def relief_layer(obstacles,grass0,season):
  mask=set();houses=[(12,24,12,11),(12,45,8,10),(57,27,10,10),(31,3,8,10)]
  for x in range(78):
@@ -100,7 +112,7 @@ def build_maps(room,objects,sprites):
   cx,cy=round(sx*.375/8),round(sy*.375/8)
   for x in range(max(0,cx-1),min(len(obstacles),cx+3)):
    for y in range(max(0,cy-2),min(len(obstacles[0]),cy+11)):obstacles[x][y]['Tags']=0
- blocked=sum(bool(q['Tags']) for col in obstacles for q in col);grass0=next(l for l in room['Layers'] if l['LayerName']=='grass0')['Data']['TileData'];reports=[]
+ blocked=sum(bool(q['Tags']) for col in obstacles for q in col);grass0=next(l for l in room['Layers'] if l['LayerName']=='grass0')['Data']['TileData'];correspondence=json.load(open(NV/'reports/season-system.json',encoding='utf8'))['object_correspondence'];reports=[]
  for si,(season,cfg) in enumerate(SEASONS.items()):
   doc=copy.deepcopy(template);o=doc['Object'];o['TexSize']=3;o['AssetName']='no_name_village_'+season;o['Name']={'DefaultText':'Village sans Nom — '+cfg['fr'].capitalize(),'LocalTexts':{'fr':'Village sans Nom — '+cfg['fr'].capitalize()}};o['Comment']='Adaptation PMDO structurée depuis rmvillage (78×78 tuiles source), bâtiments PMD et entités exclusivement Pokémon.';o['Music']=cfg['music'];o['obstacles']=copy.deepcopy(obstacles);o['Decorations']=[]
   base=[[empty() for _ in range(78)] for _ in range(78)];grass_samples=[(8,8),(10,9),(12,10),(14,11),(15,13)];path_samples=[(11,5),(11,7),(12,9),(10,11),(11,14)];snow_samples=[(12,15),(14,17),(9,20),(18,21),(11,23)]
@@ -110,18 +122,18 @@ def build_maps(room,objects,sprites):
     if season=='winter':px,py=snow_samples[h%len(snow_samples)];base[x][y]=frame('SnowCamp',px,py)
     elif path:px,py=path_samples[h%len(path_samples)];base[x][y]=frame('Apple Woods Entrance Layer 1',px,py)
     else:px,py=grass_samples[h%len(grass_samples)];base[x][y]=frame('ForestCamp',px,py)
-  relief,relief_cells=relief_layer(obstacles,grass0,season);trees,_=tree_layer(room,season);build=[[empty() for _ in range(78)] for _ in range(78)];placements=[((8,16,6,8),(13,46)),((14,0,10,8),(13,25)),((22,16,8,8),(58,28)),((8,16,6,8),(32,4))];building_sheet='No_Name_Village_Buildings' if season in ('spring','summer') else ('No_Name_Village_Buildings_Autumn' if season=='autumn' else 'No_Name_Village_Buildings_Winter')
+  relief,relief_cells=relief_layer(obstacles,grass0,season);flora,flora_instances,flora_cells=flora_layer(room,season,correspondence);trees,_=tree_layer(room,season);build=[[empty() for _ in range(78)] for _ in range(78)];placements=[((8,16,6,8),(13,46)),((14,0,10,8),(13,25)),((22,16,8,8),(58,28)),((8,16,6,8),(32,4))];building_sheet='No_Name_Village_Buildings' if season in ('spring','summer') else ('No_Name_Village_Buildings_Autumn' if season=='autumn' else 'No_Name_Village_Buildings_Winter')
   for (sx,sy,w,h),(dx,dy) in placements:
    for ix in range(w):
     for iy in range(h):
      if 0<=dx+ix<78 and 0<=dy+iy<78:build[dx+ix][dy+iy]=frame(building_sheet,sx+ix,sy+iy)
-  o['Layers']=[{'Name':'Sol et terrain PMD','Layer':0,'Visible':True,'Tiles':base},{'Name':'Relief et lisières PMD','Layer':0,'Visible':True,'Tiles':relief},{'Name':'Végétation saisonnière PMD','Layer':0,'Visible':True,'Tiles':trees},{'Name':'Bâtiments Pokémon','Layer':0,'Visible':True,'Tiles':build}]
+  o['Layers']=[{'Name':'Sol et terrain PMD','Layer':0,'Visible':True,'Tiles':base},{'Name':'Relief et lisières PMD','Layer':0,'Visible':True,'Tiles':relief},{'Name':'Flore saisonnière source PMD','Layer':0,'Visible':True,'Tiles':flora},{'Name':'Végétation saisonnière PMD','Layer':0,'Visible':True,'Tiles':trees},{'Name':'Bâtiments Pokémon','Layer':0,'Visible':True,'Tiles':build}]
   e=o['Entities'][0];e['Name']='Entités Pokémon';reserved=set();actors=[]
   for name,species,x,y,d in NPCS:
    px,py=nearest_clear_actor(obstacles,x*24,y*24,reserved);actors.append(make_actor_px(actor_proto,name,species,px,py,d))
   e['MapChars']=actors;e['Spawners']=copy.deepcopy(template['Object']['Entities'][0]['Spawners']);e['GroundObjects']=[make_trigger(touch_proto,'Maison_Joueur_Entree',940*.375,3296*.375,24,16,True),make_trigger(touch_proto,'Maison_Bucheron_Entree',1096*.375,1952*.375,24,16,True),make_trigger(touch_proto,'Maison_Chasseur_Entree',3912*.375,2080*.375,24,16,True),make_trigger(touch_proto,'Maison_Charpentier_Entree',2200*.375,608*.375,24,16,True),make_trigger(touch_proto,'Sortie_Nord',0,0,1872,8),make_trigger(touch_proto,'Sortie_Sud',0,1864,1872,8),make_trigger(touch_proto,'Sortie_Ouest',0,0,8,1872),make_trigger(touch_proto,'Sortie_Est',1864,0,8,1872)];e['Markers']=[]
   for name,x,y,d in [('Main_Entrance_Marker',2208*.375,4928*.375,4),('Spawn_Nord',2912*.375,64*.375,4),('Spawn_Ouest',992*.375,3520*.375,6),('Spawn_Centre_Ouest',1152*.375,2176*.375,6),('Spawn_Nord_Centre',2272*.375,832*.375,4),('Spawn_Est',3968*.375,2304*.375,2),('Retour_Maison_Joueur',1000*.375,3480*.375,4),('Retour_Maison_Chasseur',3968*.375,2272*.375,4),('Retour_Maison_Bucheron',1152*.375,2144*.375,4),('Retour_Maison_Charpentier',2256*.375,800*.375,4)]:q=copy.deepcopy(marker_proto);q['EntName']=name;q['Direction']=d;q['Collider']={'X':round(x),'Y':round(y),'Width':16,'Height':16};e['Markers'].append(q)
-  out=ROOT/'Data/Ground'/('no_name_village_'+season+'.rsground');out.write_text('\ufeff'+json.dumps(doc,ensure_ascii=False,indent=1),encoding='utf8');reports.append({'season':season,'path':str(out.relative_to(ROOT)),'sha256':hashlib.sha256(out.read_bytes()).hexdigest(),'dimensions_tiles':[78,78],'dimensions_px':[1872,1872],'obstacle_grid':[234,234],'blocked_cells':blocked,'source_colliders':colliders,'pokemon_actors':len(e['MapChars']),'pokemon_actor_positions_px':{a['EntName']:[a['serializationLoc']['X'],a['serializationLoc']['Y']] for a in e['MapChars']},'human_actors':0,'relief_cells':relief_cells,'layers':len(o['Layers'])})
+  out=ROOT/'Data/Ground'/('no_name_village_'+season+'.rsground');out.write_text('\ufeff'+json.dumps(doc,ensure_ascii=False,indent=1),encoding='utf8');reports.append({'season':season,'path':str(out.relative_to(ROOT)),'sha256':hashlib.sha256(out.read_bytes()).hexdigest(),'dimensions_tiles':[78,78],'dimensions_px':[1872,1872],'obstacle_grid':[234,234],'blocked_cells':blocked,'source_colliders':colliders,'pokemon_actors':len(e['MapChars']),'pokemon_actor_positions_px':{a['EntName']:[a['serializationLoc']['X'],a['serializationLoc']['Y']] for a in e['MapChars']},'human_actors':0,'relief_cells':relief_cells,'seasonal_flora_source_instances':flora_instances,'seasonal_flora_cells':flora_cells,'seasonal_flora_animation_frames':3 if season=='summer' else 4,'layers':len(o['Layers'])})
  return reports
 def main():
  objects,sprites,rooms=load('GameObjects'),load('Sprites'),load('Rooms');room=next(r for r in rooms if r.get('Name')=='rmvillage');plan=entity_plan(objects);placements=[]
@@ -130,5 +142,5 @@ def main():
    name=ref(inst.get('ObjectDefinition')).get('name','')
    for prefix,species,title in BOSS:
     if name.startswith(prefix):placements.append({'source_room':source_room.get('Name'),'source_object':name,'source_instance_id':inst.get('InstanceID'),'source_position_px':[inst.get('X'),inst.get('Y')],'pokemon_species':species,'title_fr':title,'status':'POKEMON_BOSS_PLACEMENT_SOURCE_LOCKED'});break
- plan['source_boss_placements']=placements;plan['source_boss_placement_count']=len(placements);(NV/'reports/pokemon-entity-plan.json').write_text(json.dumps(plan,ensure_ascii=False,indent=2)+'\n');maps=build_maps(room,objects,sprites);report={'schema':'no-name-village.pmdo-candidate.v2','status':'STRUCTURED_PMDO_CANDIDATES_BUILT','source_room':{'name':'rmvillage','dimensions_px':[4992,4992],'logical_tiles':[78,78]},'scale':{'source_tile_px':64,'pmdo_tile_px':24,'ratio':0.375,'proportions_preserved':True},'graphics':{'source':'PMDO/PMD packages only','source_sheets':['ForestCamp','Apple Woods Entrance Layer 1','SnowCamp','No_Name_Village_Buildings_{Season}','No_Name_Village_Standalone_Tree_{Season}','No_Name_Village_Forest_{Season}'],'screenshot_as_map_data':False},'maps':maps,'entities':{'plan':'reports/pokemon-entity-plan.json','all_living_entities_pokemon':True,'bosses_pokemon':True},'integration':'CANDIDATE_NOT_ADDED_TO_PROTECTED_MASTER_ZONE'};(NV/'reports/pmdo-candidate.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');print(json.dumps({'maps':len(maps),'objects_classified':len(plan['objects']),'boss_placements':len(placements),'status':report['status']}))
+ plan['source_boss_placements']=placements;plan['source_boss_placement_count']=len(placements);(NV/'reports/pokemon-entity-plan.json').write_text(json.dumps(plan,ensure_ascii=False,indent=2)+'\n');maps=build_maps(room,objects,sprites);report={'schema':'no-name-village.pmdo-candidate.v2','status':'STRUCTURED_PMDO_CANDIDATES_BUILT','source_room':{'name':'rmvillage','dimensions_px':[4992,4992],'logical_tiles':[78,78]},'scale':{'source_tile_px':64,'pmdo_tile_px':24,'ratio':0.375,'proportions_preserved':True},'graphics':{'source':'PMDO/PMD packages only','source_sheets':['ForestCamp','Apple Woods Entrance Layer 1','SnowCamp','No_Name_Village_Buildings_{Season}','No_Name_Village_Standalone_Tree_{Season}','No_Name_Village_Flora_{Season}','No_Name_Village_Forest_{Season}'],'screenshot_as_map_data':False},'maps':maps,'entities':{'plan':'reports/pokemon-entity-plan.json','all_living_entities_pokemon':True,'bosses_pokemon':True},'integration':'CANDIDATE_NOT_ADDED_TO_PROTECTED_MASTER_ZONE'};(NV/'reports/pmdo-candidate.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');print(json.dumps({'maps':len(maps),'objects_classified':len(plan['objects']),'boss_placements':len(placements),'status':report['status']}))
 if __name__=='__main__':main()

@@ -9,7 +9,7 @@
   },
   "candidate": {
     "asset": "no_name_village_spring",
-    "ground_sha256": "6f93bf87c22c22212c7ccd4be064efdf177f0459387cbd209e3205496a88df07"
+    "ground_sha256": "9d571741bea1040f57251443a7bd2cc19b7c56eb2f400c36d4f1e91824995e07"
   },
   "runtime_probes": {
     "event": "result",
@@ -30,9 +30,9 @@
       "label": "spawn",
       "tick": 0,
       "file": "/home/user/new-era-abyss-to-ascension-V4/NO_NAME_VILLAGE_ADAPTATION/reports/runtime-time/state_3/spawn_tick_000.png",
-      "sha256": "c51eb4b6ada2eecaba2fd0e6b3be938c087ed6facad2c2c7993df9419c1e214d",
+      "sha256": "edd64133af707f9ae4f6a3d2d7932b94b9d34bdde2f7172e74258325587fcf1c",
       "uniform_dark_walkable_cells": []
     }
   ],
-  "fixture_manifest_sha256": "a2539587dec345074ca54e786cb6c2afa1d52a7add35690aa6b39d01f8236389"
+  "fixture_manifest_sha256": "455f1cb01c341026ce8261b0732d1d500e9293d4b5b474960f2be01a0d3bbba5"
 }

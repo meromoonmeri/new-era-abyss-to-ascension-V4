@@ -26,6 +26,7 @@
       "SnowCamp",
       "No_Name_Village_Buildings_{Season}",
       "No_Name_Village_Standalone_Tree_{Season}",
+      "No_Name_Village_Flora_{Season}",
       "No_Name_Village_Forest_{Season}"
     ],
     "screenshot_as_map_data": false
@@ -34,7 +35,7 @@
     {
       "season": "spring",
       "path": "Data/Ground/no_name_village_spring.rsground",
-      "sha256": "6f93bf87c22c22212c7ccd4be064efdf177f0459387cbd209e3205496a88df07",
+      "sha256": "9d571741bea1040f57251443a7bd2cc19b7c56eb2f400c36d4f1e91824995e07",
       "dimensions_tiles": [
         78,
         78
@@ -82,12 +83,15 @@
       },
       "human_actors": 0,
       "relief_cells": 2198,
-      "layers": 4
+      "seasonal_flora_source_instances": 185,
+      "seasonal_flora_cells": 178,
+      "seasonal_flora_animation_frames": 4,
+      "layers": 5
     },
     {
       "season": "summer",
       "path": "Data/Ground/no_name_village_summer.rsground",
-      "sha256": "7ea6aa872747a8bd9ea6aa7a2188f5994583e75bda845a6fb075c8da6c8b8397",
+      "sha256": "5aa19d1fcedd8f7c4a888f52ccaa99f12e70cef4c825c95cd28b5423031d6486",
       "dimensions_tiles": [
         78,
         78
@@ -135,12 +139,15 @@
       },
       "human_actors": 0,
       "relief_cells": 2198,
-      "layers": 4
+      "seasonal_flora_source_instances": 185,
+      "seasonal_flora_cells": 178,
+      "seasonal_flora_animation_frames": 3,
+      "layers": 5
     },
     {
       "season": "autumn",
       "path": "Data/Ground/no_name_village_autumn.rsground",
-      "sha256": "c2beb947966a9127291fcb22c3076f17d6ee5117cb2d557e501c7b0854447b11",
+      "sha256": "d678d74c7029427f5ed74d9f344f9233691a4490e769d1f4161105ef7c63a443",
       "dimensions_tiles": [
         78,
         78
@@ -188,12 +195,15 @@
       },
       "human_actors": 0,
       "relief_cells": 2198,
-      "layers": 4
+      "seasonal_flora_source_instances": 185,
+      "seasonal_flora_cells": 178,
+      "seasonal_flora_animation_frames": 4,
+      "layers": 5
     },
     {
       "season": "winter",
       "path": "Data/Ground/no_name_village_winter.rsground",
-      "sha256": "e1a838029979ed91055ed8060e037a2a6049422fa629baee72caca27f919b766",
+      "sha256": "8050ad9f3578718e83b440431aa16a94b81cac426e93a380420a805c144babbc",
       "dimensions_tiles": [
         78,
         78
@@ -241,7 +251,10 @@
       },
       "human_actors": 0,
       "relief_cells": 2198,
-      "layers": 4
+      "seasonal_flora_source_instances": 94,
+      "seasonal_flora_cells": 92,
+      "seasonal_flora_animation_frames": 4,
+      "layers": 5
     }
   ],
   "entities": {

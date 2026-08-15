@@ -7,39 +7,43 @@
   "grounds": [
     {
       "asset": "no_name_village_spring",
-      "ground_sha256": "6f93bf87c22c22212c7ccd4be064efdf177f0459387cbd209e3205496a88df07",
+      "ground_sha256": "9d571741bea1040f57251443a7bd2cc19b7c56eb2f400c36d4f1e91824995e07",
       "result": "SMART_GROUND_PMDO_RUNTIME_CAPTURE_PASS",
       "load": "PASS",
       "movement": "PASS",
       "blocked": "PASS",
-      "report_sha256": "167f3ba3d45cde46f283e77567956c7367f28621c5c76af016705c538a7530aa"
+      "seasonal_animation_captures_distinct": true,
+      "report_sha256": "d9c0c96554beb3785a57e14ca6285d1620821f3568cf93551f9c3d8765f74ad1"
     },
     {
       "asset": "no_name_village_summer",
-      "ground_sha256": "7ea6aa872747a8bd9ea6aa7a2188f5994583e75bda845a6fb075c8da6c8b8397",
+      "ground_sha256": "5aa19d1fcedd8f7c4a888f52ccaa99f12e70cef4c825c95cd28b5423031d6486",
       "result": "SMART_GROUND_PMDO_RUNTIME_CAPTURE_PASS",
       "load": "PASS",
       "movement": "PASS",
       "blocked": "PASS",
-      "report_sha256": "90c62fe43f14fa35df2cae6fe9a050d27b8bd7ace27f53f1f69732f4662ac22f"
+      "seasonal_animation_captures_distinct": true,
+      "report_sha256": "aee2d14a74a01feb89d113387025c4b61cae365318a274183d119f6aed894e07"
     },
     {
       "asset": "no_name_village_autumn",
-      "ground_sha256": "c2beb947966a9127291fcb22c3076f17d6ee5117cb2d557e501c7b0854447b11",
+      "ground_sha256": "d678d74c7029427f5ed74d9f344f9233691a4490e769d1f4161105ef7c63a443",
       "result": "SMART_GROUND_PMDO_RUNTIME_CAPTURE_PASS",
       "load": "PASS",
       "movement": "PASS",
       "blocked": "PASS",
-      "report_sha256": "2ec0ee36983ba1eaed1efaeb961e4eb6eb4588c7aa9502617edf3eef67198e58"
+      "seasonal_animation_captures_distinct": true,
+      "report_sha256": "459620f51da5c76963369a92a1a992d646cfd60add7056cd40139fe8c420fd88"
     },
     {
       "asset": "no_name_village_winter",
-      "ground_sha256": "e1a838029979ed91055ed8060e037a2a6049422fa629baee72caca27f919b766",
+      "ground_sha256": "8050ad9f3578718e83b440431aa16a94b81cac426e93a380420a805c144babbc",
       "result": "SMART_GROUND_PMDO_RUNTIME_CAPTURE_PASS",
       "load": "PASS",
       "movement": "PASS",
       "blocked": "PASS",
-      "report_sha256": "89531fee4053f47adb83454e7e0883f6627051110e6abe2475eae226e16d19df"
+      "seasonal_animation_captures_distinct": true,
+      "report_sha256": "4ed103b4254d4a96a372d3eeaa6af9851df28e743329f38ba4089c55e1fd5de3"
     },
     {
       "asset": "no_name_player_house",
@@ -48,6 +52,7 @@
       "load": "PASS",
       "movement": "PASS",
       "blocked": "PASS",
+      "seasonal_animation_captures_distinct": null,
       "report_sha256": "5b26ddc30982d12eed0233ae303548a4738b909a649c6dce93cfc0f85e8a0ae6"
     },
     {
@@ -57,6 +62,7 @@
       "load": "PASS",
       "movement": "PASS",
       "blocked": "PASS",
+      "seasonal_animation_captures_distinct": null,
       "report_sha256": "d40b3a334037c71b8f03e07a805fa61f89cc9062e3877398da939cd647bb1be4"
     },
     {
@@ -66,6 +72,7 @@
       "load": "PASS",
       "movement": "PASS",
       "blocked": "PASS",
+      "seasonal_animation_captures_distinct": null,
       "report_sha256": "160a822aa6cea040aa6c93b56c23bc508d2070f7ea45b9b7d5621934f547795e"
     },
     {
@@ -75,41 +82,42 @@
       "load": "PASS",
       "movement": "PASS",
       "blocked": "PASS",
+      "seasonal_animation_captures_distinct": null,
       "report_sha256": "68c5acacd712566367d228060acaaf6f0d43e7efcba59da936589c7e2e57fc20"
     }
   ],
   "source_numeric_time_states": [
     {
       "source_numeric_state": 0,
-      "ground_sha256": "6f93bf87c22c22212c7ccd4be064efdf177f0459387cbd209e3205496a88df07",
+      "ground_sha256": "9d571741bea1040f57251443a7bd2cc19b7c56eb2f400c36d4f1e91824995e07",
       "load": "PASS",
       "movement": "PASS",
       "blocked": "PASS",
-      "capture_sha256": "da0c5a6f2db87de997ebe43b6fa92f58147decb6470acc8b1a8b7b80a418375a"
+      "capture_sha256": "815abf73c5d45b70e346c1e4758dc5e3f1245c5328c7490fc3f000c363d48c71"
     },
     {
       "source_numeric_state": 1,
-      "ground_sha256": "6f93bf87c22c22212c7ccd4be064efdf177f0459387cbd209e3205496a88df07",
+      "ground_sha256": "9d571741bea1040f57251443a7bd2cc19b7c56eb2f400c36d4f1e91824995e07",
       "load": "PASS",
       "movement": "PASS",
       "blocked": "PASS",
-      "capture_sha256": "95330aaf16e01b6bfe939ae5254eb5a5a3713ba76fda32583dacb043a248a50a"
+      "capture_sha256": "3541e10b8a69fdcda19a5f00df80ff401eac86b0608324caf6c2b80e462cad22"
     },
     {
       "source_numeric_state": 2,
-      "ground_sha256": "6f93bf87c22c22212c7ccd4be064efdf177f0459387cbd209e3205496a88df07",
+      "ground_sha256": "9d571741bea1040f57251443a7bd2cc19b7c56eb2f400c36d4f1e91824995e07",
       "load": "PASS",
       "movement": "PASS",
       "blocked": "PASS",
-      "capture_sha256": "75b2db09dfdbca22d4b1bf473476081b75a19f3976f9a13ca627d74c0d342234"
+      "capture_sha256": "64f26125839937cde9a30e9adcd545dd50433134b1ea7624ed19168333c35705"
     },
     {
       "source_numeric_state": 3,
-      "ground_sha256": "6f93bf87c22c22212c7ccd4be064efdf177f0459387cbd209e3205496a88df07",
+      "ground_sha256": "9d571741bea1040f57251443a7bd2cc19b7c56eb2f400c36d4f1e91824995e07",
       "load": "PASS",
       "movement": "PASS",
       "blocked": "PASS",
-      "capture_sha256": "c51eb4b6ada2eecaba2fd0e6b3be938c087ed6facad2c2c7993df9419c1e214d"
+      "capture_sha256": "edd64133af707f9ae4f6a3d2d7932b94b9d34bdde2f7172e74258325587fcf1c"
     }
   ],
   "time_state_capture_distinctness": "PASS_4_OF_4"

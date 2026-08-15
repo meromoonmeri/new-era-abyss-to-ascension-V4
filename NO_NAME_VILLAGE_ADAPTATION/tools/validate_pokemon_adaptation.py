@@ -30,6 +30,10 @@ def main():
   sheets={f['Sheet'] for l in o['Layers'] for c in l['Tiles'] for cell in c for tl in cell['Layers'] for f in tl['Frames']};assert all((ROOT/'Content/Tile'/f'{s}.tile').is_file() and s in indexed for s in sheets);actors=o['Entities'][0]['MapChars'];assert len(actors)==7 and all(a['Data']['BaseForm']['Species'] not in ('','missingno','human') for a in actors);assert all(clear(o['obstacles'],a['Collider']['X']//8,a['Collider']['Y']//8) for a in actors)
   seen=reachable(o);doors=o['Entities'][0]['GroundObjects'][:4];assert all(clear(o['obstacles'],q['Collider']['X']//8,q['Collider']['Y']//8) for q in doors);assert all(any((q['Collider']['X']//8+dx,q['Collider']['Y']//8+dy) in seen for dx in range(-2,3)for dy in range(-2,3)) for q in doors);h=sha(p);hashes.append(h);rows.append({'asset':o['AssetName'],'sha256':h,'sheets':sorted(sheets),'actors':len(actors),'blocked_cells':sum(bool(x['Tags'])for c in o['obstacles']for x in c),'reachable_footprints':len(seen),'doors_reachable':4})
  assert len(set(hashes))==4
+ candidate=readj(ROOT/'NO_NAME_VILLAGE_ADAPTATION/reports/pmdo-candidate.json');flora_expected={'spring':185,'summer':185,'autumn':185,'winter':94}
+ for row in candidate['maps']:
+  assert row['seasonal_flora_source_instances']==flora_expected[row['season']]
+  assert row['seasonal_flora_animation_frames']==(3 if row['season']=='summer' else 4)
  interiors=[]
  for name in('player','logger','hunter','carpenter'):
   p=ROOT/'Data/Ground'/f'no_name_{name}_house.rsground';o=readj(p)['Object'];assert len(o['Layers'][0]['Tiles'])==90 and len(o['Layers'][0]['Tiles'][0])==60;assert len(o['obstacles'])==90 and len(o['obstacles'][0])==60;assert not o['Entities'][0]['MapChars'];assert len(o['Entities'][0]['Markers'])==1;interiors.append({'asset':o['AssetName'],'sha256':sha(p),'dimensions_px':[720,480]})

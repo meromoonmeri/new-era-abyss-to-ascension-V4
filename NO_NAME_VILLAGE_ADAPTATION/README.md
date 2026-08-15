@@ -51,6 +51,8 @@ bâtiments sont distinctes. Les VFX PMDO sont `sakura_drift`,
 `global.timeofday` restent 0–3, sans leur inventer de libellé, et pilotent
 l'éclairage MapStatus ainsi que les substitutions audio saisonnières.
 
+La flore ne repose plus sur une décoration générique : les 185 instances source de `objspplant*` sont matérialisées au printemps, en été et en automne, et les 94 instances dont la VM prouve une correspondance hivernale le sont en hiver. Les lignées absentes en hiver restent absentes. Chaque paquet floral PMD conserve 3 ou 4 frames animées selon la variante source.
+
 Les quatre intérieurs font 720×480 px, dimensions normalisées des rooms source
 1920×1280. Ils n'ont aucun humain ni lit humain, utilisent du mobilier Pokémon,
 et reviennent aux quatre coordonnées exactes décompilées. Les quatre frontières

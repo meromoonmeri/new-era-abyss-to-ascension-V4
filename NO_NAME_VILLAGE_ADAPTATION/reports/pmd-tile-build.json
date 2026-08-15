@@ -2,9 +2,11 @@
   "schema": "no-name-village.pmd-tile-build.v2",
   "sources": [
     "Content/Tile/TownBase.tile",
-    "Content/Tile/ForestCamp.tile"
+    "Content/Tile/ForestCamp.tile",
+    "Content/Tile/whiteflower-sheet.tile",
+    "Content/Tile/Vast_Steppe_Flower_Animations.tile"
   ],
-  "policy": "PMDO-native buildings, isolated seasonal trees and seamless seasonal forest-canopy derivatives only.",
+  "policy": "PMDO-native buildings, isolated seasonal trees, exact source-position flora animations and seamless seasonal forest-canopy derivatives only.",
   "results": {
     "buildings": {
       "entries": 1216,
@@ -47,6 +49,30 @@
       "unique": 30,
       "bytes": 10485,
       "sha256": "994d73e4ef4c48db30384ee604445f6e7b98a97f2399bed46128067d528a7ca2"
+    },
+    "flora_spring": {
+      "entries": 4,
+      "unique": 3,
+      "bytes": 1268,
+      "sha256": "16467a9620aa5ca1fd3e094982aa60f97a5d4bf9d60535628fd034b41135e16f"
+    },
+    "flora_summer": {
+      "entries": 3,
+      "unique": 3,
+      "bytes": 1388,
+      "sha256": "e572b02c46d6aa5e14312bbe7f1e6c46201b16dfddc7973b8fc2184c34aa9987"
+    },
+    "flora_autumn": {
+      "entries": 4,
+      "unique": 3,
+      "bytes": 1294,
+      "sha256": "5b282ca1101484c7f482ece0b4e2c1b2523f881f1f2fa8479cbaec6ec9ad899c"
+    },
+    "flora_winter": {
+      "entries": 4,
+      "unique": 3,
+      "bytes": 1272,
+      "sha256": "e9ce782dae52f2cc5467a42d79bd2d0f888624a0e70bc8167afa9214fd02b117"
     },
     "forest_autumn": {
       "entries": 858,

@@ -5,11 +5,12 @@
   "grounds": [
     {
       "asset": "no_name_village_spring",
-      "sha256": "6f93bf87c22c22212c7ccd4be064efdf177f0459387cbd209e3205496a88df07",
+      "sha256": "9d571741bea1040f57251443a7bd2cc19b7c56eb2f400c36d4f1e91824995e07",
       "sheets": [
         "Apple Woods Entrance Layer 1",
         "ForestCamp",
         "No_Name_Village_Buildings",
+        "No_Name_Village_Flora_Spring",
         "No_Name_Village_Standalone_Tree_Spring"
       ],
       "actors": 7,
@@ -19,11 +20,12 @@
     },
     {
       "asset": "no_name_village_summer",
-      "sha256": "7ea6aa872747a8bd9ea6aa7a2188f5994583e75bda845a6fb075c8da6c8b8397",
+      "sha256": "5aa19d1fcedd8f7c4a888f52ccaa99f12e70cef4c825c95cd28b5423031d6486",
       "sheets": [
         "Apple Woods Entrance Layer 1",
         "ForestCamp",
         "No_Name_Village_Buildings",
+        "No_Name_Village_Flora_Summer",
         "No_Name_Village_Standalone_Tree_Summer"
       ],
       "actors": 7,
@@ -33,11 +35,12 @@
     },
     {
       "asset": "no_name_village_autumn",
-      "sha256": "c2beb947966a9127291fcb22c3076f17d6ee5117cb2d557e501c7b0854447b11",
+      "sha256": "d678d74c7029427f5ed74d9f344f9233691a4490e769d1f4161105ef7c63a443",
       "sheets": [
         "Apple Woods Entrance Layer 1",
         "ForestCamp",
         "No_Name_Village_Buildings_Autumn",
+        "No_Name_Village_Flora_Autumn",
         "No_Name_Village_Forest_Autumn",
         "No_Name_Village_Standalone_Tree_Autumn"
       ],
@@ -48,9 +51,10 @@
     },
     {
       "asset": "no_name_village_winter",
-      "sha256": "e1a838029979ed91055ed8060e037a2a6049422fa629baee72caca27f919b766",
+      "sha256": "8050ad9f3578718e83b440431aa16a94b81cac426e93a380420a805c144babbc",
       "sheets": [
         "No_Name_Village_Buildings_Winter",
+        "No_Name_Village_Flora_Winter",
         "No_Name_Village_Forest_Winter",
         "No_Name_Village_Standalone_Tree_Winter",
         "SnowCamp"
@@ -95,7 +99,7 @@
       ]
     }
   ],
-  "tile_index_entries": 744,
+  "tile_index_entries": 748,
   "scripts_checked": 12,
   "human_entities": 0,
   "missingno": 0,

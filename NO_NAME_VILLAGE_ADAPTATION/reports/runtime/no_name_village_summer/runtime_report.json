@@ -9,7 +9,7 @@
   },
   "candidate": {
     "asset": "no_name_village_summer",
-    "ground_sha256": "7ea6aa872747a8bd9ea6aa7a2188f5994583e75bda845a6fb075c8da6c8b8397"
+    "ground_sha256": "5aa19d1fcedd8f7c4a888f52ccaa99f12e70cef4c825c95cd28b5423031d6486"
   },
   "runtime_probes": {
     "event": "result",
@@ -30,17 +30,17 @@
       "label": "spawn",
       "tick": 0,
       "file": "/home/user/new-era-abyss-to-ascension-V4/NO_NAME_VILLAGE_ADAPTATION/reports/runtime/no_name_village_summer/spawn_tick_000.png",
-      "sha256": "90407ba7d0f3c25f8cce8a82ab6581b1c3d4b8f2dbf4466763b98748318b95c2",
+      "sha256": "fc3f8002b63134f984265cea204dae79858bdf75538f3a8ba9a73ef40da0e7e6",
       "uniform_dark_walkable_cells": []
     },
     {
       "label": "spawn",
       "tick": 15,
       "file": "/home/user/new-era-abyss-to-ascension-V4/NO_NAME_VILLAGE_ADAPTATION/reports/runtime/no_name_village_summer/spawn_tick_015.png",
-      "sha256": "90407ba7d0f3c25f8cce8a82ab6581b1c3d4b8f2dbf4466763b98748318b95c2",
+      "sha256": "0bb166a293afe7261b10ecbef5bb42579e6b10861f45bc5156fb6cf200f5052a",
       "uniform_dark_walkable_cells": []
     }
   ],
-  "fixture_manifest_sha256": "11f2b6f1cd37fcb99118dd49fc5bd3ead50dda792f673662bfdc39b3beb72639",
+  "fixture_manifest_sha256": "cc1fee5e94483fda459d5bc5f289988c51fac50bcc869f5b6212c3144283dd7a",
   "fixture_entity_isolation": "Ignored fixture only; actors/triggers removed to isolate BMA movement. Candidate hash is unchanged."
 }
