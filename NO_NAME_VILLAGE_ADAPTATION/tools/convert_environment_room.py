@@ -493,7 +493,7 @@ def convert(repo: Path, room_name: str, season: str, extracted: Path, texture_ca
                     object_index = ref_index(placement.get("ObjectDefinition"))
                     if object_index is None: continue
                     obj = objects[object_index]; object_name = obj["Name"]
-                    if object_name.startswith(("objmob", "objbmob")) or object_name in {"objlogger", "objhunter", "objcarpenter", "objherbalist", "objseamstress", "objplayer", "objfollower"}:
+                    if object_name.startswith(("objmob", "objbmob")) or object_name in {"objlogger", "objhunter", "objcarpenter", "objherbalist", "objseamstress", "objplayer", "objfollower", "objbird0", "objbutterfly1"}:
                         continue
                     mapping = object_correspondence.get(object_name)
                     replacement = mapping.get(season) if mapping is not None else object_name

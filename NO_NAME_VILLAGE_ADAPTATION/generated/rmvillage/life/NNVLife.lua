@@ -12,7 +12,10 @@ Life.SOCIAL={
  NNV_Herbalist={role='herboriste',lines={"Les plantes du sous-bois suffisent à soigner bien des blessures.","Certaines feuilles ne se récoltent qu'au lever du jour."}},
  NNV_Seamstress={role='couturière',lines={"Je répare les sacs avec des fibres de la forêt.","Le fil végétal résiste mieux quand l'air est humide."}},
 }
+local function numbered(prefix,count)local result={} for index=1,count do result[#result+1]=prefix..tostring(index) end return result end
 Life.GROUPS={
+ source_birds={names=numbered('NNV_SourceBird_',12),behavior='flying_social',radius=320},
+ source_butterflies={names=numbered('NNV_SourceButterfly_',19),behavior='flying_social',radius=240},
  flock={names={'NNV_Wild_Fletchling_1','NNV_Wild_Fletchling_2'},behavior='timid',radius=96},
  colony_scatterbug={names={'NNV_Wild_Scatterbug_1','NNV_Wild_Scatterbug_2','NNV_Wild_Scatterbug_3'},behavior='timid',radius=72},
  colony_caterpie={names={'NNV_Wild_Caterpie_1','NNV_Wild_Caterpie_2'},behavior='timid',radius=72},
@@ -54,7 +57,7 @@ end
 function Life.Talk(name)local cfg=Life.SOCIAL[name];local ch=CH(name);if not cfg or not ch then return false end;UI:SetSpeaker(ch);UI:WaitShowDialogue(cfg.lines[(TownLife.Today()%#cfg.lines)+1]);return true end
 function Life.WildTalk(name)
  local ch=CH(name);if not ch then return false end;local text="Le Pokémon sauvage vous observe, puis reprend son activité."
- for _,group in pairs(Life.GROUPS) do for _,member in ipairs(group.names) do if member==name then if group.behavior=='timid' then text="Le Pokémon sauvage recule et cherche son groupe." elseif group.behavior=='territorial' then text="Le Pokémon sauvage garde sa position et vous surveille." elseif group.behavior=='nocturnal' then text="Le Pokémon sauvage remue doucement parmi les herbes." end end end end
+ for _,group in pairs(Life.GROUPS) do for _,member in ipairs(group.names) do if member==name then if group.behavior=='timid' then text="Le Pokémon sauvage recule et cherche son groupe." elseif group.behavior=='territorial' then text="Le Pokémon sauvage garde sa position et vous surveille." elseif group.behavior=='nocturnal' then text="Le Pokémon sauvage remue doucement parmi les herbes." elseif group.behavior=='flying_social' then text="Le Pokémon volant décrit un cercle avant de rejoindre les siens." end end end end
  UI:SetSpeaker(ch);UI:WaitShowDialogue(text);return true
 end
 return Life

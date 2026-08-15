@@ -1,7 +1,9 @@
 {
   "base_ground_sha256": "849d2cfa40d291f0996a980dfbcf8eef1251c4c9c98db03d5e5e63ac8a1f7fb2",
   "blockers": [
+    "four seasonal visual bundles must be regenerated after excluding objbird0/objbutterfly1 source sprites",
     "entities not merged into four seasonal runtime fixtures",
+    "canonical four-value NNV time system and lighting/audio controllers are not mapped to New Era day/evening/night",
     "social routines/interactions not runtime tested",
     "wild entities are ambient layer only; source-wide encounter system not implemented",
     "rm82 nest ecology remains separate"
@@ -1831,13 +1833,3145 @@
         "Y": 2304
       },
       "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 2320,
+        "Y": 4296
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "vivillon"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Prismillon",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_butterflies",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 1
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceButterfly_1",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 2320,
+        "Y": 4296
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 2384,
+        "Y": 4224
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "vivillon"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Prismillon",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_butterflies",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 2
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceButterfly_2",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 2384,
+        "Y": 4224
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 1784,
+        "Y": 4952
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "vivillon"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Prismillon",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_butterflies",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 3
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceButterfly_3",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 1784,
+        "Y": 4952
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 1888,
+        "Y": 4896
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "vivillon"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Prismillon",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_butterflies",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 4
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceButterfly_4",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 1888,
+        "Y": 4896
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 3104,
+        "Y": 3880
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "vivillon"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Prismillon",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_butterflies",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 5
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceButterfly_5",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 3104,
+        "Y": 3880
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 3248,
+        "Y": 3864
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "vivillon"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Prismillon",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_butterflies",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 6
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceButterfly_6",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 3248,
+        "Y": 3864
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 4400,
+        "Y": 4392
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "vivillon"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Prismillon",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_butterflies",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 7
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceButterfly_7",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 4400,
+        "Y": 4392
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 4456,
+        "Y": 4488
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "vivillon"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Prismillon",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_butterflies",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 8
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceButterfly_8",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 4456,
+        "Y": 4488
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 4256,
+        "Y": 3912
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "vivillon"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Prismillon",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_butterflies",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 9
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceButterfly_9",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 4256,
+        "Y": 3912
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 3472,
+        "Y": 1872
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "vivillon"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Prismillon",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_butterflies",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 10
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceButterfly_10",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 3472,
+        "Y": 1872
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 1800,
+        "Y": 2728
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "vivillon"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Prismillon",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_butterflies",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 11
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceButterfly_11",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 1800,
+        "Y": 2728
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 2560,
+        "Y": 1480
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "vivillon"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Prismillon",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_butterflies",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 12
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceButterfly_12",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 2560,
+        "Y": 1480
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 2496,
+        "Y": 1440
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "vivillon"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Prismillon",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_butterflies",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 13
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceButterfly_13",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 2496,
+        "Y": 1440
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 3192,
+        "Y": 936
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "vivillon"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Prismillon",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_butterflies",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 14
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceButterfly_14",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 3192,
+        "Y": 936
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 3328,
+        "Y": 912
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "vivillon"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Prismillon",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_butterflies",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 15
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceButterfly_15",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 3328,
+        "Y": 912
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 3280,
+        "Y": 1008
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "vivillon"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Prismillon",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_butterflies",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 16
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceButterfly_16",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 3280,
+        "Y": 1008
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 3192,
+        "Y": 208
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "vivillon"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Prismillon",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_butterflies",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 17
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceButterfly_17",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 3192,
+        "Y": 208
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 1088,
+        "Y": 872
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "vivillon"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Prismillon",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_butterflies",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 18
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceButterfly_18",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 1088,
+        "Y": 872
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 1024,
+        "Y": 928
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "vivillon"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Prismillon",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_butterflies",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 19
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceButterfly_19",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 1024,
+        "Y": 928
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 1232,
+        "Y": 1040
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "fletchling"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Passerouge",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_birds",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 1
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceBird_1",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 1232,
+        "Y": 1040
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 1584,
+        "Y": 2656
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "fletchling"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Passerouge",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_birds",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 2
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceBird_2",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 1584,
+        "Y": 2656
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 1472,
+        "Y": 2624
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "fletchling"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Passerouge",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_birds",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 3
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceBird_3",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 1472,
+        "Y": 2624
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 1960,
+        "Y": 4648
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "fletchling"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Passerouge",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_birds",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 4
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceBird_4",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 1960,
+        "Y": 4648
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 4280,
+        "Y": 4328
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "fletchling"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Passerouge",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_birds",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 5
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceBird_5",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 4280,
+        "Y": 4328
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 4448,
+        "Y": 4344
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "fletchling"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Passerouge",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_birds",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 6
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceBird_6",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 4448,
+        "Y": 4344
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 4416,
+        "Y": 4480
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "fletchling"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Passerouge",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_birds",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 7
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceBird_7",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 4416,
+        "Y": 4480
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 4376,
+        "Y": 4288
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "fletchling"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Passerouge",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_birds",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 8
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceBird_8",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 4376,
+        "Y": 4288
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 4344,
+        "Y": 4368
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "fletchling"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Passerouge",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_birds",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 9
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceBird_9",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 4344,
+        "Y": 4368
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 3480,
+        "Y": 1496
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "fletchling"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Passerouge",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_birds",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 10
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceBird_10",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 3480,
+        "Y": 1496
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 3680,
+        "Y": 1568
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "fletchling"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Passerouge",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_birds",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 11
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceBird_11",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 3680,
+        "Y": 1568
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 3608,
+        "Y": 1296
+      },
+      "CollisionDisabled": true,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "fletchling"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Passerouge",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "flying_social",
+          "nnv_group": "source_birds",
+          "nnv_kind": "wild:flying_social",
+          "nnv_member_index": 12
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_SourceBird_12",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 3608,
+        "Y": 1296
+      },
+      "triggerType": 1
     }
   ],
-  "entity_count": 18,
+  "entity_count": 49,
   "evidence": [
     {
       "behavior": null,
       "entity": "NNV_Carpenter",
+      "flying": false,
       "group": null,
       "kind": "social:carpenter",
       "member_index": null,
@@ -1860,6 +4994,7 @@
     {
       "behavior": null,
       "entity": "NNV_Logger",
+      "flying": false,
       "group": null,
       "kind": "social:logger",
       "member_index": null,
@@ -1882,6 +5017,7 @@
     {
       "behavior": null,
       "entity": "NNV_Hunter",
+      "flying": false,
       "group": null,
       "kind": "social:hunter",
       "member_index": null,
@@ -1904,6 +5040,7 @@
     {
       "behavior": null,
       "entity": "NNV_Herbalist",
+      "flying": false,
       "group": null,
       "kind": "social:herbalist",
       "member_index": null,
@@ -1926,6 +5063,7 @@
     {
       "behavior": null,
       "entity": "NNV_Seamstress",
+      "flying": false,
       "group": null,
       "kind": "social:seamstress",
       "member_index": null,
@@ -1948,6 +5086,7 @@
     {
       "behavior": "timid",
       "entity": "NNV_Wild_Fletchling_1",
+      "flying": false,
       "group": "flock",
       "kind": "wild:timid",
       "member_index": 1,
@@ -1970,6 +5109,7 @@
     {
       "behavior": "timid",
       "entity": "NNV_Wild_Fletchling_2",
+      "flying": false,
       "group": "flock",
       "kind": "wild:timid",
       "member_index": 2,
@@ -1992,6 +5132,7 @@
     {
       "behavior": "timid",
       "entity": "NNV_Wild_Scatterbug_1",
+      "flying": false,
       "group": "colony",
       "kind": "wild:timid",
       "member_index": 1,
@@ -2014,6 +5155,7 @@
     {
       "behavior": "timid",
       "entity": "NNV_Wild_Scatterbug_2",
+      "flying": false,
       "group": "colony",
       "kind": "wild:timid",
       "member_index": 2,
@@ -2036,6 +5178,7 @@
     {
       "behavior": "timid",
       "entity": "NNV_Wild_Scatterbug_3",
+      "flying": false,
       "group": "colony",
       "kind": "wild:timid",
       "member_index": 3,
@@ -2058,6 +5201,7 @@
     {
       "behavior": "timid",
       "entity": "NNV_Wild_Caterpie_1",
+      "flying": false,
       "group": "colony",
       "kind": "wild:timid",
       "member_index": 1,
@@ -2080,6 +5224,7 @@
     {
       "behavior": "timid",
       "entity": "NNV_Wild_Caterpie_2",
+      "flying": false,
       "group": "colony",
       "kind": "wild:timid",
       "member_index": 2,
@@ -2102,6 +5247,7 @@
     {
       "behavior": "social",
       "entity": "NNV_Wild_Hoppip_1",
+      "flying": false,
       "group": "drift",
       "kind": "wild:social",
       "member_index": 1,
@@ -2124,6 +5270,7 @@
     {
       "behavior": "social",
       "entity": "NNV_Wild_Hoppip_2",
+      "flying": false,
       "group": "drift",
       "kind": "wild:social",
       "member_index": 2,
@@ -2146,6 +5293,7 @@
     {
       "behavior": "social",
       "entity": "NNV_Wild_Hoppip_3",
+      "flying": false,
       "group": "drift",
       "kind": "wild:social",
       "member_index": 3,
@@ -2168,6 +5316,7 @@
     {
       "behavior": "nocturnal",
       "entity": "NNV_Wild_Oddish_1",
+      "flying": false,
       "group": "patch",
       "kind": "wild:nocturnal",
       "member_index": 1,
@@ -2190,6 +5339,7 @@
     {
       "behavior": "nocturnal",
       "entity": "NNV_Wild_Oddish_2",
+      "flying": false,
       "group": "patch",
       "kind": "wild:nocturnal",
       "member_index": 2,
@@ -2212,6 +5362,7 @@
     {
       "behavior": "territorial",
       "entity": "NNV_Wild_Deerling_1",
+      "flying": false,
       "group": "territory",
       "kind": "wild:territorial",
       "member_index": 1,
@@ -2230,6 +5381,750 @@
       },
       "species": "deerling",
       "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceButterfly_1",
+      "flying": true,
+      "group": "source_butterflies",
+      "kind": "wild:flying_social",
+      "member_index": 1,
+      "position": [
+        2320,
+        4296
+      ],
+      "rationale": "Conversion 1:1 d’un papillon source en Pokémon lépidoptère natif; position aérienne exacte conservée.",
+      "requested": [
+        2324,
+        4300
+      ],
+      "source_anchor": {
+        "instance_id": 106515,
+        "source_object": "objbutterfly1",
+        "type": "source_animal_instance"
+      },
+      "species": "vivillon",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceButterfly_2",
+      "flying": true,
+      "group": "source_butterflies",
+      "kind": "wild:flying_social",
+      "member_index": 2,
+      "position": [
+        2384,
+        4224
+      ],
+      "rationale": "Conversion 1:1 d’un papillon source en Pokémon lépidoptère natif; position aérienne exacte conservée.",
+      "requested": [
+        2384,
+        4224
+      ],
+      "source_anchor": {
+        "instance_id": 106516,
+        "source_object": "objbutterfly1",
+        "type": "source_animal_instance"
+      },
+      "species": "vivillon",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceButterfly_3",
+      "flying": true,
+      "group": "source_butterflies",
+      "kind": "wild:flying_social",
+      "member_index": 3,
+      "position": [
+        1784,
+        4952
+      ],
+      "rationale": "Conversion 1:1 d’un papillon source en Pokémon lépidoptère natif; position aérienne exacte conservée.",
+      "requested": [
+        1784,
+        4956
+      ],
+      "source_anchor": {
+        "instance_id": 106517,
+        "source_object": "objbutterfly1",
+        "type": "source_animal_instance"
+      },
+      "species": "vivillon",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceButterfly_4",
+      "flying": true,
+      "group": "source_butterflies",
+      "kind": "wild:flying_social",
+      "member_index": 4,
+      "position": [
+        1888,
+        4896
+      ],
+      "rationale": "Conversion 1:1 d’un papillon source en Pokémon lépidoptère natif; position aérienne exacte conservée.",
+      "requested": [
+        1888,
+        4900
+      ],
+      "source_anchor": {
+        "instance_id": 106518,
+        "source_object": "objbutterfly1",
+        "type": "source_animal_instance"
+      },
+      "species": "vivillon",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceButterfly_5",
+      "flying": true,
+      "group": "source_butterflies",
+      "kind": "wild:flying_social",
+      "member_index": 5,
+      "position": [
+        3104,
+        3880
+      ],
+      "rationale": "Conversion 1:1 d’un papillon source en Pokémon lépidoptère natif; position aérienne exacte conservée.",
+      "requested": [
+        3108,
+        3880
+      ],
+      "source_anchor": {
+        "instance_id": 106519,
+        "source_object": "objbutterfly1",
+        "type": "source_animal_instance"
+      },
+      "species": "vivillon",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceButterfly_6",
+      "flying": true,
+      "group": "source_butterflies",
+      "kind": "wild:flying_social",
+      "member_index": 6,
+      "position": [
+        3248,
+        3864
+      ],
+      "rationale": "Conversion 1:1 d’un papillon source en Pokémon lépidoptère natif; position aérienne exacte conservée.",
+      "requested": [
+        3252,
+        3868
+      ],
+      "source_anchor": {
+        "instance_id": 106520,
+        "source_object": "objbutterfly1",
+        "type": "source_animal_instance"
+      },
+      "species": "vivillon",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceButterfly_7",
+      "flying": true,
+      "group": "source_butterflies",
+      "kind": "wild:flying_social",
+      "member_index": 7,
+      "position": [
+        4400,
+        4392
+      ],
+      "rationale": "Conversion 1:1 d’un papillon source en Pokémon lépidoptère natif; position aérienne exacte conservée.",
+      "requested": [
+        4404,
+        4392
+      ],
+      "source_anchor": {
+        "instance_id": 106521,
+        "source_object": "objbutterfly1",
+        "type": "source_animal_instance"
+      },
+      "species": "vivillon",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceButterfly_8",
+      "flying": true,
+      "group": "source_butterflies",
+      "kind": "wild:flying_social",
+      "member_index": 8,
+      "position": [
+        4456,
+        4488
+      ],
+      "rationale": "Conversion 1:1 d’un papillon source en Pokémon lépidoptère natif; position aérienne exacte conservée.",
+      "requested": [
+        4456,
+        4492
+      ],
+      "source_anchor": {
+        "instance_id": 106522,
+        "source_object": "objbutterfly1",
+        "type": "source_animal_instance"
+      },
+      "species": "vivillon",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceButterfly_9",
+      "flying": true,
+      "group": "source_butterflies",
+      "kind": "wild:flying_social",
+      "member_index": 9,
+      "position": [
+        4256,
+        3912
+      ],
+      "rationale": "Conversion 1:1 d’un papillon source en Pokémon lépidoptère natif; position aérienne exacte conservée.",
+      "requested": [
+        4256,
+        3916
+      ],
+      "source_anchor": {
+        "instance_id": 106523,
+        "source_object": "objbutterfly1",
+        "type": "source_animal_instance"
+      },
+      "species": "vivillon",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceButterfly_10",
+      "flying": true,
+      "group": "source_butterflies",
+      "kind": "wild:flying_social",
+      "member_index": 10,
+      "position": [
+        3472,
+        1872
+      ],
+      "rationale": "Conversion 1:1 d’un papillon source en Pokémon lépidoptère natif; position aérienne exacte conservée.",
+      "requested": [
+        3472,
+        1876
+      ],
+      "source_anchor": {
+        "instance_id": 106524,
+        "source_object": "objbutterfly1",
+        "type": "source_animal_instance"
+      },
+      "species": "vivillon",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceButterfly_11",
+      "flying": true,
+      "group": "source_butterflies",
+      "kind": "wild:flying_social",
+      "member_index": 11,
+      "position": [
+        1800,
+        2728
+      ],
+      "rationale": "Conversion 1:1 d’un papillon source en Pokémon lépidoptère natif; position aérienne exacte conservée.",
+      "requested": [
+        1804,
+        2728
+      ],
+      "source_anchor": {
+        "instance_id": 106525,
+        "source_object": "objbutterfly1",
+        "type": "source_animal_instance"
+      },
+      "species": "vivillon",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceButterfly_12",
+      "flying": true,
+      "group": "source_butterflies",
+      "kind": "wild:flying_social",
+      "member_index": 12,
+      "position": [
+        2560,
+        1480
+      ],
+      "rationale": "Conversion 1:1 d’un papillon source en Pokémon lépidoptère natif; position aérienne exacte conservée.",
+      "requested": [
+        2564,
+        1484
+      ],
+      "source_anchor": {
+        "instance_id": 106526,
+        "source_object": "objbutterfly1",
+        "type": "source_animal_instance"
+      },
+      "species": "vivillon",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceButterfly_13",
+      "flying": true,
+      "group": "source_butterflies",
+      "kind": "wild:flying_social",
+      "member_index": 13,
+      "position": [
+        2496,
+        1440
+      ],
+      "rationale": "Conversion 1:1 d’un papillon source en Pokémon lépidoptère natif; position aérienne exacte conservée.",
+      "requested": [
+        2496,
+        1444
+      ],
+      "source_anchor": {
+        "instance_id": 106527,
+        "source_object": "objbutterfly1",
+        "type": "source_animal_instance"
+      },
+      "species": "vivillon",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceButterfly_14",
+      "flying": true,
+      "group": "source_butterflies",
+      "kind": "wild:flying_social",
+      "member_index": 14,
+      "position": [
+        3192,
+        936
+      ],
+      "rationale": "Conversion 1:1 d’un papillon source en Pokémon lépidoptère natif; position aérienne exacte conservée.",
+      "requested": [
+        3192,
+        940
+      ],
+      "source_anchor": {
+        "instance_id": 106528,
+        "source_object": "objbutterfly1",
+        "type": "source_animal_instance"
+      },
+      "species": "vivillon",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceButterfly_15",
+      "flying": true,
+      "group": "source_butterflies",
+      "kind": "wild:flying_social",
+      "member_index": 15,
+      "position": [
+        3328,
+        912
+      ],
+      "rationale": "Conversion 1:1 d’un papillon source en Pokémon lépidoptère natif; position aérienne exacte conservée.",
+      "requested": [
+        3332,
+        916
+      ],
+      "source_anchor": {
+        "instance_id": 106529,
+        "source_object": "objbutterfly1",
+        "type": "source_animal_instance"
+      },
+      "species": "vivillon",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceButterfly_16",
+      "flying": true,
+      "group": "source_butterflies",
+      "kind": "wild:flying_social",
+      "member_index": 16,
+      "position": [
+        3280,
+        1008
+      ],
+      "rationale": "Conversion 1:1 d’un papillon source en Pokémon lépidoptère natif; position aérienne exacte conservée.",
+      "requested": [
+        3280,
+        1012
+      ],
+      "source_anchor": {
+        "instance_id": 106530,
+        "source_object": "objbutterfly1",
+        "type": "source_animal_instance"
+      },
+      "species": "vivillon",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceButterfly_17",
+      "flying": true,
+      "group": "source_butterflies",
+      "kind": "wild:flying_social",
+      "member_index": 17,
+      "position": [
+        3192,
+        208
+      ],
+      "rationale": "Conversion 1:1 d’un papillon source en Pokémon lépidoptère natif; position aérienne exacte conservée.",
+      "requested": [
+        3192,
+        208
+      ],
+      "source_anchor": {
+        "instance_id": 106531,
+        "source_object": "objbutterfly1",
+        "type": "source_animal_instance"
+      },
+      "species": "vivillon",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceButterfly_18",
+      "flying": true,
+      "group": "source_butterflies",
+      "kind": "wild:flying_social",
+      "member_index": 18,
+      "position": [
+        1088,
+        872
+      ],
+      "rationale": "Conversion 1:1 d’un papillon source en Pokémon lépidoptère natif; position aérienne exacte conservée.",
+      "requested": [
+        1088,
+        876
+      ],
+      "source_anchor": {
+        "instance_id": 106532,
+        "source_object": "objbutterfly1",
+        "type": "source_animal_instance"
+      },
+      "species": "vivillon",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceButterfly_19",
+      "flying": true,
+      "group": "source_butterflies",
+      "kind": "wild:flying_social",
+      "member_index": 19,
+      "position": [
+        1024,
+        928
+      ],
+      "rationale": "Conversion 1:1 d’un papillon source en Pokémon lépidoptère natif; position aérienne exacte conservée.",
+      "requested": [
+        1028,
+        932
+      ],
+      "source_anchor": {
+        "instance_id": 106533,
+        "source_object": "objbutterfly1",
+        "type": "source_animal_instance"
+      },
+      "species": "vivillon",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceBird_1",
+      "flying": true,
+      "group": "source_birds",
+      "kind": "wild:flying_social",
+      "member_index": 1,
+      "position": [
+        1232,
+        1040
+      ],
+      "rationale": "Conversion 1:1 d’un oiseau source en Pokémon aviaire natif; position aérienne exacte conservée.",
+      "requested": [
+        1236,
+        1040
+      ],
+      "source_anchor": {
+        "instance_id": 106534,
+        "source_object": "objbird0",
+        "type": "source_animal_instance"
+      },
+      "species": "fletchling",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceBird_2",
+      "flying": true,
+      "group": "source_birds",
+      "kind": "wild:flying_social",
+      "member_index": 2,
+      "position": [
+        1584,
+        2656
+      ],
+      "rationale": "Conversion 1:1 d’un oiseau source en Pokémon aviaire natif; position aérienne exacte conservée.",
+      "requested": [
+        1584,
+        2656
+      ],
+      "source_anchor": {
+        "instance_id": 106535,
+        "source_object": "objbird0",
+        "type": "source_animal_instance"
+      },
+      "species": "fletchling",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceBird_3",
+      "flying": true,
+      "group": "source_birds",
+      "kind": "wild:flying_social",
+      "member_index": 3,
+      "position": [
+        1472,
+        2624
+      ],
+      "rationale": "Conversion 1:1 d’un oiseau source en Pokémon aviaire natif; position aérienne exacte conservée.",
+      "requested": [
+        1472,
+        2628
+      ],
+      "source_anchor": {
+        "instance_id": 106536,
+        "source_object": "objbird0",
+        "type": "source_animal_instance"
+      },
+      "species": "fletchling",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceBird_4",
+      "flying": true,
+      "group": "source_birds",
+      "kind": "wild:flying_social",
+      "member_index": 4,
+      "position": [
+        1960,
+        4648
+      ],
+      "rationale": "Conversion 1:1 d’un oiseau source en Pokémon aviaire natif; position aérienne exacte conservée.",
+      "requested": [
+        1960,
+        4652
+      ],
+      "source_anchor": {
+        "instance_id": 106537,
+        "source_object": "objbird0",
+        "type": "source_animal_instance"
+      },
+      "species": "fletchling",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceBird_5",
+      "flying": true,
+      "group": "source_birds",
+      "kind": "wild:flying_social",
+      "member_index": 5,
+      "position": [
+        4280,
+        4328
+      ],
+      "rationale": "Conversion 1:1 d’un oiseau source en Pokémon aviaire natif; position aérienne exacte conservée.",
+      "requested": [
+        4280,
+        4332
+      ],
+      "source_anchor": {
+        "instance_id": 106538,
+        "source_object": "objbird0",
+        "type": "source_animal_instance"
+      },
+      "species": "fletchling",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceBird_6",
+      "flying": true,
+      "group": "source_birds",
+      "kind": "wild:flying_social",
+      "member_index": 6,
+      "position": [
+        4448,
+        4344
+      ],
+      "rationale": "Conversion 1:1 d’un oiseau source en Pokémon aviaire natif; position aérienne exacte conservée.",
+      "requested": [
+        4448,
+        4348
+      ],
+      "source_anchor": {
+        "instance_id": 106539,
+        "source_object": "objbird0",
+        "type": "source_animal_instance"
+      },
+      "species": "fletchling",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceBird_7",
+      "flying": true,
+      "group": "source_birds",
+      "kind": "wild:flying_social",
+      "member_index": 7,
+      "position": [
+        4416,
+        4480
+      ],
+      "rationale": "Conversion 1:1 d’un oiseau source en Pokémon aviaire natif; position aérienne exacte conservée.",
+      "requested": [
+        4420,
+        4480
+      ],
+      "source_anchor": {
+        "instance_id": 106540,
+        "source_object": "objbird0",
+        "type": "source_animal_instance"
+      },
+      "species": "fletchling",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceBird_8",
+      "flying": true,
+      "group": "source_birds",
+      "kind": "wild:flying_social",
+      "member_index": 8,
+      "position": [
+        4376,
+        4288
+      ],
+      "rationale": "Conversion 1:1 d’un oiseau source en Pokémon aviaire natif; position aérienne exacte conservée.",
+      "requested": [
+        4376,
+        4292
+      ],
+      "source_anchor": {
+        "instance_id": 106541,
+        "source_object": "objbird0",
+        "type": "source_animal_instance"
+      },
+      "species": "fletchling",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceBird_9",
+      "flying": true,
+      "group": "source_birds",
+      "kind": "wild:flying_social",
+      "member_index": 9,
+      "position": [
+        4344,
+        4368
+      ],
+      "rationale": "Conversion 1:1 d’un oiseau source en Pokémon aviaire natif; position aérienne exacte conservée.",
+      "requested": [
+        4344,
+        4372
+      ],
+      "source_anchor": {
+        "instance_id": 106542,
+        "source_object": "objbird0",
+        "type": "source_animal_instance"
+      },
+      "species": "fletchling",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceBird_10",
+      "flying": true,
+      "group": "source_birds",
+      "kind": "wild:flying_social",
+      "member_index": 10,
+      "position": [
+        3480,
+        1496
+      ],
+      "rationale": "Conversion 1:1 d’un oiseau source en Pokémon aviaire natif; position aérienne exacte conservée.",
+      "requested": [
+        3484,
+        1496
+      ],
+      "source_anchor": {
+        "instance_id": 106543,
+        "source_object": "objbird0",
+        "type": "source_animal_instance"
+      },
+      "species": "fletchling",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceBird_11",
+      "flying": true,
+      "group": "source_birds",
+      "kind": "wild:flying_social",
+      "member_index": 11,
+      "position": [
+        3680,
+        1568
+      ],
+      "rationale": "Conversion 1:1 d’un oiseau source en Pokémon aviaire natif; position aérienne exacte conservée.",
+      "requested": [
+        3680,
+        1572
+      ],
+      "source_anchor": {
+        "instance_id": 106544,
+        "source_object": "objbird0",
+        "type": "source_animal_instance"
+      },
+      "species": "fletchling",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "flying_social",
+      "entity": "NNV_SourceBird_12",
+      "flying": true,
+      "group": "source_birds",
+      "kind": "wild:flying_social",
+      "member_index": 12,
+      "position": [
+        3608,
+        1296
+      ],
+      "rationale": "Conversion 1:1 d’un oiseau source en Pokémon aviaire natif; position aérienne exacte conservée.",
+      "requested": [
+        3608,
+        1296
+      ],
+      "source_anchor": {
+        "instance_id": 106545,
+        "source_object": "objbird0",
+        "type": "source_animal_instance"
+      },
+      "species": "fletchling",
+      "walkability_adjustment_px": 0
     }
   ],
   "ground_script": "init.lua",
@@ -2239,10 +6134,13 @@
   "runtime_status": "NOT_RUN",
   "schema": "new-era.nnv-rmvillage-pokemon-life-patch.v2",
   "script": "NNVLife.lua",
-  "script_sha256": "64356dadcb36330505ee92716bc923a4e254dfb87df915c56a154d8852219c31",
-  "semantic_sha256": "7671674994484f718f17c2e20c721ecd87161431d59a99465427974d5350eba1",
+  "script_sha256": "df79555167a9f58488b88fc76cd1f28dd564b4bebd7f024180d96d7bf72af627",
+  "semantic_sha256": "f606dbd502dc5fbcee04f16185c39d6bc61153f45a81670eb489cee2904d7f76",
   "social_count": 5,
+  "source_animal_count": 31,
+  "source_bird_count": 12,
+  "source_butterfly_count": 19,
   "status": "LIFE_PATCH_GENERATED",
-  "wild_count": 13,
-  "wild_group_count": 6
+  "wild_count": 44,
+  "wild_group_count": 8
 }

@@ -126,9 +126,10 @@ Le garde refuse toute dérive des 24 preuves, toute élévation de statut et tou
 perte des probes, captures animées ou de la terminaison native.
 
 La couche de vie Pokémon sous `generated/rmvillage/life/` contient cinq métiers
-(Timburr, Bidoof, Archéduc, Rosélia, Manternel) et treize `MapChar` sauvages
-indépendants répartis en six groupes écologiques : volée, colonies, dérive,
-plaque nocturne et territoire solitaire. Les positions partent des six spawn
+(Timburr, Bidoof, Archéduc, Rosélia, Manternel) et quarante-quatre `MapChar` sauvages indépendants répartis en huit groupes
+écologiques. Les 12 `objbird0` et 19 `objbutterfly1` de la source sont tous
+convertis individuellement en Passerouge et Prismillon aux coordonnées source
+exactes, en plus des groupes ambiants de clairière. Les positions partent des six spawn
 points source et ne sont corrigées que vers la case marchable la plus proche.
 `NNVLife.lua` réutilise les systèmes New Era, l'AI native, l'errance bornée,
 le regroupement, la fuite, la vigilance territoriale et la présence jour/nuit.
