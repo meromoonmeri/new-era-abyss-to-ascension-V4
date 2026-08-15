@@ -101,6 +101,18 @@ class EnvironmentConversionTests(unittest.TestCase):
   for season in ("printemps","ete","automne","hiver"):self.assertIn(season,text)
   self.assertIn("error('unsupported canonical NNV season",text);self.assertNotIn("or 'nnv_rmvillage_summer'",text)
 
+ def test_native_pokemon_life_patch_is_deterministic_and_not_promoted(self):
+  root=VILLAGE/'life';patch=json.loads((root/'entities_patch.json').read_text())
+  self.assertEqual(patch['status'],'LIFE_PATCH_GENERATED');self.assertEqual(patch['runtime_status'],'NOT_RUN')
+  self.assertEqual(patch['conversion_status'],'UNIMPLEMENTED');self.assertEqual(patch['certification_status'],'NOT_CERTIFIED');self.assertFalse(patch['promotion_allowed'])
+  self.assertEqual(patch['entity_count'],11);self.assertEqual(patch['social_count'],5);self.assertEqual(patch['wild_count'],6)
+  species={row['species'] for row in patch['evidence']};self.assertEqual(species,{'timburr','bidoof','decidueye','roselia','leavanny','fletchling','scatterbug','caterpie','hoppip','oddish','deerling'})
+  self.assertTrue(all(row['rationale'] and row['position'][0]>=0 and row['position'][1]>=0 for row in patch['evidence']))
+  self.assertEqual(sha(root/patch['script']),patch['script_sha256'])
+  script=(root/patch['script']).read_text()
+  for module in ('LivingWorld','TownLife','TownPlace','TownNight'):self.assertIn("require 'halcyon."+module+"'",script)
+  self.assertIn("halcyon.ai.ground_default",script)
+
  def test_existing_new_era_living_systems_are_reused(self):
   for room in CANDIDATES:
    root=VILLAGE/room;m=json.loads((root/"manifest.json").read_text())

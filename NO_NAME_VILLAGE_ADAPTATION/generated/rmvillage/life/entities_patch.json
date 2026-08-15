@@ -1,0 +1,1313 @@
+{
+  "base_ground_sha256": "849d2cfa40d291f0996a980dfbcf8eef1251c4c9c98db03d5e5e63ac8a1f7fb2",
+  "blockers": [
+    "entities not merged into four seasonal runtime fixtures",
+    "social routines/interactions not runtime tested",
+    "wild entities are ambient layer only; source-wide encounter system not implemented",
+    "rm82 nest ecology remains separate"
+  ],
+  "certification_status": "NOT_CERTIFIED",
+  "conversion_status": "UNIMPLEMENTED",
+  "entities": [
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 2200,
+        "Y": 776
+      },
+      "CollisionDisabled": false,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "timburr"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Charpentier",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_kind": "social:carpenter"
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_Carpenter",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 2200,
+        "Y": 776
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 1096,
+        "Y": 2120
+      },
+      "CollisionDisabled": false,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "bidoof"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Bûcheron",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_kind": "social:logger"
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_Logger",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 1096,
+        "Y": 2120
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 3824,
+        "Y": 2144
+      },
+      "CollisionDisabled": false,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "decidueye"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Éclaireur",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_kind": "social:hunter"
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_Hunter",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 3824,
+        "Y": 2144
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 3824,
+        "Y": 2144
+      },
+      "CollisionDisabled": false,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "roselia"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Herboriste",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_kind": "social:herbalist"
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_Herbalist",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 3824,
+        "Y": 2144
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 1152,
+        "Y": 2120
+      },
+      "CollisionDisabled": false,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "leavanny"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Couturière",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_kind": "social:seamstress"
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_Seamstress",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 1152,
+        "Y": 2120
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 2208,
+        "Y": 4928
+      },
+      "CollisionDisabled": false,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "fletchling"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Fletchling",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_kind": "wild:ambient"
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_Wild_Fletchling",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 2208,
+        "Y": 4928
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 2912,
+        "Y": 64
+      },
+      "CollisionDisabled": false,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "scatterbug"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Scatterbug",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_kind": "wild:ambient"
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_Wild_Scatterbug",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 2912,
+        "Y": 64
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 992,
+        "Y": 3520
+      },
+      "CollisionDisabled": false,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "caterpie"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Caterpie",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_kind": "wild:ambient"
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_Wild_Caterpie",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 992,
+        "Y": 3520
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 1152,
+        "Y": 2176
+      },
+      "CollisionDisabled": false,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "hoppip"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Hoppip",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_kind": "wild:ambient"
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_Wild_Hoppip",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 1152,
+        "Y": 2176
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 2272,
+        "Y": 832
+      },
+      "CollisionDisabled": false,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "oddish"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Oddish",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_kind": "wild:ambient"
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_Wild_Oddish",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 2272,
+        "Y": 832
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 3968,
+        "Y": 2304
+      },
+      "CollisionDisabled": false,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "deerling"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Deerling",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_kind": "wild:ambient"
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_Wild_Deerling",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 3968,
+        "Y": 2304
+      },
+      "triggerType": 1
+    }
+  ],
+  "entity_count": 11,
+  "evidence": [
+    {
+      "entity": "NNV_Carpenter",
+      "kind": "social:carpenter",
+      "position": [
+        2200,
+        776
+      ],
+      "rationale": "Construction et entretien des maisons; type et anatomie adaptés au travail manuel.",
+      "requested": [
+        2200,
+        672
+      ],
+      "source_anchor": {
+        "role": "carpenter",
+        "type": "source_role_and_house"
+      },
+      "species": "timburr",
+      "walkability_adjustment_px": 104
+    },
+    {
+      "entity": "NNV_Logger",
+      "kind": "social:logger",
+      "position": [
+        1096,
+        2120
+      ],
+      "rationale": "Pokémon forestier associé au bois et aux ouvrages naturels.",
+      "requested": [
+        1096,
+        2016
+      ],
+      "source_anchor": {
+        "role": "logger",
+        "type": "source_role_and_house"
+      },
+      "species": "bidoof",
+      "walkability_adjustment_px": 104
+    },
+    {
+      "entity": "NNV_Hunter",
+      "kind": "social:hunter",
+      "position": [
+        3824,
+        2144
+      ],
+      "rationale": "Archer forestier silencieux, correspondant au rôle de pisteur source.",
+      "requested": [
+        3912,
+        2144
+      ],
+      "source_anchor": {
+        "role": "hunter",
+        "type": "source_role_and_house"
+      },
+      "species": "decidueye",
+      "walkability_adjustment_px": 88
+    },
+    {
+      "entity": "NNV_Herbalist",
+      "kind": "social:herbalist",
+      "position": [
+        3824,
+        2144
+      ],
+      "rationale": "Spécialiste native des plantes médicinales.",
+      "requested": [
+        3848,
+        2144
+      ],
+      "source_anchor": {
+        "role": "herbalist",
+        "type": "source_role_and_house"
+      },
+      "species": "roselia",
+      "walkability_adjustment_px": 24
+    },
+    {
+      "entity": "NNV_Seamstress",
+      "kind": "social:seamstress",
+      "position": [
+        1152,
+        2120
+      ],
+      "rationale": "Pokémon couturier utilisant feuilles et fils végétaux.",
+      "requested": [
+        1152,
+        2016
+      ],
+      "source_anchor": {
+        "role": "seamstress",
+        "type": "source_role_and_house"
+      },
+      "species": "leavanny",
+      "walkability_adjustment_px": 104
+    },
+    {
+      "entity": "NNV_Wild_Fletchling",
+      "kind": "wild:ambient",
+      "position": [
+        2208,
+        4928
+      ],
+      "rationale": "Oiseau des clairières",
+      "requested": [
+        2208,
+        4928
+      ],
+      "source_anchor": {
+        "marker": "SourceSpawn_106317",
+        "type": "source_spawn_marker"
+      },
+      "species": "fletchling",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "entity": "NNV_Wild_Scatterbug",
+      "kind": "wild:ambient",
+      "position": [
+        2912,
+        64
+      ],
+      "rationale": "Insecte du sous-bois",
+      "requested": [
+        2912,
+        64
+      ],
+      "source_anchor": {
+        "marker": "SourceSpawn_106318",
+        "type": "source_spawn_marker"
+      },
+      "species": "scatterbug",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "entity": "NNV_Wild_Caterpie",
+      "kind": "wild:ambient",
+      "position": [
+        992,
+        3520
+      ],
+      "rationale": "Insecte forestier",
+      "requested": [
+        992,
+        3520
+      ],
+      "source_anchor": {
+        "marker": "SourceSpawn_106319",
+        "type": "source_spawn_marker"
+      },
+      "species": "caterpie",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "entity": "NNV_Wild_Hoppip",
+      "kind": "wild:ambient",
+      "position": [
+        1152,
+        2176
+      ],
+      "rationale": "Dispersion végétale",
+      "requested": [
+        1152,
+        2176
+      ],
+      "source_anchor": {
+        "marker": "SourceSpawn_106320",
+        "type": "source_spawn_marker"
+      },
+      "species": "hoppip",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "entity": "NNV_Wild_Oddish",
+      "kind": "wild:ambient",
+      "position": [
+        2272,
+        832
+      ],
+      "rationale": "Herbe nocturne et humide",
+      "requested": [
+        2272,
+        832
+      ],
+      "source_anchor": {
+        "marker": "SourceSpawn_106321",
+        "type": "source_spawn_marker"
+      },
+      "species": "oddish",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "entity": "NNV_Wild_Deerling",
+      "kind": "wild:ambient",
+      "position": [
+        3968,
+        2304
+      ],
+      "rationale": "Herbivore saisonnier",
+      "requested": [
+        3968,
+        2304
+      ],
+      "source_anchor": {
+        "marker": "SourceSpawn_106322",
+        "type": "source_spawn_marker"
+      },
+      "species": "deerling",
+      "walkability_adjustment_px": 0
+    }
+  ],
+  "promotion_allowed": false,
+  "room": "rmvillage",
+  "runtime_status": "NOT_RUN",
+  "schema": "new-era.nnv-rmvillage-pokemon-life-patch.v1",
+  "script": "NNVLife.lua",
+  "script_sha256": "d79166ffce2d27098029b784492ba0b4064cd3fef752b723001679429f0748df",
+  "semantic_sha256": "60f334db4efe3666bd9de8637ae25323361baff2ecd862e337e08bdaf4817ced",
+  "social_count": 5,
+  "status": "LIFE_PATCH_GENERATED",
+  "wild_count": 6
+}

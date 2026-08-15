@@ -124,3 +124,11 @@ python3 NO_NAME_VILLAGE_ADAPTATION/tools/verify_rmvillage_summer_baseline.py
 
 Le garde refuse toute dérive des 24 preuves, toute élévation de statut et toute
 perte des probes, captures animées ou de la terminaison native.
+
+La couche de vie Pokémon commence sous `generated/rmvillage/life/` : cinq rôles
+sociaux source sont associés explicitement à Timburr, Bidoof, Archéduc, Rosélia
+et Manternel, et six espèces forestières ambiantes occupent les six spawn points
+source. Les positions sont corrigées uniquement vers la case marchable la plus
+proche et chaque choix possède une justification écologique. Cette couche reste
+`LIFE_PATCH_GENERATED`/`NOT_RUN` tant qu'elle n'est pas fusionnée et testée dans
+les quatre variantes runtime.
