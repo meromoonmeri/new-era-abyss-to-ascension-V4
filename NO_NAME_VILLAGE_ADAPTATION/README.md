@@ -46,14 +46,14 @@ python3 NO_NAME_VILLAGE_ADAPTATION/test_environment_inventory.py
 ```
 
 Il couvre les 98 rooms, conserve les hashes et placements environnementaux,
-exclut les 13 rooms système et sépare explicitement décor, fonctions spatiales,
-rôles sociaux et éléments ambigus. Les sprites/codes humains ne sont jamais
-importés, mais une fonction sociale prouvée reste `ROLE_ADAPTATION_REQUIRED` :
-elle devra être reconstruite avec un Pokémon natif et les systèmes existants
-`LivingWorld`, `TownLife`, `TownPlace`, `Seasons`, `Weather` et l'AI PMDO. Sa
-sortie compressée est `reports/environment-inventory.json.gz`. Ce gate n'émet
-aucun Ground et ne peut attribuer `CONVERTED`, `CERTIFIED` ou `PROMOTED` : les
-éléments ambigus restent bloqués en `REVIEW_REQUIRED`.
+et sépare décor, fonctions spatiales, rôles sociaux, faune et ambiguïtés. Les
+536 `objmob*` placés dans 38 rooms sauvages ne sont pas des rôles sociaux ni du
+décor : ils restent `WILD_POKEMON_ADAPTATION_REQUIRED`, avec densité, position
+et classe comportementale à transposer vers des Pokémon sauvages natifs. Les
+fonctions sociales restent `ROLE_ADAPTATION_REQUIRED` et réutiliseront
+`LivingWorld`, `TownLife`, `TownPlace` et l'AI PMDO. La sortie compressée est
+`reports/environment-inventory.json.gz`. Ce gate n'émet aucun Ground et ne peut
+attribuer `CONVERTED`, `CERTIFIED` ou `PROMOTED`.
 
 ## Conversion PMDO effective
 
@@ -73,8 +73,21 @@ matérialise collisions, markers et transitions prouvées, puis effectue un
 rendu différentiel du Ground généré. Le script candidat require explicitement
 `LivingWorld`, `TownLife`, `TownPlace`, `Seasons`, `Weather` et `TownNight`.
 
-Première vague générée : `rmvillage`, `rm78`, `rm81`. Aucun candidat n'est
-promu ni déclaré `CONVERTED` : `rmvillage` et `rm78` attendent leurs cycles
-d'animation complets, `rmvillage` attend aussi son casting Pokémon vivant,
-et `rm81` conserve une transition source dynamique non résolue. Les manifests
-restent donc honnêtement `UNIMPLEMENTED` avec `runtime_status=NOT_RUN`.
+`Seasons` ne sert que d'horloge de progression. Le convertisseur interdit
+explicitement `Seasons.Apply()`/les particules génériques comme substitut : les
+substitutions `objstage`, les quatre familles visuelles, les trois familles de
+particules `objwinter`, les traces, le son de neige et les états spéciaux 4/5/6
+doivent être portés depuis `season-vm-evidence.json` et le GML canonique. La
+source GitHub est verrouillée au commit
+`d1245878861fc76dc5455dbad68bcb45c83f7e1f` de
+`meromoonmeri/nonamevillage`.
+
+Première vague générée : `rmvillage`, `rm78`, `rm81`, puis `rm82`, première
+room sauvage prioritaire avec **89 placements de faune source** conservés dans
+le manifeste pour leur mapping Pokémon natif. Aucun sprite de mob source n'est
+rasterisé comme décor. Aucun candidat n'est promu ni déclaré `CONVERTED` :
+cycles d'animation, saisons/particules canoniques, populations Pokémon sauvages
+et validation runtime restent obligatoires ;
+`rmvillage` attend aussi son casting social Pokémon, et `rm81` conserve une
+transition dynamique non résolue. Les manifests restent honnêtement
+`UNIMPLEMENTED` avec `runtime_status=NOT_RUN`.

@@ -1,0 +1,2652 @@
+{
+  "asset": "nnv_rm82",
+  "blockers": [
+    "animated source sprite bgsmtree requires full frame-cycle conversion",
+    "animated source sprite bgsmtree0 requires full frame-cycle conversion",
+    "animated source sprite ssmplant0 requires full frame-cycle conversion",
+    "animated source sprite ssmplant3 requires full frame-cycle conversion",
+    "animated source sprite ssmplant5 requires full frame-cycle conversion",
+    "animated source sprite ssmplant6 requires full frame-cycle conversion",
+    "animated source sprite ssmplant92 requires full frame-cycle conversion",
+    "animated source sprite ssmplant93 requires full frame-cycle conversion",
+    "animated source sprite ssmplant94 requires full frame-cycle conversion",
+    "animated source sprite swfs0 requires full frame-cycle conversion",
+    "animated source sprite swfs1 requires full frame-cycle conversion",
+    "animated source sprite swfs2 requires full frame-cycle conversion",
+    "canonical NNV objwinter particle families, snow trails, footprints and snow audio are not ported",
+    "canonical NNV spring/autumn/winter visual bundles are not generated",
+    "native Pokemon wild exploration population and encounter behavior are not bound",
+    "unsupported layer type Effect:watereffect",
+    "unsupported layer type Effect:watertint",
+    "wildlife role 122294:objmobsm506 requires native Pokemon encounter mapping",
+    "wildlife role 122295:objmobsm505 requires native Pokemon encounter mapping",
+    "wildlife role 122296:objmobsm503 requires native Pokemon encounter mapping",
+    "wildlife role 122297:objmobsm501 requires native Pokemon encounter mapping",
+    "wildlife role 122298:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122299:objmobsm506 requires native Pokemon encounter mapping",
+    "wildlife role 122300:objmobsm507 requires native Pokemon encounter mapping",
+    "wildlife role 122301:objmobsm504 requires native Pokemon encounter mapping",
+    "wildlife role 122302:objmobsm505 requires native Pokemon encounter mapping",
+    "wildlife role 122303:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122304:objmobsm505 requires native Pokemon encounter mapping",
+    "wildlife role 122305:objmobsm506 requires native Pokemon encounter mapping",
+    "wildlife role 122306:objmobsm509 requires native Pokemon encounter mapping",
+    "wildlife role 122307:objmobsm507 requires native Pokemon encounter mapping",
+    "wildlife role 122308:objmobsm505 requires native Pokemon encounter mapping",
+    "wildlife role 122309:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122310:objmobsm507 requires native Pokemon encounter mapping",
+    "wildlife role 122311:objmobsm505 requires native Pokemon encounter mapping",
+    "wildlife role 122312:objmobsm503 requires native Pokemon encounter mapping",
+    "wildlife role 122313:objmobsm503 requires native Pokemon encounter mapping",
+    "wildlife role 122314:objmobsm509 requires native Pokemon encounter mapping",
+    "wildlife role 122315:objmobsm506 requires native Pokemon encounter mapping",
+    "wildlife role 122316:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122317:objmobsm503 requires native Pokemon encounter mapping",
+    "wildlife role 122318:objmobsm505 requires native Pokemon encounter mapping",
+    "wildlife role 122319:objmobsm506 requires native Pokemon encounter mapping",
+    "wildlife role 122320:objmobsm507 requires native Pokemon encounter mapping",
+    "wildlife role 122321:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122322:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122323:objmobsm501 requires native Pokemon encounter mapping",
+    "wildlife role 122324:objmobsm501 requires native Pokemon encounter mapping",
+    "wildlife role 122325:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122326:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122327:objmobsm501 requires native Pokemon encounter mapping",
+    "wildlife role 122328:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122329:objmobsm501 requires native Pokemon encounter mapping",
+    "wildlife role 122330:objmobsm505 requires native Pokemon encounter mapping",
+    "wildlife role 122331:objmobsm504 requires native Pokemon encounter mapping",
+    "wildlife role 122332:objmobsm503 requires native Pokemon encounter mapping",
+    "wildlife role 122333:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122334:objmobsm506 requires native Pokemon encounter mapping",
+    "wildlife role 122335:objmobsm509 requires native Pokemon encounter mapping",
+    "wildlife role 122336:objmobsm510 requires native Pokemon encounter mapping",
+    "wildlife role 122337:objmobsm509 requires native Pokemon encounter mapping",
+    "wildlife role 122338:objmobsm507 requires native Pokemon encounter mapping",
+    "wildlife role 122339:objmobsm503 requires native Pokemon encounter mapping",
+    "wildlife role 122340:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122341:objmobsm505 requires native Pokemon encounter mapping",
+    "wildlife role 122342:objmobsm501 requires native Pokemon encounter mapping",
+    "wildlife role 122343:objmobsm501 requires native Pokemon encounter mapping",
+    "wildlife role 122344:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122345:objmobsm501 requires native Pokemon encounter mapping",
+    "wildlife role 122346:objmobsm507 requires native Pokemon encounter mapping",
+    "wildlife role 122347:objmobsm503 requires native Pokemon encounter mapping",
+    "wildlife role 122348:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122349:objmobsm501 requires native Pokemon encounter mapping",
+    "wildlife role 122350:objmobsm501 requires native Pokemon encounter mapping",
+    "wildlife role 122351:objmobsm509 requires native Pokemon encounter mapping",
+    "wildlife role 122352:objmobsm510 requires native Pokemon encounter mapping",
+    "wildlife role 122353:objmobsm506 requires native Pokemon encounter mapping",
+    "wildlife role 122354:objmobsm503 requires native Pokemon encounter mapping",
+    "wildlife role 122355:objmobsm503 requires native Pokemon encounter mapping",
+    "wildlife role 122356:objmobsm505 requires native Pokemon encounter mapping",
+    "wildlife role 122357:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122358:objmobsm501 requires native Pokemon encounter mapping",
+    "wildlife role 122359:objmobsm503 requires native Pokemon encounter mapping",
+    "wildlife role 122360:objmobsm501 requires native Pokemon encounter mapping",
+    "wildlife role 122361:objmobsm507 requires native Pokemon encounter mapping",
+    "wildlife role 122362:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122363:objmobsm503 requires native Pokemon encounter mapping",
+    "wildlife role 122364:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122365:objmobsm501 requires native Pokemon encounter mapping",
+    "wildlife role 122366:objmobsm501 requires native Pokemon encounter mapping",
+    "wildlife role 122367:objmobsm505 requires native Pokemon encounter mapping",
+    "wildlife role 122368:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122369:objmobsm504 requires native Pokemon encounter mapping",
+    "wildlife role 122370:objmobsm501 requires native Pokemon encounter mapping",
+    "wildlife role 122371:objmobsm503 requires native Pokemon encounter mapping",
+    "wildlife role 122372:objmobsm501 requires native Pokemon encounter mapping",
+    "wildlife role 122373:objmobsm506 requires native Pokemon encounter mapping",
+    "wildlife role 122374:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122375:objmobsm501 requires native Pokemon encounter mapping",
+    "wildlife role 122376:objmobsm505 requires native Pokemon encounter mapping",
+    "wildlife role 122377:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122378:objmobsm501 requires native Pokemon encounter mapping",
+    "wildlife role 122379:objmobsm503 requires native Pokemon encounter mapping",
+    "wildlife role 122380:objmobsm502 requires native Pokemon encounter mapping",
+    "wildlife role 122381:objmobsm501 requires native Pokemon encounter mapping",
+    "wildlife role 122382:objmobsm502 requires native Pokemon encounter mapping"
+  ],
+  "canonical_environment_authority": {
+    "generic_new_era_season_particles_allowed_as_substitute": false,
+    "season_system": "reports/season-system.json",
+    "season_system_sha256": "a08ed4cab339b6de8c16e76d31a2b797ef80c149d4965e5b00c0001b0c3bc565",
+    "season_vm_evidence": "reports/season-vm-evidence.json",
+    "season_vm_evidence_sha256": "a4abbd845cd348aadb00e0cbda65747e06ad5c553348dfdb0cf253a975421904",
+    "time_system": "reports/time-system.json",
+    "time_system_sha256": "27ec8cc322277bcc1034a9074927d60c4df3ec95bb099eccfb13c3024a633b38"
+  },
+  "checks": {
+    "all_source_tile_layers_preserved": true,
+    "collision_grid_matches_visual_extent": true,
+    "entities_in_bounds": true,
+    "existing_new_era_systems_required": true,
+    "ground_json_round_trip": true,
+    "source_dimensions_normalized_exactly": true,
+    "tick0_visual_pmdo_premultiply_roundtrip": true,
+    "tile_dependency_exists": true
+  },
+  "collision_metrics": {
+    "blocked_pmdo_cells_8px": 1593,
+    "source_solid_instances": 101
+  },
+  "conversion_status": "UNIMPLEMENTED",
+  "manifest_semantic_sha256": "0540bad585fa76aa89ab5c4f5e76d9f88c9ff7de878b9b49ed5a81fe666d262a",
+  "mapped_transitions": [
+    {
+      "edge": "North",
+      "entity": "Exit_North",
+      "source_instance_id": 121514,
+      "target": "rm81",
+      "target_marker": "Entry_South"
+    },
+    {
+      "edge": "North",
+      "entity": "Exit_North",
+      "source_instance_id": 121515,
+      "target": "rm92",
+      "target_marker": "Entry_South"
+    },
+    {
+      "edge": "West",
+      "entity": "Exit_West",
+      "source_instance_id": 121516,
+      "target": "rm72",
+      "target_marker": "Entry_East"
+    },
+    {
+      "edge": "South",
+      "entity": "Exit_South",
+      "source_instance_id": 121517,
+      "target": "rm83",
+      "target_marker": "Entry_North"
+    }
+  ],
+  "new_era_systems": [
+    "halcyon.LivingWorld",
+    "halcyon.TownLife",
+    "halcyon.TownPlace",
+    "halcyon.Seasons",
+    "halcyon.Weather",
+    "halcyon.TownNight"
+  ],
+  "outputs": {
+    "candidate_render": "validation/candidate_tick0.png",
+    "candidate_render_sha256": "57615469eaf83c50611baa4a61dcda54ea1d0b0209337d5ce3adc2fea0fa7155",
+    "ground": "Data/Ground/nnv_rm82.rsground",
+    "ground_sha256": "dbed431f9f401936bfe290df994b9184c61d0dbc90e59eca9777a00e684b5ca7",
+    "script": "Data/Script/halcyon/ground/nnv_rm82/init.lua",
+    "script_sha256": "37a87ebff849934136b7efd8dbb4ea44c3ec2633ede587e879cf983c1a76e4f7",
+    "source_render": "validation/source_normalized_tick0.png",
+    "source_render_sha256": "cc511e85b47252dbd19f2b96b34be0595ec3ec6bc4bee67870fef975f279ae1b",
+    "tile": "Content/Tile/NNV_rm82_Source.tile",
+    "tile_sha256": "9c3034f14879f768bc78f808a6e075ebcdb66ca99ce0a6b6745ff97f63a208a2"
+  },
+  "promotion_allowed": false,
+  "room": "rm82",
+  "runtime_status": "NOT_RUN",
+  "schema": "new-era.nnv-pmdo-room-conversion.v1",
+  "source": {
+    "data_win_sha256": "2f33b595b450b40355554d73f5acc5d7272e5d54519e35cd8971e0f336401227",
+    "official_inventory": "extracted/official/inventory/Rooms.json.gz",
+    "repository": "https://github.com/meromoonmeri/nonamevillage",
+    "repository_commit": "d1245878861fc76dc5455dbad68bcb45c83f7e1f",
+    "room_record_sha256": "5381d8c2f191d88da5e56d7f50a532f5a7e4bb6c73f154dbaba2a4cacdfa47e8"
+  },
+  "source_tile_layers": [
+    {
+      "background": "tlsummer",
+      "depth": 1400,
+      "matrix_sha256": "6ad46077add2791e32bdae4a1c8af354778351122cf84c07a2d4b354d75406d6",
+      "name": "water1"
+    },
+    {
+      "background": "tlsummer",
+      "depth": 1300,
+      "matrix_sha256": "f87b4f25b09e331921d1beeca67a956ebb3cb2c5d3627463b9e112784aa2c415",
+      "name": "water0"
+    },
+    {
+      "background": "tlsummer",
+      "depth": 1200,
+      "matrix_sha256": "45918f6688a5dc09827910e962c9d2c63418f611f0039f293a50c7c696918140",
+      "name": "ground"
+    },
+    {
+      "background": "tlstone1",
+      "depth": 1100,
+      "matrix_sha256": "dc62308e4a84a3744a2fff38af29cb338e6343080d76486bc7df7bd481c297e3",
+      "name": "groundtex"
+    },
+    {
+      "background": "tlwater",
+      "depth": 1000,
+      "matrix_sha256": "1bdcfe820a1defc2091460eec6366b2697c753673ea8965b74f58978befc8a72",
+      "name": "water"
+    },
+    {
+      "background": "tlsummer",
+      "depth": 500,
+      "matrix_sha256": "fb8be7d9d0c61cb2ef8f0b5a1953740fad140553c5f1380ef0cbb1d050c2b770",
+      "name": "grass0"
+    },
+    {
+      "background": "tlsummer",
+      "depth": 400,
+      "matrix_sha256": "dc2568bb156644c171bb884b299fadb28f4fb5b49bbb0a0cb82b07b04d656bf2",
+      "name": "grass1"
+    },
+    {
+      "background": "tlsmcliff",
+      "depth": 260,
+      "matrix_sha256": "c0ed653769ced1eab9046f921a48f96e34d98b9a8b4db9db62b20740184011c2",
+      "name": "cliff0"
+    },
+    {
+      "background": "tlsmcliff",
+      "depth": 240,
+      "matrix_sha256": "b3ac058304de0aeb6c383cf044998aa3e0454fce90f6ded3bd6fc83ff7525358",
+      "name": "cliff"
+    }
+  ],
+  "source_transitions": [
+    {
+      "code": "gml_RoomCC_rm82_0_Create",
+      "code_sha256": "90cce65c1288acc7c9780a9aaf6939cb6b379d413586da66d871aafc96f88882",
+      "instance_id": 121514,
+      "newroom": 63,
+      "object": "objtransit",
+      "position_source_px": [
+        -64,
+        -128
+      ],
+      "scale": [
+        40.000004,
+        1.0
+      ]
+    },
+    {
+      "code": "gml_RoomCC_rm82_1_Create",
+      "code_sha256": "b27ef2769c6df8611b2798a9ebaac6f688db7a2b92c00020c0a74a6cfcdfcd9e",
+      "instance_id": 121515,
+      "newroom": 64,
+      "object": "objtransit",
+      "position_source_px": [
+        5056,
+        -128
+      ],
+      "scale": [
+        1.0,
+        41.5
+      ]
+    },
+    {
+      "code": "gml_RoomCC_rm82_2_Create",
+      "code_sha256": "3d431aef10b42b1c962d2bdc6b46383deb6c7e126465cb4d80f92dbbb3db3414",
+      "instance_id": 121516,
+      "newroom": 73,
+      "object": "objtransit",
+      "position_source_px": [
+        -192,
+        -128
+      ],
+      "scale": [
+        1.0,
+        41.5
+      ]
+    },
+    {
+      "code": "gml_RoomCC_rm82_3_Create",
+      "code_sha256": "74e7937198478448143194fe8de31751b7aa2005b1312a573bffade5bbe43e5d",
+      "instance_id": 121517,
+      "newroom": 12,
+      "object": "objtransit",
+      "position_source_px": [
+        -64,
+        5056
+      ],
+      "scale": [
+        40.0,
+        1.0
+      ]
+    }
+  ],
+  "status": "GENERATED_CANDIDATE",
+  "transform": {
+    "kind": "deterministic_pixel_art_normalization",
+    "resampler": "nearest",
+    "scale": "1/4",
+    "source_cell_px": 64,
+    "target_cell_px": 16
+  },
+  "visual_metrics": {
+    "alpha_exact": true,
+    "differing_pixels": 10643,
+    "max_channel_error": 1,
+    "pixel_exact": false
+  },
+  "visual_scope": "environment_layers_only; source human/wildlife actors excluded pending native Pokemon mapping",
+  "visual_status": "TICK0_PMDO_PREMULTIPLY_ROUNDTRIP_VALID",
+  "wildlife": {
+    "native_pokemon_count": 0,
+    "source_count": 89,
+    "source_placements": [
+      {
+        "instance_id": 122294,
+        "object": "objmobsm506",
+        "position_pmdo_px": [
+          616,
+          508
+        ],
+        "position_source_px": [
+          2464,
+          2032
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 6,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122295,
+        "object": "objmobsm505",
+        "position_pmdo_px": [
+          632,
+          496
+        ],
+        "position_source_px": [
+          2528,
+          1984
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 5,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122296,
+        "object": "objmobsm503",
+        "position_pmdo_px": [
+          604,
+          496
+        ],
+        "position_source_px": [
+          2416,
+          1984
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 3,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122297,
+        "object": "objmobsm501",
+        "position_pmdo_px": [
+          624,
+          524
+        ],
+        "position_source_px": [
+          2496,
+          2096
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 1,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122298,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          600,
+          520
+        ],
+        "position_source_px": [
+          2400,
+          2080
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122299,
+        "object": "objmobsm506",
+        "position_pmdo_px": [
+          620,
+          584
+        ],
+        "position_source_px": [
+          2480,
+          2336
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 6,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122300,
+        "object": "objmobsm507",
+        "position_pmdo_px": [
+          620,
+          600
+        ],
+        "position_source_px": [
+          2480,
+          2400
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 7,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122301,
+        "object": "objmobsm504",
+        "position_pmdo_px": [
+          596,
+          596
+        ],
+        "position_source_px": [
+          2384,
+          2384
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 4,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122302,
+        "object": "objmobsm505",
+        "position_pmdo_px": [
+          840,
+          572
+        ],
+        "position_source_px": [
+          3360,
+          2288
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 5,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122303,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          828,
+          564
+        ],
+        "position_source_px": [
+          3312,
+          2256
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122304,
+        "object": "objmobsm505",
+        "position_pmdo_px": [
+          824,
+          580
+        ],
+        "position_source_px": [
+          3296,
+          2320
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 5,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122305,
+        "object": "objmobsm506",
+        "position_pmdo_px": [
+          752,
+          608
+        ],
+        "position_source_px": [
+          3008,
+          2432
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 6,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122306,
+        "object": "objmobsm509",
+        "position_pmdo_px": [
+          708,
+          624
+        ],
+        "position_source_px": [
+          2832,
+          2496
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 9,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122307,
+        "object": "objmobsm507",
+        "position_pmdo_px": [
+          688,
+          636
+        ],
+        "position_source_px": [
+          2752,
+          2544
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 7,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122308,
+        "object": "objmobsm505",
+        "position_pmdo_px": [
+          728,
+          636
+        ],
+        "position_source_px": [
+          2912,
+          2544
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 5,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122309,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          676,
+          624
+        ],
+        "position_source_px": [
+          2704,
+          2496
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122310,
+        "object": "objmobsm507",
+        "position_pmdo_px": [
+          792,
+          496
+        ],
+        "position_source_px": [
+          3168,
+          1984
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 7,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122311,
+        "object": "objmobsm505",
+        "position_pmdo_px": [
+          800,
+          512
+        ],
+        "position_source_px": [
+          3200,
+          2048
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 5,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122312,
+        "object": "objmobsm503",
+        "position_pmdo_px": [
+          772,
+          488
+        ],
+        "position_source_px": [
+          3088,
+          1952
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 3,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122313,
+        "object": "objmobsm503",
+        "position_pmdo_px": [
+          820,
+          496
+        ],
+        "position_source_px": [
+          3280,
+          1984
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 3,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122314,
+        "object": "objmobsm509",
+        "position_pmdo_px": [
+          776,
+          516
+        ],
+        "position_source_px": [
+          3104,
+          2064
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 9,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122315,
+        "object": "objmobsm506",
+        "position_pmdo_px": [
+          820,
+          520
+        ],
+        "position_source_px": [
+          3280,
+          2080
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 6,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122316,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          716,
+          468
+        ],
+        "position_source_px": [
+          2864,
+          1872
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122317,
+        "object": "objmobsm503",
+        "position_pmdo_px": [
+          728,
+          476
+        ],
+        "position_source_px": [
+          2912,
+          1904
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 3,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122318,
+        "object": "objmobsm505",
+        "position_pmdo_px": [
+          708,
+          480
+        ],
+        "position_source_px": [
+          2832,
+          1920
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 5,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122319,
+        "object": "objmobsm506",
+        "position_pmdo_px": [
+          688,
+          464
+        ],
+        "position_source_px": [
+          2752,
+          1856
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 6,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122320,
+        "object": "objmobsm507",
+        "position_pmdo_px": [
+          684,
+          480
+        ],
+        "position_source_px": [
+          2736,
+          1920
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 7,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122321,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          660,
+          472
+        ],
+        "position_source_px": [
+          2640,
+          1888
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122322,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          804,
+          620
+        ],
+        "position_source_px": [
+          3216,
+          2480
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122323,
+        "object": "objmobsm501",
+        "position_pmdo_px": [
+          812,
+          608
+        ],
+        "position_source_px": [
+          3248,
+          2432
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 1,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122324,
+        "object": "objmobsm501",
+        "position_pmdo_px": [
+          808,
+          548
+        ],
+        "position_source_px": [
+          3232,
+          2192
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 1,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122325,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          676,
+          504
+        ],
+        "position_source_px": [
+          2704,
+          2016
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122326,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          752,
+          508
+        ],
+        "position_source_px": [
+          3008,
+          2032
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122327,
+        "object": "objmobsm501",
+        "position_pmdo_px": [
+          584,
+          564
+        ],
+        "position_source_px": [
+          2336,
+          2256
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 1,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122328,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          600,
+          568
+        ],
+        "position_source_px": [
+          2400,
+          2272
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122329,
+        "object": "objmobsm501",
+        "position_pmdo_px": [
+          644,
+          628
+        ],
+        "position_source_px": [
+          2576,
+          2512
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 1,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122330,
+        "object": "objmobsm505",
+        "position_pmdo_px": [
+          532,
+          688
+        ],
+        "position_source_px": [
+          2128,
+          2752
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 5,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122331,
+        "object": "objmobsm504",
+        "position_pmdo_px": [
+          548,
+          684
+        ],
+        "position_source_px": [
+          2192,
+          2736
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 4,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122332,
+        "object": "objmobsm503",
+        "position_pmdo_px": [
+          608,
+          748
+        ],
+        "position_source_px": [
+          2432,
+          2992
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 3,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122333,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          612,
+          736
+        ],
+        "position_source_px": [
+          2448,
+          2944
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122334,
+        "object": "objmobsm506",
+        "position_pmdo_px": [
+          628,
+          752
+        ],
+        "position_source_px": [
+          2512,
+          3008
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 6,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122335,
+        "object": "objmobsm509",
+        "position_pmdo_px": [
+          932,
+          604
+        ],
+        "position_source_px": [
+          3728,
+          2416
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 9,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122336,
+        "object": "objmobsm510",
+        "position_pmdo_px": [
+          836,
+          700
+        ],
+        "position_source_px": [
+          3344,
+          2800
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 10,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122337,
+        "object": "objmobsm509",
+        "position_pmdo_px": [
+          480,
+          580
+        ],
+        "position_source_px": [
+          1920,
+          2320
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 9,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122338,
+        "object": "objmobsm507",
+        "position_pmdo_px": [
+          448,
+          588
+        ],
+        "position_source_px": [
+          1792,
+          2352
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 7,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122339,
+        "object": "objmobsm503",
+        "position_pmdo_px": [
+          844,
+          740
+        ],
+        "position_source_px": [
+          3376,
+          2960
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 3,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122340,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          856,
+          712
+        ],
+        "position_source_px": [
+          3424,
+          2848
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122341,
+        "object": "objmobsm505",
+        "position_pmdo_px": [
+          860,
+          696
+        ],
+        "position_source_px": [
+          3440,
+          2784
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 5,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122342,
+        "object": "objmobsm501",
+        "position_pmdo_px": [
+          836,
+          724
+        ],
+        "position_source_px": [
+          3344,
+          2896
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 1,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122343,
+        "object": "objmobsm501",
+        "position_pmdo_px": [
+          848,
+          684
+        ],
+        "position_source_px": [
+          3392,
+          2736
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 1,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122344,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          820,
+          736
+        ],
+        "position_source_px": [
+          3280,
+          2944
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122345,
+        "object": "objmobsm501",
+        "position_pmdo_px": [
+          828,
+          748
+        ],
+        "position_source_px": [
+          3312,
+          2992
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 1,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122346,
+        "object": "objmobsm507",
+        "position_pmdo_px": [
+          952,
+          616
+        ],
+        "position_source_px": [
+          3808,
+          2464
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 7,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122347,
+        "object": "objmobsm503",
+        "position_pmdo_px": [
+          936,
+          628
+        ],
+        "position_source_px": [
+          3744,
+          2512
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 3,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122348,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          920,
+          620
+        ],
+        "position_source_px": [
+          3680,
+          2480
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122349,
+        "object": "objmobsm501",
+        "position_pmdo_px": [
+          952,
+          648
+        ],
+        "position_source_px": [
+          3808,
+          2592
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 1,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122350,
+        "object": "objmobsm501",
+        "position_pmdo_px": [
+          900,
+          632
+        ],
+        "position_source_px": [
+          3600,
+          2528
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 1,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122351,
+        "object": "objmobsm509",
+        "position_pmdo_px": [
+          880,
+          524
+        ],
+        "position_source_px": [
+          3520,
+          2096
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 9,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122352,
+        "object": "objmobsm510",
+        "position_pmdo_px": [
+          880,
+          440
+        ],
+        "position_source_px": [
+          3520,
+          1760
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 10,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122353,
+        "object": "objmobsm506",
+        "position_pmdo_px": [
+          812,
+          448
+        ],
+        "position_source_px": [
+          3248,
+          1792
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 6,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122354,
+        "object": "objmobsm503",
+        "position_pmdo_px": [
+          796,
+          436
+        ],
+        "position_source_px": [
+          3184,
+          1744
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 3,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122355,
+        "object": "objmobsm503",
+        "position_pmdo_px": [
+          896,
+          456
+        ],
+        "position_source_px": [
+          3584,
+          1824
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 3,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122356,
+        "object": "objmobsm505",
+        "position_pmdo_px": [
+          892,
+          512
+        ],
+        "position_source_px": [
+          3568,
+          2048
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 5,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122357,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          896,
+          536
+        ],
+        "position_source_px": [
+          3584,
+          2144
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122358,
+        "object": "objmobsm501",
+        "position_pmdo_px": [
+          864,
+          536
+        ],
+        "position_source_px": [
+          3456,
+          2144
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 1,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122359,
+        "object": "objmobsm503",
+        "position_pmdo_px": [
+          616,
+          432
+        ],
+        "position_source_px": [
+          2464,
+          1728
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 3,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122360,
+        "object": "objmobsm501",
+        "position_pmdo_px": [
+          624,
+          428
+        ],
+        "position_source_px": [
+          2496,
+          1712
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 1,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122361,
+        "object": "objmobsm507",
+        "position_pmdo_px": [
+          564,
+          452
+        ],
+        "position_source_px": [
+          2256,
+          1808
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 7,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122362,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          564,
+          464
+        ],
+        "position_source_px": [
+          2256,
+          1856
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122363,
+        "object": "objmobsm503",
+        "position_pmdo_px": [
+          824,
+          848
+        ],
+        "position_source_px": [
+          3296,
+          3392
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 3,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122364,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          472,
+          792
+        ],
+        "position_source_px": [
+          1888,
+          3168
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122365,
+        "object": "objmobsm501",
+        "position_pmdo_px": [
+          488,
+          804
+        ],
+        "position_source_px": [
+          1952,
+          3216
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 1,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122366,
+        "object": "objmobsm501",
+        "position_pmdo_px": [
+          796,
+          856
+        ],
+        "position_source_px": [
+          3184,
+          3424
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 1,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122367,
+        "object": "objmobsm505",
+        "position_pmdo_px": [
+          1020,
+          732
+        ],
+        "position_source_px": [
+          4080,
+          2928
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 5,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122368,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          1040,
+          728
+        ],
+        "position_source_px": [
+          4160,
+          2912
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122369,
+        "object": "objmobsm504",
+        "position_pmdo_px": [
+          512,
+          684
+        ],
+        "position_source_px": [
+          2048,
+          2736
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 4,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122370,
+        "object": "objmobsm501",
+        "position_pmdo_px": [
+          528,
+          676
+        ],
+        "position_source_px": [
+          2112,
+          2704
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 1,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122371,
+        "object": "objmobsm503",
+        "position_pmdo_px": [
+          1000,
+          520
+        ],
+        "position_source_px": [
+          4000,
+          2080
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 3,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122372,
+        "object": "objmobsm501",
+        "position_pmdo_px": [
+          984,
+          524
+        ],
+        "position_source_px": [
+          3936,
+          2096
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 1,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122373,
+        "object": "objmobsm506",
+        "position_pmdo_px": [
+          400,
+          504
+        ],
+        "position_source_px": [
+          1600,
+          2016
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 6,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122374,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          400,
+          516
+        ],
+        "position_source_px": [
+          1600,
+          2064
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122375,
+        "object": "objmobsm501",
+        "position_pmdo_px": [
+          436,
+          580
+        ],
+        "position_source_px": [
+          1744,
+          2320
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 1,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122376,
+        "object": "objmobsm505",
+        "position_pmdo_px": [
+          832,
+          868
+        ],
+        "position_source_px": [
+          3328,
+          3472
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 5,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122377,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          808,
+          860
+        ],
+        "position_source_px": [
+          3232,
+          3440
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122378,
+        "object": "objmobsm501",
+        "position_pmdo_px": [
+          608,
+          768
+        ],
+        "position_source_px": [
+          2432,
+          3072
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 1,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122379,
+        "object": "objmobsm503",
+        "position_pmdo_px": [
+          940,
+          860
+        ],
+        "position_source_px": [
+          3760,
+          3440
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 3,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122380,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          948,
+          876
+        ],
+        "position_source_px": [
+          3792,
+          3504
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122381,
+        "object": "objmobsm501",
+        "position_pmdo_px": [
+          796,
+          868
+        ],
+        "position_source_px": [
+          3184,
+          3472
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 1,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      },
+      {
+        "instance_id": 122382,
+        "object": "objmobsm502",
+        "position_pmdo_px": [
+          584,
+          880
+        ],
+        "position_source_px": [
+          2336,
+          3520
+        ],
+        "semantics": {
+          "active_spawn_cap_in_rm82": 8,
+          "behavior_class": "stationary_spawning_nest",
+          "hp_tier": 2,
+          "proof": {
+            "create_gml": "gml_Object_objmobsm5_Create_0.gml",
+            "create_sha256": "8350b5766744780d91d62f5914fd4164886885641ad93232dc657fa17f476d4d",
+            "step_gml": "gml_Object_objmobsm5_Step_0.gml",
+            "step_sha256": "79db4a8b3ede28d5e05bbdb20b623a6c6dce9b06513c64abef634fee68956896"
+          },
+          "source_room_pause": "rm82",
+          "spawned_source_object": "objmob0",
+          "timed_spawn_probability": 0.3
+        }
+      }
+    ],
+    "status": "UNIMPLEMENTED"
+  }
+}

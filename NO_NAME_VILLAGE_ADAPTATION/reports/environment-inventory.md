@@ -17,11 +17,13 @@ Aucun personnage, système GameMaker ou script propriétaire n'est promu.
 - `EXCLUDED_PROPRIETARY` : 89
 - `EXTRACTED` : 37981
 - `REVIEW_REQUIRED` : 9501
-- `ROLE_ADAPTATION_REQUIRED` : 536
+- `WILD_POKEMON_ADAPTATION_REQUIRED` : 536
 
 `ROLE_ADAPTATION_REQUIRED` conserve une fonction sociale source sans importer son sprite
 ou son code : le casting sera un Pokémon natif branché sur les systèmes New Era existants.
+`WILD_POKEMON_ADAPTATION_REQUIRED` conserve densité, position et classe comportementale
+de la faune source ; elle devra devenir une population Pokémon native, jamais du décor.
 `REVIEW_REQUIRED` est volontairement bloquant. Les règles nominales ne constituent
 jamais une preuve suffisante pour importer un objet inconnu.
 
-SHA-256 sémantique de l'inventaire : `9425229f4304e9dca2af0ebb512ae02d9e01fdcad2c1a6c83cf6be10d961b7c5`
+SHA-256 sémantique de l'inventaire : `07ddd641585403c71fc6a882bdab260f9fe6e9918f59993daf92e7716acd031b`

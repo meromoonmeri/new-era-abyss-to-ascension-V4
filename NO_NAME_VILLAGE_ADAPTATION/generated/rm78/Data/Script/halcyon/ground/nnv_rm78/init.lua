@@ -15,8 +15,13 @@ function M.Enter(map)
   LivingWorld.SyncStory()
   M.Context = LivingWorld.Context('no_name_village', 'nnv_rm78')
   M.Day = TownLife.Today()
-  LivingWorld.ApplyOutdoor(true)
-  Seasons.Setup()
+  -- Do not call Seasons.Apply here: its generic PMDO particles are not a
+  -- substitute for No Name Village's canonical objstage/objwinter system.
+  LivingWorld.ApplyOutdoor(false)
+  M.SourceSeason = Seasons.Actuelle().id
+  if M.SourceSeason ~= 'ete' then
+    error('NNV canonical season bundle missing for nnv_rm78: '..tostring(M.SourceSeason))
+  end
   local preset = Weather.ForChapter((SV.ChapterProgression and SV.ChapterProgression.Chapter) or 1)
   if preset ~= nil then Weather.Set(preset) end
 end

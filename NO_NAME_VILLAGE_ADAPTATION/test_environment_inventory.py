@@ -49,7 +49,7 @@ class EnvironmentInventoryTests(unittest.TestCase):
         self.assertGreaterEqual(len(village["tile_layers"]), 6)
         self.assertTrue(any(row["object"]["name"] == "objdoor" and row["status"] == "ADAPTATION_REQUIRED" for row in village["instances"]))
         social_instances = [row for room in self.data["rooms"] for row in room["instances"]]
-        self.assertTrue(any(row["object"]["name"].startswith("objmob") and row["status"] == "ROLE_ADAPTATION_REQUIRED" for row in social_instances))
+        self.assertTrue(any(row["object"]["name"].startswith("objmob") and row["status"] == "WILD_POKEMON_ADAPTATION_REQUIRED" for row in social_instances))
         self.assertTrue(any(row["object"]["name"] == "objplayerhouse" and row["status"] == "ADAPTATION_REQUIRED" for row in village["instances"]))
         self.assertTrue(all(row["import_policy"] != "import_GameMaker_behavior" for row in village["instances"]))
 

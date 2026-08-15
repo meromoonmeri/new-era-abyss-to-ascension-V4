@@ -1,8 +1,20 @@
 {
   "asset": "nnv_rm81",
   "blockers": [
+    "canonical NNV objwinter particle families, snow trails, footprints and snow audio are not ported",
+    "canonical NNV spring/autumn/winter visual bundles are not generated",
+    "native Pokemon wild exploration population and encounter behavior are not bound",
     "unresolved transition 142716 newroom=None"
   ],
+  "canonical_environment_authority": {
+    "generic_new_era_season_particles_allowed_as_substitute": false,
+    "season_system": "reports/season-system.json",
+    "season_system_sha256": "a08ed4cab339b6de8c16e76d31a2b797ef80c149d4965e5b00c0001b0c3bc565",
+    "season_vm_evidence": "reports/season-vm-evidence.json",
+    "season_vm_evidence_sha256": "a4abbd845cd348aadb00e0cbda65747e06ad5c553348dfdb0cf253a975421904",
+    "time_system": "reports/time-system.json",
+    "time_system_sha256": "27ec8cc322277bcc1034a9074927d60c4df3ec95bb099eccfb13c3024a633b38"
+  },
   "checks": {
     "all_source_tile_layers_preserved": true,
     "collision_grid_matches_visual_extent": true,
@@ -18,7 +30,7 @@
     "source_solid_instances": 0
   },
   "conversion_status": "UNIMPLEMENTED",
-  "manifest_semantic_sha256": "d4b62b1a3c1c166d253bc8763550769e3d3122cbd00172dc21c16cf8258930c0",
+  "manifest_semantic_sha256": "6e6b9a9913a769d291dd11cd5d757e47fdc4ce64b16c16f7b0eda7784ea9ae07",
   "mapped_transitions": [
     {
       "edge": "North",
@@ -56,7 +68,7 @@
     "ground": "Data/Ground/nnv_rm81.rsground",
     "ground_sha256": "7034808c79ca2edbff9ab18655fbf2510c9fc3599626cd59f49572768b7b0237",
     "script": "Data/Script/halcyon/ground/nnv_rm81/init.lua",
-    "script_sha256": "70249456d7f277201fb96435b78106fc694202a4e5e0156241cff7e9daaf03e7",
+    "script_sha256": "be61ac4a6b6c6a9fcb4c46f48a27a70cad5342dae8ba2550e817b3e96c3869a1",
     "source_render": "validation/source_normalized_tick0.png",
     "source_render_sha256": "088f8be227adeda97f15d8aca7a607b6f5ef5a6ca4fa89737bacd9a892151141",
     "tile": "Content/Tile/NNV_rm81_Source.tile",
@@ -69,6 +81,8 @@
   "source": {
     "data_win_sha256": "2f33b595b450b40355554d73f5acc5d7272e5d54519e35cd8971e0f336401227",
     "official_inventory": "extracted/official/inventory/Rooms.json.gz",
+    "repository": "https://github.com/meromoonmeri/nonamevillage",
+    "repository_commit": "d1245878861fc76dc5455dbad68bcb45c83f7e1f",
     "room_record_sha256": "a70f99be146b39e0195638f3864402628936b30dae30c63337c7663dde4247b2"
   },
   "source_tile_layers": [
@@ -197,5 +211,12 @@
     "max_channel_error": 0,
     "pixel_exact": true
   },
-  "visual_status": "TICK0_PIXEL_EXACT"
+  "visual_scope": "environment_layers_only; source human/wildlife actors excluded pending native Pokemon mapping",
+  "visual_status": "TICK0_PIXEL_EXACT",
+  "wildlife": {
+    "native_pokemon_count": 0,
+    "source_count": 0,
+    "source_placements": [],
+    "status": "UNIMPLEMENTED"
+  }
 }

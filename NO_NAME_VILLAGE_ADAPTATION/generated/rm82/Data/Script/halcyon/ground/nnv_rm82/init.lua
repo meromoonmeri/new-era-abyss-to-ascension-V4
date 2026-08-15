@@ -13,14 +13,14 @@ function M.Init(map)
 end
 function M.Enter(map)
   LivingWorld.SyncStory()
-  M.Context = LivingWorld.Context('no_name_village', 'nnv_rm81')
+  M.Context = LivingWorld.Context('no_name_village', 'nnv_rm82')
   M.Day = TownLife.Today()
   -- Do not call Seasons.Apply here: its generic PMDO particles are not a
   -- substitute for No Name Village's canonical objstage/objwinter system.
   LivingWorld.ApplyOutdoor(false)
   M.SourceSeason = Seasons.Actuelle().id
   if M.SourceSeason ~= 'ete' then
-    error('NNV canonical season bundle missing for nnv_rm81: '..tostring(M.SourceSeason))
+    error('NNV canonical season bundle missing for nnv_rm82: '..tostring(M.SourceSeason))
   end
   local preset = Weather.ForChapter((SV.ChapterProgression and SV.ChapterProgression.Chapter) or 1)
   if preset ~= nil then Weather.Set(preset) end
@@ -32,15 +32,19 @@ function M.Exit(map) end
 function M.Update(map) end
 function M.Exit_North_Touch(obj, activator)
   GAME:FadeOut(false, 20)
-  GAME:EnterGroundMap('nnv_rm82', 'Entry_South')
+  GAME:EnterGroundMap('nnv_rm81', 'Entry_South')
+end
+function M.Exit_North_Touch(obj, activator)
+  GAME:FadeOut(false, 20)
+  GAME:EnterGroundMap('nnv_rm92', 'Entry_South')
 end
 function M.Exit_West_Touch(obj, activator)
   GAME:FadeOut(false, 20)
-  GAME:EnterGroundMap('nnv_rm73', 'Entry_East')
+  GAME:EnterGroundMap('nnv_rm72', 'Entry_East')
 end
 function M.Exit_South_Touch(obj, activator)
   GAME:FadeOut(false, 20)
-  GAME:EnterGroundMap('nnv_rm84', 'Entry_North')
+  GAME:EnterGroundMap('nnv_rm83', 'Entry_North')
 end
 function M.GameSave(map) end
 function M.GameLoad(map) end

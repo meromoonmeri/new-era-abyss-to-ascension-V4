@@ -4,7 +4,7 @@ import hashlib,json,struct,unittest
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parent
-CANDIDATES=("rmvillage","rm78","rm81")
+CANDIDATES=("rmvillage","rm78","rm81","rm82")
 SYSTEMS=("halcyon.LivingWorld","halcyon.TownLife","halcyon.TownPlace","halcyon.Seasons","halcyon.Weather","halcyon.TownNight")
 
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -37,6 +37,12 @@ class EnvironmentConversionTests(unittest.TestCase):
    script=(root/m["outputs"]["script"]).read_text()
    self.assertEqual(tuple(m["new_era_systems"]),SYSTEMS)
    for system in SYSTEMS:self.assertIn("require '"+system+"'",script)
+   self.assertIn("LivingWorld.ApplyOutdoor(false)",script)
+   self.assertNotIn("Seasons.Setup()",script);self.assertNotIn("Seasons.Apply()",script)
+   self.assertEqual(m["source"]["repository_commit"],"d1245878861fc76dc5455dbad68bcb45c83f7e1f")
+   self.assertFalse(m["canonical_environment_authority"]["generic_new_era_season_particles_allowed_as_substitute"])
+   self.assertTrue(any("objwinter particle families" in blocker for blocker in m["blockers"]))
+   self.assertTrue(any("wild exploration population" in blocker for blocker in m["blockers"]))
   village=json.loads((ROOT/"generated/rmvillage/manifest.json").read_text())
   self.assertTrue(any("native Pokemon living cast" in blocker for blocker in village["blockers"]))
 
@@ -45,6 +51,14 @@ class EnvironmentConversionTests(unittest.TestCase):
    m=json.loads((ROOT/"generated"/room/"manifest.json").read_text());metrics=m["visual_metrics"]
    self.assertTrue(metrics["alpha_exact"]);self.assertLessEqual(metrics["max_channel_error"],1)
    self.assertIn(m["visual_status"],{"TICK0_PIXEL_EXACT","TICK0_PMDO_PREMULTIPLY_ROUNDTRIP_VALID"})
+
+ def test_wildlife_is_preserved_as_native_pokemon_work_not_source_sprite_decor(self):
+  wild=json.loads((ROOT/"generated/rm82/manifest.json").read_text())["wildlife"]
+  self.assertEqual(wild["source_count"],89);self.assertEqual(wild["native_pokemon_count"],0)
+  self.assertEqual(wild["status"],"UNIMPLEMENTED")
+  self.assertTrue(all(row["object"].startswith("objmob") for row in wild["source_placements"]))
+  self.assertTrue(all(row["semantics"]["behavior_class"]=="stationary_spawning_nest" for row in wild["source_placements"]))
+  self.assertEqual({row["semantics"]["active_spawn_cap_in_rm82"] for row in wild["source_placements"]},{8})
 
  def test_pmd_red_certified_destinations_are_not_outputs(self):
   for room in CANDIDATES:

@@ -32,9 +32,10 @@ DECOR_TOKENS = (
     "hedge", "leaf", "log", "plant", "rock", "roof", "shadow", "snow", "stump", "tree",
     "veget", "wall", "water", "wood",
 )
+WILDLIFE_TOKENS = ("objmob", "objbmob")
 SOCIAL_ROLE_TOKENS = (
-    "carpenter", "farmer", "fisher", "hunter", "logger", "merchant", "objmob",
-    "shopkeeper", "villager",
+    "carpenter", "farmer", "fisher", "herbalist", "hunter", "logger", "merchant",
+    "seamstress", "shopkeeper", "villager",
 )
 PROPRIETARY_TOKENS = (
     "attack", "battle", "combat", "dialog", "enemy", "inventory", "manager", "menu",
@@ -70,6 +71,8 @@ def classify_instance(object_name: str, layer_name: str) -> tuple[str, str]:
     layer = layer_name.casefold()
     if "house" in obj:
         return "ADAPTATION_REQUIRED", "source_building_requires_native_PMDO_collision_door_and_interior_link"
+    if any(token in obj for token in WILDLIFE_TOKENS):
+        return "WILD_POKEMON_ADAPTATION_REQUIRED", "source_wildlife_behavior_requires_native_Pokemon_cast_encounter_and_routine"
     if any(token in obj for token in SOCIAL_ROLE_TOKENS):
         return "ROLE_ADAPTATION_REQUIRED", "source_social_function_requires_native_Pokemon_cast_and_New_Era_routine"
     if any(token in obj for token in FUNCTIONAL_TOKENS):
@@ -231,6 +234,7 @@ def build(extracted: Path, reports: Path) -> dict[str, Any]:
                     "reason": reason,
                     "import_policy": (
                         "reconstruct_with_native_PMDO_marker/collider/warp" if status == "ADAPTATION_REQUIRED"
+                        else "replace_with_native_wild_Pokemon_using_PMDO_entities_encounters_and_existing_AI" if status == "WILD_POKEMON_ADAPTATION_REQUIRED"
                         else "replace_with_native_Pokemon_actor_using_existing_LivingWorld_TownLife_TownPlace_systems" if status == "ROLE_ADAPTATION_REQUIRED"
                         else "visual_environment_only" if status == "EXTRACTED"
                         else "do_not_import" if status == "EXCLUDED_PROPRIETARY"
@@ -272,6 +276,8 @@ def build(extracted: Path, reports: Path) -> dict[str, Any]:
             "scope": "environment_only",
             "forbidden": ["source_human_sprites", "combat_system", "proprietary_gameplay", "proprietary_UI", "GameMaker_runtime_scripts"],
             "social_role_policy": "preserve proven social function; replace source actor with a native Pokemon using existing LivingWorld/TownLife/TownPlace and PMDO AI",
+            "wildlife_policy": "preserve source wildlife density/placement/behavior class; map every role to native wild Pokemon, PMDO entities/encounters, and existing AI; never flatten wildlife into decoration",
+            "season_policy": "port exact NNV objstage substitutions, objwinter particle families, footprints and audio; New Era Seasons supplies progression state only and generic seasonal particles are not substitutes",
             "existing_new_era_systems": ["halcyon.LivingWorld", "halcyon.TownLife", "halcyon.TownPlace", "halcyon.Seasons", "halcyon.Weather", "halcyon.ai.ground_default"],
             "status_order": ["EXTRACTED", "CONVERTED", "STRUCTURALLY_VALID", "VISUALLY_VALID", "RUNTIME_VALID", "CERTIFIED", "PROMOTED"],
             "fail_closed": True,
@@ -321,6 +327,8 @@ def write_summary(path: Path, data: dict[str, Any]) -> None:
         "",
         "`ROLE_ADAPTATION_REQUIRED` conserve une fonction sociale source sans importer son sprite",
         "ou son code : le casting sera un Pokémon natif branché sur les systèmes New Era existants.",
+        "`WILD_POKEMON_ADAPTATION_REQUIRED` conserve densité, position et classe comportementale",
+        "de la faune source ; elle devra devenir une population Pokémon native, jamais du décor.",
         "`REVIEW_REQUIRED` est volontairement bloquant. Les règles nominales ne constituent",
         "jamais une preuve suffisante pour importer un objet inconnu.",
         "",

@@ -40,6 +40,8 @@ from pmu_adaptation.composer import (  # noqa: E402
 from smart_dungeon.assets import _tile_entries  # noqa: E402
 
 SOURCE_SHA256 = "2f33b595b450b40355554d73f5acc5d7272e5d54519e35cd8971e0f336401227"
+UPSTREAM_REPOSITORY = "https://github.com/meromoonmeri/nonamevillage"
+UPSTREAM_COMMIT = "d1245878861fc76dc5455dbad68bcb45c83f7e1f"
 TARGET_CELL = 16
 SOURCE_CELL = 64
 SCALE_DIVISOR = 4
@@ -253,6 +255,23 @@ def collision_mask(extracted: Path, sprite: dict[str, Any], scale_x: float, scal
     return image
 
 
+def wildlife_semantics(gml: dict[str, str], object_name: str) -> dict[str, Any]:
+    tier = re.fullmatch(r"objmobsm5(\d{2})", object_name)
+    if tier:
+        parent_create = gml.get("gml_Object_objmobsm5_Create_0.gml", "")
+        parent_step = gml.get("gml_Object_objmobsm5_Step_0.gml", "")
+        return {
+            "behavior_class": "stationary_spawning_nest", "hp_tier": int(tier.group(1)),
+            "spawned_source_object": "objmob0", "active_spawn_cap_in_rm82": 8,
+            "timed_spawn_probability": 0.3, "source_room_pause": "rm82",
+            "proof": {
+                "create_gml": "gml_Object_objmobsm5_Create_0.gml", "create_sha256": hashlib.sha256(parent_create.encode()).hexdigest(),
+                "step_gml": "gml_Object_objmobsm5_Step_0.gml", "step_sha256": hashlib.sha256(parent_step.encode()).hexdigest(),
+            },
+        }
+    return {"behavior_class": "SOURCE_BEHAVIOR_ADAPTATION_REQUIRED"}
+
+
 def room_creation_code(gml: dict[str, str], placement: dict[str, Any]) -> dict[str, Any]:
     code = ref_name(placement.get("CreationCode"))
     text = gml.get(f"{code}.gml", "") if code else ""
@@ -263,7 +282,7 @@ def room_creation_code(gml: dict[str, str], placement: dict[str, Any]) -> dict[s
 def controller(asset: str, transitions: list[dict[str, Any]]) -> str:
     lines = ["-- Generated NNV→PMDO candidate; not a production route.", "require 'origin.common'"]
     lines.extend(f"require '{name}'" for name in SYSTEM_REQUIRES)
-    lines += ["local M = {}", "function M.Init(map)", "  LivingWorld.Ensure()", "  TownNight.Ensure()", "end", "function M.Enter(map)", "  LivingWorld.SyncStory()", "  M.Context = LivingWorld.Context('no_name_village', '" + asset + "')", "  M.Day = TownLife.Today()", "  LivingWorld.ApplyOutdoor(true)", "  Seasons.Setup()", "  local preset = Weather.ForChapter((SV.ChapterProgression and SV.ChapterProgression.Chapter) or 1)", "  if preset ~= nil then Weather.Set(preset) end", "end", "function M.PlaceDialogue(inst)", "  return TownPlace.Line(inst)", "end", "function M.Exit(map) end", "function M.Update(map) end"]
+    lines += ["local M = {}", "function M.Init(map)", "  LivingWorld.Ensure()", "  TownNight.Ensure()", "end", "function M.Enter(map)", "  LivingWorld.SyncStory()", "  M.Context = LivingWorld.Context('no_name_village', '" + asset + "')", "  M.Day = TownLife.Today()", "  -- Do not call Seasons.Apply here: its generic PMDO particles are not a", "  -- substitute for No Name Village's canonical objstage/objwinter system.", "  LivingWorld.ApplyOutdoor(false)", "  M.SourceSeason = Seasons.Actuelle().id", "  if M.SourceSeason ~= 'ete' then", "    error('NNV canonical season bundle missing for " + asset + ": '..tostring(M.SourceSeason))", "  end", "  local preset = Weather.ForChapter((SV.ChapterProgression and SV.ChapterProgression.Chapter) or 1)", "  if preset ~= nil then Weather.Set(preset) end", "end", "function M.PlaceDialogue(inst)", "  return TownPlace.Line(inst)", "end", "function M.Exit(map) end", "function M.Update(map) end"]
     for row in transitions:
         lines += [
             f"function M.{row['entity']}_Touch(obj, activator)",
@@ -312,12 +331,13 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
         raise ValueError("first exterior converter requires the official 4992×4992 room contract")
     ensure_texture_cache(extracted, texture_cache)
     with tarfile.open(extracted / "decompiled-gml.tar.gz", "r:gz") as archive:
-        gml = {name: archive.extractfile(name).read().decode(errors="replace") for name in archive.getnames() if name.startswith("gml_RoomCC_")}
+        gml = {name: archive.extractfile(name).read().decode(errors="replace") for name in archive.getnames() if name.endswith(".gml")}
 
     # Every source placement remains represented either visually, spatially or
     # as an explicit blocker. Human/social source actors are never imported.
     blockers = []
     transitions_source = []
+    wildlife_source = []
     source_objects = []
     for placement in room.get("GameObjects") or []:
         object_index = ref_index(placement.get("ObjectDefinition"))
@@ -332,9 +352,17 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
             })
             if code["newroom"] is None or not 0 <= code["newroom"] < len(rooms):
                 blockers.append(f"unresolved transition {placement.get('InstanceID')} newroom={code['newroom']}")
-        elif object_name.startswith("objmob") or object_name in {"objlogger", "objhunter", "objcarpenter"}:
+        elif object_name.startswith(("objmob", "objbmob")):
+            wildlife_source.append({"instance_id": placement.get("InstanceID"), "object": object_name, "position_source_px": [placement.get("X"), placement.get("Y")], "position_pmdo_px": [round(placement.get("X") / 4), round(placement.get("Y") / 4)], "semantics": wildlife_semantics(gml, object_name)})
+            blockers.append(f"wildlife role {placement.get('InstanceID')}:{object_name} requires native Pokemon encounter mapping")
+        elif object_name in {"objlogger", "objhunter", "objcarpenter", "objherbalist", "objseamstress"}:
             blockers.append(f"social role {placement.get('InstanceID')}:{object_name} requires native Pokemon casting")
 
+    blockers.extend([
+        "canonical NNV spring/autumn/winter visual bundles are not generated",
+        "canonical NNV objwinter particle families, snow trails, footprints and snow audio are not ported",
+        "native Pokemon wild exploration population and encounter behavior are not bound",
+    ])
     if room_name == "rmvillage":
         blockers.append("native Pokemon living cast and TownLife/TownPlace routines are not bound yet")
     tiles = OfficialTiles(extracted, texture_cache)
@@ -397,6 +425,8 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
                     object_index = ref_index(placement.get("ObjectDefinition"))
                     if object_index is None: continue
                     obj = objects[object_index]; object_name = obj["Name"]
+                    if object_name.startswith(("objmob", "objbmob")) or object_name in {"objlogger", "objhunter", "objcarpenter", "objherbalist", "objseamstress", "objplayer", "objfollower"}:
+                        continue  # source actors are replaced by native Pokemon, never rasterized
                     if object_name.startswith("objsp"):
                         replacement = "objsm" + object_name[5:]
                         obj = next((row for row in objects if row["Name"] == replacement), obj)
@@ -531,12 +561,20 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
     status = "GENERATED_CANDIDATE" if static_pass else "FAILED"
     manifest = {
         "schema": "new-era.nnv-pmdo-room-conversion.v1", "room": room_name, "asset": asset,
-        "source": {"data_win_sha256": SOURCE_SHA256, "room_record_sha256": canonical_sha(room), "official_inventory": "extracted/official/inventory/Rooms.json.gz"},
+        "source": {"repository": UPSTREAM_REPOSITORY, "repository_commit": UPSTREAM_COMMIT, "data_win_sha256": SOURCE_SHA256, "room_record_sha256": canonical_sha(room), "official_inventory": "extracted/official/inventory/Rooms.json.gz"},
+        "canonical_environment_authority": {
+            "season_system": "reports/season-system.json", "season_system_sha256": file_sha(repo / "NO_NAME_VILLAGE_ADAPTATION/reports/season-system.json"),
+            "season_vm_evidence": "reports/season-vm-evidence.json", "season_vm_evidence_sha256": file_sha(repo / "NO_NAME_VILLAGE_ADAPTATION/reports/season-vm-evidence.json"),
+            "time_system": "reports/time-system.json", "time_system_sha256": file_sha(repo / "NO_NAME_VILLAGE_ADAPTATION/reports/time-system.json"),
+            "generic_new_era_season_particles_allowed_as_substitute": False,
+        },
         "transform": {"kind": "deterministic_pixel_art_normalization", "scale": "1/4", "source_cell_px": 64, "target_cell_px": 16, "resampler": "nearest"},
         "status": status, "conversion_status": "UNIMPLEMENTED" if blockers else "STRUCTURALLY_VALID",
         "runtime_status": "NOT_RUN", "visual_status": "TICK0_PIXEL_EXACT" if pixel_exact else "TICK0_PMDO_PREMULTIPLY_ROUNDTRIP_VALID" if pmdo_roundtrip_valid else "FAILED",
+        "visual_scope": "environment_layers_only; source human/wildlife actors excluded pending native Pokemon mapping",
         "visual_metrics": {"differing_pixels": differing_pixels, "max_channel_error": max_channel_error, "alpha_exact": alpha_exact, "pixel_exact": pixel_exact},
         "source_tile_layers": source_tile_layers, "source_transitions": transitions_source, "mapped_transitions": known,
+        "wildlife": {"source_placements": wildlife_source, "source_count": len(wildlife_source), "native_pokemon_count": 0, "status": "UNIMPLEMENTED"},
         "collision_metrics": {"source_solid_instances": solid_instance_count, "blocked_pmdo_cells_8px": sum(cell["Tags"] != 0 for column in obstacles for cell in column)},
         "checks": checks, "blockers": sorted(set(blockers)),
         "new_era_systems": list(SYSTEM_REQUIRES),
