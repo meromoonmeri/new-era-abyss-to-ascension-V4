@@ -8,6 +8,11 @@
   ],
   "certification_status": "NOT_CERTIFIED",
   "conversion_status": "UNIMPLEMENTED",
+  "dominant_selection": {
+    "pokemon": null,
+    "reason": "rmvillage est un hub habité sans fonction de boss source; imposer Klawf, Bombirdier, Orthworm, Dondozo/Tatsugiri ou Great Tusk/Iron Treads serait arbitraire. Les Dominants restent réservés aux rooms dont le biome et la structure de rencontre les justifient.",
+    "status": "NOT_APPLICABLE_FOR_RMVILLAGE"
+  },
   "entities": [
     {
       "<AI>k__BackingField": null,
@@ -2235,7 +2240,7 @@
   "schema": "new-era.nnv-rmvillage-pokemon-life-patch.v2",
   "script": "NNVLife.lua",
   "script_sha256": "64356dadcb36330505ee92716bc923a4e254dfb87df915c56a154d8852219c31",
-  "semantic_sha256": "e8952af888e3ac6d483319f394dff4ba0edd638ca8f0fbb1491951142253203b",
+  "semantic_sha256": "7671674994484f718f17c2e20c721ecd87161431d59a99465427974d5350eba1",
   "social_count": 5,
   "status": "LIFE_PATCH_GENERATED",
   "wild_count": 13,

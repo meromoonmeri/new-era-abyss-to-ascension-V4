@@ -106,6 +106,7 @@ class EnvironmentConversionTests(unittest.TestCase):
   self.assertEqual(patch['status'],'LIFE_PATCH_GENERATED');self.assertEqual(patch['runtime_status'],'NOT_RUN')
   self.assertEqual(patch['conversion_status'],'UNIMPLEMENTED');self.assertEqual(patch['certification_status'],'NOT_CERTIFIED');self.assertFalse(patch['promotion_allowed'])
   self.assertEqual(patch['entity_count'],18);self.assertEqual(patch['social_count'],5);self.assertEqual(patch['wild_count'],13);self.assertEqual(patch['wild_group_count'],6)
+  self.assertIsNone(patch['dominant_selection']['pokemon']);self.assertEqual(patch['dominant_selection']['status'],'NOT_APPLICABLE_FOR_RMVILLAGE')
   species={row['species'] for row in patch['evidence']};self.assertEqual(species,{'timburr','bidoof','decidueye','roselia','leavanny','fletchling','scatterbug','caterpie','hoppip','oddish','deerling'})
   wild=[row for row in patch['evidence'] if row['kind'].startswith('wild:')];self.assertEqual(len(wild),13);self.assertEqual(len({row['entity'] for row in wild}),13)
   self.assertEqual({row['group'] for row in wild},{'flock','colony','drift','patch','territory'})
