@@ -67,10 +67,12 @@ PYTHONPATH=.runtime-cache/nnv-python \
 ```
 
 Le convertisseur réutilise le writer natif `.tile`/`.rsground` de
-`PMU_ADAPTATION`, reconstruit les couches depuis le modèle officiel (jamais
-le PNG de preview), normalise le pixel-art 64→16 px par nearest-neighbour,
-matérialise collisions, markers et transitions prouvées, puis effectue un
-rendu différentiel du Ground généré. Le script candidat require explicitement
+`PMU_ADAPTATION` et reconstruit les couches depuis le modèle officiel, jamais
+le PNG de preview. La règle finale est une correspondance spatiale **1:1** :
+4 992×4 992 px source donnent 4 992×4 992 px PMDO, cellules visuelles 64 px,
+`TexSize=8`, grille de collision 624×624 en cases de 8 px, sans resampling.
+Il matérialise markers et transitions prouvées puis rend le Ground pour une
+comparaison pixel-perfect compatible avec la prémultiplication alpha PMDO. Le script candidat require explicitement
 `LivingWorld`, `TownLife`, `TownPlace`, `Seasons`, `Weather` et `TownNight`.
 
 `Seasons` ne sert que d'horloge de progression. Le convertisseur interdit
@@ -82,12 +84,11 @@ source GitHub est verrouillée au commit
 `d1245878861fc76dc5455dbad68bcb45c83f7e1f` de
 `meromoonmeri/nonamevillage`.
 
-Première vague générée : `rmvillage`, `rm78`, `rm81`, puis `rm82`, première
-room sauvage prioritaire avec **89 placements de faune source** conservés dans
-le manifeste pour leur mapping Pokémon natif. Aucun sprite de mob source n'est
-rasterisé comme décor. Aucun candidat n'est promu ni déclaré `CONVERTED` :
-cycles d'animation, saisons/particules canoniques, populations Pokémon sauvages
-et validation runtime restent obligatoires ;
-`rmvillage` attend aussi son casting social Pokémon, et `rm81` conserve une
-transition dynamique non résolue. Les manifests restent honnêtement
-`UNIMPLEMENTED` avec `runtime_status=NOT_RUN`.
+Le premier candidat 1:1 est `rmvillage`. Les anciens candidats 1/4 `rm78`,
+`rm81` et `rm82` ont été supprimés comme bases impropres. L'analyse canonique
+des 89 nids sauvages de `rm82` reste conservée séparément dans
+`reports/rm82-wildlife-source.json` pour sa future conversion 1:1. Aucun
+candidat n'est promu ni déclaré `CONVERTED` : cycles d'animation,
+saisons/particules canoniques, populations Pokémon sauvages, casting social et
+validation runtime restent obligatoires. Le manifeste de `rmvillage` reste
+honnêtement `UNIMPLEMENTED` avec `runtime_status=NOT_RUN`.

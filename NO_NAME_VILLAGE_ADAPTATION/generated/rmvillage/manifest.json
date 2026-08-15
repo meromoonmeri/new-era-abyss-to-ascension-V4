@@ -36,16 +36,16 @@
     "entities_in_bounds": true,
     "existing_new_era_systems_required": true,
     "ground_json_round_trip": true,
-    "source_dimensions_normalized_exactly": true,
+    "source_dimensions_identity_mapped": true,
     "tick0_visual_pmdo_premultiply_roundtrip": true,
     "tile_dependency_exists": true
   },
   "collision_metrics": {
-    "blocked_pmdo_cells_8px": 9763,
+    "blocked_pmdo_cells_8px": 142422,
     "source_solid_instances": 251
   },
   "conversion_status": "UNIMPLEMENTED",
-  "manifest_semantic_sha256": "af4b369ab2b13e3237dd495718f8c49fd4cb70eb6e3265eca7883d69cc0eb49e",
+  "manifest_semantic_sha256": "809a31869ccfbb18dea06b2ac7edb4cc5457e718a5de16b29105fa1e46acf9cc",
   "mapped_transitions": [
     {
       "edge": "Door_106508",
@@ -114,15 +114,15 @@
   ],
   "outputs": {
     "candidate_render": "validation/candidate_tick0.png",
-    "candidate_render_sha256": "aa83d71b022fea7b280bef45fc8323ffea13759d9b55f29642d3e16b345c2607",
+    "candidate_render_sha256": "a83dbca43c76f620caa8e80a0cf3f4814992397f0dc2851fee7bdc824038d77e",
     "ground": "Data/Ground/nnv_rmvillage.rsground",
-    "ground_sha256": "d3303c3baac2931afc2a7879b9284d31cb4c154c7cf7246a2aecb1b48af49042",
+    "ground_sha256": "255d32d4e0e3eb1542ecfae474130aeb38f048737a9be9ea03131bead1cb3dd8",
     "script": "Data/Script/halcyon/ground/nnv_rmvillage/init.lua",
     "script_sha256": "f77f119c2b33ba02c78120ac14a9606e8d06ebf5d11b7678c97d8f0f63086e16",
     "source_render": "validation/source_normalized_tick0.png",
-    "source_render_sha256": "4b5852fe45bb72639f22e15400a8ac4e01bc667c95bf1693d8d0b19460c6431f",
+    "source_render_sha256": "b0b1bbdce76a16e21f5b8dc9b09bf876c79db4f4602ec8952d52d85fce424a79",
     "tile": "Content/Tile/NNV_rmvillage_Source.tile",
-    "tile_sha256": "a31efb4b3c8a855d053a002675d71e39adad94ed9310a4e27752929a7eed1b85"
+    "tile_sha256": "5bd59089050742bdb2f56b72ded38e64a8e4abc032b0f3cf2f846b092dde9394"
   },
   "promotion_allowed": false,
   "room": "rmvillage",
@@ -297,15 +297,23 @@
   ],
   "status": "GENERATED_CANDIDATE",
   "transform": {
-    "kind": "deterministic_pixel_art_normalization",
-    "resampler": "nearest",
-    "scale": "1/4",
+    "kind": "identity_spatial_mapping",
+    "resampler": "none",
+    "scale": "1/1",
     "source_cell_px": 64,
-    "target_cell_px": 16
+    "source_dimensions_px": [
+      4992,
+      4992
+    ],
+    "target_cell_px": 64,
+    "target_dimensions_px": [
+      4992,
+      4992
+    ]
   },
   "visual_metrics": {
     "alpha_exact": true,
-    "differing_pixels": 9237,
+    "differing_pixels": null,
     "max_channel_error": 1,
     "pixel_exact": false
   },

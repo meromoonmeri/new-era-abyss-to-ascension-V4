@@ -3,8 +3,8 @@
 
 This first production converter deliberately accepts only tile-only exterior
 rooms.  It reuses PMU_ADAPTATION's proven native .tile/.rsground writer,
-preserves every source tile layer, and normalizes the source's 4x pixel-art
-presentation to 16 px PMDO cells with nearest-neighbour sampling.  Any source
+preserves every source tile layer and every environmental pixel at the source
+4992×4992 dimensions using 64 px PMDO cells (identity mapping, no resampling). Any source
 sprite instance, social actor, unresolved transition, or unsupported layer is a
 hard blocker and prevents CONVERTED status.
 """
@@ -30,7 +30,7 @@ for path in (REPO / "PMU_ADAPTATION/src", REPO / "PMU_EXTRACTION/src", REPO / "t
     sys.path.insert(0, str(path))
 
 try:
-    from PIL import Image
+    from PIL import Image, ImageChops
 except ImportError as exc:  # pragma: no cover - explicit operator failure
     raise SystemExit("Pillow missing; install NO_NAME_VILLAGE_ADAPTATION/requirements-conversion.lock") from exc
 
@@ -42,9 +42,9 @@ from smart_dungeon.assets import _tile_entries  # noqa: E402
 SOURCE_SHA256 = "2f33b595b450b40355554d73f5acc5d7272e5d54519e35cd8971e0f336401227"
 UPSTREAM_REPOSITORY = "https://github.com/meromoonmeri/nonamevillage"
 UPSTREAM_COMMIT = "d1245878861fc76dc5455dbad68bcb45c83f7e1f"
-TARGET_CELL = 16
+TARGET_CELL = 64
 SOURCE_CELL = 64
-SCALE_DIVISOR = 4
+SCALE_DIVISOR = 1
 TILE_INDEX_MASK = 0x0007FFFF
 TILE_MIRROR = 0x10000000
 TILE_FLIP = 0x20000000
@@ -353,7 +353,7 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
             if code["newroom"] is None or not 0 <= code["newroom"] < len(rooms):
                 blockers.append(f"unresolved transition {placement.get('InstanceID')} newroom={code['newroom']}")
         elif object_name.startswith(("objmob", "objbmob")):
-            wildlife_source.append({"instance_id": placement.get("InstanceID"), "object": object_name, "position_source_px": [placement.get("X"), placement.get("Y")], "position_pmdo_px": [round(placement.get("X") / 4), round(placement.get("Y") / 4)], "semantics": wildlife_semantics(gml, object_name)})
+            wildlife_source.append({"instance_id": placement.get("InstanceID"), "object": object_name, "position_source_px": [placement.get("X"), placement.get("Y")], "position_pmdo_px": [round(placement.get("X") / SCALE_DIVISOR), round(placement.get("Y") / SCALE_DIVISOR)], "semantics": wildlife_semantics(gml, object_name)})
             blockers.append(f"wildlife role {placement.get('InstanceID')}:{object_name} requires native Pokemon encounter mapping")
         elif object_name in {"objlogger", "objhunter", "objcarpenter", "objherbalist", "objseamstress"}:
             blockers.append(f"social role {placement.get('InstanceID')}:{object_name} requires native Pokemon casting")
@@ -378,7 +378,8 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
         return payload_locations[payload]
 
     source_layers = []
-    source_canvas = Image.new("RGBA", (1248, 1248), (0, 0, 0, 0))
+    target_width, target_height = int(room["Width"]), int(room["Height"])
+    source_canvas = Image.new("RGBA", (target_width, target_height), (0, 0, 0, 0))
     source_tile_layers = []
     for layer in sorted(room.get("Layers") or [], key=lambda row: int(row.get("LayerDepth") or 0), reverse=True):
         data = layer.get("Data")
@@ -414,7 +415,7 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
             source_layers.append({"Name": f"NNV {layer['LayerName']}", "Layer": 0, "Visible": bool(layer.get("IsVisible", True)), "Tiles": columns})
             source_tile_layers.append({"name": layer["LayerName"], "depth": layer.get("LayerDepth"), "background": bg["Name"], "matrix_sha256": canonical_sha(rows)})
         elif layer_type in {"Instances", "Assets"}:
-            visual = Image.new("RGBA", (1248, 1248), (0, 0, 0, 0))
+            visual = Image.new("RGBA", (target_width, target_height), (0, 0, 0, 0))
             rendered = 0
             if layer_type == "Instances" and isinstance(data, dict):
                 for entry in data.get("Instances") or []:
@@ -465,7 +466,8 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
     if not source_layers:
         raise ValueError("room has no convertible source tile layers")
     visual_width = len(source_layers[0]["Tiles"]); visual_height = len(source_layers[0]["Tiles"][0])
-    collision_width, collision_height = visual_width * 2, visual_height * 2
+    collision_width = visual_width * TARGET_CELL // 8
+    collision_height = visual_height * TARGET_CELL // 8
     collision_canvas = Image.new("L", (visual_width * TARGET_CELL, visual_height * TARGET_CELL), 0)
     solid_instance_count = 0
     for placement, object_index, object_name in source_objects:
@@ -478,41 +480,45 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
         if mask is None:
             blockers.append(f"solid source instance {placement.get('InstanceID')}:{object_name} has no collision mask"); continue
         sprite = tiles.sprites[sprite_index]
-        left = round(placement["X"] / 4 - int(sprite["OriginX"]) * float(placement.get("ScaleX") or 1) / 4)
-        top = round(placement["Y"] / 4 - int(sprite["OriginY"]) * float(placement.get("ScaleY") or 1) / 4)
+        left = round(placement["X"] / SCALE_DIVISOR - int(sprite["OriginX"]) * float(placement.get("ScaleX") or 1) / SCALE_DIVISOR)
+        top = round(placement["Y"] / SCALE_DIVISOR - int(sprite["OriginY"]) * float(placement.get("ScaleY") or 1) / SCALE_DIVISOR)
         collision_canvas.paste(mask, (left, top), mask)
+    collision_grid = collision_canvas.resize((collision_width, collision_height), Image.Resampling.BOX)
+    collision_pixels = collision_grid.load()
     obstacles = []
     for x in range(collision_width):
         column = []
         for y in range(collision_height):
-            blocked = collision_canvas.crop((x * 8, y * 8, (x + 1) * 8, (y + 1) * 8)).getbbox() is not None
+            blocked = collision_pixels[x, y] > 0
             column.append({"Bounds": {"X": x * 8, "Y": y * 8, "Width": 8, "Height": 8}, "Tags": 1 if blocked else 0})
         obstacles.append(column)
 
     known = []
     objects_out = []
     markers = [
-        _marker("Entry_North", 624, 16, direction=0), _marker("Entry_South", 624, 1216, direction=4),
-        _marker("Entry_West", 16, 624, direction=6), _marker("Entry_East", 1216, 624, direction=2),
+        _marker("Entry_North", target_width // 2, 64, direction=0),
+        _marker("Entry_South", target_width // 2, target_height - 64, direction=4),
+        _marker("Entry_West", 64, target_height // 2, direction=6),
+        _marker("Entry_East", target_width - 64, target_height // 2, direction=2),
     ]
     for placement, _, object_name in source_objects:
         if object_name == "objspawnpoint":
-            markers.append(_marker(f"SourceSpawn_{placement['InstanceID']}", round(placement["X"] / 4), round(placement["Y"] / 4), direction=0))
+            markers.append(_marker(f"SourceSpawn_{placement['InstanceID']}", round(placement["X"] / SCALE_DIVISOR), round(placement["Y"] / SCALE_DIVISOR), direction=0))
     for row in transitions_source:
         target_index = row["newroom"]
         if target_index is None or not 0 <= target_index < len(rooms):
             continue
         sx, sy = row["position_source_px"]
         if row.get("object") == "objdoor":
-            edge = f"Door_{row['instance_id']}"; rect = (round(sx / 4), round(sy / 4), 16, 16); target_marker = "Entry_Door"
+            edge = f"Door_{row['instance_id']}"; rect = (round(sx / SCALE_DIVISOR), round(sy / SCALE_DIVISOR), 64, 64); target_marker = "Entry_Door"
         elif sy < 0 and sx > -128:
-            edge, rect, target_marker = "North", (0, 0, 1248, 8), "Entry_South"
+            edge, rect, target_marker = "North", (0, 0, target_width, 8), "Entry_South"
         elif sx > room["Width"]:
-            edge, rect, target_marker = "East", (1240, 0, 8, 1248), "Entry_West"
+            edge, rect, target_marker = "East", (target_width - 8, 0, 8, target_height), "Entry_West"
         elif sy > room["Height"]:
-            edge, rect, target_marker = "South", (0, 1240, 1248, 8), "Entry_North"
+            edge, rect, target_marker = "South", (0, target_height - 8, target_width, 8), "Entry_North"
         else:
-            edge, rect, target_marker = "West", (0, 0, 8, 1248), "Entry_East"
+            edge, rect, target_marker = "West", (0, 0, 8, target_height), "Entry_East"
         entity = f"Exit_{edge}"
         target = room_names[target_index]
         objects_out.append(_empty_ground_object(entity, *rect, passable=True, trigger=2))
@@ -520,10 +526,10 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
 
     entity_layer = {"Name": "NNV adaptation entities", "Visible": True, "MapChars": [], "GroundObjects": objects_out, "Spawners": [], "Markers": markers}
     asset = f"nnv_{room_name}"
-    ground = _ground_shell(asset, f"No Name Village — {room_name}", 2, source_layers, obstacles, [entity_layer], "")
+    ground = _ground_shell(asset, f"No Name Village — {room_name}", 8, source_layers, obstacles, [entity_layer], "")
     ground["Object"]["Comment"] = (
-        f"NNV official room {room_name}; source data.win SHA-256 {SOURCE_SHA256}; 4x pixel-art normalization 64px→16px nearest; "
-        "source tile layers preserved independently; candidate only, no promotion."
+        f"NNV official room {room_name}; source data.win SHA-256 {SOURCE_SHA256}; identity spatial mapping 1:1 at 4992x4992 px; "
+        "source tile layers and environmental pixels preserved independently; candidate only, no promotion."
     )
 
     if output.exists():
@@ -541,20 +547,21 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
     candidate_path.parent.mkdir(parents=True, exist_ok=True)
     candidate.save(candidate_path, format="PNG", optimize=False, compress_level=9)
     source_canvas.save(source_path, format="PNG", optimize=False, compress_level=9)
-    source_pixels = list(source_canvas.get_flattened_data()); candidate_pixels = list(candidate.get_flattened_data())
-    differing_pixels = sum(left != right for left, right in zip(source_pixels, candidate_pixels))
-    max_channel_error = max((max(abs(a - b) for a, b in zip(left, right)) for left, right in zip(source_pixels, candidate_pixels)), default=0)
-    alpha_exact = all(left[3] == right[3] for left, right in zip(source_pixels, candidate_pixels))
-    pixel_exact = differing_pixels == 0
+    difference = ImageChops.difference(source_canvas, candidate)
+    extrema = difference.getextrema()
+    max_channel_error = max(high for _, high in extrema)
+    alpha_exact = extrema[3][1] == 0
+    pixel_exact = difference.convert("RGB").getbbox() is None and alpha_exact
+    differing_pixels = None  # intentionally omitted: a 4992² Python pixel scan is not a bounded production gate
     pmdo_roundtrip_valid = max_channel_error <= 1 and alpha_exact
     checks = {
         "ground_json_round_trip": json.loads(ground_path.read_text(encoding="utf-8-sig")) == ground,
-        "source_dimensions_normalized_exactly": [visual_width, visual_height, TARGET_CELL] == [78, 78, 16],
-        "collision_grid_matches_visual_extent": [collision_width, collision_height] == [156, 156],
+        "source_dimensions_identity_mapped": [visual_width, visual_height, TARGET_CELL] == [78, 78, 64] and candidate.size == (4992, 4992),
+        "collision_grid_matches_visual_extent": [collision_width, collision_height] == [624, 624],
         "tile_dependency_exists": tile_path.is_file() and bool(tile_entries),
         "all_source_tile_layers_preserved": len(source_tile_layers) == sum(1 for layer in room["Layers"] if (layer.get("LayerType") or {}).get("name") == "Tiles" and isinstance(layer.get("Data"), dict) and layer["Data"].get("TileData") and ref_index(layer["Data"].get("Background")) is not None and int(tiles.backgrounds[ref_index(layer["Data"].get("Background"))]["GMS2TileWidth"]) in {64, 128}),
         "tick0_visual_pmdo_premultiply_roundtrip": pmdo_roundtrip_valid,
-        "entities_in_bounds": all(0 <= e["Collider"]["X"] <= 1248 and 0 <= e["Collider"]["Y"] <= 1248 for e in objects_out + markers),
+        "entities_in_bounds": all(0 <= e["Collider"]["X"] <= target_width and 0 <= e["Collider"]["Y"] <= target_height for e in objects_out + markers),
         "existing_new_era_systems_required": all(f"require '{name}'" in script_path.read_text() for name in SYSTEM_REQUIRES),
     }
     static_pass = all(checks.values())
@@ -568,7 +575,7 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
             "time_system": "reports/time-system.json", "time_system_sha256": file_sha(repo / "NO_NAME_VILLAGE_ADAPTATION/reports/time-system.json"),
             "generic_new_era_season_particles_allowed_as_substitute": False,
         },
-        "transform": {"kind": "deterministic_pixel_art_normalization", "scale": "1/4", "source_cell_px": 64, "target_cell_px": 16, "resampler": "nearest"},
+        "transform": {"kind": "identity_spatial_mapping", "scale": "1/1", "source_dimensions_px": [4992, 4992], "target_dimensions_px": [4992, 4992], "source_cell_px": 64, "target_cell_px": 64, "resampler": "none"},
         "status": status, "conversion_status": "UNIMPLEMENTED" if blockers else "STRUCTURALLY_VALID",
         "runtime_status": "NOT_RUN", "visual_status": "TICK0_PIXEL_EXACT" if pixel_exact else "TICK0_PMDO_PREMULTIPLY_ROUNDTRIP_VALID" if pmdo_roundtrip_valid else "FAILED",
         "visual_scope": "environment_layers_only; source human/wildlife actors excluded pending native Pokemon mapping",
