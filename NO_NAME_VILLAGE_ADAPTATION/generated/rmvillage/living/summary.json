@@ -1,0 +1,49 @@
+{
+  "blockers": [
+    "living variants not runtime tested",
+    "day/night source controllers not integrated",
+    "particle controller incomplete",
+    "encounter system incomplete"
+  ],
+  "certification_status": "NOT_CERTIFIED",
+  "conversion_status": "UNIMPLEMENTED",
+  "entity_count_per_variant": 49,
+  "promotion_allowed": false,
+  "room": "rmvillage",
+  "runtime_status": "NOT_RUN_ALL_VARIANTS",
+  "schema": "new-era.nnv-rmvillage-living-four-season.v1",
+  "semantic_sha256": "e3bbad2c9e576f274f74d95687c3d0670862d6f70136c03c7496b5eebdb17963",
+  "source_animals_converted": 31,
+  "status": "FOUR_SEASON_LIFE_BOUND",
+  "variant_count": 4,
+  "variants": [
+    {
+      "manifest": "generated/rmvillage/living/spring/manifest.json",
+      "manifest_sha256": "5f9b7e007cd3e53dfdfe6059f2bcfddb238b2a81979332ed678aa64d0b3d2bc2",
+      "runtime_status": "NOT_RUN",
+      "season": "spring",
+      "status": "LIFE_LAYER_BUNDLE"
+    },
+    {
+      "manifest": "generated/rmvillage/living/summer/manifest.json",
+      "manifest_sha256": "b74977a519a193361ab2fe6d72df03d225fc80b371614208bde7285a5f6de4ca",
+      "runtime_status": "NOT_RUN",
+      "season": "summer",
+      "status": "LIFE_INTEGRATED_CANDIDATE"
+    },
+    {
+      "manifest": "generated/rmvillage/living/autumn/manifest.json",
+      "manifest_sha256": "3975f37d61bf077687315a791f71d6ca5ae0bf657fbf9c245d5127ef0ba79c59",
+      "runtime_status": "NOT_RUN",
+      "season": "autumn",
+      "status": "LIFE_LAYER_BUNDLE"
+    },
+    {
+      "manifest": "generated/rmvillage/living/winter/manifest.json",
+      "manifest_sha256": "e216c8437edabaf092c3a38fdd6242a2468335c870eb8447e332db871d5008ca",
+      "runtime_status": "NOT_RUN",
+      "season": "winter",
+      "status": "LIFE_LAYER_BUNDLE"
+    }
+  ]
+}

@@ -134,6 +134,15 @@ class EnvironmentConversionTests(unittest.TestCase):
   tile=ROOT/manifest['outputs']['tile_source'];self.assertTrue(tile.is_file());self.assertEqual(sha(tile),manifest['outputs']['tile_sha256'])
   self.assertFalse(manifest['source_animal_sprites_in_visual_layers'])
 
+ def test_life_patch_is_bound_to_four_animal_free_seasons_without_false_runtime_pass(self):
+  summary=json.loads((VILLAGE/'living/summary.json').read_text());self.assertEqual(summary['variant_count'],4);self.assertEqual(summary['entity_count_per_variant'],49)
+  self.assertEqual(summary['source_animals_converted'],31);self.assertEqual(summary['status'],'FOUR_SEASON_LIFE_BOUND')
+  self.assertEqual(summary['runtime_status'],'NOT_RUN_ALL_VARIANTS');self.assertEqual(summary['conversion_status'],'UNIMPLEMENTED');self.assertFalse(summary['promotion_allowed'])
+  for row in summary['variants']:
+   manifest=json.loads((ROOT/row['manifest']).read_text());self.assertEqual(sha(ROOT/row['manifest']),row['manifest_sha256'])
+   self.assertEqual(manifest['entity_count'],49);self.assertEqual(manifest['source_animal_count'],31);self.assertFalse(manifest['source_animal_sprites_in_visual_layers'])
+   self.assertEqual(manifest['conversion_status'],'UNIMPLEMENTED');self.assertEqual(manifest['certification_status'],'NOT_CERTIFIED');self.assertFalse(manifest['promotion_allowed'])
+
  def test_existing_new_era_living_systems_are_reused(self):
   for room in CANDIDATES:
    root=VILLAGE/room;m=json.loads((root/"manifest.json").read_text())

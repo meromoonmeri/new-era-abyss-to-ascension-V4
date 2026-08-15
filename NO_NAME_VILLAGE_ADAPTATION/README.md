@@ -133,10 +133,13 @@ exactes, en plus des groupes ambiants de clairière. Les positions partent des s
 points source et ne sont corrigées que vers la case marchable la plus proche.
 `NNVLife.lua` réutilise les systèmes New Era, l'AI native, l'errance bornée,
 le regroupement, la fuite, la vigilance territoriale et la présence jour/nuit.
-La variante été a maintenant un Ground `living` séparé contenant réellement les
-49 `MapChar`, sans modifier les pixels environnementaux et sans rasteriser les
-31 animaux source. Elle reste `LIFE_INTEGRATED_CANDIDATE`/`NOT_RUN` : l'AI, les
-routines, les dialogues et les groupes doivent encore passer le vrai runtime.
+Les quatre variantes disposent maintenant d'un binding `living` vers les 49
+`MapChar`, sans modifier les pixels environnementaux et sans rasteriser les 31
+animaux source. L'été conserve le Ground complet ; printemps, automne et hiver
+utilisent des bundles déterministes de layers + entités pour éviter trois copies
+inutiles de la collision 624×624. Le lot reste `FOUR_SEASON_LIFE_BOUND` avec
+`runtime_status=NOT_RUN_ALL_VARIANTS` : AI, routines, dialogues et groupes
+doivent encore passer le vrai runtime.
 Le cycle temporel canonique NNV reste également bloqué : ses quatre valeurs et
 ses contrôleurs lumière/maisons/bloom/audio ne sont pas encore mappés au cycle
 New Era.
