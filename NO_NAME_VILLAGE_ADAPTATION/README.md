@@ -125,10 +125,12 @@ python3 NO_NAME_VILLAGE_ADAPTATION/tools/verify_rmvillage_summer_baseline.py
 Le garde refuse toute dérive des 24 preuves, toute élévation de statut et toute
 perte des probes, captures animées ou de la terminaison native.
 
-La couche de vie Pokémon commence sous `generated/rmvillage/life/` : cinq rôles
-sociaux source sont associés explicitement à Timburr, Bidoof, Archéduc, Rosélia
-et Manternel, et six espèces forestières ambiantes occupent les six spawn points
-source. Les positions sont corrigées uniquement vers la case marchable la plus
-proche et chaque choix possède une justification écologique. Cette couche reste
-`LIFE_PATCH_GENERATED`/`NOT_RUN` tant qu'elle n'est pas fusionnée et testée dans
-les quatre variantes runtime.
+La couche de vie Pokémon sous `generated/rmvillage/life/` contient cinq métiers
+(Timburr, Bidoof, Archéduc, Rosélia, Manternel) et treize `MapChar` sauvages
+indépendants répartis en six groupes écologiques : volée, colonies, dérive,
+plaque nocturne et territoire solitaire. Les positions partent des six spawn
+points source et ne sont corrigées que vers la case marchable la plus proche.
+`NNVLife.lua` réutilise les systèmes New Era, l'AI native, l'errance bornée,
+le regroupement, la fuite, la vigilance territoriale et la présence jour/nuit.
+Cette couche reste `LIFE_PATCH_GENERATED`/`NOT_RUN` tant qu'elle n'est pas
+fusionnée et testée dans les quatre variantes runtime.

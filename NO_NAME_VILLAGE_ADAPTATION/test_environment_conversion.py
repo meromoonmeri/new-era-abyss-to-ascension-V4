@@ -105,13 +105,19 @@ class EnvironmentConversionTests(unittest.TestCase):
   root=VILLAGE/'life';patch=json.loads((root/'entities_patch.json').read_text())
   self.assertEqual(patch['status'],'LIFE_PATCH_GENERATED');self.assertEqual(patch['runtime_status'],'NOT_RUN')
   self.assertEqual(patch['conversion_status'],'UNIMPLEMENTED');self.assertEqual(patch['certification_status'],'NOT_CERTIFIED');self.assertFalse(patch['promotion_allowed'])
-  self.assertEqual(patch['entity_count'],11);self.assertEqual(patch['social_count'],5);self.assertEqual(patch['wild_count'],6)
+  self.assertEqual(patch['entity_count'],18);self.assertEqual(patch['social_count'],5);self.assertEqual(patch['wild_count'],13);self.assertEqual(patch['wild_group_count'],6)
   species={row['species'] for row in patch['evidence']};self.assertEqual(species,{'timburr','bidoof','decidueye','roselia','leavanny','fletchling','scatterbug','caterpie','hoppip','oddish','deerling'})
+  wild=[row for row in patch['evidence'] if row['kind'].startswith('wild:')];self.assertEqual(len(wild),13);self.assertEqual(len({row['entity'] for row in wild}),13)
+  self.assertEqual({row['group'] for row in wild},{'flock','colony','drift','patch','territory'})
+  self.assertTrue(all(row['behavior'] in {'timid','social','nocturnal','territorial'} for row in wild))
   self.assertTrue(all(row['rationale'] and row['position'][0]>=0 and row['position'][1]>=0 for row in patch['evidence']))
-  self.assertEqual(sha(root/patch['script']),patch['script_sha256'])
-  script=(root/patch['script']).read_text()
+  self.assertEqual(sha(root/patch['script']),patch['script_sha256']);self.assertEqual(sha(root/patch['ground_script']),patch['ground_script_sha256'])
+  script=(root/patch['script']).read_text();ground_script=(root/patch['ground_script']).read_text()
+  self.assertIn('Life.Setup()',ground_script);self.assertIn('Life.Update()',ground_script);self.assertIn("Life.WildTalk",ground_script)
   for module in ('LivingWorld','TownLife','TownPlace','TownNight'):self.assertIn("require 'halcyon."+module+"'",script)
-  self.assertIn("halcyon.ai.ground_default",script)
+  self.assertIn("halcyon.ai.ground_default",script);self.assertIn('TASK:StartEntityTask',script)
+  self.assertIn("behavior='timid'",script);self.assertIn("behavior='territorial'",script);self.assertIn("behavior='nocturnal'",script)
+  self.assertIn('Life.Update',script);self.assertIn('GROUND:MoveToPosition',script)
 
  def test_existing_new_era_living_systems_are_reused(self):
   for room in CANDIDATES:

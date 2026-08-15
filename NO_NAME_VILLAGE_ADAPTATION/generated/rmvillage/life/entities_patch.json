@@ -88,7 +88,10 @@
         "OriginalUUID": "",
         "Relearnables": {},
         "ScriptVars": {
-          "nnv_kind": "social:carpenter"
+          "nnv_behavior": null,
+          "nnv_group": null,
+          "nnv_kind": "social:carpenter",
+          "nnv_member_index": null
         },
         "SpeedBonus": 0,
         "Unrecruitable": true
@@ -186,7 +189,10 @@
         "OriginalUUID": "",
         "Relearnables": {},
         "ScriptVars": {
-          "nnv_kind": "social:logger"
+          "nnv_behavior": null,
+          "nnv_group": null,
+          "nnv_kind": "social:logger",
+          "nnv_member_index": null
         },
         "SpeedBonus": 0,
         "Unrecruitable": true
@@ -284,7 +290,10 @@
         "OriginalUUID": "",
         "Relearnables": {},
         "ScriptVars": {
-          "nnv_kind": "social:hunter"
+          "nnv_behavior": null,
+          "nnv_group": null,
+          "nnv_kind": "social:hunter",
+          "nnv_member_index": null
         },
         "SpeedBonus": 0,
         "Unrecruitable": true
@@ -382,7 +391,10 @@
         "OriginalUUID": "",
         "Relearnables": {},
         "ScriptVars": {
-          "nnv_kind": "social:herbalist"
+          "nnv_behavior": null,
+          "nnv_group": null,
+          "nnv_kind": "social:herbalist",
+          "nnv_member_index": null
         },
         "SpeedBonus": 0,
         "Unrecruitable": true
@@ -480,7 +492,10 @@
         "OriginalUUID": "",
         "Relearnables": {},
         "ScriptVars": {
-          "nnv_kind": "social:seamstress"
+          "nnv_behavior": null,
+          "nnv_group": null,
+          "nnv_kind": "social:seamstress",
+          "nnv_member_index": null
         },
         "SpeedBonus": 0,
         "Unrecruitable": true
@@ -578,14 +593,17 @@
         "OriginalUUID": "",
         "Relearnables": {},
         "ScriptVars": {
-          "nnv_kind": "wild:ambient"
+          "nnv_behavior": "timid",
+          "nnv_group": "flock",
+          "nnv_kind": "wild:timid",
+          "nnv_member_index": 1
         },
         "SpeedBonus": 0,
         "Unrecruitable": true
       },
       "Direction": 0,
       "EntEnabled": true,
-      "EntName": "NNV_Wild_Fletchling",
+      "EntName": "NNV_Wild_Fletchling_1",
       "EntOrder": 0,
       "InteractOrder": 0,
       "IsInteracting": false,
@@ -593,6 +611,107 @@
       "serializationHeight": 0,
       "serializationLoc": {
         "X": 2208,
+        "Y": 4928
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 2240,
+        "Y": 4928
+      },
+      "CollisionDisabled": false,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "fletchling"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Fletchling",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "timid",
+          "nnv_group": "flock",
+          "nnv_kind": "wild:timid",
+          "nnv_member_index": 2
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_Wild_Fletchling_2",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 2240,
         "Y": 4928
       },
       "triggerType": 1
@@ -676,14 +795,17 @@
         "OriginalUUID": "",
         "Relearnables": {},
         "ScriptVars": {
-          "nnv_kind": "wild:ambient"
+          "nnv_behavior": "timid",
+          "nnv_group": "colony",
+          "nnv_kind": "wild:timid",
+          "nnv_member_index": 1
         },
         "SpeedBonus": 0,
         "Unrecruitable": true
       },
       "Direction": 0,
       "EntEnabled": true,
-      "EntName": "NNV_Wild_Scatterbug",
+      "EntName": "NNV_Wild_Scatterbug_1",
       "EntOrder": 0,
       "InteractOrder": 0,
       "IsInteracting": false,
@@ -691,6 +813,208 @@
       "serializationHeight": 0,
       "serializationLoc": {
         "X": 2912,
+        "Y": 64
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 2944,
+        "Y": 64
+      },
+      "CollisionDisabled": false,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "scatterbug"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Scatterbug",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "timid",
+          "nnv_group": "colony",
+          "nnv_kind": "wild:timid",
+          "nnv_member_index": 2
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_Wild_Scatterbug_2",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 2944,
+        "Y": 64
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 2880,
+        "Y": 64
+      },
+      "CollisionDisabled": false,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "scatterbug"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Scatterbug",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "timid",
+          "nnv_group": "colony",
+          "nnv_kind": "wild:timid",
+          "nnv_member_index": 3
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_Wild_Scatterbug_3",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 2880,
         "Y": 64
       },
       "triggerType": 1
@@ -774,14 +1098,17 @@
         "OriginalUUID": "",
         "Relearnables": {},
         "ScriptVars": {
-          "nnv_kind": "wild:ambient"
+          "nnv_behavior": "timid",
+          "nnv_group": "colony",
+          "nnv_kind": "wild:timid",
+          "nnv_member_index": 1
         },
         "SpeedBonus": 0,
         "Unrecruitable": true
       },
       "Direction": 0,
       "EntEnabled": true,
-      "EntName": "NNV_Wild_Caterpie",
+      "EntName": "NNV_Wild_Caterpie_1",
       "EntOrder": 0,
       "InteractOrder": 0,
       "IsInteracting": false,
@@ -789,6 +1116,107 @@
       "serializationHeight": 0,
       "serializationLoc": {
         "X": 992,
+        "Y": 3520
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 1024,
+        "Y": 3520
+      },
+      "CollisionDisabled": false,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "caterpie"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Caterpie",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "timid",
+          "nnv_group": "colony",
+          "nnv_kind": "wild:timid",
+          "nnv_member_index": 2
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_Wild_Caterpie_2",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 1024,
         "Y": 3520
       },
       "triggerType": 1
@@ -872,14 +1300,17 @@
         "OriginalUUID": "",
         "Relearnables": {},
         "ScriptVars": {
-          "nnv_kind": "wild:ambient"
+          "nnv_behavior": "social",
+          "nnv_group": "drift",
+          "nnv_kind": "wild:social",
+          "nnv_member_index": 1
         },
         "SpeedBonus": 0,
         "Unrecruitable": true
       },
       "Direction": 0,
       "EntEnabled": true,
-      "EntName": "NNV_Wild_Hoppip",
+      "EntName": "NNV_Wild_Hoppip_1",
       "EntOrder": 0,
       "InteractOrder": 0,
       "IsInteracting": false,
@@ -887,6 +1318,208 @@
       "serializationHeight": 0,
       "serializationLoc": {
         "X": 1152,
+        "Y": 2176
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 1184,
+        "Y": 2176
+      },
+      "CollisionDisabled": false,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "hoppip"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Hoppip",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "social",
+          "nnv_group": "drift",
+          "nnv_kind": "wild:social",
+          "nnv_member_index": 2
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_Wild_Hoppip_2",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 1184,
+        "Y": 2176
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 1120,
+        "Y": 2176
+      },
+      "CollisionDisabled": false,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "hoppip"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Hoppip",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "social",
+          "nnv_group": "drift",
+          "nnv_kind": "wild:social",
+          "nnv_member_index": 3
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_Wild_Hoppip_3",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 1120,
         "Y": 2176
       },
       "triggerType": 1
@@ -970,14 +1603,17 @@
         "OriginalUUID": "",
         "Relearnables": {},
         "ScriptVars": {
-          "nnv_kind": "wild:ambient"
+          "nnv_behavior": "nocturnal",
+          "nnv_group": "patch",
+          "nnv_kind": "wild:nocturnal",
+          "nnv_member_index": 1
         },
         "SpeedBonus": 0,
         "Unrecruitable": true
       },
       "Direction": 0,
       "EntEnabled": true,
-      "EntName": "NNV_Wild_Oddish",
+      "EntName": "NNV_Wild_Oddish_1",
       "EntOrder": 0,
       "InteractOrder": 0,
       "IsInteracting": false,
@@ -985,6 +1621,107 @@
       "serializationHeight": 0,
       "serializationLoc": {
         "X": 2272,
+        "Y": 832
+      },
+      "triggerType": 1
+    },
+    {
+      "<AI>k__BackingField": null,
+      "AIEnabled": true,
+      "Collider": {
+        "Height": 16,
+        "Width": 16,
+        "X": 2304,
+        "Y": 832
+      },
+      "CollisionDisabled": false,
+      "Data": {
+        "ActionEvents": [],
+        "AtkBonus": 0,
+        "BaseForm": {
+          "Form": 0,
+          "Gender": 0,
+          "Skin": "normal",
+          "Species": "oddish"
+        },
+        "BaseIntrinsics": [
+          "none"
+        ],
+        "BaseSkills": [
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          },
+          {
+            "CanForget": true,
+            "Charges": 0,
+            "SkillNum": ""
+          }
+        ],
+        "DefBonus": 0,
+        "DefeatAt": "",
+        "DefeatLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "Discriminator": 0,
+        "EXP": 0,
+        "FormIntrinsicSlot": -1,
+        "IsFavorite": false,
+        "IsFounder": false,
+        "IsPartner": false,
+        "Level": 1,
+        "MAtkBonus": 0,
+        "MDefBonus": 0,
+        "MaxHPBonus": 0,
+        "MetAt": "",
+        "MetLoc": {
+          "EntryPoint": -1,
+          "ID": "",
+          "StructID": {
+            "ID": -1,
+            "Segment": -1
+          }
+        },
+        "NameLocked": false,
+        "Nickname": "Oddish",
+        "OriginalTeam": "",
+        "OriginalUUID": "",
+        "Relearnables": {},
+        "ScriptVars": {
+          "nnv_behavior": "nocturnal",
+          "nnv_group": "patch",
+          "nnv_kind": "wild:nocturnal",
+          "nnv_member_index": 2
+        },
+        "SpeedBonus": 0,
+        "Unrecruitable": true
+      },
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntName": "NNV_Wild_Oddish_2",
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "IsInteracting": false,
+      "serializationDir": 0,
+      "serializationHeight": 0,
+      "serializationLoc": {
+        "X": 2304,
         "Y": 832
       },
       "triggerType": 1
@@ -1068,14 +1805,17 @@
         "OriginalUUID": "",
         "Relearnables": {},
         "ScriptVars": {
-          "nnv_kind": "wild:ambient"
+          "nnv_behavior": "territorial",
+          "nnv_group": "territory",
+          "nnv_kind": "wild:territorial",
+          "nnv_member_index": 1
         },
         "SpeedBonus": 0,
         "Unrecruitable": true
       },
       "Direction": 0,
       "EntEnabled": true,
-      "EntName": "NNV_Wild_Deerling",
+      "EntName": "NNV_Wild_Deerling_1",
       "EntOrder": 0,
       "InteractOrder": 0,
       "IsInteracting": false,
@@ -1088,11 +1828,14 @@
       "triggerType": 1
     }
   ],
-  "entity_count": 11,
+  "entity_count": 18,
   "evidence": [
     {
+      "behavior": null,
       "entity": "NNV_Carpenter",
+      "group": null,
       "kind": "social:carpenter",
+      "member_index": null,
       "position": [
         2200,
         776
@@ -1110,8 +1853,11 @@
       "walkability_adjustment_px": 104
     },
     {
+      "behavior": null,
       "entity": "NNV_Logger",
+      "group": null,
       "kind": "social:logger",
+      "member_index": null,
       "position": [
         1096,
         2120
@@ -1129,8 +1875,11 @@
       "walkability_adjustment_px": 104
     },
     {
+      "behavior": null,
       "entity": "NNV_Hunter",
+      "group": null,
       "kind": "social:hunter",
+      "member_index": null,
       "position": [
         3824,
         2144
@@ -1148,8 +1897,11 @@
       "walkability_adjustment_px": 88
     },
     {
+      "behavior": null,
       "entity": "NNV_Herbalist",
+      "group": null,
       "kind": "social:herbalist",
+      "member_index": null,
       "position": [
         3824,
         2144
@@ -1167,8 +1919,11 @@
       "walkability_adjustment_px": 24
     },
     {
+      "behavior": null,
       "entity": "NNV_Seamstress",
+      "group": null,
       "kind": "social:seamstress",
+      "member_index": null,
       "position": [
         1152,
         2120
@@ -1186,13 +1941,16 @@
       "walkability_adjustment_px": 104
     },
     {
-      "entity": "NNV_Wild_Fletchling",
-      "kind": "wild:ambient",
+      "behavior": "timid",
+      "entity": "NNV_Wild_Fletchling_1",
+      "group": "flock",
+      "kind": "wild:timid",
+      "member_index": 1,
       "position": [
         2208,
         4928
       ],
-      "rationale": "Oiseau des clairières",
+      "rationale": "Oiseaux sociaux des clairières; paire indépendante capable de fuite et regroupement.",
       "requested": [
         2208,
         4928
@@ -1205,13 +1963,38 @@
       "walkability_adjustment_px": 0
     },
     {
-      "entity": "NNV_Wild_Scatterbug",
-      "kind": "wild:ambient",
+      "behavior": "timid",
+      "entity": "NNV_Wild_Fletchling_2",
+      "group": "flock",
+      "kind": "wild:timid",
+      "member_index": 2,
+      "position": [
+        2240,
+        4928
+      ],
+      "rationale": "Oiseaux sociaux des clairières; paire indépendante capable de fuite et regroupement.",
+      "requested": [
+        2240,
+        4928
+      ],
+      "source_anchor": {
+        "marker": "SourceSpawn_106317",
+        "type": "source_spawn_marker"
+      },
+      "species": "fletchling",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "timid",
+      "entity": "NNV_Wild_Scatterbug_1",
+      "group": "colony",
+      "kind": "wild:timid",
+      "member_index": 1,
       "position": [
         2912,
         64
       ],
-      "rationale": "Insecte du sous-bois",
+      "rationale": "Colonie d’insectes du sous-bois regroupée près de la végétation.",
       "requested": [
         2912,
         64
@@ -1224,13 +2007,60 @@
       "walkability_adjustment_px": 0
     },
     {
-      "entity": "NNV_Wild_Caterpie",
-      "kind": "wild:ambient",
+      "behavior": "timid",
+      "entity": "NNV_Wild_Scatterbug_2",
+      "group": "colony",
+      "kind": "wild:timid",
+      "member_index": 2,
+      "position": [
+        2944,
+        64
+      ],
+      "rationale": "Colonie d’insectes du sous-bois regroupée près de la végétation.",
+      "requested": [
+        2944,
+        64
+      ],
+      "source_anchor": {
+        "marker": "SourceSpawn_106318",
+        "type": "source_spawn_marker"
+      },
+      "species": "scatterbug",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "timid",
+      "entity": "NNV_Wild_Scatterbug_3",
+      "group": "colony",
+      "kind": "wild:timid",
+      "member_index": 3,
+      "position": [
+        2880,
+        64
+      ],
+      "rationale": "Colonie d’insectes du sous-bois regroupée près de la végétation.",
+      "requested": [
+        2880,
+        64
+      ],
+      "source_anchor": {
+        "marker": "SourceSpawn_106318",
+        "type": "source_spawn_marker"
+      },
+      "species": "scatterbug",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "timid",
+      "entity": "NNV_Wild_Caterpie_1",
+      "group": "colony",
+      "kind": "wild:timid",
+      "member_index": 1,
       "position": [
         992,
         3520
       ],
-      "rationale": "Insecte forestier",
+      "rationale": "Deux individus forestiers qui se nourrissent ensemble sans former un sprite composite.",
       "requested": [
         992,
         3520
@@ -1243,13 +2073,38 @@
       "walkability_adjustment_px": 0
     },
     {
-      "entity": "NNV_Wild_Hoppip",
-      "kind": "wild:ambient",
+      "behavior": "timid",
+      "entity": "NNV_Wild_Caterpie_2",
+      "group": "colony",
+      "kind": "wild:timid",
+      "member_index": 2,
+      "position": [
+        1024,
+        3520
+      ],
+      "rationale": "Deux individus forestiers qui se nourrissent ensemble sans former un sprite composite.",
+      "requested": [
+        1024,
+        3520
+      ],
+      "source_anchor": {
+        "marker": "SourceSpawn_106319",
+        "type": "source_spawn_marker"
+      },
+      "species": "caterpie",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "social",
+      "entity": "NNV_Wild_Hoppip_1",
+      "group": "drift",
+      "kind": "wild:social",
+      "member_index": 1,
       "position": [
         1152,
         2176
       ],
-      "rationale": "Dispersion végétale",
+      "rationale": "Petit groupe végétal dispersé par le vent dans une zone ouverte.",
       "requested": [
         1152,
         2176
@@ -1262,13 +2117,60 @@
       "walkability_adjustment_px": 0
     },
     {
-      "entity": "NNV_Wild_Oddish",
-      "kind": "wild:ambient",
+      "behavior": "social",
+      "entity": "NNV_Wild_Hoppip_2",
+      "group": "drift",
+      "kind": "wild:social",
+      "member_index": 2,
+      "position": [
+        1184,
+        2176
+      ],
+      "rationale": "Petit groupe végétal dispersé par le vent dans une zone ouverte.",
+      "requested": [
+        1184,
+        2176
+      ],
+      "source_anchor": {
+        "marker": "SourceSpawn_106320",
+        "type": "source_spawn_marker"
+      },
+      "species": "hoppip",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "social",
+      "entity": "NNV_Wild_Hoppip_3",
+      "group": "drift",
+      "kind": "wild:social",
+      "member_index": 3,
+      "position": [
+        1120,
+        2176
+      ],
+      "rationale": "Petit groupe végétal dispersé par le vent dans une zone ouverte.",
+      "requested": [
+        1120,
+        2176
+      ],
+      "source_anchor": {
+        "marker": "SourceSpawn_106320",
+        "type": "source_spawn_marker"
+      },
+      "species": "hoppip",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "nocturnal",
+      "entity": "NNV_Wild_Oddish_1",
+      "group": "patch",
+      "kind": "wild:nocturnal",
+      "member_index": 1,
       "position": [
         2272,
         832
       ],
-      "rationale": "Herbe nocturne et humide",
+      "rationale": "Groupe végétal associé aux sols humides, actif selon le contexte jour/nuit.",
       "requested": [
         2272,
         832
@@ -1281,13 +2183,38 @@
       "walkability_adjustment_px": 0
     },
     {
-      "entity": "NNV_Wild_Deerling",
-      "kind": "wild:ambient",
+      "behavior": "nocturnal",
+      "entity": "NNV_Wild_Oddish_2",
+      "group": "patch",
+      "kind": "wild:nocturnal",
+      "member_index": 2,
+      "position": [
+        2304,
+        832
+      ],
+      "rationale": "Groupe végétal associé aux sols humides, actif selon le contexte jour/nuit.",
+      "requested": [
+        2304,
+        832
+      ],
+      "source_anchor": {
+        "marker": "SourceSpawn_106321",
+        "type": "source_spawn_marker"
+      },
+      "species": "oddish",
+      "walkability_adjustment_px": 0
+    },
+    {
+      "behavior": "territorial",
+      "entity": "NNV_Wild_Deerling_1",
+      "group": "territory",
+      "kind": "wild:territorial",
+      "member_index": 1,
       "position": [
         3968,
         2304
       ],
-      "rationale": "Herbivore saisonnier",
+      "rationale": "Herbivore saisonnier solitaire occupant un territoire de clairière.",
       "requested": [
         3968,
         2304
@@ -1300,14 +2227,17 @@
       "walkability_adjustment_px": 0
     }
   ],
+  "ground_script": "init.lua",
+  "ground_script_sha256": "d34556fedd41060f066f2a5cd951ab6e006b383791d5aa3a891cb5c5315f987d",
   "promotion_allowed": false,
   "room": "rmvillage",
   "runtime_status": "NOT_RUN",
-  "schema": "new-era.nnv-rmvillage-pokemon-life-patch.v1",
+  "schema": "new-era.nnv-rmvillage-pokemon-life-patch.v2",
   "script": "NNVLife.lua",
-  "script_sha256": "d79166ffce2d27098029b784492ba0b4064cd3fef752b723001679429f0748df",
-  "semantic_sha256": "60f334db4efe3666bd9de8637ae25323361baff2ecd862e337e08bdaf4817ced",
+  "script_sha256": "64356dadcb36330505ee92716bc923a4e254dfb87df915c56a154d8852219c31",
+  "semantic_sha256": "e8952af888e3ac6d483319f394dff4ba0edd638ca8f0fbb1491951142253203b",
   "social_count": 5,
   "status": "LIFE_PATCH_GENERATED",
-  "wild_count": 6
+  "wild_count": 13,
+  "wild_group_count": 6
 }
