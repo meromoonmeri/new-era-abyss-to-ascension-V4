@@ -54,3 +54,27 @@ elle devra être reconstruite avec un Pokémon natif et les systèmes existants
 sortie compressée est `reports/environment-inventory.json.gz`. Ce gate n'émet
 aucun Ground et ne peut attribuer `CONVERTED`, `CERTIFIED` ou `PROMOTED` : les
 éléments ambigus restent bloqués en `REVIEW_REQUIRED`.
+
+## Conversion PMDO effective
+
+La conversion démarre dans `generated/`, jamais directement dans `Data/` :
+
+```bash
+python3 -m pip install --target .runtime-cache/nnv-python \
+  -r NO_NAME_VILLAGE_ADAPTATION/requirements-conversion.lock
+PYTHONPATH=.runtime-cache/nnv-python \
+  python3 NO_NAME_VILLAGE_ADAPTATION/tools/convert_environment_room.py --room rmvillage
+```
+
+Le convertisseur réutilise le writer natif `.tile`/`.rsground` de
+`PMU_ADAPTATION`, reconstruit les couches depuis le modèle officiel (jamais
+le PNG de preview), normalise le pixel-art 64→16 px par nearest-neighbour,
+matérialise collisions, markers et transitions prouvées, puis effectue un
+rendu différentiel du Ground généré. Le script candidat require explicitement
+`LivingWorld`, `TownLife`, `TownPlace`, `Seasons`, `Weather` et `TownNight`.
+
+Première vague générée : `rmvillage`, `rm78`, `rm81`. Aucun candidat n'est
+promu ni déclaré `CONVERTED` : `rmvillage` et `rm78` attendent leurs cycles
+d'animation complets, `rmvillage` attend aussi son casting Pokémon vivant,
+et `rm81` conserve une transition source dynamique non résolue. Les manifests
+restent donc honnêtement `UNIMPLEMENTED` avec `runtime_status=NOT_RUN`.

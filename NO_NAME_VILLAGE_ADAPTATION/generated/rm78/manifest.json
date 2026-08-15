@@ -1,0 +1,213 @@
+{
+  "asset": "nnv_rm78",
+  "blockers": [
+    "animated source sprite bgwntree requires full frame-cycle conversion",
+    "animated source sprite bgwntree0 requires full frame-cycle conversion",
+    "animated source sprite spbf00 requires full frame-cycle conversion",
+    "animated source sprite spbf01 requires full frame-cycle conversion",
+    "animated source sprite spbf02 requires full frame-cycle conversion",
+    "animated source sprite spbf06 requires full frame-cycle conversion",
+    "animated source sprite spbf07 requires full frame-cycle conversion",
+    "animated source sprite spbf08 requires full frame-cycle conversion",
+    "animated source sprite spbf09 requires full frame-cycle conversion",
+    "animated source sprite spbf10 requires full frame-cycle conversion",
+    "animated source sprite spbf11 requires full frame-cycle conversion",
+    "animated source sprite swnplant0 requires full frame-cycle conversion",
+    "animated source sprite swnplant8 requires full frame-cycle conversion",
+    "animated source sprite swnplant9 requires full frame-cycle conversion",
+    "animated source sprite swnplant92 requires full frame-cycle conversion",
+    "animated source sprite swnplant93 requires full frame-cycle conversion",
+    "animated source sprite swnplant94 requires full frame-cycle conversion",
+    "unsupported layer type Effect:watereffect"
+  ],
+  "checks": {
+    "all_source_tile_layers_preserved": true,
+    "collision_grid_matches_visual_extent": true,
+    "entities_in_bounds": true,
+    "existing_new_era_systems_required": true,
+    "ground_json_round_trip": true,
+    "source_dimensions_normalized_exactly": true,
+    "tick0_visual_pmdo_premultiply_roundtrip": true,
+    "tile_dependency_exists": true
+  },
+  "collision_metrics": {
+    "blocked_pmdo_cells_8px": 563,
+    "source_solid_instances": 29
+  },
+  "conversion_status": "UNIMPLEMENTED",
+  "manifest_semantic_sha256": "e98efe9d279eda7c0eb4e251de4e5667131d4496bfe6511bfd59a85577185822",
+  "mapped_transitions": [
+    {
+      "edge": "North",
+      "entity": "Exit_North",
+      "source_instance_id": 142723,
+      "target": "rm77",
+      "target_marker": "Entry_South"
+    },
+    {
+      "edge": "North",
+      "entity": "Exit_North",
+      "source_instance_id": 142724,
+      "target": "rm88",
+      "target_marker": "Entry_South"
+    },
+    {
+      "edge": "West",
+      "entity": "Exit_West",
+      "source_instance_id": 142725,
+      "target": "rm68",
+      "target_marker": "Entry_East"
+    },
+    {
+      "edge": "South",
+      "entity": "Exit_South",
+      "source_instance_id": 142726,
+      "target": "rm79",
+      "target_marker": "Entry_North"
+    }
+  ],
+  "new_era_systems": [
+    "halcyon.LivingWorld",
+    "halcyon.TownLife",
+    "halcyon.TownPlace",
+    "halcyon.Seasons",
+    "halcyon.Weather",
+    "halcyon.TownNight"
+  ],
+  "outputs": {
+    "candidate_render": "validation/candidate_tick0.png",
+    "candidate_render_sha256": "633fd95316f791ea02763bbb286d6b78b15de16140affb29fbbec7a8c18be25c",
+    "ground": "Data/Ground/nnv_rm78.rsground",
+    "ground_sha256": "259d1d2dd04e32932607283d571880c396e57ee0e749ddfd182962c567709e47",
+    "script": "Data/Script/halcyon/ground/nnv_rm78/init.lua",
+    "script_sha256": "9d8fb3d910dac40e195ce2b690019fa76f03fd93c4754364898498598faf7b6f",
+    "source_render": "validation/source_normalized_tick0.png",
+    "source_render_sha256": "360388edee06ad7fb7f058a3826f00ba3295d34150de50667fef509811372281",
+    "tile": "Content/Tile/NNV_rm78_Source.tile",
+    "tile_sha256": "d5300281c09a0672d07396209da2d3b234d876d6292b322c28a6e1a6fd186127"
+  },
+  "promotion_allowed": false,
+  "room": "rm78",
+  "runtime_status": "NOT_RUN",
+  "schema": "new-era.nnv-pmdo-room-conversion.v1",
+  "source": {
+    "data_win_sha256": "2f33b595b450b40355554d73f5acc5d7272e5d54519e35cd8971e0f336401227",
+    "official_inventory": "extracted/official/inventory/Rooms.json.gz",
+    "room_record_sha256": "ebd289a5b10d7fe998ed34e2c9b381c8a76350770aa56308dc945245b3f8ecf5"
+  },
+  "source_tile_layers": [
+    {
+      "background": "tlblueforest",
+      "depth": 1200,
+      "matrix_sha256": "ba60ad19f53f9c51c0e3fa78c23347518832f834d8f8a36c401a5453a9806e89",
+      "name": "blue0"
+    },
+    {
+      "background": "tlblueforest",
+      "depth": 1100,
+      "matrix_sha256": "f61267c96cf6942d718ad050eb363c9648d3cd6c5770a536a761da44bff71d0e",
+      "name": "blue1"
+    },
+    {
+      "background": "tlwater",
+      "depth": 800,
+      "matrix_sha256": "996e5bd8a57b48b83d0ecad10f4e7238d9189ed9a88eba5b7fae68e4995631f2",
+      "name": "water"
+    },
+    {
+      "background": "tlwinter",
+      "depth": 600,
+      "matrix_sha256": "2a976b776557eb36beaacfe18d5e759560eab42ed8236d68de5b925317faa276",
+      "name": "grass0"
+    },
+    {
+      "background": "tlwinter",
+      "depth": 500,
+      "matrix_sha256": "ce66cb3a0bb86bbb70eed1523c16238511ad56cb3ec5f6411fb2f8a91d4ce42d",
+      "name": "grass1"
+    },
+    {
+      "background": "tlwncliff",
+      "depth": 250,
+      "matrix_sha256": "f04d3fd342203c67beb72f77274d9f65fd8fc19324ef767338fd1ec232e518d3",
+      "name": "cliff"
+    }
+  ],
+  "source_transitions": [
+    {
+      "code": "gml_RoomCC_rm78_0_Create",
+      "code_sha256": "b0473e835fc1cc23be8613f2eb7d206a3da8e53a8be537da2d06bfc6b75b503e",
+      "instance_id": 142723,
+      "newroom": 36,
+      "object": "objtransit",
+      "position_source_px": [
+        -64,
+        -128
+      ],
+      "scale": [
+        40.000004,
+        1.0
+      ]
+    },
+    {
+      "code": "gml_RoomCC_rm78_1_Create",
+      "code_sha256": "84d5762bdcb7c0eeb5a4e87409083422b10f89a3bfca4ec9a4220955183947a6",
+      "instance_id": 142724,
+      "newroom": 67,
+      "object": "objtransit",
+      "position_source_px": [
+        5056,
+        -128
+      ],
+      "scale": [
+        1.0,
+        41.5
+      ]
+    },
+    {
+      "code": "gml_RoomCC_rm78_2_Create",
+      "code_sha256": "f34ae3984609709c05b119fd447d58b74da6262223f555a5f25d3b152329663a",
+      "instance_id": 142725,
+      "newroom": 21,
+      "object": "objtransit",
+      "position_source_px": [
+        -192,
+        -128
+      ],
+      "scale": [
+        1.0,
+        41.5
+      ]
+    },
+    {
+      "code": "gml_RoomCC_rm78_3_Create",
+      "code_sha256": "0e97f4eae7d27413faa1f002737b9b51f37218e553d522e6d7e8b750cf4a17e8",
+      "instance_id": 142726,
+      "newroom": 85,
+      "object": "objtransit",
+      "position_source_px": [
+        -64,
+        5056
+      ],
+      "scale": [
+        40.0,
+        1.0
+      ]
+    }
+  ],
+  "status": "GENERATED_CANDIDATE",
+  "transform": {
+    "kind": "deterministic_pixel_art_normalization",
+    "resampler": "nearest",
+    "scale": "1/4",
+    "source_cell_px": 64,
+    "target_cell_px": 16
+  },
+  "visual_metrics": {
+    "alpha_exact": true,
+    "differing_pixels": 1124,
+    "max_channel_error": 1,
+    "pixel_exact": false
+  },
+  "visual_status": "TICK0_PMDO_PREMULTIPLY_ROUNDTRIP_VALID"
+}

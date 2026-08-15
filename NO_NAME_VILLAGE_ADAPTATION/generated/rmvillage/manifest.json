@@ -1,0 +1,299 @@
+{
+  "asset": "nnv_rmvillage",
+  "blockers": [
+    "animated source sprite bgsmtree requires full frame-cycle conversion",
+    "animated source sprite bgsmtree0 requires full frame-cycle conversion",
+    "animated source sprite sboulder0 requires full frame-cycle conversion",
+    "animated source sprite sboulder1 requires full frame-cycle conversion",
+    "animated source sprite scarpenterhouse requires full frame-cycle conversion",
+    "animated source sprite sdoor requires full frame-cycle conversion",
+    "animated source sprite shunterhouse requires full frame-cycle conversion",
+    "animated source sprite sloggerhouse requires full frame-cycle conversion",
+    "animated source sprite splayerhouse requires full frame-cycle conversion",
+    "animated source sprite ssmplant0 requires full frame-cycle conversion",
+    "animated source sprite ssmplant3 requires full frame-cycle conversion",
+    "animated source sprite ssmplant5 requires full frame-cycle conversion",
+    "animated source sprite ssmplant6 requires full frame-cycle conversion",
+    "animated source sprite ssmplant92 requires full frame-cycle conversion",
+    "animated source sprite ssmplant93 requires full frame-cycle conversion",
+    "native Pokemon living cast and TownLife/TownPlace routines are not bound yet"
+  ],
+  "checks": {
+    "all_source_tile_layers_preserved": true,
+    "collision_grid_matches_visual_extent": true,
+    "entities_in_bounds": true,
+    "existing_new_era_systems_required": true,
+    "ground_json_round_trip": true,
+    "source_dimensions_normalized_exactly": true,
+    "tick0_visual_pmdo_premultiply_roundtrip": true,
+    "tile_dependency_exists": true
+  },
+  "collision_metrics": {
+    "blocked_pmdo_cells_8px": 9763,
+    "source_solid_instances": 251
+  },
+  "conversion_status": "UNIMPLEMENTED",
+  "manifest_semantic_sha256": "2c59e5836f0c0b6b636350277421b58be7dcd7880658c56e2989b6b4f5741632",
+  "mapped_transitions": [
+    {
+      "edge": "Door_106508",
+      "entity": "Exit_Door_106508",
+      "source_instance_id": 106508,
+      "target": "playerhouse",
+      "target_marker": "Entry_Door"
+    },
+    {
+      "edge": "Door_106509",
+      "entity": "Exit_Door_106509",
+      "source_instance_id": 106509,
+      "target": "hunterhouse",
+      "target_marker": "Entry_Door"
+    },
+    {
+      "edge": "Door_106510",
+      "entity": "Exit_Door_106510",
+      "source_instance_id": 106510,
+      "target": "loggerhouse",
+      "target_marker": "Entry_Door"
+    },
+    {
+      "edge": "Door_106511",
+      "entity": "Exit_Door_106511",
+      "source_instance_id": 106511,
+      "target": "carpenterhouse",
+      "target_marker": "Entry_Door"
+    },
+    {
+      "edge": "North",
+      "entity": "Exit_North",
+      "source_instance_id": 106153,
+      "target": "rm54",
+      "target_marker": "Entry_South"
+    },
+    {
+      "edge": "North",
+      "entity": "Exit_North",
+      "source_instance_id": 106154,
+      "target": "rm65",
+      "target_marker": "Entry_South"
+    },
+    {
+      "edge": "West",
+      "entity": "Exit_West",
+      "source_instance_id": 106155,
+      "target": "rm45",
+      "target_marker": "Entry_East"
+    },
+    {
+      "edge": "South",
+      "entity": "Exit_South",
+      "source_instance_id": 106156,
+      "target": "rm56",
+      "target_marker": "Entry_North"
+    }
+  ],
+  "new_era_systems": [
+    "halcyon.LivingWorld",
+    "halcyon.TownLife",
+    "halcyon.TownPlace",
+    "halcyon.Seasons",
+    "halcyon.Weather",
+    "halcyon.TownNight"
+  ],
+  "outputs": {
+    "candidate_render": "validation/candidate_tick0.png",
+    "candidate_render_sha256": "aa83d71b022fea7b280bef45fc8323ffea13759d9b55f29642d3e16b345c2607",
+    "ground": "Data/Ground/nnv_rmvillage.rsground",
+    "ground_sha256": "d3303c3baac2931afc2a7879b9284d31cb4c154c7cf7246a2aecb1b48af49042",
+    "script": "Data/Script/halcyon/ground/nnv_rmvillage/init.lua",
+    "script_sha256": "a90068d3c375a12e072f5eb175f2b7263710c1c1450378a0c0249decb1cc0929",
+    "source_render": "validation/source_normalized_tick0.png",
+    "source_render_sha256": "4b5852fe45bb72639f22e15400a8ac4e01bc667c95bf1693d8d0b19460c6431f",
+    "tile": "Content/Tile/NNV_rmvillage_Source.tile",
+    "tile_sha256": "a31efb4b3c8a855d053a002675d71e39adad94ed9310a4e27752929a7eed1b85"
+  },
+  "promotion_allowed": false,
+  "room": "rmvillage",
+  "runtime_status": "NOT_RUN",
+  "schema": "new-era.nnv-pmdo-room-conversion.v1",
+  "source": {
+    "data_win_sha256": "2f33b595b450b40355554d73f5acc5d7272e5d54519e35cd8971e0f336401227",
+    "official_inventory": "extracted/official/inventory/Rooms.json.gz",
+    "room_record_sha256": "7a8711c1aa16f274337e1b3ac37a6cc55206819cdaff4401c69cdb505821c255"
+  },
+  "source_tile_layers": [
+    {
+      "background": "tlsummer",
+      "depth": 1400,
+      "matrix_sha256": "c01bbaf94268009d480762e6c622818e53124090f1a71028c3ef62da8af275af",
+      "name": "ground"
+    },
+    {
+      "background": "tlstone1",
+      "depth": 1300,
+      "matrix_sha256": "d5600596b0a639e09f4a341e9abf63e0ce831af4d583c10057f092c13151ccac",
+      "name": "groundtex"
+    },
+    {
+      "background": "tlsummer",
+      "depth": 1200,
+      "matrix_sha256": "cb966dfd6af562829d1bbed63a87cdbbfc7e166db39d654d3c471a4ea0797cc0",
+      "name": "grass0"
+    },
+    {
+      "background": "tlsummer",
+      "depth": 1100,
+      "matrix_sha256": "14f08cdd0d5cdf8060dec748a6bf0a9889a052a092aa9d06a227e6877c8f7219",
+      "name": "grass1"
+    },
+    {
+      "background": "tlmarsh",
+      "depth": 700,
+      "matrix_sha256": "1bdcfe820a1defc2091460eec6366b2697c753673ea8965b74f58978befc8a72",
+      "name": "endwater"
+    },
+    {
+      "background": "tlcliff",
+      "depth": 600,
+      "matrix_sha256": "654ed8bebe6fb26e7f52349291442d49e360026201adab223a6c60caa10915ec",
+      "name": "cliff"
+    }
+  ],
+  "source_transitions": [
+    {
+      "code": "gml_RoomCC_rmvillage_0_Create",
+      "code_sha256": "c4401937d566d42cba7e3eab9c4d79d3c1b6339e9b5bbd5d65249003833d1e0b",
+      "instance_id": 106508,
+      "newroom": 10,
+      "object": "objdoor",
+      "position_source_px": [
+        940,
+        3296
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "code": "gml_RoomCC_rmvillage_1_Create",
+      "code_sha256": "1fc9c26222a9ca8df82fa0c21d51653c12a823e39df17f6441a5d369dcdcc38c",
+      "instance_id": 106509,
+      "newroom": 43,
+      "object": "objdoor",
+      "position_source_px": [
+        3912,
+        2080
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "code": "gml_RoomCC_rmvillage_2_Create",
+      "code_sha256": "a6aab906647ae18c53bfea10da91fa622159659d0f90813f9b0b4cd1ff708d9c",
+      "instance_id": 106510,
+      "newroom": 52,
+      "object": "objdoor",
+      "position_source_px": [
+        1096,
+        1952
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "code": "gml_RoomCC_rmvillage_3_Create",
+      "code_sha256": "13ffe06135b34c69677ea6ad83744da61c6fa78f74797318ee5a881ecd9203a6",
+      "instance_id": 106511,
+      "newroom": 55,
+      "object": "objdoor",
+      "position_source_px": [
+        2200,
+        608
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "code": "gml_RoomCC_rmvillage_4_Create",
+      "code_sha256": "1af3ddd7b8dee04945ae562fe431f8ce331705dcbefea78868440aa7cc462178",
+      "instance_id": 106153,
+      "newroom": 33,
+      "object": "objtransit",
+      "position_source_px": [
+        -64,
+        -128
+      ],
+      "scale": [
+        40.000004,
+        1.0
+      ]
+    },
+    {
+      "code": "gml_RoomCC_rmvillage_5_Create",
+      "code_sha256": "361654e61b2e17f2cd19051aa3c606bd9e9d391d9d1b558f326a1dd9bb60f634",
+      "instance_id": 106154,
+      "newroom": 54,
+      "object": "objtransit",
+      "position_source_px": [
+        5056,
+        -128
+      ],
+      "scale": [
+        1.0,
+        41.5
+      ]
+    },
+    {
+      "code": "gml_RoomCC_rmvillage_6_Create",
+      "code_sha256": "eda3d2cba5fe8d3c5b57cceac6b5b7c2e3f3f77f1228a12f9d82dc14494a949e",
+      "instance_id": 106155,
+      "newroom": 23,
+      "object": "objtransit",
+      "position_source_px": [
+        -192,
+        -128
+      ],
+      "scale": [
+        1.0,
+        41.5
+      ]
+    },
+    {
+      "code": "gml_RoomCC_rmvillage_7_Create",
+      "code_sha256": "7dd37f0e45cdbba49bc511eec1b0a05f94199e97478636189f7cfe4453be8403",
+      "instance_id": 106156,
+      "newroom": 5,
+      "object": "objtransit",
+      "position_source_px": [
+        -64,
+        5056
+      ],
+      "scale": [
+        40.0,
+        1.0
+      ]
+    }
+  ],
+  "status": "GENERATED_CANDIDATE",
+  "transform": {
+    "kind": "deterministic_pixel_art_normalization",
+    "resampler": "nearest",
+    "scale": "1/4",
+    "source_cell_px": 64,
+    "target_cell_px": 16
+  },
+  "visual_metrics": {
+    "alpha_exact": true,
+    "differing_pixels": 9237,
+    "max_channel_error": 1,
+    "pixel_exact": false
+  },
+  "visual_status": "TICK0_PMDO_PREMULTIPLY_ROUNDTRIP_VALID"
+}
