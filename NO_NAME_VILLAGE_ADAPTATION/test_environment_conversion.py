@@ -81,13 +81,14 @@ class EnvironmentConversionTests(unittest.TestCase):
   root=VILLAGE/"winter/particles";m=json.loads((root/"manifest.json").read_text())
   self.assertEqual(m["status"],"ASSETS_COMPILED");self.assertEqual(m["conversion_status"],"UNIMPLEMENTED")
   self.assertEqual(m["runtime_status"],"NOT_RUN");self.assertFalse(m["promotion_allowed"])
-  self.assertEqual(len(m["assets"]),3)
+  self.assertEqual(len(m["assets"]),4)
+  shape=next(row for row in m['assets'] if row.get('source_particle_shape')==0);self.assertEqual(shape['compiled_dimensions'],[4,4]);self.assertEqual(shape['pixel_transform'],'source_pixel_scale_4_exact')
   for row in m["assets"]:
    path=root/row["output"];self.assertEqual(sha(path),row["output_sha256"])
    data=path.read_bytes();png_size,zero=struct.unpack_from("<II",data,0);self.assertEqual(zero,0)
    width,height,loc_height,frames=struct.unpack_from("<IIII",data,8+png_size)
-   self.assertEqual([width,height],row["source_dimensions"]);self.assertEqual(frames,row["frame_count"])
-   self.assertEqual(loc_height,row["loc_height"]);self.assertEqual(row["pixel_transform"],"identity_1_to_1")
+   self.assertEqual([width,height],row.get("compiled_dimensions",row["source_dimensions"]));self.assertEqual(frames,row["frame_count"])
+   self.assertEqual(loc_height,row["loc_height"]);self.assertIn(row["pixel_transform"],{"identity_1_to_1","source_pixel_scale_4_exact"})
   self.assertTrue(m["blockers"]);self.assertEqual(m["footprint_audio"]["asset_status"],"MISSING_BINARY_OUTSIDE_TRACKED_EXTRACTION")
 
  def test_four_season_router_is_explicit_but_not_falsely_runtime_validated(self):
