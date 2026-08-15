@@ -60,6 +60,19 @@ class EnvironmentConversionTests(unittest.TestCase):
   self.assertEqual(summary["conversion_status"],"UNIMPLEMENTED");self.assertFalse(summary["promotion_allowed"])
   self.assertEqual(sha(VILLAGE/summary["contact_sheet"]),summary["contact_sheet_sha256"])
 
+ def test_canonical_winter_particle_graphics_are_compiled_without_false_completion(self):
+  root=VILLAGE/"winter/particles";m=json.loads((root/"manifest.json").read_text())
+  self.assertEqual(m["status"],"ASSETS_COMPILED");self.assertEqual(m["conversion_status"],"UNIMPLEMENTED")
+  self.assertEqual(m["runtime_status"],"NOT_RUN");self.assertFalse(m["promotion_allowed"])
+  self.assertEqual(len(m["assets"]),3)
+  for row in m["assets"]:
+   path=root/row["output"];self.assertEqual(sha(path),row["output_sha256"])
+   data=path.read_bytes();png_size,zero=struct.unpack_from("<II",data,0);self.assertEqual(zero,0)
+   width,height,loc_height,frames=struct.unpack_from("<IIII",data,8+png_size)
+   self.assertEqual([width,height],row["source_dimensions"]);self.assertEqual(frames,row["frame_count"])
+   self.assertEqual(loc_height,row["loc_height"]);self.assertEqual(row["pixel_transform"],"identity_1_to_1")
+  self.assertTrue(m["blockers"]);self.assertEqual(m["footprint_audio"]["asset_status"],"MISSING_BINARY_OUTSIDE_TRACKED_EXTRACTION")
+
  def test_existing_new_era_living_systems_are_reused(self):
   for room in CANDIDATES:
    root=VILLAGE/room;m=json.loads((root/"manifest.json").read_text())

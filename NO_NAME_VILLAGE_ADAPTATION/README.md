@@ -98,4 +98,7 @@ reste le Ground PMDO complet de référence ; les trois autres variantes sont de
 bundles de layers déterministes afin de ne pas dupliquer la grille de collision
 624×624. Restent obligatoires : sélection runtime des bundles, particules
 `objwinter`, populations Pokémon sauvages, casting social et validation runtime.
-Tous les manifests restent `UNIMPLEMENTED`/`NOT_RUN`.
+Les sprites source exacts `ssnow1`, `ssnow2` et `spttrail01` sont déjà compilés
+1:1 en trois assets Particle PMDO sous `winter/particles/`; l'émetteur à trois
+familles, la surface de traces et l'audio restent explicitement bloqués. Tous
+les manifests restent `UNIMPLEMENTED`/`NOT_RUN`.
