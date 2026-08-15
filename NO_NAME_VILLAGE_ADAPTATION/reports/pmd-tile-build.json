@@ -1,0 +1,64 @@
+{
+  "schema": "no-name-village.pmd-tile-build.v2",
+  "sources": [
+    "Content/Tile/TownBase.tile",
+    "Content/Tile/ForestCamp.tile"
+  ],
+  "policy": "PMDO-native buildings, isolated seasonal trees and seamless seasonal forest-canopy derivatives only.",
+  "results": {
+    "buildings": {
+      "entries": 1216,
+      "unique": 872,
+      "bytes": 312865,
+      "sha256": "ea25cbc17314c022eb02668fde6b53d0089d2034e5c1811439ffe632bbf5b511"
+    },
+    "buildings_autumn": {
+      "entries": 1216,
+      "unique": 872,
+      "bytes": 318610,
+      "sha256": "ab994b24715170a20a7d9afb3c07bf06dae8c329e5e8cd69546359f309d01c58"
+    },
+    "buildings_winter": {
+      "entries": 1216,
+      "unique": 872,
+      "bytes": 315022,
+      "sha256": "86811d0855145d3a2f862a8d6df81181d2f0826d6e45dc6578a1cf33dbcab73b"
+    },
+    "standalone_spring": {
+      "entries": 30,
+      "unique": 30,
+      "bytes": 10453,
+      "sha256": "68b2148aadb5db0436217fa5264bd42cb1b268a16431a0bb843dab6a6c1633a0"
+    },
+    "standalone_summer": {
+      "entries": 30,
+      "unique": 30,
+      "bytes": 10453,
+      "sha256": "68b2148aadb5db0436217fa5264bd42cb1b268a16431a0bb843dab6a6c1633a0"
+    },
+    "standalone_autumn": {
+      "entries": 30,
+      "unique": 30,
+      "bytes": 10484,
+      "sha256": "90c81849de34caaa4c2083e5a72de53272848c9f4e2d493e85920137d848ee6b"
+    },
+    "standalone_winter": {
+      "entries": 30,
+      "unique": 30,
+      "bytes": 10485,
+      "sha256": "994d73e4ef4c48db30384ee604445f6e7b98a97f2399bed46128067d528a7ca2"
+    },
+    "forest_autumn": {
+      "entries": 858,
+      "unique": 317,
+      "bytes": 169397,
+      "sha256": "6d6b3f259ab5445daec5ea7792eeb74c8f3ff91e6bb0925e3142c1718a395433"
+    },
+    "forest_winter": {
+      "entries": 858,
+      "unique": 317,
+      "bytes": 168676,
+      "sha256": "7eb9b48fb4b913d3086e29c90ac25e9c905503d6bb24f5a7e64fc5dc71b805a6"
+    }
+  }
+}

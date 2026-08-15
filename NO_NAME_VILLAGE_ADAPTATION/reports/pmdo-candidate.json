@@ -1,0 +1,253 @@
+{
+  "schema": "no-name-village.pmdo-candidate.v2",
+  "status": "STRUCTURED_PMDO_CANDIDATES_BUILT",
+  "source_room": {
+    "name": "rmvillage",
+    "dimensions_px": [
+      4992,
+      4992
+    ],
+    "logical_tiles": [
+      78,
+      78
+    ]
+  },
+  "scale": {
+    "source_tile_px": 64,
+    "pmdo_tile_px": 24,
+    "ratio": 0.375,
+    "proportions_preserved": true
+  },
+  "graphics": {
+    "source": "PMDO/PMD packages only",
+    "source_sheets": [
+      "ForestCamp",
+      "Apple Woods Entrance Layer 1",
+      "SnowCamp",
+      "No_Name_Village_Buildings_{Season}",
+      "No_Name_Village_Standalone_Tree_{Season}",
+      "No_Name_Village_Forest_{Season}"
+    ],
+    "screenshot_as_map_data": false
+  },
+  "maps": [
+    {
+      "season": "spring",
+      "path": "Data/Ground/no_name_village_spring.rsground",
+      "sha256": "9ea777e475e13f952d47809f54e4fd7dee456baadc2adcf328a74b5ea8015c5a",
+      "dimensions_tiles": [
+        78,
+        78
+      ],
+      "dimensions_px": [
+        1872,
+        1872
+      ],
+      "obstacle_grid": [
+        234,
+        234
+      ],
+      "blocked_cells": 21453,
+      "source_colliders": 496,
+      "pokemon_actors": 7,
+      "pokemon_actor_positions_px": {
+        "Audino_Guide": [
+          936,
+          936
+        ],
+        "Meganium_Herboriste": [
+          432,
+          792
+        ],
+        "Bibarel_Charpentier": [
+          832,
+          264
+        ],
+        "Decidueye_Chasseur": [
+          1464,
+          816
+        ],
+        "Komala_Bucheron": [
+          408,
+          768
+        ],
+        "Leavanny_Couturiere": [
+          728,
+          904
+        ],
+        "Torkoal_Forgeron": [
+          1056,
+          936
+        ]
+      },
+      "human_actors": 0,
+      "relief_cells": 2198,
+      "layers": 4
+    },
+    {
+      "season": "summer",
+      "path": "Data/Ground/no_name_village_summer.rsground",
+      "sha256": "2b3eb058adab5c3d52dea5a66afc75bcb701f67ce3390e51d1610345ebd9e238",
+      "dimensions_tiles": [
+        78,
+        78
+      ],
+      "dimensions_px": [
+        1872,
+        1872
+      ],
+      "obstacle_grid": [
+        234,
+        234
+      ],
+      "blocked_cells": 21453,
+      "source_colliders": 496,
+      "pokemon_actors": 7,
+      "pokemon_actor_positions_px": {
+        "Audino_Guide": [
+          936,
+          936
+        ],
+        "Meganium_Herboriste": [
+          432,
+          792
+        ],
+        "Bibarel_Charpentier": [
+          832,
+          264
+        ],
+        "Decidueye_Chasseur": [
+          1464,
+          816
+        ],
+        "Komala_Bucheron": [
+          408,
+          768
+        ],
+        "Leavanny_Couturiere": [
+          728,
+          904
+        ],
+        "Torkoal_Forgeron": [
+          1056,
+          936
+        ]
+      },
+      "human_actors": 0,
+      "relief_cells": 2198,
+      "layers": 4
+    },
+    {
+      "season": "autumn",
+      "path": "Data/Ground/no_name_village_autumn.rsground",
+      "sha256": "8dc99cb12e0818bf5e0c2fff04a041e35bcc8c40ccd23cc75ad89416c6768fd0",
+      "dimensions_tiles": [
+        78,
+        78
+      ],
+      "dimensions_px": [
+        1872,
+        1872
+      ],
+      "obstacle_grid": [
+        234,
+        234
+      ],
+      "blocked_cells": 21453,
+      "source_colliders": 496,
+      "pokemon_actors": 7,
+      "pokemon_actor_positions_px": {
+        "Audino_Guide": [
+          936,
+          936
+        ],
+        "Meganium_Herboriste": [
+          432,
+          792
+        ],
+        "Bibarel_Charpentier": [
+          832,
+          264
+        ],
+        "Decidueye_Chasseur": [
+          1464,
+          816
+        ],
+        "Komala_Bucheron": [
+          408,
+          768
+        ],
+        "Leavanny_Couturiere": [
+          728,
+          904
+        ],
+        "Torkoal_Forgeron": [
+          1056,
+          936
+        ]
+      },
+      "human_actors": 0,
+      "relief_cells": 2198,
+      "layers": 4
+    },
+    {
+      "season": "winter",
+      "path": "Data/Ground/no_name_village_winter.rsground",
+      "sha256": "b3ecf9503e133bc09719dca6704145ed983d8b0a3581618e7efd34969769c849",
+      "dimensions_tiles": [
+        78,
+        78
+      ],
+      "dimensions_px": [
+        1872,
+        1872
+      ],
+      "obstacle_grid": [
+        234,
+        234
+      ],
+      "blocked_cells": 21453,
+      "source_colliders": 496,
+      "pokemon_actors": 7,
+      "pokemon_actor_positions_px": {
+        "Audino_Guide": [
+          936,
+          936
+        ],
+        "Meganium_Herboriste": [
+          432,
+          792
+        ],
+        "Bibarel_Charpentier": [
+          832,
+          264
+        ],
+        "Decidueye_Chasseur": [
+          1464,
+          816
+        ],
+        "Komala_Bucheron": [
+          408,
+          768
+        ],
+        "Leavanny_Couturiere": [
+          728,
+          904
+        ],
+        "Torkoal_Forgeron": [
+          1056,
+          936
+        ]
+      },
+      "human_actors": 0,
+      "relief_cells": 2198,
+      "layers": 4
+    }
+  ],
+  "entities": {
+    "plan": "reports/pokemon-entity-plan.json",
+    "all_living_entities_pokemon": true,
+    "bosses_pokemon": true
+  },
+  "integration": "CANDIDATE_NOT_ADDED_TO_PROTECTED_MASTER_ZONE"
+}

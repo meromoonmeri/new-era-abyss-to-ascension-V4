@@ -1,0 +1,15 @@
+{
+  "schema": "no-name-village.pmdo-runtime-state.v1",
+  "status": "SOURCE_NUMERIC_STATES_ADAPTED",
+  "source_provenance": {"season": "season-vm-evidence.json", "time_of_day": "time-system.json", "audio": "audio-manifest.json"},
+  "season_selection": {
+    "source_variable": "stage",
+    "pmdo_storage": "SV.NoNameVillage.SourceStage",
+    "exact_intervals": {"spring": "stage < 2", "summer": "2 <= stage < 3", "autumn": "3 <= stage < 4", "winter": "4 <= stage < 8"},
+    "outside_proven_range": "UNKNOWN",
+    "implementation": "Data/Script/halcyon/no_name_village/VillageState.lua"
+  },
+  "time_of_day": {"source_values": [0,1,2,3], "labels": "UNVERIFIED; no labels invented", "pmdo_storage": "SV.NoNameVillage.TimeOfDay", "pmdo_effects": ["phase MapStatus", "phase-sensitive BGM"]},
+  "seasonal_vfx": {"spring": "sakura_drift", "summer": null, "autumn": "autumn_leaves", "winter": "winter_snow"},
+  "audio_policy": {"all_source_audio_audited": 388, "all_source_audio_bytes_in_git": false, "source_runtime_paths_and_hashes": "audio-manifest.json", "pmdo_runtime": "repository-native seasonal substitutes"}
+}

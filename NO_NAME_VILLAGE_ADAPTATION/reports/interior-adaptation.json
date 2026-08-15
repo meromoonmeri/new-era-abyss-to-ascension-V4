@@ -1,0 +1,130 @@
+{
+  "schema": "no-name-village.interiors.v2",
+  "status": "SOURCE_BOUNDS_AND_TRANSITS_POKEMON_INTERIORS_BUILT",
+  "scale": 0.375,
+  "policy": {
+    "source_room_bounds_preserved": true,
+    "source_transit_positions_preserved": true,
+    "human_beds_removed": true,
+    "human_entities_removed": true,
+    "pokemon_compatible_furniture": true
+  },
+  "interiors": [
+    {
+      "asset": "no_name_player_house",
+      "source_room": "playerhouse",
+      "source_dimensions_px": [
+        1920,
+        1280
+      ],
+      "pmdo_dimensions_px": [
+        720,
+        480
+      ],
+      "pmdo_obstacle_grid": [
+        90,
+        60
+      ],
+      "source_transit_px": [
+        992,
+        704
+      ],
+      "pmdo_transit_px": [
+        372,
+        264
+      ],
+      "pmd_furniture_source": "metano_normal_home",
+      "resident_pokemon": "Audino",
+      "human_beds": 0,
+      "human_entities": 0,
+      "sha256": "0a05659416b1628ac6de8454f783443dd21092ebfa0f4966e2812dfc16bfa45b"
+    },
+    {
+      "asset": "no_name_logger_house",
+      "source_room": "loggerhouse",
+      "source_dimensions_px": [
+        1920,
+        1280
+      ],
+      "pmdo_dimensions_px": [
+        720,
+        480
+      ],
+      "pmdo_obstacle_grid": [
+        90,
+        60
+      ],
+      "source_transit_px": [
+        704,
+        1024
+      ],
+      "pmdo_transit_px": [
+        264,
+        384
+      ],
+      "pmd_furniture_source": "metano_grass_home",
+      "resident_pokemon": "Komala",
+      "human_beds": 0,
+      "human_entities": 0,
+      "sha256": "0c5c872065d8fc110b3bfdeee2d6de036f2fe8d4cddab8868314800d7aa97824"
+    },
+    {
+      "asset": "no_name_hunter_house",
+      "source_room": "hunterhouse",
+      "source_dimensions_px": [
+        1920,
+        1280
+      ],
+      "pmdo_dimensions_px": [
+        720,
+        480
+      ],
+      "pmdo_obstacle_grid": [
+        90,
+        60
+      ],
+      "source_transit_px": [
+        576,
+        832
+      ],
+      "pmdo_transit_px": [
+        216,
+        312
+      ],
+      "pmd_furniture_source": "metano_rock_home",
+      "resident_pokemon": "Decidueye",
+      "human_beds": 0,
+      "human_entities": 0,
+      "sha256": "94ae0a438fdd3f10735de87b23422a2ffe7b4993e8cd08284489ebbc26cbb874"
+    },
+    {
+      "asset": "no_name_carpenter_house",
+      "source_room": "carpenterhouse",
+      "source_dimensions_px": [
+        1920,
+        1280
+      ],
+      "pmdo_dimensions_px": [
+        720,
+        480
+      ],
+      "pmdo_obstacle_grid": [
+        90,
+        60
+      ],
+      "source_transit_px": [
+        1056,
+        1024
+      ],
+      "pmdo_transit_px": [
+        396,
+        384
+      ],
+      "pmd_furniture_source": "metano_electric_home",
+      "resident_pokemon": "Bibarel",
+      "human_beds": 0,
+      "human_entities": 0,
+      "sha256": "4a88fc6776ace6fc6d38de3fb73c12513d11233c5ed3b27d70502d81b62524ba"
+    }
+  ]
+}

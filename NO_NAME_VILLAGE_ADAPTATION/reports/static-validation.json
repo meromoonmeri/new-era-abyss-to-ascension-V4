@@ -1,0 +1,104 @@
+{
+  "schema": "no-name-village.static-validation.v1",
+  "result": "STATIC_VALIDATION_PASS",
+  "runtime": "PENDING_EXACT_PMDO_0.8.12",
+  "grounds": [
+    {
+      "asset": "no_name_village_spring",
+      "sha256": "9ea777e475e13f952d47809f54e4fd7dee456baadc2adcf328a74b5ea8015c5a",
+      "sheets": [
+        "Apple Woods Entrance Layer 1",
+        "ForestCamp",
+        "No_Name_Village_Buildings",
+        "No_Name_Village_Standalone_Tree_Spring"
+      ],
+      "actors": 7,
+      "blocked_cells": 21453,
+      "reachable_footprints": 15281,
+      "doors_reachable": 4
+    },
+    {
+      "asset": "no_name_village_summer",
+      "sha256": "2b3eb058adab5c3d52dea5a66afc75bcb701f67ce3390e51d1610345ebd9e238",
+      "sheets": [
+        "Apple Woods Entrance Layer 1",
+        "ForestCamp",
+        "No_Name_Village_Buildings",
+        "No_Name_Village_Standalone_Tree_Summer"
+      ],
+      "actors": 7,
+      "blocked_cells": 21453,
+      "reachable_footprints": 15281,
+      "doors_reachable": 4
+    },
+    {
+      "asset": "no_name_village_autumn",
+      "sha256": "8dc99cb12e0818bf5e0c2fff04a041e35bcc8c40ccd23cc75ad89416c6768fd0",
+      "sheets": [
+        "Apple Woods Entrance Layer 1",
+        "ForestCamp",
+        "No_Name_Village_Buildings_Autumn",
+        "No_Name_Village_Forest_Autumn",
+        "No_Name_Village_Standalone_Tree_Autumn"
+      ],
+      "actors": 7,
+      "blocked_cells": 21453,
+      "reachable_footprints": 15281,
+      "doors_reachable": 4
+    },
+    {
+      "asset": "no_name_village_winter",
+      "sha256": "b3ecf9503e133bc09719dca6704145ed983d8b0a3581618e7efd34969769c849",
+      "sheets": [
+        "No_Name_Village_Buildings_Winter",
+        "No_Name_Village_Forest_Winter",
+        "No_Name_Village_Standalone_Tree_Winter",
+        "SnowCamp"
+      ],
+      "actors": 7,
+      "blocked_cells": 21453,
+      "reachable_footprints": 15281,
+      "doors_reachable": 4
+    }
+  ],
+  "interiors": [
+    {
+      "asset": "no_name_player_house",
+      "sha256": "0a05659416b1628ac6de8454f783443dd21092ebfa0f4966e2812dfc16bfa45b",
+      "dimensions_px": [
+        720,
+        480
+      ]
+    },
+    {
+      "asset": "no_name_logger_house",
+      "sha256": "0c5c872065d8fc110b3bfdeee2d6de036f2fe8d4cddab8868314800d7aa97824",
+      "dimensions_px": [
+        720,
+        480
+      ]
+    },
+    {
+      "asset": "no_name_hunter_house",
+      "sha256": "94ae0a438fdd3f10735de87b23422a2ffe7b4993e8cd08284489ebbc26cbb874",
+      "dimensions_px": [
+        720,
+        480
+      ]
+    },
+    {
+      "asset": "no_name_carpenter_house",
+      "sha256": "4a88fc6776ace6fc6d38de3fb73c12513d11233c5ed3b27d70502d81b62524ba",
+      "dimensions_px": [
+        720,
+        480
+      ]
+    }
+  ],
+  "tile_index_entries": 744,
+  "scripts_checked": 12,
+  "human_entities": 0,
+  "missingno": 0,
+  "determinism": "PASS (independent repeated generator hashes)",
+  "source_season_selection": "PASS_EXACT_INTERVALS"
+}
