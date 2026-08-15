@@ -786267,6 +786267,66 @@
        "Height": 16
       },
       "serializationLoc": null
+     },
+     {
+      "EntName": "Retour_Maison_Joueur",
+      "Direction": 4,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "Collider": {
+       "X": 375,
+       "Y": 1305,
+       "Width": 16,
+       "Height": 16
+      },
+      "serializationLoc": null
+     },
+     {
+      "EntName": "Retour_Maison_Chasseur",
+      "Direction": 4,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "Collider": {
+       "X": 1488,
+       "Y": 852,
+       "Width": 16,
+       "Height": 16
+      },
+      "serializationLoc": null
+     },
+     {
+      "EntName": "Retour_Maison_Bucheron",
+      "Direction": 4,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "Collider": {
+       "X": 432,
+       "Y": 804,
+       "Width": 16,
+       "Height": 16
+      },
+      "serializationLoc": null
+     },
+     {
+      "EntName": "Retour_Maison_Charpentier",
+      "Direction": 4,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "Collider": {
+       "X": 846,
+       "Y": 300,
+       "Width": 16,
+       "Height": 16
+      },
+      "serializationLoc": null
      }
     ]
    }

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "result": "SMART_GROUND_PMDO_RUNTIME_CAPTURE_PASS",
+  "scope": "exact_engine_load_collision_animation_and_visual_capture_not_artistic_acceptance",
+  "authority": {
+    "pmdo_version": "0.8.12",
+    "pmdo_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+    "method": "Agent A ignored overlay + patched SDL + SwiftShader/ANGLE"
+  },
+  "candidate": {
+    "asset": "no_name_player_house",
+    "ground_sha256": "0a05659416b1628ac6de8454f783443dd21092ebfa0f4966e2812dfc16bfa45b"
+  },
+  "runtime_probes": {
+    "event": "result",
+    "load": "PASS",
+    "movement": "PASS",
+    "blocked": "PASS",
+    "move_delta": "0,8",
+    "blocked_delta": "0,0",
+    "verdict": "RUNTIME_PASS"
+  },
+  "runtime_visual_gate": {
+    "uniform_dark_walkable_cells": 0,
+    "result": "PASS",
+    "note": "runtime defect gate; not a substitute for human artistic acceptance"
+  },
+  "captures": [
+    {
+      "label": "spawn",
+      "tick": 0,
+      "file": "/home/user/new-era-abyss-to-ascension-V4/NO_NAME_VILLAGE_ADAPTATION/reports/runtime/no_name_player_house/spawn_tick_000.png",
+      "sha256": "11fdc06b24d08b0f03643087e85fb4460ec212d9a5860b964df742794f743ff8",
+      "uniform_dark_walkable_cells": []
+    },
+    {
+      "label": "spawn",
+      "tick": 15,
+      "file": "/home/user/new-era-abyss-to-ascension-V4/NO_NAME_VILLAGE_ADAPTATION/reports/runtime/no_name_player_house/spawn_tick_015.png",
+      "sha256": "11fdc06b24d08b0f03643087e85fb4460ec212d9a5860b964df742794f743ff8",
+      "uniform_dark_walkable_cells": []
+    }
+  ],
+  "fixture_manifest_sha256": "071c96b6b66eff7cedfcc23c4b056f93da454f53ccf07443c0984660a54302d9",
+  "fixture_entity_isolation": "Ignored fixture only; actors/triggers removed to isolate BMA movement. Candidate hash is unchanged."
+}

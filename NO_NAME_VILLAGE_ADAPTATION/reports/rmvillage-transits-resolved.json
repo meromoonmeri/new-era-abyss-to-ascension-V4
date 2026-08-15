@@ -1,0 +1,23 @@
+{
+  "schema": "no-name-village.rmvillage-transits.v1",
+  "status": "SOURCE_GML_DESTINATIONS_RESOLVED",
+  "source": "extracted/official/decompiled-gml.tar.gz",
+  "doors": [
+    {"creation_code": 555, "source_position": [940,3296], "destination_room_id": 10, "destination_room": "playerhouse", "destination_position": [1056,672]},
+    {"creation_code": 556, "source_position": [3912,2080], "destination_room_id": 43, "destination_room": "hunterhouse", "destination_position": [640,800]},
+    {"creation_code": 557, "source_position": [1096,1952], "destination_room_id": 52, "destination_room": "loggerhouse", "destination_position": [768,992]},
+    {"creation_code": 558, "source_position": [2200,608], "destination_room_id": 55, "destination_room": "carpenterhouse", "destination_position": [1120,992]}
+  ],
+  "interior_returns": [
+    {"creation_code": 616, "source_room": "playerhouse", "destination_room": "rmvillage", "destination_position": [1000,3480], "pmdo_marker": "Retour_Maison_Joueur"},
+    {"creation_code": 786, "source_room": "hunterhouse", "destination_room": "rmvillage", "destination_position": [3968,2272], "pmdo_marker": "Retour_Maison_Chasseur"},
+    {"creation_code": 813, "source_room": "loggerhouse", "destination_room": "rmvillage", "destination_position": [1152,2144], "pmdo_marker": "Retour_Maison_Bucheron"},
+    {"creation_code": 819, "source_room": "carpenterhouse", "destination_room": "rmvillage", "destination_position": [2256,800], "pmdo_marker": "Retour_Maison_Charpentier"}
+  ],
+  "edges": [
+    {"creation_code": 559, "direction": "north", "destination_room_id": 33, "destination_room": "rm54", "pmdo_status": "LOCKED_UNTIL_ROOM_RECONSTRUCTED"},
+    {"creation_code": 560, "direction": "east", "destination_room_id": 54, "destination_room": "rm65", "pmdo_status": "LOCKED_UNTIL_ROOM_RECONSTRUCTED"},
+    {"creation_code": 561, "direction": "west", "destination_room_id": 23, "destination_room": "rm45", "pmdo_status": "LOCKED_UNTIL_ROOM_RECONSTRUCTED"},
+    {"creation_code": 562, "direction": "south", "destination_room_id": 5, "destination_room": "rm56", "pmdo_status": "LOCKED_UNTIL_ROOM_RECONSTRUCTED"}
+  ]
+}

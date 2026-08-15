@@ -1,0 +1,8 @@
+{"event":"begin","ground":"no_name_player_house","capture_count":1,"tick_count":2}
+{"event":"ground_loaded","ground":"no_name_player_house","load":"PASS"}
+{"event":"screenshot_requested","label":"spawn","tick":0}
+{"event":"screenshot_completed","label":"spawn","tick":0}
+{"event":"screenshot_requested","label":"spawn","tick":15}
+{"event":"screenshot_completed","label":"spawn","tick":15}
+{"event":"result","load":"PASS","movement":"PASS","blocked":"PASS","move_delta":"0,8","blocked_delta":"0,0","verdict":"RUNTIME_PASS"}
+{"event":"end"}

@@ -10,6 +10,6 @@ function VillageMap.Build(asset,season)local M={};local applied=nil
  for _,name in ipairs(NPC)do M[name..'_Action']=function(chara,activator)DEBUG.EnableDbgCoro();Voices.Talk(chara,name)end end
  local function enter(map)return function(obj,activator)DEBUG.EnableDbgCoro();GAME:FadeOut(false,20);GAME:EnterGroundMap(map,'Main_Entrance_Marker')end end
  M.Maison_Joueur_Entree_Touch=enter('no_name_player_house');M.Maison_Bucheron_Entree_Touch=enter('no_name_logger_house');M.Maison_Chasseur_Entree_Touch=enter('no_name_hunter_house');M.Maison_Charpentier_Entree_Touch=enter('no_name_carpenter_house')
- local function border(obj,activator)DEBUG.EnableDbgCoro();UI:ResetSpeaker();UI:WaitShowDialogue("Le sentier continue au-delà des arbres.[pause=15] Sa destination source reste verrouillée tant que la room voisine n’est pas validée.")end
- M.Sortie_Nord_Touch=border;M.Sortie_Sud_Touch=border;M.Sortie_Ouest_Touch=border;M.Sortie_Est_Touch=border;return M end
+ local function border(room)return function(obj,activator)DEBUG.EnableDbgCoro();UI:ResetSpeaker();UI:WaitShowDialogue("Le sentier rejoint "..room.." dans le jeu source.[pause=15] Cette room restera fermée jusqu’à sa reconstruction PMDO validée.")end end
+ M.Sortie_Nord_Touch=border('rm54');M.Sortie_Est_Touch=border('rm65');M.Sortie_Ouest_Touch=border('rm45');M.Sortie_Sud_Touch=border('rm56');return M end
 return VillageMap

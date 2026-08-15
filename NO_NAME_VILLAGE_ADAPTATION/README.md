@@ -33,3 +33,33 @@ Les outils `build_utmt_wasm_bundle.py`, `NoNameVillageExtractor.cs`,
 `decode_official_textures.py` et `extract_all_frames.py` rendent le pipeline
 reproductible sans modifier la source. `season-vm-evidence.json` et
 `time-system.json` remplacent les anciennes conclusions `UNVERIFIED` sur la VM.
+
+## Adaptation PMDO structurée et validation réelle
+
+L'adaptation jouable de `rmvillage` est matérialisée en quatre Grounds natifs :
+`no_name_village_spring`, `summer`, `autumn` et `winter`. Les quatre conservent
+les 78×78 cellules source, le rapport d'échelle 64→24 px, les chemins issus de
+`grass0`, les masks/colliders officiels, les maisons et les coordonnées de
+portes. Le relief bloqué est rendu par une lisière PMD cohérente plutôt que par
+des murs invisibles.
+
+La sélection saisonnière ne dépend pas du calendrier de Metano :
+`VillageState.SeasonFromSourceStage()` transpose littéralement les intervalles
+VM source (`<2`, `<3`, `<4`, `<8`). Les variantes PMD des arbres, forêts et
+bâtiments sont distinctes. Les VFX PMDO sont `sakura_drift`,
+`autumn_leaves` et `winter_snow`. Les quatre valeurs numériques source de
+`global.timeofday` restent 0–3, sans leur inventer de libellé, et pilotent
+l'éclairage MapStatus ainsi que les substitutions audio saisonnières.
+
+Les quatre intérieurs font 720×480 px, dimensions normalisées des rooms source
+1920×1280. Ils n'ont aucun humain ni lit humain, utilisent du mobilier Pokémon,
+et reviennent aux quatre coordonnées exactes décompilées. Les quatre frontières
+sont désormais résolues par le GML officiel vers `rm54`, `rm65`, `rm45` et
+`rm56`; elles restent volontairement verrouillées tant que ces rooms voisines
+ne sont pas reconstruites et validées.
+
+Les huit Grounds, leurs scripts Lua réels, les déplacements et les collisions
+bloquantes ont été chargés dans PMDO **0.8.12** exact par la méthode headless
+d'Agent A. Les quatre états temporels ont également produit quatre captures
+runtime distinctes. Voir `reports/runtime-validation.json`, `reports/runtime/`
+et `reports/runtime-time/`.

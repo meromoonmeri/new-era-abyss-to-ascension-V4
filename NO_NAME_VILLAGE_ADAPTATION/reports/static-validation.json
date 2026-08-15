@@ -1,11 +1,11 @@
 {
-  "schema": "no-name-village.static-validation.v1",
+  "schema": "no-name-village.static-validation.v2",
   "result": "STATIC_VALIDATION_PASS",
-  "runtime": "PENDING_EXACT_PMDO_0.8.12",
+  "runtime": "EXACT_PMDO_0.8.12_RUNTIME_PASS",
   "grounds": [
     {
       "asset": "no_name_village_spring",
-      "sha256": "9ea777e475e13f952d47809f54e4fd7dee456baadc2adcf328a74b5ea8015c5a",
+      "sha256": "6f93bf87c22c22212c7ccd4be064efdf177f0459387cbd209e3205496a88df07",
       "sheets": [
         "Apple Woods Entrance Layer 1",
         "ForestCamp",
@@ -19,7 +19,7 @@
     },
     {
       "asset": "no_name_village_summer",
-      "sha256": "2b3eb058adab5c3d52dea5a66afc75bcb701f67ce3390e51d1610345ebd9e238",
+      "sha256": "7ea6aa872747a8bd9ea6aa7a2188f5994583e75bda845a6fb075c8da6c8b8397",
       "sheets": [
         "Apple Woods Entrance Layer 1",
         "ForestCamp",
@@ -33,7 +33,7 @@
     },
     {
       "asset": "no_name_village_autumn",
-      "sha256": "8dc99cb12e0818bf5e0c2fff04a041e35bcc8c40ccd23cc75ad89416c6768fd0",
+      "sha256": "c2beb947966a9127291fcb22c3076f17d6ee5117cb2d557e501c7b0854447b11",
       "sheets": [
         "Apple Woods Entrance Layer 1",
         "ForestCamp",
@@ -48,7 +48,7 @@
     },
     {
       "asset": "no_name_village_winter",
-      "sha256": "b3ecf9503e133bc09719dca6704145ed983d8b0a3581618e7efd34969769c849",
+      "sha256": "e1a838029979ed91055ed8060e037a2a6049422fa629baee72caca27f919b766",
       "sheets": [
         "No_Name_Village_Buildings_Winter",
         "No_Name_Village_Forest_Winter",
