@@ -98,9 +98,11 @@ reste le Ground PMDO complet de référence ; les trois autres variantes sont de
 bundles de layers déterministes afin de ne pas dupliquer la grille de collision
 624×624. Restent obligatoires : sélection runtime des bundles, particules
 `objwinter`, populations Pokémon sauvages, casting social et validation runtime.
-Les sprites source exacts `ssnow1`, `ssnow2` et `spttrail01` sont déjà compilés
-1:1 en trois assets Particle PMDO sous `winter/particles/`; l'émetteur à trois
-familles, la surface de traces et l'audio restent explicitement bloqués. Tous
+Les sprites source exacts `ssnow1`, `ssnow2` et `spttrail01`, ainsi que la
+particule GameMaker `shape 0` mise à l'échelle source ×4, sont compilés en quatre
+assets Particle PMDO sous `winter/particles/`. L'émetteur concurrent à trois
+familles, la surface persistante des traces et l'audio restent explicitement
+bloqués. Tous
 les manifests restent `UNIMPLEMENTED`. Le runtime PMDO 0.8.12 réel charge
 l'été et valide mouvement, collision bloquée et 12 captures animées. Le harness
 corrigé demande explicitement `LoadPhase.Unload` après son événement terminal :
