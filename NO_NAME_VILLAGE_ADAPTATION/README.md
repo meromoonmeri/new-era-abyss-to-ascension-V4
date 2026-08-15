@@ -33,3 +33,24 @@ Les outils `build_utmt_wasm_bundle.py`, `NoNameVillageExtractor.cs`,
 `decode_official_textures.py` et `extract_all_frames.py` rendent le pipeline
 reproductible sans modifier la source. `season-vm-evidence.json` et
 `time-system.json` remplacent les anciennes conclusions `UNVERIFIED` sur la VM.
+
+## Frontière environnementale PMDO
+
+Avant toute composition, l'inventaire PMDO-scopé est régénéré depuis le modèle
+officiel suivi :
+
+```bash
+python3 NO_NAME_VILLAGE_ADAPTATION/tools/build_environment_inventory.py
+python3 NO_NAME_VILLAGE_ADAPTATION/tests.py
+python3 NO_NAME_VILLAGE_ADAPTATION/test_environment_inventory.py
+```
+
+Il couvre les 98 rooms, conserve les hashes et placements environnementaux,
+exclut les 13 rooms système et sépare explicitement décor, fonctions spatiales,
+rôles sociaux et éléments ambigus. Les sprites/codes humains ne sont jamais
+importés, mais une fonction sociale prouvée reste `ROLE_ADAPTATION_REQUIRED` :
+elle devra être reconstruite avec un Pokémon natif et les systèmes existants
+`LivingWorld`, `TownLife`, `TownPlace`, `Seasons`, `Weather` et l'AI PMDO. Sa
+sortie compressée est `reports/environment-inventory.json.gz`. Ce gate n'émet
+aucun Ground et ne peut attribuer `CONVERTED`, `CERTIFIED` ou `PROMOTED` : les
+éléments ambigus restent bloqués en `REVIEW_REQUIRED`.
