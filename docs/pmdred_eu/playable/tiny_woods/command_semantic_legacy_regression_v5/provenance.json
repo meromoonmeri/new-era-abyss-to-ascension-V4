@@ -1,0 +1,71 @@
+{
+  "schema": "pmdred-eu-tiny-woods-palette-provenance-v1",
+  "date": "2026-08-15",
+  "repository_head_before_palette_commit": "d3b76db8b593223b3428ab189d5cd9350168c7f6",
+  "authority": {
+    "region": "EU",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "command_plan": {
+      "path": "docs/pmdred_eu/playable/tiny_woods/command_plan.json",
+      "bytes": 468517,
+      "sha256": "ab9f2a8dcf857181a4dd188e28687cb953ba4789c9b6f39430c50fee4b94c37b"
+    },
+    "semantics": {
+      "path": "docs/pmdred_eu/playable/tiny_woods/secondary_palette_semantics_v1.json",
+      "bytes": 17553,
+      "sha256": "c3e7b71dc3929680b665b2ef441624185e92b8bcb517257fb2f20fe007dbbb73"
+    }
+  },
+  "technical_references": {
+    "pret_pmd_red_commit": "bf0092d0e34fd8e49b859a0b5f96f00740faa42d",
+    "rogueessence_commit": "4961b2271bb0cace74f40f6a85e799e8e4848ace",
+    "pmdo_version": "0.8.12.0",
+    "pmdo_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327"
+  },
+  "source_files": {
+    "tools/build_pmdred_tiny_woods_palette_semantics.py": {
+      "bytes": 9640,
+      "sha256": "1ae7e43b2a6f781d5e06d174d900a37f36a59668f5650c4207e892ea3f7a90da"
+    },
+    "tools/build_pmdred_tiny_woods_palette_overlay.py": {
+      "bytes": 19959,
+      "sha256": "a860ef95cba137b714768f4f5f8b054da7c57f2c4a5ca71bf8e828a79997e706"
+    },
+    "tools/pmdred_tiny_woods_palette_validator.lua": {
+      "bytes": 9930,
+      "sha256": "95b7abf1017fd89aa3b16d38acbed9291de3e6130aef67afdc00bbcd275823bf"
+    },
+    "tools/run_pmdred_tiny_woods_palette_certification.py": {
+      "bytes": 14761,
+      "sha256": "abff0b268c799935de50a7c4d0a8b5c4f39b17302477239af946cb6b43e5b33f"
+    },
+    "tools/certify_pmdred_tiny_woods_palette_semantics.py": {
+      "bytes": 9014,
+      "sha256": "50a4dede564527972652feca92e8bf9bc6cbceb2c75a23f4493569094467da29"
+    }
+  },
+  "fixture_scripts": {
+    "quest/Data/Script/halcyon/pmdred_palette_adapter.lua": {
+      "bytes": 5026,
+      "sha256": "0cd0f3d4afb774f489095e29f2fda8fc5a9d7f7e6f99051841b08b44ec869cc3"
+    },
+    "quest/Data/Script/halcyon/pmdred_tiny_woods_scenes.lua": {
+      "bytes": 16003,
+      "sha256": "5ceff171832ad5d02cc5522721fbfcd42939dda50fda436080e2516e923667c2"
+    },
+    "quest/Data/Script/halcyon/pmdred_tiny_woods_command_campaign.lua": {
+      "bytes": 173069,
+      "sha256": "74b7aa6dbdc78edfaabdb75f03f290a95ab4bd730971a003403fc2582bc916e1"
+    },
+    "quest/Data/Script/halcyon/ground/d01p01/init.lua": {
+      "bytes": 1617,
+      "sha256": "98c875cac158d43154e7572ae7adc20bebb406d81319425b4791fc37b5b227a4"
+    },
+    "quest/Data/Script/halcyon/services/ground_gameplay_validator/init.lua": {
+      "bytes": 9908,
+      "sha256": "2ba8a8b32f13818cc4398e84d4c99d6564216e52044d587ca3fe63804ac128f4"
+    }
+  },
+  "source_evidence": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdred-tiny-woods-command-semantic-legacy-evidence-v17",
+  "source_fixture": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdred-tiny-woods-command-semantic-fixture-v17"
+}

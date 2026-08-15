@@ -1,0 +1,117 @@
+{
+  "schema": "pmdred-eu-tiny-woods-command-semantic-native-v3",
+  "date": "2026-08-16",
+  "status": "passed",
+  "authority": {
+    "region": "EU",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "command_plan_sha256": "ab9f2a8dcf857181a4dd188e28687cb953ba4789c9b6f39430c50fee4b94c37b",
+    "supplement_sha256": "5c9463d14a7de20c40f8d1e183966de0fb43b28e2b0e853672bbe38cbc111237"
+  },
+  "runtime": {
+    "version": "0.8.12.0",
+    "executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327"
+  },
+  "index_gate": {
+    "status": "passed",
+    "return_code": 0,
+    "timed_out": false,
+    "index_sha256": "76517c1ff94b3126d6f6c66488c9f36f29ab9df62c643901a0684c2f7ff4fc39",
+    "log_sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8"
+  },
+  "runs": [
+    {
+      "mode": "semantic_selected_v3",
+      "result": "PASS",
+      "command_plan_traces": 975,
+      "semantic_commands": 251,
+      "semantic_trace_events": 502,
+      "waits": 92,
+      "source_wait_frames": 2690,
+      "route": [
+        "d01p01"
+      ],
+      "verdict": {
+        "event": "command_semantic_verdict",
+        "mode": "semantic_selected_v3",
+        "verdict": "PASS",
+        "commands": 975,
+        "arrays": 27,
+        "semantic_starts": 251,
+        "semantic_completes": 251,
+        "waits": 92,
+        "wait_frames": 2690,
+        "fault": false,
+        "route": "d01p01"
+      },
+      "events_sha256": "352d2e1e73101ef77899ffbdeb2391a0d9243d533c481e8bf3aac43e459faa7f",
+      "runtime_log_sha256": "85fc72d3e07ca37b188488de77dddb3ea531d0147c904ce982bdf7bc1415369d",
+      "termination_sha256": "2d4f0fce035bbfede5fb2a712eb1cab32b921e4e3b4e2ca55354142de039e820",
+      "termination": {
+        "exit_classification": "NORMAL_EXIT",
+        "return_code": 0,
+        "terminal": true,
+        "graceful": true,
+        "watchdog": false,
+        "requested_signal": null,
+        "sigsegv": false,
+        "forced_kill": false,
+        "orphan_process": false
+      }
+    },
+    {
+      "mode": "semantic_all_v3",
+      "result": "PASS",
+      "command_plan_traces": 975,
+      "semantic_commands": 304,
+      "semantic_trace_events": 608,
+      "waits": 108,
+      "source_wait_frames": 3001,
+      "route": [
+        "d01p01"
+      ],
+      "verdict": {
+        "event": "command_semantic_verdict",
+        "mode": "semantic_all_v3",
+        "verdict": "PASS",
+        "commands": 975,
+        "arrays": 27,
+        "semantic_starts": 304,
+        "semantic_completes": 304,
+        "waits": 108,
+        "wait_frames": 3001,
+        "fault": false,
+        "route": "d01p01"
+      },
+      "events_sha256": "877b84461ccea9ade40b09840207c0b2bfa6fa8b0b3758df2ece5e500b5d87e3",
+      "runtime_log_sha256": "ea2c3f46ef0411b7b68f41042d2e09a8044fe341d3e810912fc36e05d5136458",
+      "termination_sha256": "7c0b270bad6611868ed3c633572f516d27838c390837b9dc169cf271b722cce7",
+      "termination": {
+        "exit_classification": "NORMAL_EXIT",
+        "return_code": 0,
+        "terminal": true,
+        "graceful": true,
+        "watchdog": false,
+        "requested_signal": null,
+        "sigsegv": false,
+        "forced_kill": false,
+        "orphan_process": false
+      }
+    }
+  ],
+  "combined": {
+    "commands": 304,
+    "selected_route": 251,
+    "retry_only": 53,
+    "source_waits": 108,
+    "source_wait_frames": 3001
+  },
+  "assertions": {
+    "all_975_authenticated_plan_rows_are_traced_before_semantic_execution": true,
+    "all_304_supplement_rows_have_strict_adjacent_start_complete_events": true,
+    "selected_route_and_all_command_modes_are_independently_native": true,
+    "all_108_waits_execute_exactly_3001_source_frames_in_all_mode": true,
+    "non_wait_rows_are_metadata_contracts_pending_actor_context_resolution": true,
+    "both_runs_reach_LoadPhase_Unload_NORMAL_EXIT_rc0_without_signal_watchdog_or_orphan": true
+  }
+}

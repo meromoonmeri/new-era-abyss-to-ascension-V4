@@ -396,8 +396,32 @@
       "authenticated_command_count": 697,
       "authenticated_french_text_count": 117,
       "executed_default_branch_text_count": 74,
-      "scene_groups": ["d01p01:g1", "d01p01:g2", "d01p02:g1", "d01p01:g3"],
-      "remaining_gate": "all secondary cues, full paths/camera, rename, rewards, and canonical post-g3 destination"
+      "scene_groups": [
+        "d01p01:g1",
+        "d01p01:g2",
+        "d01p02:g1",
+        "d01p01:g3"
+      ],
+      "remaining_gate": "bind certified non-wait semantic contracts to canonical production actor/camera contexts and certify the complete live opening-to-title route"
+    },
+    "command_semantic_supplement_v3": {
+      "status": "passed",
+      "scope": "304 immutable source-address metadata/API contracts across selected and retry-only routes; all 108 waits execute exactly 3,001 source frames, while non-wait production actor-context binding remains pending",
+      "supplement": "docs/pmdred_eu/playable/tiny_woods/command_semantic_supplement_v3.json",
+      "supplement_sha256": "5c9463d14a7de20c40f8d1e183966de0fb43b28e2b0e853672bbe38cbc111237",
+      "metadata_correction": "docs/pmdred_eu/playable/tiny_woods/command_semantic_metadata_correction_v3/metadata_correction_v3.json",
+      "native_certificate": "docs/pmdred_eu/playable/tiny_woods/command_semantic_native_v5/certificate.json",
+      "native_certificate_sha256": "04b1c16520ccda82d5392b3166f58ee841210f48f9f5abd16653ef0a530acc12",
+      "legacy_regression_certificate": "docs/pmdred_eu/playable/tiny_woods/command_semantic_legacy_regression_v5/palette_certificate.json",
+      "failure_propagation": "docs/pmdred_eu/playable/tiny_woods/command_semantic_failure_propagation_v3/failure_propagation_v3.json",
+      "native_modes": 2,
+      "strict_native_terminations": 2,
+      "commands": 304,
+      "selected_route": 251,
+      "retry_only": 53,
+      "source_waits": 108,
+      "source_wait_frames": 3001,
+      "planning_unknown_rows_retained": 15
     }
   }
 }

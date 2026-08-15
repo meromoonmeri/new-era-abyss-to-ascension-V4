@@ -1,0 +1,44 @@
+{
+  "schema": "pmdred-eu-tiny-woods-command-semantic-metadata-correction-v3",
+  "date": "2026-08-16",
+  "status": "passed",
+  "authority": {
+    "region": "EU",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "command_plan": "docs/pmdred_eu/playable/tiny_woods/command_plan.json",
+    "command_plan_sha256": "ab9f2a8dcf857181a4dd188e28687cb953ba4789c9b6f39430c50fee4b94c37b",
+    "content_authority": "authenticated PMD Red Rescue Team EU ROM bytes",
+    "technical_reference_only": "pret/pmd-red command structure and names"
+  },
+  "recovery": {
+    "purpose": "fresh create-only recovery after the prior local semantic correction was not accepted by the remote repository",
+    "historical_supplement_v1_sha256": "2ab85a8535728135b3fdc59455fe970f4957e16c0e23deccc790e505d4e5729b",
+    "historical_metadata_correction_v2_sha256": "a7e6bb030f0a8de06f7256faaf0052954b40556f23c997b2d4bbf4e3249fabd6",
+    "prior_payloads_are_not_recreated_or_overwritten": true
+  },
+  "identities": {
+    "command_plan_sha256": "ab9f2a8dcf857181a4dd188e28687cb953ba4789c9b6f39430c50fee4b94c37b",
+    "supplement_v3_sha256": "5c9463d14a7de20c40f8d1e183966de0fb43b28e2b0e853672bbe38cbc111237",
+    "generator_sha256": "42245679a9ba8c4a31f11dbfd3801554361bff07f6324938dcea365539447de7",
+    "independent_validator_sha256": "9bcaec0fb54db3e5366e5a55792caf7ce10819e229277867bd578b9720410f58"
+  },
+  "totals": {
+    "commands": 304,
+    "selected_route": 251,
+    "retry_only": 53,
+    "opcodes": 16,
+    "source_waits": 108,
+    "source_wait_frames": 3001,
+    "selected_route_waits": 92,
+    "selected_route_wait_frames": 2690,
+    "planning_unknown_rows": 15,
+    "supplement_unknown_rows": 0
+  },
+  "assertions": {
+    "all_304_rows_retain_exact_source_addresses_opcodes_operands_and_handlers": true,
+    "all_304_rows_receive_one_explicit_semantic_category_and_pmdo_api_contract": true,
+    "all_15_actor_control_unknown_rows_remain_in_command_plan_and_outside_supplement": true,
+    "command_plan_bytes_are_unchanged": true,
+    "historical_v1_v2_identities_are_recorded_but_not_recreated": true
+  }
+}

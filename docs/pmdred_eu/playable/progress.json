@@ -1,9 +1,9 @@
 {
   "schema": "new-era.pmdred-eu-playable-reconstruction-progress.v1",
-  "generated_at": "2026-08-15T00:35:00+02:00",
+  "generated_at": "2026-08-16T19:40:00+02:00",
   "repository": {
     "branch": "arena/019ff05e-new-era-abyss-to-ascension-v4",
-    "parent_checkpoint": "14b93fa3b9d0a8fb20b616a0d68302afdd5f57d0"
+    "parent_checkpoint": "d3b76db8b593223b3428ab189d5cd9350168c7f6"
   },
   "authority": {
     "region": "EU",
@@ -51,7 +51,7 @@
         "d01p02:g1",
         "d01p01:g3"
       ],
-      "remaining": "Semantic execution and branch tests for non-palette actor/control/camera/animation handlers, followed by narrow live quest integration",
+      "remaining": "Bind the certified non-wait metadata contracts to canonical actors/camera contexts in the live route, certify opening through title, then continue bulk dungeon reconstruction.",
       "command_complete_selected_route_extension": {
         "status": "PASS",
         "report": "docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/native_command_complete_validation.json",
@@ -246,6 +246,45 @@
           "status": "post-runtime parser cardinality failure preserved; native runtime itself PASS",
           "evidence_hashes_sha256": "851909b39c515fc5469ff084665abfa1f17bb24346800019e818927ffebd94de"
         }
+      },
+      "command_semantic_supplement_v3": {
+        "status": "PASS",
+        "scope": "Immutable recovered 304-row semantic metadata supplement plus exact-PMDO selected/all harness certification; wait execution is temporal and non-wait execution certifies source-address metadata and PMDO API contracts pending production actor-context binding.",
+        "supplement": "docs/pmdred_eu/playable/tiny_woods/command_semantic_supplement_v3.json",
+        "supplement_sha256": "5c9463d14a7de20c40f8d1e183966de0fb43b28e2b0e853672bbe38cbc111237",
+        "metadata_correction_archive": "docs/pmdred_eu/playable/tiny_woods/command_semantic_metadata_correction_v3",
+        "metadata_correction_report_sha256": "dd8d18e0323447dcf61964e54ee16699312a1ad8ae7826ba955a49464fc4fda7",
+        "native_archive": "docs/pmdred_eu/playable/tiny_woods/command_semantic_native_v5",
+        "native_report": "docs/pmdred_eu/playable/tiny_woods/command_semantic_native_v5/native_command_semantic_validation_v3.json",
+        "native_report_sha256": "e0ab16d361c77ccb5e9b533189037243590df6dcfaedbb96cf6465abb31dc7c7",
+        "certificate": "docs/pmdred_eu/playable/tiny_woods/command_semantic_native_v5/certificate.json",
+        "certificate_sha256": "04b1c16520ccda82d5392b3166f58ee841210f48f9f5abd16653ef0a530acc12",
+        "fixture_manifest_sha256": "5a476c2ebbe2087416e63f3e0a0fadaedf6f870a7b7b272ea65fd5e0ba3d9b63",
+        "legacy_regression_archive": "docs/pmdred_eu/playable/tiny_woods/command_semantic_legacy_regression_v5",
+        "legacy_regression_certificate_sha256": "2950e22088af397a285b31402a3203c44eeb1c8cf6e492ca104f4b00b74a7030",
+        "failure_propagation_archive": "docs/pmdred_eu/playable/tiny_woods/command_semantic_failure_propagation_v3",
+        "failure_propagation_report_sha256": "01ac291d54b6fc50e7fb8c83a8c1b2db13a384e258d046d5aff1f15b6878cafe",
+        "commands": 304,
+        "selected_route": 251,
+        "retry_only": 53,
+        "opcodes": 16,
+        "source_waits": 108,
+        "source_wait_frames": 3001,
+        "selected_route_waits": 92,
+        "selected_route_wait_frames": 2690,
+        "planning_unknown_rows": 15,
+        "supplement_unknown_rows": 0,
+        "native_modes": [
+          "semantic_selected_v3",
+          "semantic_all_v3"
+        ],
+        "strict_graceful_terminations": 2,
+        "legacy_regression_modes": 3,
+        "failure_gate": "ordinal-0 address mismatch yields explicit semantic FAIL, zero accepted starts/completions, graceful native rc 0, and independent certifier rc 1",
+        "tick_zero_policy": "Harness-only PMDO bootstrap pre-roll before authenticated commands; all source wait arguments and elapsed totals remain exact.",
+        "focused_authenticated_regressions": 53,
+        "focused_authenticated_regressions_status": "PASS",
+        "failure_propagation_evidence_hashes_sha256": "371ddd2508f449f27bc369471556f2c6ab5f6c48b3189d09ab2374c9f0481137"
       }
     },
     "post_g3_route_authentication": {
@@ -293,19 +332,24 @@
   "resume": {
     "restore": "bash tools/restore_pmdred_eu_validation_runtime.sh",
     "verify_ground_checkpoint": "python3 tools/update_pmdred_eu_validation_progress.py --check",
-    "reproduce_latest_milestone": "bash docs/pmdred_eu/playable/tiny_woods/efob108_attachment_runtime_v2/commands.sh",
-    "next_phase": "tiny_woods_304_command_semantic_supplement_generation_integration_and_native_certification",
-    "rule": "Preserve all 219/219 and historical Tiny Woods evidence, including the v1 efob108 parser diagnostic and v2 native PASS. Use the selected EU-center to PMDO-top-left (-8,-8) actor convention and certified native Emote lifecycle to generate the exact 304-command supplement; do not mutate command_plan.json fallback handlers until complete native branch and selected-route gates pass.",
+    "reproduce_latest_milestone": "bash docs/pmdred_eu/playable/tiny_woods/command_semantic_native_v5/commands.sh",
+    "next_phase": "tiny_woods_production_actor_context_binding_live_route_integration_and_native_certification",
+    "rule": "Preserve 219/219 Ground proof and every historical Tiny Woods archive. Treat supplement v3 and native v5 as immutable. Bind only the certified 304-row contracts to canonical live-route actors/cameras; retain exact waits and serialize PMDO promotion. Do not claim non-wait production choreography from the harness certificate.",
     "reproduce_post_route_audit": "python3 tools/audit_pmdred_eu_tiny_woods_post_route.py .runtime-cache/downloads/pmdred-eu.gba --pret-root .runtime-cache/pmd-red-reference --report /tmp/eu_post_route_graph.json",
     "reproduce_command_complete": "bash docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/commands.sh",
     "reproduce_palette_semantics": "bash docs/pmdred_eu/playable/tiny_woods/palette_semantics_runtime_v1/commands.sh",
-    "reproduce_efob108_attachment": "bash docs/pmdred_eu/playable/tiny_woods/efob108_attachment_runtime_v2/commands.sh"
+    "reproduce_efob108_attachment": "bash docs/pmdred_eu/playable/tiny_woods/efob108_attachment_runtime_v2/commands.sh",
+    "reproduce_command_semantic_v3": "bash docs/pmdred_eu/playable/tiny_woods/command_semantic_native_v5/commands.sh",
+    "validate_command_semantic_metadata": "bash docs/pmdred_eu/playable/tiny_woods/command_semantic_metadata_correction_v3/commands.sh",
+    "test_command_semantic_v3": "python3 -m unittest tools.test_pmdred_tiny_woods_command_semantic_v3 -v"
   },
   "limitations": [
     "A route PASS is not narrative completion.",
     "The failed route uses a genuine GiveUp GameAction carrying ResultType.Failed; natural combat defeat remains a later combat milestone.",
     "The command-complete native extension executes the selected D1/default route and one refusal loop; loading all 975 exact command records is not claimed as execution of every non-selected alternative branch.",
     "The palette milestone promotes only 0x22/0x23/0x25/0x26 through an address-gated adapter; all other unresolved command handlers remain on the default actor.control_unknown planning fallback.",
-    "The efob108 attachment milestone proves the bounded 0x56/0xDE native mechanism and selects normalized (-8,-8) actor placement; it does not yet claim generation, integration, or execution of the full 304-command actor/camera/animation supplement."
+    "The semantic-v3 harness executes all 108 waits for exactly 3,001 source frames and validates strict adjacent traces for all 304 rows; non-wait rows remain metadata/API contracts until canonical production actor and camera contexts are bound.",
+    "The selected semantic harness route is d01p01 and is not itself a complete opening-to-title live quest traversal.",
+    "The 15 actor.control_unknown planning rows remain disjoint from the 304-row supplement and unchanged in command_plan.json."
   ]
 }

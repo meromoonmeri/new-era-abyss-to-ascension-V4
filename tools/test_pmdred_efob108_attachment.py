@@ -75,7 +75,7 @@ class Efob108AttachmentTests(unittest.TestCase):
         self.assertEqual(checkpoint["normalized_candidate"]["effect_center"], [179, 149])
         self.assertEqual(
             progress["resume"]["next_phase"],
-            "tiny_woods_304_command_semantic_supplement_generation_integration_and_native_certification",
+            "tiny_woods_production_actor_context_binding_live_route_integration_and_native_certification",
         )
 
     def test_v1_parser_failure_is_preserved_without_false_native_failure(self) -> None:

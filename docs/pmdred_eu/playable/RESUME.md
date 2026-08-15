@@ -1,6 +1,6 @@
 # Reconstruction jouable PMD Red EU — checkpoint
 
-Checkpoint du `2026-08-15`, branche
+Checkpoint du `2026-08-16`, branche
 `arena/019ff05e-new-era-abyss-to-ascension-v4`.
 
 ## État autoritatif
@@ -34,6 +34,28 @@ Checkpoint du `2026-08-15`, branche
   placent `PMDRed_Efob108` au centre AX exact `(179,149)`. L'action terminale
   est `Walk`, non bouclée, et l'effet sélectionne les 13 poses authentifiées
   deux ticks chacune, `Finished=false` à 25 puis `true` à 26.
+- Supplément sémantique bulk v3 : **304/304 PASS** dans
+  [`command_semantic_supplement_v3.json`](tiny_woods/command_semantic_supplement_v3.json),
+  SHA-256 `5c9463d14a7de20c40f8d1e183966de0fb43b28e2b0e853672bbe38cbc111237`.
+  Il couvre 16 opcodes, 251 commandes du parcours sélectionné, 53 retry-only,
+  108 attentes et exactement 3 001 frames source. Le plan 975-commandes reste
+  octet pour octet inchangé et ses 15 lignes `actor.control_unknown` sont
+  conservées hors supplément.
+- Certification PMDO exacte v5 : **NATIVE PASS** dans
+  [`tiny_woods/command_semantic_native_v5`](tiny_woods/command_semantic_native_v5).
+  Les modes isolés `semantic_selected_v3` et `semantic_all_v3` valident
+  respectivement 251 et 304 paires start/complete strictement adjacentes ; les
+  92 attentes sélectionnées totalisent 2 690 frames et les 108 attentes du mode
+  exhaustif totalisent 3 001 frames. Les deux terminaisons sont normales et
+  strictement gracieuses.
+- Régression indépendante : les trois anciens modes palette/commande complète
+  repassent **15 commandes / 14 sélectionnées / 94 dialogues** dans
+  [`tiny_woods/command_semantic_legacy_regression_v5`](tiny_woods/command_semantic_legacy_regression_v5).
+  Le gate négatif create-only
+  [`tiny_woods/command_semantic_failure_propagation_v3`](tiny_woods/command_semantic_failure_propagation_v3)
+  injecte un mauvais address ordinal 0 : erreur explicite, verdict `FAIL`, zéro
+  start accepté, zéro complete, arrêt natif gracieux rc 0, puis rejet obligatoire
+  du certificateur avec rc 1. La régression focalisée complète passe **53/53**.
 
 Les deux processus PMDO 0.8.12 se terminent par `LoadPhase.Unload`,
 `NORMAL_EXIT`, rc 0, `terminal=true`, `graceful=true`, sans watchdog, signal,
@@ -96,6 +118,21 @@ reste un diagnostic conservé : son exécution native était PASS, mais le wrapp
 post-runtime attendait par erreur 45 événements. Seul ce cardinal a été corrigé
 à 44 ; aucun gate natif ou sémantique n'a été relâché.
 
+La correction de métadonnées retrouvée est documentée create-only dans
+[`tiny_woods/command_semantic_metadata_correction_v3`](tiny_woods/command_semantic_metadata_correction_v3).
+Elle assigne une catégorie et un contrat API à chacune des 304 lignes sans
+modifier leurs adresses, opcodes, opérandes ou handlers source. La certification
+native v5 recopie plan, supplément, manifeste fixture et preuves brutes, puis
+les revalide indépendamment. Son rapport a le SHA-256
+`e0ab16d361c77ccb5e9b533189037243590df6dcfaedbb96cf6465abb31dc7c7` et
+son certificat le SHA-256
+`04b1c16520ccda82d5392b3166f58ee841210f48f9f5abd16653ef0a530acc12`.
+Chaque processus atteint `LoadPhase.Unload`, `NORMAL_EXIT`, rc 0,
+`terminal/graceful=true`, sans watchdog, signal, SIGSEGV, kill forcé ni
+orphelin. Un pre-roll strictement interne au harness consomme le bootstrap tick
+zéro de PMDO avant la première commande authentifiée ; aucun argument d'attente
+source n'est modifié ou décompté.
+
 La première archive `command_complete_runtime` reste conservée. Ses onze Ogg
 sont octet pour octet identiques à la v2 et son PASS natif reste valide, mais
 son manifeste fanfare nommait un hash de source intermédiaire non suivi. Elle
@@ -107,33 +144,50 @@ qui lie le renderer suivi au SHA-256
 
 ## Portée exacte du PASS
 
-Le PASS natif de parcours couvre la branche grammaticale D1/neutre déjà
-sélectionnée par le plan de scène, avec une itération de la boucle de refus. Les
-27 tableaux, les 975 commandes et les 195 associations françaises sont tous
-préservés et contrôlés adresse par adresse dans l’overlay. La passe palette
-ajoute l’exécution sémantique des 15 commandes concernées : 14 sur le parcours
-sélectionné et 15/15 dans le dispatcher isolé. Elle ne prétend pas exécuter les
-autres familles d’opcodes ni toutes les alternatives grammaticales dans une
-seule partie. La preuve historique `scene_runtime` reste un **PARTIAL PASS** et
-n’est ni remplacée ni réécrite. Le fallback déclaratif `actor.control_unknown`
-du plan reste volontairement intact tant qu’une famille n’est pas certifiée.
+Le PASS natif de parcours historique couvre la branche grammaticale D1/neutre,
+avec une itération de la boucle de refus. Les 27 tableaux, les 975 commandes et
+les 195 associations françaises restent préservés et contrôlés adresse par
+adresse. La passe palette exécute ses 15 commandes exactes, dont 14 sur le
+parcours sélectionné. La passe v3 ajoute un inventaire sémantique exhaustif des
+304 commandes ciblées et deux dispatches isolés : 251 commandes sélectionnées,
+puis 304 avec les 53 alternatives retry-only. Elle ne prétend pas parcourir
+toutes les alternatives grammaticales dans une seule partie. La preuve
+historique `scene_runtime` reste un **PARTIAL PASS**, ni remplacée ni réécrite.
 
-Ce checkpoint ne promeut pas encore les scripts Ground de l’overlay dans la
-quête live. Il certifie le mécanisme natif borné de `0x56/0xDE`, la convention
-spatiale et le cycle de vie de l'effet, mais ne prétend pas avoir généré,
-intégré ou exécuté le supplément complet de 304 commandes. La prochaine passe
-doit produire ce supplément en bulk depuis le plan immuable, tester ses branches
-puis l’intégrer étroitement sans modifier les preuves historiques.
+La distinction de portée du certificat v3 est impérative : les 108 commandes
+`wait` sont effectivement exécutées et mesurées à leur durée source exacte ; les
+196 autres commandes certifient métadonnées, ordre, adresse et contrat API dans
+un harness isolé. Leur liaison aux acteurs, caméras et scènes canoniques de la
+quête live reste à faire. Le mode « selected » du harness charge `d01p01` mais ne
+constitue pas à lui seul un parcours live ouverture → donjon → sauvetage → base
+→ titre. Les 15 lignes `actor.control_unknown` du plan sont disjointes du
+supplément et restent inchangées.
+
+Ce checkpoint ne promeut donc pas encore les scripts Ground privés dans la quête
+live. Il clôt la génération bulk, les gates natifs selected/all, la régression
+legacy et la propagation de FAIL. La prochaine passe doit lier étroitement les
+contrats non-wait aux contextes canoniques, certifier le parcours live complet,
+puis poursuivre la restitution bulk des donjons sans modifier les preuves
+historiques.
 
 ## Reprise exacte
 
 ```bash
 bash tools/restore_pmdred_eu_validation_runtime.sh
 python3 tools/update_pmdred_eu_validation_progress.py --check
-bash docs/pmdred_eu/playable/tiny_woods/efob108_attachment_runtime_v2/commands.sh
+python3 -m unittest tools.test_pmdred_tiny_woods_command_semantic_v3 -v
+bash docs/pmdred_eu/playable/tiny_woods/command_semantic_native_v5/commands.sh
 ```
 
-Rejouer également les régressions sans `pytest` :
+`commands.sh` reconstruit un supplément frais déterministe, une fixture privée
+fraîche, deux preuves PMDO fraîches, puis les certifie dans des destinations
+create-only. Pour ne revalider que la correction de métadonnées :
+
+```bash
+bash docs/pmdred_eu/playable/tiny_woods/command_semantic_metadata_correction_v3/commands.sh
+```
+
+Rejouer également les régressions historiques sans `pytest` :
 
 ```bash
 PYTHONPATH=tools .runtime-cache/test-venv/bin/python -m unittest \
@@ -146,30 +200,31 @@ PYTHONPATH=tools .runtime-cache/test-venv/bin/python -m unittest \
   tools.test_build_pmdred_tiny_woods_command_complete_overlay \
   tools.test_pmdred_tiny_woods_command_complete \
   tools.test_pmdred_tiny_woods_palette_semantics \
-  tools.test_pmdred_efob108_attachment -v
+  tools.test_pmdred_efob108_attachment \
+  tools.test_pmdred_tiny_woods_command_semantic_v3 -v
 ```
 
-Les rendus audio, fixtures et preuves sont create-only. Si les destinations
-`pmdred-efob108-attachment-repro-v1` ou
-`pmdred-efob108-attachment-evidence-repro-v1` existent, copier `commands.sh` et
-choisir un nouveau suffixe cohérent plutôt que les écraser.
+Les rendus audio, suppléments, fixtures, preuves et archives sont create-only.
+Si une destination de reproduction existe, copier `commands.sh` et choisir un
+nouveau suffixe cohérent plutôt que l’écraser. Ne jamais réutiliser ni modifier
+les fixtures consommées v1–v18.
 
 ## Étape suivante
 
-Phase `tiny_woods_304_command_semantic_supplement_generation_integration_and_native_certification` :
+Phase `tiny_woods_production_actor_context_binding_live_route_integration_and_native_certification` :
 
-1. générer en bulk depuis `command_plan.json` les **304** commandes restantes :
-   `0x2D=25`, `0x2E=54`, `0x54=18`, `0x56=1`, `0x62=1`, `0x6A=1`,
-   `0x6B=31`, `0x8B=8`, `0x91=46`, `0x95=2`, `0x98=1`, `0x99=1`,
-   `0xDB=108`, `0xDD=2`, `0xDE=1`, `0xDF=4` ;
-2. réutiliser la convention spatiale et le mécanisme d'attachement certifiés,
-   respecter appels, retours, labels et branches grammaticales, et garder le
-   fallback intact avant certification complète ;
-3. sérialiser les gates PMDO : inventaire exhaustif, scénarios isolés pour les
-   alternatives/retries, puis parcours sélectionné, avec terminaison stricte ;
-4. après seulement ces preuves, intégrer étroitement les scripts et assets à la
-   quête live puis certifier ouverture → donjon → sauvetage → base → titre avant
-   de poursuivre automatiquement la restitution des donjons.
+1. consommer le supplément v3 immuable et résoudre en bulk les contextes
+   canoniques acteur/caméra/scene des 196 contrats non-wait, sans modifier le
+   plan, les adresses, les opérandes, les 108 attentes ou les archives v1–v5 ;
+2. intégrer uniquement les liaisons authentifiées dans une nouvelle fixture
+   privée create-only, en réutilisant la convention spatiale, l'attachement
+   efob108, les palettes, musiques, cues et dialogues déjà certifiés ;
+3. sérialiser les gates PMDO : alternatives/retries isolées, parcours live
+   sélectionné ouverture → Petit Bois 1–3F → sauvetage → base → titre,
+   progression et nettoyage, avec terminaison stricte et propagation FAIL ;
+4. promouvoir seulement après preuve exhaustive et régression historique, puis
+   commit/push/remote exact ; poursuivre automatiquement l'inventaire et la
+   restitution bulk des donjons suivants.
 
 Les références aplaties existantes ne sont pas canoniques par défaut. Les octets
 EU restent l’autorité de contenu ; `pret/pmd-red` reste une référence structurelle

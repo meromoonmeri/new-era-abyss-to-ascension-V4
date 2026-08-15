@@ -1,0 +1,57 @@
+{
+  "schema": "pmdred-eu-tiny-woods-command-semantic-failure-propagation-v3",
+  "date": "2026-08-16",
+  "status": "passed",
+  "fault": {
+    "kind": "address_mismatch",
+    "ordinal": 0
+  },
+  "native": {
+    "attempted_starts": 1,
+    "accepted_starts": 0,
+    "completes": 0,
+    "explicit_error": {
+      "event": "command_semantic_error",
+      "kind": "start",
+      "ordinal": 0,
+      "address": "FAULT_0x084CB178",
+      "expected_address": "0x084CB178",
+      "reason": "ordinal metadata mismatch"
+    },
+    "verdict": {
+      "event": "command_semantic_verdict",
+      "mode": "semantic_selected_v3",
+      "verdict": "FAIL",
+      "commands": 975,
+      "arrays": 27,
+      "semantic_starts": 0,
+      "semantic_completes": 0,
+      "waits": 0,
+      "wait_frames": 0,
+      "fault": true,
+      "route": "d01p01"
+    },
+    "termination": {
+      "exit_classification": "NORMAL_EXIT",
+      "return_code": 0,
+      "terminal": true,
+      "graceful": true,
+      "watchdog": false,
+      "requested_signal": null,
+      "sigsegv": false,
+      "forced_kill": false,
+      "orphan_process": false
+    }
+  },
+  "certifier": {
+    "expected_return_code": 1,
+    "actual_return_code": 1,
+    "archive_created": false
+  },
+  "assertions": {
+    "fault_is_detected_at_ordinal_zero_before_any_completion": true,
+    "semantic_FAIL_is_not_rewritten_as_PASS": true,
+    "native_process_still_reaches_LoadPhase_Unload_NORMAL_EXIT_rc0": true,
+    "certifier_rejects_failed_native_evidence": true
+  }
+}
