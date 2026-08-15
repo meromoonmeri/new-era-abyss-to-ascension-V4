@@ -62,8 +62,11 @@ La conversion démarre dans `generated/`, jamais directement dans `Data/` :
 ```bash
 python3 -m pip install --target .runtime-cache/nnv-python \
   -r NO_NAME_VILLAGE_ADAPTATION/requirements-conversion.lock
-PYTHONPATH=.runtime-cache/nnv-python \
-  python3 NO_NAME_VILLAGE_ADAPTATION/tools/convert_environment_room.py --room rmvillage
+for season in spring summer autumn winter; do
+  PYTHONPATH=.runtime-cache/nnv-python \
+    python3 NO_NAME_VILLAGE_ADAPTATION/tools/convert_environment_room.py \
+      --room rmvillage --season "$season"
+done
 ```
 
 Le convertisseur réutilise le writer natif `.tile`/`.rsground` de
@@ -88,9 +91,11 @@ Le premier candidat 1:1 est `rmvillage`. Les anciens candidats 1/4 `rm78`,
 `rm81` et `rm82` ont été supprimés comme bases impropres. L'analyse canonique
 des 89 nids sauvages de `rm82` reste conservée séparément dans
 `reports/rm82-wildlife-source.json` pour sa future conversion 1:1. Aucun
-candidat n'est promu ni déclaré `CONVERTED`. Pour `rmvillage`, les cycles été
-des arbres, plantes, rochers, portes et bâtiments sont désormais compilés dans
-les cellules PMDO (périodes exactes 2/3/12 frames). Restent obligatoires : les
-trois autres variantes saisonnières, particules canoniques, populations Pokémon
-sauvages, casting social et validation runtime. Le manifeste de `rmvillage` reste
-honnêtement `UNIMPLEMENTED` avec `runtime_status=NOT_RUN`.
+candidat n'est promu ni déclaré `CONVERTED`. Pour `rmvillage`, les quatre
+variantes source `spring/summer/autumn/winter` sont maintenant générées en 1:1,
+avec substitutions `objstage`, visibilités et cycles de sprites compilés. L'été
+reste le Ground PMDO complet de référence ; les trois autres variantes sont des
+bundles de layers déterministes afin de ne pas dupliquer la grille de collision
+624×624. Restent obligatoires : sélection runtime des bundles, particules
+`objwinter`, populations Pokémon sauvages, casting social et validation runtime.
+Tous les manifests restent `UNIMPLEMENTED`/`NOT_RUN`.

@@ -55,7 +55,7 @@ SYSTEM_REQUIRES = (
     "halcyon.LivingWorld", "halcyon.TownLife", "halcyon.TownPlace",
     "halcyon.Seasons", "halcyon.Weather", "halcyon.TownNight",
 )
-SUMMER_OBJECT_SPRITES = {"objtree": "bgsmtree", "objtree0": "bgsmtree0"}
+NEW_ERA_SEASON_IDS = {"spring": "printemps", "summer": "ete", "autumn": "automne", "winter": "hiver"}
 
 
 def read_gzip(path: Path) -> Any:
@@ -330,10 +330,10 @@ def room_creation_code(gml: dict[str, str], placement: dict[str, Any]) -> dict[s
     return {"code": code, "newroom": int(match.group(1)) if match else None, "code_sha256": hashlib.sha256(text.encode()).hexdigest() if text else None}
 
 
-def controller(asset: str, transitions: list[dict[str, Any]]) -> str:
+def controller(asset: str, transitions: list[dict[str, Any]], season: str) -> str:
     lines = ["-- Generated NNV→PMDO candidate; not a production route.", "require 'origin.common'"]
     lines.extend(f"require '{name}'" for name in SYSTEM_REQUIRES)
-    lines += ["local M = {}", "function M.Init(map)", "  LivingWorld.Ensure()", "  TownNight.Ensure()", "end", "function M.Enter(map)", "  LivingWorld.SyncStory()", "  M.Context = LivingWorld.Context('no_name_village', '" + asset + "')", "  M.Day = TownLife.Today()", "  -- Do not call Seasons.Apply here: its generic PMDO particles are not a", "  -- substitute for No Name Village's canonical objstage/objwinter system.", "  LivingWorld.ApplyOutdoor(false)", "  M.SourceSeason = Seasons.Actuelle().id", "  if M.SourceSeason ~= 'ete' then", "    error('NNV canonical season bundle missing for " + asset + ": '..tostring(M.SourceSeason))", "  end", "  local preset = Weather.ForChapter((SV.ChapterProgression and SV.ChapterProgression.Chapter) or 1)", "  if preset ~= nil then Weather.Set(preset) end", "end", "function M.PlaceDialogue(inst)", "  return TownPlace.Line(inst)", "end", "function M.Exit(map) end", "function M.Update(map) end"]
+    lines += ["local M = {}", "function M.Init(map)", "  LivingWorld.Ensure()", "  TownNight.Ensure()", "end", "function M.Enter(map)", "  LivingWorld.SyncStory()", "  M.Context = LivingWorld.Context('no_name_village', '" + asset + "')", "  M.Day = TownLife.Today()", "  -- Do not call Seasons.Apply here: its generic PMDO particles are not a", "  -- substitute for No Name Village's canonical objstage/objwinter system.", "  LivingWorld.ApplyOutdoor(false)", "  M.SourceSeason = Seasons.Actuelle().id", "  if M.SourceSeason ~= '" + NEW_ERA_SEASON_IDS[season] + "' then", "    error('NNV canonical season mismatch for " + asset + ": '..tostring(M.SourceSeason))", "  end", "  local preset = Weather.ForChapter((SV.ChapterProgression and SV.ChapterProgression.Chapter) or 1)", "  if preset ~= nil then Weather.Set(preset) end", "end", "function M.PlaceDialogue(inst)", "  return TownPlace.Line(inst)", "end", "function M.Exit(map) end", "function M.Update(map) end"]
     for row in transitions:
         lines += [
             f"function M.{row['entity']}_Touch(obj, activator)",
@@ -368,10 +368,16 @@ def render_ground(ground: dict[str, Any], tile_path: Path) -> Image.Image:
     return canvas
 
 
-def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, output: Path) -> dict[str, Any]:
+def convert(repo: Path, room_name: str, season: str, extracted: Path, texture_cache: Path, output: Path) -> dict[str, Any]:
     source_summary = json.loads((repo / "NO_NAME_VILLAGE_ADAPTATION/reports/source-summary.json").read_text())
     if source_summary["source"]["sha256"] != SOURCE_SHA256:
         raise ValueError("No Name Village source authority mismatch")
+    season_system = json.loads((repo / "NO_NAME_VILLAGE_ADAPTATION/reports/season-system.json").read_text())
+    season_vm = json.loads((repo / "NO_NAME_VILLAGE_ADAPTATION/reports/season-vm-evidence.json").read_text())
+    if season_vm.get("status") != "SOURCE_PROVEN_EXACT_VM_LOGIC" or season not in season_vm.get("seasons", {}):
+        raise ValueError(f"canonical NNV season authority unavailable: {season}")
+    season_state = season_vm["seasons"][season]
+    object_correspondence = season_system["object_correspondence"]
     rooms = read_gzip(extracted / "inventory/Rooms.json.gz")
     objects = read_gzip(extracted / "inventory/GameObjects.json.gz")
     room_names = [row["Name"] for row in rooms]
@@ -410,7 +416,7 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
             blockers.append(f"social role {placement.get('InstanceID')}:{object_name} requires native Pokemon casting")
 
     blockers.extend([
-        "canonical NNV spring/autumn/winter visual bundles are not generated",
+        "canonical NNV four-season bundle selection and runtime switch are not validated",
         "canonical NNV objwinter particle families, snow trails, footprints and snow audio are not ported",
         "native Pokemon wild exploration population and encounter behavior are not bound",
     ])
@@ -419,7 +425,7 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
     tiles = OfficialTiles(extracted, texture_cache)
     payload_locations: dict[bytes, tuple[int, int]] = {}
     tile_entries: list[tuple[int, bytes]] = []
-    sheet = f"NNV_{room_name}_Source"
+    sheet = f"NNV_{room_name}_{season.capitalize()}_Source"
 
     def add_image(image: Image.Image) -> tuple[int, int]:
         payload = _png_bytes(image)
@@ -436,8 +442,14 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
     for layer in sorted(room.get("Layers") or [], key=lambda row: int(row.get("LayerDepth") or 0), reverse=True):
         data = layer.get("Data")
         layer_type = (layer.get("LayerType") or {}).get("name")
+        layer_key = str(layer.get("LayerName") or "").casefold()
+        visibility_override = season_state.get("visibility", {}).get(layer_key)
+        layer_visible = bool(layer.get("IsVisible", True)) if not isinstance(visibility_override, bool) else visibility_override
         if layer_type == "Tiles" and isinstance(data, dict) and "TileData" in data:
             background_index = ref_index(data.get("Background"))
+            layer_key = str(layer.get("LayerName") or "").casefold()
+            if layer_key in season_state.get("tilesets", {}):
+                background_index = int(season_state["tilesets"][layer_key])
             rows = data.get("TileData") or []
             if not rows or background_index is None:
                 continue
@@ -462,9 +474,9 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
                         frames.append(add_image(frame_crop))
                     frame_length = max(1, round(int(bg["GMS2FrameLength"]) * 60 / 1_000_000))
                     column.append({"AutoTileset": "", "Associates": [], "Layers": [{"Frames": [{"Sheet": sheet, "TexLoc": {"X": fx, "Y": fy}} for fx, fy in frames], "FrameLength": frame_length}], "NeighborCode": -1})
-                    if bool(layer.get("IsVisible", True)): source_canvas.alpha_composite(crop, (x * TARGET_CELL, y * TARGET_CELL))
+                    if layer_visible: source_canvas.alpha_composite(crop, (x * TARGET_CELL, y * TARGET_CELL))
                 columns.append(column)
-            source_layers.append({"Name": f"NNV {layer['LayerName']}", "Layer": 0, "Visible": bool(layer.get("IsVisible", True)), "Tiles": columns})
+            source_layers.append({"Name": f"NNV {layer['LayerName']}", "Layer": 0, "Visible": layer_visible, "Tiles": columns})
             source_tile_layers.append({"name": layer["LayerName"], "depth": layer.get("LayerDepth"), "background": bg["Name"], "matrix_sha256": canonical_sha(rows)})
         elif layer_type in {"Instances", "Assets"}:
             animation_items = []
@@ -479,11 +491,14 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
                     obj = objects[object_index]; object_name = obj["Name"]
                     if object_name.startswith(("objmob", "objbmob")) or object_name in {"objlogger", "objhunter", "objcarpenter", "objherbalist", "objseamstress", "objplayer", "objfollower"}:
                         continue
-                    if object_name.startswith("objsp"):
-                        replacement = "objsm" + object_name[5:]
-                        obj = next((row for row in objects if row["Name"] == replacement), obj)
-                    sprite_index = ref_index(obj.get("Sprite")); override = SUMMER_OBJECT_SPRITES.get(object_name)
-                    if override is not None: sprite_index = tiles.sprite_by_name.get(override.casefold(), sprite_index)
+                    mapping = object_correspondence.get(object_name)
+                    replacement = mapping.get(season) if mapping is not None else object_name
+                    if replacement is None: continue
+                    obj = next((row for row in objects if row["Name"] == replacement), obj)
+                    sprite_index = ref_index(obj.get("Sprite"))
+                    if object_name in {"objboulder0", "objboulder1"}:
+                        boulder_index = 0 if object_name.endswith("0") else 1
+                        sprite_index = tiles.sprite_by_name.get(season_state["boulder_sprites"][boulder_index].casefold(), sprite_index)
                     if not obj.get("Visible", True) or sprite_index is None: continue
                     animation_items.append({"sprite": sprite_index, "frame": float(placement.get("ImageIndex") or 0), "speed": float(placement.get("ImageSpeed") or 0), "x": placement["X"], "y": placement["Y"], "scale_x": float(placement.get("ScaleX") or 1), "scale_y": float(placement.get("ScaleY") or 1), "rotation": float(placement.get("Rotation") or 0)})
             else:
@@ -492,12 +507,16 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
                     sprite_index = ref_index(placement.get("Sprite"))
                     if sprite_index is None: continue
                     if layer.get("LayerName", "").casefold() == "below":
-                        current = tiles.sprites[sprite_index]["Name"]; wanted = "ssm" + current[3:] if len(current) >= 3 else current
+                        current = tiles.sprites[sprite_index]["Name"]; prefix = season_state["below_sprite_prefix"]
+                        wanted = prefix + current[3:] if len(current) >= 3 else current
                         sprite_index = tiles.sprite_by_name.get(wanted.casefold(), sprite_index)
+                        special = season_state.get("special_static_replacement", {})
+                        if sprite_index == 2566 and "sprite_id_2566" in special:
+                            sprite_index = tiles.sprite_by_name.get(str(special["sprite_id_2566"]).casefold(), sprite_index)
                     animation_items.append({"sprite": sprite_index, "frame": float(placement.get("FrameIndex") or 0), "speed": float(placement.get("AnimationSpeed") or 0), "x": placement["X"], "y": placement["Y"], "scale_x": float(placement.get("ScaleX") or 1), "scale_y": float(placement.get("ScaleY") or 1), "rotation": float(placement.get("Rotation") or 0)})
             if animation_items:
                 visual_layer, tick0, animation_report = animated_canvas_layer(f"NNV {layer['LayerName']}", animation_items, tiles, sheet, add_image, target_width, target_height)
-                visual_layer["Visible"] = bool(layer.get("IsVisible", True)); source_layers.append(visual_layer)
+                visual_layer["Visible"] = layer_visible; source_layers.append(visual_layer)
                 animation_report["layer"] = layer["LayerName"]; source_animation_layers.append(animation_report)
                 if visual_layer["Visible"]: source_canvas.alpha_composite(tick0)
         elif layer_type not in {None, "Instances", "Assets", "Background"}:
@@ -565,10 +584,10 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
         known.append({"entity": entity, "edge": edge, "target": target, "target_marker": target_marker, "source_instance_id": row["instance_id"]})
 
     entity_layer = {"Name": "NNV adaptation entities", "Visible": True, "MapChars": [], "GroundObjects": objects_out, "Spawners": [], "Markers": markers}
-    asset = f"nnv_{room_name}"
+    asset = f"nnv_{room_name}_{season}"
     ground = _ground_shell(asset, f"No Name Village — {room_name}", 8, source_layers, obstacles, [entity_layer], "")
     ground["Object"]["Comment"] = (
-        f"NNV official room {room_name}; source data.win SHA-256 {SOURCE_SHA256}; identity spatial mapping 1:1 at 4992x4992 px; "
+        f"NNV official room {room_name}, canonical season {season}; source data.win SHA-256 {SOURCE_SHA256}; identity spatial mapping 1:1 at 4992x4992 px; "
         "source tile layers and environmental pixels preserved independently; candidate only, no promotion."
     )
 
@@ -580,7 +599,7 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
     tile_path.parent.mkdir(parents=True, exist_ok=True); ground_path.parent.mkdir(parents=True, exist_ok=True); script_path.parent.mkdir(parents=True, exist_ok=True)
     write_tile(tile_path, TARGET_CELL, tile_entries)
     ground_path.write_text("\ufeff" + json.dumps(ground, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    script_path.write_text(controller(asset, known), encoding="utf-8")
+    script_path.write_text(controller(asset, known, season), encoding="utf-8")
 
     candidate = render_ground(ground, tile_path)
     candidate_path = output / "validation/candidate_tick0.png"; source_path = output / "validation/source_normalized_tick0.png"
@@ -608,7 +627,7 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
     static_pass = all(checks.values())
     status = "GENERATED_CANDIDATE" if static_pass else "FAILED"
     manifest = {
-        "schema": "new-era.nnv-pmdo-room-conversion.v1", "room": room_name, "asset": asset,
+        "schema": "new-era.nnv-pmdo-room-conversion.v1", "room": room_name, "season": season, "asset": asset,
         "source": {"repository": UPSTREAM_REPOSITORY, "repository_commit": UPSTREAM_COMMIT, "data_win_sha256": SOURCE_SHA256, "room_record_sha256": canonical_sha(room), "official_inventory": "extracted/official/inventory/Rooms.json.gz"},
         "canonical_environment_authority": {
             "season_system": "reports/season-system.json", "season_system_sha256": file_sha(repo / "NO_NAME_VILLAGE_ADAPTATION/reports/season-system.json"),
@@ -641,17 +660,35 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
     return manifest
 
 
+def package_season_layers(output: Path, result: dict[str, Any]) -> dict[str, Any]:
+    ground_path = output / result["outputs"]["ground"]
+    obj = json.loads(ground_path.read_text(encoding="utf-8-sig"))["Object"]
+    payload = json.dumps({"schema": "new-era.nnv-season-layers.v1", "room": result["room"], "season": result["season"], "tex_size": obj["TexSize"], "dimensions_px": [4992, 4992], "layers": obj["Layers"]}, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode() + b"\n"
+    layer_path = ground_path.with_suffix(".layers.json.gz")
+    with layer_path.open("wb") as raw:
+        with gzip.GzipFile(filename="", fileobj=raw, mode="wb", compresslevel=9, mtime=0) as stream: stream.write(payload)
+    ground_path.unlink(); result["status"] = "SEASON_LAYER_BUNDLE"
+    result["outputs"].pop("ground"); result["outputs"].pop("ground_sha256")
+    result["outputs"]["season_layers"] = str(layer_path.relative_to(output)); result["outputs"]["season_layers_sha256"] = file_sha(layer_path)
+    result["blockers"] = sorted(set(result["blockers"] + ["seasonal layer bundle not materialized as a standalone PMDO Ground", "four-season runtime selector not validated"]))
+    result.pop("manifest_semantic_sha256", None); result["manifest_semantic_sha256"] = canonical_sha(result)
+    (output / "manifest.json").write_text(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    return result
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     root = REPO / "NO_NAME_VILLAGE_ADAPTATION"
     parser.add_argument("--room", required=True)
+    parser.add_argument("--season", choices=tuple(NEW_ERA_SEASON_IDS), default="summer")
     parser.add_argument("--extracted", type=Path, default=root / "extracted/official")
     parser.add_argument("--texture-cache", type=Path, default=REPO / ".runtime-cache/nnv-official-textures")
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
-    output = args.output or root / "generated" / args.room
-    result = convert(REPO, args.room, args.extracted, args.texture_cache, output)
-    print(json.dumps({key: result[key] for key in ("room", "status", "conversion_status", "runtime_status", "visual_status", "blockers")}, ensure_ascii=False))
+    output = args.output or root / "generated" / args.room / args.season
+    result = convert(REPO, args.room, args.season, args.extracted, args.texture_cache, output)
+    if args.season != "summer": result = package_season_layers(output, result)
+    print(json.dumps({key: result[key] for key in ("room", "season", "status", "conversion_status", "runtime_status", "visual_status", "blockers")}, ensure_ascii=False))
     return 0 if result["status"] != "FAILED" else 1
 
 
