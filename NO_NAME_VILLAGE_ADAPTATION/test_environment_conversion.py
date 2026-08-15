@@ -49,6 +49,16 @@ class EnvironmentConversionTests(unittest.TestCase):
   village=json.loads((ROOT/"generated/rmvillage/manifest.json").read_text())
   self.assertTrue(any("native Pokemon living cast" in blocker for blocker in village["blockers"]))
 
+ def test_source_animation_cycles_are_materialized_in_ground_cells(self):
+  m=json.loads((ROOT/"generated/rmvillage/manifest.json").read_text())
+  periods={row["layer"]:row["period_frames"] for row in m["source_animation_layers"]}
+  self.assertEqual(periods["trees"],12);self.assertEqual(periods["plants"],12)
+  self.assertEqual(periods["instances"],3);self.assertEqual(periods["HouseBelow"],2)
+  self.assertTrue(m["checks"]["source_sprite_animation_cycles_compiled"])
+  g=json.loads((ROOT/"generated/rmvillage"/m["outputs"]["ground"]).read_text(encoding="utf-8-sig"))["Object"]
+  frame_counts=[len(tl["Frames"]) for layer in g["Layers"] for col in layer["Tiles"] for cell in col for tl in cell.get("Layers",[])]
+  self.assertGreater(max(frame_counts),1);self.assertIn(12,frame_counts)
+
  def test_visual_differential_is_bounded_by_pmdo_premultiplication(self):
   for room in CANDIDATES:
    m=json.loads((ROOT/"generated"/room/"manifest.json").read_text());metrics=m["visual_metrics"]

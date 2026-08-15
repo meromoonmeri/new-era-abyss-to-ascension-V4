@@ -1,21 +1,6 @@
 {
   "asset": "nnv_rmvillage",
   "blockers": [
-    "animated source sprite bgsmtree requires full frame-cycle conversion",
-    "animated source sprite bgsmtree0 requires full frame-cycle conversion",
-    "animated source sprite sboulder0 requires full frame-cycle conversion",
-    "animated source sprite sboulder1 requires full frame-cycle conversion",
-    "animated source sprite scarpenterhouse requires full frame-cycle conversion",
-    "animated source sprite sdoor requires full frame-cycle conversion",
-    "animated source sprite shunterhouse requires full frame-cycle conversion",
-    "animated source sprite sloggerhouse requires full frame-cycle conversion",
-    "animated source sprite splayerhouse requires full frame-cycle conversion",
-    "animated source sprite ssmplant0 requires full frame-cycle conversion",
-    "animated source sprite ssmplant3 requires full frame-cycle conversion",
-    "animated source sprite ssmplant5 requires full frame-cycle conversion",
-    "animated source sprite ssmplant6 requires full frame-cycle conversion",
-    "animated source sprite ssmplant92 requires full frame-cycle conversion",
-    "animated source sprite ssmplant93 requires full frame-cycle conversion",
     "canonical NNV objwinter particle families, snow trails, footprints and snow audio are not ported",
     "canonical NNV spring/autumn/winter visual bundles are not generated",
     "native Pokemon living cast and TownLife/TownPlace routines are not bound yet",
@@ -37,6 +22,7 @@
     "existing_new_era_systems_required": true,
     "ground_json_round_trip": true,
     "source_dimensions_identity_mapped": true,
+    "source_sprite_animation_cycles_compiled": true,
     "tick0_visual_pmdo_premultiply_roundtrip": true,
     "tile_dependency_exists": true
   },
@@ -45,7 +31,7 @@
     "source_solid_instances": 251
   },
   "conversion_status": "UNIMPLEMENTED",
-  "manifest_semantic_sha256": "809a31869ccfbb18dea06b2ac7edb4cc5457e718a5de16b29105fa1e46acf9cc",
+  "manifest_semantic_sha256": "024fbe60ea0a50fdfc11e8f4616ef1fb6211a6aed714549edc7d24cd067de3f0",
   "mapped_transitions": [
     {
       "edge": "Door_106508",
@@ -116,13 +102,13 @@
     "candidate_render": "validation/candidate_tick0.png",
     "candidate_render_sha256": "a83dbca43c76f620caa8e80a0cf3f4814992397f0dc2851fee7bdc824038d77e",
     "ground": "Data/Ground/nnv_rmvillage.rsground",
-    "ground_sha256": "255d32d4e0e3eb1542ecfae474130aeb38f048737a9be9ea03131bead1cb3dd8",
+    "ground_sha256": "727e19ca0be57eb03968527b11583bd3eb4c537e5fb06e3e9052203c40173232",
     "script": "Data/Script/halcyon/ground/nnv_rmvillage/init.lua",
     "script_sha256": "f77f119c2b33ba02c78120ac14a9606e8d06ebf5d11b7678c97d8f0f63086e16",
     "source_render": "validation/source_normalized_tick0.png",
     "source_render_sha256": "b0b1bbdce76a16e21f5b8dc9b09bf876c79db4f4602ec8952d52d85fce424a79",
     "tile": "Content/Tile/NNV_rmvillage_Source.tile",
-    "tile_sha256": "5bd59089050742bdb2f56b72ded38e64a8e4abc032b0f3cf2f846b092dde9394"
+    "tile_sha256": "7873c39d2698cbe55b2c9ba003e4a22977755a1d968d171393fdbec00f8eaab9"
   },
   "promotion_allowed": false,
   "room": "rmvillage",
@@ -135,6 +121,81 @@
     "repository_commit": "d1245878861fc76dc5455dbad68bcb45c83f7e1f",
     "room_record_sha256": "7a8711c1aa16f274337e1b3ac37a6cc55206819cdaff4401c69cdb505821c255"
   },
+  "source_animation_layers": [
+    {
+      "animated_sprites": [],
+      "layer": "Below",
+      "period_frames": 1,
+      "placement_count": 366
+    },
+    {
+      "animated_sprites": [],
+      "layer": "vegetation",
+      "period_frames": 1,
+      "placement_count": 171
+    },
+    {
+      "animated_sprites": [],
+      "layer": "EndVillage2",
+      "period_frames": 1,
+      "placement_count": 1
+    },
+    {
+      "animated_sprites": [
+        "scarpenterhouse",
+        "shunterhouse",
+        "sloggerhouse",
+        "splayerhouse"
+      ],
+      "layer": "HouseBelow",
+      "period_frames": 2,
+      "placement_count": 4
+    },
+    {
+      "animated_sprites": [],
+      "layer": "sHouseBelow",
+      "period_frames": 1,
+      "placement_count": 1
+    },
+    {
+      "animated_sprites": [
+        "bgsmtree",
+        "bgsmtree0",
+        "sboulder0",
+        "sboulder1"
+      ],
+      "layer": "trees",
+      "period_frames": 12,
+      "placement_count": 151
+    },
+    {
+      "animated_sprites": [
+        "sdoor"
+      ],
+      "layer": "instances",
+      "period_frames": 3,
+      "placement_count": 38
+    },
+    {
+      "animated_sprites": [
+        "ssmplant0",
+        "ssmplant3",
+        "ssmplant5",
+        "ssmplant6",
+        "ssmplant92",
+        "ssmplant93"
+      ],
+      "layer": "plants",
+      "period_frames": 12,
+      "placement_count": 181
+    },
+    {
+      "animated_sprites": [],
+      "layer": "EndVillage",
+      "period_frames": 1,
+      "placement_count": 1
+    }
+  ],
   "source_tile_layers": [
     {
       "background": "tlsummer",

@@ -88,7 +88,9 @@ Le premier candidat 1:1 est `rmvillage`. Les anciens candidats 1/4 `rm78`,
 `rm81` et `rm82` ont été supprimés comme bases impropres. L'analyse canonique
 des 89 nids sauvages de `rm82` reste conservée séparément dans
 `reports/rm82-wildlife-source.json` pour sa future conversion 1:1. Aucun
-candidat n'est promu ni déclaré `CONVERTED` : cycles d'animation,
-saisons/particules canoniques, populations Pokémon sauvages, casting social et
-validation runtime restent obligatoires. Le manifeste de `rmvillage` reste
+candidat n'est promu ni déclaré `CONVERTED`. Pour `rmvillage`, les cycles été
+des arbres, plantes, rochers, portes et bâtiments sont désormais compilés dans
+les cellules PMDO (périodes exactes 2/3/12 frames). Restent obligatoires : les
+trois autres variantes saisonnières, particules canoniques, populations Pokémon
+sauvages, casting social et validation runtime. Le manifeste de `rmvillage` reste
 honnêtement `UNIMPLEMENTED` avec `runtime_status=NOT_RUN`.

@@ -16,8 +16,10 @@ import gzip
 import hashlib
 import io
 import json
+import math
 import re
 import shutil
+from fractions import Fraction
 import subprocess
 import sys
 import tarfile
@@ -229,6 +231,55 @@ def canvas_layer(name: str, canvas: Image.Image, sheet: str, add_image) -> dict[
     return {"Name": name, "Layer": 0, "Visible": True, "Tiles": columns}
 
 
+def animation_period(frame_count: int, speed: float) -> int:
+    if frame_count <= 1 or speed == 0: return 1
+    value = Fraction(str(speed)).limit_denominator(1000)
+    return value.denominator * frame_count // math.gcd(abs(value.numerator), frame_count)
+
+
+def animated_canvas_layer(name: str, items: list[dict[str, Any]], tiles: OfficialTiles, sheet: str, add_image, width: int, height: int) -> tuple[dict[str, Any], Image.Image, dict[str, Any]]:
+    periods = [animation_period(len(tiles.sprites[row["sprite"]].get("Textures") or []), row["speed"]) for row in items]
+    period = 1
+    for value in periods: period = math.lcm(period, value)
+    if period > 240: raise ValueError(f"unbounded source animation cycle {name}: {period} frames")
+    grid_w, grid_h = width // TARGET_CELL, height // TARGET_CELL
+    frame_locations: dict[tuple[int, int], list[tuple[int, int] | None]] = {}
+    tick0 = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    empty_location = add_image(Image.new("RGBA", (TARGET_CELL, TARGET_CELL), (0, 0, 0, 0)))
+    animated_sprites = set()
+    for tick in range(period):
+        cells: dict[tuple[int, int], Image.Image] = {}
+        for row in items:
+            sprite = tiles.sprites[row["sprite"]]; count = max(1, len(sprite.get("Textures") or []))
+            frame = round(row["frame"] + tick * row["speed"]) % count
+            if count > 1: animated_sprites.add(sprite["Name"])
+            image, origin_x, origin_y = transformed_sprite(tiles, row["sprite"], frame, row["scale_x"], row["scale_y"], row["rotation"])
+            left, top = round(row["x"] / SCALE_DIVISOR) - origin_x, round(row["y"] / SCALE_DIVISOR) - origin_y
+            x0, y0 = max(0, left // TARGET_CELL), max(0, top // TARGET_CELL)
+            x1 = min(grid_w - 1, (left + image.width - 1) // TARGET_CELL); y1 = min(grid_h - 1, (top + image.height - 1) // TARGET_CELL)
+            for cx in range(x0, x1 + 1):
+                for cy in range(y0, y1 + 1):
+                    canvas = cells.setdefault((cx, cy), Image.new("RGBA", (TARGET_CELL, TARGET_CELL), (0, 0, 0, 0)))
+                    sx, sy = cx * TARGET_CELL - left, cy * TARGET_CELL - top
+                    crop = image.crop((max(0, sx), max(0, sy), min(image.width, sx + TARGET_CELL), min(image.height, sy + TARGET_CELL)))
+                    canvas.alpha_composite(crop, (max(0, -sx), max(0, -sy)))
+        for key in set(frame_locations) | set(cells):
+            frame_locations.setdefault(key, [None] * tick)
+            frame_locations[key].append(add_image(cells[key]) if key in cells and cells[key].getbbox() is not None else None)
+        if tick == 0:
+            for (cx, cy), image in cells.items(): tick0.alpha_composite(image, (cx * TARGET_CELL, cy * TARGET_CELL))
+    columns = []
+    for x in range(grid_w):
+        column = []
+        for y in range(grid_h):
+            locations = frame_locations.get((x, y))
+            if not locations or all(value is None for value in locations): column.append(_empty_cell()); continue
+            frames = [{"Sheet": sheet, "TexLoc": {"X": (value or empty_location)[0], "Y": (value or empty_location)[1]}} for value in locations]
+            column.append({"AutoTileset": "", "Associates": [], "Layers": [{"Frames": frames, "FrameLength": 1}], "NeighborCode": -1})
+        columns.append(column)
+    return {"Name": name, "Layer": 0, "Visible": True, "Tiles": columns}, tick0, {"period_frames": period, "animated_sprites": sorted(animated_sprites), "placement_count": len(items)}
+
+
 def collision_mask(extracted: Path, sprite: dict[str, Any], scale_x: float, scale_y: float, rotation: float) -> Image.Image | None:
     masks = sprite.get("CollisionMasks") or []
     width, height = int(sprite["Width"]), int(sprite["Height"])
@@ -381,6 +432,7 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
     target_width, target_height = int(room["Width"]), int(room["Height"])
     source_canvas = Image.new("RGBA", (target_width, target_height), (0, 0, 0, 0))
     source_tile_layers = []
+    source_animation_layers = []
     for layer in sorted(room.get("Layers") or [], key=lambda row: int(row.get("LayerDepth") or 0), reverse=True):
         data = layer.get("Data")
         layer_type = (layer.get("LayerType") or {}).get("name")
@@ -415,8 +467,7 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
             source_layers.append({"Name": f"NNV {layer['LayerName']}", "Layer": 0, "Visible": bool(layer.get("IsVisible", True)), "Tiles": columns})
             source_tile_layers.append({"name": layer["LayerName"], "depth": layer.get("LayerDepth"), "background": bg["Name"], "matrix_sha256": canonical_sha(rows)})
         elif layer_type in {"Instances", "Assets"}:
-            visual = Image.new("RGBA", (target_width, target_height), (0, 0, 0, 0))
-            rendered = 0
+            animation_items = []
             if layer_type == "Instances" and isinstance(data, dict):
                 for entry in data.get("Instances") or []:
                     cycle = entry.get("$cycleRef", "") if isinstance(entry, dict) else ""
@@ -427,39 +478,28 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
                     if object_index is None: continue
                     obj = objects[object_index]; object_name = obj["Name"]
                     if object_name.startswith(("objmob", "objbmob")) or object_name in {"objlogger", "objhunter", "objcarpenter", "objherbalist", "objseamstress", "objplayer", "objfollower"}:
-                        continue  # source actors are replaced by native Pokemon, never rasterized
+                        continue
                     if object_name.startswith("objsp"):
                         replacement = "objsm" + object_name[5:]
                         obj = next((row for row in objects if row["Name"] == replacement), obj)
-                    sprite_index = ref_index(obj.get("Sprite"))
-                    override = SUMMER_OBJECT_SPRITES.get(object_name)
-                    if override is not None:
-                        sprite_index = tiles.sprite_by_name.get(override.casefold(), sprite_index)
+                    sprite_index = ref_index(obj.get("Sprite")); override = SUMMER_OBJECT_SPRITES.get(object_name)
+                    if override is not None: sprite_index = tiles.sprite_by_name.get(override.casefold(), sprite_index)
                     if not obj.get("Visible", True) or sprite_index is None: continue
-                    sprite = tiles.sprites[sprite_index]; frame_count = len(sprite.get("Textures") or [])
-                    if frame_count > 1:
-                        blockers.append(f"animated source sprite {sprite['Name']} requires full frame-cycle conversion")
-                    draw_sprite(visual, tiles, sprite_index, round(placement.get("ImageIndex") or 0), placement["X"], placement["Y"], float(placement.get("ScaleX") or 1), float(placement.get("ScaleY") or 1), float(placement.get("Rotation") or 0))
-                    rendered += 1
+                    animation_items.append({"sprite": sprite_index, "frame": float(placement.get("ImageIndex") or 0), "speed": float(placement.get("ImageSpeed") or 0), "x": placement["X"], "y": placement["Y"], "scale_x": float(placement.get("ScaleX") or 1), "scale_y": float(placement.get("ScaleY") or 1), "rotation": float(placement.get("Rotation") or 0)})
             else:
                 assets = layer.get("AssetsData") or {}
                 for placement in assets.get("Sprites") or []:
                     sprite_index = ref_index(placement.get("Sprite"))
                     if sprite_index is None: continue
                     if layer.get("LayerName", "").casefold() == "below":
-                        current = tiles.sprites[sprite_index]["Name"]
-                        wanted = "ssm" + current[3:] if len(current) >= 3 else current
+                        current = tiles.sprites[sprite_index]["Name"]; wanted = "ssm" + current[3:] if len(current) >= 3 else current
                         sprite_index = tiles.sprite_by_name.get(wanted.casefold(), sprite_index)
-                    sprite = tiles.sprites[sprite_index]; frame_count = len(sprite.get("Textures") or [])
-                    if frame_count > 1:
-                        blockers.append(f"animated source asset {sprite['Name']} requires full frame-cycle conversion")
-                    draw_sprite(visual, tiles, sprite_index, round(placement.get("FrameIndex") or 0), placement["X"], placement["Y"], float(placement.get("ScaleX") or 1), float(placement.get("ScaleY") or 1), float(placement.get("Rotation") or 0))
-                    rendered += 1
-            if rendered and visual.getbbox() is not None:
-                visual_layer = canvas_layer(f"NNV {layer['LayerName']}", visual, sheet, add_image)
-                visual_layer["Visible"] = bool(layer.get("IsVisible", True))
-                source_layers.append(visual_layer)
-                if visual_layer["Visible"]: source_canvas.alpha_composite(visual)
+                    animation_items.append({"sprite": sprite_index, "frame": float(placement.get("FrameIndex") or 0), "speed": float(placement.get("AnimationSpeed") or 0), "x": placement["X"], "y": placement["Y"], "scale_x": float(placement.get("ScaleX") or 1), "scale_y": float(placement.get("ScaleY") or 1), "rotation": float(placement.get("Rotation") or 0)})
+            if animation_items:
+                visual_layer, tick0, animation_report = animated_canvas_layer(f"NNV {layer['LayerName']}", animation_items, tiles, sheet, add_image, target_width, target_height)
+                visual_layer["Visible"] = bool(layer.get("IsVisible", True)); source_layers.append(visual_layer)
+                animation_report["layer"] = layer["LayerName"]; source_animation_layers.append(animation_report)
+                if visual_layer["Visible"]: source_canvas.alpha_composite(tick0)
         elif layer_type not in {None, "Instances", "Assets", "Background"}:
             blockers.append(f"unsupported layer type {layer_type}:{layer.get('LayerName')}")
 
@@ -560,6 +600,7 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
         "collision_grid_matches_visual_extent": [collision_width, collision_height] == [624, 624],
         "tile_dependency_exists": tile_path.is_file() and bool(tile_entries),
         "all_source_tile_layers_preserved": len(source_tile_layers) == sum(1 for layer in room["Layers"] if (layer.get("LayerType") or {}).get("name") == "Tiles" and isinstance(layer.get("Data"), dict) and layer["Data"].get("TileData") and ref_index(layer["Data"].get("Background")) is not None and int(tiles.backgrounds[ref_index(layer["Data"].get("Background"))]["GMS2TileWidth"]) in {64, 128}),
+        "source_sprite_animation_cycles_compiled": not any("full frame-cycle conversion" in blocker for blocker in blockers),
         "tick0_visual_pmdo_premultiply_roundtrip": pmdo_roundtrip_valid,
         "entities_in_bounds": all(0 <= e["Collider"]["X"] <= target_width and 0 <= e["Collider"]["Y"] <= target_height for e in objects_out + markers),
         "existing_new_era_systems_required": all(f"require '{name}'" in script_path.read_text() for name in SYSTEM_REQUIRES),
@@ -580,7 +621,8 @@ def convert(repo: Path, room_name: str, extracted: Path, texture_cache: Path, ou
         "runtime_status": "NOT_RUN", "visual_status": "TICK0_PIXEL_EXACT" if pixel_exact else "TICK0_PMDO_PREMULTIPLY_ROUNDTRIP_VALID" if pmdo_roundtrip_valid else "FAILED",
         "visual_scope": "environment_layers_only; source human/wildlife actors excluded pending native Pokemon mapping",
         "visual_metrics": {"differing_pixels": differing_pixels, "max_channel_error": max_channel_error, "alpha_exact": alpha_exact, "pixel_exact": pixel_exact},
-        "source_tile_layers": source_tile_layers, "source_transitions": transitions_source, "mapped_transitions": known,
+        "source_tile_layers": source_tile_layers, "source_animation_layers": source_animation_layers,
+        "source_transitions": transitions_source, "mapped_transitions": known,
         "wildlife": {"source_placements": wildlife_source, "source_count": len(wildlife_source), "native_pokemon_count": 0, "status": "UNIMPLEMENTED"},
         "collision_metrics": {"source_solid_instances": solid_instance_count, "blocked_pmdo_cells_8px": sum(cell["Tags"] != 0 for column in obstacles for cell in column)},
         "checks": checks, "blockers": sorted(set(blockers)),
