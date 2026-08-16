@@ -1,0 +1,193 @@
+{
+  "authority": "NNV topology is the authority; PMU supplies structures only, never layout or environment",
+  "conclusion": "No NNV house can currently be replaced by a PMU structure at native resolution. The blocker is a proved scale mismatch between NNV's high-resolution house sprites and PMU's 32 px tile art, not a missing asset. This stays fail-closed rather than resampling either side.",
+  "geometry_contract": {
+    "nnv_collision_grid": "624x624 cells of 8 px",
+    "nnv_mapping": "1:1, 4992x4992 source px -> 4992x4992 PMDO px",
+    "nnv_tex_size": 8,
+    "nnv_visual_cell_px": 64,
+    "pmu_native_tile_px": 32,
+    "rescaling_allowed": false
+  },
+  "pmu_pool": {
+    "autonomous_confirmed": 48,
+    "largest_confirmed": {
+      "dimensions": [
+        196,
+        230
+      ],
+      "structure_id": "tiles9_0554"
+    }
+  },
+  "schema": "new-era.nnv-pmu-structure-compatibility.v1",
+  "summary": {
+    "adaptation_required": 4,
+    "compatible": 0
+  },
+  "targets": [
+    {
+      "anchor_source_px": [
+        1216,
+        -128
+      ],
+      "blocking_reason": "no AUTONOMOUS_CONFIRMED PMU structure reaches the native footprint 1192x728px; largest confirmed candidate is tiles9_0554 at 196x230px (x6.1 narrower, x3.2 shorter). Upscaling PMU art to fill the NNV footprint would invent pixels and is forbidden; shrinking the NNV plot to fit would let PMU dictate NNV topology and is forbidden.",
+      "door_instance_id": 106511,
+      "footprint_in_pmdo_cells_64px": [
+        18.62,
+        11.38
+      ],
+      "footprint_in_pmu_tiles_32px": [
+        37.25,
+        22.75
+      ],
+      "frames": 2,
+      "instance_id": 106700,
+      "nnv_object": "objcarpenterhouse",
+      "nnv_sprite": "scarpenterhouse",
+      "pmu_candidates_fitting_natively": [],
+      "replacement_status": "ADAPTATION_REQUIRED",
+      "scale_ratio_vs_largest_confirmed": [
+        6.08,
+        3.17
+      ],
+      "sprite_canvas_px": [
+        1408,
+        1024
+      ],
+      "structural_perimeter": "sprite pixels only; surrounding terrain, trees, roads, rocks and empty space are NNV data and are never part of this structure",
+      "visible_bbox_px": [
+        1192,
+        728
+      ],
+      "visible_margins": {
+        "bottom": 907,
+        "left": 108,
+        "right": 1299,
+        "top": 180
+      }
+    },
+    {
+      "anchor_source_px": [
+        3712,
+        1472
+      ],
+      "blocking_reason": "no AUTONOMOUS_CONFIRMED PMU structure reaches the native footprint 948x856px; largest confirmed candidate is tiles9_0554 at 196x230px (x4.8 narrower, x3.7 shorter). Upscaling PMU art to fill the NNV footprint would invent pixels and is forbidden; shrinking the NNV plot to fit would let PMU dictate NNV topology and is forbidden.",
+      "door_instance_id": 106509,
+      "footprint_in_pmdo_cells_64px": [
+        14.81,
+        13.38
+      ],
+      "footprint_in_pmu_tiles_32px": [
+        29.62,
+        26.75
+      ],
+      "frames": 2,
+      "instance_id": 106699,
+      "nnv_object": "objhunterhouse",
+      "nnv_sprite": "shunterhouse",
+      "pmu_candidates_fitting_natively": [],
+      "replacement_status": "ADAPTATION_REQUIRED",
+      "scale_ratio_vs_largest_confirmed": [
+        4.84,
+        3.72
+      ],
+      "sprite_canvas_px": [
+        1152,
+        1152
+      ],
+      "structural_perimeter": "sprite pixels only; surrounding terrain, trees, roads, rocks and empty space are NNV data and are never part of this structure",
+      "visible_bbox_px": [
+        948,
+        856
+      ],
+      "visible_margins": {
+        "bottom": 1035,
+        "left": 108,
+        "right": 1055,
+        "top": 180
+      }
+    },
+    {
+      "anchor_source_px": [
+        704,
+        1344
+      ],
+      "blocking_reason": "no AUTONOMOUS_CONFIRMED PMU structure reaches the native footprint 948x840px; largest confirmed candidate is tiles9_0554 at 196x230px (x4.8 narrower, x3.7 shorter). Upscaling PMU art to fill the NNV footprint would invent pixels and is forbidden; shrinking the NNV plot to fit would let PMU dictate NNV topology and is forbidden.",
+      "door_instance_id": 106510,
+      "footprint_in_pmdo_cells_64px": [
+        14.81,
+        13.12
+      ],
+      "footprint_in_pmu_tiles_32px": [
+        29.62,
+        26.25
+      ],
+      "frames": 2,
+      "instance_id": 106698,
+      "nnv_object": "objloggerhouse",
+      "nnv_sprite": "sloggerhouse",
+      "pmu_candidates_fitting_natively": [],
+      "replacement_status": "ADAPTATION_REQUIRED",
+      "scale_ratio_vs_largest_confirmed": [
+        4.84,
+        3.65
+      ],
+      "sprite_canvas_px": [
+        1536,
+        1152
+      ],
+      "structural_perimeter": "sprite pixels only; surrounding terrain, trees, roads, rocks and empty space are NNV data and are never part of this structure",
+      "visible_bbox_px": [
+        948,
+        840
+      ],
+      "visible_margins": {
+        "bottom": 895,
+        "left": 108,
+        "right": 1055,
+        "top": 56
+      }
+    },
+    {
+      "anchor_source_px": [
+        -64,
+        2816
+      ],
+      "blocking_reason": "no AUTONOMOUS_CONFIRMED PMU structure reaches the native footprint 1200x984px; largest confirmed candidate is tiles9_0554 at 196x230px (x6.1 narrower, x4.3 shorter). Upscaling PMU art to fill the NNV footprint would invent pixels and is forbidden; shrinking the NNV plot to fit would let PMU dictate NNV topology and is forbidden.",
+      "door_instance_id": 106508,
+      "footprint_in_pmdo_cells_64px": [
+        18.75,
+        15.38
+      ],
+      "footprint_in_pmu_tiles_32px": [
+        37.5,
+        30.75
+      ],
+      "frames": 2,
+      "instance_id": 106697,
+      "nnv_object": "objplayerhouse",
+      "nnv_sprite": "splayerhouse",
+      "pmu_candidates_fitting_natively": [],
+      "replacement_status": "ADAPTATION_REQUIRED",
+      "scale_ratio_vs_largest_confirmed": [
+        6.12,
+        4.28
+      ],
+      "sprite_canvas_px": [
+        1920,
+        1280
+      ],
+      "structural_perimeter": "sprite pixels only; surrounding terrain, trees, roads, rocks and empty space are NNV data and are never part of this structure",
+      "visible_bbox_px": [
+        1200,
+        984
+      ],
+      "visible_margins": {
+        "bottom": 1031,
+        "left": 352,
+        "right": 1551,
+        "top": 48
+      }
+    }
+  ]
+}

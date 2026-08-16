@@ -19,6 +19,28 @@ success never bypasses artistic review: the current automatic composition is
 explicitly rejected for generalization where buildings, water, relief or source
 hierarchy remain visually incoherent.
 
+## Resolved: are PMU buildings autonomous structures?
+
+`reports/structure-autonomy/` closes this question with source re-derivation.
+
+PMU **maps** contain no structures at all: the model is a flat `Tile[,]` grid
+and the client has no `Structure`/`Building`/`Prefab`/`Group` class, so a house
+painted into `s737` has no provable perimeter. Extracting a house from a map is
+therefore guessing — the exact failure of the first attempts.
+
+PMU **tile archives** do contain autonomous structures. Of the 143 tracked
+candidates, 48 are `AUTONOMOUS_CONFIRMED` (re-derived from the pinned public
+client with 0 RGB mismatch over 622,268 bbox px, and 2,122 neighbouring px
+genuinely dropped by the alpha mask); 95 stay `REVIEW_REQUIRED` because
+`Tiles8.tile` differs between the `PMU.zip` manifest and the pinned public
+client. `PMU.zip` itself is `BLOCKED`: its LFS content hosts reset TLS from this
+sandbox.
+
+None of the four `rmvillage` houses can be replaced yet. That is a proved scale
+mismatch (NNV houses are 948–1200 px wide; the largest confirmed PMU structure
+is 196×230 px), not a missing asset, so the targets stay `ADAPTATION_REQUIRED`
+rather than being resampled to fit.
+
 ## Why planning precedes Ground emission
 
 A valid phase-2 result must preserve source topology and identity while choosing
