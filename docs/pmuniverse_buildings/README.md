@@ -1,7 +1,5 @@
-# PMUniverse native buildings
+# Current PMUniverse native buildings
 
-Source: `PMUniverse/PMU-Client` commit `c25c01f9879369647cd5a19731b2e4e5acd33e67`.
+Source: current `PMU.zip` from `pmuniverse.net`, transported through the user's GitHub archive. ZIP SHA-256: `6262927e79b0d9278b13536b597392b20c1464de499ea93f83141a7d73898137`.
 
-100 complete building/construction components were extracted from native `.tile` archive composition. These are connected RGBA components reconstructed at the source atlas coordinates, not crops of rendered maps. No scaling, recoloring, interpolation, NPC, or surrounding map terrain is included.
-
-See `manifest.json` and the contact sheets. PMDO conversion/runtime status remains `NOT_RUN`.
+143 unique complete building/construction components were extracted from the current client's native `.tile` archives. Exact duplicate visual variants are deduplicated. No rendered map crop, terrain, NPC, scaling, interpolation, or recoloring is present.
