@@ -1,0 +1,86 @@
+{
+  "schema": "new-era.nnv-building-selection.v1",
+  "authority": "the project owner selects every building; the agent proposes and renders only",
+  "lock": {
+    "stage": "PREVIEW_ONLY",
+    "map_modified": false,
+    "integration_allowed": false,
+    "integration_unlock_condition": "all four plots hold owner_validated == true",
+    "note": "no .rsground, no .tile and no file under Data/ may be written while stage is PREVIEW_ONLY"
+  },
+  "invariants": [
+    "NNV terrain, trees, paths, rocks, decoration and empty space are kept untouched",
+    "the old NNV structure and its door/entry are removed virtually, for preview only",
+    "the PMU building is placed at native pixel size",
+    "no upscale, no rescale, no interpolation, no recolor",
+    "no PMU terrain and no PMU environment is ever imported",
+    "the new building is not required to match the old footprint"
+  ],
+  "provenance": {
+    "canonical_authority": "PMU.zip",
+    "canonical_sha256": "6262927e79b0d9278b13536b597392b20c1464de499ea93f83141a7d73898137",
+    "canonical_note": "PMU.zip carries the GLS-enabled archive and stays the reference for assets, interiors and .dat; a public source never silently replaces it",
+    "archives": {
+      "Tiles0.tile": {"status": "VALIDATED_AGAINST_PMU_ZIP", "selectable": true},
+      "Tiles9.tile": {"status": "VALIDATED_AGAINST_PMU_ZIP", "selectable": true},
+      "Tiles8.tile": {"status": "REVIEW_REQUIRED", "selectable": false,
+                      "reason": "hash diverges from the PMU.zip manifest; PMU.zip remains authoritative and its version will be used once readable"}
+    }
+  },
+  "plots": {
+    "objplayerhouse": {
+      "plot_origin_px": [288, 2864],
+      "plot_size_px": [1200, 984],
+      "removed_door_entity": "Exit_Door_106508",
+      "building": null,
+      "owner_validated": false,
+      "status": "AWAITING_OWNER_SELECTION"
+    },
+    "objloggerhouse": {
+      "plot_origin_px": [812, 1400],
+      "plot_size_px": [948, 840],
+      "removed_door_entity": "Exit_Door_106510",
+      "building": null,
+      "owner_validated": false,
+      "status": "AWAITING_OWNER_SELECTION"
+    },
+    "objhunterhouse": {
+      "plot_origin_px": [3820, 1652],
+      "plot_size_px": [948, 856],
+      "removed_door_entity": "Exit_Door_106509",
+      "building": null,
+      "owner_validated": false,
+      "status": "AWAITING_OWNER_SELECTION"
+    },
+    "objcarpenterhouse": {
+      "plot_origin_px": [1324, 52],
+      "plot_size_px": [1192, 728],
+      "removed_door_entity": "Exit_Door_106511",
+      "building": null,
+      "owner_validated": false,
+      "status": "AWAITING_OWNER_SELECTION"
+    }
+  },
+  "owner_stated_preferences": {
+    "tiles0_0357": {
+      "classification": "AUTONOMOUS_CONFIRMED",
+      "state": "PREFERRED_BUT_NOT_PLOT_ASSIGNED",
+      "note": "stated as a preference; becomes a choice only when the owner assigns it to a named plot"
+    },
+    "tiles0_0637": {"state": "INVALID_REFERENCE", "note": "identifier does not exist; never substituted"},
+    "tiles8_0055": {"state": "REVIEW_REQUIRED", "note": "Tiles8 provenance divergence; unusable until PMU.zip is readable"}
+  },
+  "agent_proposals_not_validated": {
+    "note": "rendered so the owner can compare; these carry no decision weight",
+    "objplayerhouse": "tiles0_0357",
+    "objloggerhouse": "tiles0_0367",
+    "objhunterhouse": "tiles9_0554",
+    "objcarpenterhouse": "tiles9_0510"
+  },
+  "deferred_until_selection_is_locked": [
+    "collision re-derivation from the chosen building (never inherited from the old house)",
+    "building -> interior association, sourced from PMU.zip",
+    "PMDO 0.8.12 runtime validation",
+    "visual review and certification"
+  ]
+}
