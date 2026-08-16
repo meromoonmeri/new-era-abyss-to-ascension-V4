@@ -5,7 +5,8 @@
     "canonical NNV objwinter particle families, snow trails, footprints and snow audio are not ported",
     "four-season runtime selector not validated",
     "native Pokemon living cast and TownLife/TownPlace routines are not bound yet",
-    "native Pokemon wild exploration population and encounter behavior are not bound"
+    "native Pokemon wild exploration population and encounter behavior are not bound",
+    "seasonal layer bundle not materialized as a standalone PMDO Ground"
   ],
   "canonical_environment_authority": {
     "generic_new_era_season_particles_allowed_as_substitute": false,
@@ -32,7 +33,7 @@
     "source_solid_instances": 251
   },
   "conversion_status": "UNIMPLEMENTED",
-  "manifest_semantic_sha256": "cd4cd5c45bdaf7e3db29b6595672ffd4fc141a19172619fe9591377b4d1e5b7f",
+  "manifest_semantic_sha256": "991b7a0892881d852b1fe0bef0370826e4688108eaecf977e539fbad7a24641f",
   "mapped_transitions": [
     {
       "edge": "Door_106508",
@@ -102,8 +103,6 @@
   "outputs": {
     "candidate_render": "validation/candidate_tick0.png",
     "candidate_render_sha256": "2bceaf3e4b8f659b0b26106f3bd0acf57bf86eadf75e2d84031061e2668eebe4",
-    "runtime_report": "runtime/runtime_report.json",
-    "runtime_report_sha256": "26866af442d799d1daff2608ae8f55f87ac3a575023abda89182bdb2575c7a2c",
     "script": "Data/Script/halcyon/ground/nnv_rmvillage_spring/init.lua",
     "script_sha256": "7c9a22a58be97161ba08ba54258bb2da49f6c1af4eb2574488589c294bba1157",
     "season_layers": "Data/Ground/nnv_rmvillage_spring.layers.json.gz",
@@ -115,7 +114,7 @@
   },
   "promotion_allowed": false,
   "room": "rmvillage",
-  "runtime_status": "RUNTIME_TESTED_PASS",
+  "runtime_status": "NOT_RUN",
   "schema": "new-era.nnv-pmdo-room-conversion.v1",
   "season": "spring",
   "source": {

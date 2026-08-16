@@ -98,50 +98,12 @@ reste le Ground PMDO complet de référence ; les trois autres variantes sont de
 bundles de layers déterministes afin de ne pas dupliquer la grille de collision
 624×624. Restent obligatoires : sélection runtime des bundles, particules
 `objwinter`, populations Pokémon sauvages, casting social et validation runtime.
-Les sprites source exacts `ssnow1`, `ssnow2` et `spttrail01`, ainsi que la
-particule GameMaker `shape 0` mise à l'échelle source ×4, sont compilés en quatre
-assets Particle PMDO sous `winter/particles/`. L'émetteur concurrent à trois
-familles, la surface persistante des traces et l'audio restent explicitement
-bloqués. Tous
+Les sprites source exacts `ssnow1`, `ssnow2` et `spttrail01` sont déjà compilés
+1:1 en trois assets Particle PMDO sous `winter/particles/`; l'émetteur à trois
+familles, la surface de traces et l'audio restent explicitement bloqués. Tous
 les manifests restent `UNIMPLEMENTED`. Le runtime PMDO 0.8.12 réel charge
 l'été et valide mouvement, collision bloquée et 12 captures animées. Le harness
 corrigé demande explicitement `LoadPhase.Unload` après son événement terminal :
 la terminaison est désormais native, code 0, sans watchdog ni processus résiduel.
-Les quatre variantes passent maintenant séparément le vrai runtime PMDO :
-chargement, mouvement, collision, 12 captures animées et terminaison native.
-L'audit dédié `audit_rmvillage_black_tiles.py` vérifie les packages, toutes les
-références de frames, les 6 084 cellules visuelles, les 389 376 cellules de
-collision et les 48 captures runtime : zéro cellule noire/transparente entière,
-zéro trou sombre marchable, zéro référence manquante et zéro pixel d'erreur
-magenta sur les captures.
-Le routeur `NNVSeasonRouter.lua` résout explicitement les quatre IDs New Era
-sans fallback ; son passage entre les quatre Grounds dans un même processus
-reste cependant `NOT_RUN_AS_COMBINED_FLOW`. Les particules et Pokémon restent
-également ouverts : aucune certification globale n'est revendiquée.
-Il est gelé par `summer/runtime_baseline.json`; avant et après chaque lot :
-
-```bash
-python3 NO_NAME_VILLAGE_ADAPTATION/tools/verify_rmvillage_summer_baseline.py
-```
-
-Le garde refuse toute dérive des 24 preuves, toute élévation de statut et toute
-perte des probes, captures animées ou de la terminaison native.
-
-La couche de vie Pokémon sous `generated/rmvillage/life/` contient cinq métiers
-(Timburr, Bidoof, Archéduc, Rosélia, Manternel) et quarante-quatre `MapChar` sauvages indépendants répartis en huit groupes
-écologiques. Les 12 `objbird0` et 19 `objbutterfly1` de la source sont tous
-convertis individuellement en Passerouge et Prismillon aux coordonnées source
-exactes, en plus des groupes ambiants de clairière. Les positions partent des six spawn
-points source et ne sont corrigées que vers la case marchable la plus proche.
-`NNVLife.lua` réutilise les systèmes New Era, l'AI native, l'errance bornée,
-le regroupement, la fuite, la vigilance territoriale et la présence jour/nuit.
-Les quatre variantes disposent maintenant d'un binding `living` vers les 49
-`MapChar`, sans modifier les pixels environnementaux et sans rasteriser les 31
-animaux source. L'été conserve le Ground complet ; printemps, automne et hiver
-utilisent des bundles déterministes de layers + entités pour éviter trois copies
-inutiles de la collision 624×624. Le lot reste `FOUR_SEASON_LIFE_BOUND` avec
-`runtime_status=NOT_RUN_ALL_VARIANTS` : AI, routines, dialogues et groupes
-doivent encore passer le vrai runtime.
-Le cycle temporel canonique NNV reste également bloqué : ses quatre valeurs et
-ses contrôleurs lumière/maisons/bloom/audio ne sont pas encore mappés au cycle
-New Era.
+Ce PASS reste un composant `RUNTIME_TESTED_PASS`, pas une certification globale :
+le switch des quatre saisons, les particules et les Pokémon restent ouverts.

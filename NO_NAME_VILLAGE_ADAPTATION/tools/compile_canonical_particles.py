@@ -34,15 +34,10 @@ def write_dir(path:Path,tiles:OfficialTiles,index:int)->dict:
   'source_origin':[int(sprite['OriginX']),int(sprite['OriginY'])],'frame_count':len(frames),'loc_height':loc_height,
   'output':str(path),'output_sha256':file_sha(path),'pixel_transform':'identity_1_to_1'}
 
-def write_shape0(path:Path)->dict:
- image=Image.new('RGBA',(4,4),(255,255,255,255));png=_png_bytes(image);path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(struct.pack('<II',len(png),0)+png+struct.pack('<IIII',4,4,2,1))
- return {'source_particle_shape':0,'source_semantics':'GameMaker pt_shape_pixel scaled 4x by objwinter','source_dimensions':[1,1],'compiled_dimensions':[4,4],'frame_count':1,'loc_height':2,'output':str(path),'output_sha256':file_sha(path),'pixel_transform':'source_pixel_scale_4_exact'}
-
 def build(repo:Path,extracted:Path,textures:Path,output:Path)->dict:
  evidence=json.loads((repo/'NO_NAME_VILLAGE_ADAPTATION/reports/season-vm-evidence.json').read_text())
  if evidence.get('status')!='SOURCE_PROVEN_EXACT_VM_LOGIC':raise ValueError('canonical season VM evidence unavailable')
  ensure_texture_cache(extracted,textures);tiles=OfficialTiles(extracted,textures);assets=[]
- base=write_shape0(output/'Content/Particle/NNV_Snow_Base.dir');base['output']=str(Path(base['output']).relative_to(output));assets.append(base)
  for name,index in SPRITES.items():
   row=write_dir(output/'Content/Particle'/f'{name}.dir',tiles,index);row['output']=str(Path(row['output']).relative_to(output));assets.append(row)
  audio=json.loads((repo/'NO_NAME_VILLAGE_ADAPTATION/reports/audio-manifest.json').read_text())
@@ -52,7 +47,7 @@ def build(repo:Path,extracted:Path,textures:Path,output:Path)->dict:
   'source_parameters':evidence['winter_particles'],'assets':assets,
   'footprint_audio':{'source_name':'snpfssnow0','sound_resource_index':352,'source_manifest_status':audio['status'],'asset_status':'MISSING_BINARY_OUTSIDE_TRACKED_EXTRACTION'},
   'status':'ASSETS_COMPILED','conversion_status':'UNIMPLEMENTED','runtime_status':'NOT_RUN','promotion_allowed':False,
-  'blockers':['three-family emitter concurrency/timing not mapped to proven PMDO API','snow footprint terrain condition not implemented','snow trail fading surface not implemented','snpfssnow0 binary audio not present in tracked extraction','runtime PMDO particle capture not run']}
+  'blockers':['GameMaker shape-0 base particle visual adapter not compiled','three-family emitter concurrency/timing not mapped to proven PMDO API','snow footprint terrain condition not implemented','snow trail fading surface not implemented','snpfssnow0 binary audio not present in tracked extraction','runtime PMDO particle capture not run']}
  manifest['semantic_sha256']=canonical_sha(manifest);(output/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2,sort_keys=True)+'\n')
  return manifest
 
