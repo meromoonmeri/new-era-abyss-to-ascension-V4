@@ -48,43 +48,50 @@ suivies que sous forme de hashes.
 
 ---
 
-# Extension : 4 nouvelles zones NNV converties
+# 4 zones NNV voisines — terrain seul, SANS STRUCTURE
 
-`data.win` a finalement été récupéré via **`codeload.github.com`**, qui sert les
-fichiers LFS résolus là où le CDN `media/objects.githubusercontent.com` coupe le
-TLS. Les 4 parts assemblées donnent le SHA-256 attendu
+`data.win` a été récupéré via **`codeload.github.com`**, qui sert les fichiers
+LFS résolus là où le CDN `media/objects.githubusercontent.com` coupe le TLS.
+Les 4 parts réassemblées donnent le SHA-256 attendu
 `2f33b595b450b40355554d73f5acc5d7272e5d54519e35cd8971e0f336401227`.
 
 Zones converties puis normalisées ×0,125 (624×624, cellule 8 px, `TexSize 1`) :
 
-| Zone | Position | Maisons PMU | Identité visuelle |
-|---|---|---:|---|
-| `rm65` | nord | 3 | rivière, grotte |
-| `rm54` | nord-est | 3 | champs cultivés |
-| `rm45` | ouest | 3 | forêt d'automne |
-| `rm56` | sud | 3 | rivière, berges |
+| Zone | Position | Structures | Identité visuelle | Collision bloquée |
+|---|---|---:|---|---:|
+| `rm65` | nord | **0** | rivière, grotte | 17,0 % |
+| `rm54` | nord-est | **0** | champs cultivés | 16,4 % |
+| `rm45` | ouest | **0** | forêt d'automne | 30,1 % |
+| `rm56` | sud | **0** | rivière, berges | 28,6 % |
 
-**12 maisons PMU** ajoutées, toutes natives ×1, **12 assets distincts**, posées
-uniquement sur des clairières ≥ 90 % libres et espacées de 170 px minimum.
+**Aucune structure PMU.** Terrain NNV d'origine uniquement : `Decorations`
+vide, aucune planche `PMU_Buildings.tile`, aucune herbe dégagée, aucune
+collision ajoutée.
 
 | Fichier | Contenu |
 |---|---|
 | `rm54.png` `rm45.png` `rm56.png` `rm65.png` | zones individuelles |
-| `ZONES_ALL.png` | planche des 4 zones |
+| `ZONES_NOSTRUCT.png` | planche des 4 zones |
 
-## Défauts visibles à corriger
+## Les deux défauts précédents ont disparu
 
-1. **`rm65`** — la maison nord-ouest présente un damier de transparence : le
-   dégagement d'herbe a laissé des cellules vides sur un fond sans terre. À
-   traiter (le sol de cette zone n'est pas uniformément couvert comme
-   `rmvillage`).
-2. **`rm56`** — une maison est posée en bordure de rivière ; le critère
-   « 90 % libre » ne distingue pas l'eau du sol praticable. À revoir.
+Le placement de maisons avait introduit deux problèmes, tous deux **résolus par
+la restauration** :
 
-Ces deux points ne sont **pas corrigés** : ils demandent votre arbitrage.
+1. **`rm65`** — le damier de transparence venait du dégagement d'herbe sur un
+   sol non uniformément couvert. Mesure après restauration : **0 pixel
+   transparent** sur les 4 zones.
+2. **`rm56`** — la maison posée sur une berge n'existe plus.
 
-## Blockers hérités de la conversion
+Le contenu d'origine réapparaît : la grotte de `rm65`, la ferme et ses champs
+labourés de `rm54`, la forêt orangée de `rm45`, les berges de `rm56`.
+
+## Blockers hérités du convertisseur
 
 - `rm56`/`rm65` : `unsupported layer type Effect:watereffect` — l'effet d'eau
   animé n'est pas porté.
 - `rm45`/`rm56`/`rm65` : rôles `objmob*` en attente de mapping Pokémon natif.
+
+## Statut
+
+`TERRAIN_ONLY_NO_STRUCTURE`. Runtime PMDO non exécuté.
