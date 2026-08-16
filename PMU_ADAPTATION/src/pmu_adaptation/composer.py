@@ -81,14 +81,31 @@ def require(condition: bool, message: str) -> None:
         raise ValueError(message)
 
 
+# (value * alpha + 127) // 255 for every (alpha, value) pair, built once.
+# Pure lookup keeps the result bit-identical to the original per-pixel loop
+# while removing the Python-level arithmetic that dominated conversion time.
+_PREMUL_TABLE = bytes(
+    (value * alpha + 127) // 255 for alpha in range(256) for value in range(256)
+)
+
+
 def _premultiply(image: Image.Image) -> Image.Image:
     image = image.convert("RGBA")
-    pixels = bytearray(image.tobytes())
-    for offset in range(0, len(pixels), 4):
-        alpha = pixels[offset + 3]
-        for channel in range(3):
-            pixels[offset + channel] = (pixels[offset + channel] * alpha + 127) // 255
-    return Image.frombytes("RGBA", image.size, bytes(pixels))
+    red, green, blue, alpha = image.split()
+    alpha_bytes = alpha.tobytes()
+    scaled = []
+    for band in (red, green, blue):
+        source = band.tobytes()
+        scaled.append(bytes(
+            _PREMUL_TABLE[(alpha_bytes[index] << 8) | source[index]]
+            for index in range(len(source))
+        ))
+    return Image.merge("RGBA", (
+        Image.frombytes("L", image.size, scaled[0]),
+        Image.frombytes("L", image.size, scaled[1]),
+        Image.frombytes("L", image.size, scaled[2]),
+        alpha,
+    ))
 
 
 def _unpremultiply(image: Image.Image) -> Image.Image:

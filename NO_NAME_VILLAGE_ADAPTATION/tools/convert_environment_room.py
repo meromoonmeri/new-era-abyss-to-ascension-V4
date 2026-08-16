@@ -288,10 +288,12 @@ def collision_mask(extracted: Path, sprite: dict[str, Any], scale_x: float, scal
         mask = masks[0]; binary = ((mask.get("Data") or {}).get("$binary") or {}); path = binary.get("path")
         if not path: return None
         bits = (extracted / path).read_bytes(); width, height = int(mask["Width"]), int(mask["Height"]); stride = (width + 7) // 8
-        image = Image.new("L", (width, height), 0); pixels = image.load()
-        for y in range(height):
-            for x in range(width):
-                if bits[y * stride + x // 8] & (1 << (7 - x % 8)): pixels[x, y] = 255
+        # Decode the 1-bit mask with Pillow's own unpacker instead of a per-pixel
+        # Python loop: identical output, but orders of magnitude faster on the
+        # large NNV sprites (some are several thousand pixels wide).
+        image = Image.frombytes("1", (stride * 8, height), bits).convert("L").point(lambda v: 255 if v else 0)
+        if image.width != width:
+            image = image.crop((0, 0, width, height))
     else:
         left, top = int(sprite.get("MarginLeft") or 0), int(sprite.get("MarginTop") or 0)
         right, bottom = int(sprite.get("MarginRight") or width - 1), int(sprite.get("MarginBottom") or height - 1)
@@ -440,11 +442,22 @@ def convert(repo: Path, room_name: str, season: str, extracted: Path, texture_ca
     tile_entries: list[tuple[int, bytes]] = []
     sheet = f"NNV_{room_name}_{season.capitalize()}_Source"
 
+    raw_locations: dict[bytes, tuple[int, int]] = {}
+
     def add_image(image: Image.Image) -> tuple[int, int]:
+        # Deduplicate on raw pixels FIRST. The tile sheet is highly repetitive
+        # (a room reuses the same 64x64 cells thousands of times), and premultiply
+        # + PNG encoding accounted for ~90% of conversion time. Identical pixels
+        # always produce an identical payload, so the emitted sheet is unchanged.
+        raw = image.convert("RGBA").tobytes()
+        cached = raw_locations.get(raw)
+        if cached is not None:
+            return cached
         payload = _png_bytes(image)
         if payload not in payload_locations:
             index = len(payload_locations); loc = (index % 64, index // 64)
             payload_locations[payload] = loc; tile_entries.append((loc[0] | (loc[1] << 32), payload))
+        raw_locations[raw] = payload_locations[payload]
         return payload_locations[payload]
 
     source_layers = []
