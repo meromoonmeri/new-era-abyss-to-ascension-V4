@@ -306,6 +306,19 @@ def collision_mask(extracted: Path, sprite: dict[str, Any], scale_x: float, scal
     return image
 
 
+# Source fauna must never be baked into a Ground as decorative tiles. Every
+# occurrence is kept as separate data so it can later be cast as a native
+# Pokemon through NNVLife. Prefixes cover the animated mob families; the exact
+# set covers standalone critters that do not share the objmob* naming.
+FAUNA_PREFIXES = ("objmob", "objbmob", "objbfmob", "objbgmob", "objbird", "objbutterfly")
+FAUNA_EXACT = {"objbug0", "objfirefly", "objfrog", "objbutterfly0", "objbutterfly1", "objbird0"}
+
+
+def is_fauna(object_name: str) -> bool:
+    """True when the source object is animal life, never scenery."""
+    return object_name.startswith(FAUNA_PREFIXES) or object_name in FAUNA_EXACT
+
+
 def wildlife_semantics(gml: dict[str, str], object_name: str) -> dict[str, Any]:
     tier = re.fullmatch(r"objmobsm5(\d{2})", object_name)
     if tier:
@@ -409,7 +422,7 @@ def convert(repo: Path, room_name: str, season: str, extracted: Path, texture_ca
             })
             if code["newroom"] is None or not 0 <= code["newroom"] < len(rooms):
                 blockers.append(f"unresolved transition {placement.get('InstanceID')} newroom={code['newroom']}")
-        elif object_name.startswith(("objmob", "objbmob")):
+        elif is_fauna(object_name):
             wildlife_source.append({"instance_id": placement.get("InstanceID"), "object": object_name, "position_source_px": [placement.get("X"), placement.get("Y")], "position_pmdo_px": [round(placement.get("X") / SCALE_DIVISOR), round(placement.get("Y") / SCALE_DIVISOR)], "semantics": wildlife_semantics(gml, object_name)})
             blockers.append(f"wildlife role {placement.get('InstanceID')}:{object_name} requires native Pokemon encounter mapping")
         elif object_name in {"objlogger", "objhunter", "objcarpenter", "objherbalist", "objseamstress"}:
@@ -489,7 +502,7 @@ def convert(repo: Path, room_name: str, season: str, extracted: Path, texture_ca
                     object_index = ref_index(placement.get("ObjectDefinition"))
                     if object_index is None: continue
                     obj = objects[object_index]; object_name = obj["Name"]
-                    if object_name.startswith(("objmob", "objbmob")) or object_name in {"objlogger", "objhunter", "objcarpenter", "objherbalist", "objseamstress", "objplayer", "objfollower"}:
+                    if is_fauna(object_name) or object_name in {"objlogger", "objhunter", "objcarpenter", "objherbalist", "objseamstress", "objplayer", "objfollower"}:
                         continue
                     mapping = object_correspondence.get(object_name)
                     replacement = mapping.get(season) if mapping is not None else object_name
