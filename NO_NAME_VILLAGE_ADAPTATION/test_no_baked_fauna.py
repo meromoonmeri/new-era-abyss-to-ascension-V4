@@ -53,9 +53,20 @@ def load_converter_rules():
     def is_fauna(name: str) -> bool:
         return name.startswith(tuple_vals) or name in exact_vals
 
-    # The predicate must actually be the one the converter applies.
-    assert "if is_fauna(object_name)" in source, "converter must filter renders via is_fauna"
-    assert "elif is_fauna(object_name):" in source, "converter must record fauna via is_fauna"
+    # The predicate must actually gate BOTH code paths, and no path may
+    # re-implement its own narrower fauna test with a raw startswith.
+    render_gate = re.search(
+        r"^\s*if is_fauna\(object_name\) or object_name in \{", source, re.M)
+    assert render_gate, "the render filter must be gated by is_fauna(object_name)"
+    record_gate = re.search(r"^\s*elif is_fauna\(object_name\):", source, re.M)
+    assert record_gate, "fauna recording must be gated by is_fauna(object_name)"
+
+    # Any surviving hand-rolled objmob test would be a narrower duplicate rule.
+    rogue = [
+        line.strip() for line in source.splitlines()
+        if "object_name.startswith(" in line and "FAUNA_PREFIXES" not in line
+    ]
+    assert not rogue, f"fauna must be tested only through is_fauna; found: {rogue}"
     return is_fauna, tuple_vals, exact_vals
 
 
