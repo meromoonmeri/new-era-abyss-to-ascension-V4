@@ -25,34 +25,62 @@ Life.GROUPS={
 }
 local function distance(a,b)local dx=a.Position.X-b.Position.X;local dy=a.Position.Y-b.Position.Y;return math.sqrt(dx*dx+dy*dy) end
 local function visible(name,value)if value then pcall(function()GROUND:Unhide(name)end)else pcall(function()GROUND:Hide(name)end)end end
-function Life.Setup()
- local context=LivingWorld.Context('no_name_village','rmvillage');Life.context=context;Life.tick=0
- for name,_ in pairs(Life.SOCIAL) do local ch=CH(name);if ch then AI:SetCharacterAI(ch,'halcyon.ai.ground_default',RogueElements.Loc(ch.Position.X-32,ch.Position.Y-32),RogueElements.Loc(64,64),1,16,32,60,180);visible(name,context.Time~='night') end end
+local OFFSETS={{0,24},{16,16},{24,0},{16,-16},{0,-24},{-16,-16},{-24,0},{-16,16}}
+local function start_move(ch,x,y,speed)
+ if not ch then return false end
+ return pcall(function()
+  TASK:StartEntityTask(ch,function() GROUND:MoveToPosition(ch,x,y,false,speed) end)
+ end)
+end
+local function initialize_after_entry()
+ if Life.initialized then return true end
+ Life.context=LivingWorld.Context('no_name_village','rmvillage')
  for _,group in pairs(Life.GROUPS) do
-  local first=CH(group.names[1]);if first then group.anchor=RogueElements.Loc(first.Position.X,first.Position.Y) end
-  for _,name in ipairs(group.names) do local ch=CH(name);if ch and group.anchor then AI:SetCharacterAI(ch,'halcyon.ai.ground_default',RogueElements.Loc(group.anchor.X-group.radius,group.anchor.Y-group.radius),RogueElements.Loc(group.radius*2,group.radius*2),1,16,40,40,140) end end
+  local first=CH(group.names[1])
+  if first then group.anchor=RogueElements.Loc(first.Position.X,first.Position.Y) end
  end
- for _,name in ipairs(Life.GROUPS.patch.names) do visible(name,context.Time=='night') end
- for _,name in ipairs(Life.GROUPS.flock.names) do visible(name,context.Time~='night') end
- return context
+ for name,_ in pairs(Life.SOCIAL) do visible(name,Life.context.Time~='night') end
+ for _,name in ipairs(Life.GROUPS.patch.names) do visible(name,Life.context.Time=='night') end
+ for _,name in ipairs(Life.GROUPS.flock.names) do visible(name,Life.context.Time~='night') end
+ Life.initialized=true
+ return true
+end
+function Life.Setup()
+ -- Init/Enter are unsafe places to register AI or start coroutines: PMDO 0.8.12
+ -- is still iterating the Ground lifecycle.  Defer every engine mutation to
+ -- the first normal map Update and keep Setup side-effect free.
+ Life.tick=0;Life.phase=0;Life.cursor=0;Life.initialized=false
+ return true
 end
 function Life.Update()
- Life.tick=Life.tick+1;if Life.tick%60~=0 then return end
+ Life.tick=Life.tick+1
+ if not initialize_after_entry() then return end
+ if Life.tick%30~=0 then return end
  local hero=CH('PLAYER');if not hero then return end
+ local schedule={}
  for _,group in pairs(Life.GROUPS) do
-  for index,name in ipairs(group.names) do local ch=CH(name)
-   if ch and distance(ch,hero)<96 then
-    if group.behavior=='timid' then
-     local dx=ch.Position.X-hero.Position.X;local dy=ch.Position.Y-hero.Position.Y;local mag=math.max(1,math.sqrt(dx*dx+dy*dy));local tx=ch.Position.X+math.floor(dx/mag*48);local ty=ch.Position.Y+math.floor(dy/mag*48)
-     TASK:StartEntityTask(ch,function()GROUND:MoveToPosition(ch,tx,ty,false,2)end)
-    elseif group.behavior=='territorial' then GROUND:EntTurn(ch,GAME:VectorToDirection(hero.Position.X-ch.Position.X,hero.Position.Y-ch.Position.Y)) end
-   elseif ch and group.anchor and Life.tick%180==0 then
-    local angle=((Life.phase+index)*2)%8;local offsets={{0,24},{16,16},{24,0},{16,-16},{0,-24},{-16,-16},{-24,0},{-16,16}};local o=offsets[angle+1]
-    TASK:StartEntityTask(ch,function()GROUND:MoveToPosition(ch,group.anchor.X+o[1],group.anchor.Y+o[2],false,1)end)
-   end
-  end
+  for index,name in ipairs(group.names) do schedule[#schedule+1]={group=group,index=index,name=name} end
  end
- if Life.tick%180==0 then Life.phase=(Life.phase+1)%8 end
+ for name,_ in pairs(Life.SOCIAL) do schedule[#schedule+1]={name=name,social=true} end
+ if #schedule==0 then return end
+ Life.cursor=(Life.cursor%#schedule)+1
+ local item=schedule[Life.cursor];local ch=CH(item.name);if not ch then return end
+ if item.social then
+  local angle=(Life.phase+Life.cursor)%8;local o=OFFSETS[angle+1]
+  start_move(ch,ch.Position.X+math.floor(o[1]/2),ch.Position.Y+math.floor(o[2]/2),1)
+  return
+ end
+ local group=item.group
+ if distance(ch,hero)<96 and group.behavior=='timid' then
+  local dx=ch.Position.X-hero.Position.X;local dy=ch.Position.Y-hero.Position.Y;local mag=math.max(1,math.sqrt(dx*dx+dy*dy))
+  start_move(ch,ch.Position.X+math.floor(dx/mag*48),ch.Position.Y+math.floor(dy/mag*48),2)
+ elseif distance(ch,hero)<96 and group.behavior=='territorial' then
+  pcall(function()GROUND:EntTurn(ch,GAME:VectorToDirection(hero.Position.X-ch.Position.X,hero.Position.Y-ch.Position.Y))end)
+ elseif group.anchor then
+  local angle=(Life.phase+item.index)%8;local o=OFFSETS[angle+1]
+  start_move(ch,group.anchor.X+o[1],group.anchor.Y+o[2],1)
+ end
+ if Life.cursor==#schedule then Life.phase=(Life.phase+1)%8 end
 end
 function Life.Talk(name)local cfg=Life.SOCIAL[name];local ch=CH(name);if not cfg or not ch then return false end;UI:SetSpeaker(ch);UI:WaitShowDialogue(cfg.lines[(TownLife.Today()%#cfg.lines)+1]);return true end
 function Life.WildTalk(name)
