@@ -136,6 +136,9 @@
       "sha256": "770da80a31778e1f2d9fa405ba3d5eacf89e7640b4e374ee1999f98d326d1acf"
     }
   ],
+  "functional_runtime_status": "OBSOLETE_MUST_RETEST",
+  "obsolete": true,
+  "obsolete_reason": "NNV x0.125 normalisation applied; geometry changed (TexSize 8->1, world 4992->624). Must re-run PMDO 0.8.12.",
   "pmdo_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
   "pmdo_version": "0.8.12",
   "room": "rmvillage",
