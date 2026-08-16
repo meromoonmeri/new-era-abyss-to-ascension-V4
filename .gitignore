@@ -3,3 +3,6 @@ __pycache__/
 .venv_pxl/
 .runtime-cache/
 .runtime-work/
+
+# Zones NNV converties : .rsground > 50 Mo, hors Git (regenerables)
+NO_NAME_VILLAGE_ADAPTATION/generated/zones/

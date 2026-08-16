@@ -45,3 +45,46 @@ suivies que sous forme de hashes.
 ## Statut
 
 `RENDERED_RUNTIME_NOT_RUN`. 4 saisons alignées, sources PMU intactes.
+
+---
+
+# Extension : 4 nouvelles zones NNV converties
+
+`data.win` a finalement été récupéré via **`codeload.github.com`**, qui sert les
+fichiers LFS résolus là où le CDN `media/objects.githubusercontent.com` coupe le
+TLS. Les 4 parts assemblées donnent le SHA-256 attendu
+`2f33b595b450b40355554d73f5acc5d7272e5d54519e35cd8971e0f336401227`.
+
+Zones converties puis normalisées ×0,125 (624×624, cellule 8 px, `TexSize 1`) :
+
+| Zone | Position | Maisons PMU | Identité visuelle |
+|---|---|---:|---|
+| `rm65` | nord | 3 | rivière, grotte |
+| `rm54` | nord-est | 3 | champs cultivés |
+| `rm45` | ouest | 3 | forêt d'automne |
+| `rm56` | sud | 3 | rivière, berges |
+
+**12 maisons PMU** ajoutées, toutes natives ×1, **12 assets distincts**, posées
+uniquement sur des clairières ≥ 90 % libres et espacées de 170 px minimum.
+
+| Fichier | Contenu |
+|---|---|
+| `rm54.png` `rm45.png` `rm56.png` `rm65.png` | zones individuelles |
+| `ZONES_ALL.png` | planche des 4 zones |
+
+## Défauts visibles à corriger
+
+1. **`rm65`** — la maison nord-ouest présente un damier de transparence : le
+   dégagement d'herbe a laissé des cellules vides sur un fond sans terre. À
+   traiter (le sol de cette zone n'est pas uniformément couvert comme
+   `rmvillage`).
+2. **`rm56`** — une maison est posée en bordure de rivière ; le critère
+   « 90 % libre » ne distingue pas l'eau du sol praticable. À revoir.
+
+Ces deux points ne sont **pas corrigés** : ils demandent votre arbitrage.
+
+## Blockers hérités de la conversion
+
+- `rm56`/`rm65` : `unsupported layer type Effect:watereffect` — l'effet d'eau
+  animé n'est pas porté.
+- `rm45`/`rm56`/`rm65` : rôles `objmob*` en attente de mapping Pokémon natif.
