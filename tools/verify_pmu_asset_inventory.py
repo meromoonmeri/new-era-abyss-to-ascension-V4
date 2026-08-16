@@ -52,9 +52,24 @@ def main() -> None:
         assert row["pmdo_conversion"] == "NOT_RUN"
         assert row["runtime_validation"] == "NOT_RUN"
 
+    manifest = json.loads((BASE / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["count"] == 83
+    assert len(manifest["objects"]) == 83
+    assert sum(manifest["category_counts"].values()) == 83
+    assert manifest["render"]["width"] == 1000
+    assert manifest["render"]["height"] == 2022
+    render_path = BASE / manifest["render"]["file"]
+    assert hashlib.sha256(render_path.read_bytes()).hexdigest() == manifest["render"]["sha256"]
+    for row in manifest["objects"]:
+        key = (row["source_archive"], row["source_record_index"])
+        assert key in by_key
+        assert row["sha256"] == by_key[key]["sha256"]
+        assert row["placement_allowed"] is False
+
     print(
         "PMU_ASSET_INVENTORY_PASS "
-        f"archives={EXPECTED_ARCHIVES} records={EXPECTED_RECORDS} candidates={EXPECTED_CANDIDATES}"
+        f"archives={EXPECTED_ARCHIVES} records={EXPECTED_RECORDS} "
+        f"candidates={EXPECTED_CANDIDATES} manifested=83"
     )
 
 

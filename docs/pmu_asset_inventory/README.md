@@ -36,7 +36,14 @@ Un filtre géométrique strict a trouvé **1 189 candidats uniques** dont la zon
 
 ## Premier lot d’objets vérifiés visuellement
 
-`qualified_small_objects.json` contient **83 enregistrements source autonomes** de `Tiles5.tile`, vérifiés visuellement comme petits objets, mobilier ou décorations complets. Le lot comprend notamment :
+`qualified_small_objects.json` contient **83 enregistrements source autonomes** de `Tiles5.tile`, vérifiés visuellement comme petits objets, mobilier ou décorations complets.
+
+Le manifeste de livraison est disponible sous deux formes :
+
+- `manifest.json` : identité stable, catégorie, archive/index source, chemin PNG, dimensions, taille, SHA-256, boîte alpha et statuts de chaque objet ;
+- `manifest.png` : rendu lisible 1000×2022 avec les 83 objets agrandis en nearest-neighbor, leurs identifiants, libellés, catégories et préfixes SHA-256.
+
+Le lot comprend notamment :
 
 - livres ouverts et fermés, lettre, parchemin et journal ;
 - pots, vases, fleurs et plantes en pot ;
