@@ -115,6 +115,99 @@ def validate_resources(spec: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def validate_static_maps(specs: Sequence[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Validate optional mixed-segment static maps without weakening global gates."""
+    records: list[dict[str, Any]] = []
+    for spec in specs:
+        path = root_path(spec["path"])
+        identity = check_hash(path, spec["sha256"], f"authenticated static map:{spec['map_id']}")
+        room = load_json(path)["Object"]
+        require(room.get("AssetName") == spec["map_id"], "static map AssetName mismatch")
+        columns = room.get("Tiles", [])
+        width = len(columns)
+        height = len(columns[0]) if columns else 0
+        require([width, height] == spec["dimensions"], "static map dimensions mismatch")
+        require(all(len(column) == height for column in columns), "static map has ragged tile columns")
+        require(room.get("Music") == spec["music"], "static map music mismatch")
+        entries = room.get("EntryPoints", [])
+        require(len(entries) == 1, "static map must have exactly one entry")
+        entry = entries[0]
+        require(
+            [entry["Loc"]["X"], entry["Loc"]["Y"], entry["Dir"]] == spec["entry"],
+            "static map entry point mismatch",
+        )
+        stair_count = sum(
+            1 for column in columns for tile in column
+            if tile.get("Effect", {}).get("ID") == "stairs_go_up"
+        )
+        require(stair_count == spec.get("stairs", 0), "static map stair count mismatch")
+
+        audit_spec = spec.get("audit")
+        if audit_spec is not None:
+            audit = room.get("StaticAudit", {})
+            require(audit.get("ContractID") == audit_spec["contract_id"], "static audit contract mismatch")
+            normal = sorted([point["X"], point["Y"]] for point in audit.get("AllowedUnreachableWalkable", []))
+            secondary = sorted([point["X"], point["Y"]] for point in audit.get("AllowedUnreachableSecondary", []))
+            require(normal == sorted(audit_spec["unreachable_normal"]), "static normal-isolation contract mismatch")
+            require(secondary == sorted(audit_spec["unreachable_secondary"]), "static secondary-isolation contract mismatch")
+
+        actor_records = []
+        for actor_spec in spec.get("actors", []):
+            faction = actor_spec["faction"]
+            candidates = [
+                actor
+                for team in room.get(faction, [])
+                for actor in team.get("Players", []) + team.get("Guests", [])
+                if (actor.get("BaseForm") or actor.get("CurrentForm"))["Species"] == actor_spec["species"]
+            ]
+            require(len(candidates) == 1, f"static actor multiplicity mismatch: {actor_spec['species']}")
+            actor = candidates[0]
+            location = actor["serializationLoc"]
+            require([location["X"], location["Y"]] == actor_spec["loc"], "static actor location mismatch")
+            require(actor["Level"] == actor_spec["level"] and actor["HP"] == actor_spec["hp"],
+                    "static actor level/HP mismatch")
+            if "tactic" in actor_spec:
+                require(actor.get("Tactic") == actor_spec["tactic"], "static actor tactic mismatch")
+            if "status" in actor_spec:
+                status = actor.get("StatusEffects", {}).get(actor_spec["status"])
+                require(status is not None, "required protected-actor status is absent")
+                counters = [
+                    state.get("Counter") for state in status.get("StatusStates", [])
+                    if "CountDownState" in state.get("$type", "")
+                ]
+                require(counters == [actor_spec["status_counter"]], "protected-actor status counter mismatch")
+            actor_records.append({
+                "species": actor_spec["species"], "faction": faction,
+                "loc": actor_spec["loc"], "level": actor_spec["level"], "hp": actor_spec["hp"],
+                **({"tactic": actor_spec["tactic"]} if "tactic" in actor_spec else {}),
+                **({"status": actor_spec["status"], "status_counter": actor_spec["status_counter"]}
+                   if "status" in actor_spec else {}),
+            })
+
+        starts = room.get("MapEffect", {}).get("OnMapStarts", [])
+        actual_events = [
+            {
+                "priority": event.get("Key", {}).get("str"),
+                "type": event.get("Value", {}).get("$type"),
+                "script": event.get("Value", {}).get("Script"),
+                "args": event.get("Value", {}).get("ArgTable"),
+            }
+            for event in starts
+        ]
+        for expected in spec.get("startup_events", []):
+            require(expected in actual_events, f"static map startup event mismatch: {expected}")
+        records.append({
+            **identity,
+            "gate": f"static_map_contract:{spec['map_id']}",
+            "map_id": spec["map_id"], "dimensions": [width, height],
+            "music": room["Music"], "stairs": stair_count,
+            "actors": actor_records,
+            "startup_priorities": [event["priority"] for event in actual_events],
+            "static_audit_contract": audit_spec["contract_id"] if audit_spec else None,
+        })
+    return records
+
+
 def validate_ground(spec: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
     path = root_path(spec["path"])
     identity = check_hash(path, spec["sha256"], "authenticated ending Ground")
@@ -213,7 +306,12 @@ def expand_generator_contracts(
 
 def mapped_room_id(load_gen: dict[str, Any], floor: int) -> str:
     for entry in load_gen.get("GenSteps", []):
-        if entry.get("Key") == -1 and "MappedRoomStep" in entry.get("Value", {}).get("$type", ""):
+        # PMDO 0.8.12 serializes Priority as its canonical composite form.
+        # Keep scalar -1 compatibility for older hand-authored fixtures, but
+        # never require the canonical serializer to flatten {"str": [-1]}.
+        key = entry.get("Key")
+        priority_minus_one = key == -1 or key == {"str": [-1]}
+        if priority_minus_one and "MappedRoomStep" in entry.get("Value", {}).get("$type", ""):
             map_id = entry["Value"].get("MapID")
             require(isinstance(map_id, str) and map_id, f"floor {floor}: mapped room has no MapID")
             return map_id
@@ -360,6 +458,7 @@ def build_report(config_path: Path) -> dict[str, Any]:
 
     for asset in config["assets"]:
         gates.append(check_hash(root_path(asset["path"]), asset["sha256"], f"asset:{asset['path']}"))
+    gates.extend(validate_static_maps(config.get("static_maps", [])))
 
     ground_identity, landing_gate = validate_ground(config["ending_ground"])
     gates.extend([ground_identity, landing_gate])

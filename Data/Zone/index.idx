@@ -3066,6 +3066,46 @@
       "Released": true,
       "SortOrder": 0,
       "Comment": "PMD Red EU D02; exact five-floor Thunderwave Cave route."
+    },
+    "mt_steel": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": 20,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": -1,
+      "CountedFloors": 9,
+      "Rogue": 0,
+      "Grounds": [
+        "d03p01",
+        "d03p02"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Mt Acier",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "PMD Red EU D03; exact nine-floor Mount Steel route."
     }
   }
 }

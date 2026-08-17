@@ -28,6 +28,21 @@
 "Released": true,
 "Comment": "",
 "SortOrder": 0
+},
+"all_protect": {
+"Name": {
+"DefaultText": "All Protect",
+"LocalTexts": {
+"de": "Vollschutzschild",
+"it": "Proteggitutti",
+"ja": "まもる",
+"ja-jp": "まもる",
+"zh-hans": "全面保护"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
 }
 }
 }

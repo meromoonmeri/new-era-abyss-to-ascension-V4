@@ -465,8 +465,40 @@ def build_static_floor_model(
     if start not in walkable:
         raise RenderError(f"floor {floor_number}: entry point is not walkable")
     connected, _ = bfs([["floor" if (x, y) in walkable else "wall" for x in range(width)] for y in range(height)], start)
-    if len(connected) != len(walkable):
-        raise RenderError(f"floor {floor_number}: static walkable terrain is disconnected")
+    arena_audit = room.get("StaticAudit", {})
+    unreachable = walkable - set(connected)
+    if unreachable:
+        # The authenticated Mt Steel boss room contains five deliberate normal
+        # floor cells and 24 secondary-visual/normal-collision cells isolated
+        # by impassable secondary terrain.  This is the sole disconnected-map
+        # contract accepted here: map ID, contract ID, and both complete sets
+        # must match, so secondary visuals cannot weaken normal connectivity.
+        allowed_normal = {
+            (int(point["X"]), int(point["Y"]))
+            for point in arena_audit.get("AllowedUnreachableWalkable", [])
+        }
+        allowed_secondary = {
+            (int(point["X"]), int(point["Y"]))
+            for point in arena_audit.get("AllowedUnreachableSecondary", [])
+        }
+        normal_unreachable = {
+            point for point in unreachable if terrain[point[1]][point[0]] == "floor"
+        }
+        secondary_unreachable = {
+            point for point in unreachable if terrain[point[1]][point[0]] == "secondary"
+        }
+        if not (
+            map_id == "mt_steel_peak"
+            and arena_audit.get("ContractID") == "pmdred-eu-mt-steel-arena-v1"
+            and allowed_normal == {(3, 3), (4, 3), (5, 3), (0, 5), (8, 5)}
+            and len(allowed_secondary) == 24
+            and normal_unreachable == allowed_normal
+            and secondary_unreachable == allowed_secondary
+            and unreachable == allowed_normal | allowed_secondary
+        ):
+            raise RenderError(
+                f"floor {floor_number}: static walkable terrain is disconnected outside the authenticated arena contract"
+            )
 
     entities: list[dict[str, Any]] = []
     for team_field, kind in (("MapTeams", "enemy"), ("AllyTeams", "protected")):
@@ -482,7 +514,26 @@ def build_static_floor_model(
                     "x": int(location["X"]),
                     "y": int(location["Y"]),
                 })
-    required = room.get("StaticAudit", {}).get("RequiredActors", [])
+    required = arena_audit.get("RequiredActors", [])
+    for actor in required:
+        expected = {
+            key: actor[key]
+            for key in ("kind", "id", "level", "hp", "x", "y")
+        }
+        if expected not in entities:
+            raise RenderError(f"floor {floor_number}: required static actor is absent or changed: {expected}")
+    if unreachable:
+        protected_exceptions = [
+            entity for entity in entities
+            if (entity["x"], entity["y"]) not in connected
+        ]
+        if protected_exceptions != [{
+            "kind": "protected", "id": "diglett", "level": 5,
+            "hp": 17, "x": 4, "y": 3,
+        }]:
+            raise RenderError(
+                f"floor {floor_number}: authenticated arena has undeclared unreachable actors: {protected_exceptions}"
+            )
     config = {
         "map_id": map_id,
         "map_path": str(map_path.relative_to(ROOT)),
@@ -491,6 +542,21 @@ def build_static_floor_model(
         "entry_direction": int(entry_points[0]["Dir"]),
         "required_actors": required,
         "static_map_events": room.get("MapEffect", {}).get("OnMapStarts", []),
+        "authenticated_arena_contract": (
+            {
+                "id": arena_audit["ContractID"],
+                "allowed_unreachable_normal": [
+                    [int(point["X"]), int(point["Y"])]
+                    for point in arena_audit["AllowedUnreachableWalkable"]
+                ],
+                "allowed_unreachable_secondary": [
+                    [int(point["X"]), int(point["Y"])]
+                    for point in arena_audit["AllowedUnreachableSecondary"]
+                ],
+                "protected_unreachable_actor": "diglett",
+            }
+            if unreachable else None
+        ),
         "secondary_terrain_generated": False,
     }
     return FloorModel(
@@ -756,7 +822,7 @@ def load_live_autotile(family: str) -> tuple[AdjacentAutoTile, Path, Path]:
     if not sheet_path.is_file():
         raise RenderError(f"missing promoted tile sheet: {sheet_path.relative_to(ROOT)}")
     bundle = TileBundle.load(sheet_path)
-    return AdjacentAutoTile.load(autotile_path, bundle), autotile_path, sheet_path
+    return AdjacentAutoTile(autotile_path, bundle), autotile_path, sheet_path
 
 
 def render_floor(
@@ -873,8 +939,13 @@ def render_floor(
     text_font = font(FONT_REGULAR, 15)
     small_bold = font(FONT_BOLD, 14)
     draw.text((18, 12), f"{title} — {model.floor_number}F", font=title_font, fill=(246, 249, 252))
+    arena_contract = model.config.get("authenticated_arena_contract")
+    collision_label = (
+        "5 cases isolées authentifiées"
+        if arena_contract is not None else "collision connexe"
+    )
     subtitle = (
-        f"{model.width}×{model.height} • feuille officielle 24 px • collision connexe • "
+        f"{model.width}×{model.height} • feuille officielle 24 px • {collision_label} • "
         + (f"trajet escalier {len(model.route) - 1} pas" if model.generator == "procedural"
            else "arène statique sans escalier")
     )
@@ -902,7 +973,44 @@ def render_floor(
         if model.generator == "static_load"
         else sum(value == "floor" for row in model.terrain for value in row)
     )
-    distance, _ = bfs(model.terrain, model.start)
+    collision_terrain = (
+        [
+            ["floor" if (x, y) in model.room_floor else "wall" for x in range(model.width)]
+            for y in range(model.height)
+        ]
+        if model.generator == "static_load" else model.terrain
+    )
+    distance, _ = bfs(collision_terrain, model.start)
+    unreachable_walkable = model.room_floor - set(distance) if model.generator == "static_load" else set()
+    allowed_unreachable = (
+        {
+            tuple(point)
+            for key in ("allowed_unreachable_normal", "allowed_unreachable_secondary")
+            for point in arena_contract[key]
+        }
+        if arena_contract is not None else set()
+    )
+    arena_connectivity_pass = (
+        unreachable_walkable == allowed_unreachable
+        if arena_contract is not None else not unreachable_walkable
+    )
+    protected_exception = {
+        ("protected", "diglett", 4, 3)
+    } if arena_contract is not None else set()
+    overlay_access_pass = all(
+        (entity["x"], entity["y"]) in distance
+        or (entity["kind"], entity["id"], entity["x"], entity["y"]) in protected_exception
+        for entity in model.entities
+    )
+    component_count = 0
+    remaining_walkable = set(model.room_floor) if model.generator == "static_load" else {
+        (x, y) for y, row in enumerate(model.terrain) for x, value in enumerate(row) if value == "floor"
+    }
+    while remaining_walkable:
+        component_start = next(iter(remaining_walkable))
+        component, _ = bfs(collision_terrain, component_start)
+        remaining_walkable -= set(component)
+        component_count += 1
     entity_counts = {
         kind: sum(entity["kind"] == kind for entity in model.entities)
         for kind in (("enemy", "protected", "item", "trap") if model.generator == "static_load" else ("enemy", "item", "trap"))
@@ -948,8 +1056,11 @@ def render_floor(
         "collision": {
             "walkable": walkable,
             "reachable_from_entry": len(distance),
-            "connected_components": 1 if len(distance) == walkable else None,
+            "connected_components": component_count,
             "all_walkable_reachable": len(distance) == walkable,
+            "authenticated_arena_contract": arena_contract,
+            "unreachable_walkable": [list(point) for point in sorted(unreachable_walkable)],
+            "connectivity_contract_passed": arena_connectivity_pass,
         },
         "entry": {"x": model.start[0], "y": model.start[1]},
         "stairs": stairs_record,
@@ -957,6 +1068,7 @@ def render_floor(
             "counts": entity_counts,
             "entries": model.entities,
             "all_on_reachable_floor": all((entity["x"], entity["y"]) in distance for entity in model.entities),
+            "all_reachable_or_declared_protected": overlay_access_pass,
         },
         "static_invariants": {
             "dimensions_positive": model.width > 0 and model.height > 0,
@@ -967,8 +1079,8 @@ def render_floor(
             **({"no_stair_required_for_static_arena": model.stairs is None}
                if model.generator == "static_load"
                else {"one_reachable_stair": model.stairs in distance}),
-            "all_walkable_reachable": len(distance) == walkable,
-            "all_overlay_entities_reachable": all((entity["x"], entity["y"]) in distance for entity in model.entities),
+            "walkable_connectivity_contract_passed": arena_connectivity_pass,
+            "overlay_accessibility_contract_passed": overlay_access_pass,
         },
     }
     if not all(record["static_invariants"].values()):
@@ -1172,9 +1284,9 @@ def build(args: argparse.Namespace) -> tuple[dict[str, bytes], dict[str, Any]]:
                 "inspectable PNGs exist for every converted floor",
                 "promoted official terrain sheet cells resolve and cover every rendered map cell",
                 "no rendered terrain cell is blank black or transparent",
-                "deterministic representative topology is connected",
-                "one reachable stair and one entry exist per floor",
-                "collision, stair route, and sampled serialized entities are directly inspectable",
+                "deterministic procedural topology is connected; any static exception must match an exact authenticated arena contract",
+                "one reachable stair exists per procedural floor and one entry exists per floor",
+                "collision, declared static isolation, stair route, and sampled serialized entities are directly inspectable",
             ],
             "deferred_not_claimed": [
                 "byte-for-byte identity with RogueElements random generation",

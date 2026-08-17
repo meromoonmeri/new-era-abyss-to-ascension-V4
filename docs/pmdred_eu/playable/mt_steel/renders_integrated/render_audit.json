@@ -1,0 +1,3612 @@
+{
+  "schema": "pmdred-eu-early-dungeon-static-render-v1",
+  "status": "passed",
+  "zone": {
+    "id": "mt_steel",
+    "title": "Mt Acier / Mount Steel",
+    "pmdo_version": "0.8.12.0",
+    "floors": 9
+  },
+  "method": {
+    "id": "zone-grid-representative-autotile-adjacent-tick0-v1",
+    "source": "promoted ZoneData GridFloorGen recipes and PMDO AutoTileAdjacent terrain definitions",
+    "terrain_pixels": "composited exclusively from referenced promoted .tile cells at animation tick zero",
+    "topology": "deterministic representative built from serialized grid, room, branch, padding, tunnel, entry, and exit parameters",
+    "overlay": "entry/stair/shortest-route/entity audit markers; overlays are deliberately not presented as native sprites"
+  },
+  "inputs": {
+    "zone": {
+      "path": "Data/Zone/mt_steel.json",
+      "bytes": 3026717,
+      "sha256": "a90b8c29456ac91ea6db8f20c604331a6e8770c56917dcb63d5b71e91d67e942"
+    },
+    "autotile:mt_steel_1_floor": {
+      "path": "Data/AutoTile/mt_steel_1_floor.json",
+      "bytes": 10271,
+      "sha256": "4188be01470265c214cace6ec46a4749a19e0feec54b0edd208f0a904d3e9c68"
+    },
+    "tile_sheet:MtSteel1": {
+      "path": "Content/Tile/MtSteel1.tile",
+      "bytes": 263590,
+      "sha256": "d14096e06b0f7aad6b82f77a92a83149d07ee3bd2c87659f9b199459c2546949"
+    },
+    "autotile:mt_steel_1_wall": {
+      "path": "Data/AutoTile/mt_steel_1_wall.json",
+      "bytes": 7087,
+      "sha256": "f74b5902ae15372b45efe329d7c56cee2bdeab322fb5a74b18e04304a44bd00a"
+    },
+    "autotile:mt_steel_2_floor": {
+      "path": "Data/AutoTile/mt_steel_2_floor.json",
+      "bytes": 5763,
+      "sha256": "d5e65ef7025b1e672f128e19458997049c0e6cf68231a8c1fe61e0280f1a87af"
+    },
+    "tile_sheet:MtSteel2": {
+      "path": "Content/Tile/MtSteel2.tile",
+      "bytes": 352752,
+      "sha256": "e618d7fbd527a5a4fc2a08c573984b6ac6254a257ae0a3679a389031fb96db22"
+    },
+    "autotile:mt_steel_2_secondary": {
+      "path": "Data/AutoTile/mt_steel_2_secondary.json",
+      "bytes": 93737,
+      "sha256": "a8561a049e405e4f07a0539ff68b352c1f407584090559369c71b1038aac7444"
+    },
+    "autotile:mt_steel_2_wall": {
+      "path": "Data/AutoTile/mt_steel_2_wall.json",
+      "bytes": 9047,
+      "sha256": "84652406eedb539caccba81b48c58bd0c6d9818755b15a7bdbd9a092196b7ed0"
+    }
+  },
+  "sheet_audit": {
+    "families": {
+      "mt_steel_1_floor": {
+        "tile_size": 24,
+        "tile_cells": 1693,
+        "frames_used": [
+          [
+            12,
+            0
+          ],
+          [
+            12,
+            1
+          ],
+          [
+            12,
+            2
+          ],
+          [
+            12,
+            3
+          ],
+          [
+            12,
+            4
+          ],
+          [
+            13,
+            0
+          ],
+          [
+            13,
+            1
+          ],
+          [
+            13,
+            2
+          ],
+          [
+            13,
+            3
+          ],
+          [
+            13,
+            4
+          ],
+          [
+            14,
+            0
+          ],
+          [
+            14,
+            1
+          ],
+          [
+            14,
+            2
+          ],
+          [
+            14,
+            3
+          ],
+          [
+            15,
+            1
+          ],
+          [
+            15,
+            6
+          ],
+          [
+            16,
+            0
+          ],
+          [
+            17,
+            4
+          ],
+          [
+            30,
+            0
+          ],
+          [
+            30,
+            1
+          ],
+          [
+            30,
+            2
+          ],
+          [
+            30,
+            3
+          ],
+          [
+            30,
+            4
+          ],
+          [
+            31,
+            0
+          ],
+          [
+            31,
+            1
+          ],
+          [
+            31,
+            2
+          ],
+          [
+            31,
+            3
+          ],
+          [
+            31,
+            4
+          ],
+          [
+            31,
+            5
+          ],
+          [
+            32,
+            0
+          ],
+          [
+            32,
+            1
+          ],
+          [
+            32,
+            2
+          ],
+          [
+            33,
+            1
+          ],
+          [
+            34,
+            0
+          ],
+          [
+            34,
+            6
+          ],
+          [
+            35,
+            6
+          ],
+          [
+            49,
+            1
+          ]
+        ]
+      },
+      "mt_steel_1_wall": {
+        "tile_size": 24,
+        "tile_cells": 1693,
+        "frames_used": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            18,
+            1
+          ],
+          [
+            18,
+            2
+          ],
+          [
+            19,
+            1
+          ],
+          [
+            19,
+            2
+          ],
+          [
+            37,
+            1
+          ],
+          [
+            37,
+            2
+          ],
+          [
+            37,
+            6
+          ]
+        ]
+      },
+      "mt_steel_2_floor": {
+        "tile_size": 24,
+        "tile_cells": 1667,
+        "frames_used": [
+          [
+            12,
+            0
+          ],
+          [
+            12,
+            1
+          ],
+          [
+            12,
+            2
+          ],
+          [
+            12,
+            3
+          ],
+          [
+            12,
+            4
+          ],
+          [
+            12,
+            5
+          ],
+          [
+            12,
+            6
+          ],
+          [
+            13,
+            0
+          ],
+          [
+            13,
+            1
+          ],
+          [
+            13,
+            2
+          ],
+          [
+            13,
+            3
+          ],
+          [
+            13,
+            4
+          ],
+          [
+            13,
+            5
+          ],
+          [
+            13,
+            6
+          ],
+          [
+            14,
+            0
+          ],
+          [
+            14,
+            1
+          ],
+          [
+            14,
+            2
+          ],
+          [
+            14,
+            5
+          ],
+          [
+            15,
+            1
+          ],
+          [
+            15,
+            3
+          ],
+          [
+            15,
+            5
+          ],
+          [
+            16,
+            0
+          ],
+          [
+            16,
+            5
+          ],
+          [
+            16,
+            6
+          ],
+          [
+            17,
+            3
+          ],
+          [
+            31,
+            1
+          ],
+          [
+            49,
+            1
+          ]
+        ]
+      },
+      "mt_steel_2_secondary": {
+        "tile_size": 24,
+        "tile_cells": 1667,
+        "frames_used": [
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            6,
+            9
+          ],
+          [
+            6,
+            10
+          ],
+          [
+            6,
+            136
+          ],
+          [
+            6,
+            137
+          ],
+          [
+            6,
+            138
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            7,
+            10
+          ],
+          [
+            7,
+            136
+          ],
+          [
+            7,
+            137
+          ],
+          [
+            7,
+            138
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            8,
+            10
+          ],
+          [
+            8,
+            136
+          ],
+          [
+            8,
+            137
+          ],
+          [
+            8,
+            138
+          ],
+          [
+            10,
+            5
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            10,
+            13
+          ],
+          [
+            10,
+            14
+          ],
+          [
+            10,
+            141
+          ],
+          [
+            10,
+            142
+          ],
+          [
+            11,
+            5
+          ],
+          [
+            11,
+            6
+          ],
+          [
+            11,
+            13
+          ],
+          [
+            11,
+            14
+          ],
+          [
+            11,
+            141
+          ],
+          [
+            11,
+            142
+          ]
+        ]
+      },
+      "mt_steel_2_wall": {
+        "tile_size": 24,
+        "tile_cells": 1667,
+        "frames_used": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            18,
+            1
+          ],
+          [
+            18,
+            2
+          ],
+          [
+            18,
+            6
+          ],
+          [
+            19,
+            1
+          ],
+          [
+            19,
+            2
+          ],
+          [
+            19,
+            5
+          ],
+          [
+            19,
+            6
+          ],
+          [
+            20,
+            1
+          ],
+          [
+            37,
+            1
+          ],
+          [
+            37,
+            2
+          ],
+          [
+            37,
+            6
+          ]
+        ]
+      }
+    },
+    "missing_references": 0
+  },
+  "floors": [
+    {
+      "floor": 1,
+      "seed": "mt_steel:floor:1:render-v1",
+      "weighted_recipe": {
+        "index": 0,
+        "rate": 50000000,
+        "roll": 5254322,
+        "total_rate": 100000000
+      },
+      "dimensions": {
+        "width": 40,
+        "height": 32,
+        "tile_size": 24
+      },
+      "generation": {
+        "grid": {
+          "cell_width": 12,
+          "cell_height": 14,
+          "cells_x": 3,
+          "cells_y": 2,
+          "cell_wall": 2,
+          "padding": 1
+        },
+        "room_ratio": 100,
+        "branch_ratio": 12,
+        "extra_hallways": 0,
+        "maximum_tunnel_length": 56,
+        "minimum_stair_distance": 3,
+        "terrain_assets": {
+          "floor": "mt_steel_1_floor",
+          "wall": "mt_steel_1_wall",
+          "secondary": "mt_steel_1_secondary"
+        },
+        "secondary_terrain_generated": false
+      },
+      "terrain": {
+        "floor": 387,
+        "wall": 893,
+        "secondary": 0,
+        "coverage": 1280,
+        "autotile_neighbor_codes": {
+          "floor": [
+            "0x05",
+            "0x0A",
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x3F",
+            "0x4C",
+            "0x6E",
+            "0x6F",
+            "0x89",
+            "0x9B",
+            "0x9F",
+            "0xCD",
+            "0xCF",
+            "0xFF"
+          ],
+          "wall": [
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x4C",
+            "0x6E",
+            "0x7F",
+            "0x89",
+            "0x9B",
+            "0xBF",
+            "0xCD",
+            "0xDF",
+            "0xEF",
+            "0xFF"
+          ]
+        },
+        "black_cells": 0,
+        "transparent_cells": 0
+      },
+      "collision": {
+        "walkable": 387,
+        "reachable_from_entry": 387,
+        "connected_components": 1,
+        "all_walkable_reachable": true,
+        "authenticated_arena_contract": null,
+        "unreachable_walkable": [],
+        "connectivity_contract_passed": true
+      },
+      "entry": {
+        "x": 35,
+        "y": 19
+      },
+      "stairs": {
+        "id": "stairs_go_up",
+        "count": 1,
+        "x": 3,
+        "y": 28,
+        "reachable": true,
+        "shortest_route": 71
+      },
+      "entity_overlay_sample": {
+        "counts": {
+          "enemy": 4,
+          "item": 1,
+          "trap": 1
+        },
+        "entries": [
+          {
+            "kind": "item",
+            "id": "seed_blast",
+            "amount": 0,
+            "x": 30,
+            "y": 21
+          },
+          {
+            "kind": "trap",
+            "id": "tile_wonder",
+            "x": 20,
+            "y": 10
+          },
+          {
+            "kind": "enemy",
+            "id": "spearow",
+            "level": 4,
+            "x": 35,
+            "y": 20
+          },
+          {
+            "kind": "enemy",
+            "id": "baltoy",
+            "level": 5,
+            "x": 21,
+            "y": 8
+          },
+          {
+            "kind": "enemy",
+            "id": "aron",
+            "level": 6,
+            "x": 33,
+            "y": 27
+          },
+          {
+            "kind": "enemy",
+            "id": "zigzagoon",
+            "level": 5,
+            "x": 18,
+            "y": 12
+          }
+        ],
+        "all_on_reachable_floor": true,
+        "all_reachable_or_declared_protected": true
+      },
+      "static_invariants": {
+        "dimensions_positive": true,
+        "terrain_complete": true,
+        "no_black_terrain_tiles": true,
+        "no_transparent_terrain_tiles": true,
+        "one_entry": true,
+        "one_reachable_stair": true,
+        "walkable_connectivity_contract_passed": true,
+        "overlay_accessibility_contract_passed": true
+      }
+    },
+    {
+      "floor": 2,
+      "seed": "mt_steel:floor:2:render-v1",
+      "weighted_recipe": {
+        "index": 0,
+        "rate": 50000000,
+        "roll": 272791,
+        "total_rate": 100000000
+      },
+      "dimensions": {
+        "width": 40,
+        "height": 32,
+        "tile_size": 24
+      },
+      "generation": {
+        "grid": {
+          "cell_width": 12,
+          "cell_height": 14,
+          "cells_x": 3,
+          "cells_y": 2,
+          "cell_wall": 2,
+          "padding": 1
+        },
+        "room_ratio": 100,
+        "branch_ratio": 12,
+        "extra_hallways": 0,
+        "maximum_tunnel_length": 56,
+        "minimum_stair_distance": 3,
+        "terrain_assets": {
+          "floor": "mt_steel_1_floor",
+          "wall": "mt_steel_1_wall",
+          "secondary": "mt_steel_1_secondary"
+        },
+        "secondary_terrain_generated": false
+      },
+      "terrain": {
+        "floor": 459,
+        "wall": 821,
+        "secondary": 0,
+        "coverage": 1280,
+        "autotile_neighbor_codes": {
+          "floor": [
+            "0x05",
+            "0x0A",
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x3F",
+            "0x4C",
+            "0x6E",
+            "0x6F",
+            "0x89",
+            "0x9B",
+            "0x9F",
+            "0xCD",
+            "0xCF",
+            "0xFF"
+          ],
+          "wall": [
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x4C",
+            "0x6E",
+            "0x7F",
+            "0x89",
+            "0x9B",
+            "0xBF",
+            "0xCD",
+            "0xDF",
+            "0xEF",
+            "0xFF"
+          ]
+        },
+        "black_cells": 0,
+        "transparent_cells": 0
+      },
+      "collision": {
+        "walkable": 459,
+        "reachable_from_entry": 459,
+        "connected_components": 1,
+        "all_walkable_reachable": true,
+        "authenticated_arena_contract": null,
+        "unreachable_walkable": [],
+        "connectivity_contract_passed": true
+      },
+      "entry": {
+        "x": 10,
+        "y": 4
+      },
+      "stairs": {
+        "id": "stairs_go_up",
+        "count": 1,
+        "x": 15,
+        "y": 13,
+        "reachable": true,
+        "shortest_route": 92
+      },
+      "entity_overlay_sample": {
+        "counts": {
+          "enemy": 3,
+          "item": 1,
+          "trap": 1
+        },
+        "entries": [
+          {
+            "kind": "item",
+            "id": "money",
+            "amount": 86,
+            "x": 32,
+            "y": 9
+          },
+          {
+            "kind": "trap",
+            "id": "tile_wonder",
+            "x": 34,
+            "y": 28
+          },
+          {
+            "kind": "enemy",
+            "id": "aron",
+            "level": 6,
+            "x": 30,
+            "y": 9
+          },
+          {
+            "kind": "enemy",
+            "id": "baltoy",
+            "level": 5,
+            "x": 19,
+            "y": 9
+          },
+          {
+            "kind": "enemy",
+            "id": "zigzagoon",
+            "level": 5,
+            "x": 29,
+            "y": 6
+          }
+        ],
+        "all_on_reachable_floor": true,
+        "all_reachable_or_declared_protected": true
+      },
+      "static_invariants": {
+        "dimensions_positive": true,
+        "terrain_complete": true,
+        "no_black_terrain_tiles": true,
+        "no_transparent_terrain_tiles": true,
+        "one_entry": true,
+        "one_reachable_stair": true,
+        "walkable_connectivity_contract_passed": true,
+        "overlay_accessibility_contract_passed": true
+      }
+    },
+    {
+      "floor": 3,
+      "seed": "mt_steel:floor:3:render-v1",
+      "weighted_recipe": {
+        "index": 3,
+        "rate": 20909091,
+        "roll": 73987642,
+        "total_rate": 100000000
+      },
+      "dimensions": {
+        "width": 40,
+        "height": 28,
+        "tile_size": 24
+      },
+      "generation": {
+        "grid": {
+          "cell_width": 12,
+          "cell_height": 8,
+          "cells_x": 3,
+          "cells_y": 3,
+          "cell_wall": 2,
+          "padding": 1
+        },
+        "room_ratio": 100,
+        "branch_ratio": 12,
+        "extra_hallways": 0,
+        "maximum_tunnel_length": 56,
+        "minimum_stair_distance": 3,
+        "terrain_assets": {
+          "floor": "mt_steel_1_floor",
+          "wall": "mt_steel_1_wall",
+          "secondary": "mt_steel_1_secondary"
+        },
+        "secondary_terrain_generated": false
+      },
+      "terrain": {
+        "floor": 378,
+        "wall": 742,
+        "secondary": 0,
+        "coverage": 1120,
+        "autotile_neighbor_codes": {
+          "floor": [
+            "0x05",
+            "0x0A",
+            "0x13",
+            "0x17",
+            "0x26",
+            "0x2E",
+            "0x37",
+            "0x3F",
+            "0x4C",
+            "0x4E",
+            "0x6E",
+            "0x6F",
+            "0x89",
+            "0x9B",
+            "0x9F",
+            "0xCD",
+            "0xCF",
+            "0xEF",
+            "0xFF"
+          ],
+          "wall": [
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x4C",
+            "0x6E",
+            "0x7F",
+            "0x89",
+            "0x9B",
+            "0xBF",
+            "0xCD",
+            "0xDF",
+            "0xEF",
+            "0xFF"
+          ]
+        },
+        "black_cells": 0,
+        "transparent_cells": 0
+      },
+      "collision": {
+        "walkable": 378,
+        "reachable_from_entry": 378,
+        "connected_components": 1,
+        "all_walkable_reachable": true,
+        "authenticated_arena_contract": null,
+        "unreachable_walkable": [],
+        "connectivity_contract_passed": true
+      },
+      "entry": {
+        "x": 17,
+        "y": 11
+      },
+      "stairs": {
+        "id": "stairs_go_up",
+        "count": 1,
+        "x": 36,
+        "y": 3,
+        "reachable": true,
+        "shortest_route": 99
+      },
+      "entity_overlay_sample": {
+        "counts": {
+          "enemy": 5,
+          "item": 2,
+          "trap": 1
+        },
+        "entries": [
+          {
+            "kind": "item",
+            "id": "money",
+            "amount": 82,
+            "x": 12,
+            "y": 14
+          },
+          {
+            "kind": "item",
+            "id": "money",
+            "amount": 74,
+            "x": 27,
+            "y": 23
+          },
+          {
+            "kind": "trap",
+            "id": "tile_wonder",
+            "x": 27,
+            "y": 20
+          },
+          {
+            "kind": "enemy",
+            "id": "aron",
+            "level": 6,
+            "x": 33,
+            "y": 22
+          },
+          {
+            "kind": "enemy",
+            "id": "aron",
+            "level": 6,
+            "x": 30,
+            "y": 12
+          },
+          {
+            "kind": "enemy",
+            "id": "zigzagoon",
+            "level": 5,
+            "x": 32,
+            "y": 11
+          },
+          {
+            "kind": "enemy",
+            "id": "baltoy",
+            "level": 5,
+            "x": 21,
+            "y": 6
+          },
+          {
+            "kind": "enemy",
+            "id": "spearow",
+            "level": 4,
+            "x": 29,
+            "y": 13
+          }
+        ],
+        "all_on_reachable_floor": true,
+        "all_reachable_or_declared_protected": true
+      },
+      "static_invariants": {
+        "dimensions_positive": true,
+        "terrain_complete": true,
+        "no_black_terrain_tiles": true,
+        "no_transparent_terrain_tiles": true,
+        "one_entry": true,
+        "one_reachable_stair": true,
+        "walkable_connectivity_contract_passed": true,
+        "overlay_accessibility_contract_passed": true
+      }
+    },
+    {
+      "floor": 4,
+      "seed": "mt_steel:floor:4:render-v1",
+      "weighted_recipe": {
+        "index": 0,
+        "rate": 50000000,
+        "roll": 41327485,
+        "total_rate": 100000000
+      },
+      "dimensions": {
+        "width": 40,
+        "height": 32,
+        "tile_size": 24
+      },
+      "generation": {
+        "grid": {
+          "cell_width": 12,
+          "cell_height": 14,
+          "cells_x": 3,
+          "cells_y": 2,
+          "cell_wall": 2,
+          "padding": 1
+        },
+        "room_ratio": 100,
+        "branch_ratio": 12,
+        "extra_hallways": 0,
+        "maximum_tunnel_length": 56,
+        "minimum_stair_distance": 3,
+        "terrain_assets": {
+          "floor": "mt_steel_1_floor",
+          "wall": "mt_steel_1_wall",
+          "secondary": "mt_steel_1_secondary"
+        },
+        "secondary_terrain_generated": false
+      },
+      "terrain": {
+        "floor": 372,
+        "wall": 908,
+        "secondary": 0,
+        "coverage": 1280,
+        "autotile_neighbor_codes": {
+          "floor": [
+            "0x05",
+            "0x07",
+            "0x0A",
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x3F",
+            "0x4C",
+            "0x6E",
+            "0x6F",
+            "0x89",
+            "0x9B",
+            "0x9F",
+            "0xCD",
+            "0xCF",
+            "0xFF"
+          ],
+          "wall": [
+            "0x02",
+            "0x0A",
+            "0x13",
+            "0x1B",
+            "0x26",
+            "0x37",
+            "0x4C",
+            "0x6E",
+            "0x7F",
+            "0x89",
+            "0x9B",
+            "0xBF",
+            "0xCD",
+            "0xDF",
+            "0xEF",
+            "0xFF"
+          ]
+        },
+        "black_cells": 0,
+        "transparent_cells": 0
+      },
+      "collision": {
+        "walkable": 372,
+        "reachable_from_entry": 372,
+        "connected_components": 1,
+        "all_walkable_reachable": true,
+        "authenticated_arena_contract": null,
+        "unreachable_walkable": [],
+        "connectivity_contract_passed": true
+      },
+      "entry": {
+        "x": 11,
+        "y": 9
+      },
+      "stairs": {
+        "id": "stairs_go_up",
+        "count": 1,
+        "x": 34,
+        "y": 3,
+        "reachable": true,
+        "shortest_route": 63
+      },
+      "entity_overlay_sample": {
+        "counts": {
+          "enemy": 4,
+          "item": 2,
+          "trap": 1
+        },
+        "entries": [
+          {
+            "kind": "item",
+            "id": "ammo_gravelerock",
+            "amount": 5,
+            "x": 34,
+            "y": 27
+          },
+          {
+            "kind": "item",
+            "id": "berry_oran",
+            "amount": 0,
+            "x": 22,
+            "y": 10
+          },
+          {
+            "kind": "trap",
+            "id": "tile_wonder",
+            "x": 34,
+            "y": 10
+          },
+          {
+            "kind": "enemy",
+            "id": "spearow",
+            "level": 4,
+            "x": 16,
+            "y": 24
+          },
+          {
+            "kind": "enemy",
+            "id": "spearow",
+            "level": 4,
+            "x": 17,
+            "y": 26
+          },
+          {
+            "kind": "enemy",
+            "id": "spearow",
+            "level": 4,
+            "x": 10,
+            "y": 14
+          },
+          {
+            "kind": "enemy",
+            "id": "zigzagoon",
+            "level": 5,
+            "x": 9,
+            "y": 22
+          }
+        ],
+        "all_on_reachable_floor": true,
+        "all_reachable_or_declared_protected": true
+      },
+      "static_invariants": {
+        "dimensions_positive": true,
+        "terrain_complete": true,
+        "no_black_terrain_tiles": true,
+        "no_transparent_terrain_tiles": true,
+        "one_entry": true,
+        "one_reachable_stair": true,
+        "walkable_connectivity_contract_passed": true,
+        "overlay_accessibility_contract_passed": true
+      }
+    },
+    {
+      "floor": 5,
+      "seed": "mt_steel:floor:5:render-v1",
+      "weighted_recipe": {
+        "index": 3,
+        "rate": 12196970,
+        "roll": 56699121,
+        "total_rate": 100000000
+      },
+      "dimensions": {
+        "width": 40,
+        "height": 28,
+        "tile_size": 24
+      },
+      "generation": {
+        "grid": {
+          "cell_width": 12,
+          "cell_height": 8,
+          "cells_x": 3,
+          "cells_y": 3,
+          "cell_wall": 2,
+          "padding": 1
+        },
+        "room_ratio": 100,
+        "branch_ratio": 12,
+        "extra_hallways": 0,
+        "maximum_tunnel_length": 56,
+        "minimum_stair_distance": 3,
+        "terrain_assets": {
+          "floor": "mt_steel_1_floor",
+          "wall": "mt_steel_1_wall",
+          "secondary": "mt_steel_1_secondary"
+        },
+        "secondary_terrain_generated": false
+      },
+      "terrain": {
+        "floor": 321,
+        "wall": 799,
+        "secondary": 0,
+        "coverage": 1120,
+        "autotile_neighbor_codes": {
+          "floor": [
+            "0x05",
+            "0x0A",
+            "0x0B",
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x3F",
+            "0x4C",
+            "0x6E",
+            "0x6F",
+            "0x89",
+            "0x9B",
+            "0x9F",
+            "0xCD",
+            "0xCF",
+            "0xFF"
+          ],
+          "wall": [
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x4C",
+            "0x6E",
+            "0x7F",
+            "0x89",
+            "0x9B",
+            "0xBF",
+            "0xCD",
+            "0xDF",
+            "0xEF",
+            "0xFF"
+          ]
+        },
+        "black_cells": 0,
+        "transparent_cells": 0
+      },
+      "collision": {
+        "walkable": 321,
+        "reachable_from_entry": 321,
+        "connected_components": 1,
+        "all_walkable_reachable": true,
+        "authenticated_arena_contract": null,
+        "unreachable_walkable": [],
+        "connectivity_contract_passed": true
+      },
+      "entry": {
+        "x": 34,
+        "y": 11
+      },
+      "stairs": {
+        "id": "stairs_go_up",
+        "count": 1,
+        "x": 3,
+        "y": 8,
+        "reachable": true,
+        "shortest_route": 70
+      },
+      "entity_overlay_sample": {
+        "counts": {
+          "enemy": 4,
+          "item": 5,
+          "trap": 2
+        },
+        "entries": [
+          {
+            "kind": "item",
+            "id": "money",
+            "amount": 62,
+            "x": 6,
+            "y": 6
+          },
+          {
+            "kind": "item",
+            "id": "money",
+            "amount": 82,
+            "x": 16,
+            "y": 20
+          },
+          {
+            "kind": "item",
+            "id": "money",
+            "amount": 94,
+            "x": 15,
+            "y": 20
+          },
+          {
+            "kind": "item",
+            "id": "wand_lob",
+            "amount": 0,
+            "x": 3,
+            "y": 4
+          },
+          {
+            "kind": "item",
+            "id": "seed_blast",
+            "amount": 0,
+            "x": 17,
+            "y": 21
+          },
+          {
+            "kind": "trap",
+            "id": "tile_wonder",
+            "x": 6,
+            "y": 22
+          },
+          {
+            "kind": "trap",
+            "id": "tile_wonder",
+            "x": 3,
+            "y": 7
+          },
+          {
+            "kind": "enemy",
+            "id": "meditite",
+            "level": 6,
+            "x": 33,
+            "y": 20
+          },
+          {
+            "kind": "enemy",
+            "id": "meditite",
+            "level": 6,
+            "x": 22,
+            "y": 15
+          },
+          {
+            "kind": "enemy",
+            "id": "aron",
+            "level": 6,
+            "x": 22,
+            "y": 13
+          },
+          {
+            "kind": "enemy",
+            "id": "geodude",
+            "level": 5,
+            "x": 30,
+            "y": 12
+          }
+        ],
+        "all_on_reachable_floor": true,
+        "all_reachable_or_declared_protected": true
+      },
+      "static_invariants": {
+        "dimensions_positive": true,
+        "terrain_complete": true,
+        "no_black_terrain_tiles": true,
+        "no_transparent_terrain_tiles": true,
+        "one_entry": true,
+        "one_reachable_stair": true,
+        "walkable_connectivity_contract_passed": true,
+        "overlay_accessibility_contract_passed": true
+      }
+    },
+    {
+      "floor": 6,
+      "seed": "mt_steel:floor:6:render-v1",
+      "weighted_recipe": {
+        "index": 1,
+        "rate": 37500000,
+        "roll": 35568056,
+        "total_rate": 100000000
+      },
+      "dimensions": {
+        "width": 40,
+        "height": 32,
+        "tile_size": 24
+      },
+      "generation": {
+        "grid": {
+          "cell_width": 12,
+          "cell_height": 14,
+          "cells_x": 3,
+          "cells_y": 2,
+          "cell_wall": 2,
+          "padding": 1
+        },
+        "room_ratio": 100,
+        "branch_ratio": 12,
+        "extra_hallways": 0,
+        "maximum_tunnel_length": 56,
+        "minimum_stair_distance": 3,
+        "terrain_assets": {
+          "floor": "mt_steel_2_floor",
+          "wall": "mt_steel_2_wall",
+          "secondary": "mt_steel_2_secondary"
+        },
+        "secondary_terrain_generated": false
+      },
+      "terrain": {
+        "floor": 382,
+        "wall": 898,
+        "secondary": 0,
+        "coverage": 1280,
+        "autotile_neighbor_codes": {
+          "floor": [
+            "0x05",
+            "0x0A",
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x3F",
+            "0x4C",
+            "0x6E",
+            "0x6F",
+            "0x89",
+            "0x9B",
+            "0x9F",
+            "0xCD",
+            "0xCF",
+            "0xFF"
+          ],
+          "wall": [
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x4C",
+            "0x6E",
+            "0x7F",
+            "0x89",
+            "0x9B",
+            "0xBF",
+            "0xCD",
+            "0xDF",
+            "0xEF",
+            "0xFF"
+          ]
+        },
+        "black_cells": 0,
+        "transparent_cells": 0
+      },
+      "collision": {
+        "walkable": 382,
+        "reachable_from_entry": 382,
+        "connected_components": 1,
+        "all_walkable_reachable": true,
+        "authenticated_arena_contract": null,
+        "unreachable_walkable": [],
+        "connectivity_contract_passed": true
+      },
+      "entry": {
+        "x": 27,
+        "y": 26
+      },
+      "stairs": {
+        "id": "stairs_go_up",
+        "count": 1,
+        "x": 22,
+        "y": 23,
+        "reachable": true,
+        "shortest_route": 72
+      },
+      "entity_overlay_sample": {
+        "counts": {
+          "enemy": 6,
+          "item": 6,
+          "trap": 2
+        },
+        "entries": [
+          {
+            "kind": "item",
+            "id": "money",
+            "amount": 82,
+            "x": 31,
+            "y": 24
+          },
+          {
+            "kind": "item",
+            "id": "money",
+            "amount": 118,
+            "x": 11,
+            "y": 22
+          },
+          {
+            "kind": "item",
+            "id": "berry_cheri",
+            "amount": 0,
+            "x": 9,
+            "y": 10
+          },
+          {
+            "kind": "item",
+            "id": "berry_cheri",
+            "amount": 0,
+            "x": 22,
+            "y": 12
+          },
+          {
+            "kind": "item",
+            "id": "wand_lob",
+            "amount": 0,
+            "x": 29,
+            "y": 6
+          },
+          {
+            "kind": "item",
+            "id": "money",
+            "amount": 74,
+            "x": 8,
+            "y": 21
+          },
+          {
+            "kind": "trap",
+            "id": "tile_wonder",
+            "x": 18,
+            "y": 7
+          },
+          {
+            "kind": "trap",
+            "id": "tile_wonder",
+            "x": 11,
+            "y": 19
+          },
+          {
+            "kind": "enemy",
+            "id": "meditite",
+            "level": 6,
+            "x": 19,
+            "y": 6
+          },
+          {
+            "kind": "enemy",
+            "id": "beldum",
+            "level": 5,
+            "x": 4,
+            "y": 22
+          },
+          {
+            "kind": "enemy",
+            "id": "aron",
+            "level": 6,
+            "x": 23,
+            "y": 3
+          },
+          {
+            "kind": "enemy",
+            "id": "aron",
+            "level": 6,
+            "x": 30,
+            "y": 18
+          },
+          {
+            "kind": "enemy",
+            "id": "meditite",
+            "level": 6,
+            "x": 18,
+            "y": 10
+          },
+          {
+            "kind": "enemy",
+            "id": "tyrogue",
+            "level": 6,
+            "x": 10,
+            "y": 19
+          }
+        ],
+        "all_on_reachable_floor": true,
+        "all_reachable_or_declared_protected": true
+      },
+      "static_invariants": {
+        "dimensions_positive": true,
+        "terrain_complete": true,
+        "no_black_terrain_tiles": true,
+        "no_transparent_terrain_tiles": true,
+        "one_entry": true,
+        "one_reachable_stair": true,
+        "walkable_connectivity_contract_passed": true,
+        "overlay_accessibility_contract_passed": true
+      }
+    },
+    {
+      "floor": 7,
+      "seed": "mt_steel:floor:7:render-v1",
+      "weighted_recipe": {
+        "index": 0,
+        "rate": 12500000,
+        "roll": 7148752,
+        "total_rate": 100000000
+      },
+      "dimensions": {
+        "width": 40,
+        "height": 32,
+        "tile_size": 24
+      },
+      "generation": {
+        "grid": {
+          "cell_width": 12,
+          "cell_height": 14,
+          "cells_x": 3,
+          "cells_y": 2,
+          "cell_wall": 2,
+          "padding": 1
+        },
+        "room_ratio": 100,
+        "branch_ratio": 12,
+        "extra_hallways": 0,
+        "maximum_tunnel_length": 56,
+        "minimum_stair_distance": 3,
+        "terrain_assets": {
+          "floor": "mt_steel_2_floor",
+          "wall": "mt_steel_2_wall",
+          "secondary": "mt_steel_2_secondary"
+        },
+        "secondary_terrain_generated": false
+      },
+      "terrain": {
+        "floor": 337,
+        "wall": 943,
+        "secondary": 0,
+        "coverage": 1280,
+        "autotile_neighbor_codes": {
+          "floor": [
+            "0x05",
+            "0x0A",
+            "0x13",
+            "0x1B",
+            "0x26",
+            "0x27",
+            "0x2E",
+            "0x37",
+            "0x3F",
+            "0x4C",
+            "0x4D",
+            "0x6E",
+            "0x89",
+            "0x9B",
+            "0x9F",
+            "0xBF",
+            "0xCD",
+            "0xCF",
+            "0xEF",
+            "0xFF"
+          ],
+          "wall": [
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x4C",
+            "0x6E",
+            "0x7F",
+            "0x89",
+            "0x9B",
+            "0xBF",
+            "0xCD",
+            "0xDF",
+            "0xEF",
+            "0xFF"
+          ]
+        },
+        "black_cells": 0,
+        "transparent_cells": 0
+      },
+      "collision": {
+        "walkable": 337,
+        "reachable_from_entry": 337,
+        "connected_components": 1,
+        "all_walkable_reachable": true,
+        "authenticated_arena_contract": null,
+        "unreachable_walkable": [],
+        "connectivity_contract_passed": true
+      },
+      "entry": {
+        "x": 4,
+        "y": 27
+      },
+      "stairs": {
+        "id": "stairs_go_up",
+        "count": 1,
+        "x": 27,
+        "y": 24,
+        "reachable": true,
+        "shortest_route": 68
+      },
+      "entity_overlay_sample": {
+        "counts": {
+          "enemy": 5,
+          "item": 3,
+          "trap": 1
+        },
+        "entries": [
+          {
+            "kind": "item",
+            "id": "ammo_gravelerock",
+            "amount": 3,
+            "x": 34,
+            "y": 21
+          },
+          {
+            "kind": "item",
+            "id": "gummi_white",
+            "amount": 0,
+            "x": 22,
+            "y": 26
+          },
+          {
+            "kind": "item",
+            "id": "berry_oran",
+            "amount": 0,
+            "x": 11,
+            "y": 7
+          },
+          {
+            "kind": "trap",
+            "id": "tile_wonder",
+            "x": 27,
+            "y": 21
+          },
+          {
+            "kind": "enemy",
+            "id": "meditite",
+            "level": 6,
+            "x": 9,
+            "y": 5
+          },
+          {
+            "kind": "enemy",
+            "id": "meditite",
+            "level": 6,
+            "x": 9,
+            "y": 27
+          },
+          {
+            "kind": "enemy",
+            "id": "meditite",
+            "level": 6,
+            "x": 12,
+            "y": 22
+          },
+          {
+            "kind": "enemy",
+            "id": "pinsir",
+            "level": 6,
+            "x": 34,
+            "y": 10
+          },
+          {
+            "kind": "enemy",
+            "id": "beldum",
+            "level": 5,
+            "x": 8,
+            "y": 3
+          }
+        ],
+        "all_on_reachable_floor": true,
+        "all_reachable_or_declared_protected": true
+      },
+      "static_invariants": {
+        "dimensions_positive": true,
+        "terrain_complete": true,
+        "no_black_terrain_tiles": true,
+        "no_transparent_terrain_tiles": true,
+        "one_entry": true,
+        "one_reachable_stair": true,
+        "walkable_connectivity_contract_passed": true,
+        "overlay_accessibility_contract_passed": true
+      }
+    },
+    {
+      "floor": 8,
+      "seed": "mt_steel:floor:8:render-v1",
+      "weighted_recipe": {
+        "index": 3,
+        "rate": 12196970,
+        "roll": 54579903,
+        "total_rate": 100000000
+      },
+      "dimensions": {
+        "width": 40,
+        "height": 28,
+        "tile_size": 24
+      },
+      "generation": {
+        "grid": {
+          "cell_width": 12,
+          "cell_height": 8,
+          "cells_x": 3,
+          "cells_y": 3,
+          "cell_wall": 2,
+          "padding": 1
+        },
+        "room_ratio": 100,
+        "branch_ratio": 12,
+        "extra_hallways": 0,
+        "maximum_tunnel_length": 56,
+        "minimum_stair_distance": 3,
+        "terrain_assets": {
+          "floor": "mt_steel_2_floor",
+          "wall": "mt_steel_2_wall",
+          "secondary": "mt_steel_2_secondary"
+        },
+        "secondary_terrain_generated": false
+      },
+      "terrain": {
+        "floor": 371,
+        "wall": 749,
+        "secondary": 0,
+        "coverage": 1120,
+        "autotile_neighbor_codes": {
+          "floor": [
+            "0x05",
+            "0x0A",
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x3F",
+            "0x4C",
+            "0x6E",
+            "0x6F",
+            "0x89",
+            "0x9B",
+            "0x9F",
+            "0xCD",
+            "0xCF",
+            "0xFF"
+          ],
+          "wall": [
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x4C",
+            "0x6E",
+            "0x7F",
+            "0x89",
+            "0x9B",
+            "0xBF",
+            "0xCD",
+            "0xDF",
+            "0xEF",
+            "0xFF"
+          ]
+        },
+        "black_cells": 0,
+        "transparent_cells": 0
+      },
+      "collision": {
+        "walkable": 371,
+        "reachable_from_entry": 371,
+        "connected_components": 1,
+        "all_walkable_reachable": true,
+        "authenticated_arena_contract": null,
+        "unreachable_walkable": [],
+        "connectivity_contract_passed": true
+      },
+      "entry": {
+        "x": 28,
+        "y": 24
+      },
+      "stairs": {
+        "id": "stairs_go_up",
+        "count": 1,
+        "x": 10,
+        "y": 23,
+        "reachable": true,
+        "shortest_route": 65
+      },
+      "entity_overlay_sample": {
+        "counts": {
+          "enemy": 6,
+          "item": 6,
+          "trap": 2
+        },
+        "entries": [
+          {
+            "kind": "item",
+            "id": "money",
+            "amount": 86,
+            "x": 18,
+            "y": 21
+          },
+          {
+            "kind": "item",
+            "id": "wand_switcher",
+            "amount": 0,
+            "x": 6,
+            "y": 3
+          },
+          {
+            "kind": "item",
+            "id": "berry_oran",
+            "amount": 0,
+            "x": 19,
+            "y": 24
+          },
+          {
+            "kind": "item",
+            "id": "berry_oran",
+            "amount": 0,
+            "x": 32,
+            "y": 14
+          },
+          {
+            "kind": "item",
+            "id": "berry_cheri",
+            "amount": 0,
+            "x": 6,
+            "y": 11
+          },
+          {
+            "kind": "item",
+            "id": "ammo_gravelerock",
+            "amount": 3,
+            "x": 33,
+            "y": 4
+          },
+          {
+            "kind": "trap",
+            "id": "tile_wonder",
+            "x": 7,
+            "y": 4
+          },
+          {
+            "kind": "trap",
+            "id": "tile_wonder",
+            "x": 8,
+            "y": 8
+          },
+          {
+            "kind": "enemy",
+            "id": "aron",
+            "level": 6,
+            "x": 24,
+            "y": 13
+          },
+          {
+            "kind": "enemy",
+            "id": "meditite",
+            "level": 6,
+            "x": 16,
+            "y": 15
+          },
+          {
+            "kind": "enemy",
+            "id": "tyrogue",
+            "level": 6,
+            "x": 31,
+            "y": 22
+          },
+          {
+            "kind": "enemy",
+            "id": "aron",
+            "level": 6,
+            "x": 17,
+            "y": 16
+          },
+          {
+            "kind": "enemy",
+            "id": "meditite",
+            "level": 6,
+            "x": 31,
+            "y": 16
+          },
+          {
+            "kind": "enemy",
+            "id": "meditite",
+            "level": 6,
+            "x": 17,
+            "y": 21
+          }
+        ],
+        "all_on_reachable_floor": true,
+        "all_reachable_or_declared_protected": true
+      },
+      "static_invariants": {
+        "dimensions_positive": true,
+        "terrain_complete": true,
+        "no_black_terrain_tiles": true,
+        "no_transparent_terrain_tiles": true,
+        "one_entry": true,
+        "one_reachable_stair": true,
+        "walkable_connectivity_contract_passed": true,
+        "overlay_accessibility_contract_passed": true
+      }
+    },
+    {
+      "generator": "static_load",
+      "floor": 9,
+      "seed": "mt_steel:floor:9:static-render-v1",
+      "weighted_recipe": {
+        "index": -1,
+        "rate": 0,
+        "roll": 0,
+        "total_rate": 0
+      },
+      "dimensions": {
+        "width": 9,
+        "height": 17,
+        "tile_size": 24
+      },
+      "generation": {
+        "map_id": "mt_steel_peak",
+        "map_path": "Data/Map/mt_steel_peak.rsmap",
+        "terrain_assets": [
+          "mt_steel_2_floor",
+          "mt_steel_2_secondary",
+          "mt_steel_2_wall"
+        ],
+        "direct_tiles": [
+          [
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 55,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 205,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 55,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 205,
+              "collision": "floor"
+            }
+          ],
+          [
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 38,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 205,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 55,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 76,
+              "collision": "floor"
+            }
+          ],
+          [
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 155,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 223,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 127,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 110,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 110,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 110,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 239,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 191,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 155,
+              "collision": "unbreakable"
+            }
+          ],
+          [
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 127,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 110,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 38,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 8,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 10,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 2,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 76,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 110,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 239,
+              "collision": "unbreakable"
+            }
+          ],
+          [
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 38,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 137,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 155,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 155,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 155,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 155,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 155,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 19,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 76,
+              "collision": "unbreakable"
+            }
+          ],
+          [
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 2,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 205,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 55,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 8,
+              "collision": "floor"
+            }
+          ],
+          [
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 27,
+              "collision": "water"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 78,
+              "collision": "water"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 110,
+              "collision": "water"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 110,
+              "collision": "water"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 110,
+              "collision": "water"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 110,
+              "collision": "water"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 110,
+              "collision": "water"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 46,
+              "collision": "water"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 139,
+              "collision": "water"
+            }
+          ],
+          [
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 38,
+              "collision": "water"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 137,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 155,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 155,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 155,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 155,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 155,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 19,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 76,
+              "collision": "water"
+            }
+          ],
+          [
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 155,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 223,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 191,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 155,
+              "collision": "floor"
+            }
+          ],
+          [
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            }
+          ],
+          [
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            }
+          ],
+          [
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 110,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 110,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 239,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 127,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 110,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 110,
+              "collision": "floor"
+            }
+          ],
+          [
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 155,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 19,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 76,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 110,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 110,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 110,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_floor",
+              "neighbor_code": 38,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 137,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 155,
+              "collision": "unbreakable"
+            }
+          ],
+          [
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 191,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 19,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 137,
+              "collision": "water"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 155,
+              "collision": "water"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 19,
+              "collision": "water"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 137,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 223,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            }
+          ],
+          [
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 55,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 205,
+              "collision": "water"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 255,
+              "collision": "water"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 55,
+              "collision": "water"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 205,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            }
+          ],
+          [
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 55,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 205,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 55,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 205,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            }
+          ],
+          [
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 55,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 205,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 255,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_secondary",
+              "neighbor_code": 55,
+              "collision": "floor"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 205,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            },
+            {
+              "family": "mt_steel_2_wall",
+              "neighbor_code": 255,
+              "collision": "unbreakable"
+            }
+          ]
+        ],
+        "entry_direction": 4,
+        "required_actors": [
+          {
+            "kind": "enemy",
+            "id": "skarmory",
+            "level": 10,
+            "hp": 29,
+            "x": 4,
+            "y": 8
+          },
+          {
+            "kind": "protected",
+            "id": "diglett",
+            "level": 5,
+            "hp": 17,
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "static_map_events": [
+          {
+            "Key": {
+              "str": [
+                -15
+              ]
+            },
+            "Value": {
+              "$type": "PMDC.Dungeon.BattlePositionEvent, PMDC",
+              "StartLocs": [
+                {
+                  "Loc": {
+                    "X": 4,
+                    "Y": 9
+                  },
+                  "Dir": 4
+                },
+                {
+                  "Loc": {
+                    "X": 3,
+                    "Y": 10
+                  },
+                  "Dir": 4
+                },
+                {
+                  "Loc": {
+                    "X": 5,
+                    "Y": 10
+                  },
+                  "Dir": 4
+                }
+              ],
+              "Positions": null
+            }
+          },
+          {
+            "Key": {
+              "str": [
+                -5
+              ]
+            },
+            "Value": {
+              "$type": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
+              "Script": "LuaBeginBattleEvent",
+              "ArgTable": "{ CustomClearEvent = 'MountSteelSkarmoryClear' }"
+            }
+          },
+          {
+            "Key": {
+              "str": [
+                0
+              ]
+            },
+            "Value": {
+              "$type": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
+              "Script": "ResetTurnCounter",
+              "ArgTable": "{}"
+            }
+          }
+        ],
+        "authenticated_arena_contract": {
+          "id": "pmdred-eu-mt-steel-arena-v1",
+          "allowed_unreachable_normal": [
+            [
+              0,
+              5
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              8,
+              5
+            ]
+          ],
+          "allowed_unreachable_secondary": [
+            [
+              0,
+              0
+            ],
+            [
+              8,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              3,
+              15
+            ],
+            [
+              4,
+              15
+            ],
+            [
+              5,
+              15
+            ],
+            [
+              3,
+              16
+            ],
+            [
+              4,
+              16
+            ],
+            [
+              5,
+              16
+            ]
+          ],
+          "protected_unreachable_actor": "diglett"
+        },
+        "secondary_terrain_generated": false
+      },
+      "terrain": {
+        "floor": 53,
+        "wall": 59,
+        "secondary": 41,
+        "coverage": 153,
+        "autotile_neighbor_codes": {
+          "floor": [
+            "0x02",
+            "0x08",
+            "0x0A",
+            "0x13",
+            "0x26",
+            "0x4C",
+            "0x6E",
+            "0x7F",
+            "0x89",
+            "0x9B",
+            "0xBF",
+            "0xDF",
+            "0xEF",
+            "0xFF"
+          ],
+          "wall": [
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x4C",
+            "0x6E",
+            "0x7F",
+            "0x89",
+            "0x9B",
+            "0xBF",
+            "0xCD",
+            "0xDF",
+            "0xEF",
+            "0xFF"
+          ],
+          "secondary": [
+            "0x13",
+            "0x1B",
+            "0x26",
+            "0x2E",
+            "0x37",
+            "0x4C",
+            "0x4E",
+            "0x6E",
+            "0x89",
+            "0x8B",
+            "0x9B",
+            "0xCD",
+            "0xFF"
+          ]
+        },
+        "black_cells": 0,
+        "transparent_cells": 0
+      },
+      "collision": {
+        "walkable": 77,
+        "reachable_from_entry": 48,
+        "connected_components": 5,
+        "all_walkable_reachable": false,
+        "authenticated_arena_contract": {
+          "id": "pmdred-eu-mt-steel-arena-v1",
+          "allowed_unreachable_normal": [
+            [
+              0,
+              5
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              8,
+              5
+            ]
+          ],
+          "allowed_unreachable_secondary": [
+            [
+              0,
+              0
+            ],
+            [
+              8,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              3,
+              15
+            ],
+            [
+              4,
+              15
+            ],
+            [
+              5,
+              15
+            ],
+            [
+              3,
+              16
+            ],
+            [
+              4,
+              16
+            ],
+            [
+              5,
+              16
+            ]
+          ],
+          "protected_unreachable_actor": "diglett"
+        },
+        "unreachable_walkable": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            15
+          ],
+          [
+            3,
+            16
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            4,
+            15
+          ],
+          [
+            4,
+            16
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            15
+          ],
+          [
+            5,
+            16
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            7,
+            5
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            8,
+            5
+          ]
+        ],
+        "connectivity_contract_passed": true
+      },
+      "entry": {
+        "x": 4,
+        "y": 9
+      },
+      "stairs": {
+        "required": false,
+        "count": 0,
+        "reachable": null,
+        "policy": "static boss arena"
+      },
+      "entity_overlay_sample": {
+        "counts": {
+          "enemy": 1,
+          "protected": 1,
+          "item": 0,
+          "trap": 0
+        },
+        "entries": [
+          {
+            "kind": "enemy",
+            "id": "skarmory",
+            "level": 10,
+            "hp": 29,
+            "x": 4,
+            "y": 8
+          },
+          {
+            "kind": "protected",
+            "id": "diglett",
+            "level": 5,
+            "hp": 17,
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "all_on_reachable_floor": false,
+        "all_reachable_or_declared_protected": true
+      },
+      "static_invariants": {
+        "dimensions_positive": true,
+        "terrain_complete": true,
+        "no_black_terrain_tiles": true,
+        "no_transparent_terrain_tiles": true,
+        "one_entry": true,
+        "no_stair_required_for_static_arena": true,
+        "walkable_connectivity_contract_passed": true,
+        "overlay_accessibility_contract_passed": true
+      }
+    }
+  ],
+  "outputs": {
+    "floor_1.png": {
+      "bytes": 128451,
+      "sha256": "b8ac8313c60ef7c7e1f77e845d59086aba36fd446402849bd163207c01c1898b"
+    },
+    "floor_2.png": {
+      "bytes": 135036,
+      "sha256": "e098a2b3d41588e8b9ff24c16d40b0298f0e4c00b65457995ac12227fa678ced"
+    },
+    "floor_3.png": {
+      "bytes": 113978,
+      "sha256": "8b74a345f0207e313dfb4e8b268a875dc7e78d9ee21bf468fab2ccecc1393aa4"
+    },
+    "floor_4.png": {
+      "bytes": 128946,
+      "sha256": "1ed5057478f1516b33ded42b0da0737379dc0e9ff1b989ea751b7196dbb3394f"
+    },
+    "floor_5.png": {
+      "bytes": 116916,
+      "sha256": "a45c151756662b2f9598c3a9c3d4e5bb4b209a5a247fd0d73346694001019f77"
+    },
+    "floor_6.png": {
+      "bytes": 145474,
+      "sha256": "2b2ede8722f902902432a79bb2c9fd87fecf9a40d5841a7958914b9dd4e5fc95"
+    },
+    "floor_7.png": {
+      "bytes": 148476,
+      "sha256": "67fec8ba0f793c0faa832568d9533aa9b1467bde97288afb091d33845fda5d42"
+    },
+    "floor_8.png": {
+      "bytes": 135566,
+      "sha256": "f6372e84279172ec29e7b5bdf03498ba339b4c8f6276ab5b2ff282348350363e"
+    },
+    "floor_9.png": {
+      "bytes": 28762,
+      "sha256": "66673cb2565769619f64fcb068018e350f5b225465f8266842937cb6f1700005"
+    },
+    "overview.png": {
+      "bytes": 2419809,
+      "sha256": "2376a82be85447d69d08bff4f76344547ebf5d6b9dccc53bf7e96bf208d3a988"
+    }
+  },
+  "grouped_gate_scope": {
+    "proved_here": [
+      "inspectable PNGs exist for every converted floor",
+      "promoted official terrain sheet cells resolve and cover every rendered map cell",
+      "no rendered terrain cell is blank black or transparent",
+      "deterministic procedural topology is connected; any static exception must match an exact authenticated arena contract",
+      "one reachable stair exists per procedural floor and one entry exists per floor",
+      "collision, declared static isolation, stair route, and sampled serialized entities are directly inspectable"
+    ],
+    "deferred_not_claimed": [
+      "byte-for-byte identity with RogueElements random generation",
+      "PMDO-native dungeon entry, playback, route, audio, and unload certification"
+    ]
+  }
+}

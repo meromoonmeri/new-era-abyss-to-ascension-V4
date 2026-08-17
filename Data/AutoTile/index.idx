@@ -73,6 +73,60 @@
 "Released": true,
 "Comment": "",
 "SortOrder": 0
+},
+"mt_steel_1_floor": {
+"Name": {
+"DefaultText": "Mt Steel 1 Floor",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"mt_steel_1_wall": {
+"Name": {
+"DefaultText": "Mt Steel 1 Wall",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"mt_steel_1_secondary": {
+"Name": {
+"DefaultText": "Mt Steel 1 Secondary",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"mt_steel_2_floor": {
+"Name": {
+"DefaultText": "Mt Steel 2 Floor",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"mt_steel_2_wall": {
+"Name": {
+"DefaultText": "Mt Steel 2 Wall",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"mt_steel_2_secondary": {
+"Name": {
+"DefaultText": "Mt Steel 2 Secondary",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
 }
 }
 }

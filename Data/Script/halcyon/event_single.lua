@@ -1797,6 +1797,57 @@ end
 
 
 
+-- Mt Acier 9F: Airmure seul commande la victoire.  Taupiqueur est sérialisé
+-- dans AllyTeams et ne doit jamais être pris pour un ennemi ; cet événement
+-- reste volontairement plus strict que le clear générique en identifiant le
+-- gardien canonique plutôt qu'en supposant que toute MapTeam est un objectif.
+function SINGLE_CHAR_SCRIPT.MountSteelSkarmoryClear(owner, ownerChar, context, args)
+
+	for i = 0, _ZONE.CurrentMap.MapTeams.Count - 1, 1 do
+		local team = _ZONE.CurrentMap.MapTeams[i].Players
+		for j = 0, team.Count - 1, 1 do
+			local actor = team[j]
+			if actor.BaseForm.Species == 'skarmory' and not actor.Dead then return end
+		end
+	end
+
+	local checks = owner.StatusStates:GetWithDefault(luanet.ctype(MapCheckState))
+	for i = 0, checks.CheckEvents.Count - 1, 1 do
+		if LUA_ENGINE:TypeOf(checks.CheckEvents[i]) == luanet.ctype(SingleCharScriptEvent) then
+			if checks.CheckEvents[i].Script == args.CustomClearEvent then
+				checks.CheckEvents:Remove(checks.CheckEvents[i])
+				break
+			end
+		end
+	end
+
+	local function end_sequence()
+		GAME:WaitFrames(40)
+		_GAME:BGM('', true)
+		TASK:WaitTask(_GAME:FadeOut(false))
+		_DUNGEON:ResetTurns()
+
+		local statuses_to_remove = {}
+		for i = 0, _ZONE.CurrentMap.Status.Keys.Count - 1, 1 do
+			statuses_to_remove[i] = _ZONE.CurrentMap.Status.Keys[i]
+		end
+		for i = 0, #statuses_to_remove - 1, 1 do
+			TASK:WaitTask(_DUNGEON:RemoveMapStatus(statuses_to_remove[i], false))
+		end
+		for i = 0, GAME:GetPlayerPartyCount() - 1, 1 do
+			_DATA.Save.ActiveTeam.Players[i]:FullRestore()
+		end
+		TASK:WaitTask(_GAME:EndSegment(RogueEssence.Data.GameProgress.ResultType.Cleared))
+	end
+
+	if _DATA.CurrentReplay == nil then
+		TASK:WaitTask(end_sequence())
+	else
+		TASK:WaitTask(_GAME:EndSegment(RogueEssence.Data.GameProgress.ResultType.Cleared))
+	end
+end
+
+
 --For Searing Tunnel's boss: Remove any existing lava, if it exists, before fading out.
 function SINGLE_CHAR_SCRIPT.LavaBossClear(owner, ownerChar, context, args)
 

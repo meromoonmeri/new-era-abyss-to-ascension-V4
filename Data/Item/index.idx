@@ -6294,6 +6294,144 @@
       "Released": true, 
       "Comment": "Ruines Tordues — pierre de Zarbi R (portage Aegis Cave)", 
       "SortOrder": 0
+    },
+    "medicine_max_elixir": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+      "Icon": 7,
+      "UsageType": 1,
+      "States": [],
+      "MaxStack": 0,
+      "CannotDrop": false,
+      "BagEffect": false,
+      "Name": {
+        "DefaultText": "Max Elixir",
+        "LocalTexts": {
+          "fr": "Max Élixir",
+          "de": "Top-Elixier",
+          "es": "Elixir Máximo",
+          "it": "Elisir Max",
+          "ko": "PP맥스",
+          "ja": "ピーピーマックス",
+          "ja-jp": "ピーピーマックス",
+          "zh-hans": "PP多项全补剂",
+          "zh-hant": "PP多項全補劑"
+        }
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 10
+    },
+    "wand_switcher": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+      "Icon": 8,
+      "UsageType": 1,
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+          "type": "PMDC.Dungeon.WandState"
+        }
+      ],
+      "MaxStack": 9,
+      "CannotDrop": false,
+      "BagEffect": false,
+      "Name": {
+        "DefaultText": "Switcher Wand",
+        "LocalTexts": {
+          "fr": "Branche Permute",
+          "de": "Wechselzweig",
+          "it": "Ramo Cambiaposto",
+          "ko": "뒤바꿈지팡이",
+          "ja": "いれかえのえだ",
+          "ja-jp": "いれかえのえだ",
+          "zh-hans": "换位之杖"
+        }
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 3
+    },
+    "wand_whirlwind": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+      "Icon": 8,
+      "UsageType": 1,
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+          "type": "PMDC.Dungeon.WandState"
+        }
+      ],
+      "MaxStack": 9,
+      "CannotDrop": false,
+      "BagEffect": false,
+      "Name": {
+        "DefaultText": "Whirlwind Wand",
+        "LocalTexts": {
+          "fr": "Branche Cyclone",
+          "de": "Wirbelzweig",
+          "it": "Ramo Turbine",
+          "ko": "돌풍지팡이",
+          "zh-hans": "吹飞之杖"
+        }
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 3
+    },
+    "wand_warp": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+      "Icon": 8,
+      "UsageType": 1,
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+          "type": "PMDC.Dungeon.WandState"
+        }
+      ],
+      "MaxStack": 9,
+      "CannotDrop": false,
+      "BagEffect": false,
+      "Name": {
+        "DefaultText": "Warp Wand",
+        "LocalTexts": {
+          "fr": "Branche Téléport",
+          "de": "Warpzweig",
+          "it": "Teleramo",
+          "ko": "워프지팡이",
+          "ja": "ワープのえだ",
+          "ja-jp": "ワープのえだ",
+          "zh-hans": "传送之杖"
+        }
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 3
+    },
+    "wand_lob": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+      "Icon": 8,
+      "UsageType": 1,
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+          "type": "PMDC.Dungeon.WandState"
+        }
+      ],
+      "MaxStack": 9,
+      "CannotDrop": false,
+      "BagEffect": false,
+      "Name": {
+        "DefaultText": "Lob Wand",
+        "LocalTexts": {
+          "fr": "Branche Dégâts",
+          "de": "Wurfzweig",
+          "it": "Lanciaramo",
+          "ko": "발사지팡이",
+          "zh-hans": "先制之杖"
+        }
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 3
     }
   }
 }

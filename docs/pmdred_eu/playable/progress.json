@@ -1,6 +1,6 @@
 {
   "schema": "new-era.pmdred-eu-playable-reconstruction-progress.v1",
-  "generated_at": "2026-08-16T19:40:00+02:00",
+  "generated_at": "2026-08-17",
   "repository": {
     "branch": "arena/019ff05e-new-era-abyss-to-ascension-v4",
     "parent_checkpoint": "d3b76db8b593223b3428ab189d5cd9350168c7f6"
@@ -333,8 +333,8 @@
     "restore": "bash tools/restore_pmdred_eu_validation_runtime.sh",
     "verify_ground_checkpoint": "python3 tools/update_pmdred_eu_validation_progress.py --check",
     "reproduce_latest_milestone": "bash docs/pmdred_eu/playable/tiny_woods/command_semantic_native_v5/commands.sh",
-    "next_phase": "tiny_woods_production_actor_context_binding_live_route_integration_and_native_certification",
-    "rule": "Preserve 219/219 Ground proof and every historical Tiny Woods archive. Treat supplement v3 and native v5 as immutable. Bind only the certified 304-row contracts to canonical live-route actors/cameras; retain exact waits and serialize PMDO promotion. Do not claim non-wait production choreography from the harness certificate.",
+    "next_phase": "early_dungeon_bulk_after_mt_steel_begin_sinister_woods",
+    "rule": "Preserve all 219/219 Ground proof, Tiny Woods archives, Thunderwave Cave evidence, and Mount Steel evidence. Continue bulk conversion with Sinister Woods; serialize promotion/integration and PNG proof, and defer exact-PMDO native route/gameplay/audio/unload certification to the grouped final pass.",
     "reproduce_post_route_audit": "python3 tools/audit_pmdred_eu_tiny_woods_post_route.py .runtime-cache/downloads/pmdred-eu.gba --pret-root .runtime-cache/pmd-red-reference --report /tmp/eu_post_route_graph.json",
     "reproduce_command_complete": "bash docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/commands.sh",
     "reproduce_palette_semantics": "bash docs/pmdred_eu/playable/tiny_woods/palette_semantics_runtime_v1/commands.sh",
@@ -351,5 +351,58 @@
     "The semantic-v3 harness executes all 108 waits for exactly 3,001 source frames and validates strict adjacent traces for all 304 rows; non-wait rows remain metadata/API contracts until canonical production actor and camera contexts are bound.",
     "The selected semantic harness route is d01p01 and is not itself a complete opening-to-title live quest traversal.",
     "The 15 actor.control_unknown planning rows remain disjoint from the 304-row supplement and unchanged in command_plan.json."
-  ]
+  ],
+  "early_dungeon_bulk": {
+    "phase": "early_dungeon_bulk_after_mt_steel",
+    "status": "IN_PROGRESS",
+    "completed_static_integration": [
+      "thunderwave_cave",
+      "mt_steel"
+    ],
+    "mt_steel": {
+      "status": "PASS_STATIC_INTEGRATION",
+      "french_name": "Mt Acier",
+      "dungeon_id": 2,
+      "floors": 9,
+      "procedural_floors": [
+        1,
+        8
+      ],
+      "static_floor": {
+        "floor": 9,
+        "map_id": "mt_steel_peak",
+        "dimensions": [
+          9,
+          17
+        ],
+        "contract_id": "pmdred-eu-mt-steel-arena-v1",
+        "unreachable_normal": 5,
+        "unreachable_secondary": 24,
+        "required_enemy": "skarmory",
+        "protected_actor": "diglett"
+      },
+      "zone_sha256": "a90b8c29456ac91ea6db8f20c604331a6e8770c56917dcb63d5b71e91d67e942",
+      "arena_sha256": "274d66e30877ce4b59961098f7ac7779e51eb81c63dd92c72dc1f8d76c6b584a",
+      "music_sha256": "ba005f5f6bdcd2ef675a77056818a21e10fa35f1d161ef6a7e1cd562b0325001",
+      "music_song_index": 121,
+      "renders": "docs/pmdred_eu/playable/mt_steel/renders_integrated",
+      "render_pngs": 10,
+      "render_audit_sha256": "6d49c099f0983a52e578bb2a8584d315d1ef94523624d0f0e1fdc6c4ca9cf9ce",
+      "grouped_validation": "docs/pmdred_eu/playable/mt_steel/grouped_validation.json",
+      "grouped_validation_sha256": "bbfef7aa2d3fe031dda3a11617ac4fa40d8c5c26cf2b618a6d963eee95b32b15",
+      "grouped_gate_count": 38,
+      "native_status": "DEFERRED_NOT_EXECUTED",
+      "native_reason": "grouped final PMDO route/gameplay/audio/unload certification follows further bulk early-dungeon conversion"
+    },
+    "next_dungeon": {
+      "id": 3,
+      "zone_id": "sinister_woods",
+      "french_name": "Bois Sinistre"
+    },
+    "recovery": {
+      "build_check": "PYTHONPATH=tools .runtime-cache/test-venv/bin/python tools/build_pmdred_mt_steel.py --check",
+      "render_check": ".runtime-cache/test-venv/bin/python tools/render_pmdred_early_dungeon.py --zone Data/Zone/mt_steel.json --zone-id mt_steel --title 'Mt Acier / Mount Steel' --output-dir docs/pmdred_eu/playable/mt_steel/renders_integrated --check",
+      "grouped_check": ".runtime-cache/test-venv/bin/python tools/validate_pmdred_early_dungeon.py --config docs/pmdred_eu/playable/mt_steel/validation_config.json --check"
+    }
+  }
 }

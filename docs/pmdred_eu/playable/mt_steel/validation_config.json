@@ -1,0 +1,641 @@
+{
+  "schema": "pmdred-eu-early-dungeon-validation-config-v1",
+  "zone_id": "mt_steel",
+  "title": "Mt Acier / Mount Steel",
+  "rom": {
+    "path": ".runtime-cache/downloads/pmdred-eu.gba",
+    "sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd"
+  },
+  "pmdo": {
+    "path": ".runtime-cache/pmdo-headless-bundle/PMDO",
+    "sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327"
+  },
+  "zone": {
+    "path": "Data/Zone/mt_steel.json",
+    "index": "Data/Zone/index.idx",
+    "floors": 9,
+    "ground_maps": [
+      "d03p01",
+      "d03p02"
+    ],
+    "generator_contracts": [
+      {
+        "floors": [
+          1,
+          8
+        ],
+        "generator": "chance",
+        "stairs": 1
+      },
+      {
+        "floors": [
+          9
+        ],
+        "generator": "static_load",
+        "map_id": "mt_steel_peak",
+        "stairs": 0
+      }
+    ]
+  },
+  "assets": [
+    {
+      "path": "Data/AutoTile/mt_steel_1_floor.json",
+      "sha256": "4188be01470265c214cace6ec46a4749a19e0feec54b0edd208f0a904d3e9c68"
+    },
+    {
+      "path": "Data/AutoTile/mt_steel_1_wall.json",
+      "sha256": "f74b5902ae15372b45efe329d7c56cee2bdeab322fb5a74b18e04304a44bd00a"
+    },
+    {
+      "path": "Data/AutoTile/mt_steel_1_secondary.json",
+      "sha256": "945702775a6fd7944c40cb6c1b8ab0f087ff6911c34136de5d97ede40a7f72d2"
+    },
+    {
+      "path": "Data/AutoTile/mt_steel_2_floor.json",
+      "sha256": "d5e65ef7025b1e672f128e19458997049c0e6cf68231a8c1fe61e0280f1a87af"
+    },
+    {
+      "path": "Data/AutoTile/mt_steel_2_wall.json",
+      "sha256": "84652406eedb539caccba81b48c58bd0c6d9818755b15a7bdbd9a092196b7ed0"
+    },
+    {
+      "path": "Data/AutoTile/mt_steel_2_secondary.json",
+      "sha256": "a8561a049e405e4f07a0539ff68b352c1f407584090559369c71b1038aac7444"
+    },
+    {
+      "path": "Content/Tile/MtSteel1.tile",
+      "sha256": "d14096e06b0f7aad6b82f77a92a83149d07ee3bd2c87659f9b199459c2546949"
+    },
+    {
+      "path": "Content/Tile/MtSteel2.tile",
+      "sha256": "e618d7fbd527a5a4fc2a08c573984b6ac6254a257ae0a3679a389031fb96db22"
+    },
+    {
+      "path": "Data/Status/all_protect.json",
+      "sha256": "6080fe3086a13312268c33495432b369e71acf710cb969c2ab15426d4a8c6e9c"
+    },
+    {
+      "path": "Data/AI/wait_only.json",
+      "sha256": "cdbea6ccd712b04a7cd9037e22fc85b51e9493003a6f9b4cd65717b7cb8e979f"
+    },
+    {
+      "path": "Data/Item/medicine_max_elixir.json",
+      "sha256": "3a2634303cb259066277e2d9fcc893e8ba066a705a310bb23404b4a282bfee01"
+    },
+    {
+      "path": "Data/Item/wand_switcher.json",
+      "sha256": "a0025809a04570d1dcfe5dea1183c36efdaf42c942262ac69b11094f1a62d70d"
+    },
+    {
+      "path": "Data/Item/wand_whirlwind.json",
+      "sha256": "51c668cb568c4988b31b62fa50243e5c2ead4ce62b8494a573f26c1a34c23096"
+    },
+    {
+      "path": "Data/Item/wand_warp.json",
+      "sha256": "2d1f22964525abcd5eb5b4a1b9488ccd7b05ad7043549a37d38ee8eeaaf0347b"
+    },
+    {
+      "path": "Data/Item/wand_lob.json",
+      "sha256": "ac8711756222ab2a230068177be6a03a29bcf5c565945b04bb1344f91bbcf038"
+    },
+    {
+      "path": "Content/Item/Medicine_Purple.dir",
+      "sha256": "c9ee1df8d037e393022b7de87603e3acb5d165cea29eab4fc9898ab38786297c"
+    },
+    {
+      "path": "Content/Item/Wand_Red.dir",
+      "sha256": "ac020d1a393d5196d423d5b57451de6c4d8d478fe2bfde24b54494cb345f1bbd"
+    },
+    {
+      "path": "Content/Item/Wand_White.dir",
+      "sha256": "3ba92b519ea23c8dd8774ce8a3d9e63e26a430e4e905687d74c8515b27857fa5"
+    },
+    {
+      "path": "Content/Item/Wand_Pink.dir",
+      "sha256": "2a60215cbeff0c6d57cc0fda844f6a5d5cca4a5947bb89ce335a4e2f9898cb61"
+    },
+    {
+      "path": "Content/Tile/d03p02_DirectBase.tile",
+      "sha256": "227db617181651c0b2a7a22a4f193babb0a418e7de38d33ad414482432ab566e"
+    },
+    {
+      "path": "Data/Script/halcyon/ground/d03p02/animation_callbacks.lua",
+      "sha256": "d74e0ef0ed649bc0ea1822bdc8df19847fe81e29f5c504527e2d1e69d2ceaab4"
+    },
+    {
+      "path": "Data/Script/halcyon/ground/d03p02/animation_metadata.lua",
+      "sha256": "767491a55e2cc2d19abd01630c7a3fb597f50e7eb8fc31ceb3449ef506cc0475"
+    }
+  ],
+  "static_maps": [
+    {
+      "path": "Data/Map/mt_steel_peak.rsmap",
+      "sha256": "274d66e30877ce4b59961098f7ac7779e51eb81c63dd92c72dc1f8d76c6b584a",
+      "map_id": "mt_steel_peak",
+      "dimensions": [
+        9,
+        17
+      ],
+      "music": "Mt. Steel.ogg",
+      "entry": [
+        4,
+        9,
+        4
+      ],
+      "stairs": 0,
+      "audit": {
+        "contract_id": "pmdred-eu-mt-steel-arena-v1",
+        "unreachable_normal": [
+          [
+            0,
+            5
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            8,
+            5
+          ]
+        ],
+        "unreachable_secondary": [
+          [
+            0,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            7,
+            5
+          ],
+          [
+            3,
+            15
+          ],
+          [
+            4,
+            15
+          ],
+          [
+            5,
+            15
+          ],
+          [
+            3,
+            16
+          ],
+          [
+            4,
+            16
+          ],
+          [
+            5,
+            16
+          ]
+        ]
+      },
+      "actors": [
+        {
+          "species": "skarmory",
+          "faction": "MapTeams",
+          "loc": [
+            4,
+            8
+          ],
+          "level": 10,
+          "hp": 29,
+          "tactic": "wander_dumb_two_range"
+        },
+        {
+          "species": "diglett",
+          "faction": "AllyTeams",
+          "loc": [
+            4,
+            3
+          ],
+          "level": 5,
+          "hp": 17,
+          "tactic": "wait_only",
+          "status": "all_protect",
+          "status_counter": -1
+        }
+      ],
+      "startup_events": [
+        {
+          "priority": [
+            -15
+          ],
+          "type": "PMDC.Dungeon.BattlePositionEvent, PMDC",
+          "script": null,
+          "args": null
+        },
+        {
+          "priority": [
+            -5
+          ],
+          "type": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
+          "script": "LuaBeginBattleEvent",
+          "args": "{ CustomClearEvent = 'MountSteelSkarmoryClear' }"
+        },
+        {
+          "priority": [
+            0
+          ],
+          "type": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
+          "script": "ResetTurnCounter",
+          "args": "{}"
+        }
+      ]
+    }
+  ],
+  "ending_ground": {
+    "path": "Data/Ground/d03p02.rsground",
+    "sha256": "afa76be6c9377c5647c7dfca4098bd2b1a16d50cf169fb7df63c7f72bedbe371",
+    "asset_name": "d03p02",
+    "obstacle_cells_x": 57,
+    "obstacle_cells_y": 69,
+    "cell_size": 8,
+    "entity_counts": {
+      "MapChars": 0,
+      "GroundObjects": 0,
+      "Spawners": 0,
+      "Markers": 0
+    },
+    "scripted_landing": {
+      "x": 216,
+      "y": 256,
+      "width": 24,
+      "height": 24
+    }
+  },
+  "music": {
+    "path": "Content/Music/Mt. Steel.ogg",
+    "sha256": "ba005f5f6bdcd2ef675a77056818a21e10fa35f1d161ef6a7e1cd562b0325001",
+    "report": "docs/pmdred_eu/playable/mt_steel/music.json",
+    "song_index": 121
+  },
+  "scripts": [
+    {
+      "path": "Data/Script/halcyon/RedEarlyDungeonRoute.lua",
+      "required": [
+        "COMMON.ExitDungeonMissionCheck",
+        "RogueEssence.Data.GameProgress.ResultType.Cleared",
+        "GeneralFunctions.EndDungeonRun(",
+        "zone.ID,",
+        "config.ending_map",
+        "config.ending_entry or 0"
+      ],
+      "forbidden": [
+        "GAME:EnterGroundMap(config.ending_ground"
+      ]
+    },
+    {
+      "path": "Data/Script/halcyon/zone/mt_steel/init.lua",
+      "required": [
+        "pending = 'mt_steel_exit'",
+        "ending_ground = 'd03p02'",
+        "ending_map = 1",
+        "ending_entry = 0",
+        "failure_zone = 'master_zone'"
+      ],
+      "forbidden": [
+        "marker = 'Main_Entrance_Marker'"
+      ]
+    },
+    {
+      "path": "Data/Script/halcyon/ground/d03p02/init.lua",
+      "required": [
+        "SV.CanonicalDungeons.Pending == 'mt_steel_exit'",
+        "GROUND:TeleportTo(hero, 216, 256, Direction.Up)",
+        "SV.CanonicalDungeons.D03Cleared = true",
+        "GAME:EnterZone('master_zone', -1, 1, 0)",
+        "Animation.Init(map)",
+        "Animation.Update(map)",
+        "Animation.Exit(map)"
+      ],
+      "forbidden": [
+        "COMMON.RespawnAllies(true)",
+        "MRKR('Main_Entrance_Marker')"
+      ]
+    },
+    {
+      "path": "Data/Script/halcyon/event_single.lua",
+      "required": [
+        "function SINGLE_CHAR_SCRIPT.MountSteelSkarmoryClear",
+        "actor.BaseForm.Species == 'skarmory' and not actor.Dead",
+        "args.CustomClearEvent",
+        "RogueEssence.Data.GameProgress.ResultType.Cleared"
+      ],
+      "forbidden": []
+    }
+  ],
+  "dialogue": {
+    "paths": [
+      "Data/Script/halcyon/ground/d03p02/strings.resx",
+      "Data/Script/halcyon/ground/d03p02/strings.fr.resx"
+    ],
+    "keys": [
+      "D03_CLEAR_001",
+      "D03_CLEAR_002"
+    ],
+    "required_text": [
+      "Airmure",
+      "Taupiqueur",
+      "Mt Acier"
+    ]
+  },
+  "renders": {
+    "output_dir": "docs/pmdred_eu/playable/mt_steel/renders_integrated",
+    "audit": "render_audit.json"
+  },
+  "manifest": {
+    "path": "docs/pmdred_eu/playable/mt_steel/manifest.json",
+    "route": [
+      "d03p01",
+      "mt_steel/0/0",
+      "mt_steel/-1/1/0",
+      "master_zone/-1/1/0"
+    ]
+  },
+  "evidence": "docs/pmdred_eu/playable/mt_steel/grouped_validation.json",
+  "floor_monsters": [
+    [
+      "spearow",
+      "zigzagoon",
+      "aron",
+      "baltoy"
+    ],
+    [
+      "spearow",
+      "zigzagoon",
+      "aron",
+      "baltoy"
+    ],
+    [
+      "spearow",
+      "zigzagoon",
+      "aron",
+      "baltoy"
+    ],
+    [
+      "spearow",
+      "zigzagoon",
+      "aron",
+      "baltoy"
+    ],
+    [
+      "geodude",
+      "tyrogue",
+      "zigzagoon",
+      "aron",
+      "meditite"
+    ],
+    [
+      "geodude",
+      "tyrogue",
+      "aron",
+      "meditite",
+      "beldum"
+    ],
+    [
+      "geodude",
+      "pinsir",
+      "tyrogue",
+      "aron",
+      "meditite",
+      "beldum"
+    ],
+    [
+      "geodude",
+      "pinsir",
+      "tyrogue",
+      "aron",
+      "meditite",
+      "beldum"
+    ],
+    []
+  ],
+  "load_floors": {
+    "9": {
+      "map_id": "mt_steel_peak",
+      "contract_id": "pmdred-eu-mt-steel-arena-v1",
+      "allowed_unreachable_normal": [
+        [
+          0,
+          5
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          8,
+          5
+        ]
+      ],
+      "allowed_unreachable_secondary": [
+        [
+          0,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          3,
+          15
+        ],
+        [
+          4,
+          15
+        ],
+        [
+          5,
+          15
+        ],
+        [
+          3,
+          16
+        ],
+        [
+          4,
+          16
+        ],
+        [
+          5,
+          16
+        ]
+      ],
+      "required_static_actors": [
+        {
+          "species": "skarmory",
+          "faction": "MapTeams",
+          "loc": [
+            4,
+            8
+          ],
+          "level": 10,
+          "hp": 29
+        },
+        {
+          "species": "diglett",
+          "faction": "AllyTeams",
+          "loc": [
+            4,
+            3
+          ],
+          "level": 5,
+          "hp": 17,
+          "required_tactic": "wait_only",
+          "required_status": "all_protect",
+          "status_counter": -1
+        }
+      ]
+    }
+  }
+}

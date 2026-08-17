@@ -7,6 +7,19 @@ Checkpoint du `2026-08-17`, branche
 
 - Grounds archive-backed : **219/219 PASS**, historique inchangé dans
   [`../pmdo_validation/progress.json`](../pmdo_validation/progress.json).
+- **Mt Acier / Mount Steel (D03), 1–9F : PASS statique/intégration (38 gates).**
+  Les étages procéduraux 1–8F et l’arène fixe authentifiée 9F sont promus avec
+  les tables EU, les assets officiels, la musique 121, Airmure, Taupiqueur
+  protégé, les scripts de victoire/sortie, le Ground final `d03p02` et les deux
+  ressources françaises identiques. Les dix PNG inspectables sont dans
+  [`mt_steel/renders_integrated`](mt_steel/renders_integrated), et la preuve
+  groupée create-only est
+  [`mt_steel/grouped_validation.json`](mt_steel/grouped_validation.json),
+  SHA-256 `bbfef7aa2d3fe031dda3a11617ac4fa40d8c5c26cf2b618a6d963eee95b32b15`.
+  La salle 9F conserve exactement cinq cases normales et 24 cases secondaires
+  isolées par le relief officiel ; aucune connectivité générale n’a été
+  affaiblie. Le parcours PMDO natif, l’audio live et l’unload restent
+  explicitement **DEFERRED_NOT_EXECUTED** pour la certification finale groupée.
 - **Grotte Éclair / Thunderwave Cave (D02), 1–5F : PASS statique/intégration.**
   Les cinq étages PMDO 0.8.12, tables EU, spawns, objets, pièges, musique 14,
   AutoTiles, Ground final `d02p02`, dialogues français et index sont promus.
@@ -247,20 +260,33 @@ les fixtures consommées v1–v18.
 
 ## Étape suivante
 
-Phase `early_dungeon_bulk_conversion_after_thunderwave` :
+Phase `early_dungeon_bulk_after_mt_steel` :
 
-1. conserver intactes toutes les preuves Petit Bois et Grotte Éclair ; ne pas
-   répéter leur extraction ni leurs validations déjà passées ;
-2. appliquer en lot l'extraction/inventaire/mapping aux donjons précoces
-   suivants, en commençant par **Mt. Steel / Mont Acier**, puis préparer en
-   parallèle uniquement les tables, assets, Grounds, musiques et configurations
-   indépendantes ;
+1. conserver intactes toutes les preuves Petit Bois, Grotte Éclair et Mt Acier ;
+   ne pas répéter leurs extractions ni leurs validations déjà passées ;
+2. appliquer maintenant en lot l'extraction/inventaire/mapping à
+   **Bois Sinistre / Sinister Woods**, puis aux donjons précoces suivants, en
+   préparant en parallèle uniquement les tables, assets, Grounds, musiques et
+   configurations indépendantes ;
 3. sérialiser les promotions Zone/index/scripts une par une, avec PNG
    inspectables pour chaque donjon converti et le validateur groupé commun ;
 4. repousser les parcours PMDO natifs route/donjon, audio et unload à la passe
    finale groupée du lot, sans jamais convertir un FAIL en PASS ;
 5. commit/push chaque nouveau jalon promu et vérifier que le hash distant exact
    correspond au commit local.
+
+Reprise du jalon Mt Acier, sans écriture :
+
+```bash
+PYTHONPATH=tools .runtime-cache/test-venv/bin/python \
+  tools/build_pmdred_mt_steel.py --check
+.runtime-cache/test-venv/bin/python tools/render_pmdred_early_dungeon.py \
+  --zone Data/Zone/mt_steel.json --zone-id mt_steel \
+  --title 'Mt Acier / Mount Steel' \
+  --output-dir docs/pmdred_eu/playable/mt_steel/renders_integrated --check
+.runtime-cache/test-venv/bin/python tools/validate_pmdred_early_dungeon.py \
+  --config docs/pmdred_eu/playable/mt_steel/validation_config.json --check
+```
 
 Reprise du jalon Grotte Éclair, sans écriture :
 

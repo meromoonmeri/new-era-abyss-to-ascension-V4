@@ -133,16 +133,23 @@ def init_grid_step(row_count: int, valid_columns: int) -> dict[str, Any]:
     }
 
 
-def grid_path_step(row_count: int, valid_columns: int, normal_rooms: int) -> dict[str, Any]:
+def grid_path_step(
+    row_count: int,
+    valid_columns: int,
+    normal_rooms: int,
+    connectivity_ratio: int = 15,
+) -> dict[str, Any]:
     cell_count = valid_columns * row_count
     if not 2 <= normal_rooms <= cell_count:
         raise ValueError(f"invalid room count {normal_rooms} for {valid_columns}x{row_count} grid")
+    if not 0 <= connectivity_ratio <= 100:
+        raise ValueError(f"invalid connectivity ratio: {connectivity_ratio}")
     room_bag = [room_square(row_count) for _ in range(normal_rooms)]
     room_bag.extend(hall_anchor() for _ in range(cell_count - normal_rooms))
     return {
         "$type": generic_type("RogueElements.GridPathBranch", MAP_CTX, assembly="RogueElements"),
         "RoomRatio": int_range(100, 100),
-        "BranchRatio": int_range(15, 15),
+        "BranchRatio": int_range(connectivity_ratio, connectivity_ratio),
         "NoForcedBranches": False,
         "GenericRooms": rand_bag(ROOM_GEN, room_bag),
         "RoomComponents": [connectivity()],
@@ -321,11 +328,12 @@ def build_grid_floor(
     item_count_weights: Sequence[tuple[int, int]],
     trap_count_weights: Sequence[tuple[int, int]],
     extra_hallways: int = 5,
+    connectivity_ratio: int = 15,
 ) -> dict[str, Any]:
     steps = [
         step((-6,), map_data_step(music)),
         step((-5,), init_grid_step(row_count, valid_columns)),
-        step((-4,), grid_path_step(row_count, valid_columns, normal_rooms)),
+        step((-4,), grid_path_step(row_count, valid_columns, normal_rooms, connectivity_ratio)),
         step((-3,), {"$type": generic_type("RogueElements.DrawGridToFloorStep", MAP_CTX, assembly="RogueElements")}),
         step((-1,), {
             "$type": generic_type("RogueElements.DrawFloorToTileStep", MAP_CTX, assembly="RogueElements"),
@@ -396,6 +404,7 @@ def build_chance_floor(
     item_count_weights: Sequence[tuple[int, int]],
     trap_count_weights: Sequence[tuple[int, int]],
     extra_hallways: int = 5,
+    connectivity_ratio: int = 15,
 ) -> dict[str, Any]:
     spawns = []
     for (row_count, room_count), rate in geometry:
@@ -411,6 +420,7 @@ def build_chance_floor(
             item_count_weights=item_count_weights,
             trap_count_weights=trap_count_weights,
             extra_hallways=extra_hallways,
+            connectivity_ratio=connectivity_ratio,
         )
         spawns.append({"Spawn": floor, "Rate": rate})
     return {"$type": "RogueEssence.LevelGen.ChanceFloorGen, RogueEssence", "Spawns": spawns}
@@ -526,12 +536,61 @@ def dump_container(path: Path, value: Mapping[str, Any]) -> bytes:
     return data
 
 
-def update_zone_index(path: Path, zone_id: str, summary: Mapping[str, Any]) -> None:
+def append_index_entries(
+    path: Path, entries: Mapping[str, Mapping[str, Any]]
+) -> None:
+    """Append create-only PMDO index entries without reformatting old metadata.
+
+    PMDO's historical ``index.idx`` files use more than one JSON layout.  A
+    normal parse/dump rewrites thousands of unrelated lines even when a builder
+    promotes only one key.  All tracked indexes put ``Object`` last, so this
+    routine retains their exact bytes (including a UTF-8 BOM and missing final
+    newline), inserts only new dictionary members, and verifies the result by
+    reparsing it before the atomic-size write.
+    """
+    if not entries:
+        return
     raw = path.read_bytes()
     has_bom = raw.startswith(b"\xef\xbb\xbf")
-    index = json.loads(raw.decode("utf-8-sig"))
-    if zone_id in index["Object"]:
-        raise FileExistsError(f"create-only zone index entry already exists: {zone_id}")
-    index["Object"][zone_id] = dict(summary)
-    encoded = json.dumps(index, ensure_ascii=False, indent=2).encode("utf-8")
-    path.write_bytes((b"\xef\xbb\xbf" if has_bom else b"") + encoded)
+    text = raw.decode("utf-8-sig")
+    index = json.loads(text)
+    existing = index.get("Object")
+    if not isinstance(existing, dict):
+        raise ValueError(f"PMDO index has no Object dictionary: {path}")
+    duplicates = [key for key in entries if key in existing]
+    if duplicates:
+        raise FileExistsError(
+            f"create-only index entries already exist in {path}: " + ", ".join(duplicates)
+        )
+
+    if text.endswith("\n  }\n}"):
+        marker = "\n  }\n}"
+        member_indent = "    "
+    elif text.endswith("\n}\n}"):
+        marker = "\n}\n}"
+        member_indent = ""
+    else:
+        raise ValueError(f"unsupported PMDO index suffix/layout: {path}")
+
+    blocks: list[str] = []
+    for key, value in entries.items():
+        value_lines = json.dumps(value, ensure_ascii=False, indent=2).splitlines()
+        if member_indent:
+            first = f'{member_indent}{json.dumps(key, ensure_ascii=False)}: {value_lines[0]}'
+            rest = [member_indent + line for line in value_lines[1:]]
+        else:
+            first = f'{json.dumps(key, ensure_ascii=False)}: {value_lines[0]}'
+            rest = [line.lstrip() for line in value_lines[1:]]
+        blocks.append("\n".join([first, *rest]))
+
+    prefix = text[: -len(marker)]
+    updated = prefix + ",\n" + ",\n".join(blocks) + marker
+    parsed = json.loads(updated)
+    for key, value in entries.items():
+        if parsed["Object"].get(key) != value:
+            raise RuntimeError(f"PMDO index append verification failed: {path}:{key}")
+    path.write_bytes((b"\xef\xbb\xbf" if has_bom else b"") + updated.encode("utf-8"))
+
+
+def update_zone_index(path: Path, zone_id: str, summary: Mapping[str, Any]) -> None:
+    append_index_entries(path, {zone_id: summary})
