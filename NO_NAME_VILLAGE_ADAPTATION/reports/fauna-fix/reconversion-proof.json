@@ -1,17 +1,17 @@
 {
  "schema": "new-era.nnv-fauna-reconversion.v2",
- "rooms_reconverted": 10,
+ "rooms_reconverted": 20,
  "rooms_total": 34,
  "complete": false,
- "occurrences_expected": 493,
- "occurrences_excluded": 493,
+ "occurrences_expected": 892,
+ "occurrences_excluded": 892,
  "discrepancies": [],
  "per_species_excluded": {
-  "objfirefly": 238,
-  "objfrog": 105,
-  "objbutterfly1": 87,
-  "objbug0": 33,
-  "objbird0": 30
+  "objfirefly": 326,
+  "objbutterfly1": 229,
+  "objbug0": 129,
+  "objfrog": 125,
+  "objbird0": 83
  },
  "proof": "every fauna instance surfaces as a wildlife blocker; none is rendered",
  "nnvlife_consistency": {
@@ -107,6 +107,86 @@
    "excluded": 11,
    "match": true,
    "wildlife_blockers": 18,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm39",
+   "expected_baked": 9,
+   "excluded": 9,
+   "match": true,
+   "wildlife_blockers": 9,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm43",
+   "expected_baked": 67,
+   "excluded": 67,
+   "match": true,
+   "wildlife_blockers": 76,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm44",
+   "expected_baked": 77,
+   "excluded": 77,
+   "match": true,
+   "wildlife_blockers": 88,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm45",
+   "expected_baked": 18,
+   "excluded": 18,
+   "match": true,
+   "wildlife_blockers": 23,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm46",
+   "expected_baked": 20,
+   "excluded": 20,
+   "match": true,
+   "wildlife_blockers": 20,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm53",
+   "expected_baked": 43,
+   "excluded": 43,
+   "match": true,
+   "wildlife_blockers": 43,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm54",
+   "expected_baked": 36,
+   "excluded": 36,
+   "match": true,
+   "wildlife_blockers": 36,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm56",
+   "expected_baked": 22,
+   "excluded": 22,
+   "match": true,
+   "wildlife_blockers": 24,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm58",
+   "expected_baked": 11,
+   "excluded": 11,
+   "match": true,
+   "wildlife_blockers": 24,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm59",
+   "expected_baked": 96,
+   "excluded": 96,
+   "match": true,
+   "wildlife_blockers": 100,
    "status": "GENERATED_CANDIDATE"
   }
  ]
