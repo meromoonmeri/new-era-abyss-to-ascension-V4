@@ -91,23 +91,66 @@ le terrain les peignait en dur en parallèle.
 
 **Aucune espèce Pokémon n'est choisie ici**, aucun comportement décidé.
 
-## Ce qui reste à faire
+## Reconversion — EXÉCUTÉE ET POUSSÉE
 
-La reconversion des 45 rooms n'a **pas** été exécutée : l'environnement
-sandbox a été réinitialisé en cours de travail (`/tmp` et `.runtime-cache/`
-vidés), emportant `data.win`, les textures décodées et les 4 zones voisines.
-Le dépôt a été resynchronisé depuis le remote, où tout le travail antérieur
-était intact.
+**34 rooms reconverties** avec le filtre corrigé.
 
-Pour appliquer le correctif aux Grounds il faut donc :
+| Résultat | Valeur |
+|---|---:|
+| Rooms reconverties | **34 / 34** |
+| Occurrences attendues | **1 483** |
+| Occurrences exclues du rendu | **1 483** |
+| **Écarts** | **0** |
 
-1. re-télécharger `data.win` via `codeload.github.com` (méthode validée) ;
-2. relancer `convert_environment_room.py` sur les rooms concernées ;
-3. vérifier que les 1 483 occurrences ont disparu du rendu.
+| Objet | Exclues |
+|---|---:|
+| `objbutterfly1` | 478 |
+| `objbug0` | 369 |
+| `objfirefly` | 326 |
+| `objbird0` | 185 |
+| `objfrog` | 125 |
 
-Le correctif et sa garde sont en place ; seuls les artefacts régénérés manquent.
+Chaque instance apparaît comme blocker
+`wildlife role <id>:<objet> requires native Pokemon encounter mapping` : elle est
+**enregistrée comme donnée**, jamais dessinée.
+
+### Livraison par tranches
+
+Deux réinitialisations du sandbox ayant déjà détruit des heures de travail en
+vol, la reconversion commite et pousse **toutes les 10 rooms** :
+
+| Checkpoint | Occurrences | Écarts |
+|---|---:|---:|
+| 10 / 34 | 493 / 493 | 0 |
+| 20 / 34 | 892 / 892 | 0 |
+| 30 / 34 | 1 239 / 1 239 | 0 |
+| **34 / 34** | **1 483 / 1 483** | **0** |
+
+### Précision sur « 45 rooms »
+
+Le recensement comptait 45 rooms contenant de la faune ; **34 seulement** en
+avaient de *baked*. Les 11 autres ne portent que des `objmob*`, déjà exclus par
+l'ancien filtre. Les 1 483 occurrences sont toutes traitées.
+
+### Performance — 8,4×
+
+Le profilage a montré que `_premultiply` consommait **836 s sur 1 127 s (74 %)**,
+appelé 322 529 fois : `add_image()` ne dédupliquait qu'**après** l'encodage PNG.
+La déduplication se fait désormais sur les pixels bruts.
+
+| | Avant | Après |
+|---|---:|---:|
+| Par room | 11 min 30 | **1 min 23** |
+| 34 rooms | ~3 h 30 | **~45 min** |
+
+Sortie vérifiée **byte-identique** : `.rsground`, `.tile`, hash de manifest,
+blockers et métriques de collision inchangés.
+
+### Cohérence NNVLife
+
+`rmvillage` : **12 `objbird0`** = `source_birds` 12, **19 `objbutterfly1`** =
+`source_butterflies` 19. **Aucune espèce ni comportement décidé.**
 
 ## Statut
 
-`FILTER_FIXED_GUARD_ACTIVE_RECONVERSION_PENDING`. Aucun Ground certifié
-modifié.
+`RECONVERSION_COMPLETE_0_BAKED_FAUNA`.
