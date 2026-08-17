@@ -1,15 +1,15 @@
 {
  "schema": "nnv-fauna-archive-manifest-v1",
  "reference": {
-  "commit": "2beeddbe8a54cacb4198bdf8e0e36c1e6bc8559f",
+  "commit": "41fbb94546cc4ac2e2e08baa2ae656777a95131a",
   "tag": "pre-fauna-injection",
-  "tag_commit": "d17766cd"
+  "tag_commit": ""
  },
  "totals": {
   "rooms": 34,
   "entities": 1642,
-  "backups": 34,
-  "inventory_files": 205
+  "backups": 0,
+  "inventory_files": 204
  },
  "reconciliation": {
   "placed": 1808,
@@ -20,9 +20,9 @@
  },
  "patch": {
   "file": "injected-entities-patch.json.gz",
-  "sha256": "2446bf08b3ff3ebb34765c1b0182b6c1237f31b3376df9e6909128109d752e70",
-  "bytes": 59726,
-  "raw_sha256": "0cc03c0c55608af638d54dceaabe703964004c8de5ffae82fd55b9e2b3de189a"
+  "sha256": "9b8ad9062bbfe424cf7704b198ab8f524a8a970bd0fd4bbf637bf759c659a849",
+  "bytes": 58011,
+  "raw_sha256": "74408c6349d4a0fd3a4803c500e9dff6f0435c478394e5907664432cff29c8d3"
  },
  "policy": {
   "versioned_in_git": [
@@ -33,10 +33,10 @@
  },
  "full_archive": {
   "file": "/tmp/fauna-archive/nnv-injected-grounds.tar.gz",
-  "bytes": 233539071,
-  "sha256": "b1df0440ef3c3826500c0de2ea9d6077bcef26f6cec5b4833e574b6ae34f454a",
-  "tar_sha256": "19014e0a4c031848d24110befaed355b87147651fac6e682bc8983851c23a61f",
-  "file_count": 205,
+  "bytes": 233542949,
+  "sha256": "6d14c884af0829be7200f06bfc5de383faadc8fba8ebaf0015a01ebe137f552f",
+  "tar_sha256": "9c333bd706f1b0119454812ae5564728b40d4aa69131c4b040727272cdc1d245",
+  "file_count": 204,
   "deterministic": "mtime=0, uid/gid=0, mode 644, entrees triees"
  }
 }

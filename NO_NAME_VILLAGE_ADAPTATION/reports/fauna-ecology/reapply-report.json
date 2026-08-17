@@ -1,0 +1,24 @@
+{
+ "schema": "nnv-reapply-v1",
+ "mode": "APPLY",
+ "rooms": {
+  "rmvillage/summer": {
+   "file": "/tmp/reconv/rmvillage/Data/Ground/nnv_rmvillage_summer.rsground",
+   "entities_expected": 31,
+   "entities_added": 31,
+   "refused": 0,
+   "sha256_expected": "ce350e0e8e53468b31682802adb90826d6b3e2d33a8852ebaac79d789c9c3596",
+   "sha256_actual": "6900cd7544e70d53ce42012c3633fe68c4436c8576c9019edb99687d186396ec",
+   "byte_identical": false
+  }
+ },
+ "refusals": [],
+ "missing_grounds": [],
+ "totals": {
+  "entities": 31,
+  "rooms": 1,
+  "refusals": 0,
+  "missing_grounds": 0,
+  "byte_identical": 0
+ }
+}
