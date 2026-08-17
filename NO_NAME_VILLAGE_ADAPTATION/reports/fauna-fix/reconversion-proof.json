@@ -1,16 +1,16 @@
 {
  "schema": "new-era.nnv-fauna-reconversion.v2",
- "rooms_reconverted": 30,
+ "rooms_reconverted": 34,
  "rooms_total": 34,
- "complete": false,
- "occurrences_expected": 1239,
- "occurrences_excluded": 1239,
+ "complete": true,
+ "occurrences_expected": 1483,
+ "occurrences_excluded": 1483,
  "discrepancies": [],
  "per_species_excluded": {
-  "objbutterfly1": 356,
+  "objbutterfly1": 478,
+  "objbug0": 369,
   "objfirefly": 326,
-  "objbug0": 273,
-  "objbird0": 159,
+  "objbird0": 185,
   "objfrog": 125
  },
  "proof": "every fauna instance surfaces as a wildlife blocker; none is rendered",
@@ -267,6 +267,38 @@
    "excluded": 5,
    "match": true,
    "wildlife_blockers": 94,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm83",
+   "expected_baked": 54,
+   "excluded": 54,
+   "match": true,
+   "wildlife_blockers": 87,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm84",
+   "expected_baked": 111,
+   "excluded": 111,
+   "match": true,
+   "wildlife_blockers": 128,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm85",
+   "expected_baked": 48,
+   "excluded": 48,
+   "match": true,
+   "wildlife_blockers": 50,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rmvillage",
+   "expected_baked": 31,
+   "excluded": 31,
+   "match": true,
+   "wildlife_blockers": 31,
    "status": "GENERATED_CANDIDATE"
   }
  ]
