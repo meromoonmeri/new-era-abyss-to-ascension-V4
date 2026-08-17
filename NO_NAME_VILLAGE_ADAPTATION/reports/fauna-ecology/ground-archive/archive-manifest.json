@@ -1,0 +1,42 @@
+{
+ "schema": "nnv-fauna-archive-manifest-v1",
+ "reference": {
+  "commit": "6511bf43e915c0d20b0c5d1cdbb4b1be6c96ab8b",
+  "tag": "pre-fauna-injection",
+  "tag_commit": "d17766cd"
+ },
+ "totals": {
+  "rooms": 34,
+  "entities": 1642,
+  "backups": 34,
+  "inventory_files": 205
+ },
+ "reconciliation": {
+  "placed": 1808,
+  "injected": 1642,
+  "held_missing_season": 109,
+  "held_no_proof": 57,
+  "balanced": true
+ },
+ "patch": {
+  "file": "injected-entities-patch.json.gz",
+  "sha256": "ad6689f55b5c4815ccd452159e94e0797302d2067737a1329f59e2a7d874a189",
+  "bytes": 59713,
+  "raw_sha256": "417abe264a0788d686444bc8298d7f653652ee8dafc09d1ca318bcd97eb96302"
+ },
+ "policy": {
+  "versioned_in_git": [
+   "injected-entities-patch.json.gz",
+   "archive-manifest.json"
+  ],
+  "not_versioned": "les .rsground (1,5 Go) sont reproductibles depuis la source ; seule leur difference - les entites - est versionnee. Git LFS indisponible (git-lfs absent, hotes de stockage bloques)."
+ },
+ "full_archive": {
+  "file": "/tmp/fauna-archive/nnv-injected-grounds.tar.gz",
+  "bytes": 233523169,
+  "sha256": "0b97914b7e01251d9b82d099e569ad0496adbec17846edddadf9dc4c463741c0",
+  "tar_sha256": "49ced83a1298d9899223b994209ff09d3126e19fd70d5e4c0bf9e66004bc896e",
+  "file_count": 205,
+  "deterministic": "mtime=0, uid/gid=0, mode 644, entrees triees"
+ }
+}
