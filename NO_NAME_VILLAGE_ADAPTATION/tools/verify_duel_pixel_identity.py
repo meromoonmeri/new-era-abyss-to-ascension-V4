@@ -154,6 +154,9 @@ def main():
         # fenetre de reference dans le rendu du Ground
         proof_p = mp.with_name(stem + '_proof.json')
         if not proof_p.exists():
+            # maps installees : la preuve vit dans reports/, pas dans Data/Map
+            proof_p = NNV / 'reports/fauna-ecology/installed-proofs' / (stem + '_proof.json')
+        if not proof_p.exists():
             failures.append('%s: origine de la fenetre inconnue (proof absent)' % stem)
             continue
         origin = json.load(open(proof_p))['origin_px']
