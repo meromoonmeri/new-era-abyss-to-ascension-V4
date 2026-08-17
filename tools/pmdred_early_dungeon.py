@@ -360,6 +360,30 @@ def build_grid_floor(
     return {"$type": GRID_FLOOR, "GenSteps": steps}
 
 
+def build_load_floor(*, map_id: str, comment: str = "") -> dict[str, Any]:
+    """Serialize PMDO 0.8.12's canonical static-map floor generator.
+
+    ``MappedRoomStep<MapLoadContext>`` at priority ``-1`` is the native PMDO
+    contract used by shipped zones for loading an ``.rsmap`` in the same
+    segment as procedural floors.  Map-local effects and actors are retained
+    by the load; a separate ``MapEffectStep`` is only needed for intentionally
+    added effects that are not already serialized in the map.
+    """
+    if not map_id or "/" in map_id or "\\" in map_id:
+        raise ValueError(f"invalid PMDO map asset ID: {map_id!r}")
+    return {
+        "$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
+        "GenSteps": [step((-1,), {
+            "$type": (
+                "RogueEssence.LevelGen.MappedRoomStep`1[["
+                "RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence"
+            ),
+            "MapID": map_id,
+        })],
+        "Comment": comment,
+    }
+
+
 def build_chance_floor(
     *,
     geometry: Sequence[tuple[tuple[int, int], int]],

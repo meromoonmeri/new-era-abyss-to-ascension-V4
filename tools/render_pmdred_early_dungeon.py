@@ -239,6 +239,7 @@ class AdjacentAutoTile:
 @dataclass
 class FloorModel:
     floor_number: int
+    generator: str
     recipe_index: int
     recipe_roll: int
     recipe_total: int
@@ -249,7 +250,7 @@ class FloorModel:
     terrain: list[list[str]]
     room_floor: set[tuple[int, int]]
     start: tuple[int, int]
-    stairs: tuple[int, int]
+    stairs: tuple[int, int] | None
     route: list[tuple[int, int]]
     entities: list[dict[str, Any]]
     config: dict[str, Any]
@@ -406,10 +407,122 @@ def build_entity_sample(
     return result
 
 
+def build_static_floor_model(
+    floor_number: int, load_gen: dict[str, Any], zone_id: str
+) -> FloorModel:
+    mapped = step_at_key(load_gen["GenSteps"], [-1])
+    if "MappedRoomStep" not in mapped.get("$type", ""):
+        raise RenderError(f"floor {floor_number}: LoadGen priority -1 is not MappedRoomStep")
+    map_id = mapped["MapID"]
+    map_path = ROOT / "Data/Map" / f"{map_id}.rsmap"
+    if not map_path.is_file():
+        raise RenderError(f"floor {floor_number}: mapped room is missing: {map_path.relative_to(ROOT)}")
+    document = load_json(map_path)
+    room = document["Object"]
+    columns = room["Tiles"]
+    width = len(columns)
+    height = len(columns[0]) if columns else 0
+    if width <= 0 or height <= 0 or any(len(column) != height for column in columns):
+        raise RenderError(f"floor {floor_number}: mapped room has invalid/ragged dimensions")
+
+    terrain: list[list[str]] = []
+    direct_tiles: list[list[dict[str, Any]]] = []
+    walkable: set[tuple[int, int]] = set()
+    families: set[str] = set()
+    for y in range(height):
+        terrain_row: list[str] = []
+        direct_row: list[dict[str, Any]] = []
+        for x in range(width):
+            data = columns[x][y]["Data"]
+            tile_tex = data["TileTex"]
+            family = tile_tex["AutoTileset"]
+            if not family:
+                raise RenderError(f"floor {floor_number}: blank direct autotile at {x},{y}")
+            families.add(family)
+            if family.endswith("_floor"):
+                terrain_kind = "floor"
+            elif family.endswith("_secondary"):
+                terrain_kind = "secondary"
+            else:
+                terrain_kind = "wall"
+            terrain_row.append(terrain_kind)
+            direct_row.append({
+                "family": family,
+                "neighbor_code": int(tile_tex["NeighborCode"]),
+                "collision": data["ID"],
+            })
+            if data["ID"] == "floor":
+                walkable.add((x, y))
+        terrain.append(terrain_row)
+        direct_tiles.append(direct_row)
+    if not walkable:
+        raise RenderError(f"floor {floor_number}: static map has no walkable cells")
+    entry_points = room.get("EntryPoints", [])
+    if not entry_points:
+        raise RenderError(f"floor {floor_number}: static map has no entry point")
+    entry = entry_points[0]["Loc"]
+    start = (int(entry["X"]), int(entry["Y"]))
+    if start not in walkable:
+        raise RenderError(f"floor {floor_number}: entry point is not walkable")
+    connected, _ = bfs([["floor" if (x, y) in walkable else "wall" for x in range(width)] for y in range(height)], start)
+    if len(connected) != len(walkable):
+        raise RenderError(f"floor {floor_number}: static walkable terrain is disconnected")
+
+    entities: list[dict[str, Any]] = []
+    for team_field, kind in (("MapTeams", "enemy"), ("AllyTeams", "protected")):
+        for team in room.get(team_field, []):
+            for actor in team.get("Players", []) + team.get("Guests", []):
+                location = actor["serializationLoc"]
+                form = actor.get("BaseForm") or actor.get("CurrentForm")
+                entities.append({
+                    "kind": kind,
+                    "id": form["Species"],
+                    "level": int(actor["Level"]),
+                    "hp": int(actor["HP"]),
+                    "x": int(location["X"]),
+                    "y": int(location["Y"]),
+                })
+    required = room.get("StaticAudit", {}).get("RequiredActors", [])
+    config = {
+        "map_id": map_id,
+        "map_path": str(map_path.relative_to(ROOT)),
+        "terrain_assets": sorted(families),
+        "direct_tiles": direct_tiles,
+        "entry_direction": int(entry_points[0]["Dir"]),
+        "required_actors": required,
+        "static_map_events": room.get("MapEffect", {}).get("OnMapStarts", []),
+        "secondary_terrain_generated": False,
+    }
+    return FloorModel(
+        floor_number=floor_number,
+        generator="static_load",
+        recipe_index=-1,
+        recipe_roll=0,
+        recipe_total=0,
+        recipe_rate=0,
+        seed=f"{zone_id}:floor:{floor_number}:static-render-v1",
+        width=width,
+        height=height,
+        terrain=terrain,
+        room_floor=walkable,
+        start=start,
+        stairs=None,
+        route=[],
+        entities=entities,
+        config=config,
+    )
+
+
 def build_floor_model(floor_number: int, floor_node: dict[str, Any], zone_id: str) -> FloorModel:
+    item = floor_node["Item"]
+    generator_type = item.get("$type", "")
+    if "LoadGen" in generator_type:
+        return build_static_floor_model(floor_number, item, zone_id)
+    if "ChanceFloorGen" not in generator_type:
+        raise RenderError(f"floor {floor_number}: unsupported generator type: {generator_type}")
     seed = f"{zone_id}:floor:{floor_number}:render-v1"
     rng = HashRNG(seed)
-    chance = floor_node["Item"]
+    chance = item
     recipes = chance["Spawns"]
     recipe_index, recipe, roll, total = weighted_choice(recipes, rng)
     generator = recipe["Spawn"]
@@ -549,6 +662,7 @@ def build_floor_model(floor_number: int, floor_node: dict[str, Any], zone_id: st
     }
     return FloorModel(
         floor_number=floor_number,
+        generator="procedural",
         recipe_index=recipe_index,
         recipe_roll=roll,
         recipe_total=total,
@@ -612,32 +726,100 @@ def encode_png(image: Image.Image, metadata: dict[str, str]) -> bytes:
     return stream.getvalue()
 
 
+def autotile_sheet_id(document: dict[str, Any]) -> str:
+    sheets: set[str] = set()
+
+    def visit(value: Any) -> None:
+        if isinstance(value, dict):
+            sheet = value.get("Sheet")
+            if isinstance(sheet, str) and sheet:
+                sheets.add(sheet)
+            for nested in value.values():
+                visit(nested)
+        elif isinstance(value, list):
+            for nested in value:
+                visit(nested)
+
+    visit(document)
+    if len(sheets) != 1:
+        raise RenderError(f"autotile must reference exactly one sheet, got {sorted(sheets)}")
+    return next(iter(sheets))
+
+
+def load_live_autotile(family: str) -> tuple[AdjacentAutoTile, Path, Path]:
+    autotile_path = ROOT / "Data/AutoTile" / f"{family}.json"
+    if not autotile_path.is_file():
+        raise RenderError(f"missing promoted autotile: {autotile_path.relative_to(ROOT)}")
+    document = load_json(autotile_path)
+    sheet_id = autotile_sheet_id(document)
+    sheet_path = ROOT / "Content/Tile" / f"{sheet_id}.tile"
+    if not sheet_path.is_file():
+        raise RenderError(f"missing promoted tile sheet: {sheet_path.relative_to(ROOT)}")
+    bundle = TileBundle.load(sheet_path)
+    return AdjacentAutoTile.load(autotile_path, bundle), autotile_path, sheet_path
+
+
 def render_floor(
     model: FloorModel,
     title: str,
-    floor_tiles: AdjacentAutoTile,
-    wall_tiles: AdjacentAutoTile,
+    floor_tiles: AdjacentAutoTile | None,
+    wall_tiles: AdjacentAutoTile | None,
+    asset_overrides: dict[str, AdjacentAutoTile] | None = None,
 ) -> tuple[bytes, dict[str, Any]]:
-    tile_size = floor_tiles.bundle.tile_size
-    if wall_tiles.bundle.tile_size != tile_size:
-        raise RenderError("floor and wall tiles use different tile sizes")
+    direct_assets: dict[str, AdjacentAutoTile] = {}
+    if model.generator == "static_load":
+        for family in model.config["terrain_assets"]:
+            direct_assets[family] = (
+                asset_overrides[family]
+                if asset_overrides is not None and family in asset_overrides
+                else load_live_autotile(family)[0]
+            )
+        tile_sizes = {asset.bundle.tile_size for asset in direct_assets.values()}
+        if len(tile_sizes) != 1:
+            raise RenderError("static-map autotiles use different tile sizes")
+        tile_size = next(iter(tile_sizes))
+    else:
+        if floor_tiles is None or wall_tiles is None:
+            raise RenderError("procedural floor render lacks floor/wall autotiles")
+        tile_size = floor_tiles.bundle.tile_size
+        if wall_tiles.bundle.tile_size != tile_size:
+            raise RenderError("floor and wall tiles use different tile sizes")
     terrain_image = Image.new("RGBA", (model.width * tile_size, model.height * tile_size), (0, 0, 0, 0))
     black_cells: list[tuple[int, int]] = []
     transparent_cells: list[tuple[int, int]] = []
-    codes_used: dict[str, set[int]] = {"floor": set(), "wall": set()}
+    codes_used: dict[str, set[int]] = {"floor": set(), "wall": set(), "secondary": set()}
 
     for y in range(model.height):
         for x in range(model.width):
             kind = model.terrain[y][x]
-            autotile = floor_tiles if kind == "floor" else wall_tiles
+            if model.generator == "static_load":
+                direct = model.config["direct_tiles"][y][x]
+                family = direct["family"]
+                autotile = direct_assets[family]
 
-            def same(xx: int, yy: int, expected: str = kind) -> bool:
-                # PMDO's non-wrapping query returns true outside map bounds.
-                if xx < 0 or yy < 0 or xx >= model.width or yy >= model.height:
-                    return True
-                return model.terrain[yy][xx] == expected
+                def same(xx: int, yy: int, expected: str = family) -> bool:
+                    # PMDO's non-wrapping query returns true outside map bounds.
+                    if xx < 0 or yy < 0 or xx >= model.width or yy >= model.height:
+                        return True
+                    return model.config["direct_tiles"][yy][xx]["family"] == expected
 
-            code = AdjacentAutoTile.neighbor_code(x, y, same)
+                computed_code = AdjacentAutoTile.neighbor_code(x, y, same)
+                code = int(direct["neighbor_code"])
+                if code != computed_code:
+                    raise RenderError(
+                        f"floor {model.floor_number}: direct neighbor code mismatch at {x},{y}: "
+                        f"{code} != {computed_code}"
+                    )
+            else:
+                autotile = floor_tiles if kind == "floor" else wall_tiles
+
+                def same(xx: int, yy: int, expected: str = kind) -> bool:
+                    # PMDO's non-wrapping query returns true outside map bounds.
+                    if xx < 0 or yy < 0 or xx >= model.width or yy >= model.height:
+                        return True
+                    return model.terrain[yy][xx] == expected
+
+                code = AdjacentAutoTile.neighbor_code(x, y, same)
             codes_used[kind].add(code)
             tile = autotile.render(code, tile_random_code(model.seed, kind, x, y))
             alpha_min, alpha_max = tile.getchannel("A").getextrema()
@@ -665,12 +847,14 @@ def render_floor(
 
     marker_font = font(FONT_BOLD, max(11, tile_size // 2))
     start_center = (model.start[0] * tile_size + tile_size // 2, model.start[1] * tile_size + tile_size // 2)
-    stair_center = (model.stairs[0] * tile_size + tile_size // 2, model.stairs[1] * tile_size + tile_size // 2)
     draw_marker(overlay_draw, start_center, tile_size // 3, (25, 150, 75, 235), (220, 255, 225, 255), "E", marker_font)
-    draw_marker(overlay_draw, stair_center, tile_size // 3, (0, 135, 190, 240), (225, 255, 255, 255), "S", marker_font)
+    if model.stairs is not None:
+        stair_center = (model.stairs[0] * tile_size + tile_size // 2, model.stairs[1] * tile_size + tile_size // 2)
+        draw_marker(overlay_draw, stair_center, tile_size // 3, (0, 135, 190, 240), (225, 255, 255, 255), "S", marker_font)
 
     entity_style = {
         "enemy": ((175, 35, 45, 225), (255, 220, 220, 255), "M"),
+        "protected": ((33, 104, 181, 230), (220, 240, 255, 255), "P"),
         "item": ((145, 45, 175, 225), (255, 225, 255, 255), "I"),
         "trap": ((190, 125, 0, 230), (255, 245, 190, 255), "T"),
     }
@@ -689,12 +873,12 @@ def render_floor(
     text_font = font(FONT_REGULAR, 15)
     small_bold = font(FONT_BOLD, 14)
     draw.text((18, 12), f"{title} — {model.floor_number}F", font=title_font, fill=(246, 249, 252))
-    draw.text(
-        (18, 49),
-        f"{model.width}×{model.height} • feuille officielle 24 px • collision connexe • trajet escalier {len(model.route) - 1} pas",
-        font=text_font,
-        fill=(190, 215, 231),
+    subtitle = (
+        f"{model.width}×{model.height} • feuille officielle 24 px • collision connexe • "
+        + (f"trajet escalier {len(model.route) - 1} pas" if model.generator == "procedural"
+           else "arène statique sans escalier")
     )
+    draw.text((18, 49), subtitle, font=text_font, fill=(190, 215, 231))
     badge = "AUDIT STATIQUE : PASS"
     badge_box = draw.textbbox((0, 0), badge, font=small_bold)
     badge_width = badge_box[2] - badge_box[0] + 22
@@ -706,16 +890,41 @@ def render_floor(
     draw.text((canvas.width - badge_width - 7, 20), badge, font=small_bold, fill=(255, 255, 255))
     footer_y = header_height + terrain_image.height
     draw.rectangle((0, footer_y, canvas.width, canvas.height), fill=(24, 35, 48))
-    legend = "E Entrée   S Escalier   M Ennemi   I Objet   T Piège   — ligne cyan : plus court trajet audité"
+    legend = (
+        "E Entrée   M Ennemi   P Protégé   — arène fixe authentifiée"
+        if model.generator == "static_load"
+        else "E Entrée   S Escalier   M Ennemi   I Objet   T Piège   — ligne cyan : plus court trajet audité"
+    )
     draw.text((18, footer_y + 8), legend, font=text_font, fill=(220, 230, 238))
 
-    walkable = sum(value == "floor" for row in model.terrain for value in row)
+    walkable = (
+        len(model.room_floor)
+        if model.generator == "static_load"
+        else sum(value == "floor" for row in model.terrain for value in row)
+    )
     distance, _ = bfs(model.terrain, model.start)
     entity_counts = {
         kind: sum(entity["kind"] == kind for entity in model.entities)
-        for kind in ("enemy", "item", "trap")
+        for kind in (("enemy", "protected", "item", "trap") if model.generator == "static_load" else ("enemy", "item", "trap"))
     }
+    terrain_counts = {
+        kind: sum(value == kind for row in model.terrain for value in row)
+        for kind in ("floor", "wall", "secondary")
+    }
+    stairs_record = (
+        {
+            "id": "stairs_go_up",
+            "count": 1,
+            "x": model.stairs[0],
+            "y": model.stairs[1],
+            "reachable": model.stairs in distance,
+            "shortest_route": distance[model.stairs],
+        }
+        if model.stairs is not None
+        else {"required": False, "count": 0, "reachable": None, "policy": "static boss arena"}
+    )
     record = {
+        **({"generator": model.generator} if model.generator == "static_load" else {}),
         "floor": model.floor_number,
         "seed": model.seed,
         "weighted_recipe": {
@@ -727,13 +936,11 @@ def render_floor(
         "dimensions": {"width": model.width, "height": model.height, "tile_size": tile_size},
         "generation": model.config,
         "terrain": {
-            "floor": walkable,
-            "wall": model.width * model.height - walkable,
-            "secondary": 0,
+            **terrain_counts,
             "coverage": model.width * model.height,
             "autotile_neighbor_codes": {
-                "floor": [f"0x{code:02X}" for code in sorted(codes_used["floor"])],
-                "wall": [f"0x{code:02X}" for code in sorted(codes_used["wall"])],
+                kind: [f"0x{code:02X}" for code in sorted(codes_used[kind])]
+                for kind in (("floor", "wall", "secondary") if model.generator == "static_load" else ("floor", "wall"))
             },
             "black_cells": len(black_cells),
             "transparent_cells": len(transparent_cells),
@@ -745,14 +952,7 @@ def render_floor(
             "all_walkable_reachable": len(distance) == walkable,
         },
         "entry": {"x": model.start[0], "y": model.start[1]},
-        "stairs": {
-            "id": "stairs_go_up",
-            "count": 1,
-            "x": model.stairs[0],
-            "y": model.stairs[1],
-            "reachable": model.stairs in distance,
-            "shortest_route": distance[model.stairs],
-        },
+        "stairs": stairs_record,
         "entity_overlay_sample": {
             "counts": entity_counts,
             "entries": model.entities,
@@ -764,7 +964,9 @@ def render_floor(
             "no_black_terrain_tiles": not black_cells,
             "no_transparent_terrain_tiles": not transparent_cells,
             "one_entry": True,
-            "one_reachable_stair": model.stairs in distance,
+            **({"no_stair_required_for_static_arena": model.stairs is None}
+               if model.generator == "static_load"
+               else {"one_reachable_stair": model.stairs in distance}),
             "all_walkable_reachable": len(distance) == walkable,
             "all_overlay_entities_reachable": all((entity["x"], entity["y"]) in distance for entity in model.entities),
         },
@@ -801,10 +1003,15 @@ def render_overview(title: str, floor_pngs: Sequence[bytes], floor_records: Sequ
     height = header + sum(row_heights) + (rows + 1) * gap
     canvas = Image.new("RGB", (width, height), (18, 28, 40))
     draw = ImageDraw.Draw(canvas)
-    draw.text((20, 13), f"{title} — vue d’ensemble des 5 étages", font=font(FONT_BOLD, 28), fill=(248, 250, 252))
+    draw.text((20, 13), f"{title} — vue d’ensemble des {len(floor_records)} étages", font=font(FONT_BOLD, 28), fill=(248, 250, 252))
+    overview_subtitle = (
+        "Terrains officiels PMDO promus • étages procéduraux et arène fixe directement inspectables"
+        if any(record.get("generator") == "static_load" for record in floor_records)
+        else "Terrains issus de la feuille PMDO promue • entrées, escaliers, collisions et trajets inspectables"
+    )
     draw.text(
         (20, 51),
-        "Terrains issus de la feuille PMDO promue • entrées, escaliers, collisions et trajets inspectables",
+        overview_subtitle,
         font=font(FONT_REGULAR, 15),
         fill=(181, 209, 228),
     )
@@ -869,21 +1076,54 @@ def build(args: argparse.Namespace) -> tuple[dict[str, bytes], dict[str, Any]]:
     outputs: dict[str, bytes] = {}
     records: list[dict[str, Any]] = []
     floor_pngs: list[bytes] = []
+    asset_cache: dict[str, tuple[AdjacentAutoTile, Path, Path]] = {
+        floor_path.stem: (floor_autotile, floor_path, tile_path),
+        wall_path.stem: (wall_autotile, wall_path, tile_path),
+    }
     for index, node in enumerate(nodes, 1):
         model = build_floor_model(index, node, args.zone_id)
-        png, record = render_floor(model, args.title, floor_autotile, wall_autotile)
+        if model.generator == "procedural":
+            floor_family = model.config["terrain_assets"]["floor"]
+            wall_family = model.config["terrain_assets"]["wall"]
+            if floor_family not in asset_cache:
+                asset_cache[floor_family] = load_live_autotile(floor_family)
+            if wall_family not in asset_cache:
+                asset_cache[wall_family] = load_live_autotile(wall_family)
+            active_floor = asset_cache[floor_family][0]
+            active_wall = asset_cache[wall_family][0]
+        else:
+            active_floor = None
+            active_wall = None
+            for family in model.config["terrain_assets"]:
+                if family not in asset_cache:
+                    asset_cache[family] = load_live_autotile(family)
+        png, record = render_floor(
+            model,
+            args.title,
+            active_floor,
+            active_wall,
+            {family: cached[0] for family, cached in asset_cache.items()},
+        )
         name = f"floor_{index}.png"
         outputs[name] = png
         floor_pngs.append(png)
         records.append(record)
     outputs["overview.png"] = render_overview(args.title, floor_pngs, records)
 
-    input_paths = {
-        "zone": zone_path,
-        "floor_autotile": floor_path,
-        "wall_autotile": wall_path,
-        "tile_sheet": tile_path,
-    }
+    heterogeneous = any(record.get("generator") == "static_load" for record in records) or len(asset_cache) > 2
+    if heterogeneous:
+        input_paths = {"zone": zone_path}
+        for family, (_, autotile_asset, sheet_asset) in sorted(asset_cache.items()):
+            input_paths[f"autotile:{family}"] = autotile_asset
+            input_paths[f"tile_sheet:{sheet_asset.stem}"] = sheet_asset
+    else:
+        # Preserve the v1 report keys for homogeneous already-promoted zones.
+        input_paths = {
+            "zone": zone_path,
+            "floor_autotile": floor_path,
+            "wall_autotile": wall_path,
+            "tile_sheet": tile_path,
+        }
     report: dict[str, Any] = {
         "schema": SCHEMA,
         "status": "passed",
@@ -904,13 +1144,27 @@ def build(args: argparse.Namespace) -> tuple[dict[str, bytes], dict[str, Any]]:
             label: {"path": str(path.relative_to(ROOT)), "bytes": path.stat().st_size, "sha256": sha256_file(path)}
             for label, path in input_paths.items()
         },
-        "sheet_audit": {
-            "tile_size": bundle.tile_size,
-            "tile_cells": len(bundle.cells),
-            "floor_frames_used": [list(value) for value in sorted(floor_autotile.used_frames)],
-            "wall_frames_used": [list(value) for value in sorted(wall_autotile.used_frames)],
-            "missing_references": 0,
-        },
+        "sheet_audit": (
+            {
+                "families": {
+                    family: {
+                        "tile_size": asset.bundle.tile_size,
+                        "tile_cells": len(asset.bundle.cells),
+                        "frames_used": [list(value) for value in sorted(asset.used_frames)],
+                    }
+                    for family, (asset, _, _) in sorted(asset_cache.items())
+                },
+                "missing_references": 0,
+            }
+            if heterogeneous
+            else {
+                "tile_size": bundle.tile_size,
+                "tile_cells": len(bundle.cells),
+                "floor_frames_used": [list(value) for value in sorted(floor_autotile.used_frames)],
+                "wall_frames_used": [list(value) for value in sorted(wall_autotile.used_frames)],
+                "missing_references": 0,
+            }
+        ),
         "floors": records,
         "outputs": {},
         "grouped_gate_scope": {
