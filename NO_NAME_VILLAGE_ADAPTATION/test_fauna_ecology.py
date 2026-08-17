@@ -254,6 +254,28 @@ def main():
               == t['individuals_placed'],
               'comptes de promotion incoherents')
 
+    # 6c. AUCUN DOUBLE PILOTAGE
+    # NNVLife et NNVEcology ne doivent jamais commander les memes individus.
+    # Les 12 objbird0 et 19 objbutterfly1 de rmvillage appartiennent a NNVEcology.
+    for life in glob.glob(str(NNV / 'generated/**/NNVLife.lua'), recursive=True):
+        txt = open(life, encoding='utf-8').read()
+        base = os.path.relpath(life, NNV)
+        check(re.search(r'source_(birds|butterflies)\s*=', txt) is None,
+              '%s: groupe source_birds/source_butterflies encore defini '
+              '-> double pilotage avec NNVEcology' % base)
+        check('GROUPS.source_' not in txt,
+              '%s: usage residuel de GROUPS.source_*' % base)
+        for ent in ('NNV_SourceBird_', 'NNV_SourceButterfly_'):
+            check(ent not in txt,
+                  '%s: entite %s encore pilotee par NNVLife' % (base, ent))
+    # le generateur ne doit pas pouvoir les recreer
+    gen = NNV / 'tools/build_rmvillage_life_patch.py'
+    if gen.exists():
+        g = open(gen, encoding='utf-8').read()
+        check('EMIT_SOURCE_ANIMALS=False' in g.replace(' ', ''),
+              'build_rmvillage_life_patch.py peut recreer les animaux source '
+              '-> double pilotage a la prochaine regeneration')
+
     # 7. preuves de duel
     proofs = sorted(glob.glob(str(ECO / 'duel-maps/*_proof.json')))
     check(len(proofs) > 0, 'aucune preuve de duel generee')

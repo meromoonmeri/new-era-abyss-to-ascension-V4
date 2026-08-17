@@ -53,8 +53,12 @@ def main():
   marker=source_spawns[group_index];anchor_x,anchor_y=marker['Collider']['X'],marker['Collider']['Y']
   for member in range(count):
    dx,dy=OFFSETS[member];name=f'NNV_Wild_{species.capitalize()}_{member+1}';entity(name,species,species.capitalize(),anchor_x+dx,anchor_y+dy,'wild:'+behavior,{'type':'source_spawn_marker','marker':marker['EntName']},why,group,behavior,member+1);wild_count+=1
+ # Les oiseaux et papillons source NE SONT PLUS convertis ici : ils sont
+ # pilotes exclusivement par NNVEcology (cf. reports/fauna-ecology/).
+ # Les regenerer depuis ce script recreerait un DOUBLE PILOTAGE.
  bird_index=butterfly_index=0
- for placement,source_name in source_animals:
+ EMIT_SOURCE_ANIMALS=False
+ for placement,source_name in (source_animals if EMIT_SOURCE_ANIMALS else []):
   if source_name=='objbird0':
    bird_index+=1;entity(f'NNV_SourceBird_{bird_index}','fletchling','Passerouge',placement['X'],placement['Y'],'wild:flying_social',{'type':'source_animal_instance','instance_id':placement['InstanceID'],'source_object':source_name},'Conversion 1:1 d’un oiseau source en Pokémon aviaire natif; position aérienne exacte conservée.','source_birds','flying_social',bird_index,True)
   else:
