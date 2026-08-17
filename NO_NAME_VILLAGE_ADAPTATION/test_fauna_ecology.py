@@ -223,6 +223,37 @@ def main():
                            'rivalise', 'grege'),
                   'verbe de relation inconnu: %s' % verb)
 
+    # 6b. FAIL-CLOSED : aucune promotion sans preuve de terrain
+    ev_p = ECO / 'evidence-classification.json'
+    if check(ev_p.exists(), 'evidence-classification.json manquant'):
+        ev = json.load(open(ev_p))
+        for room, r in ev['rooms'].items():
+            if r['evidence'] != 'PROVEN':
+                check(r['promotable_individuals'] == 0,
+                      'room %s (%s) promeut %d individus sans preuve'
+                      % (room, r['evidence'], r['promotable_individuals']))
+            else:
+                check(r['has_render'] and r['has_collision'],
+                      'room %s classee PROVEN sans les deux preuves' % room)
+        # une espece en attente ne doit apparaitre dans aucune room promue
+        A2 = json.load(gzip.open(ECO / 'biome-atlas.json.gz'))['rooms']
+        P2 = json.load(gzip.open(ECO / 'fauna-placement.json.gz'))['rooms']
+        for sname in ev['held_species']:
+            for room, rd in P2.items():
+                if ev['rooms'].get(room, {}).get('evidence') != 'PROVEN':
+                    continue
+                for col in rd['colonies']:
+                    check(col['species'] != sname,
+                          'espece en attente %s placee dans la room promue %s'
+                          % (sname, room))
+        # Cradily : jamais placé artificiellement
+        check('cradily' in ev['held_species'],
+              'cradily doit rester en attente tant que rmcave1_* n a pas de preuve')
+        t = ev['totals']
+        check(t['individuals_promotable'] + t['individuals_withheld']
+              == t['individuals_placed'],
+              'comptes de promotion incoherents')
+
     # 7. preuves de duel
     proofs = sorted(glob.glob(str(ECO / 'duel-maps/*_proof.json')))
     check(len(proofs) > 0, 'aucune preuve de duel generee')
