@@ -1,0 +1,95 @@
+{
+  "schema": "pmdred-eu-playable-dungeon-v1",
+  "zone_id": "thunderwave_cave",
+  "french_name": "Grotte Éclair",
+  "dungeon_id": 1,
+  "floors": 5,
+  "entry_ground": "d02p01",
+  "ending_ground": "d02p02",
+  "ending_geometry": {
+    "obstacle_cells_x": 45,
+    "obstacle_cells_y": 42,
+    "pixels_x": 360,
+    "pixels_y": 336,
+    "collision_layers": 1,
+    "tileset": 50
+  },
+  "route": [
+    "d02p01",
+    "thunderwave_cave/0/0",
+    "thunderwave_cave/-1/1/0",
+    "master_zone/-1/1/0"
+  ],
+  "geometry_denominator": 100000000,
+  "item_poke_denominator": 300000000,
+  "promotions": [
+    {
+      "source": ".runtime-cache/DumpAsset/Data/AutoTile/thunderwave_cave_floor.json",
+      "destination": "Data/AutoTile/thunderwave_cave_floor.json",
+      "sha256": "d1dbaa4805fb4d623f420f6cdb82e36686e82ba56882260d250e63ba58811259",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Data/AutoTile/thunderwave_cave_wall.json",
+      "destination": "Data/AutoTile/thunderwave_cave_wall.json",
+      "sha256": "90bd144ae0b0d2c3ef8654f7a2e1e7d0a9c9033a847bdd571cce278cba49bf8a",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Data/AutoTile/thunderwave_cave_secondary.json",
+      "destination": "Data/AutoTile/thunderwave_cave_secondary.json",
+      "sha256": "0e442cbd681b2dba35f6ccee0f199daff1f8a5e7299a12e240e21f4a5f7e59a6",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Content/Tile/ThunderwaveCave.tile",
+      "destination": "Content/Tile/ThunderwaveCave.tile",
+      "sha256": "75e602b0102b41584c9ced0f4d1b04068c03f777427289c313e1bfea9da8ea40",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Data/Item/ammo_gravelerock.json",
+      "destination": "Data/Item/ammo_gravelerock.json",
+      "sha256": "a8b77f3eb1dfc8c6a8c39c16cb6460a6e5b338782c738ea69359d0d3d2104717",
+      "create_only": true
+    },
+    {
+      "source": "RESERVE/pmdred_direct/grounds/d02p02.rsground",
+      "destination": "Data/Ground/d02p02.rsground",
+      "sha256": "23208c1c4773efea2e6ef581848550e1cf15eba1e3b504d3189204c0560430b3",
+      "create_only": true
+    },
+    {
+      "source": "RESERVE/pmdred_direct/tiles/d02p02_DirectBase.tile",
+      "destination": "Content/Tile/d02p02_DirectBase.tile",
+      "sha256": "cfd329cb0f4090733b72c99d7c02f52b1ed6d83f3ecad172d72db99001dfdb71",
+      "create_only": true
+    },
+    {
+      "source": "RESERVE/pmdred_direct/scripts/d02p02/animation_callbacks.lua",
+      "destination": "Data/Script/halcyon/ground/d02p02/animation_callbacks.lua",
+      "sha256": "6b95a4db8700ad849d6bf8f1bdaa91e104d5ac10fdcb41df3f05d7cc3382366a",
+      "create_only": true
+    },
+    {
+      "source": "RESERVE/pmdred_direct/scripts/d02p02/animation_metadata.lua",
+      "destination": "Data/Script/halcyon/ground/d02p02/animation_metadata.lua",
+      "sha256": "88bbaef60c5030c2662b9edd095a8410df4737f3a66977f6b009af2e2d948e1e",
+      "create_only": true
+    }
+  ],
+  "renders": [
+    "renders_integrated_v2/floor_1.png",
+    "renders_integrated_v2/floor_2.png",
+    "renders_integrated_v2/floor_3.png",
+    "renders_integrated_v2/floor_4.png",
+    "renders_integrated_v2/floor_5.png",
+    "renders_integrated_v2/overview.png"
+  ],
+  "certification": {
+    "static_integration": "PASS_STATIC_INTEGRATION",
+    "evidence": "integration_validation.json",
+    "gate_count": 22,
+    "exact_pmdo_0_8_12_native": "DEFERRED_NOT_EXECUTED; grouped final certification follows the bulk early-dungeon conversion batch"
+  }
+}

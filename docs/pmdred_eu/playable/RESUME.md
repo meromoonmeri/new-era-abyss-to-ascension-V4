@@ -1,12 +1,48 @@
 # Reconstruction jouable PMD Red EU — checkpoint
 
-Checkpoint du `2026-08-16`, branche
+Checkpoint du `2026-08-17`, branche
 `arena/019ff05e-new-era-abyss-to-ascension-v4`.
 
 ## État autoritatif
 
 - Grounds archive-backed : **219/219 PASS**, historique inchangé dans
   [`../pmdo_validation/progress.json`](../pmdo_validation/progress.json).
+- **Grotte Éclair / Thunderwave Cave (D02), 1–5F : PASS statique/intégration.**
+  Les cinq étages PMDO 0.8.12, tables EU, spawns, objets, pièges, musique 14,
+  AutoTiles, Ground final `d02p02`, dialogues français et index sont promus.
+  Les PNG directement inspectables et leur audit déterministe octet pour octet
+  sont dans
+  [`thunderwave_cave/renders_integrated_v2`](thunderwave_cave/renders_integrated_v2).
+  Le validateur groupé réutilisable passe **22 gates** dans
+  [`thunderwave_cave/integration_validation.json`](thunderwave_cave/integration_validation.json).
+- Le bloqueur réel de sortie D02 est résolu sans altérer le Ground EU :
+  `d02p02` ne contient authentiquement ni marker ni spawner.
+  `ZoneData.GroundMaps` est maintenant lié à `['d02p01','d02p02']`; la sortie
+  termine la session donjon par `EndDungeonRun` vers l'entrée Ground numérique
+  `-1/1/0`, puis `Ground.Init` replace immédiatement le héros en `(176,240)`
+  sur neuf cellules de collision mesurées libres. Aucun
+  `Main_Entrance_Marker` fictif n'a été ajouté.
+- Gap conservé sans sur-déclaration : `d02p01`, lui aussi sans marker ni
+  spawner, n'a pas encore d'adaptateur dédié prouvant l'initiation fonctionnelle
+  Ground → donjon. Son Ground et le script de scène Fugitif homonyme ne
+  constituent pas cette preuve; cette liaison attend l'intégration groupée.
+- Portée exacte : le hash de l'exécutable PMDO 0.8.12 est verrouillé, mais la
+  génération native, le parcours bout-en-bout, la lecture audio et l'unload
+  sont explicitement **DEFERRED_NOT_EXECUTED** jusqu'à la certification native
+  groupée après avancée du lot. Aucun PASS statique ne les revendique.
+- Automatisation désormais réutilisable en lot :
+  [`../../../tools/pmdred_early_dungeon.py`](../../../tools/pmdred_early_dungeon.py)
+  sérialise les donjons précoces et leurs Grounds; le renderer commun produit
+  les PNG; `validate_pmdred_early_dungeon.py` groupe authenticité, schéma,
+  assets, collision/escaliers, route, musique, français et manifeste à partir
+  d'une configuration par donjon.
+- Correction de méthode : après la conversion de Petit Bois, le travail avait
+  dérivé vers des certificats sémantiques isolés alors que l'extraction, les
+  analyses, les adaptateurs et le renderer étaient déjà réutilisables. Il n'y
+  avait plus de bloqueur de contenu proportionné à cette granularité. Cette
+  passe revient à l'ordre demandé : bloqueur réel, automatisation commune,
+  conversion bulk, intégration, puis certification native groupée. Les
+  métadonnées non bloquantes de Petit Bois attendent cette dernière passe.
 - Petit Bois, génération procédurale 1–3F : **PASS**.
 - Petit Bois, ouverture/escaliers/sortie/échec/retry/sauvetage/nettoyage :
   **PASS v2** dans [`tiny_woods/route_runtime_v2`](tiny_woods/route_runtime_v2),
@@ -211,20 +247,34 @@ les fixtures consommées v1–v18.
 
 ## Étape suivante
 
-Phase `tiny_woods_production_actor_context_binding_live_route_integration_and_native_certification` :
+Phase `early_dungeon_bulk_conversion_after_thunderwave` :
 
-1. consommer le supplément v3 immuable et résoudre en bulk les contextes
-   canoniques acteur/caméra/scene des 196 contrats non-wait, sans modifier le
-   plan, les adresses, les opérandes, les 108 attentes ou les archives v1–v5 ;
-2. intégrer uniquement les liaisons authentifiées dans une nouvelle fixture
-   privée create-only, en réutilisant la convention spatiale, l'attachement
-   efob108, les palettes, musiques, cues et dialogues déjà certifiés ;
-3. sérialiser les gates PMDO : alternatives/retries isolées, parcours live
-   sélectionné ouverture → Petit Bois 1–3F → sauvetage → base → titre,
-   progression et nettoyage, avec terminaison stricte et propagation FAIL ;
-4. promouvoir seulement après preuve exhaustive et régression historique, puis
-   commit/push/remote exact ; poursuivre automatiquement l'inventaire et la
-   restitution bulk des donjons suivants.
+1. conserver intactes toutes les preuves Petit Bois et Grotte Éclair ; ne pas
+   répéter leur extraction ni leurs validations déjà passées ;
+2. appliquer en lot l'extraction/inventaire/mapping aux donjons précoces
+   suivants, en commençant par **Mt. Steel / Mont Acier**, puis préparer en
+   parallèle uniquement les tables, assets, Grounds, musiques et configurations
+   indépendantes ;
+3. sérialiser les promotions Zone/index/scripts une par une, avec PNG
+   inspectables pour chaque donjon converti et le validateur groupé commun ;
+4. repousser les parcours PMDO natifs route/donjon, audio et unload à la passe
+   finale groupée du lot, sans jamais convertir un FAIL en PASS ;
+5. commit/push chaque nouveau jalon promu et vérifier que le hash distant exact
+   correspond au commit local.
+
+Reprise du jalon Grotte Éclair, sans écriture :
+
+```bash
+.runtime-cache/test-venv/bin/python tools/build_pmdred_thunderwave_cave.py --check
+.runtime-cache/test-venv/bin/python tools/render_pmdred_early_dungeon.py \
+  --zone Data/Zone/thunderwave_cave.json --zone-id thunderwave_cave \
+  --title 'Grotte Éclair / Thunderwave Cave' \
+  --output-dir docs/pmdred_eu/playable/thunderwave_cave/renders_integrated_v2 \
+  --check
+.runtime-cache/test-venv/bin/python tools/validate_pmdred_early_dungeon.py \
+  --config docs/pmdred_eu/playable/thunderwave_cave/validation_config.json \
+  --check
+```
 
 Les références aplaties existantes ne sont pas canoniques par défaut. Les octets
 EU restent l’autorité de contenu ; `pret/pmd-red` reste une référence structurelle

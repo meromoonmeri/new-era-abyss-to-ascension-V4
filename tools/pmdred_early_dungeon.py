@@ -1,0 +1,513 @@
+#!/usr/bin/env python3
+"""Shared PMDO 0.8.12 serializer for authenticated early PMD Red dungeons.
+
+This module contains the engine-facing adaptation used by the early-dungeon
+batch.  Dungeon-specific builders supply only ROM-authenticated tables and
+route metadata; geometry, spawn, texture, stair, and index serialization stay
+centralized here.
+
+RogueElements ranges use the values already proven by the Tiny Woods adapter:
+integer maxima are serialized exactly as required by PMDO 0.8.12.  Geometry
+weights remain explicit rather than being sampled while building the zone.
+"""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+from typing import Any, Iterable, Mapping, Sequence
+
+MAP_CTX = "RogueEssence.LevelGen.MapGenContext, RogueEssence"
+GRID_FLOOR = "RogueEssence.LevelGen.GridFloorGen, RogueEssence"
+ROOM_GEN = (
+    "RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, "
+    "RogueEssence]], RogueElements"
+)
+PERMISSIVE_ROOM_GEN = (
+    "RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, "
+    "RogueEssence]], RogueElements"
+)
+TEAM_SPAWNER = "RogueEssence.LevelGen.TeamSpawner, RogueEssence"
+MAP_ITEM = "RogueEssence.Dungeon.MapItem, RogueEssence"
+EFFECT_TILE = "RogueEssence.Dungeon.EffectTile, RogueEssence"
+
+
+def generic_type(generic: str, *args: str, assembly: str) -> str:
+    return f"{generic}`{len(args)}[[" + "],[".join(args) + f"]], {assembly}"
+
+
+def int_range(minimum: int, maximum: int) -> dict[str, int]:
+    return {"Min": minimum, "Max": maximum}
+
+
+def priority(*parts: int) -> dict[str, list[int]]:
+    return {"str": list(parts)}
+
+
+def spawn_list(value_type: str, entries: Iterable[tuple[Any, int]]) -> dict[str, Any]:
+    return {
+        "$type": generic_type("RogueElements.SpawnList", value_type, assembly="RogueElements"),
+        "$values": [{"Spawn": value, "Rate": rate} for value, rate in entries],
+    }
+
+
+def weighted_int(entries: Iterable[tuple[int, int]]) -> dict[str, Any]:
+    return spawn_list("System.Int32, System.Private.CoreLib", entries)
+
+
+def preset(value_type: str, value: Any) -> dict[str, Any]:
+    return {
+        "$type": generic_type("RogueElements.PresetPicker", value_type, assembly="RogueElements"),
+        "ToSpawn": value,
+    }
+
+
+def rand_bag(value_type: str, values: Sequence[Any], *, remove: bool = True) -> dict[str, Any]:
+    return {
+        "$type": generic_type("RogueElements.RandBag", value_type, assembly="RogueElements"),
+        "ToSpawn": list(values),
+        "removeOnRoll": remove,
+    }
+
+
+def normal_room_filter() -> dict[str, Any]:
+    return {"$type": "RogueElements.RoomFilterDefaultGen, RogueElements", "Negate": True}
+
+
+def connectivity() -> dict[str, Any]:
+    return {"$type": "PMDC.LevelGen.ConnectivityRoom, PMDC", "Connection": 1}
+
+
+def room_square(row_count: int) -> dict[str, Any]:
+    # Red partitions the full 32-tile source height into 2 or 3 rows.  Cell
+    # walls account for the difference between these room maxima and the PMDO
+    # grid dimensions below.
+    max_height = 13 if row_count == 2 else 7
+    return {
+        "$type": generic_type("RogueElements.RoomGenSquare", MAP_CTX, assembly="RogueElements"),
+        "Width": int_range(5, 10),
+        "Height": int_range(4, max_height),
+    }
+
+
+def hall_anchor() -> dict[str, Any]:
+    return {"$type": generic_type("RogueElements.RoomGenDefault", MAP_CTX, assembly="RogueElements")}
+
+
+def angled_hall() -> dict[str, Any]:
+    return {
+        "$type": generic_type("RogueElements.RoomGenAngledHall", MAP_CTX, assembly="RogueElements"),
+        "HallTurnBias": 50,
+        "Brush": {"$type": "RogueElements.DefaultHallBrush, RogueElements"},
+        "Width": int_range(0, 0),
+        "Height": int_range(0, 0),
+    }
+
+
+def step(step_priority: tuple[int, ...], value: dict[str, Any]) -> dict[str, Any]:
+    return {"Key": priority(*step_priority), "Value": value}
+
+
+def map_data_step(music: str, *, time_limit: int = 1500) -> dict[str, Any]:
+    return {
+        "$type": generic_type("PMDC.LevelGen.MapDataStep", MAP_CTX, assembly="PMDC"),
+        "Music": music,
+        "TimeLimit": time_limit,
+        "TileSight": 0,
+        "CharSight": 0,
+        "ClampCamera": False,
+    }
+
+
+def init_grid_step(row_count: int, valid_columns: int) -> dict[str, Any]:
+    if valid_columns not in (2, 3):
+        raise ValueError("the Red early adapter supports small/medium layouts only")
+    return {
+        "$type": generic_type("RogueElements.InitGridPlanStep", MAP_CTX, assembly="RogueElements"),
+        "CellWidth": 12,
+        "CellHeight": 14 if row_count == 2 else 8,
+        "CellX": valid_columns,
+        "CellY": row_count,
+        "CellWall": 2,
+        "Wrap": False,
+    }
+
+
+def grid_path_step(row_count: int, valid_columns: int, normal_rooms: int) -> dict[str, Any]:
+    cell_count = valid_columns * row_count
+    if not 2 <= normal_rooms <= cell_count:
+        raise ValueError(f"invalid room count {normal_rooms} for {valid_columns}x{row_count} grid")
+    room_bag = [room_square(row_count) for _ in range(normal_rooms)]
+    room_bag.extend(hall_anchor() for _ in range(cell_count - normal_rooms))
+    return {
+        "$type": generic_type("RogueElements.GridPathBranch", MAP_CTX, assembly="RogueElements"),
+        "RoomRatio": int_range(100, 100),
+        "BranchRatio": int_range(15, 15),
+        "NoForcedBranches": False,
+        "GenericRooms": rand_bag(ROOM_GEN, room_bag),
+        "RoomComponents": [connectivity()],
+        "GenericHalls": preset(PERMISSIVE_ROOM_GEN, angled_hall()),
+        "HallComponents": [connectivity()],
+    }
+
+
+def mob_spawn(species: str, level: int) -> dict[str, Any]:
+    return {
+        "BaseForm": {"Species": species, "Form": 0, "Skin": "", "Gender": -1},
+        "Level": int_range(level, level),
+        "SpecifiedSkills": [],
+        "Intrinsic": "",
+        "Tactic": "wander_normal",
+        "SpawnConditions": [],
+        "SpawnFeatures": [],
+    }
+
+
+def team_picker(entries: Sequence[tuple[str, int, int]]) -> dict[str, Any]:
+    values = []
+    for species, level, rate in entries:
+        values.append(({
+            "$type": "RogueEssence.LevelGen.SpecificTeamSpawner, RogueEssence",
+            "Explorer": False,
+            "Spawns": [mob_spawn(species, level)],
+        }, rate))
+    return spawn_list(TEAM_SPAWNER, values)
+
+
+def initial_mob_step(
+    entries: Sequence[tuple[str, int, int]], count_weights: Sequence[tuple[int, int]]
+) -> dict[str, Any]:
+    spawner = {
+        "$type": generic_type("RogueEssence.LevelGen.LoopedRandTeamSpawner", MAP_CTX, assembly="RogueEssence"),
+        "Picker": team_picker(entries),
+        "AmountSpawner": weighted_int(count_weights),
+    }
+    return {
+        "$type": generic_type("RogueEssence.LevelGen.PlaceRandomMobsStep", MAP_CTX, assembly="RogueEssence"),
+        "Filters": [normal_room_filter()],
+        "IncludeHalls": False,
+        "Spawn": spawner,
+        "Ally": False,
+        "ClumpFactor": 0,
+    }
+
+
+def map_item(value: str, *, amount: int = 0, money: bool = False) -> dict[str, Any]:
+    return {
+        "IsMoney": money,
+        "Cursed": False,
+        "Value": "" if money else value,
+        "HiddenValue": "",
+        "Amount": amount,
+        "Price": 0,
+        "TileLoc": {"X": 0, "Y": 0},
+    }
+
+
+def effect_tile(tile_id: str) -> dict[str, Any]:
+    return {
+        "TileLoc": {"X": 0, "Y": 0},
+        "ID": tile_id,
+        "Revealed": True,
+        "Owner": 0,
+        "TileStates": [],
+    }
+
+
+def looped_picker(
+    value_type: str,
+    value_entries: Iterable[tuple[Any, int]],
+    count_weights: Sequence[tuple[int, int]],
+) -> dict[str, Any]:
+    return {
+        "$type": generic_type("RogueElements.LoopedRand", value_type, assembly="RogueElements"),
+        "Spawner": spawn_list(value_type, value_entries),
+        "AmountSpawner": weighted_int(count_weights),
+    }
+
+
+def random_room_spawn(value_type: str, picker: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "$type": generic_type("RogueElements.RandomRoomSpawnStep", MAP_CTX, value_type, assembly="RogueElements"),
+        "Filters": [normal_room_filter()],
+        "Spawn": {
+            "$type": generic_type("RogueElements.PickerSpawner", MAP_CTX, value_type, assembly="RogueElements"),
+            "Picker": picker,
+        },
+        "SuccessPercent": 100,
+        "IncludeHalls": False,
+    }
+
+
+def item_step(
+    item_entries: Sequence[tuple[dict[str, Any], int]],
+    count_weights: Sequence[tuple[int, int]],
+) -> dict[str, Any]:
+    return random_room_spawn(MAP_ITEM, looped_picker(MAP_ITEM, item_entries, count_weights))
+
+
+def wonder_tile_step(count_weights: Sequence[tuple[int, int]]) -> dict[str, Any]:
+    entries = [(effect_tile("tile_wonder"), 1)]
+    return random_room_spawn(EFFECT_TILE, looped_picker(EFFECT_TILE, entries, count_weights))
+
+
+def stairs_step() -> dict[str, Any]:
+    return {
+        "$type": generic_type(
+            "RogueElements.FloorStairsStep",
+            MAP_CTX,
+            "RogueEssence.LevelGen.MapGenEntrance, RogueEssence",
+            "RogueEssence.LevelGen.MapGenExit, RogueEssence",
+            assembly="RogueElements",
+        ),
+        "MinDistance": 3,
+        "Entrances": [{"Loc": {"X": 0, "Y": 0}, "Dir": 0}],
+        "Exits": [{
+            "Loc": {"X": 0, "Y": 0},
+            "Tile": effect_tile("stairs_go_up"),
+        }],
+        "Filters": [normal_room_filter()],
+    }
+
+
+def respawn_settings_step() -> dict[str, Any]:
+    return {
+        "$type": generic_type("PMDC.LevelGen.MobSpawnSettingsStep", MAP_CTX, assembly="PMDC"),
+        "Priority": priority(15),
+        "Respawn": {
+            "$type": "PMDC.Dungeon.RespawnFromEligibleEvent, PMDC",
+            "MaxFoes": 4,
+            "RespawnTime": 36,
+        },
+        "MaxFoes": 0,
+        "RespawnTime": 0,
+    }
+
+
+def texture_step(texture_family: str) -> dict[str, Any]:
+    return {
+        "$type": generic_type("RogueEssence.LevelGen.MapTextureStep", MAP_CTX, assembly="RogueEssence"),
+        "GroundTileset": f"{texture_family}_floor",
+        "BlockTileset": f"{texture_family}_wall",
+        "WaterTileset": f"{texture_family}_secondary",
+        "LayeredGround": False,
+        "IndependentGround": False,
+        "GroundElement": "normal",
+        "Background": {
+            "$type": "RogueEssence.Dungeon.MapBG, RogueEssence",
+            "MapLoc": {"X": 0, "Y": 0},
+            "BGAnim": {
+                "AnimIndex": "", "FrameTime": 1, "StartFrame": -1,
+                "EndFrame": -1, "AnimDir": -1, "Alpha": 255, "AnimFlip": 0,
+            },
+            "BGMovement": {"X": 0, "Y": 0},
+            "Parallax": "0, 0",
+            "RepeatX": False,
+            "RepeatY": False,
+        },
+    }
+
+
+def build_grid_floor(
+    *,
+    row_count: int,
+    normal_rooms: int,
+    valid_columns: int,
+    music: str,
+    texture_family: str,
+    monsters: Sequence[tuple[str, int, int]],
+    enemy_count_weights: Sequence[tuple[int, int]],
+    items: Sequence[tuple[dict[str, Any], int]],
+    item_count_weights: Sequence[tuple[int, int]],
+    trap_count_weights: Sequence[tuple[int, int]],
+    extra_hallways: int = 5,
+) -> dict[str, Any]:
+    steps = [
+        step((-6,), map_data_step(music)),
+        step((-5,), init_grid_step(row_count, valid_columns)),
+        step((-4,), grid_path_step(row_count, valid_columns, normal_rooms)),
+        step((-3,), {"$type": generic_type("RogueElements.DrawGridToFloorStep", MAP_CTX, assembly="RogueElements")}),
+        step((-1,), {
+            "$type": generic_type("RogueElements.DrawFloorToTileStep", MAP_CTX, assembly="RogueElements"),
+            "Padding": 1,
+        }),
+        step((0,), {
+            "$type": generic_type("RogueEssence.AddTunnelStep", MAP_CTX, assembly="RogueEssence"),
+            "TurnLength": int_range(3, 6),
+            "MaxLength": int_range(56, 56),
+            "AllowDeadEnd": True,
+            "TraverseFloor": False,
+            "Halls": int_range(extra_hallways, extra_hallways),
+            "Brush": {"$type": "RogueElements.DefaultHallBrush, RogueElements"},
+        }),
+        step((0, 1), {"$type": generic_type("RogueEssence.LevelGen.UnbreakableBorderStep", MAP_CTX, assembly="RogueEssence")}),
+        step((1, 2), respawn_settings_step()),
+        step((2,), stairs_step()),
+        step((4,), texture_step(texture_family)),
+        step((6, 1), item_step(items, item_count_weights)),
+        step((6, 2), wonder_tile_step(trap_count_weights)),
+        step((6, 3), initial_mob_step(monsters, enemy_count_weights)),
+        step((7,), {
+            "$type": generic_type(
+                "RogueElements.DetectIsolatedStairsStep",
+                MAP_CTX,
+                "RogueEssence.LevelGen.MapGenEntrance, RogueEssence",
+                "RogueEssence.LevelGen.MapGenExit, RogueEssence",
+                assembly="RogueElements",
+            ),
+        }),
+    ]
+    return {"$type": GRID_FLOOR, "GenSteps": steps}
+
+
+def build_chance_floor(
+    *,
+    geometry: Sequence[tuple[tuple[int, int], int]],
+    valid_columns: int,
+    music: str,
+    texture_family: str,
+    monsters: Sequence[tuple[str, int, int]],
+    enemy_count_weights: Sequence[tuple[int, int]],
+    items: Sequence[tuple[dict[str, Any], int]],
+    item_count_weights: Sequence[tuple[int, int]],
+    trap_count_weights: Sequence[tuple[int, int]],
+    extra_hallways: int = 5,
+) -> dict[str, Any]:
+    spawns = []
+    for (row_count, room_count), rate in geometry:
+        floor = build_grid_floor(
+            row_count=row_count,
+            normal_rooms=room_count,
+            valid_columns=valid_columns,
+            music=music,
+            texture_family=texture_family,
+            monsters=monsters,
+            enemy_count_weights=enemy_count_weights,
+            items=items,
+            item_count_weights=item_count_weights,
+            trap_count_weights=trap_count_weights,
+            extra_hallways=extra_hallways,
+        )
+        spawns.append({"Spawn": floor, "Rate": rate})
+    return {"$type": "RogueEssence.LevelGen.ChanceFloorGen, RogueEssence", "Spawns": spawns}
+
+
+def team_spawn_zone_step(
+    floor_monsters: Sequence[Sequence[tuple[str, int, int]]]
+) -> dict[str, Any]:
+    spawns = []
+    for floor_index, entries in enumerate(floor_monsters):
+        for species, level, rate in entries:
+            spawns.append({
+                "Spawn": {"Spawn": mob_spawn(species, level), "Role": 0},
+                "Rate": rate,
+                "Range": int_range(floor_index, floor_index + 1),
+            })
+    return {
+        "$type": "RogueEssence.LevelGen.TeamSpawnZoneStep, RogueEssence",
+        "Priority": priority(1, 2),
+        "Spawns": spawns,
+        "TeamSizes": [
+            {"Spawn": 1, "Rate": 1, "Range": int_range(0, len(floor_monsters))}
+        ],
+        "SpecificSpawns": [],
+    }
+
+
+def build_zone(
+    *,
+    zone_name: str,
+    comment: str,
+    floors: Sequence[dict[str, Any]],
+    floor_monsters: Sequence[Sequence[tuple[str, int, int]]],
+    segment_comment: str,
+    level: int = 1,
+    team_size: int = 3,
+    bag_restrict: int = 20,
+    rescues: int = -1,
+    ground_maps: Sequence[str] = (),
+) -> dict[str, Any]:
+    floor_nodes = [
+        {"Item": floor, "Range": int_range(index, index + 1)}
+        for index, floor in enumerate(floors)
+    ]
+    return {
+        "Version": "0.8.12.0",
+        "Object": {
+            "$type": "RogueEssence.Data.ZoneData, RogueEssence",
+            "Name": {"DefaultText": zone_name, "LocalTexts": {}},
+            "Released": True,
+            "Comment": comment,
+            "NoEXP": False,
+            "ExpPercent": 100,
+            "Level": level,
+            "LevelCap": False,
+            "KeepSkills": False,
+            "TeamRestrict": False,
+            "TeamSize": team_size,
+            "MoneyRestrict": False,
+            "BagRestrict": bag_restrict,
+            "KeepTreasure": False,
+            "BagSize": -1,
+            "Persistent": False,
+            "Rescues": rescues,
+            "Rogue": 0,
+            "Segments": [{
+                "$type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
+                "Floors": {"nodes": floor_nodes},
+                "ZoneSteps": [team_spawn_zone_step(floor_monsters)],
+                "IsRelevant": True,
+                "Comment": segment_comment,
+            }],
+            "GroundMaps": list(ground_maps),
+        },
+    }
+
+
+def zone_index_summary(
+    zone: Mapping[str, Any], *, grounds: Sequence[str], comment: str = ""
+) -> dict[str, Any]:
+    obj = zone["Object"]
+    floor_count = len(obj["Segments"][0]["Floors"]["nodes"])
+    summary = {
+        "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+        "ExpPercent": obj["ExpPercent"],
+        "Level": obj["Level"],
+        "LevelCap": obj["LevelCap"],
+        "KeepSkills": obj["KeepSkills"],
+        "TeamRestrict": obj["TeamRestrict"],
+        "TeamSize": obj["TeamSize"],
+        "MoneyRestrict": obj["MoneyRestrict"],
+        "BagRestrict": obj["BagRestrict"],
+        "KeepTreasure": obj["KeepTreasure"],
+        "BagSize": obj["BagSize"],
+        "Rescues": obj["Rescues"],
+        "CountedFloors": floor_count,
+        "Rogue": obj["Rogue"],
+        "Grounds": list(grounds),
+        "Maps": [list(range(floor_count))],
+        "Name": obj["Name"],
+        "Released": obj["Released"],
+        "SortOrder": 0,
+    }
+    if comment:
+        summary["Comment"] = comment
+    return summary
+
+
+def dump_container(path: Path, value: Mapping[str, Any]) -> bytes:
+    data = json.dumps(value, ensure_ascii=False, indent=2).encode("utf-8")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(data)
+    return data
+
+
+def update_zone_index(path: Path, zone_id: str, summary: Mapping[str, Any]) -> None:
+    raw = path.read_bytes()
+    has_bom = raw.startswith(b"\xef\xbb\xbf")
+    index = json.loads(raw.decode("utf-8-sig"))
+    if zone_id in index["Object"]:
+        raise FileExistsError(f"create-only zone index entry already exists: {zone_id}")
+    index["Object"][zone_id] = dict(summary)
+    encoded = json.dumps(index, ensure_ascii=False, indent=2).encode("utf-8")
+    path.write_bytes((b"\xef\xbb\xbf" if has_bom else b"") + encoded)

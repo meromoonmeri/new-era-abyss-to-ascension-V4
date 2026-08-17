@@ -1,0 +1,1227 @@
+{
+  "schema": "pmdred-eu-early-dungeon-static-render-v1",
+  "status": "passed",
+  "zone": {
+    "id": "thunderwave_cave",
+    "title": "Grotte Éclair / Thunderwave Cave",
+    "pmdo_version": "0.8.12.0",
+    "floors": 5
+  },
+  "method": {
+    "id": "zone-grid-representative-autotile-adjacent-tick0-v1",
+    "source": "promoted ZoneData GridFloorGen recipes and PMDO AutoTileAdjacent terrain definitions",
+    "terrain_pixels": "composited exclusively from referenced promoted .tile cells at animation tick zero",
+    "topology": "deterministic representative built from serialized grid, room, branch, padding, tunnel, entry, and exit parameters",
+    "overlay": "entry/stair/shortest-route/entity audit markers; overlays are deliberately not presented as native sprites"
+  },
+  "inputs": {
+    "zone": {
+      "path": "Data/Zone/thunderwave_cave.json",
+      "bytes": 1531037,
+      "sha256": "5dc1895fd25549082e62538a1f6757baaf13943f8e26ad821345f18a975c8a50"
+    },
+    "floor_autotile": {
+      "path": "Data/AutoTile/thunderwave_cave_floor.json",
+      "bytes": 6112,
+      "sha256": "d1dbaa4805fb4d623f420f6cdb82e36686e82ba56882260d250e63ba58811259"
+    },
+    "wall_autotile": {
+      "path": "Data/AutoTile/thunderwave_cave_wall.json",
+      "bytes": 10054,
+      "sha256": "90bd144ae0b0d2c3ef8654f7a2e1e7d0a9c9033a847bdd571cce278cba49bf8a"
+    },
+    "tile_sheet": {
+      "path": "Content/Tile/ThunderwaveCave.tile",
+      "bytes": 385147,
+      "sha256": "75e602b0102b41584c9ced0f4d1b04068c03f777427289c313e1bfea9da8ea40"
+    }
+  },
+  "sheet_audit": {
+    "tile_size": 24,
+    "tile_cells": 2407,
+    "floor_frames_used": [
+      [
+        12,
+        0
+      ],
+      [
+        12,
+        1
+      ],
+      [
+        12,
+        2
+      ],
+      [
+        12,
+        3
+      ],
+      [
+        12,
+        4
+      ],
+      [
+        12,
+        5
+      ],
+      [
+        12,
+        6
+      ],
+      [
+        13,
+        0
+      ],
+      [
+        13,
+        1
+      ],
+      [
+        13,
+        2
+      ],
+      [
+        13,
+        3
+      ],
+      [
+        13,
+        4
+      ],
+      [
+        13,
+        5
+      ],
+      [
+        13,
+        6
+      ],
+      [
+        14,
+        0
+      ],
+      [
+        14,
+        1
+      ],
+      [
+        14,
+        2
+      ],
+      [
+        14,
+        5
+      ],
+      [
+        14,
+        6
+      ],
+      [
+        15,
+        1
+      ],
+      [
+        15,
+        6
+      ],
+      [
+        16,
+        0
+      ],
+      [
+        16,
+        5
+      ],
+      [
+        17,
+        0
+      ],
+      [
+        17,
+        5
+      ],
+      [
+        17,
+        6
+      ],
+      [
+        31,
+        1
+      ],
+      [
+        49,
+        1
+      ]
+    ],
+    "wall_frames_used": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        18,
+        0
+      ],
+      [
+        18,
+        1
+      ],
+      [
+        18,
+        2
+      ],
+      [
+        18,
+        6
+      ],
+      [
+        19,
+        0
+      ],
+      [
+        19,
+        1
+      ],
+      [
+        19,
+        2
+      ],
+      [
+        19,
+        6
+      ],
+      [
+        20,
+        0
+      ],
+      [
+        20,
+        1
+      ],
+      [
+        20,
+        2
+      ],
+      [
+        21,
+        1
+      ],
+      [
+        22,
+        0
+      ],
+      [
+        22,
+        2
+      ],
+      [
+        22,
+        4
+      ],
+      [
+        37,
+        1
+      ],
+      [
+        37,
+        2
+      ]
+    ],
+    "missing_references": 0
+  },
+  "floors": [
+    {
+      "floor": 1,
+      "seed": "thunderwave_cave:floor:1:render-v1",
+      "weighted_recipe": {
+        "index": 4,
+        "rate": 20151515,
+        "roll": 70002319,
+        "total_rate": 100000000
+      },
+      "dimensions": {
+        "width": 40,
+        "height": 28,
+        "tile_size": 24
+      },
+      "generation": {
+        "grid": {
+          "cell_width": 12,
+          "cell_height": 8,
+          "cells_x": 3,
+          "cells_y": 3,
+          "cell_wall": 2,
+          "padding": 1
+        },
+        "room_ratio": 100,
+        "branch_ratio": 15,
+        "extra_hallways": 5,
+        "maximum_tunnel_length": 56,
+        "minimum_stair_distance": 3,
+        "terrain_assets": {
+          "floor": "thunderwave_cave_floor",
+          "wall": "thunderwave_cave_wall",
+          "secondary": "thunderwave_cave_secondary"
+        },
+        "secondary_terrain_generated": false
+      },
+      "terrain": {
+        "floor": 393,
+        "wall": 727,
+        "secondary": 0,
+        "coverage": 1120,
+        "autotile_neighbor_codes": {
+          "floor": [
+            "0x05",
+            "0x0A",
+            "0x13",
+            "0x17",
+            "0x26",
+            "0x37",
+            "0x3F",
+            "0x4C",
+            "0x6E",
+            "0x6F",
+            "0x7F",
+            "0x89",
+            "0x9B",
+            "0x9F",
+            "0xBF",
+            "0xCD",
+            "0xCF",
+            "0xDF",
+            "0xEF",
+            "0xFF"
+          ],
+          "wall": [
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x4C",
+            "0x6E",
+            "0x7F",
+            "0x89",
+            "0x9B",
+            "0xBF",
+            "0xCD",
+            "0xDF",
+            "0xEF",
+            "0xFF"
+          ]
+        },
+        "black_cells": 0,
+        "transparent_cells": 0
+      },
+      "collision": {
+        "walkable": 393,
+        "reachable_from_entry": 393,
+        "connected_components": 1,
+        "all_walkable_reachable": true
+      },
+      "entry": {
+        "x": 36,
+        "y": 4
+      },
+      "stairs": {
+        "id": "stairs_go_up",
+        "count": 1,
+        "x": 3,
+        "y": 23,
+        "reachable": true,
+        "shortest_route": 52
+      },
+      "entity_overlay_sample": {
+        "counts": {
+          "enemy": 3,
+          "item": 2,
+          "trap": 2
+        },
+        "entries": [
+          {
+            "kind": "item",
+            "id": "money",
+            "amount": 58,
+            "x": 19,
+            "y": 16
+          },
+          {
+            "kind": "item",
+            "id": "seed_blast",
+            "amount": 0,
+            "x": 16,
+            "y": 13
+          },
+          {
+            "kind": "trap",
+            "id": "tile_wonder",
+            "x": 16,
+            "y": 6
+          },
+          {
+            "kind": "trap",
+            "id": "tile_wonder",
+            "x": 31,
+            "y": 7
+          },
+          {
+            "kind": "enemy",
+            "id": "poochyena",
+            "level": 3,
+            "x": 16,
+            "y": 16
+          },
+          {
+            "kind": "enemy",
+            "id": "poochyena",
+            "level": 3,
+            "x": 17,
+            "y": 22
+          },
+          {
+            "kind": "enemy",
+            "id": "rattata",
+            "level": 3,
+            "x": 33,
+            "y": 20
+          }
+        ],
+        "all_on_reachable_floor": true
+      },
+      "static_invariants": {
+        "dimensions_positive": true,
+        "terrain_complete": true,
+        "no_black_terrain_tiles": true,
+        "no_transparent_terrain_tiles": true,
+        "one_entry": true,
+        "one_reachable_stair": true,
+        "all_walkable_reachable": true,
+        "all_overlay_entities_reachable": true
+      }
+    },
+    {
+      "floor": 2,
+      "seed": "thunderwave_cave:floor:2:render-v1",
+      "weighted_recipe": {
+        "index": 4,
+        "rate": 20151515,
+        "roll": 72621528,
+        "total_rate": 100000000
+      },
+      "dimensions": {
+        "width": 40,
+        "height": 28,
+        "tile_size": 24
+      },
+      "generation": {
+        "grid": {
+          "cell_width": 12,
+          "cell_height": 8,
+          "cells_x": 3,
+          "cells_y": 3,
+          "cell_wall": 2,
+          "padding": 1
+        },
+        "room_ratio": 100,
+        "branch_ratio": 15,
+        "extra_hallways": 5,
+        "maximum_tunnel_length": 56,
+        "minimum_stair_distance": 3,
+        "terrain_assets": {
+          "floor": "thunderwave_cave_floor",
+          "wall": "thunderwave_cave_wall",
+          "secondary": "thunderwave_cave_secondary"
+        },
+        "secondary_terrain_generated": false
+      },
+      "terrain": {
+        "floor": 401,
+        "wall": 719,
+        "secondary": 0,
+        "coverage": 1120,
+        "autotile_neighbor_codes": {
+          "floor": [
+            "0x05",
+            "0x0A",
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x3F",
+            "0x4C",
+            "0x6E",
+            "0x6F",
+            "0x7F",
+            "0x89",
+            "0x9B",
+            "0x9F",
+            "0xBF",
+            "0xCD",
+            "0xCF",
+            "0xDF",
+            "0xEF",
+            "0xFF"
+          ],
+          "wall": [
+            "0x01",
+            "0x04",
+            "0x05",
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x4C",
+            "0x6E",
+            "0x7F",
+            "0x89",
+            "0x9B",
+            "0xBF",
+            "0xCD",
+            "0xDF",
+            "0xEF",
+            "0xFF"
+          ]
+        },
+        "black_cells": 0,
+        "transparent_cells": 0
+      },
+      "collision": {
+        "walkable": 401,
+        "reachable_from_entry": 401,
+        "connected_components": 1,
+        "all_walkable_reachable": true
+      },
+      "entry": {
+        "x": 36,
+        "y": 23
+      },
+      "stairs": {
+        "id": "stairs_go_up",
+        "count": 1,
+        "x": 3,
+        "y": 3,
+        "reachable": true,
+        "shortest_route": 53
+      },
+      "entity_overlay_sample": {
+        "counts": {
+          "enemy": 3,
+          "item": 4,
+          "trap": 1
+        },
+        "entries": [
+          {
+            "kind": "item",
+            "id": "seed_blast",
+            "amount": 0,
+            "x": 4,
+            "y": 15
+          },
+          {
+            "kind": "item",
+            "id": "berry_oran",
+            "amount": 0,
+            "x": 31,
+            "y": 8
+          },
+          {
+            "kind": "item",
+            "id": "ammo_gravelerock",
+            "amount": 3,
+            "x": 5,
+            "y": 5
+          },
+          {
+            "kind": "item",
+            "id": "food_apple",
+            "amount": 0,
+            "x": 8,
+            "y": 13
+          },
+          {
+            "kind": "trap",
+            "id": "tile_wonder",
+            "x": 21,
+            "y": 16
+          },
+          {
+            "kind": "enemy",
+            "id": "poochyena",
+            "level": 3,
+            "x": 21,
+            "y": 7
+          },
+          {
+            "kind": "enemy",
+            "id": "nidoran_f",
+            "level": 4,
+            "x": 29,
+            "y": 11
+          },
+          {
+            "kind": "enemy",
+            "id": "rattata",
+            "level": 3,
+            "x": 5,
+            "y": 4
+          }
+        ],
+        "all_on_reachable_floor": true
+      },
+      "static_invariants": {
+        "dimensions_positive": true,
+        "terrain_complete": true,
+        "no_black_terrain_tiles": true,
+        "no_transparent_terrain_tiles": true,
+        "one_entry": true,
+        "one_reachable_stair": true,
+        "all_walkable_reachable": true,
+        "all_overlay_entities_reachable": true
+      }
+    },
+    {
+      "floor": 3,
+      "seed": "thunderwave_cave:floor:3:render-v1",
+      "weighted_recipe": {
+        "index": 2,
+        "rate": 14848485,
+        "roll": 58992782,
+        "total_rate": 100000000
+      },
+      "dimensions": {
+        "width": 40,
+        "height": 28,
+        "tile_size": 24
+      },
+      "generation": {
+        "grid": {
+          "cell_width": 12,
+          "cell_height": 8,
+          "cells_x": 3,
+          "cells_y": 3,
+          "cell_wall": 2,
+          "padding": 1
+        },
+        "room_ratio": 100,
+        "branch_ratio": 15,
+        "extra_hallways": 5,
+        "maximum_tunnel_length": 56,
+        "minimum_stair_distance": 3,
+        "terrain_assets": {
+          "floor": "thunderwave_cave_floor",
+          "wall": "thunderwave_cave_wall",
+          "secondary": "thunderwave_cave_secondary"
+        },
+        "secondary_terrain_generated": false
+      },
+      "terrain": {
+        "floor": 329,
+        "wall": 791,
+        "secondary": 0,
+        "coverage": 1120,
+        "autotile_neighbor_codes": {
+          "floor": [
+            "0x05",
+            "0x0A",
+            "0x13",
+            "0x1B",
+            "0x26",
+            "0x37",
+            "0x3F",
+            "0x4C",
+            "0x4D",
+            "0x4E",
+            "0x6E",
+            "0x6F",
+            "0x89",
+            "0x8B",
+            "0x8D",
+            "0x9B",
+            "0x9F",
+            "0xCD",
+            "0xCF",
+            "0xEF",
+            "0xFF"
+          ],
+          "wall": [
+            "0x02",
+            "0x08",
+            "0x0A",
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x4C",
+            "0x6E",
+            "0x7F",
+            "0x89",
+            "0x9B",
+            "0xBF",
+            "0xCD",
+            "0xDF",
+            "0xEF",
+            "0xFF"
+          ]
+        },
+        "black_cells": 0,
+        "transparent_cells": 0
+      },
+      "collision": {
+        "walkable": 329,
+        "reachable_from_entry": 329,
+        "connected_components": 1,
+        "all_walkable_reachable": true
+      },
+      "entry": {
+        "x": 36,
+        "y": 23
+      },
+      "stairs": {
+        "id": "stairs_go_up",
+        "count": 1,
+        "x": 4,
+        "y": 3,
+        "reachable": true,
+        "shortest_route": 52
+      },
+      "entity_overlay_sample": {
+        "counts": {
+          "enemy": 2,
+          "item": 4,
+          "trap": 2
+        },
+        "entries": [
+          {
+            "kind": "item",
+            "id": "food_apple",
+            "amount": 0,
+            "x": 32,
+            "y": 11
+          },
+          {
+            "kind": "item",
+            "id": "food_apple",
+            "amount": 0,
+            "x": 19,
+            "y": 12
+          },
+          {
+            "kind": "item",
+            "id": "ammo_gravelerock",
+            "amount": 3,
+            "x": 33,
+            "y": 11
+          },
+          {
+            "kind": "item",
+            "id": "money",
+            "amount": 62,
+            "x": 35,
+            "y": 13
+          },
+          {
+            "kind": "trap",
+            "id": "tile_wonder",
+            "x": 18,
+            "y": 12
+          },
+          {
+            "kind": "trap",
+            "id": "tile_wonder",
+            "x": 12,
+            "y": 12
+          },
+          {
+            "kind": "enemy",
+            "id": "rattata",
+            "level": 3,
+            "x": 31,
+            "y": 5
+          },
+          {
+            "kind": "enemy",
+            "id": "poochyena",
+            "level": 3,
+            "x": 19,
+            "y": 20
+          }
+        ],
+        "all_on_reachable_floor": true
+      },
+      "static_invariants": {
+        "dimensions_positive": true,
+        "terrain_complete": true,
+        "no_black_terrain_tiles": true,
+        "no_transparent_terrain_tiles": true,
+        "one_entry": true,
+        "one_reachable_stair": true,
+        "all_walkable_reachable": true,
+        "all_overlay_entities_reachable": true
+      }
+    },
+    {
+      "floor": 4,
+      "seed": "thunderwave_cave:floor:4:render-v1",
+      "weighted_recipe": {
+        "index": 2,
+        "rate": 14848485,
+        "roll": 56782196,
+        "total_rate": 100000000
+      },
+      "dimensions": {
+        "width": 40,
+        "height": 28,
+        "tile_size": 24
+      },
+      "generation": {
+        "grid": {
+          "cell_width": 12,
+          "cell_height": 8,
+          "cells_x": 3,
+          "cells_y": 3,
+          "cell_wall": 2,
+          "padding": 1
+        },
+        "room_ratio": 100,
+        "branch_ratio": 15,
+        "extra_hallways": 5,
+        "maximum_tunnel_length": 56,
+        "minimum_stair_distance": 3,
+        "terrain_assets": {
+          "floor": "thunderwave_cave_floor",
+          "wall": "thunderwave_cave_wall",
+          "secondary": "thunderwave_cave_secondary"
+        },
+        "secondary_terrain_generated": false
+      },
+      "terrain": {
+        "floor": 403,
+        "wall": 717,
+        "secondary": 0,
+        "coverage": 1120,
+        "autotile_neighbor_codes": {
+          "floor": [
+            "0x03",
+            "0x05",
+            "0x0A",
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x3F",
+            "0x4C",
+            "0x6E",
+            "0x6F",
+            "0x7F",
+            "0x89",
+            "0x8D",
+            "0x9B",
+            "0x9F",
+            "0xBF",
+            "0xCD",
+            "0xCF",
+            "0xDF",
+            "0xEF",
+            "0xFF"
+          ],
+          "wall": [
+            "0x01",
+            "0x13",
+            "0x17",
+            "0x26",
+            "0x37",
+            "0x4C",
+            "0x6E",
+            "0x7F",
+            "0x89",
+            "0x9B",
+            "0xBF",
+            "0xCD",
+            "0xDF",
+            "0xEF",
+            "0xFF"
+          ]
+        },
+        "black_cells": 0,
+        "transparent_cells": 0
+      },
+      "collision": {
+        "walkable": 403,
+        "reachable_from_entry": 403,
+        "connected_components": 1,
+        "all_walkable_reachable": true
+      },
+      "entry": {
+        "x": 4,
+        "y": 23
+      },
+      "stairs": {
+        "id": "stairs_go_up",
+        "count": 1,
+        "x": 35,
+        "y": 3,
+        "reachable": true,
+        "shortest_route": 51
+      },
+      "entity_overlay_sample": {
+        "counts": {
+          "enemy": 2,
+          "item": 4,
+          "trap": 1
+        },
+        "entries": [
+          {
+            "kind": "item",
+            "id": "food_apple",
+            "amount": 0,
+            "x": 27,
+            "y": 13
+          },
+          {
+            "kind": "item",
+            "id": "seed_blast",
+            "amount": 0,
+            "x": 36,
+            "y": 23
+          },
+          {
+            "kind": "item",
+            "id": "money",
+            "amount": 58,
+            "x": 27,
+            "y": 12
+          },
+          {
+            "kind": "item",
+            "id": "food_apple",
+            "amount": 0,
+            "x": 7,
+            "y": 14
+          },
+          {
+            "kind": "trap",
+            "id": "tile_wonder",
+            "x": 23,
+            "y": 22
+          },
+          {
+            "kind": "enemy",
+            "id": "voltorb",
+            "level": 3,
+            "x": 16,
+            "y": 5
+          },
+          {
+            "kind": "enemy",
+            "id": "voltorb",
+            "level": 3,
+            "x": 15,
+            "y": 6
+          }
+        ],
+        "all_on_reachable_floor": true
+      },
+      "static_invariants": {
+        "dimensions_positive": true,
+        "terrain_complete": true,
+        "no_black_terrain_tiles": true,
+        "no_transparent_terrain_tiles": true,
+        "one_entry": true,
+        "one_reachable_stair": true,
+        "all_walkable_reachable": true,
+        "all_overlay_entities_reachable": true
+      }
+    },
+    {
+      "floor": 5,
+      "seed": "thunderwave_cave:floor:5:render-v1",
+      "weighted_recipe": {
+        "index": 2,
+        "rate": 14848485,
+        "roll": 68870821,
+        "total_rate": 100000000
+      },
+      "dimensions": {
+        "width": 40,
+        "height": 28,
+        "tile_size": 24
+      },
+      "generation": {
+        "grid": {
+          "cell_width": 12,
+          "cell_height": 8,
+          "cells_x": 3,
+          "cells_y": 3,
+          "cell_wall": 2,
+          "padding": 1
+        },
+        "room_ratio": 100,
+        "branch_ratio": 15,
+        "extra_hallways": 5,
+        "maximum_tunnel_length": 56,
+        "minimum_stair_distance": 3,
+        "terrain_assets": {
+          "floor": "thunderwave_cave_floor",
+          "wall": "thunderwave_cave_wall",
+          "secondary": "thunderwave_cave_secondary"
+        },
+        "secondary_terrain_generated": false
+      },
+      "terrain": {
+        "floor": 426,
+        "wall": 694,
+        "secondary": 0,
+        "coverage": 1120,
+        "autotile_neighbor_codes": {
+          "floor": [
+            "0x05",
+            "0x0A",
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x3F",
+            "0x4C",
+            "0x6E",
+            "0x6F",
+            "0x7F",
+            "0x89",
+            "0x9B",
+            "0x9F",
+            "0xBF",
+            "0xCD",
+            "0xCF",
+            "0xDF",
+            "0xEF",
+            "0xFF"
+          ],
+          "wall": [
+            "0x13",
+            "0x26",
+            "0x37",
+            "0x4C",
+            "0x6E",
+            "0x7F",
+            "0x89",
+            "0x9B",
+            "0xBF",
+            "0xCD",
+            "0xDF",
+            "0xEF",
+            "0xFF"
+          ]
+        },
+        "black_cells": 0,
+        "transparent_cells": 0
+      },
+      "collision": {
+        "walkable": 426,
+        "reachable_from_entry": 426,
+        "connected_components": 1,
+        "all_walkable_reachable": true
+      },
+      "entry": {
+        "x": 29,
+        "y": 3
+      },
+      "stairs": {
+        "id": "stairs_go_up",
+        "count": 1,
+        "x": 3,
+        "y": 24,
+        "reachable": true,
+        "shortest_route": 55
+      },
+      "entity_overlay_sample": {
+        "counts": {
+          "enemy": 2,
+          "item": 6,
+          "trap": 2
+        },
+        "entries": [
+          {
+            "kind": "item",
+            "id": "berry_oran",
+            "amount": 0,
+            "x": 4,
+            "y": 6
+          },
+          {
+            "kind": "item",
+            "id": "money",
+            "amount": 46,
+            "x": 3,
+            "y": 21
+          },
+          {
+            "kind": "item",
+            "id": "seed_blast",
+            "amount": 0,
+            "x": 33,
+            "y": 22
+          },
+          {
+            "kind": "item",
+            "id": "berry_oran",
+            "amount": 0,
+            "x": 34,
+            "y": 22
+          },
+          {
+            "kind": "item",
+            "id": "ammo_gravelerock",
+            "amount": 4,
+            "x": 21,
+            "y": 13
+          },
+          {
+            "kind": "item",
+            "id": "berry_cheri",
+            "amount": 0,
+            "x": 23,
+            "y": 20
+          },
+          {
+            "kind": "trap",
+            "id": "tile_wonder",
+            "x": 32,
+            "y": 23
+          },
+          {
+            "kind": "trap",
+            "id": "tile_wonder",
+            "x": 32,
+            "y": 6
+          },
+          {
+            "kind": "enemy",
+            "id": "minun",
+            "level": 3,
+            "x": 19,
+            "y": 13
+          },
+          {
+            "kind": "enemy",
+            "id": "elekid",
+            "level": 4,
+            "x": 9,
+            "y": 23
+          }
+        ],
+        "all_on_reachable_floor": true
+      },
+      "static_invariants": {
+        "dimensions_positive": true,
+        "terrain_complete": true,
+        "no_black_terrain_tiles": true,
+        "no_transparent_terrain_tiles": true,
+        "one_entry": true,
+        "one_reachable_stair": true,
+        "all_walkable_reachable": true,
+        "all_overlay_entities_reachable": true
+      }
+    }
+  ],
+  "outputs": {
+    "floor_1.png": {
+      "bytes": 147379,
+      "sha256": "211c6b2ac608a60dfab30ca8c9ffb7d81a779b068c81991d402c2a47397b6eff"
+    },
+    "floor_2.png": {
+      "bytes": 152989,
+      "sha256": "40f101e530f6fbebc830bbbe36c739a0fb86690714589b1c6895fd946964ae8d"
+    },
+    "floor_3.png": {
+      "bytes": 144243,
+      "sha256": "8c5a2917645fc9f207e7856c07837a12cd53d94264120ca2604dd810948e8b0b"
+    },
+    "floor_4.png": {
+      "bytes": 144900,
+      "sha256": "f1fde4d17b42a6ba407118d4f1f4b97e6b3c28057bef01c5dca840a2c348f8f3"
+    },
+    "floor_5.png": {
+      "bytes": 147180,
+      "sha256": "ac3f08546f49165891f92b20e96431d680dfb18bd838ca58555bfc411cd2be3c"
+    },
+    "overview.png": {
+      "bytes": 933682,
+      "sha256": "f2c4e8036bbb488f423021792dcaa8a9c467f7fdc06a570ff39c671ddd84a8f5"
+    }
+  },
+  "grouped_gate_scope": {
+    "proved_here": [
+      "inspectable PNGs exist for every converted floor",
+      "promoted official terrain sheet cells resolve and cover every rendered map cell",
+      "no rendered terrain cell is blank black or transparent",
+      "deterministic representative topology is connected",
+      "one reachable stair and one entry exist per floor",
+      "collision, stair route, and sampled serialized entities are directly inspectable"
+    ],
+    "deferred_not_claimed": [
+      "byte-for-byte identity with RogueElements random generation",
+      "PMDO-native dungeon entry, playback, route, audio, and unload certification"
+    ]
+  }
+}

@@ -3030,6 +3030,42 @@
       },
       "Released": true,
       "SortOrder": 0
+    },
+    "thunderwave_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": 20,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": -1,
+      "CountedFloors": 5,
+      "Rogue": 0,
+      "Grounds": [
+        "d02p01",
+        "d02p02"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Grotte Éclair",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "PMD Red EU D02; exact five-floor Thunderwave Cave route."
     }
   }
 }
