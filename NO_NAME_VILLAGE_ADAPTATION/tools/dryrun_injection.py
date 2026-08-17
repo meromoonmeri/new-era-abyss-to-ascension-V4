@@ -14,7 +14,7 @@ Produit le plan d'injection exhaustif :
 Le seul effet de bord autorise : ecrire le rapport dans reports/.
 """
 from __future__ import annotations
-import argparse, gzip, hashlib, json, os, subprocess, sys
+import argparse, glob, gzip, hashlib, json, os, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -203,6 +203,63 @@ def main():
                 seasonal_gap[c['species']] = seasonal_gap.get(c['species'], 0) \
                     + len(c['members'])
 
+    # ---------------- reconciliation exhaustive ----------------
+    T_NAMES = {0:'blocked',1:'open',2:'grass',3:'water',4:'marsh',
+               5:'tree',6:'rock',7:'cliff',8:'plant',9:'snow'}
+    atlas = json.load(gzip.open(ECO / 'biome-atlas.json.gz'))['rooms']
+
+    per_room, per_species, per_season, per_biome = {}, {}, {}, {}
+    injected_names = set()
+    for room in sorted(proven):
+        rd = place['rooms'].get(room)
+        if not rd:
+            continue
+        terr = atlas[room]['terrain']
+        for c in rd['colonies']:
+            cs = c.get('seasons') or list(SEASONS)
+            active = sorted(set(cs) & set(seasons_present))
+            n = len(c['members'])
+            if not active:
+                continue
+            per_room[room] = per_room.get(room, 0) + n
+            per_species[c['species']] = per_species.get(c['species'], 0) + n
+            for s in active:
+                per_season[s] = per_season.get(s, 0) + n
+            for m in c['members']:
+                x, y = m['cell']
+                b = T_NAMES[terr[y][x]]
+                per_biome[b] = per_biome.get(b, 0) + 1
+                injected_names.add('%s:%d,%d' % (room, x, y))
+
+    # double pilotage : NNVLife ne doit plus posseder d'individus de NNVEcology
+    import re as _re
+    dual = []
+    for lf in glob.glob(str(NNV / 'generated/**/NNVLife.lua'), recursive=True):
+        t = open(lf, encoding='utf-8').read()
+        if _re.search(r'source_(birds|butterflies)\s*=', t):
+            dual.append(os.path.relpath(lf, NNV))
+        for ent in ('NNV_SourceBird_', 'NNV_SourceButterfly_'):
+            if ent in t:
+                dual.append('%s contient %s' % (os.path.relpath(lf, NNV), ent))
+
+    reconciliation = {
+        'individuals_placed_total': ev['totals']['individuals_placed'],
+        'promotable': ev['totals']['individuals_promotable'],
+        'injected': sum(per_room.values()),
+        'held_no_proof': ev['totals']['individuals_withheld'],
+        'held_missing_season': sum(seasonal_gap.values()),
+        'held_species': {s: ev['species'][s]['placed_total'] for s in ev['held_species']},
+        'by_room': dict(sorted(per_room.items(), key=lambda kv: -kv[1])),
+        'by_species': dict(sorted(per_species.items(), key=lambda kv: -kv[1])),
+        'by_season': per_season,
+        'by_biome': dict(sorted(per_biome.items(), key=lambda kv: -kv[1])),
+        'unique_cells': len(injected_names),
+        'dual_control_violations': dual,
+        'balance_check': (sum(per_room.values()) + sum(seasonal_gap.values())
+                          + ev['totals']['individuals_withheld']
+                          == ev['totals']['individuals_placed']),
+    }
+
     out = {
         'schema': 'nnv-fauna-dryrun-v1',
         'mode': 'DRY-RUN — aucune ecriture dans Data/ ni Content/',
@@ -265,6 +322,7 @@ def main():
             'irreversible_without_backup': ['Content/Tile/index.idx',
                                             'Data/Zone/index.idx'],
         },
+        'reconciliation': reconciliation,
         'guards': guards,
     }
 
@@ -287,6 +345,20 @@ def main():
     print('maps de duel creees : %d' % t['duel_maps'])
     print('poids total estime : %.1f Mo'
           % (t['estimated_bytes']['total'] / 1e6))
+    r = out['reconciliation']
+    print('--- reconciliation ---')
+    print('places %d = injectes %d + hors-saison %d + sans-preuve %d  -> %s'
+          % (r['individuals_placed_total'], r['injected'],
+             r['held_missing_season'], r['held_no_proof'],
+             'COHERENT' if r['balance_check'] else 'INCOHERENT'))
+    print('cellules uniques : %d (doublon = %s)'
+          % (r['unique_cells'], 'OUI' if r['unique_cells'] != r['injected'] else 'aucun'))
+    print('par saison : %s' % r['by_season'])
+    print('par biome  : %s' % r['by_biome'])
+    print('especes injectees : %d | rooms : %d'
+          % (len(r['by_species']), len(r['by_room'])))
+    print('double pilotage : %s'
+          % ('AUCUN' if not r['dual_control_violations'] else r['dual_control_violations']))
     for k, v in guards.items():
         print('garde %-22s exit=%d  %s' % (k, v['exit'], v['tail'][-1] if v['tail'] else ''))
     print('ecrit', ns.out)

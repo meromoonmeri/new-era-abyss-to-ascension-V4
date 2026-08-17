@@ -704,7 +704,7 @@
    {
     "file": "Data/Script/halcyon/NNVLife.lua",
     "action": "MODIFY (appel de NNVEcology depuis Update/Setup)",
-    "bytes": 5959,
+    "bytes": 5986,
     "estimated_delta_bytes": 420,
     "why": "NNVLife gere deja les PNJ sociaux et les 12 objbird0 / 19 objbutterfly1 de rmvillage ; ces groupes doivent passer sous NNVEcology pour ne pas etre pilotes deux fois",
     "conflict": "NNVLife.GROUPS contient source_birds (12) et source_butterflies (19) qui recouvrent exactement les occurrences objbird0/objbutterfly1 de rmvillage : a retirer de NNVLife lors de l injection"
@@ -829,7 +829,7 @@
   "tile_index": {
    "file": "Content/Tile/index.idx",
    "action": "MODIFY (ajout de 6 planche(s))",
-   "current_bytes": 23577900,
+   "current_bytes": 23608335,
    "estimated_delta_bytes": 30430,
    "why": "GraphicsManager.GetTile (l.1152) appelle TileIndex.GetPosition(Sheet, TexLoc) ; TileGuide.GetPosition renvoie 0 si la planche est inconnue et TileIndexNode.GetPosition renvoie 0 si le TexLoc est inconnu. tilePos==0 => BaseSheet.LoadError() => damier mauve/noir.",
    "guard": "NO_NAME_VILLAGE_ADAPTATION/tools/verify_tile_index.py"
@@ -861,10 +861,10 @@
   "estimated_bytes": {
    "grounds_delta": 4351300,
    "duel_maps_and_sheets": 1169727,
-   "lua": 34793,
+   "lua": 34820,
    "zones": 5060,
    "tile_index_delta": 30430,
-   "total": 5591310
+   "total": 5591337
   }
  },
  "backup_rollback": {
@@ -880,11 +880,85 @@
    "Data/Zone/index.idx"
   ]
  },
+ "reconciliation": {
+  "individuals_placed_total": 1808,
+  "promotable": 1751,
+  "injected": 1642,
+  "held_no_proof": 57,
+  "held_missing_season": 109,
+  "held_species": {
+   "cradily": 0,
+   "sandshrew": 16
+  },
+  "by_room": {
+   "rm35": 103,
+   "rm84": 99,
+   "rm59": 96,
+   "rm83": 87,
+   "rm67": 86,
+   "rm23": 80,
+   "rm44": 79,
+   "rm24": 78,
+   "rm43": 70,
+   "rm34": 67,
+   "rm82": 62,
+   "rm64": 61,
+   "rm66": 57,
+   "rm25": 55,
+   "rm85": 50,
+   "rm33": 45,
+   "rm53": 43,
+   "rm75": 40,
+   "rm63": 39,
+   "rm73": 38,
+   "rm54": 36,
+   "rm74": 31,
+   "rmvillage": 31,
+   "rm36": 30,
+   "rm32": 29,
+   "rm65": 26,
+   "rm56": 24,
+   "rm45": 22,
+   "rm46": 20,
+   "rm14": 18,
+   "rm37": 11,
+   "rm58": 11,
+   "rm39": 9,
+   "rm69": 9
+  },
+  "by_species": {
+   "vivillon": 474,
+   "cutiefly": 337,
+   "volbeat": 321,
+   "fletchling": 183,
+   "politoed": 123,
+   "magikarp": 76,
+   "illumise": 57,
+   "jumpluff": 37,
+   "barboach": 16,
+   "bellsprout": 7,
+   "surskit": 6,
+   "wingull": 5
+  },
+  "by_season": {
+   "summer": 1642
+  },
+  "by_biome": {
+   "grass": 949,
+   "open": 419,
+   "plant": 135,
+   "water": 129,
+   "marsh": 10
+  },
+  "unique_cells": 1642,
+  "dual_control_violations": [],
+  "balance_check": true
+ },
  "guards": {
   "ecology_suite": {
    "exit": 0,
    "tail": [
-    "controles: 4876",
+    "controles: 5991",
     "TOUT EST VERIFIE"
    ]
   },
