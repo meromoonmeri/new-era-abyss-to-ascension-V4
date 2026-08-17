@@ -166,7 +166,95 @@ def validate_ground(spec: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any
     return identity, collision
 
 
-def validate_renders(spec: dict[str, Any], zone_path: Path, floor_count: int) -> dict[str, Any]:
+def expand_generator_contracts(
+    zone_spec: dict[str, Any], floor_count: int
+) -> list[dict[str, Any]]:
+    """Expand optional range declarations into one strict contract per floor.
+
+    Legacy all-procedural descriptors intentionally produce the exact contract
+    that this validator enforced before mixed segments were supported.
+    """
+    declarations = zone_spec.get("generator_contracts")
+    if declarations is None:
+        return [{"generator": "chance", "stairs": 1} for _ in range(floor_count)]
+
+    contracts: list[dict[str, Any] | None] = [None] * floor_count
+    for declaration in declarations:
+        floors = declaration["floors"]
+        require(
+            isinstance(floors, list) and len(floors) in (1, 2),
+            "generator contract floors must be [floor] or inclusive [first,last]",
+        )
+        first = int(floors[0])
+        last = int(floors[-1])
+        require(1 <= first <= last <= floor_count, "generator contract floor range is invalid")
+        generator = declaration["generator"]
+        require(generator in ("chance", "static_load"), f"unsupported floor generator contract: {generator}")
+        contract = {
+            "generator": generator,
+            "stairs": int(declaration.get("stairs", 1 if generator == "chance" else 0)),
+        }
+        if generator == "static_load":
+            map_id = declaration.get("map_id")
+            require(isinstance(map_id, str) and map_id, "static_load contract requires map_id")
+            contract["map_id"] = map_id
+        require(contract["stairs"] in (0, 1), "floor stair contract must be zero or one")
+        require(
+            generator != "chance" or contract["stairs"] == 1,
+            "procedural ChanceFloorGen floors require exactly one stair",
+        )
+        for floor in range(first, last + 1):
+            require(contracts[floor - 1] is None, f"overlapping generator contract for floor {floor}")
+            contracts[floor - 1] = dict(contract)
+    missing = [index + 1 for index, contract in enumerate(contracts) if contract is None]
+    require(not missing, f"missing generator contracts for floors: {missing}")
+    return [contract for contract in contracts if contract is not None]
+
+
+def mapped_room_id(load_gen: dict[str, Any], floor: int) -> str:
+    for entry in load_gen.get("GenSteps", []):
+        if entry.get("Key") == -1 and "MappedRoomStep" in entry.get("Value", {}).get("$type", ""):
+            map_id = entry["Value"].get("MapID")
+            require(isinstance(map_id, str) and map_id, f"floor {floor}: mapped room has no MapID")
+            return map_id
+    raise ValidationError(f"floor {floor}: LoadGen has no priority -1 MappedRoomStep")
+
+
+def validate_zone_generators(
+    nodes: list[dict[str, Any]], contracts: list[dict[str, Any]]
+) -> list[dict[str, Any]]:
+    records: list[dict[str, Any]] = []
+    for floor, (node, contract) in enumerate(zip(nodes, contracts, strict=True), 1):
+        generator = node["Item"]
+        type_name = generator.get("$type", "")
+        if contract["generator"] == "chance":
+            require(
+                type_name.endswith("ChanceFloorGen, RogueEssence"),
+                f"floor {floor}: expected ChanceFloorGen, got {type_name}",
+            )
+            records.append({"floor": floor, "generator": "ChanceFloorGen", "stairs": 1})
+        else:
+            require(
+                type_name == "RogueEssence.LevelGen.LoadGen, RogueEssence",
+                f"floor {floor}: expected LoadGen, got {type_name}",
+            )
+            map_id = mapped_room_id(generator, floor)
+            require(map_id == contract["map_id"], f"floor {floor}: static map mismatch: {map_id}")
+            records.append({
+                "floor": floor,
+                "generator": "LoadGen",
+                "map_id": map_id,
+                "stairs": contract["stairs"],
+            })
+    return records
+
+
+def validate_renders(
+    spec: dict[str, Any],
+    zone_path: Path,
+    floor_count: int,
+    generator_contracts: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
     output_dir = root_path(spec["output_dir"])
     audit_path = output_dir / spec.get("audit", "render_audit.json")
     audit = load_json(audit_path)
@@ -174,12 +262,28 @@ def validate_renders(spec: dict[str, Any], zone_path: Path, floor_count: int) ->
     require(audit["zone"]["floors"] == floor_count, "render audit floor count mismatch")
     require(audit["inputs"]["zone"]["sha256"] == sha256(zone_path), "render audit is stale for promoted ZoneData")
     require(len(audit["floors"]) == floor_count, "render audit floor records mismatch")
-    for expected_floor, floor in enumerate(audit["floors"], 1):
+    contracts = generator_contracts or [{"generator": "chance", "stairs": 1}] * floor_count
+    for expected_floor, (floor, contract) in enumerate(zip(audit["floors"], contracts, strict=True), 1):
         require(floor["floor"] == expected_floor, "render audit floor order mismatch")
         invariants = floor["static_invariants"]
         require(all(invariants.values()), f"render invariant failed on floor {expected_floor}: {invariants}")
-        require(floor["stairs"]["count"] == 1 and floor["stairs"]["reachable"] is True,
-                f"stair gate failed on floor {expected_floor}")
+        stairs = floor["stairs"]
+        if contract["generator"] == "chance":
+            require("generator" not in floor, f"floor {expected_floor}: procedural render changed generator contract")
+            require(stairs["count"] == 1 and stairs["reachable"] is True,
+                    f"stair gate failed on procedural floor {expected_floor}")
+        else:
+            require(floor.get("generator") == "static_load",
+                    f"floor {expected_floor}: render is not declared static_load")
+            require(floor["generation"]["map_id"] == contract["map_id"],
+                    f"floor {expected_floor}: rendered static map mismatch")
+            require(stairs["count"] == contract["stairs"],
+                    f"floor {expected_floor}: static stair count mismatch")
+            if contract["stairs"] == 0:
+                require(stairs.get("required") is False and stairs.get("reachable") is None,
+                        f"floor {expected_floor}: static no-stair policy mismatch")
+                require(stairs.get("policy") == "static boss arena",
+                        f"floor {expected_floor}: static arena policy mismatch")
         require(floor["terrain"]["black_cells"] == 0, f"black terrain on floor {expected_floor}")
         require(floor["terrain"]["transparent_cells"] == 0, f"transparent terrain on floor {expected_floor}")
     for name, output in audit["outputs"].items():
@@ -188,7 +292,7 @@ def validate_renders(spec: dict[str, Any], zone_path: Path, floor_count: int) ->
         require(path.stat().st_size == output["bytes"] and sha256(path) == output["sha256"],
                 f"render output hash/size mismatch: {name}")
         require(path.read_bytes().startswith(b"\x89PNG\r\n\x1a\n"), f"render is not PNG: {name}")
-    return {
+    result = {
         "gate": "deterministic_inspectable_floor_renders",
         "status": "PASS",
         "output_dir": str(output_dir.relative_to(ROOT)),
@@ -199,6 +303,10 @@ def validate_renders(spec: dict[str, Any], zone_path: Path, floor_count: int) ->
         "transparent_terrain_cells": 0,
         "reachable_stairs_per_floor": 1,
     }
+    if generator_contracts is not None:
+        result["stair_contracts"] = [contract["stairs"] for contract in contracts]
+        result["reachable_stairs_per_floor"] = "per_declared_generator_contract"
+    return result
 
 
 def build_report(config_path: Path) -> dict[str, Any]:
@@ -219,16 +327,20 @@ def build_report(config_path: Path) -> dict[str, Any]:
     require(len(zone["Segments"]) == 1, "expected one early-dungeon segment")
     nodes = zone["Segments"][0]["Floors"]["nodes"]
     require(len(nodes) == zone_spec["floors"], "ZoneData floor count mismatch")
-    require(all(node["Item"]["$type"].endswith("ChanceFloorGen, RogueEssence") for node in nodes),
-            "non-ChanceFloorGen floor in early dungeon")
-    gates.append({
+    contracts_declared = "generator_contracts" in zone_spec
+    generator_contracts = expand_generator_contracts(zone_spec, len(nodes))
+    generator_records = validate_zone_generators(nodes, generator_contracts)
+    zone_gate = {
         "gate": "pmdo_0_8_12_zone_schema_and_floors",
         "status": "PASS",
         "path": zone_spec["path"],
         "sha256": sha256(zone_path),
         "floors": len(nodes),
         "ground_maps": zone["GroundMaps"],
-    })
+    }
+    if contracts_declared:
+        zone_gate["floor_generators"] = generator_records
+    gates.append(zone_gate)
 
     index_path = root_path(zone_spec["index"])
     require(index_path.read_bytes().startswith(b"\xef\xbb\xbf"), "zone index UTF-8 BOM was not preserved")
@@ -274,7 +386,12 @@ def build_report(config_path: Path) -> dict[str, Any]:
     for script in config["scripts"]:
         gates.append(assert_tokens(root_path(script["path"]), script["required"], script.get("forbidden", [])))
     gates.append(validate_resources(config["dialogue"]))
-    gates.append(validate_renders(config["renders"], zone_path, zone_spec["floors"]))
+    gates.append(validate_renders(
+        config["renders"],
+        zone_path,
+        zone_spec["floors"],
+        generator_contracts if contracts_declared else None,
+    ))
 
     manifest = load_json(root_path(config["manifest"]["path"]))
     require(manifest["route"] == config["manifest"]["route"], "manifest route mismatch")
