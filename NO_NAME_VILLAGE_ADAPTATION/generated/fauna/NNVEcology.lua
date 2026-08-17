@@ -239,9 +239,69 @@ end
 -- Les noms d'entités doivent correspondre aux GroundChar posés dans le
 -- Ground. Un membre dont l'entité est absente est simplement ignoré.
 -- ======================================================================
+-- ----------------------------------------------------------------------
+-- Découverte autonome : reconstruit les colonies depuis le Ground lui-même.
+--
+-- Chaîne moteur vérifiée (RogueEssence 0.8.12) :
+--   _ZONE.CurrentGround.Entities[i].MapChars  -> List<GroundChar> (public)
+--   GroundChar.EntName                        -> nom de l'entité
+--   LTBL(ch)  == ch.LuaData == Data.LuaDataTable, désérialisé depuis les
+--                ScriptVars écrits par inject_fauna.py
+--
+-- Chaque entité injectée porte nnv_kind='wild', nnv_species, nnv_profile,
+-- nnv_colony, nnv_member, nnv_season, nnv_time, nnv_owner='NNVEcology'.
+-- On ne prend QUE celles dont nnv_owner vaut NNVEcology : aucun risque de
+-- capturer un PNJ narratif ou une entité pilotée par un autre système.
+--
+-- Un Ground sans faune produit simplement un roster vide : Update() sort
+-- immédiatement, aucune erreur.
+-- ----------------------------------------------------------------------
+function E.Discover(room)
+  local colonies = {}
+  local ok = pcall(function()
+    local ground = _ZONE.CurrentGround
+    if not ground or not ground.Entities then return end
+    for i = 0, ground.Entities.Count - 1 do
+      local layer = ground.Entities[i]
+      if layer and layer.MapChars then
+        for j = 0, layer.MapChars.Count - 1 do
+          local ch = layer.MapChars[j]
+          local tbl = ch and LTBL(ch)
+          if tbl and tbl.nnv_kind == 'wild' and tbl.nnv_owner == 'NNVEcology' then
+            local ci = (tbl.nnv_colony or 0) + 1
+            local col = colonies[ci]
+            if not col then
+              col = {species = tbl.nnv_species, profile = tbl.nnv_profile,
+                     seasons = nil, time = tbl.nnv_time, members = {},
+                     anchor = nil}
+              if tbl.nnv_season and tbl.nnv_season ~= '' then
+                col.seasons = {}
+                for s in tostring(tbl.nnv_season):gmatch('[^,]+') do
+                  col.seasons[#col.seasons + 1] = s
+                end
+              end
+              colonies[ci] = col
+            end
+            col.members[#col.members + 1] =
+              {name = ch.EntName, px = {ch.Position.X, ch.Position.Y}}
+          end
+        end
+      end
+    end
+  end)
+  if not ok then return {} end
+  -- compacter : les index de colonie peuvent être clairsemés
+  local out = {}
+  for _, c in pairs(colonies) do
+    if #c.members > 0 then out[#out + 1] = c end
+  end
+  return out
+end
+
+-- data est optionnel : sans lui, on découvre depuis le Ground.
 function E.Load(room, data)
   E.room     = room
-  E.colonies = (data and data.colonies) or {}
+  E.colonies = (data and data.colonies) or E.Discover(room)
   E.roster   = {}
   for ci, col in ipairs(E.colonies) do
     col.index = ci
