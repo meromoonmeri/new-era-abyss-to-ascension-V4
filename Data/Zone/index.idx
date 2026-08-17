@@ -3030,6 +3030,52 @@
       },
       "Released": true,
       "SortOrder": 0
+    },
+    "nnv_wild": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 0,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Wild Encounters",
+        "LocalTexts": {
+          "fr": "Rencontres sauvages"
+        }
+      },
+      "Released": true,
+      "Comment": "Zone hote des duels entre Pokemon sauvages des zones NNV. Tous les segments sont IsRelevant=false : aucun ne compte dans la progression, aucun drapeau d histoire.",
+      "SortOrder": 0
     }
   }
 }

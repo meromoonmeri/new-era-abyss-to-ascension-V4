@@ -45,7 +45,14 @@ D.ZONE = 'nnv_wild'
 
 -- room -> index de segment portant la .rsmap du lieu.
 -- Rempli par l'installateur ; un lieu sans entrée ici ne peut pas duel.
-D.SEGMENTS = {}
+D.SEGMENTS = {
+  rm35 = 0,  -- nnv_duel_rm35_summer
+  rm59 = 1,  -- nnv_duel_rm59_summer
+  rm82 = 2,  -- nnv_duel_rm82_summer
+  rm83 = 3,  -- nnv_duel_rm83_summer
+  rm84 = 4,  -- nnv_duel_rm84_summer
+  rmvillage = 5,  -- nnv_duel_rmvillage_summer
+}
 
 D.active = false
 
