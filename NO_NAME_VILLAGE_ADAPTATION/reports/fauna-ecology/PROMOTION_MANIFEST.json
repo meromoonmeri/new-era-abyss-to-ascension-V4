@@ -54,7 +54,9 @@
    "rm39": 9,
    "rm69": 9
   },
-  "status": "CERTIFIED_STRUCTURAL"
+  "status": "PROMOTED_AND_PUSHED",
+  "verified_on_disk": 1642,
+  "grounds_restored": 34
  },
  "HELD": {
   "entities": 109,
@@ -113,6 +115,31 @@
  },
  "runtime": {
   "status": "NOT_CERTIFIED",
-  "reason": "ni dotnet ni mono; hotes .NET bloques"
+  "reason": "ni dotnet ni mono installes; hotes .NET bloques (6 testes)"
+ },
+ "validation": {
+  "injected_grounds_checks": 15139,
+  "ecology_suite_checks": 5991,
+  "wiring_checks": 7565,
+  "zone_script_checks": 21,
+  "archive_restore_checks": 314,
+  "tile_index": "1891 tuiles, aucun damier",
+  "pixel_perfect": "6/6 maps, sha identiques aux preuves d origine",
+  "simulation": {
+   "individuals": 1642,
+   "moves": 269800,
+   "clones": 6,
+   "clones_are": "les 7 Bellsprout sessiles (immobilite volontaire)",
+   "vegetative": 0,
+   "phase_duplicates": 0,
+   "state_sequences": 25,
+   "states": 19
+  }
+ },
+ "archive": {
+  "patch_sha256": "dcc072f9f5367b47fe90544efe504a632eaa3540f59d63399be2bec03c180d24",
+  "patch_bytes": 58011,
+  "full_archive_bytes": 233542949,
+  "restore_proven": true
  }
 }

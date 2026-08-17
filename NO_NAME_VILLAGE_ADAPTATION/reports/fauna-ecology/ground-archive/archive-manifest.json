@@ -1,7 +1,7 @@
 {
  "schema": "nnv-fauna-archive-manifest-v1",
  "reference": {
-  "commit": "41fbb94546cc4ac2e2e08baa2ae656777a95131a",
+  "commit": "d40baf0e1556549d3e0483395f84f168b4027798",
   "tag": "pre-fauna-injection",
   "tag_commit": ""
  },
@@ -20,9 +20,9 @@
  },
  "patch": {
   "file": "injected-entities-patch.json.gz",
-  "sha256": "9b8ad9062bbfe424cf7704b198ab8f524a8a970bd0fd4bbf637bf759c659a849",
+  "sha256": "dcc072f9f5367b47fe90544efe504a632eaa3540f59d63399be2bec03c180d24",
   "bytes": 58011,
-  "raw_sha256": "74408c6349d4a0fd3a4803c500e9dff6f0435c478394e5907664432cff29c8d3"
+  "raw_sha256": "0a56bb17ef5ce309766fe035f66daac4abea97be689ae36df2a3b424b3a31418"
  },
  "policy": {
   "versioned_in_git": [
