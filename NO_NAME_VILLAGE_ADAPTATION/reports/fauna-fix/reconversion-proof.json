@@ -1,17 +1,17 @@
 {
  "schema": "new-era.nnv-fauna-reconversion.v2",
- "rooms_reconverted": 20,
+ "rooms_reconverted": 30,
  "rooms_total": 34,
  "complete": false,
- "occurrences_expected": 892,
- "occurrences_excluded": 892,
+ "occurrences_expected": 1239,
+ "occurrences_excluded": 1239,
  "discrepancies": [],
  "per_species_excluded": {
+  "objbutterfly1": 356,
   "objfirefly": 326,
-  "objbutterfly1": 229,
-  "objbug0": 129,
-  "objfrog": 125,
-  "objbird0": 83
+  "objbug0": 273,
+  "objbird0": 159,
+  "objfrog": 125
  },
  "proof": "every fauna instance surfaces as a wildlife blocker; none is rendered",
  "nnvlife_consistency": {
@@ -187,6 +187,86 @@
    "excluded": 96,
    "match": true,
    "wildlife_blockers": 100,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm63",
+   "expected_baked": 30,
+   "excluded": 30,
+   "match": true,
+   "wildlife_blockers": 43,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm64",
+   "expected_baked": 47,
+   "excluded": 47,
+   "match": true,
+   "wildlife_blockers": 61,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm65",
+   "expected_baked": 19,
+   "excluded": 19,
+   "match": true,
+   "wildlife_blockers": 26,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm66",
+   "expected_baked": 57,
+   "excluded": 57,
+   "match": true,
+   "wildlife_blockers": 57,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm67",
+   "expected_baked": 96,
+   "excluded": 96,
+   "match": true,
+   "wildlife_blockers": 111,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm69",
+   "expected_baked": 9,
+   "excluded": 9,
+   "match": true,
+   "wildlife_blockers": 16,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm73",
+   "expected_baked": 27,
+   "excluded": 27,
+   "match": true,
+   "wildlife_blockers": 43,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm74",
+   "expected_baked": 26,
+   "excluded": 26,
+   "match": true,
+   "wildlife_blockers": 38,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm75",
+   "expected_baked": 31,
+   "excluded": 31,
+   "match": true,
+   "wildlife_blockers": 40,
+   "status": "GENERATED_CANDIDATE"
+  },
+  {
+   "room": "rm82",
+   "expected_baked": 5,
+   "excluded": 5,
+   "match": true,
+   "wildlife_blockers": 94,
    "status": "GENERATED_CANDIDATE"
   }
  ]
