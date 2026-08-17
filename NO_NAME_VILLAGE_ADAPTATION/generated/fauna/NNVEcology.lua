@@ -201,10 +201,72 @@ local function setVisible(name, v)
 end
 
 -- ======================================================================
--- CONTEXTE MONDE : saison + moment de la journée
+-- CONTEXTE MONDE : saison + moment de la journée + météo
+-- ----------------------------------------------------------------------
+-- POPULATION CONTEXTUELLE
+--
+-- Une même zone n'a pas la même vie selon biome + saison + heure + météo.
+-- Trois leviers, appliqués aux entités DÉJÀ placées -- on ne déplace jamais
+-- un individu certifié, on module sa présence et son activité :
+--
+--   1. PRÉSENCE  : l'individu est visible ou non (saison + heure).
+--   2. DENSITÉ   : quelle proportion d'une colonie est active, via
+--                  E.DENSITY[species][saison|heure|météo]. Une forêt d'été
+--                  en plein jour est peuplée ; la même sous l'orage se vide.
+--   3. ACTIVITÉ  : la météo module le rythme (pauses plus longues sous la
+--                  pluie, activité accrue de Swinub sous la neige).
+--
+-- E.DENSITY est alimenté depuis config/fauna-context.json. S'il est vide,
+-- le comportement est exactement celui d'avant : aucune régression.
 -- ======================================================================
+
+-- Facteurs de densité par espèce. Table plate, extensible sans toucher au
+-- moteur : E.DENSITY.swinub = {seasons={winter=1.0,...}, time={...}, weather={...}}
+-- Densités contextuelles, générées depuis config/fauna-context.json.
+-- Modifier le JSON puis relancer tools/sync_fauna_context.py.
+-- Densités contextuelles, générées depuis config/fauna-context.json.
+-- Modifier le JSON puis relancer tools/sync_fauna_context.py.
+-- Densités contextuelles, générées depuis config/fauna-context.json.
+-- Modifier le JSON puis relancer tools/sync_fauna_context.py.
+-- Densités contextuelles, générées depuis config/fauna-context.json.
+-- Modifier le JSON puis relancer tools/sync_fauna_context.py.
+-- Densités contextuelles, générées depuis config/fauna-context.json.
+-- Modifier le JSON puis relancer tools/sync_fauna_context.py.
+E.DENSITY = {
+  ariados = {seasons={spring=0.2, summer=0.3, autumn=1.0, winter=0.1}, time={day=0.2, evening=0.8, night=1.0}, weather={clear=1.0, rain=0.4, storm=0.1, fog=1.0, snow=0.0}},
+  barboach = {seasons={spring=1.0, summer=1.0, autumn=0.8, winter=0.5}, time={day=0.7, evening=1.0, night=1.0}, weather={clear=1.0, rain=1.0, storm=0.8, fog=1.0, snow=0.5}},
+  bellsprout = {seasons={spring=1.0, summer=1.0, autumn=0.7, winter=0.2}, time={day=1.0, evening=1.0, night=1.0}, weather={clear=1.0, rain=1.0, storm=0.8, fog=1.0, snow=0.2}},
+  chinchou = {seasons={spring=0.5, summer=0.6, autumn=1.0, winter=0.4}, time={day=0.2, evening=0.8, night=1.0}, weather={clear=1.0, rain=0.9, storm=0.6, fog=1.0, snow=0.3}},
+  crabrawler = {seasons={spring=0.3, summer=0.2, autumn=0.5, winter=1.0}, time={day=1.0, evening=0.9, night=0.7}, weather={clear=1.0, rain=0.6, storm=0.4, fog=0.8, snow=1.0}},
+  cradily = {seasons={spring=1.0, summer=1.0, autumn=1.0, winter=1.0}, time={day=1.0, evening=1.0, night=1.0}, weather={clear=1.0, rain=1.0, storm=1.0, fog=1.0, snow=1.0}},
+  cutiefly = {seasons={spring=1.0, summer=1.0, autumn=0.4, winter=0.0}, time={day=1.0, evening=0.6, night=0.0}, weather={clear=1.0, rain=0.1, storm=0.0, fog=0.5, snow=0.0}},
+  delibird = {seasons={spring=0.2, summer=0.0, autumn=0.4, winter=1.0}, time={day=1.0, evening=0.7, night=0.3}, weather={clear=1.0, rain=0.4, storm=0.2, fog=0.6, snow=1.0}},
+  ducklett = {seasons={spring=0.5, summer=0.3, autumn=0.6, winter=1.0}, time={day=1.0, evening=0.7, night=0.3}, weather={clear=1.0, rain=1.0, storm=0.5, fog=0.8, snow=0.9}},
+  dwebble = {seasons={spring=0.5, summer=0.6, autumn=1.0, winter=0.3}, time={day=1.0, evening=0.8, night=0.6}, weather={clear=1.0, rain=0.7, storm=0.4, fog=0.9, snow=0.2}},
+  fletchling = {seasons={spring=1.0, summer=1.0, autumn=1.0, winter=0.5}, time={day=1.0, evening=0.6, night=0.0}, weather={clear=1.0, rain=0.5, storm=0.1, fog=0.7, snow=0.4}},
+  illumise = {seasons={spring=0.6, summer=1.0, autumn=0.3, winter=0.0}, time={day=0.0, evening=0.6, night=1.0}, weather={clear=1.0, rain=0.3, storm=0.0, fog=0.9, snow=0.0}},
+  jumpluff = {seasons={spring=1.0, summer=1.0, autumn=0.5, winter=0.0}, time={day=1.0, evening=0.7, night=0.2}, weather={clear=1.0, rain=0.3, storm=0.0, fog=0.6, snow=0.0}},
+  ledyba = {seasons={spring=0.4, summer=0.3, autumn=1.0, winter=0.0}, time={day=1.0, evening=0.6, night=0.1}, weather={clear=1.0, rain=0.2, storm=0.0, fog=0.6, snow=0.0}},
+  lotad = {seasons={spring=0.7, summer=0.8, autumn=1.0, winter=0.1}, time={day=1.0, evening=0.9, night=0.7}, weather={clear=1.0, rain=1.0, storm=0.7, fog=1.0, snow=0.1}},
+  magikarp = {seasons={spring=1.0, summer=1.0, autumn=0.8, winter=0.4}, time={day=1.0, evening=1.0, night=0.8}, weather={clear=1.0, rain=1.0, storm=0.7, fog=1.0, snow=0.5}},
+  piloswine = {seasons={spring=0.2, summer=0.0, autumn=0.3, winter=1.0}, time={day=1.0, evening=1.0, night=0.8}, weather={clear=1.0, rain=0.4, storm=0.3, fog=0.9, snow=1.0}},
+  politoed = {seasons={spring=1.0, summer=1.0, autumn=0.7, winter=0.1}, time={day=0.8, evening=1.0, night=0.9}, weather={clear=0.8, rain=1.0, storm=0.9, fog=1.0, snow=0.1}},
+  sandshrew = {seasons={spring=1.0, summer=1.0, autumn=0.8, winter=0.3}, time={day=1.0, evening=0.6, night=0.3}, weather={clear=1.0, rain=0.2, storm=0.0, fog=0.7, snow=0.1}},
+  surskit = {seasons={spring=1.0, summer=1.0, autumn=0.4, winter=0.0}, time={day=1.0, evening=0.8, night=0.4}, weather={clear=1.0, rain=0.6, storm=0.2, fog=0.9, snow=0.0}},
+  swanna = {seasons={spring=0.6, summer=0.5, autumn=1.0, winter=0.2}, time={day=1.0, evening=0.7, night=0.2}, weather={clear=1.0, rain=0.8, storm=0.3, fog=0.6, snow=0.2}},
+  swinub = {seasons={spring=0.3, summer=0.0, autumn=0.4, winter=1.0}, time={day=1.0, evening=0.8, night=0.6}, weather={clear=1.0, rain=0.5, storm=0.3, fog=0.8, snow=1.0}},
+  vivillon = {seasons={spring=1.0, summer=1.0, autumn=0.6, winter=0.0}, time={day=1.0, evening=0.5, night=0.0}, weather={clear=1.0, rain=0.2, storm=0.0, fog=0.6, snow=0.0}},
+  volbeat = {seasons={spring=0.8, summer=1.0, autumn=0.6, winter=0.0}, time={day=0.0, evening=0.7, night=1.0}, weather={clear=1.0, rain=0.3, storm=0.0, fog=0.9, snow=0.0}},
+  wingull = {seasons={spring=1.0, summer=1.0, autumn=0.9, winter=0.6}, time={day=1.0, evening=0.7, night=0.1}, weather={clear=1.0, rain=0.8, storm=0.4, fog=0.5, snow=0.4}},
+}
+
+-- Modulateur d'activité par météo (allonge ou raccourcit les pauses).
+E.WEATHER_ACTIVITY = {
+  clear = 1.0, rain = 0.75, storm = 0.45, snow = 0.7, fog = 0.8,
+}
+
 function E.Context()
-  local season, time = 'summer', 'day'
+  local season, time, weather = 'summer', 'day', 'clear'
   pcall(function()
     if LivingWorld and LivingWorld.Context then
       local c = LivingWorld.Context('no_name_village', E.room or '')
@@ -214,21 +276,48 @@ function E.Context()
       end
     end
   end)
-  return season, time
+  pcall(function()
+    if Weather and Weather.Current then
+      local w = Weather.Current()
+      if type(w) == 'string' and E.WEATHER_ACTIVITY[w] then weather = w end
+    end
+  end)
+  return season, time, weather
+end
+
+-- Facteur de densité d'une espèce dans le contexte courant (0..1).
+function E.DensityFactor(species, season, time, weather)
+  local d = E.DENSITY[species]
+  if not d then return 1.0 end
+  local f = 1.0
+  if d.seasons and d.seasons[season] then f = f * d.seasons[season] end
+  if d.time and d.time[time] then f = f * d.time[time] end
+  if d.weather and d.weather[weather] then f = f * d.weather[weather] end
+  return f
 end
 
 -- Un individu est-il présent dans le contexte courant ?
-local function present(entry, season, time)
+--
+-- L'index du membre dans sa colonie sert de seuil déterministe : avec un
+-- facteur de 0,5 la moitié de la colonie reste, toujours la même tant que le
+-- contexte ne change pas. Pas de clignotement, pas d'aléatoire par frame.
+local function present(entry, season, time, weather)
   if entry.seasons then
     local found = false
     for _, s in ipairs(entry.seasons) do if s == season then found = true break end end
     if not found then return false end
   end
   local t = entry.time or 'any'
-  if t == 'any' then return true end
-  if t == 'day'   then return time ~= 'night' end
-  if t == 'night' then return time == 'night' end
-  return true
+  if t == 'day' and time == 'night' then return false end
+  if t == 'night' and time ~= 'night' then return false end
+
+  local f = E.DensityFactor(entry.species, season, time, weather or 'clear')
+  if f <= 0 then return false end
+  if f >= 1 then return true end
+  -- seuil stable : le membre 1 reste toujours, les suivants sortent d'abord
+  local size = entry.colonySize or 1
+  local keep = math.max(1, math.floor(size * f + 0.5))
+  return (entry.rank or 1) <= keep
 end
 
 -- ======================================================================
@@ -239,69 +328,9 @@ end
 -- Les noms d'entités doivent correspondre aux GroundChar posés dans le
 -- Ground. Un membre dont l'entité est absente est simplement ignoré.
 -- ======================================================================
--- ----------------------------------------------------------------------
--- Découverte autonome : reconstruit les colonies depuis le Ground lui-même.
---
--- Chaîne moteur vérifiée (RogueEssence 0.8.12) :
---   _ZONE.CurrentGround.Entities[i].MapChars  -> List<GroundChar> (public)
---   GroundChar.EntName                        -> nom de l'entité
---   LTBL(ch)  == ch.LuaData == Data.LuaDataTable, désérialisé depuis les
---                ScriptVars écrits par inject_fauna.py
---
--- Chaque entité injectée porte nnv_kind='wild', nnv_species, nnv_profile,
--- nnv_colony, nnv_member, nnv_season, nnv_time, nnv_owner='NNVEcology'.
--- On ne prend QUE celles dont nnv_owner vaut NNVEcology : aucun risque de
--- capturer un PNJ narratif ou une entité pilotée par un autre système.
---
--- Un Ground sans faune produit simplement un roster vide : Update() sort
--- immédiatement, aucune erreur.
--- ----------------------------------------------------------------------
-function E.Discover(room)
-  local colonies = {}
-  local ok = pcall(function()
-    local ground = _ZONE.CurrentGround
-    if not ground or not ground.Entities then return end
-    for i = 0, ground.Entities.Count - 1 do
-      local layer = ground.Entities[i]
-      if layer and layer.MapChars then
-        for j = 0, layer.MapChars.Count - 1 do
-          local ch = layer.MapChars[j]
-          local tbl = ch and LTBL(ch)
-          if tbl and tbl.nnv_kind == 'wild' and tbl.nnv_owner == 'NNVEcology' then
-            local ci = (tbl.nnv_colony or 0) + 1
-            local col = colonies[ci]
-            if not col then
-              col = {species = tbl.nnv_species, profile = tbl.nnv_profile,
-                     seasons = nil, time = tbl.nnv_time, members = {},
-                     anchor = nil}
-              if tbl.nnv_season and tbl.nnv_season ~= '' then
-                col.seasons = {}
-                for s in tostring(tbl.nnv_season):gmatch('[^,]+') do
-                  col.seasons[#col.seasons + 1] = s
-                end
-              end
-              colonies[ci] = col
-            end
-            col.members[#col.members + 1] =
-              {name = ch.EntName, px = {ch.Position.X, ch.Position.Y}}
-          end
-        end
-      end
-    end
-  end)
-  if not ok then return {} end
-  -- compacter : les index de colonie peuvent être clairsemés
-  local out = {}
-  for _, c in pairs(colonies) do
-    if #c.members > 0 then out[#out + 1] = c end
-  end
-  return out
-end
-
--- data est optionnel : sans lui, on découvre depuis le Ground.
 function E.Load(room, data)
   E.room     = room
-  E.colonies = (data and data.colonies) or E.Discover(room)
+  E.colonies = (data and data.colonies) or {}
   E.roster   = {}
   for ci, col in ipairs(E.colonies) do
     col.index = ci
@@ -316,10 +345,24 @@ function E.Load(room, data)
         home    = {x = (col.anchor and col.anchor[1] or 0) * 64 + 32,
                    y = (col.anchor and col.anchor[2] or 0) * 64 + 32},
         colony  = ci,
+        colonySize = #col.members,
         seasons = col.seasons,
         time    = col.time,
         state   = 'repos',
-        phase   = mi,
+        -- rank : rang DANS la colonie, sert aux seuils de densité (le membre
+        -- 1 reste toujours) et à la formation des groupes.
+        rank    = mi,
+        -- phase : horloge comportementale INDIVIDUELLE. Elle doit être unique
+        -- dans tout le Ground, sinon deux individus de colonies différentes
+        -- mais de même rang partagent la même séquence pause/direction et
+        -- produisent des trajectoires clonées (mesuré : 4 491 clones sur
+        -- 28 464 paires quand phase = rang). On mélange le rang, l'index de
+        -- colonie et un multiplicateur premier pour désynchroniser.
+        -- #E.roster est l'index global de l'individu dans le Ground : il est
+        -- STRICTEMENT unique. Le décalage par colonie casse en plus toute
+        -- régularité entre groupes voisins. Un modulo réintroduirait des
+        -- collisions (mesuré : 114 clones résiduels avec % 997).
+        phase   = #E.roster + 1 + (ci * 13),
         lastInteract = -99999,
         isLeader = (mi == 1),
       }
@@ -338,10 +381,10 @@ end
 
 local function initialise()
   if E.ready then return true end
-  local season, time = E.Context()
-  E.season, E.timeOfDay = season, time
+  local season, time, weather = E.Context()
+  E.season, E.timeOfDay, E.weather = season, time, weather
   for _, e in ipairs(E.roster) do
-    e.visible = present(e, season, time)
+    e.visible = present(e, season, time, weather)
     setVisible(e.name, e.visible)
     local c = ch(e.name)
     if c then e.anchor = {x = c.Position.X, y = c.Position.Y} end
@@ -388,9 +431,18 @@ local function stepIndividual(e, hero, fine)
     return
   end
 
-  -- pause volontaire
+  -- Pause volontaire, modulée par la météo.
+  -- Sous la pluie et l'orage les Pokémon s'abritent : les pauses s'allongent.
+  -- Une espèce dont la météo courante augmente la densité (Swinub sous la
+  -- neige) voit au contraire ses pauses raccourcir : elle est plus active.
+  local act = E.WEATHER_ACTIVITY[E.weather or 'clear'] or 1.0
+  local dens = E.DENSITY[e.species]
+  if dens and dens.weather and dens.weather[E.weather or 'clear'] then
+    act = act * (0.5 + dens.weather[E.weather or 'clear'])
+  end
+  local pause = p.pause + (1 - math.min(1.5, act)) * (1 - p.pause) * 0.6
   local r = ((E.tick * 7 + e.phase * 13) % 100) / 100
-  if r < p.pause then
+  if r < pause then
     e.state = p.states[(E.tick + e.phase) % #p.states + 1]
     return
   end
@@ -503,11 +555,11 @@ function E.Update()
   if E.tick % E.TICK_INTERVAL ~= 0 then return end
 
   -- bascule saison/heure : on montre ou cache sans recharger la room
-  local season, time = E.Context()
-  if season ~= E.season or time ~= E.timeOfDay then
-    E.season, E.timeOfDay = season, time
+  local season, time, weather = E.Context()
+  if season ~= E.season or time ~= E.timeOfDay or weather ~= E.weather then
+    E.season, E.timeOfDay, E.weather = season, time, weather
     for _, e in ipairs(E.roster) do
-      local v = present(e, season, time)
+      local v = present(e, season, time, weather)
       if v ~= e.visible then
         e.visible = v
         setVisible(e.name, v)
