@@ -128,5 +128,32 @@
 "Comment": "",
 "SortOrder": 0
 }
+,"sinister_woods_floor": {
+"Name": {
+"DefaultText": "Sinister Woods Floor",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"sinister_woods_wall": {
+"Name": {
+"DefaultText": "Sinister Woods Wall",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"sinister_woods_secondary": {
+"Name": {
+"DefaultText": "Sinister Woods Secondary",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+}
 }
 }
