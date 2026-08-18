@@ -32,8 +32,8 @@ except ImportError as exc:  # pragma: no cover - environment diagnostic
     raise SystemExit("Pillow is required (use .runtime-cache/test-venv/bin/python)") from exc
 
 ROOT = Path(__file__).resolve().parents[1]
-SCHEMA = "pmdred-eu-early-dungeon-static-render-v1"
-RENDERER_METHOD = "zone-grid-representative-autotile-adjacent-tick0-v1"
+SCHEMA = "pmdred-eu-early-dungeon-static-render-v2"
+RENDERER_METHOD = "zone-grid-room-bag-representative-autotile-adjacent-tick0-v2"
 FONT_REGULAR = Path("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf")
 FONT_BOLD = Path("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf")
 
@@ -110,6 +110,60 @@ def weighted_choice(entries: Sequence[dict[str, Any]], rng: HashRNG) -> tuple[in
         if roll < cursor:
             return index, entry, roll, total
     raise AssertionError("unreachable weighted selection")
+
+
+def collect_json_references(value: Any) -> dict[str, dict[str, Any]]:
+    """Index Newtonsoft $id objects in a promoted JSON subtree."""
+    references: dict[str, dict[str, Any]] = {}
+
+    def visit(node: Any) -> None:
+        if isinstance(node, dict):
+            reference_id = node.get("$id")
+            if reference_id is not None:
+                if reference_id in references:
+                    raise RenderError(f"duplicate JSON reference ID: {reference_id}")
+                references[str(reference_id)] = node
+            for child in node.values():
+                visit(child)
+        elif isinstance(node, list):
+            for child in node:
+                visit(child)
+
+    visit(value)
+    return references
+
+
+def select_grid_generator(
+    chance: dict[str, Any], rng: HashRNG
+) -> tuple[dict[str, Any], list[dict[str, int]]]:
+    """Resolve nested ChanceFloorGen trials and Newtonsoft shared references."""
+    references = collect_json_references(chance)
+    trace: list[dict[str, int]] = []
+    current = chance
+    for depth in range(128):
+        if "ChanceFloorGen" not in current.get("$type", ""):
+            if "GridFloorGen" not in current.get("$type", ""):
+                raise RenderError(f"weighted floor selected unsupported generator: {current.get('$type', '')}")
+            return current, trace
+        entries = current.get("Spawns", [])
+        index, entry, roll, total = weighted_choice(entries, rng)
+        trace.append({
+            "depth": depth,
+            "index": index,
+            "roll": roll,
+            "total": total,
+            "rate": int(entry["Rate"]),
+        })
+        selected = entry["Spawn"]
+        if isinstance(selected, dict) and "$ref" in selected:
+            reference_id = str(selected["$ref"])
+            if reference_id not in references:
+                raise RenderError(f"unresolved JSON reference ID: {reference_id}")
+            selected = references[reference_id]
+        if not isinstance(selected, dict):
+            raise RenderError("weighted floor selected a non-object generator")
+        current = selected
+    raise RenderError("nested ChanceFloorGen exceeds 128 selections")
 
 
 def step_with_fields(steps: Sequence[dict[str, Any]], *fields: str) -> dict[str, Any]:
@@ -589,11 +643,11 @@ def build_floor_model(floor_number: int, floor_node: dict[str, Any], zone_id: st
     seed = f"{zone_id}:floor:{floor_number}:render-v1"
     rng = HashRNG(seed)
     chance = item
-    recipes = chance["Spawns"]
-    recipe_index, recipe, roll, total = weighted_choice(recipes, rng)
-    generator = recipe["Spawn"]
-    if "GridFloorGen" not in generator.get("$type", ""):
-        raise RenderError(f"floor {floor_number}: selected recipe is not GridFloorGen")
+    generator, chance_trace = select_grid_generator(chance, rng)
+    root_choice = chance_trace[0]
+    recipe_index = root_choice["index"]
+    roll = root_choice["roll"]
+    total = root_choice["total"]
     steps = generator["GenSteps"]
 
     grid = step_with_fields(steps, "CellWidth", "CellHeight", "CellX", "CellY", "CellWall")
@@ -620,26 +674,46 @@ def build_floor_model(floor_number: int, floor_node: dict[str, Any], zone_id: st
     room_picker = path["GenericRooms"]
     room_options = room_picker.get("ToSpawn", [])
     square_options = [room for room in room_options if "RoomGenSquare" in room.get("$type", "")]
+    cell_positions = [(cx, cy) for cy in range(cells_y) for cx in range(cells_x)]
+    if not 2 <= len(square_options) <= len(cell_positions):
+        raise RenderError(
+            f"floor {floor_number}: invalid serialized room bag "
+            f"({len(square_options)} rooms for {len(cell_positions)} cells)"
+        )
+    # RandBag chooses which cells receive full rooms; the remaining serialized
+    # RoomGenDefault entries are one-tile hallway anchors.  Earlier audit
+    # renders incorrectly drew a room in every cell and therefore overstated
+    # Red's room density.  Keep this representative deterministic while
+    # honoring the exact bag cardinality.
+    shuffled_cells = list(cell_positions)
+    rng.shuffle(shuffled_cells)
+    selected_room_cells = set(shuffled_cells[: len(square_options)])
+    room_option_index = 0
 
     for cy in range(cells_y):
         for cx in range(cells_x):
-            option = square_options[(cy * cells_x + cx) % len(square_options)] if square_options else None
-            if option:
-                min_w, max_w = range_inclusive(option["Width"], maximum_cap=cell_width - cell_wall)
-                min_h, max_h = range_inclusive(option["Height"], maximum_cap=cell_height - cell_wall)
-            else:
-                min_w, max_w = max(3, cell_width - 5), max(3, cell_width - cell_wall - 1)
-                min_h, max_h = max(3, cell_height - 5), max(3, cell_height - cell_wall - 1)
-            room_width = rng.randint(min_w, max_w)
-            room_height = rng.randint(min_h, max_h)
             base_x = padding + cell_wall + cx * cell_width
             base_y = padding + cell_wall + cy * cell_height
-            slack_x = max(0, cell_width - cell_wall - room_width)
-            slack_y = max(0, cell_height - cell_wall - room_height)
-            room_x = base_x + rng.randint(0, slack_x)
-            room_y = base_y + rng.randint(0, slack_y)
-            carve_room(terrain, room_floor, room_x, room_y, room_width, room_height)
-            centers[(cx, cy)] = (room_x + room_width // 2, room_y + room_height // 2)
+            if (cx, cy) in selected_room_cells:
+                option = square_options[room_option_index]
+                room_option_index += 1
+                min_w, max_w = range_inclusive(option["Width"], maximum_cap=cell_width - cell_wall)
+                min_h, max_h = range_inclusive(option["Height"], maximum_cap=cell_height - cell_wall)
+                room_width = rng.randint(min_w, max_w)
+                room_height = rng.randint(min_h, max_h)
+                slack_x = max(0, cell_width - cell_wall - room_width)
+                slack_y = max(0, cell_height - cell_wall - room_height)
+                room_x = base_x + rng.randint(0, slack_x)
+                room_y = base_y + rng.randint(0, slack_y)
+                carve_room(terrain, room_floor, room_x, room_y, room_width, room_height)
+                centers[(cx, cy)] = (room_x + room_width // 2, room_y + room_height // 2)
+            else:
+                # Red's non-room cells still carry an anchor used by hallway
+                # generation, but the anchor is not an eligible normal room.
+                anchor_x = base_x + max(0, (cell_width - cell_wall) // 2)
+                anchor_y = base_y + max(0, (cell_height - cell_wall) // 2)
+                terrain[anchor_y][anchor_x] = "floor"
+                centers[(cx, cy)] = (anchor_x, anchor_y)
 
     # Build a randomized spanning tree over the serialized grid, then add a
     # bounded subset of adjacency loops according to the branch ratio.
@@ -688,13 +762,15 @@ def build_floor_model(floor_number: int, floor_node: dict[str, Any], zone_id: st
     walkable = {(x, y) for y, row in enumerate(terrain) for x, value in enumerate(row) if value == "floor"}
     if not walkable:
         raise RenderError(f"floor {floor_number}: no walkable terrain")
-    first = min(walkable, key=lambda point: (point[1], point[0]))
+    first = min(room_floor, key=lambda point: (point[1], point[0]))
     first_dist, _ = bfs(terrain, first)
     if len(first_dist) != len(walkable):
         raise RenderError(f"floor {floor_number}: generated walkable terrain is disconnected")
-    start = farthest(first_dist)
+    # FloorStairsStep is filtered to normal rooms.  Select far-apart cells from
+    # room_floor rather than from hallway anchors/corridors.
+    start = max(room_floor, key=lambda point: (first_dist[point], point[1], point[0]))
     start_dist, stair_parent = bfs(terrain, start)
-    stairs = farthest(start_dist)
+    stairs = max(room_floor, key=lambda point: (start_dist[point], point[1], point[0]))
     minimum_distance = int(stairs_step["MinDistance"])
     if start_dist[stairs] < minimum_distance:
         raise RenderError(f"floor {floor_number}: stair route is shorter than MinDistance")
@@ -715,6 +791,8 @@ def build_floor_model(floor_number: int, floor_node: dict[str, Any], zone_id: st
             "padding": padding,
         },
         "room_ratio": int(path["RoomRatio"]["Min"]),
+        "serialized_normal_rooms": len(square_options),
+        "serialized_hall_anchors": len(cell_positions) - len(square_options),
         "branch_ratio": branch_ratio,
         "extra_hallways": extra_halls,
         "maximum_tunnel_length": max_length,
@@ -725,6 +803,7 @@ def build_floor_model(floor_number: int, floor_node: dict[str, Any], zone_id: st
             "secondary": texture["WaterTileset"],
         },
         "secondary_terrain_generated": False,
+        "chance_selection_trace": chance_trace,
     }
     return FloorModel(
         floor_number=floor_number,
@@ -732,7 +811,7 @@ def build_floor_model(floor_number: int, floor_node: dict[str, Any], zone_id: st
         recipe_index=recipe_index,
         recipe_roll=roll,
         recipe_total=total,
-        recipe_rate=int(recipe["Rate"]),
+        recipe_rate=root_choice["rate"],
         seed=seed,
         width=width,
         height=height,

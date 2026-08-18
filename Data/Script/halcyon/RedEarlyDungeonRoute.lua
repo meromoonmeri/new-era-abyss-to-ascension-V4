@@ -39,7 +39,7 @@ function RedEarlyDungeonRoute.ExitSegment(zone, result, rescue, segment_id, conf
     -- invented marker entities; their adapter relocates the player during Init.
     GeneralFunctions.EndDungeonRun(
       result,
-      zone.ID,
+      config.ending_ground,
       -1,
       config.ending_map,
       config.ending_entry or 0,

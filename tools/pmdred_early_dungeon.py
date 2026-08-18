@@ -78,15 +78,26 @@ def connectivity() -> dict[str, Any]:
     return {"$type": "PMDC.LevelGen.ConnectivityRoom, PMDC", "Connection": 1}
 
 
-def room_square(row_count: int) -> dict[str, Any]:
-    # Red partitions the full 32-tile source height into 2 or 3 rows.  Cell
-    # walls account for the difference between these room maxima and the PMDO
-    # grid dimensions below.
-    max_height = 13 if row_count == 2 else 7
+def grid_cell_dimensions(row_count: int, valid_columns: int) -> tuple[int, int]:
+    """Derive compact PMDO cells from Red's fixed 56x32 source canvas.
+
+    The caps preserve the already-promoted 2/3-column and 2/3-row serializer
+    output exactly (12x14 or 12x8).  Red's large layout can also select 4-6
+    columns and four rows, which naturally reduces the corresponding cells.
+    """
+    if not 2 <= valid_columns <= 6:
+        raise ValueError(f"unsupported Red grid column count: {valid_columns}")
+    if not 2 <= row_count <= 4:
+        raise ValueError(f"unsupported Red grid row count: {row_count}")
+    return min(12, 56 // valid_columns - 2), min(14, 32 // row_count - 2)
+
+
+def room_square(row_count: int, valid_columns: int = 3) -> dict[str, Any]:
+    cell_width, cell_height = grid_cell_dimensions(row_count, valid_columns)
     return {
         "$type": generic_type("RogueElements.RoomGenSquare", MAP_CTX, assembly="RogueElements"),
-        "Width": int_range(5, 10),
-        "Height": int_range(4, max_height),
+        "Width": int_range(5, cell_width - 2),
+        "Height": int_range(4, cell_height - 1),
     }
 
 
@@ -120,12 +131,11 @@ def map_data_step(music: str, *, time_limit: int = 1500) -> dict[str, Any]:
 
 
 def init_grid_step(row_count: int, valid_columns: int) -> dict[str, Any]:
-    if valid_columns not in (2, 3):
-        raise ValueError("the Red early adapter supports small/medium layouts only")
+    cell_width, cell_height = grid_cell_dimensions(row_count, valid_columns)
     return {
         "$type": generic_type("RogueElements.InitGridPlanStep", MAP_CTX, assembly="RogueElements"),
-        "CellWidth": 12,
-        "CellHeight": 14 if row_count == 2 else 8,
+        "CellWidth": cell_width,
+        "CellHeight": cell_height,
         "CellX": valid_columns,
         "CellY": row_count,
         "CellWall": 2,
@@ -144,7 +154,7 @@ def grid_path_step(
         raise ValueError(f"invalid room count {normal_rooms} for {valid_columns}x{row_count} grid")
     if not 0 <= connectivity_ratio <= 100:
         raise ValueError(f"invalid connectivity ratio: {connectivity_ratio}")
-    room_bag = [room_square(row_count) for _ in range(normal_rooms)]
+    room_bag = [room_square(row_count, valid_columns) for _ in range(normal_rooms)]
     room_bag.extend(hall_anchor() for _ in range(cell_count - normal_rooms))
     return {
         "$type": generic_type("RogueElements.GridPathBranch", MAP_CTX, assembly="RogueElements"),
@@ -394,7 +404,9 @@ def build_load_floor(*, map_id: str, comment: str = "") -> dict[str, Any]:
 
 def build_chance_floor(
     *,
-    geometry: Sequence[tuple[tuple[int, int], int]],
+    geometry: Sequence[
+        tuple[tuple[int, int], int] | tuple[tuple[int, int, int], int]
+    ],
     valid_columns: int,
     music: str,
     texture_family: str,
@@ -406,12 +418,26 @@ def build_chance_floor(
     extra_hallways: int = 5,
     connectivity_ratio: int = 15,
 ) -> dict[str, Any]:
+    """Build a weighted Red geometry table without sampling at build time.
+
+    Historical callers provide ``(rows, rooms)`` and a shared column count.
+    Large Red layouts use ``(columns, rows, rooms)`` per alternative.  Keeping
+    both shapes is what lets the reusable serializer gain variable geometry
+    without changing any existing Thunderwave Cave or Mt Steel JSON.
+    """
     spawns = []
-    for (row_count, room_count), rate in geometry:
+    for shape, rate in geometry:
+        if len(shape) == 2:
+            row_count, room_count = shape
+            columns = valid_columns
+        elif len(shape) == 3:
+            columns, row_count, room_count = shape
+        else:  # pragma: no cover - guarded for external builder diagnostics
+            raise ValueError(f"invalid Red geometry shape: {shape!r}")
         floor = build_grid_floor(
             row_count=row_count,
             normal_rooms=room_count,
-            valid_columns=valid_columns,
+            valid_columns=columns,
             music=music,
             texture_family=texture_family,
             monsters=monsters,
@@ -424,6 +450,105 @@ def build_chance_floor(
         )
         spawns.append({"Spawn": floor, "Rate": rate})
     return {"$type": "RogueEssence.LevelGen.ChanceFloorGen, RogueEssence", "Spawns": spawns}
+
+
+def build_red_large_chance_floor(
+    *,
+    room_density: int,
+    reference_id: str,
+    music: str,
+    texture_family: str,
+    monsters: Sequence[tuple[str, int, int]],
+    enemy_count_weights: Sequence[tuple[int, int]],
+    items: Sequence[tuple[dict[str, Any], int]],
+    item_count_weights: Sequence[tuple[int, int]],
+    trap_count_weights: Sequence[tuple[int, int]],
+    extra_hallways: int = 5,
+    connectivity_ratio: int = 15,
+    attempts: int = 32,
+) -> dict[str, Any]:
+    """Serialize Red's exact large-layout retry/fallback process.
+
+    Layout 0 draws ``columns in 2..8`` and ``rows in 2..7``.  A draw is
+    accepted only for columns ``2..6`` and rows ``2..4``; after 32 failed
+    draws Red falls back to a 4x4 grid.  A room-count increment in ``0..2`` is
+    then capped to the selected cell count.
+
+    PMDO's ChanceFloorGen rates are signed 32-bit integers, so the final
+    probability ``(27/42)^32`` cannot be flattened into one exact weight
+    table.  This serializer instead emits the original 32 Bernoulli trials:
+    each node has accepted rate 15 and retry rate 27.  The accepted selector,
+    fallback selector, and trial chain are shared through standard Newtonsoft
+    ``$id``/``$ref`` metadata.  A shallow zero-rate registry declares objects
+    in topological order before a final active reference, staying below exact
+    PMDO 0.8.12's JsonReader depth limit without changing probability mass.
+    The failure branch after trial 32 is the authenticated 4x4 fallback, not
+    another draw.
+    """
+    if room_density < 2:
+        raise ValueError(f"invalid Red room density: {room_density}")
+    if not reference_id or any(char.isspace() for char in reference_id):
+        raise ValueError(f"invalid JSON reference ID: {reference_id!r}")
+    if attempts != 32:
+        raise ValueError("Red large-layout generation requires exactly 32 attempts")
+
+    common = {
+        "valid_columns": 3,  # ignored by explicit three-value geometry entries
+        "music": music,
+        "texture_family": texture_family,
+        "monsters": monsters,
+        "enemy_count_weights": enemy_count_weights,
+        "items": items,
+        "item_count_weights": item_count_weights,
+        "trap_count_weights": trap_count_weights,
+        "extra_hallways": extra_hallways,
+        "connectivity_ratio": connectivity_ratio,
+    }
+    accepted_geometry = [
+        ((columns, rows, min(room_density + increment, columns * rows)), 1)
+        for columns in range(2, 7)
+        for rows in range(2, 5)
+        for increment in range(3)
+    ]
+    accepted = build_chance_floor(geometry=accepted_geometry, **common)
+    # Metadata must precede $type for Newtonsoft's default metadata reader.
+    accepted_shared = {"$id": reference_id, **accepted}
+
+    fallback_geometry = [
+        ((4, 4, min(room_density + increment, 16)), 1)
+        for increment in range(3)
+    ]
+    fallback_id = f"{reference_id}-fallback"
+    fallback = build_chance_floor(geometry=fallback_geometry, **common)
+    fallback_shared = {"$id": fallback_id, **fallback}
+
+    # A literally nested 32-node JSON tree exceeds exact PMDO 0.8.12's locked
+    # Newtonsoft JsonReader.MaxDepth of 64.  Preserve the same object graph in
+    # topological order instead: zero-rate entries register every shared object
+    # before it is referenced, and one final positive-rate entry selects trial
+    # 1.  Each trial itself still performs the authenticated 15/27 decision.
+    # SpawnList accepts zero-rate alternatives; they are never selected and add
+    # no probability mass.  This representation is both compact and shallow.
+    chance_type = "RogueEssence.LevelGen.ChanceFloorGen, RogueEssence"
+    registry_spawns: list[dict[str, Any]] = [
+        {"Spawn": accepted_shared, "Rate": 0},
+        {"Spawn": fallback_shared, "Rate": 0},
+    ]
+    retry_reference = fallback_id
+    for attempt in range(attempts, 0, -1):
+        attempt_id = f"{reference_id}-attempt-{attempt}"
+        attempt_node = {
+            "$id": attempt_id,
+            "$type": chance_type,
+            "Spawns": [
+                {"Spawn": {"$ref": reference_id}, "Rate": 15},
+                {"Spawn": {"$ref": retry_reference}, "Rate": 27},
+            ],
+        }
+        registry_spawns.append({"Spawn": attempt_node, "Rate": 0})
+        retry_reference = attempt_id
+    registry_spawns.append({"Spawn": {"$ref": retry_reference}, "Rate": 1})
+    return {"$type": chance_type, "Spawns": registry_spawns}
 
 
 def team_spawn_zone_step(
