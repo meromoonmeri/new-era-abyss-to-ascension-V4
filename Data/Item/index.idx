@@ -6432,6 +6432,144 @@
       "Released": true,
       "Comment": "",
       "SortOrder": 3
+    },
+    "pmdred_permutorbe": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+      "Icon": 9,
+      "UsageType": 1,
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ],
+      "MaxStack": 0,
+      "CannotDrop": false,
+      "BagEffect": false,
+      "Name": {
+        "DefaultText": "Switcher Orb",
+        "LocalTexts": {
+          "fr": "Permutorbe"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Red EU functional adapter; source template wand_switcher; DumpAsset 9d864d1425f002b051e7a54fffc639988d8ef9c9.",
+      "SortOrder": 11
+    },
+    "pmdred_soufflorbe": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+      "Icon": 9,
+      "UsageType": 1,
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ],
+      "MaxStack": 0,
+      "CannotDrop": false,
+      "BagEffect": false,
+      "Name": {
+        "DefaultText": "Blowback Orb",
+        "LocalTexts": {
+          "fr": "Soufflorbe"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Red EU functional adapter; source template wand_whirlwind; DumpAsset 9d864d1425f002b051e7a54fffc639988d8ef9c9.",
+      "SortOrder": 11
+    },
+    "pmdred_teleporbe": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+      "Icon": 9,
+      "UsageType": 1,
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ],
+      "MaxStack": 0,
+      "CannotDrop": false,
+      "BagEffect": false,
+      "Name": {
+        "DefaultText": "Warp Orb",
+        "LocalTexts": {
+          "fr": "Téléporbe"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Red EU functional adapter; source template wand_warp; DumpAsset 9d864d1425f002b051e7a54fffc639988d8ef9c9.",
+      "SortOrder": 11
+    },
+    "pmdred_revelorbe": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+      "Icon": 9,
+      "UsageType": 1,
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ],
+      "MaxStack": 0,
+      "CannotDrop": false,
+      "BagEffect": false,
+      "Name": {
+        "DefaultText": "Scanner Orb",
+        "LocalTexts": {
+          "fr": "Révélorbe"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Red EU functional adapter; source template orb_scanner; DumpAsset 9d864d1425f002b051e7a54fffc639988d8ef9c9.",
+      "SortOrder": 11
+    },
+    "pmdred_radarorbe": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+      "Icon": 9,
+      "UsageType": 1,
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ],
+      "MaxStack": 0,
+      "CannotDrop": false,
+      "BagEffect": false,
+      "Name": {
+        "DefaultText": "Radar Orb",
+        "LocalTexts": {
+          "fr": "Radarorbe"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Red EU functional adapter; source template orb_scanner; DumpAsset 9d864d1425f002b051e7a54fffc639988d8ef9c9.",
+      "SortOrder": 11
+    },
+    "pmdred_projectorbe": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+      "Icon": 9,
+      "UsageType": 1,
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ],
+      "MaxStack": 0,
+      "CannotDrop": false,
+      "BagEffect": false,
+      "Name": {
+        "DefaultText": "Hurl Orb",
+        "LocalTexts": {
+          "fr": "Projectorbe"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Red EU functional adapter; source template wand_whirlwind; DumpAsset 9d864d1425f002b051e7a54fffc639988d8ef9c9.",
+      "SortOrder": 11
     }
   }
 }

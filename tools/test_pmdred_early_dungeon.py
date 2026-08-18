@@ -24,6 +24,17 @@ class IndexAppendTests(unittest.TestCase):
             self.assertEqual(json.loads(after)["Object"]["old"], {"Name": "kept"})
             self.assertEqual(json.loads(after)["Object"]["new"], {"Name": "ajouté"})
 
+    def test_preserves_terminal_newline(self) -> None:
+        before = '{\n  "Version": "0.8.12.0",\n  "Object": {\n    "old": true\n  }\n}\n'
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "index.idx"
+            path.write_text(before, encoding="utf-8")
+            append_index_entries(path, {"new": {"Name": "new"}})
+            after = path.read_text(encoding="utf-8")
+            self.assertTrue(after.endswith("\n"))
+            self.assertEqual(json.loads(after)["Object"]["old"], True)
+            self.assertEqual(json.loads(after)["Object"]["new"], {"Name": "new"})
+
     def test_preserves_bom_indented_history_and_rejects_duplicate(self) -> None:
         before = b"\xef\xbb\xbf" + b'{\n  "Version": "0.8.12.0",\n  "Object": {\n    "old": {\n      "Name": "kept"\n    }\n  }\n}'
         with tempfile.TemporaryDirectory() as temp:

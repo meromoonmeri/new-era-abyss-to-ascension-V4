@@ -200,6 +200,28 @@
       "Released": true,
       "Comment": "",
       "SortOrder": 0
+    },
+    "pmdred_items_revealed": {
+      "Name": {
+        "DefaultText": "Items Revealed",
+        "LocalTexts": {
+          "fr": "Objets révélés"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Red EU split scanner contract; exposes exactly one map category; DumpAsset 9d864d1425f002b051e7a54fffc639988d8ef9c9.",
+      "SortOrder": 0
+    },
+    "pmdred_characters_revealed": {
+      "Name": {
+        "DefaultText": "Pokémon Revealed",
+        "LocalTexts": {
+          "fr": "Pokémon révélés"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Red EU split scanner contract; exposes exactly one map category; DumpAsset 9d864d1425f002b051e7a54fffc639988d8ef9c9.",
+      "SortOrder": 0
     }
   }
 }

@@ -563,10 +563,14 @@ def append_index_entries(
             f"create-only index entries already exist in {path}: " + ", ".join(duplicates)
         )
 
-    if text.endswith("\n  }\n}"):
+    # Historical indexes may or may not have one terminal newline.  Preserve
+    # it byte-for-byte while matching the structural suffix on the JSON body.
+    terminal_newline = "\n" if text.endswith("\n") else ""
+    body = text[:-1] if terminal_newline else text
+    if body.endswith("\n  }\n}"):
         marker = "\n  }\n}"
         member_indent = "    "
-    elif text.endswith("\n}\n}"):
+    elif body.endswith("\n}\n}"):
         marker = "\n}\n}"
         member_indent = ""
     else:
@@ -583,8 +587,8 @@ def append_index_entries(
             rest = [line.lstrip() for line in value_lines[1:]]
         blocks.append("\n".join([first, *rest]))
 
-    prefix = text[: -len(marker)]
-    updated = prefix + ",\n" + ",\n".join(blocks) + marker
+    prefix = body[: -len(marker)]
+    updated = prefix + ",\n" + ",\n".join(blocks) + marker + terminal_newline
     parsed = json.loads(updated)
     for key, value in entries.items():
         if parsed["Object"].get(key) != value:
