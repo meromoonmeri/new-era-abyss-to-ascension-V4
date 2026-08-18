@@ -13,7 +13,7 @@ IFS=$'\n\t'
 ROOT=$(git rev-parse --show-toplevel)
 cd "$ROOT"
 case $(git branch --show-current) in
-  arena/019ff05e-new-era-abyss-to-ascension-v4|arena/019ff57e-new-era-abyss-to-ascension-v4) ;;
+  arena/019ff05e-new-era-abyss-to-ascension-v4|arena/019ff57e-new-era-abyss-to-ascension-v4|arena/01a0159e-new-era-abyss-to-ascension-v4) ;;
   *)
     echo "ERROR: run on the Agent A reference branch or this Arena continuation branch" >&2
     exit 2
@@ -33,6 +33,13 @@ CANDIDATE_TREE_MANIFEST_SHA=dbf91db99f988f596d32869a5eaf73e85c3de52688d72a7e3033
 CANDIDATE_REPORT_SHA=91f3b460b3e3b7689bc608ece2006cb6103d653bcdc22ad028f4172c3a1b0fdc
 CANDIDATE_AUDIT_SHA=2434d193ed48596314fe4c188da2b3800d7145f6189086c25ed57b3757acd43b
 PLAN_SHA=dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0
+# The historical runtime logs use an em dash in the NREProbe line. The fixed
+# Arena continuation currently contains an authenticated ASCII-hyphen source
+# variant in main.lua; accept it only with both exact current-source and output
+# hashes. Never normalize either log silently.
+INDEX_LOG_SHA_HISTORICAL=3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8
+INDEX_LOG_SHA_CURRENT=ba292fb1338fd8c41e24943f5ed66065d47e9ef26f45a38e5efa7be95a7f5fbb
+CURRENT_MAIN_LUA_SHA=8add81a133b5dbd5995c17cd98b9b5dc7aec8ce6c636d8e4d1a8dedcde31481d
 SDL_ORIGINAL_SHA=52cf4d7fa12c1ee9a96ce875fa79da3eae7a901965f02e1ca1d4238bd5dc549e
 SDL_PATCHED_SHA=2cec7b5f9603a8a856a94b3a5e4fb5bd5e93e3ed0d04b85431625d5acb14e71f
 SDL_PATCH_SHA=7fb310776961e5a6a30cb9bc4550a070d3eb284b3813ee03406e418e60119f6f
@@ -67,6 +74,21 @@ verify_dump_archive_transport() {
   else
     fail "unrecognized DumpAsset transport: $path sha=$digest bytes=$bytes"
   fi
+}
+verify_runtime_index_log() {
+  local path=$1 actual main_sha
+  actual=$(actual_sha "$path")
+  if [[ $actual == "$INDEX_LOG_SHA_HISTORICAL" ]]; then
+    verify_file "$path" "$INDEX_LOG_SHA_HISTORICAL" 393
+    return
+  fi
+  main_sha=$(actual_sha Data/Script/halcyon/main.lua)
+  if [[ $actual == "$INDEX_LOG_SHA_CURRENT" && $main_sha == "$CURRENT_MAIN_LUA_SHA" ]]; then
+    verify_file "$path" "$INDEX_LOG_SHA_CURRENT" 392
+    echo "INDEX_LOG_SOURCE_VARIANT_PASS main.lua=$main_sha"
+    return
+  fi
+  fail "runtime index log mismatch: $path sha=$actual main.lua=$main_sha"
 }
 copy_create_only() {
   local src=$1 dst=$2 expected_sha=$3 expected_bytes=${4:-}
@@ -358,7 +380,8 @@ verify_file "$CANDIDATES/conversion_report.json" "$CANDIDATE_REPORT_SHA"
 verify_file "$CANDIDATES/audit.json" "$CANDIDATE_AUDIT_SHA"
 
 # Bounded exact-engine component/import gate. The index command is deterministic
-# and its console output is byte-identical to the last validated milestone.
+# and is checked against the historical evidence or the exact current-branch
+# source variant above; neither output is normalized or accepted implicitly.
 GATE=.runtime-cache/pmdred-eu-runtime-restoration-gate
 if [[ ! -e $GATE ]]; then
   .runtime-cache/test-venv/bin/python tools/build_pmdred_eu_runtime_fixture.py \
@@ -375,7 +398,7 @@ if [[ ! -e $GATE ]]; then
     -asset "$GATE/asset/" -appdata "$GATE/appdata/" \
     -quest pmdred_eu_fixture -index zone >"$GATE/index.log" 2>&1
 fi
-verify_file "$GATE/index.log" 3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8 393
+verify_runtime_index_log "$GATE/index.log"
 
 python3 - <<'PY'
 import hashlib, json, subprocess
@@ -399,16 +422,20 @@ status = {
         'sdl_patched_sha256': hashlib.sha256(next(Path('.runtime-cache/dotnet-headless/PMDO').rglob('libSDL2-2.0.so.0')).read_bytes()).hexdigest(),
         'candidate_count': 219,
         'normalized_resource_count': 724,
-        'index_output_sha256': '3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8'
+        'index_output_sha256': hashlib.sha256(Path('.runtime-cache/pmdred-eu-runtime-restoration-gate/index.log').read_bytes()).hexdigest()
     },
     'resume': [
         'bash tools/restore_pmdred_eu_validation_runtime.sh',
         'python3 tools/update_pmdred_eu_validation_progress.py --check',
-        f'cp docs/pmdred_eu/pmdo_validation/t01p07_exhaustive_pass/commands.sh .runtime-cache/{next_ground}-working-recipe.sh'
+        (
+            f'cp docs/pmdred_eu/pmdo_validation/t01p07_exhaustive_pass/commands.sh .runtime-cache/{next_ground}-working-recipe.sh'
+            if next_ground is not None
+            else 'all canonical archive-backed Grounds are checkpointed; continue with dungeon-backed and narrative gates'
+        ),
     ]
 }
 path = Path('.runtime-cache/recovery/runtime_restoration_status.json')
 path.write_text(json.dumps(status, indent=2) + '\n')
 print('RUNTIME_RESTORATION_STATUS', path)
-print('PMDRED_EU_RUNTIME_RESTORATION_PASS next=' + next_ground)
+print('PMDRED_EU_RUNTIME_RESTORATION_PASS next=' + str(next_ground))
 PY

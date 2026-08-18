@@ -1,6 +1,6 @@
 # PMD Red EU exact-PMDO Ground validation: resume checkpoint
 
-Generated `2026-08-12T18:35:40+00:00` from `9cffa9d10f2d5820ac0c7e85399e58ae570c0b5e` on `arena/019ff57e-new-era-abyss-to-ascension-v4`.
+Generated `2026-08-18T18:21:04+00:00` from `5368be12afade558a539eea95e86ef9d71879e2f` on `arena/01a0159e-new-era-abyss-to-ascension-v4`.
 
 This file is a generated human-readable companion to [`progress.json`](progress.json). Regenerate both with `python3 tools/update_pmdred_eu_validation_progress.py --write`.
 
@@ -293,7 +293,7 @@ Do not promote on load success alone. Preserve reserve/history; require exact PN
 
 ## Evidence integrity policy
 
-Archived evidence and promoted destination integrity: **PASS**. There are **261** recorded older-manifest differences limited to mutable tools, identity records, or the append-only zone registry. They are retained in `progress.json`; they are not silently accepted for archived evidence or promoted asset bytes.
+Archived evidence and promoted destination integrity: **PASS**. There are **470** recorded older-manifest differences limited to mutable tools, identity records, or the append-only zone registry. They are retained in `progress.json`; they are not silently accepted for archived evidence or promoted asset bytes.
 
 ## Dungeon restitution
 
