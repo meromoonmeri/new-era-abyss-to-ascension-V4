@@ -46,7 +46,10 @@ def main():
         "23_floor_spawn_tables": len(actual) == 23,
         "species_level_probability_exact": actual == expected,
         "canonical_sinister_woods_music": music,
-        "no_relic_forest_dependency": "relic_forest_blob_" not in payload,
+        "no_relic_forest_dependency": (
+            "relic_forest_blob_" not in payload
+            and "ReverseRelicForest" not in payload
+        ),
         "no_treeshroud_graphics_substitution": "treeshroud_forest_1_" not in payload,
     }
     blockers = [name for name, passed in checks.items() if not passed]

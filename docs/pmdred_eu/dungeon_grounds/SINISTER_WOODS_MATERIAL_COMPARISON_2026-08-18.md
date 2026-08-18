@@ -4,8 +4,10 @@
 **Verdict de comparaison : `REPLACE_REQUIRED`**
 
 La comparaison a été réalisée avec le ROM EU authentifié et le renderer
-existant `tools/pmdred_dungeon_ground.py`. Aucun fichier de production n'a été
-modifié.
+existant `tools/pmdred_dungeon_ground.py`. Aucun fichier de production graphique
+n'a été modifié par cette comparaison. Le câblage Relic Forest de la Zone a
+ensuite été corrigé séparément ; voir
+`docs/pmdred_eu/narrative_audit/SINISTER_WOODS_RELIC_FOREST_SEPARATION_2026-08-18.md`.
 
 ## Correction importante de sélection ROM
 

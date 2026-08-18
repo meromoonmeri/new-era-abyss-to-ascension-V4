@@ -160,17 +160,23 @@ Ces six maps ne proviennent pas de la ROM PMD Red EU ni des ressources `D04P01`
 - `Data/Map/relic_forest_blob_*.rsmap` possède six hashes verrouillés par
   `tools/test_relic_forest_blob_dependencies.py` ;
 - `Content/Tile/Relic_Forest_Blob_*.tile` fournit les six feuilles associées ;
-- `Data/Zone/relic_forest.json` et `Data/Zone/gloomy_forest.json` les chargent
-  par `LoadBlobStep` ;
+- `Data/Zone/relic_forest.json` les charge encore par cinq `LoadBlobStep` ;
+- l'audit précédent a démontré que `Data/Zone/gloomy_forest.json` les chargeait
+  aussi par trois étapes clonées, soit 18 références étrangères ;
+- la correction de câblage de ce checkout retire ces trois étapes de
+  `gloomy_forest` ainsi que ses trois `ReverseRelicForest`, sans toucher à la
+  zone Relic Forest ;
 - `docs/pmdred_eu/narrative_migration/relic_forest_blob_regression/REPORT.md`
   donne explicitement la provenance historique : commit PMDO/New Era
   `55860b9a5eb48697a3cea3a8bdfce5f0529d6141`, restauration des six maps oubliées
   de Relic Forest.
 
 Conclusion : `relic_forest_blob_*` est **NEW_ERA_NATIVE / RELIC_FOREST**, pas
-`PMD_RED_EU_CANON`. Sa résolution technique PMDO est validée, mais elle ne
-constitue pas une preuve canonique Sinister Woods. Aucune suppression n'est
-faite avant une décision de portage narrative/graphique séparée.
+`PMD_RED_EU_CANON`. Sa résolution technique PMDO est validée pour Relic Forest
+et elle ne constitue plus une dépendance runtime de Sinister Woods. Les six
+maps et leurs six sheets restent conservés parce que Relic Forest les utilise ;
+la preuve complète de séparation et de transitivité est
+`SINISTER_WOODS_RELIC_FOREST_SEPARATION_2026-08-18.md`.
 
 ### 4.2 `treeshroud_forest_1_*`
 

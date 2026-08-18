@@ -65,7 +65,9 @@ def sinister_gate(repo: Path) -> dict[str, Any]:
         for index in (0, 1, 3)
     }
     relic_blob_count = payload.count("relic_forest_blob_")
+    reverse_relic_script_count = payload.count("ReverseRelicForest")
     treeshroud_count = payload.count("treeshroud_forest_1_")
+    deep_shadow_missing = "deep_shadow" in payload and not (repo / "Data/MapStatus/deep_shadow.json").is_file()
     blockers = []
     if procedural != {0: 15, 1: 5, 3: 3}:
         blockers.append("FLOOR_PROGRESSION_15_5_3_MISMATCH")
@@ -77,6 +79,10 @@ def sinister_gate(repo: Path) -> dict[str, Any]:
         blockers.append("PROCEDURAL_GRAPHICS_STILL_TREESHROUD_ADAPTATION")
     if relic_blob_count:
         blockers.append("RELIC_FOREST_BLOBS_MIXED_INTO_PMD_RED_CHAIN")
+    if reverse_relic_script_count:
+        blockers.append("RELIC_FOREST_STAIR_SCRIPT_MIXED_INTO_PMD_RED_CHAIN")
+    if deep_shadow_missing:
+        blockers.append("DEEP_SHADOW_RUNTIME_COMPONENT_MISSING")
     return {
         "result": "PASS" if not blockers else "BLOCKED",
         "public_identity": "Sinister Woods",
@@ -93,6 +99,8 @@ def sinister_gate(repo: Path) -> dict[str, Any]:
         "foreign_environment_references": {
             "treeshroud_tileset_reference_count": treeshroud_count,
             "relic_forest_blob_reference_count": relic_blob_count,
+            "reverse_relic_forest_script_reference_count": reverse_relic_script_count,
+            "deep_shadow_missing": deep_shadow_missing,
         },
         "blockers": blockers,
         "production_route_written": False,

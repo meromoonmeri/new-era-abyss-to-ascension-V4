@@ -37,11 +37,22 @@
   },
   "foreign_environment_references": {
     "treeshroud_tileset_reference_count": 9,
-    "relic_forest_blob_reference_count": 18
+    "relic_forest_blob_reference_count": 0,
+    "reverse_relic_forest_script_reference_count": 0,
+    "deep_shadow_missing": true
   },
   "blockers": [
     "PROCEDURAL_GRAPHICS_STILL_TREESHROUD_ADAPTATION",
-    "RELIC_FOREST_BLOBS_MIXED_INTO_PMD_RED_CHAIN"
+    "DEEP_SHADOW_RUNTIME_COMPONENT_MISSING"
   ],
-  "production_route_written": false
+  "production_route_written": false,
+  "separation": {
+    "status": "SEPARATED",
+    "evidence": "docs/pmdred_eu/narrative_audit/SINISTER_WOODS_RELIC_FOREST_SEPARATION_2026-08-18.json",
+    "runtime_evidence": "docs/pmdred_eu/narrative_audit/SINISTER_WOODS_RELIC_FOREST_SEPARATION_RUNTIME_2026-08-18.json",
+    "gloomy_forest_load_blob_steps": 0,
+    "relic_forest_load_blob_steps": 5,
+    "relic_forest_blob_assets_deleted": false,
+    "d04p01_d04p02_touched": false
+  }
 }

@@ -219,77 +219,6 @@
                   {
                     "Key": {
                       "str": [
-                        0,
-                        2
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.LoadBlobStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "PreventChanges": 0,
-                      "TerrainStencil": {
-                        "$type": "RogueElements.MultiBlobStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                        "List": [
-                          {
-                            "$type": "RogueElements.BlobTileStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                            "TileStencil": {
-                              "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                              "Room": true,
-                              "Wall": false,
-                              "Blocked": false,
-                              "Not": false
-                            },
-                            "RequireAny": false
-                          },
-                          {
-                            "$type": "RogueElements.NoChokepointStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                            "TileStencil": {
-                              "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                              "Room": true,
-                              "Wall": false,
-                              "Blocked": false,
-                              "Not": false
-                            },
-                            "Global": false,
-                            "Negate": false
-                          }
-                        ],
-                        "RequireAny": false
-                      },
-                      "Amount": {
-                        "Min": 2,
-                        "Max": 4
-                      },
-                      "Maps": [
-                        {
-                          "Spawn": "relic_forest_blob_fallen_right",
-                          "Rate": 4
-                        },
-                        {
-                          "Spawn": "relic_forest_blob_fallen_left",
-                          "Rate": 4
-                        },
-                        {
-                          "Spawn": "relic_forest_blob_broken_pillar",
-                          "Rate": 8
-                        },
-                        {
-                          "Spawn": "relic_forest_blob_rubble",
-                          "Rate": 8
-                        },
-                        {
-                          "Spawn": "relic_forest_blob_pillar",
-                          "Rate": 8
-                        },
-                        {
-                          "Spawn": "relic_forest_blob_ruins",
-                          "Rate": 3
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
                         1
                       ]
                     },
@@ -4558,11 +4487,6 @@
             "Spawns": []
           },
           {
-            "$type": "RogueEssence.LevelGen.ScriptZoneStep, RogueEssence",
-            "Script": "ReverseRelicForest",
-            "ArgTable": "{}"
-          },
-          {
             "$type": "RogueEssence.LevelGen.SpreadStepRangeZoneStep, RogueEssence",
             "StepPriority": {
               "str": [
@@ -4790,77 +4714,6 @@
                     "Value": {
                       "$type": "RogueEssence.LevelGen.UnbreakableBorderStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
                       "Thickness": 1
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        0,
-                        2
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.LoadBlobStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "PreventChanges": 0,
-                      "TerrainStencil": {
-                        "$type": "RogueElements.MultiBlobStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                        "List": [
-                          {
-                            "$type": "RogueElements.BlobTileStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                            "TileStencil": {
-                              "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                              "Room": true,
-                              "Wall": false,
-                              "Blocked": false,
-                              "Not": false
-                            },
-                            "RequireAny": false
-                          },
-                          {
-                            "$type": "RogueElements.NoChokepointStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                            "TileStencil": {
-                              "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                              "Room": true,
-                              "Wall": false,
-                              "Blocked": false,
-                              "Not": false
-                            },
-                            "Global": false,
-                            "Negate": false
-                          }
-                        ],
-                        "RequireAny": false
-                      },
-                      "Amount": {
-                        "Min": 2,
-                        "Max": 4
-                      },
-                      "Maps": [
-                        {
-                          "Spawn": "relic_forest_blob_fallen_right",
-                          "Rate": 4
-                        },
-                        {
-                          "Spawn": "relic_forest_blob_fallen_left",
-                          "Rate": 4
-                        },
-                        {
-                          "Spawn": "relic_forest_blob_broken_pillar",
-                          "Rate": 8
-                        },
-                        {
-                          "Spawn": "relic_forest_blob_rubble",
-                          "Rate": 8
-                        },
-                        {
-                          "Spawn": "relic_forest_blob_pillar",
-                          "Rate": 8
-                        },
-                        {
-                          "Spawn": "relic_forest_blob_ruins",
-                          "Rate": 3
-                        }
-                      ]
                     }
                   },
                   {
@@ -6710,11 +6563,6 @@
               ]
             },
             "Spawns": []
-          },
-          {
-            "$type": "RogueEssence.LevelGen.ScriptZoneStep, RogueEssence",
-            "Script": "ReverseRelicForest",
-            "ArgTable": "{}"
           }
         ],
         "IsRelevant": true,
@@ -6978,77 +6826,6 @@
                     "Value": {
                       "$type": "RogueEssence.LevelGen.UnbreakableBorderStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
                       "Thickness": 1
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        0,
-                        2
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.LoadBlobStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "PreventChanges": 0,
-                      "TerrainStencil": {
-                        "$type": "RogueElements.MultiBlobStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                        "List": [
-                          {
-                            "$type": "RogueElements.BlobTileStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                            "TileStencil": {
-                              "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                              "Room": true,
-                              "Wall": false,
-                              "Blocked": false,
-                              "Not": false
-                            },
-                            "RequireAny": false
-                          },
-                          {
-                            "$type": "RogueElements.NoChokepointStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                            "TileStencil": {
-                              "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                              "Room": true,
-                              "Wall": false,
-                              "Blocked": false,
-                              "Not": false
-                            },
-                            "Global": false,
-                            "Negate": false
-                          }
-                        ],
-                        "RequireAny": false
-                      },
-                      "Amount": {
-                        "Min": 2,
-                        "Max": 4
-                      },
-                      "Maps": [
-                        {
-                          "Spawn": "relic_forest_blob_fallen_right",
-                          "Rate": 4
-                        },
-                        {
-                          "Spawn": "relic_forest_blob_fallen_left",
-                          "Rate": 4
-                        },
-                        {
-                          "Spawn": "relic_forest_blob_broken_pillar",
-                          "Rate": 8
-                        },
-                        {
-                          "Spawn": "relic_forest_blob_rubble",
-                          "Rate": 8
-                        },
-                        {
-                          "Spawn": "relic_forest_blob_pillar",
-                          "Rate": 8
-                        },
-                        {
-                          "Spawn": "relic_forest_blob_ruins",
-                          "Rate": 3
-                        }
-                      ]
                     }
                   },
                   {
@@ -8506,11 +8283,6 @@
               ]
             },
             "Spawns": []
-          },
-          {
-            "$type": "RogueEssence.LevelGen.ScriptZoneStep, RogueEssence",
-            "Script": "ReverseRelicForest",
-            "ArgTable": "{}"
           }
         ],
         "IsRelevant": true,

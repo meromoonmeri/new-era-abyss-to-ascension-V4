@@ -755,11 +755,13 @@
       },
       "foreign_environment_references": {
         "treeshroud_tileset_reference_count": 9,
-        "relic_forest_blob_reference_count": 18
+        "relic_forest_blob_reference_count": 0,
+        "reverse_relic_forest_script_reference_count": 0,
+        "deep_shadow_missing": true
       },
       "blockers": [
         "PROCEDURAL_GRAPHICS_STILL_TREESHROUD_ADAPTATION",
-        "RELIC_FOREST_BLOBS_MIXED_INTO_PMD_RED_CHAIN"
+        "DEEP_SHADOW_RUNTIME_COMPONENT_MISSING"
       ],
       "production_route_written": false
     }

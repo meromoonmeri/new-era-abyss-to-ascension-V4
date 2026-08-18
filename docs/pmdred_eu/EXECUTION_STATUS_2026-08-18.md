@@ -159,11 +159,14 @@ passent ; les deux barrières restent explicitement en échec :
 - `no_relic_forest_dependency = false` ;
 - `no_treeshroud_graphics_substitution = false`.
 
-La zone actuelle confirme les références `relic_forest_blob_*` et
-`treeshroud_forest_1_*` dans `Data/Zone/gloomy_forest.json`. Aucun remplacement
-n'a été tenté : il faudrait d'abord une source PMD Red/équivalence technique
-pour les graphismes procéduraux et une décision de séparation des blobs. La
-route de production reste donc non écrite.
+La séparation de câblage a maintenant été effectuée et auditée :
+`Data/Zone/gloomy_forest.json` ne contient plus de `relic_forest_blob_*` ni de
+`ReverseRelicForest`, tandis que `Data/Zone/relic_forest.json` conserve les
+cinq `LoadBlobStep` et les six maps nécessaires. Les six `.rsmap`/`.tile` n'ont
+pas été supprimés. La preuve structurelle et le runtime contrôlé sont dans
+`docs/pmdred_eu/narrative_audit/SINISTER_WOODS_RELIC_FOREST_SEPARATION_2026-08-18.md`.
+Le remplacement graphique b41 reste séparé et la route de production n'est
+pas encore écrite.
 
 ## 6. État de promotion après exécution
 

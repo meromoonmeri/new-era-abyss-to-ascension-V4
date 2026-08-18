@@ -40,15 +40,18 @@ Les éléments suivants passent :
 - tables Pokémon/niveaux/probabilités exactes sur le cycle canonique de 13
   étages, puis répétition déclarée comme adaptation New Era.
 
-Deux blocages empêchent encore le statut canonique complet :
+Deux blocages de production subsistent, indépendants du câblage Relic : les
+étages procéduraux emploient encore les AutoTiles `treeshroud_forest_1_*`, qui
+ne sont pas équivalents au matériau ROM b41, et le statut runtime
+`deep_shadow` du segment 3 n'a pas encore de composant source validé.
 
-1. les étages procéduraux emploient les AutoTiles `treeshroud_forest_1_*` ;
-2. ils chargent encore des blobs `relic_forest_blob_*`.
-
-Aucun des deux n'est corrigé en modifiant silencieusement la Zone : le portage
-du tileset procédural Sinister Woods et la politique de suppression des blobs
-doivent être prouvés séparément. Les Grounds certifiés, scripts de chapitres
-1–5 et routes FugitiveArc restent intacts.
+La dépendance historique `relic_forest_blob_*` a été séparée et validée :
+`gloomy_forest` ne possède plus de `LoadBlobStep` ni de `ReverseRelicForest`,
+tandis que `relic_forest` conserve ses cinq étapes et les six maps nécessaires.
+La preuve structurelle et le runtime sont dans
+`docs/pmdred_eu/narrative_audit/SINISTER_WOODS_RELIC_FOREST_SEPARATION_2026-08-18.md`.
+Les Grounds certifiés, scripts de chapitres 1–5 et routes FugitiveArc restent
+intacts.
 
 ## IR des cinématiques de donjon
 

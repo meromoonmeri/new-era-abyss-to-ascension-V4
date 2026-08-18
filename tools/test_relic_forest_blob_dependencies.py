@@ -50,7 +50,8 @@ class RelicForestBlobDependencies(unittest.TestCase):
             sheet = next(iter(sheets))
             self.assertTrue((ROOT / "Content/Tile" / f"{sheet}.tile").is_file(), sheet)
 
-    def test_every_load_blob_reference_resolves(self):
+    def test_every_load_blob_reference_resolves_for_relic_forest_only(self):
+        """Relic Forest owns the blobs; Sinister Woods must not load them."""
         references: dict[str, set[str]] = defaultdict(set)
         for zone_path in sorted((ROOT / "Data/Zone").glob("*.json")):
             payload = json.loads(zone_path.read_text(encoding="utf-8-sig"))
@@ -62,8 +63,13 @@ class RelicForestBlobDependencies(unittest.TestCase):
                         references[child["Spawn"]].add(zone_path.stem)
         self.assertEqual(set(references), set(EXPECTED))
         for map_id in EXPECTED:
-            self.assertEqual(references[map_id], {"relic_forest", "gloomy_forest"})
+            self.assertEqual(references[map_id], {"relic_forest"})
             self.assertTrue((ROOT / "Data/Map" / f"{map_id}.rsmap").is_file())
+
+    def test_sinister_woods_has_no_relic_forest_blob_or_stair_script(self):
+        payload = (ROOT / "Data/Zone/gloomy_forest.json").read_text(encoding="utf-8-sig")
+        self.assertNotIn("relic_forest_blob_", payload)
+        self.assertNotIn("ReverseRelicForest", payload)
 
     def test_probe_messages_are_ascii_and_describe_normal_transition(self):
         main = (ROOT / "Data/Script/halcyon/main.lua").read_text()
