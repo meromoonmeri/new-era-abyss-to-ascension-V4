@@ -54,3 +54,63 @@ La couche `invisible` est ecartee : elle porte la collision du jeu
 | Instances | 24342 |
 | Elements non resolus | **0** |
 | Faune promue | 1 642 entites |
+
+---
+
+## Ce que montrent ces PNG
+
+**Ces rendus montrent la source GameMaker d'origine, pas le resultat PMDO.**
+Les papillons, oiseaux, lucioles et grenouilles qu'on y voit sont les sprites
+du jeu original. Ils sont la reference de travail : c'est a partir d'eux que
+la faune a ete castee.
+
+Dans les Grounds PMDO, ces creatures **n'existent plus** : chacune a ete
+remplacee par un Pokemon.
+
+### Verification de la couverture
+
+Les creatures ont ete identifiees par la **hierarchie GameMaker**, jamais par
+leur nom : tout objet descendant de `objbgmob` (faune d'ambiance) ou de
+`objmob` (monstres). 67 objets dans le jeu, dont 22 instancies dans les
+34 rooms rendues.
+
+| Objet GameMaker | Instances | Pokemon |
+|---|---:|---|
+| `objbutterfly1` | 478 | vivillon |
+| `objbug0` | 369 | cutiefly |
+| `objfirefly` | 326 | volbeat |
+| `objbird0` | 176 | fletchling |
+| `objfrog` | 125 | politoed |
+| `objmobsm1` | 59 | illumise |
+| `objmobsm0` | 38 | jumpluff |
+| `objmob0` | 32 | barboach |
+| `objmobau0` | 20 | ledyba |
+| `objmobwn4` | 16 | piloswine |
+| `objmobau5` | 14 | lotad |
+| `objmobau2` | 13 | dwebble |
+| `objmobwn5` | 11 | delibird |
+| `objmobau4` | 9 | swanna |
+| `objmobwn0` | 9 | swinub |
+| `objmobsm2` | 8 | surskit |
+| `objmobau1` | 7 | ariados |
+| `objmobsm3` | 5 | wingull |
+| `objmobwn1` | 5 | ducklett |
+| `objmobwn2` | 4 | crabrawler |
+| `objmobsm5` | 1 | magikarp |
+| `objmobwn0_old` | 1 | swinub |
+
+**1 726 creatures dans la source, 0 sans Pokemon assigne.**
+
+Repartition : 1 642 promues, 109 retenues (variantes saisonnieres non
+converties), 57 sans preuve (Grounds inexistants). Total 1 808, reconcilie.
+
+### Faux positifs de nom, ecartes sur preuve
+
+Un filtrage par sous-chaine se serait trompe :
+
+- `objauplant30`, `objsmplant93` contiennent « ant » — ce sont des **plantes**
+- `objbf09` a pour parent `objbf0noncol` — un **buisson**
+- `objwf0` a pour parent `objwfs0` — une **fleur d'eau**
+
+Aucun objet au nom evoquant un animal n'est reste non classe : verification
+faite sur les 220 objets instancies.
