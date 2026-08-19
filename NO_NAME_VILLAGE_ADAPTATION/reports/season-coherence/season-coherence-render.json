@@ -1,0 +1,40 @@
+{
+  "contact_sheet": "GROUND_ALL_SEASONS.png",
+  "contact_sheet_sha256": "a0d3d4c73c1c4067c9882cc6be3ed6849de93434a64c633bf112dab0f926b4b6",
+  "schema": "new-era.nnv-season-ground-render.v1",
+  "seasons": [
+    {
+      "decorations_drawn": 6,
+      "png": "ground_spring.png",
+      "season": "spring",
+      "sha256": "c08ec4bc6f56a3d952e3559af18d553c1f1cf0ad99b0e1c8b0db9160e5ce2f73",
+      "tiles_drawn": 25188,
+      "world_px": 624
+    },
+    {
+      "decorations_drawn": 6,
+      "png": "ground_summer.png",
+      "season": "summer",
+      "sha256": "a337ba8f239a56d21322721a0a424f5bd8edcf7167f6af852047f27d55927450",
+      "tiles_drawn": 25212,
+      "world_px": 624
+    },
+    {
+      "decorations_drawn": 6,
+      "png": "ground_autumn.png",
+      "season": "autumn",
+      "sha256": "0488cbb45db58172de3ab4dd2ecdbd91b24b28ce0bcc744cde01d82405b554ce",
+      "tiles_drawn": 24770,
+      "world_px": 624
+    },
+    {
+      "decorations_drawn": 6,
+      "png": "ground_winter.png",
+      "season": "winter",
+      "sha256": "31bd4142c0e27ec886fc920d788cfa33cca6d2eea681e359eaf62b7306ba7fac",
+      "tiles_drawn": 17934,
+      "world_px": 624
+    }
+  ],
+  "source": "Grounds materialises, Decorations lues dans la donnee (rien de composite a la volee)"
+}
