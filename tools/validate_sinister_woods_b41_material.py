@@ -123,9 +123,11 @@ def validate(rom_path: Path, candidate: Path) -> dict[str, Any]:
         chunk_id: sorted(renderer.used_animation_indices([chunk_id] + [0] * 63, 1, 1))
         for chunk_id in range(GROUND_CHUNK_COUNT)
     }
+    candidate_manifest = json.loads((candidate / "manifest.json").read_text(encoding="utf-8"))
+    startup_adapter = bool(candidate_manifest.get("animation_adapter", {}).get("one_shot_startup_adapter", False))
     atlas_path = candidate / "Content/Tile/TreeshroudForest1.tile"
     images = read_tile(atlas_path)
-    expected_atlas_coordinates = GROUND_CHUNK_COUNT * (1 + 16 * 16)
+    expected_atlas_coordinates = GROUND_CHUNK_COUNT * (1 + 16 * 16 + (16 if startup_adapter else 0))
     require(len(images) == expected_atlas_coordinates, f"atlas coordinate count {len(images)} != {expected_atlas_coordinates}")
     results: dict[str, Any] = {}
     layer_checks = 0
@@ -155,8 +157,12 @@ def validate(rom_path: Path, candidate: Path) -> dict[str, Any]:
                     layer = layers[layer_pos]
                     record = records[record_index]
                     require(layer["FrameLength"] == record.duration, f"{category} 0x{code:02X} v{variant} r{record_index}: duration drift")
-                    require(len(layer["Frames"]) == record.count, f"{category} 0x{code:02X} v{variant} r{record_index}: frame count drift")
-                    for state, frame in enumerate(layer["Frames"]):
+                    expected_frame_count = record.count + (1 if startup_adapter else 0)
+                    require(len(layer["Frames"]) == expected_frame_count, f"{category} 0x{code:02X} v{variant} r{record_index}: frame count drift")
+                    if startup_adapter:
+                        raw_expected = {"X": chunk_id % 16, "Y": (17 * 16 + record_index) * 16 + chunk_id // 16}
+                        require(layer["Frames"][0]["TexLoc"] == raw_expected, f"{category} 0x{code:02X} v{variant} r{record_index}: raw startup coordinate drift")
+                    for state, frame in enumerate(layer["Frames"][1 if startup_adapter else 0:], 0):
                         expected = {"X": chunk_id % 16, "Y": ((1 + record_index) * 16 + state) * 16 + chunk_id // 16}
                         require(frame["TexLoc"] == expected, f"{category} 0x{code:02X} v{variant} r{record_index} s{state}: coordinate drift")
                     layer_checks += 1
@@ -172,8 +178,9 @@ def validate(rom_path: Path, candidate: Path) -> dict[str, Any]:
                         expected_palette = manual_palette(base, records, selected)
                         expected_image = renderer._chunk(chunk_id, expected_palette)
                         actual_states = {0: 0}
+                        frame_offset = 1 if startup_adapter else 0
                         for layer_pos, index in enumerate(used, 1):
-                            actual_states[layer_pos] = state if index == record_index else 0
+                            actual_states[layer_pos] = (state if index == record_index else 0) + frame_offset
                         actual_image = compose_layers(layers, images, actual_states)
                         require(actual_image.tobytes() == expected_image.tobytes(), f"{category} 0x{code:02X} v{variant} r{record_index} s{state}: pixel composition mismatch")
                         pixel_checks += 1
@@ -188,12 +195,13 @@ def validate(rom_path: Path, candidate: Path) -> dict[str, Any]:
         "layer_checks": layer_checks,
         "pixel_checks": pixel_checks,
         "canm_independent_durations": {str(record.index): record.duration for record in records if record.active},
-        "startup_raw_palette_policy": "retained in candidate manifest but not looped by PMDO cyclic TileLayer",
+        "startup_raw_palette_policy": "staged as a one-shot frame only when the startup adapter candidate is enabled",
+        "startup_adapter_candidate": startup_adapter,
         "production_assets_written": False,
         "d04p01_d04p02_touched": False,
         "relic_forest_blobs_touched": False,
-        "result": "PASS_WITH_STARTUP_PHASE_GATE",
-        "blockers": ["ONE_SHOT_GBA_STARTUP_PALETTE_HOLD_NOT_REPRESENTABLE_BY_CYCLIC_PMDO_TILELAYER"],
+        "result": "PASS" if startup_adapter else "PASS_WITH_STARTUP_PHASE_GATE",
+        "blockers": [] if startup_adapter else ["ONE_SHOT_GBA_STARTUP_PALETTE_HOLD_NOT_REPRESENTABLE_BY_CYCLIC_PMDO_TILELAYER"],
     }
     (candidate / "validation.json").write_text(json.dumps(validation, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return validation

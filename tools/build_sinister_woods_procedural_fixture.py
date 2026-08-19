@@ -52,6 +52,7 @@ def install_probe(quest: Path) -> None:
         f'''function V:initialize()\n'''
         f'''  BaseService.initialize(self)\n'''
         f'''  self.enabled=os.getenv("PMDO_SINISTER_WOODS_PROBE")=="1"\n'''
+        f'''  self.startup_adapter=os.getenv("PMDO_SINISTER_WOODS_STARTUP_ADAPTER")=="1"\n'''
         f'''  self.index=0;self.entered=false;self.transitioning=false\n'''
         f'''end\n'''
         f'''function V:OnInit()\n'''
@@ -99,6 +100,7 @@ def install_probe(quest: Path) -> None:
         f'''  emit('{{"event":"map","segment":'..SEGMENTS[self.index]..',"width":'..width..',"height":'..height..',"music":"'..tostring(music)..'","deep_shadow_setter":'..tostring(setter)..',"darkness":'..tostring(darkness)..',"dusk":'..tostring(dusk)..',"free_collision_probe":'..tostring(free_probe)..',"blocked_collision_probe":'..tostring(blocked_probe)..'}}')\n'''
         f'''  _GROUND:Screenshot()\n'''
         f'''  GAME:WaitFrames(3)\n'''
+        f'''  if self.startup_adapter then GAME:WaitFrames(18) end\n'''
         f'''  self.entered=false\n'''
         f'''  self:enter_next()\n'''
         f'''end\n'''
@@ -124,6 +126,90 @@ def install_probe(quest: Path) -> None:
         f'''return V\n''',
         encoding="utf-8",
     )
+
+
+def install_startup_adapter(quest: Path) -> None:
+    """Install the fixture-local exact one-shot CANM frame rotation adapter."""
+    main_path = quest / "Data/Script/halcyon/main.lua"
+    main_text = main_path.read_text(encoding="utf-8")
+    if "sinister_woods_b41_startup_adapter" not in main_text:
+        main_path.write_text(
+            main_text + "\nrequire 'halcyon.services.sinister_woods_b41_startup_adapter'\n",
+            encoding="utf-8",
+        )
+    adapter = quest / "Data/Script/halcyon/services/sinister_woods_b41_startup_adapter/init.lua"
+    adapter.parent.mkdir(parents=True, exist_ok=True)
+    adapter.write_text('''require 'origin.common'
+require 'origin.services.baseservice'
+local V=Class('SinisterWoodsB41StartupAdapter',BaseService)
+local CATS={'treeshroud_forest_1_floor','treeshroud_forest_1_wall','treeshroud_forest_1_secondary'}
+local FIELDS={'Tilex00','Tilex01','Tilex02','Tilex03','Tilex13','Tilex04','Tilex05','Tilex06','Tilex26','Tilex07','Tilex17','Tilex27','Tilex37','Tilex08','Tilex09','Tilex89','Tilex0A','Tilex0B','Tilex1B','Tilex8B','Tilex9B','Tilex0C','Tilex4C','Tilex0D','Tilex4D','Tilex8D','TilexCD','Tilex0E','Tilex2E','Tilex4E','Tilex6E','Tilex0F','Tilex1F','Tilex2F','Tilex3F','Tilex4F','Tilex5F','Tilex6F','Tilex7F','Tilex8F','Tilex9F','TilexAF','TilexBF','TilexCF','TilexDF','TilexEF','TilexFF'}
+local function each_layer(fn)
+  for _,cat in ipairs(CATS) do
+    local auto=_DATA:GetAutoTile(cat)
+    for _,field in ipairs(FIELDS) do
+      local variants=auto.Tiles[field]
+      for vi=0,variants.Count-1,1 do
+        local layers=variants[vi]
+        for li=0,layers.Count-1,1 do fn(layers[li]) end
+      end
+    end
+  end
+end
+local function frame(x,y)return RogueEssence.Dungeon.TileFrame(RogueElements.Loc(x,y),'TreeshroudForest1')end
+local function clock()return tonumber(RogueEssence.Content.GraphicsManager.TotalFrameTick)end
+local function restore_raw_startup()
+  local count=0
+  each_layer(function(layer)
+    if layer.Frames.Count==16 and (layer.FrameLength==8 or layer.FrameLength==12) then
+      local first=layer.Frames[0]
+      local x=first.TexLoc.X;local y=first.TexLoc.Y;local row=y%16
+      local group=math.floor(y/16)
+      local record=math.floor((group-15)/16)-1
+      if record>=0 and record<16 then
+        layer.Frames:RemoveAt(0)
+        layer.Frames:Add(frame(x,((1+record)*16+15)*16+row))
+        layer.Frames:Insert(0,frame(x,(17*16+record)*16+row))
+        count=count+1
+      end
+    end
+  end)
+  PrintInfo('[SINISTER_WOODS_B41_ADAPTER] raw_startup_restored='..tostring(count)..' tick='..tostring(clock()))
+end
+local function publish_record(duration,origin)
+  local count=0
+  each_layer(function(layer)
+    if layer.Frames.Count==17 and layer.FrameLength==duration then
+      layer.Frames:RemoveAt(0)
+      local last=layer.Frames[layer.Frames.Count-1]
+      layer.Frames:RemoveAt(layer.Frames.Count-1)
+      layer.Frames:Insert(0,last)
+      count=count+1
+    end
+  end)
+  PrintInfo('[SINISTER_WOODS_B41_ADAPTER] published_duration='..tostring(duration)..' layers='..tostring(count)..' tick='..tostring(clock())..' delta='..tostring(clock()-(origin or clock())))
+end
+function V:initialize()BaseService.initialize(self);self.enabled=os.getenv('PMDO_SINISTER_WOODS_PROBE')=='1';self.running=false end
+function V:OnDungeonMapInit()
+  if not self.enabled or tostring(_ZONE.CurrentZoneID)~='gloomy_forest' or self.running then return end
+  self.running=true
+  local origin=clock()
+  PrintInfo('[SINISTER_WOODS_B41_ADAPTER] map_start_tick='..tostring(origin))
+  TASK:BranchCoroutine(function()
+    local ok,err=xpcall(function()
+      restore_raw_startup()
+      GAME:WaitFrames(8);publish_record(8,origin)
+      GAME:WaitFrames(4);publish_record(12,origin)
+    end,debug.traceback)
+    if not ok then PrintInfo('[SINISTER_WOODS_B41_ADAPTER] FAIL '..tostring(err)) end
+    self.running=false
+  end)
+end
+function V:Subscribe(med)med:Subscribe('SinisterWoodsB41StartupAdapter',EngineServiceEvents.DungeonMapInit,function()self:OnDungeonMapInit()end)end
+function V:UnSubscribe(med)end
+SCRIPT:AddService('SinisterWoodsB41StartupAdapter',V:new())
+return V
+''', encoding="utf-8")
 
 
 def prepare_content_overlay(asset_root: Path, candidate: Path | None) -> None:
@@ -191,7 +277,13 @@ def build(output: Path, candidate: Path | None = None) -> Path:
         deep.unlink()
     shutil.copy2(ROOT / "Data/MapStatus/deep_shadow.json", deep)
     install_material_candidate(quest, candidate)
+    startup_adapter = False
+    if candidate is not None:
+        candidate_manifest = json.loads((candidate / "manifest.json").read_text(encoding="utf-8"))
+        startup_adapter = bool(candidate_manifest.get("animation_adapter", {}).get("one_shot_startup_adapter", False))
     install_probe(quest)
+    if startup_adapter:
+        install_startup_adapter(quest)
     prepare_content_overlay(output / "asset", candidate)
     manifest = json.loads((output / "fixture_manifest.json").read_text(encoding="utf-8"))
     manifest.update({
@@ -203,6 +295,7 @@ def build(output: Path, candidate: Path | None = None) -> Path:
         "map_status_sha256": __import__('hashlib').sha256((ROOT / "Data/MapStatus/deep_shadow.json").read_bytes()).hexdigest(),
         "material_candidate": str(candidate.relative_to(ROOT)) if candidate is not None and candidate.is_relative_to(ROOT) else (str(candidate) if candidate is not None else None),
         "material_candidate_manifest_sha256": __import__('hashlib').sha256((candidate / "manifest.json").read_bytes()).hexdigest() if candidate is not None else None,
+        "startup_adapter": startup_adapter,
         "segments": list(SEGMENTS),
         "production_assets_modified": False,
     })

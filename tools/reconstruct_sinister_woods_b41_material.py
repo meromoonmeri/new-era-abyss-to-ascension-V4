@@ -118,14 +118,16 @@ def write_tile(path: Path, entries: dict[tuple[int, int], Image.Image]) -> dict[
     }
 
 
-def tile_coord(chunk_id: int, region: int, state: int = 0) -> dict[str, Any]:
-    # region 0 is the static base layer. Regions 1..16 are CANM records.
-    y_region = region * 16 + (state if region else 0)
+def tile_coord(chunk_id: int, region: int, state: int = 0, *, raw: bool = False) -> dict[str, Any]:
+    # region 0 is the static base layer. Regions 1..16 are CANM records;
+    # each record owns 16 chunk-row blocks. Raw startup blocks are allocated
+    # after those 17*16 state blocks and are addressed by record index.
+    group = (17 * 16 + region) if raw else (region * 16 + state)
     return {
         "Sheet": SHEET,
         "TexLoc": {
             "X": chunk_id % ATLAS_COLUMNS,
-            "Y": y_region * 16 + chunk_id // ATLAS_COLUMNS,
+            "Y": group * 16 + chunk_id // ATLAS_COLUMNS,
         },
     }
 
@@ -195,6 +197,8 @@ def auto_tile_payload(
     cex: bytes,
     animated_by_chunk: dict[int, list[int]],
     records: list[Any],
+    *,
+    startup_adapter: bool,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     prefix = CATEGORY_PREFIX[category]
     tiles: dict[str, list[list[dict[str, Any]]]] = {}
@@ -220,11 +224,15 @@ def auto_tile_payload(
             ]
             for record_index in used:
                 record = records[record_index]
+                frames = []
+                if startup_adapter:
+                    frames.append(tile_coord(chunk_id, record_index, raw=True))
+                frames.extend(
+                    tile_coord(chunk_id, 1 + record_index, state)
+                    for state in range(record.count)
+                )
                 layers.append({
-                    "Frames": [
-                        tile_coord(chunk_id, 1 + record_index, state)
-                        for state in range(record.count)
-                    ],
+                    "Frames": frames,
                     "FrameLength": record.duration,
                 })
             max_layers = max(max_layers, len(layers))
@@ -261,11 +269,12 @@ def auto_tile_payload(
         "animated_neighbor_code_count": len(animated_codes),
         "max_tile_layers_per_variant": max_layers,
         "independent_canm_overlay_layers": True,
+        "one_shot_startup_adapter_frames": startup_adapter,
     }
     return payload, evidence
 
 
-def build(rom_path: Path, output: Path) -> dict[str, Any]:
+def build(rom_path: Path, output: Path, *, startup_adapter: bool = False) -> dict[str, Any]:
     rom = rom_path.read_bytes()
     require(sha256(rom) == EXPECTED_EU_ROM_SHA256, "ROM is not the authenticated PMD Red EU ROM")
     archive = DungeonArchive(rom)
@@ -313,10 +322,17 @@ def build(rom_path: Path, output: Path) -> dict[str, Any]:
                 atlas_entries[(chunk_id % ATLAS_COLUMNS, ((1 + record_index) * 16 + state) * 16 + chunk_id // ATLAS_COLUMNS)] = render_filtered_chunk(
                     source["b41fon"], source["b41cel"], chunk_id, palette, "record", record_index
                 )
+            if startup_adapter:
+                atlas_entries[(chunk_id % ATLAS_COLUMNS, (17 * 16 + record_index) * 16 + chunk_id // ATLAS_COLUMNS)] = render_filtered_chunk(
+                    source["b41fon"], source["b41cel"], chunk_id, base_palette, "record", record_index
+                )
     tile_record = write_tile(output / "Content/Tile" / f"{SHEET}.tile", atlas_entries)
     auto_records = {}
     for category in ("floor", "wall", "secondary"):
-        payload, evidence = auto_tile_payload(category, source["b41cex"], animated_by_chunk, records)
+        payload, evidence = auto_tile_payload(
+            category, source["b41cex"], animated_by_chunk, records,
+            startup_adapter=startup_adapter,
+        )
         path = output / "Data/AutoTile" / CATEGORY_FILES[category]
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -330,7 +346,7 @@ def build(rom_path: Path, output: Path) -> dict[str, Any]:
     manifest = {
         "schema": "new-era.pmdred-eu.sinister-woods-b41-material-candidate.v2",
         "tool_version": TOOL_VERSION,
-        "candidate_status": "STAGED_NOT_PROMOTED",
+        "candidate_status": "STAGED_STARTUP_ADAPTER_CANDIDATE" if startup_adapter else "STAGED_NOT_PROMOTED",
         "authority": {
             "rom_sha256": EXPECTED_EU_ROM_SHA256,
             "dungeon_id": 3,
@@ -371,11 +387,15 @@ def build(rom_path: Path, output: Path) -> dict[str, Any]:
         },
         "animation_adapter": {
             "independent_record_layers": True,
+            "one_shot_startup_adapter": startup_adapter,
             "first_published_state_tick_by_record": {
                 str(record.index): record.duration for record in records if record.active
             },
             "raw_gba_startup_palette_sha256": sha256(bytes(value for color in base_palette[160:176] for value in color)),
-            "policy": "Each active CANM record is a separate PMDO overlay layer with its source duration and color sequence. The one-shot raw GBA startup hold is retained as evidence; cyclic layers begin with first published color and remain a certification gate until exact one-shot behavior is implemented.",
+            "policy": (
+                "Each active CANM record is a separate PMDO overlay layer with its source duration and color sequence. "
+                + ("Raw startup frames are staged for the runtime one-shot adapter; the adapter must rotate each layer exactly once at its source duration." if startup_adapter else "The one-shot raw GBA startup hold is retained as evidence; cyclic layers begin with first published color and remain a certification gate until exact one-shot behavior is implemented.")
+            ),
         },
         "atlas": tile_record,
         "autotiles": auto_records,
@@ -400,10 +420,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--rom", type=Path, default=Path(".runtime-cache/downloads/pmdred-eu.gba"))
     parser.add_argument("--output", type=Path, default=Path(".runtime-cache/sinister-woods-b41-candidate"))
+    parser.add_argument("--startup-adapter", action="store_true", help="include one-shot raw CANM frames for the staged runtime adapter")
     args = parser.parse_args()
     rom = args.rom if args.rom.is_absolute() else ROOT / args.rom
     output = args.output if args.output.is_absolute() else ROOT / args.output
-    manifest = build(rom, output)
+    manifest = build(rom, output, startup_adapter=args.startup_adapter)
     print(json.dumps({"candidate": str(output), "atlas_sha256": manifest["atlas"]["sha256"], "status": manifest["candidate_status"]}, indent=2))
     return 0
 
