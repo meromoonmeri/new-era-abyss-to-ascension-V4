@@ -14,10 +14,13 @@ weights remain explicit rather than being sampled while building the zone.
 from __future__ import annotations
 
 import json
+from fractions import Fraction
+from math import comb
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
 MAP_CTX = "RogueEssence.LevelGen.MapGenContext, RogueEssence"
+MAP_LOAD_CTX = "RogueEssence.LevelGen.MapLoadContext, RogueEssence"
 GRID_FLOOR = "RogueEssence.LevelGen.GridFloorGen, RogueEssence"
 ROOM_GEN = (
     "RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, "
@@ -119,13 +122,19 @@ def step(step_priority: tuple[int, ...], value: dict[str, Any]) -> dict[str, Any
     return {"Key": priority(*step_priority), "Value": value}
 
 
-def map_data_step(music: str, *, time_limit: int = 1500) -> dict[str, Any]:
+def map_data_step(
+    music: str,
+    *,
+    time_limit: int = 1500,
+    tile_sight: int = 0,
+    char_sight: int = 0,
+) -> dict[str, Any]:
     return {
         "$type": generic_type("PMDC.LevelGen.MapDataStep", MAP_CTX, assembly="PMDC"),
         "Music": music,
         "TimeLimit": time_limit,
-        "TileSight": 0,
-        "CharSight": 0,
+        "TileSight": tile_sight,
+        "CharSight": char_sight,
         "ClampCamera": False,
     }
 
@@ -168,6 +177,67 @@ def grid_path_step(
     }
 
 
+def red_compact_geometry(
+    room_density: int,
+    valid_columns: int,
+    *,
+    total_weight: int = 100_000_000,
+) -> list[tuple[tuple[int, int], int]]:
+    """Return Red's exact medium/small retained-room distribution.
+
+    Layouts 11 (medium) and 1 (small) begin with four columns and uniformly
+    choose two or three rows.  Red uniformly shuffles ``density + [0, 2]`` room
+    bits through that full grid, then invalidates one or two complete columns.
+    The retained room count is therefore hypergeometric.  PMDO integer rates
+    are nearest-rounded per outcome and the final outcome of each row-count
+    bucket absorbs the rounding remainder, preserving the exact 50/50 row
+    choice and the requested total weight.
+    """
+    if valid_columns not in (2, 3):
+        raise ValueError(f"compact Red layouts retain two or three columns, got {valid_columns}")
+    if room_density < 0:
+        raise ValueError(f"invalid Red room density: {room_density}")
+    if total_weight <= 0 or total_weight % 2:
+        raise ValueError("compact geometry total weight must be a positive even integer")
+
+    probabilities: dict[tuple[int, int], Fraction] = {}
+    for rows in (2, 3):
+        full_cells = 4 * rows
+        retained_cells = valid_columns * rows
+        discarded_cells = full_cells - retained_cells
+        for increment in range(3):
+            rooms = min(room_density + increment, full_cells)
+            denominator = comb(full_cells, rooms)
+            for retained_rooms in range(retained_cells + 1):
+                discarded_rooms = rooms - retained_rooms
+                if not 0 <= discarded_rooms <= discarded_cells:
+                    continue
+                ways = comb(retained_cells, retained_rooms) * comb(
+                    discarded_cells, discarded_rooms
+                )
+                key = (rows, retained_rooms)
+                probabilities[key] = probabilities.get(key, Fraction()) + Fraction(
+                    ways, 6 * denominator
+                )
+
+    geometry: list[tuple[tuple[int, int], int]] = []
+    row_total = total_weight // 2
+    for rows in (2, 3):
+        keys = sorted(key for key in probabilities if key[0] == rows)
+        weights: list[int] = []
+        for key in keys:
+            exact = probabilities[key] * total_weight
+            weights.append((2 * exact.numerator + exact.denominator) // (2 * exact.denominator))
+        weights[-1] += row_total - sum(weights)
+        geometry.extend(zip(keys, weights, strict=True))
+
+    if sum(weight for _, weight in geometry) != total_weight or any(
+        weight <= 0 for _, weight in geometry
+    ):
+        raise RuntimeError("compact Red geometry normalization failed")
+    return geometry
+
+
 def mob_spawn(species: str, level: int) -> dict[str, Any]:
     return {
         "BaseForm": {"Species": species, "Form": 0, "Skin": "", "Gender": -1},
@@ -177,6 +247,60 @@ def mob_spawn(species: str, level: int) -> dict[str, Any]:
         "Tactic": "wander_normal",
         "SpawnConditions": [],
         "SpawnFeatures": [],
+    }
+
+
+def fixed_mob_spawn(
+    species: str,
+    level: int,
+    loc: tuple[int, int],
+    *,
+    direction: int = 4,
+    tactic: str = "wait_only",
+    skills: Sequence[str] = (),
+) -> dict[str, Any]:
+    """Build one native fixed-position MobSpawn for a loaded map."""
+    x, y = loc
+    if x < 0 or y < 0:
+        raise ValueError(f"invalid fixed mob location: {loc}")
+    if not 0 <= direction <= 7:
+        raise ValueError(f"invalid Dir8 value: {direction}")
+    spawn = mob_spawn(species, level)
+    spawn["BaseForm"]["Skin"] = "normal"
+    spawn["SpecifiedSkills"] = list(skills)
+    spawn["Tactic"] = tactic
+    spawn["SpawnFeatures"] = [{
+        "$type": "PMDC.LevelGen.MobSpawnLoc, PMDC",
+        "Loc": {"X": x, "Y": y},
+        "Dir": direction,
+    }]
+    return spawn
+
+
+def fixed_hostile_team_step(
+    teams: Sequence[Sequence[Mapping[str, Any]]],
+) -> dict[str, Any]:
+    """Serialize PMDO's post-load fixed hostile-team placement chain."""
+    if not teams or any(not team for team in teams):
+        raise ValueError("fixed hostile placement requires non-empty teams")
+    return {
+        "$type": generic_type(
+            "RogueEssence.LevelGen.PlaceNoLocMobsStep", MAP_LOAD_CTX,
+            assembly="RogueEssence",
+        ),
+        "Spawn": {
+            "$type": generic_type(
+                "RogueEssence.LevelGen.PresetMultiTeamSpawner", MAP_LOAD_CTX,
+                assembly="RogueEssence",
+            ),
+            # PresetMultiTeamSpawner<T>.Spawns is statically typed as a list of
+            # SpecificTeamSpawner, so Newtonsoft does not need per-team $type.
+            "Spawns": [
+                {"Explorer": False, "Spawns": [dict(mob) for mob in team]}
+                for team in teams
+            ],
+        },
+        "Ally": False,
     }
 
 
@@ -380,9 +504,12 @@ def build_grid_floor(
     extra_hallways: int = 5,
     connectivity_ratio: int = 15,
     secondary_water_percent: int | None = None,
+    allow_dead_end: bool = True,
+    tile_sight: int = 0,
+    char_sight: int = 0,
 ) -> dict[str, Any]:
     steps = [
-        step((-6,), map_data_step(music)),
+        step((-6,), map_data_step(music, tile_sight=tile_sight, char_sight=char_sight)),
         step((-5,), init_grid_step(row_count, valid_columns)),
         step((-4,), grid_path_step(row_count, valid_columns, normal_rooms, connectivity_ratio)),
         step((-3,), {"$type": generic_type("RogueElements.DrawGridToFloorStep", MAP_CTX, assembly="RogueElements")}),
@@ -394,7 +521,7 @@ def build_grid_floor(
             "$type": generic_type("RogueEssence.AddTunnelStep", MAP_CTX, assembly="RogueEssence"),
             "TurnLength": int_range(3, 6),
             "MaxLength": int_range(56, 56),
-            "AllowDeadEnd": True,
+            "AllowDeadEnd": allow_dead_end,
             "TraverseFloor": False,
             "Halls": int_range(extra_hallways, extra_hallways),
             "Brush": {"$type": "RogueElements.DefaultHallBrush, RogueElements"},
@@ -424,26 +551,34 @@ def build_grid_floor(
     return {"$type": GRID_FLOOR, "GenSteps": steps}
 
 
-def build_load_floor(*, map_id: str, comment: str = "") -> dict[str, Any]:
+def build_load_floor(
+    *,
+    map_id: str,
+    comment: str = "",
+    hostile_teams: Sequence[Sequence[Mapping[str, Any]]] = (),
+) -> dict[str, Any]:
     """Serialize PMDO 0.8.12's canonical static-map floor generator.
 
     ``MappedRoomStep<MapLoadContext>`` at priority ``-1`` is the native PMDO
     contract used by shipped zones for loading an ``.rsmap`` in the same
-    segment as procedural floors.  Map-local effects and actors are retained
-    by the load; a separate ``MapEffectStep`` is only needed for intentionally
-    added effects that are not already serialized in the map.
+    segment as procedural floors.  Optional hostile teams use the engine's
+    post-load ``PlaceNoLocMobsStep<MapLoadContext>`` chain, allowing every mob
+    in one fixed boss group to retain an exact location and facing direction.
     """
     if not map_id or "/" in map_id or "\\" in map_id:
         raise ValueError(f"invalid PMDO map asset ID: {map_id!r}")
+    steps = [step((-1,), {
+        "$type": generic_type(
+            "RogueEssence.LevelGen.MappedRoomStep", MAP_LOAD_CTX,
+            assembly="RogueEssence",
+        ),
+        "MapID": map_id,
+    })]
+    if hostile_teams:
+        steps.append(step((5, 2), fixed_hostile_team_step(hostile_teams)))
     return {
         "$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
-        "GenSteps": [step((-1,), {
-            "$type": (
-                "RogueEssence.LevelGen.MappedRoomStep`1[["
-                "RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence"
-            ),
-            "MapID": map_id,
-        })],
+        "GenSteps": steps,
         "Comment": comment,
     }
 
@@ -464,6 +599,9 @@ def build_chance_floor(
     extra_hallways: int = 5,
     connectivity_ratio: int = 15,
     secondary_water_percent: int | None = None,
+    allow_dead_end: bool = True,
+    tile_sight: int = 0,
+    char_sight: int = 0,
 ) -> dict[str, Any]:
     """Build a weighted Red geometry table without sampling at build time.
 
@@ -495,6 +633,9 @@ def build_chance_floor(
             extra_hallways=extra_hallways,
             connectivity_ratio=connectivity_ratio,
             secondary_water_percent=secondary_water_percent,
+            allow_dead_end=allow_dead_end,
+            tile_sight=tile_sight,
+            char_sight=char_sight,
         )
         spawns.append({"Spawn": floor, "Rate": rate})
     return {"$type": "RogueEssence.LevelGen.ChanceFloorGen, RogueEssence", "Spawns": spawns}
@@ -514,6 +655,9 @@ def build_red_large_chance_floor(
     extra_hallways: int = 5,
     connectivity_ratio: int = 15,
     secondary_water_percent: int | None = None,
+    allow_dead_end: bool = True,
+    tile_sight: int = 0,
+    char_sight: int = 0,
     attempts: int = 32,
 ) -> dict[str, Any]:
     """Serialize Red's exact large-layout retry/fallback process.
@@ -553,6 +697,9 @@ def build_red_large_chance_floor(
         "extra_hallways": extra_hallways,
         "connectivity_ratio": connectivity_ratio,
         "secondary_water_percent": secondary_water_percent,
+        "allow_dead_end": allow_dead_end,
+        "tile_sight": tile_sight,
+        "char_sight": char_sight,
     }
     accepted_geometry = [
         ((columns, rows, min(room_density + increment, columns * rows)), 1)

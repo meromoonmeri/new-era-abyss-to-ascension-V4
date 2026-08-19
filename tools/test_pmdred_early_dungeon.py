@@ -12,9 +12,12 @@ from pathlib import Path
 from pmdred_early_dungeon import (
     append_index_entries,
     build_chance_floor,
+    build_load_floor,
     build_red_large_chance_floor,
+    fixed_mob_spawn,
     init_grid_step,
     map_item,
+    red_compact_geometry,
     room_square,
 )
 
@@ -132,6 +135,68 @@ class VariableGeometryTests(unittest.TestCase):
             {key: perlin["TerrainStencil"][key] for key in ("Room", "Wall", "Blocked", "Not")},
             {"Room": False, "Wall": True, "Blocked": False, "Not": False},
         )
+
+    def test_compact_density_adapters_match_exact_red_distributions(self) -> None:
+        self.assertEqual(red_compact_geometry(6, 3), [
+            ((2, 4), 8_928_571), ((2, 5), 19_642_857), ((2, 6), 21_428_572),
+            ((3, 3), 1_515_152), ((3, 4), 9_469_697), ((3, 5), 19_015_152),
+            ((3, 6), 15_303_030), ((3, 7), 4_393_939), ((3, 8), 303_030),
+        ])
+        self.assertEqual(red_compact_geometry(10, 3), [
+            ((2, 6), 50_000_000), ((3, 7), 9_090_909),
+            ((3, 8), 19_318_182), ((3, 9), 21_590_909),
+        ])
+        self.assertEqual(red_compact_geometry(12, 3), [
+            ((2, 6), 50_000_000), ((3, 9), 50_000_000),
+        ])
+        self.assertEqual(red_compact_geometry(11, 2), [
+            ((2, 4), 50_000_000), ((3, 5), 8_333_333), ((3, 6), 41_666_667),
+        ])
+
+    def test_floor_options_serialize_sight_and_dead_end_policy(self) -> None:
+        floor = build_chance_floor(
+            geometry=[((3, 6), 1)], valid_columns=3,
+            music="PMD Red - Sinister Woods.ogg", texture_family="sinister_woods",
+            monsters=[("oddish", 7, 1)], enemy_count_weights=[(4, 1)],
+            items=[(map_item("berry_oran"), 1)], item_count_weights=[(3, 1)],
+            trap_count_weights=[(1, 1)], allow_dead_end=False,
+            tile_sight=2, char_sight=3,
+        )
+        steps = floor["Spawns"][0]["Spawn"]["GenSteps"]
+        map_data = next(pair["Value"] for pair in steps if pair["Key"] == {"str": [-6]})
+        tunnels = next(pair["Value"] for pair in steps if pair["Key"] == {"str": [0]})
+        self.assertEqual((map_data["TileSight"], map_data["CharSight"]), (2, 3))
+        self.assertFalse(tunnels["AllowDeadEnd"])
+
+    def test_loaded_map_places_one_native_fixed_hostile_team(self) -> None:
+        bosses = [
+            fixed_mob_spawn("ekans", 15, (12, 14)),
+            fixed_mob_spawn("gengar", 15, (11, 14)),
+            fixed_mob_spawn("medicham", 12, (10, 14)),
+        ]
+        floor = build_load_floor(
+            map_id="pmdred_sinister_woods_boss", hostile_teams=[bosses]
+        )
+        self.assertEqual([pair["Key"] for pair in floor["GenSteps"]], [
+            {"str": [-1]}, {"str": [5, 2]},
+        ])
+        place = floor["GenSteps"][1]["Value"]
+        self.assertIn("PlaceNoLocMobsStep`1[[RogueEssence.LevelGen.MapLoadContext", place["$type"])
+        self.assertIn("PresetMultiTeamSpawner`1[[RogueEssence.LevelGen.MapLoadContext", place["Spawn"]["$type"])
+        self.assertFalse(place["Ally"])
+        self.assertEqual(len(place["Spawn"]["Spawns"]), 1)
+        team = place["Spawn"]["Spawns"][0]
+        self.assertEqual((team["Explorer"], len(team["Spawns"])), (False, 3))
+        self.assertNotIn("$type", team)
+        self.assertEqual([
+            (mob["BaseForm"]["Species"], mob["Level"]["Min"],
+             mob["SpawnFeatures"][0]["Loc"], mob["SpawnFeatures"][0]["Dir"])
+            for mob in team["Spawns"]
+        ], [
+            ("ekans", 15, {"X": 12, "Y": 14}, 4),
+            ("gengar", 15, {"X": 11, "Y": 14}, 4),
+            ("medicham", 12, {"X": 10, "Y": 14}, 4),
+        ])
 
     def test_large_layout_serializes_all_32_attempts_and_exact_fallback(self) -> None:
         floor = build_red_large_chance_floor(
