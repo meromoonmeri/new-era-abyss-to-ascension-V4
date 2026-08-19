@@ -82,18 +82,34 @@ def sha256_file(path: Path) -> str:
 
 
 def convert_room(room: str, season: str, outdir: Path, texture_cache: Path) -> dict:
+    """Convertit une room en CONSERVANT son .rsground, quelle que soit la saison.
+
+    `convert_environment_room.py` appelle `package_season_layers()` des que la
+    saison n'est pas `summer` : il remplace alors le Ground par un bundle de
+    layers et SUPPRIME le fichier. C'est le comportement voulu pour rmvillage,
+    qui commute ses quatre saisons a l'execution.
+
+    Ici c'est l'inverse qu'il nous faut : ces rooms sont peintes dans UNE seule
+    saison en dur, elles doivent devenir des Grounds autonomes. On appelle donc
+    `convert()` directement, sans l'empaquetage saisonnier.
+    """
     target = outdir / room
-    result = subprocess.run(
-        [sys.executable, str(TOOLS / "convert_environment_room.py"),
-         "--room", room, "--season", season,
-         "--texture-cache", str(texture_cache),
-         "--output", str(target)],
-        capture_output=True, text=True)
-    if result.returncode != 0:
+    try:
+        spec = importlib.util.spec_from_file_location(
+            "convert_environment_room", TOOLS / "convert_environment_room.py")
+        module = importlib.util.module_from_spec(spec)
+        sys.modules["convert_environment_room"] = module
+        spec.loader.exec_module(module)
+        result = module.convert(REPO, room, season, ROOT / "extracted/official",
+                                texture_cache, target)
+    except Exception as error:
         return {"room": room, "status": "FAILED", "stage": "convert",
-                "stderr": result.stderr.strip()[-800:]}
+                "stderr": f"{type(error).__name__}: {error}"}
+    if result.get("status") == "FAILED":
+        return {"room": room, "status": "FAILED", "stage": "convert",
+                "stderr": "convert() a renvoye FAILED"}
     return {"room": room, "status": "CONVERTED", "output": target,
-            "manifest": json.loads((target / "manifest.json").read_text())}
+            "manifest": result}
 
 
 def verify_normalised(ground: Path, tile: Path) -> dict:
@@ -129,7 +145,9 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--rooms", nargs="+", default=list(NOPROOF_ROOMS))
-    parser.add_argument("--season", default="summer")
+    parser.add_argument("--season", default="native",
+                        help="'native' (defaut) detecte la saison peinte dans chaque room ; "
+                             "forcer une saison SUBSTITUE les tilesets et peut repeindre la room")
     parser.add_argument("--outdir", type=Path, default=REPO / ".runtime-cache/nnv-noproof-grounds")
     parser.add_argument("--texture-cache", type=Path,
                         default=REPO / ".runtime-cache/nnv-official-textures")
@@ -137,19 +155,45 @@ def main() -> int:
     args = parser.parse_args()
 
     normaliser = load_normaliser()
+    # Un --outdir relatif faisait echouer relative_to(REPO) au moment du rapport,
+    # apres une conversion de 90 s deja payee. Le fail-closed avait bien bloque
+    # l'ecriture, mais le travail etait perdu : on resout des l'entree.
+    args.outdir = args.outdir.resolve()
+    args.texture_cache = args.texture_cache.resolve()
+    args.report = args.report.resolve()
     args.outdir.mkdir(parents=True, exist_ok=True)
+
+    native = {}
+    if args.season == "native":
+        detector = importlib.util.spec_from_file_location(
+            "detect_native_season", TOOLS / "detect_native_season.py")
+        module = importlib.util.module_from_spec(detector)
+        detector.loader.exec_module(module)
+        catalogue = {r["Name"]: r for r in module.read_gzip(
+            ROOT / "extracted/official/inventory/Rooms.json.gz")}
+        table = module.build_reverse_table(
+            json.loads((ROOT / "reports/season-vm-evidence.json").read_text())["seasons"])
+        for room in args.rooms:
+            native[room] = module.detect(catalogue[room], table)
 
     rooms = []
     for room in args.rooms:
-        print(f"[{room}] conversion...", flush=True)
-        converted = convert_room(room, args.season, args.outdir, args.texture_cache)
+        if args.season == "native":
+            detected = native[room]["native_season"]
+            # Une room sans couche saisonniere ne subit aucune substitution :
+            # summer est alors un choix neutre, pas un defaut.
+            season = detected or "summer"
+        else:
+            season = args.season
+        print(f"[{room}] conversion (saison {season})...", flush=True)
+        converted = convert_room(room, season, args.outdir, args.texture_cache)
         if converted["status"] == "FAILED":
             print(f"[{room}] ECHEC conversion")
             rooms.append(converted)
             continue
 
         target = converted["output"]
-        ground = target / f"Data/Ground/nnv_{room}_{args.season}.rsground"
+        ground = target / f"Data/Ground/nnv_{room}_{season}.rsground"
         tiles = sorted((target / "Content/Tile").glob("*.tile"))
 
         before = {
@@ -173,7 +217,9 @@ def main() -> int:
         manifest = converted["manifest"]
         record = {
             "room": room,
-            "season": args.season,
+            "season": season,
+            "season_selection": ("native detectee" if args.season == "native" else "forcee par l'operateur"),
+            "native_season_evidence": native.get(room),
             "status": "CONVERTED_NORMALISED" if checks["geometry_conforms"] else "FAILED",
             "stage": "verify" if not checks["geometry_conforms"] else None,
             "source_checks": manifest["checks"],
@@ -191,7 +237,7 @@ def main() -> int:
             "after": checks,
             "ground_sha256_before_normalisation": before["ground_sha256"],
             "ground_sha256_after_normalisation": sha256_file(ground),
-            "ground_path": str(ground.relative_to(REPO)),
+            "ground_path": str(ground.relative_to(REPO)) if ground.is_relative_to(REPO) else str(ground),
             "ground_tracked_in_git": False,
         }
         rooms.append(record)

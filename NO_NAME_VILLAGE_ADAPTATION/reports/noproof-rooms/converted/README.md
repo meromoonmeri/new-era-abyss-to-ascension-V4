@@ -8,19 +8,19 @@ levé précédemment. **La conversion et la collision le sont maintenant.**
 11 rooms sur 11 converties en Grounds PMDO puis normalisées ×0,125.
 **0 échec, 0 tuile non résolue.**
 
-| Room | Couverture tuiles | Cellules 8 px bloquantes | Ratio |
-|---|---:|---:|---:|
-| `rm38` | 99,8 % | 1 473 | 24,2 % |
-| `rm47` | 99,4 % | 1 734 | 28,5 % |
-| `rm48` | 96,7 % | 1 310 | 21,5 % |
-| `rm49` | 99,2 % | 1 535 | 25,2 % |
-| `rm57` | 99,7 % | 1 965 | 32,3 % |
-| `rm68` | 98,6 % | 2 002 | 32,9 % |
-| `rm77` | 100,0 % | 593 | 9,8 % |
-| `rmcave1` | 95,8 % | 349 | 5,7 % |
-| `rmcave1_0` | 94,2 % | 830 | 13,6 % |
-| `rmcave1_1` | 94,3 % | 861 | 14,2 % |
-| `rmcave1_2` | 97,1 % | 315 | 5,2 % |
+| Room | Saison native | Couverture tuiles | Cellules 8 px bloquantes | Ratio |
+|---|---|---:|---:|---:|
+| `rm38` | hiver | 100,0 % | 1 473 | 24,2 % |
+| `rm47` | hiver | 100,0 % | 1 734 | 28,5 % |
+| `rm48` | hiver | 100,0 % | 1 310 | 21,5 % |
+| `rm49` | hiver | 100,0 % | 1 535 | 25,2 % |
+| `rm57` | hiver | 100,0 % | 1 965 | 32,3 % |
+| `rm68` | hiver | 100,0 % | 2 002 | 32,9 % |
+| `rm77` | hiver | 100,0 % | 593 | 9,8 % |
+| `rmcave1` | neutre | 95,8 % | 349 | 5,7 % |
+| `rmcave1_0` | automne | 94,2 % | 830 | 13,6 % |
+| `rmcave1_1` | automne | 94,3 % | 861 | 14,2 % |
+| `rmcave1_2` | neutre | 97,1 % | 315 | 5,2 % |
 
 Géométrie obtenue, identique pour les 11 : monde **624 px**, `TexSize` **1**,
 grille de collision **78**, cellule de tuile **8 px**. Conforme au référentiel
@@ -30,6 +30,41 @@ Les règles de normalisation ne sont pas réécrites : elles sont **importées**
 `tools/apply_nnv_normalisation.py`, celui déjà validé. Une divergence entre les
 deux chemins est donc structurellement impossible. Le module vérifie au chargement
 que `FACTOR`, `NEW_TEX_SIZE` et `NEW_CELL_PX` sont bien ceux attendus.
+
+## Un second défaut, plus grave : la mauvaise saison
+
+Le premier jet convertissait ces rooms en `--season summer`, par défaut.
+
+Or `convert_environment_room.py` ne se contente pas d'étiqueter la saison : il
+**substitue le tileset** de chaque couche selon la table de
+`season-vm-evidence.json`. Demander `summer` remplace le tileset `ground` par
+l'index 8 — de l'herbe verte — **quel que soit celui peint dans la source**.
+
+**7 des 11 rooms sont hivernales.** Elles sortaient donc avec un sol vert au
+lieu de la neige. Mesuré sur `rm58` : source dominée par (197,211,232), converti
+dominé par (105,182,91). Ce n'est pas une nuance de teinte, c'est la mauvaise
+saison peinte sur toute la carte.
+
+`tools/detect_native_season.py` répond à la question depuis la donnée seule :
+chaque couche `Tiles` référence un `Background`, et l'on vote pour toute saison
+dont la table donne exactement cet index pour cette couche. Résultat : 7 rooms
+`winter`, 2 `autumn`, 2 sans aucune couche saisonnière — rendues `NEUTRE` plutôt
+que rangées d'office en `summer`, puisque pour elles la substitution ne
+s'applique à rien.
+
+La détection **recoupe indépendamment** `HELD_SEASONAL_TERRAIN.md`, qui avait
+classé les 15 rooms HELD en 10 automne / 5 hiver par une autre méthode
+(familles d'objets `objau*` / `objwn*`). Les deux méthodes concordent.
+
+Le convertisseur est désormais appelé avec `--season native` par défaut. Après
+correction, les 7 rooms extérieures passent à **100 % de couverture** et leur
+neige est de retour, vérifié sur l'image.
+
+Second effet : `convert_environment_room.py` **supprime** le `.rsground` dès que
+la saison n'est pas `summer` (il le remplace par un bundle de layers, correct
+pour `rmvillage` qui commute à l'exécution). Ces rooms-ci étant peintes dans une
+seule saison en dur, elles doivent rester des Grounds autonomes : `convert()`
+est donc appelé directement, sans l'empaquetage saisonnier.
 
 ## Un défaut de mesure trouvé et corrigé, pas contourné
 

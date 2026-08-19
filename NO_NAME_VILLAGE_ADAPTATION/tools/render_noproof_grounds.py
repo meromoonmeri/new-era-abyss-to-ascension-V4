@@ -129,7 +129,6 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--indir", type=Path, default=REPO / ".runtime-cache/nnv-noproof-grounds")
-    parser.add_argument("--season", default="summer")
     parser.add_argument("--out", type=Path, default=ROOT / "reports/noproof-rooms/converted")
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
@@ -138,9 +137,12 @@ def main() -> int:
     thumbs = []
     for room_dir in sorted(p for p in args.indir.iterdir() if p.is_dir()):
         room = room_dir.name
-        ground = room_dir / f"Data/Ground/nnv_{room}_{args.season}.rsground"
-        if not ground.is_file():
+        # La saison fait partie du nom de fichier et varie d'une room a l'autre :
+        # chaque room est peinte dans SA saison native. On ne la presuppose pas.
+        candidates = sorted((room_dir / "Data/Ground").glob(f"nnv_{room}_*.rsground"))
+        if not candidates:
             continue
+        ground = candidates[0]
         plain, overlay, stats = render(ground, room_dir / "Content/Tile")
         plain_path = args.out / f"{room}.png"
         overlay_path = args.out / f"{room}_collision.png"

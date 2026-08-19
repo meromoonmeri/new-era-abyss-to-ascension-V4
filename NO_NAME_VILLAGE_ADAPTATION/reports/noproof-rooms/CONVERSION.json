@@ -42,16 +42,76 @@
         "wildlife role 130840:objmobwn0 requires native Pokemon encounter mapping",
         "wildlife role 130841:objmobwn0 requires native Pokemon encounter mapping"
       ],
-      "ground_path": ".runtime-cache/nnv-noproof-grounds/rm38/Data/Ground/nnv_rm38_summer.rsground",
-      "ground_sha256_after_normalisation": "a88f5408f1064945673e791e926c4ec1a191b1028eda75cf63291bb9e1020f37",
-      "ground_sha256_before_normalisation": "8c2e2d7a08e025fd1906c4e715067b074628dd333bb3231a379c26ebf6bff5f0",
+      "ground_path": ".runtime-cache/nnv-noproof-grounds/rm38/Data/Ground/nnv_rm38_winter.rsground",
+      "ground_sha256_after_normalisation": "125b9c9130ba71f476c2d6063e26da85c96425496f9e05991b48a8058bf10b81",
+      "ground_sha256_before_normalisation": "925b6616e9b1d1a3658a1feaa98af71a6aae80ce71277636a9a5410903393d0b",
       "ground_tracked_in_git": false,
+      "native_season_evidence": {
+        "layers": [
+          {
+            "background_index": 12,
+            "layer": "cliff0",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 12,
+            "layer": "cliff",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 27,
+            "layer": "grass1",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 27,
+            "layer": "grass0",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 9,
+            "layer": "water",
+            "seasons": [
+              "autumn",
+              "spring",
+              "summer"
+            ]
+          },
+          {
+            "background_index": 11,
+            "layer": "blue1",
+            "seasons": []
+          },
+          {
+            "background_index": 11,
+            "layer": "blue0",
+            "seasons": []
+          }
+        ],
+        "native_season": "winter",
+        "note": null,
+        "unanimous": false,
+        "votes": {
+          "autumn": 1,
+          "spring": 1,
+          "summer": 1,
+          "winter": 4
+        }
+      },
       "normalisation": {
         "collision_rule": "MAJORITE >= 32/64 par bloc 8x8",
         "entity_issues": [],
         "factor": 0.125,
         "ground": {
-          ".runtime-cache/nnv-noproof-grounds/rm38/Data/Ground/nnv_rm38_summer.rsground": {
+          ".runtime-cache/nnv-noproof-grounds/rm38/Data/Ground/nnv_rm38_winter.rsground": {
             "collision_grid": "624 -> 78",
             "collision_rule": "MAJORITY >= 32/64",
             "tex_size": "8 -> 1",
@@ -61,18 +121,19 @@
         "resample": "NEAREST",
         "rules_imported_from": "tools/apply_nnv_normalisation.py",
         "tilesets": {
-          ".runtime-cache/nnv-noproof-grounds/rm38/Content/Tile/NNV_rm38_Summer_Source.tile": {
+          ".runtime-cache/nnv-noproof-grounds/rm38/Content/Tile/NNV_rm38_Winter_Source.tile": {
             "cell_px": "64 -> 8",
             "colours_invented": 0,
-            "palette_sampled_after": 231,
-            "palette_sampled_before": 263,
+            "palette_sampled_after": 223,
+            "palette_sampled_before": 256,
             "resample": "NEAREST",
             "tiles": 9865
           }
         }
       },
       "room": "rm38",
-      "season": "summer",
+      "season": "winter",
+      "season_selection": "native detectee",
       "source_checks": {
         "all_source_tile_layers_preserved": true,
         "collision_grid_matches_visual_extent": true,
@@ -117,16 +178,59 @@
         "wildlife role 123183:objmobwn5 requires native Pokemon encounter mapping",
         "wildlife role 123184:objmobwn5 requires native Pokemon encounter mapping"
       ],
-      "ground_path": ".runtime-cache/nnv-noproof-grounds/rm47/Data/Ground/nnv_rm47_summer.rsground",
-      "ground_sha256_after_normalisation": "cbcea638a33bc2d0434a3b8224a5abb7ea815b797f9da018ff410c66774501b3",
-      "ground_sha256_before_normalisation": "172041ff963fee23570640dbfd6c82659c6145bfb08e33c69e8c47324ba0872a",
+      "ground_path": ".runtime-cache/nnv-noproof-grounds/rm47/Data/Ground/nnv_rm47_winter.rsground",
+      "ground_sha256_after_normalisation": "798f68ba83aa41ba5d0810e26c7f364c7349d776651e88ee77ab49b33747c0c5",
+      "ground_sha256_before_normalisation": "eb18dd4b19f95067b3e2c912d7f8507f63de529286067812e1eabd420fc18389",
       "ground_tracked_in_git": false,
+      "native_season_evidence": {
+        "layers": [
+          {
+            "background_index": 12,
+            "layer": "cliff",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 12,
+            "layer": "cliff0",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 27,
+            "layer": "grass1",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 27,
+            "layer": "grass0",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 25,
+            "layer": "ground",
+            "seasons": []
+          }
+        ],
+        "native_season": "winter",
+        "note": null,
+        "unanimous": true,
+        "votes": {
+          "winter": 4
+        }
+      },
       "normalisation": {
         "collision_rule": "MAJORITE >= 32/64 par bloc 8x8",
         "entity_issues": [],
         "factor": 0.125,
         "ground": {
-          ".runtime-cache/nnv-noproof-grounds/rm47/Data/Ground/nnv_rm47_summer.rsground": {
+          ".runtime-cache/nnv-noproof-grounds/rm47/Data/Ground/nnv_rm47_winter.rsground": {
             "collision_grid": "624 -> 78",
             "collision_rule": "MAJORITY >= 32/64",
             "tex_size": "8 -> 1",
@@ -136,18 +240,19 @@
         "resample": "NEAREST",
         "rules_imported_from": "tools/apply_nnv_normalisation.py",
         "tilesets": {
-          ".runtime-cache/nnv-noproof-grounds/rm47/Content/Tile/NNV_rm47_Summer_Source.tile": {
+          ".runtime-cache/nnv-noproof-grounds/rm47/Content/Tile/NNV_rm47_Winter_Source.tile": {
             "cell_px": "64 -> 8",
             "colours_invented": 0,
-            "palette_sampled_after": 87,
-            "palette_sampled_before": 97,
+            "palette_sampled_after": 81,
+            "palette_sampled_before": 91,
             "resample": "NEAREST",
-            "tiles": 10015
+            "tiles": 10010
           }
         }
       },
       "room": "rm47",
-      "season": "summer",
+      "season": "winter",
+      "season_selection": "native detectee",
       "source_checks": {
         "all_source_tile_layers_preserved": true,
         "collision_grid_matches_visual_extent": true,
@@ -190,16 +295,64 @@
         "wildlife role 119705:objmobwn0 requires native Pokemon encounter mapping",
         "wildlife role 119706:objmobwn0 requires native Pokemon encounter mapping"
       ],
-      "ground_path": ".runtime-cache/nnv-noproof-grounds/rm48/Data/Ground/nnv_rm48_summer.rsground",
-      "ground_sha256_after_normalisation": "f84da7fb70426c24c9acb2b3f3d869dbed9897309bc2239193cd50594de2bdfa",
-      "ground_sha256_before_normalisation": "c92b935daa2819e1690c47a3f38491da446f2c24e574fe446642537a63ae55dc",
+      "ground_path": ".runtime-cache/nnv-noproof-grounds/rm48/Data/Ground/nnv_rm48_winter.rsground",
+      "ground_sha256_after_normalisation": "b0a2f65c19c6fe6a18bb979abc4526c00e60777785b1137b262a1883d4d9f31c",
+      "ground_sha256_before_normalisation": "54f2291c843d0749173685394a407aad2d4ec4773df99f7bb40382b6e0cbc639",
       "ground_tracked_in_git": false,
+      "native_season_evidence": {
+        "layers": [
+          {
+            "background_index": 12,
+            "layer": "cliff",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 12,
+            "layer": "cliff0",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 9,
+            "layer": "endwater",
+            "seasons": []
+          },
+          {
+            "background_index": 27,
+            "layer": "grass1",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 27,
+            "layer": "grass0",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 25,
+            "layer": "ground",
+            "seasons": []
+          }
+        ],
+        "native_season": "winter",
+        "note": null,
+        "unanimous": true,
+        "votes": {
+          "winter": 4
+        }
+      },
       "normalisation": {
         "collision_rule": "MAJORITE >= 32/64 par bloc 8x8",
         "entity_issues": [],
         "factor": 0.125,
         "ground": {
-          ".runtime-cache/nnv-noproof-grounds/rm48/Data/Ground/nnv_rm48_summer.rsground": {
+          ".runtime-cache/nnv-noproof-grounds/rm48/Data/Ground/nnv_rm48_winter.rsground": {
             "collision_grid": "624 -> 78",
             "collision_rule": "MAJORITY >= 32/64",
             "tex_size": "8 -> 1",
@@ -209,18 +362,19 @@
         "resample": "NEAREST",
         "rules_imported_from": "tools/apply_nnv_normalisation.py",
         "tilesets": {
-          ".runtime-cache/nnv-noproof-grounds/rm48/Content/Tile/NNV_rm48_Summer_Source.tile": {
+          ".runtime-cache/nnv-noproof-grounds/rm48/Content/Tile/NNV_rm48_Winter_Source.tile": {
             "cell_px": "64 -> 8",
             "colours_invented": 0,
-            "palette_sampled_after": 125,
-            "palette_sampled_before": 149,
+            "palette_sampled_after": 121,
+            "palette_sampled_before": 145,
             "resample": "NEAREST",
-            "tiles": 6096
+            "tiles": 6092
           }
         }
       },
       "room": "rm48",
-      "season": "summer",
+      "season": "winter",
+      "season_selection": "native detectee",
       "source_checks": {
         "all_source_tile_layers_preserved": true,
         "collision_grid_matches_visual_extent": true,
@@ -267,16 +421,76 @@
         "wildlife role 110830:objmobwn2 requires native Pokemon encounter mapping",
         "wildlife role 110831:objmobwn2 requires native Pokemon encounter mapping"
       ],
-      "ground_path": ".runtime-cache/nnv-noproof-grounds/rm49/Data/Ground/nnv_rm49_summer.rsground",
-      "ground_sha256_after_normalisation": "6706d7e4ad4b2b0ebb369192b79c6f78be145c5707da53bd99bcbd9be7c7ba95",
-      "ground_sha256_before_normalisation": "5d7e2f67572ecf767496f8f78c95bb746feb81e3dc407543afd119c644f310cc",
+      "ground_path": ".runtime-cache/nnv-noproof-grounds/rm49/Data/Ground/nnv_rm49_winter.rsground",
+      "ground_sha256_after_normalisation": "9c52f1f441e3e64e21c651b27574ea2250fdf5f886c9bd815533dd15dd81e3b5",
+      "ground_sha256_before_normalisation": "e2fe78b0afae8834de9065582b6c5816a0c4b74616a6efe0992e898e3c687dac",
       "ground_tracked_in_git": false,
+      "native_season_evidence": {
+        "layers": [
+          {
+            "background_index": 12,
+            "layer": "cliff",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 12,
+            "layer": "cliff0",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 27,
+            "layer": "grass1",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 27,
+            "layer": "grass0",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 9,
+            "layer": "water",
+            "seasons": [
+              "autumn",
+              "spring",
+              "summer"
+            ]
+          },
+          {
+            "background_index": 11,
+            "layer": "blue1",
+            "seasons": []
+          },
+          {
+            "background_index": 11,
+            "layer": "blue0",
+            "seasons": []
+          }
+        ],
+        "native_season": "winter",
+        "note": null,
+        "unanimous": false,
+        "votes": {
+          "autumn": 1,
+          "spring": 1,
+          "summer": 1,
+          "winter": 4
+        }
+      },
       "normalisation": {
         "collision_rule": "MAJORITE >= 32/64 par bloc 8x8",
         "entity_issues": [],
         "factor": 0.125,
         "ground": {
-          ".runtime-cache/nnv-noproof-grounds/rm49/Data/Ground/nnv_rm49_summer.rsground": {
+          ".runtime-cache/nnv-noproof-grounds/rm49/Data/Ground/nnv_rm49_winter.rsground": {
             "collision_grid": "624 -> 78",
             "collision_rule": "MAJORITY >= 32/64",
             "tex_size": "8 -> 1",
@@ -286,18 +500,19 @@
         "resample": "NEAREST",
         "rules_imported_from": "tools/apply_nnv_normalisation.py",
         "tilesets": {
-          ".runtime-cache/nnv-noproof-grounds/rm49/Content/Tile/NNV_rm49_Summer_Source.tile": {
+          ".runtime-cache/nnv-noproof-grounds/rm49/Content/Tile/NNV_rm49_Winter_Source.tile": {
             "cell_px": "64 -> 8",
             "colours_invented": 0,
-            "palette_sampled_after": 210,
-            "palette_sampled_before": 233,
+            "palette_sampled_after": 202,
+            "palette_sampled_before": 223,
             "resample": "NEAREST",
-            "tiles": 11856
+            "tiles": 11853
           }
         }
       },
       "room": "rm49",
-      "season": "summer",
+      "season": "winter",
+      "season_selection": "native detectee",
       "source_checks": {
         "all_source_tile_layers_preserved": true,
         "collision_grid_matches_visual_extent": true,
@@ -342,16 +557,59 @@
         "wildlife role 117106:objmobwn5 requires native Pokemon encounter mapping",
         "wildlife role 117107:objmobwn2 requires native Pokemon encounter mapping"
       ],
-      "ground_path": ".runtime-cache/nnv-noproof-grounds/rm57/Data/Ground/nnv_rm57_summer.rsground",
-      "ground_sha256_after_normalisation": "c06c7021e44e8ce0e7aab5e783f6a013f13186d05b584d16d9d23ddc5af5834f",
-      "ground_sha256_before_normalisation": "3340669c84486705eb24ad267c76c2bb89e11153917251fa654d9a4e7c331389",
+      "ground_path": ".runtime-cache/nnv-noproof-grounds/rm57/Data/Ground/nnv_rm57_winter.rsground",
+      "ground_sha256_after_normalisation": "8f49dcf130a94ce352498241e086b4f6c88dd018b736185f37c9a64621c8f816",
+      "ground_sha256_before_normalisation": "7afb9e31dd6930b85650c49b13c4329472564f8fdeb9c2bdd367ebf878fb5b16",
       "ground_tracked_in_git": false,
+      "native_season_evidence": {
+        "layers": [
+          {
+            "background_index": 12,
+            "layer": "cliff",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 12,
+            "layer": "cliff0",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 27,
+            "layer": "grass1",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 27,
+            "layer": "grass0",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 25,
+            "layer": "ground",
+            "seasons": []
+          }
+        ],
+        "native_season": "winter",
+        "note": null,
+        "unanimous": true,
+        "votes": {
+          "winter": 4
+        }
+      },
       "normalisation": {
         "collision_rule": "MAJORITE >= 32/64 par bloc 8x8",
         "entity_issues": [],
         "factor": 0.125,
         "ground": {
-          ".runtime-cache/nnv-noproof-grounds/rm57/Data/Ground/nnv_rm57_summer.rsground": {
+          ".runtime-cache/nnv-noproof-grounds/rm57/Data/Ground/nnv_rm57_winter.rsground": {
             "collision_grid": "624 -> 78",
             "collision_rule": "MAJORITY >= 32/64",
             "tex_size": "8 -> 1",
@@ -361,18 +619,19 @@
         "resample": "NEAREST",
         "rules_imported_from": "tools/apply_nnv_normalisation.py",
         "tilesets": {
-          ".runtime-cache/nnv-noproof-grounds/rm57/Content/Tile/NNV_rm57_Summer_Source.tile": {
+          ".runtime-cache/nnv-noproof-grounds/rm57/Content/Tile/NNV_rm57_Winter_Source.tile": {
             "cell_px": "64 -> 8",
             "colours_invented": 0,
-            "palette_sampled_after": 92,
-            "palette_sampled_before": 101,
+            "palette_sampled_after": 87,
+            "palette_sampled_before": 96,
             "resample": "NEAREST",
-            "tiles": 10342
+            "tiles": 10341
           }
         }
       },
       "room": "rm57",
-      "season": "summer",
+      "season": "winter",
+      "season_selection": "native detectee",
       "source_checks": {
         "all_source_tile_layers_preserved": true,
         "collision_grid_matches_visual_extent": true,
@@ -415,16 +674,64 @@
         "wildlife role 116821:objmobwn0 requires native Pokemon encounter mapping",
         "wildlife role 116822:objmobwn2 requires native Pokemon encounter mapping"
       ],
-      "ground_path": ".runtime-cache/nnv-noproof-grounds/rm68/Data/Ground/nnv_rm68_summer.rsground",
-      "ground_sha256_after_normalisation": "afdb53cc2880f0978eb63be978a03d2b73ce78e90b984e90c3dc90106d0f9417",
-      "ground_sha256_before_normalisation": "9dd01f54edd9d132b140e61dfe44e457a47f71c789fcc8a73196727c5f6ead99",
+      "ground_path": ".runtime-cache/nnv-noproof-grounds/rm68/Data/Ground/nnv_rm68_winter.rsground",
+      "ground_sha256_after_normalisation": "6bbe679a80c6ad292cf112fd6fa3e1729555ece7b7356e25a04bb4ca87f3f1e5",
+      "ground_sha256_before_normalisation": "7efed06797ff22af4df0651fe7c4a62d9e5a385d1754999a7df2fa84d8511f55",
       "ground_tracked_in_git": false,
+      "native_season_evidence": {
+        "layers": [
+          {
+            "background_index": 12,
+            "layer": "cliff",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 12,
+            "layer": "cliff0",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 9,
+            "layer": "endwater",
+            "seasons": []
+          },
+          {
+            "background_index": 27,
+            "layer": "grass1",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 27,
+            "layer": "grass0",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 25,
+            "layer": "ground",
+            "seasons": []
+          }
+        ],
+        "native_season": "winter",
+        "note": null,
+        "unanimous": true,
+        "votes": {
+          "winter": 4
+        }
+      },
       "normalisation": {
         "collision_rule": "MAJORITE >= 32/64 par bloc 8x8",
         "entity_issues": [],
         "factor": 0.125,
         "ground": {
-          ".runtime-cache/nnv-noproof-grounds/rm68/Data/Ground/nnv_rm68_summer.rsground": {
+          ".runtime-cache/nnv-noproof-grounds/rm68/Data/Ground/nnv_rm68_winter.rsground": {
             "collision_grid": "624 -> 78",
             "collision_rule": "MAJORITY >= 32/64",
             "tex_size": "8 -> 1",
@@ -434,18 +741,19 @@
         "resample": "NEAREST",
         "rules_imported_from": "tools/apply_nnv_normalisation.py",
         "tilesets": {
-          ".runtime-cache/nnv-noproof-grounds/rm68/Content/Tile/NNV_rm68_Summer_Source.tile": {
+          ".runtime-cache/nnv-noproof-grounds/rm68/Content/Tile/NNV_rm68_Winter_Source.tile": {
             "cell_px": "64 -> 8",
             "colours_invented": 0,
-            "palette_sampled_after": 100,
-            "palette_sampled_before": 116,
+            "palette_sampled_after": 95,
+            "palette_sampled_before": 110,
             "resample": "NEAREST",
             "tiles": 8734
           }
         }
       },
       "room": "rm68",
-      "season": "summer",
+      "season": "winter",
+      "season_selection": "native detectee",
       "source_checks": {
         "all_source_tile_layers_preserved": true,
         "collision_grid_matches_visual_extent": true,
@@ -488,16 +796,76 @@
         "wildlife role 129197:objmobwn5 requires native Pokemon encounter mapping",
         "wildlife role 129198:objmobwn5 requires native Pokemon encounter mapping"
       ],
-      "ground_path": ".runtime-cache/nnv-noproof-grounds/rm77/Data/Ground/nnv_rm77_summer.rsground",
-      "ground_sha256_after_normalisation": "229fdcab4bbc0f24b1f211613d10b96f24385086d0cb027149f082f2c891df31",
-      "ground_sha256_before_normalisation": "1fddf08af089afdcb455c1f4f97ac5c1f62b248d178ebca1b79a6f588e6ea3a3",
+      "ground_path": ".runtime-cache/nnv-noproof-grounds/rm77/Data/Ground/nnv_rm77_winter.rsground",
+      "ground_sha256_after_normalisation": "ffb0aa24b04c3e234c1a01c872b487381a4f98d2b6e807affa68ef2fb34ebf7c",
+      "ground_sha256_before_normalisation": "2481f337c3499d268046fe14e9b4bedecf4f36f92e0afd03771f01e66a4bf135",
       "ground_tracked_in_git": false,
+      "native_season_evidence": {
+        "layers": [
+          {
+            "background_index": 12,
+            "layer": "cliff",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 12,
+            "layer": "cliff0",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 27,
+            "layer": "grass1",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 27,
+            "layer": "grass0",
+            "seasons": [
+              "winter"
+            ]
+          },
+          {
+            "background_index": 9,
+            "layer": "water",
+            "seasons": [
+              "autumn",
+              "spring",
+              "summer"
+            ]
+          },
+          {
+            "background_index": 11,
+            "layer": "blue1",
+            "seasons": []
+          },
+          {
+            "background_index": 11,
+            "layer": "blue0",
+            "seasons": []
+          }
+        ],
+        "native_season": "winter",
+        "note": null,
+        "unanimous": false,
+        "votes": {
+          "autumn": 1,
+          "spring": 1,
+          "summer": 1,
+          "winter": 4
+        }
+      },
       "normalisation": {
         "collision_rule": "MAJORITE >= 32/64 par bloc 8x8",
         "entity_issues": [],
         "factor": 0.125,
         "ground": {
-          ".runtime-cache/nnv-noproof-grounds/rm77/Data/Ground/nnv_rm77_summer.rsground": {
+          ".runtime-cache/nnv-noproof-grounds/rm77/Data/Ground/nnv_rm77_winter.rsground": {
             "collision_grid": "624 -> 78",
             "collision_rule": "MAJORITY >= 32/64",
             "tex_size": "8 -> 1",
@@ -507,18 +875,19 @@
         "resample": "NEAREST",
         "rules_imported_from": "tools/apply_nnv_normalisation.py",
         "tilesets": {
-          ".runtime-cache/nnv-noproof-grounds/rm77/Content/Tile/NNV_rm77_Summer_Source.tile": {
+          ".runtime-cache/nnv-noproof-grounds/rm77/Content/Tile/NNV_rm77_Winter_Source.tile": {
             "cell_px": "64 -> 8",
             "colours_invented": 0,
-            "palette_sampled_after": 492,
-            "palette_sampled_before": 625,
+            "palette_sampled_after": 486,
+            "palette_sampled_before": 617,
             "resample": "NEAREST",
             "tiles": 6894
           }
         }
       },
       "room": "rm77",
-      "season": "summer",
+      "season": "winter",
+      "season_selection": "native detectee",
       "source_checks": {
         "all_source_tile_layers_preserved": true,
         "collision_grid_matches_visual_extent": true,
@@ -561,6 +930,34 @@
       "ground_sha256_after_normalisation": "a127a7cc2d9a1434de1bce52d624de87ec91d8f9931e6088c54d4da886a28b4b",
       "ground_sha256_before_normalisation": "f7c6d1058e8079c269de4a353a5ebe4ffc4093fb7967abbf99f858bc64eca173",
       "ground_tracked_in_git": false,
+      "native_season_evidence": {
+        "layers": [
+          {
+            "background_index": 15,
+            "layer": "wall",
+            "seasons": []
+          },
+          {
+            "background_index": 7,
+            "layer": "wall1",
+            "seasons": []
+          },
+          {
+            "background_index": 28,
+            "layer": "floor",
+            "seasons": []
+          },
+          {
+            "background_index": 13,
+            "layer": "stone",
+            "seasons": []
+          }
+        ],
+        "native_season": null,
+        "note": "aucune couche saisonniere : la substitution de tileset ne s'applique a rien, le choix de saison est neutre",
+        "unanimous": false,
+        "votes": {}
+      },
       "normalisation": {
         "collision_rule": "MAJORITE >= 32/64 par bloc 8x8",
         "entity_issues": [],
@@ -588,6 +985,7 @@
       },
       "room": "rmcave1",
       "season": "summer",
+      "season_selection": "native detectee",
       "source_checks": {
         "all_source_tile_layers_preserved": true,
         "collision_grid_matches_visual_extent": true,
@@ -663,16 +1061,67 @@
         "wildlife role 131455:objmob2 requires native Pokemon encounter mapping",
         "wildlife role 131456:objmob2 requires native Pokemon encounter mapping"
       ],
-      "ground_path": ".runtime-cache/nnv-noproof-grounds/rmcave1_0/Data/Ground/nnv_rmcave1_0_summer.rsground",
-      "ground_sha256_after_normalisation": "8c6eccb9469ddddf2ac7cd8348fe21d41e75b8395aede3845f1cfe172079bd19",
-      "ground_sha256_before_normalisation": "9e234fe9d0cbefe00aef8f75c40b78cbfabeac7dab9cc9bfb0a6630d4de54228",
+      "ground_path": ".runtime-cache/nnv-noproof-grounds/rmcave1_0/Data/Ground/nnv_rmcave1_0_autumn.rsground",
+      "ground_sha256_after_normalisation": "2b9daec9b1f8d141759445eeac9f26e8778f275a5ec9e3688ceedea7d6f432ce",
+      "ground_sha256_before_normalisation": "1d313c8dc246b882dba98d276070f5c9ba524224ebf4ce4f9c2d3bd4d1cd7c4d",
       "ground_tracked_in_git": false,
+      "native_season_evidence": {
+        "layers": [
+          {
+            "background_index": 15,
+            "layer": "wall",
+            "seasons": []
+          },
+          {
+            "background_index": 7,
+            "layer": "wall1_",
+            "seasons": []
+          },
+          {
+            "background_index": 7,
+            "layer": "wall1",
+            "seasons": []
+          },
+          {
+            "background_index": 9,
+            "layer": "water",
+            "seasons": [
+              "autumn",
+              "spring",
+              "summer"
+            ]
+          },
+          {
+            "background_index": 29,
+            "layer": "water0",
+            "seasons": []
+          },
+          {
+            "background_index": 28,
+            "layer": "floor",
+            "seasons": []
+          },
+          {
+            "background_index": 13,
+            "layer": "stone",
+            "seasons": []
+          }
+        ],
+        "native_season": "autumn",
+        "note": null,
+        "unanimous": false,
+        "votes": {
+          "autumn": 1,
+          "spring": 1,
+          "summer": 1
+        }
+      },
       "normalisation": {
         "collision_rule": "MAJORITE >= 32/64 par bloc 8x8",
         "entity_issues": [],
         "factor": 0.125,
         "ground": {
-          ".runtime-cache/nnv-noproof-grounds/rmcave1_0/Data/Ground/nnv_rmcave1_0_summer.rsground": {
+          ".runtime-cache/nnv-noproof-grounds/rmcave1_0/Data/Ground/nnv_rmcave1_0_autumn.rsground": {
             "collision_grid": "624 -> 78",
             "collision_rule": "MAJORITY >= 32/64",
             "tex_size": "8 -> 1",
@@ -682,7 +1131,7 @@
         "resample": "NEAREST",
         "rules_imported_from": "tools/apply_nnv_normalisation.py",
         "tilesets": {
-          ".runtime-cache/nnv-noproof-grounds/rmcave1_0/Content/Tile/NNV_rmcave1_0_Summer_Source.tile": {
+          ".runtime-cache/nnv-noproof-grounds/rmcave1_0/Content/Tile/NNV_rmcave1_0_Autumn_Source.tile": {
             "cell_px": "64 -> 8",
             "colours_invented": 0,
             "palette_sampled_after": 29,
@@ -693,7 +1142,8 @@
         }
       },
       "room": "rmcave1_0",
-      "season": "summer",
+      "season": "autumn",
+      "season_selection": "native detectee",
       "source_checks": {
         "all_source_tile_layers_preserved": true,
         "collision_grid_matches_visual_extent": true,
@@ -769,16 +1219,62 @@
         "wildlife role 142576:objmob2 requires native Pokemon encounter mapping",
         "wildlife role 142577:objmob2 requires native Pokemon encounter mapping"
       ],
-      "ground_path": ".runtime-cache/nnv-noproof-grounds/rmcave1_1/Data/Ground/nnv_rmcave1_1_summer.rsground",
-      "ground_sha256_after_normalisation": "e87b80be33a8c99bc27fe51f8fb860950dc08d91dcfc6ea8357fbbc6ac27c351",
-      "ground_sha256_before_normalisation": "f2ef6c2f86960b1da22b64f537fcf5816dbf3c0d5365d3103db3238ae1c7f4bc",
+      "ground_path": ".runtime-cache/nnv-noproof-grounds/rmcave1_1/Data/Ground/nnv_rmcave1_1_autumn.rsground",
+      "ground_sha256_after_normalisation": "cea138165e3858004fa8201d4e251ad175d586e758eedb10856946f729d5694d",
+      "ground_sha256_before_normalisation": "e1eac6b1808584e4e1e7239ccc24272968c8a7750d3e9638c924f9dca571f8c8",
       "ground_tracked_in_git": false,
+      "native_season_evidence": {
+        "layers": [
+          {
+            "background_index": 15,
+            "layer": "wall",
+            "seasons": []
+          },
+          {
+            "background_index": 7,
+            "layer": "wall1",
+            "seasons": []
+          },
+          {
+            "background_index": 9,
+            "layer": "water",
+            "seasons": [
+              "autumn",
+              "spring",
+              "summer"
+            ]
+          },
+          {
+            "background_index": 29,
+            "layer": "water0",
+            "seasons": []
+          },
+          {
+            "background_index": 28,
+            "layer": "floor",
+            "seasons": []
+          },
+          {
+            "background_index": 13,
+            "layer": "stone",
+            "seasons": []
+          }
+        ],
+        "native_season": "autumn",
+        "note": null,
+        "unanimous": false,
+        "votes": {
+          "autumn": 1,
+          "spring": 1,
+          "summer": 1
+        }
+      },
       "normalisation": {
         "collision_rule": "MAJORITE >= 32/64 par bloc 8x8",
         "entity_issues": [],
         "factor": 0.125,
         "ground": {
-          ".runtime-cache/nnv-noproof-grounds/rmcave1_1/Data/Ground/nnv_rmcave1_1_summer.rsground": {
+          ".runtime-cache/nnv-noproof-grounds/rmcave1_1/Data/Ground/nnv_rmcave1_1_autumn.rsground": {
             "collision_grid": "624 -> 78",
             "collision_rule": "MAJORITY >= 32/64",
             "tex_size": "8 -> 1",
@@ -788,7 +1284,7 @@
         "resample": "NEAREST",
         "rules_imported_from": "tools/apply_nnv_normalisation.py",
         "tilesets": {
-          ".runtime-cache/nnv-noproof-grounds/rmcave1_1/Content/Tile/NNV_rmcave1_1_Summer_Source.tile": {
+          ".runtime-cache/nnv-noproof-grounds/rmcave1_1/Content/Tile/NNV_rmcave1_1_Autumn_Source.tile": {
             "cell_px": "64 -> 8",
             "colours_invented": 0,
             "palette_sampled_after": 33,
@@ -799,7 +1295,8 @@
         }
       },
       "room": "rmcave1_1",
-      "season": "summer",
+      "season": "autumn",
+      "season_selection": "native detectee",
       "source_checks": {
         "all_source_tile_layers_preserved": true,
         "collision_grid_matches_visual_extent": true,
@@ -872,6 +1369,39 @@
       "ground_sha256_after_normalisation": "5b35f06e0136c6a8d65bee0bf1be229423a187ac0eebe7537760e921741f98c5",
       "ground_sha256_before_normalisation": "5326b9c754b90810491ee405409ed959f8febe88f8d85042082be0eee0d19450",
       "ground_tracked_in_git": false,
+      "native_season_evidence": {
+        "layers": [
+          {
+            "background_index": 15,
+            "layer": "wall",
+            "seasons": []
+          },
+          {
+            "background_index": 7,
+            "layer": "wall1",
+            "seasons": []
+          },
+          {
+            "background_index": 29,
+            "layer": "water0",
+            "seasons": []
+          },
+          {
+            "background_index": 28,
+            "layer": "floor",
+            "seasons": []
+          },
+          {
+            "background_index": 13,
+            "layer": "stone",
+            "seasons": []
+          }
+        ],
+        "native_season": null,
+        "note": "aucune couche saisonniere : la substitution de tileset ne s'applique a rien, le choix de saison est neutre",
+        "unanimous": false,
+        "votes": {}
+      },
       "normalisation": {
         "collision_rule": "MAJORITE >= 32/64 par bloc 8x8",
         "entity_issues": [],
@@ -899,6 +1429,7 @@
       },
       "room": "rmcave1_2",
       "season": "summer",
+      "season_selection": "native detectee",
       "source_checks": {
         "all_source_tile_layers_preserved": true,
         "collision_grid_matches_visual_extent": true,
