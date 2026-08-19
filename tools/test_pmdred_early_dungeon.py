@@ -105,6 +105,34 @@ class VariableGeometryTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             init_grid_step(5, 4)
 
+    def test_secondary_terrain_is_explicit_and_wall_stencilled(self) -> None:
+        common = dict(
+            geometry=[((3, 3), 1)], valid_columns=3,
+            music="PMD Red - Sinister Woods.ogg", texture_family="sinister_woods",
+            monsters=[("oddish", 7, 1)], enemy_count_weights=[(4, 1)],
+            items=[(map_item("berry_oran"), 1)], item_count_weights=[(3, 1)],
+            trap_count_weights=[(1, 1)],
+        )
+        dry = build_chance_floor(**common)
+        wet = build_chance_floor(**common, secondary_water_percent=12)
+        dry_steps = dry["Spawns"][0]["Spawn"]["GenSteps"]
+        wet_steps = wet["Spawns"][0]["Spawn"]["GenSteps"]
+        self.assertEqual(len(wet_steps), len(dry_steps) + 1)
+        self.assertEqual(
+            [pair for pair in wet_steps if "PerlinWaterStep" not in pair["Value"].get("$type", "")],
+            dry_steps,
+        )
+        perlin = next(pair for pair in wet_steps if pair["Key"] == {"str": [3]})["Value"]
+        self.assertEqual(perlin["OrderComplexity"], 3)
+        self.assertEqual(perlin["OrderSoftness"], 1)
+        self.assertEqual(perlin["WaterPercent"], {"Min": 12, "Max": 12})
+        self.assertTrue(perlin["Bowl"])
+        self.assertEqual(perlin["Terrain"]["Data"]["ID"], "water")
+        self.assertEqual(
+            {key: perlin["TerrainStencil"][key] for key in ("Room", "Wall", "Blocked", "Not")},
+            {"Room": False, "Wall": True, "Blocked": False, "Not": False},
+        )
+
     def test_large_layout_serializes_all_32_attempts_and_exact_fallback(self) -> None:
         floor = build_red_large_chance_floor(
             room_density=8,

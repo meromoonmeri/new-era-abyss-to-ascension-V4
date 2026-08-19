@@ -301,6 +301,46 @@ def respawn_settings_step() -> dict[str, Any]:
     }
 
 
+def perlin_water_step(percent: int) -> dict[str, Any]:
+    """Adapt Red's enabled lake formation to PMDO secondary terrain.
+
+    Early Red floor properties always store a lake-density byte, but the
+    formation routine only runs when the room flag enables secondary terrain.
+    Callers therefore opt in explicitly.  The wall-only stencil matches Red's
+    use of the uncarved canvas and keeps rooms/halls traversable.
+    """
+    if not 0 <= percent <= 100:
+        raise ValueError(f"invalid secondary-terrain percent: {percent}")
+    return {
+        "$type": generic_type("RogueElements.PerlinWaterStep", MAP_CTX, assembly="RogueElements"),
+        "OrderComplexity": 3,
+        "OrderSoftness": 1,
+        "WaterPercent": int_range(percent, percent),
+        "Bowl": True,
+        "Terrain": {
+            "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
+            "Data": {
+                "ID": "water",
+                "TileTex": {
+                    "AutoTileset": "", "Associates": [], "Layers": [], "NeighborCode": -1,
+                },
+                "StableTex": False,
+            },
+            "Effect": {
+                "TileLoc": {"X": 0, "Y": 0}, "ID": "", "Revealed": False,
+                "Owner": 0, "TileStates": [],
+            },
+        },
+        "TerrainStencil": {
+            "$type": generic_type("RogueElements.MapTerrainStencil", MAP_CTX, assembly="RogueElements"),
+            "Room": False,
+            "Wall": True,
+            "Blocked": False,
+            "Not": False,
+        },
+    }
+
+
 def texture_step(texture_family: str) -> dict[str, Any]:
     return {
         "$type": generic_type("RogueEssence.LevelGen.MapTextureStep", MAP_CTX, assembly="RogueEssence"),
@@ -339,6 +379,7 @@ def build_grid_floor(
     trap_count_weights: Sequence[tuple[int, int]],
     extra_hallways: int = 5,
     connectivity_ratio: int = 15,
+    secondary_water_percent: int | None = None,
 ) -> dict[str, Any]:
     steps = [
         step((-6,), map_data_step(music)),
@@ -375,6 +416,11 @@ def build_grid_floor(
             ),
         }),
     ]
+    if secondary_water_percent is not None:
+        # Priority 3 is after stairs placement and before texture resolution.
+        # Insertion at the existing priority-4 slot leaves default callers'
+        # serialized output byte-identical.
+        steps.insert(9, step((3,), perlin_water_step(secondary_water_percent)))
     return {"$type": GRID_FLOOR, "GenSteps": steps}
 
 
@@ -417,6 +463,7 @@ def build_chance_floor(
     trap_count_weights: Sequence[tuple[int, int]],
     extra_hallways: int = 5,
     connectivity_ratio: int = 15,
+    secondary_water_percent: int | None = None,
 ) -> dict[str, Any]:
     """Build a weighted Red geometry table without sampling at build time.
 
@@ -447,6 +494,7 @@ def build_chance_floor(
             trap_count_weights=trap_count_weights,
             extra_hallways=extra_hallways,
             connectivity_ratio=connectivity_ratio,
+            secondary_water_percent=secondary_water_percent,
         )
         spawns.append({"Spawn": floor, "Rate": rate})
     return {"$type": "RogueEssence.LevelGen.ChanceFloorGen, RogueEssence", "Spawns": spawns}
@@ -465,6 +513,7 @@ def build_red_large_chance_floor(
     trap_count_weights: Sequence[tuple[int, int]],
     extra_hallways: int = 5,
     connectivity_ratio: int = 15,
+    secondary_water_percent: int | None = None,
     attempts: int = 32,
 ) -> dict[str, Any]:
     """Serialize Red's exact large-layout retry/fallback process.
@@ -503,6 +552,7 @@ def build_red_large_chance_floor(
         "trap_count_weights": trap_count_weights,
         "extra_hallways": extra_hallways,
         "connectivity_ratio": connectivity_ratio,
+        "secondary_water_percent": secondary_water_percent,
     }
     accepted_geometry = [
         ((columns, rows, min(room_density + increment, columns * rows)), 1)
