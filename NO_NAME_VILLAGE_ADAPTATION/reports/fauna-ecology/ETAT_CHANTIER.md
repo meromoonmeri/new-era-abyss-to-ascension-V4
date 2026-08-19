@@ -144,9 +144,39 @@ présente pas comme telle.
 ## 7. Ce qui reste
 
 1. **Runtime PMDO** dès qu'un bundle .NET est disponible → certification.
-2. **Variantes automne/hiver/printemps** des 34 Grounds → libère les 109 HELD.
+2. ~~**Variantes automne/hiver/printemps** des 34 Grounds → libère les 109 HELD.~~
+   **Terrain levé** — voir `HELD_SEASONAL_TERRAIN.md`. Ces variantes n'avaient
+   pas à être produites : les 15 rooms concernées sont peintes dans **une seule
+   saison en dur**, et c'est déjà celle qu'exigent leurs entités (15/15).
+   `rmvillage` était le cas particulier, pas la règle. Reste à convertir ces
+   rooms en Grounds PMDO.
 3. **Reconversion des 11 rooms `NO_PROOF`** → libère les 57 HELD, Cradily et
-   Sandshrew.
+   Sandshrew. **Rendu et audit faits** (`reports/noproof-rooms/`) : 11/11
+   rendues, 152 créatures, 0 sans Pokémon. La **conversion** et la **collision**
+   restent à produire.
 4. **`init.lua` par Ground** appelant `NNVEcology.Load()` : les scripts sont
    installés mais aucun Ground ne les invoque encore. C'est la prochaine étape
    d'activation, et elle touche 34 fichiers.
+
+## 8. Réconciliation mise à jour
+
+```
+1 808 placés = 1 642 injectés + 109 terrain prouvé + 57 rendu prouvé
+```
+
+Le total et la répartition ne bougent pas. Ce qui change est la **nature du
+blocage** restant sur les 166 non injectées :
+
+| Lot | Avant | Maintenant | Reste à faire |
+|---|---|---|---|
+| 109 | terrain saisonnier inconnu | **terrain prouvé (15/15 rooms)** | conversion Ground + runtime |
+| 57 | ni rendu ni collision | **rendu prouvé (11/11 rooms)** | conversion Ground + collision + runtime |
+
+**Aucune entité n'a été promue.** `promotion_allowed` reste `false` sur les deux
+lots. Le fail-closed n'a pas été assoupli : ce sont les preuves manquantes qui
+ont été produites, pas les exigences qui ont été abaissées.
+
+Un défaut réel a d'ailleurs été trouvé au passage et corrigé : `is_snow_rgb`
+ne reconnaissait pas la neige lavande de NNV, et l'atlas étiquetait `grass`
+16 896 cellules enneigées. Les 43 positions d'hiver ont été revérifiées contre
+l'habitat déclaré de chaque espèce — 43 conformes, 0 non conforme.
