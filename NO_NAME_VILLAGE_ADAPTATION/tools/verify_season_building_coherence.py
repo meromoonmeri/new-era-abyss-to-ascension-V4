@@ -37,6 +37,9 @@ ROOT = Path(__file__).resolve().parents[1]
 SEASONS = ("spring", "summer", "autumn", "winter")
 PMU_SHEET = "NNV_rmvillage_PMU_Buildings.tile"
 SKELETON = ROOT / "generated/rmvillage/summer/Data/Ground/nnv_rmvillage_summer.rsground"
+# Quatre parcelles NNV -> quatre batiments. Ni plus (ce serait un ajout non
+# demande), ni moins (ce serait une parcelle laissee vide).
+EXPECTED_BUILDINGS = 4
 
 
 def read_tile_sheet(path: Path) -> list[Image.Image]:
@@ -128,13 +131,20 @@ def main() -> int:
         total_soft += soft
         total_div += divergences
 
-    ok = total_div == 0 and identical_sheets and len(placed) == 6
+    # Le village compte QUATRE parcelles NNV, donc quatre batiments. Le seuil
+    # etait fige a 6 : il datait des deux maisons hors parcelle ajoutees par
+    # 9de06a7d, retirees depuis. Un verrou qui exige un nombre perime declare
+    # DIVERGENT un etat correct — c'est exactement ce qui s'est produit ici,
+    # avec 0 divergence reelle mais un verdict d'echec.
+    ok = total_div == 0 and identical_sheets and len(placed) == EXPECTED_BUILDINGS
 
     report = {
         "schema": "new-era.nnv-season-building-coherence.v1",
         "question": "les six maisons sont-elles pixel-identiques dans les quatre saisons ?",
         "method": "projection du sprite a son MapLoc, comparaison RGB stricte sur les pixels alpha==255",
         "buildings_declared": len(placed),
+        "buildings_expected": EXPECTED_BUILDINGS,
+        "one_building_per_nnv_plot": len(placed) == EXPECTED_BUILDINGS,
         "pmu_sheet_sha256_per_season": hashes,
         "pmu_sheet_identical_across_seasons": identical_sheets,
         "opaque_px_compared": total_opaque,

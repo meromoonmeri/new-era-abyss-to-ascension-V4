@@ -1,9 +1,11 @@
 {
-  "buildings_declared": 6,
+  "buildings_declared": 4,
+  "buildings_expected": 4,
   "divergences": 0,
   "method": "projection du sprite a son MapLoc, comparaison RGB stricte sur les pixels alpha==255",
   "not_proven": "ce test prouve l'identite visuelle des batiments, PAS que le Ground se charge dans PMDO 0.8.12",
-  "opaque_px_compared": 48561,
+  "one_building_per_nnv_plot": true,
+  "opaque_px_compared": 33279,
   "per_building": [
     {
       "building": 0,
@@ -64,44 +66,14 @@
         126,
         94
       ]
-    },
-    {
-      "building": 4,
-      "divergences": 0,
-      "frame": 4,
-      "map_loc": [
-        304,
-        272
-      ],
-      "opaque_px_compared": 7215,
-      "semi_transparent_px_excluded": 0,
-      "sprite_px": [
-        110,
-        98
-      ]
-    },
-    {
-      "building": 5,
-      "divergences": 0,
-      "frame": 5,
-      "map_loc": [
-        432,
-        456
-      ],
-      "opaque_px_compared": 8067,
-      "semi_transparent_px_excluded": 0,
-      "sprite_px": [
-        125,
-        88
-      ]
     }
   ],
   "pmu_sheet_identical_across_seasons": true,
   "pmu_sheet_sha256_per_season": {
-    "autumn": "2d0c896c1b8b44e8cb3ed19f57af8fdd35fc5a32cf83ebadad7583d8f955e91d",
-    "spring": "2d0c896c1b8b44e8cb3ed19f57af8fdd35fc5a32cf83ebadad7583d8f955e91d",
-    "summer": "2d0c896c1b8b44e8cb3ed19f57af8fdd35fc5a32cf83ebadad7583d8f955e91d",
-    "winter": "2d0c896c1b8b44e8cb3ed19f57af8fdd35fc5a32cf83ebadad7583d8f955e91d"
+    "autumn": "59400d706536f23daaa5d38e3ee475cc98d22c70c3a5ab46f8a72198c58ce7bb",
+    "spring": "59400d706536f23daaa5d38e3ee475cc98d22c70c3a5ab46f8a72198c58ce7bb",
+    "summer": "59400d706536f23daaa5d38e3ee475cc98d22c70c3a5ab46f8a72198c58ce7bb",
+    "winter": "59400d706536f23daaa5d38e3ee475cc98d22c70c3a5ab46f8a72198c58ce7bb"
   },
   "question": "les six maisons sont-elles pixel-identiques dans les quatre saisons ?",
   "schema": "new-era.nnv-season-building-coherence.v1",

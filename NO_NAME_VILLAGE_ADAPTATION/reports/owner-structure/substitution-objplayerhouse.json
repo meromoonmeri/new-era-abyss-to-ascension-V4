@@ -11,10 +11,10 @@
       120
     ]
   },
-  "buildings_after": 6,
-  "buildings_before": 6,
+  "buildings_after": 4,
+  "buildings_before": 4,
   "contact_sheet": "SUBSTITUTED_objplayerhouse_w176_ALL_SEASONS.png",
-  "contact_sheet_sha256": "09131db4d3206066cba8afb9b4d79c1bc0e164a1ce98e3a1144d69734d43af48",
+  "contact_sheet_sha256": "2a8b02b33f468eeb699831913bc921e927ec5133ee60964069b5c3f8c01f02e2",
   "data_written_under_Data": false,
   "map_modified": false,
   "not_proven": "apercu visuel seulement : ni collision, ni porte, ni interieur, ni chargement PMDO 0.8.12",
@@ -54,22 +54,22 @@
     {
       "png": "SUBSTITUTED_objplayerhouse_w176_spring.png",
       "season": "spring",
-      "sha256": "f7b8db7c9660f13939f3ebb1a67fb202d236dcb7afcd4b8678a5e42e2f628e88"
+      "sha256": "df24054f5ee307108e1de8d5a40459582e53b1530d446cb9189437ad7456859a"
     },
     {
       "png": "SUBSTITUTED_objplayerhouse_w176_summer.png",
       "season": "summer",
-      "sha256": "bd93f380df39b9617c98a8c4a2d367d4c1ce2719b5c2b35e2e70c66430a5c9bd"
+      "sha256": "49b252f9db67d7e9ffdc6b5c9931bd25815152ba52f48ca6cb45228e8d420a9b"
     },
     {
       "png": "SUBSTITUTED_objplayerhouse_w176_autumn.png",
       "season": "autumn",
-      "sha256": "67247a9599f97ea533ac59177a1d841321bd9ba4a9af8d054a31f934a3a4172e"
+      "sha256": "420c3ebbcd41e9a851a629744d4f834e40d9e9191c8cb58ebebef7fff88b1d7d"
     },
     {
       "png": "SUBSTITUTED_objplayerhouse_w176_winter.png",
       "season": "winter",
-      "sha256": "cb16c1a2c7875c4fefaffc348c431319860c0dcdd669e1a48f16dfb23f6a9b7e"
+      "sha256": "519726ce8784fb2d0f1126299cc54ac07965ff0d3c44a865be6e5e8a7f1793a8"
     }
   ],
   "stage": "PREVIEW_ONLY"
