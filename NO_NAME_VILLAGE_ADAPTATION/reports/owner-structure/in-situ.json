@@ -1,0 +1,121 @@
+{
+  "contact_sheet": "IN_SITU_ALL_SEASONS.png",
+  "contact_sheet_sha256": "8e473655afa97cd03d7892d56ed96652e174e768c66e6e94be8bbfaa579f0912",
+  "data_written_under_Data": false,
+  "existing_buildings_boxes": [
+    [
+      50,
+      361,
+      122,
+      120
+    ],
+    [
+      102,
+      181,
+      116,
+      99
+    ],
+    [
+      478,
+      215,
+      115,
+      98
+    ],
+    [
+      176,
+      3,
+      126,
+      94
+    ],
+    [
+      304,
+      272,
+      110,
+      98
+    ],
+    [
+      432,
+      456,
+      125,
+      88
+    ]
+  ],
+  "map_modified": false,
+  "not_proven": "cet apercu montre l'echelle et l'integration visuelle ; il ne prouve ni la collision, ni le chargement PMDO 0.8.12",
+  "placements": [
+    {
+      "overlaps_existing_building": false,
+      "preview_position_px": [
+        8,
+        8
+      ],
+      "sprite_px": [
+        114,
+        81
+      ],
+      "target_width_px": 114
+    },
+    {
+      "overlaps_existing_building": false,
+      "preview_position_px": [
+        304,
+        8
+      ],
+      "sprite_px": [
+        144,
+        102
+      ],
+      "target_width_px": 144
+    },
+    {
+      "overlaps_existing_building": false,
+      "preview_position_px": [
+        224,
+        112
+      ],
+      "sprite_px": [
+        176,
+        125
+      ],
+      "target_width_px": 176
+    },
+    {
+      "overlaps_existing_building": false,
+      "preview_position_px": [
+        176,
+        376
+      ],
+      "sprite_px": [
+        212,
+        150
+      ],
+      "target_width_px": 212
+    }
+  ],
+  "resampling": "NEAREST",
+  "schema": "new-era.owner-structure-in-situ.v1",
+  "seasons": [
+    {
+      "png": "IN_SITU_spring.png",
+      "season": "spring",
+      "sha256": "84232589f0fa82f02e71403d3aedd4608301e2b0fdca15a438c19baaefbb158f"
+    },
+    {
+      "png": "IN_SITU_summer.png",
+      "season": "summer",
+      "sha256": "0f664abc7bec374f06c1929e3b63c0b92986f8e05ae5d7015c8da2db43b52ee2"
+    },
+    {
+      "png": "IN_SITU_autumn.png",
+      "season": "autumn",
+      "sha256": "3f780ad9895f5e4616e8364b7b3ed1fdfbde5841f6e21def8cd77fb3747c150a"
+    },
+    {
+      "png": "IN_SITU_winter.png",
+      "season": "winter",
+      "sha256": "52b76cf2745871f5f0280fc44b8aacf2615b2db75be9494bec5d9f7e22acef8c"
+    }
+  ],
+  "stage": "PREVIEW_ONLY",
+  "terrain_source": "reports/season-coherence/ground_<saison>.png (rendus des Grounds materialises)"
+}
