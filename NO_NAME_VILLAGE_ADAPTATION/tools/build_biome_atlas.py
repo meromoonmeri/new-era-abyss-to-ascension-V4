@@ -66,7 +66,27 @@ def is_water_rgb(r, g, b):
 
 
 def is_snow_rgb(r, g, b):
-    return r > 200 and g > 205 and b > 210
+    """La neige NNV est un lavande clair, pas un blanc pur.
+
+    L'ancien seuil (r>200, g>205, b>210) ne reconnaissait que le blanc franc.
+    Or les deux couleurs qui couvrent le sol des rooms d'hiver sont
+    (197,211,232) et (180,185,227) : trop bleutees pour ce test, et pas assez
+    vertes pour is_green_rgb. Elles retombaient donc en `open` cote rendu
+    tandis que l'atlas les comptait en `grass` -- 2 708 cellules sur rm58, avec
+    un atlas annoncant 2 711 `grass` pour 62 `snow` sur une room enneigee.
+    C'est exactement le risque decrit dans PREUVE_SAISONNIERE.md : un Pokemon
+    place sur une cellule `grass` qui n'est pas de l'herbe.
+
+    Discriminateur : clair, bleute mais pas cyan (sinon c'est l'eau), et de
+    faible saturation. Mesure sur les 34 rendus versionnes -- les 5 rooms
+    d'hiver sortent entre 61,3 % et 69,7 % de neige, les 29 autres plafonnent a
+    6,5 %. La separation est nette, aucun arbitrage n'est necessaire.
+    """
+    if b < 195 or r < 150 or b <= r:
+        return False
+    if g > r + 40:            # vert nettement au-dessus du rouge = cyan = eau
+        return False
+    return (b - r) <= 90 and max(r, g, b) - min(r, g, b) <= 90
 
 
 def is_marsh_rgb(r, g, b):

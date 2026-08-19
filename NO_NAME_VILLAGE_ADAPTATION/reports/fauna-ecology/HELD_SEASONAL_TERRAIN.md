@@ -113,3 +113,73 @@ python3 NO_NAME_VILLAGE_ADAPTATION/tools/audit_held_seasonal_terrain.py
 ## Statut
 
 `TERRAIN_PROVEN_10_ROOMS · HELD_5_ROOMS · promotion_allowed=false`
+
+---
+
+# Mise à jour — les 5 rooms d'hiver après correction de `is_snow_rgb`
+
+## La cause était dans le classifieur, pas dans les données
+
+`is_snow_rgb` exigeait `r>200, g>205, b>210`, c'est-à-dire un blanc franc. Les
+deux couleurs qui couvrent le sol des rooms d'hiver NNV sont **(197,211,232)**
+et **(180,185,227)** : un lavande clair. Trop bleutées pour ce seuil, pas assez
+vertes pour `is_green_rgb`, elles retombaient en `open`.
+
+Nouveau discriminateur : clair, bleuté mais pas cyan (sinon c'est l'eau), et de
+faible saturation. **Mesuré sur les 34 rendus versionnés** : les 5 rooms d'hiver
+sortent entre **61,3 % et 69,7 %** de neige, les 29 autres plafonnent à **6,5 %**.
+Séparation nette, aucun arbitrage nécessaire, aucun faux positif en automne.
+
+## Effet sur l'atlas
+
+| Room | Cellules reclassées | `grass` avant → après | `snow` avant → après |
+|---|---:|---:|---:|
+| `rm37` | 3 544 | 2 389 → **0** | 15 → **3 450** |
+| `rm58` | 3 500 | 2 711 → **0** | 62 → **3 366** |
+| `rm59` | 3 129 | 1 730 → **0** | 14 → **2 933** |
+| `rm67` | 3 243 | 2 445 → **0** | 25 → **3 157** |
+| `rm69` | 3 480 | 2 109 → **0** | 9 → **3 337** |
+
+Plus une seule cellule d'herbe dans une room enneigée. Les classes posées par
+les objets (`tree`, `rock`, `plant`) et par la collision (`blocked`) sont
+**préservées** : elles ne sont pas recalculables ici, les Grounds reconvertis de
+`/tmp/reconv` n'existant plus dans ce bac à sable.
+
+## Une réserve à ne pas masquer
+
+Après régénération, l'audit affiche **0,0 % de divergence** sur les 5 rooms.
+**Ce chiffre ne prouve rien** : l'atlas vient d'être réécrit à partir de cette
+même reclassification, la comparaison est donc circulaire. Il confirme que
+l'écriture a bien eu lieu, rien de plus.
+
+La vérification qui a du sens est ailleurs : les **43 positions candidates**
+des entités d'hiver ont été confrontées à l'habitat déclaré de leur espèce dans
+`fauna-species.json`, terrain et voisinage compris.
+
+**43 conformes, 0 non conforme.**
+
+`piloswine`, `swinub` et `delibird` déclarent `snow` dans leur habitat et
+tombent sur des cellules `snow`. `crabrawler` sort sur `snow` près de rochers.
+`ducklett` sur `rm59` tombe sur `water`/`open` en bord d'eau, conforme à son
+habitat `near_water,water` ; sur `rm58` sa cellule est `open` mais à moins de
+2 cases de l'eau, ce qui satisfait `near_water`.
+
+Le placement était donc **écologiquement correct dès l'origine** — c'est
+l'étiquette du terrain qui était fausse, pas la position.
+
+## Bilan des 109
+
+| | Avant | Après |
+|---|---:|---:|
+| Terrain prouvé | 0 | **109** (15 rooms) |
+| Terrain non prouvé | 109 | **0** |
+
+**Aucune promotion pour autant.** `promotion_allowed` reste `false`. Le blocage
+terrain est levé sur les 15 rooms ; il reste, pour promouvoir :
+
+1. la **conversion en Ground PMDO** des 15 rooms ;
+2. le **runtime PMDO 0.8.12**, toujours inexécutable ici.
+
+## Statut
+
+`TERRAIN_PROVEN_15_ROOMS · promotion_allowed=false · runtime NOT_CERTIFIED`

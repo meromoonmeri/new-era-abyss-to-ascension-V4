@@ -218,7 +218,7 @@
       "verdict": "TERRAIN_PROVEN"
     },
     {
-      "atlas_vs_render_divergence": 0.6066,
+      "atlas_vs_render_divergence": 0.0,
       "competing_families": [],
       "dominant_family": "winter",
       "family_is_unique": true,
@@ -228,11 +228,8 @@
         "spring": 12,
         "winter": 513
       },
-      "main_divergences": {
-        "grass->open": 2389,
-        "water->open": 52
-      },
-      "reason": "l'atlas ne se retrouve pas dans le rendu de cette room : le terrain de la saison requise n'est pas prouve",
+      "main_divergences": {},
+      "reason": "la room est nativement peinte dans la saison requise et l'atlas concorde avec son rendu",
       "render_cells_compared": 4024,
       "required_season_is_native": true,
       "room": "rm37",
@@ -243,7 +240,7 @@
         "crabrawler": 4,
         "delibird": 3
       },
-      "verdict": "HELD"
+      "verdict": "TERRAIN_PROVEN"
     },
     {
       "atlas_vs_render_divergence": 0.012,
@@ -335,7 +332,7 @@
       "verdict": "TERRAIN_PROVEN"
     },
     {
-      "atlas_vs_render_divergence": 0.6996,
+      "atlas_vs_render_divergence": 0.0,
       "competing_families": [],
       "dominant_family": "winter",
       "family_is_unique": true,
@@ -345,12 +342,8 @@
         "spring": 21,
         "winter": 542
       },
-      "main_divergences": {
-        "grass->open": 2708,
-        "grass->snow": 2,
-        "snow->open": 2
-      },
-      "reason": "l'atlas ne se retrouve pas dans le rendu de cette room : le terrain de la saison requise n'est pas prouve",
+      "main_divergences": {},
+      "reason": "la room est nativement peinte dans la saison requise et l'atlas concorde avec son rendu",
       "render_cells_compared": 3878,
       "required_season_is_native": true,
       "room": "rm58",
@@ -362,10 +355,10 @@
         "piloswine": 7,
         "swinub": 5
       },
-      "verdict": "HELD"
+      "verdict": "TERRAIN_PROVEN"
     },
     {
-      "atlas_vs_render_divergence": 0.438,
+      "atlas_vs_render_divergence": 0.0,
       "competing_families": [],
       "dominant_family": "winter",
       "family_is_unique": true,
@@ -375,12 +368,8 @@
         "spring": 12,
         "winter": 533
       },
-      "main_divergences": {
-        "grass->marsh": 2,
-        "grass->open": 1728,
-        "water->open": 39
-      },
-      "reason": "l'atlas ne se retrouve pas dans le rendu de cette room : le terrain de la saison requise n'est pas prouve",
+      "main_divergences": {},
+      "reason": "la room est nativement peinte dans la saison requise et l'atlas concorde avec son rendu",
       "render_cells_compared": 4041,
       "required_season_is_native": true,
       "room": "rm59",
@@ -391,10 +380,10 @@
         "ducklett": 3,
         "piloswine": 1
       },
-      "verdict": "HELD"
+      "verdict": "TERRAIN_PROVEN"
     },
     {
-      "atlas_vs_render_divergence": 0.6952,
+      "atlas_vs_render_divergence": 0.0,
       "competing_families": [],
       "dominant_family": "winter",
       "family_is_unique": true,
@@ -404,12 +393,8 @@
         "spring": 19,
         "winter": 500
       },
-      "main_divergences": {
-        "grass->open": 2442,
-        "grass->snow": 2,
-        "snow->open": 2
-      },
-      "reason": "l'atlas ne se retrouve pas dans le rendu de cette room : le terrain de la saison requise n'est pas prouve",
+      "main_divergences": {},
+      "reason": "la room est nativement peinte dans la saison requise et l'atlas concorde avec son rendu",
       "render_cells_compared": 3520,
       "required_season_is_native": true,
       "room": "rm67",
@@ -421,10 +406,10 @@
         "piloswine": 1,
         "swinub": 4
       },
-      "verdict": "HELD"
+      "verdict": "TERRAIN_PROVEN"
     },
     {
-      "atlas_vs_render_divergence": 0.5154,
+      "atlas_vs_render_divergence": 0.0,
       "competing_families": [],
       "dominant_family": "winter",
       "family_is_unique": true,
@@ -434,10 +419,8 @@
         "spring": 9,
         "winter": 481
       },
-      "main_divergences": {
-        "grass->open": 2109
-      },
-      "reason": "l'atlas ne se retrouve pas dans le rendu de cette room : le terrain de la saison requise n'est pas prouve",
+      "main_divergences": {},
+      "reason": "la room est nativement peinte dans la saison requise et l'atlas concorde avec son rendu",
       "render_cells_compared": 4092,
       "required_season_is_native": true,
       "room": "rm69",
@@ -447,22 +430,16 @@
       "species": {
         "piloswine": 7
       },
-      "verdict": "HELD"
+      "verdict": "TERRAIN_PROVEN"
     }
   ],
   "schema": "nnv-held-seasonal-terrain-v1",
   "still_held": {
-    "individuals": 43,
-    "rooms": [
-      "rm37",
-      "rm58",
-      "rm59",
-      "rm67",
-      "rm69"
-    ]
+    "individuals": 0,
+    "rooms": []
   },
   "terrain_proven": {
-    "individuals": 66,
+    "individuals": 109,
     "rooms": [
       "rm14",
       "rm23",
@@ -471,9 +448,14 @@
       "rm33",
       "rm34",
       "rm35",
+      "rm37",
       "rm43",
       "rm44",
-      "rm45"
+      "rm45",
+      "rm58",
+      "rm59",
+      "rm67",
+      "rm69"
     ]
   }
 }
