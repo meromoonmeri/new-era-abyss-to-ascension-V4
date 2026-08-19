@@ -126,17 +126,56 @@ def install_probe(quest: Path) -> None:
     )
 
 
-def prepare_music(asset_root: Path) -> None:
-    music = asset_root / "Content/Music"
-    if music.is_symlink():
-        music.unlink()
-    elif music.exists():
-        shutil.rmtree(music)
-    music.mkdir(parents=True)
+def prepare_content_overlay(asset_root: Path, candidate: Path | None) -> None:
+    """Make Content writable in the fixture without ever mutating DumpAsset."""
+    content = asset_root / "Content"
+    if content.is_symlink():
+        content.unlink()
+    elif content.exists():
+        shutil.rmtree(content)
+    content.mkdir(parents=True)
+    source_content = ROOT / ".runtime-cache/DumpAsset/Content"
+    for child in source_content.iterdir():
+        if child.name not in {"Tile", "Music"}:
+            (content / child.name).symlink_to(child.resolve(), target_is_directory=child.is_dir())
+    tile = content / "Tile"
+    tile.mkdir()
+    source_tile = source_content / "Tile"
+    for child in source_tile.iterdir():
+        if child.name not in {"index.idx", "TreeshroudForest1.tile"}:
+            (tile / child.name).symlink_to(child.resolve(), target_is_directory=child.is_dir())
+    # Sinister Woods music is a project asset, not a DumpAsset base asset.
+    music = content / "Music"
+    music.mkdir()
     shutil.copy2(ROOT / "Content/Music/Sinister Woods.ogg", music / "Sinister Woods.ogg")
+    source_index = source_tile / "index.idx"
+    nodes = BASE.read_tile_index(source_index)
+    if candidate is not None:
+        candidate_tile = candidate / "Content/Tile/TreeshroudForest1.tile"
+        candidate_node, _ = BASE.tile_node(candidate_tile.read_bytes())
+        nodes["TreeshroudForest1"] = candidate_node
+        shutil.copy2(candidate_tile, tile / "TreeshroudForest1.tile")
+    else:
+        (tile / "TreeshroudForest1.tile").symlink_to(
+            (source_tile / "TreeshroudForest1.tile").resolve()
+        )
+    BASE.write_tile_index(tile / "index.idx", nodes)
 
 
-def build(output: Path) -> Path:
+def install_material_candidate(quest: Path, candidate: Path | None) -> None:
+    if candidate is None:
+        return
+    target = quest / "Data/AutoTile"
+    target.mkdir(parents=True, exist_ok=True)
+    for name in (
+        "treeshroud_forest_1_floor.json",
+        "treeshroud_forest_1_wall.json",
+        "treeshroud_forest_1_secondary.json",
+    ):
+        shutil.copy2(candidate / "Data/AutoTile" / name, target / name)
+
+
+def build(output: Path, candidate: Path | None = None) -> Path:
     if output.exists():
         shutil.rmtree(output)
     # One direct Ground keeps the fixture builder's authenticated base small;
@@ -151,8 +190,9 @@ def build(output: Path) -> Path:
     if deep.is_symlink():
         deep.unlink()
     shutil.copy2(ROOT / "Data/MapStatus/deep_shadow.json", deep)
+    install_material_candidate(quest, candidate)
     install_probe(quest)
-    prepare_music(output / "asset")
+    prepare_content_overlay(output / "asset", candidate)
     manifest = json.loads((output / "fixture_manifest.json").read_text(encoding="utf-8"))
     manifest.update({
         "schema": "new-era.pmdred-eu.sinister-woods-procedural-runtime-fixture.v1",
@@ -161,6 +201,8 @@ def build(output: Path) -> Path:
         "zone_sha256": __import__('hashlib').sha256((ROOT / "Data/Zone/gloomy_forest.json").read_bytes()).hexdigest(),
         "map_status_source": "Data/MapStatus/deep_shadow.json",
         "map_status_sha256": __import__('hashlib').sha256((ROOT / "Data/MapStatus/deep_shadow.json").read_bytes()).hexdigest(),
+        "material_candidate": str(candidate.relative_to(ROOT)) if candidate is not None and candidate.is_relative_to(ROOT) else (str(candidate) if candidate is not None else None),
+        "material_candidate_manifest_sha256": __import__('hashlib').sha256((candidate / "manifest.json").read_bytes()).hexdigest() if candidate is not None else None,
         "segments": list(SEGMENTS),
         "production_assets_modified": False,
     })
@@ -171,9 +213,11 @@ def build(output: Path) -> Path:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=Path(".runtime-cache/sinister-woods-procedural-fixture"))
+    parser.add_argument("--candidate", type=Path, help="optional staged b41 candidate to overlay")
     args = parser.parse_args()
     output = args.output if args.output.is_absolute() else ROOT / args.output
-    print(build(output))
+    candidate = None if args.candidate is None else (args.candidate if args.candidate.is_absolute() else ROOT / args.candidate)
+    print(build(output, candidate))
     return 0
 
 
