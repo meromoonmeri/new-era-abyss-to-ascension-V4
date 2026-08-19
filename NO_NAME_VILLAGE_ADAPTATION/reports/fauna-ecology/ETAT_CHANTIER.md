@@ -145,15 +145,13 @@ présente pas comme telle.
 
 1. **Runtime PMDO** dès qu'un bundle .NET est disponible → certification.
 2. ~~**Variantes automne/hiver/printemps** des 34 Grounds → libère les 109 HELD.~~
-   **Terrain levé** — voir `HELD_SEASONAL_TERRAIN.md`. Ces variantes n'avaient
-   pas à être produites : les 15 rooms concernées sont peintes dans **une seule
-   saison en dur**, et c'est déjà celle qu'exigent leurs entités (15/15).
-   `rmvillage` était le cas particulier, pas la règle. Reste à convertir ces
-   rooms en Grounds PMDO.
-3. **Reconversion des 11 rooms `NO_PROOF`** → libère les 57 HELD, Cradily et
-   Sandshrew. **Rendu et audit faits** (`reports/noproof-rooms/`) : 11/11
-   rendues, 152 créatures, 0 sans Pokémon. La **conversion** et la **collision**
-   restent à produire.
+   ~~Terrain levé.~~ **Conversion faite** — voir `held-converted/`. 15/15 rooms
+   converties en Grounds PMDO normalisés ×0,125, dans leur **saison native**,
+   100 % de couverture, 0 tuile non résolue. Ne reste que le runtime.
+3. ~~**Reconversion des 11 rooms `NO_PROOF`**~~ → **faite**, voir
+   `../noproof-rooms/converted/`. 11/11 converties et normalisées, collision
+   8 px produite (315 à 2 002 cellules bloquantes selon la room), 0 tuile non
+   résolue. Ne reste que le runtime.
 4. **`init.lua` par Ground** appelant `NNVEcology.Load()` : les scripts sont
    installés mais aucun Ground ne les invoque encore. C'est la prochaine étape
    d'activation, et elle touche 34 fichiers.
@@ -169,8 +167,8 @@ blocage** restant sur les 166 non injectées :
 
 | Lot | Avant | Maintenant | Reste à faire |
 |---|---|---|---|
-| 109 | terrain saisonnier inconnu | **terrain prouvé (15/15 rooms)** | conversion Ground + runtime |
-| 57 | ni rendu ni collision | **rendu prouvé (11/11 rooms)** | conversion Ground + collision + runtime |
+| 109 | terrain saisonnier inconnu | **converti en Ground PMDO (15/15)** | runtime 0.8.12 |
+| 57 | ni rendu ni collision | **converti + collision 8 px (11/11)** | runtime 0.8.12 |
 
 **Aucune entité n'a été promue.** `promotion_allowed` reste `false` sur les deux
 lots. Le fail-closed n'a pas été assoupli : ce sont les preuves manquantes qui
@@ -180,3 +178,39 @@ Un défaut réel a d'ailleurs été trouvé au passage et corrigé : `is_snow_rg
 ne reconnaissait pas la neige lavande de NNV, et l'atlas étiquetait `grass`
 16 896 cellules enneigées. Les 43 positions d'hiver ont été revérifiées contre
 l'habitat déclaré de chaque espèce — 43 conformes, 0 non conforme.
+
+
+---
+
+## 9. Mise à jour — les deux lots ne sont plus bloqués que par le runtime
+
+Les 166 entités non injectées attendaient chacune une conversion en Ground PMDO.
+**Elle est produite pour les 26 rooms concernées.**
+
+| Lot | Rooms | Conversion | Collision | Couverture | Reste |
+|---|---:|---|---|---:|---|
+| 109 HELD | 15 | ✅ 15/15 | ✅ | 100 % | runtime |
+| 57 NO_PROOF | 11 | ✅ 11/11 | ✅ | 94,2–100 % | runtime |
+
+### Un défaut réel trouvé au passage, dans mon propre travail
+
+Le premier jet convertissait tout en `--season summer`. Or le convertisseur ne
+se contente pas d'étiqueter la saison : il **substitue le tileset** de chaque
+couche. **12 rooms sur 26 sont hivernales** et ressortaient avec un sol vert au
+lieu de la neige — la mauvaise saison peinte sur toute la carte.
+
+Aucun compteur ne l'a signalé : toutes affichaient `CONVERTED_NORMALISED` et
+0 tuile non résolue. **C'est la planche de contact qui l'a montré.**
+
+`tools/detect_native_season.py` corrige à la racine, et son résultat recoupe
+exactement le classement 10 automne / 5 hiver de `HELD_SEASONAL_TERRAIN.md`,
+obtenu par une méthode indépendante.
+
+### La promotion reste refusée
+
+`promotion_allowed` = **`false`** sur les deux lots. Restent ouverts les blockers
+du convertisseur — faune non liée au moteur, transitions non résolues, couches
+`Effect` non portées — et surtout le **runtime PMDO 0.8.12**, jamais exécuté :
+ni `dotnet` ni `mono`, les 5 hôtes .NET répondent `000`.
+
+Réconciliation inchangée : `1 808 = 1 642 + 109 + 57`.
