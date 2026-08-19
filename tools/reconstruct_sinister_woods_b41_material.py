@@ -354,6 +354,10 @@ def build(rom_path: Path, output: Path, *, startup_adapter: bool = False) -> dic
             "procedural_resources": ["b41fon", "b41cel", "b41cex", "b41pal", "b41canm"],
             "selection_source": "mapparam selector rows 1..12 for dungeon ID 3",
         },
+        "namespace": {
+            "sheet": SHEET,
+            "autotile_files": dict(CATEGORY_FILES),
+        },
         "source_resources": {
             name: {"size": len(source[name]), "sha256": sha256(source[name]), "archive": source_meta[name]}
             for name in source

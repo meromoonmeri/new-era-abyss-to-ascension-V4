@@ -1,78 +1,111 @@
-﻿{
-"Version": "0.8.9.0",
-"Object": {
-"$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
-"apricorn_grove_black": {
-"Name": {
-"DefaultText": "Apricorn Grove Black",
-"LocalTexts": {}
-},
-"Released": true,
-"Comment": "",
-"SortOrder": 0
-},
-"apricorn_grove_blue": {
-"Name": {
-"DefaultText": "Apricorn Grove Blue",
-"LocalTexts": {}
-},
-"Released": true,
-"Comment": "",
-"SortOrder": 0
-},
-"apricorn_grove_brown": {
-"Name": {
-"DefaultText": "Apricorn Grove Brown",
-"LocalTexts": {}
-},
-"Released": true,
-"Comment": "",
-"SortOrder": 0
-},
-"apricorn_grove_green": {
-"Name": {
-"DefaultText": "Apricorn Grove Green",
-"LocalTexts": {}
-},
-"Released": true,
-"Comment": "",
-"SortOrder": 0
-},
-"apricorn_grove_purple": {
-"Name": {
-"DefaultText": "Apricorn Grove Purple",
-"LocalTexts": {}
-},
-"Released": true,
-"Comment": "",
-"SortOrder": 0
-},
-"apricorn_grove_red": {
-"Name": {
-"DefaultText": "Apricorn Grove Red",
-"LocalTexts": {}
-},
-"Released": true,
-"Comment": "",
-"SortOrder": 0
-},
-"apricorn_grove_white": {
-"Name": {
-"DefaultText": "Apricorn Grove White",
-"LocalTexts": {}
-},
-"Released": true,
-"Comment": "",
-"SortOrder": 0
-},
-"apricorn_grove_yellow": {
-"Name": {
-"DefaultText": "Apricorn Grove Yellow",
-"LocalTexts": {}
-},
-"Released": true,
-"Comment": "",
-"SortOrder": 0
-}
-}
+{
+  "Version": "0.8.9.0",
+  "Object": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
+    "apricorn_grove_black": {
+      "Name": {
+        "DefaultText": "Apricorn Grove Black",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "apricorn_grove_blue": {
+      "Name": {
+        "DefaultText": "Apricorn Grove Blue",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "apricorn_grove_brown": {
+      "Name": {
+        "DefaultText": "Apricorn Grove Brown",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "apricorn_grove_green": {
+      "Name": {
+        "DefaultText": "Apricorn Grove Green",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "apricorn_grove_purple": {
+      "Name": {
+        "DefaultText": "Apricorn Grove Purple",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "apricorn_grove_red": {
+      "Name": {
+        "DefaultText": "Apricorn Grove Red",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "apricorn_grove_white": {
+      "Name": {
+        "DefaultText": "Apricorn Grove White",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "apricorn_grove_yellow": {
+      "Name": {
+        "DefaultText": "Apricorn Grove Yellow",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "sinister_woods_b41_floor": {
+      "Name": {
+        "DefaultText": "Sinister Woods b41 Floor",
+        "LocalTexts": {
+          "fr": "Bois Sinistre b41 — floor"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Red EU b41 procedural material for dungeon ID 3; promoted under the unique SinisterWoodsB41 namespace. CEX variants 0..2 and independent CANM overlay layers are retained.",
+      "SortOrder": 0
+    },
+    "sinister_woods_b41_wall": {
+      "Name": {
+        "DefaultText": "Sinister Woods b41 Wall",
+        "LocalTexts": {
+          "fr": "Bois Sinistre b41 — wall"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Red EU b41 procedural material for dungeon ID 3; promoted under the unique SinisterWoodsB41 namespace. CEX variants 0..2 and independent CANM overlay layers are retained.",
+      "SortOrder": 0
+    },
+    "sinister_woods_b41_secondary": {
+      "Name": {
+        "DefaultText": "Sinister Woods b41 Secondary",
+        "LocalTexts": {
+          "fr": "Bois Sinistre b41 — secondary"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Red EU b41 procedural material for dungeon ID 3; promoted under the unique SinisterWoodsB41 namespace. CEX variants 0..2 and independent CANM overlay layers are retained.",
+      "SortOrder": 0
+    }
+  }
 }

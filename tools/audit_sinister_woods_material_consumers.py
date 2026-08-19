@@ -22,6 +22,10 @@ TOKENS = (
     "treeshroud_forest_1_wall",
     "treeshroud_forest_1_secondary",
     "TreeshroudForest1",
+    "sinister_woods_b41_floor",
+    "sinister_woods_b41_wall",
+    "sinister_woods_b41_secondary",
+    "SinisterWoodsB41",
 )
 
 
@@ -71,7 +75,15 @@ def audit() -> dict[str, Any]:
     relic_zone = next((row for row in runtime if row["path"] == "Data/Zone/relic_forest.json"), None)
     relic_maps = [row for row in runtime if row["path"].startswith("Data/Map/relic_forest_blob_")]
     non_sinister_runtime = [row for row in runtime if row["path"] != "Data/Zone/gloomy_forest.json"]
-    shared_name_consumers = [row for row in non_sinister_runtime if row["path"] != "Data/Zone/relic_forest.json" or row["matches"].get("treeshroud_forest_1_floor", 0) > 0]
+    sinister_shared_count = sum(
+        value for token, value in (sinister_zone or {}).get("matches", {}).items()
+        if token.startswith("treeshroud_") or token == "TreeshroudForest1"
+    )
+    sinister_unique_count = sum(
+        value for token, value in (sinister_zone or {}).get("matches", {}).items()
+        if token.startswith("sinister_woods_b41_") or token == "SinisterWoodsB41"
+    )
+    unique_namespace_route = sinister_shared_count == 0 and sinister_unique_count > 0
     blockers = []
     if sinister_zone is None:
         blockers.append("SINISTER_ZONE_CONSUMER_MISSING")
@@ -79,7 +91,7 @@ def audit() -> dict[str, Any]:
         blockers.append("RELIC_FOREST_ZONE_CONSUMER_MISSING")
     if len(relic_maps) != 6:
         blockers.append("RELIC_BLOB_TRANSITIVE_CONSUMER_COUNT_MISMATCH")
-    if non_sinister_runtime:
+    if non_sinister_runtime and not unique_namespace_route:
         blockers.append("SHARED_TREESHROUD_NAMES_HAVE_NON_SINISTER_RUNTIME_CONSUMERS")
 
     return {
@@ -92,12 +104,15 @@ def audit() -> dict[str, Any]:
             "relic_forest_blob_map_count": len(relic_maps),
             "non_sinister_runtime_consumers": non_sinister_runtime,
             "shared_name_promotion_is_unsafe": bool(non_sinister_runtime),
+            "sinister_shared_reference_count": sinister_shared_count,
+            "sinister_unique_namespace_reference_count": sinister_unique_count,
+            "unique_namespace_route_proven": unique_namespace_route,
             "safe_route": "unique_sinister_woods_b41_namespace_or_independently_decouple_all_non_sinister_consumers",
             "relic_forest_assets_must_remain_untouched": True,
         },
         "production_route_written": False,
         "blockers": blockers,
-        "result": "BLOCKED_WITH_EXACT_MISSING_COMPONENT" if blockers else "PASS_SHARED_NAMES_SAFE",
+        "result": "BLOCKED_WITH_EXACT_MISSING_COMPONENT" if blockers else "PASS_UNIQUE_NAMESPACE_SEPARATED",
         "exact_missing_component": "SHARED_TREESHROUD_CONSUMERS_REQUIRE_DECOUPLING_BEFORE_PROMOTION" if blockers else None,
     }
 

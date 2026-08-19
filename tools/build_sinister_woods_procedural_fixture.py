@@ -128,22 +128,18 @@ def install_probe(quest: Path) -> None:
     )
 
 
-def install_startup_adapter(quest: Path) -> None:
+def install_startup_adapter(quest: Path, sheet_name: str, categories: list[str]) -> None:
     """Install the fixture-local exact one-shot CANM frame rotation adapter."""
-    main_path = quest / "Data/Script/halcyon/main.lua"
-    main_text = main_path.read_text(encoding="utf-8")
-    if "sinister_woods_b41_startup_adapter" not in main_text:
-        main_path.write_text(
-            main_text + "\nrequire 'halcyon.services.sinister_woods_b41_startup_adapter'\n",
-            encoding="utf-8",
-        )
     adapter = quest / "Data/Script/halcyon/services/sinister_woods_b41_startup_adapter/init.lua"
     adapter.parent.mkdir(parents=True, exist_ok=True)
-    adapter.write_text('''require 'origin.common'
+    cats_lua = ",".join("'" + value + "'" for value in categories)
+    fields = ('Tilex00','Tilex01','Tilex02','Tilex03','Tilex13','Tilex04','Tilex05','Tilex06','Tilex26','Tilex07','Tilex17','Tilex27','Tilex37','Tilex08','Tilex09','Tilex89','Tilex0A','Tilex0B','Tilex1B','Tilex8B','Tilex9B','Tilex0C','Tilex4C','Tilex0D','Tilex4D','Tilex8D','TilexCD','Tilex0E','Tilex2E','Tilex4E','Tilex6E','Tilex0F','Tilex1F','Tilex2F','Tilex3F','Tilex4F','Tilex5F','Tilex6F','Tilex7F','Tilex8F','Tilex9F','TilexAF','TilexBF','TilexCF','TilexDF','TilexEF','TilexFF')
+    fields_lua = ",".join("'" + value + "'" for value in fields)
+    adapter.write_text(f'''require 'origin.common'
 require 'origin.services.baseservice'
 local V=Class('SinisterWoodsB41StartupAdapter',BaseService)
-local CATS={'treeshroud_forest_1_floor','treeshroud_forest_1_wall','treeshroud_forest_1_secondary'}
-local FIELDS={'Tilex00','Tilex01','Tilex02','Tilex03','Tilex13','Tilex04','Tilex05','Tilex06','Tilex26','Tilex07','Tilex17','Tilex27','Tilex37','Tilex08','Tilex09','Tilex89','Tilex0A','Tilex0B','Tilex1B','Tilex8B','Tilex9B','Tilex0C','Tilex4C','Tilex0D','Tilex4D','Tilex8D','TilexCD','Tilex0E','Tilex2E','Tilex4E','Tilex6E','Tilex0F','Tilex1F','Tilex2F','Tilex3F','Tilex4F','Tilex5F','Tilex6F','Tilex7F','Tilex8F','Tilex9F','TilexAF','TilexBF','TilexCF','TilexDF','TilexEF','TilexFF'}
+local CATS={{{cats_lua}}}
+local FIELDS={{{fields_lua}}}
 local function each_layer(fn)
   for _,cat in ipairs(CATS) do
     local auto=_DATA:GetAutoTile(cat)
@@ -156,7 +152,7 @@ local function each_layer(fn)
     end
   end
 end
-local function frame(x,y)return RogueEssence.Dungeon.TileFrame(RogueElements.Loc(x,y),'TreeshroudForest1')end
+local function frame(x,y)return RogueEssence.Dungeon.TileFrame(RogueElements.Loc(x,y),'{sheet_name}')end
 local function clock()return tonumber(RogueEssence.Content.GraphicsManager.TotalFrameTick)end
 local function restore_raw_startup()
   local count=0
@@ -212,7 +208,7 @@ return V
 ''', encoding="utf-8")
 
 
-def prepare_content_overlay(asset_root: Path, candidate: Path | None) -> None:
+def prepare_content_overlay(asset_root: Path, candidate: Path | None, sheet_name: str) -> None:
     """Make Content writable in the fixture without ever mutating DumpAsset."""
     content = asset_root / "Content"
     if content.is_symlink():
@@ -228,7 +224,7 @@ def prepare_content_overlay(asset_root: Path, candidate: Path | None) -> None:
     tile.mkdir()
     source_tile = source_content / "Tile"
     for child in source_tile.iterdir():
-        if child.name not in {"index.idx", "TreeshroudForest1.tile"}:
+        if child.name not in {"index.idx", "TreeshroudForest1.tile", f"{sheet_name}.tile"}:
             (tile / child.name).symlink_to(child.resolve(), target_is_directory=child.is_dir())
     # Sinister Woods music is a project asset, not a DumpAsset base asset.
     music = content / "Music"
@@ -237,28 +233,37 @@ def prepare_content_overlay(asset_root: Path, candidate: Path | None) -> None:
     source_index = source_tile / "index.idx"
     nodes = BASE.read_tile_index(source_index)
     if candidate is not None:
-        candidate_tile = candidate / "Content/Tile/TreeshroudForest1.tile"
+        candidate_tile = candidate / "Content/Tile" / f"{sheet_name}.tile"
         candidate_node, _ = BASE.tile_node(candidate_tile.read_bytes())
-        nodes["TreeshroudForest1"] = candidate_node
-        shutil.copy2(candidate_tile, tile / "TreeshroudForest1.tile")
+        nodes[sheet_name] = candidate_node
+        shutil.copy2(candidate_tile, tile / f"{sheet_name}.tile")
     else:
-        (tile / "TreeshroudForest1.tile").symlink_to(
-            (source_tile / "TreeshroudForest1.tile").resolve()
-        )
+        require_sheet = source_tile / f"{sheet_name}.tile"
+        if not require_sheet.is_file():
+            raise FileNotFoundError(require_sheet)
+        (tile / f"{sheet_name}.tile").symlink_to(require_sheet.resolve())
     BASE.write_tile_index(tile / "index.idx", nodes)
 
 
-def install_material_candidate(quest: Path, candidate: Path | None) -> None:
+def install_material_candidate(quest: Path, candidate: Path | None, auto_files: dict[str, str]) -> None:
     if candidate is None:
         return
     target = quest / "Data/AutoTile"
     target.mkdir(parents=True, exist_ok=True)
-    for name in (
-        "treeshroud_forest_1_floor.json",
-        "treeshroud_forest_1_wall.json",
-        "treeshroud_forest_1_secondary.json",
-    ):
+    for name in auto_files.values():
         shutil.copy2(candidate / "Data/AutoTile" / name, target / name)
+    index = json.loads((ROOT / ".runtime-cache/DumpAsset/Data/AutoTile/index.idx").read_text(encoding="utf-8-sig"))
+    entries = index["Object"]
+    for name in auto_files.values():
+        payload = json.loads((target / name).read_text(encoding="utf-8"))["Object"]
+        auto_id = Path(name).stem
+        entries[auto_id] = {
+            "Name": payload["Name"],
+            "Released": True,
+            "Comment": payload.get("Comment", ""),
+            "SortOrder": 0,
+        }
+    (target / "index.idx").write_text(json.dumps(index, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def build(output: Path, candidate: Path | None = None) -> Path:
@@ -276,15 +281,24 @@ def build(output: Path, candidate: Path | None = None) -> Path:
     if deep.is_symlink():
         deep.unlink()
     shutil.copy2(ROOT / "Data/MapStatus/deep_shadow.json", deep)
-    install_material_candidate(quest, candidate)
     startup_adapter = False
+    sheet_name = "TreeshroudForest1"
+    auto_files = {
+        "floor": "treeshroud_forest_1_floor.json",
+        "wall": "treeshroud_forest_1_wall.json",
+        "secondary": "treeshroud_forest_1_secondary.json",
+    }
     if candidate is not None:
         candidate_manifest = json.loads((candidate / "manifest.json").read_text(encoding="utf-8"))
+        namespace = candidate_manifest.get("namespace", {})
+        sheet_name = namespace.get("sheet", sheet_name)
+        auto_files = namespace.get("autotile_files", auto_files)
         startup_adapter = bool(candidate_manifest.get("animation_adapter", {}).get("one_shot_startup_adapter", False))
+    install_material_candidate(quest, candidate, auto_files)
     install_probe(quest)
     if startup_adapter:
-        install_startup_adapter(quest)
-    prepare_content_overlay(output / "asset", candidate)
+        install_startup_adapter(quest, sheet_name, [Path(name).stem for name in auto_files.values()])
+    prepare_content_overlay(output / "asset", candidate, sheet_name)
     manifest = json.loads((output / "fixture_manifest.json").read_text(encoding="utf-8"))
     manifest.update({
         "schema": "new-era.pmdred-eu.sinister-woods-procedural-runtime-fixture.v1",
@@ -296,6 +310,8 @@ def build(output: Path, candidate: Path | None = None) -> Path:
         "material_candidate": str(candidate.relative_to(ROOT)) if candidate is not None and candidate.is_relative_to(ROOT) else (str(candidate) if candidate is not None else None),
         "material_candidate_manifest_sha256": __import__('hashlib').sha256((candidate / "manifest.json").read_bytes()).hexdigest() if candidate is not None else None,
         "startup_adapter": startup_adapter,
+        "material_sheet": sheet_name,
+        "material_autotile_files": auto_files,
         "segments": list(SEGMENTS),
         "production_assets_modified": False,
     })

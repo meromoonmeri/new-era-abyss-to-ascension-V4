@@ -300,9 +300,9 @@
                     },
                     "Value": {
                       "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "GroundTileset": "treeshroud_forest_1_floor",
-                      "BlockTileset": "treeshroud_forest_1_wall",
-                      "WaterTileset": "treeshroud_forest_1_secondary",
+                      "GroundTileset": "sinister_woods_b41_floor",
+                      "BlockTileset": "sinister_woods_b41_wall",
+                      "WaterTileset": "sinister_woods_b41_secondary",
                       "LayeredGround": false,
                       "IndependentGround": false,
                       "GroundElement": "grass"
@@ -4800,9 +4800,9 @@
                     },
                     "Value": {
                       "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "GroundTileset": "treeshroud_forest_1_floor",
-                      "BlockTileset": "treeshroud_forest_1_wall",
-                      "WaterTileset": "treeshroud_forest_1_secondary",
+                      "GroundTileset": "sinister_woods_b41_floor",
+                      "BlockTileset": "sinister_woods_b41_wall",
+                      "WaterTileset": "sinister_woods_b41_secondary",
                       "LayeredGround": false,
                       "IndependentGround": false,
                       "GroundElement": "grass"
@@ -6912,9 +6912,9 @@
                     },
                     "Value": {
                       "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "GroundTileset": "treeshroud_forest_1_floor",
-                      "BlockTileset": "treeshroud_forest_1_wall",
-                      "WaterTileset": "treeshroud_forest_1_secondary",
+                      "GroundTileset": "sinister_woods_b41_floor",
+                      "BlockTileset": "sinister_woods_b41_wall",
+                      "WaterTileset": "sinister_woods_b41_secondary",
                       "LayeredGround": false,
                       "IndependentGround": false,
                       "GroundElement": "grass"

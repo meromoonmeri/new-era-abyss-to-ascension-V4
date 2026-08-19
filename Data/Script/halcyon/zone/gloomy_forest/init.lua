@@ -1,4 +1,5 @@
 require 'origin.common'
+require 'halcyon.services.sinister_woods_b41_startup_adapter'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.LegendZones'
 require 'halcyon.ReplayEnding'

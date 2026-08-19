@@ -77,14 +77,16 @@ Référence : `Data/Zone/gloomy_forest.json:6808`,
 inventé et aucun remplacement approximatif (`darkness`, `dusk` ou autre) n'a
 été effectué.
 
-## Prochaine étape autorisée
+## Mise à jour post-gates — 2026-08-19
 
-1. dériver l'IR d'AutoTile b41 depuis les fonctions existantes de
-   `pmdred_dungeon_ground.py` ;
-2. produire un candidat sous `RESERVE/` ou `.runtime-cache/`, jamais dans
-   `Data/AutoTile/`/`Content/Tile/` directement ;
-3. valider indépendamment les mappings, les couleurs, les chunks, les CANM et
-   les collisions ;
-4. traiter séparément le composant `deep_shadow` à partir d'une preuve source ;
-5. rejouer le runtime procédural complet ;
-6. seulement alors décider de la promotion.
+Les étapes b41, `deep_shadow` et la séparation Relic Forest ont depuis été
+fermées. Le matériau n'est pas installé sous les noms Treeshroud partagés :
+les consommateurs Relic/New Era restent inchangés. La promotion contrôlée,
+avec namespace unique, est documentée dans
+`SINISTER_WOODS_B41_PROMOTION_2026-08-19.md`.
+
+Le présent document reste l'audit historique qui a établi `REPLACE_REQUIRED`
+pour l'ancien triplet Treeshroud ; il ne doit pas être lu comme le verdict
+final post-promotion. Le verdict graphique/runtime courant est celui de la
+preuve post-gates ; la certification du portage narratif PMD Red complet reste
+bloquée séparément.

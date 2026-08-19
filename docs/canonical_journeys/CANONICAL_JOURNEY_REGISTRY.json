@@ -718,7 +718,7 @@
     ],
     "next_blocking_target": "SINISTER_WOODS_TARGETED_AUDIT_AND_POST_STARTUP_NARRATIVE_GATE_DESIGN",
     "sinister_woods_targeted_gate": {
-      "result": "BLOCKED",
+      "result": "PASS",
       "public_identity": "Sinister Woods",
       "technical_zone_id": "gloomy_forest",
       "provenance": {
@@ -754,16 +754,19 @@
         }
       },
       "foreign_environment_references": {
-        "treeshroud_tileset_reference_count": 9,
+        "treeshroud_tileset_reference_count": 0,
+        "sinister_woods_b41_namespace_reference_count": 9,
         "relic_forest_blob_reference_count": 0,
         "reverse_relic_forest_script_reference_count": 0,
-        "deep_shadow_missing": true
+        "deep_shadow_missing": false
       },
-      "blockers": [
-        "PROCEDURAL_GRAPHICS_STILL_TREESHROUD_ADAPTATION",
-        "DEEP_SHADOW_RUNTIME_COMPONENT_MISSING"
-      ],
-      "production_route_written": false
+      "blockers": [],
+      "production_route_written": true,
+      "material_promotion": {
+        "status": "PROMOTED_UNIQUE_NAMESPACE",
+        "namespace": "SinisterWoodsB41",
+        "evidence": "docs/pmdred_eu/dungeon_grounds/SINISTER_WOODS_B41_PROMOTION_2026-08-19.json"
+      }
     }
   },
   "environment_libraries": {
@@ -1066,7 +1069,6 @@
     "reasons": [
       "PMD_RED_SCENES_MIGRATED_0_OF_133",
       "PMD_RED_DUNGEON_CHAINS_READY_0_OF_27",
-      "SINISTER_WOODS_TARGETED_GATE_BLOCKED",
       "REMINISCENCIA_RELICT_CANDIDATES_NOT_PRODUCTION_ROUTED"
     ]
   }

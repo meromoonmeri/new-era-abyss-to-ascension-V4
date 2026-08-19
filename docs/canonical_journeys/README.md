@@ -32,26 +32,28 @@ Red.
 
 ## Gate ciblé actuel : Sinister Woods
 
-Les éléments suivants passent :
+Les éléments suivants passent pour la route matériau/runtime :
 
-- Grounds D04P01/D04P02 présents ;
+- Grounds D04P01/D04P02 présents et inchangés ;
 - musique `Sinister Woods.ogg` sur les trois tranches procédurales ;
 - architecture 15 + 5 + 3 étages ;
 - tables Pokémon/niveaux/probabilités exactes sur le cycle canonique de 13
-  étages, puis répétition déclarée comme adaptation New Era.
+  étages, puis répétition déclarée comme adaptation New Era ;
+- matériau ROM b41 promu sous le namespace isolé `SinisterWoodsB41` ;
+- `deep_shadow` reconstruit et runtime testé ;
+- Relic Forest régressé après promotion, sans modification des six blobs.
 
-Deux blocages de production subsistent, indépendants du câblage Relic : les
-étages procéduraux emploient encore les AutoTiles `treeshroud_forest_1_*`, qui
-ne sont pas équivalents au matériau ROM b41, et le statut runtime
-`deep_shadow` du segment 3 n'a pas encore de composant source validé.
-
-La dépendance historique `relic_forest_blob_*` a été séparée et validée :
-`gloomy_forest` ne possède plus de `LoadBlobStep` ni de `ReverseRelicForest`,
-tandis que `relic_forest` conserve ses cinq étapes et les six maps nécessaires.
-La preuve structurelle et le runtime sont dans
+La séparation est volontaire : les anciens noms `treeshroud_forest_1_*` restent
+aux consommateurs New Era/Relic Forest. `gloomy_forest` ne possède plus de
+`LoadBlobStep`, de `ReverseRelicForest` ni de référence Treeshroud ; ses neuf
+références graphiques procédurales sont `sinister_woods_b41_*`. Les preuves sont
+`docs/pmdred_eu/dungeon_grounds/SINISTER_WOODS_B41_PROMOTION_2026-08-19.md` et
 `docs/pmdred_eu/narrative_audit/SINISTER_WOODS_RELIC_FOREST_SEPARATION_2026-08-18.md`.
-Les Grounds certifiés, scripts de chapitres 1–5 et routes FugitiveArc restent
-intacts.
+
+Le registre global reste bloqué honnêtement : les 133 scènes narratives, les
+27 chaînes dungeon-backed et le parcours PMD Red complet ne sont pas encore
+certifiés. Les Grounds certifiés, scripts de chapitres 1–5 et routes FugitiveArc
+restent intacts.
 
 ## IR des cinématiques de donjon
 

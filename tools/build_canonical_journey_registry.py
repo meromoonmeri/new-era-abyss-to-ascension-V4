@@ -67,6 +67,11 @@ def sinister_gate(repo: Path) -> dict[str, Any]:
     relic_blob_count = payload.count("relic_forest_blob_")
     reverse_relic_script_count = payload.count("ReverseRelicForest")
     treeshroud_count = payload.count("treeshroud_forest_1_")
+    unique_b41_count = sum(payload.count(token) for token in (
+        "sinister_woods_b41_floor",
+        "sinister_woods_b41_wall",
+        "sinister_woods_b41_secondary",
+    ))
     deep_shadow_missing = "deep_shadow" in payload and not (repo / "Data/MapStatus/deep_shadow.json").is_file()
     blockers = []
     if procedural != {0: 15, 1: 5, 3: 3}:
@@ -77,6 +82,8 @@ def sinister_gate(repo: Path) -> dict[str, Any]:
         blockers.append("CANONICAL_D04_GROUND_MISSING")
     if treeshroud_count:
         blockers.append("PROCEDURAL_GRAPHICS_STILL_TREESHROUD_ADAPTATION")
+    if unique_b41_count != 9:
+        blockers.append("UNIQUE_B41_GRAPHICS_NAMESPACE_INCOMPLETE")
     if relic_blob_count:
         blockers.append("RELIC_FOREST_BLOBS_MIXED_INTO_PMD_RED_CHAIN")
     if reverse_relic_script_count:
@@ -98,12 +105,18 @@ def sinister_gate(repo: Path) -> dict[str, Any]:
         "canonical_grounds": grounds,
         "foreign_environment_references": {
             "treeshroud_tileset_reference_count": treeshroud_count,
+            "sinister_woods_b41_namespace_reference_count": unique_b41_count,
             "relic_forest_blob_reference_count": relic_blob_count,
             "reverse_relic_forest_script_reference_count": reverse_relic_script_count,
             "deep_shadow_missing": deep_shadow_missing,
         },
         "blockers": blockers,
-        "production_route_written": False,
+        "production_route_written": not blockers and unique_b41_count == 9,
+        "material_promotion": {
+            "status": "PROMOTED_UNIQUE_NAMESPACE" if not blockers and unique_b41_count == 9 else "NOT_PROMOTED",
+            "namespace": "SinisterWoodsB41",
+            "evidence": "docs/pmdred_eu/dungeon_grounds/SINISTER_WOODS_B41_PROMOTION_2026-08-19.json",
+        },
     }
 
 

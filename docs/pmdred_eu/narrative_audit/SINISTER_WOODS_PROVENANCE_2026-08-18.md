@@ -182,8 +182,10 @@ la preuve complète de séparation et de transitivité est
 
 La correspondance actuelle est :
 
-- `Data/Zone/gloomy_forest.json` →
-  `treeshroud_forest_1_floor/wall/secondary` ;
+- avant promotion, `Data/Zone/gloomy_forest.json` →
+  `treeshroud_forest_1_floor/wall/secondary` ; depuis la promotion contrôlée,
+  la zone utilise `sinister_woods_b41_floor/wall/secondary` et la feuille
+  `SinisterWoodsB41`, sous namespace propre ;
 - assets physiques de la source PMDO restaurée :
   `Content/Tile/TreeshroudForest1.tile`,
   `Data/AutoTile/treeshroud_forest_1_*.json`,
@@ -219,28 +221,29 @@ dans le dépôt comme un autotile PMDO réutilisé, pas comme une référence ve
 | `floor_id.json` / spawns | pret/pmd-red technique verrouillé | `PMD_RED_EU_CANON` pour données gameplay |
 | `SinisterWoodsFinalCanonical_Base` | ancien travail/rip Ground | preuve visuelle historique, pas équivalence dungeon procédurale complète |
 | `relic_forest_blob_*` | ancien contenu Relic Forest, commit 55860 | `NEW_ERA_NATIVE`, non canonique Sinister Woods |
-| `treeshroud_forest_1_*` | DumpAsset PMDO natif | équivalence PMD Red non démontrée |
+| `treeshroud_forest_1_*` | DumpAsset PMDO natif, conservé pour Relic/New Era | non canonique Sinister Woods |
+| `sinister_woods_b41_*` / `SinisterWoodsB41` | ROM EU b41 + adapter PMDO CANM, promotion unique | matériau procédural Sinister Woods promu, runtime validé |
 
-## 6. Conséquence pour la prochaine étape
+## 6. Conséquence et mise à jour de promotion
 
 L'audit ne conclut plus à une absence de données ROM. Les données graphiques
-ROM existent pour les Grounds D04 et pour le chemin dungeon-backed `b65*`.
+ROM existent pour les Grounds D04, pour la ligne finale `b65*` et pour les
+lignes procédurales `b41*`. La comparaison a démontré que Treeshroud n'est pas
+équivalent à b41.
 
-La prochaine étape légitime n'est **pas** de supprimer les blobs ou de copier
-`TreeshroudForest1`. Elle consiste à réutiliser la voie existante
-`tools/pmdred_dungeon_ground.py` pour fermer la correspondance **dungeon ID 3 →
-matériaux b65 → génération procédurale PMDO** :
+La route correcte a été exécutée :
 
 - conserver les BPL/BPC/BMA D04 et le bundle direct déjà validés ;
-- dériver les propriétés des matériaux `b65*` depuis la ROM, avec provenance ;
-- comparer leur composition, palettes, collision et CANM au triplet PMDO
-  `treeshroud_forest_1_*` ;
-- ne conserver le triplet PMDO comme équivalent que si cette comparaison
-  indépendante passe ;
-- traiter les six blobs Relic Forest séparément, car leur provenance est
-  désormais établie comme New Era et non PMD Red ;
-- ne modifier la zone qu'après cette gate et un runtime PMDO procédural
-  contrôlé.
+- dériver le matériau b41 depuis la ROM avec provenance, CEX, palettes et CANM ;
+- promouvoir le matériau sous `SinisterWoodsB41` et `sinister_woods_b41_*`, pas
+  sous les noms Treeshroud partagés ;
+- conserver les six blobs Relic Forest et tous leurs consommateurs intactes ;
+- valider l'index, le runtime des segments 0/1/3 et la régression Relic Forest.
 
-Aucune suppression, substitution, régénération PNG ou promotion n'a été
+Preuve : `docs/pmdred_eu/dungeon_grounds/SINISTER_WOODS_B41_PROMOTION_2026-08-19.md`.
+Les cinématiques, acteurs et chaînes narratives PMD Red complètes restent une
+étape séparée et non certifiée.
+
+Aucune suppression, substitution ou régénération PNG des assets partagés
+Treeshroud n'a été effectuée.
 réalisée pendant cet audit.

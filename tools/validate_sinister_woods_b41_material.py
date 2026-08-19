@@ -83,20 +83,20 @@ def coord(chunk_id: int, region: int, state: int = 0) -> tuple[int, int]:
     )
 
 
-def get_frame(layer: dict[str, Any], images: dict[tuple[int, int], Image.Image], index: int = 0) -> Image.Image:
+def get_frame(layer: dict[str, Any], images: dict[tuple[int, int], Image.Image], sheet_name: str, index: int = 0) -> Image.Image:
     frame = layer["Frames"][index]
-    require(frame["Sheet"] == "TreeshroudForest1", "frame points to a foreign tile sheet")
+    require(frame["Sheet"] == sheet_name, "frame points to a foreign tile sheet")
     loc = frame["TexLoc"]
     key = (int(loc["X"]), int(loc["Y"]))
     require(key in images, f"frame references missing atlas coordinate {key}")
     return images[key]
 
 
-def compose_layers(layers: list[dict[str, Any]], images: dict[tuple[int, int], Image.Image], states: dict[int, int]) -> Image.Image:
+def compose_layers(layers: list[dict[str, Any]], images: dict[tuple[int, int], Image.Image], states: dict[int, int], sheet_name: str) -> Image.Image:
     result = Image.new("RGBA", (24, 24), (0, 0, 0, 0))
     for layer_index, layer in enumerate(layers):
         frame_index = states.get(layer_index, 0)
-        result.alpha_composite(get_frame(layer, images, frame_index))
+        result.alpha_composite(get_frame(layer, images, sheet_name, frame_index))
     return result
 
 
@@ -124,15 +124,18 @@ def validate(rom_path: Path, candidate: Path) -> dict[str, Any]:
         for chunk_id in range(GROUND_CHUNK_COUNT)
     }
     candidate_manifest = json.loads((candidate / "manifest.json").read_text(encoding="utf-8"))
+    namespace = candidate_manifest.get("namespace", {"sheet": "TreeshroudForest1", "autotile_files": dict(FILES)})
+    sheet_name = namespace["sheet"]
+    candidate_files = namespace["autotile_files"]
     startup_adapter = bool(candidate_manifest.get("animation_adapter", {}).get("one_shot_startup_adapter", False))
-    atlas_path = candidate / "Content/Tile/TreeshroudForest1.tile"
+    atlas_path = candidate / "Content/Tile" / f"{sheet_name}.tile"
     images = read_tile(atlas_path)
     expected_atlas_coordinates = GROUND_CHUNK_COUNT * (1 + 16 * 16 + (16 if startup_adapter else 0))
     require(len(images) == expected_atlas_coordinates, f"atlas coordinate count {len(images)} != {expected_atlas_coordinates}")
     results: dict[str, Any] = {}
     layer_checks = 0
     pixel_checks = 0
-    for category, filename in FILES.items():
+    for category, filename in candidate_files.items():
         payload = json.loads((candidate / "Data/AutoTile" / filename).read_text(encoding="utf-8"))
         obj = payload["Object"]
         require(obj["$type"] == "RogueEssence.Data.AutoTileData, RogueEssence", f"{category}: wrong data type")
@@ -181,7 +184,7 @@ def validate(rom_path: Path, candidate: Path) -> dict[str, Any]:
                         frame_offset = 1 if startup_adapter else 0
                         for layer_pos, index in enumerate(used, 1):
                             actual_states[layer_pos] = (state if index == record_index else 0) + frame_offset
-                        actual_image = compose_layers(layers, images, actual_states)
+                        actual_image = compose_layers(layers, images, actual_states, sheet_name)
                         require(actual_image.tobytes() == expected_image.tobytes(), f"{category} 0x{code:02X} v{variant} r{record_index} s{state}: pixel composition mismatch")
                         pixel_checks += 1
         results[category] = category_result

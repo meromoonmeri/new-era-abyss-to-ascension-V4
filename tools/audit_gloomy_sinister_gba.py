@@ -51,6 +51,14 @@ def main():
             and "ReverseRelicForest" not in payload
         ),
         "no_treeshroud_graphics_substitution": "treeshroud_forest_1_" not in payload,
+        "unique_b41_graphics_namespace_complete": all(
+            token in payload
+            for token in (
+                "sinister_woods_b41_floor",
+                "sinister_woods_b41_wall",
+                "sinister_woods_b41_secondary",
+            )
+        ),
     }
     blockers = [name for name, passed in checks.items() if not passed]
     result = {

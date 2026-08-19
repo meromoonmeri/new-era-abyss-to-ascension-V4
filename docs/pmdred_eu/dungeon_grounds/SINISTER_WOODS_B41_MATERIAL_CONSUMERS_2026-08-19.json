@@ -4,9 +4,45 @@
     "treeshroud_forest_1_floor",
     "treeshroud_forest_1_wall",
     "treeshroud_forest_1_secondary",
-    "TreeshroudForest1"
+    "TreeshroudForest1",
+    "sinister_woods_b41_floor",
+    "sinister_woods_b41_wall",
+    "sinister_woods_b41_secondary",
+    "SinisterWoodsB41"
   ],
   "runtime_consumers": {
+    "other": [
+      {
+        "path": "Data/AutoTile/index.idx",
+        "matches": {
+          "sinister_woods_b41_floor": 1,
+          "sinister_woods_b41_wall": 1,
+          "sinister_woods_b41_secondary": 1
+        },
+        "total": 3
+      },
+      {
+        "path": "Data/AutoTile/sinister_woods_b41_floor.json",
+        "matches": {
+          "SinisterWoodsB41": 141
+        },
+        "total": 141
+      },
+      {
+        "path": "Data/AutoTile/sinister_woods_b41_secondary.json",
+        "matches": {
+          "SinisterWoodsB41": 34158
+        },
+        "total": 34158
+      },
+      {
+        "path": "Data/AutoTile/sinister_woods_b41_wall.json",
+        "matches": {
+          "SinisterWoodsB41": 141
+        },
+        "total": 141
+      }
+    ],
     "ground_runtime": [
       {
         "path": "Data/Ground/gloomy_forest_miniboss.rsground",
@@ -76,13 +112,25 @@
         "total": 271
       }
     ],
+    "script_runtime": [
+      {
+        "path": "Data/Script/halcyon/services/sinister_woods_b41_startup_adapter/init.lua",
+        "matches": {
+          "sinister_woods_b41_floor": 1,
+          "sinister_woods_b41_wall": 1,
+          "sinister_woods_b41_secondary": 1,
+          "SinisterWoodsB41": 4
+        },
+        "total": 7
+      }
+    ],
     "zone_runtime": [
       {
         "path": "Data/Zone/gloomy_forest.json",
         "matches": {
-          "treeshroud_forest_1_floor": 3,
-          "treeshroud_forest_1_wall": 3,
-          "treeshroud_forest_1_secondary": 3
+          "sinister_woods_b41_floor": 3,
+          "sinister_woods_b41_wall": 3,
+          "sinister_woods_b41_secondary": 3
         },
         "total": 9
       },
@@ -100,12 +148,16 @@
       {
         "path": "tools/audit_sinister_woods_material_consumers.py",
         "matches": {
-          "treeshroud_forest_1_floor": 2,
+          "treeshroud_forest_1_floor": 1,
           "treeshroud_forest_1_wall": 1,
           "treeshroud_forest_1_secondary": 1,
-          "TreeshroudForest1": 1
+          "TreeshroudForest1": 2,
+          "sinister_woods_b41_floor": 1,
+          "sinister_woods_b41_wall": 1,
+          "sinister_woods_b41_secondary": 1,
+          "SinisterWoodsB41": 2
         },
-        "total": 5
+        "total": 10
       },
       {
         "path": "tools/audit_sinister_woods_relic_forest_separation.py",
@@ -117,12 +169,13 @@
       {
         "path": "tools/build_sinister_woods_procedural_fixture.py",
         "matches": {
-          "treeshroud_forest_1_floor": 2,
-          "treeshroud_forest_1_wall": 2,
-          "treeshroud_forest_1_secondary": 2,
-          "TreeshroudForest1": 7
+          "treeshroud_forest_1_floor": 1,
+          "treeshroud_forest_1_wall": 1,
+          "treeshroud_forest_1_secondary": 1,
+          "TreeshroudForest1": 2,
+          "SinisterWoodsB41": 3
         },
-        "total": 13
+        "total": 8
       },
       {
         "path": "tools/gen_addon_pmdred_network.py",
@@ -187,6 +240,17 @@
         "total": 3
       },
       {
+        "path": "tools/namespace_sinister_woods_b41_candidate.py",
+        "matches": {
+          "treeshroud_forest_1_floor": 1,
+          "treeshroud_forest_1_wall": 1,
+          "treeshroud_forest_1_secondary": 1,
+          "TreeshroudForest1": 1,
+          "SinisterWoodsB41": 1
+        },
+        "total": 5
+      },
+      {
         "path": "tools/reconstruct_sinister_woods_b41_material.py",
         "matches": {
           "treeshroud_forest_1_floor": 2,
@@ -211,9 +275,9 @@
           "treeshroud_forest_1_floor": 1,
           "treeshroud_forest_1_wall": 1,
           "treeshroud_forest_1_secondary": 1,
-          "TreeshroudForest1": 2
+          "TreeshroudForest1": 1
         },
-        "total": 5
+        "total": 4
       }
     ],
     "documentation": [
@@ -226,6 +290,27 @@
           "TreeshroudForest1": 1
         },
         "total": 4
+      },
+      {
+        "path": "docs/pmdred_eu/dungeon_grounds/SINISTER_WOODS_B41_MATERIAL_CONSUMERS_2026-08-19.json",
+        "matches": {
+          "treeshroud_forest_1_floor": 43,
+          "treeshroud_forest_1_wall": 31,
+          "treeshroud_forest_1_secondary": 19,
+          "TreeshroudForest1": 13,
+          "sinister_woods_b41_floor": 4,
+          "sinister_woods_b41_wall": 4,
+          "sinister_woods_b41_secondary": 4,
+          "SinisterWoodsB41": 4
+        },
+        "total": 122
+      },
+      {
+        "path": "docs/pmdred_eu/dungeon_grounds/SINISTER_WOODS_B41_STARTUP_ADAPTER_2026-08-19.md",
+        "matches": {
+          "TreeshroudForest1": 1
+        },
+        "total": 1
       },
       {
         "path": "docs/pmdred_eu/dungeon_grounds/SINISTER_WOODS_MATERIAL_COMPARISON_2026-08-18.md",
@@ -305,9 +390,9 @@
     "sinister_woods_zone": {
       "path": "Data/Zone/gloomy_forest.json",
       "matches": {
-        "treeshroud_forest_1_floor": 3,
-        "treeshroud_forest_1_wall": 3,
-        "treeshroud_forest_1_secondary": 3
+        "sinister_woods_b41_floor": 3,
+        "sinister_woods_b41_wall": 3,
+        "sinister_woods_b41_secondary": 3
       },
       "total": 9
     },
@@ -398,13 +483,14 @@
       }
     ],
     "shared_name_promotion_is_unsafe": true,
+    "sinister_shared_reference_count": 0,
+    "sinister_unique_namespace_reference_count": 9,
+    "unique_namespace_route_proven": true,
     "safe_route": "unique_sinister_woods_b41_namespace_or_independently_decouple_all_non_sinister_consumers",
     "relic_forest_assets_must_remain_untouched": true
   },
   "production_route_written": false,
-  "blockers": [
-    "SHARED_TREESHROUD_NAMES_HAVE_NON_SINISTER_RUNTIME_CONSUMERS"
-  ],
-  "result": "BLOCKED_WITH_EXACT_MISSING_COMPONENT",
-  "exact_missing_component": "SHARED_TREESHROUD_CONSUMERS_REQUIRE_DECOUPLING_BEFORE_PROMOTION"
+  "blockers": [],
+  "result": "PASS_UNIQUE_NAMESPACE_SEPARATED",
+  "exact_missing_component": null
 }
