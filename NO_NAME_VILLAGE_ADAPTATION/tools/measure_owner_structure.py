@@ -57,6 +57,36 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def opacify_body(image: Image.Image, threshold: int = 250) -> tuple[Image.Image, int]:
+    """Ramene a 255 les pixels quasi opaques du corps du batiment.
+
+    Pourquoi c'est necessaire, et pourquoi ce n'est pas une retouche d'auteur
+    ----------------------------------------------------------------------
+    L'asset fourni n'a AUCUN pixel a alpha 255 : son maximum est 254, et
+    l'essentiel du corps est a 253. Ce n'est pas une intention artistique, c'est
+    un artefact de generation — un batiment opaque n'a pas de raison de laisser
+    passer 1 % du fond.
+
+    Consequence mesuree en situation : compose sur le terrain rmvillage, le
+    meme batiment donnait 23 382 divergences de pixels entre les quatre
+    saisons. Le terrain saisonnier transparaissait a travers les murs. En jeu,
+    la maison se serait teintee en vert au printemps et en lavande en hiver.
+
+    Seuls les pixels DEJA quasi opaques (alpha >= 250) sont concernes. Les
+    bords volontairement doux, les ombres portees et les zones translucides
+    sont laisses intacts : ils doivent se composer avec le terrain.
+    """
+    pixels = image.load()
+    promoted = 0
+    for y in range(image.height):
+        for x in range(image.width):
+            r, g, b, a = pixels[x, y]
+            if threshold <= a < 255:
+                pixels[x, y] = (r, g, b, 255)
+                promoted += 1
+    return image, promoted
+
+
 def strip_halo(image: Image.Image, threshold: int) -> tuple[Image.Image, int]:
     """Retire le halo quasi transparent qui entoure le sujet.
 
@@ -137,6 +167,7 @@ def main() -> int:
     cleaned, halo_removed = strip_halo(original.copy(), args.halo_threshold)
     box = cleaned.getbbox()
     core = cleaned.crop(box)
+    core, opacified = opacify_body(core)
     core_path = args.out / "core_native.png"
     core.save(core_path)
 
@@ -174,6 +205,12 @@ def main() -> int:
         "asset_sha256": sha256(args.asset),
         "source_px": source_size,
         "halo_px_removed": halo_removed,
+        "body_px_opacified_to_255": opacified,
+        "why_opacified": ("l'asset n'avait AUCUN pixel a alpha 255 ; le terrain "
+                          "saisonnier transparaissait a travers les murs, 23 382 px "
+                          "divergeaient entre les 4 saisons. Seuls les pixels deja "
+                          "quasi opaques (alpha >= 250) sont promus ; bords doux et "
+                          "ombres restent translucides."),
         "halo_threshold_alpha": args.halo_threshold,
         "core_bbox_in_source": list(box),
         "core_px": [core.width, core.height],

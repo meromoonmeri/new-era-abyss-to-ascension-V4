@@ -1,6 +1,7 @@
 {
   "asset": "ASSSET.png",
   "asset_sha256": "be2d42fcd47466509f0f4ba332db8978d53eef5ffa50c0089d08ba9907d659e4",
+  "body_px_opacified_to_255": 841792,
   "core_bbox_in_source": [
     112,
     15,
@@ -15,7 +16,7 @@
     1369,
     971
   ],
-  "core_sha256": "d0a724e2a9dad91d936c560c0ec0c93bce08e2f2d33a5de7c328cfb736293c7b",
+  "core_sha256": "7f6cda3cba6123b050f4b09e1f66c9c76d1d7404435b46df56615b25a0fce22b",
   "halo_px_removed": 27889,
   "halo_threshold_alpha": 8,
   "integration_allowed": false,
@@ -51,7 +52,7 @@
         5.06
       ],
       "nearest_png": "core_w114_NEAREST.png",
-      "nearest_sha256": "a387f5461a814cabe40ad8b0fe001ebceaac9604e1195610785df53319fd527c",
+      "nearest_sha256": "3811b38c30db83a1b1cf6eb7ed0a0781f8e88d22f24182b904092795dbecc654",
       "result_px": [
         114,
         81
@@ -74,7 +75,7 @@
         6.38
       ],
       "nearest_png": "core_w144_NEAREST.png",
-      "nearest_sha256": "699b4dd4dec0164ab21b00c6fbd000872652a5270a9f45a78bf2675384b86d33",
+      "nearest_sha256": "61938127a72ed3e478d63f774808af00597a581527f8786d065bed913df3472b",
       "result_px": [
         144,
         102
@@ -97,7 +98,7 @@
         7.81
       ],
       "nearest_png": "core_w176_NEAREST.png",
-      "nearest_sha256": "4377e80d24f6dacaa6dff69e85a2b4002d37e05c2a401279562ef3ad126827a9",
+      "nearest_sha256": "2e6cd356c5ae8ce8cefc808463a2cbd53e5c5c34f725292eb47384c801de2488",
       "result_px": [
         176,
         125
@@ -120,7 +121,7 @@
         9.38
       ],
       "nearest_png": "core_w212_NEAREST.png",
-      "nearest_sha256": "994907ffe3746d063f655080e4071ef11b1f4b0580238a9ec397c24c2caf7c7f",
+      "nearest_sha256": "7d1cfa14123e35679b0b0f00046b82c558c12278270cbadc58634432e4a5ef2d",
       "result_px": [
         212,
         150
@@ -137,10 +138,10 @@
   "verdict_at_x1": "12.0x trop large pour une maison PMDO : integration a x1 refusee",
   "why_not_native_pixel_art": {
     "alpha_profile": {
-      "fully_opaque_255": 0,
+      "fully_opaque_255": 841792,
       "fully_transparent": 462288,
-      "note": "aucun pixel a alpha 255 : le moteur composera TOUT le batiment avec le terrain, y compris son coeur",
-      "partially_transparent": 867011
+      "note": "coeur pleinement opaque present",
+      "partially_transparent": 25219
     },
     "distinct_colors": 178774,
     "grid_probe": {
@@ -152,5 +153,6 @@
         "4": 2186.176
       }
     }
-  }
+  },
+  "why_opacified": "l'asset n'avait AUCUN pixel a alpha 255 ; le terrain saisonnier transparaissait a travers les murs, 23 382 px divergeaient entre les 4 saisons. Seuls les pixels deja quasi opaques (alpha >= 250) sont promus ; bords doux et ombres restent translucides."
 }

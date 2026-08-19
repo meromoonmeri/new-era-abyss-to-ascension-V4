@@ -57,29 +57,63 @@ Les fichiers `CONTROL_ONLY_*_LANCZOS.png` existent **uniquement pour montrer ce
 que NEAREST coûte** sur une source non-pixel-art. Ils ne sont pas proposés à
 l'intégration et ne le seront pas.
 
-## 4. Aperçu in situ, aux 4 saisons
+## 4. SUBSTITUTION sur une parcelle NNV — l'erreur corrigée
 
-`IN_SITU_ALL_SEASONS.png` — les quatre candidats posés sur le terrain
-`rmvillage` réel, à côté des **six maisons PMU déjà intégrées**, dans les
-quatre saisons.
+**Mon premier jet était faux.** Il posait les quatre candidats sur du terrain
+**libre**, en cherchant explicitement un emplacement ne recouvrant aucun
+bâtiment. Résultat : j'**ajoutais** quatre maisons au village, et j'en affichais
+quatre alors que ce sont quatre **échelles du même asset**.
 
-L'emplacement de chaque aperçu est choisi par intersection de rectangles contre
-les six bâtiments existants, pas à l'œil : `overlaps_existing_building: false`
-sur les quatre.
+La demande était l'inverse : les quatre structures NNV (`objplayerhouse`,
+`objloggerhouse`, `objhunterhouse`, `objcarpenterhouse`) doivent être
+**remplacées**, et l'asset fourni occupe **l'un de ces quatre emplacements**.
 
-Le terrain vient des PNG de `reports/season-coherence/`, eux-mêmes rendus depuis
-les Grounds matérialisés — pas d'une composition à la volée.
+`tools/substitute_owner_structure_on_plot.py` fait la substitution :
 
-### Ce que l'image montre, après l'avoir regardée
+```
+bâtiment actuel de la parcelle  -> RETIRÉ
+structure du propriétaire       -> POSÉE à sa place
+terrain, arbres, chemins, reste -> INTACTS
+les 3 autres parcelles          -> INCHANGÉES
+```
 
-À **114 px** la structure est plus petite que les maisons PMU voisines : elle se
-lit comme une cabane secondaire. À **212 px** elle domine le four à pain et le
-sanctuaire, ce qui déséquilibre le village. **À 176 px elle a la même présence
-que les maisons PMU déjà posées** — c'est le seul candidat qui s'intègre sans
-hiérarchiser le village en sa faveur.
+**6 bâtiments avant, 6 après.** Le compte est vérifié, pas supposé.
 
-C'est une lecture visuelle, elle t'est soumise, elle ne se substitue pas à ton
-choix.
+Les 4 parcelles NNV sont déjà tenues par les frames 0–3 de la planche PMU :
+
+| Parcelle | Bâtiment remplacé | Position monde |
+|---|---|---|
+| `objplayerhouse` | frame 0 (122×120) | (50, 361) |
+| `objloggerhouse` | frame 1 (116×99) | (102, 181) |
+| `objhunterhouse` | frame 2 (115×98) | (478, 215) |
+| `objcarpenterhouse` | frame 3 (126×94) | (176, 3) |
+
+Ancrage : centré horizontalement sur le bâtiment remplacé, **aligné par le bas**
+— c'est la base qui touche le sol et où aboutit le chemin.
+
+### Le terrain sous la maison n'est pas inventé
+
+Premier essai : je recollais un morceau du rendu de parcelle dégagée. Ça
+laissait un **rectangle de terrain plus clair** visible à l'œil — le raccord ne
+tombait pas juste. Repris : le terrain est **rendu depuis le Ground matérialisé**
+de chaque saison en omettant simplement la `Decoration` remplacée. Ce qui
+apparaît sous la maison est le terrain réellement peint dans la donnée.
+
+### Un défaut réel de l'asset, trouvé en le composant
+
+Après substitution, la maison présentait **23 382 divergences de pixels** entre
+les quatre saisons. Cause : **l'asset n'a aucun pixel à alpha 255** — son maximum
+est 254, et l'essentiel du corps est à 253. Le terrain saisonnier
+**transparaissait à travers les murs**. En jeu, la maison se serait teintée en
+vert au printemps et en lavande en hiver.
+
+Correction : les pixels **déjà quasi opaques** (alpha ≥ 250) sont promus à 255.
+841 792 px sur l'asset natif. Les bords doux, ombres portées et zones
+volontairement translucides sont **laissés intacts** — ils doivent se composer
+avec le terrain.
+
+Après correction : **13 921 px pleinement opaques comparés, 424 semi-transparents
+exclus, 0 divergence** entre les quatre saisons. Vérifié aussi sur l'image.
 
 ## 5. Ce qui n'est pas prouvé
 
@@ -88,5 +122,8 @@ choix.
 - L'**intérieur** n'existe pas : pas de Ground d'intérieur, pas de porte câblée.
 - Le **runtime PMDO 0.8.12** reste `NOT_CERTIFIED` (ni dotnet ni mono
   disponibles ici).
-- Aucun choix de parcelle n'a été fait : la position dans l'aperçu est un
-  emplacement libre quelconque, pas une proposition d'urbanisme.
+- La parcelle montrée est `objplayerhouse`, **par défaut**. Les trois autres
+  s'obtiennent avec `--plot objloggerhouse|objhunterhouse|objcarpenterhouse`.
+  Le choix de la parcelle et de la largeur te revient.
+- Les **trois autres structures NNV** n'ont pas encore de remplaçant : tu n'as
+  fourni qu'un asset. Elles restent telles quelles.

@@ -1,0 +1,76 @@
+{
+  "building_count_unchanged": true,
+  "building_replaced": {
+    "frame": 0,
+    "map_loc": [
+      50,
+      361
+    ],
+    "size_px": [
+      122,
+      120
+    ]
+  },
+  "buildings_after": 6,
+  "buildings_before": 6,
+  "contact_sheet": "SUBSTITUTED_objplayerhouse_w176_ALL_SEASONS.png",
+  "contact_sheet_sha256": "09131db4d3206066cba8afb9b4d79c1bc0e164a1ce98e3a1144d69734d43af48",
+  "data_written_under_Data": false,
+  "map_modified": false,
+  "not_proven": "apercu visuel seulement : ni collision, ni porte, ni interieur, ni chargement PMDO 0.8.12",
+  "operation": "SUBSTITUTION (le batiment de la parcelle est remplace, aucun ajout)",
+  "other_plots_untouched": [
+    "objloggerhouse",
+    "objhunterhouse",
+    "objcarpenterhouse"
+  ],
+  "owner_structure": {
+    "anchor": "centre horizontal, aligne par le bas",
+    "placed_at": [
+      23,
+      356
+    ],
+    "size_px": [
+      176,
+      125
+    ],
+    "width_px": 176
+  },
+  "plot": "objplayerhouse",
+  "plot_box_world_px": {
+    "origin": [
+      36,
+      358
+    ],
+    "size": [
+      150,
+      123
+    ]
+  },
+  "removed_door_entity": "Exit_Door_106508",
+  "resampling": "NEAREST",
+  "schema": "new-era.owner-structure-substitution.v1",
+  "seasons": [
+    {
+      "png": "SUBSTITUTED_objplayerhouse_w176_spring.png",
+      "season": "spring",
+      "sha256": "f7b8db7c9660f13939f3ebb1a67fb202d236dcb7afcd4b8678a5e42e2f628e88"
+    },
+    {
+      "png": "SUBSTITUTED_objplayerhouse_w176_summer.png",
+      "season": "summer",
+      "sha256": "bd93f380df39b9617c98a8c4a2d367d4c1ce2719b5c2b35e2e70c66430a5c9bd"
+    },
+    {
+      "png": "SUBSTITUTED_objplayerhouse_w176_autumn.png",
+      "season": "autumn",
+      "sha256": "67247a9599f97ea533ac59177a1d841321bd9ba4a9af8d054a31f934a3a4172e"
+    },
+    {
+      "png": "SUBSTITUTED_objplayerhouse_w176_winter.png",
+      "season": "winter",
+      "sha256": "cb16c1a2c7875c4fefaffc348c431319860c0dcdd669e1a48f16dfb23f6a9b7e"
+    }
+  ],
+  "stage": "PREVIEW_ONLY"
+}
