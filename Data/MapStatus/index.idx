@@ -38,6 +38,17 @@
       "Comment": "",
       "SortOrder": 0
     },
+    "deep_shadow": {
+      "Name": {
+        "DefaultText": "Deep Shadow",
+        "LocalTexts": {
+          "fr": "Ombre profonde"
+        }
+      },
+      "Released": true,
+      "Comment": "Family setter for the gloomy_forest deep-shadow floors; visual defaults are darkness/dusk.",
+      "SortOrder": 0
+    },
     "falling_ash": {
       "Name": {
         "DefaultText": "Falling Ash",

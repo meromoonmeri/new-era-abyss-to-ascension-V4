@@ -1,58 +1,36 @@
-﻿{
+{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.MapStatusData, RogueEssence",
     "Name": {
-      "DefaultText": "Dusk",
+      "DefaultText": "Deep Shadow",
       "LocalTexts": {
-        "fr": "Crépuscule"
+        "fr": "Ombre profonde"
       }
     },
     "Desc": {
-      "DefaultText": "Used to simulate the evening, the sun is setting.",
+      "DefaultText": "Default weather-family setter for the deep-shadow dungeon floors.",
       "LocalTexts": {
-        "fr": "La lumière décline et la visibilité diminue."
+        "fr": "Sélecteur d'ambiance pour les étages plongés dans l'ombre."
       }
     },
     "Released": true,
-    "Comment": "",
+    "Comment": "Runtime adapter: this status is a family setter, not a visual effect. DefaultMapStatusStep writes the selected darkness/dusk ID into MapIDState; WeatherFillEvent materializes that selected status at map start and after refresh.",
     "CarryOver": false,
     "Emitter": {
-      "$type": "RogueEssence.Content.OverlayEmitter, RogueEssence",
-      "LocHeight": 0,
-      "finished": false,
-      "Offset": 0,
-      "Anim": {
-        "AnimIndex": "White",
-        "FrameTime": 3,
-        "StartFrame": -1,
-        "EndFrame": -1,
-        "AnimDir": 0,
-        "Alpha": 255,
-        "AnimFlip": 0
-      },
-      "Movement": {
-        "X": 0,
-        "Y": 0
-      },
-      "FadeIn": 0,
-      "FadeOut": 0,
-      "Layer": 4,
-      "Color": "55, 25, 10, 76"
+      "$type": "RogueEssence.Content.EmptySwitchOffEmitter, RogueEssence",
+      "LocHeight": 0
     },
-    "DefaultHidden": false,
+    "DefaultHidden": true,
     "StatusStates": [
       {
-        "$type": "RogueEssence.Dungeon.MapCountDownState, RogueEssence",
-        "Counter": 1
-      },
-      {
-        "$type": "RogueEssence.Dungeon.MapWeatherState, RogueEssence"
+        "$type": "RogueEssence.Dungeon.MapIDState, RogueEssence",
+        "ID": ""
       }
     ],
     "OnMapRefresh": [],
     "RepeatMethod": {
-      "$type": "PMDC.Dungeon.MapStatusRefreshEvent, PMDC"
+      "$type": "PMDC.Dungeon.MapStatusReplaceEvent, PMDC"
     },
     "ProximityEvent": {
       "Radius": -1,
@@ -95,10 +73,32 @@
     "OnStatusRemoves": [],
     "OnMapStatusAdds": [],
     "OnMapStatusRemoves": [],
-    "OnMapStarts": [],
+    "OnMapStarts": [
+      {
+        "Key": {
+          "str": [
+            0
+          ]
+        },
+        "Value": {
+          "$type": "PMDC.Dungeon.WeatherFillEvent, PMDC"
+        }
+      }
+    ],
     "OnTurnStarts": [],
     "OnTurnEnds": [],
-    "OnMapTurnEnds": [],
+    "OnMapTurnEnds": [
+      {
+        "Key": {
+          "str": [
+            6
+          ]
+        },
+        "Value": {
+          "$type": "PMDC.Dungeon.WeatherFillEvent, PMDC"
+        }
+      }
+    ],
     "OnWalks": [],
     "OnDeaths": [],
     "OnRefresh": [],

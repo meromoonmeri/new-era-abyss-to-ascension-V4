@@ -50,7 +50,7 @@
         "Counter": 1
       }
     ],
-    "OnMapRefresh": null,
+    "OnMapRefresh": [],
     "RepeatMethod": {
       "$type": "PMDC.Dungeon.MapStatusRefreshEvent, PMDC"
     },
