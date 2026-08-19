@@ -47,7 +47,8 @@ structures PMU confirmées = 40 à 212 px, médiane 98 px
 |---:|---:|---:|---:|:---:|
 | **114 px** | 114×81 | 7,1 × 5,1 | ×1,00 | ✅ |
 | **144 px** | 144×102 | 9,0 × 6,4 | ×1,26 | ✅ |
-| **176 px** | 176×125 | 11,0 × 7,8 | ×1,54 | ✅ |
+| **150 px** | 150×106 | 9,4 × 6,6 | ×1,32 | ✅ **retenu** |
+| **176 px** | 176×125 | 11,0 × 7,8 | ×1,54 | ✅ (déborde la parcelle) |
 | **212 px** | 212×150 | 13,3 × 9,4 | ×1,86 | ✅ (borne haute) |
 
 Aucun diviseur n'est entier — conséquence directe du point 1, pas une négligence.
@@ -88,8 +89,30 @@ Les 4 parcelles NNV sont déjà tenues par les frames 0–3 de la planche PMU :
 | `objhunterhouse` | frame 2 (115×98) | (478, 215) |
 | `objcarpenterhouse` | frame 3 (126×94) | (176, 3) |
 
-Ancrage : centré horizontalement sur le bâtiment remplacé, **aligné par le bas**
-— c'est la base qui touche le sol et où aboutit le chemin.
+### Le placement corrigé : ancré sur la parcelle
+
+Le premier jet centrait sur le **bâtiment sortant** et alignait par le bas. À
+176 px de large sur une parcelle de **150×123**, l'asset **débordait de 13 px de
+chaque côté** et empiétait sur les arbres voisins.
+
+L'ancrage porte désormais sur la **parcelle** — la surface réellement libérée
+par le retrait de la structure NNV : centré horizontalement dedans, aligné sur
+son bord bas où aboutit le chemin du village.
+
+La largeur retenue est **150 px**, la plus grande qui tienne dans la parcelle.
+Le confinement est **vérifié**, pas espéré : débordement `{left:0, right:0,
+top:0, bottom:0}`, `fits_in_plot: true`. Un dépassement serait signalé comme tel
+plutôt que corrigé en silence.
+
+### Son feuillage suit la saison
+
+L'asset porte **47,7 %** de verdure. Laissé vert vif, il aurait juré dans un
+village orange en automne et enneigé en hiver — exactement le défaut corrigé sur
+les deux autres bâtiments.
+
+Il reçoit donc la **même règle**, via le **même module**
+(`seasonalize_building_foliage.py`) : même sélection, mêmes teintes mesurées sur
+les arbres NNV. Voir `reports/season-coherence/FOLIAGE_README.md`.
 
 ### Le terrain sous la maison n'est pas inventé
 

@@ -41,6 +41,12 @@ SKELETON = ROOT / "generated/rmvillage/summer/Data/Ground/nnv_rmvillage_summer.r
 # demande), ni moins (ce serait une parcelle laissee vide).
 EXPECTED_BUILDINGS = 4
 
+# Le feuillage, lui, DOIT changer avec la saison : c'est de la vegetation, pas
+# de la maconnerie. Les pixels reconnus comme feuillage par
+# seasonalize_building_foliage.py sont donc exclus de l'exigence d'identite, et
+# soumis a l'exigence INVERSE : ils doivent differer entre les saisons, sinon
+# la saisonnalisation ne s'applique plus et c'est une regression.
+
 
 def read_tile_sheet(path: Path) -> list[Image.Image]:
     raw = path.read_bytes()
@@ -75,6 +81,27 @@ def decorations() -> list[dict]:
     return placed
 
 
+def load_foliage_masks(frames):
+    """Le masque de feuillage, importe du module qui l'a produit.
+
+    Recalculer la selection ici en dupliquant les seuils garantirait une
+    divergence le jour ou l'un des deux change. On importe.
+    """
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "seasonalize_building_foliage", ROOT / "tools/seasonalize_building_foliage.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    masks = []
+    for image in frames:
+        mask = module.foliage_mask(image)
+        opaque = sum(1 for y in range(image.height) for x in range(image.width)
+                     if image.getpixel((x, y))[3] >= 8)
+        material = len(mask) / max(1, opaque) >= module.FOLIAGE_MATERIAL_RATIO
+        masks.append(mask if material else set())
+    return masks
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--renders", type=Path, default=ROOT / "reports/season-coherence")
@@ -96,12 +123,16 @@ def main() -> int:
     frames = read_tile_sheet(ROOT / f"generated/rmvillage/summer/Content/Tile/{PMU_SHEET}")
     placed = decorations()
 
+    foliage_masks = load_foliage_masks(frames)
     per_building, total_opaque, total_soft, total_div = [], 0, 0, 0
+    total_foliage, foliage_static = 0, 0
     width, height = images["summer"].size
     for index, deco in enumerate(placed):
         sprite = frames[deco["frame"]]
+        mask = foliage_masks[deco["frame"]]
         pixels = sprite.load()
         opaque = soft = divergences = 0
+        foliage = foliage_unchanged = 0
         for sy in range(sprite.height):
             for sx in range(sprite.width):
                 alpha = pixels[sx, sy][3]
@@ -113,30 +144,48 @@ def main() -> int:
                 if alpha < 255:
                     soft += 1
                     continue
-                opaque += 1
                 reference = images["summer"].getpixel((x, y))
-                for season in SEASONS:
-                    if images[season].getpixel((x, y)) != reference:
-                        divergences += 1
+                differs = any(images[season].getpixel((x, y)) != reference
+                              for season in SEASONS)
+                if (sx, sy) in mask:
+                    # Feuillage : il DOIT changer. L'immobilite est le defaut.
+                    foliage += 1
+                    if not differs:
+                        foliage_unchanged += 1
+                    continue
+                opaque += 1
+                if differs:
+                    for season in SEASONS:
+                        if images[season].getpixel((x, y)) != reference:
+                            divergences += 1
         per_building.append({
             "building": index,
             "frame": deco["frame"],
             "map_loc": [deco["x"], deco["y"]],
             "sprite_px": [sprite.width, sprite.height],
-            "opaque_px_compared": opaque,
+            "structure_px_compared": opaque,
             "semi_transparent_px_excluded": soft,
-            "divergences": divergences,
+            "structure_divergences": divergences,
+            "foliage_px": foliage,
+            "foliage_px_not_seasonalised": foliage_unchanged,
         })
         total_opaque += opaque
         total_soft += soft
         total_div += divergences
+        total_foliage += foliage
+        foliage_static += foliage_unchanged
 
     # Le village compte QUATRE parcelles NNV, donc quatre batiments. Le seuil
     # etait fige a 6 : il datait des deux maisons hors parcelle ajoutees par
     # 9de06a7d, retirees depuis. Un verrou qui exige un nombre perime declare
     # DIVERGENT un etat correct — c'est exactement ce qui s'est produit ici,
     # avec 0 divergence reelle mais un verdict d'echec.
-    ok = total_div == 0 and identical_sheets and len(placed) == EXPECTED_BUILDINGS
+    # `identical_sheets` n'a plus lieu d'etre : les planches DOIVENT differer
+    # maintenant que le feuillage est saisonnalise. Ce qui doit tenir, c'est
+    # que la maconnerie ne bouge pas ET que le feuillage bouge.
+    ok = (total_div == 0
+          and foliage_static == 0
+          and len(placed) == EXPECTED_BUILDINGS)
 
     report = {
         "schema": "new-era.nnv-season-building-coherence.v1",
@@ -146,10 +195,17 @@ def main() -> int:
         "buildings_expected": EXPECTED_BUILDINGS,
         "one_building_per_nnv_plot": len(placed) == EXPECTED_BUILDINGS,
         "pmu_sheet_sha256_per_season": hashes,
-        "pmu_sheet_identical_across_seasons": identical_sheets,
-        "opaque_px_compared": total_opaque,
+        "pmu_sheet_sha256_differs_by_season": not identical_sheets,
+        "why_sheets_differ": ("attendu : le feuillage est recolore par saison. "
+                              "Des planches identiques signifieraient que la "
+                              "saisonnalisation n'est plus appliquee."),
+        "structure_px_compared": total_opaque,
         "semi_transparent_px_excluded": total_soft,
-        "divergences": total_div,
+        "structure_divergences": total_div,
+        "foliage_px": total_foliage,
+        "foliage_px_not_seasonalised": foliage_static,
+        "rule": ("maconnerie identique aux 4 saisons ; feuillage OBLIGATOIREMENT "
+                 "different. Un feuillage fige est un defaut, pas un succes."),
         "per_building": per_building,
         "verdict": "COHERENT" if ok else "DIVERGENT",
         "not_proven": "ce test prouve l'identite visuelle des batiments, PAS que le Ground se charge dans PMDO 0.8.12",

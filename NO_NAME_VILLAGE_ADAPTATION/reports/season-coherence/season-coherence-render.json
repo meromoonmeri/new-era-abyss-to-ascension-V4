@@ -1,13 +1,13 @@
 {
   "contact_sheet": "GROUND_ALL_SEASONS.png",
-  "contact_sheet_sha256": "f1c2bbd69365d809baa79baf6f8788784780894c3d83c004bedae9302b95c984",
+  "contact_sheet_sha256": "4649edfc7f4e99c0278eeae7c899e9165e9bf3c11fbb7dc1d8e308bdaada6d0e",
   "schema": "new-era.nnv-season-ground-render.v1",
   "seasons": [
     {
       "decorations_drawn": 4,
       "png": "ground_spring.png",
       "season": "spring",
-      "sha256": "6eeabc74fa7b21eca9a70bc2a42ff6e634a195a9f026d6b926e6c9f5915aafe4",
+      "sha256": "1139e788bf34602bad5c867c0ffc0c0560fa70dcf106545d000a40792865bb3d",
       "tiles_drawn": 25188,
       "world_px": 624
     },
@@ -23,7 +23,7 @@
       "decorations_drawn": 4,
       "png": "ground_autumn.png",
       "season": "autumn",
-      "sha256": "5c740ff262049914767b9e8ad11be66e5dbeefb9b6dd070959c42df75adda2c6",
+      "sha256": "ec214020ea0c7e051a2f232a29183390111ce3e67d9681bbd0fe4e808261acc3",
       "tiles_drawn": 24770,
       "world_px": 624
     },
@@ -31,7 +31,7 @@
       "decorations_drawn": 4,
       "png": "ground_winter.png",
       "season": "winter",
-      "sha256": "0e822f949917d573ca99583f735b6168483d5f99a7299a1b0565be1119d6253b",
+      "sha256": "797e65e4e07a16229b8b910423cdba0d4e862885f5f698276228b5ed72c468ae",
       "tiles_drawn": 17934,
       "world_px": 624
     }

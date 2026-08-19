@@ -13,9 +13,13 @@
   },
   "buildings_after": 4,
   "buildings_before": 4,
-  "contact_sheet": "SUBSTITUTED_objplayerhouse_w176_ALL_SEASONS.png",
-  "contact_sheet_sha256": "2a8b02b33f468eeb699831913bc921e927ec5133ee60964069b5c3f8c01f02e2",
+  "contact_sheet": "SUBSTITUTED_objplayerhouse_w150_ALL_SEASONS.png",
+  "contact_sheet_sha256": "b4533f075967e76f5100b88876b62a63bdf1840ac582d660e4ba643acb711b00",
   "data_written_under_Data": false,
+  "fits_in_plot": true,
+  "foliage_px": 4961,
+  "foliage_rule": "identique aux batiments de la planche (seasonalize_building_foliage)",
+  "foliage_seasonalised": true,
   "map_modified": false,
   "not_proven": "apercu visuel seulement : ni collision, ni porte, ni interieur, ni chargement PMDO 0.8.12",
   "operation": "SUBSTITUTION (le batiment de la parcelle est remplace, aucun ajout)",
@@ -24,17 +28,24 @@
     "objhunterhouse",
     "objcarpenterhouse"
   ],
+  "overflow_note": null,
+  "overflow_px": {
+    "bottom": 0,
+    "left": 0,
+    "right": 0,
+    "top": 0
+  },
   "owner_structure": {
-    "anchor": "centre horizontal, aligne par le bas",
+    "anchor": "centre dans la parcelle, aligne sur son bord bas",
     "placed_at": [
-      23,
-      356
+      36,
+      375
     ],
     "size_px": [
-      176,
-      125
+      150,
+      106
     ],
-    "width_px": 176
+    "width_px": 150
   },
   "plot": "objplayerhouse",
   "plot_box_world_px": {
@@ -52,24 +63,24 @@
   "schema": "new-era.owner-structure-substitution.v1",
   "seasons": [
     {
-      "png": "SUBSTITUTED_objplayerhouse_w176_spring.png",
+      "png": "SUBSTITUTED_objplayerhouse_w150_spring.png",
       "season": "spring",
-      "sha256": "df24054f5ee307108e1de8d5a40459582e53b1530d446cb9189437ad7456859a"
+      "sha256": "a6b870697dc9ed49ad05c3a07c2dfca02f3163701f6a2ccba9fa812a123883b1"
     },
     {
-      "png": "SUBSTITUTED_objplayerhouse_w176_summer.png",
+      "png": "SUBSTITUTED_objplayerhouse_w150_summer.png",
       "season": "summer",
-      "sha256": "49b252f9db67d7e9ffdc6b5c9931bd25815152ba52f48ca6cb45228e8d420a9b"
+      "sha256": "86845ebb0e6b1ca3ac39914e46e33c014078b6e6fa895ed0586194596afe2ccc"
     },
     {
-      "png": "SUBSTITUTED_objplayerhouse_w176_autumn.png",
+      "png": "SUBSTITUTED_objplayerhouse_w150_autumn.png",
       "season": "autumn",
-      "sha256": "420c3ebbcd41e9a851a629744d4f834e40d9e9191c8cb58ebebef7fff88b1d7d"
+      "sha256": "dbac704b323abf90c3c71329e115915d57274f2db9ed65c7d8b72937b4f66a70"
     },
     {
-      "png": "SUBSTITUTED_objplayerhouse_w176_winter.png",
+      "png": "SUBSTITUTED_objplayerhouse_w150_winter.png",
       "season": "winter",
-      "sha256": "519726ce8784fb2d0f1126299cc54ac07965ff0d3c44a865be6e5e8a7f1793a8"
+      "sha256": "db8a6fa5d49bd5488ca8bf6325f6f9e0dbe701d631c0f73d2b0fefae371c35d1"
     }
   ],
   "stage": "PREVIEW_ONLY"

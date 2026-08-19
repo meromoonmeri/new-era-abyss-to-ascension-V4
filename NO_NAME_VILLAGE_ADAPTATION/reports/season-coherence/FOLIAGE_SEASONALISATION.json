@@ -1,0 +1,133 @@
+{
+  "applied": true,
+  "foliage_selection": {
+    "hue_range": [
+      0.18,
+      0.45
+    ],
+    "material_ratio_threshold": 0.1,
+    "min_saturation": 0.25,
+    "min_value": 0.12,
+    "note": "masque calcule UNE fois sur la planche de reference et reutilise pour les 4 saisons ; sous le seuil de materialite la frame est recopiee telle quelle"
+  },
+  "frames": [
+    {
+      "foliage_px": 3187,
+      "frame": 0,
+      "green_px_selected": 3187,
+      "green_ratio": 0.3033,
+      "note": null,
+      "opaque_px": 10507,
+      "recolored": true,
+      "size_px": [
+        122,
+        120
+      ]
+    },
+    {
+      "foliage_px": 0,
+      "frame": 1,
+      "green_px_selected": 6,
+      "green_ratio": 0.0008,
+      "note": "recopiee octet pour octet : 6 px verts, 0.08 % — sous le seuil de 10 %, c'est du lisere de contour et non du feuillage (verifie a l'image)",
+      "opaque_px": 7558,
+      "recolored": false,
+      "size_px": [
+        116,
+        99
+      ]
+    },
+    {
+      "foliage_px": 4680,
+      "frame": 2,
+      "green_px_selected": 4680,
+      "green_ratio": 0.6566,
+      "note": null,
+      "opaque_px": 7128,
+      "recolored": true,
+      "size_px": [
+        115,
+        98
+      ]
+    },
+    {
+      "foliage_px": 0,
+      "frame": 3,
+      "green_px_selected": 248,
+      "green_ratio": 0.0307,
+      "note": "recopiee octet pour octet : 248 px verts, 3.07 % — sous le seuil de 10 %, c'est du lisere de contour et non du feuillage (verifie a l'image)",
+      "opaque_px": 8086,
+      "recolored": false,
+      "size_px": [
+        126,
+        94
+      ]
+    }
+  ],
+  "frames_recolored": 2,
+  "frames_untouched": 2,
+  "hue_source": "mediane HSV des sprites d'arbres NNV declares dans season-vm-evidence.json, ~99 000 px opaques par saison",
+  "question": "le feuillage des batiments suit-il la saison ?",
+  "reference_season": "summer",
+  "schema": "new-era.nnv-foliage-seasonalisation.v1",
+  "sheet_sha256_per_season": {
+    "autumn": "728affcb56d26d0f9d4779f6802e302674795a2d4a3fdf47512b5f7a6c0cfa79",
+    "spring": "b67b2aab2c7c5639810749e719d4d369e98a0c1fa2380c6d857181cafe77c790",
+    "summer": "59400d706536f23daaa5d38e3ee475cc98d22c70c3a5ab46f8a72198c58ce7bb",
+    "winter": "b1885bcbc7f92d7e979060e79987d57693d266d67725781807ed3e648d80ae1e"
+  },
+  "tree_hsv": {
+    "autumn": {
+      "h": 0.0944,
+      "s": 0.725,
+      "sprite": "bgautree",
+      "v": 0.898
+    },
+    "spring": {
+      "h": 0.4097,
+      "s": 0.744,
+      "sprite": "bgtree",
+      "v": 0.69
+    },
+    "summer": {
+      "h": 0.31,
+      "s": 0.641,
+      "sprite": "bgsmtree",
+      "v": 0.655
+    },
+    "winter": {
+      "h": 0.6489,
+      "s": 0.207,
+      "sprite": "bgwntree",
+      "v": 0.89
+    }
+  },
+  "value_preserved": true,
+  "variant_checks": [
+    {
+      "distinct_variants": 4,
+      "expected": 4,
+      "frame": 0,
+      "ok": true
+    },
+    {
+      "distinct_variants": 1,
+      "expected": 1,
+      "frame": 1,
+      "ok": true
+    },
+    {
+      "distinct_variants": 4,
+      "expected": 4,
+      "frame": 2,
+      "ok": true
+    },
+    {
+      "distinct_variants": 1,
+      "expected": 1,
+      "frame": 3,
+      "ok": true
+    }
+  ],
+  "why_value_preserved": "la luminosite n'est pas ecrasee : nervures claires et dessous sombres survivent, une feuille reste lisible"
+}

@@ -180,10 +180,44 @@ def main() -> int:
 
     sprite = Image.open(args.structure_dir / f"core_w{args.width}_NEAREST.png").convert("RGBA")
 
-    # Centre horizontalement sur le batiment remplace, aligne par le BAS :
-    # c'est la base de la maison qui touche le sol et ou aboutit le chemin.
-    x = replaced["x"] + (replaced["w"] - sprite.width) // 2
-    y = replaced["y"] + replaced["h"] - sprite.height
+    # L'asset du proprietaire porte lui aussi de la verdure (47,7 % de ses
+    # pixels opaques). S'il restait vert vif pendant que le village passe a
+    # l'orange puis a la neige, il jurerait exactement comme les deux batiments
+    # qu'on vient de corriger. On lui applique la MEME regle, via le meme
+    # module : meme selection, memes teintes mesurees sur les arbres NNV.
+    import importlib.util as _ilu
+    _spec = _ilu.spec_from_file_location("seasonalize_building_foliage",
+                                         ROOT / "tools/seasonalize_building_foliage.py")
+    _foliage = _ilu.module_from_spec(_spec)
+    _spec.loader.exec_module(_foliage)
+    sprite_by_season, foliage_px = _foliage.seasonal_variants(sprite)
+
+    # Ancrage sur la PARCELLE, pas sur le batiment remplace.
+    #
+    # Le premier jet centrait sur le batiment sortant et alignait par le bas.
+    # Quand l'asset est plus large que lui, il debordait : a 176 px de large sur
+    # une parcelle de 150, il sortait de 13 px de chaque cote et empietait sur
+    # les arbres voisins. Mesure faite, pas supposee.
+    #
+    # La parcelle est la surface reellement liberee par le retrait de la
+    # structure NNV. C'est donc elle qui borne le batiment entrant :
+    #   - centre horizontalement DANS la parcelle
+    #   - aligne par le BAS de la parcelle, ou aboutit le chemin du village
+    plot_x, plot_y = box["origin"]
+    plot_w, plot_h = box["size"]
+    x = plot_x + (plot_w - sprite.width) // 2
+    y = plot_y + plot_h - sprite.height
+
+    # Confinement verifie, pas espere. Un debordement est signale comme tel
+    # plutot que corrige en silence : c'est la largeur choisie qui est trop
+    # grande, et le proprietaire doit le savoir.
+    overflow = {
+        "left": max(0, plot_x - x),
+        "right": max(0, (x + sprite.width) - (plot_x + plot_w)),
+        "top": max(0, plot_y - y),
+        "bottom": max(0, (y + sprite.height) - (plot_y + plot_h)),
+    }
+    fits_in_plot = not any(overflow.values())
 
     grounds = {season: Image.open(args.renders / f"ground_{season}.png").convert("RGBA")
                for season in SEASONS}
@@ -212,7 +246,7 @@ def main() -> int:
                 f"Ground materialise absent : {ground_file}\n"
                 "Lancer d'abord : python3 tools/materialize_season_ground_x0125.py")
         canvas = render_without(renderer, ground_file, season, replaced["frame"])
-        canvas.alpha_composite(sprite, (x, y))
+        canvas.alpha_composite(sprite_by_season[season], (x, y))
         composed[season] = canvas
 
         target = args.out / f"SUBSTITUTED_{args.plot}_w{args.width}_{season}.png"
@@ -241,7 +275,14 @@ def main() -> int:
         "owner_structure": {"width_px": args.width,
                             "size_px": list(sprite.size),
                             "placed_at": [x, y],
-                            "anchor": "centre horizontal, aligne par le bas"},
+                            "anchor": "centre dans la parcelle, aligne sur son bord bas"},
+        "foliage_seasonalised": foliage_px > 0,
+        "foliage_px": foliage_px,
+        "foliage_rule": "identique aux batiments de la planche (seasonalize_building_foliage)",
+        "fits_in_plot": fits_in_plot,
+        "overflow_px": overflow,
+        "overflow_note": (None if fits_in_plot else
+                          "l'asset deborde de la parcelle : reduire --width"),
         "buildings_before": len(decorations),
         "buildings_after": len(decorations),
         "building_count_unchanged": True,
