@@ -70,7 +70,18 @@ TREE_HSV = {
     "winter": {"h": 0.6489, "s": 0.207, "v": 0.890, "sprite": "bgwntree"},
 }
 
-GREEN_HUE = (0.18, 0.45)
+# Borne basse a 0,155 et non 0,18.
+#
+# Mesure sur overw1 : la pelouse de Waves of Nostalgia se situe a H 0,155-0,18,
+# JUSTE sous l'ancien seuil. Resultat visible a l'image : en hiver, le feuillage
+# des arbres virait au lavande pendant que le sol restait jaune-vert d'ete.
+#
+# La borne ne peut pas descendre plus bas : a H 0,111 se trouve (255,223,159),
+# qui est EXACTEMENT la meme couleur pour la pelouse claire et pour le chemin
+# de sable. Recolorer cette teinte peindrait les chemins en orange puis en
+# lavande. Verifie a l'image : la bande 0,155-0,18 couvre la pelouse et epargne
+# le sable.
+GREEN_HUE = (0.155, 0.45)
 GREEN_MIN_SAT = 0.25
 GREEN_MIN_VAL = 0.12
 
@@ -81,6 +92,12 @@ GREEN_MIN_VAL = 0.12
 # l'antialiasing, pas des feuilles. Les recolorer poserait une frange orange
 # ou lavande autour de batiments qui n'ont aucune verdure.
 FOLIAGE_MATERIAL_RATIO = 0.10
+
+# Compression de l'etalement des teintes autour de la couleur cible. A 1,0 on
+# retombe sur un decalage rigide ; a 0 tout le feuillage devient monochrome.
+# 0,45 conserve la lecture des nuances tout en empechant les extremes de sortir
+# de la famille de couleur de la saison.
+HUE_SPREAD = 0.45
 
 
 def sha256_file(path: Path) -> str:
@@ -131,16 +148,28 @@ def recolor(image: Image.Image, mask, season: str) -> Image.Image:
         return image.copy()
     source = TREE_HSV[REFERENCE_SEASON]
     target = TREE_HSV[season]
-    hue_shift = target["h"] - source["h"]
-    sat_ratio = target["s"] / source["s"]
 
     out = image.copy()
     pixels = out.load()
     for x, y in mask:
         r, g, b, a = pixels[x, y]
         hue, sat, val = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
-        hue = (hue + hue_shift) % 1.0
-        sat = max(0.0, min(1.0, sat * sat_ratio))
+
+        # RECENTRAGE, et non decalage constant.
+        #
+        # Un decalage rigide H += (cible - reference) supposait que tout le
+        # feuillage partage la teinte de l'arbre d'ete. Faux : la verdure
+        # s'etale de H 0,155 (pelouse claire) a H 0,45 (vert profond). En
+        # automne, le decalage de -0,216 envoyait la pelouse WoN de H 0,253 a
+        # H 0,037 — du ROUGE. Mesure a l'image : le village entier virait au
+        # rose fluo au lieu de l'orange.
+        #
+        # On mappe donc l'ECART a la reference, comprime autour de la teinte
+        # cible. Une feuille plus claire que la moyenne le reste, mais la
+        # famille entiere se recentre sur la couleur de la saison.
+        delta = ((hue - source["h"] + 0.5) % 1.0) - 0.5
+        hue = (target["h"] + delta * HUE_SPREAD) % 1.0
+        sat = max(0.0, min(1.0, sat * (target["s"] / source["s"])))
         # La valeur (luminosite) n'est PAS ecrasee : les nervures claires et les
         # dessous sombres du feuillage doivent survivre au changement de saison.
         nr, ng, nb = colorsys.hsv_to_rgb(hue, sat, val)

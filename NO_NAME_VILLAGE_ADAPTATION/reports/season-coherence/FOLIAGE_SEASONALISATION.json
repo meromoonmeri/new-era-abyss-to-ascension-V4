@@ -2,7 +2,7 @@
   "applied": true,
   "foliage_selection": {
     "hue_range": [
-      0.18,
+      0.155,
       0.45
     ],
     "material_ratio_threshold": 0.1,
@@ -12,10 +12,10 @@
   },
   "frames": [
     {
-      "foliage_px": 3187,
+      "foliage_px": 4841,
       "frame": 0,
-      "green_px_selected": 3187,
-      "green_ratio": 0.3033,
+      "green_px_selected": 4841,
+      "green_ratio": 0.4607,
       "note": null,
       "opaque_px": 10507,
       "recolored": true,
@@ -27,9 +27,9 @@
     {
       "foliage_px": 0,
       "frame": 1,
-      "green_px_selected": 6,
-      "green_ratio": 0.0008,
-      "note": "recopiee octet pour octet : 6 px verts, 0.08 % — sous le seuil de 10 %, c'est du lisere de contour et non du feuillage (verifie a l'image)",
+      "green_px_selected": 88,
+      "green_ratio": 0.0116,
+      "note": "recopiee octet pour octet : 88 px verts, 1.16 % — sous le seuil de 10 %, c'est du lisere de contour et non du feuillage (verifie a l'image)",
       "opaque_px": 7558,
       "recolored": false,
       "size_px": [
@@ -38,10 +38,10 @@
       ]
     },
     {
-      "foliage_px": 4680,
+      "foliage_px": 5125,
       "frame": 2,
-      "green_px_selected": 4680,
-      "green_ratio": 0.6566,
+      "green_px_selected": 5125,
+      "green_ratio": 0.719,
       "note": null,
       "opaque_px": 7128,
       "recolored": true,
@@ -71,10 +71,10 @@
   "reference_season": "summer",
   "schema": "new-era.nnv-foliage-seasonalisation.v1",
   "sheet_sha256_per_season": {
-    "autumn": "728affcb56d26d0f9d4779f6802e302674795a2d4a3fdf47512b5f7a6c0cfa79",
-    "spring": "b67b2aab2c7c5639810749e719d4d369e98a0c1fa2380c6d857181cafe77c790",
+    "autumn": "a3476606d5aa3332aa91606ca18807977b3f32953e7cc90123c8bae6b1429dd6",
+    "spring": "8ea57806e8aeadbee7ed448cc36252e5a241eef9fe413b9de777ee01ef8f2178",
     "summer": "59400d706536f23daaa5d38e3ee475cc98d22c70c3a5ab46f8a72198c58ce7bb",
-    "winter": "b1885bcbc7f92d7e979060e79987d57693d266d67725781807ed3e648d80ae1e"
+    "winter": "9b921121abc5db20447ef2f1bb24762ee5bb16aebb8335cff756f11a124f32d9"
   },
   "tree_hsv": {
     "autumn": {
