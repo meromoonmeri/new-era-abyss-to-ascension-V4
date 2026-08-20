@@ -291,6 +291,10 @@ def expand_generator_contracts(
             map_id = declaration.get("map_id")
             require(isinstance(map_id, str) and map_id, "static_load contract requires map_id")
             contract["map_id"] = map_id
+            if "loaded_hostiles" in declaration:
+                loaded_hostiles = declaration["loaded_hostiles"]
+                require(isinstance(loaded_hostiles, list), "loaded_hostiles must be a list")
+                contract["loaded_hostiles"] = loaded_hostiles
         require(contract["stairs"] in (0, 1), "floor stair contract must be zero or one")
         require(
             generator != "chance" or contract["stairs"] == 1,
@@ -318,6 +322,44 @@ def mapped_room_id(load_gen: dict[str, Any], floor: int) -> str:
     raise ValidationError(f"floor {floor}: LoadGen has no priority -1 MappedRoomStep")
 
 
+def loaded_hostiles(load_gen: dict[str, Any], floor: int) -> list[dict[str, Any]]:
+    """Return canonical fixed hostile records from a loaded-floor generator."""
+    records: list[dict[str, Any]] = []
+    for entry in load_gen.get("GenSteps", []):
+        value = entry.get("Value", {})
+        if "PlaceNoLocMobsStep" not in value.get("$type", ""):
+            continue
+        require(value.get("Ally") is False, f"floor {floor}: loaded hostile step is allied")
+        spawner = value.get("Spawn", {})
+        require(
+            "PresetMultiTeamSpawner" in spawner.get("$type", ""),
+            f"floor {floor}: loaded hostile step has an unsupported team spawner",
+        )
+        for team_spawn in spawner.get("Spawns", []):
+            # Canonical PMDO 0.8.12 records are direct SpecificTeamSpawner
+            # objects.  Keep compatibility with older wrapped fixtures only.
+            team = team_spawn.get("Spawn", team_spawn)
+            for mob in team.get("Spawns", []):
+                locations = [
+                    feature for feature in mob.get("SpawnFeatures", [])
+                    if "MobSpawnLoc" in feature.get("$type", "")
+                ]
+                require(
+                    len(locations) == 1,
+                    f"floor {floor}: loaded hostile requires exactly one MobSpawnLoc",
+                )
+                feature = locations[0]
+                loc = feature["Loc"]
+                records.append({
+                    "id": mob["BaseForm"]["Species"],
+                    "level": int(mob["Level"]["Min"]),
+                    "x": int(loc["X"]),
+                    "y": int(loc["Y"]),
+                    "direction": int(feature["Dir"]),
+                })
+    return records
+
+
 def validate_zone_generators(
     nodes: list[dict[str, Any]], contracts: list[dict[str, Any]]
 ) -> list[dict[str, Any]]:
@@ -338,11 +380,18 @@ def validate_zone_generators(
             )
             map_id = mapped_room_id(generator, floor)
             require(map_id == contract["map_id"], f"floor {floor}: static map mismatch: {map_id}")
+            actual_hostiles = loaded_hostiles(generator, floor)
+            expected_hostiles = contract.get("loaded_hostiles", [])
+            require(
+                actual_hostiles == expected_hostiles,
+                f"floor {floor}: loaded hostiles mismatch: {actual_hostiles} != {expected_hostiles}",
+            )
             records.append({
                 "floor": floor,
                 "generator": "LoadGen",
                 "map_id": map_id,
                 "stairs": contract["stairs"],
+                "loaded_hostiles": actual_hostiles,
             })
     return records
 
