@@ -1,0 +1,264 @@
+{
+  "schema": "pmdred-eu-playable-dungeon-v1",
+  "zone_id": "mt_steel",
+  "french_name": "Mt Acier",
+  "dungeon_id": 2,
+  "floors": 9,
+  "entry_ground": "d03p01",
+  "ending_ground": "d03p02",
+  "arena_map": "mt_steel_peak",
+  "arena_contract": "pmdred-eu-mt-steel-arena-v1",
+  "ending_geometry": {
+    "obstacle_cells_x": 57,
+    "obstacle_cells_y": 69,
+    "pixels_x": 456,
+    "pixels_y": 552,
+    "collision_layers": 1
+  },
+  "route": [
+    "d03p01",
+    "mt_steel/0/0",
+    "mt_steel/-1/1/0",
+    "master_zone/-1/1/0"
+  ],
+  "geometry_denominator": 100000000,
+  "item_poke_denominator": 20000000,
+  "promotions": [
+    {
+      "source": ".runtime-cache/DumpAsset/Data/AutoTile/mt_steel_1_floor.json",
+      "destination": "Data/AutoTile/mt_steel_1_floor.json",
+      "sha256": "4188be01470265c214cace6ec46a4749a19e0feec54b0edd208f0a904d3e9c68",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Data/AutoTile/mt_steel_1_wall.json",
+      "destination": "Data/AutoTile/mt_steel_1_wall.json",
+      "sha256": "f74b5902ae15372b45efe329d7c56cee2bdeab322fb5a74b18e04304a44bd00a",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Data/AutoTile/mt_steel_1_secondary.json",
+      "destination": "Data/AutoTile/mt_steel_1_secondary.json",
+      "sha256": "945702775a6fd7944c40cb6c1b8ab0f087ff6911c34136de5d97ede40a7f72d2",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Data/AutoTile/mt_steel_2_floor.json",
+      "destination": "Data/AutoTile/mt_steel_2_floor.json",
+      "sha256": "d5e65ef7025b1e672f128e19458997049c0e6cf68231a8c1fe61e0280f1a87af",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Data/AutoTile/mt_steel_2_wall.json",
+      "destination": "Data/AutoTile/mt_steel_2_wall.json",
+      "sha256": "84652406eedb539caccba81b48c58bd0c6d9818755b15a7bdbd9a092196b7ed0",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Data/AutoTile/mt_steel_2_secondary.json",
+      "destination": "Data/AutoTile/mt_steel_2_secondary.json",
+      "sha256": "a8561a049e405e4f07a0539ff68b352c1f407584090559369c71b1038aac7444",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Content/Tile/MtSteel1.tile",
+      "destination": "Content/Tile/MtSteel1.tile",
+      "sha256": "d14096e06b0f7aad6b82f77a92a83149d07ee3bd2c87659f9b199459c2546949",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Content/Tile/MtSteel2.tile",
+      "destination": "Content/Tile/MtSteel2.tile",
+      "sha256": "e618d7fbd527a5a4fc2a08c573984b6ac6254a257ae0a3679a389031fb96db22",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Data/Status/all_protect.json",
+      "destination": "Data/Status/all_protect.json",
+      "sha256": "6080fe3086a13312268c33495432b369e71acf710cb969c2ab15426d4a8c6e9c",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Data/AI/wait_only.json",
+      "destination": "Data/AI/wait_only.json",
+      "sha256": "cdbea6ccd712b04a7cd9037e22fc85b51e9493003a6f9b4cd65717b7cb8e979f",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Data/Item/medicine_max_elixir.json",
+      "destination": "Data/Item/medicine_max_elixir.json",
+      "sha256": "3a2634303cb259066277e2d9fcc893e8ba066a705a310bb23404b4a282bfee01",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Data/Item/wand_switcher.json",
+      "destination": "Data/Item/wand_switcher.json",
+      "sha256": "a0025809a04570d1dcfe5dea1183c36efdaf42c942262ac69b11094f1a62d70d",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Data/Item/wand_whirlwind.json",
+      "destination": "Data/Item/wand_whirlwind.json",
+      "sha256": "51c668cb568c4988b31b62fa50243e5c2ead4ce62b8494a573f26c1a34c23096",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Data/Item/wand_warp.json",
+      "destination": "Data/Item/wand_warp.json",
+      "sha256": "2d1f22964525abcd5eb5b4a1b9488ccd7b05ad7043549a37d38ee8eeaaf0347b",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Data/Item/wand_lob.json",
+      "destination": "Data/Item/wand_lob.json",
+      "sha256": "ac8711756222ab2a230068177be6a03a29bcf5c565945b04bb1344f91bbcf038",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Content/Item/Medicine_Purple.dir",
+      "destination": "Content/Item/Medicine_Purple.dir",
+      "sha256": "c9ee1df8d037e393022b7de87603e3acb5d165cea29eab4fc9898ab38786297c",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Content/Item/Wand_Red.dir",
+      "destination": "Content/Item/Wand_Red.dir",
+      "sha256": "ac020d1a393d5196d423d5b57451de6c4d8d478fe2bfde24b54494cb345f1bbd",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Content/Item/Wand_White.dir",
+      "destination": "Content/Item/Wand_White.dir",
+      "sha256": "3ba92b519ea23c8dd8774ce8a3d9e63e26a430e4e905687d74c8515b27857fa5",
+      "create_only": true
+    },
+    {
+      "source": ".runtime-cache/DumpAsset/Content/Item/Wand_Pink.dir",
+      "destination": "Content/Item/Wand_Pink.dir",
+      "sha256": "2a60215cbeff0c6d57cc0fda844f6a5d5cca4a5947bb89ce335a4e2f9898cb61",
+      "create_only": true
+    },
+    {
+      "source": "RESERVE/pmdred_direct/grounds/d03p02.rsground",
+      "destination": "Data/Ground/d03p02.rsground",
+      "sha256": "afa76be6c9377c5647c7dfca4098bd2b1a16d50cf169fb7df63c7f72bedbe371",
+      "create_only": true
+    },
+    {
+      "source": "RESERVE/pmdred_direct/tiles/d03p02_DirectBase.tile",
+      "destination": "Content/Tile/d03p02_DirectBase.tile",
+      "sha256": "227db617181651c0b2a7a22a4f193babb0a418e7de38d33ad414482432ab566e",
+      "create_only": true
+    },
+    {
+      "source": "RESERVE/pmdred_direct/scripts/d03p02/animation_callbacks.lua",
+      "destination": "Data/Script/halcyon/ground/d03p02/animation_callbacks.lua",
+      "sha256": "d74e0ef0ed649bc0ea1822bdc8df19847fe81e29f5c504527e2d1e69d2ceaab4",
+      "create_only": true
+    },
+    {
+      "source": "RESERVE/pmdred_direct/scripts/d03p02/animation_metadata.lua",
+      "destination": "Data/Script/halcyon/ground/d03p02/animation_metadata.lua",
+      "sha256": "767491a55e2cc2d19abd01630c7a3fb597f50e7eb8fc31ceb3449ef506cc0475",
+      "create_only": true
+    }
+  ],
+  "index_promotions": [
+    {
+      "index": "Data/AutoTile/index.idx",
+      "key": "mt_steel_1_floor",
+      "source": ".runtime-cache/DumpAsset/Data/AutoTile/index.idx",
+      "create_only": true
+    },
+    {
+      "index": "Data/AutoTile/index.idx",
+      "key": "mt_steel_1_wall",
+      "source": ".runtime-cache/DumpAsset/Data/AutoTile/index.idx",
+      "create_only": true
+    },
+    {
+      "index": "Data/AutoTile/index.idx",
+      "key": "mt_steel_1_secondary",
+      "source": ".runtime-cache/DumpAsset/Data/AutoTile/index.idx",
+      "create_only": true
+    },
+    {
+      "index": "Data/AutoTile/index.idx",
+      "key": "mt_steel_2_floor",
+      "source": ".runtime-cache/DumpAsset/Data/AutoTile/index.idx",
+      "create_only": true
+    },
+    {
+      "index": "Data/AutoTile/index.idx",
+      "key": "mt_steel_2_wall",
+      "source": ".runtime-cache/DumpAsset/Data/AutoTile/index.idx",
+      "create_only": true
+    },
+    {
+      "index": "Data/AutoTile/index.idx",
+      "key": "mt_steel_2_secondary",
+      "source": ".runtime-cache/DumpAsset/Data/AutoTile/index.idx",
+      "create_only": true
+    },
+    {
+      "index": "Data/Status/index.idx",
+      "key": "all_protect",
+      "source": ".runtime-cache/DumpAsset/Data/Status/index.idx",
+      "create_only": true
+    },
+    {
+      "index": "Data/AI/index.idx",
+      "key": "wait_only",
+      "source": ".runtime-cache/DumpAsset/Data/AI/index.idx",
+      "create_only": true
+    },
+    {
+      "index": "Data/Item/index.idx",
+      "key": "medicine_max_elixir",
+      "source": ".runtime-cache/DumpAsset/Data/Item/index.idx",
+      "create_only": true
+    },
+    {
+      "index": "Data/Item/index.idx",
+      "key": "wand_switcher",
+      "source": ".runtime-cache/DumpAsset/Data/Item/index.idx",
+      "create_only": true
+    },
+    {
+      "index": "Data/Item/index.idx",
+      "key": "wand_whirlwind",
+      "source": ".runtime-cache/DumpAsset/Data/Item/index.idx",
+      "create_only": true
+    },
+    {
+      "index": "Data/Item/index.idx",
+      "key": "wand_warp",
+      "source": ".runtime-cache/DumpAsset/Data/Item/index.idx",
+      "create_only": true
+    },
+    {
+      "index": "Data/Item/index.idx",
+      "key": "wand_lob",
+      "source": ".runtime-cache/DumpAsset/Data/Item/index.idx",
+      "create_only": true
+    }
+  ],
+  "renders": [
+    "renders_integrated/floor_1.png",
+    "renders_integrated/floor_2.png",
+    "renders_integrated/floor_3.png",
+    "renders_integrated/floor_4.png",
+    "renders_integrated/floor_5.png",
+    "renders_integrated/floor_6.png",
+    "renders_integrated/floor_7.png",
+    "renders_integrated/floor_8.png",
+    "renders_integrated/floor_9.png",
+    "renders_integrated/overview.png"
+  ],
+  "certification": {
+    "static_integration": "PASS_STATIC_INTEGRATION",
+    "evidence": "grouped_validation.json",
+    "gate_count": 38,
+    "exact_pmdo_0_8_12_native": "DEFERRED_NOT_EXECUTED; grouped final certification follows the bulk early-dungeon conversion batch"
+  }
+}

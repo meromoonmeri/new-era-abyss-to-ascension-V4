@@ -1,0 +1,156 @@
+{
+  "schema": "pmdred-eu-early-dungeon-validation-config-v1",
+  "zone_id": "thunderwave_cave",
+  "title": "Grotte Éclair / Thunderwave Cave",
+  "rom": {
+    "path": ".runtime-cache/downloads/pmdred-eu.gba",
+    "sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd"
+  },
+  "pmdo": {
+    "path": ".runtime-cache/pmdo-headless-bundle/PMDO",
+    "sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327"
+  },
+  "zone": {
+    "path": "Data/Zone/thunderwave_cave.json",
+    "index": "Data/Zone/index.idx",
+    "floors": 5,
+    "ground_maps": [
+      "d02p01",
+      "d02p02"
+    ]
+  },
+  "assets": [
+    {
+      "path": "Data/AutoTile/thunderwave_cave_floor.json",
+      "sha256": "d1dbaa4805fb4d623f420f6cdb82e36686e82ba56882260d250e63ba58811259"
+    },
+    {
+      "path": "Data/AutoTile/thunderwave_cave_wall.json",
+      "sha256": "90bd144ae0b0d2c3ef8654f7a2e1e7d0a9c9033a847bdd571cce278cba49bf8a"
+    },
+    {
+      "path": "Data/AutoTile/thunderwave_cave_secondary.json",
+      "sha256": "0e442cbd681b2dba35f6ccee0f199daff1f8a5e7299a12e240e21f4a5f7e59a6"
+    },
+    {
+      "path": "Content/Tile/ThunderwaveCave.tile",
+      "sha256": "75e602b0102b41584c9ced0f4d1b04068c03f777427289c313e1bfea9da8ea40"
+    },
+    {
+      "path": "Data/Item/ammo_gravelerock.json",
+      "sha256": "a8b77f3eb1dfc8c6a8c39c16cb6460a6e5b338782c738ea69359d0d3d2104717"
+    },
+    {
+      "path": "Content/Tile/d02p02_DirectBase.tile",
+      "sha256": "cfd329cb0f4090733b72c99d7c02f52b1ed6d83f3ecad172d72db99001dfdb71"
+    },
+    {
+      "path": "Data/Script/halcyon/ground/d02p02/animation_callbacks.lua",
+      "sha256": "6b95a4db8700ad849d6bf8f1bdaa91e104d5ac10fdcb41df3f05d7cc3382366a"
+    },
+    {
+      "path": "Data/Script/halcyon/ground/d02p02/animation_metadata.lua",
+      "sha256": "88bbaef60c5030c2662b9edd095a8410df4737f3a66977f6b009af2e2d948e1e"
+    }
+  ],
+  "ending_ground": {
+    "path": "Data/Ground/d02p02.rsground",
+    "sha256": "23208c1c4773efea2e6ef581848550e1cf15eba1e3b504d3189204c0560430b3",
+    "asset_name": "d02p02",
+    "obstacle_cells_x": 45,
+    "obstacle_cells_y": 42,
+    "cell_size": 8,
+    "entity_counts": {
+      "MapChars": 0,
+      "GroundObjects": 0,
+      "Spawners": 0,
+      "Markers": 0
+    },
+    "scripted_landing": {
+      "x": 176,
+      "y": 240,
+      "width": 24,
+      "height": 24
+    }
+  },
+  "music": {
+    "path": "Content/Music/Thunderwave Cave.ogg",
+    "sha256": "bef933f3b517355354dd183bdde4fd13d97cf0f8ea382c50fea0ae57596713ae",
+    "report": "docs/pmdred_eu/playable/thunderwave_cave/music.json",
+    "song_index": 14
+  },
+  "scripts": [
+    {
+      "path": "Data/Script/halcyon/RedEarlyDungeonRoute.lua",
+      "required": [
+        "COMMON.ExitDungeonMissionCheck",
+        "RogueEssence.Data.GameProgress.ResultType.Cleared",
+        "GeneralFunctions.EndDungeonRun(",
+        "zone.ID,",
+        "config.ending_map",
+        "config.ending_entry or 0"
+      ],
+      "forbidden": [
+        "GAME:EnterGroundMap(config.ending_ground"
+      ]
+    },
+    {
+      "path": "Data/Script/halcyon/zone/thunderwave_cave/init.lua",
+      "required": [
+        "pending = 'thunderwave_cave_exit'",
+        "ending_ground = 'd02p02'",
+        "ending_map = 1",
+        "ending_entry = 0",
+        "failure_zone = 'master_zone'"
+      ],
+      "forbidden": [
+        "marker = 'Main_Entrance_Marker'"
+      ]
+    },
+    {
+      "path": "Data/Script/halcyon/ground/d02p02/init.lua",
+      "required": [
+        "SV.CanonicalDungeons.Pending == 'thunderwave_cave_exit'",
+        "GROUND:TeleportTo(hero, 176, 240, Direction.Up)",
+        "SV.CanonicalDungeons.D02Cleared = true",
+        "GAME:EnterZone('master_zone', -1, 1, 0)",
+        "Animation.Init(map)",
+        "Animation.Update(map)",
+        "Animation.Exit(map)"
+      ],
+      "forbidden": [
+        "COMMON.RespawnAllies(true)",
+        "MRKR('Main_Entrance_Marker')"
+      ]
+    }
+  ],
+  "dialogue": {
+    "paths": [
+      "Data/Script/halcyon/ground/d02p02/strings.resx",
+      "Data/Script/halcyon/ground/d02p02/strings.fr.resx"
+    ],
+    "keys": [
+      "D02_CLEAR_001",
+      "D02_CLEAR_002"
+    ],
+    "required_text": [
+      "Magnéti",
+      "sauvetage",
+      "village"
+    ]
+  },
+  "renders": {
+    "output_dir": "docs/pmdred_eu/playable/thunderwave_cave/renders_integrated_v2",
+    "audit": "render_audit.json"
+  },
+  "manifest": {
+    "path": "docs/pmdred_eu/playable/thunderwave_cave/manifest.json",
+    "route": [
+      "d02p01",
+      "thunderwave_cave/0/0",
+      "thunderwave_cave/-1/1/0",
+      "master_zone/-1/1/0"
+    ]
+  },
+  "evidence": "docs/pmdred_eu/playable/thunderwave_cave/integration_validation.json"
+}

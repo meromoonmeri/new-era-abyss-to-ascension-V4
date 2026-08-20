@@ -1,0 +1,536 @@
+{
+  "schema": "pmdred-eu-early-dungeon-grouped-static-integration-v1",
+  "status": "PASS_STATIC_INTEGRATION",
+  "zone_id": "mt_steel",
+  "title": "Mt Acier / Mount Steel",
+  "config": {
+    "path": "docs/pmdred_eu/playable/mt_steel/validation_config.json",
+    "sha256": "2d8b3daf4707badaeca4dcbd7bd9ecce86c6f0ee1b16f3c46e99830890348e4d"
+  },
+  "gates": [
+    {
+      "gate": "authenticated PMD Red EU ROM",
+      "status": "PASS",
+      "path": ".runtime-cache/downloads/pmdred-eu.gba",
+      "bytes": 33554432,
+      "sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd"
+    },
+    {
+      "gate": "exact PMDO 0.8.12 executable lock",
+      "status": "PASS",
+      "path": ".runtime-cache/pmdo-headless-bundle/PMDO",
+      "bytes": 116173385,
+      "sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327"
+    },
+    {
+      "gate": "pmdo_0_8_12_zone_schema_and_floors",
+      "status": "PASS",
+      "path": "Data/Zone/mt_steel.json",
+      "sha256": "a90b8c29456ac91ea6db8f20c604331a6e8770c56917dcb63d5b71e91d67e942",
+      "floors": 9,
+      "ground_maps": [
+        "d03p01",
+        "d03p02"
+      ],
+      "floor_generators": [
+        {
+          "floor": 1,
+          "generator": "ChanceFloorGen",
+          "stairs": 1
+        },
+        {
+          "floor": 2,
+          "generator": "ChanceFloorGen",
+          "stairs": 1
+        },
+        {
+          "floor": 3,
+          "generator": "ChanceFloorGen",
+          "stairs": 1
+        },
+        {
+          "floor": 4,
+          "generator": "ChanceFloorGen",
+          "stairs": 1
+        },
+        {
+          "floor": 5,
+          "generator": "ChanceFloorGen",
+          "stairs": 1
+        },
+        {
+          "floor": 6,
+          "generator": "ChanceFloorGen",
+          "stairs": 1
+        },
+        {
+          "floor": 7,
+          "generator": "ChanceFloorGen",
+          "stairs": 1
+        },
+        {
+          "floor": 8,
+          "generator": "ChanceFloorGen",
+          "stairs": 1
+        },
+        {
+          "floor": 9,
+          "generator": "LoadGen",
+          "map_id": "mt_steel_peak",
+          "stairs": 0
+        }
+      ]
+    },
+    {
+      "gate": "zone_index_schema_bom_and_route_binding",
+      "status": "PASS",
+      "path": "Data/Zone/index.idx",
+      "zone_id": "mt_steel",
+      "grounds": [
+        "d03p01",
+        "d03p02"
+      ],
+      "maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "utf8_bom": true
+    },
+    {
+      "gate": "asset:Data/AutoTile/mt_steel_1_floor.json",
+      "status": "PASS",
+      "path": "Data/AutoTile/mt_steel_1_floor.json",
+      "bytes": 10271,
+      "sha256": "4188be01470265c214cace6ec46a4749a19e0feec54b0edd208f0a904d3e9c68"
+    },
+    {
+      "gate": "asset:Data/AutoTile/mt_steel_1_wall.json",
+      "status": "PASS",
+      "path": "Data/AutoTile/mt_steel_1_wall.json",
+      "bytes": 7087,
+      "sha256": "f74b5902ae15372b45efe329d7c56cee2bdeab322fb5a74b18e04304a44bd00a"
+    },
+    {
+      "gate": "asset:Data/AutoTile/mt_steel_1_secondary.json",
+      "status": "PASS",
+      "path": "Data/AutoTile/mt_steel_1_secondary.json",
+      "bytes": 93737,
+      "sha256": "945702775a6fd7944c40cb6c1b8ab0f087ff6911c34136de5d97ede40a7f72d2"
+    },
+    {
+      "gate": "asset:Data/AutoTile/mt_steel_2_floor.json",
+      "status": "PASS",
+      "path": "Data/AutoTile/mt_steel_2_floor.json",
+      "bytes": 5763,
+      "sha256": "d5e65ef7025b1e672f128e19458997049c0e6cf68231a8c1fe61e0280f1a87af"
+    },
+    {
+      "gate": "asset:Data/AutoTile/mt_steel_2_wall.json",
+      "status": "PASS",
+      "path": "Data/AutoTile/mt_steel_2_wall.json",
+      "bytes": 9047,
+      "sha256": "84652406eedb539caccba81b48c58bd0c6d9818755b15a7bdbd9a092196b7ed0"
+    },
+    {
+      "gate": "asset:Data/AutoTile/mt_steel_2_secondary.json",
+      "status": "PASS",
+      "path": "Data/AutoTile/mt_steel_2_secondary.json",
+      "bytes": 93737,
+      "sha256": "a8561a049e405e4f07a0539ff68b352c1f407584090559369c71b1038aac7444"
+    },
+    {
+      "gate": "asset:Content/Tile/MtSteel1.tile",
+      "status": "PASS",
+      "path": "Content/Tile/MtSteel1.tile",
+      "bytes": 263590,
+      "sha256": "d14096e06b0f7aad6b82f77a92a83149d07ee3bd2c87659f9b199459c2546949"
+    },
+    {
+      "gate": "asset:Content/Tile/MtSteel2.tile",
+      "status": "PASS",
+      "path": "Content/Tile/MtSteel2.tile",
+      "bytes": 352752,
+      "sha256": "e618d7fbd527a5a4fc2a08c573984b6ac6254a257ae0a3679a389031fb96db22"
+    },
+    {
+      "gate": "asset:Data/Status/all_protect.json",
+      "status": "PASS",
+      "path": "Data/Status/all_protect.json",
+      "bytes": 4242,
+      "sha256": "6080fe3086a13312268c33495432b369e71acf710cb969c2ab15426d4a8c6e9c"
+    },
+    {
+      "gate": "asset:Data/AI/wait_only.json",
+      "status": "PASS",
+      "path": "Data/AI/wait_only.json",
+      "bytes": 445,
+      "sha256": "cdbea6ccd712b04a7cd9037e22fc85b51e9493003a6f9b4cd65717b7cb8e979f"
+    },
+    {
+      "gate": "asset:Data/Item/medicine_max_elixir.json",
+      "status": "PASS",
+      "path": "Data/Item/medicine_max_elixir.json",
+      "bytes": 5710,
+      "sha256": "3a2634303cb259066277e2d9fcc893e8ba066a705a310bb23404b4a282bfee01"
+    },
+    {
+      "gate": "asset:Data/Item/wand_switcher.json",
+      "status": "PASS",
+      "path": "Data/Item/wand_switcher.json",
+      "bytes": 5537,
+      "sha256": "a0025809a04570d1dcfe5dea1183c36efdaf42c942262ac69b11094f1a62d70d"
+    },
+    {
+      "gate": "asset:Data/Item/wand_whirlwind.json",
+      "status": "PASS",
+      "path": "Data/Item/wand_whirlwind.json",
+      "bytes": 5323,
+      "sha256": "51c668cb568c4988b31b62fa50243e5c2ead4ce62b8494a573f26c1a34c23096"
+    },
+    {
+      "gate": "asset:Data/Item/wand_warp.json",
+      "status": "PASS",
+      "path": "Data/Item/wand_warp.json",
+      "bytes": 5290,
+      "sha256": "2d1f22964525abcd5eb5b4a1b9488ccd7b05ad7043549a37d38ee8eeaaf0347b"
+    },
+    {
+      "gate": "asset:Data/Item/wand_lob.json",
+      "status": "PASS",
+      "path": "Data/Item/wand_lob.json",
+      "bytes": 5605,
+      "sha256": "ac8711756222ab2a230068177be6a03a29bcf5c565945b04bb1344f91bbcf038"
+    },
+    {
+      "gate": "asset:Content/Item/Medicine_Purple.dir",
+      "status": "PASS",
+      "path": "Content/Item/Medicine_Purple.dir",
+      "bytes": 348,
+      "sha256": "c9ee1df8d037e393022b7de87603e3acb5d165cea29eab4fc9898ab38786297c"
+    },
+    {
+      "gate": "asset:Content/Item/Wand_Red.dir",
+      "status": "PASS",
+      "path": "Content/Item/Wand_Red.dir",
+      "bytes": 306,
+      "sha256": "ac020d1a393d5196d423d5b57451de6c4d8d478fe2bfde24b54494cb345f1bbd"
+    },
+    {
+      "gate": "asset:Content/Item/Wand_White.dir",
+      "status": "PASS",
+      "path": "Content/Item/Wand_White.dir",
+      "bytes": 322,
+      "sha256": "3ba92b519ea23c8dd8774ce8a3d9e63e26a430e4e905687d74c8515b27857fa5"
+    },
+    {
+      "gate": "asset:Content/Item/Wand_Pink.dir",
+      "status": "PASS",
+      "path": "Content/Item/Wand_Pink.dir",
+      "bytes": 285,
+      "sha256": "2a60215cbeff0c6d57cc0fda844f6a5d5cca4a5947bb89ce335a4e2f9898cb61"
+    },
+    {
+      "gate": "asset:Content/Tile/d03p02_DirectBase.tile",
+      "status": "PASS",
+      "path": "Content/Tile/d03p02_DirectBase.tile",
+      "bytes": 121760,
+      "sha256": "227db617181651c0b2a7a22a4f193babb0a418e7de38d33ad414482432ab566e"
+    },
+    {
+      "gate": "asset:Data/Script/halcyon/ground/d03p02/animation_callbacks.lua",
+      "status": "PASS",
+      "path": "Data/Script/halcyon/ground/d03p02/animation_callbacks.lua",
+      "bytes": 516,
+      "sha256": "d74e0ef0ed649bc0ea1822bdc8df19847fe81e29f5c504527e2d1e69d2ceaab4"
+    },
+    {
+      "gate": "asset:Data/Script/halcyon/ground/d03p02/animation_metadata.lua",
+      "status": "PASS",
+      "path": "Data/Script/halcyon/ground/d03p02/animation_metadata.lua",
+      "bytes": 210,
+      "sha256": "767491a55e2cc2d19abd01630c7a3fb597f50e7eb8fc31ceb3449ef506cc0475"
+    },
+    {
+      "gate": "static_map_contract:mt_steel_peak",
+      "status": "PASS",
+      "path": "Data/Map/mt_steel_peak.rsmap",
+      "bytes": 127327,
+      "sha256": "274d66e30877ce4b59961098f7ac7779e51eb81c63dd92c72dc1f8d76c6b584a",
+      "map_id": "mt_steel_peak",
+      "dimensions": [
+        9,
+        17
+      ],
+      "music": "Mt. Steel.ogg",
+      "stairs": 0,
+      "actors": [
+        {
+          "species": "skarmory",
+          "faction": "MapTeams",
+          "loc": [
+            4,
+            8
+          ],
+          "level": 10,
+          "hp": 29,
+          "tactic": "wander_dumb_two_range"
+        },
+        {
+          "species": "diglett",
+          "faction": "AllyTeams",
+          "loc": [
+            4,
+            3
+          ],
+          "level": 5,
+          "hp": 17,
+          "tactic": "wait_only",
+          "status": "all_protect",
+          "status_counter": -1
+        }
+      ],
+      "startup_priorities": [
+        [
+          -15
+        ],
+        [
+          -5
+        ],
+        [
+          0
+        ]
+      ],
+      "static_audit_contract": "pmdred-eu-mt-steel-arena-v1"
+    },
+    {
+      "gate": "authenticated ending Ground",
+      "status": "PASS",
+      "path": "Data/Ground/d03p02.rsground",
+      "bytes": 812909,
+      "sha256": "afa76be6c9377c5647c7dfca4098bd2b1a16d50cf169fb7df63c7f72bedbe371"
+    },
+    {
+      "gate": "ending_ground_collision_safe_scripted_landing",
+      "status": "PASS",
+      "landing_pixels": {
+        "x": 216,
+        "y": 256,
+        "width": 24,
+        "height": 24
+      },
+      "walkable_obstacle_cells": [
+        [
+          27,
+          32
+        ],
+        [
+          27,
+          33
+        ],
+        [
+          27,
+          34
+        ],
+        [
+          28,
+          32
+        ],
+        [
+          28,
+          33
+        ],
+        [
+          28,
+          34
+        ],
+        [
+          29,
+          32
+        ],
+        [
+          29,
+          33
+        ],
+        [
+          29,
+          34
+        ]
+      ],
+      "ground_pixels": [
+        456,
+        552
+      ],
+      "marker_policy": "no invented marker; numeric entry 0 is relocated during Ground.Init"
+    },
+    {
+      "gate": "authenticated dungeon music",
+      "status": "PASS",
+      "path": "Content/Music/Mt. Steel.ogg",
+      "bytes": 1508422,
+      "sha256": "ba005f5f6bdcd2ef675a77056818a21e10fa35f1d161ef6a7e1cd562b0325001"
+    },
+    {
+      "gate": "music_source_dependency_loop_vorbis_report",
+      "status": "PASS",
+      "report": "docs/pmdred_eu/playable/mt_steel/music.json",
+      "song_index": 121,
+      "sample_rate": 48000,
+      "samples": 3992000,
+      "loop_start": 1429600,
+      "loop_length": 2562400,
+      "native_playback": "DEFERRED_NOT_EXECUTED"
+    },
+    {
+      "gate": "script:Data/Script/halcyon/RedEarlyDungeonRoute.lua",
+      "status": "PASS",
+      "required_tokens": [
+        "COMMON.ExitDungeonMissionCheck",
+        "RogueEssence.Data.GameProgress.ResultType.Cleared",
+        "GeneralFunctions.EndDungeonRun(",
+        "zone.ID,",
+        "config.ending_map",
+        "config.ending_entry or 0"
+      ],
+      "forbidden_tokens_absent": [
+        "GAME:EnterGroundMap(config.ending_ground"
+      ],
+      "sha256": "c9c514dc5a8f358eead9577d6959e17c3e4f9bb792b2a666a834e35abdc3158c"
+    },
+    {
+      "gate": "script:Data/Script/halcyon/zone/mt_steel/init.lua",
+      "status": "PASS",
+      "required_tokens": [
+        "pending = 'mt_steel_exit'",
+        "ending_ground = 'd03p02'",
+        "ending_map = 1",
+        "ending_entry = 0",
+        "failure_zone = 'master_zone'"
+      ],
+      "forbidden_tokens_absent": [
+        "marker = 'Main_Entrance_Marker'"
+      ],
+      "sha256": "935b945a2e847936e09ac317db1cf644bb956baac5bfdeb9d23cce9300f6bb95"
+    },
+    {
+      "gate": "script:Data/Script/halcyon/ground/d03p02/init.lua",
+      "status": "PASS",
+      "required_tokens": [
+        "SV.CanonicalDungeons.Pending == 'mt_steel_exit'",
+        "GROUND:TeleportTo(hero, 216, 256, Direction.Up)",
+        "SV.CanonicalDungeons.D03Cleared = true",
+        "GAME:EnterZone('master_zone', -1, 1, 0)",
+        "Animation.Init(map)",
+        "Animation.Update(map)",
+        "Animation.Exit(map)"
+      ],
+      "forbidden_tokens_absent": [
+        "COMMON.RespawnAllies(true)",
+        "MRKR('Main_Entrance_Marker')"
+      ],
+      "sha256": "71c45824a285acee54f40f0aa5e9d519eba5d8dfd22e1c9cb46f3b3d82ba9899"
+    },
+    {
+      "gate": "script:Data/Script/halcyon/event_single.lua",
+      "status": "PASS",
+      "required_tokens": [
+        "function SINGLE_CHAR_SCRIPT.MountSteelSkarmoryClear",
+        "actor.BaseForm.Species == 'skarmory' and not actor.Dead",
+        "args.CustomClearEvent",
+        "RogueEssence.Data.GameProgress.ResultType.Cleared"
+      ],
+      "forbidden_tokens_absent": [],
+      "sha256": "63a474dc4ddccc6217a40686c88e3e338f3791c75fb3610ca99f2d64c3cb26d3"
+    },
+    {
+      "gate": "french_dialogue_resources",
+      "status": "PASS",
+      "paths": [
+        "Data/Script/halcyon/ground/d03p02/strings.resx",
+        "Data/Script/halcyon/ground/d03p02/strings.fr.resx"
+      ],
+      "keys": [
+        "D03_CLEAR_001",
+        "D03_CLEAR_002"
+      ],
+      "values_nonempty": true,
+      "default_and_fr_identical": true
+    },
+    {
+      "gate": "deterministic_inspectable_floor_renders",
+      "status": "PASS",
+      "output_dir": "docs/pmdred_eu/playable/mt_steel/renders_integrated",
+      "audit_sha256": "6d49c099f0983a52e578bb2a8584d315d1ef94523624d0f0e1fdc6c4ca9cf9ce",
+      "floors": 9,
+      "pngs": [
+        "floor_1.png",
+        "floor_2.png",
+        "floor_3.png",
+        "floor_4.png",
+        "floor_5.png",
+        "floor_6.png",
+        "floor_7.png",
+        "floor_8.png",
+        "floor_9.png",
+        "overview.png"
+      ],
+      "black_terrain_cells": 0,
+      "transparent_terrain_cells": 0,
+      "reachable_stairs_per_floor": "per_declared_generator_contract",
+      "stair_contracts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "gate": "manifest_route_and_scope",
+      "status": "PASS",
+      "path": "docs/pmdred_eu/playable/mt_steel/manifest.json",
+      "route": [
+        "d03p01",
+        "mt_steel/0/0",
+        "mt_steel/-1/1/0",
+        "master_zone/-1/1/0"
+      ]
+    }
+  ],
+  "summary": {
+    "gate_count": 38,
+    "floor_count": 9,
+    "all_static_integration_gates_passed": true,
+    "converted_floor_pngs_inspectable": true,
+    "exact_pmdo_binary_locked": true,
+    "exact_pmdo_native_route_gameplay_audio_unload": "DEFERRED_NOT_EXECUTED",
+    "reason_deferred": "grouped final native certification follows the bulk early-dungeon conversion batch"
+  },
+  "claims": {
+    "proved": [
+      "exact EU ROM and promoted source asset hashes",
+      "PMDO 0.8.12 ZoneData/index schema and complete floor registry",
+      "ending Ground identity, dimensions, route binding, and collision-safe scripted landing",
+      "French completion resources and shared Lua lifecycle contract",
+      "authenticated music source/dependency/loop/Vorbis gates",
+      "byte-for-byte deterministic floor PNG render check inputs and invariants"
+    ],
+    "not_claimed": [
+      "PMDO-native dungeon generation or gameplay",
+      "PMDO-native music playback",
+      "PMDO-native end-to-end route and graceful unload"
+    ]
+  }
+}

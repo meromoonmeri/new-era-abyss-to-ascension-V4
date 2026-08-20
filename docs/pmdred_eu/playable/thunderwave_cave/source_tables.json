@@ -1,0 +1,273 @@
+{
+  "authority": {
+    "rom": ".runtime-cache/downloads/pmdred-eu.gba",
+    "size": 33554432,
+    "sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "region": "EU"
+  },
+  "dungeon_id": 1,
+  "playable_floor_count": 5,
+  "rows": [
+    {
+      "floor": 1,
+      "selectors": {
+        "floor_properties": 3,
+        "monsters": 2,
+        "traps": 1,
+        "items": [
+          6,
+          1,
+          2,
+          3
+        ]
+      },
+      "properties": {
+        "index": 3,
+        "layout": 11,
+        "room_density": 7,
+        "tileset": 50,
+        "music": 2,
+        "weather": 0,
+        "floor_connectivity": 15,
+        "enemy_density": 4,
+        "kecleon_shop_chance": 0,
+        "monster_house_chance": 0,
+        "maze_room_chance": 0,
+        "item_sticky_chance": 0,
+        "allow_dead_ends": 1,
+        "secondary_structures_budget": 0,
+        "room_flags": 0,
+        "unused_flag": 0,
+        "item_density": 4,
+        "trap_density": 3,
+        "floor_number": 1,
+        "fixed_room_number": 0,
+        "extra_hallways": 5,
+        "buried_item_density": 0,
+        "standalone_lake_density": 10,
+        "visibility_range": 0,
+        "money_upper_bound": 2,
+        "kecleon_shop_layout": 2,
+        "itemless_monster_house_chance": 0,
+        "unused_1a": 0,
+        "unused_1b": 0,
+        "raw_hex": "0b073202000f0400000000010000000403010005000a000202000000",
+        "referenced": true
+      }
+    },
+    {
+      "floor": 2,
+      "selectors": {
+        "floor_properties": 4,
+        "monsters": 2,
+        "traps": 1,
+        "items": [
+          6,
+          1,
+          2,
+          3
+        ]
+      },
+      "properties": {
+        "index": 4,
+        "layout": 11,
+        "room_density": 7,
+        "tileset": 50,
+        "music": 2,
+        "weather": 0,
+        "floor_connectivity": 15,
+        "enemy_density": 4,
+        "kecleon_shop_chance": 0,
+        "monster_house_chance": 0,
+        "maze_room_chance": 0,
+        "item_sticky_chance": 0,
+        "allow_dead_ends": 1,
+        "secondary_structures_budget": 0,
+        "room_flags": 0,
+        "unused_flag": 0,
+        "item_density": 4,
+        "trap_density": 3,
+        "floor_number": 2,
+        "fixed_room_number": 0,
+        "extra_hallways": 5,
+        "buried_item_density": 0,
+        "standalone_lake_density": 10,
+        "visibility_range": 0,
+        "money_upper_bound": 2,
+        "kecleon_shop_layout": 2,
+        "itemless_monster_house_chance": 0,
+        "unused_1a": 0,
+        "unused_1b": 0,
+        "raw_hex": "0b073202000f0400000000010000000403020005000a000202000000",
+        "referenced": true
+      }
+    },
+    {
+      "floor": 3,
+      "selectors": {
+        "floor_properties": 5,
+        "monsters": 3,
+        "traps": 1,
+        "items": [
+          6,
+          1,
+          2,
+          3
+        ]
+      },
+      "properties": {
+        "index": 5,
+        "layout": 11,
+        "room_density": 8,
+        "tileset": 50,
+        "music": 2,
+        "weather": 0,
+        "floor_connectivity": 15,
+        "enemy_density": 4,
+        "kecleon_shop_chance": 0,
+        "monster_house_chance": 0,
+        "maze_room_chance": 0,
+        "item_sticky_chance": 0,
+        "allow_dead_ends": 1,
+        "secondary_structures_budget": 0,
+        "room_flags": 0,
+        "unused_flag": 0,
+        "item_density": 5,
+        "trap_density": 3,
+        "floor_number": 3,
+        "fixed_room_number": 0,
+        "extra_hallways": 5,
+        "buried_item_density": 0,
+        "standalone_lake_density": 10,
+        "visibility_range": 0,
+        "money_upper_bound": 2,
+        "kecleon_shop_layout": 2,
+        "itemless_monster_house_chance": 0,
+        "unused_1a": 0,
+        "unused_1b": 0,
+        "raw_hex": "0b083202000f0400000000010000000503030005000a000202000000",
+        "referenced": true
+      }
+    },
+    {
+      "floor": 4,
+      "selectors": {
+        "floor_properties": 6,
+        "monsters": 4,
+        "traps": 1,
+        "items": [
+          7,
+          1,
+          2,
+          3
+        ]
+      },
+      "properties": {
+        "index": 6,
+        "layout": 11,
+        "room_density": 8,
+        "tileset": 50,
+        "music": 2,
+        "weather": 0,
+        "floor_connectivity": 15,
+        "enemy_density": 4,
+        "kecleon_shop_chance": 0,
+        "monster_house_chance": 0,
+        "maze_room_chance": 0,
+        "item_sticky_chance": 0,
+        "allow_dead_ends": 1,
+        "secondary_structures_budget": 0,
+        "room_flags": 0,
+        "unused_flag": 0,
+        "item_density": 5,
+        "trap_density": 3,
+        "floor_number": 4,
+        "fixed_room_number": 0,
+        "extra_hallways": 5,
+        "buried_item_density": 0,
+        "standalone_lake_density": 10,
+        "visibility_range": 0,
+        "money_upper_bound": 2,
+        "kecleon_shop_layout": 2,
+        "itemless_monster_house_chance": 0,
+        "unused_1a": 0,
+        "unused_1b": 0,
+        "raw_hex": "0b083202000f0400000000010000000503040005000a000202000000",
+        "referenced": true
+      }
+    },
+    {
+      "floor": 5,
+      "selectors": {
+        "floor_properties": 7,
+        "monsters": 4,
+        "traps": 1,
+        "items": [
+          7,
+          1,
+          2,
+          3
+        ]
+      },
+      "properties": {
+        "index": 7,
+        "layout": 11,
+        "room_density": 8,
+        "tileset": 50,
+        "music": 2,
+        "weather": 0,
+        "floor_connectivity": 15,
+        "enemy_density": 4,
+        "kecleon_shop_chance": 0,
+        "monster_house_chance": 0,
+        "maze_room_chance": 0,
+        "item_sticky_chance": 0,
+        "allow_dead_ends": 1,
+        "secondary_structures_budget": 0,
+        "room_flags": 0,
+        "unused_flag": 0,
+        "item_density": 5,
+        "trap_density": 3,
+        "floor_number": 5,
+        "fixed_room_number": 0,
+        "extra_hallways": 5,
+        "buried_item_density": 0,
+        "standalone_lake_density": 10,
+        "visibility_range": 0,
+        "money_upper_bound": 2,
+        "kecleon_shop_layout": 2,
+        "itemless_monster_house_chance": 0,
+        "unused_1a": 0,
+        "unused_1b": 0,
+        "raw_hex": "0b083202000f0400000000010000000503050005000a000202000000",
+        "referenced": true
+      }
+    }
+  ],
+  "table_hashes": {
+    "monster": {
+      "2": "27ef501aacbd5a0f7dc408f593183aa38c9f31e1fe06d9af6579cff5c8673bc9",
+      "3": "193aba6f9ceb048c136e70509d5aac349ad62fabaf84ec405ee00c5b30382ff7",
+      "4": "5d611d65e8d84213175c6de1fe5e402e59b24f1006997def998f085445bceb54"
+    },
+    "item": {
+      "6": "db25a3a20c27eaddbe8cc10cc9aa5343d471b799f37900a82a1f105531c05fe7",
+      "7": "db25a3a20c27eaddbe8cc10cc9aa5343d471b799f37900a82a1f105531c05fe7"
+    },
+    "trap": {
+      "1": "4c1860c20b430bc816e45fcae9f12a2d855bd2385bee14c4e26d4b504254ec0c"
+    }
+  },
+  "music": {
+    "floor_property_selector": 2,
+    "authenticated_m4a_song_index": 14,
+    "target": "Music/Thunderwave Cave.ogg"
+  },
+  "secondary_terrain_decision": {
+    "room_flags": 0,
+    "secondary_structures_budget": 0,
+    "standalone_lake_density": 10,
+    "generated": false,
+    "reason": "Red's formation routine returns when the requested room flag is absent."
+  }
+}

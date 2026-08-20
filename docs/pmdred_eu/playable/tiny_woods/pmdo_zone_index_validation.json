@@ -1,0 +1,50 @@
+{
+  "schema": "pmdred-eu-pmdo-zone-index-validation-v1",
+  "date": "2026-08-13",
+  "status": "passed",
+  "scope": "isolated Tiny Woods ZoneData loading and exact PMDO 0.8.12 zone-index serialization",
+  "runtime": {
+    "version": "0.8.12.0",
+    "executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+    "sdl_sha256": "2cec7b5f9603a8a856a94b3a5e4fb5bd5e93e3ed0d04b85431625d5acb14e71f"
+  },
+  "input": {
+    "path": "Data/Zone/tiny_woods.json",
+    "sha256": "e4f3edaf4af60bc625ce8e5c3b9d1d36372c2a1b009b4b1d21d13774e7eb92f7",
+    "bytes": 617106,
+    "serialization_container_version": "0.8.12.0",
+    "fixture_zone_files": [
+      "tiny_woods.json"
+    ]
+  },
+  "invocation": {
+    "operation": "PMDO -index zone",
+    "timeout_seconds": 60,
+    "timeout_signal": "TERM",
+    "kill_after_seconds": 5,
+    "return_code": 0,
+    "timed_out": false
+  },
+  "outputs": {
+    "stdout": {
+      "path": "docs/pmdred_eu/playable/tiny_woods/pmdo_zone_index_stdout.log",
+      "sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+      "bytes": 393
+    },
+    "index": {
+      "sha256": "5128a7da8a56b632c61276d8d0593f3c9a2c4686da905430d309eea3e565841f",
+      "bytes": 696
+    }
+  },
+  "assertions": {
+    "exact_runtime": true,
+    "isolated_fixture": true,
+    "clean_completion": true,
+    "index_created": true,
+    "zone_input_unchanged": true
+  },
+  "limitations": [
+    "This gate proves ZoneData deserialization and indexing, not floor generation.",
+    "Connectivity, spawn placement, entry/exit routing, retry behavior, and graceful game unload require separate native proof."
+  ]
+}

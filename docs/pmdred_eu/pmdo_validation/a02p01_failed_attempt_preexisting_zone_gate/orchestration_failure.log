@@ -1,0 +1,7 @@
+[2026-08-12T21:35:51Z] BATCH_BEGIN ids=1 first=a02p01 last=a02p01
+[2026-08-12T21:35:51Z] ENTITY_AWARE_MIGRATION_REQUIRED ground=a02p01 historical_ground_sha256=2b6d651a9fd7d25f159f50fc9d1cd6fa7006899988822eda217f4bf60923aad7 legacy_tile_sha256=7f80a67d0d6823541dbed67e77b68d1d005eb09b53d79a0d3a66e7a1bae027e3
+[2026-08-12T21:35:51Z] ENTITY_INTEGRATION_PASS ground=a02p01 canonical=4cb74d9c04c7473359f8b8360caac80df825dff91775917dbfe0d5dd201fc389 integrated=016551d87ddf6b5556a4f9181ec8061a5af2df1bda97e3f43e376f3dc64dc3b2 markers=2 spawners=3
+[2026-08-12T21:35:59Z] RUNTIME_PASS ground=a02p01 events=31 screenshots=2 exit=NORMAL_EXIT
+[2026-08-12T21:36:00Z] COMPARE_PASS ground=a02p01 samples=2 unique=1
+[2026-08-12T21:36:00Z] ENTITY_AWARE_MIGRATION_INSTALLED ground=a02p01 historical_reserved=true legacy_case_tile_retained=true canonical_case_tile_created=true
+[2026-08-12T21:36:00Z] BATCH_FAIL RuntimeError: zone already contains unvalidated a02p01

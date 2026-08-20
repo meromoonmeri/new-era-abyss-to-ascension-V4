@@ -1,0 +1,73 @@
+{
+  "schema": "new-era.pmdred-eu-native-termination.v1",
+  "ground": "semantic_selected_v3",
+  "result": "PASS",
+  "command": [
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdo-headless-bundle/PMDO",
+    "-asset",
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdred-tiny-woods-command-semantic-fixture-v17/command-semantic-v3-runs/semantic_selected_v3/asset/",
+    "-appdata",
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdred-tiny-woods-command-semantic-fixture-v17/command-semantic-v3-runs/semantic_selected_v3/appdata/",
+    "-quest",
+    "pmdred_eu_fixture"
+  ],
+  "validator_mode": "tiny_woods_command_semantic_v3",
+  "environment_overrides": {
+    "TINY_WOODS_COMMAND_MODE": "semantic_selected_v3",
+    "TINY_WOODS_COMMAND_SEED": "424242"
+  },
+  "started_at": "2026-08-15T23:37:28.160+00:00",
+  "ended_at": "2026-08-15T23:38:45.442+00:00",
+  "duration_seconds": 77.282,
+  "pid": 7213,
+  "process_group": 7213,
+  "pmdo_executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+  "load_phase_unload": {
+    "requested": true,
+    "request_event": {
+      "event": "load_phase_unload_requested",
+      "before": "Ready",
+      "before_raw": "Ready: 2",
+      "requested": "Unload",
+      "readback": "Unload",
+      "readback_raw": "Unload: 3"
+    },
+    "deinit_event": {
+      "event": "native_deinit",
+      "load_phase": "Unload",
+      "load_phase_raw": "Unload: 3"
+    },
+    "graphics_unload_event": {
+      "event": "native_graphics_unload",
+      "load_phase": "Unload",
+      "load_phase_raw": "Unload: 3"
+    },
+    "terminal_event": {
+      "event": "end",
+      "terminal": true,
+      "graceful": true,
+      "load_phase": "Unload",
+      "load_phase_raw": "Unload: 3"
+    },
+    "ordered_and_terminal_last": true,
+    "pass": true
+  },
+  "exit_classification": "NORMAL_EXIT",
+  "return_code": 0,
+  "terminal": true,
+  "graceful": true,
+  "watchdog": false,
+  "watchdog_reason": null,
+  "requested_signal": null,
+  "sigsegv": false,
+  "forced_kill": false,
+  "orphan_process": false,
+  "process_group_members_before_cleanup": [],
+  "process_group_members_after_cleanup": [],
+  "event_parse_error": null,
+  "event_count": 1484,
+  "event_stream_sha256": "352d2e1e73101ef77899ffbdeb2391a0d9243d533c481e8bf3aac43e459faa7f",
+  "expected_screenshot_count": 0,
+  "actual_screenshot_count": 0,
+  "runtime_log_sha256": "85fc72d3e07ca37b188488de77dddb3ea531d0147c904ce982bdf7bc1415369d"
+}

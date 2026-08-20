@@ -1,0 +1,408 @@
+{
+  "schema": "new-era.pmdred-eu-playable-reconstruction-progress.v1",
+  "generated_at": "2026-08-17",
+  "repository": {
+    "branch": "arena/019ff05e-new-era-abyss-to-ascension-v4",
+    "parent_checkpoint": "d3b76db8b593223b3428ab189d5cd9350168c7f6"
+  },
+  "authority": {
+    "region": "EU",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "technical_reference_role": "structure only; ROM bytes remain content authority"
+  },
+  "grounds": {
+    "canonical_count": 219,
+    "runtime_pass_and_promoted_count": 219,
+    "remaining_count": 0,
+    "historical_checkpoint": "docs/pmdred_eu/pmdo_validation/progress.json",
+    "status": "PRESERVED"
+  },
+  "tiny_woods": {
+    "zone_id": "tiny_woods",
+    "french_name": "Petit Bois",
+    "playable_floors": 3,
+    "procedural_generation": {
+      "status": "PASS",
+      "report": "docs/pmdred_eu/playable/tiny_woods/native_runtime/native_generation_validation.json"
+    },
+    "entry_exit_retry_rescue_cleanup": {
+      "status": "PASS",
+      "report": "docs/pmdred_eu/playable/tiny_woods/route_runtime_v2/native_route_validation.json",
+      "report_sha256": "baebd47f9334388565425555a98f18426359ffa20c1063070627515122790bd2",
+      "superseded_report": "docs/pmdred_eu/playable/tiny_woods/route_runtime/native_route_validation.json",
+      "direction_correction": "Red 4=North maps to PMDO Up/4 for d01p02 and d01p01:g3",
+      "scenarios": 3,
+      "clear_run_native_actions": 143,
+      "natural_hostile_attacks": 2,
+      "occupancy_replans": 28,
+      "strict_graceful_terminations": 3
+    },
+    "narrative_scenes": {
+      "status": "PARTIAL_PASS",
+      "report": "docs/pmdred_eu/playable/tiny_woods/scene_runtime/native_scene_validation.json",
+      "report_sha256": "cc8ddafd730869d75aee5f3eed3c45c1789e12f3afee02850745b621163dc05e",
+      "authenticated_graph": "docs/pmdred_eu/playable/tiny_woods/eu_scene_graph.json",
+      "authenticated_command_count": 697,
+      "authenticated_french_text_count": 117,
+      "executed_neutral_branch_dialogue_count": 74,
+      "executed_scene_groups": [
+        "d01p01:g1",
+        "d01p01:g2",
+        "d01p02:g1",
+        "d01p01:g3"
+      ],
+      "remaining": "Bind the certified non-wait metadata contracts to canonical actors/camera contexts in the live route, certify opening through title, then continue bulk dungeon reconstruction.",
+      "command_complete_selected_route_extension": {
+        "status": "PASS",
+        "report": "docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/native_command_complete_validation.json",
+        "report_sha256": "2a6fa101d35b9ad84656835b1583a6163d39a3ff4bf8b13100f4fdd084f5f97b",
+        "fixture_manifest_sha256": "afbfde161c7f5280333b2411786a329ec600d450ea0696e32d1abeea890f6f65",
+        "command_plan": "docs/pmdred_eu/playable/tiny_woods/command_plan.json",
+        "command_plan_sha256": "ab9f2a8dcf857181a4dd188e28687cb953ba4789c9b6f39430c50fee4b94c37b",
+        "arrays": 27,
+        "unique_command_addresses_per_mode": 975,
+        "opcodes": 61,
+        "french_associations_preserved": 195,
+        "isolated_native_modes": [
+          "opening_naming",
+          "post_route"
+        ],
+        "selected_french_dialogues_executed_and_closed": 94,
+        "authenticated_bgm_ids": [
+          1,
+          10,
+          46,
+          101,
+          103,
+          114
+        ],
+        "authenticated_cue_ids": [
+          450,
+          455,
+          457,
+          463,
+          465,
+          466,
+          468,
+          469,
+          470,
+          473,
+          482
+        ],
+        "hero_naming_after_opening_row": 23,
+        "refusal_iterations": 1,
+        "rewards": [
+          "berry_oran",
+          "berry_pecha",
+          "berry_rawst"
+        ],
+        "strict_graceful_terminations": 2,
+        "scope": "D1/default grammatical branch and one refusal iteration execute natively; all command records/associations are preserved and loaded, while non-selected alternative control/choreography handlers remain the next semantic-execution phase.",
+        "fanfare_source_manifest_sha256": "ec2f94f966581a78028625872968fd339ca66e33699b376a22327939aae4c96c",
+        "music_source_manifest_sha256": "dff44863cd741332b63485f7171ad0ef28ed99c296c9343916a772ef9961636b",
+        "provenance_report": "docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/provenance.json",
+        "provenance_report_sha256": "cf1dbe64b9a36af7ce4deb57f032b71742bb17e264833d42ed58620c13201bde",
+        "renderer_source_sha256": "eec95deff18c4e22514541e21986c76843af3850caa6e3f4549df69ec6e53f10",
+        "superseded_report": "docs/pmdred_eu/playable/tiny_woods/command_complete_runtime/native_command_complete_validation.json",
+        "supersession_scope": "source-provenance reproducibility only; prior native result and audio bytes remain valid",
+        "clean_reproduction": {
+          "status": "PASS",
+          "scope": "v2 commands executed end to end from fresh source-render, private-overlay, and native-evidence destinations",
+          "archive": "docs/pmdred_eu/playable/tiny_woods/command_complete_clean_reproduction_v1",
+          "certificate": "docs/pmdred_eu/playable/tiny_woods/command_complete_clean_reproduction_v1/clean_reproduction_certificate.json",
+          "certificate_sha256": "2a2f86efc88d242a2345ca6d5e7ccce8b3c9af5598cf477021279882324dfda9",
+          "fresh_report_sha256": "7f908ee9cc6a56d32ad405ba87b4a2d80ff856685436d320c2c6b060d660a556",
+          "fresh_fixture_manifest_sha256": "5cba8922448a815a431e5383c4eda3bb65d6f728d38c09ab4889d75d08bebb8d",
+          "evidence_hashes_sha256": "f47fd6cd7e43399c6605b1df40f921de81ddb20bf0576f56caac1b9e86e7f7fa",
+          "source_manifest_byte_identity": true,
+          "strict_graceful_terminations": 2
+        }
+      },
+      "palette_semantic_extension": {
+        "status": "PASS",
+        "scope": "Source-pinned semantics and isolated PMDO adapter for the exact EU opcodes 0x22/0x23/0x25/0x26, integrated into all six affected Tiny Woods station/title choreographies without changing command_plan.json fallback handlers",
+        "semantics": "docs/pmdred_eu/playable/tiny_woods/secondary_palette_semantics_v1.json",
+        "semantics_sha256": "c3e7b71dc3929680b665b2ef441624185e92b8bcb517257fb2f20fe007dbbb73",
+        "archive": "docs/pmdred_eu/playable/tiny_woods/palette_semantics_runtime_v1",
+        "report": "docs/pmdred_eu/playable/tiny_woods/palette_semantics_runtime_v1/native_palette_validation.json",
+        "report_sha256": "6ca93529cf35868ed0125fc7e03d459cb082a9625e5137e7e5130f9ad54e10fb",
+        "fixture_manifest_sha256": "6e9c1c8e8141d38f18ab1da606d50baaddfee89395e4d2cc6a69e46b5e4c9107",
+        "certificate": "docs/pmdred_eu/playable/tiny_woods/palette_semantics_runtime_v1/palette_certificate.json",
+        "certificate_sha256": "e952b9118becfd2472ebec9366ac469567686c9d73d6254e1bbace9c5f85d0a1",
+        "evidence_hashes_sha256": "578f002bc5a4500e46cd76ef245474e4f9e2ffb4b8d143beaf8f738e91d4b68d",
+        "opcode_counts": {
+          "0x22": 6,
+          "0x23": 5,
+          "0x25": 2,
+          "0x26": 2
+        },
+        "exact_commands": 15,
+        "affected_arrays": 6,
+        "integrated_scenes": [
+          "d01p01:g1",
+          "d01p01:g2",
+          "d01p01:g3",
+          "d01p02:g1",
+          "b01p00a:g16",
+          "s02_fre:g2"
+        ],
+        "selected_route_integrated_commands": 14,
+        "native_modes": [
+          "opening_naming",
+          "post_route",
+          "palette_adapter_all"
+        ],
+        "selected_french_dialogues_executed_and_closed": 94,
+        "strict_graceful_terminations": 3,
+        "channels": {
+          "main": [
+            "0x22",
+            "0x23"
+          ],
+          "front": [
+            "0x25",
+            "0x26"
+          ]
+        },
+        "source_durations_frames": [
+          0,
+          30,
+          60
+        ],
+        "zero_frame_runtime_policy": "one PMDO frame because ScreenFadeFX fadeTime=0 cannot change a non-target state; source duration remains 0 in trace",
+        "planning_unknown_fallback_retained": true
+      },
+      "efob108_attachment_semantics": {
+        "status": "PASS",
+        "scope": "Native PMDO certification of Caterpie-owned EU 0x56(62,0) efob108 attachment and 0xDE completion boundary; coordinate-convention selection only, before the 304-command supplement integration gate",
+        "particle": "Content/Particle/PMDRed_Efob108.dir",
+        "particle_sha256": "18d392d82c2c8b6aa101aa0a49bab0af58aae16aa6e5aebba92a7bf288f46def",
+        "particle_manifest": "docs/pmdred_eu/playable/tiny_woods/efob108_particle_manifest.json",
+        "particle_manifest_sha256": "3d1d74e7b84e3517bb98ef820c8de82a87831291e4663aa2ac160acabf59085c",
+        "archive": "docs/pmdred_eu/playable/tiny_woods/efob108_attachment_runtime_v2",
+        "report": "docs/pmdred_eu/playable/tiny_woods/efob108_attachment_runtime_v2/native_attachment_validation.json",
+        "report_sha256": "7922fc3610c2ecccd5a5ff031f592ae739cb08c575fe17f706aa87a84895006f",
+        "fixture_manifest_sha256": "e57d8728aad06b582cdc3aee4b567ac3c8269403369cf85ed90e25165cc95919",
+        "evidence_hashes_sha256": "d2e5b348140141e9455ff084665abfa1f17bb24346800019e818927ffebd94de",
+        "source_owner": "s_gs179_g1_s0_lives2_dlg0",
+        "source_command_address": "0x084D5578",
+        "source_opcode": "0x56",
+        "source_arguments": [
+          62,
+          0
+        ],
+        "completion_command_address": "0x084D55A8",
+        "completion_opcode": "0xDE",
+        "literal_candidate": {
+          "pmdo_position": [
+            180,
+            148
+          ],
+          "terminal_head": [
+            187,
+            161
+          ]
+        },
+        "selected_coordinate_convention": "eu_center_to_pmdo_top_left_minus_8_minus_8",
+        "normalized_candidate": {
+          "pmdo_position": [
+            172,
+            140
+          ],
+          "terminal_head": [
+            179,
+            153
+          ],
+          "effect_center": [
+            179,
+            149
+          ]
+        },
+        "native_action": {
+          "type": "RogueEssence.Ground.IdleAnimGroundAction",
+          "animation": "Walk",
+          "anim_id": 2,
+          "loop": false,
+          "total_frames": 30,
+          "completion_sampled_before_idle_transition": true
+        },
+        "native_emote": {
+          "type": "RogueEssence.Content.Emote",
+          "frame_time": 2,
+          "frames": 13,
+          "cycles": 1,
+          "duration_frames": 26,
+          "loc_height": 4,
+          "draw_size": [
+            128,
+            128
+          ],
+          "finished_false_at_frame": 25,
+          "finished_true_at_frame": 26
+        },
+        "strict_graceful_terminations": 1,
+        "preserved_diagnostic": {
+          "archive": "docs/pmdred_eu/playable/tiny_woods/efob108_attachment_runtime_v1",
+          "status": "post-runtime parser cardinality failure preserved; native runtime itself PASS",
+          "evidence_hashes_sha256": "851909b39c515fc5469ff084665abfa1f17bb24346800019e818927ffebd94de"
+        }
+      },
+      "command_semantic_supplement_v3": {
+        "status": "PASS",
+        "scope": "Immutable recovered 304-row semantic metadata supplement plus exact-PMDO selected/all harness certification; wait execution is temporal and non-wait execution certifies source-address metadata and PMDO API contracts pending production actor-context binding.",
+        "supplement": "docs/pmdred_eu/playable/tiny_woods/command_semantic_supplement_v3.json",
+        "supplement_sha256": "5c9463d14a7de20c40f8d1e183966de0fb43b28e2b0e853672bbe38cbc111237",
+        "metadata_correction_archive": "docs/pmdred_eu/playable/tiny_woods/command_semantic_metadata_correction_v3",
+        "metadata_correction_report_sha256": "dd8d18e0323447dcf61964e54ee16699312a1ad8ae7826ba955a49464fc4fda7",
+        "native_archive": "docs/pmdred_eu/playable/tiny_woods/command_semantic_native_v5",
+        "native_report": "docs/pmdred_eu/playable/tiny_woods/command_semantic_native_v5/native_command_semantic_validation_v3.json",
+        "native_report_sha256": "e0ab16d361c77ccb5e9b533189037243590df6dcfaedbb96cf6465abb31dc7c7",
+        "certificate": "docs/pmdred_eu/playable/tiny_woods/command_semantic_native_v5/certificate.json",
+        "certificate_sha256": "04b1c16520ccda82d5392b3166f58ee841210f48f9f5abd16653ef0a530acc12",
+        "fixture_manifest_sha256": "5a476c2ebbe2087416e63f3e0a0fadaedf6f870a7b7b272ea65fd5e0ba3d9b63",
+        "legacy_regression_archive": "docs/pmdred_eu/playable/tiny_woods/command_semantic_legacy_regression_v5",
+        "legacy_regression_certificate_sha256": "2950e22088af397a285b31402a3203c44eeb1c8cf6e492ca104f4b00b74a7030",
+        "failure_propagation_archive": "docs/pmdred_eu/playable/tiny_woods/command_semantic_failure_propagation_v3",
+        "failure_propagation_report_sha256": "01ac291d54b6fc50e7fb8c83a8c1b2db13a384e258d046d5aff1f15b6878cafe",
+        "commands": 304,
+        "selected_route": 251,
+        "retry_only": 53,
+        "opcodes": 16,
+        "source_waits": 108,
+        "source_wait_frames": 3001,
+        "selected_route_waits": 92,
+        "selected_route_wait_frames": 2690,
+        "planning_unknown_rows": 15,
+        "supplement_unknown_rows": 0,
+        "native_modes": [
+          "semantic_selected_v3",
+          "semantic_all_v3"
+        ],
+        "strict_graceful_terminations": 2,
+        "legacy_regression_modes": 3,
+        "failure_gate": "ordinal-0 address mismatch yields explicit semantic FAIL, zero accepted starts/completions, graceful native rc 0, and independent certifier rc 1",
+        "tick_zero_policy": "Harness-only PMDO bootstrap pre-roll before authenticated commands; all source wait arguments and elapsed totals remain exact.",
+        "focused_authenticated_regressions": 53,
+        "focused_authenticated_regressions_status": "PASS",
+        "failure_propagation_evidence_hashes_sha256": "371ddd2508f449f27bc369471556f2c6ab5f6c48b3189d09ab2374c9f0481137"
+      }
+    },
+    "post_g3_route_authentication": {
+      "status": "PASS",
+      "report": "docs/pmdred_eu/playable/tiny_woods/post_route/eu_post_route_graph.json",
+      "report_sha256": "9f1cf97cbfa211b16dab5fbf52df8aeb195878461f6425be542a229468766615",
+      "event_address": "0x08286DA0",
+      "regional_route": [
+        "184:g1",
+        "183:g3",
+        "9:g16",
+        "229:g2"
+      ],
+      "stable_ground_route": [
+        "d01p02",
+        "d01p01",
+        "b01p00a",
+        "s02_fre"
+      ],
+      "rescue_base_group_shift": {
+        "eu": 16,
+        "technical_reference": 17
+      },
+      "rescue_base_command_count": 258,
+      "rescue_base_french_text_count": 78,
+      "title_command_count": 10,
+      "progression": "Tiny Woods conquered; SCENARIO_MAIN 3,0; EVENT_DIVIDE",
+      "runtime_status": "PASS",
+      "runtime_report": "docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/native_command_complete_validation.json",
+      "runtime_report_sha256": "2a6fa101d35b9ad84656835b1583a6163d39a3ff4bf8b13100f4fdd084f5f97b",
+      "native_rewards": [
+        "berry_oran",
+        "berry_pecha",
+        "berry_rawst"
+      ],
+      "native_progression": {
+        "dungeon_unlock": "Completed",
+        "scenario_main": 3,
+        "scenario_level": 0,
+        "event_division": "EVENT_DIVIDE"
+      },
+      "superseded_runtime_report": "docs/pmdred_eu/playable/tiny_woods/command_complete_runtime/native_command_complete_validation.json"
+    }
+  },
+  "resume": {
+    "restore": "bash tools/restore_pmdred_eu_validation_runtime.sh",
+    "verify_ground_checkpoint": "python3 tools/update_pmdred_eu_validation_progress.py --check",
+    "reproduce_latest_milestone": "bash docs/pmdred_eu/playable/tiny_woods/command_semantic_native_v5/commands.sh",
+    "next_phase": "early_dungeon_bulk_after_mt_steel_begin_sinister_woods",
+    "rule": "Preserve all 219/219 Ground proof, Tiny Woods archives, Thunderwave Cave evidence, and Mount Steel evidence. Continue bulk conversion with Sinister Woods; serialize promotion/integration and PNG proof, and defer exact-PMDO native route/gameplay/audio/unload certification to the grouped final pass.",
+    "reproduce_post_route_audit": "python3 tools/audit_pmdred_eu_tiny_woods_post_route.py .runtime-cache/downloads/pmdred-eu.gba --pret-root .runtime-cache/pmd-red-reference --report /tmp/eu_post_route_graph.json",
+    "reproduce_command_complete": "bash docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2/commands.sh",
+    "reproduce_palette_semantics": "bash docs/pmdred_eu/playable/tiny_woods/palette_semantics_runtime_v1/commands.sh",
+    "reproduce_efob108_attachment": "bash docs/pmdred_eu/playable/tiny_woods/efob108_attachment_runtime_v2/commands.sh",
+    "reproduce_command_semantic_v3": "bash docs/pmdred_eu/playable/tiny_woods/command_semantic_native_v5/commands.sh",
+    "validate_command_semantic_metadata": "bash docs/pmdred_eu/playable/tiny_woods/command_semantic_metadata_correction_v3/commands.sh",
+    "test_command_semantic_v3": "python3 -m unittest tools.test_pmdred_tiny_woods_command_semantic_v3 -v"
+  },
+  "limitations": [
+    "A route PASS is not narrative completion.",
+    "The failed route uses a genuine GiveUp GameAction carrying ResultType.Failed; natural combat defeat remains a later combat milestone.",
+    "The command-complete native extension executes the selected D1/default route and one refusal loop; loading all 975 exact command records is not claimed as execution of every non-selected alternative branch.",
+    "The palette milestone promotes only 0x22/0x23/0x25/0x26 through an address-gated adapter; all other unresolved command handlers remain on the default actor.control_unknown planning fallback.",
+    "The semantic-v3 harness executes all 108 waits for exactly 3,001 source frames and validates strict adjacent traces for all 304 rows; non-wait rows remain metadata/API contracts until canonical production actor and camera contexts are bound.",
+    "The selected semantic harness route is d01p01 and is not itself a complete opening-to-title live quest traversal.",
+    "The 15 actor.control_unknown planning rows remain disjoint from the 304-row supplement and unchanged in command_plan.json."
+  ],
+  "early_dungeon_bulk": {
+    "phase": "early_dungeon_bulk_after_mt_steel",
+    "status": "IN_PROGRESS",
+    "completed_static_integration": [
+      "thunderwave_cave",
+      "mt_steel"
+    ],
+    "mt_steel": {
+      "status": "PASS_STATIC_INTEGRATION",
+      "french_name": "Mt Acier",
+      "dungeon_id": 2,
+      "floors": 9,
+      "procedural_floors": [
+        1,
+        8
+      ],
+      "static_floor": {
+        "floor": 9,
+        "map_id": "mt_steel_peak",
+        "dimensions": [
+          9,
+          17
+        ],
+        "contract_id": "pmdred-eu-mt-steel-arena-v1",
+        "unreachable_normal": 5,
+        "unreachable_secondary": 24,
+        "required_enemy": "skarmory",
+        "protected_actor": "diglett"
+      },
+      "zone_sha256": "a90b8c29456ac91ea6db8f20c604331a6e8770c56917dcb63d5b71e91d67e942",
+      "arena_sha256": "274d66e30877ce4b59961098f7ac7779e51eb81c63dd92c72dc1f8d76c6b584a",
+      "music_sha256": "ba005f5f6bdcd2ef675a77056818a21e10fa35f1d161ef6a7e1cd562b0325001",
+      "music_song_index": 121,
+      "renders": "docs/pmdred_eu/playable/mt_steel/renders_integrated",
+      "render_pngs": 10,
+      "render_audit_sha256": "6d49c099f0983a52e578bb2a8584d315d1ef94523624d0f0e1fdc6c4ca9cf9ce",
+      "grouped_validation": "docs/pmdred_eu/playable/mt_steel/grouped_validation.json",
+      "grouped_validation_sha256": "bbfef7aa2d3fe031dda3a11617ac4fa40d8c5c26cf2b618a6d963eee95b32b15",
+      "grouped_gate_count": 38,
+      "native_status": "DEFERRED_NOT_EXECUTED",
+      "native_reason": "grouped final PMDO route/gameplay/audio/unload certification follows further bulk early-dungeon conversion"
+    },
+    "next_dungeon": {
+      "id": 3,
+      "zone_id": "sinister_woods",
+      "french_name": "Bois Sinistre"
+    },
+    "recovery": {
+      "build_check": "PYTHONPATH=tools .runtime-cache/test-venv/bin/python tools/build_pmdred_mt_steel.py --check",
+      "render_check": ".runtime-cache/test-venv/bin/python tools/render_pmdred_early_dungeon.py --zone Data/Zone/mt_steel.json --zone-id mt_steel --title 'Mt Acier / Mount Steel' --output-dir docs/pmdred_eu/playable/mt_steel/renders_integrated --check",
+      "grouped_check": ".runtime-cache/test-venv/bin/python tools/validate_pmdred_early_dungeon.py --config docs/pmdred_eu/playable/mt_steel/validation_config.json --check"
+    }
+  }
+}

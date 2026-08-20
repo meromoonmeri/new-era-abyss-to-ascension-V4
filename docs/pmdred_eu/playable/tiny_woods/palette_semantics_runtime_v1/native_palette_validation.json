@@ -1,0 +1,637 @@
+{
+  "schema": "pmdred-eu-tiny-woods-palette-native-v1",
+  "date": "2026-08-13",
+  "status": "passed",
+  "authority": {
+    "region": "EU",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "command_plan_sha256": "ab9f2a8dcf857181a4dd188e28687cb953ba4789c9b6f39430c50fee4b94c37b",
+    "palette_semantics_sha256": "c3e7b71dc3929680b665b2ef441624185e92b8bcb517257fb2f20fe007dbbb73"
+  },
+  "runtime": {
+    "version": "0.8.12.0",
+    "executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327"
+  },
+  "index_gate": {
+    "status": "passed",
+    "return_code": 0,
+    "timed_out": false,
+    "index_sha256": "76517c1ff94b3126d6f6c66488c9f36f29ab9df62c643901a0684c2f7ff4fc39",
+    "log_sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8"
+  },
+  "runs": [
+    {
+      "mode": "opening_naming",
+      "route": [
+        "d01p01"
+      ],
+      "scenes": [
+        "d01p01_g1"
+      ],
+      "commands": 975,
+      "arrays": 27,
+      "dialogues": 38,
+      "menus_closed": 38,
+      "cue_ids": [
+        450,
+        463,
+        465,
+        466,
+        468,
+        469,
+        470,
+        482
+      ],
+      "verdict": {
+        "event": "command_complete_verdict",
+        "mode": "opening_naming",
+        "verdict": "PASS",
+        "commands": 975,
+        "arrays": 27,
+        "palette_transitions": 4,
+        "dialogues": 38,
+        "menus_closed": 38,
+        "hero_naming": 1,
+        "hero_naming_after_dialogues": 23,
+        "team_naming": 0,
+        "cues": 8,
+        "route": "d01p01",
+        "tiny_woods_unlock": "Discovered: 1",
+        "scenario_main": 0,
+        "scenario_level": null,
+        "event_division": "nil"
+      },
+      "palette": {
+        "count": 4,
+        "addresses": [
+          "0x084CB130",
+          "0x084CB148",
+          "0x084CB2E0",
+          "0x084CB400"
+        ],
+        "records": [
+          {
+            "ordinal": 1,
+            "array_id": "tiny_woods_scene:s_gs178_g1_s0_station_sref_script",
+            "index": 2,
+            "address": "0x084CB130",
+            "opcode": "0x23",
+            "channel": "main",
+            "target": "black",
+            "source_frames": 0,
+            "runtime_frames": 1,
+            "elapsed_frames": 0,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 2,
+            "array_id": "tiny_woods_scene:s_gs178_g1_s0_station_sref_script",
+            "index": 3,
+            "address": "0x084CB148",
+            "opcode": "0x26",
+            "channel": "front",
+            "target": "black",
+            "source_frames": 0,
+            "runtime_frames": 1,
+            "elapsed_frames": 1,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 3,
+            "array_id": "tiny_woods_scene:s_gs178_g1_s0_station_sref_script",
+            "index": 20,
+            "address": "0x084CB2E0",
+            "opcode": "0x25",
+            "channel": "front",
+            "target": "visible",
+            "source_frames": 0,
+            "runtime_frames": 1,
+            "elapsed_frames": 1,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 4,
+            "array_id": "tiny_woods_scene:s_gs178_g1_s0_station_sref_script",
+            "index": 32,
+            "address": "0x084CB400",
+            "opcode": "0x22",
+            "channel": "main",
+            "target": "visible",
+            "source_frames": 60,
+            "runtime_frames": 60,
+            "elapsed_frames": 60,
+            "blocking_return_observed": true
+          }
+        ],
+        "strict_start_complete_adjacency": true,
+        "frame_tick_accounting": true
+      },
+      "result": "PASS",
+      "events_sha256": "93470ad12c4f8be0dc3c49992bde69b159e07d79cee298c26a2bf53fd026afe4",
+      "runtime_log_sha256": "8b42923752b595e9eaf743956ff8e8b2363db80d83f67939d7a4b351aa8b2599",
+      "termination_sha256": "05fec71c8e92f0a18506c64f7014c554cb7a3cbc1eb1f45d0e3a894342a0ce7b",
+      "termination": {
+        "exit_classification": "NORMAL_EXIT",
+        "return_code": 0,
+        "terminal": true,
+        "graceful": true,
+        "watchdog": false,
+        "requested_signal": null,
+        "sigsegv": false,
+        "forced_kill": false,
+        "orphan_process": false
+      }
+    },
+    {
+      "mode": "post_route",
+      "route": [
+        "d01p02",
+        "d01p01",
+        "b01p00a",
+        "s02_fre"
+      ],
+      "scenes": [
+        "d01p02_g1",
+        "d01p01_g3",
+        "b01p00a_g16",
+        "s02_fre_g2"
+      ],
+      "commands": 975,
+      "arrays": 27,
+      "dialogues": 56,
+      "menus_closed": 56,
+      "cue_ids": [
+        450,
+        455,
+        457,
+        465,
+        468,
+        469,
+        470,
+        473
+      ],
+      "verdict": {
+        "event": "command_complete_verdict",
+        "mode": "post_route",
+        "verdict": "PASS",
+        "commands": 975,
+        "arrays": 27,
+        "palette_transitions": 10,
+        "dialogues": 56,
+        "menus_closed": 56,
+        "hero_naming": 0,
+        "hero_naming_after_dialogues": -1,
+        "team_naming": 1,
+        "cues": 8,
+        "route": "d01p02>d01p01>b01p00a>s02_fre",
+        "tiny_woods_unlock": "Completed: 2",
+        "scenario_main": 3,
+        "scenario_level": 0,
+        "event_division": "EVENT_DIVIDE"
+      },
+      "palette": {
+        "count": 10,
+        "addresses": [
+          "0x084D4C90",
+          "0x084D4CC0",
+          "0x084D1C54",
+          "0x084D1C9C",
+          "0x0838D21C",
+          "0x0838D27C",
+          "0x0838D294",
+          "0x0838D36C",
+          "0x0856280C",
+          "0x08562854"
+        ],
+        "records": [
+          {
+            "ordinal": 1,
+            "array_id": "tiny_woods_scene:s_gs179_g1_s0_station_sref_script",
+            "index": 3,
+            "address": "0x084D4C90",
+            "opcode": "0x22",
+            "channel": "main",
+            "target": "visible",
+            "source_frames": 30,
+            "runtime_frames": 30,
+            "elapsed_frames": 0,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 2,
+            "array_id": "tiny_woods_scene:s_gs179_g1_s0_station_sref_script",
+            "index": 5,
+            "address": "0x084D4CC0",
+            "opcode": "0x23",
+            "channel": "main",
+            "target": "black",
+            "source_frames": 30,
+            "runtime_frames": 30,
+            "elapsed_frames": 30,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 3,
+            "array_id": "tiny_woods_scene:s_gs178_g3_s0_station_sref_script",
+            "index": 4,
+            "address": "0x084D1C54",
+            "opcode": "0x22",
+            "channel": "main",
+            "target": "visible",
+            "source_frames": 30,
+            "runtime_frames": 30,
+            "elapsed_frames": 30,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 4,
+            "array_id": "tiny_woods_scene:s_gs178_g3_s0_station_sref_script",
+            "index": 7,
+            "address": "0x084D1C9C",
+            "opcode": "0x23",
+            "channel": "main",
+            "target": "black",
+            "source_frames": 30,
+            "runtime_frames": 30,
+            "elapsed_frames": 30,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 5,
+            "array_id": "post_route:s_gs9_g17_s0_station_sref_script",
+            "index": 4,
+            "address": "0x0838D21C",
+            "opcode": "0x22",
+            "channel": "main",
+            "target": "visible",
+            "source_frames": 30,
+            "runtime_frames": 30,
+            "elapsed_frames": 30,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 6,
+            "array_id": "post_route:s_gs9_g17_s0_station_sref_script",
+            "index": 8,
+            "address": "0x0838D27C",
+            "opcode": "0x23",
+            "channel": "main",
+            "target": "black",
+            "source_frames": 60,
+            "runtime_frames": 60,
+            "elapsed_frames": 60,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 7,
+            "array_id": "post_route:s_gs9_g17_s0_station_sref_script",
+            "index": 9,
+            "address": "0x0838D294",
+            "opcode": "0x26",
+            "channel": "front",
+            "target": "black",
+            "source_frames": 0,
+            "runtime_frames": 1,
+            "elapsed_frames": 1,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 8,
+            "array_id": "post_route:s_gs9_g17_s0_station_sref_script",
+            "index": 18,
+            "address": "0x0838D36C",
+            "opcode": "0x25",
+            "channel": "front",
+            "target": "visible",
+            "source_frames": 0,
+            "runtime_frames": 1,
+            "elapsed_frames": 1,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 9,
+            "array_id": "post_route:title_group/script",
+            "index": 5,
+            "address": "0x0856280C",
+            "opcode": "0x22",
+            "channel": "main",
+            "target": "visible",
+            "source_frames": 60,
+            "runtime_frames": 60,
+            "elapsed_frames": 60,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 10,
+            "array_id": "post_route:title_group/script",
+            "index": 8,
+            "address": "0x08562854",
+            "opcode": "0x23",
+            "channel": "main",
+            "target": "black",
+            "source_frames": 30,
+            "runtime_frames": 30,
+            "elapsed_frames": 30,
+            "blocking_return_observed": true
+          }
+        ],
+        "strict_start_complete_adjacency": true,
+        "frame_tick_accounting": true
+      },
+      "result": "PASS",
+      "events_sha256": "0eca1481fadb1a95eb1d5b6495493a75a3548b1daaf24648825eef2cf33b1fa1",
+      "runtime_log_sha256": "1d12700aaf672b6cfbf2676499ce99284cba18eded628e4d8ca0ee1c3599d59c",
+      "termination_sha256": "9073074f99724bfb873dfbe13c1780fe1166b2c179a66c4ada9043f2bffeea82",
+      "termination": {
+        "exit_classification": "NORMAL_EXIT",
+        "return_code": 0,
+        "terminal": true,
+        "graceful": true,
+        "watchdog": false,
+        "requested_signal": null,
+        "sigsegv": false,
+        "forced_kill": false,
+        "orphan_process": false
+      }
+    },
+    {
+      "mode": "palette_adapter_all",
+      "route": [
+        "d01p01"
+      ],
+      "commands": 975,
+      "arrays": 27,
+      "dialogues": 0,
+      "menus_closed": 0,
+      "palette": {
+        "count": 15,
+        "addresses": [
+          "0x084CB130",
+          "0x084CB148",
+          "0x084CB2E0",
+          "0x084CB400",
+          "0x084CFFE8",
+          "0x084D1C54",
+          "0x084D1C9C",
+          "0x084D4C90",
+          "0x084D4CC0",
+          "0x0838D21C",
+          "0x0838D27C",
+          "0x0838D294",
+          "0x0838D36C",
+          "0x0856280C",
+          "0x08562854"
+        ],
+        "records": [
+          {
+            "ordinal": 1,
+            "array_id": "tiny_woods_scene:s_gs178_g1_s0_station_sref_script",
+            "index": 2,
+            "address": "0x084CB130",
+            "opcode": "0x23",
+            "channel": "main",
+            "target": "black",
+            "source_frames": 0,
+            "runtime_frames": 1,
+            "elapsed_frames": 0,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 2,
+            "array_id": "tiny_woods_scene:s_gs178_g1_s0_station_sref_script",
+            "index": 3,
+            "address": "0x084CB148",
+            "opcode": "0x26",
+            "channel": "front",
+            "target": "black",
+            "source_frames": 0,
+            "runtime_frames": 1,
+            "elapsed_frames": 1,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 3,
+            "array_id": "tiny_woods_scene:s_gs178_g1_s0_station_sref_script",
+            "index": 20,
+            "address": "0x084CB2E0",
+            "opcode": "0x25",
+            "channel": "front",
+            "target": "visible",
+            "source_frames": 0,
+            "runtime_frames": 1,
+            "elapsed_frames": 1,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 4,
+            "array_id": "tiny_woods_scene:s_gs178_g1_s0_station_sref_script",
+            "index": 32,
+            "address": "0x084CB400",
+            "opcode": "0x22",
+            "channel": "main",
+            "target": "visible",
+            "source_frames": 60,
+            "runtime_frames": 60,
+            "elapsed_frames": 60,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 5,
+            "array_id": "tiny_woods_scene:s_gs178_g2_s0_station_sref_script",
+            "index": 9,
+            "address": "0x084CFFE8",
+            "opcode": "0x22",
+            "channel": "main",
+            "target": "visible",
+            "source_frames": 60,
+            "runtime_frames": 60,
+            "elapsed_frames": 0,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 6,
+            "array_id": "tiny_woods_scene:s_gs178_g3_s0_station_sref_script",
+            "index": 4,
+            "address": "0x084D1C54",
+            "opcode": "0x22",
+            "channel": "main",
+            "target": "visible",
+            "source_frames": 30,
+            "runtime_frames": 30,
+            "elapsed_frames": 0,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 7,
+            "array_id": "tiny_woods_scene:s_gs178_g3_s0_station_sref_script",
+            "index": 7,
+            "address": "0x084D1C9C",
+            "opcode": "0x23",
+            "channel": "main",
+            "target": "black",
+            "source_frames": 30,
+            "runtime_frames": 30,
+            "elapsed_frames": 30,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 8,
+            "array_id": "tiny_woods_scene:s_gs179_g1_s0_station_sref_script",
+            "index": 3,
+            "address": "0x084D4C90",
+            "opcode": "0x22",
+            "channel": "main",
+            "target": "visible",
+            "source_frames": 30,
+            "runtime_frames": 30,
+            "elapsed_frames": 30,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 9,
+            "array_id": "tiny_woods_scene:s_gs179_g1_s0_station_sref_script",
+            "index": 5,
+            "address": "0x084D4CC0",
+            "opcode": "0x23",
+            "channel": "main",
+            "target": "black",
+            "source_frames": 30,
+            "runtime_frames": 30,
+            "elapsed_frames": 30,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 10,
+            "array_id": "post_route:s_gs9_g17_s0_station_sref_script",
+            "index": 4,
+            "address": "0x0838D21C",
+            "opcode": "0x22",
+            "channel": "main",
+            "target": "visible",
+            "source_frames": 30,
+            "runtime_frames": 30,
+            "elapsed_frames": 30,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 11,
+            "array_id": "post_route:s_gs9_g17_s0_station_sref_script",
+            "index": 8,
+            "address": "0x0838D27C",
+            "opcode": "0x23",
+            "channel": "main",
+            "target": "black",
+            "source_frames": 60,
+            "runtime_frames": 60,
+            "elapsed_frames": 60,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 12,
+            "array_id": "post_route:s_gs9_g17_s0_station_sref_script",
+            "index": 9,
+            "address": "0x0838D294",
+            "opcode": "0x26",
+            "channel": "front",
+            "target": "black",
+            "source_frames": 0,
+            "runtime_frames": 1,
+            "elapsed_frames": 1,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 13,
+            "array_id": "post_route:s_gs9_g17_s0_station_sref_script",
+            "index": 18,
+            "address": "0x0838D36C",
+            "opcode": "0x25",
+            "channel": "front",
+            "target": "visible",
+            "source_frames": 0,
+            "runtime_frames": 1,
+            "elapsed_frames": 1,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 14,
+            "array_id": "post_route:title_group/script",
+            "index": 5,
+            "address": "0x0856280C",
+            "opcode": "0x22",
+            "channel": "main",
+            "target": "visible",
+            "source_frames": 60,
+            "runtime_frames": 60,
+            "elapsed_frames": 60,
+            "blocking_return_observed": true
+          },
+          {
+            "ordinal": 15,
+            "array_id": "post_route:title_group/script",
+            "index": 8,
+            "address": "0x08562854",
+            "opcode": "0x23",
+            "channel": "main",
+            "target": "black",
+            "source_frames": 30,
+            "runtime_frames": 30,
+            "elapsed_frames": 30,
+            "blocking_return_observed": true
+          }
+        ],
+        "strict_start_complete_adjacency": true,
+        "frame_tick_accounting": true
+      },
+      "result": "PASS",
+      "events_sha256": "de7ac2a1ed9f4ca1e7ce60f23f89e3f81c8ad23126036fb44bd0d0fcac6801ec",
+      "runtime_log_sha256": "6b42897fa5c60bbdc89bfcc681484fef879b350410c3dee9e666796ca3f8cfca",
+      "termination_sha256": "40bcbbdbd166131936fe487f89f65863a1fe685bb6e7daa47881edbcf10e4c0a",
+      "termination": {
+        "exit_classification": "NORMAL_EXIT",
+        "return_code": 0,
+        "terminal": true,
+        "graceful": true,
+        "watchdog": false,
+        "requested_signal": null,
+        "sigsegv": false,
+        "forced_kill": false,
+        "orphan_process": false
+      }
+    }
+  ],
+  "combined": {
+    "exact_palette_commands_isolated": 15,
+    "selected_route_palette_commands_integrated": 14,
+    "affected_arrays": 6,
+    "channels": [
+      "main",
+      "front"
+    ],
+    "targets": [
+      "visible",
+      "black"
+    ],
+    "source_durations_frames": [
+      0,
+      30,
+      60
+    ],
+    "selected_route_dialogues_closed": 94,
+    "command_addresses_per_mode": 975
+  },
+  "assertions": {
+    "all_15_eu_commands_execute_through_one_address_gated_adapter_in_authenticated_order": true,
+    "main_and_front_channels_use_distinct_pmdo_apis_and_black_visible_targets": true,
+    "blocking_calls_return_before_adjacent_completion_trace_with_native_frame_accounting": true,
+    "zero_frame_source_duration_is_preserved_and_uses_documented_one_frame_pmdo_target_correction": true,
+    "opening_post_rescue_ending_base_and_title_selected_route_choreography_is_integrated": true,
+    "defeat_fade_is_integrated_and_included_in_isolated_all_command_proof": true,
+    "the_975_command_plan_retains_actor_control_unknown_for_these_opcodes": true,
+    "all_three_runs_reach_load_phase_unload_normal_exit_without_signal_watchdog_or_orphan": true
+  },
+  "scope": [
+    "This milestone promotes only opcodes 0x22, 0x23, 0x25, and 0x26 through an isolated semantic adapter; it does not alter command_plan.json or its default unknown-opcode handler inventory.",
+    "The selected-route runs retain the previously certified 38 opening and 56 post-route French dialogue closures, cue/reward/naming/progression gates, and route chronology.",
+    "The defeat retry scene is not naturally selected by those two runs; its exact 0x22 command is executed by palette_adapter_all and its production call site is manifest-bound."
+  ]
+}

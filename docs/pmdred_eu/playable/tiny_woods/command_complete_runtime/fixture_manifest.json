@@ -1,0 +1,466 @@
+{
+  "kind": "ignored_symlink_overlay",
+  "quest": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdred-tiny-woods-command-complete-v4/quest",
+  "quest_name": "pmdred_eu_fixture",
+  "asset_root": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdred-tiny-woods-command-complete-v4/asset/",
+  "appdata": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdred-tiny-woods-command-complete-v4/appdata/",
+  "conversion_set": "remaining",
+  "candidate_count": 1,
+  "master_zone_ground_count": 401,
+  "replaced_fixture_local_tile_index_nodes": [],
+  "reference_plan": ".runtime-cache/pmdred-eu-reference-plan-v2.json",
+  "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+  "entity_integrated_ids": [],
+  "canonical_baseline_root": null,
+  "entries": [
+    {
+      "id": "d01p01",
+      "zone_index": 308,
+      "spawn": {
+        "x": 208,
+        "y": 176,
+        "clear_move_directions": 4,
+        "movement_probes": {
+          "successful": {
+            "x": 208,
+            "y": 176,
+            "direction": "Down",
+            "expected_delta": [
+              0,
+              8
+            ]
+          },
+          "blocked": null,
+          "blocked_expectation": "NO_BMA_COLLISION_LAYER_OR_SOLIDS",
+          "solid_cells": 0
+        }
+      },
+      "preview_ticks": [
+        0
+      ],
+      "source_ground": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/grounds/d01p01.rsground",
+      "source_tile": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/tiles/d01p01_Base.tile",
+      "source_ground_sha256": "85b5d0ffaec562825adc08f7b011d3bc2727caad9b4dd0c7ffc77b3f2d53359e",
+      "source_tile_sha256": "1ab9bac0f3256b52f5dc58fed78684d3b4297fafc2e69a8e32dfbe7d898be39b"
+    }
+  ],
+  "tiny_woods_native": {
+    "schema": "pmdred-eu-tiny-woods-native-fixture-v1",
+    "authority": {
+      "region": "EU",
+      "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+      "zone_source": "Data/Zone/tiny_woods.json",
+      "zone_sha256": "e4f3edaf4af60bc625ce8e5c3b9d1d36372c2a1b009b4b1d21d13774e7eb92f7"
+    },
+    "launcher": {
+      "ground": "d01p01",
+      "master_zone_index": 308,
+      "silent_restrictions": true
+    },
+    "validator": {
+      "source": "tools/pmdred_tiny_woods_native_validator.lua",
+      "source_sha256": "2017ce13ba419cb2c2930835c978335b41c044794315e81deabc3f9ace78fda9",
+      "fixture_sha256": "ad600d851c9c4998ef4dd926eb0ca7fe80eb58040ec6e93a838a67750517bd8f",
+      "opt_in": "PMDO_GROUND_VALIDATOR=tiny_woods_native_fixture"
+    },
+    "pending_operation": "exact PMDO 0.8.12 zone indexing before native execution"
+  },
+  "tiny_woods_route": {
+    "schema": "pmdred-eu-tiny-woods-route-fixture-v1",
+    "date": "2026-08-13",
+    "authority": {
+      "region": "EU",
+      "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+      "zone_generation_sha256_before_extension": "e4f3edaf4af60bc625ce8e5c3b9d1d36372c2a1b009b4b1d21d13774e7eb92f7",
+      "ending_ground_source": "RESERVE/pmdred_direct/grounds/d01p02.rsground",
+      "ending_ground_source_sha256": "ce2e109b082a5a6986fb5768ea315b60dfb5549d882f2f11908842b37e52e47e",
+      "ending_tile_source": "RESERVE/pmdred_direct/tiles/d01p02_DirectBase.tile",
+      "ending_tile_source_sha256": "0aff40efcb0a42849495510eac868402245e0489876da595511b28b74466350f",
+      "ending_music_source": "Content/Music/In the Depths of the Pit.ogg",
+      "ending_music_source_sha256": "4b22c99be63e4ec61055c9a32ea0951e4910132551a8258f58fe2f1a6f9d9cd2",
+      "ending_bgm_eu_command": {
+        "script": "d01p02:g1 station",
+        "rom_address": "0x084D4C78",
+        "opcode": "0x44",
+        "music_id": 114,
+        "technical_name": "MUS_IN_THE_DEPTHS_OF_THE_PIT"
+      }
+    },
+    "route": {
+      "opening": "d01p01:g1 -> tiny_woods segment 0",
+      "failure": "failed segment -> d01p01:g2 -> retry",
+      "clear": "cleared segment -> d01p02:g1",
+      "rescue": "d01p02:g1 -> d01p01:g3",
+      "master_zone_d01p01_index": 308,
+      "tiny_woods_ground_maps": [
+        "d01p01",
+        "d01p02"
+      ],
+      "ending_music": "In the Depths of the Pit.ogg",
+      "silent_restrictions": true
+    },
+    "placements": {
+      "direction_translation": {
+        "eu_gba_source_code": 4,
+        "eu_gba_name": "North",
+        "pmdo_name": "Up",
+        "pmdo_serialized_value": 4
+      },
+      "d01p01_hero": {
+        "x": 200,
+        "y": 196,
+        "g1_g2_direction": "Down",
+        "g3_direction": "Up"
+      },
+      "d01p02_hero": {
+        "x": 164,
+        "y": 276,
+        "direction": "Up"
+      },
+      "d01p02_partner": {
+        "x": 196,
+        "y": 276,
+        "direction": "Up"
+      },
+      "d01p02_caterpie": {
+        "x": 180,
+        "y": 148,
+        "direction": "Up"
+      }
+    },
+    "fixture_isolation": {
+      "script_root_is_overlay_directory": true,
+      "zone_script_parent_is_symlink": false,
+      "zone_script_parent_private": true
+    },
+    "validator": {
+      "opt_in": "PMDO_GROUND_VALIDATOR=tiny_woods_route_fixture",
+      "source": "tools/pmdred_tiny_woods_route_validator.lua",
+      "source_sha256": "59138ec90fa3690bb3a93dc8c75ecbcd309d9511f162b1dba6c240b32d656231",
+      "fixture_sha256": "8a9a8b93b828d1e5480a9b6cae917a16063e725e7968b0719567deedbd6ec4ab"
+    },
+    "files": {
+      "quest/Data/Zone/tiny_woods.json": {
+        "bytes": 617142,
+        "sha256": "70652aa95ec481a728fbe65a0914331c0250db562b98b31244277c362c6ea812"
+      },
+      "quest/Data/Ground/d01p01.rsground": {
+        "bytes": 1639900,
+        "sha256": "4a425b4880c414f1dc64c896a07beda65be880e7ab83cec0d5110edd1b70af0b"
+      },
+      "quest/Data/Ground/d01p02.rsground": {
+        "bytes": 1285876,
+        "sha256": "a3f46bd12105b23c027ea86a57283b4cc131a3fa3d54cb231007261d3846bf37"
+      },
+      "quest/Content/Tile/d01p02_DirectBase.tile": {
+        "bytes": 15347,
+        "sha256": "0aff40efcb0a42849495510eac868402245e0489876da595511b28b74466350f"
+      },
+      "quest/Content/Tile/index.idx": {
+        "bytes": 23618106,
+        "sha256": "5166be36cf0e051273bd1a38cc9d7cf41ef72e572daf58e241f104087971c822"
+      },
+      "quest/Data/Script/halcyon/pmdred_tiny_woods_route.lua": {
+        "bytes": 2524,
+        "sha256": "b949ea86bd4ad23c7617d501d071fa1d7e0995a97b87be339c1941fb76a98c7f"
+      },
+      "quest/Data/Script/halcyon/ground/d01p01/init.lua": {
+        "bytes": 637,
+        "sha256": "571f330d70d63e6d8c01166af65a8d27093b9e88435551b3b6b65b953761ff64"
+      },
+      "quest/Data/Script/halcyon/ground/d01p02/init.lua": {
+        "bytes": 1779,
+        "sha256": "8f9abc64f6bbaf38fc4b0c386649d46555e8b9bc6bcfd297b69ceb2e9cf2632e"
+      },
+      "quest/Data/Script/halcyon/zone/tiny_woods/init.lua": {
+        "bytes": 856,
+        "sha256": "d73a0f07afad683a8a3b457cc86845b766989ca700571c02c425db2007ace75d"
+      },
+      "quest/Data/Script/halcyon/services/ground_gameplay_validator/init.lua": {
+        "bytes": 23191,
+        "sha256": "8a9a8b93b828d1e5480a9b6cae917a16063e725e7968b0719567deedbd6ec4ab"
+      }
+    }
+  },
+  "tiny_woods_scenes": {
+    "schema": "pmdred-eu-tiny-woods-scene-fixture-v1",
+    "date": "2026-08-13",
+    "authority": {
+      "region": "EU",
+      "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+      "scene_graph_sha256": "6cc155b0302602e7edb223243a43e65aa3b0b3ff296df7742e79686db07ee1d1",
+      "scene_plan_sha256": "95440fd600528f62328f2db26853054ad965f4205d7eb48709cf022e4571a38f"
+    },
+    "scenarios": [
+      "opening_scene",
+      "defeat_scene",
+      "ending_rescue_scene"
+    ],
+    "dialogue_counts": {
+      "d01p01_g1": 38,
+      "d01p01_g2": 11,
+      "d01p02_g1": 6,
+      "d01p01_g3": 19
+    },
+    "music": {
+      "quest/Content/Music/PMD Red - There's Trouble.ogg": {
+        "bytes": 1244122,
+        "sha256": "ee1472d8f2121e2f1388106fb24a601f7b276ca58cf032f1c0594466e039b707"
+      },
+      "quest/Content/Music/PMD Red - Heartwarming.ogg": {
+        "bytes": 1964416,
+        "sha256": "6ef0e60aa3aafc5606393103c9631d89c030341443d126df997cddb9107d5ac0"
+      },
+      "quest/Content/Music/PMD Red - A Successful Rescue.ogg": {
+        "bytes": 917432,
+        "sha256": "9c581ff4ea0c231b58bd19c7fc5681a927a0dcf911eefef0f73858760475fd2e"
+      },
+      "quest/Content/Music/PMD Red - In the Depths of the Pit.ogg": {
+        "bytes": 508325,
+        "sha256": "09f3bec584f3d35a1a2e9173ec977b4363169d99fdfa3cca7e2e1844c9c2f3d6"
+      }
+    },
+    "files": {
+      "quest/Data/Script/halcyon/pmdred_tiny_woods_scenes.lua": {
+        "bytes": 15272,
+        "sha256": "b6b7ec71bb07a8c0fb2148d985b42e37dbf5308ddd707cc0f62ea92ed472a7d0"
+      },
+      "quest/Data/Script/halcyon/ground/d01p01/init.lua": {
+        "bytes": 927,
+        "sha256": "2c0223a8647af6e037be82f44faf134916d25ba4d0d083ddce35fccad2aae358"
+      },
+      "quest/Data/Script/halcyon/ground/d01p02/init.lua": {
+        "bytes": 652,
+        "sha256": "c39c0f670f47561727e2b18935e92f714a85293dd7976915d72f9d9a1683895b"
+      },
+      "quest/Data/Script/halcyon/services/ground_gameplay_validator/init.lua": {
+        "bytes": 6898,
+        "sha256": "a8629eb02d7ec1e35594dcbbcdad55a55c589318cf499568bc462292cbfc6772"
+      }
+    },
+    "validator": {
+      "source": "tools/pmdred_tiny_woods_scene_validator.lua",
+      "source_sha256": "97e4b7fd7f40daa7e0d02f5dd44d4af16b6047aeceac7529d1efebc0f1a00790",
+      "fixture_sha256": "a8629eb02d7ec1e35594dcbbcdad55a55c589318cf499568bc462292cbfc6772",
+      "opt_in": "PMDO_GROUND_VALIDATOR=tiny_woods_scene_fixture"
+    }
+  },
+  "tiny_woods_command_complete": {
+    "schema": "pmdred-eu-tiny-woods-command-complete-overlay-v1",
+    "date": "2026-08-13",
+    "authority": {
+      "region": "EU",
+      "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+      "command_plan_sha256": "ab9f2a8dcf857181a4dd188e28687cb953ba4789c9b6f39430c50fee4b94c37b",
+      "scene_graph_sha256": "6cc155b0302602e7edb223243a43e65aa3b0b3ff296df7742e79686db07ee1d1",
+      "post_route_graph_sha256": "9f1cf97cbfa211b16dab5fbf52df8aeb195878461f6425be542a229468766615"
+    },
+    "command_surface": {
+      "arrays": 27,
+      "commands": 975,
+      "unique_addresses": 975,
+      "opcodes": 61,
+      "french_text_associations": 195
+    },
+    "route": [
+      "d01p02:g1",
+      "d01p01:g3",
+      "b01p00a:g16",
+      "s02_fre:g2",
+      "Tiny Woods completed",
+      "SCENARIO_MAIN 3,0",
+      "EVENT_DIVIDE"
+    ],
+    "master_zone_indices": {
+      "b01p00a": 141,
+      "d01p01": 308,
+      "s02_fre": 329
+    },
+    "safe_markers": {
+      "b01p00a": {
+        "cell": [
+          34,
+          34
+        ],
+        "pixel": [
+          272,
+          272
+        ]
+      },
+      "s02_fre": {
+        "cell": [
+          18,
+          27
+        ],
+        "pixel": [
+          144,
+          216
+        ]
+      }
+    },
+    "dialogue": {
+      "opening_hero_naming_after_row": 23,
+      "base_prefix": 19,
+      "deterministic_refusal": 3,
+      "acceptance_and_naming": 6,
+      "station_narration": 3,
+      "post_route_total_with_one_refusal": 56
+    },
+    "rewards": [
+      "berry_oran",
+      "berry_pecha",
+      "berry_rawst"
+    ],
+    "progression": {
+      "dungeon": "tiny_woods",
+      "unlock": "Completed",
+      "scenario_main": 3,
+      "scenario_level": 0,
+      "event_division": "EVENT_DIVIDE"
+    },
+    "music_source_manifest_sha256": "dff44863cd741332b63485f7171ad0ef28ed99c296c9343916a772ef9961636b",
+    "fanfare_source_manifest_sha256": "3569191cca183300e62ce44cdbe0b43d32deab65d66f93c7ff71b24ae8cf20df",
+    "music": {
+      "quest/Content/Music/PMD Red - Rescue Team Base.ogg": {
+        "bytes": 1158505,
+        "sha256": "e35eac2c4e76dc8af2c817015a38be501d4eef898ea3487c1cb168e91f74ee13",
+        "song_index": 1
+      },
+      "quest/Content/Music/PMD Red - There's Trouble.ogg": {
+        "bytes": 1244122,
+        "sha256": "ee1472d8f2121e2f1388106fb24a601f7b276ca58cf032f1c0594466e039b707",
+        "song_index": 10
+      },
+      "quest/Content/Music/PMD Red - Aftermath.ogg": {
+        "bytes": 161565,
+        "sha256": "eb3bcb5000e3204f3d309dc8a3396b805b8cbbd5d73e7e3d498311759a1ad53e",
+        "song_index": 46
+      },
+      "quest/Content/Music/PMD Red - Heartwarming.ogg": {
+        "bytes": 1964416,
+        "sha256": "6ef0e60aa3aafc5606393103c9631d89c030341443d126df997cddb9107d5ac0",
+        "song_index": 101
+      },
+      "quest/Content/Music/PMD Red - A Successful Rescue.ogg": {
+        "bytes": 917432,
+        "sha256": "9c581ff4ea0c231b58bd19c7fc5681a927a0dcf911eefef0f73858760475fd2e",
+        "song_index": 103
+      },
+      "quest/Content/Music/PMD Red - In the Depths of the Pit.ogg": {
+        "bytes": 508325,
+        "sha256": "09f3bec584f3d35a1a2e9173ec977b4363169d99fdfa3cca7e2e1844c9c2f3d6",
+        "song_index": 114
+      }
+    },
+    "cues": {
+      "quest/Content/Sound/Cue 450.ogg": {
+        "bytes": 13426,
+        "sha256": "7b5a93b544aee9ad7c5d0e37d1df68b8f45bd176a6507b3a5b3687174cf9db8c",
+        "cue_id": 450,
+        "playback_kind": "loop_until_explicit_stop"
+      },
+      "quest/Content/Sound/Cue 455.ogg": {
+        "bytes": 6974,
+        "sha256": "a951367fe49f51052840e50cd46a1bf85c608531234992cbc87991ee5a3a1212",
+        "cue_id": 455,
+        "playback_kind": "one_shot_fanfare"
+      },
+      "quest/Content/Sound/Cue 457.ogg": {
+        "bytes": 9536,
+        "sha256": "4fb15ffeee5b0e2a5e83c8a156298a5b484f4eee6b185b7bf8c0e10054b85cc8",
+        "cue_id": 457,
+        "playback_kind": "one_shot_fanfare"
+      },
+      "quest/Content/Sound/Cue 463.ogg": {
+        "bytes": 7736,
+        "sha256": "6928c587af9f2370c5dbc8d8909dc184f17aba51c6f679f205f92e5293961395",
+        "cue_id": 463,
+        "playback_kind": "one_shot_fanfare"
+      },
+      "quest/Content/Sound/Cue 465.ogg": {
+        "bytes": 8138,
+        "sha256": "6574bdc206a38c5af5e2217b98ab9643ccf6b3e86563a9b49d49ea2600f7cecf",
+        "cue_id": 465,
+        "playback_kind": "one_shot_fanfare"
+      },
+      "quest/Content/Sound/Cue 466.ogg": {
+        "bytes": 17374,
+        "sha256": "47933c50f02bbb085ef24a70f8921238ae7e14c1b594a7ff870ab8deb0fa59fc",
+        "cue_id": 466,
+        "playback_kind": "one_shot_fanfare"
+      },
+      "quest/Content/Sound/Cue 468.ogg": {
+        "bytes": 6583,
+        "sha256": "1907acc32e0f85b3fbc2be31bda5a8787f7d6354eda9d8b4af07a43fa4088948",
+        "cue_id": 468,
+        "playback_kind": "one_shot_fanfare"
+      },
+      "quest/Content/Sound/Cue 469.ogg": {
+        "bytes": 10382,
+        "sha256": "1dfad3cf793d618a5ad6563bb29d450fc8d83ac4ed2ebfa7f8b1b8ce9ad12613",
+        "cue_id": 469,
+        "playback_kind": "one_shot_fanfare"
+      },
+      "quest/Content/Sound/Cue 470.ogg": {
+        "bytes": 10032,
+        "sha256": "d0c77f3f3df005ef7ee24f6b1a68199b0ff20efe655aba1a9e01afae6efc7f73",
+        "cue_id": 470,
+        "playback_kind": "one_shot_fanfare"
+      },
+      "quest/Content/Sound/Cue 473.ogg": {
+        "bytes": 10873,
+        "sha256": "9697370e17c479eab23949e0d8936e243c18b73127472086f0cc9a8f159926a3",
+        "cue_id": 473,
+        "playback_kind": "one_shot_fanfare"
+      },
+      "quest/Content/Sound/Cue 482.ogg": {
+        "bytes": 15309,
+        "sha256": "0cf7a46c6d3617c33ea75a834031e232da72de26fa1c5ba032eca1d8ecca531e",
+        "cue_id": 482,
+        "playback_kind": "one_shot_fanfare"
+      }
+    },
+    "fixture_isolation": {
+      "script_private": true,
+      "music_private": true,
+      "sound_private": true,
+      "promoted_grounds_read_only_bound": true
+    },
+    "validator": {
+      "source": "tools/pmdred_tiny_woods_command_complete_validator.lua",
+      "source_sha256": "b416439c2bad746bb4fa7aa315675e6b70bdaf167bdcc52a40718a53a73b1de9",
+      "fixture_sha256": "dc3871ba3ad3e0aad3bc9b07d0686a47079ca1399f8a0c89fe489bc60ba0c468",
+      "opt_in": "PMDO_GROUND_VALIDATOR=tiny_woods_command_complete"
+    },
+    "files": {
+      "quest/Data/Script/halcyon/pmdred_tiny_woods_scenes.lua": {
+        "bytes": 15272,
+        "sha256": "b6b7ec71bb07a8c0fb2148d985b42e37dbf5308ddd707cc0f62ea92ed472a7d0"
+      },
+      "quest/Data/Script/halcyon/pmdred_tiny_woods_command_campaign.lua": {
+        "bytes": 172086,
+        "sha256": "a0227e2522790d2bd134af9a0acbedb03ed0e2e06e195e166a5bd0034af7184d"
+      },
+      "quest/Data/Script/halcyon/services/ground_gameplay_validator/init.lua": {
+        "bytes": 9471,
+        "sha256": "dc3871ba3ad3e0aad3bc9b07d0686a47079ca1399f8a0c89fe489bc60ba0c468"
+      },
+      "quest/Data/Script/halcyon/ground/d01p01/init.lua": {
+        "bytes": 1322,
+        "sha256": "2c93c5d219ed9341dc7ae3cf37a0fbf13fb8b441630ea78ede54fdecdfb8b839"
+      },
+      "quest/Data/Script/halcyon/ground/d01p02/init.lua": {
+        "bytes": 717,
+        "sha256": "b85fb5f261bcfa9f0c8b74b0728aaa8949ac35a49b8a15049f95f2e06f100cb1"
+      },
+      "quest/Data/Script/halcyon/ground/b01p00a/init.lua": {
+        "bytes": 735,
+        "sha256": "e915603733c230a0594da82969ba74d99c4ffaa07d4fe263866ba43b1c268b7f"
+      },
+      "quest/Data/Script/halcyon/ground/s02_fre/init.lua": {
+        "bytes": 630,
+        "sha256": "7980ec088d4abe28f54d585da180b5ba13fb9413ce942c33f8d46eff1bceed32"
+      }
+    }
+  }
+}

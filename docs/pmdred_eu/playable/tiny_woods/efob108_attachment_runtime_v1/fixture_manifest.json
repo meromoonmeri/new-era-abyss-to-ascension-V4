@@ -1,0 +1,294 @@
+{
+  "kind": "ignored_symlink_overlay",
+  "quest": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdred-efob108-attachment-certification-v1/quest",
+  "quest_name": "pmdred_eu_fixture",
+  "asset_root": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdred-efob108-attachment-certification-v1/asset/",
+  "appdata": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdred-efob108-attachment-certification-v1/appdata/",
+  "conversion_set": "remaining",
+  "candidate_count": 1,
+  "master_zone_ground_count": 401,
+  "replaced_fixture_local_tile_index_nodes": [],
+  "reference_plan": ".runtime-cache/pmdred-eu-reference-plan-v2.json",
+  "reference_plan_sha256": "dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0",
+  "entity_integrated_ids": [],
+  "canonical_baseline_root": null,
+  "entries": [
+    {
+      "id": "d01p01",
+      "zone_index": 308,
+      "spawn": {
+        "x": 208,
+        "y": 176,
+        "clear_move_directions": 4,
+        "movement_probes": {
+          "successful": {
+            "x": 208,
+            "y": 176,
+            "direction": "Down",
+            "expected_delta": [
+              0,
+              8
+            ]
+          },
+          "blocked": null,
+          "blocked_expectation": "NO_BMA_COLLISION_LAYER_OR_SOLIDS",
+          "solid_cells": 0
+        }
+      },
+      "preview_ticks": [
+        0
+      ],
+      "source_ground": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/grounds/d01p01.rsground",
+      "source_tile": ".runtime-cache/pmdred-eu-remaining-regenerated-v201/tiles/d01p01_Base.tile",
+      "source_ground_sha256": "85b5d0ffaec562825adc08f7b011d3bc2727caad9b4dd0c7ffc77b3f2d53359e",
+      "source_tile_sha256": "1ab9bac0f3256b52f5dc58fed78684d3b4297fafc2e69a8e32dfbe7d898be39b"
+    }
+  ],
+  "tiny_woods_native": {
+    "schema": "pmdred-eu-tiny-woods-native-fixture-v1",
+    "authority": {
+      "region": "EU",
+      "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+      "zone_source": "Data/Zone/tiny_woods.json",
+      "zone_sha256": "e4f3edaf4af60bc625ce8e5c3b9d1d36372c2a1b009b4b1d21d13774e7eb92f7"
+    },
+    "launcher": {
+      "ground": "d01p01",
+      "master_zone_index": 308,
+      "silent_restrictions": true
+    },
+    "validator": {
+      "source": "tools/pmdred_tiny_woods_native_validator.lua",
+      "source_sha256": "2017ce13ba419cb2c2930835c978335b41c044794315e81deabc3f9ace78fda9",
+      "fixture_sha256": "ad600d851c9c4998ef4dd926eb0ca7fe80eb58040ec6e93a838a67750517bd8f",
+      "opt_in": "PMDO_GROUND_VALIDATOR=tiny_woods_native_fixture"
+    },
+    "pending_operation": "exact PMDO 0.8.12 zone indexing before native execution"
+  },
+  "tiny_woods_route": {
+    "schema": "pmdred-eu-tiny-woods-route-fixture-v1",
+    "date": "2026-08-14",
+    "authority": {
+      "region": "EU",
+      "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+      "zone_generation_sha256_before_extension": "e4f3edaf4af60bc625ce8e5c3b9d1d36372c2a1b009b4b1d21d13774e7eb92f7",
+      "ending_ground_source": "RESERVE/pmdred_direct/grounds/d01p02.rsground",
+      "ending_ground_source_sha256": "ce2e109b082a5a6986fb5768ea315b60dfb5549d882f2f11908842b37e52e47e",
+      "ending_tile_source": "RESERVE/pmdred_direct/tiles/d01p02_DirectBase.tile",
+      "ending_tile_source_sha256": "0aff40efcb0a42849495510eac868402245e0489876da595511b28b74466350f",
+      "ending_music_source": "Content/Music/In the Depths of the Pit.ogg",
+      "ending_music_source_sha256": "4b22c99be63e4ec61055c9a32ea0951e4910132551a8258f58fe2f1a6f9d9cd2",
+      "ending_bgm_eu_command": {
+        "script": "d01p02:g1 station",
+        "rom_address": "0x084D4C78",
+        "opcode": "0x44",
+        "music_id": 114,
+        "technical_name": "MUS_IN_THE_DEPTHS_OF_THE_PIT"
+      }
+    },
+    "route": {
+      "opening": "d01p01:g1 -> tiny_woods segment 0",
+      "failure": "failed segment -> d01p01:g2 -> retry",
+      "clear": "cleared segment -> d01p02:g1",
+      "rescue": "d01p02:g1 -> d01p01:g3",
+      "master_zone_d01p01_index": 308,
+      "tiny_woods_ground_maps": [
+        "d01p01",
+        "d01p02"
+      ],
+      "ending_music": "In the Depths of the Pit.ogg",
+      "silent_restrictions": true
+    },
+    "placements": {
+      "direction_translation": {
+        "eu_gba_source_code": 4,
+        "eu_gba_name": "North",
+        "pmdo_name": "Up",
+        "pmdo_serialized_value": 4
+      },
+      "d01p01_hero": {
+        "x": 200,
+        "y": 196,
+        "g1_g2_direction": "Down",
+        "g3_direction": "Up"
+      },
+      "d01p02_hero": {
+        "x": 164,
+        "y": 276,
+        "direction": "Up"
+      },
+      "d01p02_partner": {
+        "x": 196,
+        "y": 276,
+        "direction": "Up"
+      },
+      "d01p02_caterpie": {
+        "x": 180,
+        "y": 148,
+        "direction": "Up"
+      }
+    },
+    "fixture_isolation": {
+      "script_root_is_overlay_directory": true,
+      "zone_script_parent_is_symlink": false,
+      "zone_script_parent_private": true
+    },
+    "validator": {
+      "opt_in": "PMDO_GROUND_VALIDATOR=tiny_woods_route_fixture",
+      "source": "tools/pmdred_tiny_woods_route_validator.lua",
+      "source_sha256": "59138ec90fa3690bb3a93dc8c75ecbcd309d9511f162b1dba6c240b32d656231",
+      "fixture_sha256": "8a9a8b93b828d1e5480a9b6cae917a16063e725e7968b0719567deedbd6ec4ab"
+    },
+    "files": {
+      "quest/Data/Zone/tiny_woods.json": {
+        "bytes": 617142,
+        "sha256": "70652aa95ec481a728fbe65a0914331c0250db562b98b31244277c362c6ea812"
+      },
+      "quest/Data/Ground/d01p01.rsground": {
+        "bytes": 1639900,
+        "sha256": "4a425b4880c414f1dc64c896a07beda65be880e7ab83cec0d5110edd1b70af0b"
+      },
+      "quest/Data/Ground/d01p02.rsground": {
+        "bytes": 1285876,
+        "sha256": "a3f46bd12105b23c027ea86a57283b4cc131a3fa3d54cb231007261d3846bf37"
+      },
+      "quest/Content/Tile/d01p02_DirectBase.tile": {
+        "bytes": 15347,
+        "sha256": "0aff40efcb0a42849495510eac868402245e0489876da595511b28b74466350f"
+      },
+      "quest/Content/Tile/index.idx": {
+        "bytes": 23618106,
+        "sha256": "5166be36cf0e051273bd1a38cc9d7cf41ef72e572daf58e241f104087971c822"
+      },
+      "quest/Data/Script/halcyon/pmdred_tiny_woods_route.lua": {
+        "bytes": 2524,
+        "sha256": "b949ea86bd4ad23c7617d501d071fa1d7e0995a97b87be339c1941fb76a98c7f"
+      },
+      "quest/Data/Script/halcyon/ground/d01p01/init.lua": {
+        "bytes": 637,
+        "sha256": "571f330d70d63e6d8c01166af65a8d27093b9e88435551b3b6b65b953761ff64"
+      },
+      "quest/Data/Script/halcyon/ground/d01p02/init.lua": {
+        "bytes": 1779,
+        "sha256": "8f9abc64f6bbaf38fc4b0c386649d46555e8b9bc6bcfd297b69ceb2e9cf2632e"
+      },
+      "quest/Data/Script/halcyon/zone/tiny_woods/init.lua": {
+        "bytes": 856,
+        "sha256": "d73a0f07afad683a8a3b457cc86845b766989ca700571c02c425db2007ace75d"
+      },
+      "quest/Data/Script/halcyon/services/ground_gameplay_validator/init.lua": {
+        "bytes": 23191,
+        "sha256": "8a9a8b93b828d1e5480a9b6cae917a16063e725e7968b0719567deedbd6ec4ab"
+      }
+    }
+  },
+  "efob108_attachment": {
+    "schema": "pmdred-eu-efob108-attachment-fixture-v1",
+    "authority": {
+      "region": "EU",
+      "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+      "effect_manifest": "docs/pmdred_eu/playable/tiny_woods/efob108_particle_manifest.json",
+      "effect_manifest_sha256": "3d1d74e7b84e3517bb98ef820c8de82a87831291e4663aa2ac160acabf59085c",
+      "effect_sha256": "18d392d82c2c8b6aa101aa0a49bab0af58aae16aa6e5aebba92a7bf288f46def",
+      "source_owner": "s_gs179_g1_s0_lives2_dlg0",
+      "source_command_address": "0x084D5578",
+      "source_opcode": "0x56",
+      "source_arguments": [
+        62,
+        0
+      ],
+      "completion_command_address": "0x084D55A8",
+      "completion_opcode": "0xDE"
+    },
+    "validator": {
+      "opt_in": "PMDO_GROUND_VALIDATOR=pmdred_efob108_attachment_fixture",
+      "events": "/tmp/pmdred_efob108_attachment.jsonl",
+      "source_sha256": "c9895f98ee9afe303c8e8e4ecb4db7e97bb4c2abd1b03ac3eeeb71580aa0c588",
+      "fixture_sha256": "c9895f98ee9afe303c8e8e4ecb4db7e97bb4c2abd1b03ac3eeeb71580aa0c588"
+    },
+    "coordinate_candidates": {
+      "eu_center_literal": [
+        180,
+        148
+      ],
+      "pmdo_top_left_normalized": [
+        172,
+        140
+      ],
+      "expected_literal_terminal_head": [
+        187,
+        161
+      ],
+      "expected_normalized_terminal_head": [
+        179,
+        153
+      ],
+      "authenticated_ax_attachment": [
+        179,
+        149
+      ]
+    },
+    "native_effect": {
+      "anim_index": "PMDRed_Efob108",
+      "frame_time": 2,
+      "strip_frames": 13,
+      "cycles": 1,
+      "duration_frames": 26,
+      "loc_height": 4,
+      "draw_size": [
+        128,
+        128
+      ],
+      "expected_frame_indices": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3,
+        4,
+        4,
+        5,
+        5,
+        6,
+        6,
+        7,
+        7,
+        8,
+        8,
+        9,
+        9,
+        10,
+        10,
+        11,
+        11,
+        12,
+        12
+      ]
+    },
+    "fixture_isolation": {
+      "built_directly_from_route_fixture": true,
+      "palette_overlay_invoked": false,
+      "particle_parent_private": true,
+      "particle_parent_is_symlink": false,
+      "effect_file_private": true,
+      "effect_file_is_symlink": false
+    },
+    "files": {
+      "quest/Content/Particle/PMDRed_Efob108.dir": {
+        "bytes": 1848,
+        "sha256": "18d392d82c2c8b6aa101aa0a49bab0af58aae16aa6e5aebba92a7bf288f46def"
+      },
+      "quest/Data/Script/halcyon/pmdred_efob108_attachment_fixture.lua": {
+        "bytes": 8690,
+        "sha256": "dfe1248b7566a78e41186a4fa5b08f93690d3f67729c91559c17f4d53714f04e"
+      },
+      "quest/Data/Script/halcyon/services/ground_gameplay_validator/init.lua": {
+        "bytes": 6005,
+        "sha256": "c9895f98ee9afe303c8e8e4ecb4db7e97bb4c2abd1b03ac3eeeb71580aa0c588"
+      }
+    }
+  }
+}

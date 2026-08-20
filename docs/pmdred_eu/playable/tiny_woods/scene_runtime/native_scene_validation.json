@@ -1,0 +1,145 @@
+{
+  "schema": "pmdred-eu-tiny-woods-native-scenes-v1",
+  "date": "2026-08-13",
+  "status": "passed",
+  "authority": {
+    "region": "EU",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "scene_graph": "docs/pmdred_eu/playable/tiny_woods/eu_scene_graph.json",
+    "scene_plan_sha256": "95440fd600528f62328f2db26853054ad965f4205d7eb48709cf022e4571a38f"
+  },
+  "runtime": {
+    "version": "0.8.12.0",
+    "executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327"
+  },
+  "index_gate": {
+    "status": "passed",
+    "return_code": 0,
+    "timed_out": false,
+    "index_sha256": "76517c1ff94b3126d6f6c66488c9f36f29ab9df62c643901a0684c2f7ff4fc39",
+    "log_sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8"
+  },
+  "runs": [
+    {
+      "mode": "opening_scene",
+      "scenes": [
+        "d01p01_g1"
+      ],
+      "dialogue_count": 38,
+      "actor_probe_count": 3,
+      "choreography_count": 6,
+      "verdict": {
+        "event": "scene_verdict",
+        "mode": "opening_scene",
+        "verdict": "PASS",
+        "dialogues": 38,
+        "menus_closed": 38,
+        "expected_dialogues": 38,
+        "choreography": 6,
+        "attempts": 1,
+        "defeats": 0,
+        "rescue_complete": false
+      },
+      "result": "PASS",
+      "events_sha256": "a9a21ca6b3b9b6ffbe3d5b3b0ebb21cb44997fb4201fbeba0293262ee9cba856",
+      "runtime_log_sha256": "390accae1c59fd1f2513bc977bc56b3bfe1f66be563c07d44f8bb96f5823c7b4",
+      "termination_sha256": "21b74b71f00ba7211901d5e3a5d770a439082ab5374b2dc2637b32ba54130766",
+      "termination": {
+        "exit_classification": "NORMAL_EXIT",
+        "return_code": 0,
+        "terminal": true,
+        "graceful": true,
+        "watchdog": false,
+        "requested_signal": null,
+        "sigsegv": false,
+        "forced_kill": false,
+        "orphan_process": false
+      }
+    },
+    {
+      "mode": "defeat_scene",
+      "scenes": [
+        "d01p01_g2"
+      ],
+      "dialogue_count": 11,
+      "actor_probe_count": 3,
+      "choreography_count": 3,
+      "verdict": {
+        "event": "scene_verdict",
+        "mode": "defeat_scene",
+        "verdict": "PASS",
+        "dialogues": 11,
+        "menus_closed": 11,
+        "expected_dialogues": 11,
+        "choreography": 3,
+        "attempts": 2,
+        "defeats": 1,
+        "rescue_complete": false
+      },
+      "result": "PASS",
+      "events_sha256": "2ad50c7546ba116c86f63c8d4de03e9995025d2b1b55b12439f90d326e84a0ef",
+      "runtime_log_sha256": "16610c3a90c39030ae76ad0d0498096001d02c48f5bcbad06a4139bee0333ae0",
+      "termination_sha256": "0cdb9265000417f1f70c2b46a34f65d2c06a7dcbed529b03f4a7ca457529a02f",
+      "termination": {
+        "exit_classification": "NORMAL_EXIT",
+        "return_code": 0,
+        "terminal": true,
+        "graceful": true,
+        "watchdog": false,
+        "requested_signal": null,
+        "sigsegv": false,
+        "forced_kill": false,
+        "orphan_process": false
+      }
+    },
+    {
+      "mode": "ending_rescue_scene",
+      "scenes": [
+        "d01p02_g1",
+        "d01p01_g3"
+      ],
+      "dialogue_count": 25,
+      "actor_probe_count": 7,
+      "choreography_count": 9,
+      "verdict": {
+        "event": "scene_verdict",
+        "mode": "ending_rescue_scene",
+        "verdict": "PASS",
+        "dialogues": 25,
+        "menus_closed": 25,
+        "expected_dialogues": 25,
+        "choreography": 9,
+        "attempts": 1,
+        "defeats": 0,
+        "rescue_complete": true
+      },
+      "result": "PASS",
+      "events_sha256": "f58aa1a531ad724d401747ea2cc8121389abc792bb07f0197196af3854e525ed",
+      "runtime_log_sha256": "4d2629cc33b5965e098c66030c06a400f9b36d43f35022bbb7c199ba138ac3a9",
+      "termination_sha256": "b1ed675a304b9bfbbff19732263b9407879b61a43637b0b55417501a9b14287b",
+      "termination": {
+        "exit_classification": "NORMAL_EXIT",
+        "return_code": 0,
+        "terminal": true,
+        "graceful": true,
+        "watchdog": false,
+        "requested_signal": null,
+        "sigsegv": false,
+        "forced_kill": false,
+        "orphan_process": false
+      }
+    }
+  ],
+  "assertions": {
+    "74_selected_french_eu_dialogues_executed_in_pointer_order": true,
+    "every_dialogue_reached_and_closed_a_native_menu": true,
+    "four_scene_groups_dispatched_in_canonical_route_order": true,
+    "canonical_actor_staging_and_core_choreography_executed": true,
+    "eu_rom_rendered_bgm_lifecycle_executed": true,
+    "all_processes_unload_normally_without_signal_or_orphan": true
+  },
+  "limitations": [
+    "The neutral D1/default Red talk-kind branch is selected; all grammatical alternatives remain authenticated in eu_scene_graph.json.",
+    "The post-g3 destination beyond Tiny Woods remains the next campaign-routing milestone."
+  ]
+}

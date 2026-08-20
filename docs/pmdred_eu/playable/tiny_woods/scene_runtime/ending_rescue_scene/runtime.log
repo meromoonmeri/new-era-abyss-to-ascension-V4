@@ -1,0 +1,139 @@
+Loading default script variable values..
+Script variables default values loaded! [build 2026-08-04-K]
+DebugTools:initialize()
+MenuTools:initialize()
+UpgradeTools:initialize()
+ConfigTools:initialize()
+NREProbe:initialize()
+[NREPROBE] build 2026-08-04-K charge (main.lua) — PREMIERE ligne attendue, au LANCEMENT du jeu. Si absente: la copie du mod chargee par le jeu n est PAS celle du depot.
+
+<!> DebugTools: Init..
+
+<!> ConfigTools: Init..
+[NREPROBE] service nre_probe ACTIF (EngineServiceEvents.Init) — build 2026-07-27-C
+[TINY_WOODS_SCENES] {"event":"bootstrap_new_game","mode":"ending_rescue_scene","seed":424242}
+Loading default script variable values..
+Script variables default values loaded! [build 2026-08-04-K]
+[NREPROBE] LoadSavedData <-- sauvegarde chargee (menu Continuer) | zone= seg=? map=? | Save.Team=0 leader=<nil> | DungeonMap=nil TeamAttachee=n/a foes=n/a
+
+<!> ExampleSvc: Preparing debug save file
+[DevUnlock] exclu: barren_tundra
+[DevUnlock] exclu: bravery_road
+[DevUnlock] exclu: cave_of_solace
+[DevUnlock] exclu: cave_of_whispers
+[DevUnlock] exclu: debug_zone
+[DevUnlock] exclu: deserted_fortress
+[DevUnlock] exclu: energy_garden
+[DevUnlock] exclu: eon_island
+[DevUnlock] exclu: guildmaster_island
+[DevUnlock] exclu: hope_road
+[DevUnlock] exclu: inscribed_cave
+[DevUnlock] exclu: labyrinth_of_the_lost
+[DevUnlock] exclu: master_zone
+[DevUnlock] exclu: prism_isles
+[DevUnlock] exclu: royal_halls
+[DevUnlock] exclu: sacred_tower
+[DevUnlock] exclu: starfall_heights
+[DevUnlock] exclu: the_abyss
+[DevUnlock] exclu: the_sky
+[DevUnlock] exclu: training_maze
+[DevUnlock] exclu: uncharted_waters
+[DevUnlock] exclu: wisdom_road
+[NREPROBE] NewGame | zone= seg=? map=? | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] ZoneInit | zone=tiny_woods seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+Checking Mission: 1
+Checking Mission: 2
+Checking Mission: 3
+Checking Mission: 4
+Checking Mission: 5
+Checking Mission: 6
+Checking Mission: 7
+Checking Mission: 8
+[NREPROBE] DungeonSegmentStart (Lua EnterSegment va tourner) | zone=tiny_woods seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] GroundModeBegin | zone=tiny_woods seg=-1 map=1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"staging","scene":"d01p02_g1","sequence":0,"pointer":"","speaker":"","text":"","detail":"d01p02_g1","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"actor","scene":"d01p02_g1","sequence":0,"pointer":"","speaker":"PLAYER","text":"turtwig","detail":"164,276,Up: 4","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"actor","scene":"d01p02_g1","sequence":0,"pointer":"","speaker":"PARTNER","text":"piplup","detail":"196,276,Up: 4","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"actor","scene":"d01p02_g1","sequence":0,"pointer":"","speaker":"CATERPIE","text":"caterpie","detail":"180,148,Up: 4","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"scene_start","scene":"d01p02_g1","sequence":0,"pointer":"","speaker":"","text":"","detail":"d01p02_g1","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"choreography","scene":"d01p02_g1","sequence":0,"pointer":"","speaker":"","text":"","detail":"ending_music_fadein","music":"PMD Red - In the Depths of the Pit.ogg"}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p02_g1","sequence":50,"pointer":"0x084D5478","speaker":"caterpie","text":"Ouiiiiiiin...","detail":"","music":"PMD Red - In the Depths of the Pit.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":1,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p02_g1","sequence":51,"pointer":"0x084D53D0","speaker":"caterpie","text":"Maman...\nOù es-tu? Sniff...","detail":"","music":"PMD Red - In the Depths of the Pit.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":2,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"choreography","scene":"d01p02_g1","sequence":0,"pointer":"","speaker":"","text":"","detail":"rescuers_approach","music":"PMD Red - In the Depths of the Pit.ogg"}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p02_g1","sequence":52,"pointer":"0x084D51F4","speaker":"partner","text":"Nous sommes là pour te\nsauver.","detail":"","music":"PMD Red - In the Depths of the Pit.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":3,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"choreography","scene":"d01p02_g1","sequence":0,"pointer":"","speaker":"","text":"","detail":"caterpie_notices","music":"PMD Red - In the Depths of the Pit.ogg"}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p02_g1","sequence":53,"pointer":"0x084D51D4","speaker":"caterpie","text":"Hein?","detail":"","music":"PMD Red - In the Depths of the Pit.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":4,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p02_g1","sequence":54,"pointer":"0x084D50E4","speaker":"partner","text":"Ta maman t'attend.\nSortons d'ici!","detail":"","music":"PMD Red - In the Depths of the Pit.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":5,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"choreography","scene":"d01p02_g1","sequence":0,"pointer":"","speaker":"","text":"","detail":"caterpie_happy","music":"PMD Red - In the Depths of the Pit.ogg"}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p02_g1","sequence":55,"pointer":"0x084D50BC","speaker":"caterpie","text":"D'accord.","detail":"","music":"PMD Red - In the Depths of the Pit.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":6,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"scene_complete","scene":"d01p02_g1","sequence":0,"pointer":"","speaker":"","text":"","detail":"d01p02_g1","music":"PMD Red - In the Depths of the Pit.ogg"}
+[NREPROBE] GroundMapEnter | zone=tiny_woods seg=-1 map=1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] GroundMapExit | zone=tiny_woods seg=-1 map=1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>_ENV pre-cleanup:179
+=>_ENV post cleanup:178
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"staging","scene":"d01p01_g3","sequence":0,"pointer":"","speaker":"","text":"","detail":"d01p01_g3","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"actor","scene":"d01p01_g3","sequence":0,"pointer":"","speaker":"PLAYER","text":"turtwig","detail":"200,196,Up: 4","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"actor","scene":"d01p01_g3","sequence":0,"pointer":"","speaker":"PARTNER","text":"piplup","detail":"232,196,Up: 4","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"actor","scene":"d01p01_g3","sequence":0,"pointer":"","speaker":"BUTTERFREE","text":"butterfree","detail":"232,172,Down: 0","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"actor","scene":"d01p01_g3","sequence":0,"pointer":"","speaker":"CATERPIE","text":"caterpie","detail":"200,172,Down: 0","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"scene_start","scene":"d01p01_g3","sequence":0,"pointer":"","speaker":"","text":"","detail":"d01p01_g3","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"choreography","scene":"d01p01_g3","sequence":0,"pointer":"","speaker":"","text":"","detail":"successful_rescue_music","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g3","sequence":56,"pointer":"0x084D42C4","speaker":"butterfree","text":"Mon bébé est sain et\nsauf...[pause=30] Je ne sais comment vous\nremercier...","detail":"","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":7,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g3","sequence":57,"pointer":"0x084D3D58","speaker":"partner","text":"Je vous en prie.[pause=30]\nC'est devenu dangereux, dernièrement,\navec toutes ces secousses et ces fissures.","detail":"","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":8,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g3","sequence":58,"pointer":"0x084D3C30","speaker":"partner","text":"Ça nous fait plaisir d'avoir\npu rendre service.","detail":"","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":9,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g3","sequence":59,"pointer":"0x084D3B44","speaker":"butterfree","text":"S'il vous plaît, dites-moi\nvos noms, au moins...","detail":"","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":10,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g3","sequence":60,"pointer":"0x084D3A5C","speaker":"partner","text":"Mon nom est [color=#FFFF00]LONG_NAME!![color].","detail":"","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":11,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g3","sequence":61,"pointer":"0x084D39F0","speaker":"partner","text":"Et voici [color=#009CFF]BIG_AF_NAME[color].","detail":"","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":12,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"choreography","scene":"d01p01_g3","sequence":0,"pointer":"","speaker":"","text":"","detail":"caterpie_admires_hero","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g3","sequence":62,"pointer":"0x084D3974","speaker":"caterpie","text":"... ... ... ...[pause=30]\nCool...","detail":"","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":13,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g3","sequence":63,"pointer":"0x084D3894","speaker":"hero_thought","text":"(Il, euh...[pause=30] me regarde avec adoration...)","detail":"","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":14,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g3","sequence":64,"pointer":"0x084D375C","speaker":"hero_thought","text":"(Ces yeux brillants...\nC'est un peu gênant...)","detail":"","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":15,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g3","sequence":65,"pointer":"0x084D35F4","speaker":"hero_thought","text":"(Mais, ce n'est pas mal non plus.\nJ'ai l'impression d'avoir accompli un acte\nhéroïque.)","detail":"","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":16,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g3","sequence":66,"pointer":"0x084D349C","speaker":"hero_thought","text":"(Aider des Pokémon en difficulté est une\nexpérience plutôt agréable.)","detail":"","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":17,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g3","sequence":67,"pointer":"0x084D341C","speaker":"caterpie","text":"Merci, [color=#FFFF00]LONG_NAME!![color] et\n[color=#009CFF]BIG_AF_NAME[color]!","detail":"","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":18,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"choreography","scene":"d01p01_g3","sequence":0,"pointer":"","speaker":"","text":"","detail":"reward_sequence","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g3","sequence":68,"pointer":"0x084D3220","speaker":"butterfree","text":"Je sais que ce n'est pas\ngrand-chose, mais voici un gage de notre\ngratitude. Acceptez-le, je vous en prie.","detail":"","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":19,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g3","sequence":69,"pointer":"0x084D3180","speaker":"butterfree","text":"Merci beaucoup!\nAu revoir!","detail":"","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":20,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"choreography","scene":"d01p01_g3","sequence":0,"pointer":"","speaker":"","text":"","detail":"family_exits_east","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g3","sequence":70,"pointer":"0x084D3050","speaker":"partner","text":"Merci pour ton aide!","detail":"","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":21,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g3","sequence":71,"pointer":"0x084D2DDC","speaker":"partner","text":"Tu te débrouilles bien! C'est\nimpressionnant!","detail":"","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":22,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g3","sequence":72,"pointer":"0x084D2B78","speaker":"partner","text":"Alors...\nQue vas-tu faire?\nTu as des projets?","detail":"","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":23,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g3","sequence":73,"pointer":"0x084D2B30","speaker":"hero_thought","text":"(... ... ... ...)","detail":"","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":24,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"dialogue","scene":"d01p01_g3","sequence":74,"pointer":"0x084D27D0","speaker":"partner","text":"...[pause=30] Ecoute,\n[color=#009CFF]BIG_AF_NAME[color].[pause=30] Si tu n'as aucun endroit\noù vivre, tu devrais venir avec moi.","detail":"","music":"PMD Red - A Successful Rescue.ogg"}
+[TINY_WOODS_SCENES] {"event":"dialogue_menu_closed","number":25,"menu_count":1}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"choreography","scene":"d01p01_g3","sequence":0,"pointer":"","speaker":"","text":"","detail":"partner_invites_hero","music":""}
+[TINY_WOODS_SCENES] {"event":"scene_trace","kind":"scene_complete","scene":"d01p01_g3","sequence":0,"pointer":"","speaker":"","text":"","detail":"d01p01_g3","music":""}
+[NREPROBE] GroundMapEnter | zone=tiny_woods seg=-1 map=0 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[TINY_WOODS_SCENES] {"event":"scene_verdict","mode":"ending_rescue_scene","verdict":"PASS","dialogues":25,"menus_closed":25,"expected_dialogues":25,"choreography":9,"attempts":1,"defeats":0,"rescue_complete":true}
+[TINY_WOODS_SCENES] {"event":"load_phase_unload_requested","before":"Ready","before_raw":"Ready: 2","requested":"Unload","readback":"Unload","readback_raw":"Unload: 3"}
+
+<!> DebugTools: Deinit..
+
+<!> ConfigTools: Deinit..
+[TINY_WOODS_SCENES] {"event":"native_deinit","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+[TINY_WOODS_SCENES] {"event":"native_graphics_unload","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+[TINY_WOODS_SCENES] {"event":"end","terminal":true,"graceful":true,"load_phase":"Unload","load_phase_raw":"Unload: 3"}

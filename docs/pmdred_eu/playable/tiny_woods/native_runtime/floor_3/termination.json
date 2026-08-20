@@ -1,0 +1,73 @@
+{
+  "schema": "new-era.pmdred-eu-native-termination.v1",
+  "ground": "floor_3",
+  "result": "PASS",
+  "command": [
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdo-headless-bundle/PMDO",
+    "-asset",
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/tiny-woods-native-fixture-v2/native-runs/floor_3/asset/",
+    "-appdata",
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/tiny-woods-native-fixture-v2/native-runs/floor_3/appdata/",
+    "-quest",
+    "pmdred_eu_fixture"
+  ],
+  "validator_mode": "tiny_woods_native_fixture",
+  "environment_overrides": {
+    "TINY_WOODS_FLOOR": "2",
+    "TINY_WOODS_SEED": "424242"
+  },
+  "started_at": "2026-08-13T00:59:50.683+00:00",
+  "ended_at": "2026-08-13T00:59:57.047+00:00",
+  "duration_seconds": 6.363,
+  "pid": 10448,
+  "process_group": 10448,
+  "pmdo_executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+  "load_phase_unload": {
+    "requested": true,
+    "request_event": {
+      "event": "load_phase_unload_requested",
+      "before": "Ready",
+      "before_raw": "Ready: 2",
+      "requested": "Unload",
+      "readback": "Unload",
+      "readback_raw": "Unload: 3"
+    },
+    "deinit_event": {
+      "event": "native_deinit",
+      "load_phase": "Unload",
+      "load_phase_raw": "Unload: 3"
+    },
+    "graphics_unload_event": {
+      "event": "native_graphics_unload",
+      "load_phase": "Unload",
+      "load_phase_raw": "Unload: 3"
+    },
+    "terminal_event": {
+      "event": "end",
+      "terminal": true,
+      "graceful": true,
+      "load_phase": "Unload",
+      "load_phase_raw": "Unload: 3"
+    },
+    "ordered_and_terminal_last": true,
+    "pass": true
+  },
+  "exit_classification": "NORMAL_EXIT",
+  "return_code": 0,
+  "terminal": true,
+  "graceful": true,
+  "watchdog": false,
+  "watchdog_reason": null,
+  "requested_signal": null,
+  "sigsegv": false,
+  "forced_kill": false,
+  "orphan_process": false,
+  "process_group_members_before_cleanup": [],
+  "process_group_members_after_cleanup": [],
+  "event_parse_error": null,
+  "event_count": 9,
+  "event_stream_sha256": "48e6e13b5a77ad2747467a8ae4ab3f0468c235193b5c103a857a69282fdf4afb",
+  "expected_screenshot_count": 0,
+  "actual_screenshot_count": 0,
+  "runtime_log_sha256": "de668c453def8bde290436f3e492df83bb218969546a22512a70896d2d815c9c"
+}

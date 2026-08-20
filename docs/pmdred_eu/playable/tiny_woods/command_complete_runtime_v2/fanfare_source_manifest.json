@@ -1,0 +1,189 @@
+{
+  "schema": "new-era.pmdred-eu-scene-fanfares.v1",
+  "authority": {
+    "region": "EU",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd"
+  },
+  "renderers": {
+    "one_shot": {
+      "source": "tools/pmdred_m4a_fanfare_to_ogg.c",
+      "source_sha256": "eec95deff18c4e22514541e21986c76843af3850caa6e3f4549df69ec6e53f10",
+      "sample_rate": 48000,
+      "completion_condition": "(gMPlayInfo_BGM.status & MUSICPLAYER_STATUS_TRACK) == 0",
+      "method": "fresh TRACK-clear discovery plus two byte-identical sample-gated renders"
+    },
+    "explicit_stop_loop": {
+      "source": "tools/pmdred_m4a_to_ogg_general.c",
+      "source_sha256": "2ddbf2e800015951dc5b0f1e110b6be06285915a605d25e1b9f2d2d72dba16e8",
+      "sample_rate": 48000,
+      "method": "unchanged synchronized complete-sequence loop gate plus two byte-identical renders"
+    }
+  },
+  "dependencies": {
+    "m4play": "e16a7964acdd8ef5aff10a0e729c9618d3da0e75",
+    "libogg": "e1774cd77f471443541596e09078e78fdc342e4f",
+    "libvorbis": "0657aee69dec8508a0011f47f3b69d7538e9d262"
+  },
+  "cues": [
+    {
+      "cue_id": 450,
+      "playback_kind": "loop_until_explicit_stop",
+      "filename": "Cue 450.ogg",
+      "bytes": 13426,
+      "sha256": "7b5a93b544aee9ad7c5d0e37d1df68b8f45bd176a6507b3a5b3687174cf9db8c",
+      "sample_rate": 48000,
+      "samples": 59200,
+      "duration_seconds": 1.2333333333333334,
+      "tracks": 1,
+      "loop_start": 32800,
+      "loop_length": 26400,
+      "completion_condition": "explicit EU opcode 0x4D FANFARE_STOP2",
+      "discovery_run": "song_table=0x01e866bc mode=0x0096e500 tracks=1 samples=59200 loop_start=32800 loop_length=26400",
+      "deterministic_gated_runs": 2
+    },
+    {
+      "cue_id": 455,
+      "playback_kind": "one_shot_fanfare",
+      "filename": "Cue 455.ogg",
+      "bytes": 6974,
+      "sha256": "a951367fe49f51052840e50cd46a1bf85c608531234992cbc87991ee5a3a1212",
+      "sample_rate": 48000,
+      "samples": 9600,
+      "duration_seconds": 0.2,
+      "tracks": 1,
+      "completion_condition": "(gMPlayInfo_BGM.status & MUSICPLAYER_STATUS_TRACK) == 0",
+      "discovery_run": "song_table=0x01e866bc mode=0x0096e500 tracks=1 samples=9600 completion=TRACK_CLEAR",
+      "deterministic_gated_runs": 2
+    },
+    {
+      "cue_id": 457,
+      "playback_kind": "one_shot_fanfare",
+      "filename": "Cue 457.ogg",
+      "bytes": 9536,
+      "sha256": "4fb15ffeee5b0e2a5e83c8a156298a5b484f4eee6b185b7bf8c0e10054b85cc8",
+      "sample_rate": 48000,
+      "samples": 16000,
+      "duration_seconds": 0.3333333333333333,
+      "tracks": 1,
+      "completion_condition": "(gMPlayInfo_BGM.status & MUSICPLAYER_STATUS_TRACK) == 0",
+      "discovery_run": "song_table=0x01e866bc mode=0x0096e500 tracks=1 samples=16000 completion=TRACK_CLEAR",
+      "deterministic_gated_runs": 2
+    },
+    {
+      "cue_id": 463,
+      "playback_kind": "one_shot_fanfare",
+      "filename": "Cue 463.ogg",
+      "bytes": 7736,
+      "sha256": "6928c587af9f2370c5dbc8d8909dc184f17aba51c6f679f205f92e5293961395",
+      "sample_rate": 48000,
+      "samples": 10400,
+      "duration_seconds": 0.21666666666666667,
+      "tracks": 1,
+      "completion_condition": "(gMPlayInfo_BGM.status & MUSICPLAYER_STATUS_TRACK) == 0",
+      "discovery_run": "song_table=0x01e866bc mode=0x0096e500 tracks=1 samples=10400 completion=TRACK_CLEAR",
+      "deterministic_gated_runs": 2
+    },
+    {
+      "cue_id": 465,
+      "playback_kind": "one_shot_fanfare",
+      "filename": "Cue 465.ogg",
+      "bytes": 8138,
+      "sha256": "6574bdc206a38c5af5e2217b98ab9643ccf6b3e86563a9b49d49ea2600f7cecf",
+      "sample_rate": 48000,
+      "samples": 12800,
+      "duration_seconds": 0.26666666666666666,
+      "tracks": 1,
+      "completion_condition": "(gMPlayInfo_BGM.status & MUSICPLAYER_STATUS_TRACK) == 0",
+      "discovery_run": "song_table=0x01e866bc mode=0x0096e500 tracks=1 samples=12800 completion=TRACK_CLEAR",
+      "deterministic_gated_runs": 2
+    },
+    {
+      "cue_id": 466,
+      "playback_kind": "one_shot_fanfare",
+      "filename": "Cue 466.ogg",
+      "bytes": 17374,
+      "sha256": "47933c50f02bbb085ef24a70f8921238ae7e14c1b594a7ff870ab8deb0fa59fc",
+      "sample_rate": 48000,
+      "samples": 33600,
+      "duration_seconds": 0.7,
+      "tracks": 1,
+      "completion_condition": "(gMPlayInfo_BGM.status & MUSICPLAYER_STATUS_TRACK) == 0",
+      "discovery_run": "song_table=0x01e866bc mode=0x0096e500 tracks=1 samples=33600 completion=TRACK_CLEAR",
+      "deterministic_gated_runs": 2
+    },
+    {
+      "cue_id": 468,
+      "playback_kind": "one_shot_fanfare",
+      "filename": "Cue 468.ogg",
+      "bytes": 6583,
+      "sha256": "1907acc32e0f85b3fbc2be31bda5a8787f7d6354eda9d8b4af07a43fa4088948",
+      "sample_rate": 48000,
+      "samples": 8000,
+      "duration_seconds": 0.16666666666666666,
+      "tracks": 1,
+      "completion_condition": "(gMPlayInfo_BGM.status & MUSICPLAYER_STATUS_TRACK) == 0",
+      "discovery_run": "song_table=0x01e866bc mode=0x0096e500 tracks=1 samples=8000 completion=TRACK_CLEAR",
+      "deterministic_gated_runs": 2
+    },
+    {
+      "cue_id": 469,
+      "playback_kind": "one_shot_fanfare",
+      "filename": "Cue 469.ogg",
+      "bytes": 10382,
+      "sha256": "1dfad3cf793d618a5ad6563bb29d450fc8d83ac4ed2ebfa7f8b1b8ce9ad12613",
+      "sample_rate": 48000,
+      "samples": 19200,
+      "duration_seconds": 0.4,
+      "tracks": 1,
+      "completion_condition": "(gMPlayInfo_BGM.status & MUSICPLAYER_STATUS_TRACK) == 0",
+      "discovery_run": "song_table=0x01e866bc mode=0x0096e500 tracks=1 samples=19200 completion=TRACK_CLEAR",
+      "deterministic_gated_runs": 2
+    },
+    {
+      "cue_id": 470,
+      "playback_kind": "one_shot_fanfare",
+      "filename": "Cue 470.ogg",
+      "bytes": 10032,
+      "sha256": "d0c77f3f3df005ef7ee24f6b1a68199b0ff20efe655aba1a9e01afae6efc7f73",
+      "sample_rate": 48000,
+      "samples": 20000,
+      "duration_seconds": 0.4166666666666667,
+      "tracks": 1,
+      "completion_condition": "(gMPlayInfo_BGM.status & MUSICPLAYER_STATUS_TRACK) == 0",
+      "discovery_run": "song_table=0x01e866bc mode=0x0096e500 tracks=1 samples=20000 completion=TRACK_CLEAR",
+      "deterministic_gated_runs": 2
+    },
+    {
+      "cue_id": 473,
+      "playback_kind": "one_shot_fanfare",
+      "filename": "Cue 473.ogg",
+      "bytes": 10873,
+      "sha256": "9697370e17c479eab23949e0d8936e243c18b73127472086f0cc9a8f159926a3",
+      "sample_rate": 48000,
+      "samples": 20000,
+      "duration_seconds": 0.4166666666666667,
+      "tracks": 1,
+      "completion_condition": "(gMPlayInfo_BGM.status & MUSICPLAYER_STATUS_TRACK) == 0",
+      "discovery_run": "song_table=0x01e866bc mode=0x0096e500 tracks=1 samples=20000 completion=TRACK_CLEAR",
+      "deterministic_gated_runs": 2
+    },
+    {
+      "cue_id": 482,
+      "playback_kind": "one_shot_fanfare",
+      "filename": "Cue 482.ogg",
+      "bytes": 15309,
+      "sha256": "0cf7a46c6d3617c33ea75a834031e232da72de26fa1c5ba032eca1d8ecca531e",
+      "sample_rate": 48000,
+      "samples": 33600,
+      "duration_seconds": 0.7,
+      "tracks": 1,
+      "completion_condition": "(gMPlayInfo_BGM.status & MUSICPLAYER_STATUS_TRACK) == 0",
+      "discovery_run": "song_table=0x01e866bc mode=0x0096e500 tracks=1 samples=33600 completion=TRACK_CLEAR",
+      "deterministic_gated_runs": 2
+    }
+  ],
+  "validation": {
+    "status": "pass",
+    "cue_count": 11
+  }
+}

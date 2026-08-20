@@ -1,0 +1,714 @@
+{
+  "schema": "pmdred-eu-mt-steel-source-v1",
+  "authority": {
+    "rom": ".runtime-cache/downloads/pmdred-eu.gba",
+    "size": 33554432,
+    "sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "region": "EU"
+  },
+  "dungeon_id": 2,
+  "playable_floor_count": 9,
+  "rows": [
+    {
+      "floor": 1,
+      "selectors": [
+        8,
+        5,
+        1,
+        [
+          8,
+          1,
+          2,
+          3
+        ]
+      ],
+      "properties": {
+        "index": 8,
+        "layout": 11,
+        "room_density": 9,
+        "tileset": 39,
+        "music": 3,
+        "weather": 0,
+        "floor_connectivity": 12,
+        "enemy_density": 5,
+        "kecleon_shop_chance": 0,
+        "monster_house_chance": 0,
+        "maze_room_chance": 0,
+        "item_sticky_chance": 0,
+        "allow_dead_ends": 0,
+        "secondary_structures_budget": 0,
+        "room_flags": 0,
+        "unused_flag": 0,
+        "item_density": 3,
+        "trap_density": 3,
+        "floor_number": 1,
+        "fixed_room_number": 0,
+        "extra_hallways": 0,
+        "buried_item_density": 0,
+        "standalone_lake_density": 11,
+        "visibility_range": 0,
+        "money_upper_bound": 3,
+        "kecleon_shop_layout": 3,
+        "itemless_monster_house_chance": 0,
+        "unused_1a": 0,
+        "unused_1b": 0,
+        "raw_hex": "0b092703000c0500000000000000000303010000000b000303000000",
+        "referenced": true
+      }
+    },
+    {
+      "floor": 2,
+      "selectors": [
+        9,
+        5,
+        1,
+        [
+          8,
+          1,
+          2,
+          3
+        ]
+      ],
+      "properties": {
+        "index": 9,
+        "layout": 11,
+        "room_density": 9,
+        "tileset": 39,
+        "music": 3,
+        "weather": 0,
+        "floor_connectivity": 12,
+        "enemy_density": 5,
+        "kecleon_shop_chance": 0,
+        "monster_house_chance": 0,
+        "maze_room_chance": 0,
+        "item_sticky_chance": 0,
+        "allow_dead_ends": 0,
+        "secondary_structures_budget": 0,
+        "room_flags": 0,
+        "unused_flag": 0,
+        "item_density": 3,
+        "trap_density": 3,
+        "floor_number": 2,
+        "fixed_room_number": 0,
+        "extra_hallways": 0,
+        "buried_item_density": 0,
+        "standalone_lake_density": 11,
+        "visibility_range": 0,
+        "money_upper_bound": 3,
+        "kecleon_shop_layout": 3,
+        "itemless_monster_house_chance": 0,
+        "unused_1a": 0,
+        "unused_1b": 0,
+        "raw_hex": "0b092703000c0500000000000000000303020000000b000303000000",
+        "referenced": true
+      }
+    },
+    {
+      "floor": 3,
+      "selectors": [
+        10,
+        5,
+        1,
+        [
+          8,
+          1,
+          2,
+          3
+        ]
+      ],
+      "properties": {
+        "index": 10,
+        "layout": 11,
+        "room_density": 8,
+        "tileset": 39,
+        "music": 3,
+        "weather": 0,
+        "floor_connectivity": 12,
+        "enemy_density": 6,
+        "kecleon_shop_chance": 0,
+        "monster_house_chance": 0,
+        "maze_room_chance": 0,
+        "item_sticky_chance": 0,
+        "allow_dead_ends": 0,
+        "secondary_structures_budget": 0,
+        "room_flags": 0,
+        "unused_flag": 0,
+        "item_density": 3,
+        "trap_density": 3,
+        "floor_number": 3,
+        "fixed_room_number": 0,
+        "extra_hallways": 0,
+        "buried_item_density": 0,
+        "standalone_lake_density": 11,
+        "visibility_range": 0,
+        "money_upper_bound": 3,
+        "kecleon_shop_layout": 3,
+        "itemless_monster_house_chance": 0,
+        "unused_1a": 0,
+        "unused_1b": 0,
+        "raw_hex": "0b082703000c0600000000000000000303030000000b000303000000",
+        "referenced": true
+      }
+    },
+    {
+      "floor": 4,
+      "selectors": [
+        11,
+        5,
+        1,
+        [
+          9,
+          1,
+          2,
+          3
+        ]
+      ],
+      "properties": {
+        "index": 11,
+        "layout": 8,
+        "room_density": 8,
+        "tileset": 39,
+        "music": 3,
+        "weather": 0,
+        "floor_connectivity": 12,
+        "enemy_density": 6,
+        "kecleon_shop_chance": 0,
+        "monster_house_chance": 0,
+        "maze_room_chance": 0,
+        "item_sticky_chance": 0,
+        "allow_dead_ends": 0,
+        "secondary_structures_budget": 0,
+        "room_flags": 0,
+        "unused_flag": 0,
+        "item_density": 4,
+        "trap_density": 3,
+        "floor_number": 4,
+        "fixed_room_number": 0,
+        "extra_hallways": 0,
+        "buried_item_density": 0,
+        "standalone_lake_density": 11,
+        "visibility_range": 0,
+        "money_upper_bound": 3,
+        "kecleon_shop_layout": 3,
+        "itemless_monster_house_chance": 0,
+        "unused_1a": 0,
+        "unused_1b": 0,
+        "raw_hex": "08082703000c0600000000000000000403040000000b000303000000",
+        "referenced": true
+      }
+    },
+    {
+      "floor": 5,
+      "selectors": [
+        12,
+        6,
+        1,
+        [
+          9,
+          1,
+          2,
+          3
+        ]
+      ],
+      "properties": {
+        "index": 12,
+        "layout": 8,
+        "room_density": 7,
+        "tileset": 39,
+        "music": 3,
+        "weather": 0,
+        "floor_connectivity": 12,
+        "enemy_density": 6,
+        "kecleon_shop_chance": 0,
+        "monster_house_chance": 0,
+        "maze_room_chance": 0,
+        "item_sticky_chance": 0,
+        "allow_dead_ends": 0,
+        "secondary_structures_budget": 0,
+        "room_flags": 0,
+        "unused_flag": 0,
+        "item_density": 4,
+        "trap_density": 3,
+        "floor_number": 5,
+        "fixed_room_number": 0,
+        "extra_hallways": 0,
+        "buried_item_density": 0,
+        "standalone_lake_density": 11,
+        "visibility_range": 0,
+        "money_upper_bound": 3,
+        "kecleon_shop_layout": 3,
+        "itemless_monster_house_chance": 0,
+        "unused_1a": 0,
+        "unused_1b": 0,
+        "raw_hex": "08072703000c0600000000000000000403050000000b000303000000",
+        "referenced": true
+      }
+    },
+    {
+      "floor": 6,
+      "selectors": [
+        13,
+        7,
+        1,
+        [
+          9,
+          1,
+          2,
+          3
+        ]
+      ],
+      "properties": {
+        "index": 13,
+        "layout": 8,
+        "room_density": 7,
+        "tileset": 40,
+        "music": 3,
+        "weather": 0,
+        "floor_connectivity": 12,
+        "enemy_density": 7,
+        "kecleon_shop_chance": 0,
+        "monster_house_chance": 0,
+        "maze_room_chance": 0,
+        "item_sticky_chance": 0,
+        "allow_dead_ends": 0,
+        "secondary_structures_budget": 0,
+        "room_flags": 0,
+        "unused_flag": 0,
+        "item_density": 5,
+        "trap_density": 3,
+        "floor_number": 6,
+        "fixed_room_number": 0,
+        "extra_hallways": 0,
+        "buried_item_density": 0,
+        "standalone_lake_density": 11,
+        "visibility_range": 0,
+        "money_upper_bound": 3,
+        "kecleon_shop_layout": 3,
+        "itemless_monster_house_chance": 0,
+        "unused_1a": 0,
+        "unused_1b": 0,
+        "raw_hex": "08072803000c0700000000000000000503060000000b000303000000",
+        "referenced": true
+      }
+    },
+    {
+      "floor": 7,
+      "selectors": [
+        14,
+        8,
+        1,
+        [
+          10,
+          1,
+          2,
+          3
+        ]
+      ],
+      "properties": {
+        "index": 14,
+        "layout": 8,
+        "room_density": 7,
+        "tileset": 40,
+        "music": 3,
+        "weather": 0,
+        "floor_connectivity": 12,
+        "enemy_density": 7,
+        "kecleon_shop_chance": 0,
+        "monster_house_chance": 0,
+        "maze_room_chance": 0,
+        "item_sticky_chance": 0,
+        "allow_dead_ends": 0,
+        "secondary_structures_budget": 0,
+        "room_flags": 0,
+        "unused_flag": 0,
+        "item_density": 5,
+        "trap_density": 3,
+        "floor_number": 7,
+        "fixed_room_number": 0,
+        "extra_hallways": 0,
+        "buried_item_density": 0,
+        "standalone_lake_density": 11,
+        "visibility_range": 0,
+        "money_upper_bound": 3,
+        "kecleon_shop_layout": 3,
+        "itemless_monster_house_chance": 0,
+        "unused_1a": 0,
+        "unused_1b": 0,
+        "raw_hex": "08072803000c0700000000000000000503070000000b000303000000",
+        "referenced": true
+      }
+    },
+    {
+      "floor": 8,
+      "selectors": [
+        15,
+        8,
+        1,
+        [
+          10,
+          1,
+          2,
+          3
+        ]
+      ],
+      "properties": {
+        "index": 15,
+        "layout": 8,
+        "room_density": 7,
+        "tileset": 40,
+        "music": 3,
+        "weather": 0,
+        "floor_connectivity": 12,
+        "enemy_density": 7,
+        "kecleon_shop_chance": 0,
+        "monster_house_chance": 0,
+        "maze_room_chance": 0,
+        "item_sticky_chance": 0,
+        "allow_dead_ends": 0,
+        "secondary_structures_budget": 0,
+        "room_flags": 0,
+        "unused_flag": 0,
+        "item_density": 5,
+        "trap_density": 3,
+        "floor_number": 8,
+        "fixed_room_number": 0,
+        "extra_hallways": 0,
+        "buried_item_density": 0,
+        "standalone_lake_density": 11,
+        "visibility_range": 0,
+        "money_upper_bound": 3,
+        "kecleon_shop_layout": 3,
+        "itemless_monster_house_chance": 0,
+        "unused_1a": 0,
+        "unused_1b": 0,
+        "raw_hex": "08072803000c0700000000000000000503080000000b000303000000",
+        "referenced": true
+      }
+    },
+    {
+      "floor": 9,
+      "selectors": [
+        16,
+        9,
+        1,
+        [
+          10,
+          1,
+          2,
+          3
+        ]
+      ],
+      "properties": {
+        "index": 16,
+        "layout": 0,
+        "room_density": 7,
+        "tileset": 64,
+        "music": 0,
+        "weather": 0,
+        "floor_connectivity": 12,
+        "enemy_density": 0,
+        "kecleon_shop_chance": 0,
+        "monster_house_chance": 0,
+        "maze_room_chance": 0,
+        "item_sticky_chance": 0,
+        "allow_dead_ends": 0,
+        "secondary_structures_budget": 0,
+        "room_flags": 0,
+        "unused_flag": 0,
+        "item_density": 3,
+        "trap_density": 3,
+        "floor_number": 9,
+        "fixed_room_number": 1,
+        "extra_hallways": 0,
+        "buried_item_density": 0,
+        "standalone_lake_density": 11,
+        "visibility_range": 0,
+        "money_upper_bound": 3,
+        "kecleon_shop_layout": 3,
+        "itemless_monster_house_chance": 0,
+        "unused_1a": 0,
+        "unused_1b": 0,
+        "raw_hex": "00074000000c0000000000000000000303090100000b000303000000",
+        "referenced": true
+      }
+    }
+  ],
+  "table_hashes": {
+    "monster": {
+      "5": "f9101aee369ce2cc5f088f61eee6b78f81b7cb73824ce104a46a84997614dd93",
+      "6": "26b67885b1daa72f9af2152fe7a85074afa08b6a7ad6f7ba76f4374a717e4acc",
+      "7": "c6b750f6302c33a316eac58e60b628f949f3b5667206ab3789fc12f67408358d",
+      "8": "4d600582185c3918224ed73fbf3dbc3f587dc0642cc09d57b37a3bba14f3d827",
+      "9": "627c6238ab9d9d77779dea1bae07fecaf19611e9f4067fbb85fe6b8b013e7cb9"
+    },
+    "item": {
+      "8": "5b4b92ff6dea5ebeeaa5e8bd07a78b3dad837931df0467660612f8edbe399c4b",
+      "9": "5b4b92ff6dea5ebeeaa5e8bd07a78b3dad837931df0467660612f8edbe399c4b",
+      "10": "5b4b92ff6dea5ebeeaa5e8bd07a78b3dad837931df0467660612f8edbe399c4b"
+    },
+    "trap": {
+      "1": "4c1860c20b430bc816e45fcae9f12a2d855bd2385bee14c4e26d4b504254ec0c"
+    }
+  },
+  "music": {
+    "floor_property_selector": 3,
+    "authenticated_m4a_song_index": 121,
+    "target": "Content/Music/Mt. Steel.ogg"
+  },
+  "fixed_room": {
+    "offset": 7534843,
+    "offset_hex": "0x0072F8FB",
+    "size": 130,
+    "sha256": "5dcd3fd820aaab24d71ebc78be14d87ef742beef97c653fabdbadbad2909f3b7",
+    "dimensions": {
+      "width": 9,
+      "height": 17
+    },
+    "action_matrix": [
+      [
+        "0x06",
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x06"
+      ],
+      [
+        "0x06",
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x06"
+      ],
+      [
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x02"
+      ],
+      [
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x44",
+        "0x11",
+        "0x44",
+        "0x02",
+        "0x02",
+        "0x02"
+      ],
+      [
+        "0x02",
+        "0x06",
+        "0x06",
+        "0x06",
+        "0x06",
+        "0x06",
+        "0x06",
+        "0x06",
+        "0x02"
+      ],
+      [
+        "0x44",
+        "0x06",
+        "0x06",
+        "0x06",
+        "0x06",
+        "0x06",
+        "0x06",
+        "0x06",
+        "0x44"
+      ],
+      [
+        "0x0A",
+        "0x0A",
+        "0x0A",
+        "0x0A",
+        "0x0A",
+        "0x0A",
+        "0x0A",
+        "0x0A",
+        "0x0A"
+      ],
+      [
+        "0x0A",
+        "0x3C",
+        "0x3C",
+        "0x3C",
+        "0x3C",
+        "0x3C",
+        "0x3C",
+        "0x3C",
+        "0x0A"
+      ],
+      [
+        "0x3C",
+        "0x3C",
+        "0x3C",
+        "0x3C",
+        "0x10",
+        "0x3C",
+        "0x3C",
+        "0x3C",
+        "0x3C"
+      ],
+      [
+        "0x3C",
+        "0x3C",
+        "0x3C",
+        "0x3C",
+        "0x04",
+        "0x3C",
+        "0x3C",
+        "0x3C",
+        "0x3C"
+      ],
+      [
+        "0x3C",
+        "0x3C",
+        "0x3C",
+        "0x17",
+        "0x16",
+        "0x18",
+        "0x3C",
+        "0x3C",
+        "0x3C"
+      ],
+      [
+        "0x3C",
+        "0x3C",
+        "0x3C",
+        "0x1A",
+        "0x19",
+        "0x1B",
+        "0x3C",
+        "0x3C",
+        "0x3C"
+      ],
+      [
+        "0x02",
+        "0x02",
+        "0x3C",
+        "0x3C",
+        "0x3C",
+        "0x3C",
+        "0x3C",
+        "0x02",
+        "0x02"
+      ],
+      [
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x0A",
+        "0x0A",
+        "0x0A",
+        "0x02",
+        "0x02",
+        "0x02"
+      ],
+      [
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x0A",
+        "0x0A",
+        "0x0A",
+        "0x02",
+        "0x02",
+        "0x02"
+      ],
+      [
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x06",
+        "0x06",
+        "0x06",
+        "0x02",
+        "0x02",
+        "0x02"
+      ],
+      [
+        "0x02",
+        "0x02",
+        "0x02",
+        "0x06",
+        "0x06",
+        "0x06",
+        "0x02",
+        "0x02",
+        "0x02"
+      ]
+    ],
+    "action_counts": {
+      "0x06": 24,
+      "0x02": 59,
+      "0x44": 4,
+      "0x11": 1,
+      "0x0A": 17,
+      "0x3C": 40,
+      "0x10": 1,
+      "0x04": 1,
+      "0x17": 1,
+      "0x16": 1,
+      "0x18": 1,
+      "0x1A": 1,
+      "0x19": 1,
+      "0x1B": 1
+    },
+    "entry": [
+      4,
+      9
+    ],
+    "skarmory": [
+      4,
+      8
+    ],
+    "diglett": [
+      4,
+      3
+    ],
+    "allowed_unreachable_normal": [
+      [0, 5], [3, 3], [4, 3], [5, 3], [8, 5]
+    ],
+    "allowed_unreachable_secondary": [
+      [0, 0], [8, 0], [0, 1], [8, 1],
+      [1, 4], [2, 4], [3, 4], [4, 4], [5, 4], [6, 4], [7, 4],
+      [1, 5], [2, 5], [3, 5], [4, 5], [5, 5], [6, 5], [7, 5],
+      [3, 15], [4, 15], [5, 15], [3, 16], [4, 16], [5, 16]
+    ],
+    "contract_id": "pmdred-eu-mt-steel-arena-v1"
+  },
+  "item_picker": {
+    "denominator": 20000000,
+    "outcome_count": 33,
+    "unsupported_orb_adapters": {
+      "Switcher Orb": "wand_switcher",
+      "Blowback Orb": "wand_whirlwind",
+      "Warp Orb": "wand_warp",
+      "Petrify Orb": "wand_whirlwind",
+      "Escape Orb": "wand_warp",
+      "Hurl Orb": "wand_lob"
+    }
+  },
+  "secondary_terrain_decision": {
+    "room_flags": 0,
+    "secondary_structures_budget": 0,
+    "standalone_lake_density": 11,
+    "generated_on_procedural_floors": false,
+    "reason": "Red's formation routine returns when the requested room flag is absent."
+  }
+}

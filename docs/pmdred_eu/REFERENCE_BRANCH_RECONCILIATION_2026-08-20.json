@@ -1,0 +1,145 @@
+{
+  "schema": "new-era.pmdred-eu-reference-reconciliation.v1",
+  "date": "2026-08-20",
+  "reference": {
+    "branch": "arena/019ff05e-new-era-abyss-to-ascension-v4",
+    "commit": "c548f0a2cdaf1fb7d740c849c185548ba39f5bc4"
+  },
+  "current": {
+    "branch": "arena/01a01fce-new-era-abyss-to-ascension-v4",
+    "baseline_commit": "4b9618489bde6c9453497ff60307e82bdae5235f"
+  },
+  "restored_non_live_methodology": {
+    "playable_evidence_files": 303,
+    "missing_reference_tools": 70,
+    "additional_failure_and_index_evidence_files": 22,
+    "live_game_files_promoted": 0,
+    "protected_guard_after_restore": "PASS"
+  },
+  "completed_foundations": {
+    "rom_ground_archive_audit": "PASS_724_RESOURCES",
+    "archive_backed_grounds": "PASS_AND_PROMOTED_219_OF_219",
+    "direct_graphical_candidates": "STAGED_27_OF_27",
+    "direct_pmdo_graphical_runtime": "SAFE_27_OF_27_131_OF_131_PIXEL_EXACT",
+    "bma_differential": "PASS_201_OF_201",
+    "eu_ground_script_graph_direct": "PASS_27_GRAPHS_5617_COMMANDS_711_FRENCH_BLOCKS",
+    "all_station_inventory": "AUDITED_133_STATIONS",
+    "new_era_startup_regression": "PASS_NORMAL_NEW_ERA_STARTUP_RESTORED",
+    "sinister_woods_b41_material": "PROMOTED_AND_RUNTIME_VALIDATED_IN_CURRENT_BRANCH"
+  },
+  "reference_playable_work": {
+    "tiny_woods": {
+      "procedural_generation": "PASS",
+      "entry_exit_retry_rescue_cleanup": "PASS_NATIVE_V2",
+      "selected_command_route": "PASS_NATIVE",
+      "narrative": "PARTIAL_PASS",
+      "remaining": [
+        "bind non-wait contracts to canonical production actor and camera contexts",
+        "certify complete opening-to-title live traversal",
+        "integrate only through the current New Era post-start narrative gate"
+      ],
+      "current_live_presence": "ABSENT"
+    },
+    "thunderwave_cave": {
+      "reference_status": "PASS_STATIC_INTEGRATION",
+      "reference_gate_count": 22,
+      "native_runtime": "DEFERRED_NOT_EXECUTED",
+      "current_live_presence": "ABSENT",
+      "direct_ground_source_in_current_reserve": "BYTE_IDENTICAL_D02P02"
+    },
+    "mt_steel": {
+      "reference_status": "PASS_STATIC_INTEGRATION",
+      "reference_gate_count": 38,
+      "native_runtime": "DEFERRED_NOT_EXECUTED",
+      "current_live_presence": "ABSENT",
+      "direct_ground_source_in_current_reserve": "BYTE_IDENTICAL_D03P02"
+    }
+  },
+  "current_narrative_state": {
+    "scene_count": 133,
+    "fully_production_migrated": 0,
+    "in_progress": 1,
+    "not_started": 132,
+    "s01": "FULL_SOURCE_SEQUENCE_RUNTIME_VALIDATED_DORMANT_NOT_PRODUCTION_ROUTED",
+    "definitive_contract": "docs/pmdred_eu/narrative_migration/INTEGRATION_CONTRACT.md"
+  },
+  "promotion_gates_still_missing": {
+    "direct_grounds": [
+      "canonical entrances and exits",
+      "EU event and script behavior",
+      "actors and choreography",
+      "music SFX and timings",
+      "battle victory defeat retry and abandon states",
+      "same-ground reentry and scheduler cleanup in the integrated route",
+      "New Era progression integration"
+    ],
+    "narrative_scenes": [
+      "complete opcode semantics without actor.control_unknown fallback",
+      "branch and variant coverage",
+      "canonical actor position direction movement animation and camera binding",
+      "VFX palette audio timing and final-state comparison",
+      "native PMDO first visit replay retry victory defeat and cleanup evidence",
+      "protected-baseline non-regression"
+    ]
+  },
+  "external_blockers": {
+    "authoritative_eu_rom": {
+      "required_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+      "available_in_workspace": false,
+      "blocks": [
+        "fresh ROM-derived reconstruction",
+        "fresh source authentication of early-dungeon tables and audio",
+        "fresh all-branch narrative extraction beyond committed evidence"
+      ]
+    },
+    "pmdo_0_8_12": {
+      "required_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+      "available_in_workspace": false,
+      "blocks": [
+        "new exact-engine route gameplay audio and unload certification",
+        "promotion of Thunderwave Cave and Mount Steel in the current branch",
+        "integrated scene promotion"
+      ]
+    },
+    "official_pmdo_asset_dump": {
+      "available_in_workspace": false,
+      "blocks": [
+        "authenticated create-only recovery of missing PMDO native tiles items and audio"
+      ]
+    },
+    "pret_pmd_red": {
+      "required_commit": "bf0092d0e34fd8e49b859a0b5f96f00740faa42d",
+      "availability": "PUBLIC_AND_FETCHABLE",
+      "role": "TECHNICAL_STRUCTURE_ONLY"
+    },
+    "rogueessence": {
+      "required_commit_for_tiny_woods_palette_contract": "4961b2271bb0cace74f40f6a85e799e8e4848ace",
+      "availability": "PUBLIC_AND_FETCHABLE"
+    }
+  },
+  "detected_divergences": [
+    {
+      "id": "REFERENCE_PILOT_REGISTRATION_VS_CURRENT_PROTECTED_BASELINE",
+      "reference_expectation": "master_zone contains h26p01 and a01p01",
+      "current": "both Grounds exist but are absent from master_zone GroundMaps",
+      "attempted_resolution": "NOT_APPLIED",
+      "reason": "the current authoritative narrative guard protects Data/Zone/master_zone.json byte-for-byte and rejects the reference insertion",
+      "required_decision": "new explicitly approved baseline migration plus exact PMDO reindex/runtime proof"
+    },
+    {
+      "id": "REFERENCE_PARALLEL_CAMPAIGN_RECOMMENDATION_SUPERSEDED",
+      "reference": "historical MIGRATION_PLAN recommends a parallel campaign",
+      "current": "definitive integration contract forbids a parallel campaign and second quiz",
+      "resolution": "CURRENT_CONTRACT_WINS"
+    }
+  ],
+  "next_order": [
+    "provide or restore the exact EU ROM, PMDO 0.8.12 executable and matching official assets in ignored local storage",
+    "rerun the reference static builders in check mode without live writes",
+    "build isolated current-branch fixtures for Tiny Woods, Thunderwave Cave and Mount Steel",
+    "close Tiny Woods production actor and camera bindings and all remaining unknown opcodes",
+    "run grouped exact-PMDO route gameplay audio unload certification for the three early dungeons",
+    "only then propose atomic current-contract-compatible promotion",
+    "continue dungeon and scene waves in canonical order while keeping the 27 direct Ground gate separate"
+  ]
+}

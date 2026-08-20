@@ -1,0 +1,68 @@
+{
+  "schema": "pmdred-eu-orb-adapters-v1",
+  "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+  "create_only": true,
+  "items": {
+    "pmdred_permutorbe": {
+      "french_name": "Permutorbe",
+      "event": "PMDC.Dungeon.SwitcherEvent, PMDC",
+      "map_status": null
+    },
+    "pmdred_soufflorbe": {
+      "french_name": "Soufflorbe",
+      "event": "PMDC.Dungeon.KnockBackEvent, PMDC",
+      "map_status": null
+    },
+    "pmdred_teleporbe": {
+      "french_name": "Téléporbe",
+      "event": "PMDC.Dungeon.RandomWarpEvent, PMDC",
+      "map_status": null
+    },
+    "pmdred_revelorbe": {
+      "french_name": "Révélorbe",
+      "event": "PMDC.Dungeon.GiveMapStatusEvent, PMDC",
+      "map_status": "pmdred_items_revealed"
+    },
+    "pmdred_radarorbe": {
+      "french_name": "Radarorbe",
+      "event": "PMDC.Dungeon.GiveMapStatusEvent, PMDC",
+      "map_status": "pmdred_characters_revealed"
+    },
+    "pmdred_projectorbe": {
+      "french_name": "Projectorbe",
+      "event": "PMDC.Dungeon.ThrowBackEvent, PMDC",
+      "map_status": null
+    }
+  },
+  "map_status_contracts": {
+    "pmdred_items_revealed": "PMDC.Dungeon.SeeItemsEvent, PMDC",
+    "pmdred_characters_revealed": "PMDC.Dungeon.SeeCharsEvent, PMDC"
+  },
+  "source_hashes": {
+    "Data/Item/wand_switcher.json": "a0025809a04570d1dcfe5dea1183c36efdaf42c942262ac69b11094f1a62d70d",
+    "Data/Item/wand_whirlwind.json": "51c668cb568c4988b31b62fa50243e5c2ead4ce62b8494a573f26c1a34c23096",
+    "Data/Item/wand_warp.json": "2d1f22964525abcd5eb5b4a1b9488ccd7b05ad7043549a37d38ee8eeaaf0347b",
+    "Data/Item/orb_scanner.json": "6f7568cf2b211022effa84eefa74775d901f187b13b378167f34d197f6ca63ed",
+    ".runtime-cache/DumpAsset/Data/MapStatus/scanner.json": "2cc6b4c1b7c2d8724b34c580c7cfb9230e03406d8ffb202685a9b6910a39cfa7",
+    ".runtime-cache/DumpAsset/Content/Item/Orb_Blue.dir": "150fd369848cb46f1d93fc4f96dd591026057ee7ddeeb2087da7ef118b513dd8",
+    ".runtime-cache/DumpAsset/Content/Item/Orb_DarkBlue.dir": "bb291a001b548004e11c2a46b63841f924a7076098e32c3a51e7d8a4d165e580",
+    ".runtime-cache/DumpAsset/Content/Item/Orb_Pink.dir": "3ec4c548469d527b8e8494ed06697d7cd576de1297ca1ded084842feec39de56",
+    ".runtime-cache/DumpAsset/Content/Item/Orb_Purple.dir": "d1fcdac5449f4c48feed16552f324b9f79bc32859bfcb663848a459e77f22ceb",
+    ".runtime-cache/DumpAsset/Content/Item/Orb_Red.dir": "54df7fe612cfc05b9b896dfc34feefb846fdd1ce81b37f0a5cc906e0bafb7912"
+  },
+  "outputs": {
+    "Data/Item/pmdred_permutorbe.json": "dbeed17cc47c5964cce5688dc34dfe7515cb0d487af944e3a83320f45fb174b7",
+    "Data/Item/pmdred_soufflorbe.json": "a07274554d27472743622ab0e891af55f09b812f8ad1209c86bf1a801e5ecedb",
+    "Data/Item/pmdred_teleporbe.json": "d71569e4ca23ffccb3d3bdb74062a7cbb9243e2eb5c8e8ee9e59214530bd6db2",
+    "Data/Item/pmdred_revelorbe.json": "972dab2dce9831cb009ba4593048bc2ad2c8b4b52381e43c8cc0dab17ff1f227",
+    "Data/Item/pmdred_radarorbe.json": "6b7870fbd420e3eaca2e6eedd3d3f5a1549a69ec1aa62007dd43f22dcbc98b2a",
+    "Data/Item/pmdred_projectorbe.json": "57e56ee425b46ba826b2aa1af23ef6c5270445adf9ac106ab3033d2f371d6bde",
+    "Data/MapStatus/pmdred_items_revealed.json": "8cd9b5f4ab9660a527b844c62ffe07292a45e18fabbe989a70b658c5b17daddb",
+    "Data/MapStatus/pmdred_characters_revealed.json": "1dc1205b9bf7155c15382fdbb4505c3d8cb62b190c8dd011abe19c040f67e2d9",
+    "Content/Item/Orb_Blue.dir": "150fd369848cb46f1d93fc4f96dd591026057ee7ddeeb2087da7ef118b513dd8",
+    "Content/Item/Orb_DarkBlue.dir": "bb291a001b548004e11c2a46b63841f924a7076098e32c3a51e7d8a4d165e580",
+    "Content/Item/Orb_Pink.dir": "3ec4c548469d527b8e8494ed06697d7cd576de1297ca1ded084842feec39de56",
+    "Content/Item/Orb_Purple.dir": "d1fcdac5449f4c48feed16552f324b9f79bc32859bfcb663848a459e77f22ceb",
+    "Content/Item/Orb_Red.dir": "54df7fe612cfc05b9b896dfc34feefb846fdd1ce81b37f0a5cc906e0bafb7912"
+  }
+}

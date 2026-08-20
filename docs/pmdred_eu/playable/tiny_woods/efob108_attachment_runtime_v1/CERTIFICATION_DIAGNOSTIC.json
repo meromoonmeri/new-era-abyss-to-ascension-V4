@@ -1,0 +1,29 @@
+{
+  "schema": "pmdred-eu-efob108-attachment-certification-diagnostic-v1",
+  "date": "2026-08-15",
+  "status": "preserved_parser_failure",
+  "native_runtime_status": "PASS",
+  "failure": {
+    "stage": "post-runtime Python trace cardinality assertion",
+    "message": "attachment event count differs: 44",
+    "cause": "The first certification wrapper incorrectly expected 45 records although its explicit event inventory totals 44.",
+    "runtime_or_semantic_failure": false
+  },
+  "preservation": {
+    "events_sha256": "12c2ddea675d11c6d32526b8a013d6ba3ed19b47bbab8e5315922e875667b182",
+    "runtime_log_sha256": "1821543c309b9a752069f41fccd0411e960402591a0bd451136aeddd295c1b4f",
+    "termination_sha256": "3f758d3a53943c90b2dbdcbed0a10893561fa890db15eea157aeb55f55cd2033",
+    "termination_result": "PASS",
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "terminal": true,
+    "graceful": true,
+    "watchdog": false,
+    "requested_signal": null,
+    "sigsegv": false,
+    "forced_kill": false,
+    "orphan_process": false
+  },
+  "successor": "docs/pmdred_eu/playable/tiny_woods/efob108_attachment_runtime_v2/native_attachment_validation.json",
+  "repair": "Only the wrapper's expected event cardinality was corrected from 45 to 44. No Lua fixture, particle, runtime environment, event assertion, or termination gate was weakened."
+}

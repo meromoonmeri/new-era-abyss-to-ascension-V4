@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/user/new-era-abyss-to-ascension-V4/tools/certify_pmdred_tiny_woods_command_semantic_v3.py", line 154, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/user/new-era-abyss-to-ascension-V4/tools/certify_pmdred_tiny_woods_command_semantic_v3.py", line 71, in main
+    manifest, semantic_manifest = run.authenticate(fixture)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/new-era-abyss-to-ascension-V4/tools/run_pmdred_tiny_woods_command_semantic_v3.py", line 67, in authenticate
+    raise ValueError("fault-injected fixture is not certification eligible")
+ValueError: fault-injected fixture is not certification eligible

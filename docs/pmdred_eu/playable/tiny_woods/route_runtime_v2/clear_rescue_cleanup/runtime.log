@@ -1,0 +1,567 @@
+Loading default script variable values..
+Script variables default values loaded! [build 2026-08-04-K]
+DebugTools:initialize()
+MenuTools:initialize()
+UpgradeTools:initialize()
+ConfigTools:initialize()
+NREProbe:initialize()
+[NREPROBE] build 2026-08-04-K charge (main.lua) — PREMIERE ligne attendue, au LANCEMENT du jeu. Si absente: la copie du mod chargee par le jeu n est PAS celle du depot.
+
+<!> DebugTools: Init..
+
+<!> ConfigTools: Init..
+[NREPROBE] service nre_probe ACTIF (EngineServiceEvents.Init) — build 2026-07-27-C
+[TINY_WOODS_ROUTE] {"event":"bootstrap_new_game","mode":"clear_rescue_cleanup","seed":424242}
+Loading default script variable values..
+Script variables default values loaded! [build 2026-08-04-K]
+[NREPROBE] LoadSavedData <-- sauvegarde chargee (menu Continuer) | zone= seg=? map=? | Save.Team=0 leader=<nil> | DungeonMap=nil TeamAttachee=n/a foes=n/a
+
+<!> ExampleSvc: Preparing debug save file
+[DevUnlock] exclu: barren_tundra
+[DevUnlock] exclu: bravery_road
+[DevUnlock] exclu: cave_of_solace
+[DevUnlock] exclu: cave_of_whispers
+[DevUnlock] exclu: debug_zone
+[DevUnlock] exclu: deserted_fortress
+[DevUnlock] exclu: energy_garden
+[DevUnlock] exclu: eon_island
+[DevUnlock] exclu: guildmaster_island
+[DevUnlock] exclu: hope_road
+[DevUnlock] exclu: inscribed_cave
+[DevUnlock] exclu: labyrinth_of_the_lost
+[DevUnlock] exclu: master_zone
+[DevUnlock] exclu: prism_isles
+[DevUnlock] exclu: royal_halls
+[DevUnlock] exclu: sacred_tower
+[DevUnlock] exclu: starfall_heights
+[DevUnlock] exclu: the_abyss
+[DevUnlock] exclu: the_sky
+[DevUnlock] exclu: training_maze
+[DevUnlock] exclu: uncharted_waters
+[DevUnlock] exclu: wisdom_road
+[NREPROBE] NewGame | zone= seg=? map=? | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>> Init_master_zone
+[NREPROBE] ZoneInit | zone=master_zone seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] DungeonSegmentStart (Lua EnterSegment va tourner) | zone=master_zone seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] GroundModeBegin | zone=master_zone seg=-1 map=308 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] GroundMapEnter | zone=master_zone seg=-1 map=308 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[TINY_WOODS_ROUTE] {"event":"ground_route","ground":"d01p01","group":"g1","visit":1,"hero_x":200,"hero_y":196,"direction":"Down: 0"}
+[TINY_WOODS_ROUTE] {"event":"attempt_started","attempt":1,"seed":424242}
+[NREPROBE] GroundMapExit | zone=master_zone seg=-1 map=308 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>_ENV pre-cleanup:178
+=>_ENV post cleanup:177
+[NREPROBE] GroundModeEnd | zone=master_zone seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>_ENV pre-cleanup:177
+=>_ENV post cleanup:176
+[NREPROBE] ZoneInit | zone=tiny_woods seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+Checking Mission: 1
+Checking Mission: 2
+Checking Mission: 3
+Checking Mission: 4
+Checking Mission: 5
+Checking Mission: 6
+Checking Mission: 7
+Checking Mission: 8
+[NREPROBE] DungeonSegmentStart (Lua EnterSegment va tourner) | zone=tiny_woods seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] DungeonModeBegin | zone=tiny_woods seg=0 map=0 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=NON <- IsGameOver() CRASHERAIT ICI foes=2
+[NREPROBE] DungeonMapInit map= | zone=tiny_woods seg=0 map=0 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=2
+[NREPROBE] DungeonFloorEnter <-- equipe DOIT etre attachee ici | zone=tiny_woods seg=0 map=0 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=2
+[TINY_WOODS_ROUTE] {"event":"dungeon_floor_entered","floor":0,"visit":1,"attempt":1,"mode":"clear_rescue_cleanup"}
+[TINY_WOODS_ROUTE] {"event":"action_path_started","floor":0,"start_x":23,"start_y":13,"stair_x":5,"stair_y":15}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":0,"number":1,"next_x":22,"next_y":13,"next_occupied":true,"relation":"ally","species":"growlithe","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":1,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":1,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":1,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":2,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":2,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":2,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":3,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":3,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":3,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":4,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":4,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":4,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":5,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":5,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":5,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":6,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":6,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":6,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":7,"kind":"Move","direction":"Down","floor":0,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":7,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":7,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":8,"kind":"Move","direction":"Down","floor":0,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":8,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":8,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":9,"kind":"Move","direction":"Down","floor":0,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":9,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":9,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":10,"kind":"Move","direction":"Down","floor":0,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":10,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":10,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":11,"kind":"Move","direction":"Down","floor":0,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":11,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":11,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":0,"number":2,"next_x":17,"next_y":19,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":12,"kind":"Move","direction":"Down","floor":0,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":12,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":12,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":13,"kind":"Move","direction":"Down","floor":0,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":13,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":13,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":14,"kind":"Move","direction":"Down","floor":0,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":14,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":14,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":15,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":15,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":15,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":16,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":16,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":16,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":17,"kind":"Move","direction":"Down","floor":0,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":17,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":17,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":18,"kind":"Move","direction":"Down","floor":0,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":18,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":18,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":19,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":19,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":19,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":20,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":20,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":20,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":21,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":21,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":21,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":0,"number":3,"next_x":11,"next_y":23,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":22,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":22,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":22,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":23,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":23,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":23,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":24,"kind":"Move","direction":"Down","floor":0,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":24,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":24,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":25,"kind":"Move","direction":"Down","floor":0,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":25,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":25,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":26,"kind":"Move","direction":"Down","floor":0,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":26,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":26,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":27,"kind":"Move","direction":"Down","floor":0,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":27,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":27,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":28,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":28,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":28,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":29,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":29,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":29,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":30,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":30,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":30,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":31,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":31,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":31,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":32,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":32,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":32,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":33,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":33,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":33,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":0,"number":4,"next_x":3,"next_y":27,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":34,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":34,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":34,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":35,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":35,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":35,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":0,"number":5,"next_x":2,"next_y":26,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":36,"kind":"Move","direction":"Up","floor":0,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":36,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":36,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":0,"number":6,"next_x":2,"next_y":25,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":37,"kind":"Move","direction":"Up","floor":0,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":37,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":37,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":0,"number":7,"next_x":2,"next_y":24,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":38,"kind":"Move","direction":"Up","floor":0,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":38,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":38,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":0,"number":8,"next_x":2,"next_y":23,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":39,"kind":"Move","direction":"Up","floor":0,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":39,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":39,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":0,"number":9,"next_x":2,"next_y":22,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":40,"kind":"Move","direction":"Up","floor":0,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":40,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":40,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":0,"number":10,"next_x":2,"next_y":21,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":41,"kind":"Move","direction":"Up","floor":0,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":41,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":41,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":0,"number":11,"next_x":2,"next_y":20,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":42,"kind":"Move","direction":"Up","floor":0,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":42,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":42,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":0,"number":12,"next_x":2,"next_y":19,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":43,"kind":"Move","direction":"Up","floor":0,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":43,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":43,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":0,"number":13,"next_x":2,"next_y":18,"next_occupied":true,"relation":"hostile","species":"wurmple","selected_action":"Attack"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":44,"kind":"Attack","direction":"Up","floor":0,"native_type":"Attack: 2","native_direction":"Up: 4","native_argument0":"READ_FAILED"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":44,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":44,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":45,"kind":"Move","direction":"Up","floor":0,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":45,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":45,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":46,"kind":"Move","direction":"Up","floor":0,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":46,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":46,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":47,"kind":"Move","direction":"Right","floor":0,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":47,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":47,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":48,"kind":"Move","direction":"Right","floor":0,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":48,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":48,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":49,"kind":"Move","direction":"Right","floor":0,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":49,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":49,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":50,"kind":"Move","direction":"Right","floor":0,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":50,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":50,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":51,"kind":"Move","direction":"Right","floor":0,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":51,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":51,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":52,"kind":"Move","direction":"Up","floor":0,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":52,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":52,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":53,"kind":"Move","direction":"Up","floor":0,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":53,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":53,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":54,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":54,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":54,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":55,"kind":"Move","direction":"Left","floor":0,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":55,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":55,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"stair_prompt_menu","floor":0,"menu_count":1,"selection":"trigger"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":56,"kind":"Tile","direction":"None","floor":0,"native_type":"Tile: 4","native_direction":"None: -1","native_argument0":"0"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":56,"scheduler":"MenuManager.EndAction","current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"stair_action_submitted","floor":0,"x":5,"y":15}
+[NREPROBE] DungeonFloorExit | zone=tiny_woods seg=0 map=0 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=1
+[NREPROBE] DungeonMapInit map= | zone=tiny_woods seg=0 map=1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=3
+[NREPROBE] DungeonFloorEnter <-- equipe DOIT etre attachee ici | zone=tiny_woods seg=0 map=1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=3
+[TINY_WOODS_ROUTE] {"event":"dungeon_floor_entered","floor":1,"visit":2,"attempt":1,"mode":"clear_rescue_cleanup"}
+[TINY_WOODS_ROUTE] {"event":"action_path_started","floor":1,"start_x":1,"start_y":14,"stair_x":24,"stair_y":26}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":1,"number":14,"next_x":2,"next_y":14,"next_occupied":true,"relation":"ally","species":"zigzagoon","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":57,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":57,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":57,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":58,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":58,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":58,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":59,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":59,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":59,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":60,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":60,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":60,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":61,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":61,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":61,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":62,"kind":"Move","direction":"Up","floor":1,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":62,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":62,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":63,"kind":"Move","direction":"Up","floor":1,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":63,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":63,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":64,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":64,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":64,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":65,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":65,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":65,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":1,"number":15,"next_x":9,"next_y":12,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":66,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":66,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":66,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":1,"number":16,"next_x":10,"next_y":12,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":67,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":67,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":67,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":1,"number":17,"next_x":11,"next_y":12,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":68,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":68,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":68,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":1,"number":18,"next_x":12,"next_y":12,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":69,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":69,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":69,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":1,"number":19,"next_x":13,"next_y":12,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":70,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":70,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":70,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":1,"number":20,"next_x":14,"next_y":12,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":71,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":71,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":71,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":72,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":72,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":72,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":73,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":73,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":73,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":74,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":74,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":74,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":75,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":75,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":75,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":76,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":76,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":76,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":77,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":77,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":77,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":78,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":78,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":78,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":79,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":79,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":79,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":1,"number":21,"next_x":23,"next_y":12,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":80,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":80,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":80,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":1,"number":22,"next_x":23,"next_y":13,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":81,"kind":"Move","direction":"Down","floor":1,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":81,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":81,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":1,"number":23,"next_x":23,"next_y":14,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":82,"kind":"Move","direction":"Down","floor":1,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":82,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":82,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":1,"number":24,"next_x":23,"next_y":15,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":83,"kind":"Move","direction":"Down","floor":1,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":83,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":83,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":1,"number":25,"next_x":23,"next_y":16,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":84,"kind":"Move","direction":"Down","floor":1,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":84,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":84,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":1,"number":26,"next_x":23,"next_y":17,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":85,"kind":"Move","direction":"Down","floor":1,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":85,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":85,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":1,"number":27,"next_x":23,"next_y":18,"next_occupied":false,"relation":"none","species":"","selected_action":"Move"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":86,"kind":"Move","direction":"Down","floor":1,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":86,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":86,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"occupancy_replan","floor":1,"number":28,"next_x":23,"next_y":19,"next_occupied":true,"relation":"hostile","species":"sunkern","selected_action":"Attack"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":87,"kind":"Attack","direction":"Down","floor":1,"native_type":"Attack: 2","native_direction":"Down: 0","native_argument0":"READ_FAILED"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":87,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":87,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":88,"kind":"Move","direction":"Down","floor":1,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":88,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":88,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":89,"kind":"Move","direction":"Down","floor":1,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":89,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":89,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":90,"kind":"Move","direction":"Down","floor":1,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":90,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":90,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":91,"kind":"Move","direction":"Down","floor":1,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":91,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":91,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":92,"kind":"Move","direction":"Down","floor":1,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":92,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":92,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":93,"kind":"Move","direction":"Down","floor":1,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":93,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":93,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":94,"kind":"Move","direction":"Right","floor":1,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":94,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":94,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":95,"kind":"Move","direction":"Down","floor":1,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":95,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":95,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":96,"kind":"Move","direction":"Down","floor":1,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":96,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":96,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"stair_prompt_menu","floor":1,"menu_count":1,"selection":"trigger"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":97,"kind":"Tile","direction":"None","floor":1,"native_type":"Tile: 4","native_direction":"None: -1","native_argument0":"0"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":97,"scheduler":"MenuManager.EndAction","current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"stair_action_submitted","floor":1,"x":24,"y":26}
+[NREPROBE] DungeonFloorExit | zone=tiny_woods seg=0 map=1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=2
+[NREPROBE] DungeonMapInit map= | zone=tiny_woods seg=0 map=2 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=2
+[NREPROBE] DungeonFloorEnter <-- equipe DOIT etre attachee ici | zone=tiny_woods seg=0 map=2 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=2
+[TINY_WOODS_ROUTE] {"event":"dungeon_floor_entered","floor":2,"visit":3,"attempt":1,"mode":"clear_rescue_cleanup"}
+[TINY_WOODS_ROUTE] {"event":"action_path_started","floor":2,"start_x":19,"start_y":20,"stair_x":12,"stair_y":4}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":98,"kind":"Move","direction":"Right","floor":2,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":98,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":98,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":99,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":99,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":99,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":100,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":100,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":100,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":101,"kind":"Move","direction":"Left","floor":2,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":101,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":101,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":102,"kind":"Move","direction":"Left","floor":2,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":102,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":102,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":103,"kind":"Move","direction":"Left","floor":2,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":103,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":103,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":104,"kind":"Move","direction":"Left","floor":2,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":104,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":104,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":105,"kind":"Move","direction":"Left","floor":2,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":105,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":105,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":106,"kind":"Move","direction":"Down","floor":2,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":106,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":106,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":107,"kind":"Move","direction":"Down","floor":2,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":107,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":107,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":108,"kind":"Move","direction":"Down","floor":2,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":108,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":108,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":109,"kind":"Move","direction":"Down","floor":2,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":109,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":109,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":110,"kind":"Move","direction":"Down","floor":2,"native_type":"Move: 1","native_direction":"Down: 0","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":110,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":110,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":111,"kind":"Move","direction":"Right","floor":2,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":111,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":111,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":112,"kind":"Move","direction":"Right","floor":2,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":112,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":112,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":113,"kind":"Move","direction":"Right","floor":2,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":113,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":113,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":114,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":114,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":114,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":115,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":115,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":115,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":116,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":116,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":116,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":117,"kind":"Move","direction":"Left","floor":2,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":117,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":117,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":118,"kind":"Move","direction":"Left","floor":2,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":118,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":118,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":119,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":119,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":119,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":120,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":120,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":120,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":121,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":121,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":121,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":122,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":122,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":122,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":123,"kind":"Move","direction":"Right","floor":2,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":123,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":123,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":124,"kind":"Move","direction":"Right","floor":2,"native_type":"Move: 1","native_direction":"Right: 6","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":124,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":124,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":125,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":125,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":125,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":126,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":126,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":126,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":127,"kind":"Move","direction":"Left","floor":2,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":127,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":127,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":128,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":128,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":128,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":129,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":129,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":129,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":130,"kind":"Move","direction":"Left","floor":2,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":130,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":130,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":131,"kind":"Move","direction":"Left","floor":2,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":131,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":131,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":132,"kind":"Move","direction":"Left","floor":2,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":132,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":132,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":133,"kind":"Move","direction":"Left","floor":2,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":133,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":133,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":134,"kind":"Move","direction":"Left","floor":2,"native_type":"Move: 1","native_direction":"Left: 2","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":134,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":134,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":135,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":135,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":135,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":136,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":136,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":136,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":137,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":137,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":137,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":138,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":138,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":138,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":139,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":139,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":139,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":140,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":140,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":140,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":141,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":141,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":141,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":142,"kind":"Move","direction":"Up","floor":2,"native_type":"Move: 1","native_direction":"Up: 4","native_argument0":"1"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":142,"current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"native_action_consumed","number":142,"scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"stair_prompt_menu","floor":2,"menu_count":1,"selection":"trigger"}
+[TINY_WOODS_ROUTE] {"event":"player_action","number":143,"kind":"Tile","direction":"None","floor":2,"native_type":"Tile: 4","native_direction":"None: -1","native_argument0":"0"}
+[TINY_WOODS_ROUTE] {"event":"native_action_queue","number":143,"scheduler":"MenuManager.EndAction","current_scene":"RogueEssence.Dungeon.DungeonScene: 10915062","dungeon_scene":true,"player_turn":true,"leader_turn":true,"animations_over":true,"current_character":"turtwig: 65989324","scene_outcome":"nil"}
+[TINY_WOODS_ROUTE] {"event":"stair_action_submitted","floor":2,"x":12,"y":4}
+[NREPROBE] DungeonSegmentEnd (Lua ExitSegment a tourne) | zone=tiny_woods seg=0 map=2 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=1
+[NREPROBE] DungeonFloorExit | zone=tiny_woods seg=0 map=2 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=1
+[NREPROBE] DungeonModeEnd  <-- ExitFloor vient de detacher l equipe (normal) | zone=tiny_woods seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] GroundModeBegin | zone=tiny_woods seg=-1 map=1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] GroundMapEnter | zone=tiny_woods seg=-1 map=1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[TINY_WOODS_ROUTE] {"event":"ending_ground_probe","visit":1,"group":"g1","cleanup":false,"width":45,"height":42,"solid_cells":1503,"hero_x":164,"hero_y":276,"hero_direction":"Up: 4","partner":true,"partner_direction":"Up: 4","caterpie":true,"caterpie_direction":"Up: 4","music":"In the Depths of the Pit.ogg","verdict":"PASS"}
+[TINY_WOODS_ROUTE] {"event":"rescue_completed","destination":"d01p01:g3"}
+[NREPROBE] GroundMapExit | zone=tiny_woods seg=-1 map=1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>_ENV pre-cleanup:179
+=>_ENV post cleanup:178
+[NREPROBE] GroundMapEnter | zone=tiny_woods seg=-1 map=0 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[TINY_WOODS_ROUTE] {"event":"ground_route","ground":"d01p01","group":"g3","visit":2,"hero_x":200,"hero_y":196,"direction":"Up: 4"}
+[TINY_WOODS_ROUTE] {"event":"post_rescue_relay","ground":"d01p01","group":"g3"}
+[NREPROBE] GroundMapExit | zone=tiny_woods seg=-1 map=0 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>_ENV pre-cleanup:179
+=>_ENV post cleanup:178
+[NREPROBE] GroundMapEnter | zone=tiny_woods seg=-1 map=1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[TINY_WOODS_ROUTE] {"event":"ending_ground_probe","visit":2,"group":"","cleanup":true,"width":45,"height":42,"solid_cells":1503,"hero_x":164,"hero_y":276,"hero_direction":"Up: 4","partner":false,"partner_direction":"nil","caterpie":false,"caterpie_direction":"nil","music":"","verdict":"PASS"}
+[TINY_WOODS_ROUTE] {"event":"scenario_verdict","mode":"clear_rescue_cleanup","verdict":"PASS","attempts":1,"defeats":0,"floors_entered":3,"floors_cleared":3,"rescue_complete":true,"actions":143,"replans":140,"occupancy_replans":28,"hostile_blocks":2,"ally_blocks":2}
+[TINY_WOODS_ROUTE] {"event":"load_phase_unload_requested","before":"Ready","before_raw":"Ready: 2","requested":"Unload","readback":"Unload","readback_raw":"Unload: 3"}
+
+<!> DebugTools: Deinit..
+
+<!> ConfigTools: Deinit..
+[TINY_WOODS_ROUTE] {"event":"native_deinit","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+[TINY_WOODS_ROUTE] {"event":"native_graphics_unload","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+[TINY_WOODS_ROUTE] {"event":"end","terminal":true,"graceful":true,"load_phase":"Unload","load_phase_raw":"Unload: 3"}

@@ -1,0 +1,5 @@
+# a02p01 preserved failed orchestration attempt
+
+This is **FAIL evidence, not an official Ground PASS**. On 2026-08-12, the first `a02p01` entity-aware migration attempt authenticated the occupied historical Ground, retained its exact markers and teammate spawners in the canonical v2.0.1 geometry, completed the exact-PMDO runtime and pixel comparisons, and preserved the historical Ground and uppercase-case tile before installing the integrated Ground and lowercase canonical tile. The orchestrator then stopped before zone indexing, post-promotion validation, evidence packaging, and checkpoint advancement because `a02p01` already had one historical zone entry.
+
+The existing zone entry is authenticated historical routing state, not a duplicate to delete. The zone file and checkpoint remained byte-identical. Recovery must authenticate the durable reserve and partially installed migration, preserve the singleton zone entry in place, and perform a complete fresh runtime/comparison/post-promotion rerun in fresh paths before any official PASS.

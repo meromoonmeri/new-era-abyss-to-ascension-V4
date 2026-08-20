@@ -1,0 +1,184 @@
+{
+  "schema": "pmdred-eu-tiny-woods-command-complete-native-v1",
+  "date": "2026-08-13",
+  "status": "passed",
+  "authority": {
+    "region": "EU",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "command_plan_sha256": "ab9f2a8dcf857181a4dd188e28687cb953ba4789c9b6f39430c50fee4b94c37b"
+  },
+  "runtime": {
+    "version": "0.8.12.0",
+    "executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327"
+  },
+  "index_gate": {
+    "status": "passed",
+    "return_code": 0,
+    "timed_out": false,
+    "index_sha256": "76517c1ff94b3126d6f6c66488c9f36f29ab9df62c643901a0684c2f7ff4fc39",
+    "log_sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8"
+  },
+  "runs": [
+    {
+      "mode": "opening_naming",
+      "route": [
+        "d01p01"
+      ],
+      "scenes": [
+        "d01p01_g1"
+      ],
+      "commands": 975,
+      "arrays": 27,
+      "dialogues": 38,
+      "menus_closed": 38,
+      "cue_ids": [
+        450,
+        463,
+        465,
+        466,
+        468,
+        469,
+        470,
+        482
+      ],
+      "verdict": {
+        "event": "command_complete_verdict",
+        "mode": "opening_naming",
+        "verdict": "PASS",
+        "commands": 975,
+        "arrays": 27,
+        "dialogues": 38,
+        "menus_closed": 38,
+        "hero_naming": 1,
+        "hero_naming_after_dialogues": 23,
+        "team_naming": 0,
+        "cues": 8,
+        "route": "d01p01",
+        "tiny_woods_unlock": "Discovered: 1",
+        "scenario_main": 0,
+        "scenario_level": null,
+        "event_division": "nil"
+      },
+      "result": "PASS",
+      "events_sha256": "fc2c9de44fae30d1f0ee188c247262463fb157d9670c802a1dd1e46aeea32016",
+      "runtime_log_sha256": "381b479ef466b389b98114c865f529c6a5712cb34744afc3fe8fee3433b12203",
+      "termination_sha256": "cafd066cb6602802b2c9eb07a424e568b84143bd67a264c3d9de8f6ef807a0aa",
+      "termination": {
+        "exit_classification": "NORMAL_EXIT",
+        "return_code": 0,
+        "terminal": true,
+        "graceful": true,
+        "watchdog": false,
+        "requested_signal": null,
+        "sigsegv": false,
+        "forced_kill": false,
+        "orphan_process": false
+      }
+    },
+    {
+      "mode": "post_route",
+      "route": [
+        "d01p02",
+        "d01p01",
+        "b01p00a",
+        "s02_fre"
+      ],
+      "scenes": [
+        "d01p02_g1",
+        "d01p01_g3",
+        "b01p00a_g16",
+        "s02_fre_g2"
+      ],
+      "commands": 975,
+      "arrays": 27,
+      "dialogues": 56,
+      "menus_closed": 56,
+      "cue_ids": [
+        450,
+        455,
+        457,
+        465,
+        468,
+        469,
+        470,
+        473
+      ],
+      "verdict": {
+        "event": "command_complete_verdict",
+        "mode": "post_route",
+        "verdict": "PASS",
+        "commands": 975,
+        "arrays": 27,
+        "dialogues": 56,
+        "menus_closed": 56,
+        "hero_naming": 0,
+        "hero_naming_after_dialogues": -1,
+        "team_naming": 1,
+        "cues": 8,
+        "route": "d01p02>d01p01>b01p00a>s02_fre",
+        "tiny_woods_unlock": "Completed: 2",
+        "scenario_main": 3,
+        "scenario_level": 0,
+        "event_division": "EVENT_DIVIDE"
+      },
+      "result": "PASS",
+      "events_sha256": "3cf5203a4c66b5c0837ea7edb074d2c436f34f1b63e16e03b2430500267171cd",
+      "runtime_log_sha256": "58b633720a5c017baeb3339b7f339eee33f51a8f5cbba63daf644da6fab85310",
+      "termination_sha256": "cb0003739e2af51e50fe106b9924d9e45efc9a88701b86078029492052a4e94b",
+      "termination": {
+        "exit_classification": "NORMAL_EXIT",
+        "return_code": 0,
+        "terminal": true,
+        "graceful": true,
+        "watchdog": false,
+        "requested_signal": null,
+        "sigsegv": false,
+        "forced_kill": false,
+        "orphan_process": false
+      }
+    }
+  ],
+  "combined": {
+    "unique_command_addresses_per_mode": 975,
+    "arrays_per_mode": 27,
+    "opcodes": 61,
+    "french_associations_preserved": 195,
+    "selected_route_dialogues_closed": 94,
+    "cue_ids": [
+      450,
+      455,
+      457,
+      463,
+      465,
+      466,
+      468,
+      469,
+      470,
+      473,
+      482
+    ],
+    "bgm_ids": [
+      1,
+      10,
+      46,
+      101,
+      103,
+      114
+    ]
+  },
+  "assertions": {
+    "all_authenticated_command_records_loaded_with_exact_operands_and_handlers_in_each_isolated_mode": true,
+    "hero_naming_occurs_natively_immediately_after_opening_row_23": true,
+    "corrected_post_g3_route_crosses_tiny_woods_and_master_zone_in_canonical_order": true,
+    "one_refusal_then_acceptance_and_native_team_naming_execute": true,
+    "three_authenticated_rewards_and_tiny_woods_completion_persist": true,
+    "six_authenticated_bgm_and_eleven_authenticated_cues_are_installed_and_covered": true,
+    "all_94_selected_french_dialogues_open_and_close_native_menus": true,
+    "both_processes_reach_load_phase_unload_normal_exit_without_signal_watchdog_or_orphan": true
+  },
+  "branch_scope": [
+    "The native proof selects the authenticated D1/default grammatical branch used by the existing scene plan.",
+    "The refusal loop executes once before acceptance; all 27 command arrays and 195 French associations remain preserved in command_plan.json.",
+    "The opening and corrected post-route are isolated because post-route entry at d01p02 cannot faithfully re-execute opening hero naming."
+  ]
+}

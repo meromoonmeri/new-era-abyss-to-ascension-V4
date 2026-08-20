@@ -1,0 +1,10 @@
+{
+  "schema": "new-era.pmdred-eu-route-authenticity-erratum.v1",
+  "date": "2026-08-13",
+  "status": "SUPERSEDED",
+  "affected_report": "native_route_validation.json",
+  "error": "Red source direction value 4 was incorrectly translated to PMDO Down/0 for d01p02 actors and entry; d01p01:g3 was also left Down.",
+  "authority": "pret include/constants/direction.h is structural reference: Red 0=South and 4=North; the EU entity bytes retain value 4.",
+  "preservation": "All v1 evidence is retained byte-for-byte. This additive erratum is intentionally outside the original evidence_hashes.sha256.",
+  "replacement": "../route_runtime_v2/native_route_validation.json"
+}

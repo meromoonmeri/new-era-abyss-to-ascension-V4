@@ -1,0 +1,46 @@
+{
+  "schema": "pmdred-eu-authenticated-music-render-v1",
+  "date": "2026-08-13",
+  "status": "passed",
+  "track": {
+    "name": "Tiny Woods",
+    "m4a_song_table_index": 125,
+    "song_table_offset": "0x01E866BC",
+    "m4a_mode": "0x0096E500",
+    "tracks": 12
+  },
+  "authority": {
+    "region": "EU",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd"
+  },
+  "renderer": {
+    "driver": "tools/render_pmdred_tiny_woods_music.py",
+    "driver_sha256": "b88ef556cadb0e61c3cb6f426fcfcf8fe3344841e5ce2f671dfe3f4663bc9662",
+    "frontend": "tools/pmdred_m4a_to_ogg.c",
+    "frontend_sha256": "4940a70df2d4919fd2af3acb2afad920cc769f653cd51af9048a5c463e48eeff",
+    "compiler": "gcc (Debian 12.2.0-14+deb12u1) 12.2.0",
+    "dependencies": {
+      "m4play": "e16a7964acdd8ef5aff10a0e729c9618d3da0e75",
+      "libogg": "e1774cd77f471443541596e09078e78fdc342e4f",
+      "libvorbis": "0657aee69dec8508a0011f47f3b69d7538e9d262"
+    }
+  },
+  "output": {
+    "path": "Content/Music/Tiny Woods.ogg",
+    "sha256": "38c62cb4ce6df879812ce7e6812f0d55b0729a86a52f66c7208c821c37c1fe0a",
+    "bytes": 1573904,
+    "codec": "Vorbis",
+    "channels": 2,
+    "sample_rate": 48000,
+    "samples": 4264800,
+    "loop_start": 2216800,
+    "loop_length": 2048000
+  },
+  "assertions": {
+    "all_track_loop_boundary_detection": true,
+    "authenticated_loop_points": true,
+    "vorbis_comments_verified": true,
+    "pcm_granule_verified": true,
+    "two_independent_renders_byte_identical": true
+  }
+}

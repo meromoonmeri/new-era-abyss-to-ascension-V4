@@ -1,0 +1,77 @@
+{
+  "schema": "pmdred-eu-tiny-woods-command-complete-provenance-v1",
+  "date": "2026-08-13",
+  "status": "pass",
+  "authoritative_checkpoint": "docs/pmdred_eu/playable/tiny_woods/command_complete_runtime_v2",
+  "superseded_checkpoint": "docs/pmdred_eu/playable/tiny_woods/command_complete_runtime",
+  "supersession_scope": "source-provenance reproducibility only; prior native runtime result and audio bytes remain valid",
+  "current_renderer": {
+    "source": "tools/pmdred_m4a_fanfare_to_ogg.c",
+    "source_sha256": "eec95deff18c4e22514541e21986c76843af3850caa6e3f4549df69ec6e53f10",
+    "manifest_sha256": "ec2f94f966581a78028625872968fd339ca66e33699b376a22327939aae4c96c",
+    "manifest_source_sha256": "eec95deff18c4e22514541e21986c76843af3850caa6e3f4549df69ec6e53f10",
+    "source_hash_matches_manifest": true
+  },
+  "superseded_renderer_manifest": {
+    "manifest_sha256": "3569191cca183300e62ce44cdbe0b43d32deab65d66f93c7ff71b24ae8cf20df",
+    "manifest_source_sha256": "9a9e16a21355b081346b0b91f7363a0ccb1d87fe4bd9e4d2c248cc2ece851212",
+    "durable_tracked_source_available": false
+  },
+  "cue_identity": [
+    {
+      "cue_id": 450,
+      "sha256": "7b5a93b544aee9ad7c5d0e37d1df68b8f45bd176a6507b3a5b3687174cf9db8c",
+      "byte_identical_to_superseded_snapshot": true
+    },
+    {
+      "cue_id": 455,
+      "sha256": "a951367fe49f51052840e50cd46a1bf85c608531234992cbc87991ee5a3a1212",
+      "byte_identical_to_superseded_snapshot": true
+    },
+    {
+      "cue_id": 457,
+      "sha256": "4fb15ffeee5b0e2a5e83c8a156298a5b484f4eee6b185b7bf8c0e10054b85cc8",
+      "byte_identical_to_superseded_snapshot": true
+    },
+    {
+      "cue_id": 463,
+      "sha256": "6928c587af9f2370c5dbc8d8909dc184f17aba51c6f679f205f92e5293961395",
+      "byte_identical_to_superseded_snapshot": true
+    },
+    {
+      "cue_id": 465,
+      "sha256": "6574bdc206a38c5af5e2217b98ab9643ccf6b3e86563a9b49d49ea2600f7cecf",
+      "byte_identical_to_superseded_snapshot": true
+    },
+    {
+      "cue_id": 466,
+      "sha256": "47933c50f02bbb085ef24a70f8921238ae7e14c1b594a7ff870ab8deb0fa59fc",
+      "byte_identical_to_superseded_snapshot": true
+    },
+    {
+      "cue_id": 468,
+      "sha256": "1907acc32e0f85b3fbc2be31bda5a8787f7d6354eda9d8b4af07a43fa4088948",
+      "byte_identical_to_superseded_snapshot": true
+    },
+    {
+      "cue_id": 469,
+      "sha256": "1dfad3cf793d618a5ad6563bb29d450fc8d83ac4ed2ebfa7f8b1b8ce9ad12613",
+      "byte_identical_to_superseded_snapshot": true
+    },
+    {
+      "cue_id": 470,
+      "sha256": "d0c77f3f3df005ef7ee24f6b1a68199b0ff20efe655aba1a9e01afae6efc7f73",
+      "byte_identical_to_superseded_snapshot": true
+    },
+    {
+      "cue_id": 473,
+      "sha256": "9697370e17c479eab23949e0d8936e243c18b73127472086f0cc9a8f159926a3",
+      "byte_identical_to_superseded_snapshot": true
+    },
+    {
+      "cue_id": 482,
+      "sha256": "0cf7a46c6d3617c33ea75a834031e232da72de26fa1c5ba032eca1d8ecca531e",
+      "byte_identical_to_superseded_snapshot": true
+    }
+  ]
+}

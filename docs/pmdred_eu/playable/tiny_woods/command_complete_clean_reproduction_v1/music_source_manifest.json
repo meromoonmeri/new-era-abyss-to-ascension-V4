@@ -1,0 +1,121 @@
+{
+  "schema": "new-era.pmdred-eu-scene-music.v1",
+  "authority": {
+    "region": "EU",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd"
+  },
+  "renderers": {
+    "looping_bgm": {
+      "source": "tools/pmdred_m4a_to_ogg_general.c",
+      "source_sha256": "2ddbf2e800015951dc5b0f1e110b6be06285915a605d25e1b9f2d2d72dba16e8",
+      "sample_rate": 48000,
+      "method": "fresh synchronized-loop discovery plus two byte-identical gated renders"
+    },
+    "terminating_bgm": {
+      "source": "tools/pmdred_m4a_fanfare_to_ogg.c",
+      "source_sha256": "eec95deff18c4e22514541e21986c76843af3850caa6e3f4549df69ec6e53f10",
+      "sample_rate": 48000,
+      "method": "fresh TRACK-clear discovery plus two byte-identical gated renders"
+    }
+  },
+  "dependencies": {
+    "m4play": "e16a7964acdd8ef5aff10a0e729c9618d3da0e75",
+    "libogg": "e1774cd77f471443541596e09078e78fdc342e4f",
+    "libvorbis": "0657aee69dec8508a0011f47f3b69d7538e9d262"
+  },
+  "tracks": [
+    {
+      "song_index": 1,
+      "playback_kind": "looping_bgm",
+      "title": "Rescue Team Base",
+      "filename": "PMD Red - Rescue Team Base.ogg",
+      "bytes": 1158505,
+      "sha256": "e35eac2c4e76dc8af2c817015a38be501d4eef898ea3487c1cb168e91f74ee13",
+      "sample_rate": 48000,
+      "samples": 2858400,
+      "loop_start": 1440000,
+      "loop_length": 1418400,
+      "tracks": 12,
+      "discovery_run": "song_table=0x01e866bc mode=0x0096e500 tracks=12 samples=2858400 loop_start=1440000 loop_length=1418400",
+      "deterministic_runs": 2
+    },
+    {
+      "song_index": 10,
+      "playback_kind": "looping_bgm",
+      "title": "There's Trouble",
+      "filename": "PMD Red - There's Trouble.ogg",
+      "bytes": 1244122,
+      "sha256": "ee1472d8f2121e2f1388106fb24a601f7b276ca58cf032f1c0594466e039b707",
+      "sample_rate": 48000,
+      "samples": 3221600,
+      "loop_start": 1440000,
+      "loop_length": 1781600,
+      "tracks": 11,
+      "discovery_run": "song_table=0x01e866bc mode=0x0096e500 tracks=11 samples=3221600 loop_start=1440000 loop_length=1781600",
+      "deterministic_runs": 2
+    },
+    {
+      "song_index": 46,
+      "playback_kind": "terminating_bgm",
+      "title": "Aftermath",
+      "filename": "PMD Red - Aftermath.ogg",
+      "bytes": 161565,
+      "sha256": "eb3bcb5000e3204f3d309dc8a3396b805b8cbbd5d73e7e3d498311759a1ad53e",
+      "sample_rate": 48000,
+      "samples": 485600,
+      "tracks": 6,
+      "completion_condition": "(gMPlayInfo_BGM.status & MUSICPLAYER_STATUS_TRACK) == 0",
+      "discovery_run": "song_table=0x01e866bc mode=0x0096e500 tracks=6 samples=485600 completion=TRACK_CLEAR",
+      "deterministic_runs": 2
+    },
+    {
+      "song_index": 101,
+      "playback_kind": "looping_bgm",
+      "title": "Heartwarming",
+      "filename": "PMD Red - Heartwarming.ogg",
+      "bytes": 1964416,
+      "sha256": "6ef0e60aa3aafc5606393103c9631d89c030341443d126df997cddb9107d5ac0",
+      "sample_rate": 48000,
+      "samples": 4880800,
+      "loop_start": 1936800,
+      "loop_length": 2944000,
+      "tracks": 11,
+      "discovery_run": "song_table=0x01e866bc mode=0x0096e500 tracks=11 samples=4880800 loop_start=1936800 loop_length=2944000",
+      "deterministic_runs": 2
+    },
+    {
+      "song_index": 103,
+      "playback_kind": "looping_bgm",
+      "title": "A Successful Rescue",
+      "filename": "PMD Red - A Successful Rescue.ogg",
+      "bytes": 917432,
+      "sha256": "9c581ff4ea0c231b58bd19c7fc5681a927a0dcf911eefef0f73858760475fd2e",
+      "sample_rate": 48000,
+      "samples": 2552800,
+      "loop_start": 1177600,
+      "loop_length": 1375200,
+      "tracks": 11,
+      "discovery_run": "song_table=0x01e866bc mode=0x0096e500 tracks=11 samples=2552800 loop_start=1177600 loop_length=1375200",
+      "deterministic_runs": 2
+    },
+    {
+      "song_index": 114,
+      "playback_kind": "looping_bgm",
+      "title": "In the Depths of the Pit",
+      "filename": "PMD Red - In the Depths of the Pit.ogg",
+      "bytes": 508325,
+      "sha256": "09f3bec584f3d35a1a2e9173ec977b4363169d99fdfa3cca7e2e1844c9c2f3d6",
+      "sample_rate": 48000,
+      "samples": 1501600,
+      "loop_start": 521600,
+      "loop_length": 980000,
+      "tracks": 7,
+      "discovery_run": "song_table=0x01e866bc mode=0x0096e500 tracks=7 samples=1501600 loop_start=521600 loop_length=980000",
+      "deterministic_runs": 2
+    }
+  ],
+  "validation": {
+    "status": "pass",
+    "track_count": 6
+  }
+}

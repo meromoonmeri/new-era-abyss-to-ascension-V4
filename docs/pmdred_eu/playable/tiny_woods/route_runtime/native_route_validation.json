@@ -1,0 +1,283 @@
+{
+  "schema": "pmdred-eu-tiny-woods-native-route-v1",
+  "date": "2026-08-13",
+  "status": "passed",
+  "scope": "Petit Bois opening, player-action stair traversal, clear/ending, failed-result retry, rescue relay, and actor/music cleanup",
+  "authority": {
+    "region": "EU",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "ending_ground_sha256": "ce2e109b082a5a6986fb5768ea315b60dfb5549d882f2f11908842b37e52e47e",
+    "ending_tile_sha256": "0aff40efcb0a42849495510eac868402245e0489876da595511b28b74466350f",
+    "ending_music": "In the Depths of the Pit.ogg",
+    "ending_music_sha256": "4b22c99be63e4ec61055c9a32ea0951e4910132551a8258f58fe2f1a6f9d9cd2",
+    "ending_bgm_eu_command": {
+      "rom_address": "0x084D4C78",
+      "opcode": "0x44",
+      "music_id": 114
+    }
+  },
+  "runtime": {
+    "version": "0.8.12.0",
+    "executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+    "validator_mode": "tiny_woods_route_fixture"
+  },
+  "index_gate": {
+    "schema": "pmdred-eu-tiny-woods-route-zone-index-v1",
+    "command": [
+      "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdo-headless-bundle/PMDO",
+      "-asset",
+      "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/tiny-woods-route-fixture-1786641389/asset/",
+      "-appdata",
+      "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/tiny-woods-route-fixture-1786641389/appdata/",
+      "-quest",
+      "pmdred_eu_fixture",
+      "-index",
+      "zone"
+    ],
+    "return_code": 0,
+    "timed_out": false,
+    "status": "passed",
+    "index": {
+      "bytes": 7182,
+      "sha256": "76517c1ff94b3126d6f6c66488c9f36f29ab9df62c643901a0684c2f7ff4fc39"
+    },
+    "log": {
+      "bytes": 393,
+      "sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8"
+    }
+  },
+  "runs": [
+    {
+      "mode": "opening_entry",
+      "verdict": {
+        "event": "scenario_verdict",
+        "mode": "opening_entry",
+        "verdict": "PASS",
+        "attempts": 1,
+        "defeats": 0,
+        "floors_entered": 1,
+        "floors_cleared": 0,
+        "rescue_complete": false,
+        "actions": 0,
+        "replans": 0,
+        "occupancy_replans": 0,
+        "hostile_blocks": 0,
+        "ally_blocks": 0
+      },
+      "ground_routes": [
+        {
+          "event": "ground_route",
+          "ground": "d01p01",
+          "group": "g1",
+          "visit": 1,
+          "hero_x": 200,
+          "hero_y": 196,
+          "direction": "Down: 0"
+        }
+      ],
+      "dungeon_floors": [
+        {
+          "event": "dungeon_floor_entered",
+          "floor": 0,
+          "visit": 1,
+          "attempt": 1,
+          "mode": "opening_entry"
+        }
+      ],
+      "player_action_count": 0,
+      "attack_action_count": 0,
+      "occupancy_replan_count": 0,
+      "result": "PASS",
+      "events_sha256": "3a6a096531dd3b87c26691d107ec9901afba77c02aa2537dfc5f4e2df342c332",
+      "runtime_log_sha256": "3133c426dd5b49b37afc3276dc99f2548c7a0adf9668ca48821a78249b5a3237",
+      "termination_sha256": "539e10442c81982a0801916e2b19bd4ad3cf80590348336bb23e63d96cdeab4b",
+      "termination": {
+        "exit_classification": "NORMAL_EXIT",
+        "return_code": 0,
+        "terminal": true,
+        "graceful": true,
+        "watchdog": false,
+        "requested_signal": null,
+        "sigsegv": false,
+        "forced_kill": false,
+        "orphan_process": false
+      }
+    },
+    {
+      "mode": "defeat_retry",
+      "verdict": {
+        "event": "scenario_verdict",
+        "mode": "defeat_retry",
+        "verdict": "PASS",
+        "attempts": 2,
+        "defeats": 1,
+        "floors_entered": 2,
+        "floors_cleared": 0,
+        "rescue_complete": false,
+        "actions": 1,
+        "replans": 0,
+        "occupancy_replans": 0,
+        "hostile_blocks": 0,
+        "ally_blocks": 0
+      },
+      "ground_routes": [
+        {
+          "event": "ground_route",
+          "ground": "d01p01",
+          "group": "g1",
+          "visit": 1,
+          "hero_x": 200,
+          "hero_y": 196,
+          "direction": "Down: 0"
+        },
+        {
+          "event": "ground_route",
+          "ground": "d01p01",
+          "group": "g2",
+          "visit": 2,
+          "hero_x": 200,
+          "hero_y": 196,
+          "direction": "Down: 0"
+        }
+      ],
+      "dungeon_floors": [
+        {
+          "event": "dungeon_floor_entered",
+          "floor": 0,
+          "visit": 1,
+          "attempt": 1,
+          "mode": "defeat_retry"
+        },
+        {
+          "event": "dungeon_floor_entered",
+          "floor": 0,
+          "visit": 2,
+          "attempt": 2,
+          "mode": "defeat_retry"
+        }
+      ],
+      "player_action_count": 1,
+      "attack_action_count": 0,
+      "occupancy_replan_count": 0,
+      "result": "PASS",
+      "events_sha256": "412b447c8a9397f42f585b75f242e1a34ca3ec2a2c88cf257276b6a37c423dcf",
+      "runtime_log_sha256": "ea601c078c1e0e7c586bd651d3e2acd864cc192c863a6766fc43f5a32bd363f6",
+      "termination_sha256": "4729dde3ace8435730f904cefb1a1069e89c2e521750d57b502628832a331aed",
+      "termination": {
+        "exit_classification": "NORMAL_EXIT",
+        "return_code": 0,
+        "terminal": true,
+        "graceful": true,
+        "watchdog": false,
+        "requested_signal": null,
+        "sigsegv": false,
+        "forced_kill": false,
+        "orphan_process": false
+      }
+    },
+    {
+      "mode": "clear_rescue_cleanup",
+      "verdict": {
+        "event": "scenario_verdict",
+        "mode": "clear_rescue_cleanup",
+        "verdict": "PASS",
+        "attempts": 1,
+        "defeats": 0,
+        "floors_entered": 3,
+        "floors_cleared": 3,
+        "rescue_complete": true,
+        "actions": 143,
+        "replans": 140,
+        "occupancy_replans": 28,
+        "hostile_blocks": 2,
+        "ally_blocks": 2
+      },
+      "ground_routes": [
+        {
+          "event": "ground_route",
+          "ground": "d01p01",
+          "group": "g1",
+          "visit": 1,
+          "hero_x": 200,
+          "hero_y": 196,
+          "direction": "Down: 0"
+        },
+        {
+          "event": "ground_route",
+          "ground": "d01p01",
+          "group": "g3",
+          "visit": 2,
+          "hero_x": 200,
+          "hero_y": 196,
+          "direction": "Down: 0"
+        }
+      ],
+      "dungeon_floors": [
+        {
+          "event": "dungeon_floor_entered",
+          "floor": 0,
+          "visit": 1,
+          "attempt": 1,
+          "mode": "clear_rescue_cleanup"
+        },
+        {
+          "event": "dungeon_floor_entered",
+          "floor": 1,
+          "visit": 2,
+          "attempt": 1,
+          "mode": "clear_rescue_cleanup"
+        },
+        {
+          "event": "dungeon_floor_entered",
+          "floor": 2,
+          "visit": 3,
+          "attempt": 1,
+          "mode": "clear_rescue_cleanup"
+        }
+      ],
+      "player_action_count": 143,
+      "attack_action_count": 2,
+      "occupancy_replan_count": 28,
+      "result": "PASS",
+      "events_sha256": "fde2acaab3669b27ba7178befdb091bfeec1db290f1125440cd007c748b0f57d",
+      "runtime_log_sha256": "154cf18af41bcf4070d065a7f4e408ff49a3f42ecf2cef2dc6f97e889ea83278",
+      "termination_sha256": "781240cdbf1487b4601c927495ce16af44b31f79f90a6871f960b7a82da8a0cf",
+      "termination": {
+        "exit_classification": "NORMAL_EXIT",
+        "return_code": 0,
+        "terminal": true,
+        "graceful": true,
+        "watchdog": false,
+        "requested_signal": null,
+        "sigsegv": false,
+        "forced_kill": false,
+        "orphan_process": false
+      }
+    }
+  ],
+  "assertions": {
+    "opening_d01p01_g1_to_tiny_woods_1f": true,
+    "all_three_floors_traversed_by_process_player_input_game_actions": true,
+    "natural_clear_routes_to_d01p02_g1": true,
+    "failed_result_routes_to_d01p01_g2_and_retry_1f": true,
+    "rescue_completion_routes_to_d01p01_g3": true,
+    "ending_ground_geometry_collision_actors_placements_and_eu_bgm": true,
+    "ending_sheet_installed_in_content_tile_and_binary_index": true,
+    "natural_hostile_occupancy_replanned_and_attacked": true,
+    "temporary_actors_and_bgm_cleaned_before_reentry": true,
+    "no_leader_teleport_used_for_stair_traversal": true,
+    "all_native_terminations_load_phase_unload_normal_and_graceful": true,
+    "watchdog_signal_sigsegv_forced_kill_or_orphan": false
+  },
+  "limitations": [
+    "This milestone proves Tiny Woods route/progression mechanics; EU dialogue and full scene choreography remain a later narrative milestone.",
+    "The failed branch uses a real GiveUp GameAction carrying ResultType.Failed; natural combat defeat remains covered by the later combat/progression campaign."
+  ],
+  "reproduction": {
+    "commands": [
+      ".runtime-cache/test-venv/bin/python tools/build_pmdred_tiny_woods_route_fixture.py --output .runtime-cache/tiny-woods-route-fixture-repro",
+      ".runtime-cache/test-venv/bin/python tools/run_pmdred_tiny_woods_route.py --fixture .runtime-cache/tiny-woods-route-fixture-repro --evidence-dir .runtime-cache/tiny-woods-route-evidence-repro --seed 424242 --timeout-seconds 180"
+    ],
+    "immutability": "Fixture and evidence destinations must not exist; both tools refuse overwrite."
+  }
+}

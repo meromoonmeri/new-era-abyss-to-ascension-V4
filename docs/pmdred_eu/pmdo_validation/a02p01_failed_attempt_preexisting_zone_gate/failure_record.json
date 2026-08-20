@@ -1,0 +1,92 @@
+{
+  "schema": "new-era.pmdred-eu-ground-orchestration-failure.v1",
+  "ground": "a02p01",
+  "result": "ORCHESTRATION_FAIL_AFTER_AUTHENTICATED_MIGRATION_INSTALL_BEFORE_PROMOTION",
+  "attempt_started_at": "2026-08-12T21:35:51Z",
+  "failure_observed_at": "2026-08-12T21:36:00Z",
+  "head_before_attempt": "0aa05ee3a32bfe5871439f3750806da0ffc1ba05",
+  "failed_command": "bash .runtime-cache/serial_deliver_pmdred_grounds.sh a02p01",
+  "failure": {
+    "stage": "zone_integration_after_migration_install",
+    "observed": "one preexisting historical a02p01 zone entry at index 121",
+    "rejected_by_gate": "zone already contains unvalidated a02p01",
+    "cause": "The generic create-only zone insertion gate did not distinguish a hash-gated occupied-destination migration from a new Ground."
+  },
+  "entity_migration": {
+    "historical_ground_sha256": "2b6d651a9fd7d25f159f50fc9d1cd6fa7006899988822eda217f4bf60923aad7",
+    "canonical_baseline_ground_sha256": "4cb74d9c04c7473359f8b8360caac80df825dff91775917dbfe0d5dd201fc389",
+    "integrated_ground_sha256": "016551d87ddf6b5556a4f9181ec8061a5af2df1bda97e3f43e376f3dc64dc3b2",
+    "tile_sha256": "7f80a67d0d6823541dbed67e77b68d1d005eb09b53d79a0d3a66e7a1bae027e3",
+    "markers": [
+      "Main_Entrance_Marker",
+      "Cutscene_Marker"
+    ],
+    "spawners": [
+      "TEAMMATE_1",
+      "TEAMMATE_2",
+      "TEAMMATE_3"
+    ],
+    "reserve_created": true,
+    "uppercase_case_tile_retained": true,
+    "lowercase_canonical_tile_created": true
+  },
+  "canonical_state": {
+    "active_ground_sha256": "016551d87ddf6b5556a4f9181ec8061a5af2df1bda97e3f43e376f3dc64dc3b2",
+    "historical_reserve_ground_sha256": "2b6d651a9fd7d25f159f50fc9d1cd6fa7006899988822eda217f4bf60923aad7",
+    "zone_sha256": "66671e4c5f81d167e221f3f9bd845090145f1e39bd6169472fe76a88d3adcf5b",
+    "zone_entry_count": 1,
+    "zone_index": 121,
+    "zone_unchanged": true,
+    "official_pass_evidence_created": false,
+    "checkpoint_validated_count": 165
+  },
+  "runtime": {
+    "result": "PASS",
+    "events": 31,
+    "screenshots": 2,
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "terminal": true,
+    "graceful": true,
+    "load_phase_unload_pass": true,
+    "watchdog": false,
+    "requested_signal": null,
+    "sigsegv": false,
+    "forced_kill": false,
+    "orphan_process": false
+  },
+  "comparison": {
+    "samples": 2,
+    "exact_samples": 2,
+    "fully_opaque_samples": 2,
+    "all_exact": true,
+    "all_fully_opaque": true,
+    "mismatched_pixels": 0,
+    "maximum_channel_delta": 0
+  },
+  "recovery_policy": {
+    "preserve_this_failed_attempt": true,
+    "do_not_reclassify_as_pass": true,
+    "authenticate_partial_migration_and_reserve": true,
+    "retain_singleton_historical_zone_entry_in_place": true,
+    "fresh_full_runtime_comparison_and_post_promotion_rerun_required": true,
+    "official_pass_may_be_packaged_only_after_all_gates_pass_on_fresh_rerun": true
+  },
+  "evidence": {
+    "README.md": "c7fb21d71e96b2d3f5a170fb8949111a9c0161a6b5daa9fa4305ea35acd9f065",
+    "actual/actual_primary_tick0.png": "45acae6d7895dfeb13805316371a845ff32ba4675e3c4eebfbf82b26c7dc2492",
+    "actual/actual_reload_tick0.png": "45acae6d7895dfeb13805316371a845ff32ba4675e3c4eebfbf82b26c7dc2492",
+    "comparison.log": "69c0d71eb09ff0efe3b18c31aee196c2fd2fb71ea162245e4c2b4495ce8821bd",
+    "comparisons/comparison_primary_tick0.png": "ff7b65cc352a2f96687290bbba13d39e7dd6236d24445f8ec0cd0c99ffb10e26",
+    "comparisons/comparison_reload_tick0.png": "ff7b65cc352a2f96687290bbba13d39e7dd6236d24445f8ec0cd0c99ffb10e26",
+    "conversion_report.json": "91f3b460b3e3b7689bc608ece2006cb6103d653bcdc22ad028f4172c3a1b0fdc",
+    "entity_migration_manifest.json": "66c6956e5617221e5bf06741640b79128c268f0be141f4e6a4f14295c2de2d3c",
+    "events.jsonl": "2495b93a44b115f6d9bd661f9644233a629f487bac517e11ff62a62995ccc031",
+    "fixture_manifest.json": "22fd6cfcc4d9a1db85bab8c150cded4d8aaf951cba1a58958d62252fd7eb9fe8",
+    "index.log": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8",
+    "orchestration_failure.log": "5a496007d2b7eeaf2e235bbaa9434e43e01dd94bb9885f6e8c62925f0833658f",
+    "report.json": "3b0369bef8ce405f4bf92a0cee1b8ad1aa1ced02998809f8fe0463312b650c35",
+    "runtime.log": "be6e7a6a716b34fb20f954aecd320218677d9e55335a3f98ea55f1ec55d27f30",
+    "termination.json": "1d3a3ee4d4dd133a7c2974c91061ebd6e501ad85ce29253c0b1e77a32d11493c"
+  }
+}
