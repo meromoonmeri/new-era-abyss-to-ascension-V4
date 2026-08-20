@@ -1,0 +1,9 @@
+{"event":"bootstrap_new_game","seed":424242,"requested_floor":3}
+{"event":"launcher_ground_entered","scheduler":"MAP_UPDATE_BRANCH"}
+{"event":"launcher_map_update"}
+{"event":"launcher_coroutine_started"}
+{"event":"floor_probe","bootstrap_seed":424242,"adventure_seed":-1107708364122780684,"map_seed":7190565700594084071,"requested_floor":3,"zone":"thunderwave_cave","segment":0,"map":3,"width":42,"height":32,"music":"Thunderwave Cave.ogg","start":{"x":22,"y":8},"entries":[{"x":22,"y":8}],"terrain":{"floor":532,"wall":812},"effects":{"stairs_go_up":1,"tile_wonder":2},"walkable":532,"reachable":532,"all_walkable_reachable":true,"stairs":[{"id":"stairs_go_up","x":34,"y":25,"reachable":true,"distance":81}],"shortest_stair_route":81,"items":[{"id":"berry_oran","money":false,"amount":0,"x":6,"y":27,"reachable":true},{"id":"","money":true,"amount":38,"x":21,"y":19,"reachable":true},{"id":"food_apple","money":false,"amount":0,"x":33,"y":9,"reachable":true},{"id":"berry_cheri","money":false,"amount":0,"x":33,"y":26,"reachable":true},{"id":"berry_oran","money":false,"amount":0,"x":26,"y":29,"reachable":true},{"id":"","money":true,"amount":34,"x":38,"y":25,"reachable":true}],"mobs":[{"species":"plusle","level":3,"x":37,"y":6,"reachable":true},{"species":"plusle","level":3,"x":21,"y":20,"reachable":true}],"mob_count":2,"traps":2,"verdict":"PASS"}
+{"event":"load_phase_unload_requested","before":"Ready","before_raw":"Ready: 2","requested":"Unload","readback":"Unload","readback_raw":"Unload: 3"}
+{"event":"native_deinit","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"native_graphics_unload","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"end","terminal":true,"graceful":true,"load_phase":"Unload","load_phase_raw":"Unload: 3"}

@@ -131,3 +131,32 @@ dans le workspace.
 
 La matrice complète et les blocages sont également enregistrés dans
 `REFERENCE_BRANCH_RECONCILIATION_2026-08-20.json`.
+
+## Mise à jour — autorités publiques récupérées le 2026-08-20
+
+L'enquête ne s'est pas arrêtée au workspace : le lock existant
+`runtime_dependencies.lock.json` et les dépôts indiqués par l'utilisateur ont
+permis une restauration complète.
+
+- `meromoonmeri/RUNTIMEPMDO@61c005e1` fournit l'archive
+  `c64f72af…61577`; son apphost est exactement
+  `faf9755c…de8327` (**MATCH**).
+- `audinowho/PMDODump@v0.8.12` verrouille PMDC
+  `e975bd33…8bab` et DumpAsset `9d864d14…9c9`.
+- DumpAsset extrait contient exactement **11 485 fichiers** et reproduit le
+  manifeste `42be7408…356d` (**MATCH**).
+- la source explicitement verrouillée
+  `meromoonmeri/PMD-RED-PMDO-PORT@b441d467` contient la ROM EU ; taille
+  33 554 432 et SHA-256 `0f9d125d…cbcd` (**MATCH**).
+- le restoreur a régénéré 724 ressources et 219 candidats, puis reproduit
+  23 716 938 comparaisons tile/tick sans échec.
+
+La qualification a repris immédiatement : Petit Bois repasse en runtime natif,
+Grotte Éclair passe les probes exact-engine sur 5/5 étages, et Mt Acier passe
+1F–8F. Le probe 9F de Mt Acier a découvert un vrai défaut que l'ancien PASS
+statique ne voyait pas : `mt_steel_peak.rsmap` encode `Character.Tactic` comme
+une chaîne, donc PMDO 0.8.12 refuse la map. Une première correction isolée du
+Tactic révèle ensuite un second champ invalide (`Character.BackRef` entier au
+lieu de `TempCharBackRef`). La 9F tombe sur une map vide 10×10 : elle est donc
+**FAIL runtime**, non promotable. Les preuves complètes sont conservées dans
+`docs/pmdred_eu/playable/runtime_recovery_2026-08-20/`.

@@ -1,0 +1,9 @@
+{"event":"bootstrap_new_game","seed":424242,"requested_floor":0}
+{"event":"launcher_ground_entered","scheduler":"MAP_UPDATE_BRANCH"}
+{"event":"launcher_map_update"}
+{"event":"launcher_coroutine_started"}
+{"event":"floor_probe","bootstrap_seed":424242,"adventure_seed":-1107708364122780684,"map_seed":2252632412751920849,"requested_floor":0,"zone":"mt_steel","segment":0,"map":0,"width":42,"height":30,"music":"Mt. Steel.ogg","start":{"x":16,"y":11},"entries":[{"x":16,"y":11}],"terrain":{"floor":334,"wall":926},"effects":{"stairs_go_up":1,"tile_wonder":1},"walkable":334,"reachable":334,"all_walkable_reachable":true,"stairs":[{"id":"stairs_go_up","x":31,"y":5,"reachable":true,"distance":53}],"shortest_stair_route":53,"items":[{"id":"wand_whirlwind","money":false,"amount":0,"x":8,"y":24,"reachable":true}],"mobs":[{"species":"zigzagoon","level":5,"x":22,"y":24,"reachable":true},{"species":"aron","level":6,"x":30,"y":15,"reachable":true},{"species":"spearow","level":4,"x":5,"y":23,"reachable":true}],"mob_count":3,"traps":1,"verdict":"PASS"}
+{"event":"load_phase_unload_requested","before":"Ready","before_raw":"Ready: 2","requested":"Unload","readback":"Unload","readback_raw":"Unload: 3"}
+{"event":"native_deinit","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"native_graphics_unload","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"end","terminal":true,"graceful":true,"load_phase":"Unload","load_phase_raw":"Unload: 3"}

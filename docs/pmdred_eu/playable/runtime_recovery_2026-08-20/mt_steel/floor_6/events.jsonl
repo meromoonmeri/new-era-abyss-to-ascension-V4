@@ -1,0 +1,9 @@
+{"event":"bootstrap_new_game","seed":424242,"requested_floor":5}
+{"event":"launcher_ground_entered","scheduler":"MAP_UPDATE_BRANCH"}
+{"event":"launcher_map_update"}
+{"event":"launcher_coroutine_started"}
+{"event":"floor_probe","bootstrap_seed":424242,"adventure_seed":-1107708364122780684,"map_seed":-4259051694952757438,"requested_floor":5,"zone":"mt_steel","segment":0,"map":5,"width":42,"height":30,"music":"Mt. Steel.ogg","start":{"x":24,"y":13},"entries":[{"x":24,"y":13}],"terrain":{"floor":295,"wall":965},"effects":{"stairs_go_up":1,"tile_wonder":2},"walkable":295,"reachable":295,"all_walkable_reachable":true,"stairs":[{"id":"stairs_go_up","x":5,"y":7,"reachable":true,"distance":55}],"shortest_stair_route":55,"items":[{"id":"","money":true,"amount":118,"x":21,"y":25,"reachable":true},{"id":"ammo_gravelerock","money":false,"amount":3,"x":19,"y":26,"reachable":true},{"id":"ammo_gravelerock","money":false,"amount":3,"x":32,"y":22,"reachable":true},{"id":"wand_whirlwind","money":false,"amount":0,"x":21,"y":7,"reachable":true},{"id":"ammo_gravelerock","money":false,"amount":5,"x":3,"y":22,"reachable":true}],"mobs":[{"species":"aron","level":6,"x":33,"y":6,"reachable":true},{"species":"geodude","level":5,"x":4,"y":22,"reachable":true},{"species":"tyrogue","level":6,"x":17,"y":25,"reachable":true},{"species":"geodude","level":5,"x":19,"y":5,"reachable":true},{"species":"aron","level":6,"x":36,"y":21,"reachable":true},{"species":"meditite","level":6,"x":7,"y":5,"reachable":true}],"mob_count":6,"traps":2,"verdict":"PASS"}
+{"event":"load_phase_unload_requested","before":"Ready","before_raw":"Ready: 2","requested":"Unload","readback":"Unload","readback_raw":"Unload: 3"}
+{"event":"native_deinit","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"native_graphics_unload","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"end","terminal":true,"graceful":true,"load_phase":"Unload","load_phase_raw":"Unload: 3"}

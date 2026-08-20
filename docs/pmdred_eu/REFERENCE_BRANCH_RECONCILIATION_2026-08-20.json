@@ -85,27 +85,30 @@
   "external_blockers": {
     "authoritative_eu_rom": {
       "required_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
-      "available_in_workspace": false,
+      "available_in_workspace": true,
       "blocks": [
         "fresh ROM-derived reconstruction",
         "fresh source authentication of early-dungeon tables and audio",
         "fresh all-branch narrative extraction beyond committed evidence"
-      ]
+      ],
+      "resolution": "EXACT_MATCH_RECOVERED_FROM_PROJECT_LOCK_SOURCE_meromoonmeri/PMD-RED-PMDO-PORT@b441d467"
     },
     "pmdo_0_8_12": {
       "required_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
-      "available_in_workspace": false,
+      "available_in_workspace": true,
       "blocks": [
         "new exact-engine route gameplay audio and unload certification",
         "promotion of Thunderwave Cave and Mount Steel in the current branch",
         "integrated scene promotion"
-      ]
+      ],
+      "resolution": "EXACT_MATCH_RECOVERED_FROM_meromoonmeri/RUNTIMEPMDO@61c005e1"
     },
     "official_pmdo_asset_dump": {
-      "available_in_workspace": false,
+      "available_in_workspace": true,
       "blocks": [
         "authenticated create-only recovery of missing PMDO native tiles items and audio"
-      ]
+      ],
+      "resolution": "EXACT_11485_FILE_TREE_RECOVERED_FROM_audinowho/DumpAsset@9d864d14"
     },
     "pret_pmd_red": {
       "required_commit": "bf0092d0e34fd8e49b859a0b5f96f00740faa42d",
@@ -141,5 +144,15 @@
     "run grouped exact-PMDO route gameplay audio unload certification for the three early dungeons",
     "only then propose atomic current-contract-compatible promotion",
     "continue dungeon and scene waves in canonical order while keeping the 27 direct Ground gate separate"
-  ]
+  ],
+  "authority_recovery_2026_08_20": {
+    "result": "PASS",
+    "evidence": "docs/pmdred_eu/playable/runtime_recovery_2026-08-20/report.json",
+    "pmdo_exact": true,
+    "rom_exact": true,
+    "dumpasset_tree_exact": true,
+    "fresh_tiny_woods_native": "PASS",
+    "fresh_thunderwave_floor_probes": "5/5 PASS; route certification remains",
+    "fresh_mt_steel_floor_probes": "1F-8F PASS; 9F FAIL due invalid static Character serialization"
+  }
 }

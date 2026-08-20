@@ -1,0 +1,73 @@
+{
+  "schema": "new-era.pmdred-eu-native-termination.v1",
+  "ground": "mt_steel_2",
+  "result": "PASS",
+  "command": [
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdo-headless-bundle/PMDO",
+    "-asset",
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/mtsteel-native-run-2/asset/",
+    "-appdata",
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/mtsteel-native-run-2/appdata/",
+    "-quest",
+    "pmdred_eu_fixture"
+  ],
+  "validator_mode": "early_dungeon_native_fixture",
+  "environment_overrides": {
+    "EARLY_DUNGEON_FLOOR": "2",
+    "EARLY_DUNGEON_SEED": "424242"
+  },
+  "started_at": "2026-08-20T17:01:16.319+00:00",
+  "ended_at": "2026-08-20T17:01:22.933+00:00",
+  "duration_seconds": 6.614,
+  "pid": 7871,
+  "process_group": 7871,
+  "pmdo_executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+  "load_phase_unload": {
+    "requested": true,
+    "request_event": {
+      "event": "load_phase_unload_requested",
+      "before": "Ready",
+      "before_raw": "Ready: 2",
+      "requested": "Unload",
+      "readback": "Unload",
+      "readback_raw": "Unload: 3"
+    },
+    "deinit_event": {
+      "event": "native_deinit",
+      "load_phase": "Unload",
+      "load_phase_raw": "Unload: 3"
+    },
+    "graphics_unload_event": {
+      "event": "native_graphics_unload",
+      "load_phase": "Unload",
+      "load_phase_raw": "Unload: 3"
+    },
+    "terminal_event": {
+      "event": "end",
+      "terminal": true,
+      "graceful": true,
+      "load_phase": "Unload",
+      "load_phase_raw": "Unload: 3"
+    },
+    "ordered_and_terminal_last": true,
+    "pass": true
+  },
+  "exit_classification": "NORMAL_EXIT",
+  "return_code": 0,
+  "terminal": true,
+  "graceful": true,
+  "watchdog": false,
+  "watchdog_reason": null,
+  "requested_signal": null,
+  "sigsegv": false,
+  "forced_kill": false,
+  "orphan_process": false,
+  "process_group_members_before_cleanup": [],
+  "process_group_members_after_cleanup": [],
+  "event_parse_error": null,
+  "event_count": 9,
+  "event_stream_sha256": "2ca3596f504a1e99329b07550627e3a4473f54523ea16d5c931b1e7a2d5483a1",
+  "expected_screenshot_count": 0,
+  "actual_screenshot_count": 0,
+  "runtime_log_sha256": "9bafabf329422a79f5732b9713a6dce8f14d65576d4075b58111050889640b9c"
+}

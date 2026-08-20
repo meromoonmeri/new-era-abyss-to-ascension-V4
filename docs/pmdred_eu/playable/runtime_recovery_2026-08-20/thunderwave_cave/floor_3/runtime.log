@@ -1,0 +1,78 @@
+Loading default script variable values..
+Script variables default values loaded! [build 2026-08-04-K]
+DebugTools:initialize()
+MenuTools:initialize()
+UpgradeTools:initialize()
+ConfigTools:initialize()
+NREProbe:initialize()
+[NREPROBE] build 2026-08-04-K charge (main.lua) — PREMIERE ligne attendue, au LANCEMENT du jeu. Si absente: la copie du mod chargee par le jeu n est PAS celle du depot.
+
+<!> DebugTools: Init..
+
+<!> ConfigTools: Init..
+[NREPROBE] service nre_probe ACTIF (EngineServiceEvents.Init) — build 2026-07-27-C
+[TINY_WOODS_NATIVE] {"event":"bootstrap_new_game","seed":424242,"requested_floor":2}
+Loading default script variable values..
+Script variables default values loaded! [build 2026-08-04-K]
+[NREPROBE] LoadSavedData <-- sauvegarde chargee (menu Continuer) | zone= seg=? map=? | Save.Team=0 leader=<nil> | DungeonMap=nil TeamAttachee=n/a foes=n/a
+
+<!> ExampleSvc: Preparing debug save file
+[DevUnlock] exclu: barren_tundra
+[DevUnlock] exclu: bravery_road
+[DevUnlock] exclu: cave_of_solace
+[DevUnlock] exclu: cave_of_whispers
+[DevUnlock] exclu: debug_zone
+[DevUnlock] exclu: deserted_fortress
+[DevUnlock] exclu: energy_garden
+[DevUnlock] exclu: eon_island
+[DevUnlock] exclu: guildmaster_island
+[DevUnlock] exclu: hope_road
+[DevUnlock] exclu: inscribed_cave
+[DevUnlock] exclu: labyrinth_of_the_lost
+[DevUnlock] exclu: master_zone
+[DevUnlock] exclu: prism_isles
+[DevUnlock] exclu: royal_halls
+[DevUnlock] exclu: sacred_tower
+[DevUnlock] exclu: starfall_heights
+[DevUnlock] exclu: the_abyss
+[DevUnlock] exclu: the_sky
+[DevUnlock] exclu: training_maze
+[DevUnlock] exclu: uncharted_waters
+[DevUnlock] exclu: wisdom_road
+[NREPROBE] NewGame | zone= seg=? map=? | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>> Init_master_zone
+[NREPROBE] ZoneInit | zone=master_zone seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] DungeonSegmentStart (Lua EnterSegment va tourner) | zone=master_zone seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] GroundModeBegin | zone=master_zone seg=-1 map=309 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] GroundMapEnter | zone=master_zone seg=-1 map=309 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[TINY_WOODS_NATIVE] {"event":"launcher_ground_entered","scheduler":"MAP_UPDATE_BRANCH"}
+[TINY_WOODS_NATIVE] {"event":"launcher_map_update"}
+[TINY_WOODS_NATIVE] {"event":"launcher_coroutine_started"}
+[NREPROBE] GroundMapExit | zone=master_zone seg=-1 map=309 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>_ENV pre-cleanup:178
+=>_ENV post cleanup:177
+[NREPROBE] GroundModeEnd | zone=master_zone seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>_ENV pre-cleanup:177
+=>_ENV post cleanup:176
+[NREPROBE] ZoneInit | zone=thunderwave_cave seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+Checking Mission: 1
+Checking Mission: 2
+Checking Mission: 3
+Checking Mission: 4
+Checking Mission: 5
+Checking Mission: 6
+Checking Mission: 7
+Checking Mission: 8
+[NREPROBE] DungeonSegmentStart (Lua EnterSegment va tourner) | zone=thunderwave_cave seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] DungeonModeBegin | zone=thunderwave_cave seg=0 map=2 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=NON <- IsGameOver() CRASHERAIT ICI foes=2
+[NREPROBE] DungeonMapInit map= | zone=thunderwave_cave seg=0 map=2 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=2
+[NREPROBE] DungeonFloorEnter <-- equipe DOIT etre attachee ici | zone=thunderwave_cave seg=0 map=2 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=2
+[TINY_WOODS_NATIVE] {"event":"floor_probe","bootstrap_seed":424242,"adventure_seed":-1107708364122780684,"map_seed":5347193861572814739,"requested_floor":2,"zone":"thunderwave_cave","segment":0,"map":2,"width":42,"height":30,"music":"Thunderwave Cave.ogg","start":{"x":9,"y":26},"entries":[{"x":9,"y":26}],"terrain":{"floor":330,"wall":930},"effects":{"stairs_go_up":1,"tile_wonder":2},"walkable":330,"reachable":330,"all_walkable_reachable":true,"stairs":[{"id":"stairs_go_up","x":39,"y":25,"reachable":true,"distance":57}],"shortest_stair_route":57,"items":[{"id":"","money":true,"amount":58,"x":4,"y":4,"reachable":true},{"id":"food_apple","money":false,"amount":0,"x":2,"y":7,"reachable":true},{"id":"","money":true,"amount":46,"x":37,"y":25,"reachable":true},{"id":"food_apple","money":false,"amount":0,"x":1,"y":7,"reachable":true},{"id":"berry_cheri","money":false,"amount":0,"x":30,"y":5,"reachable":true},{"id":"food_apple","money":false,"amount":0,"x":32,"y":7,"reachable":true}],"mobs":[{"species":"rattata","level":3,"x":5,"y":6,"reachable":true},{"species":"rattata","level":3,"x":39,"y":25,"reachable":true}],"mob_count":2,"traps":2,"verdict":"PASS"}
+[TINY_WOODS_NATIVE] {"event":"load_phase_unload_requested","before":"Ready","before_raw":"Ready: 2","requested":"Unload","readback":"Unload","readback_raw":"Unload: 3"}
+
+<!> DebugTools: Deinit..
+
+<!> ConfigTools: Deinit..
+[TINY_WOODS_NATIVE] {"event":"native_deinit","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+[TINY_WOODS_NATIVE] {"event":"native_graphics_unload","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+[TINY_WOODS_NATIVE] {"event":"end","terminal":true,"graceful":true,"load_phase":"Unload","load_phase_raw":"Unload: 3"}

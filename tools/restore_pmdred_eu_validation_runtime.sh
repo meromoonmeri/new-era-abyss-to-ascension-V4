@@ -13,7 +13,7 @@ IFS=$'\n\t'
 ROOT=$(git rev-parse --show-toplevel)
 cd "$ROOT"
 case $(git branch --show-current) in
-  arena/019ff05e-new-era-abyss-to-ascension-v4|arena/019ff57e-new-era-abyss-to-ascension-v4|arena/01a0159e-new-era-abyss-to-ascension-v4) ;;
+  arena/019ff05e-new-era-abyss-to-ascension-v4|arena/019ff57e-new-era-abyss-to-ascension-v4|arena/01a0159e-new-era-abyss-to-ascension-v4|arena/01a01fce-new-era-abyss-to-ascension-v4) ;;
   *)
     echo "ERROR: run on the Agent A reference branch or this Arena continuation branch" >&2
     exit 2

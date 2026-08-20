@@ -1,0 +1,1834 @@
+{
+  "schema": "new-era.pmdred-eu-public-authority-recovery-and-native-probe.v1",
+  "date": "2026-08-20",
+  "authorities": {
+    "runtime_repository": {
+      "repository": "meromoonmeri/RUNTIMEPMDO",
+      "commit": "61c005e1dc9fd4eee6e6e7fcde77364de33d291e",
+      "archive_sha256": "c64f72afd27b96d5a870f71e44d05ee1e952909e86b9a53d0479163763c61577",
+      "executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+      "status": "EXACT_MATCH"
+    },
+    "rom_source": {
+      "repository": "meromoonmeri/PMD-RED-PMDO-PORT",
+      "commit": "b441d467091a1678218168558fa480a3d8292012",
+      "blob_sha1": "82d1540fab46729b151bebe0825f78239bcf6bc1",
+      "sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+      "bytes": 33554432,
+      "status": "EXACT_MATCH_PROJECT_LOCK_SOURCE"
+    },
+    "dumpasset": {
+      "repository": "audinowho/DumpAsset",
+      "commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+      "transport_sha256": "216d97a6757782b540b657f3684a9342bda00fd233b2ecae0a240e855f0a96ce",
+      "tree_manifest_sha256": "42be740813125641bb5c3a15adefcb24b53e70fa5401863e3913b77ea0c2356d",
+      "tree_file_count": 11485,
+      "status": "EXACT_TREE_MATCH"
+    },
+    "pmdo_dump": {
+      "repository": "audinowho/PMDODump",
+      "tag": "v0.8.12",
+      "commit": "f7f79d1b2ebaf13633a4387cdb8deba73353a533",
+      "pmdc_submodule": "e975bd33e32bc774a43fdab24dc2e781c5a38bab",
+      "dumpasset_submodule": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+      "linux_setup_release_sha256": "a95af7f9280a58d9ebb45613df561f5968849c5ad6d06772ffcb71d7e1993020",
+      "role": "official tag/submodule identity; exact game apphost recovered from locked RUNTIMEPMDO archive"
+    }
+  },
+  "restoration": {
+    "script": "tools/restore_pmdred_eu_validation_runtime.sh",
+    "result": "PASS",
+    "normalized_resources": 724,
+    "regenerated_candidates": 219,
+    "candidate_tick_comparisons": 23716938,
+    "runtime_index_gate": "PASS"
+  },
+  "tiny_woods": {
+    "status": "PASS_FRESH_CANONICAL_NATIVE_GENERATION",
+    "report": "tiny_woods/native_generation_validation.json"
+  },
+  "thunderwave_cave": {
+    "status": "EXACT_ENGINE_FLOOR_PROBE_PASS_5_OF_5_NOT_FULL_ROUTE_CERTIFICATION",
+    "floors": [
+      {
+        "floor_index": 0,
+        "probe": {
+          "event": "floor_probe",
+          "bootstrap_seed": 424242,
+          "adventure_seed": -1107708364122780684,
+          "map_seed": 7250825070984125740,
+          "requested_floor": 0,
+          "zone": "thunderwave_cave",
+          "segment": 0,
+          "map": 0,
+          "width": 42,
+          "height": 32,
+          "music": "Thunderwave Cave.ogg",
+          "start": {
+            "x": 25,
+            "y": 26
+          },
+          "entries": [
+            {
+              "x": 25,
+              "y": 26
+            }
+          ],
+          "terrain": {
+            "floor": 486,
+            "wall": 858
+          },
+          "effects": {
+            "stairs_go_up": 1,
+            "tile_wonder": 2
+          },
+          "walkable": 486,
+          "reachable": 486,
+          "all_walkable_reachable": true,
+          "stairs": [
+            {
+              "id": "stairs_go_up",
+              "x": 35,
+              "y": 1,
+              "reachable": true,
+              "distance": 45
+            }
+          ],
+          "shortest_stair_route": 45,
+          "items": [
+            {
+              "id": "berry_pecha",
+              "money": false,
+              "amount": 0,
+              "x": 22,
+              "y": 26,
+              "reachable": true
+            },
+            {
+              "id": "",
+              "money": true,
+              "amount": 38,
+              "x": 34,
+              "y": 6,
+              "reachable": true
+            },
+            {
+              "id": "food_apple",
+              "money": false,
+              "amount": 0,
+              "x": 40,
+              "y": 11,
+              "reachable": true
+            },
+            {
+              "id": "",
+              "money": true,
+              "amount": 58,
+              "x": 9,
+              "y": 27,
+              "reachable": true
+            }
+          ],
+          "mobs": [
+            {
+              "species": "rattata",
+              "level": 3,
+              "x": 31,
+              "y": 27,
+              "reachable": true
+            },
+            {
+              "species": "nidoran_f",
+              "level": 4,
+              "x": 40,
+              "y": 2,
+              "reachable": true
+            },
+            {
+              "species": "nidoran_f",
+              "level": 4,
+              "x": 10,
+              "y": 29,
+              "reachable": true
+            }
+          ],
+          "mob_count": 3,
+          "traps": 2,
+          "verdict": "PASS"
+        },
+        "termination_result": "PASS",
+        "files": {
+          "events.jsonl": {
+            "sha256": "5b94813da13fb60b814b71e285ef6ab7048f9663e22da07f56a44908f75fb12b",
+            "bytes": 1683
+          },
+          "runtime.log": {
+            "sha256": "f641efee616fe810ab41a2ebf85b5cecae0dafe15268c908fd2ab3d530fbfe68",
+            "bytes": 5487
+          },
+          "termination.json": {
+            "sha256": "f0aeb1029c711fdad2f820041e563c3d95bee99cdd05572378a81794ab5bec02",
+            "bytes": 2297
+          }
+        }
+      },
+      {
+        "floor_index": 1,
+        "probe": {
+          "event": "floor_probe",
+          "bootstrap_seed": 424242,
+          "adventure_seed": -1107708364122780684,
+          "map_seed": -5021927400732836506,
+          "requested_floor": 1,
+          "zone": "thunderwave_cave",
+          "segment": 0,
+          "map": 1,
+          "width": 42,
+          "height": 32,
+          "music": "Thunderwave Cave.ogg",
+          "start": {
+            "x": 35,
+            "y": 7
+          },
+          "entries": [
+            {
+              "x": 35,
+              "y": 7
+            }
+          ],
+          "terrain": {
+            "floor": 414,
+            "wall": 930
+          },
+          "effects": {
+            "stairs_go_up": 1,
+            "tile_wonder": 2
+          },
+          "walkable": 414,
+          "reachable": 414,
+          "all_walkable_reachable": true,
+          "stairs": [
+            {
+              "id": "stairs_go_up",
+              "x": 21,
+              "y": 25,
+              "reachable": true,
+              "distance": 32
+            }
+          ],
+          "shortest_stair_route": 32,
+          "items": [
+            {
+              "id": "food_apple",
+              "money": false,
+              "amount": 0,
+              "x": 36,
+              "y": 4,
+              "reachable": true
+            },
+            {
+              "id": "seed_sleep",
+              "money": false,
+              "amount": 0,
+              "x": 8,
+              "y": 25,
+              "reachable": true
+            },
+            {
+              "id": "seed_sleep",
+              "money": false,
+              "amount": 0,
+              "x": 20,
+              "y": 12,
+              "reachable": true
+            },
+            {
+              "id": "ammo_gravelerock",
+              "money": false,
+              "amount": 3,
+              "x": 33,
+              "y": 21,
+              "reachable": true
+            }
+          ],
+          "mobs": [
+            {
+              "species": "nidoran_f",
+              "level": 4,
+              "x": 18,
+              "y": 22,
+              "reachable": true
+            },
+            {
+              "species": "rattata",
+              "level": 3,
+              "x": 34,
+              "y": 25,
+              "reachable": true
+            }
+          ],
+          "mob_count": 2,
+          "traps": 2,
+          "verdict": "PASS"
+        },
+        "termination_result": "PASS",
+        "files": {
+          "events.jsonl": {
+            "sha256": "9853291a2bd2d262fc2b494fa97d7ffd5bc5ee76699360fbede21044e0447ad9",
+            "bytes": 1644
+          },
+          "runtime.log": {
+            "sha256": "c706801747c6989be254cc4233c1967cacb78d32be3a3a71f1b72c9f74c9866e",
+            "bytes": 5448
+          },
+          "termination.json": {
+            "sha256": "f7f5f5a9e765530e0d7d33339dc5cda4eb9146826ff61518f69e1c49f3f6977e",
+            "bytes": 2297
+          }
+        }
+      },
+      {
+        "floor_index": 2,
+        "probe": {
+          "event": "floor_probe",
+          "bootstrap_seed": 424242,
+          "adventure_seed": -1107708364122780684,
+          "map_seed": 5347193861572814739,
+          "requested_floor": 2,
+          "zone": "thunderwave_cave",
+          "segment": 0,
+          "map": 2,
+          "width": 42,
+          "height": 30,
+          "music": "Thunderwave Cave.ogg",
+          "start": {
+            "x": 9,
+            "y": 26
+          },
+          "entries": [
+            {
+              "x": 9,
+              "y": 26
+            }
+          ],
+          "terrain": {
+            "floor": 330,
+            "wall": 930
+          },
+          "effects": {
+            "stairs_go_up": 1,
+            "tile_wonder": 2
+          },
+          "walkable": 330,
+          "reachable": 330,
+          "all_walkable_reachable": true,
+          "stairs": [
+            {
+              "id": "stairs_go_up",
+              "x": 39,
+              "y": 25,
+              "reachable": true,
+              "distance": 57
+            }
+          ],
+          "shortest_stair_route": 57,
+          "items": [
+            {
+              "id": "",
+              "money": true,
+              "amount": 58,
+              "x": 4,
+              "y": 4,
+              "reachable": true
+            },
+            {
+              "id": "food_apple",
+              "money": false,
+              "amount": 0,
+              "x": 2,
+              "y": 7,
+              "reachable": true
+            },
+            {
+              "id": "",
+              "money": true,
+              "amount": 46,
+              "x": 37,
+              "y": 25,
+              "reachable": true
+            },
+            {
+              "id": "food_apple",
+              "money": false,
+              "amount": 0,
+              "x": 1,
+              "y": 7,
+              "reachable": true
+            },
+            {
+              "id": "berry_cheri",
+              "money": false,
+              "amount": 0,
+              "x": 30,
+              "y": 5,
+              "reachable": true
+            },
+            {
+              "id": "food_apple",
+              "money": false,
+              "amount": 0,
+              "x": 32,
+              "y": 7,
+              "reachable": true
+            }
+          ],
+          "mobs": [
+            {
+              "species": "rattata",
+              "level": 3,
+              "x": 5,
+              "y": 6,
+              "reachable": true
+            },
+            {
+              "species": "rattata",
+              "level": 3,
+              "x": 39,
+              "y": 25,
+              "reachable": true
+            }
+          ],
+          "mob_count": 2,
+          "traps": 2,
+          "verdict": "PASS"
+        },
+        "termination_result": "PASS",
+        "files": {
+          "events.jsonl": {
+            "sha256": "91e7fb869b1e4b9c03a03d67dc7e5dc72a4886a73e278d6a6c4257878fca9c35",
+            "bytes": 1760
+          },
+          "runtime.log": {
+            "sha256": "dcdeba7af9fe7b4c28cf75e9cc234fff425136e2b5678900c3c75d7ee9a65d87",
+            "bytes": 5564
+          },
+          "termination.json": {
+            "sha256": "84712a5eac6da435f0393488aec06817fa5806c67f5045f601037cfe30c30c05",
+            "bytes": 2297
+          }
+        }
+      },
+      {
+        "floor_index": 3,
+        "probe": {
+          "event": "floor_probe",
+          "bootstrap_seed": 424242,
+          "adventure_seed": -1107708364122780684,
+          "map_seed": 7190565700594084071,
+          "requested_floor": 3,
+          "zone": "thunderwave_cave",
+          "segment": 0,
+          "map": 3,
+          "width": 42,
+          "height": 32,
+          "music": "Thunderwave Cave.ogg",
+          "start": {
+            "x": 22,
+            "y": 8
+          },
+          "entries": [
+            {
+              "x": 22,
+              "y": 8
+            }
+          ],
+          "terrain": {
+            "floor": 532,
+            "wall": 812
+          },
+          "effects": {
+            "stairs_go_up": 1,
+            "tile_wonder": 2
+          },
+          "walkable": 532,
+          "reachable": 532,
+          "all_walkable_reachable": true,
+          "stairs": [
+            {
+              "id": "stairs_go_up",
+              "x": 34,
+              "y": 25,
+              "reachable": true,
+              "distance": 81
+            }
+          ],
+          "shortest_stair_route": 81,
+          "items": [
+            {
+              "id": "berry_oran",
+              "money": false,
+              "amount": 0,
+              "x": 6,
+              "y": 27,
+              "reachable": true
+            },
+            {
+              "id": "",
+              "money": true,
+              "amount": 38,
+              "x": 21,
+              "y": 19,
+              "reachable": true
+            },
+            {
+              "id": "food_apple",
+              "money": false,
+              "amount": 0,
+              "x": 33,
+              "y": 9,
+              "reachable": true
+            },
+            {
+              "id": "berry_cheri",
+              "money": false,
+              "amount": 0,
+              "x": 33,
+              "y": 26,
+              "reachable": true
+            },
+            {
+              "id": "berry_oran",
+              "money": false,
+              "amount": 0,
+              "x": 26,
+              "y": 29,
+              "reachable": true
+            },
+            {
+              "id": "",
+              "money": true,
+              "amount": 34,
+              "x": 38,
+              "y": 25,
+              "reachable": true
+            }
+          ],
+          "mobs": [
+            {
+              "species": "plusle",
+              "level": 3,
+              "x": 37,
+              "y": 6,
+              "reachable": true
+            },
+            {
+              "species": "plusle",
+              "level": 3,
+              "x": 21,
+              "y": 20,
+              "reachable": true
+            }
+          ],
+          "mob_count": 2,
+          "traps": 2,
+          "verdict": "PASS"
+        },
+        "termination_result": "PASS",
+        "files": {
+          "events.jsonl": {
+            "sha256": "9ba7b350675446946e4d46c65d79968e049afd6ac6d4563d2abd85b4fa0c0e24",
+            "bytes": 1765
+          },
+          "runtime.log": {
+            "sha256": "d195caffab3e4ada92b1c0dec9bddea293e0f995bc4c227427e20f3b9fe9f588",
+            "bytes": 5569
+          },
+          "termination.json": {
+            "sha256": "a22ee20474eb58550dda9b5d84e756bdb614e138253d753e20613ed471552bf4",
+            "bytes": 2297
+          }
+        }
+      },
+      {
+        "floor_index": 4,
+        "probe": {
+          "event": "floor_probe",
+          "bootstrap_seed": 424242,
+          "adventure_seed": -1107708364122780684,
+          "map_seed": 4900045305418190886,
+          "requested_floor": 4,
+          "zone": "thunderwave_cave",
+          "segment": 0,
+          "map": 4,
+          "width": 42,
+          "height": 32,
+          "music": "Thunderwave Cave.ogg",
+          "start": {
+            "x": 19,
+            "y": 22
+          },
+          "entries": [
+            {
+              "x": 19,
+              "y": 22
+            }
+          ],
+          "terrain": {
+            "floor": 512,
+            "wall": 832
+          },
+          "effects": {
+            "stairs_go_up": 1,
+            "tile_wonder": 1
+          },
+          "walkable": 512,
+          "reachable": 512,
+          "all_walkable_reachable": true,
+          "stairs": [
+            {
+              "id": "stairs_go_up",
+              "x": 38,
+              "y": 6,
+              "reachable": true,
+              "distance": 43
+            }
+          ],
+          "shortest_stair_route": 43,
+          "items": [
+            {
+              "id": "food_apple",
+              "money": false,
+              "amount": 0,
+              "x": 20,
+              "y": 22,
+              "reachable": true
+            },
+            {
+              "id": "berry_pecha",
+              "money": false,
+              "amount": 0,
+              "x": 18,
+              "y": 25,
+              "reachable": true
+            },
+            {
+              "id": "food_apple",
+              "money": false,
+              "amount": 0,
+              "x": 17,
+              "y": 26,
+              "reachable": true
+            },
+            {
+              "id": "",
+              "money": true,
+              "amount": 38,
+              "x": 26,
+              "y": 4,
+              "reachable": true
+            },
+            {
+              "id": "food_apple",
+              "money": false,
+              "amount": 0,
+              "x": 29,
+              "y": 22,
+              "reachable": true
+            },
+            {
+              "id": "",
+              "money": true,
+              "amount": 46,
+              "x": 31,
+              "y": 22,
+              "reachable": true
+            }
+          ],
+          "mobs": [
+            {
+              "species": "elekid",
+              "level": 4,
+              "x": 7,
+              "y": 4,
+              "reachable": true
+            },
+            {
+              "species": "elekid",
+              "level": 4,
+              "x": 32,
+              "y": 24,
+              "reachable": true
+            },
+            {
+              "species": "plusle",
+              "level": 3,
+              "x": 24,
+              "y": 12,
+              "reachable": true
+            }
+          ],
+          "mob_count": 3,
+          "traps": 1,
+          "verdict": "PASS"
+        },
+        "termination_result": "PASS",
+        "files": {
+          "events.jsonl": {
+            "sha256": "4290eed74a1951a1ec9e74568af90b444fb6007be23bbe78bc3c9f9782644173",
+            "bytes": 1828
+          },
+          "runtime.log": {
+            "sha256": "49b2b35631a41403a3ed63dc0f22b4ee98d20b9e671e8e36ae519c058c015184",
+            "bytes": 5632
+          },
+          "termination.json": {
+            "sha256": "a5076e7f5e89b5383dad8bc4e026830e75f482d5b83ed8130f14fb3a7cc7e313",
+            "bytes": 2297
+          }
+        }
+      }
+    ],
+    "remaining": [
+      "player-driven stair traversal",
+      "d02p02 ending Ground route",
+      "victory failure retry and cleanup route",
+      "audio event timeline beyond selected map music"
+    ]
+  },
+  "mt_steel": {
+    "status": "EXACT_ENGINE_PROCEDURAL_PASS_8_OF_8_STATIC_9F_FAIL",
+    "floors": [
+      {
+        "floor_index": 0,
+        "probe": {
+          "event": "floor_probe",
+          "bootstrap_seed": 424242,
+          "adventure_seed": -1107708364122780684,
+          "map_seed": 2252632412751920849,
+          "requested_floor": 0,
+          "zone": "mt_steel",
+          "segment": 0,
+          "map": 0,
+          "width": 42,
+          "height": 30,
+          "music": "Mt. Steel.ogg",
+          "start": {
+            "x": 16,
+            "y": 11
+          },
+          "entries": [
+            {
+              "x": 16,
+              "y": 11
+            }
+          ],
+          "terrain": {
+            "floor": 334,
+            "wall": 926
+          },
+          "effects": {
+            "stairs_go_up": 1,
+            "tile_wonder": 1
+          },
+          "walkable": 334,
+          "reachable": 334,
+          "all_walkable_reachable": true,
+          "stairs": [
+            {
+              "id": "stairs_go_up",
+              "x": 31,
+              "y": 5,
+              "reachable": true,
+              "distance": 53
+            }
+          ],
+          "shortest_stair_route": 53,
+          "items": [
+            {
+              "id": "wand_whirlwind",
+              "money": false,
+              "amount": 0,
+              "x": 8,
+              "y": 24,
+              "reachable": true
+            }
+          ],
+          "mobs": [
+            {
+              "species": "zigzagoon",
+              "level": 5,
+              "x": 22,
+              "y": 24,
+              "reachable": true
+            },
+            {
+              "species": "aron",
+              "level": 6,
+              "x": 30,
+              "y": 15,
+              "reachable": true
+            },
+            {
+              "species": "spearow",
+              "level": 4,
+              "x": 5,
+              "y": 23,
+              "reachable": true
+            }
+          ],
+          "mob_count": 3,
+          "traps": 1,
+          "verdict": "PASS"
+        },
+        "termination_result": "PASS",
+        "files": {
+          "events.jsonl": {
+            "sha256": "f89a7df4d9202bbe30f24c99796963554b3a721c837fa1c3fc83f74628c1d872",
+            "bytes": 1459
+          },
+          "runtime.log": {
+            "sha256": "f896fbfd5ab4c77b86d13ce50d3b334a0a598920d23f1b3832b9b697001b877b",
+            "bytes": 5223
+          },
+          "termination.json": {
+            "sha256": "b0667bb3f1630504c5ff5af9e179b92d6c1d30766f1e96273c6bb31290fba403",
+            "bytes": 2289
+          }
+        }
+      },
+      {
+        "floor_index": 1,
+        "probe": {
+          "event": "floor_probe",
+          "bootstrap_seed": 424242,
+          "adventure_seed": -1107708364122780684,
+          "map_seed": -1366998295744970839,
+          "requested_floor": 1,
+          "zone": "mt_steel",
+          "segment": 0,
+          "map": 1,
+          "width": 42,
+          "height": 32,
+          "music": "Mt. Steel.ogg",
+          "start": {
+            "x": 7,
+            "y": 28
+          },
+          "entries": [
+            {
+              "x": 7,
+              "y": 28
+            }
+          ],
+          "terrain": {
+            "floor": 334,
+            "wall": 1010
+          },
+          "effects": {
+            "stairs_go_up": 1,
+            "tile_wonder": 1
+          },
+          "walkable": 334,
+          "reachable": 334,
+          "all_walkable_reachable": true,
+          "stairs": [
+            {
+              "id": "stairs_go_up",
+              "x": 25,
+              "y": 14,
+              "reachable": true,
+              "distance": 46
+            }
+          ],
+          "shortest_stair_route": 46,
+          "items": [
+            {
+              "id": "berry_oran",
+              "money": false,
+              "amount": 0,
+              "x": 5,
+              "y": 7,
+              "reachable": true
+            }
+          ],
+          "mobs": [
+            {
+              "species": "baltoy",
+              "level": 5,
+              "x": 21,
+              "y": 8,
+              "reachable": true
+            },
+            {
+              "species": "zigzagoon",
+              "level": 5,
+              "x": 34,
+              "y": 8,
+              "reachable": true
+            },
+            {
+              "species": "spearow",
+              "level": 4,
+              "x": 33,
+              "y": 19,
+              "reachable": true
+            }
+          ],
+          "mob_count": 3,
+          "traps": 1,
+          "verdict": "PASS"
+        },
+        "termination_result": "PASS",
+        "files": {
+          "events.jsonl": {
+            "sha256": "3e8c467d537f41be6cff8b05c436425e7b41ffca3424b247c39f97a45569f589",
+            "bytes": 1456
+          },
+          "runtime.log": {
+            "sha256": "2ce9af7c8a457cf68c7a8a4d96e6b830d268e298dbc201c21d6a3fd67df27159",
+            "bytes": 5220
+          },
+          "termination.json": {
+            "sha256": "3bf152d19187b1653d371591b5cb7a567d98f78f66ee69dcffd4cf41211497db",
+            "bytes": 2289
+          }
+        }
+      },
+      {
+        "floor_index": 2,
+        "probe": {
+          "event": "floor_probe",
+          "bootstrap_seed": 424242,
+          "adventure_seed": -1107708364122780684,
+          "map_seed": 7644882860020168130,
+          "requested_floor": 2,
+          "zone": "mt_steel",
+          "segment": 0,
+          "map": 2,
+          "width": 42,
+          "height": 30,
+          "music": "Mt. Steel.ogg",
+          "start": {
+            "x": 36,
+            "y": 23
+          },
+          "entries": [
+            {
+              "x": 36,
+              "y": 23
+            }
+          ],
+          "terrain": {
+            "floor": 268,
+            "wall": 992
+          },
+          "effects": {
+            "stairs_go_up": 1,
+            "tile_wonder": 1
+          },
+          "walkable": 268,
+          "reachable": 268,
+          "all_walkable_reachable": true,
+          "stairs": [
+            {
+              "id": "stairs_go_up",
+              "x": 34,
+              "y": 4,
+              "reachable": true,
+              "distance": 99
+            }
+          ],
+          "shortest_stair_route": 99,
+          "items": [
+            {
+              "id": "seed_blast",
+              "money": false,
+              "amount": 0,
+              "x": 34,
+              "y": 14,
+              "reachable": true
+            },
+            {
+              "id": "wand_warp",
+              "money": false,
+              "amount": 0,
+              "x": 36,
+              "y": 14,
+              "reachable": true
+            },
+            {
+              "id": "berry_oran",
+              "money": false,
+              "amount": 0,
+              "x": 19,
+              "y": 13,
+              "reachable": true
+            },
+            {
+              "id": "",
+              "money": true,
+              "amount": 62,
+              "x": 35,
+              "y": 4,
+              "reachable": true
+            }
+          ],
+          "mobs": [
+            {
+              "species": "spearow",
+              "level": 4,
+              "x": 33,
+              "y": 6,
+              "reachable": true
+            },
+            {
+              "species": "aron",
+              "level": 6,
+              "x": 17,
+              "y": 17,
+              "reachable": true
+            },
+            {
+              "species": "zigzagoon",
+              "level": 5,
+              "x": 5,
+              "y": 22,
+              "reachable": true
+            },
+            {
+              "species": "aron",
+              "level": 6,
+              "x": 34,
+              "y": 16,
+              "reachable": true
+            }
+          ],
+          "mob_count": 4,
+          "traps": 1,
+          "verdict": "PASS"
+        },
+        "termination_result": "PASS",
+        "files": {
+          "events.jsonl": {
+            "sha256": "2ca3596f504a1e99329b07550627e3a4473f54523ea16d5c931b1e7a2d5483a1",
+            "bytes": 1731
+          },
+          "runtime.log": {
+            "sha256": "9bafabf329422a79f5732b9713a6dce8f14d65576d4075b58111050889640b9c",
+            "bytes": 5495
+          },
+          "termination.json": {
+            "sha256": "912b2e4ec9324c84ab5b960f23b2f0001f82c448eae59f82a25790a2a755312f",
+            "bytes": 2289
+          }
+        }
+      },
+      {
+        "floor_index": 3,
+        "probe": {
+          "event": "floor_probe",
+          "bootstrap_seed": 424242,
+          "adventure_seed": -1107708364122780684,
+          "map_seed": 5297766540850773311,
+          "requested_floor": 3,
+          "zone": "mt_steel",
+          "segment": 0,
+          "map": 3,
+          "width": 42,
+          "height": 30,
+          "music": "Mt. Steel.ogg",
+          "start": {
+            "x": 31,
+            "y": 25
+          },
+          "entries": [
+            {
+              "x": 31,
+              "y": 25
+            }
+          ],
+          "terrain": {
+            "floor": 353,
+            "wall": 907
+          },
+          "effects": {
+            "stairs_go_up": 1,
+            "tile_wonder": 2
+          },
+          "walkable": 353,
+          "reachable": 353,
+          "all_walkable_reachable": true,
+          "stairs": [
+            {
+              "id": "stairs_go_up",
+              "x": 5,
+              "y": 7,
+              "reachable": true,
+              "distance": 64
+            }
+          ],
+          "shortest_stair_route": 64,
+          "items": [
+            {
+              "id": "berry_oran",
+              "money": false,
+              "amount": 0,
+              "x": 19,
+              "y": 23,
+              "reachable": true
+            },
+            {
+              "id": "gummi_orange",
+              "money": false,
+              "amount": 0,
+              "x": 39,
+              "y": 6,
+              "reachable": true
+            }
+          ],
+          "mobs": [
+            {
+              "species": "zigzagoon",
+              "level": 5,
+              "x": 21,
+              "y": 15,
+              "reachable": true
+            },
+            {
+              "species": "spearow",
+              "level": 4,
+              "x": 6,
+              "y": 15,
+              "reachable": true
+            },
+            {
+              "species": "aron",
+              "level": 6,
+              "x": 4,
+              "y": 8,
+              "reachable": true
+            },
+            {
+              "species": "aron",
+              "level": 6,
+              "x": 16,
+              "y": 23,
+              "reachable": true
+            },
+            {
+              "species": "aron",
+              "level": 6,
+              "x": 35,
+              "y": 5,
+              "reachable": true
+            }
+          ],
+          "mob_count": 5,
+          "traps": 2,
+          "verdict": "PASS"
+        },
+        "termination_result": "PASS",
+        "files": {
+          "events.jsonl": {
+            "sha256": "b5e4824ce2d27aab6064164ccbd7048bd927bcd2cb0a2b66ee82c30ea24e177c",
+            "bytes": 1649
+          },
+          "runtime.log": {
+            "sha256": "0b054ed69dd5e190ed206cd49af499fab533130f4d55991124a9bf1526b4a75e",
+            "bytes": 5413
+          },
+          "termination.json": {
+            "sha256": "ef2cff4bde97782552c8f976afade2bc3bc59d59afa426a5c7b9e44223d47106",
+            "bytes": 2289
+          }
+        }
+      },
+      {
+        "floor_index": 4,
+        "probe": {
+          "event": "floor_probe",
+          "bootstrap_seed": 424242,
+          "adventure_seed": -1107708364122780684,
+          "map_seed": 5382776234011233558,
+          "requested_floor": 4,
+          "zone": "mt_steel",
+          "segment": 0,
+          "map": 4,
+          "width": 42,
+          "height": 30,
+          "music": "Mt. Steel.ogg",
+          "start": {
+            "x": 32,
+            "y": 3
+          },
+          "entries": [
+            {
+              "x": 32,
+              "y": 3
+            }
+          ],
+          "terrain": {
+            "floor": 311,
+            "wall": 949
+          },
+          "effects": {
+            "stairs_go_up": 1,
+            "tile_wonder": 1
+          },
+          "walkable": 311,
+          "reachable": 311,
+          "all_walkable_reachable": true,
+          "stairs": [
+            {
+              "id": "stairs_go_up",
+              "x": 16,
+              "y": 12,
+              "reachable": true,
+              "distance": 67
+            }
+          ],
+          "shortest_stair_route": 67,
+          "items": [
+            {
+              "id": "medicine_max_elixir",
+              "money": false,
+              "amount": 0,
+              "x": 21,
+              "y": 28,
+              "reachable": true
+            },
+            {
+              "id": "wand_switcher",
+              "money": false,
+              "amount": 0,
+              "x": 19,
+              "y": 8,
+              "reachable": true
+            },
+            {
+              "id": "ammo_gravelerock",
+              "money": false,
+              "amount": 3,
+              "x": 17,
+              "y": 13,
+              "reachable": true
+            },
+            {
+              "id": "ammo_gravelerock",
+              "money": false,
+              "amount": 5,
+              "x": 19,
+              "y": 13,
+              "reachable": true
+            }
+          ],
+          "mobs": [
+            {
+              "species": "zigzagoon",
+              "level": 5,
+              "x": 17,
+              "y": 6,
+              "reachable": true
+            },
+            {
+              "species": "meditite",
+              "level": 6,
+              "x": 23,
+              "y": 25,
+              "reachable": true
+            },
+            {
+              "species": "tyrogue",
+              "level": 6,
+              "x": 35,
+              "y": 17,
+              "reachable": true
+            },
+            {
+              "species": "geodude",
+              "level": 5,
+              "x": 17,
+              "y": 11,
+              "reachable": true
+            }
+          ],
+          "mob_count": 4,
+          "traps": 1,
+          "verdict": "PASS"
+        },
+        "termination_result": "PASS",
+        "files": {
+          "events.jsonl": {
+            "sha256": "51f71227e8c35248dfea30fec3fe26e3eb7080dddddbaa3a4c96e75b5c079d10",
+            "bytes": 1773
+          },
+          "runtime.log": {
+            "sha256": "52e848897551dfa215ff691f88c51cf251fca4b6fb871b9e396b2998f8e4c69c",
+            "bytes": 5537
+          },
+          "termination.json": {
+            "sha256": "583ce9c31f965947d09260b96c8f0f6baff191d3ab4cb3ed15cd8b04d6f4d453",
+            "bytes": 2289
+          }
+        }
+      },
+      {
+        "floor_index": 5,
+        "probe": {
+          "event": "floor_probe",
+          "bootstrap_seed": 424242,
+          "adventure_seed": -1107708364122780684,
+          "map_seed": -4259051694952757438,
+          "requested_floor": 5,
+          "zone": "mt_steel",
+          "segment": 0,
+          "map": 5,
+          "width": 42,
+          "height": 30,
+          "music": "Mt. Steel.ogg",
+          "start": {
+            "x": 24,
+            "y": 13
+          },
+          "entries": [
+            {
+              "x": 24,
+              "y": 13
+            }
+          ],
+          "terrain": {
+            "floor": 295,
+            "wall": 965
+          },
+          "effects": {
+            "stairs_go_up": 1,
+            "tile_wonder": 2
+          },
+          "walkable": 295,
+          "reachable": 295,
+          "all_walkable_reachable": true,
+          "stairs": [
+            {
+              "id": "stairs_go_up",
+              "x": 5,
+              "y": 7,
+              "reachable": true,
+              "distance": 55
+            }
+          ],
+          "shortest_stair_route": 55,
+          "items": [
+            {
+              "id": "",
+              "money": true,
+              "amount": 118,
+              "x": 21,
+              "y": 25,
+              "reachable": true
+            },
+            {
+              "id": "ammo_gravelerock",
+              "money": false,
+              "amount": 3,
+              "x": 19,
+              "y": 26,
+              "reachable": true
+            },
+            {
+              "id": "ammo_gravelerock",
+              "money": false,
+              "amount": 3,
+              "x": 32,
+              "y": 22,
+              "reachable": true
+            },
+            {
+              "id": "wand_whirlwind",
+              "money": false,
+              "amount": 0,
+              "x": 21,
+              "y": 7,
+              "reachable": true
+            },
+            {
+              "id": "ammo_gravelerock",
+              "money": false,
+              "amount": 5,
+              "x": 3,
+              "y": 22,
+              "reachable": true
+            }
+          ],
+          "mobs": [
+            {
+              "species": "aron",
+              "level": 6,
+              "x": 33,
+              "y": 6,
+              "reachable": true
+            },
+            {
+              "species": "geodude",
+              "level": 5,
+              "x": 4,
+              "y": 22,
+              "reachable": true
+            },
+            {
+              "species": "tyrogue",
+              "level": 6,
+              "x": 17,
+              "y": 25,
+              "reachable": true
+            },
+            {
+              "species": "geodude",
+              "level": 5,
+              "x": 19,
+              "y": 5,
+              "reachable": true
+            },
+            {
+              "species": "aron",
+              "level": 6,
+              "x": 36,
+              "y": 21,
+              "reachable": true
+            },
+            {
+              "species": "meditite",
+              "level": 6,
+              "x": 7,
+              "y": 5,
+              "reachable": true
+            }
+          ],
+          "mob_count": 6,
+          "traps": 2,
+          "verdict": "PASS"
+        },
+        "termination_result": "PASS",
+        "files": {
+          "events.jsonl": {
+            "sha256": "627c88591cee2fdd4cad249cb3a3316da7a5b34ee4c8374cd844be78330cdcf6",
+            "bytes": 1952
+          },
+          "runtime.log": {
+            "sha256": "beaff7b802727df6a4323a2738e6c77fef6a5162d40178f866071f022c0f76dd",
+            "bytes": 5716
+          },
+          "termination.json": {
+            "sha256": "8a93c6944c5ebb9eb7923838eb3da7113049eac3f81044595e413f0bd440a39d",
+            "bytes": 2289
+          }
+        }
+      },
+      {
+        "floor_index": 6,
+        "probe": {
+          "event": "floor_probe",
+          "bootstrap_seed": 424242,
+          "adventure_seed": -1107708364122780684,
+          "map_seed": 6822905888742369416,
+          "requested_floor": 6,
+          "zone": "mt_steel",
+          "segment": 0,
+          "map": 6,
+          "width": 42,
+          "height": 32,
+          "music": "Mt. Steel.ogg",
+          "start": {
+            "x": 2,
+            "y": 9
+          },
+          "entries": [
+            {
+              "x": 2,
+              "y": 9
+            }
+          ],
+          "terrain": {
+            "floor": 269,
+            "wall": 1075
+          },
+          "effects": {
+            "stairs_go_up": 1,
+            "tile_wonder": 2
+          },
+          "walkable": 269,
+          "reachable": 269,
+          "all_walkable_reachable": true,
+          "stairs": [
+            {
+              "id": "stairs_go_up",
+              "x": 39,
+              "y": 7,
+              "reachable": true,
+              "distance": 51
+            }
+          ],
+          "shortest_stair_route": 51,
+          "items": [
+            {
+              "id": "berry_pecha",
+              "money": false,
+              "amount": 0,
+              "x": 2,
+              "y": 10,
+              "reachable": true
+            },
+            {
+              "id": "gummi_orange",
+              "money": false,
+              "amount": 0,
+              "x": 19,
+              "y": 13,
+              "reachable": true
+            },
+            {
+              "id": "",
+              "money": true,
+              "amount": 62,
+              "x": 21,
+              "y": 24,
+              "reachable": true
+            }
+          ],
+          "mobs": [
+            {
+              "species": "tyrogue",
+              "level": 6,
+              "x": 33,
+              "y": 17,
+              "reachable": true
+            },
+            {
+              "species": "beldum",
+              "level": 5,
+              "x": 22,
+              "y": 23,
+              "reachable": true
+            },
+            {
+              "species": "tyrogue",
+              "level": 6,
+              "x": 39,
+              "y": 8,
+              "reachable": true
+            },
+            {
+              "species": "aron",
+              "level": 6,
+              "x": 20,
+              "y": 11,
+              "reachable": true
+            },
+            {
+              "species": "beldum",
+              "level": 5,
+              "x": 21,
+              "y": 22,
+              "reachable": true
+            },
+            {
+              "species": "aron",
+              "level": 6,
+              "x": 16,
+              "y": 10,
+              "reachable": true
+            }
+          ],
+          "mob_count": 6,
+          "traps": 2,
+          "verdict": "PASS"
+        },
+        "termination_result": "PASS",
+        "files": {
+          "events.jsonl": {
+            "sha256": "7b53696b32d47ce1ebc1e43d2817ff88ba74d40df5e77b3145dcfbd775e3f23d",
+            "bytes": 1779
+          },
+          "runtime.log": {
+            "sha256": "59cfecb2c8c15a5bffa799dbb153dac28e49e2ff4792b20659de92caf91e9b98",
+            "bytes": 5543
+          },
+          "termination.json": {
+            "sha256": "2f1c1afd80be0007efbec617ba8ae6641f8ff60d4a05ba90f4a6f5a057003137",
+            "bytes": 2289
+          }
+        }
+      },
+      {
+        "floor_index": 7,
+        "probe": {
+          "event": "floor_probe",
+          "bootstrap_seed": 424242,
+          "adventure_seed": -1107708364122780684,
+          "map_seed": 4090995484487612896,
+          "requested_floor": 7,
+          "zone": "mt_steel",
+          "segment": 0,
+          "map": 7,
+          "width": 42,
+          "height": 30,
+          "music": "Mt. Steel.ogg",
+          "start": {
+            "x": 35,
+            "y": 14
+          },
+          "entries": [
+            {
+              "x": 35,
+              "y": 14
+            }
+          ],
+          "terrain": {
+            "floor": 292,
+            "wall": 968
+          },
+          "effects": {
+            "stairs_go_up": 1,
+            "tile_wonder": 1
+          },
+          "walkable": 292,
+          "reachable": 292,
+          "all_walkable_reachable": true,
+          "stairs": [
+            {
+              "id": "stairs_go_up",
+              "x": 18,
+              "y": 16,
+              "reachable": true,
+              "distance": 71
+            }
+          ],
+          "shortest_stair_route": 71,
+          "items": [
+            {
+              "id": "",
+              "money": true,
+              "amount": 74,
+              "x": 38,
+              "y": 14,
+              "reachable": true
+            },
+            {
+              "id": "seed_blast",
+              "money": false,
+              "amount": 0,
+              "x": 36,
+              "y": 13,
+              "reachable": true
+            },
+            {
+              "id": "berry_cheri",
+              "money": false,
+              "amount": 0,
+              "x": 5,
+              "y": 13,
+              "reachable": true
+            },
+            {
+              "id": "",
+              "money": true,
+              "amount": 94,
+              "x": 6,
+              "y": 3,
+              "reachable": true
+            },
+            {
+              "id": "",
+              "money": true,
+              "amount": 46,
+              "x": 6,
+              "y": 1,
+              "reachable": true
+            },
+            {
+              "id": "gummi_white",
+              "money": false,
+              "amount": 0,
+              "x": 35,
+              "y": 28,
+              "reachable": true
+            }
+          ],
+          "mobs": [
+            {
+              "species": "tyrogue",
+              "level": 6,
+              "x": 4,
+              "y": 26,
+              "reachable": true
+            },
+            {
+              "species": "aron",
+              "level": 6,
+              "x": 32,
+              "y": 25,
+              "reachable": true
+            },
+            {
+              "species": "geodude",
+              "level": 5,
+              "x": 4,
+              "y": 16,
+              "reachable": true
+            },
+            {
+              "species": "geodude",
+              "level": 5,
+              "x": 19,
+              "y": 15,
+              "reachable": true
+            },
+            {
+              "species": "aron",
+              "level": 6,
+              "x": 11,
+              "y": 2,
+              "reachable": true
+            },
+            {
+              "species": "aron",
+              "level": 6,
+              "x": 22,
+              "y": 18,
+              "reachable": true
+            }
+          ],
+          "mob_count": 6,
+          "traps": 1,
+          "verdict": "PASS"
+        },
+        "termination_result": "PASS",
+        "files": {
+          "events.jsonl": {
+            "sha256": "933083d7b27a2b0bcb42366531ba8e5916d8152453ade362a158242281cf1c05",
+            "bytes": 1983
+          },
+          "runtime.log": {
+            "sha256": "4ab8b08840d8c31a60b341b4888069e9b86c959c2b88e0bd3af48f16073a6f66",
+            "bytes": 5747
+          },
+          "termination.json": {
+            "sha256": "ef09c3745a4158cb7da8c53dbacf48b0895906e7b2899533dd1ea3b1ff9db707",
+            "bytes": 2289
+          }
+        }
+      },
+      {
+        "floor_index": 8,
+        "probe": {
+          "event": "floor_probe",
+          "bootstrap_seed": 424242,
+          "adventure_seed": -1107708364122780684,
+          "map_seed": 0,
+          "requested_floor": 8,
+          "zone": "mt_steel",
+          "segment": 0,
+          "map": 8,
+          "width": 10,
+          "height": 10,
+          "music": "",
+          "start": {
+            "x": 0,
+            "y": 1
+          },
+          "entries": [],
+          "terrain": {
+            "floor": 100
+          },
+          "effects": {},
+          "walkable": 100,
+          "reachable": 100,
+          "all_walkable_reachable": true,
+          "stairs": [],
+          "shortest_stair_route": -1,
+          "items": [],
+          "mobs": [],
+          "mob_count": 0,
+          "traps": 0,
+          "verdict": "FAIL"
+        },
+        "termination_result": "PASS",
+        "files": {
+          "events.jsonl": {
+            "sha256": "be16e99d9f230011fdee601ffe4b7e8d45e78a06de1ae566b2dbf5ebe43ddaa0",
+            "bytes": 1039
+          },
+          "runtime.log": {
+            "sha256": "8d7f7ea9bd582c269c7459c46a4d865c483fb9da75ea84b3757df9918144bc20",
+            "bytes": 91568
+          },
+          "termination.json": {
+            "sha256": "692e462b832348a4535917ed66ec1fa9121a8555c43793a386eaee8e75d62794",
+            "bytes": 2289
+          }
+        }
+      }
+    ],
+    "tactic_fix_attempt": {
+      "floor_index": 8,
+      "probe": {
+        "event": "floor_probe",
+        "bootstrap_seed": 424242,
+        "adventure_seed": -1107708364122780684,
+        "map_seed": 0,
+        "requested_floor": 8,
+        "zone": "mt_steel",
+        "segment": 0,
+        "map": 8,
+        "width": 10,
+        "height": 10,
+        "music": "",
+        "start": {
+          "x": 0,
+          "y": 1
+        },
+        "entries": [],
+        "terrain": {
+          "floor": 100
+        },
+        "effects": {},
+        "walkable": 100,
+        "reachable": 100,
+        "all_walkable_reachable": true,
+        "stairs": [],
+        "shortest_stair_route": -1,
+        "items": [],
+        "mobs": [],
+        "mob_count": 0,
+        "traps": 0,
+        "verdict": "FAIL"
+      },
+      "termination_result": "PASS",
+      "files": {
+        "events.jsonl": {
+          "sha256": "be16e99d9f230011fdee601ffe4b7e8d45e78a06de1ae566b2dbf5ebe43ddaa0",
+          "bytes": 1039
+        },
+        "runtime.log": {
+          "sha256": "74e09ed31266c09ec2ec2c63fc664b9c44627787d8082beadd9b8e49c2f69ac7",
+          "bytes": 91633
+        },
+        "termination.json": {
+          "sha256": "c30607a57542a52ff85f4a527c8457194e4832f21bcf581b163bb7980597733b",
+          "bytes": 2307
+        }
+      }
+    },
+    "failure": {
+      "first_error": "PMDO cannot deserialize string Character.Tactic in mt_steel_peak.rsmap",
+      "second_error_after_embedding_tactic": "PMDO cannot deserialize integer Character.BackRef as TempCharBackRef",
+      "runtime_consequence": "mt_steel_peak is rejected; PMDO falls through to an empty 10x10 map; no Airmure, Taupiqueur, music or entry",
+      "promotion_allowed": false
+    },
+    "candidate_fix": {
+      "path": "mt_steel_tactic_fix_candidate.rsmap",
+      "sha256": "46d3c514894402910b080ac871310fcbd40ad278e35329b853c155c96b1fd59e",
+      "status": "REJECTED_BY_RUNTIME_SECOND_SCHEMA_ERROR"
+    }
+  },
+  "scope_boundary": "The Thunderwave and Mount Steel probes use a fixture-local generic adaptation of the already tracked Tiny Woods native validator. They establish exact-engine generated-floor facts and expose the 9F defect; they are not represented as complete route certifications."
+}

@@ -1,0 +1,73 @@
+{
+  "schema": "new-era.pmdred-eu-native-termination.v1",
+  "ground": "thunderwave_cave_0",
+  "result": "PASS",
+  "command": [
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmdo-headless-bundle/PMDO",
+    "-asset",
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/thunder-native-run-0/asset/",
+    "-appdata",
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/thunder-native-run-0/appdata/",
+    "-quest",
+    "pmdred_eu_fixture"
+  ],
+  "validator_mode": "early_dungeon_native_fixture",
+  "environment_overrides": {
+    "EARLY_DUNGEON_FLOOR": "0",
+    "EARLY_DUNGEON_SEED": "424242"
+  },
+  "started_at": "2026-08-20T17:00:05.740+00:00",
+  "ended_at": "2026-08-20T17:00:12.357+00:00",
+  "duration_seconds": 6.616,
+  "pid": 7688,
+  "process_group": 7688,
+  "pmdo_executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+  "load_phase_unload": {
+    "requested": true,
+    "request_event": {
+      "event": "load_phase_unload_requested",
+      "before": "Ready",
+      "before_raw": "Ready: 2",
+      "requested": "Unload",
+      "readback": "Unload",
+      "readback_raw": "Unload: 3"
+    },
+    "deinit_event": {
+      "event": "native_deinit",
+      "load_phase": "Unload",
+      "load_phase_raw": "Unload: 3"
+    },
+    "graphics_unload_event": {
+      "event": "native_graphics_unload",
+      "load_phase": "Unload",
+      "load_phase_raw": "Unload: 3"
+    },
+    "terminal_event": {
+      "event": "end",
+      "terminal": true,
+      "graceful": true,
+      "load_phase": "Unload",
+      "load_phase_raw": "Unload: 3"
+    },
+    "ordered_and_terminal_last": true,
+    "pass": true
+  },
+  "exit_classification": "NORMAL_EXIT",
+  "return_code": 0,
+  "terminal": true,
+  "graceful": true,
+  "watchdog": false,
+  "watchdog_reason": null,
+  "requested_signal": null,
+  "sigsegv": false,
+  "forced_kill": false,
+  "orphan_process": false,
+  "process_group_members_before_cleanup": [],
+  "process_group_members_after_cleanup": [],
+  "event_parse_error": null,
+  "event_count": 9,
+  "event_stream_sha256": "5b94813da13fb60b814b71e285ef6ab7048f9663e22da07f56a44908f75fb12b",
+  "expected_screenshot_count": 0,
+  "actual_screenshot_count": 0,
+  "runtime_log_sha256": "f641efee616fe810ab41a2ebf85b5cecae0dafe15268c908fd2ab3d530fbfe68"
+}

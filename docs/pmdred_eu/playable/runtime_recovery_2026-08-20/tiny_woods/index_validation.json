@@ -1,0 +1,26 @@
+{
+  "schema": "pmdred-eu-tiny-woods-zone-index-v1",
+  "command": [
+    "/tmp/pmdred-reference-quest/.runtime-cache/pmdo-headless-bundle/PMDO",
+    "-asset",
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/tiny-woods-native-fixture-fresh-20260820/asset/",
+    "-appdata",
+    "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/tiny-woods-native-fixture-fresh-20260820/appdata/",
+    "-quest",
+    "pmdred_eu_fixture",
+    "-index",
+    "zone"
+  ],
+  "return_code": 0,
+  "timed_out": false,
+  "status": "passed",
+  "zone_sha256_after_index": "e4f3edaf4af60bc625ce8e5c3b9d1d36372c2a1b009b4b1d21d13774e7eb92f7",
+  "index": {
+    "bytes": 7162,
+    "sha256": "11ea62bf0697783469224ea97ecf57a899979936c94c2604cad1ff77fd2992f5"
+  },
+  "log": {
+    "bytes": 393,
+    "sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8"
+  }
+}

@@ -1,0 +1,423 @@
+{
+  "schema": "pmdred-eu-tiny-woods-native-generation-v1",
+  "date": "2026-08-20",
+  "status": "passed",
+  "scope": "exact PMDO 0.8.12 native generation for Petit Bois 1F-3F plus deterministic 1F replay",
+  "runtime": {
+    "version": "0.8.12.0",
+    "executable_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+    "validator_mode": "tiny_woods_native_fixture"
+  },
+  "input": {
+    "zone": "Data/Zone/tiny_woods.json",
+    "zone_sha256": "e4f3edaf4af60bc625ce8e5c3b9d1d36372c2a1b009b4b1d21d13774e7eb92f7",
+    "bootstrap_seed": 424242,
+    "fixture_manifest": "fixture_manifest.json",
+    "fixture_manifest_sha256": "f6f048bc065691f1224971f41552b6a3ac3c82d84606922658b0787a3471934b",
+    "validator": "validator.lua",
+    "validator_sha256": "ad600d851c9c4998ef4dd926eb0ca7fe80eb58040ec6e93a838a67750517bd8f",
+    "validator_template_sha256": "2017ce13ba419cb2c2930835c978335b41c044794315e81deabc3f9ace78fda9"
+  },
+  "index_gate": {
+    "schema": "pmdred-eu-tiny-woods-zone-index-v1",
+    "command": [
+      "/tmp/pmdred-reference-quest/.runtime-cache/pmdo-headless-bundle/PMDO",
+      "-asset",
+      "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/tiny-woods-native-fixture-fresh-20260820/asset/",
+      "-appdata",
+      "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/tiny-woods-native-fixture-fresh-20260820/appdata/",
+      "-quest",
+      "pmdred_eu_fixture",
+      "-index",
+      "zone"
+    ],
+    "return_code": 0,
+    "timed_out": false,
+    "status": "passed",
+    "zone_sha256_after_index": "e4f3edaf4af60bc625ce8e5c3b9d1d36372c2a1b009b4b1d21d13774e7eb92f7",
+    "index": {
+      "bytes": 7162,
+      "sha256": "11ea62bf0697783469224ea97ecf57a899979936c94c2604cad1ff77fd2992f5"
+    },
+    "log": {
+      "bytes": 393,
+      "sha256": "3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8"
+    }
+  },
+  "runs": [
+    {
+      "name": "floor_1_run_a",
+      "floor_index": 0,
+      "floor_number": 1,
+      "result": "PASS",
+      "events_sha256": "258bb146fc3893d8ce081eb61051aa1f91232ad64b70aa3e7dfb08d2fe8c118b",
+      "runtime_log_sha256": "3741dd33f829e9bbb20468cb1a7039d968431f995bb54dc1a94665b2f98c37bf",
+      "termination_sha256": "59b149a7e388545ea6dd94af5ff13e28972c3bf89b157303f1f2ae54a79368b6",
+      "probe": {
+        "event": "floor_probe",
+        "bootstrap_seed": 424242,
+        "adventure_seed": -1107708364122780684,
+        "map_seed": 3486314479181622657,
+        "requested_floor": 0,
+        "zone": "tiny_woods",
+        "segment": 0,
+        "map": 0,
+        "width": 28,
+        "height": 30,
+        "music": "Tiny Woods.ogg",
+        "start": {
+          "x": 23,
+          "y": 13
+        },
+        "entries": [
+          {
+            "x": 23,
+            "y": 13
+          }
+        ],
+        "terrain": {
+          "floor": 213,
+          "wall": 627
+        },
+        "effects": {
+          "stairs_go_up": 1
+        },
+        "walkable": 213,
+        "reachable": 213,
+        "all_walkable_reachable": true,
+        "stairs": [
+          {
+            "id": "stairs_go_up",
+            "x": 5,
+            "y": 15,
+            "reachable": true,
+            "distance": 54
+          }
+        ],
+        "shortest_stair_route": 54,
+        "items": [
+          {
+            "id": "",
+            "money": true,
+            "amount": 38,
+            "x": 5,
+            "y": 26,
+            "reachable": true
+          },
+          {
+            "id": "",
+            "money": true,
+            "amount": 38,
+            "x": 16,
+            "y": 11,
+            "reachable": true
+          }
+        ],
+        "mobs": [
+          {
+            "species": "wurmple",
+            "level": 1,
+            "x": 17,
+            "y": 16,
+            "reachable": true
+          },
+          {
+            "species": "wurmple",
+            "level": 1,
+            "x": 8,
+            "y": 15,
+            "reachable": true
+          }
+        ],
+        "mob_count": 2,
+        "traps": 0,
+        "verdict": "PASS"
+      }
+    },
+    {
+      "name": "floor_2",
+      "floor_index": 1,
+      "floor_number": 2,
+      "result": "PASS",
+      "events_sha256": "71e3dcde740aa272a0bcc2cba4d80a093cd5d9c3b511e4f1e7d4b3250de79496",
+      "runtime_log_sha256": "06c0628e26f5a82239a25e37dc4f299c6a66405c0f2319bccd63d5724759cc14",
+      "termination_sha256": "181cd84f596faeda6b93001b9ece7405ee6d4419c770c2aff79136602088a226",
+      "probe": {
+        "event": "floor_probe",
+        "bootstrap_seed": 424242,
+        "adventure_seed": -1107708364122780684,
+        "map_seed": 1875889036871766620,
+        "requested_floor": 1,
+        "zone": "tiny_woods",
+        "segment": 0,
+        "map": 1,
+        "width": 28,
+        "height": 30,
+        "music": "Tiny Woods.ogg",
+        "start": {
+          "x": 1,
+          "y": 14
+        },
+        "entries": [
+          {
+            "x": 1,
+            "y": 14
+          }
+        ],
+        "terrain": {
+          "floor": 241,
+          "wall": 599
+        },
+        "effects": {
+          "stairs_go_up": 1
+        },
+        "walkable": 241,
+        "reachable": 241,
+        "all_walkable_reachable": true,
+        "stairs": [
+          {
+            "id": "stairs_go_up",
+            "x": 24,
+            "y": 26,
+            "reachable": true,
+            "distance": 39
+          }
+        ],
+        "shortest_stair_route": 39,
+        "items": [
+          {
+            "id": "",
+            "money": true,
+            "amount": 34,
+            "x": 21,
+            "y": 12,
+            "reachable": true
+          }
+        ],
+        "mobs": [
+          {
+            "species": "sunkern",
+            "level": 1,
+            "x": 22,
+            "y": 11,
+            "reachable": true
+          },
+          {
+            "species": "sunkern",
+            "level": 1,
+            "x": 20,
+            "y": 25,
+            "reachable": true
+          },
+          {
+            "species": "wurmple",
+            "level": 1,
+            "x": 1,
+            "y": 3,
+            "reachable": true
+          }
+        ],
+        "mob_count": 3,
+        "traps": 0,
+        "verdict": "PASS"
+      }
+    },
+    {
+      "name": "floor_3",
+      "floor_index": 2,
+      "floor_number": 3,
+      "result": "PASS",
+      "events_sha256": "48e6e13b5a77ad2747467a8ae4ab3f0468c235193b5c103a857a69282fdf4afb",
+      "runtime_log_sha256": "de668c453def8bde290436f3e492df83bb218969546a22512a70896d2d815c9c",
+      "termination_sha256": "3f64265ace5052a00c81637c29a5f16e092a15553d6f6a3f663d1a6d426261a1",
+      "probe": {
+        "event": "floor_probe",
+        "bootstrap_seed": 424242,
+        "adventure_seed": -1107708364122780684,
+        "map_seed": 9117432640937620407,
+        "requested_floor": 2,
+        "zone": "tiny_woods",
+        "segment": 0,
+        "map": 2,
+        "width": 28,
+        "height": 32,
+        "music": "Tiny Woods.ogg",
+        "start": {
+          "x": 19,
+          "y": 20
+        },
+        "entries": [
+          {
+            "x": 19,
+            "y": 20
+          }
+        ],
+        "terrain": {
+          "floor": 331,
+          "wall": 565
+        },
+        "effects": {
+          "stairs_go_up": 1
+        },
+        "walkable": 331,
+        "reachable": 331,
+        "all_walkable_reachable": true,
+        "stairs": [
+          {
+            "id": "stairs_go_up",
+            "x": 12,
+            "y": 4,
+            "reachable": true,
+            "distance": 27
+          }
+        ],
+        "shortest_stair_route": 27,
+        "items": [
+          {
+            "id": "berry_oran",
+            "money": false,
+            "amount": 0,
+            "x": 18,
+            "y": 29,
+            "reachable": true
+          }
+        ],
+        "mobs": [
+          {
+            "species": "exeggcute",
+            "level": 1,
+            "x": 12,
+            "y": 5,
+            "reachable": true
+          },
+          {
+            "species": "sunkern",
+            "level": 1,
+            "x": 21,
+            "y": 10,
+            "reachable": true
+          }
+        ],
+        "mob_count": 2,
+        "traps": 0,
+        "verdict": "PASS"
+      }
+    },
+    {
+      "name": "floor_1_run_b",
+      "floor_index": 0,
+      "floor_number": 1,
+      "result": "PASS",
+      "events_sha256": "258bb146fc3893d8ce081eb61051aa1f91232ad64b70aa3e7dfb08d2fe8c118b",
+      "runtime_log_sha256": "3741dd33f829e9bbb20468cb1a7039d968431f995bb54dc1a94665b2f98c37bf",
+      "termination_sha256": "da681c7529c58c98891602f38dc6a35c918b63403a739b55c898ddce5609dea0",
+      "probe": {
+        "event": "floor_probe",
+        "bootstrap_seed": 424242,
+        "adventure_seed": -1107708364122780684,
+        "map_seed": 3486314479181622657,
+        "requested_floor": 0,
+        "zone": "tiny_woods",
+        "segment": 0,
+        "map": 0,
+        "width": 28,
+        "height": 30,
+        "music": "Tiny Woods.ogg",
+        "start": {
+          "x": 23,
+          "y": 13
+        },
+        "entries": [
+          {
+            "x": 23,
+            "y": 13
+          }
+        ],
+        "terrain": {
+          "floor": 213,
+          "wall": 627
+        },
+        "effects": {
+          "stairs_go_up": 1
+        },
+        "walkable": 213,
+        "reachable": 213,
+        "all_walkable_reachable": true,
+        "stairs": [
+          {
+            "id": "stairs_go_up",
+            "x": 5,
+            "y": 15,
+            "reachable": true,
+            "distance": 54
+          }
+        ],
+        "shortest_stair_route": 54,
+        "items": [
+          {
+            "id": "",
+            "money": true,
+            "amount": 38,
+            "x": 5,
+            "y": 26,
+            "reachable": true
+          },
+          {
+            "id": "",
+            "money": true,
+            "amount": 38,
+            "x": 16,
+            "y": 11,
+            "reachable": true
+          }
+        ],
+        "mobs": [
+          {
+            "species": "wurmple",
+            "level": 1,
+            "x": 17,
+            "y": 16,
+            "reachable": true
+          },
+          {
+            "species": "wurmple",
+            "level": 1,
+            "x": 8,
+            "y": 15,
+            "reachable": true
+          }
+        ],
+        "mob_count": 2,
+        "traps": 0,
+        "verdict": "PASS"
+      }
+    }
+  ],
+  "reproduction": {
+    "working_directory": "/tmp/pmdred-reference-quest",
+    "commands": [
+      ".runtime-cache/test-venv/bin/python tools/build_pmdred_tiny_woods_runtime_fixture.py --output .runtime-cache/tiny-woods-native-fixture-repro",
+      ".runtime-cache/test-venv/bin/python tools/run_pmdred_tiny_woods_native.py --fixture .runtime-cache/tiny-woods-native-fixture-repro --evidence-dir .runtime-cache/tiny-woods-native-evidence-repro --seed 424242 --timeout-seconds 60",
+      "PMDRED_EU_ROM=.runtime-cache/downloads/pmdred-eu.gba PYTHONPATH=tools .runtime-cache/test-venv/bin/python -m unittest tools.test_pmdred_dungeon_ground tools.test_build_pmdred_tiny_woods tools.test_pmdred_tiny_woods_native -v"
+    ],
+    "immutability": "Both output paths must be absent; builders and certifier refuse overwrite."
+  },
+  "assertions": {
+    "all_three_floors_generated": true,
+    "same_seed_floor_1_probe_byte_equivalent": true,
+    "all_walkable_tiles_connected": true,
+    "single_reachable_stair_per_floor": true,
+    "authenticated_item_classes_and_counts": true,
+    "authenticated_enemy_classes_levels_and_counts": true,
+    "no_traps": true,
+    "authenticated_music_selected": true,
+    "all_native_terminations_normal_and_graceful": true,
+    "all_native_terminations_load_phase_unload": true,
+    "watchdog_signal_sigsegv_forced_kill_or_orphan": false
+  },
+  "limitations": [
+    "This gate proves generation and generated-floor invariants, not player-driven stair traversal.",
+    "The d01p01 -> dungeon transition is fixture-driven with silent restrictions; canonical story trigger integration remains pending.",
+    "Dungeon completion routing to d01p02, retry/defeat behavior, progression state, and narrative choreography remain pending."
+  ]
+}

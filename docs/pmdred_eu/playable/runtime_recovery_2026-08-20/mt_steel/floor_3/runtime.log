@@ -1,0 +1,78 @@
+Loading default script variable values..
+Script variables default values loaded! [build 2026-08-04-K]
+DebugTools:initialize()
+MenuTools:initialize()
+UpgradeTools:initialize()
+ConfigTools:initialize()
+NREProbe:initialize()
+[NREPROBE] build 2026-08-04-K charge (main.lua) — PREMIERE ligne attendue, au LANCEMENT du jeu. Si absente: la copie du mod chargee par le jeu n est PAS celle du depot.
+
+<!> DebugTools: Init..
+
+<!> ConfigTools: Init..
+[NREPROBE] service nre_probe ACTIF (EngineServiceEvents.Init) — build 2026-07-27-C
+[TINY_WOODS_NATIVE] {"event":"bootstrap_new_game","seed":424242,"requested_floor":2}
+Loading default script variable values..
+Script variables default values loaded! [build 2026-08-04-K]
+[NREPROBE] LoadSavedData <-- sauvegarde chargee (menu Continuer) | zone= seg=? map=? | Save.Team=0 leader=<nil> | DungeonMap=nil TeamAttachee=n/a foes=n/a
+
+<!> ExampleSvc: Preparing debug save file
+[DevUnlock] exclu: barren_tundra
+[DevUnlock] exclu: bravery_road
+[DevUnlock] exclu: cave_of_solace
+[DevUnlock] exclu: cave_of_whispers
+[DevUnlock] exclu: debug_zone
+[DevUnlock] exclu: deserted_fortress
+[DevUnlock] exclu: energy_garden
+[DevUnlock] exclu: eon_island
+[DevUnlock] exclu: guildmaster_island
+[DevUnlock] exclu: hope_road
+[DevUnlock] exclu: inscribed_cave
+[DevUnlock] exclu: labyrinth_of_the_lost
+[DevUnlock] exclu: master_zone
+[DevUnlock] exclu: prism_isles
+[DevUnlock] exclu: royal_halls
+[DevUnlock] exclu: sacred_tower
+[DevUnlock] exclu: starfall_heights
+[DevUnlock] exclu: the_abyss
+[DevUnlock] exclu: the_sky
+[DevUnlock] exclu: training_maze
+[DevUnlock] exclu: uncharted_waters
+[DevUnlock] exclu: wisdom_road
+[NREPROBE] NewGame | zone= seg=? map=? | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>> Init_master_zone
+[NREPROBE] ZoneInit | zone=master_zone seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] DungeonSegmentStart (Lua EnterSegment va tourner) | zone=master_zone seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] GroundModeBegin | zone=master_zone seg=-1 map=310 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] GroundMapEnter | zone=master_zone seg=-1 map=310 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[TINY_WOODS_NATIVE] {"event":"launcher_ground_entered","scheduler":"MAP_UPDATE_BRANCH"}
+[TINY_WOODS_NATIVE] {"event":"launcher_map_update"}
+[TINY_WOODS_NATIVE] {"event":"launcher_coroutine_started"}
+[NREPROBE] GroundMapExit | zone=master_zone seg=-1 map=310 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>_ENV pre-cleanup:178
+=>_ENV post cleanup:177
+[NREPROBE] GroundModeEnd | zone=master_zone seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>_ENV pre-cleanup:177
+=>_ENV post cleanup:176
+[NREPROBE] ZoneInit | zone=mt_steel seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+Checking Mission: 1
+Checking Mission: 2
+Checking Mission: 3
+Checking Mission: 4
+Checking Mission: 5
+Checking Mission: 6
+Checking Mission: 7
+Checking Mission: 8
+[NREPROBE] DungeonSegmentStart (Lua EnterSegment va tourner) | zone=mt_steel seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] DungeonModeBegin | zone=mt_steel seg=0 map=2 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=NON <- IsGameOver() CRASHERAIT ICI foes=4
+[NREPROBE] DungeonMapInit map= | zone=mt_steel seg=0 map=2 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=4
+[NREPROBE] DungeonFloorEnter <-- equipe DOIT etre attachee ici | zone=mt_steel seg=0 map=2 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=4
+[TINY_WOODS_NATIVE] {"event":"floor_probe","bootstrap_seed":424242,"adventure_seed":-1107708364122780684,"map_seed":7644882860020168130,"requested_floor":2,"zone":"mt_steel","segment":0,"map":2,"width":42,"height":30,"music":"Mt. Steel.ogg","start":{"x":36,"y":23},"entries":[{"x":36,"y":23}],"terrain":{"floor":268,"wall":992},"effects":{"stairs_go_up":1,"tile_wonder":1},"walkable":268,"reachable":268,"all_walkable_reachable":true,"stairs":[{"id":"stairs_go_up","x":34,"y":4,"reachable":true,"distance":99}],"shortest_stair_route":99,"items":[{"id":"seed_blast","money":false,"amount":0,"x":34,"y":14,"reachable":true},{"id":"wand_warp","money":false,"amount":0,"x":36,"y":14,"reachable":true},{"id":"berry_oran","money":false,"amount":0,"x":19,"y":13,"reachable":true},{"id":"","money":true,"amount":62,"x":35,"y":4,"reachable":true}],"mobs":[{"species":"spearow","level":4,"x":33,"y":6,"reachable":true},{"species":"aron","level":6,"x":17,"y":17,"reachable":true},{"species":"zigzagoon","level":5,"x":5,"y":22,"reachable":true},{"species":"aron","level":6,"x":34,"y":16,"reachable":true}],"mob_count":4,"traps":1,"verdict":"PASS"}
+[TINY_WOODS_NATIVE] {"event":"load_phase_unload_requested","before":"Ready","before_raw":"Ready: 2","requested":"Unload","readback":"Unload","readback_raw":"Unload: 3"}
+
+<!> DebugTools: Deinit..
+
+<!> ConfigTools: Deinit..
+[TINY_WOODS_NATIVE] {"event":"native_deinit","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+[TINY_WOODS_NATIVE] {"event":"native_graphics_unload","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+[TINY_WOODS_NATIVE] {"event":"end","terminal":true,"graceful":true,"load_phase":"Unload","load_phase_raw":"Unload: 3"}

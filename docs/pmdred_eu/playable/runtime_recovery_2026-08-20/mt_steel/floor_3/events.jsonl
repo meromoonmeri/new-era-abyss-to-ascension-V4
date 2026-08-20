@@ -1,0 +1,9 @@
+{"event":"bootstrap_new_game","seed":424242,"requested_floor":2}
+{"event":"launcher_ground_entered","scheduler":"MAP_UPDATE_BRANCH"}
+{"event":"launcher_map_update"}
+{"event":"launcher_coroutine_started"}
+{"event":"floor_probe","bootstrap_seed":424242,"adventure_seed":-1107708364122780684,"map_seed":7644882860020168130,"requested_floor":2,"zone":"mt_steel","segment":0,"map":2,"width":42,"height":30,"music":"Mt. Steel.ogg","start":{"x":36,"y":23},"entries":[{"x":36,"y":23}],"terrain":{"floor":268,"wall":992},"effects":{"stairs_go_up":1,"tile_wonder":1},"walkable":268,"reachable":268,"all_walkable_reachable":true,"stairs":[{"id":"stairs_go_up","x":34,"y":4,"reachable":true,"distance":99}],"shortest_stair_route":99,"items":[{"id":"seed_blast","money":false,"amount":0,"x":34,"y":14,"reachable":true},{"id":"wand_warp","money":false,"amount":0,"x":36,"y":14,"reachable":true},{"id":"berry_oran","money":false,"amount":0,"x":19,"y":13,"reachable":true},{"id":"","money":true,"amount":62,"x":35,"y":4,"reachable":true}],"mobs":[{"species":"spearow","level":4,"x":33,"y":6,"reachable":true},{"species":"aron","level":6,"x":17,"y":17,"reachable":true},{"species":"zigzagoon","level":5,"x":5,"y":22,"reachable":true},{"species":"aron","level":6,"x":34,"y":16,"reachable":true}],"mob_count":4,"traps":1,"verdict":"PASS"}
+{"event":"load_phase_unload_requested","before":"Ready","before_raw":"Ready: 2","requested":"Unload","readback":"Unload","readback_raw":"Unload: 3"}
+{"event":"native_deinit","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"native_graphics_unload","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"end","terminal":true,"graceful":true,"load_phase":"Unload","load_phase_raw":"Unload: 3"}

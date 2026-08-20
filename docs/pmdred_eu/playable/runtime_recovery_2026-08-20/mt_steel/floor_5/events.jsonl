@@ -1,0 +1,9 @@
+{"event":"bootstrap_new_game","seed":424242,"requested_floor":4}
+{"event":"launcher_ground_entered","scheduler":"MAP_UPDATE_BRANCH"}
+{"event":"launcher_map_update"}
+{"event":"launcher_coroutine_started"}
+{"event":"floor_probe","bootstrap_seed":424242,"adventure_seed":-1107708364122780684,"map_seed":5382776234011233558,"requested_floor":4,"zone":"mt_steel","segment":0,"map":4,"width":42,"height":30,"music":"Mt. Steel.ogg","start":{"x":32,"y":3},"entries":[{"x":32,"y":3}],"terrain":{"floor":311,"wall":949},"effects":{"stairs_go_up":1,"tile_wonder":1},"walkable":311,"reachable":311,"all_walkable_reachable":true,"stairs":[{"id":"stairs_go_up","x":16,"y":12,"reachable":true,"distance":67}],"shortest_stair_route":67,"items":[{"id":"medicine_max_elixir","money":false,"amount":0,"x":21,"y":28,"reachable":true},{"id":"wand_switcher","money":false,"amount":0,"x":19,"y":8,"reachable":true},{"id":"ammo_gravelerock","money":false,"amount":3,"x":17,"y":13,"reachable":true},{"id":"ammo_gravelerock","money":false,"amount":5,"x":19,"y":13,"reachable":true}],"mobs":[{"species":"zigzagoon","level":5,"x":17,"y":6,"reachable":true},{"species":"meditite","level":6,"x":23,"y":25,"reachable":true},{"species":"tyrogue","level":6,"x":35,"y":17,"reachable":true},{"species":"geodude","level":5,"x":17,"y":11,"reachable":true}],"mob_count":4,"traps":1,"verdict":"PASS"}
+{"event":"load_phase_unload_requested","before":"Ready","before_raw":"Ready: 2","requested":"Unload","readback":"Unload","readback_raw":"Unload: 3"}
+{"event":"native_deinit","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"native_graphics_unload","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"end","terminal":true,"graceful":true,"load_phase":"Unload","load_phase_raw":"Unload: 3"}

@@ -1,0 +1,9 @@
+{"event":"bootstrap_new_game","seed":424242,"requested_floor":2}
+{"event":"launcher_ground_entered","scheduler":"MAP_UPDATE_BRANCH"}
+{"event":"launcher_map_update"}
+{"event":"launcher_coroutine_started"}
+{"event":"floor_probe","bootstrap_seed":424242,"adventure_seed":-1107708364122780684,"map_seed":5347193861572814739,"requested_floor":2,"zone":"thunderwave_cave","segment":0,"map":2,"width":42,"height":30,"music":"Thunderwave Cave.ogg","start":{"x":9,"y":26},"entries":[{"x":9,"y":26}],"terrain":{"floor":330,"wall":930},"effects":{"stairs_go_up":1,"tile_wonder":2},"walkable":330,"reachable":330,"all_walkable_reachable":true,"stairs":[{"id":"stairs_go_up","x":39,"y":25,"reachable":true,"distance":57}],"shortest_stair_route":57,"items":[{"id":"","money":true,"amount":58,"x":4,"y":4,"reachable":true},{"id":"food_apple","money":false,"amount":0,"x":2,"y":7,"reachable":true},{"id":"","money":true,"amount":46,"x":37,"y":25,"reachable":true},{"id":"food_apple","money":false,"amount":0,"x":1,"y":7,"reachable":true},{"id":"berry_cheri","money":false,"amount":0,"x":30,"y":5,"reachable":true},{"id":"food_apple","money":false,"amount":0,"x":32,"y":7,"reachable":true}],"mobs":[{"species":"rattata","level":3,"x":5,"y":6,"reachable":true},{"species":"rattata","level":3,"x":39,"y":25,"reachable":true}],"mob_count":2,"traps":2,"verdict":"PASS"}
+{"event":"load_phase_unload_requested","before":"Ready","before_raw":"Ready: 2","requested":"Unload","readback":"Unload","readback_raw":"Unload: 3"}
+{"event":"native_deinit","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"native_graphics_unload","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"end","terminal":true,"graceful":true,"load_phase":"Unload","load_phase_raw":"Unload: 3"}
