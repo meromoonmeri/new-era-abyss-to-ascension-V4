@@ -136,7 +136,10 @@ function gloomy_forest_midpoint_ch_6.Adagio_Action(chara, activator)
 
   SOUND:FadeOutBGM(40)
   GAME:FadeOut(false, 40)
-  GAME:ContinueDungeon('gloomy_forest', 4, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  -- Le duel facultatif du relais est le segment 7. Le segment 4 est
+  -- l'arène canonique de Zeraora et ne doit jamais être relancé par cette
+  -- interaction de la Team Dazzling.
+  GAME:ContinueDungeon('gloomy_forest', 7, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function gloomy_forest_midpoint_ch_6.Aria_Action(chara, activator)
