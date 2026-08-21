@@ -1,0 +1,103 @@
+Loading default script variable values..
+Script variables default values loaded! [build 2026-08-04-K]
+DebugTools:initialize()
+MenuTools:initialize()
+UpgradeTools:initialize()
+ConfigTools:initialize()
+NREProbe:initialize()
+[NREPROBE] build 2026-08-04-K charge (main.lua) -- PREMIERE ligne attendue, au LANCEMENT du jeu. Si absente: la copie du mod chargee par le jeu n est PAS celle du depot.
+
+<!> DebugTools: Init..
+
+<!> ConfigTools: Init..
+[NREPROBE] service nre_probe ACTIF (EngineServiceEvents.Init) -- build 2026-07-27-C
+[SINISTER_WOODS_PROBE] {"event":"bootstrap"}
+Loading default script variable values..
+Script variables default values loaded! [build 2026-08-04-K]
+[NREPROBE] LoadSavedData <-- sauvegarde chargee (menu Continuer) | zone= seg=? map=? | Save.Team=0 leader=<nil> | DungeonMap=nil TeamAttachee=n/a foes=n/a
+
+<!> ExampleSvc: Preparing debug save file
+[DevUnlock] exclu: barren_tundra
+[DevUnlock] exclu: bravery_road
+[DevUnlock] exclu: cave_of_solace
+[DevUnlock] exclu: cave_of_whispers
+[DevUnlock] exclu: debug_zone
+[DevUnlock] exclu: deserted_fortress
+[DevUnlock] exclu: energy_garden
+[DevUnlock] exclu: eon_island
+[DevUnlock] exclu: guildmaster_island
+[DevUnlock] exclu: hope_road
+[DevUnlock] exclu: inscribed_cave
+[DevUnlock] exclu: labyrinth_of_the_lost
+[DevUnlock] exclu: master_zone
+[DevUnlock] exclu: prism_isles
+[DevUnlock] exclu: royal_halls
+[DevUnlock] exclu: sacred_tower
+[DevUnlock] exclu: starfall_heights
+[DevUnlock] exclu: the_abyss
+[DevUnlock] exclu: the_sky
+[DevUnlock] exclu: training_maze
+[DevUnlock] exclu: uncharted_waters
+[DevUnlock] exclu: wisdom_road
+[NREPROBE] NewGame | zone= seg=? map=? | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[SINISTER_WOODS_PROBE] {"event":"enter","segment":0}
+=>> Init_gloomy_forest
+[NREPROBE] ZoneInit | zone=gloomy_forest seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+Checking Mission: 1
+Checking Mission: 2
+Checking Mission: 3
+Checking Mission: 4
+Checking Mission: 5
+Checking Mission: 6
+Checking Mission: 7
+Checking Mission: 8
+[NREPROBE] DungeonSegmentStart (Lua EnterSegment va tourner) | zone=gloomy_forest seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] DungeonModeBegin | zone=gloomy_forest seg=0 map=0 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=NON (transition avant DungeonMapInit, normale) foes=2
+[NREPROBE] DungeonMapInit map= | zone=gloomy_forest seg=0 map=0 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=2
+[SINISTER_WOODS_B41_ADAPTER] map_start_tick=0
+[SINISTER_WOODS_B41_ADAPTER] raw_startup_restored=0 tick=0
+[NREPROBE] DungeonFloorEnter <-- equipe DOIT etre attachee ici | zone=gloomy_forest seg=0 map=0 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=2
+[SINISTER_WOODS_PROBE] {"event":"map","segment":0,"width":38,"height":51,"music":"PMD Red EU - Sinister Woods.ogg","deep_shadow_setter":false,"darkness":false,"dusk":false,"free_collision_probe":true,"blocked_collision_probe":true}
+[SINISTER_WOODS_B41_ADAPTER] published_duration=6 layers=414 tick=600 delta=600
+[SINISTER_WOODS_B41_ADAPTER] published_duration=12 layers=1647 tick=1320 delta=1320
+[SINISTER_WOODS_PROBE] {"event":"enter","segment":1}
+[NREPROBE] DungeonFloorExit | zone=gloomy_forest seg=0 map=0 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=2
+Checking Mission: 1
+Checking Mission: 2
+Checking Mission: 3
+Checking Mission: 4
+Checking Mission: 5
+Checking Mission: 6
+Checking Mission: 7
+Checking Mission: 8
+[NREPROBE] DungeonSegmentStart (Lua EnterSegment va tourner) | zone=gloomy_forest seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] DungeonMapInit map= | zone=gloomy_forest seg=1 map=0 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=3
+[SINISTER_WOODS_B41_ADAPTER] map_start_tick=3000
+[SINISTER_WOODS_B41_ADAPTER] raw_startup_restored=2061 tick=3000
+[NREPROBE] DungeonFloorEnter <-- equipe DOIT etre attachee ici | zone=gloomy_forest seg=1 map=0 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=3
+[SINISTER_WOODS_PROBE] {"event":"map","segment":1,"width":51,"height":38,"music":"PMD Red EU - Sinister Woods.ogg","deep_shadow_setter":false,"darkness":false,"dusk":false,"free_collision_probe":true,"blocked_collision_probe":true}
+[SINISTER_WOODS_B41_ADAPTER] published_duration=6 layers=414 tick=3600 delta=600
+[SINISTER_WOODS_B41_ADAPTER] published_duration=12 layers=1647 tick=4320 delta=1320
+[SINISTER_WOODS_PROBE] {"event":"enter","segment":3}
+[NREPROBE] DungeonFloorExit | zone=gloomy_forest seg=1 map=0 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=3
+Checking Mission: 1
+Checking Mission: 2
+Checking Mission: 3
+Checking Mission: 4
+Checking Mission: 5
+Checking Mission: 6
+Checking Mission: 7
+Checking Mission: 8
+[NREPROBE] DungeonSegmentStart (Lua EnterSegment va tourner) | zone=gloomy_forest seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] DungeonMapInit map= | zone=gloomy_forest seg=3 map=0 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=3
+[SINISTER_WOODS_B41_ADAPTER] map_start_tick=6000
+[SINISTER_WOODS_B41_ADAPTER] raw_startup_restored=2061 tick=6000
+[NREPROBE] DungeonFloorEnter <-- equipe DOIT etre attachee ici | zone=gloomy_forest seg=3 map=0 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap= TeamAttachee=OUI(4) foes=3
+[SINISTER_WOODS_PROBE] {"event":"map","segment":3,"width":38,"height":64,"music":"PMD Red EU - Sinister Woods.ogg","deep_shadow_setter":true,"darkness":false,"dusk":true,"free_collision_probe":true,"blocked_collision_probe":true}
+[SINISTER_WOODS_B41_ADAPTER] published_duration=6 layers=414 tick=6600 delta=600
+[SINISTER_WOODS_B41_ADAPTER] published_duration=12 layers=1647 tick=7320 delta=1320
+[SINISTER_WOODS_PROBE] {"event":"end","normal_unload_requested":true}
+
+<!> DebugTools: Deinit..
+
+<!> ConfigTools: Deinit..

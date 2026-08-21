@@ -1,0 +1,63 @@
+{
+  "schema": "new-era.pmdred-eu.sinister-woods-b06-material-validation.v1",
+  "candidate": "RESERVE/pmdred_dungeon_batches/remains_island/rom_b06_startup",
+  "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+  "source": {
+    "b06fon_sha256": "cf511843c9335432a1ed2d3ef13042d9ab857c4480361093f5547a13dad68c81",
+    "b06cel_sha256": "4ce06fa63985466e1cd2ae7e5350bea57715cd7607cfb30daf43047a79e5a7e1",
+    "b06cex_sha256": "bf68cd436650f86ea0102425a81e479a5503f4a1a5df6cc3961aed373708458f",
+    "b06pal_sha256": "e0383614a0c97a36f05a89fa5db156d548cf75fa4b9dfcca4b8747faa1d57f75",
+    "b06canm_root_sha256": "35d4d8ba9b7037fd06c54ff926f0b84f6498cc162387bb529733806b348effa1"
+  },
+  "atlas_sha256": "6a43140a8465ab8b41e903a93780d0ec33fe2578421347bcadfbcdb3a242d9a6",
+  "categories": {
+    "floor": {
+      "codes": 47,
+      "variants": 3,
+      "layer_checks": 0,
+      "pixel_checks": 0,
+      "animated_chunks": 0
+    },
+    "wall": {
+      "codes": 47,
+      "variants": 3,
+      "layer_checks": 0,
+      "pixel_checks": 0,
+      "animated_chunks": 0
+    },
+    "secondary": {
+      "codes": 47,
+      "variants": 3,
+      "layer_checks": 0,
+      "pixel_checks": 0,
+      "animated_chunks": 141
+    }
+  },
+  "layer_checks": 2061,
+  "pixel_checks": 24732,
+  "canm_independent_durations": {
+    "0": 12,
+    "1": 12,
+    "2": 12,
+    "3": 12,
+    "4": 12,
+    "5": 12,
+    "6": 12,
+    "7": 12,
+    "8": 12,
+    "9": 12,
+    "10": 6,
+    "11": 6,
+    "12": 6,
+    "13": 12,
+    "14": 12,
+    "15": 12
+  },
+  "startup_raw_palette_policy": "staged as a one-shot frame only when the startup adapter candidate is enabled",
+  "startup_adapter_candidate": true,
+  "production_assets_written": false,
+  "d04p01_d04p02_touched": false,
+  "relic_forest_blobs_touched": false,
+  "result": "PASS",
+  "blockers": []
+}

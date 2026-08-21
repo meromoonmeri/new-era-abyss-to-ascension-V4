@@ -1,0 +1,1766 @@
+{
+  "schema": "new-era.pmdred-eu.pmdred-b06-material-candidate.v2",
+  "tool_version": "2.0.0-b06-staging",
+  "candidate_status": "STAGED_STARTUP_ADAPTER_CANDIDATE",
+  "authority": {
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "dungeon_id": 3,
+    "procedural_tileset": 41,
+    "procedural_resources": [
+      "b06fon",
+      "b06cel",
+      "b06cex",
+      "b06pal",
+      "b06canm"
+    ],
+    "selection_source": "mapparam selector rows 1..12 for dungeon ID 3"
+  },
+  "namespace": {
+    "sheet": "PMDRedB06",
+    "autotile_files": {
+      "floor": "pmdred_b06_floor.json",
+      "wall": "pmdred_b06_wall.json",
+      "secondary": "pmdred_b06_secondary.json"
+    }
+  },
+  "source_resources": {
+    "b06fon": {
+      "size": 16160,
+      "sha256": "cf511843c9335432a1ed2d3ef13042d9ab857c4480361093f5547a13dad68c81",
+      "archive": {
+        "archive_entry_index": 33,
+        "archive_data_address_hex": "0x08656E1D",
+        "archive_container_span": {
+          "purpose": "archive entry b06fon container",
+          "offset": 6647325,
+          "offset_hex": "0x00656E1D",
+          "address_hex": "0x08656E1D",
+          "size": 12711,
+          "end_offset": 6660036,
+          "end_offset_hex": "0x00659FC4"
+        },
+        "stream_span": {
+          "purpose": "b06fon AT4PX stream",
+          "offset": 6647325,
+          "offset_hex": "0x00656E1D",
+          "address_hex": "0x08656E1D",
+          "size": 12709,
+          "end_offset": 6660034,
+          "end_offset_hex": "0x00659FC2"
+        },
+        "stream_sha256": "04766a5b6d0e072276bc571673498828b33fdd473b450b2232d3d24313d1d9f7",
+        "decompressed_size": 16160,
+        "decompressed_sha256": "cf511843c9335432a1ed2d3ef13042d9ab857c4480361093f5547a13dad68c81",
+        "decoder": {
+          "format": "AT4PX",
+          "container_length": 12709,
+          "declared_output_size": 16160,
+          "special_command_lengths": [
+            15,
+            16,
+            17,
+            14,
+            11,
+            10,
+            13,
+            9,
+            12
+          ],
+          "control_bytes": 1240,
+          "literal_tokens": 7430,
+          "back_reference_tokens": 1535,
+          "special_pattern_tokens": 951
+        }
+      }
+    },
+    "b06cel": {
+      "size": 4500,
+      "sha256": "4ce06fa63985466e1cd2ae7e5350bea57715cd7607cfb30daf43047a79e5a7e1",
+      "archive": {
+        "archive_entry_index": 31,
+        "archive_data_address_hex": "0x0865630C",
+        "archive_container_span": {
+          "purpose": "archive entry b06cel container",
+          "offset": 6644492,
+          "offset_hex": "0x0065630C",
+          "address_hex": "0x0865630C",
+          "size": 2000,
+          "end_offset": 6646492,
+          "end_offset_hex": "0x00656ADC"
+        },
+        "stream_span": {
+          "purpose": "b06cel AT4PX stream",
+          "offset": 6644492,
+          "offset_hex": "0x0065630C",
+          "address_hex": "0x0865630C",
+          "size": 1997,
+          "end_offset": 6646489,
+          "end_offset_hex": "0x00656AD9"
+        },
+        "stream_sha256": "7d446f93c022d5d85bf3daa81203dd030f1466e6a0c9fe66ce1fc7be35787dd8",
+        "decompressed_size": 4500,
+        "decompressed_sha256": "4ce06fa63985466e1cd2ae7e5350bea57715cd7607cfb30daf43047a79e5a7e1",
+        "decoder": {
+          "format": "AT4PX",
+          "container_length": 1997,
+          "declared_output_size": 4500,
+          "special_command_lengths": [
+            9,
+            15,
+            17,
+            13,
+            11,
+            14,
+            10,
+            16,
+            8
+          ],
+          "control_bytes": 183,
+          "literal_tokens": 1126,
+          "back_reference_tokens": 334,
+          "special_pattern_tokens": 2
+        }
+      }
+    },
+    "b06cex": {
+      "size": 2352,
+      "sha256": "bf68cd436650f86ea0102425a81e479a5503f4a1a5df6cc3961aed373708458f",
+      "archive": {
+        "archive_entry_index": 32,
+        "archive_data_address_hex": "0x08656ADC",
+        "archive_container_span": {
+          "purpose": "archive entry b06cex container",
+          "offset": 6646492,
+          "offset_hex": "0x00656ADC",
+          "address_hex": "0x08656ADC",
+          "size": 833,
+          "end_offset": 6647325,
+          "end_offset_hex": "0x00656E1D"
+        },
+        "stream_span": {
+          "purpose": "b06cex AT4PX stream",
+          "offset": 6646508,
+          "offset_hex": "0x00656AEC",
+          "address_hex": "0x08656AEC",
+          "size": 817,
+          "end_offset": 6647325,
+          "end_offset_hex": "0x00656E1D"
+        },
+        "stream_sha256": "aa9497f9ed15a20281b42f357b1afdec9b5dcff3cc85e63021f0d7e4e1d3dba4",
+        "decompressed_size": 2352,
+        "decompressed_sha256": "bf68cd436650f86ea0102425a81e479a5503f4a1a5df6cc3961aed373708458f",
+        "decoder": {
+          "format": "AT4PX",
+          "container_length": 817,
+          "declared_output_size": 2352,
+          "special_command_lengths": [
+            4,
+            5,
+            8,
+            10,
+            11,
+            13,
+            14,
+            16,
+            17
+          ],
+          "control_bytes": 69,
+          "literal_tokens": 356,
+          "back_reference_tokens": 184,
+          "special_pattern_tokens": 6
+        }
+      }
+    },
+    "b06pal": {
+      "size": 768,
+      "sha256": "e0383614a0c97a36f05a89fa5db156d548cf75fa4b9dfcca4b8747faa1d57f75",
+      "archive": {
+        "archive_entry_index": 34,
+        "archive_data_address_hex": "0x08659FC4",
+        "archive_container_span": {
+          "purpose": "archive entry b06pal container",
+          "offset": 6660036,
+          "offset_hex": "0x00659FC4",
+          "address_hex": "0x08659FC4",
+          "size": 768,
+          "end_offset": 6660804,
+          "end_offset_hex": "0x0065A2C4"
+        },
+        "payload_span": {
+          "purpose": "b06pal raw payload",
+          "offset": 6660036,
+          "offset_hex": "0x00659FC4",
+          "address_hex": "0x08659FC4",
+          "size": 768,
+          "end_offset": 6660804,
+          "end_offset_hex": "0x0065A2C4"
+        },
+        "payload_sha256": "e0383614a0c97a36f05a89fa5db156d548cf75fa4b9dfcca4b8747faa1d57f75"
+      }
+    }
+  },
+  "b06canm": {
+    "record_count": 32,
+    "active_record_count": 16,
+    "active_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "root_sha256": "35d4d8ba9b7037fd06c54ff926f0b84f6498cc162387bb529733806b348effa1",
+    "records": [
+      {
+        "index": 0,
+        "count": 12,
+        "duration_ticks": 12,
+        "cycle_ticks": 144,
+        "colors_sha256": "8845a3c37d596af10b412818a8904dad388024f5bc49598d1c0738c0afba3359",
+        "initial_raw_palette_color": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "first_published_color": [
+          129,
+          60,
+          93,
+          128
+        ]
+      },
+      {
+        "index": 1,
+        "count": 12,
+        "duration_ticks": 12,
+        "cycle_ticks": 144,
+        "colors_sha256": "269ffe0cbcd4a2a5cd77bf37695682f7cebf5fc4f90688477bfd9245f1af024d",
+        "initial_raw_palette_color": [
+          0,
+          127,
+          127,
+          128
+        ],
+        "first_published_color": [
+          0,
+          123,
+          126,
+          128
+        ]
+      },
+      {
+        "index": 2,
+        "count": 12,
+        "duration_ticks": 12,
+        "cycle_ticks": 144,
+        "colors_sha256": "7d12c46e9a58f236322e64c07cf7c42701a7c7bb5105c40bcd026a14758d8a51",
+        "initial_raw_palette_color": [
+          31,
+          151,
+          151,
+          128
+        ],
+        "first_published_color": [
+          25,
+          147,
+          146,
+          128
+        ]
+      },
+      {
+        "index": 3,
+        "count": 12,
+        "duration_ticks": 12,
+        "cycle_ticks": 144,
+        "colors_sha256": "fecaa0e3950d475d775d4180877616b45fe49f457ccf1e537db46a3e237cf406",
+        "initial_raw_palette_color": [
+          55,
+          175,
+          175,
+          128
+        ],
+        "first_published_color": [
+          55,
+          175,
+          175,
+          128
+        ]
+      },
+      {
+        "index": 4,
+        "count": 12,
+        "duration_ticks": 12,
+        "cycle_ticks": 144,
+        "colors_sha256": "f26b2cc3f12e99e4864fbf69b0742311436ae3b1d0be983d75418162c7796a31",
+        "initial_raw_palette_color": [
+          71,
+          199,
+          191,
+          128
+        ],
+        "first_published_color": [
+          71,
+          199,
+          191,
+          128
+        ]
+      },
+      {
+        "index": 5,
+        "count": 12,
+        "duration_ticks": 12,
+        "cycle_ticks": 144,
+        "colors_sha256": "7258e31a5a63684f0f921fd4c6ea9bdbae6f6c18daec4604e05aa183ef84ecf3",
+        "initial_raw_palette_color": [
+          95,
+          215,
+          215,
+          128
+        ],
+        "first_published_color": [
+          95,
+          215,
+          215,
+          128
+        ]
+      },
+      {
+        "index": 6,
+        "count": 12,
+        "duration_ticks": 12,
+        "cycle_ticks": 144,
+        "colors_sha256": "db5cc8bff4db8bf05279422476be5828e9dbf923d19f4d236eafad53c3daf575",
+        "initial_raw_palette_color": [
+          71,
+          79,
+          23,
+          128
+        ],
+        "first_published_color": [
+          70,
+          79,
+          17,
+          128
+        ]
+      },
+      {
+        "index": 7,
+        "count": 12,
+        "duration_ticks": 12,
+        "cycle_ticks": 144,
+        "colors_sha256": "0569e457532553ae5a0972c62b86aefabb99dd4462690b00a2f5066c2aa5b14d",
+        "initial_raw_palette_color": [
+          87,
+          87,
+          39,
+          128
+        ],
+        "first_published_color": [
+          86,
+          86,
+          35,
+          128
+        ]
+      },
+      {
+        "index": 8,
+        "count": 12,
+        "duration_ticks": 12,
+        "cycle_ticks": 144,
+        "colors_sha256": "d6271fbd1ac004ff6a2f9916159f6cdec9b7c3dd8196e4db8ca9379716efadce",
+        "initial_raw_palette_color": [
+          111,
+          103,
+          55,
+          128
+        ],
+        "first_published_color": [
+          107,
+          97,
+          53,
+          128
+        ]
+      },
+      {
+        "index": 9,
+        "count": 12,
+        "duration_ticks": 12,
+        "cycle_ticks": 144,
+        "colors_sha256": "ecc5c1c5fd8578524678cefff9c813cc0195d10d44519d37251ff7b37bfb09b4",
+        "initial_raw_palette_color": [
+          143,
+          119,
+          63,
+          128
+        ],
+        "first_published_color": [
+          141,
+          112,
+          61,
+          128
+        ]
+      },
+      {
+        "index": 10,
+        "count": 12,
+        "duration_ticks": 6,
+        "cycle_ticks": 72,
+        "colors_sha256": "4d696a6ff1c25b5dc856040c9c74d7b7ddb1545d52d993e59f85ca257d8b4f65",
+        "initial_raw_palette_color": [
+          95,
+          231,
+          215,
+          128
+        ],
+        "first_published_color": [
+          95,
+          230,
+          209,
+          128
+        ]
+      },
+      {
+        "index": 11,
+        "count": 12,
+        "duration_ticks": 6,
+        "cycle_ticks": 72,
+        "colors_sha256": "19a74683312ab2f3607148f1b3f744a7f4ba4c13f6b0d2f074b38e96b06dc21d",
+        "initial_raw_palette_color": [
+          151,
+          247,
+          223,
+          128
+        ],
+        "first_published_color": [
+          147,
+          242,
+          222,
+          128
+        ]
+      },
+      {
+        "index": 12,
+        "count": 12,
+        "duration_ticks": 6,
+        "cycle_ticks": 72,
+        "colors_sha256": "d45028c3086dcf2fde9c9c84684d14cc2fc4d41591b188bf7ec8434d14ebea4e",
+        "initial_raw_palette_color": [
+          199,
+          255,
+          239,
+          128
+        ],
+        "first_published_color": [
+          199,
+          255,
+          235,
+          128
+        ]
+      },
+      {
+        "index": 13,
+        "count": 12,
+        "duration_ticks": 12,
+        "cycle_ticks": 144,
+        "colors_sha256": "382a6d1cb4d31a7eb67ecebfddd20976ddfdb73ed1cc252a04e9001479ad7daa",
+        "initial_raw_palette_color": [
+          191,
+          175,
+          111,
+          128
+        ],
+        "first_published_color": [
+          185,
+          173,
+          104,
+          128
+        ]
+      },
+      {
+        "index": 14,
+        "count": 12,
+        "duration_ticks": 12,
+        "cycle_ticks": 144,
+        "colors_sha256": "1a0c443a072e8b856dffc8c84d2fd8d9ce34a41421936d1a49d00446a49cade7",
+        "initial_raw_palette_color": [
+          215,
+          191,
+          127,
+          128
+        ],
+        "first_published_color": [
+          210,
+          189,
+          120,
+          128
+        ]
+      },
+      {
+        "index": 15,
+        "count": 12,
+        "duration_ticks": 12,
+        "cycle_ticks": 144,
+        "colors_sha256": "a502a02435e56081374bd186b74d057e03f162df068daad2fb151511e4ed3870",
+        "initial_raw_palette_color": [
+          247,
+          215,
+          143,
+          128
+        ],
+        "first_published_color": [
+          243,
+          214,
+          137,
+          128
+        ]
+      },
+      {
+        "index": 16,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 17,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 18,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 19,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 20,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 21,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 22,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 23,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 24,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 25,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 26,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 27,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 28,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 29,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 30,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 31,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      }
+    ]
+  },
+  "source_geometry": {
+    "font_tile_count": 505,
+    "cel_chunk_count": 250,
+    "cex_size": 2352,
+    "ground_palette_colors": 192,
+    "pmdo_chunk_size": [
+      24,
+      24
+    ],
+    "animated_chunk_count": 47,
+    "animated_palette_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ]
+  },
+  "animation_adapter": {
+    "independent_record_layers": true,
+    "one_shot_startup_adapter": true,
+    "first_published_state_tick_by_record": {
+      "0": 12,
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12,
+      "5": 12,
+      "6": 12,
+      "7": 12,
+      "8": 12,
+      "9": 12,
+      "10": 6,
+      "11": 6,
+      "12": 6,
+      "13": 12,
+      "14": 12,
+      "15": 12
+    },
+    "raw_gba_startup_palette_sha256": "8b8cb2d6f6d7dee3db056bb37ab078c81f905220beb17d86bfcc9f90b1f1d6fc",
+    "policy": "Each active CANM record is a separate PMDO overlay layer with its source duration and color sequence. Raw startup frames are staged for the runtime one-shot adapter; the adapter must rotate each layer exactly once at its source duration."
+  },
+  "atlas": {
+    "path": "RESERVE/pmdred_dungeon_batches/remains_island/rom_b06_startup/Content/Tile/PMDRedB06.tile",
+    "sha256": "6a43140a8465ab8b41e903a93780d0ec33fe2578421347bcadfbcdb3a242d9a6",
+    "size": 1090779,
+    "tile_size": 24,
+    "tile_count": 52250,
+    "unique_png_count": 1252,
+    "coordinates": {
+      "columns": 16,
+      "base_regions": 1,
+      "record_regions": 16,
+      "states_per_record": 16,
+      "chunks_per_state": 250
+    }
+  },
+  "autotiles": {
+    "floor": {
+      "path": "RESERVE/pmdred_dungeon_batches/remains_island/rom_b06_startup/Data/AutoTile/pmdred_b06_floor.json",
+      "sha256": "5b528db485bdbace68e2e693c82aa9246018b3993fd759cde23fd90431bde9e4",
+      "size": 41633,
+      "category": "floor",
+      "cex_mask_prefix": 512,
+      "supported_neighbor_code_count": 47,
+      "supported_neighbor_codes": [
+        "0x00",
+        "0x01",
+        "0x02",
+        "0x03",
+        "0x13",
+        "0x04",
+        "0x05",
+        "0x06",
+        "0x26",
+        "0x07",
+        "0x17",
+        "0x27",
+        "0x37",
+        "0x08",
+        "0x09",
+        "0x89",
+        "0x0A",
+        "0x0B",
+        "0x1B",
+        "0x8B",
+        "0x9B",
+        "0x0C",
+        "0x4C",
+        "0x0D",
+        "0x4D",
+        "0x8D",
+        "0xCD",
+        "0x0E",
+        "0x2E",
+        "0x4E",
+        "0x6E",
+        "0x0F",
+        "0x1F",
+        "0x2F",
+        "0x3F",
+        "0x4F",
+        "0x5F",
+        "0x6F",
+        "0x7F",
+        "0x8F",
+        "0x9F",
+        "0xAF",
+        "0xBF",
+        "0xCF",
+        "0xDF",
+        "0xEF",
+        "0xFF"
+      ],
+      "variant_count": 3,
+      "variant_chunk_ids": {
+        "00": [
+          130,
+          130,
+          130
+        ],
+        "01": [
+          129,
+          129,
+          129
+        ],
+        "02": [
+          130,
+          130,
+          130
+        ],
+        "03": [
+          129,
+          129,
+          129
+        ],
+        "13": [
+          86,
+          86,
+          86
+        ],
+        "04": [
+          58,
+          58,
+          58
+        ],
+        "05": [
+          83,
+          83,
+          83
+        ],
+        "06": [
+          58,
+          58,
+          58
+        ],
+        "26": [
+          58,
+          58,
+          58
+        ],
+        "07": [
+          42,
+          42,
+          42
+        ],
+        "17": [
+          112,
+          112,
+          112
+        ],
+        "27": [
+          42,
+          42,
+          42
+        ],
+        "37": [
+          112,
+          112,
+          112
+        ],
+        "08": [
+          130,
+          130,
+          130
+        ],
+        "09": [
+          129,
+          129,
+          129
+        ],
+        "89": [
+          129,
+          129,
+          129
+        ],
+        "0A": [
+          130,
+          130,
+          130
+        ],
+        "0B": [
+          129,
+          129,
+          129
+        ],
+        "1B": [
+          86,
+          86,
+          86
+        ],
+        "8B": [
+          129,
+          129,
+          129
+        ],
+        "9B": [
+          86,
+          86,
+          86
+        ],
+        "0C": [
+          58,
+          58,
+          58
+        ],
+        "4C": [
+          84,
+          84,
+          84
+        ],
+        "0D": [
+          83,
+          83,
+          83
+        ],
+        "4D": [
+          132,
+          132,
+          132
+        ],
+        "8D": [
+          83,
+          83,
+          83
+        ],
+        "CD": [
+          132,
+          132,
+          132
+        ],
+        "0E": [
+          58,
+          58,
+          58
+        ],
+        "2E": [
+          58,
+          58,
+          58
+        ],
+        "4E": [
+          84,
+          84,
+          84
+        ],
+        "6E": [
+          84,
+          84,
+          84
+        ],
+        "0F": [
+          42,
+          42,
+          42
+        ],
+        "1F": [
+          74,
+          74,
+          74
+        ],
+        "2F": [
+          42,
+          42,
+          42
+        ],
+        "3F": [
+          74,
+          74,
+          74
+        ],
+        "4F": [
+          43,
+          43,
+          43
+        ],
+        "5F": [
+          27,
+          27,
+          27
+        ],
+        "6F": [
+          43,
+          43,
+          43
+        ],
+        "7F": [
+          27,
+          27,
+          27
+        ],
+        "8F": [
+          42,
+          42,
+          42
+        ],
+        "9F": [
+          74,
+          74,
+          74
+        ],
+        "AF": [
+          42,
+          42,
+          42
+        ],
+        "BF": [
+          74,
+          74,
+          74
+        ],
+        "CF": [
+          43,
+          43,
+          43
+        ],
+        "DF": [
+          27,
+          27,
+          27
+        ],
+        "EF": [
+          43,
+          43,
+          43
+        ],
+        "FF": [
+          27,
+          9,
+          14
+        ]
+      },
+      "unique_chunk_ids": [
+        9,
+        14,
+        27,
+        42,
+        43,
+        58,
+        74,
+        83,
+        84,
+        86,
+        112,
+        129,
+        130,
+        132
+      ],
+      "animated_neighbor_codes": [],
+      "animated_neighbor_code_count": 0,
+      "max_tile_layers_per_variant": 1,
+      "independent_canm_overlay_layers": true,
+      "one_shot_startup_adapter_frames": true
+    },
+    "wall": {
+      "path": "RESERVE/pmdred_dungeon_batches/remains_island/rom_b06_startup/Data/AutoTile/pmdred_b06_wall.json",
+      "sha256": "dfab9c7494f36a224eac034951c68f01082711233e4d2352bdebb11c6427069c",
+      "size": 41602,
+      "category": "wall",
+      "cex_mask_prefix": 0,
+      "supported_neighbor_code_count": 47,
+      "supported_neighbor_codes": [
+        "0x00",
+        "0x01",
+        "0x02",
+        "0x03",
+        "0x13",
+        "0x04",
+        "0x05",
+        "0x06",
+        "0x26",
+        "0x07",
+        "0x17",
+        "0x27",
+        "0x37",
+        "0x08",
+        "0x09",
+        "0x89",
+        "0x0A",
+        "0x0B",
+        "0x1B",
+        "0x8B",
+        "0x9B",
+        "0x0C",
+        "0x4C",
+        "0x0D",
+        "0x4D",
+        "0x8D",
+        "0xCD",
+        "0x0E",
+        "0x2E",
+        "0x4E",
+        "0x6E",
+        "0x0F",
+        "0x1F",
+        "0x2F",
+        "0x3F",
+        "0x4F",
+        "0x5F",
+        "0x6F",
+        "0x7F",
+        "0x8F",
+        "0x9F",
+        "0xAF",
+        "0xBF",
+        "0xCF",
+        "0xDF",
+        "0xEF",
+        "0xFF"
+      ],
+      "variant_count": 3,
+      "variant_chunk_ids": {
+        "00": [
+          26,
+          26,
+          26
+        ],
+        "01": [
+          25,
+          25,
+          25
+        ],
+        "02": [
+          26,
+          26,
+          26
+        ],
+        "03": [
+          25,
+          25,
+          25
+        ],
+        "13": [
+          22,
+          29,
+          29
+        ],
+        "04": [
+          24,
+          24,
+          24
+        ],
+        "05": [
+          64,
+          64,
+          64
+        ],
+        "06": [
+          24,
+          24,
+          24
+        ],
+        "26": [
+          24,
+          24,
+          24
+        ],
+        "07": [
+          19,
+          19,
+          19
+        ],
+        "17": [
+          76,
+          76,
+          76
+        ],
+        "27": [
+          19,
+          19,
+          19
+        ],
+        "37": [
+          76,
+          76,
+          76
+        ],
+        "08": [
+          26,
+          26,
+          26
+        ],
+        "09": [
+          25,
+          25,
+          25
+        ],
+        "89": [
+          25,
+          25,
+          25
+        ],
+        "0A": [
+          26,
+          26,
+          26
+        ],
+        "0B": [
+          25,
+          25,
+          25
+        ],
+        "1B": [
+          22,
+          29,
+          29
+        ],
+        "8B": [
+          25,
+          25,
+          25
+        ],
+        "9B": [
+          22,
+          29,
+          29
+        ],
+        "0C": [
+          24,
+          24,
+          24
+        ],
+        "4C": [
+          6,
+          6,
+          6
+        ],
+        "0D": [
+          64,
+          64,
+          64
+        ],
+        "4D": [
+          68,
+          68,
+          68
+        ],
+        "8D": [
+          64,
+          64,
+          64
+        ],
+        "CD": [
+          82,
+          82,
+          82
+        ],
+        "0E": [
+          24,
+          24,
+          24
+        ],
+        "2E": [
+          24,
+          24,
+          24
+        ],
+        "4E": [
+          6,
+          6,
+          6
+        ],
+        "6E": [
+          6,
+          6,
+          6
+        ],
+        "0F": [
+          19,
+          19,
+          19
+        ],
+        "1F": [
+          20,
+          30,
+          28
+        ],
+        "2F": [
+          19,
+          19,
+          19
+        ],
+        "3F": [
+          20,
+          30,
+          28
+        ],
+        "4F": [
+          81,
+          81,
+          81
+        ],
+        "5F": [
+          47,
+          47,
+          47
+        ],
+        "6F": [
+          81,
+          81,
+          81
+        ],
+        "7F": [
+          33,
+          33,
+          33
+        ],
+        "8F": [
+          19,
+          19,
+          19
+        ],
+        "9F": [
+          20,
+          30,
+          28
+        ],
+        "AF": [
+          19,
+          19,
+          19
+        ],
+        "BF": [
+          20,
+          30,
+          28
+        ],
+        "CF": [
+          5,
+          18,
+          13
+        ],
+        "DF": [
+          46,
+          46,
+          46
+        ],
+        "EF": [
+          5,
+          18,
+          13
+        ],
+        "FF": [
+          1,
+          15,
+          10
+        ]
+      },
+      "unique_chunk_ids": [
+        1,
+        5,
+        6,
+        10,
+        13,
+        15,
+        18,
+        19,
+        20,
+        22,
+        24,
+        25,
+        26,
+        28,
+        29,
+        30,
+        33,
+        46,
+        47,
+        64,
+        68,
+        76,
+        81,
+        82
+      ],
+      "animated_neighbor_codes": [],
+      "animated_neighbor_code_count": 0,
+      "max_tile_layers_per_variant": 1,
+      "independent_canm_overlay_layers": true,
+      "one_shot_startup_adapter_frames": true
+    },
+    "secondary": {
+      "path": "RESERVE/pmdred_dungeon_batches/remains_island/rom_b06_startup/Data/AutoTile/pmdred_b06_secondary.json",
+      "sha256": "99fae7b0fbc84ae65fb35af7f93895d0f22eb8d26113c25aaa78388db9873caa",
+      "size": 4818140,
+      "category": "secondary",
+      "cex_mask_prefix": 256,
+      "supported_neighbor_code_count": 47,
+      "supported_neighbor_codes": [
+        "0x00",
+        "0x01",
+        "0x02",
+        "0x03",
+        "0x13",
+        "0x04",
+        "0x05",
+        "0x06",
+        "0x26",
+        "0x07",
+        "0x17",
+        "0x27",
+        "0x37",
+        "0x08",
+        "0x09",
+        "0x89",
+        "0x0A",
+        "0x0B",
+        "0x1B",
+        "0x8B",
+        "0x9B",
+        "0x0C",
+        "0x4C",
+        "0x0D",
+        "0x4D",
+        "0x8D",
+        "0xCD",
+        "0x0E",
+        "0x2E",
+        "0x4E",
+        "0x6E",
+        "0x0F",
+        "0x1F",
+        "0x2F",
+        "0x3F",
+        "0x4F",
+        "0x5F",
+        "0x6F",
+        "0x7F",
+        "0x8F",
+        "0x9F",
+        "0xAF",
+        "0xBF",
+        "0xCF",
+        "0xDF",
+        "0xEF",
+        "0xFF"
+      ],
+      "variant_count": 3,
+      "variant_chunk_ids": {
+        "00": [
+          39,
+          39,
+          39
+        ],
+        "01": [
+          45,
+          45,
+          45
+        ],
+        "02": [
+          39,
+          39,
+          39
+        ],
+        "03": [
+          45,
+          45,
+          45
+        ],
+        "13": [
+          63,
+          63,
+          63
+        ],
+        "04": [
+          70,
+          70,
+          70
+        ],
+        "05": [
+          113,
+          113,
+          113
+        ],
+        "06": [
+          70,
+          70,
+          70
+        ],
+        "26": [
+          70,
+          70,
+          70
+        ],
+        "07": [
+          40,
+          40,
+          40
+        ],
+        "17": [
+          121,
+          121,
+          121
+        ],
+        "27": [
+          40,
+          40,
+          40
+        ],
+        "37": [
+          121,
+          121,
+          121
+        ],
+        "08": [
+          39,
+          39,
+          39
+        ],
+        "09": [
+          45,
+          45,
+          45
+        ],
+        "89": [
+          45,
+          45,
+          45
+        ],
+        "0A": [
+          39,
+          39,
+          39
+        ],
+        "0B": [
+          45,
+          45,
+          45
+        ],
+        "1B": [
+          63,
+          63,
+          63
+        ],
+        "8B": [
+          45,
+          45,
+          45
+        ],
+        "9B": [
+          63,
+          63,
+          63
+        ],
+        "0C": [
+          70,
+          70,
+          70
+        ],
+        "4C": [
+          71,
+          71,
+          71
+        ],
+        "0D": [
+          113,
+          113,
+          113
+        ],
+        "4D": [
+          118,
+          118,
+          118
+        ],
+        "8D": [
+          113,
+          113,
+          113
+        ],
+        "CD": [
+          127,
+          127,
+          127
+        ],
+        "0E": [
+          70,
+          70,
+          70
+        ],
+        "2E": [
+          70,
+          70,
+          70
+        ],
+        "4E": [
+          71,
+          71,
+          71
+        ],
+        "6E": [
+          71,
+          71,
+          71
+        ],
+        "0F": [
+          40,
+          40,
+          40
+        ],
+        "1F": [
+          56,
+          56,
+          56
+        ],
+        "2F": [
+          40,
+          40,
+          40
+        ],
+        "3F": [
+          56,
+          56,
+          56
+        ],
+        "4F": [
+          126,
+          126,
+          126
+        ],
+        "5F": [
+          105,
+          105,
+          105
+        ],
+        "6F": [
+          126,
+          126,
+          126
+        ],
+        "7F": [
+          97,
+          97,
+          97
+        ],
+        "8F": [
+          40,
+          40,
+          40
+        ],
+        "9F": [
+          56,
+          56,
+          56
+        ],
+        "AF": [
+          40,
+          40,
+          40
+        ],
+        "BF": [
+          56,
+          56,
+          56
+        ],
+        "CF": [
+          89,
+          89,
+          89
+        ],
+        "DF": [
+          104,
+          104,
+          104
+        ],
+        "EF": [
+          89,
+          89,
+          89
+        ],
+        "FF": [
+          87,
+          87,
+          87
+        ]
+      },
+      "unique_chunk_ids": [
+        39,
+        40,
+        45,
+        56,
+        63,
+        70,
+        71,
+        87,
+        89,
+        97,
+        104,
+        105,
+        113,
+        118,
+        121,
+        126,
+        127
+      ],
+      "animated_neighbor_codes": [
+        "0x00",
+        "0x01",
+        "0x02",
+        "0x03",
+        "0x13",
+        "0x04",
+        "0x05",
+        "0x06",
+        "0x26",
+        "0x07",
+        "0x17",
+        "0x27",
+        "0x37",
+        "0x08",
+        "0x09",
+        "0x89",
+        "0x0A",
+        "0x0B",
+        "0x1B",
+        "0x8B",
+        "0x9B",
+        "0x0C",
+        "0x4C",
+        "0x0D",
+        "0x4D",
+        "0x8D",
+        "0xCD",
+        "0x0E",
+        "0x2E",
+        "0x4E",
+        "0x6E",
+        "0x0F",
+        "0x1F",
+        "0x2F",
+        "0x3F",
+        "0x4F",
+        "0x5F",
+        "0x6F",
+        "0x7F",
+        "0x8F",
+        "0x9F",
+        "0xAF",
+        "0xBF",
+        "0xCF",
+        "0xDF",
+        "0xEF",
+        "0xFF"
+      ],
+      "animated_neighbor_code_count": 47,
+      "max_tile_layers_per_variant": 16,
+      "independent_canm_overlay_layers": true,
+      "one_shot_startup_adapter_frames": true
+    }
+  },
+  "production_route": {
+    "writes_production_content_tile": false,
+    "writes_production_autotile": false,
+    "resources_to_replace_only": [
+      "PMDRedB06.tile",
+      "Data/AutoTile/pmdred_b06_floor.json",
+      "Data/AutoTile/pmdred_b06_wall.json",
+      "Data/AutoTile/pmdred_b06_secondary.json"
+    ],
+    "relic_forest_blobs_modified": false,
+    "d04p01_d04p02_modified": false
+  }
+}

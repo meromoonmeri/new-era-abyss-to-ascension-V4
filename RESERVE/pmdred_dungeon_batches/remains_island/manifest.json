@@ -1,0 +1,143 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_ROM_RECONSTRUCTED_PIXEL_STARTUP_RUNTIME_PASS",
+  "dungeon_id": 44,
+  "zone_id": "remains_island",
+  "name_fr": "Ile Vestige",
+  "playable_floors": 20,
+  "canonical_music": {
+    "song_indices": [
+      15,
+      113
+    ]
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      6,
+      38
+    ],
+    "files": [
+      {
+        "path": "rom_b06_startup/Content/Tile/PMDRedB06.tile",
+        "bytes": 1090779,
+        "sha256": "6a43140a8465ab8b41e903a93780d0ec33fe2578421347bcadfbcdb3a242d9a6"
+      },
+      {
+        "path": "rom_b06_startup/Data/AutoTile/pmdred_b06_floor.json",
+        "bytes": 41633,
+        "sha256": "5b528db485bdbace68e2e693c82aa9246018b3993fd759cde23fd90431bde9e4"
+      },
+      {
+        "path": "rom_b06_startup/Data/AutoTile/pmdred_b06_secondary.json",
+        "bytes": 4818140,
+        "sha256": "99fae7b0fbc84ae65fb35af7f93895d0f22eb8d26113c25aaa78388db9873caa"
+      },
+      {
+        "path": "rom_b06_startup/Data/AutoTile/pmdred_b06_wall.json",
+        "bytes": 41602,
+        "sha256": "dfab9c7494f36a224eac034951c68f01082711233e4d2352bdebb11c6427069c"
+      },
+      {
+        "path": "rom_b06_startup/runtime/HASHES.sha256",
+        "bytes": 327,
+        "sha256": "1c569f782f377fb01b904f2af1db13df99056f4760604ef82f53e323e4dc7d8a"
+      },
+      {
+        "path": "rom_b06_startup/runtime/events.jsonl",
+        "bytes": 784,
+        "sha256": "44a2cebb0916d5a437ed1a02584bc483b2086976ceaac0ebe1d613d41209ff9d"
+      },
+      {
+        "path": "rom_b06_startup/runtime/fixture_manifest.json",
+        "bytes": 2650,
+        "sha256": "763c53ff345ae92b71a3b03635bcd1601dcdb57ea0177791693dc5d614b30381"
+      },
+      {
+        "path": "rom_b06_startup/runtime/runtime.log",
+        "bytes": 6031,
+        "sha256": "aa933a4bd3a09e3b31f0e85b47edcd887c5e249c32fbbe31adc0e10d822b1c78"
+      },
+      {
+        "path": "rom_b06_startup/runtime/validation.json",
+        "bytes": 588,
+        "sha256": "f3d45cccbd4a5c3ec418bdd6f0a3016fecb3cf2034a3caf250848aa6312c7a75"
+      },
+      {
+        "path": "rom_b06_startup/validation.json",
+        "bytes": 1838,
+        "sha256": "52888d8582d5bba8b373ce2332cb1c3300666f173979b6bd52532779a81edc6d"
+      },
+      {
+        "path": "rom_b38_startup/Content/Tile/PMDRedB38.tile",
+        "bytes": 1334986,
+        "sha256": "5b40f6aecdbbe5d0db526a7076fc32f6055aa59a1ebe71c3382e094b527919cf"
+      },
+      {
+        "path": "rom_b38_startup/Data/AutoTile/pmdred_b38_floor.json",
+        "bytes": 41633,
+        "sha256": "833532024bb545b8285604d20d266eb73eb2ef14c4666ba974dffe4e0c52c864"
+      },
+      {
+        "path": "rom_b38_startup/Data/AutoTile/pmdred_b38_secondary.json",
+        "bytes": 6228092,
+        "sha256": "5f656fed59228901cac5c02bac92a207e9304ef8ede5480ef180565e501883d6"
+      },
+      {
+        "path": "rom_b38_startup/Data/AutoTile/pmdred_b38_wall.json",
+        "bytes": 41602,
+        "sha256": "1fa1d525e1a701f51c2d666a0b4fcda6db403d3a2be420c82ddfddbb5ebc2b0c"
+      },
+      {
+        "path": "rom_b38_startup/runtime/HASHES.sha256",
+        "bytes": 327,
+        "sha256": "7c91af4e205e891683e3a9da04d4b4a659f48d545ee84e9127d59dd10519a6bc"
+      },
+      {
+        "path": "rom_b38_startup/runtime/events.jsonl",
+        "bytes": 784,
+        "sha256": "44a2cebb0916d5a437ed1a02584bc483b2086976ceaac0ebe1d613d41209ff9d"
+      },
+      {
+        "path": "rom_b38_startup/runtime/fixture_manifest.json",
+        "bytes": 2650,
+        "sha256": "6afe9b4025e306ae0896147b6bd262ba34ab4e8743e947f96f99449998e83d2f"
+      },
+      {
+        "path": "rom_b38_startup/runtime/runtime.log",
+        "bytes": 6031,
+        "sha256": "8f952f135e4ddc81814315a00827bc5e5a7566e315fa3ed5bb1213028c142d42"
+      },
+      {
+        "path": "rom_b38_startup/runtime/validation.json",
+        "bytes": 588,
+        "sha256": "319f45a641e84e9bfccfa761eb748c1132a5a10cec7ed767e4edc9aa24dce5e7"
+      },
+      {
+        "path": "rom_b38_startup/validation.json",
+        "bytes": 1830,
+        "sha256": "b7e6f0c5251e2655cadb3ef5723952cf14acad89722cf6d52e9d90a7540353b3"
+      }
+    ],
+    "materials": {
+      "b06": {
+        "pixel_checks": 24732,
+        "runtime": "rom_b06_startup/runtime/validation.json"
+      },
+      "b38": {
+        "pixel_checks": 32976,
+        "runtime": "rom_b38_startup/runtime/validation.json"
+      }
+    },
+    "renders": [
+      "docs/pmdred_eu/renders/material_b06",
+      "docs/pmdred_eu/renders/material_b38"
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PASS",
+    "startup_phase_adapter": "PASS",
+    "runtime": "PASS_MATERIAL_FIXTURE",
+    "promotion": false
+  }
+}

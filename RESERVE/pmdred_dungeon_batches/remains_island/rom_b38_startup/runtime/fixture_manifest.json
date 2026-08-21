@@ -1,0 +1,80 @@
+{
+  "kind": "ignored_symlink_overlay",
+  "quest": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/b38-runtime/quest",
+  "quest_name": "pmdred_eu_fixture",
+  "asset_root": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/b38-runtime/asset/",
+  "appdata": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/b38-runtime/appdata/",
+  "conversion_set": "direct",
+  "candidate_count": 1,
+  "master_zone_ground_count": 399,
+  "replaced_fixture_local_tile_index_nodes": [],
+  "reference_plan": null,
+  "reference_plan_sha256": null,
+  "entity_integrated_ids": [],
+  "canonical_baseline_root": null,
+  "entries": [
+    {
+      "id": "d01p02",
+      "zone_index": 398,
+      "spawn": {
+        "x": 176,
+        "y": 160,
+        "clear_move_directions": 4,
+        "movement_probes": {
+          "successful": {
+            "x": 176,
+            "y": 160,
+            "direction": "Down",
+            "expected_delta": [
+              0,
+              8
+            ]
+          },
+          "blocked": {
+            "x": 176,
+            "y": 120,
+            "direction": "Up",
+            "expected_delta": [
+              0,
+              -8
+            ]
+          },
+          "blocked_expectation": "BMA_SOLID_BLOCK",
+          "solid_cells": 1503
+        }
+      },
+      "preview_ticks": [
+        0
+      ],
+      "source_ground": "RESERVE/pmdred_direct/grounds/d01p02.rsground",
+      "source_tile": "RESERVE/pmdred_direct/tiles/d01p02_DirectBase.tile",
+      "source_ground_sha256": "ce2e109b082a5a6986fb5768ea315b60dfb5549d882f2f11908842b37e52e47e",
+      "source_tile_sha256": "0aff40efcb0a42849495510eac868402245e0489876da595511b28b74466350f"
+    }
+  ],
+  "schema": "new-era.pmdred-eu.sinister-woods-procedural-runtime-fixture.v1",
+  "scope": "gloomy_forest procedural segments 0, 1 and 3 at floor 0",
+  "zone_source": "Data/Zone/gloomy_forest.json",
+  "zone_sha256": "45bc538700dc67cc92e58a276b1a8cd36d52427b846decf737ef85f1ab39308c",
+  "map_status_source": "Data/MapStatus/deep_shadow.json",
+  "map_status_sha256": "0750cd49437838b4b045872fcaacc99cc1cd26e07ec6a4847fd5701a5a51302a",
+  "material_candidate": "RESERVE/pmdred_dungeon_batches/remains_island/rom_b38_startup",
+  "material_candidate_manifest_sha256": "61c15a4b22990027bb8a6294da952bc76e15975c13c3517ed86f5e49a1f9eb7c",
+  "startup_adapter": true,
+  "startup_durations": [
+    8,
+    14
+  ],
+  "material_sheet": "PMDRedB38",
+  "material_autotile_files": {
+    "floor": "pmdred_b38_floor.json",
+    "wall": "pmdred_b38_wall.json",
+    "secondary": "pmdred_b38_secondary.json"
+  },
+  "segments": [
+    0,
+    1,
+    3
+  ],
+  "production_assets_modified": false
+}
