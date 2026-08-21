@@ -1,0 +1,68 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 2,
+  "zone_id": "mt_steel",
+  "name_fr": "Mt Acier",
+  "playable_floors": 9,
+  "canonical_music": {
+    "song_index": 120,
+    "staged_path": "RESERVE/pmdred_music/PMD Red EU - Mt. Steel.ogg"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      39,
+      40,
+      64
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/MtSteel1.tile",
+        "bytes": 263590,
+        "sha256": "d14096e06b0f7aad6b82f77a92a83149d07ee3bd2c87659f9b199459c2546949"
+      },
+      {
+        "path": "Content/Tile/MtSteel2.tile",
+        "bytes": 352752,
+        "sha256": "e618d7fbd527a5a4fc2a08c573984b6ac6254a257ae0a3679a389031fb96db22"
+      },
+      {
+        "path": "Data/AutoTile/mt_steel_1_floor.json",
+        "bytes": 10271,
+        "sha256": "4188be01470265c214cace6ec46a4749a19e0feec54b0edd208f0a904d3e9c68"
+      },
+      {
+        "path": "Data/AutoTile/mt_steel_1_secondary.json",
+        "bytes": 93737,
+        "sha256": "945702775a6fd7944c40cb6c1b8ab0f087ff6911c34136de5d97ede40a7f72d2"
+      },
+      {
+        "path": "Data/AutoTile/mt_steel_1_wall.json",
+        "bytes": 7087,
+        "sha256": "f74b5902ae15372b45efe329d7c56cee2bdeab322fb5a74b18e04304a44bd00a"
+      },
+      {
+        "path": "Data/AutoTile/mt_steel_2_floor.json",
+        "bytes": 5763,
+        "sha256": "d5e65ef7025b1e672f128e19458997049c0e6cf68231a8c1fe61e0280f1a87af"
+      },
+      {
+        "path": "Data/AutoTile/mt_steel_2_secondary.json",
+        "bytes": 93737,
+        "sha256": "a8561a049e405e4f07a0539ff68b352c1f407584090559369c71b1038aac7444"
+      },
+      {
+        "path": "Data/AutoTile/mt_steel_2_wall.json",
+        "bytes": 9047,
+        "sha256": "84652406eedb539caccba81b48c58bd0c6d9818755b15a7bdbd9a092196b7ed0"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

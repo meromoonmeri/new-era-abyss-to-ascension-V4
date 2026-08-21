@@ -1,0 +1,46 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 9,
+  "zone_id": "mt_blaze",
+  "name_fr": "Mt Ardent",
+  "playable_floors": 12,
+  "canonical_music": {
+    "song_index": 25,
+    "staged_path": "RESERVE/pmdred_music/PMD Red EU - Mt Blaze.ogg"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      46
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/MtBlaze.tile",
+        "bytes": 353445,
+        "sha256": "0bbe02e39c102e2f894fc93c8db500c0d9515142234e6ad45b63226b2389eb96"
+      },
+      {
+        "path": "Data/AutoTile/mt_blaze_floor.json",
+        "bytes": 5615,
+        "sha256": "e2593ab3cc70c9b067dfb8bb68df5e26e223f09d130942753ffde281629b7591"
+      },
+      {
+        "path": "Data/AutoTile/mt_blaze_secondary.json",
+        "bytes": 28017,
+        "sha256": "72b730be72b0a789db2e9871fb8214ce6099ed1111f3f18fc013019d4fc94fc9"
+      },
+      {
+        "path": "Data/AutoTile/mt_blaze_wall.json",
+        "bytes": 27560,
+        "sha256": "30a67fd1ff4813e0dbd32108d53a2e976fbc3def754267a1fd63f7625fa8e004"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

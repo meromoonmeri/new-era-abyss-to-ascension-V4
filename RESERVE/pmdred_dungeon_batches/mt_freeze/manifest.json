@@ -1,0 +1,46 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 13,
+  "zone_id": "mt_freeze",
+  "name_fr": "Mt Glacial",
+  "playable_floors": 15,
+  "canonical_music": {
+    "song_index": 115,
+    "staged_path": "RESERVE/pmdred_music/PMD Red EU - Mt Freeze.ogg"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      47
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/MtFreeze.tile",
+        "bytes": 337181,
+        "sha256": "ab8184e98e35a5f2ad4256dffdcee827f5b453d4b26af76087fe34712f711f9c"
+      },
+      {
+        "path": "Data/AutoTile/mt_freeze_floor.json",
+        "bytes": 5762,
+        "sha256": "97d5ba2ddf0442fcae48fcfe6cc91dc2f7200f953b5e3cdd20edfc474a2c2741"
+      },
+      {
+        "path": "Data/AutoTile/mt_freeze_secondary.json",
+        "bytes": 39053,
+        "sha256": "0bc2942dea612f0a4e8953326b3c74055996db315d79cd7474a09d7162ac3ff6"
+      },
+      {
+        "path": "Data/AutoTile/mt_freeze_wall.json",
+        "bytes": 6204,
+        "sha256": "25e03d392517d2f90b2c9f6511105cfa5b05221f5519253c3f63808501819de8"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

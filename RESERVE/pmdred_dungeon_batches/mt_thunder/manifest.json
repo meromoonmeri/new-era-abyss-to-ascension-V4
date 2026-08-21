@@ -1,0 +1,46 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 5,
+  "zone_id": "mt_thunder",
+  "name_fr": "Mt Foudre",
+  "playable_floors": 10,
+  "canonical_music": {
+    "song_index": 111,
+    "staged_path": "RESERVE/pmdred_music/PMD Red EU - Mt Thunder.ogg"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      42
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/MtThunder.tile",
+        "bytes": 495767,
+        "sha256": "2bceaf0802d103a395f66c7fc1b7fd082ed444669b720f6722cfa25b78bf4a41"
+      },
+      {
+        "path": "Data/AutoTile/mt_thunder_floor.json",
+        "bytes": 5713,
+        "sha256": "53689daaab063f6b7548326e2b965171a3ec105cddc711fda160f807ae13d06f"
+      },
+      {
+        "path": "Data/AutoTile/mt_thunder_secondary.json",
+        "bytes": 92321,
+        "sha256": "80ec9df7f79da446c79c05b4da965c1b2dbe2412f9ed0d7d8965da36dc44eb01"
+      },
+      {
+        "path": "Data/AutoTile/mt_thunder_wall.json",
+        "bytes": 7942,
+        "sha256": "19722ab3364ab07506755ce9019bff43a58b68baf842dc36e3396495eb7d1e27"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 6,
+  "zone_id": "mt_thunder_peak",
+  "name_fr": "Mt Foudre-Pic",
+  "playable_floors": 3,
+  "canonical_music": {
+    "song_index": 126,
+    "staged_path": "RESERVE/pmdred_music/PMD Red EU - Mt Thunder Peak.ogg"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      43,
+      66
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/MtThunderPeak.tile",
+        "bytes": 333195,
+        "sha256": "1de8a369dc33e4b4575d15c8c2a318fa518e1d902431d74f6043152126960b02"
+      },
+      {
+        "path": "Data/AutoTile/mt_thunder_peak_floor.json",
+        "bytes": 6013,
+        "sha256": "dc69b65b798e3477d12d78446e5fb770bb9c8c2688d42ca99efb70a8f7ef85b9"
+      },
+      {
+        "path": "Data/AutoTile/mt_thunder_peak_secondary.json",
+        "bytes": 100330,
+        "sha256": "54e602253d79c17984971dbfdab22d2a27041c1a668c2ddd750eaf357ba043da"
+      },
+      {
+        "path": "Data/AutoTile/mt_thunder_peak_wall.json",
+        "bytes": 5759,
+        "sha256": "df93569e6a48d1fd932fcf2f53577eee59ea9b48300a6a7d8cb0dedf36fffe60"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

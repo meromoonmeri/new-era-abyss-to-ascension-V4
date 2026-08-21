@@ -1,0 +1,46 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 1,
+  "zone_id": "thunderwave_cave",
+  "name_fr": "Grotte Eclair",
+  "playable_floors": 5,
+  "canonical_music": {
+    "song_index": 14,
+    "staged_path": "RESERVE/pmdred_music/PMD Red EU - Thunderwave Cave.ogg"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      50
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/ThunderwaveCave.tile",
+        "bytes": 385147,
+        "sha256": "75e602b0102b41584c9ced0f4d1b04068c03f777427289c313e1bfea9da8ea40"
+      },
+      {
+        "path": "Data/AutoTile/thunderwave_cave_floor.json",
+        "bytes": 6112,
+        "sha256": "d1dbaa4805fb4d623f420f6cdb82e36686e82ba56882260d250e63ba58811259"
+      },
+      {
+        "path": "Data/AutoTile/thunderwave_cave_secondary.json",
+        "bytes": 153488,
+        "sha256": "0e442cbd681b2dba35f6ccee0f199daff1f8a5e7299a12e240e21f4a5f7e59a6"
+      },
+      {
+        "path": "Data/AutoTile/thunderwave_cave_wall.json",
+        "bytes": 10054,
+        "sha256": "90bd144ae0b0d2c3ef8654f7a2e1e7d0a9c9033a847bdd571cce278cba49bf8a"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

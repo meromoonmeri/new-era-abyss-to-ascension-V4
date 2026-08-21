@@ -1,0 +1,46 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 11,
+  "zone_id": "frosty_forest",
+  "name_fr": "Forêt Givrée",
+  "playable_floors": 9,
+  "canonical_music": {
+    "song_index": 104,
+    "staged_path": "RESERVE/pmdred_music/PMD Red EU - Frosty Forest.ogg"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      36
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/FrostyForest.tile",
+        "bytes": 538168,
+        "sha256": "503d4e3a52a532e4b5b70d9f53e34188c28e6c1a1bd8d40e8c083c1ec2ab2d80"
+      },
+      {
+        "path": "Data/AutoTile/frosty_forest_floor.json",
+        "bytes": 10246,
+        "sha256": "0570c8d525d4d86194ba228369fcab16a621fb94bfac6aaf165b40f967c975de"
+      },
+      {
+        "path": "Data/AutoTile/frosty_forest_secondary.json",
+        "bytes": 61675,
+        "sha256": "7394e2802f77acd835358f83b10eafecbcd5c1385e4a9c999c964c5abb69e0b4"
+      },
+      {
+        "path": "Data/AutoTile/frosty_forest_wall.json",
+        "bytes": 6730,
+        "sha256": "c4e734ef5d2691ad0dd20c3da42adf97a3aa8dc332c972eecc4107f4ef2b68cd"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

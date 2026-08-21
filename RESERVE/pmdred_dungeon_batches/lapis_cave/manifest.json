@@ -1,0 +1,46 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 8,
+  "zone_id": "lapis_cave",
+  "name_fr": "Grotte Lapis",
+  "playable_floors": 14,
+  "canonical_music": {
+    "song_index": 102,
+    "staged_path": "RESERVE/pmdred_music/PMD Red EU - Lapis Cave.ogg"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      45
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/LapisCave.tile",
+        "bytes": 324897,
+        "sha256": "a7f06218e20dedade8f6af58e9243e4782e7fd9a5c8a92b9fbdf050e8af1b6c7"
+      },
+      {
+        "path": "Data/AutoTile/lapis_cave_floor.json",
+        "bytes": 5812,
+        "sha256": "08093133527c5bb5cefff5bafe983c4e42879983784fe49a521f39dd72a8810f"
+      },
+      {
+        "path": "Data/AutoTile/lapis_cave_secondary.json",
+        "bytes": 73517,
+        "sha256": "cb60bbad99011d7dc3367430cd4acce3c2360402ab9613de4961a60ccca4ec6b"
+      },
+      {
+        "path": "Data/AutoTile/lapis_cave_wall.json",
+        "bytes": 6160,
+        "sha256": "add7c612e225b7efac8bc27d4ffc3c965ee346abd43973101dea17c48334c030"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 19,
+  "zone_id": "stormy_sea",
+  "name_fr": "Mer Houleuse",
+  "playable_floors": 40,
+  "canonical_music": {
+    "song_index": 21,
+    "staged_path": "RESERVE/pmdred_music/PMD Red EU - Stormy Sea.ogg"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      0,
+      49,
+      74
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/StormySea1.tile",
+        "bytes": 550750,
+        "sha256": "d50aef4d90964c949bcef8286d2c037e76583a57ab21f9d2b8c9e243d1ea5a2a"
+      },
+      {
+        "path": "Content/Tile/StormySea2.tile",
+        "bytes": 438395,
+        "sha256": "2955eab0ee16c4677d3f1f144980152d37d6056c4908de6e02950d94b32f8b81"
+      },
+      {
+        "path": "Data/AutoTile/stormy_sea_1_floor.json",
+        "bytes": 32300,
+        "sha256": "3b7305a5c536b382eb3dcb5a90dab46d4a1e7892dfb2d606ac9856482a822fba"
+      },
+      {
+        "path": "Data/AutoTile/stormy_sea_1_secondary.json",
+        "bytes": 31984,
+        "sha256": "39cb23077d5c2d0a3c710b0bdb6eb877d412049b082953e9a6efbe6296f0d496"
+      },
+      {
+        "path": "Data/AutoTile/stormy_sea_1_wall.json",
+        "bytes": 51478,
+        "sha256": "fc163482e067bec7270535e4b3107ffd47fabf27043a6ca82f7f0b777982b826"
+      },
+      {
+        "path": "Data/AutoTile/stormy_sea_2_floor.json",
+        "bytes": 32300,
+        "sha256": "eccd9248e135f5a0147bf54ec5d102bbc6ccfb067e5e07c125849cee2b57767f"
+      },
+      {
+        "path": "Data/AutoTile/stormy_sea_2_secondary.json",
+        "bytes": 29514,
+        "sha256": "57b64ddcb5120e059d07e174f60b1fc309aa606e6a57c5465881e176242eb87d"
+      },
+      {
+        "path": "Data/AutoTile/stormy_sea_2_wall.json",
+        "bytes": 51478,
+        "sha256": "02abf666ac8e7195e0bdd52652f3ceec82038b564a29ac247564afa68d8c55be"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

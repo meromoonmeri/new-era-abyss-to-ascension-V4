@@ -1,0 +1,46 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 0,
+  "zone_id": "tiny_woods",
+  "name_fr": "Petit Bois",
+  "playable_floors": 3,
+  "canonical_music": {
+    "song_index": 125,
+    "staged_path": "RESERVE/pmdred_music/PMD Red EU - Tiny Woods.ogg"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      14
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/TinyWoods.tile",
+        "bytes": 390531,
+        "sha256": "05959d5bad12e594ecc3cc9f450db74231c8b92fc1511fa96ef0163e8a9c0202"
+      },
+      {
+        "path": "Data/AutoTile/tiny_woods_floor.json",
+        "bytes": 10267,
+        "sha256": "bc88c0a38c229502108d609bde74f6161123034d3da32f239e44bd035b28f74d"
+      },
+      {
+        "path": "Data/AutoTile/tiny_woods_secondary.json",
+        "bytes": 50582,
+        "sha256": "abd82365d87c37698a67d552a6fb8566a046e827a1e66920ffb560cb4157b948"
+      },
+      {
+        "path": "Data/AutoTile/tiny_woods_wall.json",
+        "bytes": 12001,
+        "sha256": "919d6de85e3fc24b98abb496c0232b65fbc16298e9c5c950cbf36679973521e1"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

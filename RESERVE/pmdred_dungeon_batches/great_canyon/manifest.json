@@ -1,0 +1,46 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 7,
+  "zone_id": "great_canyon",
+  "name_fr": "Grand Ravin",
+  "playable_floors": 12,
+  "canonical_music": {
+    "song_index": 20,
+    "staged_path": "RESERVE/pmdred_music/PMD Red EU - Great Canyon.ogg"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      44
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/GreatCanyon.tile",
+        "bytes": 413792,
+        "sha256": "f3fcab19e3ce9113d260f05a2e4d33e87f0054eefb4d9286ff859c59fb1aae8a"
+      },
+      {
+        "path": "Data/AutoTile/great_canyon_floor.json",
+        "bytes": 5912,
+        "sha256": "4d3e5f2d872219c0ffa895e08b1ee36980cfcf7e41ed9a50c91e056a0db595ef"
+      },
+      {
+        "path": "Data/AutoTile/great_canyon_secondary.json",
+        "bytes": 115115,
+        "sha256": "d359a9c6033c1dd2493a998f358435d00ee8d44b1719ce2d9d251e7710ff2ce4"
+      },
+      {
+        "path": "Data/AutoTile/great_canyon_wall.json",
+        "bytes": 8894,
+        "sha256": "0a54e17ff97dd3af4cc7b3e39c2b28d66ad27928d3f8de4d7719484a75b8f19c"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}
