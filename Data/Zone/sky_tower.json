@@ -41,7 +41,7 @@
                     },
                     "Value": {
                       "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "Music": "Sky Tower.ogg",
+                      "Music": "PMD Red EU - Sky Tower.ogg",
                       "TimeLimit": 1500,
                       "TileSight": 0,
                       "CharSight": 0,
@@ -6017,7 +6017,7 @@
                     },
                     "Value": {
                       "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "Music": "Sky Tower.ogg",
+                      "Music": "PMD Red EU - Sky Tower.ogg",
                       "TimeLimit": 1500,
                       "TileSight": 0,
                       "CharSight": 0,
@@ -11761,7 +11761,7 @@
                     },
                     "Value": {
                       "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "Music": "Sky Tower.ogg",
+                      "Music": "PMD Red EU - Sky Tower Summit.ogg",
                       "TimeLimit": 1500,
                       "TileSight": 0,
                       "CharSight": 0,

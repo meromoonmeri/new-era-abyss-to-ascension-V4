@@ -66,7 +66,7 @@ function tour_ciel_sommet.ArrivalBody()
     ReplayEnding.EmptyArena({
       hero = {296, 296}, partner = {256, 296},
       camera = {272, 280}, look = {272, 272},
-      walk = 48, title = true, music = 'Sky Tower.ogg',
+      walk = 48, title = true, music = 'PMD Red EU - Sky Tower Summit.ogg',
     })
     return
   end
@@ -76,7 +76,7 @@ function tour_ciel_sommet.ArrivalBody()
   GROUND:TeleportTo(hero, 296, 296, Direction.Up)
   if partner ~= nil then GROUND:TeleportTo(partner, 256, 296, Direction.Up) end
   GAME:MoveCamera(272, 280, 1, false)
-  pcall(function() SOUND:PlayBGM('Sky Tower.ogg', true) end)
+  pcall(function() SOUND:PlayBGM('PMD Red EU - Sky Tower Summit.ogg', true) end)
   GAME:FadeIn(40)
   GAME:WaitFrames(30)
 
@@ -159,7 +159,7 @@ function tour_ciel_sommet.PlayPostVictoryScene(hero, partner)
   -- Rayquaza est blessé, à bout de forces
   GROUND:CharSetAnim(rayquaza, "Pain", true)
   GROUND:TeleportTo(hero, 296, 296, Direction.Up)
-  GROUND:TeleportTo(partner, 256, 296, Direction.Up)
+  if partner ~= nil then GROUND:TeleportTo(partner, 256, 296, Direction.Up) end
   GAME:MoveCamera(272, 280, 1, false)
   
   GAME:FadeIn(30)
