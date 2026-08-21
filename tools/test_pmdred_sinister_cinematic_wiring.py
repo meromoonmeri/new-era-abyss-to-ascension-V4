@@ -8,7 +8,7 @@ CLEARING=ROOT/'Data/Script/halcyon/ground/sinister_woods_clearing/init.lua'
 MUSIC=ROOT/'Content/Music/PMD Red EU - In The Depths Of The Pit.ogg'
 class Tests(unittest.TestCase):
  def test_exact_rom_music_is_promoted_and_selected(self):
-  self.assertEqual(hashlib.sha256(MUSIC.read_bytes()).hexdigest(),'7bef2eda74b112f08c9d04f67f5a0f76a6284356571c292913008117b3d46293');text=SCRIPT.read_text();self.assertIn("SOUND:PlayBGM('PMD Red EU - In The Depths Of The Pit.ogg',true)",text);self.assertNotIn("SOUND:PlayBGM('In the Depths of the Pit.ogg',true)",text)
+  self.assertEqual(hashlib.sha256(MUSIC.read_bytes()).hexdigest(),'7bef2eda74b112f08c9d04f67f5a0f76a6284356571c292913008117b3d46293');text=SCRIPT.read_text();self.assertIn("SOUND:PlayBGM('PMD Red EU - Sinister Woods.ogg', true)",text);self.assertNotIn("SOUND:PlayBGM('Mystifying Forest.ogg', true)",text);self.assertIn("SOUND:PlayBGM('PMD Red EU - In The Depths Of The Pit.ogg',true)",text);self.assertNotIn("SOUND:PlayBGM('In the Depths of the Pit.ogg',true)",text)
  def test_d04p02_source_slots_are_recast_not_recomposed(self):
   text=SCRIPT.read_text();
   for token in ["TeleportTo(hero, 256, 260", "TeleportTo(partner, 296, 260", "MoveToPosition(adagio,272,192", "MoveToPosition(aria,312,224", "MoveToPosition(sonata,240,224", "MoveCamera(276,220,35,false)"]:self.assertIn(token,text)

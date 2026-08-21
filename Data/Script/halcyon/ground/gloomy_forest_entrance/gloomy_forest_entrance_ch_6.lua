@@ -32,7 +32,7 @@ function gloomy_forest_entrance_ch_6.ApproachCutscene()
   GROUND:TeleportTo(hero, 208, 192, Direction.Up)
   if partner then GROUND:TeleportTo(partner, 240, 192, Direction.Up) end
   GAME:MoveCamera(224, 176, 1, false)
-  SOUND:PlayBGM('Mystifying Forest.ogg', true)
+  SOUND:PlayBGM('PMD Red EU - Sinister Woods.ogg', true)
   GAME:FadeIn(30)
   dialogue(partner, 'GF6E_A01', 'Worried')
   dialogue(partner, 'GF6E_A02', 'Worried')
