@@ -130,7 +130,7 @@ def install_probe(quest: Path) -> None:
 
 def install_startup_adapter(
     quest: Path, sheet_name: str, categories: list[str], durations: list[int],
-    record_specs: dict[int, tuple[int, int]],
+    record_specs: dict[int, tuple[int, int]], record_count: int,
 ) -> None:
     """Install the fixture-local exact one-shot CANM frame rotation adapter."""
     adapter_dir = quest / "Data/Script/halcyon/services/sinister_woods_b41_startup_adapter"
@@ -168,6 +168,7 @@ local CATS={{{cats_lua}}}
 local FIELDS={{{fields_lua}}}
 local DURATIONS={{{duration_lua}}}
 local RECORDS={{{record_lua}}}
+local RAW_BASE={(1 + record_count) * 16}
 local function each_layer(fn)
   for _,cat in ipairs(CATS) do
     local auto=_DATA:GetAutoTile(cat)
@@ -194,7 +195,7 @@ local function restore_raw_startup()
       if spec~=nil and layer.Frames.Count==spec.count then
         layer.Frames:RemoveAt(0)
         layer.Frames:Add(frame(x,((1+record)*16+spec.count-1)*16+row))
-        layer.Frames:Insert(0,frame(x,(17*16+record)*16+row))
+        layer.Frames:Insert(0,frame(x,(RAW_BASE+record)*16+row))
         count=count+1
       end
     end
@@ -207,7 +208,7 @@ local function publish_record(duration,origin)
     if layer.Frames.Count>1 and layer.FrameLength==duration then
       local first=layer.Frames[0]
       local group=math.floor(first.TexLoc.Y/16)
-      if group>=17*16 then
+      if group>=RAW_BASE then
         layer.Frames:RemoveAt(0)
         local last=layer.Frames[layer.Frames.Count-1]
         layer.Frames:RemoveAt(layer.Frames.Count-1)
@@ -315,7 +316,8 @@ def build(output: Path, candidate: Path | None = None) -> Path:
     shutil.copy2(ROOT / "Data/MapStatus/deep_shadow.json", deep)
     startup_adapter = False
     startup_durations = [8, 12]
-    record_specs = {index: (12 if index < 13 else 8, 16) for index in range(16)}
+    record_count = 16
+    record_specs = {index: (12 if index < 13 else 8, 16) for index in range(record_count)}
     sheet_name = "TreeshroudForest1"
     auto_files = {
         "floor": "treeshroud_forest_1_floor.json",
@@ -338,16 +340,17 @@ def build(output: Path, candidate: Path | None = None) -> Path:
             None,
         )
         if canm is not None:
+            record_count = int(canm.get("active_record_count", len(canm["records"])))
             record_specs = {
                 int(record["index"]): (int(record["duration_ticks"]), int(record["count"]))
-                for record in canm["records"] if int(record["index"]) < 16
+                for record in canm["records"] if int(record["index"]) < record_count
             }
     install_material_candidate(quest, candidate, auto_files)
     install_probe(quest)
     if startup_adapter:
         install_startup_adapter(
             quest, sheet_name, [Path(name).stem for name in auto_files.values()],
-            startup_durations, record_specs,
+            startup_durations, record_specs, record_count,
         )
     prepare_content_overlay(output / "asset", candidate, sheet_name)
     manifest = json.loads((output / "fixture_manifest.json").read_text(encoding="utf-8"))

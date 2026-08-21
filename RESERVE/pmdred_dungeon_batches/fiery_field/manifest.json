@@ -1,0 +1,86 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_ROM_RECONSTRUCTED_PIXEL_STARTUP_RUNTIME_PASS",
+  "dungeon_id": 34,
+  "zone_id": "fiery_field",
+  "name_fr": "Terres de Feu",
+  "playable_floors": 30,
+  "canonical_music": {
+    "song_indices": [
+      25
+    ]
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      59
+    ],
+    "rom_reconstructed_id": 59,
+    "files": [
+      {
+        "path": "rom_b59_startup/Content/Tile/PMDRedB59.tile",
+        "bytes": 1415724,
+        "sha256": "b17f32f58a581583ade7231fd65ddeab87a3cdbe98ac653dd2f03be6fb14105c"
+      },
+      {
+        "path": "rom_b59_startup/Data/AutoTile/pmdred_b59_floor.json",
+        "bytes": 41580,
+        "sha256": "f70b307213d1031cbca7a2baee1caa739dbaba33c7240191ea4c6d62dff15f58"
+      },
+      {
+        "path": "rom_b59_startup/Data/AutoTile/pmdred_b59_secondary.json",
+        "bytes": 3198716,
+        "sha256": "995a1d0a084f3dd008bc5a5811ef6899618d78cc6bea0735be0d1e345861c51e"
+      },
+      {
+        "path": "rom_b59_startup/Data/AutoTile/pmdred_b59_wall.json",
+        "bytes": 1619082,
+        "sha256": "df35da857cd414ebafcec745f62399d5391a304ab64a85d77d2b2aa39bcda1fd"
+      },
+      {
+        "path": "rom_b59_startup/manifest.json",
+        "bytes": 38749,
+        "sha256": "cde2c71bb96e9de97d9ccbe7820ec31f64553b6cf52ea00d33a666036f097f3d"
+      },
+      {
+        "path": "rom_b59_startup/runtime/HASHES.sha256",
+        "bytes": 327,
+        "sha256": "4dc4995c67e8bdf3361586c129897847878c274b7cef1939d4ba38858e920d86"
+      },
+      {
+        "path": "rom_b59_startup/runtime/events.jsonl",
+        "bytes": 784,
+        "sha256": "44a2cebb0916d5a437ed1a02584bc483b2086976ceaac0ebe1d613d41209ff9d"
+      },
+      {
+        "path": "rom_b59_startup/runtime/fixture_manifest.json",
+        "bytes": 2664,
+        "sha256": "d0e53a0f671257392b7965df02ee521ec75f1de9bcba17bc2989ff497ab5cf59"
+      },
+      {
+        "path": "rom_b59_startup/runtime/runtime.log",
+        "bytes": 5789,
+        "sha256": "099069592c00beb3989ed0e6f8c62349e6c816e6b3e15b27b34683c9cdeb4c1b"
+      },
+      {
+        "path": "rom_b59_startup/runtime/validation.json",
+        "bytes": 472,
+        "sha256": "3cb607b5f9d8b3f3930b4921dc23cdf1f195c3ee362595c74ea3fd220e0fd0fc"
+      },
+      {
+        "path": "rom_b59_startup/validation.json",
+        "bytes": 2064,
+        "sha256": "4a52b5242448acf448524ceb25fbc76f7e001f5c9d17c4eadea2841ec57484ca"
+      }
+    ],
+    "pixel_checks": 22100,
+    "runtime_evidence": "rom_b59_startup/runtime/validation.json",
+    "renders": "docs/pmdred_eu/renders/material_b59"
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PASS",
+    "startup_phase_adapter": "PASS",
+    "runtime": "PASS_MATERIAL_FIXTURE",
+    "promotion": false
+  }
+}

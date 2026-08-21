@@ -1,0 +1,79 @@
+{
+  "schema": "new-era.pmdred-eu.sinister-woods-b59-material-validation.v1",
+  "candidate": "RESERVE/pmdred_dungeon_batches/fiery_field/rom_b59_startup",
+  "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+  "source": {
+    "b59fon_sha256": "78ba75a32bc95462fabe56dc3d0bd253b06c55b86c38cd19342697738dbc8002",
+    "b59cel_sha256": "86264df4d8420489655611de384b3c8c95b45b24b39b8ea703c66fcd9c4e56a6",
+    "b59cex_sha256": "c138c96899fb26b120c9e5c1da11ebb98635b226b2ba23eebab22d8ccf53a0b5",
+    "b59pal_sha256": "0e238e6ad6e2246b6da9f48678885dfec9b43a32bc267b9662c82d1c1a5d9c9b",
+    "b59canm_root_sha256": "be1674622e912584c6be6780d9fe7e879535cdaf8ef84a2bc58ee220bb9526fd"
+  },
+  "atlas_sha256": "b17f32f58a581583ade7231fd65ddeab87a3cdbe98ac653dd2f03be6fb14105c",
+  "categories": {
+    "floor": {
+      "codes": 47,
+      "variants": 3,
+      "layer_checks": 0,
+      "pixel_checks": 0,
+      "animated_chunks": 0
+    },
+    "wall": {
+      "codes": 47,
+      "variants": 3,
+      "layer_checks": 0,
+      "pixel_checks": 0,
+      "animated_chunks": 140
+    },
+    "secondary": {
+      "codes": 47,
+      "variants": 3,
+      "layer_checks": 0,
+      "pixel_checks": 0,
+      "animated_chunks": 141
+    }
+  },
+  "layer_checks": 3593,
+  "pixel_checks": 22100,
+  "canm_independent_durations": {
+    "0": 14,
+    "1": 14,
+    "2": 14,
+    "3": 14,
+    "4": 14,
+    "5": 14,
+    "6": 14,
+    "7": 14,
+    "8": 14,
+    "9": 14,
+    "10": 14,
+    "11": 14,
+    "12": 14,
+    "13": 14,
+    "14": 14,
+    "15": 14,
+    "16": 14,
+    "17": 14,
+    "18": 14,
+    "19": 14,
+    "20": 14,
+    "21": 14,
+    "22": 14,
+    "23": 14,
+    "24": 14,
+    "25": 14,
+    "26": 14,
+    "27": 14,
+    "28": 14,
+    "29": 14,
+    "30": 14,
+    "31": 14
+  },
+  "startup_raw_palette_policy": "staged as a one-shot frame only when the startup adapter candidate is enabled",
+  "startup_adapter_candidate": true,
+  "production_assets_written": false,
+  "d04p01_d04p02_touched": false,
+  "relic_forest_blobs_touched": false,
+  "result": "PASS",
+  "blockers": []
+}
