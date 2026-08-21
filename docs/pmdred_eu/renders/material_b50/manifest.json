@@ -1,0 +1,49 @@
+{
+  "schema": "pmdred-material-contact-sheet-v1",
+  "candidate": "RESERVE/pmdred_dungeon_batches/oddity_cave/rom_b50_startup",
+  "sheet": "PMDRedB50",
+  "renders": [
+    {
+      "category": "floor",
+      "phase": "startup",
+      "path": "floor_startup.png",
+      "width": 576,
+      "height": 144
+    },
+    {
+      "category": "floor",
+      "phase": "first_published",
+      "path": "floor_first_published.png",
+      "width": 576,
+      "height": 144
+    },
+    {
+      "category": "wall",
+      "phase": "startup",
+      "path": "wall_startup.png",
+      "width": 576,
+      "height": 144
+    },
+    {
+      "category": "wall",
+      "phase": "first_published",
+      "path": "wall_first_published.png",
+      "width": 576,
+      "height": 144
+    },
+    {
+      "category": "secondary",
+      "phase": "startup",
+      "path": "secondary_startup.png",
+      "width": 576,
+      "height": 144
+    },
+    {
+      "category": "secondary",
+      "phase": "first_published",
+      "path": "secondary_first_published.png",
+      "width": 576,
+      "height": 144
+    }
+  ]
+}

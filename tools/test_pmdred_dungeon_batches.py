@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import hashlib,json
+import hashlib,json,struct
 from pathlib import Path
 import unittest
 ROOT=Path(__file__).resolve().parents[1];BASE=ROOT/'RESERVE/pmdred_dungeon_batches'
@@ -19,6 +19,11 @@ class Tests(unittest.TestCase):
  def test_unown_b07_pixel_startup_runtime(self):
   base=BASE/'unown_relic';d=json.loads((base/'manifest.json').read_text());self.assertEqual(d['status'],'STAGED_ROM_RECONSTRUCTED_PIXEL_STARTUP_RUNTIME_PASS');self.assertEqual(d['gates']['pixel_differential'],'PASS');self.assertEqual(d['gates']['startup_phase_adapter'],'PASS');self.assertEqual(d['gates']['runtime'],'PASS_MATERIAL_FIXTURE')
   report=json.loads((base/d['canonical_tilesets']['runtime_evidence']).read_text());self.assertEqual(report['status'],'PASS_PIXEL_STARTUP_RUNTIME');self.assertTrue(all(report['assertions'].values()))
+ def test_material_contact_sheets_are_inspectable(self):
+  for family in ('b07','b50'):
+   base=ROOT/f'docs/pmdred_eu/renders/material_{family}';manifest=json.loads((base/'manifest.json').read_text());self.assertEqual(len(manifest['renders']),6)
+   for record in manifest['renders']:
+    raw=(base/record['path']).read_bytes();self.assertEqual(raw[:8],b'\x89PNG\r\n\x1a\n');width,height=struct.unpack('>II',raw[16:24]);self.assertEqual((width,height),(record['width'],record['height']));self.assertEqual((width,height),(576,144))
  def test_early_music_bindings(self):
   for slug,(did,song) in EARLY.items():
    d=json.loads((BASE/slug/'manifest.json').read_text());self.assertEqual(d['dungeon_id'],did);actual=d['canonical_music'].get('song_index',d['canonical_music'].get('song_indices'));self.assertIn(song,actual if isinstance(actual,list) else [actual])
