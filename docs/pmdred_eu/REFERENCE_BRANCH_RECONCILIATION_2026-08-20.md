@@ -210,3 +210,13 @@ diagnostic. Preuve :
 `docs/pmdred_eu/playable/mt_steel/native_route_2026-08-21/validation.json`.
 La preuve ne certifie pas encore le texte français des dialogues ni les routes
 défaite/retry/abandon ; aucune promotion live n'est effectuée.
+
+### Route d'échec Mt Acier
+
+Le même candidat a été exécuté avec un vrai `GameAction.GiveUp`. PMDO produit le
+résultat `Failed`, n'entre pas dans `d03p02`, ne pose pas `D03Cleared` et revient
+à `metano_town`. Verdict `PASS_NATIVE_GIVEUP_FAILURE_RETURN`, rc 0, aucun
+diagnostic. Preuve :
+`docs/pmdred_eu/playable/mt_steel/native_failure_2026-08-21/validation.json`.
+Le wipe naturel n'est pas assimilé à cette preuve et reste distinct ; la route
+Mt Acier actuelle ne possède pas de contrat retry dédié.

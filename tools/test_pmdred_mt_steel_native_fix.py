@@ -32,6 +32,7 @@ def load_floor(zone: dict) -> dict:
 
 ROOT = Path(__file__).resolve().parents[1]
 ROUTE_EVIDENCE = ROOT / "docs/pmdred_eu/playable/mt_steel/native_route_2026-08-21"
+FAILURE_EVIDENCE = ROOT / "docs/pmdred_eu/playable/mt_steel/native_failure_2026-08-21"
 
 
 def sha256(path: Path) -> str:
@@ -99,6 +100,15 @@ class MountSteelNativeFixTests(unittest.TestCase):
         for line in (ROUTE_EVIDENCE / "HASHES.sha256").read_text().splitlines():
             expected, name = line.split("  ", 1)
             self.assertEqual(sha256(ROUTE_EVIDENCE / name), expected)
+
+    def test_native_failure_route_is_integral_and_does_not_clear(self) -> None:
+        report = json.loads((FAILURE_EVIDENCE / "validation.json").read_text())
+        self.assertEqual(report["status"], "PASS_NATIVE_GIVEUP_FAILURE_RETURN")
+        self.assertFalse(report["promotion_allowed"])
+        self.assertTrue(all(report["assertions"].values()))
+        for line in (FAILURE_EVIDENCE / "HASHES.sha256").read_text().splitlines():
+            expected, name = line.split("  ", 1)
+            self.assertEqual(sha256(FAILURE_EVIDENCE / name), expected)
 
 
 if __name__ == "__main__":

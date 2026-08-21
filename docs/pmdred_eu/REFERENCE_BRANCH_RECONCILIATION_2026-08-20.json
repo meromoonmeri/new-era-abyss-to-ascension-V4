@@ -186,5 +186,19 @@
       "defeat retry and abandon",
       "production promotion"
     ]
+  },
+  "mt_steel_native_failure_2026_08_21": {
+    "status": "PASS_NATIVE_GIVEUP_FAILURE_RETURN",
+    "evidence": "docs/pmdred_eu/playable/mt_steel/native_failure_2026-08-21/validation.json",
+    "native_giveup": true,
+    "returned_to": "metano_town",
+    "d03_cleared": false,
+    "d03p02_entered": false,
+    "promotion_allowed": false,
+    "remaining": [
+      "natural party wipe",
+      "French dialogue order",
+      "production promotion"
+    ]
   }
 }

@@ -1,0 +1,43 @@
+{
+  "schema": "new-era.pmdred-eu-mt-steel-native-failure.v1",
+  "date": "2026-08-21",
+  "status": "PASS_NATIVE_GIVEUP_FAILURE_RETURN",
+  "authority": {
+    "pmdo_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd"
+  },
+  "runtime": {
+    "mode": "failure",
+    "action": "native ProcessPlayerInput(GameAction.GiveUp)",
+    "failure_return": {
+      "event": "failure_return",
+      "id": "metano_town",
+      "cleared": false,
+      "ending_seen": false
+    },
+    "verdict": "PASS",
+    "termination": "PASS",
+    "return_code": 0,
+    "watchdog": false,
+    "forced_kill": false,
+    "orphan": false,
+    "forbidden_diagnostics": []
+  },
+  "assertions": {
+    "boss_floor_entered": true,
+    "giveup_submitted": true,
+    "returned_to_metano": true,
+    "clear_flag_not_set": true,
+    "ending_not_entered": true,
+    "verdict_pass": true,
+    "normal_unload": true,
+    "no_diagnostics": true
+  },
+  "scope_boundary": [
+    "GiveUp/Failed path is certified",
+    "natural party wipe is not separately certified",
+    "retry is not part of the current mt_steel route contract",
+    "candidate remains non-promoted"
+  ],
+  "promotion_allowed": false
+}
