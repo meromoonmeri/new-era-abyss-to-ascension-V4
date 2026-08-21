@@ -1,0 +1,113 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-batch.v1",
+  "dungeon_id": 4,
+  "zone_id": "silent_chasm",
+  "name_fr": "Val Silencieux",
+  "playable_floors": 9,
+  "authority": {
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "music_symbol": "MUS_SILENT_CHASM",
+    "music_song_index": 113,
+    "tileset_id": 2,
+    "rom_material": {
+      "tileset_id": 2,
+      "prefix": "b02",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b02fon",
+          "present": true,
+          "archive_index": 13,
+          "rom_offset": 6594726,
+          "rom_offset_hex": "0x0064A0A6",
+          "bytes": 9282,
+          "sha256": "252d937223b7dee04b2171e7c7a409007666e6ccb5e4884235822d84b27bbdb2"
+        },
+        {
+          "role": "cel",
+          "name": "b02cel",
+          "present": true,
+          "archive_index": 11,
+          "rom_offset": 6591592,
+          "rom_offset_hex": "0x00649468",
+          "bytes": 2216,
+          "sha256": "9545a9f3ca7a48c57be6ab5c75f49b557d98d5193add0d0e07178c9f9193c5e9"
+        },
+        {
+          "role": "cex",
+          "name": "b02cex",
+          "present": true,
+          "archive_index": 12,
+          "rom_offset": 6593808,
+          "rom_offset_hex": "0x00649D10",
+          "bytes": 918,
+          "sha256": "9115ba0b2fafbbd4cfcc35beb89739412a48636eb511ba7a43a668fff61f0f95"
+        },
+        {
+          "role": "pal",
+          "name": "b02pal",
+          "present": true,
+          "archive_index": 14,
+          "rom_offset": 6604008,
+          "rom_offset_hex": "0x0064C4E8",
+          "bytes": 768,
+          "sha256": "06d5cb6a1b2f71bda062e9f163360ab725ff7e06167bd5284ca387e27146dde6"
+        },
+        {
+          "role": "canm",
+          "name": "b02canm",
+          "present": true,
+          "archive_index": 10,
+          "rom_offset": 6590488,
+          "rom_offset_hex": "0x00649018",
+          "bytes": 1104,
+          "sha256": "1b5a9e2d9681d091660b4b2a4d41ed8f7cd5e582d441fb209d0ecd43c3e07188"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    }
+  },
+  "staged_files": [
+    {
+      "path": "Content/Music/PMD Red EU - Silent Chasm.ogg",
+      "bytes": 2182395,
+      "sha256": "68ced23ae245a00d68d2b02909597a486b5789c95936ac5e5e70ce12442562c6"
+    },
+    {
+      "path": "Content/Tile/SilentChasm.tile",
+      "bytes": 374591,
+      "sha256": "5e83a92cd9f54fd68c3c4887061dbd2e41bd332656c0e3ed7997ad619fa10cd2"
+    },
+    {
+      "path": "Data/AutoTile/silent_chasm_floor.json",
+      "bytes": 10558,
+      "sha256": "c642641a961336b6a9a0088a0f61c8db3305283dd7f8c1fcc8a7a066c989059e"
+    },
+    {
+      "path": "Data/AutoTile/silent_chasm_secondary.json",
+      "bytes": 75845,
+      "sha256": "554189361971a59de40f2fe4de5a784f7c7be793c01b3d570bb468104a5bd73e"
+    },
+    {
+      "path": "Data/AutoTile/silent_chasm_wall.json",
+      "bytes": 12833,
+      "sha256": "f28952637a30cf7141e2b5565f5565eb5e127090d3099e29b050968b6836c943"
+    }
+  ],
+  "status": "STAGED_SOURCE_BOUND",
+  "gates": {
+    "music_rom_exact": true,
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "visual_pixel_differential": "PENDING",
+    "zone_serialization": "PENDING",
+    "runtime_pmdo": "PENDING",
+    "promotion": false
+  }
+}
