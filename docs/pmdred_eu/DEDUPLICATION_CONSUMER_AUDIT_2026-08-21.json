@@ -1,0 +1,309 @@
+{
+  "schema": "pmdred-dedup-consumer-audit-v1",
+  "policy": "quarantine-first; remove only after canonical route replacement and runtime pass",
+  "rows": [
+    {
+      "alias": "abime_tempetes",
+      "canonical": "d14p01",
+      "alias_exists": true,
+      "canonical_exists": false,
+      "byte_equal": false,
+      "alias_references": 2,
+      "canonical_references": 5
+    },
+    {
+      "alias": "antre_occident",
+      "canonical": "d20p01",
+      "alias_exists": true,
+      "canonical_exists": false,
+      "byte_equal": false,
+      "alias_references": 2,
+      "canonical_references": 5
+    },
+    {
+      "alias": "bois_des_plaintes",
+      "canonical": "d25p01",
+      "alias_exists": true,
+      "canonical_exists": false,
+      "byte_equal": false,
+      "alias_references": 2,
+      "canonical_references": 5
+    },
+    {
+      "alias": "bois_sombres_fond",
+      "canonical": "d04p02",
+      "alias_exists": false,
+      "canonical_exists": false,
+      "byte_equal": false,
+      "alias_references": 0,
+      "canonical_references": 5
+    },
+    {
+      "alias": "bois_sombres_oree",
+      "canonical": "d04p01",
+      "alias_exists": false,
+      "canonical_exists": true,
+      "byte_equal": false,
+      "alias_references": 0,
+      "canonical_references": 5
+    },
+    {
+      "alias": "caverne_trouble_autel",
+      "canonical": "d24p02",
+      "alias_exists": false,
+      "canonical_exists": true,
+      "byte_equal": false,
+      "alias_references": 0,
+      "canonical_references": 5
+    },
+    {
+      "alias": "caverne_trouble_fond",
+      "canonical": "d24p01",
+      "alias_exists": false,
+      "canonical_exists": true,
+      "byte_equal": false,
+      "alias_references": 0,
+      "canonical_references": 5
+    },
+    {
+      "alias": "champ_braises",
+      "canonical": "d16p01",
+      "alias_exists": true,
+      "canonical_exists": false,
+      "byte_equal": false,
+      "alias_references": 2,
+      "canonical_references": 5
+    },
+    {
+      "alias": "champ_foudre",
+      "canonical": "d17p01",
+      "alias_exists": false,
+      "canonical_exists": false,
+      "byte_equal": false,
+      "alias_references": 0,
+      "canonical_references": 5
+    },
+    {
+      "alias": "champ_vent_boreal",
+      "canonical": "d18p01",
+      "alias_exists": true,
+      "canonical_exists": false,
+      "byte_equal": false,
+      "alias_references": 3,
+      "canonical_references": 5
+    },
+    {
+      "alias": "cretes_boreales",
+      "canonical": "d21p01",
+      "alias_exists": true,
+      "canonical_exists": false,
+      "byte_equal": false,
+      "alias_references": 2,
+      "canonical_references": 5
+    },
+    {
+      "alias": "foret_givree_oree",
+      "canonical": "d10p01",
+      "alias_exists": true,
+      "canonical_exists": true,
+      "byte_equal": false,
+      "alias_references": 16,
+      "canonical_references": 5
+    },
+    {
+      "alias": "foret_tendre_oree",
+      "canonical": "d01p01",
+      "alias_exists": false,
+      "canonical_exists": true,
+      "byte_equal": false,
+      "alias_references": 0,
+      "canonical_references": 5
+    },
+    {
+      "alias": "fosse_ardente",
+      "canonical": "d12p04",
+      "alias_exists": true,
+      "canonical_exists": false,
+      "byte_equal": false,
+      "alias_references": 17,
+      "canonical_references": 7
+    },
+    {
+      "alias": "fosse_argentee",
+      "canonical": "d15p01",
+      "alias_exists": true,
+      "canonical_exists": false,
+      "byte_equal": false,
+      "alias_references": 2,
+      "canonical_references": 5
+    },
+    {
+      "alias": "gorge_ardente_coeur",
+      "canonical": "d12p02",
+      "alias_exists": true,
+      "canonical_exists": false,
+      "byte_equal": false,
+      "alias_references": 16,
+      "canonical_references": 6
+    },
+    {
+      "alias": "gorge_ardente_porte",
+      "canonical": "d12p01",
+      "alias_exists": true,
+      "canonical_exists": true,
+      "byte_equal": false,
+      "alias_references": 15,
+      "canonical_references": 5
+    },
+    {
+      "alias": "gouffre_muet_bord",
+      "canonical": "d05p01",
+      "alias_exists": false,
+      "canonical_exists": true,
+      "byte_equal": false,
+      "alias_references": 0,
+      "canonical_references": 5
+    },
+    {
+      "alias": "grand_canyon_porte",
+      "canonical": "d07p01",
+      "alias_exists": false,
+      "canonical_exists": true,
+      "byte_equal": false,
+      "alias_references": 0,
+      "canonical_references": 5
+    },
+    {
+      "alias": "grotte_lazuli_fond",
+      "canonical": "d08p02",
+      "alias_exists": true,
+      "canonical_exists": true,
+      "byte_equal": false,
+      "alias_references": 16,
+      "canonical_references": 6
+    },
+    {
+      "alias": "grotte_lazuli_seuil",
+      "canonical": "d08p01",
+      "alias_exists": true,
+      "canonical_exists": true,
+      "byte_equal": false,
+      "alias_references": 15,
+      "canonical_references": 5
+    },
+    {
+      "alias": "grotte_statique_seuil",
+      "canonical": "d02p01",
+      "alias_exists": false,
+      "canonical_exists": true,
+      "byte_equal": false,
+      "alias_references": 0,
+      "canonical_references": 5
+    },
+    {
+      "alias": "mont_cendre_pied",
+      "canonical": "d09p01",
+      "alias_exists": true,
+      "canonical_exists": true,
+      "byte_equal": false,
+      "alias_references": 16,
+      "canonical_references": 5
+    },
+    {
+      "alias": "mont_gele_pied",
+      "canonical": "d11p01",
+      "alias_exists": true,
+      "canonical_exists": true,
+      "byte_equal": false,
+      "alias_references": 16,
+      "canonical_references": 5
+    },
+    {
+      "alias": "mont_grondant_pied",
+      "canonical": "d06p01",
+      "alias_exists": false,
+      "canonical_exists": true,
+      "byte_equal": false,
+      "alias_references": 0,
+      "canonical_references": 5
+    },
+    {
+      "alias": "palier_celeste",
+      "canonical": "d13p02",
+      "alias_exists": true,
+      "canonical_exists": false,
+      "byte_equal": false,
+      "alias_references": 32,
+      "canonical_references": 7
+    },
+    {
+      "alias": "parvis_celeste",
+      "canonical": "d13p01",
+      "alias_exists": true,
+      "canonical_exists": true,
+      "byte_equal": false,
+      "alias_references": 15,
+      "canonical_references": 7
+    },
+    {
+      "alias": "pic_ferreux_pied",
+      "canonical": "d03p01",
+      "alias_exists": false,
+      "canonical_exists": true,
+      "byte_equal": false,
+      "alias_references": 1,
+      "canonical_references": 5
+    },
+    {
+      "alias": "place_pokemon",
+      "canonical": "t01p00",
+      "alias_exists": false,
+      "canonical_exists": true,
+      "byte_equal": false,
+      "alias_references": 0,
+      "canonical_references": 0
+    },
+    {
+      "alias": "sanctuaire_voeu",
+      "canonical": "d23p01",
+      "alias_exists": true,
+      "canonical_exists": false,
+      "byte_equal": false,
+      "alias_references": 14,
+      "canonical_references": 5
+    },
+    {
+      "alias": "sommet_aurore",
+      "canonical": "d19p01",
+      "alias_exists": true,
+      "canonical_exists": false,
+      "byte_equal": false,
+      "alias_references": 2,
+      "canonical_references": 5
+    },
+    {
+      "alias": "tour_ciel_sommet",
+      "canonical": "d13p03",
+      "alias_exists": true,
+      "canonical_exists": false,
+      "byte_equal": false,
+      "alias_references": 27,
+      "canonical_references": 9
+    },
+    {
+      "alias": "vallon_perdu",
+      "canonical": "d22p01",
+      "alias_exists": true,
+      "canonical_exists": true,
+      "byte_equal": false,
+      "alias_references": 2,
+      "canonical_references": 5
+    }
+  ],
+  "summary": {
+    "aliases": 33,
+    "byte_equal": 0,
+    "referenced_aliases": 22,
+    "safe_to_delete_now": 0
+  }
+}
