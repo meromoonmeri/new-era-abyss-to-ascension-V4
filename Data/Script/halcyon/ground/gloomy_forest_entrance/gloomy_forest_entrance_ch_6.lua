@@ -15,9 +15,19 @@ local function dialogue(chara, key, emotion)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings[key]))
 end
 
+local function HideIfPresent(name)
+  -- The three rivals are created dynamically by the entrance/clearing
+  -- cutscenes.  On a fresh Ground there is therefore no actor to hide; PMDO
+  -- raises for GROUND:Hide on an absent entity, which used to abort the whole
+  -- chapter-6 entrance scene before the Team Dazzling cast was created.
+  -- Optional cleanup is the correct behavior here, not a fallback scene.
+  local actor = CH(name)
+  if actor ~= nil then GROUND:Hide(name) end
+end
+
 function gloomy_forest_entrance_ch_6.SetupGround()
   for _, name in ipairs({'Adagio','Aria','Sonata'}) do
-    pcall(function() GROUND:Hide(name) end)
+    HideIfPresent(name)
   end
 end
 

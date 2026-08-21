@@ -1,7 +1,7 @@
-﻿{
+{
   "Version": "0.8.9.0",
   "Object": {
-    "": "RogueEssence.Dungeon.Map, RogueEssence",
+    "$type": "RogueEssence.Dungeon.Map, RogueEssence",
     "Name": {
       "DefaultText": "Heart of the Gloomy Forest",
       "LocalTexts": {}
@@ -12,6 +12,7 @@
     "ID": 0,
     "MapTeams": [
       {
+        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
         "Players": [
           {
             "Element1": "none",
@@ -41,7 +42,60 @@
             "BaseIntrinsics": [
               "none"
             ],
-            "Tactic": "boss",
+            "Tactic": {
+              "Name": {
+                "DefaultText": "Boss",
+                "LocalTexts": {}
+              },
+              "Released": false,
+              "Comment": "",
+              "ID": "boss",
+              "Assignable": false,
+              "Plans": [
+                {
+                  "$type": "PMDC.Dungeon.AttackFoesPlan, PMDC",
+                  "AttackPattern": 4,
+                  "PositionPattern": 2,
+                  "IQ": 253,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 4,
+                  "AbandonRangeOnHit": true
+                },
+                {
+                  "$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC",
+                  "IQ": 253,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": false
+                },
+                {
+                  "$type": "PMDC.Dungeon.ExplorePlan, PMDC",
+                  "IQ": 253,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": false
+                },
+                {
+                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+                  "IQ": 253,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": false
+                }
+              ]
+            },
             "serializationLoc": {
               "X": 10,
               "Y": 3
@@ -13654,7 +13708,7 @@
             ]
           },
           "Value": {
-            "": "PMDC.Dungeon.BattlePositionEvent, PMDC",
+            "$type": "PMDC.Dungeon.BattlePositionEvent, PMDC",
             "StartLocs": [
               {
                 "Loc": {
@@ -13685,24 +13739,7 @@
                 "Dir": 4
               }
             ],
-            "Positions": [
-              {
-                "X": 0,
-                "Y": 0
-              },
-              {
-                "X": -1,
-                "Y": 0
-              },
-              {
-                "X": 0,
-                "Y": -1
-              },
-              {
-                "X": -1,
-                "Y": -1
-              }
-            ]
+            "Positions": null
           }
         },
         {
@@ -13712,7 +13749,7 @@
             ]
           },
           "Value": {
-            "": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
+            "$type": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
             "Script": "LuaBeginBattleEvent",
             "ArgTable": "{}"
           }
@@ -13724,7 +13761,7 @@
             ]
           },
           "Value": {
-            "": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
+            "$type": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
             "Script": "ResetTurnCounter",
             "ArgTable": "{}"
           }
