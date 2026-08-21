@@ -1,0 +1,69 @@
+{
+  "result": "PASS_WITH_STARTUP_PHASE_GATE",
+  "blockers": [
+    "ONE_SHOT_GBA_STARTUP_PALETTE_HOLD_NOT_REPRESENTABLE_BY_CYCLIC_PMDO_TILELAYER"
+  ],
+  "pixel_checks": 32448
+}
+cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+  "source": {
+    "b50fon_sha256": "9f23a1318d0d0422105a13dbbdbb0fea49e052f5bba677a8e7c6ff089f06f542",
+    "b50cel_sha256": "a7470f258e8f36329ee1804751d67e254240cae5735753410dbc35a45e08db7f",
+    "b50cex_sha256": "d3e948ef4b4e860eeac9368ff602ef08ba8d392411f9263f753e5a2ae0ed3666",
+    "b50pal_sha256": "6e476a701078ae227ec864a9a48dde10f820256c84a13170c83d5cf03ab6645a",
+    "b50canm_root_sha256": "c756afc30ca91ba05b96ea4ee0307897d97ae59f2d1ce045b01fe8d186ace91b"
+  },
+  "atlas_sha256": "f822ca61cfe052f357eee4e04d184339d2f63897ebdbfb1e1fc995af05d56577",
+  "categories": {
+    "floor": {
+      "codes": 47,
+      "variants": 3,
+      "layer_checks": 0,
+      "pixel_checks": 0,
+      "animated_chunks": 0
+    },
+    "wall": {
+      "codes": 47,
+      "variants": 3,
+      "layer_checks": 0,
+      "pixel_checks": 0,
+      "animated_chunks": 0
+    },
+    "secondary": {
+      "codes": 47,
+      "variants": 3,
+      "layer_checks": 0,
+      "pixel_checks": 0,
+      "animated_chunks": 141
+    }
+  },
+  "layer_checks": 2028,
+  "pixel_checks": 32448,
+  "canm_independent_durations": {
+    "0": 10,
+    "1": 10,
+    "2": 10,
+    "3": 10,
+    "4": 10,
+    "5": 10,
+    "6": 10,
+    "7": 10,
+    "8": 14,
+    "9": 14,
+    "10": 14,
+    "11": 14,
+    "12": 14,
+    "13": 8,
+    "14": 8,
+    "15": 8
+  },
+  "startup_raw_palette_policy": "staged as a one-shot frame only when the startup adapter candidate is enabled",
+  "startup_adapter_candidate": false,
+  "production_assets_written": false,
+  "d04p01_d04p02_touched": false,
+  "relic_forest_blobs_touched": false,
+  "result": "PASS_WITH_STARTUP_PHASE_GATE",
+  "blockers": [
+    "ONE_SHOT_GBA_STARTUP_PALETTE_HOLD_NOT_REPRESENTABLE_BY_CYCLIC_PMDO_TILELAYER"
+  ]
+}

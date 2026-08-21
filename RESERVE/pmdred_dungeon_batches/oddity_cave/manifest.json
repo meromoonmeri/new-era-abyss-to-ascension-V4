@@ -1,0 +1,68 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_ROM_RECONSTRUCTED_PIXEL_EXACT",
+  "dungeon_id": 43,
+  "zone_id": "oddity_cave",
+  "name_fr": "Grotte Périls",
+  "playable_floors": 15,
+  "canonical_music": {
+    "song_indices": [
+      14,
+      104,
+      115
+    ],
+    "bundle": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      36,
+      47,
+      50
+    ],
+    "shared_validated_batches": [
+      "frosty_forest",
+      "mt_freeze"
+    ],
+    "rom_reconstructed_id": 50,
+    "files": [
+      {
+        "path": "rom_b50/Content/Tile/PMDRedB50.tile",
+        "bytes": 1407330,
+        "sha256": "f822ca61cfe052f357eee4e04d184339d2f63897ebdbfb1e1fc995af05d56577"
+      },
+      {
+        "path": "rom_b50/Data/AutoTile/pmdred_b50_floor.json",
+        "bytes": 41617,
+        "sha256": "9d76babe5b2213e6b9b7ec92a29335221c990c63c9c138fb3a713911046df76b"
+      },
+      {
+        "path": "rom_b50/Data/AutoTile/pmdred_b50_secondary.json",
+        "bytes": 5785367,
+        "sha256": "668d87e425d9556d96b00e1f18fbe4964c6e0449638b1cc0a67d3e4ff408badf"
+      },
+      {
+        "path": "rom_b50/Data/AutoTile/pmdred_b50_wall.json",
+        "bytes": 41607,
+        "sha256": "d32dabb152f9c148f781193dafd6b211de57c55ae9faca3fdd19756bd12fc204"
+      },
+      {
+        "path": "rom_b50/manifest.json",
+        "bytes": 35656,
+        "sha256": "34604ebee5eb7cebb2c8996a1d148ff1a60675b19e80f583143fadf1b69f8311"
+      },
+      {
+        "path": "rom_b50/validation.json",
+        "bytes": 1938,
+        "sha256": "34be17e8f00505fe7667d81cb61f8544cb8048f6d657f3595c1c2310cdae9e37"
+      }
+    ],
+    "pixel_checks": 32448
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PASS",
+    "startup_phase_adapter": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}
