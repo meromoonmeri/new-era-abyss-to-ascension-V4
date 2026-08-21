@@ -1,0 +1,92 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 27,
+  "zone_id": "buried_relic",
+  "name_fr": "Ruines Enfouies",
+  "playable_floors": 99,
+  "canonical_music": {
+    "song_indices": [
+      13,
+      14,
+      39
+    ],
+    "bundle": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      17,
+      25,
+      37
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/BuriedRelic1.tile",
+        "bytes": 291304,
+        "sha256": "2fedea3b9135eb34248033449dc22fb1441a689e1c8d01b40b1ecc5ee5c8ba31"
+      },
+      {
+        "path": "Content/Tile/BuriedRelic2.tile",
+        "bytes": 269057,
+        "sha256": "0e3e8cc50abd0a3b27bebf3b36fc48d423f19a157aac0cee9f6cb7a996a2126d"
+      },
+      {
+        "path": "Content/Tile/BuriedRelic3.tile",
+        "bytes": 397329,
+        "sha256": "c6c3db02ff7f167d6a0441195456371570bf13672d9ab7698be23fa0f379d710"
+      },
+      {
+        "path": "Data/AutoTile/buried_relic_1_floor.json",
+        "bytes": 10655,
+        "sha256": "71f70194e26973ced72fda738b6a731467ad58426eb99332393479170f57e11a"
+      },
+      {
+        "path": "Data/AutoTile/buried_relic_1_secondary.json",
+        "bytes": 41502,
+        "sha256": "3d81f90e2283676f5f096692f1ba2f8c63723e749a2936128a12c302dcf15785"
+      },
+      {
+        "path": "Data/AutoTile/buried_relic_1_wall.json",
+        "bytes": 10301,
+        "sha256": "42b7c81b3b5982031183947e9af45ed7e2367a873fd1c498ced80489502baa06"
+      },
+      {
+        "path": "Data/AutoTile/buried_relic_2_floor.json",
+        "bytes": 10655,
+        "sha256": "8f40d5de1b0130538ef0cc975523e6e978d8b0c71ddfa1ca3d2b593843d69a4c"
+      },
+      {
+        "path": "Data/AutoTile/buried_relic_2_secondary.json",
+        "bytes": 99835,
+        "sha256": "2fadb5713928d2182465434f2ab1834c1822f715809e9f0fe4768d89cf2259e1"
+      },
+      {
+        "path": "Data/AutoTile/buried_relic_2_wall.json",
+        "bytes": 7649,
+        "sha256": "3b1d0b53e127174ef0361155878321fa9542d2d78a8fc603a1a580ba22a88b9a"
+      },
+      {
+        "path": "Data/AutoTile/buried_relic_3_floor.json",
+        "bytes": 5963,
+        "sha256": "60d5a29441d8e468f31282d678b14635d9f756d5f7ad0f23d49025ce051302ce"
+      },
+      {
+        "path": "Data/AutoTile/buried_relic_3_secondary.json",
+        "bytes": 99822,
+        "sha256": "d6f7ca9517f641d74100b37b1b4b7c8ff122c6994c0a3536e58d3b3d654f1ac8"
+      },
+      {
+        "path": "Data/AutoTile/buried_relic_3_wall.json",
+        "bytes": 10913,
+        "sha256": "49cc6fac629ab0d34ef14df19840f7767f71eaabfdd4bbda5e024541a367c58c"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 56,
+  "zone_id": "waterfall_pond",
+  "name_fr": "Bassin Cascade",
+  "playable_floors": 19,
+  "canonical_music": {
+    "song_indices": [
+      39
+    ],
+    "bundle": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      16
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/WaterfallPond.tile",
+        "bytes": 362958,
+        "sha256": "c3efd5b9e1db6dca4e52b05b59513f4623806bcba6d399c3e81872d452e078ca"
+      },
+      {
+        "path": "Data/AutoTile/waterfall_pond_floor.json",
+        "bytes": 6012,
+        "sha256": "7028549f648d71ab4ec5c458f46a58786232a9aff526469402ef8bbeab47ae46"
+      },
+      {
+        "path": "Data/AutoTile/waterfall_pond_secondary.json",
+        "bytes": 68474,
+        "sha256": "c6cfd411c5c5faea6cc12970df26c9a09cfa0ace0c659f8c7256727259c9961c"
+      },
+      {
+        "path": "Data/AutoTile/waterfall_pond_wall.json",
+        "bytes": 9260,
+        "sha256": "d5adf5bc4173172d8381aefb8a9c849b9998722a3996a0a5fe63c2e7e178b4de"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

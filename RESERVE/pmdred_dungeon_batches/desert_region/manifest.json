@@ -1,0 +1,48 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 31,
+  "zone_id": "desert_region",
+  "name_fr": "Erg Sans Fin",
+  "playable_floors": 20,
+  "canonical_music": {
+    "song_indices": [
+      33
+    ],
+    "bundle": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      21
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/DesertRegion.tile",
+        "bytes": 533898,
+        "sha256": "decd18b124584957e95a1e8271fb061a5dc9f61ea5dda9ac452092643828a6f1"
+      },
+      {
+        "path": "Data/AutoTile/desert_region_floor.json",
+        "bytes": 10756,
+        "sha256": "4b01a6567cff9555b177b584e480d1d6174b07f2ae67394389dae69d945aaba3"
+      },
+      {
+        "path": "Data/AutoTile/desert_region_secondary.json",
+        "bytes": 122633,
+        "sha256": "5bf3af78bb93f231325a11ed1bd5119963252c0f08312f31c2512eb57132fc47"
+      },
+      {
+        "path": "Data/AutoTile/desert_region_wall.json",
+        "bytes": 10810,
+        "sha256": "a9c6b5e788f4132875a2b7ab7594eb548e4c498b28d5c4b2580fbc6a13f232be"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

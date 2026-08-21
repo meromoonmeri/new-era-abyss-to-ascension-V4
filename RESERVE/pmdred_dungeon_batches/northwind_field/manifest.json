@@ -1,0 +1,50 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 35,
+  "zone_id": "northwind_field",
+  "name_fr": "Terres Blizzard",
+  "playable_floors": 30,
+  "canonical_music": {
+    "song_indices": [
+      39,
+      115
+    ],
+    "bundle": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      9,
+      36
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/NorthwindField.tile",
+        "bytes": 183118,
+        "sha256": "c082e1bc931f036c29a7dbae83d589cae194d842e1c92271cde06db6c60658a4"
+      },
+      {
+        "path": "Data/AutoTile/northwind_field_floor.json",
+        "bytes": 5958,
+        "sha256": "a0f379e4b72bd30a3815358261a12536da009be41b1afd8eda394ed7f84b754f"
+      },
+      {
+        "path": "Data/AutoTile/northwind_field_secondary.json",
+        "bytes": 42678,
+        "sha256": "9d7271beed068940236b3041306a76310b64d9c10ef30670b08363f41f463f5a"
+      },
+      {
+        "path": "Data/AutoTile/northwind_field_wall.json",
+        "bytes": 6846,
+        "sha256": "b3ac5ba3b7b47251f22bb0d8a86e82bd9b30186212c0eaf9c85f89aafcfc04bb"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

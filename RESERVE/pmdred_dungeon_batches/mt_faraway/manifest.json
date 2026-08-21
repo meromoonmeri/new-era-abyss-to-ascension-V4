@@ -1,0 +1,75 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 60,
+  "zone_id": "mt_faraway",
+  "name_fr": "Pic Inaccessible",
+  "playable_floors": 40,
+  "canonical_music": {
+    "song_indices": [
+      39,
+      104,
+      115,
+      126
+    ],
+    "bundle": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      15,
+      18,
+      19,
+      24,
+      72
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/MtFaraway2.tile",
+        "bytes": 497683,
+        "sha256": "8d99ae88351ad481e7fd10d0ffb539422e35863ce48cf1cf0a926e66670c4621"
+      },
+      {
+        "path": "Content/Tile/MtFaraway4.tile",
+        "bytes": 336511,
+        "sha256": "ec189498bc10b8e8514c4c6061ee62e0d29b8cd15a219a40ce59249e8baf430c"
+      },
+      {
+        "path": "Data/AutoTile/mt_faraway_2_floor.json",
+        "bytes": 10463,
+        "sha256": "66a29b3ac0444050cd0688741ba6ce54f07c87e34d8b755bb85617623ddbc334"
+      },
+      {
+        "path": "Data/AutoTile/mt_faraway_2_secondary.json",
+        "bytes": 96750,
+        "sha256": "646019d2fc40317aad07a6cc89173294be2ce45e9ca964c11a3cec33ca132211"
+      },
+      {
+        "path": "Data/AutoTile/mt_faraway_2_wall.json",
+        "bytes": 8915,
+        "sha256": "2dd67b7aa2ed0b8fc296ccefcdd13444348ab5e0c221882e1774059c10e57e75"
+      },
+      {
+        "path": "Data/AutoTile/mt_faraway_4_floor.json",
+        "bytes": 5863,
+        "sha256": "e46255d22e05c0dc0a2caf7f478559daa474d81d29e6411bed3b45400a81b335"
+      },
+      {
+        "path": "Data/AutoTile/mt_faraway_4_secondary.json",
+        "bytes": 40278,
+        "sha256": "7638f092f21e74cd370a097dfea1709dc47b05fdb4494a4d6be698fe33f3f59a"
+      },
+      {
+        "path": "Data/AutoTile/mt_faraway_4_wall.json",
+        "bytes": 10215,
+        "sha256": "b1819d5b95df90e2bd7d2778c0299db2ed00a0bdafe02f00cefb805555a7a84f"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 53,
+  "zone_id": "howling_forest",
+  "name_fr": "Bois Hurlement",
+  "playable_floors": 15,
+  "canonical_music": {
+    "song_indices": [
+      113,
+      125
+    ],
+    "bundle": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      51,
+      61
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/HowlingForest1.tile",
+        "bytes": 398575,
+        "sha256": "7fd85df90ef38a48876cfba1436613097a74e930278aeb29ad97f79cfd950ad6"
+      },
+      {
+        "path": "Content/Tile/HowlingForest2.tile",
+        "bytes": 975248,
+        "sha256": "8701718228c99af24429ba968060eeaa756ad8d29d0f941c42881739aef2397a"
+      },
+      {
+        "path": "Data/AutoTile/howling_forest_1_floor.json",
+        "bytes": 6063,
+        "sha256": "d11470b2698b5dd5eecdc15ea8c509875a222d0c68170d617f8759e744876ba0"
+      },
+      {
+        "path": "Data/AutoTile/howling_forest_1_secondary.json",
+        "bytes": 79338,
+        "sha256": "f83940dbca9f44fceaccc53075abe54f0715c98031e073d6f503527c00e97bd4"
+      },
+      {
+        "path": "Data/AutoTile/howling_forest_1_wall.json",
+        "bytes": 7263,
+        "sha256": "6b1aa4a51775bc2e22008bfad1c01db3e4f31d9d5999ac5db4e7413039ae0327"
+      },
+      {
+        "path": "Data/AutoTile/howling_forest_2_floor.json",
+        "bytes": 44930,
+        "sha256": "3a296e71280882239240d613199a4b892508e368f6292424bc18706fc6d5695c"
+      },
+      {
+        "path": "Data/AutoTile/howling_forest_2_secondary.json",
+        "bytes": 42726,
+        "sha256": "aabaf17b8149954dfc1bb493d05c537b151c30fb5535e69ed5ceb1d7b6ee0468"
+      },
+      {
+        "path": "Data/AutoTile/howling_forest_2_wall.json",
+        "bytes": 84714,
+        "sha256": "33ec516ef032d21ce8a7f18a0a906bcb8159d768415af51c336a86136550ef00"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

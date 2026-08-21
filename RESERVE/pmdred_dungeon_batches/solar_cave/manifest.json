@@ -1,0 +1,52 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 36,
+  "zone_id": "solar_cave",
+  "name_fr": "Grotte du Soleil",
+  "playable_floors": 20,
+  "canonical_music": {
+    "song_indices": [
+      15,
+      102,
+      113
+    ],
+    "bundle": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      4,
+      31,
+      61
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/SolarCave1.tile",
+        "bytes": 416881,
+        "sha256": "c24df2fe8926df949014adc37b7de99219c5ea9ff6fe92f202c013fe32e75c83"
+      },
+      {
+        "path": "Data/AutoTile/solar_cave_1_floor.json",
+        "bytes": 5863,
+        "sha256": "1c23b63fdd25df28173ed0f50db9263779d8f018b3bf4e60c757418ecffed94a"
+      },
+      {
+        "path": "Data/AutoTile/solar_cave_1_secondary.json",
+        "bytes": 96763,
+        "sha256": "e505d35d5c24af910bc6b98c570977d4a53edd909624222c1d12f96c12e88edd"
+      },
+      {
+        "path": "Data/AutoTile/solar_cave_1_wall.json",
+        "bytes": 8815,
+        "sha256": "8430549acea8e2f4fefa5697f7b3cf1f600323ef1a6f9f3757c71fe0f92b09f1"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

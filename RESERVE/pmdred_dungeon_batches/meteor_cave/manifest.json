@@ -1,0 +1,48 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 21,
+  "zone_id": "meteor_cave",
+  "name_fr": "Grotte Météore",
+  "playable_floors": 20,
+  "canonical_music": {
+    "song_indices": [
+      126
+    ],
+    "bundle": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      28
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/MeteorCave.tile",
+        "bytes": 434298,
+        "sha256": "02841e5415444d5dd788890a58371b4acd74cf579622e4db22c95aec1288ae09"
+      },
+      {
+        "path": "Data/AutoTile/meteor_cave_floor.json",
+        "bytes": 5762,
+        "sha256": "69c38d51022a6524bd8edb42814a871116b4a5ce764f5e1e03d5cd4d7754d6f4"
+      },
+      {
+        "path": "Data/AutoTile/meteor_cave_secondary.json",
+        "bytes": 62581,
+        "sha256": "7f6c63e57e67ea5532d24eb903b3a257f1e98f6acc533539b66cbe22ecd8d935"
+      },
+      {
+        "path": "Data/AutoTile/meteor_cave_wall.json",
+        "bytes": 8614,
+        "sha256": "0b8e7626469a1d5dd80290eb2d0647c02f793a0920eec3c5dd586a039f974528"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

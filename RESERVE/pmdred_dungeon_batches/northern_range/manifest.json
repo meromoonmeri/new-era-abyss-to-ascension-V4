@@ -1,0 +1,73 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 29,
+  "zone_id": "northern_range",
+  "name_fr": "Mts Septentrion",
+  "playable_floors": 25,
+  "canonical_music": {
+    "song_indices": [
+      39,
+      115,
+      123
+    ],
+    "bundle": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      24,
+      30,
+      34,
+      75
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/NorthernRange1.tile",
+        "bytes": 216502,
+        "sha256": "a64fcfe231cd5e3bd9d7a253c62227e3d064dc802cc57dbda027e1e94c2c1894"
+      },
+      {
+        "path": "Content/Tile/NorthernRange2.tile",
+        "bytes": 359261,
+        "sha256": "108eaddf2c69cb8e304a90a47226d5100d1accb5777900ee9b543ccd7d638853"
+      },
+      {
+        "path": "Data/AutoTile/northern_range_1_floor.json",
+        "bytes": 5959,
+        "sha256": "9844c99ec9d5b90bcb6fc3deddf87b53893d8d863d58a35511d3f9f68654fc75"
+      },
+      {
+        "path": "Data/AutoTile/northern_range_1_secondary.json",
+        "bytes": 102907,
+        "sha256": "d16f33c475fc9af5b669b51a2cb89f794cb164c2bd36fae65d2e4d628997de8d"
+      },
+      {
+        "path": "Data/AutoTile/northern_range_1_wall.json",
+        "bytes": 7679,
+        "sha256": "ab2d6c2011f137293786370e01848447a387e0fd79048340c1274dd802087c61"
+      },
+      {
+        "path": "Data/AutoTile/northern_range_2_floor.json",
+        "bytes": 5959,
+        "sha256": "00e46d42e0d0fbf9bcbc04ea0e6d4269a5c7e86b5b7965225ed7b9649e0b46f6"
+      },
+      {
+        "path": "Data/AutoTile/northern_range_2_secondary.json",
+        "bytes": 66534,
+        "sha256": "f0a16844a996bff039164f84884bd3f047137a5ec4ee81f501f9fe81e5cb1d52"
+      },
+      {
+        "path": "Data/AutoTile/northern_range_2_wall.json",
+        "bytes": 8927,
+        "sha256": "5ca58d8007a1a4faa9a799f56d33ede3a333fe1d0dba0b7c0c6712e4e460aa38"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

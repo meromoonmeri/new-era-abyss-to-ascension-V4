@@ -1,0 +1,68 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 47,
+  "zone_id": "rock_path",
+  "name_fr": "Passage Roc",
+  "playable_floors": 4,
+  "canonical_music": {
+    "song_indices": [
+      110
+    ],
+    "bundle": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      38
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/RockPathRB.tile",
+        "bytes": 341107,
+        "sha256": "f80bda70b6c468c63b25e8f99705194975aace3230690d52a7b87dcf464d2ded"
+      },
+      {
+        "path": "Content/Tile/RockPathTDS.tile",
+        "bytes": 541256,
+        "sha256": "973822281be2d2682d7ad89d7b2250020b4c212d9b0d82b833d2c9981c21ae27"
+      },
+      {
+        "path": "Data/AutoTile/rock_path_rb_floor.json",
+        "bytes": 5763,
+        "sha256": "0ba48754d88f5caf22c773b7ea11e9decd36049f75a4731f6a87d03dd6fcd14b"
+      },
+      {
+        "path": "Data/AutoTile/rock_path_rb_secondary.json",
+        "bytes": 96763,
+        "sha256": "0e92cca96e265c14042703b57d95b09e7a19199f683cb1e0c5a3a2a3fbb33fb1"
+      },
+      {
+        "path": "Data/AutoTile/rock_path_rb_wall.json",
+        "bytes": 7415,
+        "sha256": "489aeaf543759a23f16a83be0337bd750c7ec2858b644833cb8b9c0146e50393"
+      },
+      {
+        "path": "Data/AutoTile/rock_path_tds_floor.json",
+        "bytes": 5913,
+        "sha256": "284c496c38eb0736b9be3bfd0a4cbb0fb920bda74b49cf45a55ad915476fc183"
+      },
+      {
+        "path": "Data/AutoTile/rock_path_tds_secondary.json",
+        "bytes": 98332,
+        "sha256": "e6f7ba7161aea7774123a7d6518cbd9e71787f417a5f5805d1c27692cad0768e"
+      },
+      {
+        "path": "Data/AutoTile/rock_path_tds_wall.json",
+        "bytes": 7279,
+        "sha256": "365b4e80625a9d5bc26247343cc5c002f9df57f739d4a3bff56a33d07b8d527f"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

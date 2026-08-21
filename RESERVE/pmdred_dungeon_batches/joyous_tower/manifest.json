@@ -1,0 +1,48 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 58,
+  "zone_id": "joyous_tower",
+  "name_fr": "Tour Bonheur",
+  "playable_floors": 99,
+  "canonical_music": {
+    "song_indices": [
+      110
+    ],
+    "bundle": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      12
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/JoyousTower.tile",
+        "bytes": 223649,
+        "sha256": "591478c573b6ee6b82b14b6c5da9cba2266b178552f98ce0c24347e36f8c581a"
+      },
+      {
+        "path": "Data/AutoTile/joyous_tower_floor.json",
+        "bytes": 5912,
+        "sha256": "afc5844a3189b50661c465c2cdd393b5f1b7854bdb58b76f879a82e2b0ad7134"
+      },
+      {
+        "path": "Data/AutoTile/joyous_tower_secondary.json",
+        "bytes": 66404,
+        "sha256": "64bd5fed317388b907ce377ef95bcbd41838ae5410aab3c937a03dcfa4741bd9"
+      },
+      {
+        "path": "Data/AutoTile/joyous_tower_wall.json",
+        "bytes": 9500,
+        "sha256": "68f583c3b7580af633a59f996426b424439dfc2154b621af2dfc242a1a8d1778"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

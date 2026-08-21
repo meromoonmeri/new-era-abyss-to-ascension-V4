@@ -1,0 +1,48 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 40,
+  "zone_id": "murky_cave",
+  "name_fr": "Grotte Ténèbres",
+  "playable_floors": 19,
+  "canonical_music": {
+    "song_indices": [
+      21
+    ],
+    "bundle": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      4
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/MurkyCave.tile",
+        "bytes": 325097,
+        "sha256": "7b57ab67969db42ace9f972ee233f6ae81c5da2b52ae5bcfe4003596cd630ce2"
+      },
+      {
+        "path": "Data/AutoTile/murky_cave_floor.json",
+        "bytes": 5812,
+        "sha256": "5b3d0a4c575fd61207d9a8f63c28ef42ec506bb85d8a4786959417d1c903e8a6"
+      },
+      {
+        "path": "Data/AutoTile/murky_cave_secondary.json",
+        "bytes": 95212,
+        "sha256": "7686f2d32f63d6de136756f04d45135d58845774f2819545c6827f2ee43c1dfb"
+      },
+      {
+        "path": "Data/AutoTile/murky_cave_wall.json",
+        "bytes": 6259,
+        "sha256": "2f1ac9dd907a596821e5cde9390ae40d9e2c868107a2ef0ed22197b5a4216468"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

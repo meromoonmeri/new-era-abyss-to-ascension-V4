@@ -1,0 +1,48 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 38,
+  "zone_id": "darknight_relic",
+  "name_fr": "Ruines Obscures",
+  "playable_floors": 15,
+  "canonical_music": {
+    "song_indices": [
+      15
+    ],
+    "bundle": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      13
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/DarknightRelic.tile",
+        "bytes": 272535,
+        "sha256": "6ee43c8b86dfdd6cb2db064e64c87a8b440bbe59ced40d2fd7e135eba34aab32"
+      },
+      {
+        "path": "Data/AutoTile/darknight_relic_floor.json",
+        "bytes": 6062,
+        "sha256": "45b34bdd10c3437e4afedccd5579a103f2b15243ab243963aca10e92a8a4b410"
+      },
+      {
+        "path": "Data/AutoTile/darknight_relic_secondary.json",
+        "bytes": 79337,
+        "sha256": "ec872ff0d6c61346b5d46b4ae6c3067812e7e75b0d8e7ad488638907d55fc622"
+      },
+      {
+        "path": "Data/AutoTile/darknight_relic_wall.json",
+        "bytes": 8510,
+        "sha256": "125a7e4be2f52d1c09534d3311f1d4bbc061a2145e77679c61bc1880bb7a8092"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

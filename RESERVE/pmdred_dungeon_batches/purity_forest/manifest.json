@@ -1,0 +1,124 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 62,
+  "zone_id": "purity_forest",
+  "name_fr": "Forêt Pureté",
+  "playable_floors": 99,
+  "canonical_music": {
+    "song_indices": [
+      13,
+      14,
+      15,
+      21,
+      102,
+      104,
+      113,
+      124,
+      126
+    ],
+    "bundle": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      11,
+      14,
+      41,
+      52,
+      53,
+      56,
+      60,
+      62,
+      63
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/PurityForest2.tile",
+        "bytes": 436186,
+        "sha256": "371bee634c2d78746f50b4c5024841a8021a8a10158269d310d7a6d21346a7e7"
+      },
+      {
+        "path": "Content/Tile/PurityForest4.tile",
+        "bytes": 370111,
+        "sha256": "0b1a8e8dbf9bf273792c0c7690e7876887c382f28ff45a00359709f378fd4b91"
+      },
+      {
+        "path": "Content/Tile/PurityForest6.tile",
+        "bytes": 316529,
+        "sha256": "edf99b9b1b04a8f25b86d6f1548f39da28a7a850959e13318570622e266c9866"
+      },
+      {
+        "path": "Content/Tile/PurityForest7.tile",
+        "bytes": 250232,
+        "sha256": "d9c6a8cf935563b8419c5530ef017afc9dd15bc0fefe77edb2c0ef97041e65d7"
+      },
+      {
+        "path": "Data/AutoTile/purity_forest_2_floor.json",
+        "bytes": 6013,
+        "sha256": "40d4eee94be5be6e0cc45f2813d1e26344e00a0efbc5bc1785d3cba3794d93d3"
+      },
+      {
+        "path": "Data/AutoTile/purity_forest_2_secondary.json",
+        "bytes": 75834,
+        "sha256": "44cdd416bd0684002a8e36de0e374e0babea59ff4e3742081819bf3dbf71f373"
+      },
+      {
+        "path": "Data/AutoTile/purity_forest_2_wall.json",
+        "bytes": 7716,
+        "sha256": "7ab20744ab6c1976fee49064ec6c3d5915ef28ab0eac29d7aa47b42213732c46"
+      },
+      {
+        "path": "Data/AutoTile/purity_forest_4_floor.json",
+        "bytes": 5910,
+        "sha256": "970acd94a4128ac29545886d15db2863e9bae42625562325736019f649903bc7"
+      },
+      {
+        "path": "Data/AutoTile/purity_forest_4_secondary.json",
+        "bytes": 101371,
+        "sha256": "c13145573da8300a12bc76543331486b281027ad6b3a9700b2987b998cb94381"
+      },
+      {
+        "path": "Data/AutoTile/purity_forest_4_wall.json",
+        "bytes": 7201,
+        "sha256": "10a6c7672012e1876e71ac9f4caa418cc1ab51eca31f93512738d64f31bac6be"
+      },
+      {
+        "path": "Data/AutoTile/purity_forest_6_floor.json",
+        "bytes": 6013,
+        "sha256": "9b8855ea5a554855d0937d5f2912a5941cca60f31900f9e0478d301f8696503c"
+      },
+      {
+        "path": "Data/AutoTile/purity_forest_6_secondary.json",
+        "bytes": 78174,
+        "sha256": "3180901a8df94cb7c61d01d81bf4200200a5078eeebc1345a15bd197d65f2c21"
+      },
+      {
+        "path": "Data/AutoTile/purity_forest_6_wall.json",
+        "bytes": 7098,
+        "sha256": "71a418e62f84f7ae6c797d7f43dc0adbbc6ed0aba9662266a75b4a2f0e343567"
+      },
+      {
+        "path": "Data/AutoTile/purity_forest_7_floor.json",
+        "bytes": 6013,
+        "sha256": "0ab8fc94654abcd5f2dd45757288f3b9034540a15c03d968cc99e6dfd83bb286"
+      },
+      {
+        "path": "Data/AutoTile/purity_forest_7_secondary.json",
+        "bytes": 78174,
+        "sha256": "6d527ea09a185582cfb6ba4ceeaba144682129c70a2be7864aa64cad677ee05e"
+      },
+      {
+        "path": "Data/AutoTile/purity_forest_7_wall.json",
+        "bytes": 6480,
+        "sha256": "fdf07a57d9c827b8134314f412feabd034a71c765f1181e96aa19b8e15f0a678"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

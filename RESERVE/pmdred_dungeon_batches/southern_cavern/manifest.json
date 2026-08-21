@@ -1,0 +1,69 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 32,
+  "zone_id": "southern_cavern",
+  "name_fr": "Caverne Australe",
+  "playable_floors": 50,
+  "canonical_music": {
+    "song_indices": [
+      13
+    ],
+    "bundle": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      55,
+      57
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/SouthernCavern1.tile",
+        "bytes": 394688,
+        "sha256": "ca475476e5a0c7679db57908d1f59940ed78fbb0d09be2084f3c578686d33df9"
+      },
+      {
+        "path": "Content/Tile/SouthernCavern2.tile",
+        "bytes": 269935,
+        "sha256": "54f03e9a39eca67dac39fc4f675207c1545b6aee3bf5101915129c18787e8460"
+      },
+      {
+        "path": "Data/AutoTile/southern_cavern_1_floor.json",
+        "bytes": 6113,
+        "sha256": "948759e4bc7b25532455d8ee9124ad0227975056e333397fcdb9489fb0956e7c"
+      },
+      {
+        "path": "Data/AutoTile/southern_cavern_1_secondary.json",
+        "bytes": 79698,
+        "sha256": "35a91939d75eeba61212a75bb9d606358708acb0cc9c618c657b57023e28eadc"
+      },
+      {
+        "path": "Data/AutoTile/southern_cavern_1_wall.json",
+        "bytes": 5855,
+        "sha256": "d33dfe61a814e4c15ccc8896a1e7cb66c76e511a2a840648324d564349278655"
+      },
+      {
+        "path": "Data/AutoTile/southern_cavern_2_floor.json",
+        "bytes": 6113,
+        "sha256": "04902f023d28745edb9bdce4eab388c3f99425cfcfd1991719f17a2345eab209"
+      },
+      {
+        "path": "Data/AutoTile/southern_cavern_2_secondary.json",
+        "bytes": 80502,
+        "sha256": "d9ccbb5d2fb54beaa8b970d75562899c9bd3b65032998e1c8f9b041309f56966"
+      },
+      {
+        "path": "Data/AutoTile/southern_cavern_2_wall.json",
+        "bytes": 6485,
+        "sha256": "82b1cd4543c247e8e5234b5383152b626b34cf66d7697ffa786e49ef1eb2b864"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

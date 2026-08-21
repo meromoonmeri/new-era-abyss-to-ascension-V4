@@ -1,0 +1,48 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND",
+  "dungeon_id": 48,
+  "zone_id": "snow_path",
+  "name_fr": "Passage Neige",
+  "playable_floors": 4,
+  "canonical_music": {
+    "song_indices": [
+      110
+    ],
+    "bundle": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      24
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "files": [
+      {
+        "path": "Content/Tile/SnowPath.tile",
+        "bytes": 315763,
+        "sha256": "42337f4d2a11c8f0441dec14121b1283a7790f56e4a1b8d4886cf29774f0955a"
+      },
+      {
+        "path": "Data/AutoTile/snow_path_floor.json",
+        "bytes": 5664,
+        "sha256": "0500b5b533de5ee7833eab149fa4292fc259cc40ebc3165f2235d0eda573b49f"
+      },
+      {
+        "path": "Data/AutoTile/snow_path_secondary.json",
+        "bytes": 72366,
+        "sha256": "c7b11b8b5b61baac5dd2e944edcec45ba398071dbaafb18626b4f718e8689e14"
+      },
+      {
+        "path": "Data/AutoTile/snow_path_wall.json",
+        "bytes": 7478,
+        "sha256": "1ca59d3dffe76339467019716cee337b55966b64309002b8282c039068bebb47"
+      }
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}
