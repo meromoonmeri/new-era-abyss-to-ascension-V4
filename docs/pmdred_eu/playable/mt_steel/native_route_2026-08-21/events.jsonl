@@ -1,0 +1,16 @@
+{"event":"bootstrap","seed":424242}
+{"event":"ground_enter_signal","id":"d03p01"}
+{"event":"ground_entered","id":"d03p01"}
+{"event":"fixture_party_scale","level":100,"purpose":"native_boss_route"}
+{"event":"boss_floor","width":9,"height":17,"music":"Mt. Steel.ogg","foe":"skarmory","foe_x":4,"foe_y":8}
+{"event":"player_attack","number":1,"direction":"Up"}
+{"event":"skarmory_defeated","method":"native_basic_attacks"}
+{"event":"ground_enter_signal","id":"d03p02"}
+{"event":"ending_ground","pending":"nil"}
+{"event":"ground_entered","id":"metano_town"}
+{"event":"return_ground","id":"metano_town","cleared":true,"pending":"nil"}
+{"event":"scenario_verdict","verdict":"PASS","attacks":1,"ending":true,"return":true}
+{"event":"load_phase_unload_requested","before":"Ready","before_raw":"Ready: 2","requested":"Unload","readback":"Unload","readback_raw":"Unload: 3"}
+{"event":"native_deinit","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"native_graphics_unload","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"end","terminal":true,"graceful":true,"load_phase":"Unload","load_phase_raw":"Unload: 3"}

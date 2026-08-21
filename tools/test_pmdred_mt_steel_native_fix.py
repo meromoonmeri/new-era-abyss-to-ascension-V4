@@ -2,6 +2,9 @@
 """Regression gates for the native PMDO Mount Steel 9F serializer."""
 from __future__ import annotations
 
+import hashlib
+import json
+from pathlib import Path
 import unittest
 
 import build_pmdred_mt_steel as builder
@@ -25,6 +28,14 @@ def load_floor(zone: dict) -> dict:
     walk(zone)
     assert len(found) == 1
     return found[0]
+
+
+ROOT = Path(__file__).resolve().parents[1]
+ROUTE_EVIDENCE = ROOT / "docs/pmdred_eu/playable/mt_steel/native_route_2026-08-21"
+
+
+def sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 class MountSteelNativeFixTests(unittest.TestCase):
@@ -74,6 +85,20 @@ class MountSteelNativeFixTests(unittest.TestCase):
         status = next(feature for feature in mob["SpawnFeatures"] if "MobSpawnStatus" in feature["$type"])
         self.assertEqual(status["Statuses"][0]["Spawn"]["ID"], "all_protect")
         self.assertEqual(status["Statuses"][0]["Spawn"]["StatusStates"][0]["Counter"], -1)
+
+    def test_route_adapter_targets_the_current_dungeon_zone(self) -> None:
+        script = (ROUTE_EVIDENCE / "RedEarlyDungeonRoute.lua").read_text()
+        self.assertIn("result,\n      zone.ID,\n      -1,", script)
+        self.assertNotIn("result,\n      config.ending_ground,\n      -1,", script)
+
+    def test_native_route_evidence_is_integral_and_non_promoting(self) -> None:
+        report = json.loads((ROUTE_EVIDENCE / "validation.json").read_text())
+        self.assertEqual(report["status"], "PASS_NATIVE_BOSS_CLEAR_ENDING_RETURN")
+        self.assertFalse(report["promotion_allowed"])
+        self.assertTrue(all(report["assertions"].values()))
+        for line in (ROUTE_EVIDENCE / "HASHES.sha256").read_text().splitlines():
+            expected, name = line.split("  ", 1)
+            self.assertEqual(sha256(ROUTE_EVIDENCE / name), expected)
 
 
 if __name__ == "__main__":

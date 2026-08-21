@@ -1,0 +1,117 @@
+Loading default script variable values..
+Script variables default values loaded! [build 2026-08-04-K]
+DebugTools:initialize()
+MenuTools:initialize()
+UpgradeTools:initialize()
+ConfigTools:initialize()
+NREProbe:initialize()
+[NREPROBE] build 2026-08-04-K charge (main.lua) — PREMIERE ligne attendue, au LANCEMENT du jeu. Si absente: la copie du mod chargee par le jeu n est PAS celle du depot.
+
+<!> DebugTools: Init..
+
+<!> ConfigTools: Init..
+[NREPROBE] service nre_probe ACTIF (EngineServiceEvents.Init) — build 2026-07-27-C
+[MT_STEEL_ROUTE] {"event":"bootstrap","seed":424242}
+Loading default script variable values..
+Script variables default values loaded! [build 2026-08-04-K]
+[NREPROBE] LoadSavedData <-- sauvegarde chargee (menu Continuer) | zone= seg=? map=? | Save.Team=0 leader=<nil> | DungeonMap=nil TeamAttachee=n/a foes=n/a
+
+<!> ExampleSvc: Preparing debug save file
+[DevUnlock] exclu: barren_tundra
+[DevUnlock] exclu: bravery_road
+[DevUnlock] exclu: cave_of_solace
+[DevUnlock] exclu: cave_of_whispers
+[DevUnlock] exclu: debug_zone
+[DevUnlock] exclu: deserted_fortress
+[DevUnlock] exclu: energy_garden
+[DevUnlock] exclu: eon_island
+[DevUnlock] exclu: guildmaster_island
+[DevUnlock] exclu: hope_road
+[DevUnlock] exclu: inscribed_cave
+[DevUnlock] exclu: labyrinth_of_the_lost
+[DevUnlock] exclu: master_zone
+[DevUnlock] exclu: prism_isles
+[DevUnlock] exclu: royal_halls
+[DevUnlock] exclu: sacred_tower
+[DevUnlock] exclu: starfall_heights
+[DevUnlock] exclu: the_abyss
+[DevUnlock] exclu: the_sky
+[DevUnlock] exclu: training_maze
+[DevUnlock] exclu: uncharted_waters
+[DevUnlock] exclu: wisdom_road
+[NREPROBE] NewGame | zone= seg=? map=? | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>> Init_master_zone
+[NREPROBE] ZoneInit | zone=master_zone seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] DungeonSegmentStart (Lua EnterSegment va tourner) | zone=master_zone seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] GroundModeBegin | zone=master_zone seg=-1 map=310 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] GroundMapEnter | zone=master_zone seg=-1 map=310 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[MT_STEEL_ROUTE] {"event":"ground_enter_signal","id":"d03p01"}
+[MT_STEEL_ROUTE] {"event":"ground_entered","id":"d03p01"}
+[NREPROBE] GroundMapExit | zone=master_zone seg=-1 map=310 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>_ENV pre-cleanup:177
+=>_ENV post cleanup:176
+[NREPROBE] GroundModeEnd | zone=master_zone seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>_ENV pre-cleanup:176
+=>_ENV post cleanup:175
+[NREPROBE] ZoneInit | zone=mt_steel seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+Checking Mission: 1
+Checking Mission: 2
+Checking Mission: 3
+Checking Mission: 4
+Checking Mission: 5
+Checking Mission: 6
+Checking Mission: 7
+Checking Mission: 8
+[NREPROBE] DungeonSegmentStart (Lua EnterSegment va tourner) | zone=mt_steel seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] DungeonModeBegin | zone=mt_steel seg=0 map=8 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=mt_steel_peak TeamAttachee=NON <- IsGameOver() CRASHERAIT ICI foes=1
+[NREPROBE] DungeonMapInit map=mt_steel_peak | zone=mt_steel seg=0 map=8 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=mt_steel_peak TeamAttachee=OUI(4) foes=1
+[NREPROBE] DungeonFloorEnter <-- equipe DOIT etre attachee ici | zone=mt_steel seg=0 map=8 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=mt_steel_peak TeamAttachee=OUI(4) foes=1
+[MT_STEEL_ROUTE] {"event":"fixture_party_scale","level":100,"purpose":"native_boss_route"}
+[MT_STEEL_ROUTE] {"event":"boss_floor","width":9,"height":17,"music":"Mt. Steel.ogg","foe":"skarmory","foe_x":4,"foe_y":8}
+[MT_STEEL_ROUTE] {"event":"player_attack","number":1,"direction":"Up"}
+[MT_STEEL_ROUTE] {"event":"skarmory_defeated","method":"native_basic_attacks"}
+Checking Mission: 1
+Checking Mission: 2
+Checking Mission: 3
+Checking Mission: 4
+Checking Mission: 5
+Checking Mission: 6
+Checking Mission: 7
+Checking Mission: 8
+[NREPROBE] DungeonSegmentEnd (Lua ExitSegment a tourne) | zone=mt_steel seg=0 map=8 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=mt_steel_peak TeamAttachee=OUI(4) foes=1
+[NREPROBE] DungeonFloorExit | zone=mt_steel seg=0 map=8 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=mt_steel_peak TeamAttachee=OUI(4) foes=1
+[NREPROBE] DungeonModeEnd  <-- ExitFloor vient de detacher l equipe (normal) | zone=mt_steel seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+Checking Mission: 1
+Checking Mission: 2
+Checking Mission: 3
+Checking Mission: 4
+Checking Mission: 5
+Checking Mission: 6
+Checking Mission: 7
+Checking Mission: 8
+[NREPROBE] DungeonSegmentStart (Lua EnterSegment va tourner) | zone=mt_steel seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] GroundModeBegin | zone=mt_steel seg=-1 map=1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] GroundMapEnter | zone=mt_steel seg=-1 map=1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[MT_STEEL_ROUTE] {"event":"ground_enter_signal","id":"d03p02"}
+[MT_STEEL_ROUTE] {"event":"ending_ground","pending":"nil"}
+[NREPROBE] GroundMapExit | zone=mt_steel seg=-1 map=1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>_ENV pre-cleanup:178
+=>_ENV post cleanup:177
+=>_ENV pre-cleanup:177
+=>_ENV post cleanup:176
+=>> Init_master_zone
+[NREPROBE] ZoneInit | zone=master_zone seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+[NREPROBE] DungeonSegmentStart (Lua EnterSegment va tourner) | zone=master_zone seg=-1 map=-1 | Save.Team=4 leader=BIG_AF_NAME | DungeonMap=nil TeamAttachee=n/a foes=n/a
+=>> Init_metano_town <<=
+Enter_metano_town
+[MT_STEEL_ROUTE] {"event":"ground_entered","id":"metano_town"}
+[MT_STEEL_ROUTE] {"event":"return_ground","id":"metano_town","cleared":true,"pending":"nil"}
+[MT_STEEL_ROUTE] {"event":"scenario_verdict","verdict":"PASS","attacks":1,"ending":true,"return":true}
+[MT_STEEL_ROUTE] {"event":"load_phase_unload_requested","before":"Ready","before_raw":"Ready: 2","requested":"Unload","readback":"Unload","readback_raw":"Unload: 3"}
+
+<!> DebugTools: Deinit..
+
+<!> ConfigTools: Deinit..
+[MT_STEEL_ROUTE] {"event":"native_deinit","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+[MT_STEEL_ROUTE] {"event":"native_graphics_unload","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+[MT_STEEL_ROUTE] {"event":"end","terminal":true,"graceful":true,"load_phase":"Unload","load_phase_raw":"Unload: 3"}

@@ -169,5 +169,22 @@
       "d03p02 transition",
       "retry and abandon"
     ]
+  },
+  "mt_steel_native_route_2026_08_21": {
+    "status": "PASS_NATIVE_BOSS_CLEAR_ENDING_RETURN",
+    "evidence": "docs/pmdred_eu/playable/mt_steel/native_route_2026-08-21/validation.json",
+    "native_attack_count": 1,
+    "fixture_party_level": 100,
+    "skarmory_clear_callback": true,
+    "d03p02_observed": true,
+    "d03_cleared": true,
+    "returned_to": "metano_town",
+    "route_adapter_correction": "EndDungeonRun uses zone.ID, not config.ending_ground as Zone ID",
+    "promotion_allowed": false,
+    "remaining": [
+      "French dialogue order",
+      "defeat retry and abandon",
+      "production promotion"
+    ]
   }
 }

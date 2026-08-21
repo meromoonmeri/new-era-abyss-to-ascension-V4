@@ -190,3 +190,23 @@ Preuve create-only :
 `docs/pmdred_eu/playable/mt_steel/native_9f_fix_2026-08-21/validation.json`.
 La promotion reste interdite tant que le combat naturel, le callback de victoire,
 la transition `d03p02` et les routes retry/abandon ne sont pas certifiés.
+
+## Mise à jour — route native Mt Acier (2026-08-21)
+
+La passe suivant le chargement 9F a joué le combat via
+`DungeonScene.ProcessPlayerInput` et un `GameAction.Attack` natif. Pour rendre
+la preuve déterministe sans court-circuiter les événements de combat, l'équipe
+de fixture est montée au niveau 100 ; Airmure est vaincu par le moteur en une
+attaque. Le callback `MountSteelSkarmoryClear` termine le segment.
+
+Cette exécution a découvert et corrigé dans le candidat de fixture un second bug
+historique : `RedEarlyDungeonRoute` passait `config.ending_ground` (`d03p02`)
+comme **Zone ID** à `EndDungeonRun`. Le contrat correct utilise `zone.ID`, puis
+le map index numérique. Après correction, PMDO observe `d03p02`, exécute sa
+sortie, pose `D03Cleared=true`, efface `Pending` et revient à `metano_town`.
+
+Verdict : `PASS_NATIVE_BOSS_CLEAR_ENDING_RETURN`, terminaison native rc 0, sans
+diagnostic. Preuve :
+`docs/pmdred_eu/playable/mt_steel/native_route_2026-08-21/validation.json`.
+La preuve ne certifie pas encore le texte français des dialogues ni les routes
+défaite/retry/abandon ; aucune promotion live n'est effectuée.

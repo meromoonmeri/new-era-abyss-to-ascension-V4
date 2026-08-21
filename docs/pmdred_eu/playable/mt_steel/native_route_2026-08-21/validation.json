@@ -1,0 +1,86 @@
+{
+  "schema": "new-era.pmdred-eu-mt-steel-native-route.v1",
+  "date": "2026-08-21",
+  "status": "PASS_NATIVE_BOSS_CLEAR_ENDING_RETURN",
+  "authority": {
+    "pmdo_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd"
+  },
+  "inputs": {
+    "fixed_floor_validation": "../native_9f_fix_2026-08-21/validation.json",
+    "candidate_map_sha256": "cbe543acd3693ae3d9b1a238e06217dda90883dbf963dcc8fe62c1882144f721",
+    "validator_sha256": "e935bee7c6b4d7e4936f77b40631be69e9e69ad2e599d40a5295d9af9d48ab48",
+    "route_adapter_sha256": "c9c514dc5a8f358eead9577d6959e17c3e4f9bb792b2a666a834e35abdc3158c"
+  },
+  "runtime": {
+    "event_order": [
+      "bootstrap",
+      "ground_enter_signal",
+      "ground_entered",
+      "fixture_party_scale",
+      "boss_floor",
+      "player_attack",
+      "skarmory_defeated",
+      "ground_enter_signal",
+      "ending_ground",
+      "ground_entered",
+      "return_ground",
+      "scenario_verdict",
+      "load_phase_unload_requested",
+      "native_deinit",
+      "native_graphics_unload",
+      "end"
+    ],
+    "boss_floor": {
+      "event": "boss_floor",
+      "width": 9,
+      "height": 17,
+      "music": "Mt. Steel.ogg",
+      "foe": "skarmory",
+      "foe_x": 4,
+      "foe_y": 8
+    },
+    "attack_count": 1,
+    "skarmory_defeat_method": "native ProcessPlayerInput basic attack after fixture party scale to level 100",
+    "ending_ground_observed": "d03p02",
+    "return_ground": {
+      "event": "return_ground",
+      "id": "metano_town",
+      "cleared": true,
+      "pending": "nil"
+    },
+    "d03_cleared": true,
+    "verdict": "PASS",
+    "termination_result": "PASS",
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "watchdog": false,
+    "forced_kill": false,
+    "orphan_process": false,
+    "forbidden_diagnostics": []
+  },
+  "route_correction": {
+    "historical_bug": "GeneralFunctions.EndDungeonRun received config.ending_ground as a Zone ID",
+    "correct_contract": "GeneralFunctions.EndDungeonRun(result, zone.ID, -1, config.ending_map, config.ending_entry, ...)",
+    "scope": "fixture-staged candidate; no live promotion"
+  },
+  "assertions": {
+    "boss_loaded": true,
+    "native_attack_executed": true,
+    "skarmory_defeated": true,
+    "d03p02_entered": true,
+    "returned_to_new_era": true,
+    "clear_flag_set": true,
+    "pending_cleared": true,
+    "verdict_pass": true,
+    "normal_unload": true,
+    "no_runtime_diagnostics": true
+  },
+  "scope_boundary": [
+    "party is fixture-scaled to level 100 so the native boss-clear route is deterministic",
+    "dialogue menus are closed by the harness; French text order is not certified here",
+    "defeat retry and abandon routes remain separate gates",
+    "candidate remains non-promoted"
+  ],
+  "promotion_allowed": false
+}
