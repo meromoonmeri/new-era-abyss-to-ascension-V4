@@ -1,0 +1,143 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_ROM_RECONSTRUCTED_PIXEL_STARTUP_RUNTIME_PASS",
+  "dungeon_id": 45,
+  "zone_id": "marvelous_sea",
+  "name_fr": "Eau Merveilleuse",
+  "playable_floors": 20,
+  "canonical_music": {
+    "song_indices": [
+      39,
+      102
+    ]
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      0,
+      49
+    ],
+    "files": [
+      {
+        "path": "rom_b00_startup/Content/Tile/PMDRedB00.tile",
+        "bytes": 2087452,
+        "sha256": "e41642ab98ca29deb8568b30bdf32169585c96d6287fcd3b74fa9a4db4ae6ed8"
+      },
+      {
+        "path": "rom_b00_startup/Data/AutoTile/pmdred_b00_floor.json",
+        "bytes": 1707900,
+        "sha256": "a417aba95c780d4ee59a0815cc33f1e714fe1d35b49abfa13182ba89e68758a8"
+      },
+      {
+        "path": "rom_b00_startup/Data/AutoTile/pmdred_b00_secondary.json",
+        "bytes": 3935957,
+        "sha256": "39ab19e2634cb9a10cfc6c8b9762bf7a65683e09db3306d2a1dffea072d0bdcb"
+      },
+      {
+        "path": "rom_b00_startup/Data/AutoTile/pmdred_b00_wall.json",
+        "bytes": 3801788,
+        "sha256": "f923174758a9d86be64ae13044e47b4be5461625e6b2274d329d63ae59c8ac52"
+      },
+      {
+        "path": "rom_b00_startup/runtime/HASHES.sha256",
+        "bytes": 327,
+        "sha256": "332f05b76b0c8dbeec1136fb06c47c700cb52cd78213b57dc87da0364c215f09"
+      },
+      {
+        "path": "rom_b00_startup/runtime/events.jsonl",
+        "bytes": 784,
+        "sha256": "44a2cebb0916d5a437ed1a02584bc483b2086976ceaac0ebe1d613d41209ff9d"
+      },
+      {
+        "path": "rom_b00_startup/runtime/fixture_manifest.json",
+        "bytes": 2641,
+        "sha256": "24d7d3a084f07ec0b7032ee0c64b1a3ccaf4ca47a6459a099886a85fb71781f8"
+      },
+      {
+        "path": "rom_b00_startup/runtime/runtime.log",
+        "bytes": 5782,
+        "sha256": "29a50482572bb556e5b9b285b49dac6a617e154351b3e9e102564fd9aa5694d6"
+      },
+      {
+        "path": "rom_b00_startup/runtime/validation.json",
+        "bytes": 473,
+        "sha256": "c18a6622fde46374d3079c4f145e5c32b2a7c0aae6bda53c17bed2a5ccfd7273"
+      },
+      {
+        "path": "rom_b00_startup/validation.json",
+        "bytes": 2036,
+        "sha256": "078628bcfce0737a906aa454e2a6935565d47cac8ab6aaf28c082911e298c3cb"
+      },
+      {
+        "path": "rom_b49_startup/Content/Tile/PMDRedB49.tile",
+        "bytes": 1812788,
+        "sha256": "014788779b2beb7d0a5c0c899f13b2e78eae8aa121bdd6f30b7a3b9210fb7363"
+      },
+      {
+        "path": "rom_b49_startup/Data/AutoTile/pmdred_b49_floor.json",
+        "bytes": 1563516,
+        "sha256": "bde0fbe737add14ec80cf35f863cb603dbc55d862c5752a08da891387c19d3c5"
+      },
+      {
+        "path": "rom_b49_startup/Data/AutoTile/pmdred_b49_secondary.json",
+        "bytes": 3072821,
+        "sha256": "5b34d877875cf5495cffe692276947844a7892ba6a10059fe2db77cfde94a959"
+      },
+      {
+        "path": "rom_b49_startup/Data/AutoTile/pmdred_b49_wall.json",
+        "bytes": 3475909,
+        "sha256": "2c0bd2c9a14b92f7a0ec7c029e99275df1b325c6dd7a7dea006b0e5d060ab428"
+      },
+      {
+        "path": "rom_b49_startup/runtime/HASHES.sha256",
+        "bytes": 327,
+        "sha256": "59c7f76d65ef927bb5298d8e75bf76aa851e0372547e7bfedfda76b8d4e0622c"
+      },
+      {
+        "path": "rom_b49_startup/runtime/events.jsonl",
+        "bytes": 784,
+        "sha256": "44a2cebb0916d5a437ed1a02584bc483b2086976ceaac0ebe1d613d41209ff9d"
+      },
+      {
+        "path": "rom_b49_startup/runtime/fixture_manifest.json",
+        "bytes": 2641,
+        "sha256": "938d39fa2cf5eda2b07a3012414d54f18470800a3a7756f48671ca86f9f1e967"
+      },
+      {
+        "path": "rom_b49_startup/runtime/runtime.log",
+        "bytes": 5782,
+        "sha256": "29a50482572bb556e5b9b285b49dac6a617e154351b3e9e102564fd9aa5694d6"
+      },
+      {
+        "path": "rom_b49_startup/runtime/validation.json",
+        "bytes": 473,
+        "sha256": "0aa2ffe423541c1504951dde33a996fa9ba7a8300a8691b5b0683096a4a7246d"
+      },
+      {
+        "path": "rom_b49_startup/validation.json",
+        "bytes": 2036,
+        "sha256": "7bbde4f0691085b5d6193c9f3778334ebd0c77a4fa8dbf745161a93cc0951f34"
+      }
+    ],
+    "materials": {
+      "b00": {
+        "pixel_checks": 47598,
+        "runtime": "rom_b00_startup/runtime/validation.json"
+      },
+      "b49": {
+        "pixel_checks": 39825,
+        "runtime": "rom_b49_startup/runtime/validation.json"
+      }
+    },
+    "renders": [
+      "docs/pmdred_eu/renders/material_b00",
+      "docs/pmdred_eu/renders/material_b49"
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PASS",
+    "startup_phase_adapter": "PASS",
+    "runtime": "PASS_MATERIAL_FIXTURE",
+    "promotion": false
+  }
+}

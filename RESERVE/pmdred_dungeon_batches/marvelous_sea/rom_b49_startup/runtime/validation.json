@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmdred-eu-b49-runtime.v1",
+  "status": "PASS_PIXEL_STARTUP_RUNTIME",
+  "pixel_checks": 39825,
+  "runtime": {
+    "segments": [
+      0,
+      1,
+      3
+    ],
+    "duration4": [
+      4425,
+      4425,
+      4425
+    ],
+    "restore": [
+      0,
+      4425,
+      4425
+    ],
+    "unload": true,
+    "forbidden": []
+  },
+  "assertions": {
+    "segments": true,
+    "duration4": true,
+    "reentry": true,
+    "unload": true,
+    "clean": true
+  }
+}

@@ -1,0 +1,8 @@
+{"event":"bootstrap"}
+{"event":"enter","segment":0}
+{"event":"map","segment":0,"width":38,"height":51,"music":"PMD Red EU - Sinister Woods.ogg","deep_shadow_setter":false,"darkness":false,"dusk":false,"free_collision_probe":true,"blocked_collision_probe":true}
+{"event":"enter","segment":1}
+{"event":"map","segment":1,"width":51,"height":38,"music":"PMD Red EU - Sinister Woods.ogg","deep_shadow_setter":false,"darkness":false,"dusk":false,"free_collision_probe":true,"blocked_collision_probe":true}
+{"event":"enter","segment":3}
+{"event":"map","segment":3,"width":38,"height":64,"music":"PMD Red EU - Sinister Woods.ogg","deep_shadow_setter":true,"darkness":false,"dusk":true,"free_collision_probe":true,"blocked_collision_probe":true}
+{"event":"end","normal_unload_requested":true}

@@ -1,0 +1,79 @@
+{
+  "schema": "new-era.pmdred-eu.sinister-woods-b49-material-validation.v1",
+  "candidate": "RESERVE/pmdred_dungeon_batches/marvelous_sea/rom_b49_startup",
+  "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+  "source": {
+    "b49fon_sha256": "15e8f9a446db513d933de62d7869595e3746a7020cf536a1130a507da5e701e8",
+    "b49cel_sha256": "b1de36f3bd79ac47afa590c8f7bf6ef39c08e4f339916cb0bc3a81c37a0244a6",
+    "b49cex_sha256": "8f2fea231f1e4b02508b812a48195973a963224e271a52628f418c17265fefff",
+    "b49pal_sha256": "ea9983e84a6cadfdfc11995321036c2319193ca828e8d9d019957ff4fe6c893e",
+    "b49canm_root_sha256": "ffd362e2b4cab67d525956a48bb4d6dba2c5bcb2477165183655969df983b804"
+  },
+  "atlas_sha256": "014788779b2beb7d0a5c0c899f13b2e78eae8aa121bdd6f30b7a3b9210fb7363",
+  "categories": {
+    "floor": {
+      "codes": 47,
+      "variants": 3,
+      "layer_checks": 0,
+      "pixel_checks": 0,
+      "animated_chunks": 141
+    },
+    "wall": {
+      "codes": 47,
+      "variants": 3,
+      "layer_checks": 0,
+      "pixel_checks": 0,
+      "animated_chunks": 138
+    },
+    "secondary": {
+      "codes": 47,
+      "variants": 3,
+      "layer_checks": 0,
+      "pixel_checks": 0,
+      "animated_chunks": 141
+    }
+  },
+  "layer_checks": 4425,
+  "pixel_checks": 39825,
+  "canm_independent_durations": {
+    "0": 4,
+    "1": 4,
+    "2": 4,
+    "3": 4,
+    "4": 4,
+    "5": 4,
+    "6": 4,
+    "7": 4,
+    "8": 4,
+    "9": 4,
+    "10": 4,
+    "11": 4,
+    "12": 4,
+    "13": 4,
+    "14": 4,
+    "15": 4,
+    "16": 4,
+    "17": 4,
+    "18": 4,
+    "19": 4,
+    "20": 4,
+    "21": 4,
+    "22": 4,
+    "23": 4,
+    "24": 4,
+    "25": 4,
+    "26": 4,
+    "27": 4,
+    "28": 4,
+    "29": 4,
+    "30": 4,
+    "31": 4
+  },
+  "startup_raw_palette_policy": "staged as a one-shot frame only when the startup adapter candidate is enabled",
+  "startup_adapter_candidate": true,
+  "production_assets_written": false,
+  "d04p01_d04p02_touched": false,
+  "relic_forest_blobs_touched": false,
+  "result": "PASS",
+  "blockers": []
+}
