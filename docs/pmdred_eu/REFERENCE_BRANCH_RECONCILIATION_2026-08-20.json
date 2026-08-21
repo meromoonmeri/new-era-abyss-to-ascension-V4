@@ -227,5 +227,27 @@
     "correct_index": 120,
     "evidence": "docs/pmdred_eu/playable/mt_steel/music_correction_2026-08-21/validation.json",
     "staged_audio": "RESERVE/pmdred_music/PMD Red EU - Mt. Steel.ogg"
+  },
+  "exact_music_wave_2026_08_21": {
+    "rendered_song_indices": [
+      14,
+      15,
+      113,
+      120,
+      125
+    ],
+    "staging": "RESERVE/pmdred_music",
+    "sinister_woods": {
+      "status": "PROMOTED_RUNTIME_PASS",
+      "song_index": 15,
+      "path": "Content/Music/PMD Red EU - Sinister Woods.ogg",
+      "evidence": "docs/pmdred_eu/playable/sinister_woods/exact_music_runtime_2026-08-21/validation.json"
+    },
+    "remaining_staged": [
+      14,
+      113,
+      120,
+      125
+    ]
   }
 }

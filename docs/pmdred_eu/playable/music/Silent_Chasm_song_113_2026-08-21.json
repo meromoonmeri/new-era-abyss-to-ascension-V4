@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "authenticated source/dependency/loop/Vorbis gates; not PMDO-native playback",
+  "output": "RESERVE/pmdred_music/PMD Red EU - Silent Chasm.ogg",
+  "sha256": "68ced23ae245a00d68d2b02909597a486b5789c95936ac5e5e70ce12442562c6",
+  "bytes": 2182395,
+  "sample_rate": 48000,
+  "samples": 5526400,
+  "loop_start": 2197600,
+  "loop_length": 3328800,
+  "song_index": 113,
+  "title": "Silent Chasm",
+  "discovery_process": "song_table=0x01e866bc mode=0x0096e500 tracks=11 samples=5526400 loop_start=2197600 loop_length=3328800",
+  "exact_gated_process": "song_table=0x01e866bc mode=0x0096e500 tracks=11 samples=5526400 loop_start=2197600 loop_length=3328800",
+  "dependencies": {
+    "m4play": "e16a7964acdd8ef5aff10a0e729c9618d3da0e75",
+    "libogg": "e1774cd77f471443541596e09078e78fdc342e4f",
+    "libvorbis": "0657aee69dec8508a0011f47f3b69d7538e9d262"
+  }
+}

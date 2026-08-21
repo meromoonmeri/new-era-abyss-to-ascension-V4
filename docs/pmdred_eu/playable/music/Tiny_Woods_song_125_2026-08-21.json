@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "authenticated source/dependency/loop/Vorbis gates; not PMDO-native playback",
+  "output": "RESERVE/pmdred_music/PMD Red EU - Tiny Woods.ogg",
+  "sha256": "ed713b3fb3801183dd17ed5a9236de197c7dd3ba3f59d025dda99064406d9ab7",
+  "bytes": 1246626,
+  "sample_rate": 48000,
+  "samples": 3368800,
+  "loop_start": 1320800,
+  "loop_length": 2048000,
+  "song_index": 125,
+  "title": "Tiny Woods",
+  "discovery_process": "song_table=0x01e866bc mode=0x0096e500 tracks=12 samples=3368800 loop_start=1320800 loop_length=2048000",
+  "exact_gated_process": "song_table=0x01e866bc mode=0x0096e500 tracks=12 samples=3368800 loop_start=1320800 loop_length=2048000",
+  "dependencies": {
+    "m4play": "e16a7964acdd8ef5aff10a0e729c9618d3da0e75",
+    "libogg": "e1774cd77f471443541596e09078e78fdc342e4f",
+    "libvorbis": "0657aee69dec8508a0011f47f3b69d7538e9d262"
+  }
+}

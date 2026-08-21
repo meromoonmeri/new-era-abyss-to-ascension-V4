@@ -41,7 +41,7 @@
                     },
                     "Value": {
                       "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "Music": "Sinister Woods.ogg",
+                      "Music": "PMD Red EU - Sinister Woods.ogg",
                       "TimeLimit": 1500,
                       "TileSight": 0,
                       "CharSight": 0,
@@ -4541,7 +4541,7 @@
                     },
                     "Value": {
                       "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "Music": "Sinister Woods.ogg",
+                      "Music": "PMD Red EU - Sinister Woods.ogg",
                       "TimeLimit": 1500,
                       "TileSight": 0,
                       "CharSight": 0,
@@ -6638,7 +6638,7 @@
                     },
                     "Value": {
                       "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "Music": "Sinister Woods.ogg",
+                      "Music": "PMD Red EU - Sinister Woods.ogg",
                       "TimeLimit": 1500,
                       "TileSight": 0,
                       "CharSight": 0,

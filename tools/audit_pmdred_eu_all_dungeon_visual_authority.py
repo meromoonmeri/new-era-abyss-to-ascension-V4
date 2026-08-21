@@ -36,7 +36,9 @@ def exact_music(content:Path)->dict[int,list[dict]]:
   if comments.get('SOURCE_ROM_SHA256')!=ROM_SHA256:continue
   try:index=int(comments['M4A_SONG_TABLE_INDEX'])
   except (KeyError,ValueError):continue
-  result.setdefault(index,[]).append({'path':str(p),'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'samples':samples,'title':comments.get('TITLE'),'loop_start':comments.get('LOOPSTART'),'loop_length':comments.get('LOOPLENGTH')})
+  try: display=p.resolve().relative_to(Path.cwd().resolve()).as_posix()
+  except ValueError: display=p.as_posix()
+  result.setdefault(index,[]).append({'path':display,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'samples':samples,'title':comments.get('TITLE'),'loop_start':comments.get('LOOPSTART'),'loop_length':comments.get('LOOPLENGTH')})
  return result
 
 def build(rom_path:Path,pret:Path,content:Path)->dict:

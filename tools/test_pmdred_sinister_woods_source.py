@@ -41,7 +41,7 @@ class SinisterWoodsSourceTests(unittest.TestCase):
 
     def test_active_music_and_b41_assets_match_the_canonical_gate(self) -> None:
         gate = json.loads(MUSIC_TILE_GATE.read_text())
-        self.assertEqual(gate["status"], "PASS_CANONICAL_MUSIC_TILESET_ACTIVE")
+        self.assertEqual(gate["status"], "PASS_CANONICAL_MUSIC_TILESET_ACTIVE_ROM_EXACT")
         paths = [gate["music"], *gate["procedural_tileset"]["autotiles"].values()]
         paths.append(gate["procedural_tileset"]["tile"])
         for record in paths:

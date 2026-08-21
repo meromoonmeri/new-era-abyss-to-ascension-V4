@@ -112,11 +112,12 @@
       75
     ],
     "unique_tileset_count": 74,
-    "exact_rom_ogg_song_indices_present": [],
+    "exact_rom_ogg_song_indices_present": [
+      15
+    ],
     "exact_rom_ogg_song_indices_missing": [
       13,
       14,
-      15,
       20,
       21,
       22,
@@ -140,7 +141,18 @@
       126
     ]
   },
-  "exact_music_assets": {},
+  "exact_music_assets": {
+    "15": [
+      {
+        "path": "Content/Music/PMD Red EU - Sinister Woods.ogg",
+        "sha256": "a44347aca2b4e511129a0c503bf658e13b7b3eefdecd3d918fd5de42940a0e25",
+        "samples": 4228800,
+        "title": "Sinister Woods",
+        "loop_start": "1532000",
+        "loop_length": "2696800"
+      }
+    ]
+  },
   "dungeons": [
     {
       "dungeon_id": 0,

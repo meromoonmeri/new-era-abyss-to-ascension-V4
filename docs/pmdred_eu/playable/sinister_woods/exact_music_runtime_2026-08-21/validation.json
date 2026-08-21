@@ -1,0 +1,67 @@
+{
+  "schema": "new-era.pmdred-eu-sinister-woods-exact-music-runtime.v1",
+  "status": "PASS_EXACT_ROM_MUSIC_PROMOTED",
+  "authority": {
+    "song_index": 15,
+    "music_symbol": "MUS_SINISTER_WOODS",
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "ogg_sha256": "a44347aca2b4e511129a0c503bf658e13b7b3eefdecd3d918fd5de42940a0e25"
+  },
+  "promotion": {
+    "music": "Content/Music/PMD Red EU - Sinister Woods.ogg",
+    "zone": "Data/Zone/gloomy_forest.json",
+    "old_unqualified_music_retained": "Content/Music/Sinister Woods.ogg",
+    "replacement_scope": "music references in gloomy_forest only"
+  },
+  "runtime": {
+    "segments": [
+      {
+        "event": "map",
+        "segment": 0,
+        "width": 38,
+        "height": 51,
+        "music": "PMD Red EU - Sinister Woods.ogg",
+        "deep_shadow_setter": false,
+        "darkness": false,
+        "dusk": false,
+        "free_collision_probe": true,
+        "blocked_collision_probe": true
+      },
+      {
+        "event": "map",
+        "segment": 1,
+        "width": 51,
+        "height": 38,
+        "music": "PMD Red EU - Sinister Woods.ogg",
+        "deep_shadow_setter": false,
+        "darkness": false,
+        "dusk": false,
+        "free_collision_probe": true,
+        "blocked_collision_probe": true
+      },
+      {
+        "event": "map",
+        "segment": 3,
+        "width": 38,
+        "height": 64,
+        "music": "PMD Red EU - Sinister Woods.ogg",
+        "deep_shadow_setter": true,
+        "darkness": false,
+        "dusk": true,
+        "free_collision_probe": true,
+        "blocked_collision_probe": true
+      }
+    ],
+    "normal_exit": true,
+    "forbidden_diagnostics": []
+  },
+  "assertions": {
+    "three_segments": true,
+    "exact_music_all": true,
+    "collision_probes": true,
+    "deep_shadow_segment3": true,
+    "normal_unload": true,
+    "no_diagnostics": true
+  },
+  "guard": "PASS"
+}

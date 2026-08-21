@@ -247,3 +247,12 @@ Le morceau 120 a été rendu deux fois depuis la ROM EU, avec boucle synchronis�
 puis chargé dans PMDO sous `PMD Red EU - Mt. Steel.ogg`. Le probe 9F et l'unload
 repassent. Les anciens rapports index 121 sont conservés mais explicitement
 supplantés. L'audio corrigé reste en staging sous `RESERVE/pmdred_music/`.
+
+## Musiques ROM exactes — vague initiale (2026-08-21)
+
+Les morceaux Tiny Woods (125), Thunderwave Cave (14), Sinister Woods (15) et
+Silent Chasm (113) ont été rendus deux fois depuis la ROM avec boucles et
+commentaires Vorbis authentifiés. Sinister Woods a ensuite franchi un runtime
+PMDO sur les segments 0/1/3 et a été promu sous un nom unique ; l'ancien Ogg
+non qualifié reste conservé pour ses autres consommateurs éventuels. Les trois
+autres morceaux restent en staging jusqu'à leurs zones/runtime respectifs.
