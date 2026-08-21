@@ -13,8 +13,9 @@ end
 
 function fosse_ardente.Enter(map)
   if SV.CanonicalDungeons and SV.CanonicalDungeons.Pending=='magma_cavern_pit' then
-    local ok,scene=pcall(require,'halcyon.arc_fugitif.scene.d12p04')
-    if ok and scene and scene.Cutscene then pcall(scene.Cutscene) end
+    local scene = require 'halcyon.arc_fugitif.scene.d12p04'
+    assert(scene and scene.Cutscene, 'cinematique d12p04 absente')
+    scene.Cutscene()
     -- Le réveil et ses VFX sont entièrement joués par d12p04.Cutscene.
     -- Ne pas superposer un second effet à une autre coordonnée.
     SV.CanonicalDungeons.Pending=nil;GAME:FadeOut(false,30)

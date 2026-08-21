@@ -45,7 +45,7 @@
                           },
                           "Value": {
                             "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                            "Music": "Magma Cavern.ogg",
+                            "Music": "PMD Red EU - Magma Cavern.ogg",
                             "TimeLimit": 1500,
                             "TileSight": 0,
                             "CharSight": 1,
@@ -534,7 +534,7 @@
                           },
                           "Value": {
                             "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                            "Music": "Magma Cavern.ogg",
+                            "Music": "PMD Red EU - Magma Cavern.ogg",
                             "TimeLimit": 1500,
                             "TileSight": 0,
                             "CharSight": 1,
@@ -6667,7 +6667,7 @@
                           },
                           "Value": {
                             "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                            "Music": "Magma Cavern.ogg",
+                            "Music": "PMD Red EU - Magma Cavern Pit.ogg",
                             "TimeLimit": 1500,
                             "TileSight": 0,
                             "CharSight": 1,
@@ -7168,7 +7168,7 @@
                           },
                           "Value": {
                             "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                            "Music": "Magma Cavern.ogg",
+                            "Music": "PMD Red EU - Magma Cavern Pit.ogg",
                             "TimeLimit": 1500,
                             "TileSight": 0,
                             "CharSight": 1,
@@ -7703,7 +7703,7 @@
                           },
                           "Value": {
                             "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                            "Music": "Magma Cavern.ogg",
+                            "Music": "PMD Red EU - Magma Cavern Pit.ogg",
                             "TimeLimit": 1500,
                             "TileSight": 0,
                             "CharSight": 1,
