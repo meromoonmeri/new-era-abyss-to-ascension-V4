@@ -11,6 +11,7 @@ import audit_pmdred_sinister_woods_source as audit
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = ROOT / "docs/pmdred_eu/playable/sinister_woods/source_manifest_2026-08-21.json"
+MUSIC_TILE_GATE = ROOT / "docs/pmdred_eu/playable/sinister_woods/canonical_music_tiles_gate_2026-08-21.json"
 ROM = Path(os.environ.get("PMDRED_EU_ROM", ROOT / ".runtime-cache/downloads/pmdred-eu.gba"))
 PRET = Path(os.environ.get("PMDRED_PRET_ROOT", ROOT / ".runtime-cache/pmd-red-reference"))
 REPORT_SHA256 = "8c33755d0ad313f7c8f6757a0e06f109cde3dea51bc7609122ec2871064189e4"
@@ -37,6 +38,20 @@ class SinisterWoodsSourceTests(unittest.TestCase):
         ])
         self.assertEqual(floors[7]["selector"]["monster_spawn_index"], 17)
         self.assertEqual(floors[8]["selector"]["monster_spawn_index"], 17)
+
+    def test_active_music_and_b41_assets_match_the_canonical_gate(self) -> None:
+        gate = json.loads(MUSIC_TILE_GATE.read_text())
+        self.assertEqual(gate["status"], "PASS_CANONICAL_MUSIC_TILESET_ACTIVE")
+        paths = [gate["music"], *gate["procedural_tileset"]["autotiles"].values()]
+        paths.append(gate["procedural_tileset"]["tile"])
+        for record in paths:
+            self.assertEqual(hashlib.sha256((ROOT / record["path"]).read_bytes()).hexdigest(), record["sha256"])
+        zone_text = (ROOT / gate["zone_validation"]["zone"]).read_text(encoding="utf-8-sig")
+        self.assertIn("Sinister Woods.ogg", zone_text)
+        for name in ("sinister_woods_b41_floor", "sinister_woods_b41_wall", "sinister_woods_b41_secondary"):
+            self.assertIn(name, zone_text)
+        self.assertNotIn("treeshroud_forest_1_", zone_text)
+        self.assertNotIn("relic_forest_blob_", zone_text)
 
     @unittest.skipUnless(ROM.is_file() and PRET.is_dir(), "authenticated ROM/pret unavailable")
     def test_fresh_build_is_semantically_deterministic(self) -> None:

@@ -1,0 +1,64 @@
+{
+  "schema": "new-era.pmdred-eu-sinister-woods-canonical-music-tiles.v1",
+  "date": "2026-08-21",
+  "status": "PASS_CANONICAL_MUSIC_TILESET_ACTIVE",
+  "authority": {
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "source_manifest": "docs/pmdred_eu/playable/sinister_woods/source_manifest_2026-08-21.json",
+    "dungeon_id": 3,
+    "procedural_tileset_id": 41,
+    "ending_tileset_id": 65
+  },
+  "music": {
+    "path": "Content/Music/Sinister Woods.ogg",
+    "sha256": "3a0870204bf21da1648e2af0747a74a18e6c9430aac9bc48a7a2e7867d8c3ce7",
+    "all_procedural_segments_select_asset": true
+  },
+  "procedural_tileset": {
+    "tile": {
+      "path": "Content/Tile/SinisterWoodsB41.tile",
+      "sha256": "fc01caa619e413712b70c4531c260d2eb05378fc80bd795829f371abe860a2d0"
+    },
+    "autotiles": {
+      "floor": {
+        "path": "Data/AutoTile/sinister_woods_b41_floor.json",
+        "sha256": "656e139afa4484b3969a262212a4eb1fe8b59937082724f34436662d154da064"
+      },
+      "wall": {
+        "path": "Data/AutoTile/sinister_woods_b41_wall.json",
+        "sha256": "df3dd5b648ff238397b8b7be4c2b271f48aa3cd04740380794a31d892a3b0e85"
+      },
+      "secondary": {
+        "path": "Data/AutoTile/sinister_woods_b41_secondary.json",
+        "sha256": "e2fde5635195a10c275d9bdb582a86264fc52e848648cd94cf694bead4ef3320"
+      }
+    },
+    "rom_materials": ["b41fon", "b41cel", "b41cex", "b41pal", "b41canm"],
+    "independent_layer_checks": 2001,
+    "independent_pixel_checks": 32016,
+    "startup_canm_adapter": "Data/Script/halcyon/services/sinister_woods_b41_startup_adapter/init.lua"
+  },
+  "ending": {
+    "ground": "d04p02",
+    "candidate": "RESERVE/pmdred_direct/grounds/d04p02.rsground",
+    "tile": "RESERVE/pmdred_direct/tiles/d04p02_DirectBase.tile",
+    "rom_material_prefix": "b65",
+    "status": "SEPARATE_DIRECT_GROUND_GATE"
+  },
+  "zone_validation": {
+    "zone": "Data/Zone/gloomy_forest.json",
+    "spawn_tables": "23/23 exact: floors 1-13 canon; floors 14-23 declared New Era repeat",
+    "canonical_music": true,
+    "canonical_b41_namespace": true,
+    "treeshroud_substitution_absent": true,
+    "relic_forest_dependency_absent": true,
+    "runtime_segments_tested": [0, 1, 3],
+    "runtime_pmdo_0_8_12": "PASS"
+  },
+  "scope": {
+    "music_and_tileset_requirement": "PASS",
+    "isolated_13_floor_red_zone_serialized": false,
+    "narrative_complete": false,
+    "promotion_of_d04p02": false
+  }
+}
