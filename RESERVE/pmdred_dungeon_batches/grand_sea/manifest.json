@@ -1,0 +1,36 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SHARED_ROM_MATERIAL_RUNTIME_PASS",
+  "dungeon_id": 41,
+  "zone_id": "grand_sea",
+  "name_fr": "Haute Mer",
+  "playable_floors": 30,
+  "canonical_music": {
+    "song_indices": [
+      39,
+      104
+    ]
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      0,
+      49
+    ],
+    "shared_validated_batch": "marvelous_sea",
+    "materials": {
+      "b00": "../marvelous_sea/rom_b00_startup/runtime/validation.json",
+      "b49": "../marvelous_sea/rom_b49_startup/runtime/validation.json"
+    },
+    "renders": [
+      "docs/pmdred_eu/renders/material_b00",
+      "docs/pmdred_eu/renders/material_b49"
+    ]
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PASS_SHARED",
+    "startup_phase_adapter": "PASS_SHARED",
+    "runtime": "PASS_SHARED_MATERIAL_FIXTURE",
+    "promotion": false
+  }
+}
