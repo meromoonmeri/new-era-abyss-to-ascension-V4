@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "authenticated source/dependency/loop/Vorbis gates; not PMDO-native playback",
+  "output": "RESERVE/pmdred_music/PMD Red EU - Sky Tower.ogg",
+  "sha256": "ce7903580f8b688bf5d5d39ebc6913d260047ff44111ea1860918af33fa800e9",
+  "bytes": 5685967,
+  "sample_rate": 48000,
+  "samples": 13928800,
+  "loop_start": 4792000,
+  "loop_length": 9136800,
+  "song_index": 22,
+  "title": "Sky Tower",
+  "discovery_process": "song_table=0x01e866bc mode=0x0096e500 tracks=11 samples=13928800 loop_start=4792000 loop_length=9136800",
+  "exact_gated_process": "song_table=0x01e866bc mode=0x0096e500 tracks=11 samples=13928800 loop_start=4792000 loop_length=9136800",
+  "dependencies": {
+    "m4play": "e16a7964acdd8ef5aff10a0e729c9618d3da0e75",
+    "libogg": "e1774cd77f471443541596e09078e78fdc342e4f",
+    "libvorbis": "0657aee69dec8508a0011f47f3b69d7538e9d262"
+  }
+}

@@ -1,0 +1,306 @@
+{
+  "schema": "new-era.pmdred-eu-all-dungeon-music-bundle.v1",
+  "date": "2026-08-21",
+  "status": "STAGED_23_OF_24_EXACT_ONE_NONLOOP_BLOCKER",
+  "authority": {
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "visual_authority": "docs/pmdred_eu/playable/ALL_DUNGEON_VISUAL_AUTHORITY_2026-08-21.json"
+  },
+  "required_song_indices": [
+    13,
+    14,
+    15,
+    20,
+    21,
+    22,
+    23,
+    25,
+    26,
+    33,
+    39,
+    102,
+    104,
+    108,
+    110,
+    111,
+    113,
+    114,
+    115,
+    120,
+    123,
+    124,
+    125,
+    126
+  ],
+  "staged_song_indices": [
+    13,
+    14,
+    15,
+    20,
+    21,
+    22,
+    23,
+    25,
+    33,
+    39,
+    102,
+    104,
+    108,
+    110,
+    111,
+    113,
+    114,
+    115,
+    120,
+    123,
+    124,
+    125,
+    126
+  ],
+  "missing_song_indices": [
+    26
+  ],
+  "records": [
+    {
+      "song_index": 13,
+      "title": "A New Adventure",
+      "path": "RESERVE/pmdred_music/PMD Red EU - A New Adventure.ogg",
+      "sha256": "8583298c2a0cb7cb79cbddae0f9b5b361dc99754f253da0e896c754b6d8bcffb",
+      "bytes": 2067356,
+      "samples": 5524000,
+      "loop_start": 2772800,
+      "loop_length": 2751200
+    },
+    {
+      "song_index": 104,
+      "title": "Frosty Forest",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Frosty Forest.ogg",
+      "sha256": "46b7a44e8f0a56293d7bc211358f52d2c8d41e9ac4de358b1d8dd908b65b71f1",
+      "bytes": 5173492,
+      "samples": 12451200,
+      "loop_start": 4752000,
+      "loop_length": 7699200
+    },
+    {
+      "song_index": 39,
+      "title": "Frosty Grotto",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Frosty Grotto.ogg",
+      "sha256": "a795447feb35ec2ea4e8b199be4e07e805953f9bbf5e309d0df97ceec8dfe50f",
+      "bytes": 4193519,
+      "samples": 9908800,
+      "loop_start": 5520000,
+      "loop_length": 4388800
+    },
+    {
+      "song_index": 20,
+      "title": "Great Canyon",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Great Canyon.ogg",
+      "sha256": "b0bb281519a9c62affcfdca9004537e3ae8cfaa397e95d3b4e7a0bab679b0815",
+      "bytes": 1902515,
+      "samples": 5328000,
+      "loop_start": 2563200,
+      "loop_length": 2764800
+    },
+    {
+      "song_index": 114,
+      "title": "In The Depths Of The Pit",
+      "path": "RESERVE/pmdred_music/PMD Red EU - In The Depths Of The Pit.ogg",
+      "sha256": "7bef2eda74b112f08c9d04f67f5a0f76a6284356571c292913008117b3d46293",
+      "bytes": 508325,
+      "samples": 1501600,
+      "loop_start": 521600,
+      "loop_length": 980000
+    },
+    {
+      "song_index": 102,
+      "title": "Lapis Cave",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Lapis Cave.ogg",
+      "sha256": "c521d1ff082da24be01321a3179ca03a003ce6c1a0465527eec225aa25d3b6f2",
+      "bytes": 2366007,
+      "samples": 4880000,
+      "loop_start": 2504000,
+      "loop_length": 2376000
+    },
+    {
+      "song_index": 124,
+      "title": "Magma Cavern Pit",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Magma Cavern Pit.ogg",
+      "sha256": "099b4138feafabafab1ff1438592aa5ea0f53140e8e5fd199d04d96267b925c9",
+      "bytes": 3883538,
+      "samples": 10184800,
+      "loop_start": 4354400,
+      "loop_length": 5830400
+    },
+    {
+      "song_index": 108,
+      "title": "Magma Cavern",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Magma Cavern.ogg",
+      "sha256": "81843207b828329e168638383759c5661279a394fe1c802edefc89f4c8be9886",
+      "bytes": 3024262,
+      "samples": 8057600,
+      "loop_start": 3092800,
+      "loop_length": 4964800
+    },
+    {
+      "song_index": 110,
+      "title": "Makuhita Dojo",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Makuhita Dojo.ogg",
+      "sha256": "243a52b8b27e88cb726400b9eded9d2f7b66b45b331c962e52fd0ccbc4e89489",
+      "bytes": 1623506,
+      "samples": 4379200,
+      "loop_start": 2004800,
+      "loop_length": 2374400
+    },
+    {
+      "song_index": 33,
+      "title": "Mt Blaze Peak",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Mt Blaze Peak.ogg",
+      "sha256": "fb403d9842672884babc160108b0233020db4b7aff1b0ca08aa38de8ff7ffd67",
+      "bytes": 3050253,
+      "samples": 7376000,
+      "loop_start": 4004000,
+      "loop_length": 3372000
+    },
+    {
+      "song_index": 25,
+      "title": "Mt Blaze",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Mt Blaze.ogg",
+      "sha256": "b8594fa492867589bb4d653ba7ed7159d6ce9aeb27809211dc7f4eaa9c9b5d50",
+      "bytes": 2575995,
+      "samples": 7539200,
+      "loop_start": 3247200,
+      "loop_length": 4292000
+    },
+    {
+      "song_index": 123,
+      "title": "Mt Freeze Peak",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Mt Freeze Peak.ogg",
+      "sha256": "4b3070df842c599d6a4f219d4cb48e9294b6d727ecdbb7fb32570be2d4546836",
+      "bytes": 2099096,
+      "samples": 5176000,
+      "loop_start": 1279200,
+      "loop_length": 3896800
+    },
+    {
+      "song_index": 115,
+      "title": "Mt Freeze",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Mt Freeze.ogg",
+      "sha256": "79d920718be794df1abbd5d55055cb94b268c55f4810a02438cba7823d7cbd0b",
+      "bytes": 2545995,
+      "samples": 5780800,
+      "loop_start": 1737600,
+      "loop_length": 4043200
+    },
+    {
+      "song_index": 126,
+      "title": "Mt Thunder Peak",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Mt Thunder Peak.ogg",
+      "sha256": "32373a97c4fc89f1ed81ab700ec86b9541c393b0e56d8f1eb86795fd5cd97071",
+      "bytes": 2724508,
+      "samples": 8185600,
+      "loop_start": 3688000,
+      "loop_length": 4497600
+    },
+    {
+      "song_index": 111,
+      "title": "Mt Thunder",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Mt Thunder.ogg",
+      "sha256": "36641c6da663d8312d6a402b4757f76e7e3152e38d976489fa9115c151d2006f",
+      "bytes": 2291307,
+      "samples": 6000800,
+      "loop_start": 1993600,
+      "loop_length": 4007200
+    },
+    {
+      "song_index": 120,
+      "title": "Mt. Steel",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Mt. Steel.ogg",
+      "sha256": "10c46ae02f6aeb62257deb949136e902dfb7711523303ed95eaa3c5be6e4ec59",
+      "bytes": 2747897,
+      "samples": 7940000,
+      "loop_start": 3730400,
+      "loop_length": 4209600
+    },
+    {
+      "song_index": 113,
+      "title": "Silent Chasm",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Silent Chasm.ogg",
+      "sha256": "68ced23ae245a00d68d2b02909597a486b5789c95936ac5e5e70ce12442562c6",
+      "bytes": 2182395,
+      "samples": 5526400,
+      "loop_start": 2197600,
+      "loop_length": 3328800
+    },
+    {
+      "song_index": 15,
+      "title": "Sinister Woods",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Sinister Woods.ogg",
+      "sha256": "a44347aca2b4e511129a0c503bf658e13b7b3eefdecd3d918fd5de42940a0e25",
+      "bytes": 1641467,
+      "samples": 4228800,
+      "loop_start": 1532000,
+      "loop_length": 2696800
+    },
+    {
+      "song_index": 23,
+      "title": "Sky Tower Summit",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Sky Tower Summit.ogg",
+      "sha256": "61cd209a33fe455a62584983e73bafb9cd365a2bbbe1759d724910a7c6abafe6",
+      "bytes": 4079236,
+      "samples": 9720000,
+      "loop_start": 5224800,
+      "loop_length": 4495200
+    },
+    {
+      "song_index": 22,
+      "title": "Sky Tower",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Sky Tower.ogg",
+      "sha256": "ce7903580f8b688bf5d5d39ebc6913d260047ff44111ea1860918af33fa800e9",
+      "bytes": 5685967,
+      "samples": 13928800,
+      "loop_start": 4792000,
+      "loop_length": 9136800
+    },
+    {
+      "song_index": 21,
+      "title": "Stormy Sea",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Stormy Sea.ogg",
+      "sha256": "5935c814236f2aae616c68c415f4a5b684723137c7e502f5585671a9d75cc26e",
+      "bytes": 1650898,
+      "samples": 4060800,
+      "loop_start": 1584000,
+      "loop_length": 2476800
+    },
+    {
+      "song_index": 14,
+      "title": "Thunderwave Cave",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Thunderwave Cave.ogg",
+      "sha256": "bef933f3b517355354dd183bdde4fd13d97cf0f8ea382c50fea0ae57596713ae",
+      "bytes": 2574195,
+      "samples": 7016800,
+      "loop_start": 3095200,
+      "loop_length": 3921600
+    },
+    {
+      "song_index": 125,
+      "title": "Tiny Woods",
+      "path": "RESERVE/pmdred_music/PMD Red EU - Tiny Woods.ogg",
+      "sha256": "ed713b3fb3801183dd17ed5a9236de197c7dd3ba3f59d025dda99064406d9ab7",
+      "bytes": 1246626,
+      "samples": 3368800,
+      "loop_start": 1320800,
+      "loop_length": 2048000
+    }
+  ],
+  "blockers": [
+    {
+      "song_index": 26,
+      "symbol": "MUS_RAYQUAZAS_DOMAIN",
+      "reason": "source clears TRACK without a repeated sequence state; looping renderer correctly rejects it; requires authenticated non-loop music policy and runtime transition proof"
+    }
+  ],
+  "promotion": {
+    "automatic": false,
+    "rule": "each zone must select its exact staged filename and pass PMDO runtime before promotion"
+  }
+}

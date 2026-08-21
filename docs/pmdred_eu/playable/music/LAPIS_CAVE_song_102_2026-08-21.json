@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "authenticated source/dependency/loop/Vorbis gates; not PMDO-native playback",
+  "output": "RESERVE/pmdred_music/PMD Red EU - Lapis Cave.ogg",
+  "sha256": "c521d1ff082da24be01321a3179ca03a003ce6c1a0465527eec225aa25d3b6f2",
+  "bytes": 2366007,
+  "sample_rate": 48000,
+  "samples": 4880000,
+  "loop_start": 2504000,
+  "loop_length": 2376000,
+  "song_index": 102,
+  "title": "Lapis Cave",
+  "discovery_process": "song_table=0x01e866bc mode=0x0096e500 tracks=12 samples=4880000 loop_start=2504000 loop_length=2376000",
+  "exact_gated_process": "song_table=0x01e866bc mode=0x0096e500 tracks=12 samples=4880000 loop_start=2504000 loop_length=2376000",
+  "dependencies": {
+    "m4play": "e16a7964acdd8ef5aff10a0e729c9618d3da0e75",
+    "libogg": "e1774cd77f471443541596e09078e78fdc342e4f",
+    "libvorbis": "0657aee69dec8508a0011f47f3b69d7538e9d262"
+  }
+}

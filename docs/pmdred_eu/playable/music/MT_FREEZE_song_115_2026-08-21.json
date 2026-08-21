@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "authenticated source/dependency/loop/Vorbis gates; not PMDO-native playback",
+  "output": "RESERVE/pmdred_music/PMD Red EU - Mt Freeze.ogg",
+  "sha256": "79d920718be794df1abbd5d55055cb94b268c55f4810a02438cba7823d7cbd0b",
+  "bytes": 2545995,
+  "sample_rate": 48000,
+  "samples": 5780800,
+  "loop_start": 1737600,
+  "loop_length": 4043200,
+  "song_index": 115,
+  "title": "Mt Freeze",
+  "discovery_process": "song_table=0x01e866bc mode=0x0096e500 tracks=12 samples=5780800 loop_start=1737600 loop_length=4043200",
+  "exact_gated_process": "song_table=0x01e866bc mode=0x0096e500 tracks=12 samples=5780800 loop_start=1737600 loop_length=4043200",
+  "dependencies": {
+    "m4play": "e16a7964acdd8ef5aff10a0e729c9618d3da0e75",
+    "libogg": "e1774cd77f471443541596e09078e78fdc342e4f",
+    "libvorbis": "0657aee69dec8508a0011f47f3b69d7538e9d262"
+  }
+}

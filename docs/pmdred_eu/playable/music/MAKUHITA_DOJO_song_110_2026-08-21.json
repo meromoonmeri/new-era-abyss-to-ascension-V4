@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "authenticated source/dependency/loop/Vorbis gates; not PMDO-native playback",
+  "output": "RESERVE/pmdred_music/PMD Red EU - Makuhita Dojo.ogg",
+  "sha256": "243a52b8b27e88cb726400b9eded9d2f7b66b45b331c962e52fd0ccbc4e89489",
+  "bytes": 1623506,
+  "sample_rate": 48000,
+  "samples": 4379200,
+  "loop_start": 2004800,
+  "loop_length": 2374400,
+  "song_index": 110,
+  "title": "Makuhita Dojo",
+  "discovery_process": "song_table=0x01e866bc mode=0x0096e500 tracks=11 samples=4379200 loop_start=2004800 loop_length=2374400",
+  "exact_gated_process": "song_table=0x01e866bc mode=0x0096e500 tracks=11 samples=4379200 loop_start=2004800 loop_length=2374400",
+  "dependencies": {
+    "m4play": "e16a7964acdd8ef5aff10a0e729c9618d3da0e75",
+    "libogg": "e1774cd77f471443541596e09078e78fdc342e4f",
+    "libvorbis": "0657aee69dec8508a0011f47f3b69d7538e9d262"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "authenticated source/dependency/loop/Vorbis gates; not PMDO-native playback",
+  "output": "RESERVE/pmdred_music/PMD Red EU - Mt Blaze.ogg",
+  "sha256": "b8594fa492867589bb4d653ba7ed7159d6ce9aeb27809211dc7f4eaa9c9b5d50",
+  "bytes": 2575995,
+  "sample_rate": 48000,
+  "samples": 7539200,
+  "loop_start": 3247200,
+  "loop_length": 4292000,
+  "song_index": 25,
+  "title": "Mt Blaze",
+  "discovery_process": "song_table=0x01e866bc mode=0x0096e500 tracks=12 samples=7539200 loop_start=3247200 loop_length=4292000",
+  "exact_gated_process": "song_table=0x01e866bc mode=0x0096e500 tracks=12 samples=7539200 loop_start=3247200 loop_length=4292000",
+  "dependencies": {
+    "m4play": "e16a7964acdd8ef5aff10a0e729c9618d3da0e75",
+    "libogg": "e1774cd77f471443541596e09078e78fdc342e4f",
+    "libvorbis": "0657aee69dec8508a0011f47f3b69d7538e9d262"
+  }
+}

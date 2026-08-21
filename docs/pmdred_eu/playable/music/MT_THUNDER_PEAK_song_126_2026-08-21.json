@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "authenticated source/dependency/loop/Vorbis gates; not PMDO-native playback",
+  "output": "RESERVE/pmdred_music/PMD Red EU - Mt Thunder Peak.ogg",
+  "sha256": "32373a97c4fc89f1ed81ab700ec86b9541c393b0e56d8f1eb86795fd5cd97071",
+  "bytes": 2724508,
+  "sample_rate": 48000,
+  "samples": 8185600,
+  "loop_start": 3688000,
+  "loop_length": 4497600,
+  "song_index": 126,
+  "title": "Mt Thunder Peak",
+  "discovery_process": "song_table=0x01e866bc mode=0x0096e500 tracks=12 samples=8185600 loop_start=3688000 loop_length=4497600",
+  "exact_gated_process": "song_table=0x01e866bc mode=0x0096e500 tracks=12 samples=8185600 loop_start=3688000 loop_length=4497600",
+  "dependencies": {
+    "m4play": "e16a7964acdd8ef5aff10a0e729c9618d3da0e75",
+    "libogg": "e1774cd77f471443541596e09078e78fdc342e4f",
+    "libvorbis": "0657aee69dec8508a0011f47f3b69d7538e9d262"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "authenticated source/dependency/loop/Vorbis gates; not PMDO-native playback",
+  "output": "RESERVE/pmdred_music/PMD Red EU - Frosty Grotto.ogg",
+  "sha256": "a795447feb35ec2ea4e8b199be4e07e805953f9bbf5e309d0df97ceec8dfe50f",
+  "bytes": 4193519,
+  "sample_rate": 48000,
+  "samples": 9908800,
+  "loop_start": 5520000,
+  "loop_length": 4388800,
+  "song_index": 39,
+  "title": "Frosty Grotto",
+  "discovery_process": "song_table=0x01e866bc mode=0x0096e500 tracks=11 samples=9908800 loop_start=5520000 loop_length=4388800",
+  "exact_gated_process": "song_table=0x01e866bc mode=0x0096e500 tracks=11 samples=9908800 loop_start=5520000 loop_length=4388800",
+  "dependencies": {
+    "m4play": "e16a7964acdd8ef5aff10a0e729c9618d3da0e75",
+    "libogg": "e1774cd77f471443541596e09078e78fdc342e4f",
+    "libvorbis": "0657aee69dec8508a0011f47f3b69d7538e9d262"
+  }
+}

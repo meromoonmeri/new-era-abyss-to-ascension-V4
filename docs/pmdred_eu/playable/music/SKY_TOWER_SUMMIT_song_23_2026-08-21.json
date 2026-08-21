@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "authenticated source/dependency/loop/Vorbis gates; not PMDO-native playback",
+  "output": "RESERVE/pmdred_music/PMD Red EU - Sky Tower Summit.ogg",
+  "sha256": "61cd209a33fe455a62584983e73bafb9cd365a2bbbe1759d724910a7c6abafe6",
+  "bytes": 4079236,
+  "sample_rate": 48000,
+  "samples": 9720000,
+  "loop_start": 5224800,
+  "loop_length": 4495200,
+  "song_index": 23,
+  "title": "Sky Tower Summit",
+  "discovery_process": "song_table=0x01e866bc mode=0x0096e500 tracks=12 samples=9720000 loop_start=5224800 loop_length=4495200",
+  "exact_gated_process": "song_table=0x01e866bc mode=0x0096e500 tracks=12 samples=9720000 loop_start=5224800 loop_length=4495200",
+  "dependencies": {
+    "m4play": "e16a7964acdd8ef5aff10a0e729c9618d3da0e75",
+    "libogg": "e1774cd77f471443541596e09078e78fdc342e4f",
+    "libvorbis": "0657aee69dec8508a0011f47f3b69d7538e9d262"
+  }
+}

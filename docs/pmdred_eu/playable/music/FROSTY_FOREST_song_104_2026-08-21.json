@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "authenticated source/dependency/loop/Vorbis gates; not PMDO-native playback",
+  "output": "RESERVE/pmdred_music/PMD Red EU - Frosty Forest.ogg",
+  "sha256": "46b7a44e8f0a56293d7bc211358f52d2c8d41e9ac4de358b1d8dd908b65b71f1",
+  "bytes": 5173492,
+  "sample_rate": 48000,
+  "samples": 12451200,
+  "loop_start": 4752000,
+  "loop_length": 7699200,
+  "song_index": 104,
+  "title": "Frosty Forest",
+  "discovery_process": "song_table=0x01e866bc mode=0x0096e500 tracks=12 samples=12451200 loop_start=4752000 loop_length=7699200",
+  "exact_gated_process": "song_table=0x01e866bc mode=0x0096e500 tracks=12 samples=12451200 loop_start=4752000 loop_length=7699200",
+  "dependencies": {
+    "m4play": "e16a7964acdd8ef5aff10a0e729c9618d3da0e75",
+    "libogg": "e1774cd77f471443541596e09078e78fdc342e4f",
+    "libvorbis": "0657aee69dec8508a0011f47f3b69d7538e9d262"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "authenticated source/dependency/loop/Vorbis gates; not PMDO-native playback",
+  "output": "RESERVE/pmdred_music/PMD Red EU - Magma Cavern Pit.ogg",
+  "sha256": "099b4138feafabafab1ff1438592aa5ea0f53140e8e5fd199d04d96267b925c9",
+  "bytes": 3883538,
+  "sample_rate": 48000,
+  "samples": 10184800,
+  "loop_start": 4354400,
+  "loop_length": 5830400,
+  "song_index": 124,
+  "title": "Magma Cavern Pit",
+  "discovery_process": "song_table=0x01e866bc mode=0x0096e500 tracks=12 samples=10184800 loop_start=4354400 loop_length=5830400",
+  "exact_gated_process": "song_table=0x01e866bc mode=0x0096e500 tracks=12 samples=10184800 loop_start=4354400 loop_length=5830400",
+  "dependencies": {
+    "m4play": "e16a7964acdd8ef5aff10a0e729c9618d3da0e75",
+    "libogg": "e1774cd77f471443541596e09078e78fdc342e4f",
+    "libvorbis": "0657aee69dec8508a0011f47f3b69d7538e9d262"
+  }
+}

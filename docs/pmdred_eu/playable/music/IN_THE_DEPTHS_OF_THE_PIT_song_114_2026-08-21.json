@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "authenticated source/dependency/loop/Vorbis gates; not PMDO-native playback",
+  "output": "RESERVE/pmdred_music/PMD Red EU - In The Depths Of The Pit.ogg",
+  "sha256": "7bef2eda74b112f08c9d04f67f5a0f76a6284356571c292913008117b3d46293",
+  "bytes": 508325,
+  "sample_rate": 48000,
+  "samples": 1501600,
+  "loop_start": 521600,
+  "loop_length": 980000,
+  "song_index": 114,
+  "title": "In The Depths Of The Pit",
+  "discovery_process": "song_table=0x01e866bc mode=0x0096e500 tracks=7 samples=1501600 loop_start=521600 loop_length=980000",
+  "exact_gated_process": "song_table=0x01e866bc mode=0x0096e500 tracks=7 samples=1501600 loop_start=521600 loop_length=980000",
+  "dependencies": {
+    "m4play": "e16a7964acdd8ef5aff10a0e729c9618d3da0e75",
+    "libogg": "e1774cd77f471443541596e09078e78fdc342e4f",
+    "libvorbis": "0657aee69dec8508a0011f47f3b69d7538e9d262"
+  }
+}
