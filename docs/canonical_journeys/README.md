@@ -40,8 +40,22 @@ Les éléments suivants passent pour la route matériau/runtime :
 - tables Pokémon/niveaux/probabilités exactes sur le cycle canonique de 13
   étages, puis répétition déclarée comme adaptation New Era ;
 - matériau ROM b41 promu sous le namespace isolé `SinisterWoodsB41` ;
+- générateur PMD Red transcrit dans un profil source explicite (`GenerateFloor`,
+  `FloorProperties`, layouts, densités, connectivité, halls supplémentaires,
+  terrains secondaires et étage fixe) ;
+- `gloomy_forest` utilise désormais un `GridFloorGen` PMDO natif par étage,
+  `RoomGenSquare`, `GridPathBranch`, `ConnectGridBranchStep`, `FloorStairsStep`
+  et les trois AutoTiles `SinisterWoodsB41` ;
+- replay PMDO réel des segments procéduraux 0/1/3 : cartes générées,
+  musique, collisions libres/bloquées, `deep_shadow`, sortie moteur normale
+  code 0, sans diagnostic interdit ;
 - `deep_shadow` reconstruit et runtime testé ;
 - Relic Forest régressé après promotion, sans modification des six blobs.
+
+Cette preuve reste une preuve **technique du générateur et du matériau** : elle
+ne certifie pas encore la chaîne narrative complète Team Dazzling, le boss, les
+retours victoire/défaite ni le parcours chapitre 6 → fin. Voir
+`docs/pmdred_eu/dungeon_grounds/SINISTER_WOODS_PMDO_NATIVE_GENERATOR_RUNTIME_2026-08-21.json`.
 
 La séparation est volontaire : les anciens noms `treeshroud_forest_1_*` restent
 aux consommateurs New Era/Relic Forest. `gloomy_forest` ne possède plus de

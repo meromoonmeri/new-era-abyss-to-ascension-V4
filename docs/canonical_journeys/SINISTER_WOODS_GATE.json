@@ -1,6 +1,6 @@
 {
-  "schema": "new-era.canonical-journey-gate.sinister-woods.v1",
-  "result": "PASS_MATERIAL_RUNTIME_UNIQUE_NAMESPACE_WITH_NARRATIVE_REMAINING",
+  "schema": "new-era.canonical-journey-gate.sinister-woods.v2",
+  "result": "PASS_NATIVE_GENERATOR_RUNTIME_NON_PRODUCTION",
   "public_identity": "Sinister Woods",
   "technical_zone_id": "gloomy_forest",
   "provenance": {
@@ -44,6 +44,7 @@
   },
   "blockers": [
     "FULL_PMDO_RED_NARRATIVE_NOT_CERTIFIED",
+    "FULL_SINISTER_WOODS_DUNGEON_CHAIN_NOT_CERTIFIED",
     "FULL_GAME_END_TO_END_TRAVERSAL_NOT_CERTIFIED"
   ],
   "production_route_written": true,
@@ -68,7 +69,26 @@
     "shared_treeshroud_preserved": true
   },
   "runtime": {
-    "status": "RUNTIME_TESTED",
-    "evidence": "docs/pmdred_eu/dungeon_grounds/SINISTER_WOODS_B41_PROMOTION_2026-08-19.json"
+    "status": "PASS_NATIVE_GENERATOR_RUNTIME_NON_PRODUCTION",
+    "evidence": "docs/pmdred_eu/dungeon_grounds/SINISTER_WOODS_PMDO_NATIVE_GENERATOR_RUNTIME_2026-08-21.json",
+    "scope": "segments 0, 1 and 3 procedural generation/material/collision/music/deep_shadow",
+    "full_narrative_chain": false
+  },
+  "production_route_certified": false,
+  "generator_profile": {
+    "status": "SOURCE_DERIVED_NATIVE_PMDO_ADAPTER",
+    "profile": "docs/canonical/red/sinister_woods_generator_profile.json",
+    "runtime_evidence": "docs/pmdred_eu/dungeon_grounds/SINISTER_WOODS_PMDO_NATIVE_GENERATOR_RUNTIME_2026-08-21.json",
+    "source_commit": "bf0092d0e34fd8e49b859a0b5f96f00740faa42d",
+    "procedural_floor_nodes": 23,
+    "fixed_story_segments_preserved": true,
+    "pmdo_native_steps": [
+      "GridFloorGen",
+      "InitGridPlanStep",
+      "GridPathBranch",
+      "ConnectGridBranchStep",
+      "FloorStairsStep",
+      "MapTextureStep"
+    ]
   }
 }

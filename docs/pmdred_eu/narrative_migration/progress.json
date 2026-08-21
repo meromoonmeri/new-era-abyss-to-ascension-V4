@@ -11,8 +11,8 @@
     "in_progress_scene_count": 1,
     "not_started_scene_count": 132,
     "current_scene": "s01",
-    "current_boundary": "critical New Game regression fixed; normal New Era title -> personality_test selector -> relic_forest chapter-one flow passes",
-    "blocking_dependency": "SINISTER_WOODS_TARGETED_AUDIT_AND_POST_STARTUP_NARRATIVE_GATE_DESIGN"
+    "current_boundary": "native PMDO Sinister Woods generator/material/collision/music runtime pass; full Team Dazzling narrative chain remains unvalidated",
+    "blocking_dependency": "SINISTER_WOODS_FULL_NARRATIVE_CHAIN_RUNTIME"
   },
   "current_lot": {
     "id": "new_game_startup_regression_fix",

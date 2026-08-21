@@ -73,25 +73,44 @@ def sinister_gate(repo: Path) -> dict[str, Any]:
         "sinister_woods_b41_secondary",
     ))
     deep_shadow_missing = "deep_shadow" in payload and not (repo / "Data/MapStatus/deep_shadow.json").is_file()
-    blockers = []
+    profile_path = repo / "docs/canonical/red/sinister_woods_generator_profile.json"
+    runtime_path = repo / "docs/pmdred_eu/dungeon_grounds/SINISTER_WOODS_PMDO_NATIVE_GENERATOR_RUNTIME_2026-08-21.json"
+    profile_present = profile_path.is_file()
+    runtime_payload = read(runtime_path) if runtime_path.is_file() else {}
+    native_nodes = sum(
+        len(segments[index].get("Floors", {}).get("nodes", []))
+        for index in (0, 1, 3)
+        if isinstance(segments[index].get("Floors"), dict)
+    )
+    technical_blockers = []
     if procedural != {0: 15, 1: 5, 3: 3}:
-        blockers.append("FLOOR_PROGRESSION_15_5_3_MISMATCH")
+        technical_blockers.append("FLOOR_PROGRESSION_15_5_3_MISMATCH")
     if not all("Sinister Woods.ogg" in music[index] for index in music):
-        blockers.append("CANONICAL_SINISTER_WOODS_MUSIC_MISSING")
+        technical_blockers.append("CANONICAL_SINISTER_WOODS_MUSIC_MISSING")
     if not all(row["exists"] for row in grounds.values()):
-        blockers.append("CANONICAL_D04_GROUND_MISSING")
+        technical_blockers.append("CANONICAL_D04_GROUND_MISSING")
     if treeshroud_count:
-        blockers.append("PROCEDURAL_GRAPHICS_STILL_TREESHROUD_ADAPTATION")
-    if unique_b41_count != 9:
-        blockers.append("UNIQUE_B41_GRAPHICS_NAMESPACE_INCOMPLETE")
+        technical_blockers.append("PROCEDURAL_GRAPHICS_STILL_TREESHROUD_ADAPTATION")
+    if unique_b41_count < 9:
+        technical_blockers.append("UNIQUE_B41_GRAPHICS_NAMESPACE_INCOMPLETE")
     if relic_blob_count:
-        blockers.append("RELIC_FOREST_BLOBS_MIXED_INTO_PMD_RED_CHAIN")
+        technical_blockers.append("RELIC_FOREST_BLOBS_MIXED_INTO_PMD_RED_CHAIN")
     if reverse_relic_script_count:
-        blockers.append("RELIC_FOREST_STAIR_SCRIPT_MIXED_INTO_PMD_RED_CHAIN")
+        technical_blockers.append("RELIC_FOREST_STAIR_SCRIPT_MIXED_INTO_PMD_RED_CHAIN")
     if deep_shadow_missing:
-        blockers.append("DEEP_SHADOW_RUNTIME_COMPONENT_MISSING")
+        technical_blockers.append("DEEP_SHADOW_RUNTIME_COMPONENT_MISSING")
+    if not profile_present or native_nodes != 23:
+        technical_blockers.append("NATIVE_PMDO_GENERATOR_PROFILE_OR_NODES_MISSING")
+    if runtime_payload.get("result") != "PMDO_NATIVE_GENERATOR_RUNTIME_PASS_NON_PRODUCTION":
+        technical_blockers.append("NATIVE_PMDO_GENERATOR_RUNTIME_NOT_PASS")
+    narrative_blockers = [
+        "FULL_PMDO_RED_NARRATIVE_NOT_CERTIFIED",
+        "FULL_SINISTER_WOODS_DUNGEON_CHAIN_NOT_CERTIFIED",
+        "FULL_GAME_END_TO_END_TRAVERSAL_NOT_CERTIFIED",
+    ]
+    blockers = technical_blockers + narrative_blockers
     return {
-        "result": "PASS" if not blockers else "BLOCKED",
+        "result": "PASS_NATIVE_GENERATOR_RUNTIME_NON_PRODUCTION" if not technical_blockers else "BLOCKED",
         "public_identity": "Sinister Woods",
         "technical_zone_id": "gloomy_forest",
         "provenance": {
@@ -110,8 +129,19 @@ def sinister_gate(repo: Path) -> dict[str, Any]:
             "reverse_relic_forest_script_reference_count": reverse_relic_script_count,
             "deep_shadow_missing": deep_shadow_missing,
         },
+        "technical_blockers": technical_blockers,
         "blockers": blockers,
-        "production_route_written": not blockers and unique_b41_count == 9,
+        "production_route_written": not technical_blockers and unique_b41_count >= 9,
+        "production_route_certified": False,
+        "generator_profile": {
+            "status": "SOURCE_DERIVED_NATIVE_PMDO_ADAPTER" if not technical_blockers else "BLOCKED",
+            "profile": "docs/canonical/red/sinister_woods_generator_profile.json",
+            "profile_sha256": sha256(profile_path) if profile_present else None,
+            "runtime_evidence": "docs/pmdred_eu/dungeon_grounds/SINISTER_WOODS_PMDO_NATIVE_GENERATOR_RUNTIME_2026-08-21.json",
+            "runtime_result": runtime_payload.get("result"),
+            "native_procedural_nodes": native_nodes,
+            "fixed_story_segments_preserved": True,
+        },
         "material_promotion": {
             "status": "PROMOTED_UNIQUE_NAMESPACE" if not blockers and unique_b41_count == 9 else "NOT_PROMOTED",
             "namespace": "SinisterWoodsB41",

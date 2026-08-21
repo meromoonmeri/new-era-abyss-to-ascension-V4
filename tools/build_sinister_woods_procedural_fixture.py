@@ -92,7 +92,8 @@ def install_probe(quest: Path) -> None:
         f'''    for py=0,height-1,1 do\n'''
         f'''      local loc=RogueElements.Loc(px,py)\n'''
         f'''      local blocked=map:TileBlocked(loc)\n'''
-        f'''      if blocked then blocked_probe=true elseif map:GetCharAtLoc(loc)==nil then free_probe=true end\n'''
+        f'''      -- TileBlocked is the authoritative PMDO collision query.  PMDO may return an empty character proxy for an unoccupied generated tile, so GetCharAtLoc is not a second passability condition.\n'''
+        f'''      if blocked then blocked_probe=true else free_probe=true end\n'''
         f'''      if free_probe and blocked_probe then break end\n'''
         f'''    end\n'''
         f'''    if free_probe and blocked_probe then break end\n'''
@@ -273,7 +274,33 @@ def build(output: Path, candidate: Path | None = None) -> Path:
     # the probe enters gloomy_forest directly and does not use that Ground.
     quest = BASE.build(ROOT, output, conversion_set="direct", ids=["d01p02"])
     zone_dir = quest / "Data/Zone"
-    shutil.copy2(ROOT / "Data/Zone/gloomy_forest.json", zone_dir / "gloomy_forest.json")
+    zone_source = ROOT / "Data/Zone/gloomy_forest.json"
+    shutil.copy2(zone_source, zone_dir / "gloomy_forest.json")
+    # A PMDO mod must ship a fixture-local Zone index for a zone that is not
+    # present in the DumpAsset base index.  Without this, the engine accepts
+    # the JSON file but rejects GAME:EnterZone("gloomy_forest", ...) as an
+    # invalid zone name.  Keep the base summaries intact and replace only the
+    # canonical entry with the current serialized identity/Ground routing.
+    zone_index = BASE.read_json(ROOT / "Data/Zone/index.idx")
+    zone_object = json.loads(zone_source.read_text(encoding="utf-8-sig"))["Object"]
+    if "gloomy_forest" not in zone_index.get("Object", {}):
+        raise ValueError("source Data/Zone/index.idx has no gloomy_forest summary")
+    summary = zone_index["Object"]["gloomy_forest"]
+    summary["Name"] = zone_object["Name"]
+    summary["Comment"] = zone_object.get("Comment", summary.get("Comment", ""))
+    summary["Released"] = zone_object.get("Released", True)
+    summary["Grounds"] = list(zone_object.get("GroundMaps", []))
+    summary["Maps"] = []
+    for segment in zone_object.get("Segments", []):
+        floors = segment.get("Floors")
+        if isinstance(floors, dict):
+            summary["Maps"].append(list(range(len(floors.get("nodes", [])))))
+        elif isinstance(floors, list):
+            summary["Maps"].append([0])
+        else:
+            summary["Maps"].append([])
+    summary["CountedFloors"] = sum(len(values) for values in summary["Maps"])
+    BASE.write_json_bom(zone_dir / "index.idx", zone_index)
     # The map-status index is already copied by the base fixture.  Replace the
     # generated setter with a fixture-local copy so the runtime tests the exact
     # staged file rather than a source symlink.
