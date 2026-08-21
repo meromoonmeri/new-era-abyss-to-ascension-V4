@@ -200,5 +200,16 @@
       "French dialogue order",
       "production promotion"
     ]
+  },
+  "sinister_woods_source_2026_08_21": {
+    "status": "PASS_13_OF_13_ROM_GAMEPLAY_ROWS",
+    "evidence": "docs/pmdred_eu/playable/sinister_woods/source_manifest_2026-08-21.json",
+    "dungeon_id": 3,
+    "procedural_tileset": 41,
+    "ending_tileset": 65,
+    "monster_tables_exact": true,
+    "items_and_traps_provenance_recorded": true,
+    "gloomy_forest_modified": false,
+    "next": "serialize isolated sinister_woods candidate from this manifest"
   }
 }

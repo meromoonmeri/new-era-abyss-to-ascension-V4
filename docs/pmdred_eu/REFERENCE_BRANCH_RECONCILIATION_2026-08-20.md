@@ -220,3 +220,17 @@ diagnostic. Preuve :
 `docs/pmdred_eu/playable/mt_steel/native_failure_2026-08-21/validation.json`.
 Le wipe naturel n'est pas assimilé à cette preuve et reste distinct ; la route
 Mt Acier actuelle ne possède pas de contrat retry dédié.
+
+## Reprise Bois Sinistre — fermeture de la source gameplay (2026-08-21)
+
+Le lot suivant demandé par le checkpoint de la branche a commencé par un
+manifeste gameplay ROM EU create-only. Les 13 lignes jouables du dungeon ID 3
+sont désormais reliées à leurs propriétés, sélecteurs, tables monstres,
+objets/pièges et hashes physiques. Les labels espèces de pret sont acceptés
+uniquement après comparaison des niveaux et probabilités cumulées avec la ROM.
+
+Résultat : 13/13 tables monstres exactes, y compris la réutilisation de la table
+17 aux étages 8–9 et le trio final Abo/Ectoplasma/Charmina. Le rapport distingue
+le matériau procédural b41 du matériau final b65/D04P02. Cette pièce devient
+l'entrée autoritative du futur builder `sinister_woods`, sans toucher à la zone
+New Era étendue `gloomy_forest`.
