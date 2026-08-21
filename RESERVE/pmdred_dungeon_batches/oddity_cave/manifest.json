@@ -1,6 +1,6 @@
 {
   "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
-  "status": "STAGED_ROM_RECONSTRUCTED_PIXEL_EXACT",
+  "status": "STAGED_ROM_RECONSTRUCTED_PIXEL_STARTUP_RUNTIME_PASS",
   "dungeon_id": 43,
   "zone_id": "oddity_cave",
   "name_fr": "Grotte Périls",
@@ -56,13 +56,15 @@
         "sha256": "34be17e8f00505fe7667d81cb61f8544cb8048f6d657f3595c1c2310cdae9e37"
       }
     ],
-    "pixel_checks": 32448
+    "pixel_checks": 32448,
+    "rom_startup_candidate": "rom_b50_startup",
+    "runtime_evidence": "rom_b50_startup/runtime/validation.json"
   },
   "gates": {
     "source_bound": true,
     "pixel_differential": "PASS",
-    "startup_phase_adapter": "PENDING",
-    "runtime": "PENDING",
+    "startup_phase_adapter": "PASS",
+    "runtime": "PASS_MATERIAL_FIXTURE",
     "promotion": false
   }
 }

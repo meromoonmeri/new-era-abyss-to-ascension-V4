@@ -1,0 +1,1779 @@
+{
+  "schema": "new-era.pmdred-eu.pmdred-b50-material-candidate.v2",
+  "tool_version": "2.0.0-b50-staging",
+  "candidate_status": "STAGED_STARTUP_ADAPTER_CANDIDATE",
+  "authority": {
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "dungeon_id": 3,
+    "procedural_tileset": 41,
+    "procedural_resources": [
+      "b50fon",
+      "b50cel",
+      "b50cex",
+      "b50pal",
+      "b50canm"
+    ],
+    "selection_source": "mapparam selector rows 1..12 for dungeon ID 3"
+  },
+  "namespace": {
+    "sheet": "PMDRedB50",
+    "autotile_files": {
+      "floor": "pmdred_b50_floor.json",
+      "wall": "pmdred_b50_wall.json",
+      "secondary": "pmdred_b50_secondary.json"
+    }
+  },
+  "source_resources": {
+    "b50fon": {
+      "size": 12672,
+      "sha256": "9f23a1318d0d0422105a13dbbdbb0fea49e052f5bba677a8e7c6ff089f06f542",
+      "archive": {
+        "archive_entry_index": 238,
+        "archive_data_address_hex": "0x086D7A53",
+        "archive_container_span": {
+          "purpose": "archive entry b50fon container",
+          "offset": 7174739,
+          "offset_hex": "0x006D7A53",
+          "address_hex": "0x086D7A53",
+          "size": 8997,
+          "end_offset": 7183736,
+          "end_offset_hex": "0x006D9D78"
+        },
+        "stream_span": {
+          "purpose": "b50fon AT4PX stream",
+          "offset": 7174739,
+          "offset_hex": "0x006D7A53",
+          "address_hex": "0x086D7A53",
+          "size": 8995,
+          "end_offset": 7183734,
+          "end_offset_hex": "0x006D9D76"
+        },
+        "stream_sha256": "9122010a79d30f9d960aa75fb82af68891760e3bccabe9cb1bdd0d27a7c90c5d",
+        "decompressed_size": 12672,
+        "decompressed_sha256": "9f23a1318d0d0422105a13dbbdbb0fea49e052f5bba677a8e7c6ff089f06f542",
+        "decoder": {
+          "format": "AT4PX",
+          "container_length": 8995,
+          "declared_output_size": 12672,
+          "special_command_lengths": [
+            13,
+            15,
+            17,
+            14,
+            16,
+            12,
+            10,
+            11,
+            9
+          ],
+          "control_bytes": 830,
+          "literal_tokens": 4294,
+          "back_reference_tokens": 1511,
+          "special_pattern_tokens": 831
+        }
+      }
+    },
+    "b50cel": {
+      "size": 4500,
+      "sha256": "a7470f258e8f36329ee1804751d67e254240cae5735753410dbc35a45e08db7f",
+      "archive": {
+        "archive_entry_index": 236,
+        "archive_data_address_hex": "0x086D6F64",
+        "archive_container_span": {
+          "purpose": "archive entry b50cel container",
+          "offset": 7171940,
+          "offset_hex": "0x006D6F64",
+          "address_hex": "0x086D6F64",
+          "size": 1916,
+          "end_offset": 7173856,
+          "end_offset_hex": "0x006D76E0"
+        },
+        "stream_span": {
+          "purpose": "b50cel AT4PX stream",
+          "offset": 7171940,
+          "offset_hex": "0x006D6F64",
+          "address_hex": "0x086D6F64",
+          "size": 1914,
+          "end_offset": 7173854,
+          "end_offset_hex": "0x006D76DE"
+        },
+        "stream_sha256": "dbda1cc4b20f8e1d54d484f862759dc12811d598513b4c237c3158c2c1dc99fc",
+        "decompressed_size": 4500,
+        "decompressed_sha256": "a7470f258e8f36329ee1804751d67e254240cae5735753410dbc35a45e08db7f",
+        "decoder": {
+          "format": "AT4PX",
+          "container_length": 1914,
+          "declared_output_size": 4500,
+          "special_command_lengths": [
+            13,
+            17,
+            11,
+            9,
+            15,
+            7,
+            14,
+            16,
+            5
+          ],
+          "control_bytes": 170,
+          "literal_tokens": 983,
+          "back_reference_tokens": 370,
+          "special_pattern_tokens": 3
+        }
+      }
+    },
+    "b50cex": {
+      "size": 2352,
+      "sha256": "d3e948ef4b4e860eeac9368ff602ef08ba8d392411f9263f753e5a2ae0ed3666",
+      "archive": {
+        "archive_entry_index": 237,
+        "archive_data_address_hex": "0x086D76E0",
+        "archive_container_span": {
+          "purpose": "archive entry b50cex container",
+          "offset": 7173856,
+          "offset_hex": "0x006D76E0",
+          "address_hex": "0x086D76E0",
+          "size": 883,
+          "end_offset": 7174739,
+          "end_offset_hex": "0x006D7A53"
+        },
+        "stream_span": {
+          "purpose": "b50cex AT4PX stream",
+          "offset": 7173872,
+          "offset_hex": "0x006D76F0",
+          "address_hex": "0x086D76F0",
+          "size": 867,
+          "end_offset": 7174739,
+          "end_offset_hex": "0x006D7A53"
+        },
+        "stream_sha256": "494e830f00f8964e2e574b2576c65ec05e7dd5ac2b3c4e2cc6e172bdd8eae773",
+        "decompressed_size": 2352,
+        "decompressed_sha256": "d3e948ef4b4e860eeac9368ff602ef08ba8d392411f9263f753e5a2ae0ed3666",
+        "decoder": {
+          "format": "AT4PX",
+          "container_length": 867,
+          "declared_output_size": 2352,
+          "special_command_lengths": [
+            4,
+            5,
+            7,
+            8,
+            10,
+            11,
+            13,
+            14,
+            16
+          ],
+          "control_bytes": 72,
+          "literal_tokens": 359,
+          "back_reference_tokens": 205,
+          "special_pattern_tokens": 8
+        }
+      }
+    },
+    "b50pal": {
+      "size": 768,
+      "sha256": "6e476a701078ae227ec864a9a48dde10f820256c84a13170c83d5cf03ab6645a",
+      "archive": {
+        "archive_entry_index": 239,
+        "archive_data_address_hex": "0x086D9D78",
+        "archive_container_span": {
+          "purpose": "archive entry b50pal container",
+          "offset": 7183736,
+          "offset_hex": "0x006D9D78",
+          "address_hex": "0x086D9D78",
+          "size": 768,
+          "end_offset": 7184504,
+          "end_offset_hex": "0x006DA078"
+        },
+        "payload_span": {
+          "purpose": "b50pal raw payload",
+          "offset": 7183736,
+          "offset_hex": "0x006D9D78",
+          "address_hex": "0x086D9D78",
+          "size": 768,
+          "end_offset": 7184504,
+          "end_offset_hex": "0x006DA078"
+        },
+        "payload_sha256": "6e476a701078ae227ec864a9a48dde10f820256c84a13170c83d5cf03ab6645a"
+      }
+    }
+  },
+  "b50canm": {
+    "record_count": 32,
+    "active_record_count": 16,
+    "active_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "root_sha256": "c756afc30ca91ba05b96ea4ee0307897d97ae59f2d1ce045b01fe8d186ace91b",
+    "records": [
+      {
+        "index": 0,
+        "count": 16,
+        "duration_ticks": 10,
+        "cycle_ticks": 160,
+        "colors_sha256": "3217553a5321b8fff0479638ada1769dc9847926c8c450b490277e344b02ceee",
+        "initial_raw_palette_color": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "first_published_color": [
+          0,
+          0,
+          0,
+          128
+        ]
+      },
+      {
+        "index": 1,
+        "count": 16,
+        "duration_ticks": 10,
+        "cycle_ticks": 160,
+        "colors_sha256": "bf7598f26c75b73a850c7a699088c5739ba702b2fa37dc2cc54fd775d9fe98d7",
+        "initial_raw_palette_color": [
+          255,
+          223,
+          159,
+          128
+        ],
+        "first_published_color": [
+          255,
+          222,
+          159,
+          128
+        ]
+      },
+      {
+        "index": 2,
+        "count": 16,
+        "duration_ticks": 10,
+        "cycle_ticks": 160,
+        "colors_sha256": "c482c3dd06577c6dd7b10aaf84d5724926f099d442d24896700caa8a328ed15b",
+        "initial_raw_palette_color": [
+          255,
+          199,
+          119,
+          128
+        ],
+        "first_published_color": [
+          250,
+          194,
+          117,
+          128
+        ]
+      },
+      {
+        "index": 3,
+        "count": 16,
+        "duration_ticks": 10,
+        "cycle_ticks": 160,
+        "colors_sha256": "a4d07be2cc61194673fe0e87c8322d52a373ae660da14997fd9e5f66ee6c795b",
+        "initial_raw_palette_color": [
+          239,
+          167,
+          79,
+          128
+        ],
+        "first_published_color": [
+          232,
+          166,
+          76,
+          128
+        ]
+      },
+      {
+        "index": 4,
+        "count": 16,
+        "duration_ticks": 10,
+        "cycle_ticks": 160,
+        "colors_sha256": "d9cd986e8c5e0344a05df8016a136098b4173d445ab634fe55479c3763599524",
+        "initial_raw_palette_color": [
+          207,
+          135,
+          47,
+          128
+        ],
+        "first_published_color": [
+          200,
+          135,
+          47,
+          128
+        ]
+      },
+      {
+        "index": 5,
+        "count": 16,
+        "duration_ticks": 10,
+        "cycle_ticks": 160,
+        "colors_sha256": "eb56005a5d5b3a77f3007378980f3342b816531c43261ff2121796fe11c8029d",
+        "initial_raw_palette_color": [
+          175,
+          111,
+          23,
+          128
+        ],
+        "first_published_color": [
+          168,
+          105,
+          19,
+          128
+        ]
+      },
+      {
+        "index": 6,
+        "count": 16,
+        "duration_ticks": 10,
+        "cycle_ticks": 160,
+        "colors_sha256": "ba77f8dfab5e92b361720cc1b26797a26101549747295ac3e5880365bec8c693",
+        "initial_raw_palette_color": [
+          143,
+          95,
+          7,
+          128
+        ],
+        "first_published_color": [
+          136,
+          93,
+          7,
+          128
+        ]
+      },
+      {
+        "index": 7,
+        "count": 16,
+        "duration_ticks": 10,
+        "cycle_ticks": 160,
+        "colors_sha256": "4e55f31e82eb1abe261b528323c8a4bb2355926cb1d83e494064bba538dbdd04",
+        "initial_raw_palette_color": [
+          79,
+          103,
+          79,
+          128
+        ],
+        "first_published_color": [
+          76,
+          96,
+          72,
+          128
+        ]
+      },
+      {
+        "index": 8,
+        "count": 16,
+        "duration_ticks": 14,
+        "cycle_ticks": 224,
+        "colors_sha256": "ca23600447a6e14a1e406b603c8b89e0bbe68885597ae2a1491473596de614c4",
+        "initial_raw_palette_color": [
+          135,
+          199,
+          231,
+          128
+        ],
+        "first_published_color": [
+          135,
+          199,
+          231,
+          128
+        ]
+      },
+      {
+        "index": 9,
+        "count": 16,
+        "duration_ticks": 14,
+        "cycle_ticks": 224,
+        "colors_sha256": "ba9804bbe8570fd03790043a8bd76d6da5f99656f8f039df71d6630ddaa7da85",
+        "initial_raw_palette_color": [
+          95,
+          183,
+          207,
+          128
+        ],
+        "first_published_color": [
+          95,
+          183,
+          207,
+          128
+        ]
+      },
+      {
+        "index": 10,
+        "count": 16,
+        "duration_ticks": 14,
+        "cycle_ticks": 224,
+        "colors_sha256": "d91d2d71c94eaac1f623e7b6d4149eb6cc8e0f1a1e7504942040757118e3f364",
+        "initial_raw_palette_color": [
+          63,
+          159,
+          191,
+          128
+        ],
+        "first_published_color": [
+          63,
+          159,
+          191,
+          128
+        ]
+      },
+      {
+        "index": 11,
+        "count": 16,
+        "duration_ticks": 14,
+        "cycle_ticks": 224,
+        "colors_sha256": "0de0559bd07d96d87a6f61ea70e75881852c65e6dabd260a59131bded1fe1400",
+        "initial_raw_palette_color": [
+          47,
+          143,
+          167,
+          128
+        ],
+        "first_published_color": [
+          47,
+          143,
+          167,
+          128
+        ]
+      },
+      {
+        "index": 12,
+        "count": 16,
+        "duration_ticks": 14,
+        "cycle_ticks": 224,
+        "colors_sha256": "ad832dee849704e87d336e9feda5f90290984f07da6b502100be59e284cd9964",
+        "initial_raw_palette_color": [
+          39,
+          119,
+          151,
+          128
+        ],
+        "first_published_color": [
+          39,
+          119,
+          151,
+          128
+        ]
+      },
+      {
+        "index": 13,
+        "count": 16,
+        "duration_ticks": 8,
+        "cycle_ticks": 128,
+        "colors_sha256": "6dc0e217c810d2937c81fb22c590110b01ca1e9ad28ddf4e41babbd8756108b4",
+        "initial_raw_palette_color": [
+          191,
+          231,
+          255,
+          128
+        ],
+        "first_published_color": [
+          191,
+          231,
+          255,
+          128
+        ]
+      },
+      {
+        "index": 14,
+        "count": 16,
+        "duration_ticks": 8,
+        "cycle_ticks": 128,
+        "colors_sha256": "e633e7aeeac52425ba46ed9166106d3a83ab63cba091248ed89472f6fa9f7eea",
+        "initial_raw_palette_color": [
+          167,
+          215,
+          247,
+          128
+        ],
+        "first_published_color": [
+          167,
+          215,
+          247,
+          128
+        ]
+      },
+      {
+        "index": 15,
+        "count": 16,
+        "duration_ticks": 8,
+        "cycle_ticks": 128,
+        "colors_sha256": "273656018b67ab21fee4932a2e68dedc696f2296fe6699516bde5fa4705dadad",
+        "initial_raw_palette_color": [
+          135,
+          199,
+          239,
+          128
+        ],
+        "first_published_color": [
+          135,
+          199,
+          239,
+          128
+        ]
+      },
+      {
+        "index": 16,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 17,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 18,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 19,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 20,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 21,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 22,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 23,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 24,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 25,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 26,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 27,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 28,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 29,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 30,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      },
+      {
+        "index": 31,
+        "count": 0,
+        "duration_ticks": 4,
+        "cycle_ticks": 0,
+        "colors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "initial_raw_palette_color": null,
+        "first_published_color": null
+      }
+    ]
+  },
+  "source_geometry": {
+    "font_tile_count": 396,
+    "cel_chunk_count": 250,
+    "cex_size": 2352,
+    "ground_palette_colors": 192,
+    "pmdo_chunk_size": [
+      24,
+      24
+    ],
+    "animated_chunk_count": 47,
+    "animated_palette_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ]
+  },
+  "animation_adapter": {
+    "independent_record_layers": true,
+    "one_shot_startup_adapter": true,
+    "first_published_state_tick_by_record": {
+      "0": 10,
+      "1": 10,
+      "2": 10,
+      "3": 10,
+      "4": 10,
+      "5": 10,
+      "6": 10,
+      "7": 10,
+      "8": 14,
+      "9": 14,
+      "10": 14,
+      "11": 14,
+      "12": 14,
+      "13": 8,
+      "14": 8,
+      "15": 8
+    },
+    "raw_gba_startup_palette_sha256": "9355ba743e377041e3b3aa6a6076b7b1ca1cb57de960ff08c1b92829e11375f1",
+    "policy": "Each active CANM record is a separate PMDO overlay layer with its source duration and color sequence. Raw startup frames are staged for the runtime one-shot adapter; the adapter must rotate each layer exactly once at its source duration."
+  },
+  "atlas": {
+    "path": "RESERVE/pmdred_dungeon_batches/oddity_cave/rom_b50_startup/Content/Tile/PMDRedB50.tile",
+    "sha256": "5273ca55fec95a3897889398bd508a7581b8f2293a472bc9701e20674e0ac9a2",
+    "size": 1471330,
+    "tile_size": 24,
+    "tile_count": 68250,
+    "unique_png_count": 1853,
+    "coordinates": {
+      "columns": 16,
+      "base_regions": 1,
+      "record_regions": 16,
+      "states_per_record": 16,
+      "chunks_per_state": 250
+    }
+  },
+  "autotiles": {
+    "floor": {
+      "path": "RESERVE/pmdred_dungeon_batches/oddity_cave/rom_b50_startup/Data/AutoTile/pmdred_b50_floor.json",
+      "sha256": "9d76babe5b2213e6b9b7ec92a29335221c990c63c9c138fb3a713911046df76b",
+      "size": 41617,
+      "category": "floor",
+      "cex_mask_prefix": 512,
+      "supported_neighbor_code_count": 47,
+      "supported_neighbor_codes": [
+        "0x00",
+        "0x01",
+        "0x02",
+        "0x03",
+        "0x13",
+        "0x04",
+        "0x05",
+        "0x06",
+        "0x26",
+        "0x07",
+        "0x17",
+        "0x27",
+        "0x37",
+        "0x08",
+        "0x09",
+        "0x89",
+        "0x0A",
+        "0x0B",
+        "0x1B",
+        "0x8B",
+        "0x9B",
+        "0x0C",
+        "0x4C",
+        "0x0D",
+        "0x4D",
+        "0x8D",
+        "0xCD",
+        "0x0E",
+        "0x2E",
+        "0x4E",
+        "0x6E",
+        "0x0F",
+        "0x1F",
+        "0x2F",
+        "0x3F",
+        "0x4F",
+        "0x5F",
+        "0x6F",
+        "0x7F",
+        "0x8F",
+        "0x9F",
+        "0xAF",
+        "0xBF",
+        "0xCF",
+        "0xDF",
+        "0xEF",
+        "0xFF"
+      ],
+      "variant_count": 3,
+      "variant_chunk_ids": {
+        "00": [
+          129,
+          129,
+          129
+        ],
+        "01": [
+          163,
+          163,
+          163
+        ],
+        "02": [
+          129,
+          129,
+          129
+        ],
+        "03": [
+          163,
+          163,
+          163
+        ],
+        "13": [
+          120,
+          120,
+          120
+        ],
+        "04": [
+          76,
+          76,
+          76
+        ],
+        "05": [
+          117,
+          117,
+          117
+        ],
+        "06": [
+          76,
+          76,
+          76
+        ],
+        "26": [
+          76,
+          76,
+          76
+        ],
+        "07": [
+          55,
+          55,
+          55
+        ],
+        "17": [
+          147,
+          147,
+          147
+        ],
+        "27": [
+          55,
+          55,
+          55
+        ],
+        "37": [
+          147,
+          147,
+          147
+        ],
+        "08": [
+          129,
+          129,
+          129
+        ],
+        "09": [
+          163,
+          163,
+          163
+        ],
+        "89": [
+          163,
+          163,
+          163
+        ],
+        "0A": [
+          129,
+          129,
+          129
+        ],
+        "0B": [
+          163,
+          163,
+          163
+        ],
+        "1B": [
+          120,
+          120,
+          120
+        ],
+        "8B": [
+          163,
+          163,
+          163
+        ],
+        "9B": [
+          120,
+          120,
+          120
+        ],
+        "0C": [
+          76,
+          76,
+          76
+        ],
+        "4C": [
+          118,
+          118,
+          118
+        ],
+        "0D": [
+          117,
+          117,
+          117
+        ],
+        "4D": [
+          155,
+          155,
+          155
+        ],
+        "8D": [
+          117,
+          117,
+          117
+        ],
+        "CD": [
+          166,
+          166,
+          166
+        ],
+        "0E": [
+          76,
+          76,
+          76
+        ],
+        "2E": [
+          76,
+          76,
+          76
+        ],
+        "4E": [
+          118,
+          118,
+          118
+        ],
+        "6E": [
+          118,
+          118,
+          118
+        ],
+        "0F": [
+          55,
+          55,
+          55
+        ],
+        "1F": [
+          101,
+          101,
+          101
+        ],
+        "2F": [
+          55,
+          55,
+          55
+        ],
+        "3F": [
+          101,
+          101,
+          101
+        ],
+        "4F": [
+          76,
+          76,
+          76
+        ],
+        "5F": [
+          128,
+          128,
+          128
+        ],
+        "6F": [
+          76,
+          76,
+          76
+        ],
+        "7F": [
+          78,
+          78,
+          78
+        ],
+        "8F": [
+          55,
+          55,
+          55
+        ],
+        "9F": [
+          101,
+          101,
+          101
+        ],
+        "AF": [
+          55,
+          55,
+          55
+        ],
+        "BF": [
+          101,
+          101,
+          101
+        ],
+        "CF": [
+          56,
+          56,
+          56
+        ],
+        "DF": [
+          165,
+          165,
+          165
+        ],
+        "EF": [
+          56,
+          56,
+          56
+        ],
+        "FF": [
+          30,
+          21,
+          18
+        ]
+      },
+      "unique_chunk_ids": [
+        18,
+        21,
+        30,
+        55,
+        56,
+        76,
+        78,
+        101,
+        117,
+        118,
+        120,
+        128,
+        129,
+        147,
+        155,
+        163,
+        165,
+        166
+      ],
+      "animated_neighbor_codes": [],
+      "animated_neighbor_code_count": 0,
+      "max_tile_layers_per_variant": 1,
+      "independent_canm_overlay_layers": true,
+      "one_shot_startup_adapter_frames": true
+    },
+    "wall": {
+      "path": "RESERVE/pmdred_dungeon_batches/oddity_cave/rom_b50_startup/Data/AutoTile/pmdred_b50_wall.json",
+      "sha256": "d32dabb152f9c148f781193dafd6b211de57c55ae9faca3fdd19756bd12fc204",
+      "size": 41607,
+      "category": "wall",
+      "cex_mask_prefix": 0,
+      "supported_neighbor_code_count": 47,
+      "supported_neighbor_codes": [
+        "0x00",
+        "0x01",
+        "0x02",
+        "0x03",
+        "0x13",
+        "0x04",
+        "0x05",
+        "0x06",
+        "0x26",
+        "0x07",
+        "0x17",
+        "0x27",
+        "0x37",
+        "0x08",
+        "0x09",
+        "0x89",
+        "0x0A",
+        "0x0B",
+        "0x1B",
+        "0x8B",
+        "0x9B",
+        "0x0C",
+        "0x4C",
+        "0x0D",
+        "0x4D",
+        "0x8D",
+        "0xCD",
+        "0x0E",
+        "0x2E",
+        "0x4E",
+        "0x6E",
+        "0x0F",
+        "0x1F",
+        "0x2F",
+        "0x3F",
+        "0x4F",
+        "0x5F",
+        "0x6F",
+        "0x7F",
+        "0x8F",
+        "0x9F",
+        "0xAF",
+        "0xBF",
+        "0xCF",
+        "0xDF",
+        "0xEF",
+        "0xFF"
+      ],
+      "variant_count": 3,
+      "variant_chunk_ids": {
+        "00": [
+          29,
+          38,
+          38
+        ],
+        "01": [
+          28,
+          37,
+          37
+        ],
+        "02": [
+          29,
+          38,
+          38
+        ],
+        "03": [
+          28,
+          37,
+          37
+        ],
+        "13": [
+          25,
+          33,
+          33
+        ],
+        "04": [
+          27,
+          36,
+          36
+        ],
+        "05": [
+          84,
+          96,
+          90
+        ],
+        "06": [
+          27,
+          36,
+          36
+        ],
+        "26": [
+          27,
+          36,
+          36
+        ],
+        "07": [
+          22,
+          35,
+          35
+        ],
+        "17": [
+          103,
+          103,
+          103
+        ],
+        "27": [
+          22,
+          35,
+          35
+        ],
+        "37": [
+          103,
+          103,
+          103
+        ],
+        "08": [
+          29,
+          38,
+          38
+        ],
+        "09": [
+          28,
+          37,
+          37
+        ],
+        "89": [
+          28,
+          37,
+          37
+        ],
+        "0A": [
+          29,
+          38,
+          38
+        ],
+        "0B": [
+          28,
+          37,
+          37
+        ],
+        "1B": [
+          25,
+          33,
+          33
+        ],
+        "8B": [
+          28,
+          37,
+          37
+        ],
+        "9B": [
+          25,
+          33,
+          33
+        ],
+        "0C": [
+          27,
+          36,
+          36
+        ],
+        "4C": [
+          6,
+          15,
+          15
+        ],
+        "0D": [
+          84,
+          96,
+          90
+        ],
+        "4D": [
+          88,
+          95,
+          95
+        ],
+        "8D": [
+          84,
+          96,
+          90
+        ],
+        "CD": [
+          109,
+          115,
+          115
+        ],
+        "0E": [
+          27,
+          36,
+          36
+        ],
+        "2E": [
+          27,
+          36,
+          36
+        ],
+        "4E": [
+          6,
+          15,
+          15
+        ],
+        "6E": [
+          6,
+          15,
+          15
+        ],
+        "0F": [
+          22,
+          35,
+          35
+        ],
+        "1F": [
+          23,
+          31,
+          31
+        ],
+        "2F": [
+          22,
+          35,
+          35
+        ],
+        "3F": [
+          23,
+          31,
+          31
+        ],
+        "4F": [
+          108,
+          114,
+          114
+        ],
+        "5F": [
+          60,
+          60,
+          60
+        ],
+        "6F": [
+          108,
+          114,
+          114
+        ],
+        "7F": [
+          41,
+          41,
+          41
+        ],
+        "8F": [
+          22,
+          35,
+          35
+        ],
+        "9F": [
+          23,
+          31,
+          31
+        ],
+        "AF": [
+          22,
+          35,
+          35
+        ],
+        "BF": [
+          23,
+          31,
+          31
+        ],
+        "CF": [
+          5,
+          14,
+          14
+        ],
+        "DF": [
+          59,
+          67,
+          67
+        ],
+        "EF": [
+          5,
+          14,
+          14
+        ],
+        "FF": [
+          1,
+          19,
+          10
+        ]
+      },
+      "unique_chunk_ids": [
+        1,
+        5,
+        6,
+        10,
+        14,
+        15,
+        19,
+        22,
+        23,
+        25,
+        27,
+        28,
+        29,
+        31,
+        33,
+        35,
+        36,
+        37,
+        38,
+        41,
+        59,
+        60,
+        67,
+        84,
+        88,
+        90,
+        95,
+        96,
+        103,
+        108,
+        109,
+        114,
+        115
+      ],
+      "animated_neighbor_codes": [],
+      "animated_neighbor_code_count": 0,
+      "max_tile_layers_per_variant": 1,
+      "independent_canm_overlay_layers": true,
+      "one_shot_startup_adapter_frames": true
+    },
+    "secondary": {
+      "path": "RESERVE/pmdred_dungeon_batches/oddity_cave/rom_b50_startup/Data/AutoTile/pmdred_b50_secondary.json",
+      "sha256": "1f1bfaf66ed5d3280d54a81cbe1abf079d8d8f9ddd8deb1aa2e99d1fbb3b1325",
+      "size": 6132845,
+      "category": "secondary",
+      "cex_mask_prefix": 256,
+      "supported_neighbor_code_count": 47,
+      "supported_neighbor_codes": [
+        "0x00",
+        "0x01",
+        "0x02",
+        "0x03",
+        "0x13",
+        "0x04",
+        "0x05",
+        "0x06",
+        "0x26",
+        "0x07",
+        "0x17",
+        "0x27",
+        "0x37",
+        "0x08",
+        "0x09",
+        "0x89",
+        "0x0A",
+        "0x0B",
+        "0x1B",
+        "0x8B",
+        "0x9B",
+        "0x0C",
+        "0x4C",
+        "0x0D",
+        "0x4D",
+        "0x8D",
+        "0xCD",
+        "0x0E",
+        "0x2E",
+        "0x4E",
+        "0x6E",
+        "0x0F",
+        "0x1F",
+        "0x2F",
+        "0x3F",
+        "0x4F",
+        "0x5F",
+        "0x6F",
+        "0x7F",
+        "0x8F",
+        "0x9F",
+        "0xAF",
+        "0xBF",
+        "0xCF",
+        "0xDF",
+        "0xEF",
+        "0xFF"
+      ],
+      "variant_count": 3,
+      "variant_chunk_ids": {
+        "00": [
+          52,
+          52,
+          52
+        ],
+        "01": [
+          58,
+          58,
+          58
+        ],
+        "02": [
+          52,
+          52,
+          52
+        ],
+        "03": [
+          58,
+          58,
+          58
+        ],
+        "13": [
+          83,
+          83,
+          83
+        ],
+        "04": [
+          97,
+          97,
+          97
+        ],
+        "05": [
+          148,
+          148,
+          148
+        ],
+        "06": [
+          97,
+          97,
+          97
+        ],
+        "26": [
+          97,
+          97,
+          97
+        ],
+        "07": [
+          53,
+          53,
+          53
+        ],
+        "17": [
+          156,
+          156,
+          156
+        ],
+        "27": [
+          53,
+          53,
+          53
+        ],
+        "37": [
+          156,
+          156,
+          156
+        ],
+        "08": [
+          52,
+          52,
+          52
+        ],
+        "09": [
+          58,
+          58,
+          58
+        ],
+        "89": [
+          58,
+          58,
+          58
+        ],
+        "0A": [
+          52,
+          52,
+          52
+        ],
+        "0B": [
+          58,
+          58,
+          58
+        ],
+        "1B": [
+          83,
+          83,
+          83
+        ],
+        "8B": [
+          58,
+          58,
+          58
+        ],
+        "9B": [
+          83,
+          83,
+          83
+        ],
+        "0C": [
+          97,
+          97,
+          97
+        ],
+        "4C": [
+          98,
+          98,
+          98
+        ],
+        "0D": [
+          148,
+          148,
+          148
+        ],
+        "4D": [
+          153,
+          153,
+          153
+        ],
+        "8D": [
+          148,
+          148,
+          148
+        ],
+        "CD": [
+          162,
+          162,
+          162
+        ],
+        "0E": [
+          97,
+          97,
+          97
+        ],
+        "2E": [
+          97,
+          97,
+          97
+        ],
+        "4E": [
+          98,
+          98,
+          98
+        ],
+        "6E": [
+          98,
+          98,
+          98
+        ],
+        "0F": [
+          53,
+          53,
+          53
+        ],
+        "1F": [
+          74,
+          74,
+          74
+        ],
+        "2F": [
+          53,
+          53,
+          53
+        ],
+        "3F": [
+          74,
+          74,
+          74
+        ],
+        "4F": [
+          161,
+          161,
+          161
+        ],
+        "5F": [
+          140,
+          140,
+          140
+        ],
+        "6F": [
+          161,
+          161,
+          161
+        ],
+        "7F": [
+          132,
+          132,
+          132
+        ],
+        "8F": [
+          53,
+          53,
+          53
+        ],
+        "9F": [
+          74,
+          74,
+          74
+        ],
+        "AF": [
+          53,
+          53,
+          53
+        ],
+        "BF": [
+          74,
+          74,
+          74
+        ],
+        "CF": [
+          123,
+          123,
+          123
+        ],
+        "DF": [
+          139,
+          139,
+          139
+        ],
+        "EF": [
+          123,
+          123,
+          123
+        ],
+        "FF": [
+          121,
+          121,
+          121
+        ]
+      },
+      "unique_chunk_ids": [
+        52,
+        53,
+        58,
+        74,
+        83,
+        97,
+        98,
+        121,
+        123,
+        132,
+        139,
+        140,
+        148,
+        153,
+        156,
+        161,
+        162
+      ],
+      "animated_neighbor_codes": [
+        "0x00",
+        "0x01",
+        "0x02",
+        "0x03",
+        "0x13",
+        "0x04",
+        "0x05",
+        "0x06",
+        "0x26",
+        "0x07",
+        "0x17",
+        "0x27",
+        "0x37",
+        "0x08",
+        "0x09",
+        "0x89",
+        "0x0A",
+        "0x0B",
+        "0x1B",
+        "0x8B",
+        "0x9B",
+        "0x0C",
+        "0x4C",
+        "0x0D",
+        "0x4D",
+        "0x8D",
+        "0xCD",
+        "0x0E",
+        "0x2E",
+        "0x4E",
+        "0x6E",
+        "0x0F",
+        "0x1F",
+        "0x2F",
+        "0x3F",
+        "0x4F",
+        "0x5F",
+        "0x6F",
+        "0x7F",
+        "0x8F",
+        "0x9F",
+        "0xAF",
+        "0xBF",
+        "0xCF",
+        "0xDF",
+        "0xEF",
+        "0xFF"
+      ],
+      "animated_neighbor_code_count": 47,
+      "max_tile_layers_per_variant": 16,
+      "independent_canm_overlay_layers": true,
+      "one_shot_startup_adapter_frames": true
+    }
+  },
+  "production_route": {
+    "writes_production_content_tile": false,
+    "writes_production_autotile": false,
+    "resources_to_replace_only": [
+      "PMDRedB50.tile",
+      "Data/AutoTile/pmdred_b50_floor.json",
+      "Data/AutoTile/pmdred_b50_wall.json",
+      "Data/AutoTile/pmdred_b50_secondary.json"
+    ],
+    "relic_forest_blobs_modified": false,
+    "d04p01_d04p02_modified": false
+  }
+}

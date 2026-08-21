@@ -11,6 +11,11 @@ class Tests(unittest.TestCase):
    base=path.parent;d=json.loads(path.read_text());self.assertTrue(d['status'].startswith('STAGED_'));self.assertFalse(d['gates']['promotion']);files=d['canonical_tilesets'].get('files',d['canonical_tilesets'].get('procedural_files'));self.assertGreater(len(files),0)
    for r in files:
     p=base/r['path'];self.assertEqual((p.stat().st_size,hashlib.sha256(p.read_bytes()).hexdigest()),(r['bytes'],r['sha256']))
+ def test_oddity_b50_pixel_startup_runtime(self):
+  base=BASE/'oddity_cave';d=json.loads((base/'manifest.json').read_text());self.assertEqual(d['status'],'STAGED_ROM_RECONSTRUCTED_PIXEL_STARTUP_RUNTIME_PASS');self.assertEqual(d['gates']['pixel_differential'],'PASS');self.assertEqual(d['gates']['startup_phase_adapter'],'PASS');self.assertEqual(d['gates']['runtime'],'PASS_MATERIAL_FIXTURE')
+  run=base/d['canonical_tilesets']['runtime_evidence'];report=json.loads(run.read_text());self.assertEqual(report['status'],'PASS_PIXEL_STARTUP_RUNTIME');self.assertTrue(all(report['assertions'].values()))
+  for line in (run.parent/'HASHES.sha256').read_text().splitlines():
+   expected,name=line.split('  ',1);self.assertEqual(hashlib.sha256((run.parent/name).read_bytes()).hexdigest(),expected)
  def test_early_music_bindings(self):
   for slug,(did,song) in EARLY.items():
    d=json.loads((BASE/slug/'manifest.json').read_text());self.assertEqual(d['dungeon_id'],did);actual=d['canonical_music'].get('song_index',d['canonical_music'].get('song_indices'));self.assertIn(song,actual if isinstance(actual,list) else [actual])

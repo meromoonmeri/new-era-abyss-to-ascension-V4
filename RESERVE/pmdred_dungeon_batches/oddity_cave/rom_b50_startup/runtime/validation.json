@@ -1,0 +1,51 @@
+{
+  "schema": "new-era.pmdred-eu-b50-runtime.v1",
+  "status": "PASS_PIXEL_STARTUP_RUNTIME",
+  "authority": {
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "material_validation": "../validation.json"
+  },
+  "runtime": {
+    "segments": [
+      0,
+      1,
+      3
+    ],
+    "publication_counts": {
+      "8": [
+        414,
+        414,
+        414
+      ],
+      "10": [
+        948,
+        948,
+        948
+      ],
+      "14": [
+        666,
+        666,
+        666
+      ]
+    },
+    "startup_restore_counts": [
+      0,
+      2028,
+      2028
+    ],
+    "normal_unload": true,
+    "production_adapter_sha256_after": "e5e709ae7f3ebb76981172915682baff7cfc8684db683ab82644562d92b3ee05",
+    "production_adapter_preserved": true,
+    "forbidden_diagnostics": []
+  },
+  "assertions": {
+    "segments_0_1_3": true,
+    "duration_8": true,
+    "duration_10": true,
+    "duration_14": true,
+    "reentry_restores_all": true,
+    "production_adapter_preserved": true,
+    "normal_unload": true,
+    "no_diagnostics": true
+  }
+}

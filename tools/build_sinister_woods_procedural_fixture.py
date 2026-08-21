@@ -128,18 +128,40 @@ def install_probe(quest: Path) -> None:
     )
 
 
-def install_startup_adapter(quest: Path, sheet_name: str, categories: list[str]) -> None:
+def install_startup_adapter(
+    quest: Path, sheet_name: str, categories: list[str], durations: list[int]
+) -> None:
     """Install the fixture-local exact one-shot CANM frame rotation adapter."""
-    adapter = quest / "Data/Script/halcyon/services/sinister_woods_b41_startup_adapter/init.lua"
-    adapter.parent.mkdir(parents=True, exist_ok=True)
+    adapter_dir = quest / "Data/Script/halcyon/services/sinister_woods_b41_startup_adapter"
+    # The fixture overlays service directories through symlinks.  Detach the
+    # directory itself before creating candidate-specific metadata.
+    if adapter_dir.is_symlink():
+        adapter_dir.unlink()
+    adapter_dir.mkdir(parents=True, exist_ok=True)
+    adapter = adapter_dir / "init.lua"
+    if adapter.is_symlink():
+        adapter.unlink()
     cats_lua = ",".join("'" + value + "'" for value in categories)
     fields = ('Tilex00','Tilex01','Tilex02','Tilex03','Tilex13','Tilex04','Tilex05','Tilex06','Tilex26','Tilex07','Tilex17','Tilex27','Tilex37','Tilex08','Tilex09','Tilex89','Tilex0A','Tilex0B','Tilex1B','Tilex8B','Tilex9B','Tilex0C','Tilex4C','Tilex0D','Tilex4D','Tilex8D','TilexCD','Tilex0E','Tilex2E','Tilex4E','Tilex6E','Tilex0F','Tilex1F','Tilex2F','Tilex3F','Tilex4F','Tilex5F','Tilex6F','Tilex7F','Tilex8F','Tilex9F','TilexAF','TilexBF','TilexCF','TilexDF','TilexEF','TilexFF')
     fields_lua = ",".join("'" + value + "'" for value in fields)
+    durations = sorted(set(int(value) for value in durations))
+    if not durations or any(value <= 0 for value in durations):
+        raise ValueError("startup adapter requires positive CANM durations")
+    duration_lua = ",".join(f"[{value}]=true" for value in durations)
+    schedule_lua = []
+    previous = 0
+    for value in durations:
+        schedule_lua.append(
+            f"GAME:WaitFrames({value - previous});publish_record({value},origin)"
+        )
+        previous = value
+    schedule_lua_text = "\n      ".join(schedule_lua)
     adapter.write_text(f'''require 'origin.common'
 require 'origin.services.baseservice'
 local V=Class('SinisterWoodsB41StartupAdapter',BaseService)
 local CATS={{{cats_lua}}}
 local FIELDS={{{fields_lua}}}
+local DURATIONS={{{duration_lua}}}
 local function each_layer(fn)
   for _,cat in ipairs(CATS) do
     local auto=_DATA:GetAutoTile(cat)
@@ -157,7 +179,7 @@ local function clock()return tonumber(RogueEssence.Content.GraphicsManager.Total
 local function restore_raw_startup()
   local count=0
   each_layer(function(layer)
-    if layer.Frames.Count==16 and (layer.FrameLength==8 or layer.FrameLength==12) then
+    if layer.Frames.Count==16 and DURATIONS[layer.FrameLength] then
       local first=layer.Frames[0]
       local x=first.TexLoc.X;local y=first.TexLoc.Y;local row=y%16
       local group=math.floor(y/16)
@@ -194,8 +216,7 @@ function V:OnDungeonMapInit()
   TASK:BranchCoroutine(function()
     local ok,err=xpcall(function()
       restore_raw_startup()
-      GAME:WaitFrames(8);publish_record(8,origin)
-      GAME:WaitFrames(4);publish_record(12,origin)
+      {schedule_lua_text}
     end,debug.traceback)
     if not ok then PrintInfo('[SINISTER_WOODS_B41_ADAPTER] FAIL '..tostring(err)) end
     self.running=false
@@ -282,6 +303,7 @@ def build(output: Path, candidate: Path | None = None) -> Path:
         deep.unlink()
     shutil.copy2(ROOT / "Data/MapStatus/deep_shadow.json", deep)
     startup_adapter = False
+    startup_durations = [8, 12]
     sheet_name = "TreeshroudForest1"
     auto_files = {
         "floor": "treeshroud_forest_1_floor.json",
@@ -293,11 +315,19 @@ def build(output: Path, candidate: Path | None = None) -> Path:
         namespace = candidate_manifest.get("namespace", {})
         sheet_name = namespace.get("sheet", sheet_name)
         auto_files = namespace.get("autotile_files", auto_files)
-        startup_adapter = bool(candidate_manifest.get("animation_adapter", {}).get("one_shot_startup_adapter", False))
+        animation_adapter = candidate_manifest.get("animation_adapter", {})
+        startup_adapter = bool(animation_adapter.get("one_shot_startup_adapter", False))
+        startup_durations = sorted({
+            int(value)
+            for value in animation_adapter.get("first_published_state_tick_by_record", {}).values()
+        }) or startup_durations
     install_material_candidate(quest, candidate, auto_files)
     install_probe(quest)
     if startup_adapter:
-        install_startup_adapter(quest, sheet_name, [Path(name).stem for name in auto_files.values()])
+        install_startup_adapter(
+            quest, sheet_name, [Path(name).stem for name in auto_files.values()],
+            startup_durations,
+        )
     prepare_content_overlay(output / "asset", candidate, sheet_name)
     manifest = json.loads((output / "fixture_manifest.json").read_text(encoding="utf-8"))
     manifest.update({
@@ -310,6 +340,7 @@ def build(output: Path, candidate: Path | None = None) -> Path:
         "material_candidate": str(candidate.relative_to(ROOT)) if candidate is not None and candidate.is_relative_to(ROOT) else (str(candidate) if candidate is not None else None),
         "material_candidate_manifest_sha256": __import__('hashlib').sha256((candidate / "manifest.json").read_bytes()).hexdigest() if candidate is not None else None,
         "startup_adapter": startup_adapter,
+        "startup_durations": startup_durations,
         "material_sheet": sheet_name,
         "material_autotile_files": auto_files,
         "segments": list(SEGMENTS),
