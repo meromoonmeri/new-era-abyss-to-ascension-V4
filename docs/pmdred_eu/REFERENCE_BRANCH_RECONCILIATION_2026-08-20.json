@@ -211,5 +211,21 @@
     "items_and_traps_provenance_recorded": true,
     "gloomy_forest_modified": false,
     "next": "serialize isolated sinister_woods candidate from this manifest"
+  },
+  "all_dungeon_visual_authority_2026_08_21": {
+    "status": "PASS_SOURCE_MATRIX",
+    "evidence": "docs/pmdred_eu/playable/ALL_DUNGEON_VISUAL_AUTHORITY_2026-08-21.json",
+    "dungeons": 64,
+    "floors": 1767,
+    "canonical_music_tracks": 24,
+    "canonical_tileset_ids": 74,
+    "meaning": "authority inventory, not integration PASS"
+  },
+  "mt_steel_music_correction_2026_08_21": {
+    "status": "PASS_EXACT_ROM_MUSIC_RUNTIME",
+    "historical_wrong_index": 121,
+    "correct_index": 120,
+    "evidence": "docs/pmdred_eu/playable/mt_steel/music_correction_2026-08-21/validation.json",
+    "staged_audio": "RESERVE/pmdred_music/PMD Red EU - Mt. Steel.ogg"
   }
 }

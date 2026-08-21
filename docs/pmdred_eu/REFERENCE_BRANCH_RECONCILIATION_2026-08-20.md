@@ -234,3 +234,16 @@ Résultat : 13/13 tables monstres exactes, y compris la réutilisation de la tab
 le matériau procédural b41 du matériau final b65/D04P02. Cette pièce devient
 l'entrée autoritative du futur builder `sinister_woods`, sans toucher à la zone
 New Era étendue `gloomy_forest`.
+
+## Correction d'autorité musicale globale (2026-08-21)
+
+L'audit exhaustif des 64 IDs et 1 767 lignes d'étage résout désormais chaque
+sélecteur `mapparam.music` via `gDungeonMusic` puis `MusicID`. Il recense 24
+morceaux M4A et 74 IDs de matériaux distincts. Ce calcul a découvert une erreur
+réelle dans le jalon Mt Acier : `MUS_MT_STEEL` vaut **120**, pas 121 ; 121 est
+`MUS_FRIEND_AREA_FOREST`.
+
+Le morceau 120 a été rendu deux fois depuis la ROM EU, avec boucle synchronisée,
+puis chargé dans PMDO sous `PMD Red EU - Mt. Steel.ogg`. Le probe 9F et l'unload
+repassent. Les anciens rapports index 121 sont conservés mais explicitement
+supplantés. L'audio corrigé reste en staging sous `RESERVE/pmdred_music/`.

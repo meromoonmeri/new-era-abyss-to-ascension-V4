@@ -41,8 +41,8 @@ ZONE_PATH = ROOT / f"Data/Zone/{ZONE_ID}.json"
 MAP_PATH = ROOT / f"Data/Map/{MAP_ID}.rsmap"
 ZONE_INDEX = ROOT / "Data/Zone/index.idx"
 DOC_DIR = ROOT / "docs/pmdred_eu/playable/mt_steel"
-MUSIC_PATH = ROOT / "Content/Music/Mt. Steel.ogg"
-MUSIC_REPORT = DOC_DIR / "music.json"
+MUSIC_PATH = ROOT / "RESERVE/pmdred_music/PMD Red EU - Mt. Steel.ogg"
+MUSIC_REPORT = DOC_DIR / "music_eu_corrected_2026-08-21.json"
 
 DENSITY = {
     7: [
@@ -313,7 +313,7 @@ def validate_rom() -> tuple[dict[str, Any], dict[str, Any], list[list[int]]]:
         "playable_floor_count": 9,
         "rows": extracted_rows,
         "table_hashes": EXPECTED_TABLE_HASHES,
-        "music": {"floor_property_selector": 3, "authenticated_m4a_song_index": 121,
+        "music": {"floor_property_selector": 3, "authenticated_m4a_song_index": 120,
                   "target": str(MUSIC_PATH.relative_to(ROOT))},
         "fixed_room": {
             "offset": FIXED_ROOM_OFFSET, "offset_hex": f"0x{FIXED_ROOM_OFFSET:08X}",
@@ -398,7 +398,7 @@ def build_static_map(matrix: list[list[int]]) -> dict[str, Any]:
         ],
     }
     obj["AssetName"] = MAP_ID
-    obj["Music"] = "Mt. Steel.ogg"
+    obj["Music"] = "PMD Red EU - Mt. Steel.ogg"
     obj["Element"] = "steel"
     obj["NoRescue"] = True
     obj["BlankBG"] = copy.deepcopy(wall)
@@ -517,7 +517,7 @@ def build() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
         prop = property_rows[floor_index]
         floors.append(build_chance_floor(
             geometry=DENSITY[prop["room_density"]], valid_columns=3,
-            music="Mt. Steel.ogg",
+            music="PMD Red EU - Mt. Steel.ogg",
             texture_family="mt_steel_1" if prop["tileset"] == 39 else "mt_steel_2",
             monsters=floor_monsters[floor_index],
             enemy_count_weights=count_weights(prop["enemy_density"]),
@@ -659,7 +659,7 @@ def build_validation_config(promotions: list[dict[str, Any]]) -> dict[str, Any]:
             "sha256": sha256(MAP_PATH),
             "map_id": MAP_ID,
             "dimensions": [9, 17],
-            "music": "Mt. Steel.ogg",
+            "music": "PMD Red EU - Mt. Steel.ogg",
             "entry": [4, 9, 4],
             "stairs": 0,
             "audit": {
@@ -703,7 +703,7 @@ def build_validation_config(promotions: list[dict[str, Any]]) -> dict[str, Any]:
             "path": str(MUSIC_PATH.relative_to(ROOT)),
             "sha256": sha256(MUSIC_PATH),
             "report": str(MUSIC_REPORT.relative_to(ROOT)),
-            "song_index": 121,
+            "song_index": 120,
         },
         "scripts": [
             {
@@ -808,7 +808,7 @@ def write_outputs() -> None:
     if not MUSIC_PATH.is_file() or not MUSIC_REPORT.is_file():
         raise RuntimeError("render authenticated song 121 and its report before --write")
     music = json.loads(MUSIC_REPORT.read_text(encoding="utf-8-sig"))
-    if music.get("status") != "PASS" or music.get("song_index") != 121:
+    if music.get("status") != "PASS" or music.get("song_index") != 120:
         raise RuntimeError("authenticated song-121 report gate failed")
     if music.get("sha256") != sha256(MUSIC_PATH):
         raise RuntimeError("authenticated song-121 output hash does not match its report")

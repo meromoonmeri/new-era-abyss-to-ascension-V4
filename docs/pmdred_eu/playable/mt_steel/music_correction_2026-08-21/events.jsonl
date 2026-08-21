@@ -1,0 +1,9 @@
+{"event":"bootstrap_new_game","seed":424242,"requested_floor":8}
+{"event":"launcher_ground_entered","scheduler":"MAP_UPDATE_BRANCH"}
+{"event":"launcher_map_update"}
+{"event":"launcher_coroutine_started"}
+{"event":"floor_probe","bootstrap_seed":424242,"adventure_seed":-1107708364122780684,"map_seed":-999201935572650001,"requested_floor":8,"zone":"mt_steel","segment":0,"map":8,"width":9,"height":17,"music":"PMD Red EU - Mt. Steel.ogg","start":{"x":4,"y":9},"entries":[{"x":4,"y":9}],"terrain":{"floor":77,"unbreakable":59,"water":17},"effects":{},"walkable":77,"reachable":48,"canonical_isolated_walkable":29,"stairs":[],"items":[],"mobs":[{"species":"skarmory","level":10,"x":4,"y":8,"reachable":true}],"mob_count":1,"allies":[{"species":"diglett","level":5,"x":4,"y":3,"tactic":"wait_only","all_protect":true}],"ally_count":1,"skarmory_ok":true,"diglett_ok":true,"traps":0,"verdict":"PASS"}
+{"event":"load_phase_unload_requested","before":"Ready","before_raw":"Ready: 2","requested":"Unload","readback":"Unload","readback_raw":"Unload: 3"}
+{"event":"native_deinit","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"native_graphics_unload","load_phase":"Unload","load_phase_raw":"Unload: 3"}
+{"event":"end","terminal":true,"graceful":true,"load_phase":"Unload","load_phase_raw":"Unload: 3"}

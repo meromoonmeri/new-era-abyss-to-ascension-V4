@@ -1,0 +1,50 @@
+{
+  "schema": "new-era.pmdred-eu-mt-steel-music-correction.v1",
+  "status": "PASS_EXACT_ROM_MUSIC_RUNTIME",
+  "error_corrected": {
+    "historical_claimed_song_index": 121,
+    "actual_canonical_symbol": "MUS_MT_STEEL",
+    "actual_canonical_song_index": 120,
+    "historical_121_identity": "MUS_FRIEND_AREA_FOREST"
+  },
+  "render": {
+    "status": "PASS",
+    "scope": "authenticated source/dependency/loop/Vorbis gates; not PMDO-native playback",
+    "output": "RESERVE/pmdred_music/PMD Red EU - Mt. Steel.ogg",
+    "sha256": "10c46ae02f6aeb62257deb949136e902dfb7711523303ed95eaa3c5be6e4ec59",
+    "bytes": 2747897,
+    "sample_rate": 48000,
+    "samples": 7940000,
+    "loop_start": 3730400,
+    "loop_length": 4209600,
+    "song_index": 120,
+    "title": "Mt. Steel",
+    "discovery_process": "song_table=0x01e866bc mode=0x0096e500 tracks=11 samples=7940000 loop_start=3730400 loop_length=4209600",
+    "exact_gated_process": "song_table=0x01e866bc mode=0x0096e500 tracks=11 samples=7940000 loop_start=3730400 loop_length=4209600",
+    "dependencies": {
+      "m4play": "e16a7964acdd8ef5aff10a0e729c9618d3da0e75",
+      "libogg": "e1774cd77f471443541596e09078e78fdc342e4f",
+      "libvorbis": "0657aee69dec8508a0011f47f3b69d7538e9d262"
+    }
+  },
+  "runtime": {
+    "selected_music": "PMD Red EU - Mt. Steel.ogg",
+    "probe_verdict": "PASS",
+    "termination": "PASS",
+    "return_code": 0,
+    "forbidden_diagnostics": []
+  },
+  "assertions": {
+    "render_song_120": true,
+    "rom_source_hash": true,
+    "runtime_selected_correct_asset": true,
+    "runtime_probe_pass": true,
+    "normal_unload": true,
+    "no_diagnostics": true
+  },
+  "supersedes": [
+    "docs/pmdred_eu/playable/mt_steel/music.json",
+    "music claims in prior Mt Steel validations"
+  ],
+  "promotion": "STAGED_UNDER_RESERVE"
+}
