@@ -256,3 +256,15 @@ commentaires Vorbis authentifiés. Sinister Woods a ensuite franchi un runtime
 PMDO sur les segments 0/1/3 et a été promu sous un nom unique ; l'ancien Ogg
 non qualifié reste conservé pour ses autres consommateurs éventuels. Les trois
 autres morceaux restent en staging jusqu'à leurs zones/runtime respectifs.
+
+## Bundle exhaustif musiques/matériaux (2026-08-21)
+
+Les 23 morceaux de donjon possédant une boucle M4A répétée sont désormais
+rendus, hashés et stagés. Le morceau 26 `MUS_RAYQUAZAS_DOMAIN` est le seul cas
+non bouclé : le renderer fail-closed le refuse au lieu d'inventer une boucle.
+Il nécessite une politique non-loop et un test de transition séparé.
+
+Les 74 familles de matériau utilisées sur les 1 767 lignes d'étage sont toutes
+inventoriées depuis la ROM : 337 conteneurs FON/CEL/CEX/PAL/CANM physiques sont
+hashés. Les absences CEX des familles 64–75 et les familles palette-only sont
+conservées comme structure source, pas classées à tort comme fichiers perdus.

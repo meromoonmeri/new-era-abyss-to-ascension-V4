@@ -249,5 +249,17 @@
       120,
       125
     ]
+  },
+  "all_dungeon_music_bundle_2026_08_21": {
+    "status": "STAGED_23_OF_24_EXACT_ONE_NONLOOP_BLOCKER",
+    "evidence": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json",
+    "missing_song_index": 26
+  },
+  "all_dungeon_tileset_source_2026_08_21": {
+    "status": "PASS_SOURCE_INVENTORY",
+    "evidence": "docs/pmdred_eu/playable/ALL_DUNGEON_TILESET_SOURCE_2026-08-21.json",
+    "tileset_families": 74,
+    "physical_resources_hashed": 337,
+    "conversion_complete": false
   }
 }

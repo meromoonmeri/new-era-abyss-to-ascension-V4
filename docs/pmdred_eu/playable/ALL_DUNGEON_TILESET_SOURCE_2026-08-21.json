@@ -1,0 +1,4686 @@
+{
+  "schema": "new-era.pmdred-eu-all-dungeon-tileset-source.v1",
+  "date": "2026-08-21",
+  "authority": {
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "visual_authority": "docs/pmdred_eu/playable/ALL_DUNGEON_VISUAL_AUTHORITY_2026-08-21.json"
+  },
+  "summary": {
+    "tileset_count": 74,
+    "resource_count": 337,
+    "tileset_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      21,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75
+    ],
+    "all_required_families_accounted": true
+  },
+  "families": [
+    {
+      "tileset_id": 0,
+      "prefix": "b00",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b00fon",
+          "present": true,
+          "archive_index": 3,
+          "rom_offset": 6567196,
+          "rom_offset_hex": "0x0064351C",
+          "bytes": 7316,
+          "sha256": "b918f9fa59042371c7e8a8c17ae608cb1fdcf066f2159b946054d9cf3f22c993"
+        },
+        {
+          "role": "cel",
+          "name": "b00cel",
+          "present": true,
+          "archive_index": 1,
+          "rom_offset": 6564668,
+          "rom_offset_hex": "0x00642B3C",
+          "bytes": 1800,
+          "sha256": "ba856e686fc6898d5acb0575bb426eeeb403d1f7a4086becee608edd0e4ff2bb"
+        },
+        {
+          "role": "cex",
+          "name": "b00cex",
+          "present": true,
+          "archive_index": 2,
+          "rom_offset": 6566468,
+          "rom_offset_hex": "0x00643244",
+          "bytes": 728,
+          "sha256": "370c829a17abe2018abde656ad83a39ef0cfca392ea86e535d42efc63904611c"
+        },
+        {
+          "role": "pal",
+          "name": "b00pal",
+          "present": true,
+          "archive_index": 4,
+          "rom_offset": 6574512,
+          "rom_offset_hex": "0x006451B0",
+          "bytes": 768,
+          "sha256": "8b6d2c911bdccbf5cc72165316ab48173fe23ab72109a9aae07f11cf688cd11a"
+        },
+        {
+          "role": "canm",
+          "name": "b00canm",
+          "present": true,
+          "archive_index": 0,
+          "rom_offset": 6562988,
+          "rom_offset_hex": "0x006424AC",
+          "bytes": 1680,
+          "sha256": "f88875e128cb68339c4a93ba6e851f51e4c3675e2515680ea3d93a425437b7cc"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 1,
+      "prefix": "b01",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b01fon",
+          "present": true,
+          "archive_index": 8,
+          "rom_offset": 6579247,
+          "rom_offset_hex": "0x0064642F",
+          "bytes": 10473,
+          "sha256": "0d0d7d35e698aa225e0a8ff29311422b42d56cc5764f9b81743cc17041a759a3"
+        },
+        {
+          "role": "cel",
+          "name": "b01cel",
+          "present": true,
+          "archive_index": 6,
+          "rom_offset": 6576640,
+          "rom_offset_hex": "0x00645A00",
+          "bytes": 1784,
+          "sha256": "27b81da6d8dfb960c18a96db575f066130c30f7baddb1cd9187bac994179d04a"
+        },
+        {
+          "role": "cex",
+          "name": "b01cex",
+          "present": true,
+          "archive_index": 7,
+          "rom_offset": 6578424,
+          "rom_offset_hex": "0x006460F8",
+          "bytes": 823,
+          "sha256": "99e1e69f84f48e6354305a203720d6082f880cb4f9457db6e0ef586e115b08e1"
+        },
+        {
+          "role": "pal",
+          "name": "b01pal",
+          "present": true,
+          "archive_index": 9,
+          "rom_offset": 6589720,
+          "rom_offset_hex": "0x00648D18",
+          "bytes": 768,
+          "sha256": "077272676f357e9ca2791a6de38d59982d0980bbb264b86f88b6d019921d2a27"
+        },
+        {
+          "role": "canm",
+          "name": "b01canm",
+          "present": true,
+          "archive_index": 5,
+          "rom_offset": 6575280,
+          "rom_offset_hex": "0x006454B0",
+          "bytes": 1360,
+          "sha256": "4d17f704faebaaa48a382d57c4456bbd1a0d7b7ab12ea6664dca22b147ddd293"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 2,
+      "prefix": "b02",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b02fon",
+          "present": true,
+          "archive_index": 13,
+          "rom_offset": 6594726,
+          "rom_offset_hex": "0x0064A0A6",
+          "bytes": 9282,
+          "sha256": "252d937223b7dee04b2171e7c7a409007666e6ccb5e4884235822d84b27bbdb2"
+        },
+        {
+          "role": "cel",
+          "name": "b02cel",
+          "present": true,
+          "archive_index": 11,
+          "rom_offset": 6591592,
+          "rom_offset_hex": "0x00649468",
+          "bytes": 2216,
+          "sha256": "9545a9f3ca7a48c57be6ab5c75f49b557d98d5193add0d0e07178c9f9193c5e9"
+        },
+        {
+          "role": "cex",
+          "name": "b02cex",
+          "present": true,
+          "archive_index": 12,
+          "rom_offset": 6593808,
+          "rom_offset_hex": "0x00649D10",
+          "bytes": 918,
+          "sha256": "9115ba0b2fafbbd4cfcc35beb89739412a48636eb511ba7a43a668fff61f0f95"
+        },
+        {
+          "role": "pal",
+          "name": "b02pal",
+          "present": true,
+          "archive_index": 14,
+          "rom_offset": 6604008,
+          "rom_offset_hex": "0x0064C4E8",
+          "bytes": 768,
+          "sha256": "06d5cb6a1b2f71bda062e9f163360ab725ff7e06167bd5284ca387e27146dde6"
+        },
+        {
+          "role": "canm",
+          "name": "b02canm",
+          "present": true,
+          "archive_index": 10,
+          "rom_offset": 6590488,
+          "rom_offset_hex": "0x00649018",
+          "bytes": 1104,
+          "sha256": "1b5a9e2d9681d091660b4b2a4d41ed8f7cd5e582d441fb209d0ecd43c3e07188"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 3,
+      "prefix": "b03",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b03fon",
+          "present": true,
+          "archive_index": 18,
+          "rom_offset": 6608609,
+          "rom_offset_hex": "0x0064D6E1",
+          "bytes": 8739,
+          "sha256": "03ae120bde3a1869281e3e10fe75f321cf8a57130859299a58956dfb56629610"
+        },
+        {
+          "role": "cel",
+          "name": "b03cel",
+          "present": true,
+          "archive_index": 16,
+          "rom_offset": 6605880,
+          "rom_offset_hex": "0x0064CC38",
+          "bytes": 1908,
+          "sha256": "d35ca1497191815dbac54b61d3898e54253b2c1e7118ad36be41e190dbfc713b"
+        },
+        {
+          "role": "cex",
+          "name": "b03cex",
+          "present": true,
+          "archive_index": 17,
+          "rom_offset": 6607788,
+          "rom_offset_hex": "0x0064D3AC",
+          "bytes": 821,
+          "sha256": "313704bad9c13ed1cf560288f75d7e862d13d889d3e7fed715df6c09a9973855"
+        },
+        {
+          "role": "pal",
+          "name": "b03pal",
+          "present": true,
+          "archive_index": 19,
+          "rom_offset": 6617348,
+          "rom_offset_hex": "0x0064F904",
+          "bytes": 768,
+          "sha256": "9ec9540a1f21aa4dabcef4bcb9dfdeed955a2bea1b9a0d864ce8d7ff8b5c8c3f"
+        },
+        {
+          "role": "canm",
+          "name": "b03canm",
+          "present": true,
+          "archive_index": 15,
+          "rom_offset": 6604776,
+          "rom_offset_hex": "0x0064C7E8",
+          "bytes": 1104,
+          "sha256": "63b6e2290a10a0fde5b581e2baa3d79bcadc9fb0dfc4306ffbabeeac6d364b61"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 4,
+      "prefix": "b04",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b04fon",
+          "present": true,
+          "archive_index": 23,
+          "rom_offset": 6622128,
+          "rom_offset_hex": "0x00650BB0",
+          "bytes": 8856,
+          "sha256": "8fb58cab78beb4131a08009bda9cea2df16a543e84ca72dbc062043795069404"
+        },
+        {
+          "role": "cel",
+          "name": "b04cel",
+          "present": true,
+          "archive_index": 21,
+          "rom_offset": 6619476,
+          "rom_offset_hex": "0x00650154",
+          "bytes": 1812,
+          "sha256": "827b55439f52bea16d0243560c3225f9436fb8f4061765fd33844d643dc2b6e8"
+        },
+        {
+          "role": "cex",
+          "name": "b04cex",
+          "present": true,
+          "archive_index": 22,
+          "rom_offset": 6621288,
+          "rom_offset_hex": "0x00650868",
+          "bytes": 840,
+          "sha256": "e4d5b88194f1453c5fb44b6d25edaf767bf70f48c51780a920dd1ea5d7fe9d38"
+        },
+        {
+          "role": "pal",
+          "name": "b04pal",
+          "present": true,
+          "archive_index": 24,
+          "rom_offset": 6630984,
+          "rom_offset_hex": "0x00652E48",
+          "bytes": 768,
+          "sha256": "ccc02e63aa50e3de2aba969a2f26272ccffaa78f762c2db5c8b0f252694b8a72"
+        },
+        {
+          "role": "canm",
+          "name": "b04canm",
+          "present": true,
+          "archive_index": 20,
+          "rom_offset": 6618116,
+          "rom_offset_hex": "0x0064FC04",
+          "bytes": 1360,
+          "sha256": "e876f00e042cf66836de7de2c0ee3d6d1bc5fc35d96b44f4c375e4543d62e365"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 5,
+      "prefix": "b05",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b05fon",
+          "present": true,
+          "archive_index": 28,
+          "rom_offset": 6635734,
+          "rom_offset_hex": "0x006540D6",
+          "bytes": 6886,
+          "sha256": "0bf2e0b48954a6029e02d95a6e600ad400c27d7afa138c04e3aaeedbcdd18c03"
+        },
+        {
+          "role": "cel",
+          "name": "b05cel",
+          "present": true,
+          "archive_index": 26,
+          "rom_offset": 6633112,
+          "rom_offset_hex": "0x00653698",
+          "bytes": 1792,
+          "sha256": "1f6a3b129b8d77237874a348ecfc987b382f5b111fd7d20623eeb399ac9c4f40"
+        },
+        {
+          "role": "cex",
+          "name": "b05cex",
+          "present": true,
+          "archive_index": 27,
+          "rom_offset": 6634904,
+          "rom_offset_hex": "0x00653D98",
+          "bytes": 830,
+          "sha256": "b22fb6a8c0ff7d19b8a1cc0fe97f4681e608308e7a4b62ce8d6bbeb1ae11e907"
+        },
+        {
+          "role": "pal",
+          "name": "b05pal",
+          "present": true,
+          "archive_index": 29,
+          "rom_offset": 6642620,
+          "rom_offset_hex": "0x00655BBC",
+          "bytes": 768,
+          "sha256": "5a4add71a0264430ca7dff31a7334bd4cbbc36005d5c111e5eec946cc7447164"
+        },
+        {
+          "role": "canm",
+          "name": "b05canm",
+          "present": true,
+          "archive_index": 25,
+          "rom_offset": 6631752,
+          "rom_offset_hex": "0x00653148",
+          "bytes": 1360,
+          "sha256": "9ed31503fda489f450b28d239b6c56e51776bb1ffbe6867976f5a4de641856df"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 6,
+      "prefix": "b06",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b06fon",
+          "present": true,
+          "archive_index": 33,
+          "rom_offset": 6647325,
+          "rom_offset_hex": "0x00656E1D",
+          "bytes": 12711,
+          "sha256": "318e0d5b2e1af0cb4bfc6799a9a8fb806c2d59fdda53ca0f2a5d01d5492bec46"
+        },
+        {
+          "role": "cel",
+          "name": "b06cel",
+          "present": true,
+          "archive_index": 31,
+          "rom_offset": 6644492,
+          "rom_offset_hex": "0x0065630C",
+          "bytes": 2000,
+          "sha256": "5795ea6a690a135f00bdd267d82887e9e8919795769c237fd2204b8310eda42a"
+        },
+        {
+          "role": "cex",
+          "name": "b06cex",
+          "present": true,
+          "archive_index": 32,
+          "rom_offset": 6646492,
+          "rom_offset_hex": "0x00656ADC",
+          "bytes": 833,
+          "sha256": "044b1f14e691bd6064af55735a7f3d943eed2a933edd53238a4012fc7c5958e9"
+        },
+        {
+          "role": "pal",
+          "name": "b06pal",
+          "present": true,
+          "archive_index": 34,
+          "rom_offset": 6660036,
+          "rom_offset_hex": "0x00659FC4",
+          "bytes": 768,
+          "sha256": "e0383614a0c97a36f05a89fa5db156d548cf75fa4b9dfcca4b8747faa1d57f75"
+        },
+        {
+          "role": "canm",
+          "name": "b06canm",
+          "present": true,
+          "archive_index": 30,
+          "rom_offset": 6643388,
+          "rom_offset_hex": "0x00655EBC",
+          "bytes": 1104,
+          "sha256": "6762d9dfb066b563da4f2125a9c23d2470a16d7caaa9aac4e1b4daac0b6c508c"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 7,
+      "prefix": "b07",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b07fon",
+          "present": true,
+          "archive_index": 38,
+          "rom_offset": 6664826,
+          "rom_offset_hex": "0x0065B27A",
+          "bytes": 7938,
+          "sha256": "b3316be07d6d6289b2142630f1b29d9f5ff25962794f3d857de4144bba4369d5"
+        },
+        {
+          "role": "cel",
+          "name": "b07cel",
+          "present": true,
+          "archive_index": 36,
+          "rom_offset": 6661908,
+          "rom_offset_hex": "0x0065A714",
+          "bytes": 2000,
+          "sha256": "8f91d6af6ece62a86f6487023a62f05b61c98f36faac7c97b987e90bbd20dd71"
+        },
+        {
+          "role": "cex",
+          "name": "b07cex",
+          "present": true,
+          "archive_index": 37,
+          "rom_offset": 6663908,
+          "rom_offset_hex": "0x0065AEE4",
+          "bytes": 918,
+          "sha256": "3fc78ae6df161e49ba0a5ba1d508e12ef4befbbe2713803bf9766f613cd87cef"
+        },
+        {
+          "role": "pal",
+          "name": "b07pal",
+          "present": true,
+          "archive_index": 39,
+          "rom_offset": 6672764,
+          "rom_offset_hex": "0x0065D17C",
+          "bytes": 768,
+          "sha256": "8da96ae4661780f779065aa1ff2ae7676c0b6b4606f12b171705d3ed7d95d0c3"
+        },
+        {
+          "role": "canm",
+          "name": "b07canm",
+          "present": true,
+          "archive_index": 35,
+          "rom_offset": 6660804,
+          "rom_offset_hex": "0x0065A2C4",
+          "bytes": 1104,
+          "sha256": "7433c82831f4433c0cb1e49ce3cb24eae30a69a91f8d2d61d01b52310c94675c"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 8,
+      "prefix": "b08",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b08fon",
+          "present": true,
+          "archive_index": 43,
+          "rom_offset": 6677469,
+          "rom_offset_hex": "0x0065E3DD",
+          "bytes": 12351,
+          "sha256": "52f7501455760fb6718f5384db49612fe7705dcf26a25855cdb34d514292f961"
+        },
+        {
+          "role": "cel",
+          "name": "b08cel",
+          "present": true,
+          "archive_index": 41,
+          "rom_offset": 6674644,
+          "rom_offset_hex": "0x0065D8D4",
+          "bytes": 1980,
+          "sha256": "f47ae49db7587ed75990f3e11156cd769b026adff94aacff7e73b0b7a7aac0b0"
+        },
+        {
+          "role": "cex",
+          "name": "b08cex",
+          "present": true,
+          "archive_index": 42,
+          "rom_offset": 6676624,
+          "rom_offset_hex": "0x0065E090",
+          "bytes": 845,
+          "sha256": "08a0515626a204f731b693ebd13d6f899c9be07a7722900059790f3123bc7d06"
+        },
+        {
+          "role": "pal",
+          "name": "b08pal",
+          "present": true,
+          "archive_index": 44,
+          "rom_offset": 6689820,
+          "rom_offset_hex": "0x0066141C",
+          "bytes": 768,
+          "sha256": "ca9a3e06e9c39b5c392963ff02d78e6b2a213a34ef784a09d164ea6c32862429"
+        },
+        {
+          "role": "canm",
+          "name": "b08canm",
+          "present": true,
+          "archive_index": 40,
+          "rom_offset": 6673532,
+          "rom_offset_hex": "0x0065D47C",
+          "bytes": 1112,
+          "sha256": "d1d953b1ef9c2d1edf7d62eb8b62bd56016ce5da8f17925d7c117d70a695f121"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 9,
+      "prefix": "b09",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b09fon",
+          "present": true,
+          "archive_index": 48,
+          "rom_offset": 6694385,
+          "rom_offset_hex": "0x006625F1",
+          "bytes": 8619,
+          "sha256": "beaf39ac31e632d4e26d8c2e2c8c18b8a632f27ddcb84c6dce017af832c7403c"
+        },
+        {
+          "role": "cel",
+          "name": "b09cel",
+          "present": true,
+          "archive_index": 46,
+          "rom_offset": 6691692,
+          "rom_offset_hex": "0x00661B6C",
+          "bytes": 1824,
+          "sha256": "bcd5f7fbbbc805dc4a5f5c65229deff0ae5ee2e4a8af1298afd7ad6b65fa3cc6"
+        },
+        {
+          "role": "cex",
+          "name": "b09cex",
+          "present": true,
+          "archive_index": 47,
+          "rom_offset": 6693516,
+          "rom_offset_hex": "0x0066228C",
+          "bytes": 869,
+          "sha256": "455b1b247c69ccd647c55a4e559c7b1ac490f4af19fb39889f9db9fa1d43f59c"
+        },
+        {
+          "role": "pal",
+          "name": "b09pal",
+          "present": true,
+          "archive_index": 49,
+          "rom_offset": 6703004,
+          "rom_offset_hex": "0x0066479C",
+          "bytes": 768,
+          "sha256": "eadef3cee3b13f04a721ba86f928c88299b0d1ba7f3990778926ac182c936d8d"
+        },
+        {
+          "role": "canm",
+          "name": "b09canm",
+          "present": true,
+          "archive_index": 45,
+          "rom_offset": 6690588,
+          "rom_offset_hex": "0x0066171C",
+          "bytes": 1104,
+          "sha256": "097cfa8f1c790ae26fbc024b49ab05f07ae01f29a53381c71768dadc2de5a2dd"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 10,
+      "prefix": "b10",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b10fon",
+          "present": true,
+          "archive_index": 53,
+          "rom_offset": 6707755,
+          "rom_offset_hex": "0x00665A2B",
+          "bytes": 10177,
+          "sha256": "1102486321603089593642588564290a74033b01fa539f8206c534d57cb0cc01"
+        },
+        {
+          "role": "cel",
+          "name": "b10cel",
+          "present": true,
+          "archive_index": 51,
+          "rom_offset": 6704876,
+          "rom_offset_hex": "0x00664EEC",
+          "bytes": 2056,
+          "sha256": "a42ef012c2ed489fc4edbbcef61cfe8d02d0e64dbefc8750c5f81b7d87a4f403"
+        },
+        {
+          "role": "cex",
+          "name": "b10cex",
+          "present": true,
+          "archive_index": 52,
+          "rom_offset": 6706932,
+          "rom_offset_hex": "0x006656F4",
+          "bytes": 823,
+          "sha256": "b185d47d72ff7f4964db03543484001550ef9a2311810497e45b698a3841c130"
+        },
+        {
+          "role": "pal",
+          "name": "b10pal",
+          "present": true,
+          "archive_index": 54,
+          "rom_offset": 6717932,
+          "rom_offset_hex": "0x006681EC",
+          "bytes": 768,
+          "sha256": "ac73ef530e23e2a97b071be949aa9ceeaf0ae02bb1df4b7deca63ea90e8079c1"
+        },
+        {
+          "role": "canm",
+          "name": "b10canm",
+          "present": true,
+          "archive_index": 50,
+          "rom_offset": 6703772,
+          "rom_offset_hex": "0x00664A9C",
+          "bytes": 1104,
+          "sha256": "18382d0ddc75b9620abe18488c86f7befe2b7ac89ab5439d6cd484c479471335"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 11,
+      "prefix": "b11",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b11fon",
+          "present": true,
+          "archive_index": 58,
+          "rom_offset": 6722563,
+          "rom_offset_hex": "0x00669403",
+          "bytes": 10773,
+          "sha256": "efdaa165190b8987fbcbb11114ede0714e0d58cefd7cf48132362ce11b86e027"
+        },
+        {
+          "role": "cel",
+          "name": "b11cel",
+          "present": true,
+          "archive_index": 56,
+          "rom_offset": 6719804,
+          "rom_offset_hex": "0x0066893C",
+          "bytes": 1936,
+          "sha256": "e10bc0841220e6a9dd9b724ce89c5b1f351a9cb3c668b0b212e38d677086953f"
+        },
+        {
+          "role": "cex",
+          "name": "b11cex",
+          "present": true,
+          "archive_index": 57,
+          "rom_offset": 6721740,
+          "rom_offset_hex": "0x006690CC",
+          "bytes": 823,
+          "sha256": "31aa0fe0f8ee0c3542b00a5d5a441dc987438af377e5be36c045fccdcdbe06c6"
+        },
+        {
+          "role": "pal",
+          "name": "b11pal",
+          "present": true,
+          "archive_index": 59,
+          "rom_offset": 6733336,
+          "rom_offset_hex": "0x0066BE18",
+          "bytes": 768,
+          "sha256": "e46205ff6a2e54023616dfd1aa6b0ad4323b803d548d0c8d704d2ac1490773e8"
+        },
+        {
+          "role": "canm",
+          "name": "b11canm",
+          "present": true,
+          "archive_index": 55,
+          "rom_offset": 6718700,
+          "rom_offset_hex": "0x006684EC",
+          "bytes": 1104,
+          "sha256": "b96456392c85b471ccc0e3cbd1a0c9a878c4429b53956a6429fde2221e5470aa"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 12,
+      "prefix": "b12",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b12fon",
+          "present": true,
+          "archive_index": 63,
+          "rom_offset": 6738600,
+          "rom_offset_hex": "0x0066D2A8",
+          "bytes": 9680,
+          "sha256": "2184dce0a30046e53e7cbf191144ef2c6f54b6075d1da3403d528f02d8a54e34"
+        },
+        {
+          "role": "cel",
+          "name": "b12cel",
+          "present": true,
+          "archive_index": 61,
+          "rom_offset": 6735784,
+          "rom_offset_hex": "0x0066C7A8",
+          "bytes": 2028,
+          "sha256": "69ca33c081fe50c8ee27d94ca2c2fd4fc0722243e040b228e13f40301812afdf"
+        },
+        {
+          "role": "cex",
+          "name": "b12cex",
+          "present": true,
+          "archive_index": 62,
+          "rom_offset": 6737812,
+          "rom_offset_hex": "0x0066CF94",
+          "bytes": 788,
+          "sha256": "33cc7288cda4ddc8f9244e54b3a0c1abb185a0d976ce3231b0bbdc7037d806fb"
+        },
+        {
+          "role": "pal",
+          "name": "b12pal",
+          "present": true,
+          "archive_index": 64,
+          "rom_offset": 6748280,
+          "rom_offset_hex": "0x0066F878",
+          "bytes": 768,
+          "sha256": "cdc830ed75a9ca068e05fbed7bf1945ef59238d6bf0bad20294b0494505249e9"
+        },
+        {
+          "role": "canm",
+          "name": "b12canm",
+          "present": true,
+          "archive_index": 60,
+          "rom_offset": 6734104,
+          "rom_offset_hex": "0x0066C118",
+          "bytes": 1680,
+          "sha256": "46c8f2ce6b2c864c3f23537a684ae24caf1d0e233cb98a2c468aff3c8056def8"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 13,
+      "prefix": "b13",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b13fon",
+          "present": true,
+          "archive_index": 68,
+          "rom_offset": 6752880,
+          "rom_offset_hex": "0x00670A70",
+          "bytes": 7920,
+          "sha256": "1f4d18f3ebd1e034acae662b417d54dce25b037b17eee3d9ed62e8298a148563"
+        },
+        {
+          "role": "cel",
+          "name": "b13cel",
+          "present": true,
+          "archive_index": 66,
+          "rom_offset": 6750152,
+          "rom_offset_hex": "0x0066FFC8",
+          "bytes": 1908,
+          "sha256": "093ce039b1dabf99330629bbf732821aeb1258209ab99476799b2d2907dde477"
+        },
+        {
+          "role": "cex",
+          "name": "b13cex",
+          "present": true,
+          "archive_index": 67,
+          "rom_offset": 6752060,
+          "rom_offset_hex": "0x0067073C",
+          "bytes": 820,
+          "sha256": "e7b47a10df547708b6800422c95b86135ddbcc33439f97728e4a84756989d7d9"
+        },
+        {
+          "role": "pal",
+          "name": "b13pal",
+          "present": true,
+          "archive_index": 69,
+          "rom_offset": 6760800,
+          "rom_offset_hex": "0x00672960",
+          "bytes": 768,
+          "sha256": "a0ae1cde5952c102e48f923fe97a4f8346d840d33e026335b13756e7b47e905b"
+        },
+        {
+          "role": "canm",
+          "name": "b13canm",
+          "present": true,
+          "archive_index": 65,
+          "rom_offset": 6749048,
+          "rom_offset_hex": "0x0066FB78",
+          "bytes": 1104,
+          "sha256": "580c56a70c5b63c4ab493992252d653a0e1b6cedc9f28fcfa10081eff271c9b2"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 14,
+      "prefix": "b14",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b14fon",
+          "present": true,
+          "archive_index": 73,
+          "rom_offset": 6765871,
+          "rom_offset_hex": "0x00673D2F",
+          "bytes": 8265,
+          "sha256": "95f74330c9d1c764aae735b0dde5c242d639186f62e065407d848bd5dcb4ef4f"
+        },
+        {
+          "role": "cel",
+          "name": "b14cel",
+          "present": true,
+          "archive_index": 71,
+          "rom_offset": 6762928,
+          "rom_offset_hex": "0x006731B0",
+          "bytes": 2024,
+          "sha256": "a3bbf2dbd18347c56fff4dbe5e1646090851a8e8f9d0a5577442cbcf8b37c6fb"
+        },
+        {
+          "role": "cex",
+          "name": "b14cex",
+          "present": true,
+          "archive_index": 72,
+          "rom_offset": 6764952,
+          "rom_offset_hex": "0x00673998",
+          "bytes": 919,
+          "sha256": "8efc69c87558e39bcef7320f437fbd7089b6e5e0ef20e4e4e972b8bae0c26a63"
+        },
+        {
+          "role": "pal",
+          "name": "b14pal",
+          "present": true,
+          "archive_index": 74,
+          "rom_offset": 6774136,
+          "rom_offset_hex": "0x00675D78",
+          "bytes": 768,
+          "sha256": "a04b516668217fe4ffcce98a2db21e62ad068fee384c8314f4b517677b35d730"
+        },
+        {
+          "role": "canm",
+          "name": "b14canm",
+          "present": true,
+          "archive_index": 70,
+          "rom_offset": 6761568,
+          "rom_offset_hex": "0x00672C60",
+          "bytes": 1360,
+          "sha256": "41671a3db46eb49d8737c1cf8b74dc9adc865cf2c9168089b54d0d4c15363bff"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 15,
+      "prefix": "b15",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b15fon",
+          "present": true,
+          "archive_index": 78,
+          "rom_offset": 6778654,
+          "rom_offset_hex": "0x00676F1E",
+          "bytes": 7582,
+          "sha256": "ed92e83d9b85508a8f861b2476c7f46eed9d13997ff7a0e14604100ff651fab1"
+        },
+        {
+          "role": "cel",
+          "name": "b15cel",
+          "present": true,
+          "archive_index": 76,
+          "rom_offset": 6776008,
+          "rom_offset_hex": "0x006764C8",
+          "bytes": 1768,
+          "sha256": "fd31d495b1ed9fdff714e610e64817dae17b7d7c4d62162ea05496be1018a85b"
+        },
+        {
+          "role": "cex",
+          "name": "b15cex",
+          "present": true,
+          "archive_index": 77,
+          "rom_offset": 6777776,
+          "rom_offset_hex": "0x00676BB0",
+          "bytes": 878,
+          "sha256": "95013e0ba5b7cda85066e2e82b551e9184da8e2fb99c6f29532f721075b4a1c6"
+        },
+        {
+          "role": "pal",
+          "name": "b15pal",
+          "present": true,
+          "archive_index": 79,
+          "rom_offset": 6786236,
+          "rom_offset_hex": "0x00678CBC",
+          "bytes": 768,
+          "sha256": "d3fe9e2724235a72b78e93ceb86ba4780ec3405a61634c99cffdf694ae4957e2"
+        },
+        {
+          "role": "canm",
+          "name": "b15canm",
+          "present": true,
+          "archive_index": 75,
+          "rom_offset": 6774904,
+          "rom_offset_hex": "0x00676078",
+          "bytes": 1104,
+          "sha256": "bb630881fed14214f8deedfd6e3df84368dd73447a23dccacd0198f18befc64d"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 16,
+      "prefix": "b16",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b16fon",
+          "present": true,
+          "archive_index": 83,
+          "rom_offset": 6791362,
+          "rom_offset_hex": "0x0067A0C2",
+          "bytes": 7234,
+          "sha256": "5b372ca8b821e50c16e20a1deaf4bfe74e07c6e072bdcfc6801c941dc67a62b0"
+        },
+        {
+          "role": "cel",
+          "name": "b16cel",
+          "present": true,
+          "archive_index": 81,
+          "rom_offset": 6788684,
+          "rom_offset_hex": "0x0067964C",
+          "bytes": 1868,
+          "sha256": "ec6bede7fe86065090f1581c67082d4aac03899867b179d5087578ae3b74468e"
+        },
+        {
+          "role": "cex",
+          "name": "b16cex",
+          "present": true,
+          "archive_index": 82,
+          "rom_offset": 6790552,
+          "rom_offset_hex": "0x00679D98",
+          "bytes": 810,
+          "sha256": "c5731ffddc3b02920a3cd10572ed47de821389da10ec52d6905c53af7fed6aef"
+        },
+        {
+          "role": "pal",
+          "name": "b16pal",
+          "present": true,
+          "archive_index": 84,
+          "rom_offset": 6798596,
+          "rom_offset_hex": "0x0067BD04",
+          "bytes": 768,
+          "sha256": "b5486332545174b48a1eab563e3df0669b67e0877ff919196be3e86dadd2acb6"
+        },
+        {
+          "role": "canm",
+          "name": "b16canm",
+          "present": true,
+          "archive_index": 80,
+          "rom_offset": 6787004,
+          "rom_offset_hex": "0x00678FBC",
+          "bytes": 1680,
+          "sha256": "0f5863b5458b3584253cd4d44b7213b74691f39c91be828ec3d83a9d0780e135"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 17,
+      "prefix": "b17",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b17fon",
+          "present": true,
+          "archive_index": 88,
+          "rom_offset": 6803682,
+          "rom_offset_hex": "0x0067D0E2",
+          "bytes": 8514,
+          "sha256": "9c51a601ad9aa0d3693061dbfd69c0479be267b80acc69765e6fa4dd9daa5170"
+        },
+        {
+          "role": "cel",
+          "name": "b17cel",
+          "present": true,
+          "archive_index": 86,
+          "rom_offset": 6800664,
+          "rom_offset_hex": "0x0067C518",
+          "bytes": 2096,
+          "sha256": "bf2ff17cdb3922e69a95eb61342094970108f41fc13e7454d5daf115dda7e748"
+        },
+        {
+          "role": "cex",
+          "name": "b17cex",
+          "present": true,
+          "archive_index": 87,
+          "rom_offset": 6802760,
+          "rom_offset_hex": "0x0067CD48",
+          "bytes": 922,
+          "sha256": "6a0eadc45d8d67b98630233328de3d0981e5cb7fd764aa2349d86cc80aa2690d"
+        },
+        {
+          "role": "pal",
+          "name": "b17pal",
+          "present": true,
+          "archive_index": 89,
+          "rom_offset": 6812196,
+          "rom_offset_hex": "0x0067F224",
+          "bytes": 768,
+          "sha256": "0599fd88f702de7058980c9c19886706e5f317aa6cbbc94c65b0a9e05429e764"
+        },
+        {
+          "role": "canm",
+          "name": "b17canm",
+          "present": true,
+          "archive_index": 85,
+          "rom_offset": 6799364,
+          "rom_offset_hex": "0x0067C004",
+          "bytes": 1300,
+          "sha256": "3330c53273cf3ee1089cdaaf138ea7e1a47f8ca1f5925d20f252a34b3521c898"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 18,
+      "prefix": "b18",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b18fon",
+          "present": true,
+          "archive_index": 93,
+          "rom_offset": 6816907,
+          "rom_offset_hex": "0x0068048B",
+          "bytes": 10289,
+          "sha256": "c79d8a4a9b85132a70dd5d856ab86f11975cc8878dfecce44bdccaf73a0c03b6"
+        },
+        {
+          "role": "cel",
+          "name": "b18cel",
+          "present": true,
+          "archive_index": 91,
+          "rom_offset": 6814068,
+          "rom_offset_hex": "0x0067F974",
+          "bytes": 1968,
+          "sha256": "ae71ce6740bcca736b4b58aa9dd48c07e5a576aa00869595d65b9f9a177d16a0"
+        },
+        {
+          "role": "cex",
+          "name": "b18cex",
+          "present": true,
+          "archive_index": 92,
+          "rom_offset": 6816036,
+          "rom_offset_hex": "0x00680124",
+          "bytes": 871,
+          "sha256": "037bf53c1bbac37f7b37da59aac3e2e9cb888e0712cca5c7b28bc662fab8f21b"
+        },
+        {
+          "role": "pal",
+          "name": "b18pal",
+          "present": true,
+          "archive_index": 94,
+          "rom_offset": 6827196,
+          "rom_offset_hex": "0x00682CBC",
+          "bytes": 768,
+          "sha256": "74d918289265e5b1ca504a85c5659494037ea0e98aeca77ef8a19e3cec7d7863"
+        },
+        {
+          "role": "canm",
+          "name": "b18canm",
+          "present": true,
+          "archive_index": 90,
+          "rom_offset": 6812964,
+          "rom_offset_hex": "0x0067F524",
+          "bytes": 1104,
+          "sha256": "3dd2b3c108881389bc72083f9c7c5bb809988af4fb3cdde0b3c4205f9edaf24d"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 19,
+      "prefix": "b19",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b19fon",
+          "present": true,
+          "archive_index": 98,
+          "rom_offset": 6832124,
+          "rom_offset_hex": "0x00683FFC",
+          "bytes": 6504,
+          "sha256": "a2e27af08d01ab7bb7c561902bfe93c23cb825e8a99a2d1b64a9609d75adea0f"
+        },
+        {
+          "role": "cel",
+          "name": "b19cel",
+          "present": true,
+          "archive_index": 96,
+          "rom_offset": 6829324,
+          "rom_offset_hex": "0x0068350C",
+          "bytes": 1880,
+          "sha256": "dbccb8f93704f867a20cde0de8e0bdc7f80e22c32f10400921bbd744a8f934d1"
+        },
+        {
+          "role": "cex",
+          "name": "b19cex",
+          "present": true,
+          "archive_index": 97,
+          "rom_offset": 6831204,
+          "rom_offset_hex": "0x00683C64",
+          "bytes": 920,
+          "sha256": "d05e26531ffccc2e8a6c4f255fea4cf6cf7cb1ef652c43f83d45c686016538d8"
+        },
+        {
+          "role": "pal",
+          "name": "b19pal",
+          "present": true,
+          "archive_index": 99,
+          "rom_offset": 6838628,
+          "rom_offset_hex": "0x00685964",
+          "bytes": 768,
+          "sha256": "cf1df81a73e066430abd197034bab6cc24b0ffc0eef1c05a684693ea4bbea9e1"
+        },
+        {
+          "role": "canm",
+          "name": "b19canm",
+          "present": true,
+          "archive_index": 95,
+          "rom_offset": 6827964,
+          "rom_offset_hex": "0x00682FBC",
+          "bytes": 1360,
+          "sha256": "a7edf67517f69adaa6814a03493624419b51dc630ac16076900586be662e3b01"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 21,
+      "prefix": "b21",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b21fon",
+          "present": true,
+          "archive_index": 108,
+          "rom_offset": 6858785,
+          "rom_offset_hex": "0x0068A821",
+          "bytes": 5215,
+          "sha256": "b0f32ea541c08ba8e2f0a2b3e4d207d2997e7ecc41fb5c18e57bf87c53983b1b"
+        },
+        {
+          "role": "cel",
+          "name": "b21cel",
+          "present": true,
+          "archive_index": 106,
+          "rom_offset": 6856072,
+          "rom_offset_hex": "0x00689D88",
+          "bytes": 1796,
+          "sha256": "543596ba9d92471bb99df69a450bc136648770f33d2778cc30b9632997ade2a3"
+        },
+        {
+          "role": "cex",
+          "name": "b21cex",
+          "present": true,
+          "archive_index": 107,
+          "rom_offset": 6857868,
+          "rom_offset_hex": "0x0068A48C",
+          "bytes": 917,
+          "sha256": "9851e912ead309efb0bf4d716dfbff0575be970745a9343b19cb2eac7092dc14"
+        },
+        {
+          "role": "pal",
+          "name": "b21pal",
+          "present": true,
+          "archive_index": 109,
+          "rom_offset": 6864000,
+          "rom_offset_hex": "0x0068BC80",
+          "bytes": 768,
+          "sha256": "3749c3a50ce30f68a69ae9c226584b37e78c2a3e7f90b926aea3b0f06ef842cc"
+        },
+        {
+          "role": "canm",
+          "name": "b21canm",
+          "present": true,
+          "archive_index": 105,
+          "rom_offset": 6854456,
+          "rom_offset_hex": "0x00689738",
+          "bytes": 1616,
+          "sha256": "aef3fa49acd6a88efc713fbd530b52214319b6a6cb5caebfbdd2618add651661"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 23,
+      "prefix": "b23",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b23fon",
+          "present": true,
+          "archive_index": 115,
+          "rom_offset": 6871134,
+          "rom_offset_hex": "0x0068D85E",
+          "bytes": 8854,
+          "sha256": "4283cde361dfd6e9156c8787d17e543a05d6acfec8e78967a5cbf582bf6c81ff"
+        },
+        {
+          "role": "cel",
+          "name": "b23cel",
+          "present": true,
+          "archive_index": 113,
+          "rom_offset": 6868384,
+          "rom_offset_hex": "0x0068CDA0",
+          "bytes": 1916,
+          "sha256": "c65ab893f61fc90b159f7963021a7590413d8d01408b8fa5dcaa966e8c97b35b"
+        },
+        {
+          "role": "cex",
+          "name": "b23cex",
+          "present": true,
+          "archive_index": 114,
+          "rom_offset": 6870300,
+          "rom_offset_hex": "0x0068D51C",
+          "bytes": 834,
+          "sha256": "16897d46431cbb2203525f91788c6645ec1116378d1c76cf26318fb97f111c2b"
+        },
+        {
+          "role": "pal",
+          "name": "b23pal",
+          "present": true,
+          "archive_index": 116,
+          "rom_offset": 6879988,
+          "rom_offset_hex": "0x0068FAF4",
+          "bytes": 768,
+          "sha256": "4c0969606081026dfc71fdbd5f89ecc0b9e488828e5eff69a869586a60ff26f5"
+        },
+        {
+          "role": "canm",
+          "name": "b23canm",
+          "present": true,
+          "archive_index": 112,
+          "rom_offset": 6867024,
+          "rom_offset_hex": "0x0068C850",
+          "bytes": 1360,
+          "sha256": "05f53d48d4731b9221d5c618bd6cb567a1f505f8f075def82eac8f0c67e5b78c"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 24,
+      "prefix": "b24",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b24fon",
+          "present": true,
+          "archive_index": 120,
+          "rom_offset": 6884366,
+          "rom_offset_hex": "0x00690C0E",
+          "bytes": 6222,
+          "sha256": "78c7a584c7a1b693ba0d3e2610b1075d31c08b4bbbc954905b2e9353a8afaa5c"
+        },
+        {
+          "role": "cel",
+          "name": "b24cel",
+          "present": true,
+          "archive_index": 118,
+          "rom_offset": 6881860,
+          "rom_offset_hex": "0x00690244",
+          "bytes": 1684,
+          "sha256": "865e07f0649a7e5a357156597edbec4478368d4c91528af9258d408c25fe2517"
+        },
+        {
+          "role": "cex",
+          "name": "b24cex",
+          "present": true,
+          "archive_index": 119,
+          "rom_offset": 6883544,
+          "rom_offset_hex": "0x006908D8",
+          "bytes": 822,
+          "sha256": "5e2b97ef6e968f966ffd9e1fa3d79209eb3ec37693ddc237dd4d02c64fe70674"
+        },
+        {
+          "role": "pal",
+          "name": "b24pal",
+          "present": true,
+          "archive_index": 121,
+          "rom_offset": 6890588,
+          "rom_offset_hex": "0x0069245C",
+          "bytes": 768,
+          "sha256": "6caff834865bcbdfca89b8470d94c0c197eff724617a1e8f4e245cccf6fe9516"
+        },
+        {
+          "role": "canm",
+          "name": "b24canm",
+          "present": true,
+          "archive_index": 117,
+          "rom_offset": 6880756,
+          "rom_offset_hex": "0x0068FDF4",
+          "bytes": 1104,
+          "sha256": "3f19699a2e682a0b8ed261c2b2127015fea4cff5e2a5d68d48acff5cc4d1efd8"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 25,
+      "prefix": "b25",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b25fon",
+          "present": true,
+          "archive_index": 125,
+          "rom_offset": 6895442,
+          "rom_offset_hex": "0x00693752",
+          "bytes": 6846,
+          "sha256": "ed70636402ec73449530f3cf403b14f63ecdfa7b8d43181aa2d4687e5ab37e25"
+        },
+        {
+          "role": "cel",
+          "name": "b25cel",
+          "present": true,
+          "archive_index": 123,
+          "rom_offset": 6892468,
+          "rom_offset_hex": "0x00692BB4",
+          "bytes": 2056,
+          "sha256": "e75ad6433bb9d976de70fd90406e6a7c1ee47f2d3f09371b798452dc1bcaf76f"
+        },
+        {
+          "role": "cex",
+          "name": "b25cex",
+          "present": true,
+          "archive_index": 124,
+          "rom_offset": 6894524,
+          "rom_offset_hex": "0x006933BC",
+          "bytes": 918,
+          "sha256": "1850631926d4dd7df93a11b330c9c60c6256b5074d9a5917ddd5143d41fde3ce"
+        },
+        {
+          "role": "pal",
+          "name": "b25pal",
+          "present": true,
+          "archive_index": 126,
+          "rom_offset": 6902288,
+          "rom_offset_hex": "0x00695210",
+          "bytes": 768,
+          "sha256": "cea535c9745135cb31028b71a0019106d010cf878287c88e537829fb35407b6d"
+        },
+        {
+          "role": "canm",
+          "name": "b25canm",
+          "present": true,
+          "archive_index": 122,
+          "rom_offset": 6891356,
+          "rom_offset_hex": "0x0069275C",
+          "bytes": 1112,
+          "sha256": "3a2958546566e38fe7c95a436b90f8a95321cb0562c9deb394db5192a75b719f"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 26,
+      "prefix": "b26",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b26fon",
+          "present": false
+        },
+        {
+          "role": "cel",
+          "name": "b26cel",
+          "present": false
+        },
+        {
+          "role": "cex",
+          "name": "b26cex",
+          "present": false
+        },
+        {
+          "role": "pal",
+          "name": "b26pal",
+          "present": true,
+          "archive_index": 128,
+          "rom_offset": 6904416,
+          "rom_offset_hex": "0x00695A60",
+          "bytes": 768,
+          "sha256": "f0826340c7af1736892b9f5cd34d714b9994b78b1a84287f37debc3ee6b7d180"
+        },
+        {
+          "role": "canm",
+          "name": "b26canm",
+          "present": true,
+          "archive_index": 127,
+          "rom_offset": 6903056,
+          "rom_offset_hex": "0x00695510",
+          "bytes": 1360,
+          "sha256": "357311581140dacfee78d9e1be6d4526be239a8ae20df78c74f226290a97106f"
+        }
+      ],
+      "present_roles": [
+        "pal",
+        "canm"
+      ],
+      "missing_roles": [
+        "fon",
+        "cel",
+        "cex"
+      ]
+    },
+    {
+      "tileset_id": 27,
+      "prefix": "b27",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b27fon",
+          "present": false
+        },
+        {
+          "role": "cel",
+          "name": "b27cel",
+          "present": false
+        },
+        {
+          "role": "cex",
+          "name": "b27cex",
+          "present": false
+        },
+        {
+          "role": "pal",
+          "name": "b27pal",
+          "present": true,
+          "archive_index": 130,
+          "rom_offset": 6906544,
+          "rom_offset_hex": "0x006962B0",
+          "bytes": 768,
+          "sha256": "a77143e9ccdd984c3835fdfe6df8d637e42359b62d1de2eaf89d21c186c4b8d2"
+        },
+        {
+          "role": "canm",
+          "name": "b27canm",
+          "present": true,
+          "archive_index": 129,
+          "rom_offset": 6905184,
+          "rom_offset_hex": "0x00695D60",
+          "bytes": 1360,
+          "sha256": "1a46493739258b4c98666db7cf1ed262f3668aa862ecb92da7f7f307b413cec5"
+        }
+      ],
+      "present_roles": [
+        "pal",
+        "canm"
+      ],
+      "missing_roles": [
+        "fon",
+        "cel",
+        "cex"
+      ]
+    },
+    {
+      "tileset_id": 28,
+      "prefix": "b28",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b28fon",
+          "present": true,
+          "archive_index": 134,
+          "rom_offset": 6911566,
+          "rom_offset_hex": "0x0069764E",
+          "bytes": 6330,
+          "sha256": "26e67567f1d0824bf1671af76213e9be7360f85cd039381083404963eb1bc003"
+        },
+        {
+          "role": "cel",
+          "name": "b28cel",
+          "present": true,
+          "archive_index": 132,
+          "rom_offset": 6908928,
+          "rom_offset_hex": "0x00696C00",
+          "bytes": 1832,
+          "sha256": "86f7d776911f4fa508d3ac2e268513a40870fe472d52e3931b59bdf01c5a46bc"
+        },
+        {
+          "role": "cex",
+          "name": "b28cex",
+          "present": true,
+          "archive_index": 133,
+          "rom_offset": 6910760,
+          "rom_offset_hex": "0x00697328",
+          "bytes": 806,
+          "sha256": "4f536aa828b330468b17a991df3f5d0a8eec76a9b2cba8b29cbbd8c871c88ee4"
+        },
+        {
+          "role": "pal",
+          "name": "b28pal",
+          "present": true,
+          "archive_index": 135,
+          "rom_offset": 6917896,
+          "rom_offset_hex": "0x00698F08",
+          "bytes": 768,
+          "sha256": "70071ab37e57fba4701be3f30e890249783ba08287c443543f1cb6559b11f52f"
+        },
+        {
+          "role": "canm",
+          "name": "b28canm",
+          "present": true,
+          "archive_index": 131,
+          "rom_offset": 6907312,
+          "rom_offset_hex": "0x006965B0",
+          "bytes": 1616,
+          "sha256": "470a1338c7107a37176aa98fa1481686bc8d3cfc4c3f643eeb8c2f78de202ff1"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 29,
+      "prefix": "b29",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b29fon",
+          "present": true,
+          "archive_index": 139,
+          "rom_offset": 6922669,
+          "rom_offset_hex": "0x0069A1AD",
+          "bytes": 8887,
+          "sha256": "a79deef68ef2597543e87c2fe9e5ba4245fd02fe0ad370f7434a31252344447f"
+        },
+        {
+          "role": "cel",
+          "name": "b29cel",
+          "present": true,
+          "archive_index": 137,
+          "rom_offset": 6920024,
+          "rom_offset_hex": "0x00699758",
+          "bytes": 1828,
+          "sha256": "d3089aec72075f21305036665085f2afc36d58c4808965730c3ebe253b479080"
+        },
+        {
+          "role": "cex",
+          "name": "b29cex",
+          "present": true,
+          "archive_index": 138,
+          "rom_offset": 6921852,
+          "rom_offset_hex": "0x00699E7C",
+          "bytes": 817,
+          "sha256": "40e383130182e30e001b9b9a5c618114bad863e7da792d0e4e8f47910da11941"
+        },
+        {
+          "role": "pal",
+          "name": "b29pal",
+          "present": true,
+          "archive_index": 140,
+          "rom_offset": 6931556,
+          "rom_offset_hex": "0x0069C464",
+          "bytes": 768,
+          "sha256": "9efade0f12d26306226c427bc472184b85344c9048e794f5e98eb279ef2f2c5b"
+        },
+        {
+          "role": "canm",
+          "name": "b29canm",
+          "present": true,
+          "archive_index": 136,
+          "rom_offset": 6918664,
+          "rom_offset_hex": "0x00699208",
+          "bytes": 1360,
+          "sha256": "aad913b86ef5c1ffedf2c97095cd136d2bcaefe4fd21f88eaeb319f95162abbd"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 30,
+      "prefix": "b30",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b30fon",
+          "present": true,
+          "archive_index": 144,
+          "rom_offset": 6936275,
+          "rom_offset_hex": "0x0069D6D3",
+          "bytes": 5853,
+          "sha256": "d3583a1125cae5911dc44d09ac1acb64a3d811467e06ec28e0be5e3003c47cda"
+        },
+        {
+          "role": "cel",
+          "name": "b30cel",
+          "present": true,
+          "archive_index": 142,
+          "rom_offset": 6933684,
+          "rom_offset_hex": "0x0069CCB4",
+          "bytes": 1748,
+          "sha256": "76ec442dde00d4154a984eef0995a1ac11e78934701cf322e55f68c6899258ab"
+        },
+        {
+          "role": "cex",
+          "name": "b30cex",
+          "present": true,
+          "archive_index": 143,
+          "rom_offset": 6935432,
+          "rom_offset_hex": "0x0069D388",
+          "bytes": 843,
+          "sha256": "d7c1f959093daa5d1ceb4a062f280081d0d1910052395dbdffa974f503b2e03e"
+        },
+        {
+          "role": "pal",
+          "name": "b30pal",
+          "present": true,
+          "archive_index": 145,
+          "rom_offset": 6942128,
+          "rom_offset_hex": "0x0069EDB0",
+          "bytes": 768,
+          "sha256": "c095875af7415212c8aaaf7119a5ce9dfac95b7992888a19f0bb6e78579bb2c1"
+        },
+        {
+          "role": "canm",
+          "name": "b30canm",
+          "present": true,
+          "archive_index": 141,
+          "rom_offset": 6932324,
+          "rom_offset_hex": "0x0069C764",
+          "bytes": 1360,
+          "sha256": "da5f07a6106bf644642cb72ba9be7b67810cac63afd7d7875768595038701e47"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 31,
+      "prefix": "b31",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b31fon",
+          "present": true,
+          "archive_index": 149,
+          "rom_offset": 6947044,
+          "rom_offset_hex": "0x006A00E4",
+          "bytes": 8184,
+          "sha256": "81a72aa36acf12633ee916547554d8fddbcedf0a8f657bdb786d2345933e7acd"
+        },
+        {
+          "role": "cel",
+          "name": "b31cel",
+          "present": true,
+          "archive_index": 147,
+          "rom_offset": 6944256,
+          "rom_offset_hex": "0x0069F600",
+          "bytes": 1964,
+          "sha256": "47602a84334b24b0468e58d0b28b17eab8d02f68fe468664a59f6d7022dd713d"
+        },
+        {
+          "role": "cex",
+          "name": "b31cex",
+          "present": true,
+          "archive_index": 148,
+          "rom_offset": 6946220,
+          "rom_offset_hex": "0x0069FDAC",
+          "bytes": 824,
+          "sha256": "c4c362ebf544bcec74e78bb44c70e59f551257f83aa5b032932292cf4dede5bb"
+        },
+        {
+          "role": "pal",
+          "name": "b31pal",
+          "present": true,
+          "archive_index": 150,
+          "rom_offset": 6955228,
+          "rom_offset_hex": "0x006A20DC",
+          "bytes": 768,
+          "sha256": "72c6ef00200587eeab987cbf5ffb9c12e2b78d5e3d502376c47175e7ac89fd51"
+        },
+        {
+          "role": "canm",
+          "name": "b31canm",
+          "present": true,
+          "archive_index": 146,
+          "rom_offset": 6942896,
+          "rom_offset_hex": "0x0069F0B0",
+          "bytes": 1360,
+          "sha256": "8f06d4d7ce8963dc0ae2bf9f17915270f1196ee18449e881dcf44053aac84b0e"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 32,
+      "prefix": "b32",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b32fon",
+          "present": true,
+          "archive_index": 154,
+          "rom_offset": 6961256,
+          "rom_offset_hex": "0x006A3868",
+          "bytes": 4416,
+          "sha256": "ffc46e2fe4324533d3000fda74bc3cfd184450b46d88b2e24c7ea1746023ddd5"
+        },
+        {
+          "role": "cel",
+          "name": "b32cel",
+          "present": true,
+          "archive_index": 152,
+          "rom_offset": 6958828,
+          "rom_offset_hex": "0x006A2EEC",
+          "bytes": 1632,
+          "sha256": "68c0b7b5562f225c692d8a1d4594af994b2c2373baa5f5fb75d8fb3e0aeb713a"
+        },
+        {
+          "role": "cex",
+          "name": "b32cex",
+          "present": true,
+          "archive_index": 153,
+          "rom_offset": 6960460,
+          "rom_offset_hex": "0x006A354C",
+          "bytes": 796,
+          "sha256": "fcb2b9d7f5313dac3de032718ec3bafecbd3cf3714aa7b0110973c28181fa053"
+        },
+        {
+          "role": "pal",
+          "name": "b32pal",
+          "present": true,
+          "archive_index": 155,
+          "rom_offset": 6965672,
+          "rom_offset_hex": "0x006A49A8",
+          "bytes": 768,
+          "sha256": "1ce2df82d78c2c0adc5e0b178569186c95db664b4f23cc0aedcb27358829975a"
+        },
+        {
+          "role": "canm",
+          "name": "b32canm",
+          "present": true,
+          "archive_index": 151,
+          "rom_offset": 6955996,
+          "rom_offset_hex": "0x006A23DC",
+          "bytes": 2832,
+          "sha256": "0175e381a1e85478a10ab89fea7c01999be603fe0225ab1f81e95b95ef95c6da"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 33,
+      "prefix": "b33",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b33fon",
+          "present": true,
+          "archive_index": 159,
+          "rom_offset": 6971700,
+          "rom_offset_hex": "0x006A6134",
+          "bytes": 4324,
+          "sha256": "f7c06cd5b9a36e657ab2c593eb87ef8c882f9b18de501d67249710de41e5586d"
+        },
+        {
+          "role": "cel",
+          "name": "b33cel",
+          "present": true,
+          "archive_index": 157,
+          "rom_offset": 6969272,
+          "rom_offset_hex": "0x006A57B8",
+          "bytes": 1632,
+          "sha256": "382c3d013e27f1bdde54a45b44e2f3a52951ade15c73de6e16085bbc6c996633"
+        },
+        {
+          "role": "cex",
+          "name": "b33cex",
+          "present": true,
+          "archive_index": 158,
+          "rom_offset": 6970904,
+          "rom_offset_hex": "0x006A5E18",
+          "bytes": 796,
+          "sha256": "66ccd0dd0e75c77cb619d317b179fbc623307eb2c96edece39f1f7efbd7e513f"
+        },
+        {
+          "role": "pal",
+          "name": "b33pal",
+          "present": true,
+          "archive_index": 160,
+          "rom_offset": 6976024,
+          "rom_offset_hex": "0x006A7218",
+          "bytes": 768,
+          "sha256": "37c555394e7103141519eddd97d4a482ec8a96f38101faa881b07af12fbb2f6b"
+        },
+        {
+          "role": "canm",
+          "name": "b33canm",
+          "present": true,
+          "archive_index": 156,
+          "rom_offset": 6966440,
+          "rom_offset_hex": "0x006A4CA8",
+          "bytes": 2832,
+          "sha256": "93c7e0b88460392504cdfe8a58992ff6a4f3cd81f4832893d8db923cefc65a46"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 34,
+      "prefix": "b34",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b34fon",
+          "present": false
+        },
+        {
+          "role": "cel",
+          "name": "b34cel",
+          "present": false
+        },
+        {
+          "role": "cex",
+          "name": "b34cex",
+          "present": false
+        },
+        {
+          "role": "pal",
+          "name": "b34pal",
+          "present": true,
+          "archive_index": 162,
+          "rom_offset": 6978408,
+          "rom_offset_hex": "0x006A7B68",
+          "bytes": 768,
+          "sha256": "9fff9cc404a2af821cf9924028d21eabcd5cd1d7b5a095050c2874806a7b4df4"
+        },
+        {
+          "role": "canm",
+          "name": "b34canm",
+          "present": true,
+          "archive_index": 161,
+          "rom_offset": 6976792,
+          "rom_offset_hex": "0x006A7518",
+          "bytes": 1616,
+          "sha256": "c2f830e84fc619a81df8eb0d7bec6183c2eec548c4eb7c293d0c3645bce4ef7a"
+        }
+      ],
+      "present_roles": [
+        "pal",
+        "canm"
+      ],
+      "missing_roles": [
+        "fon",
+        "cel",
+        "cex"
+      ]
+    },
+    {
+      "tileset_id": 35,
+      "prefix": "b35",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b35fon",
+          "present": true,
+          "archive_index": 166,
+          "rom_offset": 6983587,
+          "rom_offset_hex": "0x006A8FA3",
+          "bytes": 8609,
+          "sha256": "7abd6ad5a7c2cb572311707c1661dfa0f01431ed7dcb28855a493a5d3581c45c"
+        },
+        {
+          "role": "cel",
+          "name": "b35cel",
+          "present": true,
+          "archive_index": 164,
+          "rom_offset": 6980736,
+          "rom_offset_hex": "0x006A8480",
+          "bytes": 2028,
+          "sha256": "f088bd6c56ff7f844562a16c3c8346026891ea9955fe059ba724b6a43cf00cc9"
+        },
+        {
+          "role": "cex",
+          "name": "b35cex",
+          "present": true,
+          "archive_index": 165,
+          "rom_offset": 6982764,
+          "rom_offset_hex": "0x006A8C6C",
+          "bytes": 823,
+          "sha256": "5a1e1c6f9526677859e92be8a2dadee4d4871697629f51f0464dc8b9d88a8d00"
+        },
+        {
+          "role": "pal",
+          "name": "b35pal",
+          "present": true,
+          "archive_index": 167,
+          "rom_offset": 6992196,
+          "rom_offset_hex": "0x006AB144",
+          "bytes": 768,
+          "sha256": "41fdd1a3bfb4e15bf0e90e3c97f934da9a7f9ec365dd595d91a832476f8cf458"
+        },
+        {
+          "role": "canm",
+          "name": "b35canm",
+          "present": true,
+          "archive_index": 163,
+          "rom_offset": 6979176,
+          "rom_offset_hex": "0x006A7E68",
+          "bytes": 1560,
+          "sha256": "1d16ec89189b091e97bb9221b6abf7c3f218096fea81e4358aedd16a203bf7b5"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 36,
+      "prefix": "b36",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b36fon",
+          "present": true,
+          "archive_index": 171,
+          "rom_offset": 6997361,
+          "rom_offset_hex": "0x006AC571",
+          "bytes": 8903,
+          "sha256": "3dbb201a522a05ad7bf5d9515f4edbc945d46681870be7caceebf17331fff483"
+        },
+        {
+          "role": "cel",
+          "name": "b36cel",
+          "present": true,
+          "archive_index": 169,
+          "rom_offset": 6994516,
+          "rom_offset_hex": "0x006ABA54",
+          "bytes": 1944,
+          "sha256": "add0173df8ee999ca31201eff00e0b56771a86a0a24f9cc8ef994677d7adfb96"
+        },
+        {
+          "role": "cex",
+          "name": "b36cex",
+          "present": true,
+          "archive_index": 170,
+          "rom_offset": 6996460,
+          "rom_offset_hex": "0x006AC1EC",
+          "bytes": 901,
+          "sha256": "ffcc2f5b291c984135982ebf19d2b857e435f575bf0dc060420e16001eaf1061"
+        },
+        {
+          "role": "pal",
+          "name": "b36pal",
+          "present": true,
+          "archive_index": 172,
+          "rom_offset": 7006264,
+          "rom_offset_hex": "0x006AE838",
+          "bytes": 768,
+          "sha256": "fa6f5085d4146851afbd96f97a16b9a5f3a948674c3b03ccae46fb8ea31eb3a6"
+        },
+        {
+          "role": "canm",
+          "name": "b36canm",
+          "present": true,
+          "archive_index": 168,
+          "rom_offset": 6992964,
+          "rom_offset_hex": "0x006AB444",
+          "bytes": 1552,
+          "sha256": "18295a2c1e2069c2f274d0feb5ab334e15822f19ebcf064f0286e286426ef7fa"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 37,
+      "prefix": "b37",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b37fon",
+          "present": true,
+          "archive_index": 176,
+          "rom_offset": 7011091,
+          "rom_offset_hex": "0x006AFB13",
+          "bytes": 7245,
+          "sha256": "106bf9ad64b6c1ebb4d8f9cb82ddab677899f8458a95b3e1ebca6f1c6fc4d4d4"
+        },
+        {
+          "role": "cel",
+          "name": "b37cel",
+          "present": true,
+          "archive_index": 174,
+          "rom_offset": 7008392,
+          "rom_offset_hex": "0x006AF088",
+          "bytes": 1808,
+          "sha256": "6601521f81ebc01c71a43189934a7d60120a2c5d01ce699444a57e90740431ba"
+        },
+        {
+          "role": "cex",
+          "name": "b37cex",
+          "present": true,
+          "archive_index": 175,
+          "rom_offset": 7010200,
+          "rom_offset_hex": "0x006AF798",
+          "bytes": 891,
+          "sha256": "d2ea6dc9799977ef9acd63bac8e21245d40a0e1c9dbe8352f7282a827ca86a07"
+        },
+        {
+          "role": "pal",
+          "name": "b37pal",
+          "present": true,
+          "archive_index": 177,
+          "rom_offset": 7018336,
+          "rom_offset_hex": "0x006B1760",
+          "bytes": 768,
+          "sha256": "b8eedb667e075c68a47ac8cc45afe3155b49e42aa1fdc9c519b89eaf38e9b373"
+        },
+        {
+          "role": "canm",
+          "name": "b37canm",
+          "present": true,
+          "archive_index": 173,
+          "rom_offset": 7007032,
+          "rom_offset_hex": "0x006AEB38",
+          "bytes": 1360,
+          "sha256": "1edff03ee8ccf2f2c2cab46c0d74d9f172c25dc2c55aeb3534d0ab90ee266e3a"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 38,
+      "prefix": "b38",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b38fon",
+          "present": false
+        },
+        {
+          "role": "cel",
+          "name": "b38cel",
+          "present": false
+        },
+        {
+          "role": "cex",
+          "name": "b38cex",
+          "present": false
+        },
+        {
+          "role": "pal",
+          "name": "b38pal",
+          "present": true,
+          "archive_index": 179,
+          "rom_offset": 7020464,
+          "rom_offset_hex": "0x006B1FB0",
+          "bytes": 768,
+          "sha256": "9ccb40163bab25eb0bddb0f0e05445207477271b701c5b539fcf10d624c9bec9"
+        },
+        {
+          "role": "canm",
+          "name": "b38canm",
+          "present": true,
+          "archive_index": 178,
+          "rom_offset": 7019104,
+          "rom_offset_hex": "0x006B1A60",
+          "bytes": 1360,
+          "sha256": "d80be29419552b877942994db8729e1659f090f0a29c297811e8d8f5361f9b31"
+        }
+      ],
+      "present_roles": [
+        "pal",
+        "canm"
+      ],
+      "missing_roles": [
+        "fon",
+        "cel",
+        "cex"
+      ]
+    },
+    {
+      "tileset_id": 39,
+      "prefix": "b39",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b39fon",
+          "present": true,
+          "archive_index": 183,
+          "rom_offset": 7025280,
+          "rom_offset_hex": "0x006B3280",
+          "bytes": 5572,
+          "sha256": "1f1b33b5232a50814b8f3553d793ecbccfc145e5fb961492b39b5966ace93452"
+        },
+        {
+          "role": "cel",
+          "name": "b39cel",
+          "present": true,
+          "archive_index": 181,
+          "rom_offset": 7022592,
+          "rom_offset_hex": "0x006B2800",
+          "bytes": 1776,
+          "sha256": "b328a0d6c15f78be3e44fc7941a947a7182efa732f70e58cc8a1aa777e7b059b"
+        },
+        {
+          "role": "cex",
+          "name": "b39cex",
+          "present": true,
+          "archive_index": 182,
+          "rom_offset": 7024368,
+          "rom_offset_hex": "0x006B2EF0",
+          "bytes": 912,
+          "sha256": "7a72fd4712585c699aed224f210318b63719d9764614d1cdbc82ad20369b261f"
+        },
+        {
+          "role": "pal",
+          "name": "b39pal",
+          "present": true,
+          "archive_index": 184,
+          "rom_offset": 7030852,
+          "rom_offset_hex": "0x006B4844",
+          "bytes": 768,
+          "sha256": "c68ae61b64f865d254f10d729d06b49b614463bdf5138ca13f5af93bf320385f"
+        },
+        {
+          "role": "canm",
+          "name": "b39canm",
+          "present": true,
+          "archive_index": 180,
+          "rom_offset": 7021232,
+          "rom_offset_hex": "0x006B22B0",
+          "bytes": 1360,
+          "sha256": "01b96daaf8a3ce4f2a5ecdb42201d139da96696182ccdf60bb8f20539e236142"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 40,
+      "prefix": "b40",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b40fon",
+          "present": true,
+          "archive_index": 188,
+          "rom_offset": 7035658,
+          "rom_offset_hex": "0x006B5B0A",
+          "bytes": 7222,
+          "sha256": "3e92d8b18990c3de3309d2cdc406b398d402d56e46ca067a49af3ebe46bc82c3"
+        },
+        {
+          "role": "cel",
+          "name": "b40cel",
+          "present": true,
+          "archive_index": 186,
+          "rom_offset": 7032980,
+          "rom_offset_hex": "0x006B5094",
+          "bytes": 1792,
+          "sha256": "c58e68e94cbfd88826c8edac632ec1a9615961d98da5a17913747fe61c5f362d"
+        },
+        {
+          "role": "cex",
+          "name": "b40cex",
+          "present": true,
+          "archive_index": 187,
+          "rom_offset": 7034772,
+          "rom_offset_hex": "0x006B5794",
+          "bytes": 886,
+          "sha256": "3dce730d2d6c9a7a727bd52c5a483af8681ae5fb7dfacf3ea03b15f7d034fe7d"
+        },
+        {
+          "role": "pal",
+          "name": "b40pal",
+          "present": true,
+          "archive_index": 189,
+          "rom_offset": 7042880,
+          "rom_offset_hex": "0x006B7740",
+          "bytes": 768,
+          "sha256": "6910f82c2b6a773f0029bb59f82c69f08bd71520b27846c0efd6f3ccc228e7d4"
+        },
+        {
+          "role": "canm",
+          "name": "b40canm",
+          "present": true,
+          "archive_index": 185,
+          "rom_offset": 7031620,
+          "rom_offset_hex": "0x006B4B44",
+          "bytes": 1360,
+          "sha256": "4c3f65751b20195f57b515a1c6a0aaf2d89b28ee26438a14cef268f8cf148510"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 41,
+      "prefix": "b41",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b41fon",
+          "present": true,
+          "archive_index": 193,
+          "rom_offset": 7047609,
+          "rom_offset_hex": "0x006B89B9",
+          "bytes": 10283,
+          "sha256": "d1cce2361a212baf10ddb7873cc137c6e8316ebfe0501558f5e6c5bbe19ac06e"
+        },
+        {
+          "role": "cel",
+          "name": "b41cel",
+          "present": true,
+          "archive_index": 191,
+          "rom_offset": 7045008,
+          "rom_offset_hex": "0x006B7F90",
+          "bytes": 1808,
+          "sha256": "07416fa9d3a71a3517c45c597d52cd66accbed6f0b12f4856879497a28157ba7"
+        },
+        {
+          "role": "cex",
+          "name": "b41cex",
+          "present": true,
+          "archive_index": 192,
+          "rom_offset": 7046816,
+          "rom_offset_hex": "0x006B86A0",
+          "bytes": 793,
+          "sha256": "2d5b38d81ccc73fd1b049b552441b74b8bedf3bde0365eb44dcb63712061db2b"
+        },
+        {
+          "role": "pal",
+          "name": "b41pal",
+          "present": true,
+          "archive_index": 194,
+          "rom_offset": 7057892,
+          "rom_offset_hex": "0x006BB1E4",
+          "bytes": 768,
+          "sha256": "f5345e09321e20b67339e561add912eaecfa329fda12d04e5788eefd8ae83fb3"
+        },
+        {
+          "role": "canm",
+          "name": "b41canm",
+          "present": true,
+          "archive_index": 190,
+          "rom_offset": 7043648,
+          "rom_offset_hex": "0x006B7A40",
+          "bytes": 1360,
+          "sha256": "b728781e47e52c200d87d6e8f2062e0644cf69839d3404efe541b5f9fe9e1efa"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 42,
+      "prefix": "b42",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b42fon",
+          "present": true,
+          "archive_index": 198,
+          "rom_offset": 7062741,
+          "rom_offset_hex": "0x006BC4D5",
+          "bytes": 8603,
+          "sha256": "92c0bbe0463bc5531c88ddbbd295cecc9ca6168f56ff9c542baea1c251f834a4"
+        },
+        {
+          "role": "cel",
+          "name": "b42cel",
+          "present": true,
+          "archive_index": 196,
+          "rom_offset": 7060020,
+          "rom_offset_hex": "0x006BBA34",
+          "bytes": 1932,
+          "sha256": "ec6ef4debc4c0c3b0009df1a271614424fee0546afdbcab025ba6c7ca6015b25"
+        },
+        {
+          "role": "cex",
+          "name": "b42cex",
+          "present": true,
+          "archive_index": 197,
+          "rom_offset": 7061952,
+          "rom_offset_hex": "0x006BC1C0",
+          "bytes": 789,
+          "sha256": "fc2c09681e15d39f7e74088cd76ba090a791617272c45d1b048628dbee0b3bb3"
+        },
+        {
+          "role": "pal",
+          "name": "b42pal",
+          "present": true,
+          "archive_index": 199,
+          "rom_offset": 7071344,
+          "rom_offset_hex": "0x006BE670",
+          "bytes": 768,
+          "sha256": "9ec8fb4923adbf174d9c7b226e8b2d6d741760dd816ecbb4fbaf7cd0a5397846"
+        },
+        {
+          "role": "canm",
+          "name": "b42canm",
+          "present": true,
+          "archive_index": 195,
+          "rom_offset": 7058660,
+          "rom_offset_hex": "0x006BB4E4",
+          "bytes": 1360,
+          "sha256": "9b1ad5ed06f66ff3bbacac38429e77234293915edf14b39c8468b405634fe590"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 43,
+      "prefix": "b43",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b43fon",
+          "present": true,
+          "archive_index": 203,
+          "rom_offset": 7076399,
+          "rom_offset_hex": "0x006BFA2F",
+          "bytes": 10429,
+          "sha256": "d264a7725f942ccda26917c9f3674e825f6c1a854f698987207a977b7f1377fb"
+        },
+        {
+          "role": "cel",
+          "name": "b43cel",
+          "present": true,
+          "archive_index": 201,
+          "rom_offset": 7073472,
+          "rom_offset_hex": "0x006BEEC0",
+          "bytes": 2008,
+          "sha256": "fa520b0f4c5742fe8769c8e8ed4aae3c79fcdc6161ca485e88aeb1fe368907ba"
+        },
+        {
+          "role": "cex",
+          "name": "b43cex",
+          "present": true,
+          "archive_index": 202,
+          "rom_offset": 7075480,
+          "rom_offset_hex": "0x006BF698",
+          "bytes": 919,
+          "sha256": "5cb01ab4f1c8382c807ad4dde792c0797b1dd044cebf220158f4c65dbe9766c3"
+        },
+        {
+          "role": "pal",
+          "name": "b43pal",
+          "present": true,
+          "archive_index": 204,
+          "rom_offset": 7086828,
+          "rom_offset_hex": "0x006C22EC",
+          "bytes": 776,
+          "sha256": "a1a2a6e89d71d1ccf69238b0969bb848066f0eb925ad7824e8c6f8315313421f"
+        },
+        {
+          "role": "canm",
+          "name": "b43canm",
+          "present": true,
+          "archive_index": 200,
+          "rom_offset": 7072112,
+          "rom_offset_hex": "0x006BE970",
+          "bytes": 1360,
+          "sha256": "077ccc29d04bf3b809ef716a1163746ca7285cab4d892295608c3fc84b16bb67"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 44,
+      "prefix": "b44",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b44fon",
+          "present": true,
+          "archive_index": 208,
+          "rom_offset": 7092031,
+          "rom_offset_hex": "0x006C373F",
+          "bytes": 8709,
+          "sha256": "e281c2430f09d371a81f392238a2bc478a887d41f751135cbe2761ef866baec2"
+        },
+        {
+          "role": "cel",
+          "name": "b44cel",
+          "present": true,
+          "archive_index": 206,
+          "rom_offset": 7089156,
+          "rom_offset_hex": "0x006C2C04",
+          "bytes": 2048,
+          "sha256": "df55d77e49bda4d7da96e19f37c92533507f48f3be0a7cf36960fab54a60446d"
+        },
+        {
+          "role": "cex",
+          "name": "b44cex",
+          "present": true,
+          "archive_index": 207,
+          "rom_offset": 7091204,
+          "rom_offset_hex": "0x006C3404",
+          "bytes": 827,
+          "sha256": "d9dae4ffe70975d51c1f83a64bb0470b42c96da235cbc00e81c572d32c858971"
+        },
+        {
+          "role": "pal",
+          "name": "b44pal",
+          "present": true,
+          "archive_index": 209,
+          "rom_offset": 7100740,
+          "rom_offset_hex": "0x006C5944",
+          "bytes": 768,
+          "sha256": "f6907db901189fe6439c65cf893cd4b63a1df21790a734b8f284bf076b21d029"
+        },
+        {
+          "role": "canm",
+          "name": "b44canm",
+          "present": true,
+          "archive_index": 205,
+          "rom_offset": 7087604,
+          "rom_offset_hex": "0x006C25F4",
+          "bytes": 1552,
+          "sha256": "9dd1b3d65718e366e47e163654c3b0e6df9e4e821eb2ae8983c410bee3512377"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 45,
+      "prefix": "b45",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b45fon",
+          "present": true,
+          "archive_index": 213,
+          "rom_offset": 7105353,
+          "rom_offset_hex": "0x006C6B49",
+          "bytes": 10095,
+          "sha256": "31b4fd568a6d9bd4228fbb61f5194408a4d30e337ebaa3aadec077a2702f32a7"
+        },
+        {
+          "role": "cel",
+          "name": "b45cel",
+          "present": true,
+          "archive_index": 211,
+          "rom_offset": 7102612,
+          "rom_offset_hex": "0x006C6094",
+          "bytes": 1920,
+          "sha256": "6d3f97ffd09da9fff278686c484f6a8e0bb928f41b21f40bfad98f54c9806fcc"
+        },
+        {
+          "role": "cex",
+          "name": "b45cex",
+          "present": true,
+          "archive_index": 212,
+          "rom_offset": 7104532,
+          "rom_offset_hex": "0x006C6814",
+          "bytes": 821,
+          "sha256": "f8e69806eedd0a8abd4bf8b59f302d06403768f9bdbcde3afef3998fdab6681e"
+        },
+        {
+          "role": "pal",
+          "name": "b45pal",
+          "present": true,
+          "archive_index": 214,
+          "rom_offset": 7115448,
+          "rom_offset_hex": "0x006C92B8",
+          "bytes": 768,
+          "sha256": "afcecb9b3c51a8ce785492277ceb5f83eec099f7a8ec7e028ba8756f834ceecc"
+        },
+        {
+          "role": "canm",
+          "name": "b45canm",
+          "present": true,
+          "archive_index": 210,
+          "rom_offset": 7101508,
+          "rom_offset_hex": "0x006C5C44",
+          "bytes": 1104,
+          "sha256": "9573d2ca76f9f79a9eb6dbdb6e1b839b0dd3de5728d0597696a32e409a96effe"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 46,
+      "prefix": "b46",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b46fon",
+          "present": true,
+          "archive_index": 218,
+          "rom_offset": 7120648,
+          "rom_offset_hex": "0x006CA708",
+          "bytes": 8736,
+          "sha256": "e79039799e291bcfc14f81eaf488d31eac5d5c74e0899b40d453a1f1c51d5666"
+        },
+        {
+          "role": "cel",
+          "name": "b46cel",
+          "present": true,
+          "archive_index": 216,
+          "rom_offset": 7118024,
+          "rom_offset_hex": "0x006C9CC8",
+          "bytes": 1828,
+          "sha256": "231d7acd4ba0e6c87d9b44f92fa4b78976aee9f8e35cdd905b2e3602b5c42ab0"
+        },
+        {
+          "role": "cex",
+          "name": "b46cex",
+          "present": true,
+          "archive_index": 217,
+          "rom_offset": 7119852,
+          "rom_offset_hex": "0x006CA3EC",
+          "bytes": 796,
+          "sha256": "2f618c6cc111bfc339d7fbaadab02e8773edffc53d97a4ac12fa0b0577ee01d3"
+        },
+        {
+          "role": "pal",
+          "name": "b46pal",
+          "present": true,
+          "archive_index": 219,
+          "rom_offset": 7129384,
+          "rom_offset_hex": "0x006CC928",
+          "bytes": 768,
+          "sha256": "e75755fd2db0d0523911d76106318fd5a40824725524533d15216773854ba3ed"
+        },
+        {
+          "role": "canm",
+          "name": "b46canm",
+          "present": true,
+          "archive_index": 215,
+          "rom_offset": 7116216,
+          "rom_offset_hex": "0x006C95B8",
+          "bytes": 1808,
+          "sha256": "bc8550266eb6e1903465431ef4d4caaac87f267d1b1a692310902c5b8839d35f"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 47,
+      "prefix": "b47",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b47fon",
+          "present": true,
+          "archive_index": 223,
+          "rom_offset": 7134182,
+          "rom_offset_hex": "0x006CDBE6",
+          "bytes": 9022,
+          "sha256": "7595e43a0640ee5155d8fd452ae6e3c2a7756b824b5cb1197b4d43ab498845e8"
+        },
+        {
+          "role": "cel",
+          "name": "b47cel",
+          "present": true,
+          "archive_index": 221,
+          "rom_offset": 7131256,
+          "rom_offset_hex": "0x006CD078",
+          "bytes": 2008,
+          "sha256": "2dd6d514ea8422d3d9c0e83cd57a693a975b1b44469e80959ece9e414481f5d7"
+        },
+        {
+          "role": "cex",
+          "name": "b47cex",
+          "present": true,
+          "archive_index": 222,
+          "rom_offset": 7133264,
+          "rom_offset_hex": "0x006CD850",
+          "bytes": 918,
+          "sha256": "9d36d0cb83824d0f12ac78b71fffafed4c48af7d1b3fc8df9ff00ab8a306d696"
+        },
+        {
+          "role": "pal",
+          "name": "b47pal",
+          "present": true,
+          "archive_index": 224,
+          "rom_offset": 7143204,
+          "rom_offset_hex": "0x006CFF24",
+          "bytes": 768,
+          "sha256": "90dbc274265dd045c3d53b2dc75681ececd873a1f08b8c690527c605f1aeffdd"
+        },
+        {
+          "role": "canm",
+          "name": "b47canm",
+          "present": true,
+          "archive_index": 220,
+          "rom_offset": 7130152,
+          "rom_offset_hex": "0x006CCC28",
+          "bytes": 1104,
+          "sha256": "351ff3bddbcbd177a168cc9adccaef8d86c9ed469797898ab491f7e13ef93840"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 48,
+      "prefix": "b48",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b48fon",
+          "present": true,
+          "archive_index": 228,
+          "rom_offset": 7149757,
+          "rom_offset_hex": "0x006D18BD",
+          "bytes": 8019,
+          "sha256": "9c3a5d1cc8841c08b7ab73da1cbde0b4784d73756d27eace8483308812bb33df"
+        },
+        {
+          "role": "cel",
+          "name": "b48cel",
+          "present": true,
+          "archive_index": 226,
+          "rom_offset": 7146996,
+          "rom_offset_hex": "0x006D0DF4",
+          "bytes": 1896,
+          "sha256": "a7d0b97453f5a5ac3d2cf7486600f31695bbb6321a50bb5ce3ee37d7ae42e117"
+        },
+        {
+          "role": "cex",
+          "name": "b48cex",
+          "present": true,
+          "archive_index": 227,
+          "rom_offset": 7148892,
+          "rom_offset_hex": "0x006D155C",
+          "bytes": 865,
+          "sha256": "d9a2283f1496ff568cb4fd96c112c161278e4dd9638e4feb1635ca60ed0b145e"
+        },
+        {
+          "role": "pal",
+          "name": "b48pal",
+          "present": true,
+          "archive_index": 229,
+          "rom_offset": 7157776,
+          "rom_offset_hex": "0x006D3810",
+          "bytes": 768,
+          "sha256": "25aba78258e3ce65965bcc472af4cee36913e16bd612af4b3832a4444f3760cd"
+        },
+        {
+          "role": "canm",
+          "name": "b48canm",
+          "present": true,
+          "archive_index": 225,
+          "rom_offset": 7143972,
+          "rom_offset_hex": "0x006D0224",
+          "bytes": 3024,
+          "sha256": "baa854fb24be91bef8b8847a05bab8ef12ea7a7cb955dc8f6bcc009d5a078f5c"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 49,
+      "prefix": "b49",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b49fon",
+          "present": true,
+          "archive_index": 233,
+          "rom_offset": 7162496,
+          "rom_offset_hex": "0x006D4A80",
+          "bytes": 7316,
+          "sha256": "b918f9fa59042371c7e8a8c17ae608cb1fdcf066f2159b946054d9cf3f22c993"
+        },
+        {
+          "role": "cel",
+          "name": "b49cel",
+          "present": true,
+          "archive_index": 231,
+          "rom_offset": 7159968,
+          "rom_offset_hex": "0x006D40A0",
+          "bytes": 1800,
+          "sha256": "ba856e686fc6898d5acb0575bb426eeeb403d1f7a4086becee608edd0e4ff2bb"
+        },
+        {
+          "role": "cex",
+          "name": "b49cex",
+          "present": true,
+          "archive_index": 232,
+          "rom_offset": 7161768,
+          "rom_offset_hex": "0x006D47A8",
+          "bytes": 728,
+          "sha256": "cff0b6cc1967bdaf4142732d0158f8db751d39107f97236b970d660df33c80ff"
+        },
+        {
+          "role": "pal",
+          "name": "b49pal",
+          "present": true,
+          "archive_index": 234,
+          "rom_offset": 7169812,
+          "rom_offset_hex": "0x006D6714",
+          "bytes": 768,
+          "sha256": "ea9983e84a6cadfdfc11995321036c2319193ca828e8d9d019957ff4fe6c893e"
+        },
+        {
+          "role": "canm",
+          "name": "b49canm",
+          "present": true,
+          "archive_index": 230,
+          "rom_offset": 7158544,
+          "rom_offset_hex": "0x006D3B10",
+          "bytes": 1424,
+          "sha256": "f62e5e2913e72bf16e803344675620364a99b9e65607779492b4b26607d516e5"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 50,
+      "prefix": "b50",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b50fon",
+          "present": true,
+          "archive_index": 238,
+          "rom_offset": 7174739,
+          "rom_offset_hex": "0x006D7A53",
+          "bytes": 8997,
+          "sha256": "14c8f21588bee5e3531d625cf326fe1060cb4fbdebaf6cda586f5cdcbcdfc753"
+        },
+        {
+          "role": "cel",
+          "name": "b50cel",
+          "present": true,
+          "archive_index": 236,
+          "rom_offset": 7171940,
+          "rom_offset_hex": "0x006D6F64",
+          "bytes": 1916,
+          "sha256": "6b64de9769ae7154a76bb34b4176fbf3996a1a2e865082c3bead024a4d179f6f"
+        },
+        {
+          "role": "cex",
+          "name": "b50cex",
+          "present": true,
+          "archive_index": 237,
+          "rom_offset": 7173856,
+          "rom_offset_hex": "0x006D76E0",
+          "bytes": 883,
+          "sha256": "2095f1f1c799c4e13acbc3c7cc867cbf854ccf229a73cc48682ba4ffb690fe76"
+        },
+        {
+          "role": "pal",
+          "name": "b50pal",
+          "present": true,
+          "archive_index": 239,
+          "rom_offset": 7183736,
+          "rom_offset_hex": "0x006D9D78",
+          "bytes": 768,
+          "sha256": "6e476a701078ae227ec864a9a48dde10f820256c84a13170c83d5cf03ab6645a"
+        },
+        {
+          "role": "canm",
+          "name": "b50canm",
+          "present": true,
+          "archive_index": 235,
+          "rom_offset": 7170580,
+          "rom_offset_hex": "0x006D6A14",
+          "bytes": 1360,
+          "sha256": "e2f70232b75e4a839ef404d485c6debec0265980f2210eab1ca5a52f80eebbfa"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 51,
+      "prefix": "b51",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b51fon",
+          "present": true,
+          "archive_index": 243,
+          "rom_offset": 7188363,
+          "rom_offset_hex": "0x006DAF8B",
+          "bytes": 9897,
+          "sha256": "c20d42494004f0a1b3d19114adac432c9e6d1dfcbe601d19b5a61c8b4ce08ae6"
+        },
+        {
+          "role": "cel",
+          "name": "b51cel",
+          "present": true,
+          "archive_index": 241,
+          "rom_offset": 7185608,
+          "rom_offset_hex": "0x006DA4C8",
+          "bytes": 1908,
+          "sha256": "143d610a05011c1ecc2c7a2dd0a69cbda2f33926b75e0511b7813ed2bfd639b8"
+        },
+        {
+          "role": "cex",
+          "name": "b51cex",
+          "present": true,
+          "archive_index": 242,
+          "rom_offset": 7187516,
+          "rom_offset_hex": "0x006DAC3C",
+          "bytes": 847,
+          "sha256": "130d4b6f89df44c045cd373601d55e06f68641969d387c669f0ecca4b2ae1d39"
+        },
+        {
+          "role": "pal",
+          "name": "b51pal",
+          "present": true,
+          "archive_index": 244,
+          "rom_offset": 7198260,
+          "rom_offset_hex": "0x006DD634",
+          "bytes": 768,
+          "sha256": "62994cd00022c81f1f4138aa2351881c12b2b9cdcb358210b7982830f6ec45b9"
+        },
+        {
+          "role": "canm",
+          "name": "b51canm",
+          "present": true,
+          "archive_index": 240,
+          "rom_offset": 7184504,
+          "rom_offset_hex": "0x006DA078",
+          "bytes": 1104,
+          "sha256": "051694830a84724f72b716593c6cea8765d5ec4504c39912242daf87084cdfde"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 52,
+      "prefix": "b52",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b52fon",
+          "present": true,
+          "archive_index": 248,
+          "rom_offset": 7202997,
+          "rom_offset_hex": "0x006DE8B5",
+          "bytes": 10283,
+          "sha256": "d1cce2361a212baf10ddb7873cc137c6e8316ebfe0501558f5e6c5bbe19ac06e"
+        },
+        {
+          "role": "cel",
+          "name": "b52cel",
+          "present": true,
+          "archive_index": 246,
+          "rom_offset": 7200396,
+          "rom_offset_hex": "0x006DDE8C",
+          "bytes": 1808,
+          "sha256": "07416fa9d3a71a3517c45c597d52cd66accbed6f0b12f4856879497a28157ba7"
+        },
+        {
+          "role": "cex",
+          "name": "b52cex",
+          "present": true,
+          "archive_index": 247,
+          "rom_offset": 7202204,
+          "rom_offset_hex": "0x006DE59C",
+          "bytes": 793,
+          "sha256": "1f95efd647a187eed0901219a2a02733e227c472be95f03b0121fa06dba75ae5"
+        },
+        {
+          "role": "pal",
+          "name": "b52pal",
+          "present": true,
+          "archive_index": 249,
+          "rom_offset": 7213280,
+          "rom_offset_hex": "0x006E10E0",
+          "bytes": 768,
+          "sha256": "fbb8ce42fc035eb9aa10d07289235f1ba76470f969cd05d88a5a16f7c5e7957a"
+        },
+        {
+          "role": "canm",
+          "name": "b52canm",
+          "present": true,
+          "archive_index": 245,
+          "rom_offset": 7199028,
+          "rom_offset_hex": "0x006DD934",
+          "bytes": 1368,
+          "sha256": "cfb086ef09e71e828115dfe1cd6c36b3d6fb19ed4e6908698a307a2c47dd926b"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 53,
+      "prefix": "b53",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b53fon",
+          "present": true,
+          "archive_index": 253,
+          "rom_offset": 7218105,
+          "rom_offset_hex": "0x006E23B9",
+          "bytes": 9571,
+          "sha256": "106f520c56d85183537f7cd0ecbe1179591a2d0081608aff8af2bee015f4f9f7"
+        },
+        {
+          "role": "cel",
+          "name": "b53cel",
+          "present": true,
+          "archive_index": 251,
+          "rom_offset": 7215408,
+          "rom_offset_hex": "0x006E1930",
+          "bytes": 1860,
+          "sha256": "591e29d53949187fb8622a2d93fd4cc9cfbae1c99a3519084653d7034dc24c17"
+        },
+        {
+          "role": "cex",
+          "name": "b53cex",
+          "present": true,
+          "archive_index": 252,
+          "rom_offset": 7217268,
+          "rom_offset_hex": "0x006E2074",
+          "bytes": 837,
+          "sha256": "62e0bd795bf050995ab6546954a169b7f88131d9be1a1e003d2696e3d936e1f4"
+        },
+        {
+          "role": "pal",
+          "name": "b53pal",
+          "present": true,
+          "archive_index": 254,
+          "rom_offset": 7227676,
+          "rom_offset_hex": "0x006E491C",
+          "bytes": 768,
+          "sha256": "a7f8438bc7dacf4be396679bac26c55df2a2bc5f245ea910d6dad62ecb27a1e4"
+        },
+        {
+          "role": "canm",
+          "name": "b53canm",
+          "present": true,
+          "archive_index": 250,
+          "rom_offset": 7214048,
+          "rom_offset_hex": "0x006E13E0",
+          "bytes": 1360,
+          "sha256": "c3907f1d2f3cb8d8610be0f5dafbcee2037ce4ec1efb4f5776f18465478feeb7"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 54,
+      "prefix": "b54",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b54fon",
+          "present": true,
+          "archive_index": 258,
+          "rom_offset": 7232332,
+          "rom_offset_hex": "0x006E5B4C",
+          "bytes": 7316,
+          "sha256": "b918f9fa59042371c7e8a8c17ae608cb1fdcf066f2159b946054d9cf3f22c993"
+        },
+        {
+          "role": "cel",
+          "name": "b54cel",
+          "present": true,
+          "archive_index": 256,
+          "rom_offset": 7229804,
+          "rom_offset_hex": "0x006E516C",
+          "bytes": 1800,
+          "sha256": "ba856e686fc6898d5acb0575bb426eeeb403d1f7a4086becee608edd0e4ff2bb"
+        },
+        {
+          "role": "cex",
+          "name": "b54cex",
+          "present": true,
+          "archive_index": 257,
+          "rom_offset": 7231604,
+          "rom_offset_hex": "0x006E5874",
+          "bytes": 728,
+          "sha256": "c7bcdd34f10801ec03e8c7e18af859e8c6ace26b4eedbc1a78e4fe6e9e72ab32"
+        },
+        {
+          "role": "pal",
+          "name": "b54pal",
+          "present": true,
+          "archive_index": 259,
+          "rom_offset": 7239648,
+          "rom_offset_hex": "0x006E77E0",
+          "bytes": 768,
+          "sha256": "9d809b8258d9334526c06e342294bad6d0009535abbfc7b4d9185cfb8630ae79"
+        },
+        {
+          "role": "canm",
+          "name": "b54canm",
+          "present": true,
+          "archive_index": 255,
+          "rom_offset": 7228444,
+          "rom_offset_hex": "0x006E4C1C",
+          "bytes": 1360,
+          "sha256": "7a31fe9a336c31012c4dae8f84cc75f455d0169706a7d5a4a8f07d393e93197c"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 55,
+      "prefix": "b55",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b55fon",
+          "present": true,
+          "archive_index": 263,
+          "rom_offset": 7244156,
+          "rom_offset_hex": "0x006E897C",
+          "bytes": 11008,
+          "sha256": "cd02f529da39435b5f214fcc6122a532cc763782015ce2e20b3b29bc39d9d270"
+        },
+        {
+          "role": "cel",
+          "name": "b55cel",
+          "present": true,
+          "archive_index": 261,
+          "rom_offset": 7241520,
+          "rom_offset_hex": "0x006E7F30",
+          "bytes": 1816,
+          "sha256": "beec5c1a4dd93c58f97ed3e54fb2ac8136869086d437596c5f71615dc4819a24"
+        },
+        {
+          "role": "cex",
+          "name": "b55cex",
+          "present": true,
+          "archive_index": 262,
+          "rom_offset": 7243336,
+          "rom_offset_hex": "0x006E8648",
+          "bytes": 820,
+          "sha256": "79fef4e81fc9848d593ad70ba8d501f5e5eb4b9f9a9b1b3f13a18b8f752b7f39"
+        },
+        {
+          "role": "pal",
+          "name": "b55pal",
+          "present": true,
+          "archive_index": 264,
+          "rom_offset": 7255164,
+          "rom_offset_hex": "0x006EB47C",
+          "bytes": 768,
+          "sha256": "23dedb25fd22571fedd1e8f20f9e62f5af80e8ee255d627ec53b04c5b254aa77"
+        },
+        {
+          "role": "canm",
+          "name": "b55canm",
+          "present": true,
+          "archive_index": 260,
+          "rom_offset": 7240416,
+          "rom_offset_hex": "0x006E7AE0",
+          "bytes": 1104,
+          "sha256": "c50e589d9f548fe213f7b7e09a3985a841f582d0e001e5c4995aa11562467b14"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 56,
+      "prefix": "b56",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b56fon",
+          "present": true,
+          "archive_index": 268,
+          "rom_offset": 7259799,
+          "rom_offset_hex": "0x006EC697",
+          "bytes": 10649,
+          "sha256": "ad2ea4ea552a4e0c67ffeb74f6490e13383440985a1b19eced9755ed015970aa"
+        },
+        {
+          "role": "cel",
+          "name": "b56cel",
+          "present": true,
+          "archive_index": 266,
+          "rom_offset": 7257036,
+          "rom_offset_hex": "0x006EBBCC",
+          "bytes": 1928,
+          "sha256": "7ba0e4a3ac818738198699353930312ebe59543d7f0e13a698030a442f555220"
+        },
+        {
+          "role": "cex",
+          "name": "b56cex",
+          "present": true,
+          "archive_index": 267,
+          "rom_offset": 7258964,
+          "rom_offset_hex": "0x006EC354",
+          "bytes": 835,
+          "sha256": "c97d153feb5ee1568c21b8ba6adb3de93bdb16654944b9b8e93f2d0189e894ac"
+        },
+        {
+          "role": "pal",
+          "name": "b56pal",
+          "present": true,
+          "archive_index": 269,
+          "rom_offset": 7270448,
+          "rom_offset_hex": "0x006EF030",
+          "bytes": 768,
+          "sha256": "46f2e43167e57826acbe0af831322ce1b04bde109c46184f45e9f5482f342314"
+        },
+        {
+          "role": "canm",
+          "name": "b56canm",
+          "present": true,
+          "archive_index": 265,
+          "rom_offset": 7255932,
+          "rom_offset_hex": "0x006EB77C",
+          "bytes": 1104,
+          "sha256": "32e8e2a0ff0296c7725a4acb18cdd3e69604c0a09206c878204208a4ca4f1d26"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 57,
+      "prefix": "b57",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b57fon",
+          "present": false
+        },
+        {
+          "role": "cel",
+          "name": "b57cel",
+          "present": false
+        },
+        {
+          "role": "cex",
+          "name": "b57cex",
+          "present": false
+        },
+        {
+          "role": "pal",
+          "name": "b57pal",
+          "present": true,
+          "archive_index": 271,
+          "rom_offset": 7272320,
+          "rom_offset_hex": "0x006EF780",
+          "bytes": 768,
+          "sha256": "3edcfe17ec2a187d77e55a6bdf5b57a0baf784f123f414818abe00f4f815c8d0"
+        },
+        {
+          "role": "canm",
+          "name": "b57canm",
+          "present": true,
+          "archive_index": 270,
+          "rom_offset": 7271216,
+          "rom_offset_hex": "0x006EF330",
+          "bytes": 1104,
+          "sha256": "97f259eb3562a94bd400a6c98890e949b2de5bd7eae3ebbfe6509c2771216437"
+        }
+      ],
+      "present_roles": [
+        "pal",
+        "canm"
+      ],
+      "missing_roles": [
+        "fon",
+        "cel",
+        "cex"
+      ]
+    },
+    {
+      "tileset_id": 58,
+      "prefix": "b58",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b58fon",
+          "present": false
+        },
+        {
+          "role": "cel",
+          "name": "b58cel",
+          "present": false
+        },
+        {
+          "role": "cex",
+          "name": "b58cex",
+          "present": false
+        },
+        {
+          "role": "pal",
+          "name": "b58pal",
+          "present": true,
+          "archive_index": 273,
+          "rom_offset": 7274192,
+          "rom_offset_hex": "0x006EFED0",
+          "bytes": 768,
+          "sha256": "8c21050784f12c4baecdfb1d4c7e60edbfd1fdd540975c6bead58e59647d6c29"
+        },
+        {
+          "role": "canm",
+          "name": "b58canm",
+          "present": true,
+          "archive_index": 272,
+          "rom_offset": 7273088,
+          "rom_offset_hex": "0x006EFA80",
+          "bytes": 1104,
+          "sha256": "ce55ff2ffff48fc48e693318aafe56684b31ef91d642403b2d66f6ad22130b46"
+        }
+      ],
+      "present_roles": [
+        "pal",
+        "canm"
+      ],
+      "missing_roles": [
+        "fon",
+        "cel",
+        "cex"
+      ]
+    },
+    {
+      "tileset_id": 59,
+      "prefix": "b59",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b59fon",
+          "present": true,
+          "archive_index": 277,
+          "rom_offset": 7278467,
+          "rom_offset_hex": "0x006F0F83",
+          "bytes": 8225,
+          "sha256": "5f82dae00cd5a8be39d68ae3504cf1a62e08b676eff4794b006749c39283deea"
+        },
+        {
+          "role": "cel",
+          "name": "b59cel",
+          "present": true,
+          "archive_index": 275,
+          "rom_offset": 7276000,
+          "rom_offset_hex": "0x006F05E0",
+          "bytes": 1672,
+          "sha256": "d6d0865170cf9e3a6788f958aa53c9f94bc73d2c969477471c00ded07f6126f0"
+        },
+        {
+          "role": "cex",
+          "name": "b59cex",
+          "present": true,
+          "archive_index": 276,
+          "rom_offset": 7277672,
+          "rom_offset_hex": "0x006F0C68",
+          "bytes": 795,
+          "sha256": "aef0a3648e082af9e8776dc95d98a975b643a191a1ed08be937cca092079c765"
+        },
+        {
+          "role": "pal",
+          "name": "b59pal",
+          "present": true,
+          "archive_index": 278,
+          "rom_offset": 7286692,
+          "rom_offset_hex": "0x006F2FA4",
+          "bytes": 768,
+          "sha256": "0e238e6ad6e2246b6da9f48678885dfec9b43a32bc267b9662c82d1c1a5d9c9b"
+        },
+        {
+          "role": "canm",
+          "name": "b59canm",
+          "present": true,
+          "archive_index": 274,
+          "rom_offset": 7274960,
+          "rom_offset_hex": "0x006F01D0",
+          "bytes": 1040,
+          "sha256": "5fb21636be2aa97edadfb7491d981d5a0db202e9b733d2d6ec24e3fea435ecc2"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 60,
+      "prefix": "b60",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b60fon",
+          "present": true,
+          "archive_index": 282,
+          "rom_offset": 7291290,
+          "rom_offset_hex": "0x006F419A",
+          "bytes": 9338,
+          "sha256": "08c85e25ebecaaf7c9d001b8ac5fb080310305f6f82484004c087c5142576ae3"
+        },
+        {
+          "role": "cel",
+          "name": "b60cel",
+          "present": true,
+          "archive_index": 280,
+          "rom_offset": 7288564,
+          "rom_offset_hex": "0x006F36F4",
+          "bytes": 1904,
+          "sha256": "70954b07836bb9a6f48641721c10b3997c90234f6b1cccc6b35cd5cff801eb1d"
+        },
+        {
+          "role": "cex",
+          "name": "b60cex",
+          "present": true,
+          "archive_index": 281,
+          "rom_offset": 7290468,
+          "rom_offset_hex": "0x006F3E64",
+          "bytes": 822,
+          "sha256": "8eb512ec2f1642f0d338691b73f03036b99a9db97c9cedae9bd2a74ccda2720d"
+        },
+        {
+          "role": "pal",
+          "name": "b60pal",
+          "present": true,
+          "archive_index": 283,
+          "rom_offset": 7300628,
+          "rom_offset_hex": "0x006F6614",
+          "bytes": 768,
+          "sha256": "978e94fa2997b508f68fb29a7aeb67709c7bd2dc45fcea4b3b902e9a58b6d8e1"
+        },
+        {
+          "role": "canm",
+          "name": "b60canm",
+          "present": true,
+          "archive_index": 279,
+          "rom_offset": 7287460,
+          "rom_offset_hex": "0x006F32A4",
+          "bytes": 1104,
+          "sha256": "c5b180e871634e350a76126a03b7e7f179b6373a4b9cd9411f6465da469744eb"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 61,
+      "prefix": "b61",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b61fon",
+          "present": false
+        },
+        {
+          "role": "cel",
+          "name": "b61cel",
+          "present": false
+        },
+        {
+          "role": "cex",
+          "name": "b61cex",
+          "present": false
+        },
+        {
+          "role": "pal",
+          "name": "b61pal",
+          "present": true,
+          "archive_index": 285,
+          "rom_offset": 7303716,
+          "rom_offset_hex": "0x006F7224",
+          "bytes": 768,
+          "sha256": "3279ce694ab71106f8debe9bc1fd7c88a4785097885af02ee0556a7f2865548f"
+        },
+        {
+          "role": "canm",
+          "name": "b61canm",
+          "present": true,
+          "archive_index": 284,
+          "rom_offset": 7301396,
+          "rom_offset_hex": "0x006F6914",
+          "bytes": 2320,
+          "sha256": "afbeee49dddb60aa46118eb5e2d14558d3f31a9c3f9a6f462c8614bb5dde3881"
+        }
+      ],
+      "present_roles": [
+        "pal",
+        "canm"
+      ],
+      "missing_roles": [
+        "fon",
+        "cel",
+        "cex"
+      ]
+    },
+    {
+      "tileset_id": 62,
+      "prefix": "b62",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b62fon",
+          "present": true,
+          "archive_index": 289,
+          "rom_offset": 7308324,
+          "rom_offset_hex": "0x006F8424",
+          "bytes": 9992,
+          "sha256": "70a1015db2005079d583b2f783b5b88c04a21988113afe2d243bc3189a3fe7d5"
+        },
+        {
+          "role": "cel",
+          "name": "b62cel",
+          "present": true,
+          "archive_index": 287,
+          "rom_offset": 7305596,
+          "rom_offset_hex": "0x006F797C",
+          "bytes": 1924,
+          "sha256": "26855cd6a22e6fef0bc2bd808ad3960c39d343292bb4fda0b5972756ec767f49"
+        },
+        {
+          "role": "cex",
+          "name": "b62cex",
+          "present": true,
+          "archive_index": 288,
+          "rom_offset": 7307520,
+          "rom_offset_hex": "0x006F8100",
+          "bytes": 804,
+          "sha256": "7a1ed9ada638cbf071ca7d72f5ffde3a39b51c0a86701f7ba1f3aafb64b43cb4"
+        },
+        {
+          "role": "pal",
+          "name": "b62pal",
+          "present": true,
+          "archive_index": 290,
+          "rom_offset": 7318316,
+          "rom_offset_hex": "0x006FAB2C",
+          "bytes": 768,
+          "sha256": "2e057b89415897709965e878f33b198da6ab150a6a8e2848cdf683e82c0fe540"
+        },
+        {
+          "role": "canm",
+          "name": "b62canm",
+          "present": true,
+          "archive_index": 286,
+          "rom_offset": 7304484,
+          "rom_offset_hex": "0x006F7524",
+          "bytes": 1112,
+          "sha256": "c338c29c94df6388ccdbc32ff7302cfa4cbfc0d7f2303d166a8be3ba0779db22"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 63,
+      "prefix": "b63",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b63fon",
+          "present": true,
+          "archive_index": 294,
+          "rom_offset": 7323425,
+          "rom_offset_hex": "0x006FBF21",
+          "bytes": 9219,
+          "sha256": "7f2a6c6ca825ab3908c05f79fd381211af851694dcf185ca942337d6a6214f6c"
+        },
+        {
+          "role": "cel",
+          "name": "b63cel",
+          "present": true,
+          "archive_index": 292,
+          "rom_offset": 7320700,
+          "rom_offset_hex": "0x006FB47C",
+          "bytes": 1888,
+          "sha256": "454ee49034145ec0a17f3e20fa3f70265a44b713641b3e1e375300689e7da694"
+        },
+        {
+          "role": "cex",
+          "name": "b63cex",
+          "present": true,
+          "archive_index": 293,
+          "rom_offset": 7322588,
+          "rom_offset_hex": "0x006FBBDC",
+          "bytes": 837,
+          "sha256": "a1065bc8fd6f5e810c754c69958369753f593a4e28d6e2586c447330bec7f6c0"
+        },
+        {
+          "role": "pal",
+          "name": "b63pal",
+          "present": true,
+          "archive_index": 295,
+          "rom_offset": 7332644,
+          "rom_offset_hex": "0x006FE324",
+          "bytes": 768,
+          "sha256": "4355b406d4a3ed68cdc939d4493ddd3d4a2d38efd39962a56a9666241bae3e51"
+        },
+        {
+          "role": "canm",
+          "name": "b63canm",
+          "present": true,
+          "archive_index": 291,
+          "rom_offset": 7319084,
+          "rom_offset_hex": "0x006FAE2C",
+          "bytes": 1616,
+          "sha256": "d59a5acd81cd9e4c89a93cb4dd6ddab0421a6ba51ad74aade86058e431a1f0ec"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "cex",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": []
+    },
+    {
+      "tileset_id": 64,
+      "prefix": "b64",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b64fon",
+          "present": true,
+          "archive_index": 299,
+          "rom_offset": 7338943,
+          "rom_offset_hex": "0x006FFBBF",
+          "bytes": 7077,
+          "sha256": "da0f02086394901dcd60a2d51def48bb599f24f46273f284242df5d43208715d"
+        },
+        {
+          "role": "cel",
+          "name": "b64cel",
+          "present": true,
+          "archive_index": 297,
+          "rom_offset": 7334900,
+          "rom_offset_hex": "0x006FEBF4",
+          "bytes": 3588,
+          "sha256": "299fe2f23906d6a41b34ed24bab2096c754e9a6e0ffd906e8f27ab7fddb10043"
+        },
+        {
+          "role": "cex",
+          "name": "b64cex",
+          "present": false
+        },
+        {
+          "role": "pal",
+          "name": "b64pal",
+          "present": true,
+          "archive_index": 300,
+          "rom_offset": 7346020,
+          "rom_offset_hex": "0x00701764",
+          "bytes": 768,
+          "sha256": "3d4c58811b760fd241706a1170c41fc8cb810a0a608c1d2b69e012222ac91068"
+        },
+        {
+          "role": "canm",
+          "name": "b64canm",
+          "present": true,
+          "archive_index": 296,
+          "rom_offset": 7333412,
+          "rom_offset_hex": "0x006FE624",
+          "bytes": 1488,
+          "sha256": "88e9c2734c7f7153648234ad774f1ca8a859b4ce4216cfd95110c5e2033384a3"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": [
+        "cex"
+      ]
+    },
+    {
+      "tileset_id": 65,
+      "prefix": "b65",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b65fon",
+          "present": true,
+          "archive_index": 304,
+          "rom_offset": 7350939,
+          "rom_offset_hex": "0x00702A9B",
+          "bytes": 4885,
+          "sha256": "1aecd49750d0348a0649756b808bd78cdbd36a033be3d7bab721c02487a7a2c8"
+        },
+        {
+          "role": "cel",
+          "name": "b65cel",
+          "present": true,
+          "archive_index": 302,
+          "rom_offset": 7348276,
+          "rom_offset_hex": "0x00702034",
+          "bytes": 2212,
+          "sha256": "0ab5e374b70326c526c80d4873acbcd002b160a1db2353e47e773dad898b56bd"
+        },
+        {
+          "role": "cex",
+          "name": "b65cex",
+          "present": false
+        },
+        {
+          "role": "pal",
+          "name": "b65pal",
+          "present": true,
+          "archive_index": 305,
+          "rom_offset": 7355824,
+          "rom_offset_hex": "0x00703DB0",
+          "bytes": 768,
+          "sha256": "5a3e44854a214b8ebe9eb28f9d584790987a8843dbd527360a6e40f1ac5db2a4"
+        },
+        {
+          "role": "canm",
+          "name": "b65canm",
+          "present": true,
+          "archive_index": 301,
+          "rom_offset": 7346788,
+          "rom_offset_hex": "0x00701A64",
+          "bytes": 1488,
+          "sha256": "7818c3e46f1eb0fd2690068158a652f7335bb20484247ed17998162501a6acda"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": [
+        "cex"
+      ]
+    },
+    {
+      "tileset_id": 66,
+      "prefix": "b66",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b66fon",
+          "present": true,
+          "archive_index": 309,
+          "rom_offset": 7362483,
+          "rom_offset_hex": "0x007057B3",
+          "bytes": 9297,
+          "sha256": "dd61bab8968a08e4a92455ebe64ac99a38db5d57843cde5acfe5e58400b12cd2"
+        },
+        {
+          "role": "cel",
+          "name": "b66cel",
+          "present": true,
+          "archive_index": 307,
+          "rom_offset": 7359040,
+          "rom_offset_hex": "0x00704A40",
+          "bytes": 3016,
+          "sha256": "037c1d6b43209ac367b68c7c45fa1deca2a73a7cd5c548b2eafd625e89c390f8"
+        },
+        {
+          "role": "cex",
+          "name": "b66cex",
+          "present": false
+        },
+        {
+          "role": "pal",
+          "name": "b66pal",
+          "present": true,
+          "archive_index": 310,
+          "rom_offset": 7371780,
+          "rom_offset_hex": "0x00707C04",
+          "bytes": 768,
+          "sha256": "6ea3211c352bcf607871092fcc551d8ef0ab3a5e5530d0273c3cbcd4c74f0b37"
+        },
+        {
+          "role": "canm",
+          "name": "b66canm",
+          "present": true,
+          "archive_index": 306,
+          "rom_offset": 7356592,
+          "rom_offset_hex": "0x007040B0",
+          "bytes": 2448,
+          "sha256": "6332d4e93c53a4100a068499f7a7b8b64d0a4837cbd6dc28fece14c83fab4d1a"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": [
+        "cex"
+      ]
+    },
+    {
+      "tileset_id": 67,
+      "prefix": "b67",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b67fon",
+          "present": true,
+          "archive_index": 314,
+          "rom_offset": 7377745,
+          "rom_offset_hex": "0x00709351",
+          "bytes": 6639,
+          "sha256": "5415684a38ea591d66321d49ba9c813cfd9a3f793e73a9486aaf57bae3183781"
+        },
+        {
+          "role": "cel",
+          "name": "b67cel",
+          "present": true,
+          "archive_index": 312,
+          "rom_offset": 7373716,
+          "rom_offset_hex": "0x00708394",
+          "bytes": 3516,
+          "sha256": "a053e1c64ffc0f25ec8a28c38e2d35f5919f9f9e8c26efe045abf2a0588c93de"
+        },
+        {
+          "role": "cex",
+          "name": "b67cex",
+          "present": false
+        },
+        {
+          "role": "pal",
+          "name": "b67pal",
+          "present": true,
+          "archive_index": 315,
+          "rom_offset": 7384384,
+          "rom_offset_hex": "0x0070AD40",
+          "bytes": 768,
+          "sha256": "15edd74f61f04b088ffe3e24359c8a603637590ee04a4ee0e821b390af427b55"
+        },
+        {
+          "role": "canm",
+          "name": "b67canm",
+          "present": true,
+          "archive_index": 311,
+          "rom_offset": 7372548,
+          "rom_offset_hex": "0x00707F04",
+          "bytes": 1168,
+          "sha256": "37ee30d450a01a3dc47f2516338adcded50e1c0ebaff921764c4e5a87bbe3eec"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": [
+        "cex"
+      ]
+    },
+    {
+      "tileset_id": 68,
+      "prefix": "b68",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b68fon",
+          "present": true,
+          "archive_index": 319,
+          "rom_offset": 7389883,
+          "rom_offset_hex": "0x0070C2BB",
+          "bytes": 9233,
+          "sha256": "9951878f9daa6be21613f2059d439ad969c38f3e37b2d7d354109a74fde9e82f"
+        },
+        {
+          "role": "cel",
+          "name": "b68cel",
+          "present": true,
+          "archive_index": 317,
+          "rom_offset": 7386640,
+          "rom_offset_hex": "0x0070B610",
+          "bytes": 2728,
+          "sha256": "f84f31d9113beda027c31d9f22b997f6fef2412a56049ba7abd58e0c10e9bbe4"
+        },
+        {
+          "role": "cex",
+          "name": "b68cex",
+          "present": false
+        },
+        {
+          "role": "pal",
+          "name": "b68pal",
+          "present": true,
+          "archive_index": 320,
+          "rom_offset": 7399116,
+          "rom_offset_hex": "0x0070E6CC",
+          "bytes": 768,
+          "sha256": "6a01910c109f0205795d7d7ab27eb0b29ff76074d2f9cd1a91f31c1132a2dc89"
+        },
+        {
+          "role": "canm",
+          "name": "b68canm",
+          "present": true,
+          "archive_index": 316,
+          "rom_offset": 7385152,
+          "rom_offset_hex": "0x0070B040",
+          "bytes": 1488,
+          "sha256": "c50e0cbaea41a57a381e9f2bab6dc8ed202dec8fbd063931626797c1975d10d8"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": [
+        "cex"
+      ]
+    },
+    {
+      "tileset_id": 69,
+      "prefix": "b69",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b69fon",
+          "present": true,
+          "archive_index": 324,
+          "rom_offset": 7404480,
+          "rom_offset_hex": "0x0070FBC0",
+          "bytes": 10728,
+          "sha256": "1124229a7dd4d233b0f6295bd27ef871f27e2eef8a14807d4be78c03a24f751d"
+        },
+        {
+          "role": "cel",
+          "name": "b69cel",
+          "present": true,
+          "archive_index": 322,
+          "rom_offset": 7400924,
+          "rom_offset_hex": "0x0070EDDC",
+          "bytes": 3116,
+          "sha256": "4037e6f612b74f865db14b72cd3bc2159a02d004fb067933ad32236918a6fbc8"
+        },
+        {
+          "role": "cex",
+          "name": "b69cex",
+          "present": false
+        },
+        {
+          "role": "pal",
+          "name": "b69pal",
+          "present": true,
+          "archive_index": 325,
+          "rom_offset": 7415208,
+          "rom_offset_hex": "0x007125A8",
+          "bytes": 768,
+          "sha256": "5e98a5cf0bf18a8163d31fdd39912f1a4a4ff3ae8be9ead0dcbbf60105f871f0"
+        },
+        {
+          "role": "canm",
+          "name": "b69canm",
+          "present": true,
+          "archive_index": 321,
+          "rom_offset": 7399884,
+          "rom_offset_hex": "0x0070E9CC",
+          "bytes": 1040,
+          "sha256": "4a3b9de4b0f9a053fdc713c8102296fe1aadb546d5de500300a7e4e680256f46"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": [
+        "cex"
+      ]
+    },
+    {
+      "tileset_id": 70,
+      "prefix": "b70",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b70fon",
+          "present": true,
+          "archive_index": 329,
+          "rom_offset": 7420103,
+          "rom_offset_hex": "0x007138C7",
+          "bytes": 11825,
+          "sha256": "ccf7063cedff26ab8df38a6dc5d7513d4fbf60fd1e12b97d17ef1943b0006f30"
+        },
+        {
+          "role": "cel",
+          "name": "b70cel",
+          "present": true,
+          "archive_index": 327,
+          "rom_offset": 7417272,
+          "rom_offset_hex": "0x00712DB8",
+          "bytes": 2536,
+          "sha256": "e232ead44fb30033df7ad15b3d92d9ce92e49970a66a91c91719d7ed46ae2861"
+        },
+        {
+          "role": "cex",
+          "name": "b70cex",
+          "present": false
+        },
+        {
+          "role": "pal",
+          "name": "b70pal",
+          "present": true,
+          "archive_index": 330,
+          "rom_offset": 7431928,
+          "rom_offset_hex": "0x007166F8",
+          "bytes": 768,
+          "sha256": "4618b29eb64340af779db30bdbce60583e7b9d1ec13ef6b193b7f00802869604"
+        },
+        {
+          "role": "canm",
+          "name": "b70canm",
+          "present": true,
+          "archive_index": 326,
+          "rom_offset": 7415976,
+          "rom_offset_hex": "0x007128A8",
+          "bytes": 1296,
+          "sha256": "c5d4e5477e72a78803ef871d8cd6d9812756349794119555e3049c30baa1f710"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": [
+        "cex"
+      ]
+    },
+    {
+      "tileset_id": 71,
+      "prefix": "b71",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b71fon",
+          "present": true,
+          "archive_index": 334,
+          "rom_offset": 7437154,
+          "rom_offset_hex": "0x00717B62",
+          "bytes": 9186,
+          "sha256": "c66f765e0fb4296f219e0cfaaea5458ada102f3e9552bdef062e80556331111a"
+        },
+        {
+          "role": "cel",
+          "name": "b71cel",
+          "present": true,
+          "archive_index": 332,
+          "rom_offset": 7433544,
+          "rom_offset_hex": "0x00716D48",
+          "bytes": 3180,
+          "sha256": "adf53d418d0aa85dcd15d6f275e791e78ebd9ed3ec7c1f5969b8af78d938a887"
+        },
+        {
+          "role": "cex",
+          "name": "b71cex",
+          "present": false
+        },
+        {
+          "role": "pal",
+          "name": "b71pal",
+          "present": true,
+          "archive_index": 335,
+          "rom_offset": 7446340,
+          "rom_offset_hex": "0x00719F44",
+          "bytes": 768,
+          "sha256": "eb799be2bb43454510aeb126cb0f0ba5c7f23875371be72c1131858fb819f4e5"
+        },
+        {
+          "role": "canm",
+          "name": "b71canm",
+          "present": true,
+          "archive_index": 331,
+          "rom_offset": 7432696,
+          "rom_offset_hex": "0x007169F8",
+          "bytes": 848,
+          "sha256": "9e0d2c50356ae753f962fb32c6ac2700fe85d199298095fe95d21d002b821862"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": [
+        "cex"
+      ]
+    },
+    {
+      "tileset_id": 72,
+      "prefix": "b72",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b72fon",
+          "present": true,
+          "archive_index": 339,
+          "rom_offset": 7452301,
+          "rom_offset_hex": "0x0071B68D",
+          "bytes": 9971,
+          "sha256": "eccff61eb24fbec6daa957c26ef4945bc014caea35aff8f65f0855d1aad42a5b"
+        },
+        {
+          "role": "cel",
+          "name": "b72cel",
+          "present": true,
+          "archive_index": 337,
+          "rom_offset": 7448660,
+          "rom_offset_hex": "0x0071A854",
+          "bytes": 3172,
+          "sha256": "afe8fdf0b2a947d1d9a310e9ce70f6d349ba8f6078fe1e6fd94defefc17a8124"
+        },
+        {
+          "role": "cex",
+          "name": "b72cex",
+          "present": false
+        },
+        {
+          "role": "pal",
+          "name": "b72pal",
+          "present": true,
+          "archive_index": 340,
+          "rom_offset": 7462272,
+          "rom_offset_hex": "0x0071DD80",
+          "bytes": 768,
+          "sha256": "b3d060bc80310c9d5ff8932cdad165ae79b30f8c4f6fc84530fe0a905974c107"
+        },
+        {
+          "role": "canm",
+          "name": "b72canm",
+          "present": true,
+          "archive_index": 336,
+          "rom_offset": 7447108,
+          "rom_offset_hex": "0x0071A244",
+          "bytes": 1552,
+          "sha256": "17b8a480dc5ad5983004ca0544678f41ced0856decf2673814f52a2777334c26"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": [
+        "cex"
+      ]
+    },
+    {
+      "tileset_id": 73,
+      "prefix": "b73",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b73fon",
+          "present": true,
+          "archive_index": 344,
+          "rom_offset": 7468736,
+          "rom_offset_hex": "0x0071F6C0",
+          "bytes": 7376,
+          "sha256": "c7db4887780f115bd05a80523ba3d08d9caa23f97d7b5469522bbf60eb3ebbf9"
+        },
+        {
+          "role": "cel",
+          "name": "b73cel",
+          "present": true,
+          "archive_index": 342,
+          "rom_offset": 7464912,
+          "rom_offset_hex": "0x0071E7D0",
+          "bytes": 3420,
+          "sha256": "b8fabe75cb283888ee51ae651b6649304f233901eb23345cb0a393c6db65374c"
+        },
+        {
+          "role": "cex",
+          "name": "b73cex",
+          "present": false
+        },
+        {
+          "role": "pal",
+          "name": "b73pal",
+          "present": true,
+          "archive_index": 345,
+          "rom_offset": 7476112,
+          "rom_offset_hex": "0x00721390",
+          "bytes": 768,
+          "sha256": "d0465bb9506f8c933cf5ad4694e198afe77edf07f500148e1b63896e389c2fdd"
+        },
+        {
+          "role": "canm",
+          "name": "b73canm",
+          "present": true,
+          "archive_index": 341,
+          "rom_offset": 7463040,
+          "rom_offset_hex": "0x0071E080",
+          "bytes": 1872,
+          "sha256": "01895e16503c143ab014d8caab5ea7e5fa9528656cd59252dabae641a54a39ea"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": [
+        "cex"
+      ]
+    },
+    {
+      "tileset_id": 74,
+      "prefix": "b74",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b74fon",
+          "present": true,
+          "archive_index": 349,
+          "rom_offset": 7482388,
+          "rom_offset_hex": "0x00722C14",
+          "bytes": 9716,
+          "sha256": "53afaeb973ebe11aa4d11cb8ea9e3b78d7e362d21dfdc65350f12855601cbe8d"
+        },
+        {
+          "role": "cel",
+          "name": "b74cel",
+          "present": true,
+          "archive_index": 347,
+          "rom_offset": 7478304,
+          "rom_offset_hex": "0x00721C20",
+          "bytes": 3664,
+          "sha256": "d213816f230785dd98e63e895a39208725618d5b8d8e183522bc5b3f5b7b8f60"
+        },
+        {
+          "role": "cex",
+          "name": "b74cex",
+          "present": false
+        },
+        {
+          "role": "pal",
+          "name": "b74pal",
+          "present": true,
+          "archive_index": 350,
+          "rom_offset": 7492104,
+          "rom_offset_hex": "0x00725208",
+          "bytes": 768,
+          "sha256": "68b292586c2e44a86d409e6d695e10f5d9580bf208147bf3912e72121ceb3183"
+        },
+        {
+          "role": "canm",
+          "name": "b74canm",
+          "present": true,
+          "archive_index": 346,
+          "rom_offset": 7476880,
+          "rom_offset_hex": "0x00721690",
+          "bytes": 1424,
+          "sha256": "231cf772a6d5af8b70f49d4779d39bca0364d4409e65855d9d4618ac5d69d72d"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": [
+        "cex"
+      ]
+    },
+    {
+      "tileset_id": 75,
+      "prefix": "b75",
+      "resources": [
+        {
+          "role": "fon",
+          "name": "b75fon",
+          "present": true,
+          "archive_index": 354,
+          "rom_offset": 7497487,
+          "rom_offset_hex": "0x0072670F",
+          "bytes": 13797,
+          "sha256": "8e2867e1a78ed1b74b8f65af6411f9c89790399a9eae842569b0be3e29015a15"
+        },
+        {
+          "role": "cel",
+          "name": "b75cel",
+          "present": true,
+          "archive_index": 352,
+          "rom_offset": 7493272,
+          "rom_offset_hex": "0x00725698",
+          "bytes": 3800,
+          "sha256": "22624b56df0ffe9e5e3e3450b21d7abc10b852d9ae7ed75c2e0479ebc8c061b1"
+        },
+        {
+          "role": "cex",
+          "name": "b75cex",
+          "present": false
+        },
+        {
+          "role": "pal",
+          "name": "b75pal",
+          "present": true,
+          "archive_index": 355,
+          "rom_offset": 7511284,
+          "rom_offset_hex": "0x00729CF4",
+          "bytes": 768,
+          "sha256": "805e12ef990c43590a5c3cb4dfbc05b16ea60a4f445914297c14511cef1ed4c5"
+        },
+        {
+          "role": "canm",
+          "name": "b75canm",
+          "present": true,
+          "archive_index": 351,
+          "rom_offset": 7492872,
+          "rom_offset_hex": "0x00725508",
+          "bytes": 400,
+          "sha256": "30f29b8d5fd54365cb141169c0a4f416465019296e90651e39eb7a75364777cd"
+        }
+      ],
+      "present_roles": [
+        "fon",
+        "cel",
+        "pal",
+        "canm"
+      ],
+      "missing_roles": [
+        "cex"
+      ]
+    }
+  ],
+  "validation": {
+    "unique_ids": true,
+    "all_present_resources_hashed": true,
+    "status": "PASS"
+  }
+}
