@@ -291,6 +291,11 @@ def expand_generator_contracts(
             map_id = declaration.get("map_id")
             require(isinstance(map_id, str) and map_id, "static_load contract requires map_id")
             contract["map_id"] = map_id
+            for field in ("loaded_hostiles", "loaded_allies"):
+                if field in declaration:
+                    records = declaration[field]
+                    require(isinstance(records, list), f"{field} must be a list")
+                    contract[field] = records
         require(contract["stairs"] in (0, 1), "floor stair contract must be zero or one")
         require(
             generator != "chance" or contract["stairs"] == 1,
@@ -318,6 +323,60 @@ def mapped_room_id(load_gen: dict[str, Any], floor: int) -> str:
     raise ValidationError(f"floor {floor}: LoadGen has no priority -1 MappedRoomStep")
 
 
+def loaded_teams(
+    load_gen: dict[str, Any], floor: int, *, ally: bool
+) -> list[dict[str, Any]]:
+    """Return canonical fixed team records from a loaded-floor generator."""
+    records: list[dict[str, Any]] = []
+    label = "ally" if ally else "hostile"
+    for entry in load_gen.get("GenSteps", []):
+        value = entry.get("Value", {})
+        if "PlaceNoLocMobsStep" not in value.get("$type", ""):
+            continue
+        if value.get("Ally") is not ally:
+            continue
+        spawner = value.get("Spawn", {})
+        require(
+            "PresetMultiTeamSpawner" in spawner.get("$type", ""),
+            f"floor {floor}: loaded {label} step has an unsupported team spawner",
+        )
+        for team_spawn in spawner.get("Spawns", []):
+            # Canonical PMDO 0.8.12 records are direct SpecificTeamSpawner
+            # objects.  Keep compatibility with older wrapped fixtures only.
+            team = team_spawn.get("Spawn", team_spawn)
+            require(
+                bool(team.get("Explorer")) is ally,
+                f"floor {floor}: loaded {label} Explorer flag differs",
+            )
+            for mob in team.get("Spawns", []):
+                locations = [
+                    feature for feature in mob.get("SpawnFeatures", [])
+                    if "MobSpawnLoc" in feature.get("$type", "")
+                ]
+                require(
+                    len(locations) == 1,
+                    f"floor {floor}: loaded {label} requires exactly one MobSpawnLoc",
+                )
+                feature = locations[0]
+                loc = feature["Loc"]
+                records.append({
+                    "id": mob["BaseForm"]["Species"],
+                    "level": int(mob["Level"]["Min"]),
+                    "x": int(loc["X"]),
+                    "y": int(loc["Y"]),
+                    "direction": int(feature["Dir"]),
+                })
+    return records
+
+
+def loaded_hostiles(load_gen: dict[str, Any], floor: int) -> list[dict[str, Any]]:
+    return loaded_teams(load_gen, floor, ally=False)
+
+
+def loaded_allies(load_gen: dict[str, Any], floor: int) -> list[dict[str, Any]]:
+    return loaded_teams(load_gen, floor, ally=True)
+
+
 def validate_zone_generators(
     nodes: list[dict[str, Any]], contracts: list[dict[str, Any]]
 ) -> list[dict[str, Any]]:
@@ -338,11 +397,25 @@ def validate_zone_generators(
             )
             map_id = mapped_room_id(generator, floor)
             require(map_id == contract["map_id"], f"floor {floor}: static map mismatch: {map_id}")
+            actual_hostiles = loaded_hostiles(generator, floor)
+            expected_hostiles = contract.get("loaded_hostiles", [])
+            require(
+                actual_hostiles == expected_hostiles,
+                f"floor {floor}: loaded hostiles mismatch: {actual_hostiles} != {expected_hostiles}",
+            )
+            actual_allies = loaded_allies(generator, floor)
+            expected_allies = contract.get("loaded_allies", [])
+            require(
+                actual_allies == expected_allies,
+                f"floor {floor}: loaded allies mismatch: {actual_allies} != {expected_allies}",
+            )
             records.append({
                 "floor": floor,
                 "generator": "LoadGen",
                 "map_id": map_id,
                 "stairs": contract["stairs"],
+                "loaded_hostiles": actual_hostiles,
+                "loaded_allies": actual_allies,
             })
     return records
 

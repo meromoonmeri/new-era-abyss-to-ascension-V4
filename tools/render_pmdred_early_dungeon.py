@@ -461,6 +461,59 @@ def build_entity_sample(
     return result
 
 
+def loaded_team_entities(
+    load_gen: dict[str, Any], floor_number: int, *, ally: bool
+) -> list[dict[str, Any]]:
+    """Extract fixed teams serialized by post-load PlaceNoLocMobsStep."""
+    entities: list[dict[str, Any]] = []
+    label = "ally" if ally else "hostile"
+    for entry in load_gen.get("GenSteps", []):
+        value = entry.get("Value", {})
+        if "PlaceNoLocMobsStep" not in value.get("$type", ""):
+            continue
+        if value.get("Ally") is not ally:
+            continue
+        spawner = value.get("Spawn", {})
+        if "PresetMultiTeamSpawner" not in spawner.get("$type", ""):
+            raise RenderError(
+                f"floor {floor_number}: loaded {label} step has an unsupported team spawner"
+            )
+        for team_spawn in spawner.get("Spawns", []):
+            team = team_spawn.get("Spawn", team_spawn)
+            if bool(team.get("Explorer")) is not ally:
+                raise RenderError(
+                    f"floor {floor_number}: loaded {label} Explorer flag differs"
+                )
+            for mob in team.get("Spawns", []):
+                locations = [
+                    feature for feature in mob.get("SpawnFeatures", [])
+                    if "MobSpawnLoc" in feature.get("$type", "")
+                ]
+                if len(locations) != 1:
+                    raise RenderError(
+                        f"floor {floor_number}: loaded {label} requires exactly one MobSpawnLoc"
+                    )
+                location = locations[0]
+                loc = location["Loc"]
+                entities.append({
+                    "kind": "ally" if ally else "enemy",
+                    "id": mob["BaseForm"]["Species"],
+                    "level": int(mob["Level"]["Min"]),
+                    "x": int(loc["X"]),
+                    "y": int(loc["Y"]),
+                    "direction": int(location["Dir"]),
+                })
+    return entities
+
+
+def loaded_hostile_entities(load_gen: dict[str, Any], floor_number: int) -> list[dict[str, Any]]:
+    return loaded_team_entities(load_gen, floor_number, ally=False)
+
+
+def loaded_ally_entities(load_gen: dict[str, Any], floor_number: int) -> list[dict[str, Any]]:
+    return loaded_team_entities(load_gen, floor_number, ally=True)
+
+
 def build_static_floor_model(
     floor_number: int, load_gen: dict[str, Any], zone_id: str
 ) -> FloorModel:
@@ -568,6 +621,38 @@ def build_static_floor_model(
                     "x": int(location["X"]),
                     "y": int(location["Y"]),
                 })
+    loaded_hostiles = loaded_hostile_entities(load_gen, floor_number)
+    entities.extend(loaded_hostiles)
+    required_loaded = arena_audit.get("RequiredLoadedHostiles", [])
+    normalized_required_loaded = [{
+        "kind": "enemy",
+        "id": actor["id"],
+        "level": int(actor["level"]),
+        "x": int(actor["x"]),
+        "y": int(actor["y"]),
+        "direction": int(actor["direction"]),
+    } for actor in required_loaded]
+    if loaded_hostiles != normalized_required_loaded:
+        raise RenderError(
+            f"floor {floor_number}: fixed loaded hostiles are absent or changed: "
+            f"{loaded_hostiles} != {normalized_required_loaded}"
+        )
+    loaded_allies = loaded_ally_entities(load_gen, floor_number)
+    entities.extend(loaded_allies)
+    required_loaded_allies = arena_audit.get("RequiredLoadedAllies", [])
+    normalized_required_allies = [{
+        "kind": "ally",
+        "id": actor["id"],
+        "level": int(actor["level"]),
+        "x": int(actor["x"]),
+        "y": int(actor["y"]),
+        "direction": int(actor["direction"]),
+    } for actor in required_loaded_allies]
+    if loaded_allies != normalized_required_allies:
+        raise RenderError(
+            f"floor {floor_number}: fixed loaded allies are absent or changed: "
+            f"{loaded_allies} != {normalized_required_allies}"
+        )
     required = arena_audit.get("RequiredActors", [])
     for actor in required:
         expected = {
@@ -595,6 +680,8 @@ def build_static_floor_model(
         "direct_tiles": direct_tiles,
         "entry_direction": int(entry_points[0]["Dir"]),
         "required_actors": required,
+        "required_loaded_hostiles": normalized_required_loaded,
+        "required_loaded_allies": normalized_required_allies,
         "static_map_events": room.get("MapEffect", {}).get("OnMapStarts", []),
         "authenticated_arena_contract": (
             {

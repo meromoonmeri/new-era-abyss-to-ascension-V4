@@ -25,6 +25,7 @@ from pmdred_early_dungeon import (
     build_load_floor,
     build_zone,
     dump_container,
+    fixed_mob_spawn,
     map_item,
     update_zone_index,
     zone_index_summary,
@@ -357,46 +358,13 @@ def dungeon_tile(tile_id: str, visual: dict[str, Any], x: int, y: int) -> dict[s
     }
 
 
-def configured_actor(template: dict[str, Any], *, species: str, nickname: str,
-                     level: int, hp: int, loc: tuple[int, int], skills: list[tuple[str, int]],
-                     tactic: str, statuses: dict[str, Any]) -> dict[str, Any]:
-    actor = copy.deepcopy(template)
-    actor["Element1"] = "steel" if species == "skarmory" else "ground"
-    actor["Element2"] = "flying" if species == "skarmory" else "none"
-    actor["serializationLoc"] = {"X": loc[0], "Y": loc[1]}
-    actor["serializationDir"] = 0
-    actor["CurrentForm"] = {"Species": species, "Form": 0, "Skin": "normal", "Gender": -1}
-    actor["BaseForm"] = copy.deepcopy(actor["CurrentForm"])
-    actor["Skills"] = [
-        {"Element": {"SkillNum": skill, "Charges": charges, "Enabled": True, "Sealed": False},
-         "BackRef": index}
-        for index, (skill, charges) in enumerate(skills)
-    ]
-    actor["BaseSkills"] = [skill for skill, _ in skills]
-    actor["Intrinsics"] = []
-    actor["BaseIntrinsics"] = ["none"]
-    actor["FormIntrinsicSlot"] = -1
-    actor["HP"] = hp
-    actor["Level"] = level
-    actor["MaxHPBonus"] = 0
-    actor["AtkBonus"] = actor["DefBonus"] = actor["MAtkBonus"] = 0
-    actor["MDefBonus"] = actor["SpeedBonus"] = 0
-    actor["StatusEffects"] = statuses
-    actor["Tactic"] = tactic
-    actor["Nickname"] = nickname
-    actor["Unrecruitable"] = True
-    actor["dead"] = False
-    actor["CantWalk"] = species == "diglett"
-    actor["WaitToAttack"] = species == "diglett"
-    actor["CantInteract"] = species == "diglett"
-    actor["EnemyOfFriend"] = species == "skarmory"
-    actor["AttackFriend"] = False
-    actor["ActionEvents"] = []
-    return actor
-
-
 def build_static_map(matrix: list[list[int]]) -> dict[str, Any]:
-    template_container = json.loads((ROOT / "Data/Map/spiritomb_arena.rsmap").read_text(encoding="utf-8-sig"))
+    # Use a native PMDO 0.8.12 map container.  The former 0.8.9 Spiritomb
+    # template serialized ``rand`` as an obsolete interface payload and could
+    # never be loaded by the exact runtime.
+    template_container = json.loads(
+        (ROOT / "Data/Map/boss_artifact_water.rsmap").read_text(encoding="utf-8-sig")
+    )
     container = copy.deepcopy(template_container)
     container["Version"] = "0.8.12.0"
     obj = container["Object"]
@@ -419,9 +387,14 @@ def build_static_map(matrix: list[list[int]]) -> dict[str, Any]:
         "AllowedUnreachableSecondary": [
             {"X": x, "Y": y} for x, y in sorted(ALLOWED_UNREACHABLE_SECONDARY, key=lambda point: (point[1], point[0]))
         ],
-        "RequiredActors": [
-            {"kind": "enemy", "id": "skarmory", "level": 10, "hp": 29, "x": 4, "y": 8},
-            {"kind": "protected", "id": "diglett", "level": 5, "hp": 17, "x": 4, "y": 3},
+        # Runtime characters are created by typed MobSpawn steps in ZoneData.
+        # The map intentionally contains no hand-serialized Character objects.
+        "RequiredActors": [],
+        "RequiredLoadedHostiles": [
+            {"id": "skarmory", "level": 10, "x": 4, "y": 8, "direction": 0},
+        ],
+        "RequiredLoadedAllies": [
+            {"id": "diglett", "level": 5, "x": 4, "y": 3, "direction": 0},
         ],
     }
     obj["AssetName"] = MAP_ID
@@ -434,28 +407,11 @@ def build_static_map(matrix: list[list[int]]) -> dict[str, Any]:
         "unbreakable": copy.deepcopy(wall), "water": copy.deepcopy(secondary),
     }
 
-    actor_template = template_container["Object"]["MapTeams"][0]["Players"][0]
-    skarmory = configured_actor(
-        actor_template, species="skarmory", nickname="Airmure", level=10, hp=29,
-        loc=(4, 8), skills=[("peck", 24), ("leer", 16), ("sand_attack", 21)],
-        tactic="wander_dumb_two_range", statuses={},
-    )
-    diglett = configured_actor(
-        actor_template, species="diglett", nickname="Taupiqueur", level=5, hp=17,
-        loc=(4, 3), skills=[("sand_attack", 21), ("scratch", 24), ("growl", 15)],
-        tactic="wait_only",
-        statuses={"all_protect": {
-            "ID": "all_protect",
-            "StatusStates": [{"$type": "RogueEssence.Dungeon.CountDownState, RogueEssence", "Counter": -1}],
-        }},
-    )
-    team_type = "RogueEssence.Dungeon.MonsterTeam, RogueEssence"
-    obj["MapTeams"] = [{"$type": team_type, "Players": [skarmory], "Guests": [],
-                       "inventory": [], "Name": "Airmure", "LeaderIndex": 0,
-                       "FoeConflict": False}]
-    obj["AllyTeams"] = [{"$type": team_type, "Players": [diglett], "Guests": [],
-                        "inventory": [], "Name": "Taupiqueur", "LeaderIndex": 0,
-                        "FoeConflict": False}]
+    # Actors are spawned after MappedRoomStep from typed PMDO MobSpawn records.
+    # Keeping these arrays empty prevents stale Character schemas from making
+    # the otherwise canonical fixed map impossible to deserialize.
+    obj["MapTeams"] = []
+    obj["AllyTeams"] = []
 
     obj["EntryPoints"] = [{"Loc": {"X": 4, "Y": 9}, "Dir": 4}]
     obj["Layers"] = [{"Name": "Mt Acier — salle fixe EU", "Layer": 0,
@@ -508,16 +464,23 @@ def build_static_map(matrix: list[list[int]]) -> dict[str, Any]:
         obj["Layers"][0]["Tiles"].append(visual_column)
         obj["Tiles"].append(collision_column)
     obj["DiscoveryArray"] = [[2 for _ in range(height)] for _ in range(width)]
-    obj["Decorations"] = [[]]
+    obj["Decorations"] = [{
+        "Name": "Mt Acier — décor",
+        "Layer": 0,
+        "Visible": True,
+        "Anims": [],
+    }]
     obj["Items"] = []
     obj["TeamSpawns"] = []
     obj["MapEffect"]["OnMapStarts"] = [
         {"Key": {"str": [-15]}, "Value": {
             "$type": "PMDC.Dungeon.BattlePositionEvent, PMDC",
+            # BattlePositionEvent locations are offsets from the entry point,
+            # not absolute map coordinates.
             "StartLocs": [
-                {"Loc": {"X": 4, "Y": 9}, "Dir": 4},
-                {"Loc": {"X": 3, "Y": 10}, "Dir": 4},
-                {"Loc": {"X": 5, "Y": 10}, "Dir": 4},
+                {"Loc": {"X": 0, "Y": 0}, "Dir": 4},
+                {"Loc": {"X": -1, "Y": 1}, "Dir": 4},
+                {"Loc": {"X": 1, "Y": 1}, "Dir": 4},
             ], "Positions": None,
         }},
         {"Key": {"str": [-5]}, "Value": {
@@ -562,9 +525,40 @@ def build() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
             trap_count_weights=count_weights(prop["trap_density"]),
             extra_hallways=0, connectivity_ratio=12,
         ))
+    skarmory = fixed_mob_spawn(
+        "skarmory", 10, (4, 8), direction=0,
+        tactic="wander_dumb_two_range",
+        skills=("peck", "leer", "sand_attack"),
+    )
+    skarmory["SpawnFeatures"].append({
+        "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC",
+    })
+    diglett = fixed_mob_spawn(
+        "diglett", 5, (4, 3), direction=0,
+        tactic="wait_only",
+        skills=("sand_attack", "scratch", "growl"),
+    )
+    diglett["SpawnFeatures"].extend([
+        {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [{
+                "Spawn": {
+                    "ID": "all_protect",
+                    "StatusStates": [{
+                        "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                        "Counter": -1,
+                    }],
+                },
+                "Rate": 10,
+            }],
+        },
+        {"$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"},
+    ])
     floors.append(build_load_floor(
         map_id=MAP_ID,
         comment=f"Mt Acier 9F — salle fixe PMD Red EU ({CONTRACT_ID}).",
+        hostile_teams=[[skarmory]],
+        ally_teams=[[diglett]],
     ))
     zone = build_zone(
         zone_name="Mt Acier",
@@ -643,7 +637,16 @@ def build_validation_config(promotions: list[dict[str, Any]]) -> dict[str, Any]:
             "ground_maps": ["d03p01", "d03p02"],
             "generator_contracts": [
                 {"floors": [1, 8], "generator": "chance", "stairs": 1},
-                {"floors": [9], "generator": "static_load", "map_id": MAP_ID, "stairs": 0},
+                {
+                    "floors": [9], "generator": "static_load", "map_id": MAP_ID,
+                    "stairs": 0,
+                    "loaded_hostiles": [
+                        {"id": "skarmory", "level": 10, "x": 4, "y": 8, "direction": 0},
+                    ],
+                    "loaded_allies": [
+                        {"id": "diglett", "level": 5, "x": 4, "y": 3, "direction": 0},
+                    ],
+                },
             ],
         },
         "assets": [
@@ -666,12 +669,13 @@ def build_validation_config(promotions: list[dict[str, Any]]) -> dict[str, Any]:
                     list(point) for point in sorted(ALLOWED_UNREACHABLE_SECONDARY, key=lambda point: (point[1], point[0]))
                 ],
             },
-            "actors": [
-                {"species": "skarmory", "faction": "MapTeams", "loc": [4, 8],
-                 "level": 10, "hp": 29, "tactic": "wander_dumb_two_range"},
-                {"species": "diglett", "faction": "AllyTeams", "loc": [4, 3],
-                 "level": 5, "hp": 17, "tactic": "wait_only",
-                 "status": "all_protect", "status_counter": -1},
+            "actors": [],
+            "loaded_hostiles": [
+                {"species": "skarmory", "loc": [4, 8], "level": 10, "direction": 0},
+            ],
+            "loaded_allies": [
+                {"species": "diglett", "loc": [4, 3], "level": 5, "direction": 0,
+                 "tactic": "wait_only", "status": "all_protect", "status_counter": -1},
             ],
             "startup_events": [
                 {"priority": [-15], "type": "PMDC.Dungeon.BattlePositionEvent, PMDC",
@@ -775,10 +779,14 @@ def build_validation_config(promotions: list[dict[str, Any]]) -> dict[str, Any]:
             "allowed_unreachable_secondary": [
                 list(point) for point in sorted(ALLOWED_UNREACHABLE_SECONDARY, key=lambda point: (point[1], point[0]))
             ],
-            "required_static_actors": [
-                {"species": "skarmory", "faction": "MapTeams", "loc": [4, 8], "level": 10, "hp": 29},
-                {"species": "diglett", "faction": "AllyTeams", "loc": [4, 3], "level": 5, "hp": 17,
-                 "required_tactic": "wait_only", "required_status": "all_protect", "status_counter": -1},
+            "required_static_actors": [],
+            "required_loaded_hostiles": [
+                {"species": "skarmory", "loc": [4, 8], "level": 10, "direction": 0},
+            ],
+            "required_loaded_allies": [
+                {"species": "diglett", "loc": [4, 3], "level": 5, "direction": 0,
+                 "required_tactic": "wait_only", "required_status": "all_protect",
+                 "status_counter": -1},
             ],
         }},
     }

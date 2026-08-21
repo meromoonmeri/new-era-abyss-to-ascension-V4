@@ -160,3 +160,33 @@ Tactic révèle ensuite un second champ invalide (`Character.BackRef` entier au
 lieu de `TempCharBackRef`). La 9F tombe sur une map vide 10×10 : elle est donc
 **FAIL runtime**, non promotable. Les preuves complètes sont conservées dans
 `docs/pmdred_eu/playable/runtime_recovery_2026-08-20/`.
+
+## Mise à jour — achèvement du sérialiseur boss fixe Mt Acier (2026-08-21)
+
+La branche de référence a avancé jusqu'à `b3d7278f`, qui étend le renderer et le
+validateur aux `PlaceNoLocMobsStep` hostiles introduits par `c548f0a2`. Ce
+couple de commits révélait l'objectif inachevé : sortir les boss des anciens
+`Character` sérialisés dans la map et les créer via les `MobSpawn` natifs du
+`MapLoadContext`.
+
+La continuation termine cette intention sans relâcher les gates :
+
+- Airmure est maintenant un hostile chargé après `MappedRoomStep` ;
+- Taupiqueur est un allié chargé séparément, `wait_only`, `all_protect` et non
+  recrutable ;
+- la map fixe ne contient plus aucun `Character` historique invalide ;
+- le conteneur vient d'une map PMDO 0.8.12 native (`ReRandom`, couche de décor
+  `AnimLayer`) au lieu du template 0.8.9 ;
+- `BattlePositionEvent.StartLocs` utilise des offsets relatifs à l'entrée ;
+- renderer et validateur contrôlent indépendamment hostiles **et** alliés
+  chargés.
+
+Le replay exact PMDO 0.8.12 charge désormais réellement la 9F en 9×17 avec la
+musique Mt Acier, l'entrée (4,9), Airmure (4,8), Taupiqueur protégé (4,3) et les
+29 cellules isolées explicitement autorisées. Verdict du probe : `PASS`, sortie
+native `LoadPhase.Unload`, rc 0, sans diagnostic ni processus résiduel.
+
+Preuve create-only :
+`docs/pmdred_eu/playable/mt_steel/native_9f_fix_2026-08-21/validation.json`.
+La promotion reste interdite tant que le combat naturel, le callback de victoire,
+la transition `d03p02` et les routes retry/abandon ne sont pas certifiés.

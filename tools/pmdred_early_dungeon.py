@@ -277,12 +277,17 @@ def fixed_mob_spawn(
     return spawn
 
 
-def fixed_hostile_team_step(
-    teams: Sequence[Sequence[Mapping[str, Any]]],
+def fixed_team_step(
+    teams: Sequence[Sequence[Mapping[str, Any]]], *, ally: bool
 ) -> dict[str, Any]:
-    """Serialize PMDO's post-load fixed hostile-team placement chain."""
+    """Serialize PMDO's post-load fixed team placement chain.
+
+    Loaded maps must receive runtime ``MobSpawn`` records, not hand-built
+    serialized ``Character`` objects.  The latter silently passed static JSON
+    audits but PMDO 0.8.12 rejected fields such as ``Tactic`` and ``BackRef``.
+    """
     if not teams or any(not team for team in teams):
-        raise ValueError("fixed hostile placement requires non-empty teams")
+        raise ValueError("fixed placement requires non-empty teams")
     return {
         "$type": generic_type(
             "RogueEssence.LevelGen.PlaceNoLocMobsStep", MAP_LOAD_CTX,
@@ -296,12 +301,24 @@ def fixed_hostile_team_step(
             # PresetMultiTeamSpawner<T>.Spawns is statically typed as a list of
             # SpecificTeamSpawner, so Newtonsoft does not need per-team $type.
             "Spawns": [
-                {"Explorer": False, "Spawns": [dict(mob) for mob in team]}
+                {"Explorer": ally, "Spawns": [dict(mob) for mob in team]}
                 for team in teams
             ],
         },
-        "Ally": False,
+        "Ally": ally,
     }
+
+
+def fixed_hostile_team_step(
+    teams: Sequence[Sequence[Mapping[str, Any]]],
+) -> dict[str, Any]:
+    return fixed_team_step(teams, ally=False)
+
+
+def fixed_ally_team_step(
+    teams: Sequence[Sequence[Mapping[str, Any]]],
+) -> dict[str, Any]:
+    return fixed_team_step(teams, ally=True)
 
 
 def team_picker(entries: Sequence[tuple[str, int, int]]) -> dict[str, Any]:
@@ -556,6 +573,7 @@ def build_load_floor(
     map_id: str,
     comment: str = "",
     hostile_teams: Sequence[Sequence[Mapping[str, Any]]] = (),
+    ally_teams: Sequence[Sequence[Mapping[str, Any]]] = (),
 ) -> dict[str, Any]:
     """Serialize PMDO 0.8.12's canonical static-map floor generator.
 
@@ -576,6 +594,8 @@ def build_load_floor(
     })]
     if hostile_teams:
         steps.append(step((5, 2), fixed_hostile_team_step(hostile_teams)))
+    if ally_teams:
+        steps.append(step((5, 3), fixed_ally_team_step(ally_teams)))
     return {
         "$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
         "GenSteps": steps,

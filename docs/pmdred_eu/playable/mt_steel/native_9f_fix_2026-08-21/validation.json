@@ -1,0 +1,111 @@
+{
+  "schema": "new-era.pmdred-eu-mt-steel-native-9f-fix.v1",
+  "date": "2026-08-21",
+  "status": "PASS_NATIVE_9F_LOAD_SPATIAL_ACTORS_UNLOAD",
+  "reference_branch": {
+    "branch": "arena/019ff05e-new-era-abyss-to-ascension-v4",
+    "tip_inspected": "b3d7278fe5fd30b8a949c775164a316411127d4e",
+    "method_extension": "complete c548f0a2 fixed MobSpawn serializer and b3d7278 loaded-hostile parser with typed loaded allies"
+  },
+  "authority": {
+    "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "pmdo_sha256": "faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327",
+    "pmdo_version": "0.8.12.0"
+  },
+  "candidate": {
+    "zone_sha256": "f07d608c4bf533c4a3bb3318f9782a1d239b84f643428eabdc2814582c8f4832",
+    "map_sha256": "cbe543acd3693ae3d9b1a238e06217dda90883dbf963dcc8fe62c1882144f721",
+    "validator_sha256": "99c0baa36cda48a1523523d84e0bf316da1d215df814167b2d4ef704268a8657",
+    "live_files_modified": false,
+    "staging": "fixture-only"
+  },
+  "runtime": {
+    "probe": {
+      "event": "floor_probe",
+      "bootstrap_seed": 424242,
+      "adventure_seed": -1107708364122780684,
+      "map_seed": -999201935572650001,
+      "requested_floor": 8,
+      "zone": "mt_steel",
+      "segment": 0,
+      "map": 8,
+      "width": 9,
+      "height": 17,
+      "music": "Mt. Steel.ogg",
+      "start": {
+        "x": 4,
+        "y": 9
+      },
+      "entries": [
+        {
+          "x": 4,
+          "y": 9
+        }
+      ],
+      "terrain": {
+        "floor": 77,
+        "unbreakable": 59,
+        "water": 17
+      },
+      "effects": {},
+      "walkable": 77,
+      "reachable": 48,
+      "canonical_isolated_walkable": 29,
+      "stairs": [],
+      "items": [],
+      "mobs": [
+        {
+          "species": "skarmory",
+          "level": 10,
+          "x": 4,
+          "y": 8,
+          "reachable": true
+        }
+      ],
+      "mob_count": 1,
+      "allies": [
+        {
+          "species": "diglett",
+          "level": 5,
+          "x": 4,
+          "y": 3,
+          "tactic": "wait_only",
+          "all_protect": true
+        }
+      ],
+      "ally_count": 1,
+      "skarmory_ok": true,
+      "diglett_ok": true,
+      "traps": 0,
+      "verdict": "PASS"
+    },
+    "termination_result": "PASS",
+    "exit_classification": "NORMAL_EXIT",
+    "return_code": 0,
+    "watchdog": false,
+    "forced_kill": false,
+    "orphan_process": false,
+    "forbidden_diagnostics": []
+  },
+  "assertions": {
+    "native_map_dimensions_9x17": true,
+    "canonical_music": true,
+    "canonical_entry": true,
+    "canonical_terrain_counts": true,
+    "canonical_isolated_walkable_count": true,
+    "skarmory_exact": true,
+    "diglett_exact_protected_wait_only": true,
+    "probe_verdict": "PASS",
+    "no_runtime_diagnostic": true
+  },
+  "supersedes_failure": "docs/pmdred_eu/playable/runtime_recovery_2026-08-20/report.json#mt_steel",
+  "remaining_scope": [
+    "player-driven battle",
+    "natural Skarmory defeat",
+    "MountSteelSkarmoryClear callback",
+    "d03p02 ending Ground transition",
+    "failure retry and abandon route",
+    "production promotion"
+  ],
+  "promotion_allowed": false
+}

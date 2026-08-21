@@ -153,6 +153,21 @@
     "dumpasset_tree_exact": true,
     "fresh_tiny_woods_native": "PASS",
     "fresh_thunderwave_floor_probes": "5/5 PASS; route certification remains",
-    "fresh_mt_steel_floor_probes": "1F-8F PASS; 9F FAIL due invalid static Character serialization"
+    "fresh_mt_steel_floor_probes": "1F-8F PASS; historical 9F failure superseded by native typed-team candidate PASS on 2026-08-21"
+  },
+  "mt_steel_native_9f_fix_2026_08_21": {
+    "status": "PASS_NATIVE_9F_LOAD_SPATIAL_ACTORS_UNLOAD",
+    "reference_tip_inspected": "b3d7278fe5fd30b8a949c775164a316411127d4e",
+    "evidence": "docs/pmdred_eu/playable/mt_steel/native_9f_fix_2026-08-21/validation.json",
+    "historical_character_serialization_removed": true,
+    "typed_loaded_hostile": "skarmory",
+    "typed_loaded_ally": "diglett",
+    "promotion_allowed": false,
+    "remaining": [
+      "natural battle and defeat",
+      "victory callback",
+      "d03p02 transition",
+      "retry and abandon"
+    ]
   }
 }

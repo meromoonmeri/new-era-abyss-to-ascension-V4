@@ -198,6 +198,28 @@ class VariableGeometryTests(unittest.TestCase):
             ("medicham", 12, {"X": 10, "Y": 14}, 4),
         ])
 
+    def test_loaded_map_places_typed_fixed_ally_after_hostiles(self) -> None:
+        boss = fixed_mob_spawn("skarmory", 10, (4, 8), direction=0)
+        protected = fixed_mob_spawn("diglett", 5, (4, 3), direction=0)
+        floor = build_load_floor(
+            map_id="mt_steel_peak",
+            hostile_teams=[[boss]],
+            ally_teams=[[protected]],
+        )
+        self.assertEqual([pair["Key"] for pair in floor["GenSteps"]], [
+            {"str": [-1]}, {"str": [5, 2]}, {"str": [5, 3]},
+        ])
+        hostile = floor["GenSteps"][1]["Value"]
+        ally = floor["GenSteps"][2]["Value"]
+        self.assertFalse(hostile["Ally"])
+        self.assertFalse(hostile["Spawn"]["Spawns"][0]["Explorer"])
+        self.assertTrue(ally["Ally"])
+        self.assertTrue(ally["Spawn"]["Spawns"][0]["Explorer"])
+        self.assertEqual(
+            ally["Spawn"]["Spawns"][0]["Spawns"][0]["BaseForm"]["Species"],
+            "diglett",
+        )
+
     def test_large_layout_serializes_all_32_attempts_and_exact_fallback(self) -> None:
         floor = build_red_large_chance_floor(
             room_density=8,
