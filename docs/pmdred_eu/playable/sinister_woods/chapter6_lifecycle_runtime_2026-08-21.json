@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "runtime": "Lua 5.4 via lupa",
+  "scope": "chapter-6 lifecycle state machine; not PMDO rendering",
+  "routes": [
+    {
+      "route": "victory",
+      "phases": [
+        "guild_preparation",
+        "exploration",
+        "checkpoint",
+        "town_consequences",
+        "guild_report",
+        "bedtime",
+        "sleep",
+        "guild_routine"
+      ],
+      "attempt": 1,
+      "day": 2,
+      "last_outcome": "victory",
+      "flags": {
+        "MissionCompleted": true,
+        "Dinnertime": true,
+        "Bedtime": true,
+        "MorningWakeup": false
+      }
+    },
+    {
+      "route": "abandon",
+      "phases": [
+        "guild_preparation",
+        "exploration",
+        "checkpoint",
+        "guild_report",
+        "bedtime",
+        "sleep",
+        "guild_routine"
+      ],
+      "attempt": 1,
+      "day": 2,
+      "last_outcome": "abandon",
+      "flags": {
+        "MissionCompleted": true,
+        "Dinnertime": true,
+        "Bedtime": true,
+        "MorningWakeup": false
+      }
+    }
+  ]
+}
