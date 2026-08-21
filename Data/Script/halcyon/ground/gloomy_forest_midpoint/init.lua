@@ -1,6 +1,6 @@
 --[[
     init.lua
-    Gloomy Forest midpoint — mid-dungeon relay (checkpoint) for chapter 6.
+    Sinister Woods midpoint — mid-dungeon relay (checkpoint) for chapter 6.
     Modeled on ground/crooked_cavern_midpoint/init.lua (itself modeled on searing_tunnel_midpoint).
     See docs/audit_checkpoint_crooked_cavern.md (reusable pattern).
 ]]--

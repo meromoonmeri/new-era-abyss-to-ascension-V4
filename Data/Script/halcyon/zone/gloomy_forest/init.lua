@@ -7,6 +7,7 @@ require 'halcyon.DazzlingArc'
 require 'halcyon.TownNight'
 require 'halcyon.TownRaid'
 require 'halcyon.LivingWorld'
+local SinisterLifecycle = require 'halcyon.SinisterWoodsLifecycle'
 
 local gloomy_forest = {}
 
@@ -67,11 +68,11 @@ end
 ------------------------------------------------------------------
 -- ExitSegment
 ------------------------------------------------------------------
--- Gloomy Forest segments (conception_donjons_segmentes.md, ch6+) :
---   0  = F01-F15 Sinister/Mystifying Forest
---   1  = F16-F20 continuité canonique (objectif de sauvetage Chenipent)
+-- Sinister Woods canonical 13-floor route, split around story grounds:
+--   0  = F01-F07
+--   1  = F08-F10 (objectif de sauvetage Chenipent)
 --   2  = ARENE MINI-BOSS (gloomy_forest_miniboss.rsmap : Tengalice + Cornèbre)
---   3  = F21-F23 Deep Shadow Forest
+--   3  = F11-F13, profondeurs finales canoniques
 --   4  = boss (Zeraora, LoadGen gloomy_forest_boss.rsmap)
 --   5  = Serment Verdoyant (revanche Zeraora, LegendZones 'verdant_oath')
 --   6  = annexe Toupie
@@ -89,7 +90,10 @@ end
 --deplace dans TownNight.EndDay : les 8 autres donjons repetaient la meme
 --sequence, la partager evite d'en maintenir neuf copies.
 local function EndDayReturn(result)
-	TownNight.EndDay(result, true)
+	-- A voluntary return is a guild beat, not an instant time skip: report,
+	-- dinner, evening interaction, bed, sleep and next-morning routine.
+	SinisterLifecycle.ReturnToGuild(result == RogueEssence.Data.GameProgress.ResultType.Escaped and 'abandon' or 'defeat')
+	GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('guild_second_floor'), 0, true, true)
 end
 
 function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
@@ -142,6 +146,7 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 		-- into the depth floors. The relay's North exit starts segment 1.
 		-- (Original was: GAME:ContinueDungeon("gloomy_forest", 1, 0, 0, ...).)
 		SV.Chapter6.GloomyMidpointState = 'FirstArrival'
+		SinisterLifecycle.Checkpoint()
 		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('gloomy_forest_midpoint'), 0, false, false) --gloomy_forest_midpoint (mapID 61)
 		return
 	end
@@ -224,13 +229,14 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 			SV.Chapter6.DazzlingChapterResolved = true
 			pcall(function()
 				LivingWorld.Publish('chenipent_rescued','guild_report',
-				  'Chenipent a été retrouvé dans les profondeurs de Gloomy Forest.',
+				  'Chenipent a été retrouvé dans les profondeurs de la Forêt Sinistre.',
 				  {'guild','treasure','metano'},1)
 				LivingWorld.Publish('dazzling_gloomy_rivalry','traveler_report',
 				  'La Team Dazzling et une équipe de Metano ont traversé la forêt ensemble.',
 				  {'treasure','guild','metano'},1)
 			end)
 			SV.Chapter6.DefeatedByZeraora = false
+			SinisterLifecycle.Victory()
 			SV.Chapter6.MissionAccepted = false
 			--Scene d'apres-boss : la consequence se joue AVANT le retour en
 			--ville, exactement comme aux chapitres 8, 9 et 10
@@ -242,16 +248,19 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 			SV.Chapter6.DazzlingTrialOffered = true
 			-- Beat the boss: return to town (UNCHANGED).
 			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
+		elseif result == RogueEssence.Data.GameProgress.ResultType.Escaped then
+			-- Abandon volontaire : rapport a la guilde et cycle de fin de journee.
+			SV.Chapter6.MissionAccepted = false
+			EndDayReturn(result)
 		else
-			-- *** CHECKPOINT (NEW) *** : died/escaped to the boss (Zeraora) -> respawn at
-			-- the relay (previously returned to town, mapID 1). GloomyBossEncountered
-			-- stays true so the next gloomy_forest_boss visit plays the retry scene.
+			-- Defaite au boss : checkpoint de la clairiere, puis vraie scene de retry.
 			SV.GloomyForest.DiedPastCheckpoint = true
 			SV.Chapter6.GloomyMidpointState = 'DeathArrival'
 			SV.Chapter6.DefeatedByZeraora = true
 			SV.Chapter6.DiedToGloomyBoss = true
+			SinisterLifecycle.Retry('boss_defeat')
 			SV.Chapter6.MissionAccepted = false
-			GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('gloomy_forest_midpoint'), 0, true, true) --relay (mapID 61)
+			GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('gloomy_forest_midpoint'), 0, true, true)
 			GAME:WaitFrames(20)
 			GAME:EnterZone("master_zone", -1, GROUND_IDX('gloomy_forest_midpoint'), 0)
 		end

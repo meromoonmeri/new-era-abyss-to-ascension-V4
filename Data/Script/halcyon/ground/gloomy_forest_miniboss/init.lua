@@ -1,6 +1,6 @@
 --[[
     init.lua
-    Gloomy Forest — salle cinématique du mini-boss (Chapitre 6)
+    Sinister Woods — salle cinématique du mini-boss (Chapitre 6)
     Gardiens du cœur : Tengalice + Cornèbre.
     Patron : searing_tunnel_miniboss (dispatch Seen/Defeated/Lost),
     simplifié : flash blanc + dialogues (directive utilisateur).

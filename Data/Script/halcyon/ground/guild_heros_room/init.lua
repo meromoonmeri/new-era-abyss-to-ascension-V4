@@ -16,6 +16,7 @@ require 'halcyon.ground.guild_heros_room.guild_heros_room_ch_3'
 require 'halcyon.ground.guild_heros_room.guild_heros_room_ch_4'
 require 'halcyon.ground.guild_heros_room.guild_heros_room_ch_5'
 require 'halcyon.ground.guild_heros_room.guild_heros_room_ch_6'
+local SinisterLifecycle = require 'halcyon.SinisterWoodsLifecycle'
 require 'halcyon.ground.guild_heros_room.guild_heros_room_helper'
 require 'halcyon.SideQuests'
 require 'halcyon.DazzlingPlaza'
@@ -125,7 +126,8 @@ function guild_heros_room.CheckTriggerEvent()
 		SV.TemporaryFlags.MorningWakeup = false
 		SV.ChapterProgression.CurrentStoryDungeon = "gloomy_forest"
 		SV.Dojo.NewMazeUnlocked = true
-		GAME:UnlockDungeon("gloomy_forest")
+		GAME:UnlockDungeon("gloomy_forest") -- legacy asset ID; displayed as Sinister Woods
+		SinisterLifecycle.Prepare()
 		GAME:UnlockDungeon("grass_maze")
 		--Vague 2 multi-sources : secondaires ch6
 		GAME:UnlockDungeon("desert_oublies")
@@ -134,7 +136,7 @@ function guild_heros_room.CheckTriggerEvent()
 		GeneralFunctions.PromptChapterSaveAndQuit("guild_heros_room", "Main_Entrance_Marker", 2)
 	end
 
-	--Start Chapter 7 a few in game days after the Gloomy Forest rescue.
+	--Start Chapter 7 a few in game days after the Sinister Woods rescue.
 	--
 	--CE DECLENCHEUR MANQUAIT : la progression s'arretait au chapitre 6. Tout le
 	--contenu du chapitre 7 existait deja et etait cable (carton-titre et reve
@@ -277,14 +279,26 @@ function guild_heros_room.PlotScripting()
 		if NightWatch.Begin() then return end
 	end
 
+	-- Chapter 6 evening interaction precedes the generic bed/sleep transition.
+	if SV.ChapterProgression.Chapter == 6 and SV.TemporaryFlags.Bedtime
+	   and SinisterLifecycle.Phase() == 'bedtime' then
+		guild_heros_room_ch_6.EveningBedtalk()
+		SinisterLifecycle.AfterEveningTalk()
+	end
+
 	--if generic morning is flagged, prioritize that.
 	if SV.TemporaryFlags.MorningWakeup or SV.TemporaryFlags.Bedtime then
+		local chapter6Morning = SV.ChapterProgression.Chapter == 6 and SV.TemporaryFlags.MorningWakeup
 		if SV.TemporaryFlags.Bedtime then guild_heros_room_helper.Bedtime(true) end
 
 		--Does a new story event need to be triggered?
 		guild_heros_room.CheckTriggerEvent()
 
 		if SV.TemporaryFlags.MorningWakeup then guild_heros_room_helper.Morning(true) end
+		if chapter6Morning then
+			SinisterLifecycle.AfterWake()
+			guild_heros_room_ch_6.MorningBedtalk()
+		end
 
 		--RAPPORT DE GARDE (NightWatch). Un devoir accompli doit etre
 		--reconnu, sinon ce n'etait pas un devoir. On remplit le registre

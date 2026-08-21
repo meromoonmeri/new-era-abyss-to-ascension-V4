@@ -7,6 +7,7 @@
 require 'origin.common'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.GeneralFunctions'
+local SinisterLifecycle = require 'halcyon.SinisterWoodsLifecycle'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.ground.guild_dining_room.guild_dining_room_ch_1'
 
@@ -239,6 +240,7 @@ function guild_dining_room.Dinnertime(generic)
 		GAME:WaitFrames(40)
 		GAME:CutsceneMode(false)
 		SV.TemporaryFlags.Dinnertime = false --clear flag
+		if SV.ChapterProgression.Chapter == 6 then SinisterLifecycle.AfterDinner() end
 		SV.partner.Spawn = 'Default'
 		GAME:EnterGroundMap('guild_heros_room', 'Main_Entrance_Marker')
 	

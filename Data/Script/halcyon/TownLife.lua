@@ -363,7 +363,7 @@ TownLife.SOCIAUX = {
 local function social_line(a,b,base)
   local ch=(SV.ChapterProgression and SV.ChapterProgression.Chapter) or 1
   if ch>=6 and SV.Chapter6 and SV.Chapter6.DazzlingChapterResolved then
-    return "Les nouvelles de Gloomy Forest sont arrivées ce matin.",
+    return "Les nouvelles de Sinister Woods sont arrivées ce matin.",
            "Chenipent est sauf. C'est la seule partie du rapport qui compte."
   end
   if SV.WorldState and SV.WorldState.Weather and SV.WorldState.Weather.Current=='orage' then

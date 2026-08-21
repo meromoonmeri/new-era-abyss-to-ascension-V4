@@ -1,6 +1,6 @@
 --[[
     guild_heros_room_ch_6.lua
-    Chapitre 6 : Scènes du dortoir (Réveil, Débats sur la Forêt Lugubre, Veillée).
+    Chapitre 6 : Scènes du dortoir (Réveil, Débats sur la Forêt Sinistre, Veillée).
 ]]
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
@@ -17,7 +17,7 @@ function guild_heros_room_ch_6.ShowTitleCard()
   SOUND:StopBGM()
   GAME:WaitFrames(60)
   local coro1 = TASK:BranchCoroutine(function()
-    UI:WaitShowTitle("Chapitre 6\n\nLa Forêt Lugubre\n", 20)
+    UI:WaitShowTitle("Chapitre 6\n\nLa Forêt Sinistre\n", 20)
     GAME:WaitFrames(180)
     UI:WaitHideTitle(20)
   end)
@@ -40,7 +40,7 @@ function guild_heros_room_ch_6.MorningBedtalk()
   UI:SetSpeaker(partner)
   UI:WaitShowDialogue("Debout, [player] ! Le soleil éclaire déjà la fenêtre du dortoir !")
   UI:WaitShowDialogue("J'ai fait un rêve étrange cette nuit... Je voyais de grands arbres noirs qui murmuraient.")
-  UI:WaitShowDialogue("La Forêt Lugubre se réveille, je le sens. Toute la guilde en parle depuis hier soir.")
+  UI:WaitShowDialogue("La Forêt Sinistre se réveille, je le sens. Toute la guilde en parle depuis hier soir.")
   UI:WaitShowDialogue("Et l'arrivée de cette fameuse Team Dazzling n'a fait que rajouter de la nervosité.")
   UI:WaitShowDialogue("Ils se croient supérieurs à tout le monde avec leurs badges étincelants et leur grand air.")
   UI:WaitShowDialogue("Mais nous avons prouvé notre valeur au Tunnel Incandescent et sur le Mont Venteux !")

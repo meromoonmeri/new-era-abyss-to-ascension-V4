@@ -356,7 +356,7 @@ function DebugTools:OnUpgrade()
  
  if SV.CrookedCavern.DiedPastCheckpoint == nil then SV.CrookedCavern.DiedPastCheckpoint = false end
  
- --For Gloomy Forest's mid-dungeon checkpoint (mirrors SearingTunnel/CrookedCavern)
+ --For Sinister Woods's mid-dungeon checkpoint (mirrors SearingTunnel/CrookedCavern)
  if SV.GloomyForest == nil then SV.GloomyForest = {} end
  
  if SV.GloomyForest.DiedPastCheckpoint == nil then SV.GloomyForest.DiedPastCheckpoint = false end
@@ -571,7 +571,7 @@ function DebugTools:OnUpgrade()
 	GAME:UnlockDungeon("sentier_enneige")
  end
  
- --Gloomy Forest midpoint flags (ch6)
+ --Sinister Woods midpoint flags (ch6)
  if SV.Chapter6 == nil then SV.Chapter6 = {} end
  if SV.Chapter6.GloomyPlayedMidpointIntro == nil then SV.Chapter6.GloomyPlayedMidpointIntro = false end
  if SV.Chapter6.GloomyMidpointState == nil then SV.Chapter6.GloomyMidpointState = 'FirstArrival' end

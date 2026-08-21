@@ -15,6 +15,7 @@ require 'halcyon.ground.guild_second_floor.guild_second_floor_ch_2'
 require 'halcyon.ground.guild_second_floor.guild_second_floor_ch_3'
 require 'halcyon.ground.guild_second_floor.guild_second_floor_ch_4'
 require 'halcyon.ground.guild_second_floor.guild_second_floor_ch_5'
+require 'halcyon.ground.guild_second_floor.guild_second_floor_ch_6'
 
 
 -- Package name
@@ -121,6 +122,9 @@ function guild_second_floor.PlotScripting()
 			end
 		elseif SV.ChapterProgression.Chapter == 5 then
 			guild_second_floor_ch_5.SetupGround()
+		elseif SV.ChapterProgression.Chapter == 6 then
+			guild_second_floor_ch_6.SetupGround()
+			guild_second_floor_ch_6.Briefing()
 		else
 			GAME:FadeIn(20)
 		end

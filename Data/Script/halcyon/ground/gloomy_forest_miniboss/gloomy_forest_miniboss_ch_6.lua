@@ -1,6 +1,6 @@
 --[[
     gloomy_forest_miniboss_ch_6.lua
-    Forêt Lugubre — Mini-Boss : Tengalice + Cornèbre (gardiens du cœur)
+    Forêt Sinistre — Mini-Boss : Tengalice + Cornèbre (gardiens du cœur)
     Simple : flash blanc + dialogues (directive utilisateur).
     Salle 456x456 px, ring de 2 tuiles de murs : plancher de (48,48) à (408,408).
 ]]

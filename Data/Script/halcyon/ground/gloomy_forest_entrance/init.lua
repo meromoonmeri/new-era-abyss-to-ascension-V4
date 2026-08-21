@@ -3,6 +3,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.ground.gloomy_forest_entrance.gloomy_forest_entrance_ch_6'
+local SinisterLifecycle = require 'halcyon.SinisterWoodsLifecycle'
 
 local gloomy_forest_entrance = {}
 
@@ -76,7 +77,8 @@ end
 
 function gloomy_forest_entrance.Dungeon_Entrance_Touch(obj, activator)
 	if SV.Chapter6.MissionAccepted and not SV.Chapter6.MissionComplete then
-		SV.Chapter6.EnteredGloomyForest = true
+		SV.Chapter6.EnteredGloomyForest = true -- legacy save flag
+		SinisterLifecycle.StartExpedition()
 		SOUND:FadeOutBGM(40)
 		GAME:FadeOut(false, 40)
 		GAME:EnterDungeon("gloomy_forest", 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, true)

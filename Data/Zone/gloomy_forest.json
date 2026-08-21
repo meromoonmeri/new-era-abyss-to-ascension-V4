@@ -5,11 +5,11 @@
     "Name": {
       "DefaultText": "Sinister Woods",
       "LocalTexts": {
-        "fr": "Sinister Woods — trente ans plus tard"
+        "fr": "Forêt Sinistre"
       }
     },
     "Released": true,
-    "Comment": "Sinister Woods canonique (Rescue Team) réinterprétée au chapitre 6 avec Team Dazzling et l’arc New Era. ID technique gloomy_forest conservé pour les sauvegardes.",
+    "Comment": "PMD Red EU canonical Sinister Woods (13 floors, b41, exact EU music), integrated into New Era chapter 6 and Team Dazzling arc. Legacy asset ID retained only for save compatibility.",
     "NoEXP": false,
     "ExpPercent": 100,
     "Level": -1,
@@ -541,7 +541,7 @@
               },
               "Range": {
                 "Min": 0,
-                "Max": 15
+                "Max": 7
               }
             }
           ]
@@ -564,9 +564,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Gloomy Forest",
+              "DefaultText": "Sinister Woods",
               "LocalTexts": {
-                "fr": "Forêt Lugubre"
+                "fr": "Forêt Sinistre"
               }
             },
             "Priority": {
@@ -4523,7 +4523,7 @@
           }
         ],
         "IsRelevant": true,
-        "Comment": "F01-F15 — fondation Sinister/Mystifying Forest; puis relais forestier Ground. Pokémon: table GBA Sinister Woods exacte, répétée selon cycle 13F pour extension New Era."
+        "Comment": "Sinister Woods 1F-7F — canonical first expedition leg before the guild-supported relay."
       },
       {
         "$type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
@@ -5027,7 +5027,7 @@
               },
               "Range": {
                 "Min": 0,
-                "Max": 5
+                "Max": 3
               }
             }
           ]
@@ -5050,9 +5050,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Gloomy Forest Depths",
+              "DefaultText": "Sinister Woods Depths",
               "LocalTexts": {
-                "fr": "Profondeurs de la Forêt Lugubre"
+                "fr": "Profondeurs de la Forêt Sinistre"
               }
             },
             "Priority": {
@@ -6566,7 +6566,7 @@
           }
         ],
         "IsRelevant": true,
-        "Comment": "F16-F20 — continuité canonique forestière après le relais. Pokémon: table GBA Sinister Woods exacte, répétée selon cycle 13F pour extension New Era."
+        "Comment": "Sinister Woods 8F-10F — rescue leg and Team Dazzling escalation."
       },
       {
         "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
@@ -7162,9 +7162,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Gloomy Forest Depths",
+              "DefaultText": "Sinister Woods Depths",
               "LocalTexts": {
-                "fr": "Profondeurs de la Forêt Lugubre"
+                "fr": "Profondeurs de la Forêt Sinistre"
               }
             },
             "Priority": {
@@ -8286,7 +8286,7 @@
           }
         ],
         "IsRelevant": true,
-        "Comment": "F21-F23 — Deep Shadow Forest, même architecture forestière avec visibilité et ambiance assombries. Pokémon: table GBA Sinister Woods exacte, répétée selon cycle 13F pour extension New Era."
+        "Comment": "Sinister Woods 11F-13F — final canonical depths leading to the clearing."
       },
       {
         "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
@@ -8327,9 +8327,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Heart of the Gloomy Forest",
+              "DefaultText": "Heart of the Sinister Woods",
               "LocalTexts": {
-                "fr": "Cœur de la Forêt Lugubre"
+                "fr": "Cœur de la Forêt Sinistre"
               }
             },
             "Priority": {

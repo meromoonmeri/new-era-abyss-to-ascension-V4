@@ -1040,7 +1040,7 @@ end
 
 
 
--- Story rescue used by Chapter 6's Gloomy Forest.  This deliberately follows
+-- Story rescue used by Chapter 6's Sinister Woods.  This deliberately follows
 -- the same BattleScriptEvent interaction path as ordinary rescue targets.
 function BATTLE_SCRIPT.TeamDazzlingChenipentRescue(owner, ownerChar, context, args)
   if SV.Chapter6.ChenipentFound then
