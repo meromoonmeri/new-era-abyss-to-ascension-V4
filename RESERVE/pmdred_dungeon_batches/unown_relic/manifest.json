@@ -1,0 +1,85 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_ROM_RECONSTRUCTED_PIXEL_STARTUP_RUNTIME_PASS",
+  "dungeon_id": 57,
+  "zone_id": "unown_relic",
+  "name_fr": "Ruines Zarbi",
+  "playable_floors": 11,
+  "canonical_music": {
+    "song_indices": [
+      21
+    ]
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      7
+    ],
+    "rom_reconstructed_id": 7,
+    "files": [
+      {
+        "path": "rom_b07_startup/Content/Tile/PMDRedB07.tile",
+        "bytes": 1096882,
+        "sha256": "3e1c1d9bc0dc1258b7339ffbf5a46e6553aee9c36198eb57b501d720e94897a5"
+      },
+      {
+        "path": "rom_b07_startup/Data/AutoTile/pmdred_b07_floor.json",
+        "bytes": 41621,
+        "sha256": "5f2d317107a7389403c51626b948ba7f1a1edbfe79f6dd2b9818bb60457fbac7"
+      },
+      {
+        "path": "rom_b07_startup/Data/AutoTile/pmdred_b07_secondary.json",
+        "bytes": 4355378,
+        "sha256": "39a29945c466feeaa8f5370ae63e4704ca6e57ec9a73579ac3b256a46f60cc61"
+      },
+      {
+        "path": "rom_b07_startup/Data/AutoTile/pmdred_b07_wall.json",
+        "bytes": 41590,
+        "sha256": "af4da876755a78d5ab04020f7642033fdc6e05b9e9d2ea3e2801790b6f7197f5"
+      },
+      {
+        "path": "rom_b07_startup/manifest.json",
+        "bytes": 35405,
+        "sha256": "9e3fa53bd8ab5a57ef324712db3b42b711f9d4517bd9919f687d840a70f6ae08"
+      },
+      {
+        "path": "rom_b07_startup/runtime/HASHES.sha256",
+        "bytes": 327,
+        "sha256": "6e64a533f63b28624e3f88c314c0673897a606e9dff122d03f320433650d9129"
+      },
+      {
+        "path": "rom_b07_startup/runtime/events.jsonl",
+        "bytes": 784,
+        "sha256": "44a2cebb0916d5a437ed1a02584bc483b2086976ceaac0ebe1d613d41209ff9d"
+      },
+      {
+        "path": "rom_b07_startup/runtime/fixture_manifest.json",
+        "bytes": 2680,
+        "sha256": "003c23c24d8e4b4db4007bdd659d38fb7e235ef350f3a8eb6c75e10c4cc7b6a1"
+      },
+      {
+        "path": "rom_b07_startup/runtime/runtime.log",
+        "bytes": 6031,
+        "sha256": "a8082f709db8154c7af222f63b6b0837cdf699cf02699dc67f9bfbf14182ffcd"
+      },
+      {
+        "path": "rom_b07_startup/runtime/validation.json",
+        "bytes": 603,
+        "sha256": "9075aa55d5275ffb6f3b9877256746fe774de64e5dabb18f4d038c47ae329621"
+      },
+      {
+        "path": "rom_b07_startup/validation.json",
+        "bytes": 1835,
+        "sha256": "44f58c6990a4b92be08ebacdd5a4adaa495374b56340412d00cf5f9656206a9f"
+      }
+    ],
+    "pixel_checks": 22320,
+    "runtime_evidence": "rom_b07_startup/runtime/validation.json"
+  },
+  "gates": {
+    "source_bound": true,
+    "pixel_differential": "PASS",
+    "startup_phase_adapter": "PASS",
+    "runtime": "PASS_MATERIAL_FIXTURE",
+    "promotion": false
+  }
+}

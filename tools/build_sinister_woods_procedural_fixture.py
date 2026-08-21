@@ -129,7 +129,8 @@ def install_probe(quest: Path) -> None:
 
 
 def install_startup_adapter(
-    quest: Path, sheet_name: str, categories: list[str], durations: list[int]
+    quest: Path, sheet_name: str, categories: list[str], durations: list[int],
+    record_specs: dict[int, tuple[int, int]],
 ) -> None:
     """Install the fixture-local exact one-shot CANM frame rotation adapter."""
     adapter_dir = quest / "Data/Script/halcyon/services/sinister_woods_b41_startup_adapter"
@@ -148,6 +149,10 @@ def install_startup_adapter(
     if not durations or any(value <= 0 for value in durations):
         raise ValueError("startup adapter requires positive CANM durations")
     duration_lua = ",".join(f"[{value}]=true" for value in durations)
+    record_lua = ",".join(
+        f"[{index}]={{duration={duration},count={count}}}"
+        for index, (duration, count) in sorted(record_specs.items())
+    )
     schedule_lua = []
     previous = 0
     for value in durations:
@@ -162,6 +167,7 @@ local V=Class('SinisterWoodsB41StartupAdapter',BaseService)
 local CATS={{{cats_lua}}}
 local FIELDS={{{fields_lua}}}
 local DURATIONS={{{duration_lua}}}
+local RECORDS={{{record_lua}}}
 local function each_layer(fn)
   for _,cat in ipairs(CATS) do
     local auto=_DATA:GetAutoTile(cat)
@@ -179,14 +185,15 @@ local function clock()return tonumber(RogueEssence.Content.GraphicsManager.Total
 local function restore_raw_startup()
   local count=0
   each_layer(function(layer)
-    if layer.Frames.Count==16 and DURATIONS[layer.FrameLength] then
+    if layer.Frames.Count>0 and DURATIONS[layer.FrameLength] then
       local first=layer.Frames[0]
       local x=first.TexLoc.X;local y=first.TexLoc.Y;local row=y%16
       local group=math.floor(y/16)
-      local record=math.floor((group-15)/16)-1
-      if record>=0 and record<16 then
+      local record=math.floor(group/16)-1
+      local spec=RECORDS[record]
+      if spec~=nil and layer.Frames.Count==spec.count then
         layer.Frames:RemoveAt(0)
-        layer.Frames:Add(frame(x,((1+record)*16+15)*16+row))
+        layer.Frames:Add(frame(x,((1+record)*16+spec.count-1)*16+row))
         layer.Frames:Insert(0,frame(x,(17*16+record)*16+row))
         count=count+1
       end
@@ -197,12 +204,16 @@ end
 local function publish_record(duration,origin)
   local count=0
   each_layer(function(layer)
-    if layer.Frames.Count==17 and layer.FrameLength==duration then
-      layer.Frames:RemoveAt(0)
-      local last=layer.Frames[layer.Frames.Count-1]
-      layer.Frames:RemoveAt(layer.Frames.Count-1)
-      layer.Frames:Insert(0,last)
-      count=count+1
+    if layer.Frames.Count>1 and layer.FrameLength==duration then
+      local first=layer.Frames[0]
+      local group=math.floor(first.TexLoc.Y/16)
+      if group>=17*16 then
+        layer.Frames:RemoveAt(0)
+        local last=layer.Frames[layer.Frames.Count-1]
+        layer.Frames:RemoveAt(layer.Frames.Count-1)
+        layer.Frames:Insert(0,last)
+        count=count+1
+      end
     end
   end)
   PrintInfo('[SINISTER_WOODS_B41_ADAPTER] published_duration='..tostring(duration)..' layers='..tostring(count)..' tick='..tostring(clock())..' delta='..tostring(clock()-(origin or clock())))
@@ -304,6 +315,7 @@ def build(output: Path, candidate: Path | None = None) -> Path:
     shutil.copy2(ROOT / "Data/MapStatus/deep_shadow.json", deep)
     startup_adapter = False
     startup_durations = [8, 12]
+    record_specs = {index: (12 if index < 13 else 8, 16) for index in range(16)}
     sheet_name = "TreeshroudForest1"
     auto_files = {
         "floor": "treeshroud_forest_1_floor.json",
@@ -321,12 +333,21 @@ def build(output: Path, candidate: Path | None = None) -> Path:
             int(value)
             for value in animation_adapter.get("first_published_state_tick_by_record", {}).values()
         }) or startup_durations
+        canm = next(
+            (value for key, value in candidate_manifest.items() if key.endswith("canm") and isinstance(value, dict) and "records" in value),
+            None,
+        )
+        if canm is not None:
+            record_specs = {
+                int(record["index"]): (int(record["duration_ticks"]), int(record["count"]))
+                for record in canm["records"] if int(record["index"]) < 16
+            }
     install_material_candidate(quest, candidate, auto_files)
     install_probe(quest)
     if startup_adapter:
         install_startup_adapter(
             quest, sheet_name, [Path(name).stem for name in auto_files.values()],
-            startup_durations,
+            startup_durations, record_specs,
         )
     prepare_content_overlay(output / "asset", candidate, sheet_name)
     manifest = json.loads((output / "fixture_manifest.json").read_text(encoding="utf-8"))

@@ -1,0 +1,63 @@
+{
+  "schema": "new-era.pmdred-eu.sinister-woods-b07-material-validation.v1",
+  "candidate": "RESERVE/pmdred_dungeon_batches/unown_relic/rom_b07_startup",
+  "rom_sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+  "source": {
+    "b07fon_sha256": "c09416021c45f6b1e45d7b764276ed4ba1289262f9693f07af57cea177fa0b1d",
+    "b07cel_sha256": "421e037cebe1ec2013e59db77f7140136ca06d8ce0f4534d965923caaa0995df",
+    "b07cex_sha256": "a9d6873370af4498fc60093f0aada929f059ea818750e985b1b7ad746ef9a543",
+    "b07pal_sha256": "8da96ae4661780f779065aa1ff2ae7676c0b6b4606f12b171705d3ed7d95d0c3",
+    "b07canm_root_sha256": "6a629b257dd22948dd5a4f916e361d7bac0a777bcfd5057607f13a0831bc5087"
+  },
+  "atlas_sha256": "3e1c1d9bc0dc1258b7339ffbf5a46e6553aee9c36198eb57b501d720e94897a5",
+  "categories": {
+    "floor": {
+      "codes": 47,
+      "variants": 3,
+      "layer_checks": 0,
+      "pixel_checks": 0,
+      "animated_chunks": 0
+    },
+    "wall": {
+      "codes": 47,
+      "variants": 3,
+      "layer_checks": 0,
+      "pixel_checks": 0,
+      "animated_chunks": 0
+    },
+    "secondary": {
+      "codes": 47,
+      "variants": 3,
+      "layer_checks": 0,
+      "pixel_checks": 0,
+      "animated_chunks": 141
+    }
+  },
+  "layer_checks": 1860,
+  "pixel_checks": 22320,
+  "canm_independent_durations": {
+    "0": 13,
+    "1": 13,
+    "2": 13,
+    "3": 13,
+    "4": 13,
+    "5": 13,
+    "6": 13,
+    "7": 7,
+    "8": 7,
+    "9": 7,
+    "10": 13,
+    "11": 13,
+    "12": 13,
+    "13": 13,
+    "14": 13,
+    "15": 13
+  },
+  "startup_raw_palette_policy": "staged as a one-shot frame only when the startup adapter candidate is enabled",
+  "startup_adapter_candidate": true,
+  "production_assets_written": false,
+  "d04p01_d04p02_touched": false,
+  "relic_forest_blobs_touched": false,
+  "result": "PASS",
+  "blockers": []
+}

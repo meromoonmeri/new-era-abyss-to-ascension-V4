@@ -1,0 +1,38 @@
+{
+  "schema": "new-era.pmdred-eu-b07-runtime.v1",
+  "status": "PASS_PIXEL_STARTUP_RUNTIME",
+  "runtime": {
+    "segments": [
+      0,
+      1,
+      3
+    ],
+    "publication_counts": {
+      "7": [
+        414,
+        414,
+        414
+      ],
+      "13": [
+        1446,
+        1446,
+        1446
+      ]
+    },
+    "startup_restore_counts": [
+      0,
+      1860,
+      1860
+    ],
+    "normal_unload": true,
+    "forbidden_diagnostics": []
+  },
+  "assertions": {
+    "segments": true,
+    "duration7": true,
+    "duration13": true,
+    "reentry": true,
+    "unload": true,
+    "clean": true
+  }
+}
