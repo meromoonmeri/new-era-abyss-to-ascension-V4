@@ -1,0 +1,52 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND_SHARED_PROCEDURAL_AND_DIRECT_FINAL",
+  "dungeon_id": 18,
+  "zone_id": "sky_tower_summit",
+  "name_fr": "Tour Céleste-Sommet",
+  "playable_floors": 9,
+  "canonical_music": {
+    "song_indices": [
+      23,
+      114
+    ],
+    "bundle": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      35,
+      71
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "procedural_files": [
+      {
+        "path": "Content/Tile/SkyTower.tile",
+        "bytes": 274024,
+        "sha256": "ba26ff0eb3e679907e76ae25963cdd91446af21f3bf9fc87d0e7048d56f48226"
+      },
+      {
+        "path": "Data/AutoTile/sky_tower_floor.json",
+        "bytes": 8800,
+        "sha256": "fcc3f7e5e09e52737dbb761a69f375ecb81454e7a6e087bc3321192789501cdb"
+      },
+      {
+        "path": "Data/AutoTile/sky_tower_secondary.json",
+        "bytes": 57911,
+        "sha256": "000e1dd4b24557fb52993afb9be903ba9b120b7e66b2e07f9a5e972f22cd6eaf"
+      },
+      {
+        "path": "Data/AutoTile/sky_tower_wall.json",
+        "bytes": 8458,
+        "sha256": "f98b816eea92cdef0fb8d3fe44b938f1c51bfb0ebbd39f9172a5093b058e31cb"
+      }
+    ],
+    "direct_final_gate": "RESERVE/pmdred_direct"
+  },
+  "gates": {
+    "source_bound": true,
+    "direct_final_separate": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}

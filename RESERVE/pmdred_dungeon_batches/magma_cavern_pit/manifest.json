@@ -1,0 +1,72 @@
+{
+  "schema": "new-era.pmdred-eu-dungeon-visual-stage.v1",
+  "status": "STAGED_SOURCE_BOUND_SHARED_PROCEDURAL_AND_DIRECT_FINAL",
+  "dungeon_id": 16,
+  "zone_id": "magma_cavern_pit",
+  "name_fr": "Mine Magma-Fond",
+  "playable_floors": 3,
+  "canonical_music": {
+    "song_indices": [
+      114,
+      124
+    ],
+    "bundle": "docs/pmdred_eu/playable/ALL_DUNGEON_MUSIC_BUNDLE_2026-08-21.json"
+  },
+  "canonical_tilesets": {
+    "rom_ids": [
+      48,
+      70
+    ],
+    "dumpasset_commit": "9d864d1425f002b051e7a54fffc639988d8ef9c9",
+    "procedural_files": [
+      {
+        "path": "Content/Tile/MagmaCavern2.tile",
+        "bytes": 385863,
+        "sha256": "396c5363ce68c70901085d906170f94163d0fbd47ae4ac872bc2e225d098854e"
+      },
+      {
+        "path": "Content/Tile/MagmaCavern3.tile",
+        "bytes": 1742410,
+        "sha256": "05421fc1c908f6884eb31641c4bafad097b2fac7b437f410eeaeab4bdc5673cd"
+      },
+      {
+        "path": "Data/AutoTile/magma_cavern_2_floor.json",
+        "bytes": 5861,
+        "sha256": "d5691004b97ae25f31eb0c58ae79cc1b4ef5638f02357acc6198d6f7680c8eea"
+      },
+      {
+        "path": "Data/AutoTile/magma_cavern_2_secondary.json",
+        "bytes": 30138,
+        "sha256": "33cb7d3a9e975221658782c5ffef7e3293ea6e4963d16451366e1a1d5ca380a8"
+      },
+      {
+        "path": "Data/AutoTile/magma_cavern_2_wall.json",
+        "bytes": 22298,
+        "sha256": "434e2d58c2074a920d44bec6ccd63bf5a399d32b6585f4282b90d8de712737a3"
+      },
+      {
+        "path": "Data/AutoTile/magma_cavern_3_floor.json",
+        "bytes": 77023,
+        "sha256": "07c10d7aa660b6f648f59387ea6e1baddaa3e09c34997fc546138752580ab9c4"
+      },
+      {
+        "path": "Data/AutoTile/magma_cavern_3_secondary.json",
+        "bytes": 73157,
+        "sha256": "00781ffe0b2daa78275a6d3a68a04ace16552ee4a31004637af7acabf1cf0670"
+      },
+      {
+        "path": "Data/AutoTile/magma_cavern_3_wall.json",
+        "bytes": 82202,
+        "sha256": "aea66652e395cb84531f7187e563ca2d2a90fb832b37487858a5c52e76deecbd"
+      }
+    ],
+    "direct_final_gate": "RESERVE/pmdred_direct"
+  },
+  "gates": {
+    "source_bound": true,
+    "direct_final_separate": true,
+    "pixel_differential": "PENDING",
+    "runtime": "PENDING",
+    "promotion": false
+  }
+}
