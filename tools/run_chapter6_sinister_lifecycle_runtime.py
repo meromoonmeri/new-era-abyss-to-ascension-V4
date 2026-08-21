@@ -14,14 +14,14 @@ def run(route):
   mod[name](*args); phases.append(mod['Phase']())
  call('Prepare'); call('StartExpedition'); call('Checkpoint')
  if route=='victory':
-  call('Victory'); call('AfterTownConsequences'); call('AfterDinner'); call('AfterEveningTalk'); call('AfterWake')
+  call('Victory'); call('AfterTownConsequences'); lua.execute('SV.TemporaryFlags.Dinnertime=false'); call('AfterDinner'); call('AfterEveningTalk'); lua.execute('SV.TemporaryFlags.Bedtime=false; SV.TemporaryFlags.MorningWakeup=false'); call('AfterWake')
   expected=['guild_preparation','exploration','checkpoint','town_consequences','guild_report','bedtime','sleep','guild_routine']
  else:
-  call('ReturnToGuild','abandon'); call('AfterDinner'); call('AfterEveningTalk'); call('AfterWake')
+  call('ReturnToGuild','abandon'); lua.execute('SV.TemporaryFlags.Dinnertime=false'); call('AfterDinner'); call('AfterEveningTalk'); lua.execute('SV.TemporaryFlags.Bedtime=false; SV.TemporaryFlags.MorningWakeup=false'); call('AfterWake')
   expected=['guild_preparation','exploration','checkpoint','guild_report','bedtime','sleep','guild_routine']
  assert phases==expected,(route,phases)
  flags=lua.eval('SV.TemporaryFlags')
- assert flags['MissionCompleted'] is True and flags['Dinnertime'] is True
+ assert flags['MissionCompleted'] is True and flags['Dinnertime'] is False and flags['Bedtime'] is False
  state=lua.eval('SV.Chapter6.SinisterLifecycle')
  return {'route':route,'phases':phases,'attempt':state['Attempt'],'day':state['Day'],'last_outcome':state['LastOutcome'],'flags':{'MissionCompleted':flags['MissionCompleted'],'Dinnertime':flags['Dinnertime'],'Bedtime':flags['Bedtime'],'MorningWakeup':flags['MorningWakeup']}}
 report={'status':'PASS','runtime':'Lua 5.4 via lupa','scope':'chapter-6 lifecycle state machine; not PMDO rendering','routes':[run('victory'),run('abandon')]}

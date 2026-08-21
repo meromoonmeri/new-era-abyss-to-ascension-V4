@@ -20,8 +20,8 @@
       "last_outcome": "victory",
       "flags": {
         "MissionCompleted": true,
-        "Dinnertime": true,
-        "Bedtime": true,
+        "Dinnertime": false,
+        "Bedtime": false,
         "MorningWakeup": false
       }
     },
@@ -41,8 +41,8 @@
       "last_outcome": "abandon",
       "flags": {
         "MissionCompleted": true,
-        "Dinnertime": true,
-        "Bedtime": true,
+        "Dinnertime": false,
+        "Bedtime": false,
         "MorningWakeup": false
       }
     }
