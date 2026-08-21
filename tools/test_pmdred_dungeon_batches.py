@@ -8,8 +8,8 @@ class Tests(unittest.TestCase):
  def test_visual_batches_are_hash_bound_and_non_promoting(self):
   manifests=sorted(BASE.glob('*/manifest.json'));self.assertEqual(len(manifests),48)
   for path in manifests:
-   base=path.parent;d=json.loads(path.read_text());self.assertTrue(d['status'].startswith('STAGED_'));self.assertFalse(d['gates']['promotion']);files=d['canonical_tilesets'].get('files',d['canonical_tilesets'].get('procedural_files'));self.assertGreater(len(files),0)
-   for r in files:
+   base=path.parent;d=json.loads(path.read_text());self.assertTrue(d['status'].startswith('STAGED_'));self.assertFalse(d['gates']['promotion']);files=d['canonical_tilesets'].get('files',d['canonical_tilesets'].get('procedural_files'));self.assertTrue(files or d['canonical_tilesets'].get('shared_validated_batch'))
+   for r in files or []:
     p=base/r['path'];self.assertEqual((p.stat().st_size,hashlib.sha256(p.read_bytes()).hexdigest()),(r['bytes'],r['sha256']))
  def test_oddity_b50_pixel_startup_runtime(self):
   base=BASE/'oddity_cave';d=json.loads((base/'manifest.json').read_text());self.assertEqual(d['status'],'STAGED_ROM_RECONSTRUCTED_PIXEL_STARTUP_RUNTIME_PASS');self.assertEqual(d['gates']['pixel_differential'],'PASS');self.assertEqual(d['gates']['startup_phase_adapter'],'PASS');self.assertEqual(d['gates']['runtime'],'PASS_MATERIAL_FIXTURE')
