@@ -1,0 +1,1381 @@
+{
+  "schema": "new-era.rawasset-dtef-source.v1",
+  "repository": "https://github.com/PMDCollab/RawAsset",
+  "path": "TileDtef/DarkCrater",
+  "ref": "master",
+  "format": "XML-less DTEF",
+  "files": [
+    {
+      "name": "tileset_0.png",
+      "bytes": 53708,
+      "sha256": "6e577e48a9f9b769f58e84888f349f123fe3d4ca871039d2362a776c6897227a",
+      "git_blob_sha": "d555b71c04c710acda3186c743f1de34d27dd1ac",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0.png"
+    },
+    {
+      "name": "tileset_0_frame0_0.6.png",
+      "bytes": 54313,
+      "sha256": "9cc31fa807b4ec9a5bfe5ef6fc48391cbe4bc233c2245148308836d60bd8069a",
+      "git_blob_sha": "f1fdda337b3385f5d757cc124663d3cc6f21efdd",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_0.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_1.6.png",
+      "bytes": 54307,
+      "sha256": "49025051b9b2d8a9716e84699741305f907162afeb6c67d55e1d6f3cb898b96b",
+      "git_blob_sha": "395c41461b9855ac1319cd2385612ee6c791fe83",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_1.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_10.6.png",
+      "bytes": 54023,
+      "sha256": "83d728345788df4005a7f180392bc1d7d23aa681e79e439c1d97cdfd862a1041",
+      "git_blob_sha": "130c0fad6d1049112dd5dcdf725a3471727ae2be",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_10.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_11.6.png",
+      "bytes": 54010,
+      "sha256": "a40bc5d609be532f3948eeff7d169b4be0c58382ea4db3da6484a77109a54b61",
+      "git_blob_sha": "5a456c4fa36df5ecd24d042f0ae3fea4d94f3315",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_11.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_12.6.png",
+      "bytes": 54023,
+      "sha256": "83d728345788df4005a7f180392bc1d7d23aa681e79e439c1d97cdfd862a1041",
+      "git_blob_sha": "130c0fad6d1049112dd5dcdf725a3471727ae2be",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_12.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_13.6.png",
+      "bytes": 54251,
+      "sha256": "62b210b354692687b662f1656e5f102379a4b596f0ee05aa4bc0c1349f7a9337",
+      "git_blob_sha": "e4f374d22fb7a7476db8a2497a35291c689f7aa6",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_13.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_14.6.png",
+      "bytes": 54061,
+      "sha256": "9b936d1a13329807d24413f826246da538ababa9efc4ac531f3321b59c8239db",
+      "git_blob_sha": "7ea9c6552db3394b753db23f7f0e169ebe8aa2ce",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_14.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_15.6.png",
+      "bytes": 54280,
+      "sha256": "edcd8dec5a4d63b2858e2f862ba68ccb9f5b7d4cafd317771ffca192b9a72bc4",
+      "git_blob_sha": "36300b5e1d09917b5be0ade4a558126b8136b8c4",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_15.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_16.6.png",
+      "bytes": 54232,
+      "sha256": "9cb7c5487e0faeeb429636bfd049dbea7c12e9da4ee6b1aded5782123ca3ebeb",
+      "git_blob_sha": "0913bfc97e8f2e5496bfc21f4dabf7b12c4591f2",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_16.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_17.6.png",
+      "bytes": 54297,
+      "sha256": "e3d2368eb876cc26cb8f8ac3c863555588e24f1e285f90e8551242412657c7b8",
+      "git_blob_sha": "db9623857b30e073938613b555330b438c1cb6a5",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_17.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_18.6.png",
+      "bytes": 54410,
+      "sha256": "5d27604b898e2412bd35b32c5f504614c87246aa190f0cd41e1ba82323319b16",
+      "git_blob_sha": "d93fd2dbebd5fec9dd1d756c2aeb72eb1c81f526",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_18.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_19.6.png",
+      "bytes": 54142,
+      "sha256": "4cb37b7871e40f60dc16cc8d54349f1a994f932b4625eea928fc9937de726209",
+      "git_blob_sha": "1ecc6b9a8276279545cc9c654e8e966028ee5b90",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_19.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_2.6.png",
+      "bytes": 54157,
+      "sha256": "d87eb3e02058126316ec5e243a39c41167e27a30ebfa24e59f5ad335631a8b4d",
+      "git_blob_sha": "061ec00b40744e3740bee741081d68969863011b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_2.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_20.6.png",
+      "bytes": 54230,
+      "sha256": "5b50e0d54b3fb0346e2bc95924d4309e969fe915ba75d393a6c84facf7eaeac0",
+      "git_blob_sha": "d3ae87e33a62720aa52cac41a8223bb4e3780163",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_20.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_21.6.png",
+      "bytes": 54307,
+      "sha256": "49025051b9b2d8a9716e84699741305f907162afeb6c67d55e1d6f3cb898b96b",
+      "git_blob_sha": "395c41461b9855ac1319cd2385612ee6c791fe83",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_21.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_22.6.png",
+      "bytes": 54313,
+      "sha256": "9cc31fa807b4ec9a5bfe5ef6fc48391cbe4bc233c2245148308836d60bd8069a",
+      "git_blob_sha": "f1fdda337b3385f5d757cc124663d3cc6f21efdd",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_22.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_3.6.png",
+      "bytes": 54142,
+      "sha256": "4cb37b7871e40f60dc16cc8d54349f1a994f932b4625eea928fc9937de726209",
+      "git_blob_sha": "1ecc6b9a8276279545cc9c654e8e966028ee5b90",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_3.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_4.6.png",
+      "bytes": 54261,
+      "sha256": "81c86991b32de31ef0a7c33e7815f15f56b2b5fb4db0a4a811704ce79cf2c3b4",
+      "git_blob_sha": "7c1138d5e41d67c10c1ca64776e8f5f22c4201e7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_4.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_5.6.png",
+      "bytes": 54297,
+      "sha256": "e3d2368eb876cc26cb8f8ac3c863555588e24f1e285f90e8551242412657c7b8",
+      "git_blob_sha": "db9623857b30e073938613b555330b438c1cb6a5",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_5.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_6.6.png",
+      "bytes": 54229,
+      "sha256": "14cddbc053b20050533843e946d84f1b8bc420677870066a97f5aea3465f4fd5",
+      "git_blob_sha": "519631e25acbb2e0d2542b31025fbb2a6f6211a5",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_6.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_7.6.png",
+      "bytes": 54270,
+      "sha256": "bc3111a1be3b898c775372047fa419a6b4ee4249a5a5a339bc92ed4170c2e0ae",
+      "git_blob_sha": "4ac91a7ce4feca550fd784335fddcd3be953a14f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_7.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_8.6.png",
+      "bytes": 54064,
+      "sha256": "e300a55fcf0de7b10709b4c4d114c9eaf224d341dbc7401ffedca29a4e488d9a",
+      "git_blob_sha": "fdb4907dd4f0290e5c9c28dbda238f94ceb71d73",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_8.6.png"
+    },
+    {
+      "name": "tileset_0_frame0_9.6.png",
+      "bytes": 54251,
+      "sha256": "62b210b354692687b662f1656e5f102379a4b596f0ee05aa4bc0c1349f7a9337",
+      "git_blob_sha": "e4f374d22fb7a7476db8a2497a35291c689f7aa6",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame0_9.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_0.10.png",
+      "bytes": 53741,
+      "sha256": "46c0fd7b4f598737313fb283d74878fa6013579ed676c278b5df1f1c9829bb8a",
+      "git_blob_sha": "a558d87809b8bb7d565194e7b49b3b340330201a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_0.10.png"
+    },
+    {
+      "name": "tileset_0_frame1_1.10.png",
+      "bytes": 53544,
+      "sha256": "646de18bbb66a859969935f42ab1a5ab6a803b70df5e7594c34b9f91c84dac57",
+      "git_blob_sha": "6b3f58338bebb61f76ee27fc67586cb2cec72f9e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_1.10.png"
+    },
+    {
+      "name": "tileset_0_frame1_10.10.png",
+      "bytes": 53335,
+      "sha256": "906271f4ec8b9933606e6b490169519ac123970822693207e62886c0bfb1599c",
+      "git_blob_sha": "fe8aee92e792a724a218129c7a7945c41ad4c0b3",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_10.10.png"
+    },
+    {
+      "name": "tileset_0_frame1_11.10.png",
+      "bytes": 53162,
+      "sha256": "4915ba46e0417fe8d37126d4b4d1bcb858eea6897ecbc064e1a7ffa7a902c44d",
+      "git_blob_sha": "7e55cdffc1383e1714c24f0c8f71cf794cfa3ba4",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_11.10.png"
+    },
+    {
+      "name": "tileset_0_frame1_12.10.png",
+      "bytes": 53162,
+      "sha256": "4915ba46e0417fe8d37126d4b4d1bcb858eea6897ecbc064e1a7ffa7a902c44d",
+      "git_blob_sha": "7e55cdffc1383e1714c24f0c8f71cf794cfa3ba4",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_12.10.png"
+    },
+    {
+      "name": "tileset_0_frame1_13.10.png",
+      "bytes": 53310,
+      "sha256": "9c60678adcc4fe4907739f2b4557b4bb5575a2c81d15d5b75a769f50434679fb",
+      "git_blob_sha": "fb2ed713597ba68c9369c018626ff1069cfa4f8b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_13.10.png"
+    },
+    {
+      "name": "tileset_0_frame1_14.10.png",
+      "bytes": 53310,
+      "sha256": "9c60678adcc4fe4907739f2b4557b4bb5575a2c81d15d5b75a769f50434679fb",
+      "git_blob_sha": "fb2ed713597ba68c9369c018626ff1069cfa4f8b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_14.10.png"
+    },
+    {
+      "name": "tileset_0_frame1_15.10.png",
+      "bytes": 53227,
+      "sha256": "96b52264cb65fd6879ac2faa6f0690804f2ed68f33d9d65a21029af6137504d9",
+      "git_blob_sha": "a45e8fee11959b1df825c91557a53233ab709bf0",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_15.10.png"
+    },
+    {
+      "name": "tileset_0_frame1_16.10.png",
+      "bytes": 53425,
+      "sha256": "19cecf22de48b14f21e900e5fef77c471f4d1c8782077be299e0920515586bd4",
+      "git_blob_sha": "e3be2ae8592e7709953c1b8697bd612680bcd2af",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_16.10.png"
+    },
+    {
+      "name": "tileset_0_frame1_17.10.png",
+      "bytes": 53186,
+      "sha256": "b8e702a893be24c14a6ed0349589a2d6667d13ce7dfa8ef4dc39b9718ff6fa06",
+      "git_blob_sha": "f4d126b1c51273a235b917787ebba1d4d5c7735c",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_17.10.png"
+    },
+    {
+      "name": "tileset_0_frame1_18.10.png",
+      "bytes": 53544,
+      "sha256": "646de18bbb66a859969935f42ab1a5ab6a803b70df5e7594c34b9f91c84dac57",
+      "git_blob_sha": "6b3f58338bebb61f76ee27fc67586cb2cec72f9e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_18.10.png"
+    },
+    {
+      "name": "tileset_0_frame1_19.10.png",
+      "bytes": 53741,
+      "sha256": "46c0fd7b4f598737313fb283d74878fa6013579ed676c278b5df1f1c9829bb8a",
+      "git_blob_sha": "a558d87809b8bb7d565194e7b49b3b340330201a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_19.10.png"
+    },
+    {
+      "name": "tileset_0_frame1_2.10.png",
+      "bytes": 53186,
+      "sha256": "b8e702a893be24c14a6ed0349589a2d6667d13ce7dfa8ef4dc39b9718ff6fa06",
+      "git_blob_sha": "f4d126b1c51273a235b917787ebba1d4d5c7735c",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_2.10.png"
+    },
+    {
+      "name": "tileset_0_frame1_3.10.png",
+      "bytes": 53425,
+      "sha256": "19cecf22de48b14f21e900e5fef77c471f4d1c8782077be299e0920515586bd4",
+      "git_blob_sha": "e3be2ae8592e7709953c1b8697bd612680bcd2af",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_3.10.png"
+    },
+    {
+      "name": "tileset_0_frame1_4.10.png",
+      "bytes": 53227,
+      "sha256": "96b52264cb65fd6879ac2faa6f0690804f2ed68f33d9d65a21029af6137504d9",
+      "git_blob_sha": "a45e8fee11959b1df825c91557a53233ab709bf0",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_4.10.png"
+    },
+    {
+      "name": "tileset_0_frame1_5.10.png",
+      "bytes": 53310,
+      "sha256": "9c60678adcc4fe4907739f2b4557b4bb5575a2c81d15d5b75a769f50434679fb",
+      "git_blob_sha": "fb2ed713597ba68c9369c018626ff1069cfa4f8b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_5.10.png"
+    },
+    {
+      "name": "tileset_0_frame1_6.10.png",
+      "bytes": 53310,
+      "sha256": "9c60678adcc4fe4907739f2b4557b4bb5575a2c81d15d5b75a769f50434679fb",
+      "git_blob_sha": "fb2ed713597ba68c9369c018626ff1069cfa4f8b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_6.10.png"
+    },
+    {
+      "name": "tileset_0_frame1_7.10.png",
+      "bytes": 53162,
+      "sha256": "4915ba46e0417fe8d37126d4b4d1bcb858eea6897ecbc064e1a7ffa7a902c44d",
+      "git_blob_sha": "7e55cdffc1383e1714c24f0c8f71cf794cfa3ba4",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_7.10.png"
+    },
+    {
+      "name": "tileset_0_frame1_8.10.png",
+      "bytes": 53335,
+      "sha256": "906271f4ec8b9933606e6b490169519ac123970822693207e62886c0bfb1599c",
+      "git_blob_sha": "fe8aee92e792a724a218129c7a7945c41ad4c0b3",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_8.10.png"
+    },
+    {
+      "name": "tileset_0_frame1_9.10.png",
+      "bytes": 53378,
+      "sha256": "d1ccf731992e97ef272e5edb31c0512823da5ac6c3fa1430cfa31a36df9f6b8d",
+      "git_blob_sha": "c3c5fec8a00a536051e03e96c1a15d0093fd114f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_0_frame1_9.10.png"
+    },
+    {
+      "name": "tileset_1.png",
+      "bytes": 5264,
+      "sha256": "ec3a63ef663e1171a1a785d331c06051151ee4a2ecbeefdeee915402a1c1fa08",
+      "git_blob_sha": "04f5ac887f9a54f29ba76f41c79c5b4556ce94c7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1.png"
+    },
+    {
+      "name": "tileset_1_frame0_0.6.png",
+      "bytes": 5294,
+      "sha256": "f9d76a4542594a2c80435e9c5d56abc3f51fb8f73e4e2b38138eda0dc12452bd",
+      "git_blob_sha": "6efc2b264555c3bb2e218661dc434c87a00e2da5",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_0.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_1.6.png",
+      "bytes": 5288,
+      "sha256": "9247ad44b8fae84bf8a862851e3a69d2074505000aedb92fbb3f218e12c12ba8",
+      "git_blob_sha": "b23a4389461b012d0e4cf342abe1f75bf1b63c6d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_1.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_10.6.png",
+      "bytes": 5307,
+      "sha256": "3e6e7ca92190bfc6f6809f75a81618b900264de42674589dcfa8335e8895aafa",
+      "git_blob_sha": "7bb289c15257889e6d867ffe69fe9ec0e5d8973b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_10.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_11.6.png",
+      "bytes": 5307,
+      "sha256": "72b124de4907ec0e77656fe8ecef0ba63e7fb3c265a5fee36d53db0215626cb1",
+      "git_blob_sha": "0010bc10c2314189a57744de2ae9664a097da9d8",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_11.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_12.6.png",
+      "bytes": 5307,
+      "sha256": "3e6e7ca92190bfc6f6809f75a81618b900264de42674589dcfa8335e8895aafa",
+      "git_blob_sha": "7bb289c15257889e6d867ffe69fe9ec0e5d8973b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_12.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_13.6.png",
+      "bytes": 5330,
+      "sha256": "c8f1709d721cd3340848e0af540615b71b3ec8bcc0f16e5669eecef28b7ec3a3",
+      "git_blob_sha": "20a071d3ac8119e32113386035c3c37c84af8812",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_13.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_14.6.png",
+      "bytes": 5326,
+      "sha256": "0a1036b42847768f3ce4f6218eaf7ba862cad43da690a46c96f277c6dbffebd4",
+      "git_blob_sha": "c00a2db4ad89f977696c1d9720e4096be0bf58e0",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_14.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_15.6.png",
+      "bytes": 5336,
+      "sha256": "af8bef4b9c7b4af0ddce345fdafad0c8870899733e69fa72bb5e36b998c132a1",
+      "git_blob_sha": "8d7584f97a591f574a788e93ed4b4c0fb3f7227e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_15.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_16.6.png",
+      "bytes": 5310,
+      "sha256": "776757ae7b453eb63701eec8c7fec5ff47968a3106d4e952f998d32004f13b8b",
+      "git_blob_sha": "65d1282422422fd57ed666ce0a4427895547bdee",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_16.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_17.6.png",
+      "bytes": 5304,
+      "sha256": "7b8cb6fcfb6ec7f3e2928b39af9bd20325af82b55b39de52e13e083cf4ace1ac",
+      "git_blob_sha": "d394972b770e4bf8e5e34d3aa39829d4f2d30e35",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_17.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_18.6.png",
+      "bytes": 5303,
+      "sha256": "c2f7f3d1d07eb01f0d0c06f3ccee53a970e2e3dec872c059b59fb0de1dc12988",
+      "git_blob_sha": "4de996783b5eac380274563d295232f2e1329475",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_18.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_19.6.png",
+      "bytes": 5305,
+      "sha256": "ef7804a4fdcdf1fe3b6336cbdbb5dc5fe96a699cb15c5689043733718e11fb4c",
+      "git_blob_sha": "f757f758e15fb3acab516f5f2d79a22a6f69eedd",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_19.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_2.6.png",
+      "bytes": 5282,
+      "sha256": "6c50a46fe240c0889eb5d2b8d08e81f9cbed314abe9b78aad5ecc15f8a4fd7c6",
+      "git_blob_sha": "2bac63a9458dd19a461ddbcf664cc1d828f8b190",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_2.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_20.6.png",
+      "bytes": 5283,
+      "sha256": "c1645653f77bf0c66c1ff42b817e8aa85cad3b97125e57d93baa77cbed929f60",
+      "git_blob_sha": "b88e275b7c68bb71a8b25e1c90a37209deb58df0",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_20.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_21.6.png",
+      "bytes": 5288,
+      "sha256": "9247ad44b8fae84bf8a862851e3a69d2074505000aedb92fbb3f218e12c12ba8",
+      "git_blob_sha": "b23a4389461b012d0e4cf342abe1f75bf1b63c6d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_21.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_22.6.png",
+      "bytes": 5294,
+      "sha256": "f9d76a4542594a2c80435e9c5d56abc3f51fb8f73e4e2b38138eda0dc12452bd",
+      "git_blob_sha": "6efc2b264555c3bb2e218661dc434c87a00e2da5",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_22.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_3.6.png",
+      "bytes": 5305,
+      "sha256": "ef7804a4fdcdf1fe3b6336cbdbb5dc5fe96a699cb15c5689043733718e11fb4c",
+      "git_blob_sha": "f757f758e15fb3acab516f5f2d79a22a6f69eedd",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_3.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_4.6.png",
+      "bytes": 5302,
+      "sha256": "48f7d2f8ba1711cbd96b92ab745361403b35702ebb29b7cf7501a335385f576d",
+      "git_blob_sha": "3362ef7fe01370857ee26208e075cf954d5b0d69",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_4.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_5.6.png",
+      "bytes": 5304,
+      "sha256": "7b8cb6fcfb6ec7f3e2928b39af9bd20325af82b55b39de52e13e083cf4ace1ac",
+      "git_blob_sha": "d394972b770e4bf8e5e34d3aa39829d4f2d30e35",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_5.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_6.6.png",
+      "bytes": 5330,
+      "sha256": "ec5d38efb5419cad266133f26cecac050da57351327f28c2ef6dc1e4ea7e82a4",
+      "git_blob_sha": "b216015db2bace0899be68c259efb20384945d96",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_6.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_7.6.png",
+      "bytes": 5318,
+      "sha256": "afcef4543cc23b74957bcde9a64f0a2d9f522cc3369804dd8bc72faf0897926e",
+      "git_blob_sha": "b25a58892f16ab024337f0bb915710bd07d3478a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_7.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_8.6.png",
+      "bytes": 5327,
+      "sha256": "ddc059852f64f9fdca2d9ae74ee46b9ce54e85892d35090af6aaf98251872f1c",
+      "git_blob_sha": "da3ff5b809df94668497a10397864716d8d6e813",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_8.6.png"
+    },
+    {
+      "name": "tileset_1_frame0_9.6.png",
+      "bytes": 5330,
+      "sha256": "c8f1709d721cd3340848e0af540615b71b3ec8bcc0f16e5669eecef28b7ec3a3",
+      "git_blob_sha": "20a071d3ac8119e32113386035c3c37c84af8812",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame0_9.6.png"
+    },
+    {
+      "name": "tileset_1_frame1_0.10.png",
+      "bytes": 5334,
+      "sha256": "9891c45b6e6ba035cb80d2f2f73c14c26963b926d2680a7becbc440549ec1ec4",
+      "git_blob_sha": "6cb42cffcaa7a3fc5bb4a8823ef364a359cb0d19",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_0.10.png"
+    },
+    {
+      "name": "tileset_1_frame1_1.10.png",
+      "bytes": 5259,
+      "sha256": "60e421b96aa0fa3cd84e9ba3afba4bb2e70adca9b65fdebc38787ec21f8e6d08",
+      "git_blob_sha": "d3d0d49cb4faf72048582fa012828b8289fdf11f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_1.10.png"
+    },
+    {
+      "name": "tileset_1_frame1_10.10.png",
+      "bytes": 5252,
+      "sha256": "8717e5e45bbcd2c5504163a0c7f0e9d66fc052d910accdcbb3f6933283a180db",
+      "git_blob_sha": "16f4c0895284ed5fecb34de9e44973f8d2c692d9",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_10.10.png"
+    },
+    {
+      "name": "tileset_1_frame1_11.10.png",
+      "bytes": 5220,
+      "sha256": "65b379fdb0f37dfb133c7232d87f3f5cac4f0312f5100f5f586c488007640bae",
+      "git_blob_sha": "8deda659ba0618f44467c88facdd3da0c14445b8",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_11.10.png"
+    },
+    {
+      "name": "tileset_1_frame1_12.10.png",
+      "bytes": 5220,
+      "sha256": "65b379fdb0f37dfb133c7232d87f3f5cac4f0312f5100f5f586c488007640bae",
+      "git_blob_sha": "8deda659ba0618f44467c88facdd3da0c14445b8",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_12.10.png"
+    },
+    {
+      "name": "tileset_1_frame1_13.10.png",
+      "bytes": 5242,
+      "sha256": "634f0cbf444e52c49d084ed9aaf2d727525ea01b4db420e6e44ccb4656f1fa18",
+      "git_blob_sha": "f82079b9fd9051ab4bcc6cf572616fca14640a33",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_13.10.png"
+    },
+    {
+      "name": "tileset_1_frame1_14.10.png",
+      "bytes": 5242,
+      "sha256": "634f0cbf444e52c49d084ed9aaf2d727525ea01b4db420e6e44ccb4656f1fa18",
+      "git_blob_sha": "f82079b9fd9051ab4bcc6cf572616fca14640a33",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_14.10.png"
+    },
+    {
+      "name": "tileset_1_frame1_15.10.png",
+      "bytes": 5210,
+      "sha256": "bff321ad112a21f35d83f0f8e4d96fcf01547d1fcb7c2ba5ec2a34701372fcc2",
+      "git_blob_sha": "7b8d36ead72b51fcc4c3e4c6991a83a2d41b147b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_15.10.png"
+    },
+    {
+      "name": "tileset_1_frame1_16.10.png",
+      "bytes": 5244,
+      "sha256": "318bcefd62e6fe1c412c969658ddedd131202823456cb282f0c1bdf09105a238",
+      "git_blob_sha": "82c5ce206ae41e76de5a4c88215ded57ebb45dd4",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_16.10.png"
+    },
+    {
+      "name": "tileset_1_frame1_17.10.png",
+      "bytes": 5224,
+      "sha256": "6faa7b0d9b1d55c74ec3f9e1cdc71a7fd388fae187b8bcf9e02bf9459523f107",
+      "git_blob_sha": "b97daacc2793d8f40e664035b5a53e478e35717b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_17.10.png"
+    },
+    {
+      "name": "tileset_1_frame1_18.10.png",
+      "bytes": 5259,
+      "sha256": "60e421b96aa0fa3cd84e9ba3afba4bb2e70adca9b65fdebc38787ec21f8e6d08",
+      "git_blob_sha": "d3d0d49cb4faf72048582fa012828b8289fdf11f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_18.10.png"
+    },
+    {
+      "name": "tileset_1_frame1_19.10.png",
+      "bytes": 5334,
+      "sha256": "9891c45b6e6ba035cb80d2f2f73c14c26963b926d2680a7becbc440549ec1ec4",
+      "git_blob_sha": "6cb42cffcaa7a3fc5bb4a8823ef364a359cb0d19",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_19.10.png"
+    },
+    {
+      "name": "tileset_1_frame1_2.10.png",
+      "bytes": 5224,
+      "sha256": "6faa7b0d9b1d55c74ec3f9e1cdc71a7fd388fae187b8bcf9e02bf9459523f107",
+      "git_blob_sha": "b97daacc2793d8f40e664035b5a53e478e35717b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_2.10.png"
+    },
+    {
+      "name": "tileset_1_frame1_3.10.png",
+      "bytes": 5244,
+      "sha256": "318bcefd62e6fe1c412c969658ddedd131202823456cb282f0c1bdf09105a238",
+      "git_blob_sha": "82c5ce206ae41e76de5a4c88215ded57ebb45dd4",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_3.10.png"
+    },
+    {
+      "name": "tileset_1_frame1_4.10.png",
+      "bytes": 5210,
+      "sha256": "bff321ad112a21f35d83f0f8e4d96fcf01547d1fcb7c2ba5ec2a34701372fcc2",
+      "git_blob_sha": "7b8d36ead72b51fcc4c3e4c6991a83a2d41b147b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_4.10.png"
+    },
+    {
+      "name": "tileset_1_frame1_5.10.png",
+      "bytes": 5242,
+      "sha256": "634f0cbf444e52c49d084ed9aaf2d727525ea01b4db420e6e44ccb4656f1fa18",
+      "git_blob_sha": "f82079b9fd9051ab4bcc6cf572616fca14640a33",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_5.10.png"
+    },
+    {
+      "name": "tileset_1_frame1_6.10.png",
+      "bytes": 5242,
+      "sha256": "634f0cbf444e52c49d084ed9aaf2d727525ea01b4db420e6e44ccb4656f1fa18",
+      "git_blob_sha": "f82079b9fd9051ab4bcc6cf572616fca14640a33",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_6.10.png"
+    },
+    {
+      "name": "tileset_1_frame1_7.10.png",
+      "bytes": 5220,
+      "sha256": "65b379fdb0f37dfb133c7232d87f3f5cac4f0312f5100f5f586c488007640bae",
+      "git_blob_sha": "8deda659ba0618f44467c88facdd3da0c14445b8",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_7.10.png"
+    },
+    {
+      "name": "tileset_1_frame1_8.10.png",
+      "bytes": 5252,
+      "sha256": "8717e5e45bbcd2c5504163a0c7f0e9d66fc052d910accdcbb3f6933283a180db",
+      "git_blob_sha": "16f4c0895284ed5fecb34de9e44973f8d2c692d9",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_8.10.png"
+    },
+    {
+      "name": "tileset_1_frame1_9.10.png",
+      "bytes": 5263,
+      "sha256": "0f1d39a2c0cdac43ae6fa1261df0983a92c1b13a2d691e1925f039526e03886d",
+      "git_blob_sha": "7be6cc94ff21e0dd6ff246d1c37d7ad20a730c18",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame1_9.10.png"
+    },
+    {
+      "name": "tileset_1_frame2_0.4.png",
+      "bytes": 5338,
+      "sha256": "6ed1ae3f4d33138124eaf6c161d399083d5a00076d7e72050576e0696190bb0d",
+      "git_blob_sha": "e607cce6fcb1112dd8451d7acd425d22ac9dab1e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_0.4.png"
+    },
+    {
+      "name": "tileset_1_frame2_1.4.png",
+      "bytes": 5338,
+      "sha256": "6ed1ae3f4d33138124eaf6c161d399083d5a00076d7e72050576e0696190bb0d",
+      "git_blob_sha": "e607cce6fcb1112dd8451d7acd425d22ac9dab1e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_1.4.png"
+    },
+    {
+      "name": "tileset_1_frame2_10.4.png",
+      "bytes": 5338,
+      "sha256": "6ed1ae3f4d33138124eaf6c161d399083d5a00076d7e72050576e0696190bb0d",
+      "git_blob_sha": "e607cce6fcb1112dd8451d7acd425d22ac9dab1e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_10.4.png"
+    },
+    {
+      "name": "tileset_1_frame2_11.4.png",
+      "bytes": 5335,
+      "sha256": "4fe1859aadfe9be4cb2c15c8c543ee867e8f87c1952f39f6476e17e95c752db8",
+      "git_blob_sha": "88c9ae44dbdd37c6cf6ac0c200567e773a455801",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_11.4.png"
+    },
+    {
+      "name": "tileset_1_frame2_12.4.png",
+      "bytes": 5339,
+      "sha256": "facfa42a3cb74d879ba5d3ba385cf5200c2d38d290a31bd0e5d1789fd89fb914",
+      "git_blob_sha": "ddcf5610d7a263eef95ef43fec2e3c44b86e9d83",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_12.4.png"
+    },
+    {
+      "name": "tileset_1_frame2_13.4.png",
+      "bytes": 5338,
+      "sha256": "6ed1ae3f4d33138124eaf6c161d399083d5a00076d7e72050576e0696190bb0d",
+      "git_blob_sha": "e607cce6fcb1112dd8451d7acd425d22ac9dab1e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_13.4.png"
+    },
+    {
+      "name": "tileset_1_frame2_14.4.png",
+      "bytes": 5338,
+      "sha256": "6ed1ae3f4d33138124eaf6c161d399083d5a00076d7e72050576e0696190bb0d",
+      "git_blob_sha": "e607cce6fcb1112dd8451d7acd425d22ac9dab1e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_14.4.png"
+    },
+    {
+      "name": "tileset_1_frame2_15.4.png",
+      "bytes": 5341,
+      "sha256": "41b84e6f818c2ae8aecf1ecb54acdc8ebab1746f922669ed89097217d645955f",
+      "git_blob_sha": "8cda095e2389bd15e9c26c1e22f7eda9f271ba58",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_15.4.png"
+    },
+    {
+      "name": "tileset_1_frame2_16.4.png",
+      "bytes": 5338,
+      "sha256": "6ed1ae3f4d33138124eaf6c161d399083d5a00076d7e72050576e0696190bb0d",
+      "git_blob_sha": "e607cce6fcb1112dd8451d7acd425d22ac9dab1e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_16.4.png"
+    },
+    {
+      "name": "tileset_1_frame2_17.4.png",
+      "bytes": 5339,
+      "sha256": "facfa42a3cb74d879ba5d3ba385cf5200c2d38d290a31bd0e5d1789fd89fb914",
+      "git_blob_sha": "ddcf5610d7a263eef95ef43fec2e3c44b86e9d83",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_17.4.png"
+    },
+    {
+      "name": "tileset_1_frame2_18.4.png",
+      "bytes": 5339,
+      "sha256": "facfa42a3cb74d879ba5d3ba385cf5200c2d38d290a31bd0e5d1789fd89fb914",
+      "git_blob_sha": "ddcf5610d7a263eef95ef43fec2e3c44b86e9d83",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_18.4.png"
+    },
+    {
+      "name": "tileset_1_frame2_19.4.png",
+      "bytes": 5338,
+      "sha256": "6ed1ae3f4d33138124eaf6c161d399083d5a00076d7e72050576e0696190bb0d",
+      "git_blob_sha": "e607cce6fcb1112dd8451d7acd425d22ac9dab1e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_19.4.png"
+    },
+    {
+      "name": "tileset_1_frame2_2.4.png",
+      "bytes": 5338,
+      "sha256": "6ed1ae3f4d33138124eaf6c161d399083d5a00076d7e72050576e0696190bb0d",
+      "git_blob_sha": "e607cce6fcb1112dd8451d7acd425d22ac9dab1e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_2.4.png"
+    },
+    {
+      "name": "tileset_1_frame2_3.4.png",
+      "bytes": 5335,
+      "sha256": "4fe1859aadfe9be4cb2c15c8c543ee867e8f87c1952f39f6476e17e95c752db8",
+      "git_blob_sha": "88c9ae44dbdd37c6cf6ac0c200567e773a455801",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_3.4.png"
+    },
+    {
+      "name": "tileset_1_frame2_4.4.png",
+      "bytes": 5338,
+      "sha256": "6ed1ae3f4d33138124eaf6c161d399083d5a00076d7e72050576e0696190bb0d",
+      "git_blob_sha": "e607cce6fcb1112dd8451d7acd425d22ac9dab1e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_4.4.png"
+    },
+    {
+      "name": "tileset_1_frame2_5.4.png",
+      "bytes": 5338,
+      "sha256": "6ed1ae3f4d33138124eaf6c161d399083d5a00076d7e72050576e0696190bb0d",
+      "git_blob_sha": "e607cce6fcb1112dd8451d7acd425d22ac9dab1e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_5.4.png"
+    },
+    {
+      "name": "tileset_1_frame2_6.4.png",
+      "bytes": 5341,
+      "sha256": "41b84e6f818c2ae8aecf1ecb54acdc8ebab1746f922669ed89097217d645955f",
+      "git_blob_sha": "8cda095e2389bd15e9c26c1e22f7eda9f271ba58",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_6.4.png"
+    },
+    {
+      "name": "tileset_1_frame2_7.4.png",
+      "bytes": 5339,
+      "sha256": "facfa42a3cb74d879ba5d3ba385cf5200c2d38d290a31bd0e5d1789fd89fb914",
+      "git_blob_sha": "ddcf5610d7a263eef95ef43fec2e3c44b86e9d83",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_7.4.png"
+    },
+    {
+      "name": "tileset_1_frame2_8.4.png",
+      "bytes": 5338,
+      "sha256": "6ed1ae3f4d33138124eaf6c161d399083d5a00076d7e72050576e0696190bb0d",
+      "git_blob_sha": "e607cce6fcb1112dd8451d7acd425d22ac9dab1e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_8.4.png"
+    },
+    {
+      "name": "tileset_1_frame2_9.4.png",
+      "bytes": 5345,
+      "sha256": "3f371648bb93a4c5ed551edaeeb81b48ec551a3ffb7d3b13f66ccc84cf635c1a",
+      "git_blob_sha": "6e8d08e813d42507c1f9310500e757702abe4665",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_1_frame2_9.4.png"
+    },
+    {
+      "name": "tileset_2.png",
+      "bytes": 5938,
+      "sha256": "7fc79929ab3f5fb0d2c2fd59c04bea9f5f0980bd2f32e688f0a656e2a83b3645",
+      "git_blob_sha": "c7567e38b7430da5a77503a47effc7aa3dceef1a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2.png"
+    },
+    {
+      "name": "tileset_2_frame0_0.6.png",
+      "bytes": 5969,
+      "sha256": "b099688fd3a03c061f30d873983c8e88c0d9766713a41e263124f1f81870f786",
+      "git_blob_sha": "39b7aa54905f0d406d726fb3c89afbd0022f6cf9",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_0.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_1.6.png",
+      "bytes": 5929,
+      "sha256": "dae32a9f5b08b2aed2765187c1c3640b73396e9a3527d219a864437cee95164c",
+      "git_blob_sha": "470c0057d8611b5986ad98fbe430acd50bc29a37",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_1.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_10.6.png",
+      "bytes": 5969,
+      "sha256": "ee8cef935f9bece482a1d7aa3b6e57ebbc24158efbf110138413633dab409379",
+      "git_blob_sha": "1e5a6f580983136cea850ba44e88ff1ab9baee0b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_10.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_11.6.png",
+      "bytes": 5969,
+      "sha256": "0459d4a0d9e3c860d75746de5409c45877faee3b5230b7f4775ca9a9eea9e47f",
+      "git_blob_sha": "37d7382d15cbe5e08a364f58b0f264753f54d395",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_11.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_12.6.png",
+      "bytes": 5969,
+      "sha256": "ee8cef935f9bece482a1d7aa3b6e57ebbc24158efbf110138413633dab409379",
+      "git_blob_sha": "1e5a6f580983136cea850ba44e88ff1ab9baee0b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_12.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_13.6.png",
+      "bytes": 5972,
+      "sha256": "a4e8e75a7a0de44e85563af2839640b84480a1e8f6be1633250857014f282cae",
+      "git_blob_sha": "183fe62f523ba58e5cf10f43a40446a8b91cf8ab",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_13.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_14.6.png",
+      "bytes": 5969,
+      "sha256": "407550d403fe2cacc1c2fe9f03f9e72a1817fd37f5e88b1b1f71e5b521106465",
+      "git_blob_sha": "f3b71ac0d4c5cd8969e480347748d961f915fa91",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_14.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_15.6.png",
+      "bytes": 6001,
+      "sha256": "03ad94fb6ea1f339b716f962efe435bfff8c1cf0342f473935779d64c57f4bc0",
+      "git_blob_sha": "75872b16c49b58f1bd96465fb9a0ce7008a9ec1a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_15.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_16.6.png",
+      "bytes": 5954,
+      "sha256": "2f54b886926ac995bd4cee51f683d9934d268cd882cce3c9f02137175397c613",
+      "git_blob_sha": "988931d410b37d20e15dc0c5f0cdd89a677a2e9a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_16.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_17.6.png",
+      "bytes": 5991,
+      "sha256": "dfe390343aa6b6fa091de9a2d3ea850ca5a253da016cd01c6f467680aacb9ac3",
+      "git_blob_sha": "c87f6266b5eea687701964e04ca5c0c85a969ebf",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_17.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_18.6.png",
+      "bytes": 5925,
+      "sha256": "151980b8c04136d6ccfe486ecc2737ea8b94a57f828eceb2fa51c635d1878e16",
+      "git_blob_sha": "6c4cbb2c82fea1f0a870ff479f286e45d5ac2a3d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_18.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_19.6.png",
+      "bytes": 5997,
+      "sha256": "0a6e72005f55d06dd745ea62079907986f3ca4db6cada5ca106f27490c942112",
+      "git_blob_sha": "28ac7f4669a2243e7e67fb6e63a63e6874d5ff03",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_19.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_2.6.png",
+      "bytes": 5989,
+      "sha256": "6fbf76e31cb328fef4276f6f8bfc09c0a69a7c8f9006bb1e24465dca07b81054",
+      "git_blob_sha": "4a3da2ba329ccf3ed05f99ac21c566dccbd1fa74",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_2.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_20.6.png",
+      "bytes": 5989,
+      "sha256": "18600d680f53d3b1cdd94e95a66c84b7927d9570f9848af2662cf1b09e412e47",
+      "git_blob_sha": "86ea2dc3ef247968255497134e2d856f05c9d2c7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_20.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_21.6.png",
+      "bytes": 5929,
+      "sha256": "dae32a9f5b08b2aed2765187c1c3640b73396e9a3527d219a864437cee95164c",
+      "git_blob_sha": "470c0057d8611b5986ad98fbe430acd50bc29a37",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_21.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_22.6.png",
+      "bytes": 5969,
+      "sha256": "b099688fd3a03c061f30d873983c8e88c0d9766713a41e263124f1f81870f786",
+      "git_blob_sha": "39b7aa54905f0d406d726fb3c89afbd0022f6cf9",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_22.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_3.6.png",
+      "bytes": 5997,
+      "sha256": "0a6e72005f55d06dd745ea62079907986f3ca4db6cada5ca106f27490c942112",
+      "git_blob_sha": "28ac7f4669a2243e7e67fb6e63a63e6874d5ff03",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_3.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_4.6.png",
+      "bytes": 5992,
+      "sha256": "b883cd9b6472373d93dfbd02d9dcc7c1f4612099bea351a43c167e0b273fdfb0",
+      "git_blob_sha": "0fb98517e48808ecd9c984c013d6b7e8e8817891",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_4.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_5.6.png",
+      "bytes": 5991,
+      "sha256": "dfe390343aa6b6fa091de9a2d3ea850ca5a253da016cd01c6f467680aacb9ac3",
+      "git_blob_sha": "c87f6266b5eea687701964e04ca5c0c85a969ebf",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_5.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_6.6.png",
+      "bytes": 5944,
+      "sha256": "5826d45c33bd5c222f8f171b1bcfdb72bd337f990057de907c5db4b73f6b46af",
+      "git_blob_sha": "d8f55b8c9d74180ec43d6ebcf21972378ebceecc",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_6.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_7.6.png",
+      "bytes": 6001,
+      "sha256": "c9d100056ba3f82e910da06f4db57eb811a293a1dd34f5bd29a7681be542944d",
+      "git_blob_sha": "ddb1ae43eaf551d05a54b4e86d3ac854760e5800",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_7.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_8.6.png",
+      "bytes": 5968,
+      "sha256": "ea11b8c886ba3ed33aef8bfed0ead21bf9d3c534833e893a1fb41dabc6a3a78d",
+      "git_blob_sha": "caca875bf1e69550f4618aa8872dbb3626e630a0",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_8.6.png"
+    },
+    {
+      "name": "tileset_2_frame0_9.6.png",
+      "bytes": 5972,
+      "sha256": "a4e8e75a7a0de44e85563af2839640b84480a1e8f6be1633250857014f282cae",
+      "git_blob_sha": "183fe62f523ba58e5cf10f43a40446a8b91cf8ab",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame0_9.6.png"
+    },
+    {
+      "name": "tileset_2_frame1_0.10.png",
+      "bytes": 6024,
+      "sha256": "061f808ae66cba9cbe6f745c95ff96075f2b307027ffb37d2e428f6406b8cba4",
+      "git_blob_sha": "d5bbadd98fded37488710238ae89033850edb2ad",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_0.10.png"
+    },
+    {
+      "name": "tileset_2_frame1_1.10.png",
+      "bytes": 5872,
+      "sha256": "4d9861900d6ed2e5e1aa2c04ece4285597a3768047adc7edd1040884c819c213",
+      "git_blob_sha": "a0396f712a7b0110180ab348c4dfe47df8e0ab36",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_1.10.png"
+    },
+    {
+      "name": "tileset_2_frame1_10.10.png",
+      "bytes": 5870,
+      "sha256": "4cbf99713c7ef1e730a3536d569490cbe1e4cdd690170391dc7a582116f4ed3e",
+      "git_blob_sha": "e9f8af0b6eefc058e185651a9d01a62a55ed0d41",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_10.10.png"
+    },
+    {
+      "name": "tileset_2_frame1_11.10.png",
+      "bytes": 5868,
+      "sha256": "4630c8f962406a328427afa39bb4af0a0aec90fdf98a3ec72c1bddc64da92e7b",
+      "git_blob_sha": "76da53042875c0023b342c12abf22a80c1b58d8c",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_11.10.png"
+    },
+    {
+      "name": "tileset_2_frame1_12.10.png",
+      "bytes": 5868,
+      "sha256": "4630c8f962406a328427afa39bb4af0a0aec90fdf98a3ec72c1bddc64da92e7b",
+      "git_blob_sha": "76da53042875c0023b342c12abf22a80c1b58d8c",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_12.10.png"
+    },
+    {
+      "name": "tileset_2_frame1_13.10.png",
+      "bytes": 5866,
+      "sha256": "9f79fd8666780b4ed20d721bb74c262bea5a51104f4d280dd98b78ce701c467d",
+      "git_blob_sha": "3a90442edaa0f308f37ba3b7516c7ad44ac584a6",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_13.10.png"
+    },
+    {
+      "name": "tileset_2_frame1_14.10.png",
+      "bytes": 5866,
+      "sha256": "9f79fd8666780b4ed20d721bb74c262bea5a51104f4d280dd98b78ce701c467d",
+      "git_blob_sha": "3a90442edaa0f308f37ba3b7516c7ad44ac584a6",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_14.10.png"
+    },
+    {
+      "name": "tileset_2_frame1_15.10.png",
+      "bytes": 5846,
+      "sha256": "e12ab186a651f1c35c89c51849ed799addee404a6ed890cd3f476272adbed18b",
+      "git_blob_sha": "04bf20e0f5b462eefb5196c08dded991e5f5b825",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_15.10.png"
+    },
+    {
+      "name": "tileset_2_frame1_16.10.png",
+      "bytes": 5887,
+      "sha256": "56b7e7342bb90ae79b206edac235f57c29d4168d2a127746145f2774086cd8da",
+      "git_blob_sha": "bd68cd225c2961be75f3a53e71e16ddca8ce9c22",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_16.10.png"
+    },
+    {
+      "name": "tileset_2_frame1_17.10.png",
+      "bytes": 5858,
+      "sha256": "976b1d7c962d10297cabc9130f391edbd543a7ecf89a0936d8f132fbb31300d2",
+      "git_blob_sha": "81931a8bf8e1d4c12d8c85fea93491a2e3e13366",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_17.10.png"
+    },
+    {
+      "name": "tileset_2_frame1_18.10.png",
+      "bytes": 5872,
+      "sha256": "4d9861900d6ed2e5e1aa2c04ece4285597a3768047adc7edd1040884c819c213",
+      "git_blob_sha": "a0396f712a7b0110180ab348c4dfe47df8e0ab36",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_18.10.png"
+    },
+    {
+      "name": "tileset_2_frame1_19.10.png",
+      "bytes": 6024,
+      "sha256": "061f808ae66cba9cbe6f745c95ff96075f2b307027ffb37d2e428f6406b8cba4",
+      "git_blob_sha": "d5bbadd98fded37488710238ae89033850edb2ad",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_19.10.png"
+    },
+    {
+      "name": "tileset_2_frame1_2.10.png",
+      "bytes": 5858,
+      "sha256": "976b1d7c962d10297cabc9130f391edbd543a7ecf89a0936d8f132fbb31300d2",
+      "git_blob_sha": "81931a8bf8e1d4c12d8c85fea93491a2e3e13366",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_2.10.png"
+    },
+    {
+      "name": "tileset_2_frame1_3.10.png",
+      "bytes": 5887,
+      "sha256": "56b7e7342bb90ae79b206edac235f57c29d4168d2a127746145f2774086cd8da",
+      "git_blob_sha": "bd68cd225c2961be75f3a53e71e16ddca8ce9c22",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_3.10.png"
+    },
+    {
+      "name": "tileset_2_frame1_4.10.png",
+      "bytes": 5846,
+      "sha256": "e12ab186a651f1c35c89c51849ed799addee404a6ed890cd3f476272adbed18b",
+      "git_blob_sha": "04bf20e0f5b462eefb5196c08dded991e5f5b825",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_4.10.png"
+    },
+    {
+      "name": "tileset_2_frame1_5.10.png",
+      "bytes": 5866,
+      "sha256": "9f79fd8666780b4ed20d721bb74c262bea5a51104f4d280dd98b78ce701c467d",
+      "git_blob_sha": "3a90442edaa0f308f37ba3b7516c7ad44ac584a6",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_5.10.png"
+    },
+    {
+      "name": "tileset_2_frame1_6.10.png",
+      "bytes": 5866,
+      "sha256": "9f79fd8666780b4ed20d721bb74c262bea5a51104f4d280dd98b78ce701c467d",
+      "git_blob_sha": "3a90442edaa0f308f37ba3b7516c7ad44ac584a6",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_6.10.png"
+    },
+    {
+      "name": "tileset_2_frame1_7.10.png",
+      "bytes": 5868,
+      "sha256": "4630c8f962406a328427afa39bb4af0a0aec90fdf98a3ec72c1bddc64da92e7b",
+      "git_blob_sha": "76da53042875c0023b342c12abf22a80c1b58d8c",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_7.10.png"
+    },
+    {
+      "name": "tileset_2_frame1_8.10.png",
+      "bytes": 5870,
+      "sha256": "4cbf99713c7ef1e730a3536d569490cbe1e4cdd690170391dc7a582116f4ed3e",
+      "git_blob_sha": "e9f8af0b6eefc058e185651a9d01a62a55ed0d41",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_8.10.png"
+    },
+    {
+      "name": "tileset_2_frame1_9.10.png",
+      "bytes": 5910,
+      "sha256": "b855c2702680c46aadd0d49b76481506e249896d9efca76c0ff40fd76eaac667",
+      "git_blob_sha": "4f3c96dd96fd9aafa76df8debf2978e0d0a09208",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame1_9.10.png"
+    },
+    {
+      "name": "tileset_2_frame2_0.4.png",
+      "bytes": 6031,
+      "sha256": "81ce8cb3b1109318db62d6d3a8253775950aa0f30607ba0e5f27fb6a3063e80c",
+      "git_blob_sha": "329d04d6a3dea098f902597c1d40b074b4e57fc7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_0.4.png"
+    },
+    {
+      "name": "tileset_2_frame2_1.4.png",
+      "bytes": 6031,
+      "sha256": "81ce8cb3b1109318db62d6d3a8253775950aa0f30607ba0e5f27fb6a3063e80c",
+      "git_blob_sha": "329d04d6a3dea098f902597c1d40b074b4e57fc7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_1.4.png"
+    },
+    {
+      "name": "tileset_2_frame2_10.4.png",
+      "bytes": 6031,
+      "sha256": "81ce8cb3b1109318db62d6d3a8253775950aa0f30607ba0e5f27fb6a3063e80c",
+      "git_blob_sha": "329d04d6a3dea098f902597c1d40b074b4e57fc7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_10.4.png"
+    },
+    {
+      "name": "tileset_2_frame2_11.4.png",
+      "bytes": 6020,
+      "sha256": "0be0b959da199e25d6fdaaeea83784280e8eee07a398ac494e77137dbb992d6b",
+      "git_blob_sha": "b8d6b0e11979492dbcce7b8087b186fdee26f3c2",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_11.4.png"
+    },
+    {
+      "name": "tileset_2_frame2_12.4.png",
+      "bytes": 6034,
+      "sha256": "0d066f1486111ab5c38d5d06bfac512735b928665e588419aac00e0a7889f6bd",
+      "git_blob_sha": "597a2f667d8823ab0262bb8d8b351588c0e65edd",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_12.4.png"
+    },
+    {
+      "name": "tileset_2_frame2_13.4.png",
+      "bytes": 6031,
+      "sha256": "81ce8cb3b1109318db62d6d3a8253775950aa0f30607ba0e5f27fb6a3063e80c",
+      "git_blob_sha": "329d04d6a3dea098f902597c1d40b074b4e57fc7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_13.4.png"
+    },
+    {
+      "name": "tileset_2_frame2_14.4.png",
+      "bytes": 6031,
+      "sha256": "81ce8cb3b1109318db62d6d3a8253775950aa0f30607ba0e5f27fb6a3063e80c",
+      "git_blob_sha": "329d04d6a3dea098f902597c1d40b074b4e57fc7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_14.4.png"
+    },
+    {
+      "name": "tileset_2_frame2_15.4.png",
+      "bytes": 6034,
+      "sha256": "25f8aae028efd4b978187f1f931a43fbbc6bb4c3396e73a1b17cf4b43b592757",
+      "git_blob_sha": "3b97cfc09d0fe0ac6b5c078b64e7ececf14a8ab1",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_15.4.png"
+    },
+    {
+      "name": "tileset_2_frame2_16.4.png",
+      "bytes": 6031,
+      "sha256": "81ce8cb3b1109318db62d6d3a8253775950aa0f30607ba0e5f27fb6a3063e80c",
+      "git_blob_sha": "329d04d6a3dea098f902597c1d40b074b4e57fc7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_16.4.png"
+    },
+    {
+      "name": "tileset_2_frame2_17.4.png",
+      "bytes": 6034,
+      "sha256": "0d066f1486111ab5c38d5d06bfac512735b928665e588419aac00e0a7889f6bd",
+      "git_blob_sha": "597a2f667d8823ab0262bb8d8b351588c0e65edd",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_17.4.png"
+    },
+    {
+      "name": "tileset_2_frame2_18.4.png",
+      "bytes": 6034,
+      "sha256": "0d066f1486111ab5c38d5d06bfac512735b928665e588419aac00e0a7889f6bd",
+      "git_blob_sha": "597a2f667d8823ab0262bb8d8b351588c0e65edd",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_18.4.png"
+    },
+    {
+      "name": "tileset_2_frame2_19.4.png",
+      "bytes": 6031,
+      "sha256": "81ce8cb3b1109318db62d6d3a8253775950aa0f30607ba0e5f27fb6a3063e80c",
+      "git_blob_sha": "329d04d6a3dea098f902597c1d40b074b4e57fc7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_19.4.png"
+    },
+    {
+      "name": "tileset_2_frame2_2.4.png",
+      "bytes": 6031,
+      "sha256": "81ce8cb3b1109318db62d6d3a8253775950aa0f30607ba0e5f27fb6a3063e80c",
+      "git_blob_sha": "329d04d6a3dea098f902597c1d40b074b4e57fc7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_2.4.png"
+    },
+    {
+      "name": "tileset_2_frame2_3.4.png",
+      "bytes": 6020,
+      "sha256": "0be0b959da199e25d6fdaaeea83784280e8eee07a398ac494e77137dbb992d6b",
+      "git_blob_sha": "b8d6b0e11979492dbcce7b8087b186fdee26f3c2",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_3.4.png"
+    },
+    {
+      "name": "tileset_2_frame2_4.4.png",
+      "bytes": 6031,
+      "sha256": "81ce8cb3b1109318db62d6d3a8253775950aa0f30607ba0e5f27fb6a3063e80c",
+      "git_blob_sha": "329d04d6a3dea098f902597c1d40b074b4e57fc7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_4.4.png"
+    },
+    {
+      "name": "tileset_2_frame2_5.4.png",
+      "bytes": 6031,
+      "sha256": "81ce8cb3b1109318db62d6d3a8253775950aa0f30607ba0e5f27fb6a3063e80c",
+      "git_blob_sha": "329d04d6a3dea098f902597c1d40b074b4e57fc7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_5.4.png"
+    },
+    {
+      "name": "tileset_2_frame2_6.4.png",
+      "bytes": 6034,
+      "sha256": "25f8aae028efd4b978187f1f931a43fbbc6bb4c3396e73a1b17cf4b43b592757",
+      "git_blob_sha": "3b97cfc09d0fe0ac6b5c078b64e7ececf14a8ab1",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_6.4.png"
+    },
+    {
+      "name": "tileset_2_frame2_7.4.png",
+      "bytes": 6034,
+      "sha256": "0d066f1486111ab5c38d5d06bfac512735b928665e588419aac00e0a7889f6bd",
+      "git_blob_sha": "597a2f667d8823ab0262bb8d8b351588c0e65edd",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_7.4.png"
+    },
+    {
+      "name": "tileset_2_frame2_8.4.png",
+      "bytes": 6031,
+      "sha256": "81ce8cb3b1109318db62d6d3a8253775950aa0f30607ba0e5f27fb6a3063e80c",
+      "git_blob_sha": "329d04d6a3dea098f902597c1d40b074b4e57fc7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_8.4.png"
+    },
+    {
+      "name": "tileset_2_frame2_9.4.png",
+      "bytes": 6012,
+      "sha256": "aa23369d16976d7c680df04ff18160c0260e3d1a4e29f45ccc37c1498aa22106",
+      "git_blob_sha": "5e59d1ac3153869e7bec6858658f6f0deb24180a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_2_frame2_9.4.png"
+    },
+    {
+      "name": "tileset_more.png",
+      "bytes": 1074,
+      "sha256": "afd0ef72c5c83e57b7a473fd4cc3cc330f85fd05f8fcc31199bbd7d4ba82d532",
+      "git_blob_sha": "4a36dfcdf58db68237091a533f4a69db20ef8e39",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more.png"
+    },
+    {
+      "name": "tileset_more_frame0_0.6.png",
+      "bytes": 1081,
+      "sha256": "6f992abccd8f0c0b3b2e9a35b1fa6d3a5f673bf4b5cdf5e75c96fa2cbcb21db1",
+      "git_blob_sha": "b5f2d4048410033537c2f37856dd44d51a7c2973",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_0.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_1.6.png",
+      "bytes": 1073,
+      "sha256": "448cf2549248a1335cc4fb0c7af857c8e3b376c01bb0ad526c29411fe92df49a",
+      "git_blob_sha": "d51eca19c09f1136f1480ccd303dc83bdb26f473",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_1.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_10.6.png",
+      "bytes": 1074,
+      "sha256": "efdcd12fe3e29d990564b5bdb22cc8f744e2faf09b970a16f2d6bb3668534327",
+      "git_blob_sha": "db4fbee6466aec42092d9541e7bbfe8c5b9be449",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_10.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_11.6.png",
+      "bytes": 1074,
+      "sha256": "efdcd12fe3e29d990564b5bdb22cc8f744e2faf09b970a16f2d6bb3668534327",
+      "git_blob_sha": "db4fbee6466aec42092d9541e7bbfe8c5b9be449",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_11.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_12.6.png",
+      "bytes": 1074,
+      "sha256": "efdcd12fe3e29d990564b5bdb22cc8f744e2faf09b970a16f2d6bb3668534327",
+      "git_blob_sha": "db4fbee6466aec42092d9541e7bbfe8c5b9be449",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_12.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_13.6.png",
+      "bytes": 1071,
+      "sha256": "02b6c216c1dbc734ad32b4cf34c4524ce82f8bb55de959a34af0725d8d5836f9",
+      "git_blob_sha": "62b18e9af5c637d43a19e8f8c9bf5c9b56edb713",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_13.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_14.6.png",
+      "bytes": 1070,
+      "sha256": "1dc91511e20ae52f933a8b20650d771943aa4290484a4bbdcff80fdf23f6efd6",
+      "git_blob_sha": "c1aee9e52488f5fdefe1b052a95e460204f1cc35",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_14.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_15.6.png",
+      "bytes": 1074,
+      "sha256": "92ef09798d9ae1359d24ef3a0e7daae17b5d84e84af3f694d53c3eab95bc88a3",
+      "git_blob_sha": "1e9c646a92459de4d946abbd4efd109f38e4dd64",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_15.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_16.6.png",
+      "bytes": 1074,
+      "sha256": "305eae6a8aaad52db3214b67f7066d5fb1bee4a937a21186066d468ca5682a9a",
+      "git_blob_sha": "1cf1eecca8807dd7cb247c6a5acc082e40f2f695",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_16.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_17.6.png",
+      "bytes": 1072,
+      "sha256": "931754cdf6952b38ea0c0836fbc6203c35dd9356e27f2764ac5b219cbf45e9aa",
+      "git_blob_sha": "60fa5c0240df763e0f5d75b352a9928388225739",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_17.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_18.6.png",
+      "bytes": 1074,
+      "sha256": "fe04390cf7b8312bdf8de3a1498d4715f01c968479088cf5a77a935be06ba4c4",
+      "git_blob_sha": "d1fd78b7813f1c637d9b00d852121842e9debc9b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_18.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_19.6.png",
+      "bytes": 1079,
+      "sha256": "6c905f716727319d412238b2684237edbd8d1a8d093340dca24f78e9bad5d598",
+      "git_blob_sha": "fbc32a3202b82c214cd2b1cfad12548105300e19",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_19.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_2.6.png",
+      "bytes": 1077,
+      "sha256": "062792ce758958fad0130f117646ddba69e8e5328e5f61952a7bc0edd8709870",
+      "git_blob_sha": "4a17e5c15218b4f945bc8cd860ae9e8ce752e04b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_2.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_20.6.png",
+      "bytes": 1077,
+      "sha256": "062792ce758958fad0130f117646ddba69e8e5328e5f61952a7bc0edd8709870",
+      "git_blob_sha": "4a17e5c15218b4f945bc8cd860ae9e8ce752e04b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_20.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_21.6.png",
+      "bytes": 1073,
+      "sha256": "448cf2549248a1335cc4fb0c7af857c8e3b376c01bb0ad526c29411fe92df49a",
+      "git_blob_sha": "d51eca19c09f1136f1480ccd303dc83bdb26f473",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_21.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_22.6.png",
+      "bytes": 1081,
+      "sha256": "6f992abccd8f0c0b3b2e9a35b1fa6d3a5f673bf4b5cdf5e75c96fa2cbcb21db1",
+      "git_blob_sha": "b5f2d4048410033537c2f37856dd44d51a7c2973",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_22.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_3.6.png",
+      "bytes": 1079,
+      "sha256": "6c905f716727319d412238b2684237edbd8d1a8d093340dca24f78e9bad5d598",
+      "git_blob_sha": "fbc32a3202b82c214cd2b1cfad12548105300e19",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_3.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_4.6.png",
+      "bytes": 1074,
+      "sha256": "fe04390cf7b8312bdf8de3a1498d4715f01c968479088cf5a77a935be06ba4c4",
+      "git_blob_sha": "d1fd78b7813f1c637d9b00d852121842e9debc9b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_4.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_5.6.png",
+      "bytes": 1072,
+      "sha256": "931754cdf6952b38ea0c0836fbc6203c35dd9356e27f2764ac5b219cbf45e9aa",
+      "git_blob_sha": "60fa5c0240df763e0f5d75b352a9928388225739",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_5.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_6.6.png",
+      "bytes": 1074,
+      "sha256": "c1487542c88fcf26476b713c405707c42ada1d45906c3ae7153d46494f00e49d",
+      "git_blob_sha": "98bbebdd9ffca473060cf85d1b0b8778cf363c4f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_6.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_7.6.png",
+      "bytes": 1074,
+      "sha256": "305eae6a8aaad52db3214b67f7066d5fb1bee4a937a21186066d468ca5682a9a",
+      "git_blob_sha": "1cf1eecca8807dd7cb247c6a5acc082e40f2f695",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_7.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_8.6.png",
+      "bytes": 1071,
+      "sha256": "4e46015c941c9372788b353cec17d4e1c0624bde7fa6ccc3cec14b2664daea93",
+      "git_blob_sha": "377d8c8dd3c74762e165a3269f6c73e366b3b8d7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_8.6.png"
+    },
+    {
+      "name": "tileset_more_frame0_9.6.png",
+      "bytes": 1071,
+      "sha256": "02b6c216c1dbc734ad32b4cf34c4524ce82f8bb55de959a34af0725d8d5836f9",
+      "git_blob_sha": "62b18e9af5c637d43a19e8f8c9bf5c9b56edb713",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarkCrater/tileset_more_frame0_9.6.png"
+    }
+  ]
+}

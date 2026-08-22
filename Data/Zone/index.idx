@@ -813,7 +813,223 @@
         "s04p01a",
         "sinister_woods_entrance",
         "sinister_woods_mid",
-        "sinister_woods_boss"
+        "sinister_woods_boss",
+        "magma_cavern_entrance",
+        "magma_cavern_mid",
+        "magma_cavern_boss",
+        "waterfall_pond_entrance",
+        "waterfall_pond_mid",
+        "waterfall_pond_boss",
+        "bottomless_sea_entrance",
+        "bottomless_sea_mid",
+        "bottomless_sea_boss",
+        "sky_tower_entrance",
+        "sky_tower_mid",
+        "sky_tower_boss",
+        "fugitive_arc_entrance",
+        "fugitive_arc_mid",
+        "fugitive_arc_boss",
+        "treasure_town_entrance",
+        "treasure_town_mid",
+        "treasure_town_boss",
+        "waterfall_cave_entrance",
+        "waterfall_cave_mid",
+        "waterfall_cave_boss",
+        "fogbound_lake_entrance",
+        "fogbound_lake_mid",
+        "fogbound_lake_boss",
+        "amp_plains_entrance",
+        "amp_plains_mid",
+        "amp_plains_boss",
+        "quicksand_cave_entrance",
+        "quicksand_cave_mid",
+        "quicksand_cave_boss",
+        "crystal_crossing_entrance",
+        "crystal_crossing_mid",
+        "crystal_crossing_boss",
+        "brine_cave_entrance",
+        "brine_cave_mid",
+        "brine_cave_boss",
+        "temporal_tower_entrance",
+        "temporal_tower_mid",
+        "temporal_tower_boss",
+        "mystifying_forest_entrance",
+        "mystifying_forest_mid",
+        "mystifying_forest_boss",
+        "crevice_cave_entrance",
+        "crevice_cave_mid",
+        "crevice_cave_boss",
+        "miracle_sea_entrance",
+        "miracle_sea_mid",
+        "miracle_sea_boss",
+        "dark_crater_entrance",
+        "dark_crater_mid",
+        "dark_crater_boss",
+        "sky_peak_entrance",
+        "sky_peak_mid",
+        "sky_peak_boss",
+        "spacial_rift_entrance",
+        "spacial_rift_mid",
+        "spacial_rift_boss",
+        "world_abyss_entrance",
+        "world_abyss_mid",
+        "world_abyss_boss",
+        "zero_isle_entrance",
+        "zero_isle_mid",
+        "zero_isle_boss",
+        "destiny_tower_entrance",
+        "destiny_tower_mid",
+        "destiny_tower_boss",
+        "hidden_land_entrance",
+        "hidden_land_mid",
+        "hidden_land_boss",
+        "the_sky_entrance",
+        "the_sky_mid",
+        "the_sky_boss",
+        "starfall_heights_entrance",
+        "starfall_heights_mid",
+        "starfall_heights_boss",
+        "world_nerve_entrance",
+        "world_nerve_mid",
+        "world_nerve_boss",
+        "red_tinywoods_entrance",
+        "red_tinywoods_mid",
+        "red_tinywoods_boss",
+        "red_thunderwavecave_entrance",
+        "red_thunderwavecave_mid",
+        "red_thunderwavecave_boss",
+        "red_mtsteel_entrance",
+        "red_mtsteel_mid",
+        "red_mtsteel_boss",
+        "red_silentchasm_entrance",
+        "red_silentchasm_mid",
+        "red_silentchasm_boss",
+        "red_mtthunder_entrance",
+        "red_mtthunder_mid",
+        "red_mtthunder_boss",
+        "red_mtthunderpeak_entrance",
+        "red_mtthunderpeak_mid",
+        "red_mtthunderpeak_boss",
+        "red_greatcanyon_entrance",
+        "red_greatcanyon_mid",
+        "red_greatcanyon_boss",
+        "red_lapiscave_entrance",
+        "red_lapiscave_mid",
+        "red_lapiscave_boss",
+        "red_mtblaze_entrance",
+        "red_mtblaze_mid",
+        "red_mtblaze_boss",
+        "red_mtblazepeak_entrance",
+        "red_mtblazepeak_mid",
+        "red_mtblazepeak_boss",
+        "red_frostyforest_entrance",
+        "red_frostyforest_mid",
+        "red_frostyforest_boss",
+        "red_frostygrotto_entrance",
+        "red_frostygrotto_mid",
+        "red_frostygrotto_boss",
+        "red_mtfreeze_entrance",
+        "red_mtfreeze_mid",
+        "red_mtfreeze_boss",
+        "red_mtfreezepeak_entrance",
+        "red_mtfreezepeak_mid",
+        "red_mtfreezepeak_boss",
+        "red_stormysea_entrance",
+        "red_stormysea_mid",
+        "red_stormysea_boss",
+        "red_silvertrench_entrance",
+        "red_silvertrench_mid",
+        "red_silvertrench_boss",
+        "red_meteorcave_entrance",
+        "red_meteorcave_mid",
+        "red_meteorcave_boss",
+        "red_westerncave_entrance",
+        "red_westerncave_mid",
+        "red_westerncave_boss",
+        "red_wishcave_entrance",
+        "red_wishcave_mid",
+        "red_wishcave_boss",
+        "red_buriedrelic_entrance",
+        "red_buriedrelic_mid",
+        "red_buriedrelic_boss",
+        "red_pitfallvalley_entrance",
+        "red_pitfallvalley_mid",
+        "red_pitfallvalley_boss",
+        "red_northernrange_entrance",
+        "red_northernrange_mid",
+        "red_northernrange_boss",
+        "red_desertregion_entrance",
+        "red_desertregion_mid",
+        "red_desertregion_boss",
+        "red_southerncavern_entrance",
+        "red_southerncavern_mid",
+        "red_southerncavern_boss",
+        "red_wyvernhill_entrance",
+        "red_wyvernhill_mid",
+        "red_wyvernhill_boss",
+        "red_fieryfield_entrance",
+        "red_fieryfield_mid",
+        "red_fieryfield_boss",
+        "red_northwindfield_entrance",
+        "red_northwindfield_mid",
+        "red_northwindfield_boss",
+        "red_solarcave_entrance",
+        "red_solarcave_mid",
+        "red_solarcave_boss",
+        "red_lightningfield_entrance",
+        "red_lightningfield_mid",
+        "red_lightningfield_boss",
+        "red_darknightrelic_entrance",
+        "red_darknightrelic_mid",
+        "red_darknightrelic_boss",
+        "red_murkycave_entrance",
+        "red_murkycave_mid",
+        "red_murkycave_boss",
+        "red_grandsea_entrance",
+        "red_grandsea_mid",
+        "red_grandsea_boss",
+        "red_uproarforest_entrance",
+        "red_uproarforest_mid",
+        "red_uproarforest_boss",
+        "red_odditycave_entrance",
+        "red_odditycave_mid",
+        "red_odditycave_boss",
+        "red_remainsisland_entrance",
+        "red_remainsisland_mid",
+        "red_remainsisland_boss",
+        "red_marveloussea_entrance",
+        "red_marveloussea_mid",
+        "red_marveloussea_boss",
+        "red_fantasystrait_entrance",
+        "red_fantasystrait_mid",
+        "red_fantasystrait_boss",
+        "red_rockpath_entrance",
+        "red_rockpath_mid",
+        "red_rockpath_boss",
+        "red_snowpath_entrance",
+        "red_snowpath_mid",
+        "red_snowpath_boss",
+        "red_howlingforest_entrance",
+        "red_howlingforest_mid",
+        "red_howlingforest_boss",
+        "red_waterfallpond_entrance",
+        "red_waterfallpond_mid",
+        "red_waterfallpond_boss",
+        "red_unownrelic_entrance",
+        "red_unownrelic_mid",
+        "red_unownrelic_boss",
+        "red_joyoustower_entrance",
+        "red_joyoustower_mid",
+        "red_joyoustower_boss",
+        "red_faroffsea_entrance",
+        "red_faroffsea_mid",
+        "red_faroffsea_boss",
+        "red_mtfaraway_entrance",
+        "red_mtfaraway_mid",
+        "red_mtfaraway_boss",
+        "red_purityforest_entrance",
+        "red_purityforest_mid",
+        "red_purityforest_boss"
       ],
       "Maps": [
         [
@@ -2458,6 +2674,5058 @@
       "Released": true,
       "SortOrder": 0,
       "Comment": "Canonical Sinister Woods: 10F -> midpoint -> 2F -> Team Meanies 13F."
+    },
+    "magma_cavern": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 26,
+      "Rogue": 0,
+      "Grounds": [
+        "magma_cavern_entrance",
+        "magma_cavern_mid",
+        "magma_cavern_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Magma Cavern",
+        "LocalTexts": {
+          "fr": "Grotte Magma"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Magma_Cavern"
+    },
+    "waterfall_pond": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 25,
+      "Rogue": 0,
+      "Grounds": [
+        "waterfall_pond_entrance",
+        "waterfall_pond_mid",
+        "waterfall_pond_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Crystal Sanctuary",
+        "LocalTexts": {
+          "fr": "Sanctuaire de Cristal"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Crystal_Sanctuary"
+    },
+    "bottomless_sea": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 40,
+      "Rogue": 0,
+      "Grounds": [
+        "bottomless_sea_entrance",
+        "bottomless_sea_mid",
+        "bottomless_sea_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Bottomless Sea",
+        "LocalTexts": {
+          "fr": "Mer Sans Fond"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Bottomless_Sea"
+    },
+    "sky_tower": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 34,
+      "Rogue": 0,
+      "Grounds": [
+        "sky_tower_entrance",
+        "sky_tower_mid",
+        "sky_tower_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Sky Tower",
+        "LocalTexts": {
+          "fr": "Tour Céleste"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Sky_Tower"
+    },
+    "fugitive_arc": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 20,
+      "Rogue": 0,
+      "Grounds": [
+        "fugitive_arc_entrance",
+        "fugitive_arc_mid",
+        "fugitive_arc_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Those Accused",
+        "LocalTexts": {
+          "fr": "Les Accusés"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Those_Accused"
+    },
+    "treasure_town": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 19,
+      "Rogue": 0,
+      "Grounds": [
+        "treasure_town_entrance",
+        "treasure_town_mid",
+        "treasure_town_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "Name": {
+        "DefaultText": "A New Guild Road",
+        "LocalTexts": {
+          "fr": "Nouvelle Route de Guilde"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/A_New_Guild_Road"
+    },
+    "waterfall_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 8,
+      "Rogue": 0,
+      "Grounds": [
+        "waterfall_cave_entrance",
+        "waterfall_cave_mid",
+        "waterfall_cave_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Waterfall Cave",
+        "LocalTexts": {
+          "fr": "Grotte Cascade"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Waterfall_Cave"
+    },
+    "fogbound_lake": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 20,
+      "Rogue": 0,
+      "Grounds": [
+        "fogbound_lake_entrance",
+        "fogbound_lake_mid",
+        "fogbound_lake_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Fogbound Lake",
+        "LocalTexts": {
+          "fr": "Lac Brumeux"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Fogbound_Lake"
+    },
+    "amp_plains": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 15,
+      "Rogue": 0,
+      "Grounds": [
+        "amp_plains_entrance",
+        "amp_plains_mid",
+        "amp_plains_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Amp Plains",
+        "LocalTexts": {
+          "fr": "Plaines Ampère"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Amp_Plains"
+    },
+    "quicksand_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 15,
+      "Rogue": 0,
+      "Grounds": [
+        "quicksand_cave_entrance",
+        "quicksand_cave_mid",
+        "quicksand_cave_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Quicksand Cave",
+        "LocalTexts": {
+          "fr": "Grotte Sables Mouvants"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Quicksand_Cave"
+    },
+    "crystal_crossing": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 17,
+      "Rogue": 0,
+      "Grounds": [
+        "crystal_crossing_entrance",
+        "crystal_crossing_mid",
+        "crystal_crossing_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Crystal Crossing",
+        "LocalTexts": {
+          "fr": "Passage Cristal"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Crystal_Crossing"
+    },
+    "brine_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 24,
+      "Rogue": 0,
+      "Grounds": [
+        "brine_cave_entrance",
+        "brine_cave_mid",
+        "brine_cave_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Brine Cave and Hidden Land",
+        "LocalTexts": {
+          "fr": "Grotte Saumâtre et Terre Cachée"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Brine_Cave_and_Hidden_Land"
+    },
+    "temporal_tower": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 24,
+      "Rogue": 0,
+      "Grounds": [
+        "temporal_tower_entrance",
+        "temporal_tower_mid",
+        "temporal_tower_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Temporal Tower Restored",
+        "LocalTexts": {
+          "fr": "Tour du Temps Restaurée"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Temporal_Tower_Restored"
+    },
+    "mystifying_forest": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 20,
+      "Rogue": 0,
+      "Grounds": [
+        "mystifying_forest_entrance",
+        "mystifying_forest_mid",
+        "mystifying_forest_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Graduation Legacy",
+        "LocalTexts": {
+          "fr": "Héritage de la Remise de Diplôme"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Graduation_Legacy"
+    },
+    "crevice_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 16,
+      "Rogue": 0,
+      "Grounds": [
+        "crevice_cave_entrance",
+        "crevice_cave_mid",
+        "crevice_cave_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Crevice Cave",
+        "LocalTexts": {
+          "fr": "Grotte Fissure"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Crevice_Cave"
+    },
+    "miracle_sea": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 24,
+      "Rogue": 0,
+      "Grounds": [
+        "miracle_sea_entrance",
+        "miracle_sea_mid",
+        "miracle_sea_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Miracle Sea",
+        "LocalTexts": {
+          "fr": "Mer Miracle"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Miracle_Sea"
+    },
+    "dark_crater": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 20,
+      "Rogue": 0,
+      "Grounds": [
+        "dark_crater_entrance",
+        "dark_crater_mid",
+        "dark_crater_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Dark Crater",
+        "LocalTexts": {
+          "fr": "Cratère Obscur"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Dark_Crater"
+    },
+    "sky_peak": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 20,
+      "Rogue": 0,
+      "Grounds": [
+        "sky_peak_entrance",
+        "sky_peak_mid",
+        "sky_peak_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Sky Peak",
+        "LocalTexts": {
+          "fr": "Pic Céleste"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Sky_Peak"
+    },
+    "spacial_rift": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 25,
+      "Rogue": 0,
+      "Grounds": [
+        "spacial_rift_entrance",
+        "spacial_rift_mid",
+        "spacial_rift_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Spacial Rift",
+        "LocalTexts": {
+          "fr": "Faille Spatiale"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Spacial_Rift"
+    },
+    "world_abyss": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 30,
+      "Rogue": 0,
+      "Grounds": [
+        "world_abyss_entrance",
+        "world_abyss_mid",
+        "world_abyss_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "World Abyss",
+        "LocalTexts": {
+          "fr": "Abîme du Monde"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/World_Abyss"
+    },
+    "zero_isle": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 99,
+      "Rogue": 0,
+      "Grounds": [
+        "zero_isle_entrance",
+        "zero_isle_mid",
+        "zero_isle_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Zero Isle Network",
+        "LocalTexts": {
+          "fr": "Réseau Île Zéro"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Zero_Isle_Network"
+    },
+    "destiny_tower": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 99,
+      "Rogue": 0,
+      "Grounds": [
+        "destiny_tower_entrance",
+        "destiny_tower_mid",
+        "destiny_tower_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Destiny Tower",
+        "LocalTexts": {
+          "fr": "Tour du Destin"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Destiny_Tower"
+    },
+    "hidden_land": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 40,
+      "Rogue": 0,
+      "Grounds": [
+        "hidden_land_entrance",
+        "hidden_land_mid",
+        "hidden_land_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Hidden Land Fracture",
+        "LocalTexts": {
+          "fr": "Fracture de la Terre Cachée"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Hidden_Land_Fracture"
+    },
+    "the_sky": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 40,
+      "Rogue": 0,
+      "Grounds": [
+        "the_sky_entrance",
+        "the_sky_mid",
+        "the_sky_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Sky Suspended",
+        "LocalTexts": {
+          "fr": "Ciel Suspendu"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Sky_Suspended"
+    },
+    "starfall_heights": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 45,
+      "Rogue": 0,
+      "Grounds": [
+        "starfall_heights_entrance",
+        "starfall_heights_mid",
+        "starfall_heights_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "The Two Lights",
+        "LocalTexts": {
+          "fr": "Les Deux Lumières"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/The_Two_Lights"
+    },
+    "world_nerve": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 60,
+      "Rogue": 0,
+      "Grounds": [
+        "world_nerve_entrance",
+        "world_nerve_mid",
+        "world_nerve_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Abyss to Ascension",
+        "LocalTexts": {
+          "fr": "Des Abysses à l’Ascension"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / main_route / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Abyss_to_Ascension"
+    },
+    "red_tinywoods": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 3,
+      "Rogue": 0,
+      "Grounds": [
+        "red_tinywoods_entrance",
+        "red_tinywoods_mid",
+        "red_tinywoods_boss"
+      ],
+      "Maps": [
+        [
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Tiny Woods",
+        "LocalTexts": {
+          "fr": "Forêt Tendre"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Tiny_Woods"
+    },
+    "red_thunderwavecave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 5,
+      "Rogue": 0,
+      "Grounds": [
+        "red_thunderwavecave_entrance",
+        "red_thunderwavecave_mid",
+        "red_thunderwavecave_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Thunderwave Cave",
+        "LocalTexts": {
+          "fr": "Grotte Statique"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Thunderwave_Cave"
+    },
+    "red_mtsteel": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 9,
+      "Rogue": 0,
+      "Grounds": [
+        "red_mtsteel_entrance",
+        "red_mtsteel_mid",
+        "red_mtsteel_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Mt. Steel",
+        "LocalTexts": {
+          "fr": "Pic Ferreux"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Mt._Steel"
+    },
+    "red_silentchasm": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 9,
+      "Rogue": 0,
+      "Grounds": [
+        "red_silentchasm_entrance",
+        "red_silentchasm_mid",
+        "red_silentchasm_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Silent Chasm",
+        "LocalTexts": {
+          "fr": "Gouffre Muet"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Silent_Chasm"
+    },
+    "red_mtthunder": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 10,
+      "Rogue": 0,
+      "Grounds": [
+        "red_mtthunder_entrance",
+        "red_mtthunder_mid",
+        "red_mtthunder_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Mt. Thunder",
+        "LocalTexts": {
+          "fr": "Mont Grondant"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Mt._Thunder"
+    },
+    "red_mtthunderpeak": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 3,
+      "Rogue": 0,
+      "Grounds": [
+        "red_mtthunderpeak_entrance",
+        "red_mtthunderpeak_mid",
+        "red_mtthunderpeak_boss"
+      ],
+      "Maps": [
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Mt. Thunder Peak",
+        "LocalTexts": {
+          "fr": "Cime du Mont Grondant"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Mt._Thunder_Peak"
+    },
+    "red_greatcanyon": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 12,
+      "Rogue": 0,
+      "Grounds": [
+        "red_greatcanyon_entrance",
+        "red_greatcanyon_mid",
+        "red_greatcanyon_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Great Canyon",
+        "LocalTexts": {
+          "fr": "Grand Canyon"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Great_Canyon"
+    },
+    "red_lapiscave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 14,
+      "Rogue": 0,
+      "Grounds": [
+        "red_lapiscave_entrance",
+        "red_lapiscave_mid",
+        "red_lapiscave_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Lapis Cave",
+        "LocalTexts": {
+          "fr": "Grotte Lazuli"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Lapis_Cave"
+    },
+    "red_mtblaze": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 12,
+      "Rogue": 0,
+      "Grounds": [
+        "red_mtblaze_entrance",
+        "red_mtblaze_mid",
+        "red_mtblaze_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Mt. Blaze",
+        "LocalTexts": {
+          "fr": "Mont Cendré"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Mt._Blaze"
+    },
+    "red_mtblazepeak": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 3,
+      "Rogue": 0,
+      "Grounds": [
+        "red_mtblazepeak_entrance",
+        "red_mtblazepeak_mid",
+        "red_mtblazepeak_boss"
+      ],
+      "Maps": [
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Mt. Blaze Peak",
+        "LocalTexts": {
+          "fr": "Cime du Mont Cendré"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Mt._Blaze_Peak"
+    },
+    "red_frostyforest": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 9,
+      "Rogue": 0,
+      "Grounds": [
+        "red_frostyforest_entrance",
+        "red_frostyforest_mid",
+        "red_frostyforest_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Frosty Forest",
+        "LocalTexts": {
+          "fr": "Forêt Givrée"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Frosty_Forest"
+    },
+    "red_frostygrotto": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 5,
+      "Rogue": 0,
+      "Grounds": [
+        "red_frostygrotto_entrance",
+        "red_frostygrotto_mid",
+        "red_frostygrotto_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Frosty Grotto",
+        "LocalTexts": {
+          "fr": "Grotte Givrée"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Frosty_Grotto"
+    },
+    "red_mtfreeze": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 15,
+      "Rogue": 0,
+      "Grounds": [
+        "red_mtfreeze_entrance",
+        "red_mtfreeze_mid",
+        "red_mtfreeze_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Mt. Freeze",
+        "LocalTexts": {
+          "fr": "Mont Gelé"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Mt._Freeze"
+    },
+    "red_mtfreezepeak": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 5,
+      "Rogue": 0,
+      "Grounds": [
+        "red_mtfreezepeak_entrance",
+        "red_mtfreezepeak_mid",
+        "red_mtfreezepeak_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Mt. Freeze Peak",
+        "LocalTexts": {
+          "fr": "Cime du Mont Gelé"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Mt._Freeze_Peak"
+    },
+    "red_stormysea": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 40,
+      "Rogue": 0,
+      "Grounds": [
+        "red_stormysea_entrance",
+        "red_stormysea_mid",
+        "red_stormysea_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Stormy Sea",
+        "LocalTexts": {
+          "fr": "Mer Orageuse"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Stormy_Sea"
+    },
+    "red_silvertrench": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 99,
+      "Rogue": 0,
+      "Grounds": [
+        "red_silvertrench_entrance",
+        "red_silvertrench_mid",
+        "red_silvertrench_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Silver Trench",
+        "LocalTexts": {
+          "fr": "Fosse d'Argent"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Silver_Trench"
+    },
+    "red_meteorcave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 20,
+      "Rogue": 0,
+      "Grounds": [
+        "red_meteorcave_entrance",
+        "red_meteorcave_mid",
+        "red_meteorcave_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Meteor Cave",
+        "LocalTexts": {
+          "fr": "Grotte de la Météorite"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Meteor_Cave"
+    },
+    "red_westerncave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 99,
+      "Rogue": 0,
+      "Grounds": [
+        "red_westerncave_entrance",
+        "red_westerncave_mid",
+        "red_westerncave_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Western Cave",
+        "LocalTexts": {
+          "fr": "Grotte Occidentale"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Western_Cave"
+    },
+    "red_wishcave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 99,
+      "Rogue": 0,
+      "Grounds": [
+        "red_wishcave_entrance",
+        "red_wishcave_mid",
+        "red_wishcave_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Wish Cave",
+        "LocalTexts": {
+          "fr": "Grotte du Vœu"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Wish_Cave"
+    },
+    "red_buriedrelic": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 99,
+      "Rogue": 0,
+      "Grounds": [
+        "red_buriedrelic_entrance",
+        "red_buriedrelic_mid",
+        "red_buriedrelic_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Buried Relic",
+        "LocalTexts": {
+          "fr": "Relique Enfouie"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Buried_Relic"
+    },
+    "red_pitfallvalley": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 25,
+      "Rogue": 0,
+      "Grounds": [
+        "red_pitfallvalley_entrance",
+        "red_pitfallvalley_mid",
+        "red_pitfallvalley_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Pitfall Valley",
+        "LocalTexts": {
+          "fr": "Vallon Perdu"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Pitfall_Valley"
+    },
+    "red_northernrange": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 25,
+      "Rogue": 0,
+      "Grounds": [
+        "red_northernrange_entrance",
+        "red_northernrange_mid",
+        "red_northernrange_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Northern Range",
+        "LocalTexts": {
+          "fr": "Chaîne Nordique"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Northern_Range"
+    },
+    "red_desertregion": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 20,
+      "Rogue": 0,
+      "Grounds": [
+        "red_desertregion_entrance",
+        "red_desertregion_mid",
+        "red_desertregion_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Desert Region",
+        "LocalTexts": {
+          "fr": "Région Désertique"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Desert_Region"
+    },
+    "red_southerncavern": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 50,
+      "Rogue": 0,
+      "Grounds": [
+        "red_southerncavern_entrance",
+        "red_southerncavern_mid",
+        "red_southerncavern_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Southern Cavern",
+        "LocalTexts": {
+          "fr": "Caverne Méridionale"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Southern_Cavern"
+    },
+    "red_wyvernhill": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 30,
+      "Rogue": 0,
+      "Grounds": [
+        "red_wyvernhill_entrance",
+        "red_wyvernhill_mid",
+        "red_wyvernhill_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Wyvern Hill",
+        "LocalTexts": {
+          "fr": "Colline aux Drakes"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Wyvern_Hill"
+    },
+    "red_fieryfield": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 30,
+      "Rogue": 0,
+      "Grounds": [
+        "red_fieryfield_entrance",
+        "red_fieryfield_mid",
+        "red_fieryfield_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Fiery Field",
+        "LocalTexts": {
+          "fr": "Plaine Ardent"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Fiery_Field"
+    },
+    "red_northwindfield": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 30,
+      "Rogue": 0,
+      "Grounds": [
+        "red_northwindfield_entrance",
+        "red_northwindfield_mid",
+        "red_northwindfield_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Northwind Field",
+        "LocalTexts": {
+          "fr": "Champ du Vent du Nord"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Northwind_Field"
+    },
+    "red_solarcave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 20,
+      "Rogue": 0,
+      "Grounds": [
+        "red_solarcave_entrance",
+        "red_solarcave_mid",
+        "red_solarcave_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Solar Cave",
+        "LocalTexts": {
+          "fr": "Grotte Solaire"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Solar_Cave"
+    },
+    "red_lightningfield": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 30,
+      "Rogue": 0,
+      "Grounds": [
+        "red_lightningfield_entrance",
+        "red_lightningfield_mid",
+        "red_lightningfield_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Lightning Field",
+        "LocalTexts": {
+          "fr": "Champ de Foudre"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Lightning_Field"
+    },
+    "red_darknightrelic": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 15,
+      "Rogue": 0,
+      "Grounds": [
+        "red_darknightrelic_entrance",
+        "red_darknightrelic_mid",
+        "red_darknightrelic_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Darknight Relic",
+        "LocalTexts": {
+          "fr": "Relique de la Nuit"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Darknight_Relic"
+    },
+    "red_murkycave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 19,
+      "Rogue": 0,
+      "Grounds": [
+        "red_murkycave_entrance",
+        "red_murkycave_mid",
+        "red_murkycave_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Murky Cave",
+        "LocalTexts": {
+          "fr": "Caverne Trouble"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Murky_Cave"
+    },
+    "red_grandsea": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 30,
+      "Rogue": 0,
+      "Grounds": [
+        "red_grandsea_entrance",
+        "red_grandsea_mid",
+        "red_grandsea_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Grand Sea",
+        "LocalTexts": {
+          "fr": "Grande Mer"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Grand_Sea"
+    },
+    "red_uproarforest": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 10,
+      "Rogue": 0,
+      "Grounds": [
+        "red_uproarforest_entrance",
+        "red_uproarforest_mid",
+        "red_uproarforest_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Uproar Forest",
+        "LocalTexts": {
+          "fr": "Forêt du Tumulte"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Uproar_Forest"
+    },
+    "red_odditycave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 15,
+      "Rogue": 0,
+      "Grounds": [
+        "red_odditycave_entrance",
+        "red_odditycave_mid",
+        "red_odditycave_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Oddity Cave",
+        "LocalTexts": {
+          "fr": "Caverne Étrange"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Oddity_Cave"
+    },
+    "red_remainsisland": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 20,
+      "Rogue": 0,
+      "Grounds": [
+        "red_remainsisland_entrance",
+        "red_remainsisland_mid",
+        "red_remainsisland_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Remains Island",
+        "LocalTexts": {
+          "fr": "Île des Vestiges"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Remains_Island"
+    },
+    "red_marveloussea": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 20,
+      "Rogue": 0,
+      "Grounds": [
+        "red_marveloussea_entrance",
+        "red_marveloussea_mid",
+        "red_marveloussea_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Marvelous Sea",
+        "LocalTexts": {
+          "fr": "Mer Merveilleuse"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Marvelous_Sea"
+    },
+    "red_fantasystrait": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 30,
+      "Rogue": 0,
+      "Grounds": [
+        "red_fantasystrait_entrance",
+        "red_fantasystrait_mid",
+        "red_fantasystrait_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Fantasy Strait",
+        "LocalTexts": {
+          "fr": "Détroit Fantastique"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Fantasy_Strait"
+    },
+    "red_rockpath": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 4,
+      "Rogue": 0,
+      "Grounds": [
+        "red_rockpath_entrance",
+        "red_rockpath_mid",
+        "red_rockpath_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Rock Path",
+        "LocalTexts": {
+          "fr": "Sentier Rocheux"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Rock_Path"
+    },
+    "red_snowpath": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 4,
+      "Rogue": 0,
+      "Grounds": [
+        "red_snowpath_entrance",
+        "red_snowpath_mid",
+        "red_snowpath_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Snow Path",
+        "LocalTexts": {
+          "fr": "Sentier Neigeux"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Snow_Path"
+    },
+    "red_howlingforest": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 15,
+      "Rogue": 0,
+      "Grounds": [
+        "red_howlingforest_entrance",
+        "red_howlingforest_mid",
+        "red_howlingforest_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Howling Forest",
+        "LocalTexts": {
+          "fr": "Forêt des Hurlements"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Howling_Forest"
+    },
+    "red_waterfallpond": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 19,
+      "Rogue": 0,
+      "Grounds": [
+        "red_waterfallpond_entrance",
+        "red_waterfallpond_mid",
+        "red_waterfallpond_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Waterfall Pond",
+        "LocalTexts": {
+          "fr": "Étang de la Cascade"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Waterfall_Pond"
+    },
+    "red_unownrelic": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 11,
+      "Rogue": 0,
+      "Grounds": [
+        "red_unownrelic_entrance",
+        "red_unownrelic_mid",
+        "red_unownrelic_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Unown Relic",
+        "LocalTexts": {
+          "fr": "Relique des Zarbi"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Unown_Relic"
+    },
+    "red_joyoustower": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 99,
+      "Rogue": 0,
+      "Grounds": [
+        "red_joyoustower_entrance",
+        "red_joyoustower_mid",
+        "red_joyoustower_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Joyous Tower",
+        "LocalTexts": {
+          "fr": "Tour Joyeuse"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Joyous_Tower"
+    },
+    "red_faroffsea": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 75,
+      "Rogue": 0,
+      "Grounds": [
+        "red_faroffsea_entrance",
+        "red_faroffsea_mid",
+        "red_faroffsea_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Far-Off Sea",
+        "LocalTexts": {
+          "fr": "Mer Lointaine"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Far-Off_Sea"
+    },
+    "red_mtfaraway": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 40,
+      "Rogue": 0,
+      "Grounds": [
+        "red_mtfaraway_entrance",
+        "red_mtfaraway_mid",
+        "red_mtfaraway_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Mt. Faraway",
+        "LocalTexts": {
+          "fr": "Mont Lointain"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Mt._Faraway"
+    },
+    "red_purityforest": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 99,
+      "Rogue": 0,
+      "Grounds": [
+        "red_purityforest_entrance",
+        "red_purityforest_mid",
+        "red_purityforest_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Purity Forest",
+        "LocalTexts": {
+          "fr": "Forêt de la Pureté"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Single canonical bundle / pmd_red_roster / Bulbapedia: https://bulbapedia.bulbagarden.net/wiki/Purity_Forest"
     }
   }
 }

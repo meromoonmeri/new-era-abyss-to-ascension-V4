@@ -1,0 +1,177 @@
+{
+  "schema": "new-era.rawasset-dtef-source.v1",
+  "repository": "https://github.com/PMDCollab/RawAsset",
+  "path": "TileDtef/MagmaCavern2",
+  "ref": "master",
+  "format": "XML-less DTEF",
+  "files": [
+    {
+      "name": "tileset_0.png",
+      "bytes": 47511,
+      "sha256": "cc19109ce861d0fda968c11e046f4f8e1cf5d320fd618ab3b62571c2e7b79a4e",
+      "git_blob_sha": "3dc9a00b65612aaf9b832d03a6e0a928e484a8a4",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_0.png"
+    },
+    {
+      "name": "tileset_0_frame0_0.14.png",
+      "bytes": 47585,
+      "sha256": "09d20a5d61914fe4368e654da90c1a6b7bee0ce5e78c9179e43406af1263a0ab",
+      "git_blob_sha": "1bb4aefc6e63c42d2b792a66f030eccf9c8ca15f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_0_frame0_0.14.png"
+    },
+    {
+      "name": "tileset_0_frame0_1.14.png",
+      "bytes": 47542,
+      "sha256": "c2c1bdce38338e4b7eb8dba5a4422dd819d2755b9385be0f8d9635525a8e27c7",
+      "git_blob_sha": "396b95e0e635f53b284e84371d0993f71f397216",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_0_frame0_1.14.png"
+    },
+    {
+      "name": "tileset_0_frame0_2.14.png",
+      "bytes": 47343,
+      "sha256": "5c0542ac552a86e62fa2f90247c252c1db0188d4623a73a42407420d2b337c42",
+      "git_blob_sha": "1256f7151dba27196e961ad08c3be1d0398934a6",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_0_frame0_2.14.png"
+    },
+    {
+      "name": "tileset_0_frame0_3.14.png",
+      "bytes": 47491,
+      "sha256": "241eb801664034ffb981ef04f0a858eedfe8c74e578049b9010673333e757037",
+      "git_blob_sha": "a4e33b54194022c1271eb6cfdedf45f78077be9a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_0_frame0_3.14.png"
+    },
+    {
+      "name": "tileset_0_frame0_4.14.png",
+      "bytes": 47500,
+      "sha256": "cdd57cc1728b03bed02610d298945784e0cca74dec8fff23fb1487fc1f9768e3",
+      "git_blob_sha": "ca9ca786618e2d1ef4670eb68a8a9f68d40ef09a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_0_frame0_4.14.png"
+    },
+    {
+      "name": "tileset_0_frame0_5.14.png",
+      "bytes": 47627,
+      "sha256": "dcbe1a7dad8bd077b877fd634c0512ec975029ad9b753f183b5b999fb08ba0ac",
+      "git_blob_sha": "3f6a95d0263d73c0006a66723b62a034cf8410b8",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_0_frame0_5.14.png"
+    },
+    {
+      "name": "tileset_0_frame0_6.14.png",
+      "bytes": 47627,
+      "sha256": "1872f9fa49d36420211145b8948ffce1db2f1c95f561c5bc2d16f6a67655464f",
+      "git_blob_sha": "1996adcdc0962c9a0abe43b90b68d233cb57212a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_0_frame0_6.14.png"
+    },
+    {
+      "name": "tileset_0_frame0_7.14.png",
+      "bytes": 47800,
+      "sha256": "46921b6d22ad90b0ead88e3dbc9d1efe75f90aa0f71067bc84adc97c2327e78e",
+      "git_blob_sha": "bbdcbd69748323705ef458c7fd05bf806e5c76e2",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_0_frame0_7.14.png"
+    },
+    {
+      "name": "tileset_0_frame1_0.14.png",
+      "bytes": 47717,
+      "sha256": "0a0febc2b50eebcf22093458a5167abb899a070a0156ef310911ba136cff6692",
+      "git_blob_sha": "76968a91d4197911ab82a6a9f7e61b0de24d73d1",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_0_frame1_0.14.png"
+    },
+    {
+      "name": "tileset_0_frame1_1.14.png",
+      "bytes": 47521,
+      "sha256": "bd47a0161f7d41259d5c229b76fa7ced21eadd174c8d1e86ca959c4fd3f1bf31",
+      "git_blob_sha": "7d9e780a60445d5bcbf08c112b3c93adfbdbbb62",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_0_frame1_1.14.png"
+    },
+    {
+      "name": "tileset_0_frame1_2.14.png",
+      "bytes": 47468,
+      "sha256": "2ef64b9058159c40be98d8bab06305d45c2580eaa73adfc63478c68e93af1c61",
+      "git_blob_sha": "634ce703dfbfe55e52f7fbc802141ef48904c33c",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_0_frame1_2.14.png"
+    },
+    {
+      "name": "tileset_0_frame1_3.14.png",
+      "bytes": 47607,
+      "sha256": "6bd177c925d16d38d15fc458542ee8ac8fe3cf79fefda1c036c1a55339406340",
+      "git_blob_sha": "ff7f11f747f83e17fa965bc63c2e4a3145282986",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_0_frame1_3.14.png"
+    },
+    {
+      "name": "tileset_1.png",
+      "bytes": 5091,
+      "sha256": "a0e16804c8ae9f6dbc3dfeccd61b7412f158ffbe59271dbf73f05df4c477c1f1",
+      "git_blob_sha": "4144617433720a8a362039a217f06db651dd45d8",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_1.png"
+    },
+    {
+      "name": "tileset_1_frame0_0.14.png",
+      "bytes": 5090,
+      "sha256": "bbb0b0395ff9dbffb73b224e0a8b0a1cfd13879d8fcf8da8493522a5976f9aec",
+      "git_blob_sha": "b4156a4d817bced2be54e1e5e33dac7372c67daf",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_1_frame0_0.14.png"
+    },
+    {
+      "name": "tileset_1_frame0_1.14.png",
+      "bytes": 5060,
+      "sha256": "845b0383c6c86dd51d43fac4838aece0c19cc648bb3d685af4d23f363b1006f9",
+      "git_blob_sha": "259e2164d558b81c3d9560b204414701122e60db",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_1_frame0_1.14.png"
+    },
+    {
+      "name": "tileset_1_frame0_2.14.png",
+      "bytes": 5062,
+      "sha256": "f8b33220fcf51da99f2a005f978fef7ab639b99701a6bfb42ff42c63acc72e72",
+      "git_blob_sha": "81cf6cf97e4fb732ab782ac11eadc10c2f56ece6",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_1_frame0_2.14.png"
+    },
+    {
+      "name": "tileset_1_frame0_3.14.png",
+      "bytes": 5096,
+      "sha256": "a10582c2de5c3138cef8301e659bf6de0a6ec2e039a92373cbcbfd7a17561d45",
+      "git_blob_sha": "8e64b29eafd6f2f95533f251b7a52e3659088dcd",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_1_frame0_3.14.png"
+    },
+    {
+      "name": "tileset_2.png",
+      "bytes": 7329,
+      "sha256": "71310f5c52d5f064890a3ae2d9fc59b1f6ee1740e5dc3922c3fe61477ad8f426",
+      "git_blob_sha": "6216e431e86371153464e997095a3d51af243162",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_2.png"
+    },
+    {
+      "name": "tileset_2_frame0_0.14.png",
+      "bytes": 7343,
+      "sha256": "1d5a7f8c5f53ad4cdeb3bfd208c3a8f937a935250a14fb2dbf63b70711d46658",
+      "git_blob_sha": "92e2b075a29623512834a69fd8765cbedc870adf",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_2_frame0_0.14.png"
+    },
+    {
+      "name": "tileset_2_frame0_1.14.png",
+      "bytes": 7324,
+      "sha256": "d8a62c860dc2776816cd6ca5f97f1f033bf802be5f499fa1f81a32d9646fe1eb",
+      "git_blob_sha": "756a8a2de31ed176d0b13936ab22753cee312ad9",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_2_frame0_1.14.png"
+    },
+    {
+      "name": "tileset_2_frame0_2.14.png",
+      "bytes": 7399,
+      "sha256": "8b85de7b5099b94872bfef05e00e52bee1fce8644f02e77b1b4cbe2c83f6c17f",
+      "git_blob_sha": "1f171fa5b88bf85c44d8438313152d4c37cbfa9a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_2_frame0_2.14.png"
+    },
+    {
+      "name": "tileset_2_frame0_3.14.png",
+      "bytes": 7360,
+      "sha256": "ab6aa6917e12fc8dc0f8fd9000f65d14f1ebc22f3cb47642f31f46b649a5ef39",
+      "git_blob_sha": "da5cd177cc814016a8a3e7be158b9a9ad32d73fd",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_2_frame0_3.14.png"
+    },
+    {
+      "name": "tileset_more.png",
+      "bytes": 181,
+      "sha256": "cf7084f305ba98f62002900d57906180dbf4da880473abc92a002e060c2476c8",
+      "git_blob_sha": "07979b0f0d02291d2a6a102a314ada27cd25b293",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MagmaCavern2/tileset_more.png"
+    }
+  ]
+}

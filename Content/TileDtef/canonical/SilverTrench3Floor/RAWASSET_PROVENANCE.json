@@ -1,0 +1,79 @@
+{
+  "schema": "new-era.rawasset-dtef-source.v1",
+  "repository": "https://github.com/PMDCollab/RawAsset",
+  "path": "TileDtef/SilverTrench3Floor",
+  "ref": "master",
+  "format": "XML-less DTEF",
+  "files": [
+    {
+      "name": "tileset_0.png",
+      "bytes": 1381,
+      "sha256": "de49d23b3b174a420953c8b0c9b54a0a600cf9d5ca941a6a56d86d03bfabce7a",
+      "git_blob_sha": "21f70177335f10cb8c445a52752508700c08f47e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/SilverTrench3Floor/tileset_0.png"
+    },
+    {
+      "name": "tileset_0_frame0_0.8.png",
+      "bytes": 1381,
+      "sha256": "de49d23b3b174a420953c8b0c9b54a0a600cf9d5ca941a6a56d86d03bfabce7a",
+      "git_blob_sha": "21f70177335f10cb8c445a52752508700c08f47e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/SilverTrench3Floor/tileset_0_frame0_0.8.png"
+    },
+    {
+      "name": "tileset_0_frame0_1.8.png",
+      "bytes": 1323,
+      "sha256": "ed630aa875f70515c631e011f1b4f8413a04c22e154eedeeadd079102b8930f9",
+      "git_blob_sha": "edea7d7f3fc9c4563302cc4ad35b52a6d4f59b0d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/SilverTrench3Floor/tileset_0_frame0_1.8.png"
+    },
+    {
+      "name": "tileset_0_frame0_2.8.png",
+      "bytes": 1353,
+      "sha256": "05fa957741096e8784b2c10d5527926ea8d802e9ceea21b70b11a0ffc84dec34",
+      "git_blob_sha": "718dfff9162394578f66b2a87831046f838eaad0",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/SilverTrench3Floor/tileset_0_frame0_2.8.png"
+    },
+    {
+      "name": "tileset_0_frame0_3.8.png",
+      "bytes": 1347,
+      "sha256": "8764f2cf77f66f039db3b840828d3f18f267e7da2f7939917ba1a9ddadfa06a2",
+      "git_blob_sha": "56399d0178644f825ee5f67913733d3a1723a3fc",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/SilverTrench3Floor/tileset_0_frame0_3.8.png"
+    },
+    {
+      "name": "tileset_0_frame0_4.8.png",
+      "bytes": 1368,
+      "sha256": "273b548bec9298fa369c5d3b84d915deb46fe56d3b9682ca1f8276949ed25899",
+      "git_blob_sha": "a5eba34030ce9868249456f236cde13045ecdcb0",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/SilverTrench3Floor/tileset_0_frame0_4.8.png"
+    },
+    {
+      "name": "tileset_0_frame0_5.8.png",
+      "bytes": 1400,
+      "sha256": "cf443e091a1c32cced4b94c3a006c2d72affaac19d40dd296b76f93ad4bf4813",
+      "git_blob_sha": "afd25f746689b8f7ba1dfd363b80191a93e6ec2a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/SilverTrench3Floor/tileset_0_frame0_5.8.png"
+    },
+    {
+      "name": "tileset_0_frame0_6.8.png",
+      "bytes": 1398,
+      "sha256": "78702c82805e864535e10260a0c11524a180cef869a39461a128b31d01f3b95f",
+      "git_blob_sha": "5cf9034e7d6870b0793561beda62265b95409437",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/SilverTrench3Floor/tileset_0_frame0_6.8.png"
+    },
+    {
+      "name": "tileset_0_frame0_7.8.png",
+      "bytes": 1345,
+      "sha256": "5545531e07f01dd6b3512039abed33629c97a813c71c398f54589f48209851c5",
+      "git_blob_sha": "da7b09d8bb482804619a0b57cb66d463c6fde457",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/SilverTrench3Floor/tileset_0_frame0_7.8.png"
+    },
+    {
+      "name": "tileset_0_frame0_8.8.png",
+      "bytes": 1368,
+      "sha256": "273b548bec9298fa369c5d3b84d915deb46fe56d3b9682ca1f8276949ed25899",
+      "git_blob_sha": "a5eba34030ce9868249456f236cde13045ecdcb0",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/SilverTrench3Floor/tileset_0_frame0_8.8.png"
+    }
+  ]
+}

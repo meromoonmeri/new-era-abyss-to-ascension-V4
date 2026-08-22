@@ -1,0 +1,205 @@
+{
+  "schema": "new-era.rawasset-dtef-source.v1",
+  "repository": "https://github.com/PMDCollab/RawAsset",
+  "path": "TileDtef/DarknightRelic",
+  "ref": "master",
+  "format": "XML-less DTEF",
+  "files": [
+    {
+      "name": "tileset_0.png",
+      "bytes": 40011,
+      "sha256": "e5a842cf80af1a3547b5eb66d1153559230fcd1d9d472eddc03c950b9412419a",
+      "git_blob_sha": "56fbd3867878d3eb572a62fe8bfb9e9569f78651",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0.png"
+    },
+    {
+      "name": "tileset_0_frame0_0.13.png",
+      "bytes": 40220,
+      "sha256": "15da32246202b16f3422e8b9484fdec8dcc28b651ce1b081df215f828e699465",
+      "git_blob_sha": "240d6644fc55c8b0ec0e96a565f0ce2e86b11915",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame0_0.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_1.13.png",
+      "bytes": 40213,
+      "sha256": "67a4400bee819f2a608cff4511616a8641013a4bbf01d457310e119ba2b7c00f",
+      "git_blob_sha": "e97febd27ce76c61265644889caa374d0a1baf2b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame0_1.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_10.13.png",
+      "bytes": 40213,
+      "sha256": "67a4400bee819f2a608cff4511616a8641013a4bbf01d457310e119ba2b7c00f",
+      "git_blob_sha": "e97febd27ce76c61265644889caa374d0a1baf2b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame0_10.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_11.13.png",
+      "bytes": 40220,
+      "sha256": "15da32246202b16f3422e8b9484fdec8dcc28b651ce1b081df215f828e699465",
+      "git_blob_sha": "240d6644fc55c8b0ec0e96a565f0ce2e86b11915",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame0_11.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_2.13.png",
+      "bytes": 40171,
+      "sha256": "469e3b839878fe264750f0aa08a6fc964f1cb4b654d68bb95cf6a7b7d001d241",
+      "git_blob_sha": "4f9b9fde29375e19dbc9793ebe91bead74513c13",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame0_2.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_3.13.png",
+      "bytes": 39900,
+      "sha256": "0253ea3a2a907f5b627562569f25a8ac42f9e14140d86c9e5dc4fc2d4b1b9fc2",
+      "git_blob_sha": "f04c2b1cf9fd3ad1a31b475a702136e2638de80f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame0_3.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_4.13.png",
+      "bytes": 40082,
+      "sha256": "729a25e7bbdff2f5f92493bf0d9829efaaa21a44c0112a933d60bd0af0f1b082",
+      "git_blob_sha": "9c52971c809bea9e4dbb58266cf63a9af1167560",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame0_4.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_5.13.png",
+      "bytes": 40082,
+      "sha256": "729a25e7bbdff2f5f92493bf0d9829efaaa21a44c0112a933d60bd0af0f1b082",
+      "git_blob_sha": "9c52971c809bea9e4dbb58266cf63a9af1167560",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame0_5.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_6.13.png",
+      "bytes": 40082,
+      "sha256": "729a25e7bbdff2f5f92493bf0d9829efaaa21a44c0112a933d60bd0af0f1b082",
+      "git_blob_sha": "9c52971c809bea9e4dbb58266cf63a9af1167560",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame0_6.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_7.13.png",
+      "bytes": 39900,
+      "sha256": "0253ea3a2a907f5b627562569f25a8ac42f9e14140d86c9e5dc4fc2d4b1b9fc2",
+      "git_blob_sha": "f04c2b1cf9fd3ad1a31b475a702136e2638de80f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame0_7.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_8.13.png",
+      "bytes": 40171,
+      "sha256": "469e3b839878fe264750f0aa08a6fc964f1cb4b654d68bb95cf6a7b7d001d241",
+      "git_blob_sha": "4f9b9fde29375e19dbc9793ebe91bead74513c13",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame0_8.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_9.13.png",
+      "bytes": 40171,
+      "sha256": "469e3b839878fe264750f0aa08a6fc964f1cb4b654d68bb95cf6a7b7d001d241",
+      "git_blob_sha": "4f9b9fde29375e19dbc9793ebe91bead74513c13",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame0_9.13.png"
+    },
+    {
+      "name": "tileset_0_frame1_0.7.png",
+      "bytes": 40201,
+      "sha256": "08a9e541ff332fdd1687f09d6a8e865734a908ff896fbcb0ee8e4f7a17ae1a87",
+      "git_blob_sha": "2414c90445d1046fb0959c025b1f17f277b7add3",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame1_0.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_1.7.png",
+      "bytes": 39667,
+      "sha256": "d428563970a32fae44ea8afe5f4bd9eec4c5aa4dabe2f9095ba9d00349a8c6a9",
+      "git_blob_sha": "03f695f1fec526a0da10d03ac7e95018d4149acf",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame1_1.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_10.7.png",
+      "bytes": 40193,
+      "sha256": "2be7ac3ea3222d582087ea01acc6cb89978f85f422fc1a403b9d690c1826823c",
+      "git_blob_sha": "e901b24048d2bc7c4ee7439889827662fa7ee37b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame1_10.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_11.7.png",
+      "bytes": 39667,
+      "sha256": "d428563970a32fae44ea8afe5f4bd9eec4c5aa4dabe2f9095ba9d00349a8c6a9",
+      "git_blob_sha": "03f695f1fec526a0da10d03ac7e95018d4149acf",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame1_11.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_2.7.png",
+      "bytes": 40193,
+      "sha256": "2be7ac3ea3222d582087ea01acc6cb89978f85f422fc1a403b9d690c1826823c",
+      "git_blob_sha": "e901b24048d2bc7c4ee7439889827662fa7ee37b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame1_2.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_3.7.png",
+      "bytes": 39667,
+      "sha256": "d428563970a32fae44ea8afe5f4bd9eec4c5aa4dabe2f9095ba9d00349a8c6a9",
+      "git_blob_sha": "03f695f1fec526a0da10d03ac7e95018d4149acf",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame1_3.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_4.7.png",
+      "bytes": 40201,
+      "sha256": "08a9e541ff332fdd1687f09d6a8e865734a908ff896fbcb0ee8e4f7a17ae1a87",
+      "git_blob_sha": "2414c90445d1046fb0959c025b1f17f277b7add3",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame1_4.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_5.7.png",
+      "bytes": 39667,
+      "sha256": "d428563970a32fae44ea8afe5f4bd9eec4c5aa4dabe2f9095ba9d00349a8c6a9",
+      "git_blob_sha": "03f695f1fec526a0da10d03ac7e95018d4149acf",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame1_5.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_6.7.png",
+      "bytes": 40193,
+      "sha256": "2be7ac3ea3222d582087ea01acc6cb89978f85f422fc1a403b9d690c1826823c",
+      "git_blob_sha": "e901b24048d2bc7c4ee7439889827662fa7ee37b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame1_6.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_7.7.png",
+      "bytes": 39667,
+      "sha256": "d428563970a32fae44ea8afe5f4bd9eec4c5aa4dabe2f9095ba9d00349a8c6a9",
+      "git_blob_sha": "03f695f1fec526a0da10d03ac7e95018d4149acf",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame1_7.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_8.7.png",
+      "bytes": 40201,
+      "sha256": "08a9e541ff332fdd1687f09d6a8e865734a908ff896fbcb0ee8e4f7a17ae1a87",
+      "git_blob_sha": "2414c90445d1046fb0959c025b1f17f277b7add3",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame1_8.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_9.7.png",
+      "bytes": 39667,
+      "sha256": "d428563970a32fae44ea8afe5f4bd9eec4c5aa4dabe2f9095ba9d00349a8c6a9",
+      "git_blob_sha": "03f695f1fec526a0da10d03ac7e95018d4149acf",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_0_frame1_9.7.png"
+    },
+    {
+      "name": "tileset_1.png",
+      "bytes": 5859,
+      "sha256": "737e251b5c82b2b804dc2383889cc36a743bf35c94dd77ea7f1f819dbc79a740",
+      "git_blob_sha": "73b1d7b421b10d5b1f5cb9a48350a383a3294b1d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_1.png"
+    },
+    {
+      "name": "tileset_2.png",
+      "bytes": 11662,
+      "sha256": "f97c15869c9f5407fd319380d132c4dc3017da4472c6b5ea9611c4b67a35fbfc",
+      "git_blob_sha": "834cea5da468c1a8996ea6bf60cd7c193eef4f01",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_2.png"
+    },
+    {
+      "name": "tileset_more.png",
+      "bytes": 180,
+      "sha256": "c49476c9279e3bfe6307f13a0e465aceb4fe81252411309406c73cf56da97f4e",
+      "git_blob_sha": "25c723237eb20872c05b2710ecd99528a869189c",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/DarknightRelic/tileset_more.png"
+    }
+  ]
+}

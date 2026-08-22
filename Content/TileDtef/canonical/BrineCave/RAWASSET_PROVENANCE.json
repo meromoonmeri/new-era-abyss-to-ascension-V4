@@ -1,0 +1,205 @@
+{
+  "schema": "new-era.rawasset-dtef-source.v1",
+  "repository": "https://github.com/PMDCollab/RawAsset",
+  "path": "TileDtef/BrineCave",
+  "ref": "master",
+  "format": "XML-less DTEF",
+  "files": [
+    {
+      "name": "tileset_0.png",
+      "bytes": 39231,
+      "sha256": "9269d34f59df067db5701412b04fa88e08b32f2f38e85b920c6a14a012eb44cd",
+      "git_blob_sha": "7faf011db58f06a5edc9f0e35ad410e60bda5ed3",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0.png"
+    },
+    {
+      "name": "tileset_0_frame0_0.18.png",
+      "bytes": 39451,
+      "sha256": "23c75498bf576dfd7702318cb81c6e749058467ee73a497af67512193050766a",
+      "git_blob_sha": "de3420f10c631f6d3db5843289036a6623b90759",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame0_0.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_1.18.png",
+      "bytes": 39412,
+      "sha256": "83430721dadf3b247b1f356c6da1144fb34fccc83bd58b1afa308d20205a74c0",
+      "git_blob_sha": "440b6f13bbe0462eed911a7cd3e928fddc407e38",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame0_1.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_10.18.png",
+      "bytes": 39792,
+      "sha256": "d777ce4d243d9215f7a1fe68408a7eb9835924abaa7a2e8c1ac1258170ba79ea",
+      "git_blob_sha": "b17ee7ca7aa09f9d08a0857ca228f7fbec2d041b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame0_10.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_11.18.png",
+      "bytes": 39412,
+      "sha256": "83430721dadf3b247b1f356c6da1144fb34fccc83bd58b1afa308d20205a74c0",
+      "git_blob_sha": "440b6f13bbe0462eed911a7cd3e928fddc407e38",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame0_11.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_2.18.png",
+      "bytes": 39792,
+      "sha256": "d777ce4d243d9215f7a1fe68408a7eb9835924abaa7a2e8c1ac1258170ba79ea",
+      "git_blob_sha": "b17ee7ca7aa09f9d08a0857ca228f7fbec2d041b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame0_2.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_3.18.png",
+      "bytes": 39809,
+      "sha256": "58be1723aa4e61fac0ca10a67daff6f0f62dd10bf87792c8347d7000ea693b0c",
+      "git_blob_sha": "ada474b020f5027f7ae4ea01e8ba3264f177b163",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame0_3.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_4.18.png",
+      "bytes": 39629,
+      "sha256": "223db38881d92bfedaeb79d0b423f413d9377d1bcf5a520857cd8a39920b004c",
+      "git_blob_sha": "ab680dafcaa7c84624e09b169d138238ed8a82c6",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame0_4.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_5.18.png",
+      "bytes": 39592,
+      "sha256": "cd39fbbc76cb30fc16f7b8f1b2d0bc518c2e181422738644585f361a6b3db240",
+      "git_blob_sha": "98af2661ebae106bfd5fb5bae24a4f8922720e96",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame0_5.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_6.18.png",
+      "bytes": 39586,
+      "sha256": "91c31ab10a6bf7950ea18cdec896e2fca61e0479062f873dd90ac3b2d0dd21cc",
+      "git_blob_sha": "1e9dd6de4759f53ba5b91ec19257308f5d71478d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame0_6.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_7.18.png",
+      "bytes": 39592,
+      "sha256": "cd39fbbc76cb30fc16f7b8f1b2d0bc518c2e181422738644585f361a6b3db240",
+      "git_blob_sha": "98af2661ebae106bfd5fb5bae24a4f8922720e96",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame0_7.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_8.18.png",
+      "bytes": 39745,
+      "sha256": "ecc2e8fb591fb2321403e52e45edb059814f0ea9791f12ff440340982ef2eb9e",
+      "git_blob_sha": "193258dcafb225fa6ec7815b59c7c0602e6cc8ca",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame0_8.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_9.18.png",
+      "bytes": 39082,
+      "sha256": "d65ecb5972c9be145e9b0054570d2167ec8dad4b34e7dbb3ceb572e9921dfd49",
+      "git_blob_sha": "4c98e1763448f3390e2d741852d7e4dac1f607be",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame0_9.18.png"
+    },
+    {
+      "name": "tileset_0_frame1_0.6.png",
+      "bytes": 39377,
+      "sha256": "f351e7efba7575452a114cf07609c7a104df0bf6828bf6d250cfd9d185cbd476",
+      "git_blob_sha": "b207efe640f86593e094985dba01be2f5e6b5cd4",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame1_0.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_1.6.png",
+      "bytes": 38970,
+      "sha256": "d2130edf4024084121658a2ecaf4ad4ec61067ea90ebe3b7fa56d351e6a6334e",
+      "git_blob_sha": "bab7ea819d263c16d1f17dbdbeef357432047f99",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame1_1.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_10.6.png",
+      "bytes": 39448,
+      "sha256": "341ba2dca7fa53c52d304afc652c842a4f9050f1e5e0bad3d6f57b506bbc7691",
+      "git_blob_sha": "69d01c08b21641adc348f9c2867202ad2b011162",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame1_10.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_11.6.png",
+      "bytes": 38970,
+      "sha256": "d2130edf4024084121658a2ecaf4ad4ec61067ea90ebe3b7fa56d351e6a6334e",
+      "git_blob_sha": "bab7ea819d263c16d1f17dbdbeef357432047f99",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame1_11.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_2.6.png",
+      "bytes": 39448,
+      "sha256": "341ba2dca7fa53c52d304afc652c842a4f9050f1e5e0bad3d6f57b506bbc7691",
+      "git_blob_sha": "69d01c08b21641adc348f9c2867202ad2b011162",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame1_2.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_3.6.png",
+      "bytes": 38970,
+      "sha256": "d2130edf4024084121658a2ecaf4ad4ec61067ea90ebe3b7fa56d351e6a6334e",
+      "git_blob_sha": "bab7ea819d263c16d1f17dbdbeef357432047f99",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame1_3.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_4.6.png",
+      "bytes": 39377,
+      "sha256": "f351e7efba7575452a114cf07609c7a104df0bf6828bf6d250cfd9d185cbd476",
+      "git_blob_sha": "b207efe640f86593e094985dba01be2f5e6b5cd4",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame1_4.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_5.6.png",
+      "bytes": 38970,
+      "sha256": "d2130edf4024084121658a2ecaf4ad4ec61067ea90ebe3b7fa56d351e6a6334e",
+      "git_blob_sha": "bab7ea819d263c16d1f17dbdbeef357432047f99",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame1_5.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_6.6.png",
+      "bytes": 39448,
+      "sha256": "341ba2dca7fa53c52d304afc652c842a4f9050f1e5e0bad3d6f57b506bbc7691",
+      "git_blob_sha": "69d01c08b21641adc348f9c2867202ad2b011162",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame1_6.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_7.6.png",
+      "bytes": 38970,
+      "sha256": "d2130edf4024084121658a2ecaf4ad4ec61067ea90ebe3b7fa56d351e6a6334e",
+      "git_blob_sha": "bab7ea819d263c16d1f17dbdbeef357432047f99",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame1_7.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_8.6.png",
+      "bytes": 39377,
+      "sha256": "f351e7efba7575452a114cf07609c7a104df0bf6828bf6d250cfd9d185cbd476",
+      "git_blob_sha": "b207efe640f86593e094985dba01be2f5e6b5cd4",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame1_8.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_9.6.png",
+      "bytes": 38970,
+      "sha256": "d2130edf4024084121658a2ecaf4ad4ec61067ea90ebe3b7fa56d351e6a6334e",
+      "git_blob_sha": "bab7ea819d263c16d1f17dbdbeef357432047f99",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_0_frame1_9.6.png"
+    },
+    {
+      "name": "tileset_1.png",
+      "bytes": 3749,
+      "sha256": "d626394e795a5054041d97f30f2f072601e1957e949edfd92d24717ee6b6c6a8",
+      "git_blob_sha": "0c6b57842fc8af563c531d3fd9127a1df9f24765",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_1.png"
+    },
+    {
+      "name": "tileset_2.png",
+      "bytes": 3606,
+      "sha256": "392852ebeb3dd33d6a5713ab9558b7f30b7b92b1726cde08776e7213459ab10f",
+      "git_blob_sha": "41776ac13fc5f054c0d9b5b73e1389efda4552f1",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_2.png"
+    },
+    {
+      "name": "tileset_more.png",
+      "bytes": 664,
+      "sha256": "4830d09feb117e3529de1fc132349b3a4a3e64863eace3fc1ff995a0a083835c",
+      "git_blob_sha": "3aaa7525baf20429f64a480301f763dd6fa09d51",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/BrineCave/tileset_more.png"
+    }
+  ]
+}
