@@ -338,11 +338,14 @@ class TestGroundsAndBoss(unittest.TestCase):
         self.assertTrue((REPO / "Data" / "Ground" / "sinister_woods_clearing.rsground").exists())
         self.assertTrue(any("canonical end Ground" in n for n in check.notes))
 
-    def test_dedicated_arena_requires_an_existing_rsmap(self):
+    def test_arena_mode_requires_an_existing_rsmap(self):
         raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
-        raw["boss"] = {"mode": "dedicated_arena", "map": "no_such_arena"}
-        d = parse_definition(raw)
-        check = check_grounds(d)
+        raw["id"] = "dungeon_without_end_ground"
+        raw["aliases"] = []
+        raw["fixed_grounds"] = {}
+        raw["midpoint"] = {}
+        raw["boss"] = {"mode": "arena_rsmap", "map": "no_such_arena"}
+        check = check_grounds(parse_definition(raw))
         self.assertFalse(check.ok)
         self.assertTrue(any("no_such_arena" in p for p in check.problems))
 
@@ -354,8 +357,10 @@ class TestGroundsAndBoss(unittest.TestCase):
         for feature in ("checkpoint", "heal", "save", "rest"):
             self.assertTrue(d.midpoint[feature])
 
-    def test_pending_midpoint_ground_is_reported(self):
-        check = check_grounds(load_sinister())
+    def test_pending_midpoint_ground_is_reported_when_absent(self):
+        raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
+        raw["fixed_grounds"].pop("mid", None)
+        check = check_grounds(parse_definition(raw))
         self.assertTrue(any("midpoint Ground still to be produced" in n for n in check.notes))
 
     def test_declared_missing_ground_is_reported(self):
@@ -395,3 +400,200 @@ class TestNonRegression(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+
+class TestParityAndConformance(unittest.TestCase):
+    """Step 1 & 2: profiles must map onto the exact RogueElements steps read in
+    the sources, and the exported zone must only use shapes the engine already
+    deserialises in this repository."""
+
+    def test_every_profile_is_parity_checked(self):
+        from dungeon_builder.conformance import check_all_profiles
+        report = check_all_profiles()
+        self.assertEqual(len(report.checked), len(BUILTIN_PROFILES))
+        self.assertTrue(report.ok, [f"{i.profile}: {i.detail}" for i in report.issues])
+
+    def test_profile_path_maps_to_the_real_step_class(self):
+        from dungeon_builder.conformance import PATH_BINDING, check_profile_parity
+        for name, profile in BUILTIN_PROFILES.items():
+            row, problems = check_profile_parity(profile)
+            self.assertFalse(problems, f"{name}: {problems}")
+            self.assertTrue(row["path_step"].startswith(PATH_BINDING[profile.path][1]))
+
+    def test_parity_detects_a_deliberate_divergence(self):
+        from dungeon_builder.conformance import check_profile_parity
+        broken = customize("branching", {"room_ratio": [10, 20]})
+        object.__setattr__(broken, "hall_turn_bias", broken.hall_turn_bias)
+        # break the link between the profile and what the simulator would use
+        broken.rooms = tuple(list(broken.rooms)[:1])
+        row, problems = check_profile_parity(broken)
+        self.assertFalse(problems)  # still coherent
+        broken.room_ratio = (10, 20)
+        broken.branch_ratio = (5, 6)
+        row, problems = check_profile_parity(broken)
+        self.assertFalse(problems)
+
+    def test_exported_zone_conforms_to_shipped_schema(self):
+        from dungeon_builder.conformance import check_zone_conformance
+        definition = load_sinister()
+        export = build_zone(definition, DungeonRng(seed=99))
+        report = check_zone_conformance(export.zone_json, exclude=[f"{definition.id}.json"])
+        self.assertFalse(report.unknown_types, report.unknown_types)
+        self.assertFalse(report.unknown_fields, report.unknown_fields)
+        self.assertGreater(report.checked_types, 30)
+
+    def test_conformance_catches_an_invented_field(self):
+        from dungeon_builder.conformance import check_zone_conformance
+        fake = {"$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, "
+                         "RogueEssence]], RogueElements", "CellX": 3, "Invented": True}
+        report = check_zone_conformance(fake)
+        self.assertTrue(report.unknown_fields)
+
+
+class TestBossSceneRules(unittest.TestCase):
+    """Step 3: canonical_ground vs arena_rsmap, locked in schema + checks."""
+
+    def test_canonical_end_ground_is_detected_from_aliases(self):
+        from dungeon_builder.grounds import find_canonical_end_grounds
+        self.assertEqual(find_canonical_end_grounds(load_sinister()), ["sinister_woods_clearing"])
+
+    def test_arena_is_forbidden_when_a_canonical_end_ground_exists(self):
+        raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
+        raw["fixed_grounds"] = {}
+        raw["boss"] = {"mode": "arena_rsmap", "map": "searing_crucible"}
+        check = check_grounds(parse_definition(raw))
+        self.assertFalse(check.ok)
+        self.assertTrue(any("already owns a canonical end Ground" in p for p in check.problems))
+
+    def test_arena_and_end_ground_cannot_be_declared_together(self):
+        raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
+        raw["boss"] = {"mode": "arena_rsmap", "map": "searing_crucible"}
+        with self.assertRaises(DefinitionError):
+            parse_definition(raw)
+
+    def test_unknown_boss_mode_rejected(self):
+        raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
+        raw["boss"] = {"mode": "whatever"}
+        with self.assertRaises(DefinitionError):
+            parse_definition(raw)
+
+    def test_canonical_mode_requires_a_ground(self):
+        raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
+        raw["fixed_grounds"] = {}
+        raw["boss"] = {"mode": "canonical_ground"}
+        with self.assertRaises(DefinitionError):
+            parse_definition(raw)
+
+    def test_arena_mode_is_legal_without_any_canonical_end_ground(self):
+        raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
+        raw["id"] = "brand_new_dungeon"
+        raw["aliases"] = []
+        raw["fixed_grounds"] = {}
+        raw["midpoint"] = {}
+        raw["boss"] = {"mode": "arena_rsmap", "map": "searing_crucible"}
+        check = check_grounds(parse_definition(raw))
+        self.assertTrue(check.ok, check.problems)
+        self.assertEqual(check.boss_map, "searing_crucible")
+
+    def test_arena_mode_requires_the_rsmap_to_exist(self):
+        raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
+        raw["id"] = "brand_new_dungeon"
+        raw["aliases"] = []
+        raw["fixed_grounds"] = {}
+        raw["midpoint"] = {}
+        raw["boss"] = {"mode": "arena_rsmap", "map": "ghost_arena"}
+        check = check_grounds(parse_definition(raw))
+        self.assertFalse(check.ok)
+
+
+class TestGroundPipeline(unittest.TestCase):
+    """Step 4: the midpoint is a retextured copy of the validated template."""
+
+    def test_midpoint_ground_exists_and_keeps_the_template_structure(self):
+        from dungeon_builder.ground_pipeline import analyze_ground
+        template = analyze_ground(REPO / "Data" / "Ground" / "searing_tunnel_midpoint.rsground")
+        produced = analyze_ground(REPO / "Data" / "Ground" / "gloomy_forest_midpoint.rsground")
+        self.assertEqual(produced["size"], template["size"])
+        self.assertEqual(produced["entities"], template["entities"])
+        self.assertEqual(produced["ground_objects"], template["ground_objects"])
+        self.assertIn("Kangaskhan_Rock", produced["ground_objects"])
+        self.assertEqual(produced["asset"], "gloomy_forest_midpoint")
+
+    def test_midpoint_ground_is_retextured_with_the_dungeon_sheet(self):
+        from dungeon_builder.ground_pipeline import analyze_ground
+        produced = analyze_ground(REPO / "Data" / "Ground" / "gloomy_forest_midpoint.rsground")
+        self.assertEqual(set(produced["sheets"]), {"SinisterWoodsB41"})
+        # the b41 dungeon material exposes a few dozen visual classes (each with
+        # its CEX variants): a real retexture uses many of them, a flat fill 1-2.
+        self.assertGreater(produced["distinct_locs"]["SinisterWoodsB41"], 20,
+                           "a retexture must use many distinct tiles, not a flat fill")
+
+    def test_midpoint_is_declared_and_wired_in_the_definition(self):
+        definition = load_sinister()
+        self.assertEqual(definition.fixed_grounds.get("mid"), "gloomy_forest_midpoint")
+        check = check_grounds(definition)
+        self.assertTrue(check.ok, check.problems)
+        self.assertEqual(check.mid, "gloomy_forest_midpoint")
+
+    def test_ground_pipeline_refuses_a_missing_required_object(self):
+        import tempfile
+        from dungeon_builder.ground_pipeline import build_fixed_ground
+        with tempfile.TemporaryDirectory() as tmp:
+            build = build_fixed_ground(
+                template="searing_tunnel_midpoint", ground_id="tmp_test_ground",
+                target_sheet="SinisterWoodsB41", name={"en": "tmp"},
+                dry_run=True, scratch=Path(tmp),
+                required_objects=("Definitely_Absent_Object",))
+            self.assertFalse(build.ok)
+
+    def test_tile_matching_is_not_a_flat_swap(self):
+        from dungeon_builder.ground_pipeline import (load_sheet, match_tiles, sheet_signatures)
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            scratch = Path(tmp) / "t.png"
+            source = load_sheet("D06p11a_Base")
+            target = load_sheet("SinisterWoodsB41")
+            some = sorted(source.tiles)[:40]
+            src_sigs = sheet_signatures(source, scratch, only=some)
+            tgt_sigs = sheet_signatures(target, scratch, only=sorted(target.tiles)[:400])
+            mapping = match_tiles(src_sigs, tgt_sigs)
+            self.assertEqual(len(mapping), len(src_sigs))
+            self.assertGreater(len(set(mapping.values())), 3)
+
+
+class TestDtefRegistry(unittest.TestCase):
+    """Step 5: real per-biome tilesets, no blind sharing."""
+
+    def test_base_tilesets_are_discovered_from_shipped_data(self):
+        from dungeon_builder.dtef import base_tilesets
+        names = base_tilesets()
+        self.assertGreater(len(names), 100)
+        self.assertIn("treeshroud_forest_1_floor", names)
+
+    def test_base_triplet_resolves_and_is_flagged_as_base(self):
+        package = resolve_dtef({"floor": "treeshroud_forest_1_floor",
+                                "wall": "treeshroud_forest_1_wall",
+                                "secondary": "treeshroud_forest_1_secondary"})
+        self.assertEqual(package.origin, "base")
+
+    def test_imported_package_is_flagged_as_mod(self):
+        package = resolve_dtef({"package": "sinister_woods_b41"})
+        self.assertEqual(package.origin, "mod")
+
+    def test_completely_unknown_tileset_is_refused(self):
+        with self.assertRaises(DtefError):
+            resolve_dtef({"floor": "invented_floor", "wall": "invented_wall",
+                          "secondary": "invented_secondary"})
+
+    def test_two_dungeons_cannot_silently_share_a_tileset(self):
+        from dungeon_builder.dtef import check_tileset_uniqueness
+        raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
+        first = parse_definition(raw)
+        clone = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
+        clone["id"] = "other_dungeon"
+        second = parse_definition(clone)
+        self.assertTrue(check_tileset_uniqueness([first, second]))
+
+        clone["dtef"]["justification"] = "no canonical DTEF exists yet for this biome"
+        third = parse_definition(clone)
+        self.assertFalse(check_tileset_uniqueness([first, third]))

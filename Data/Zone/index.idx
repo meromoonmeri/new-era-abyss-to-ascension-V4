@@ -2422,7 +2422,8 @@
       "CountedFloors": 14,
       "Rogue": 0,
       "Grounds": [
-        "sinister_woods_clearing"
+        "sinister_woods_clearing",
+        "gloomy_forest_midpoint"
       ],
       "Maps": [
         [

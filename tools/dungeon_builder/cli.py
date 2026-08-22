@@ -40,9 +40,16 @@ def cmd_audit(args) -> int:
               f"combine={profile.combine_rate:3d}% tags={','.join(profile.tags)}")
     print()
     packages = available_packages()
-    print(f"DTEF packages imported in Data/AutoTile: {len(packages)}")
+    print(f"DTEF packages imported in Data/AutoTile (mod-owned): {len(packages)}")
     for name, package in sorted(packages.items()):
         print(f"  - {name}: {package.floor} / {package.wall} / {package.secondary}")
+    from .dtef import base_tilesets, check_tileset_uniqueness
+    base = sorted(base_tilesets())
+    triplets = sorted({n[:-6] for n in base if n.endswith("_floor")
+                       and f"{n[:-6]}_wall" in base and f"{n[:-6]}_secondary" in base})
+    print(f"base PMDO tilesets already referenced by shipped data: {len(base)} "
+          f"({len(triplets)} complete biome triplets)")
+    print("  " + ", ".join(triplets))
     print()
     definitions = list_definitions()
     print(f"Dungeon definitions in DungeonDefs/canonical: {len(definitions)}")
@@ -53,7 +60,92 @@ def cmd_audit(args) -> int:
                   f"{definition.floors:>3d} floors, {len(definition.segments)} segments")
         except DefinitionError as exc:
             print(f"  - {path.name}: INVALID ({exc})")
+    loaded = []
+    for path in definitions:
+        try:
+            loaded.append(load_definition(path))
+        except DefinitionError:
+            continue
+    for problem in check_tileset_uniqueness(loaded):
+        print(f"  ! {problem}")
     return 0
+
+
+def cmd_ground(args) -> int:
+    """Produce the dungeon's fixed Grounds (midpoint, arena) from validated templates."""
+    from .ground_pipeline import build_fixed_ground, render_preview, GroundPipelineError
+    definition = load_definition(find_definition(args.dungeon))
+    midpoint = definition.midpoint or {}
+    if args.role == "midpoint":
+        template = midpoint.get("template")
+        if not template:
+            print("this dungeon declares no midpoint template", file=sys.stderr)
+            return 2
+        ground_id = midpoint.get("ground") or f"{definition.id}_midpoint"
+        sheet = args.sheet or midpoint.get("sheet") or ""
+        if not sheet:
+            print("no target tile sheet: give --sheet or midpoint.sheet", file=sys.stderr)
+            return 2
+        try:
+            build = build_fixed_ground(
+                template=template, ground_id=ground_id, target_sheet=sheet,
+                name={"en": f"{definition.name.get('en', definition.id)} — Rest Point",
+                      "fr": f"{definition.name.get('fr', definition.id)} — Point de Repos"},
+                music=definition.music,
+                comment=(f"Midpoint fixe de {definition.name.get('en', definition.id)} : structure du "
+                         f"template validé '{template}' (checkpoint/soin/sauvegarde/repos), "
+                         f"retexturée avec '{sheet}'."),
+                dry_run=args.dry_run,
+                required_objects=tuple(midpoint.get("required_objects", ())))
+        except GroundPipelineError as exc:
+            print(f"ground pipeline error: {exc}", file=sys.stderr)
+            return 2
+        print(f"{'[dry-run] ' if args.dry_run else ''}{ground_id}: "
+              f"{build.remapped_tiles} tiles retextured from {build.distinct_tiles} distinct "
+              f"source tiles, entities {build.entities}")
+        for note in build.notes:
+            print(f"  - {note}")
+        for problem in build.problems:
+            print(f"  ! {problem}")
+        if args.preview and build.path and not args.dry_run:
+            out = ROOT / ".runtime-cache" / f"{ground_id}.png"
+            render_preview(build.path, out)
+            print(f"preview: {out}")
+        return 0 if build.ok else 1
+    print(f"unknown role '{args.role}'", file=sys.stderr)
+    return 2
+
+
+def cmd_verify(args) -> int:
+    """Prove profile parity and export conformance (steps 1 and 2 of the pipeline)."""
+    from .conformance import check_all_profiles, check_zone_conformance, markdown_report
+    parity = check_all_profiles()
+    for row in parity.rows:
+        print(f"  {row['profile']:12s} -> {row['path_step']:38s} sim={row['simulator']}")
+    for issue in parity.issues:
+        print(f"  ! {issue.profile}: {issue.detail}")
+    print(f"parity: {'OK' if parity.ok else 'FAILED'} ({len(parity.checked)} profiles)")
+
+    conformance = None
+    if args.dungeon:
+        definition = load_definition(find_definition(args.dungeon))
+        export = build_zone(definition, DungeonRng(seed=args.seed))
+        conformance = check_zone_conformance(export.zone_json,
+                                             exclude=[f"{definition.id}.json"])
+        print(f"conformance: {'OK' if conformance.ok else 'FAILED'} "
+              f"({conformance.checked_types} distinct $types)")
+        for allowed in conformance.allowed_new_types:
+            print(f"  + {allowed}")
+        for kind in conformance.unknown_types:
+            print(f"  ! unknown type {kind}")
+        for kind, fields in conformance.unknown_fields:
+            print(f"  ! unknown fields on {kind}: {fields}")
+    if args.report:
+        path = ROOT / "docs" / "dungeon_builder" / "PROFILE_PARITY.md"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(markdown_report(parity, conformance), encoding="utf-8")
+        print(f"report: {path}")
+    return 0 if parity.ok and (conformance is None or conformance.ok) else 1
 
 
 def cmd_prototype(args) -> int:
@@ -192,6 +284,20 @@ def build_parser() -> argparse.ArgumentParser:
     sub = parser.add_subparsers(dest="command", required=True)
 
     sub.add_parser("audit", help="list profiles, DTEF packages and definitions").set_defaults(func=cmd_audit)
+
+    ground = sub.add_parser("ground", help="build a fixed Ground (midpoint/arena) from its template")
+    ground.add_argument("dungeon")
+    ground.add_argument("--role", default="midpoint", choices=["midpoint"])
+    ground.add_argument("--sheet", default=None, help="target tile sheet (Content/Tile/<name>.tile)")
+    ground.add_argument("--preview", action="store_true")
+    ground.add_argument("--dry-run", action="store_true")
+    ground.set_defaults(func=cmd_ground)
+
+    verify = sub.add_parser("verify", help="profile/step parity + exported GenSteps conformance")
+    verify.add_argument("dungeon", nargs="?", default=None)
+    verify.add_argument("--seed", type=int, default=None)
+    verify.add_argument("--report", action="store_true")
+    verify.set_defaults(func=cmd_verify)
 
     proto = sub.add_parser("prototype", help="isolated RogueElements capability prototype")
     proto.add_argument("--per-profile", type=int, default=6)

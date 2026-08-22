@@ -12,7 +12,9 @@ réellement vérifiées dans le code source) et
 ## Commandes
 
 ```bash
-python3 tools/dungeon_builder.py audit                       # profils, DTEF importés, définitions
+python3 tools/dungeon_builder.py audit                       # profils, tilesets, définitions, partages interdits
+python3 tools/dungeon_builder.py verify sinister_woods --report   # parité profils/steps + conformité de l'export
+python3 tools/dungeon_builder.py ground sinister_woods --role midpoint --sheet SinisterWoodsB41 --preview
 python3 tools/dungeon_builder.py prototype --per-profile 6 --report
 python3 tools/dungeon_builder.py preview sinister_woods --floor 7 --count 10 --ascii
 python3 tools/dungeon_builder.py validate sinister_woods --count 10
@@ -37,6 +39,8 @@ Aucune seed n'est écrite dans les données de production.
 | `rng.py` | Politique de seeds (entropie OS, jamais de seed figée, traçabilité debug) |
 | `validation.py` | Fairplay, traversabilité, signature structurelle, rejet + régénération des doublons |
 | `zone_export.py` | Écriture de `Data/Zone/<id>.json` et de `index.idx` |
+| `conformance.py` | Parité profil ↔ simulateur ↔ export, et conformité des `$type`/champs émis aux zones livrées |
+| `ground_pipeline.py` | Grounds fixes : clone du template validé + retexture tuile à tuile sur la planche du donjon, index, preview PNG |
 | `report.py` | Rapport automatique JSON + Markdown (`docs/dungeon_builder/reports/`) |
 | `prototype.py` | Prototype isolé de démonstration des capacités |
 
@@ -56,5 +60,9 @@ Règles appliquées automatiquement :
 * un tileset DTEF non importé fait **échouer** la génération ;
 * un étage fixe (`fixed_floors`) est exporté en `LoadGen` + `MappedRoomStep` ;
 * si le donjon possède un Ground de fin exploitable, le boss s'y déroule
-  (`boss.mode = "canonical_ground"`) ; sinon `dedicated_arena` exige un
-  `.rsmap` existant avant conversion.
+  (`boss.mode = "canonical_ground"`) ; sinon `arena_rsmap` exige un `.rsmap`
+  existant avant conversion. Le Builder **scanne** `Data/Ground` (id + `aliases`)
+  et refuse `arena_rsmap` dès qu'une scène finale canonique existe — voir
+  `docs/dungeon_builder/GROUNDS_AND_BOSS_RULES.md` ;
+* deux donjons ne peuvent pas partager le même triplet de tileset sans
+  `dtef.justification`.

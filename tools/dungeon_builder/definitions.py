@@ -114,6 +114,9 @@ class Segment:
         return self.floors[1] - self.floors[0] + 1
 
 
+BOSS_MODES = ("canonical_ground", "arena_rsmap")
+
+
 @dataclass
 class DungeonDefinition:
     id: str
@@ -141,6 +144,7 @@ class DungeonDefinition:
     boss: Dict[str, Any] = field(default_factory=dict)
     midpoint: Dict[str, Any] = field(default_factory=dict)
     variation: Dict[str, Any] = field(default_factory=dict)
+    aliases: List[str] = field(default_factory=list)
     path: Optional[Path] = None
 
     # -- cascade helpers ----------------------------------------------
@@ -315,6 +319,7 @@ def parse_definition(data: Dict[str, Any], path: Optional[Path] = None) -> Dunge
         boss=dict(data.get("boss", {})),
         midpoint=dict(data.get("midpoint", {})),
         variation=dict(data.get("variation", {})),
+        aliases=[str(a) for a in data.get("aliases", [])],
         path=path,
     )
 
@@ -322,6 +327,28 @@ def parse_definition(data: Dict[str, Any], path: Optional[Path] = None) -> Dunge
         raise DefinitionError("no architecture profile declared (dungeon level or every segment)")
     if not definition.dtef and not all(seg.dtef for seg in segments):
         raise DefinitionError("no DTEF tileset declared (dungeon level or every segment)")
+
+    boss = definition.boss
+    if boss:
+        mode = boss.get("mode")
+        if mode not in BOSS_MODES:
+            raise DefinitionError(
+                f"boss.mode must be one of {BOSS_MODES} (got {mode!r}): a canonical end Ground "
+                "must be reused when it exists, an arena .rsmap is only for dungeons without one")
+        if mode == "canonical_ground" and not (boss.get("ground") or definition.fixed_grounds.get("end")):
+            raise DefinitionError("boss.mode=canonical_ground requires boss.ground "
+                                  "or fixed_grounds.end")
+        if mode == "arena_rsmap":
+            if not boss.get("map"):
+                raise DefinitionError("boss.mode=arena_rsmap requires boss.map (the .rsmap arena)")
+            if definition.fixed_grounds.get("end"):
+                raise DefinitionError(
+                    "boss.mode=arena_rsmap conflicts with fixed_grounds.end: the canonical end "
+                    "Ground must host the final battle")
+    for miniboss in definition.minibosses:
+        for required in ("species", "level"):
+            if required not in miniboss:
+                raise DefinitionError(f"miniboss entry missing '{required}': {miniboss!r}")
     return definition
 
 

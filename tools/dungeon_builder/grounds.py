@@ -1,24 +1,33 @@
-"""Fixed Grounds (entrance / midpoint / end) and boss-scene resolution.
+"""Fixed Grounds (entrance / midpoint / end) and boss-scene arbitration.
 
-Rules implemented (per the project's canonical policy):
-  * `entrance`, `mid` and the end scene are FIXED Grounds, never procedural;
-  * if the dungeon owns a canonical end Ground, the final boss fight happens on
-    that Ground — no separate arena is invented;
-  * only when no usable end Ground exists is a dedicated `.rsmap` arena
-    declared, which then has to exist in `Data/Map` before conversion.
+Hard rules enforced here — a future dungeon cannot break them by accident:
+
+* `entrance`, `mid` and the end scene are FIXED Grounds, never procedural;
+* **if the dungeon owns a usable canonical end Ground, the final battle happens
+  on it** (`boss.mode = "canonical_ground"`).  Declaring `arena_rsmap` while
+  such a Ground exists is a hard error, not a warning;
+* `arena_rsmap` is only legal when no canonical end Ground can be found; the
+  `.rsmap` must already exist in `Data/Map` before it is converted to a Ground.
 """
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Sequence
 
 ROOT = Path(__file__).resolve().parents[2]
 GROUND_DIR = ROOT / "Data" / "Ground"
 MAP_DIR = ROOT / "Data" / "Map"
 
 CANONICAL_GROUND = "canonical_ground"
-DEDICATED_ARENA = "dedicated_arena"
+ARENA_RSMAP = "arena_rsmap"
+BOSS_MODES = (CANONICAL_GROUND, ARENA_RSMAP)
+
+#: suffixes that identify a "end of dungeon" Ground in this project's naming
+END_SUFFIXES = ("clearing", "end", "fond", "fin", "summit", "sommet", "depths", "profondeurs",
+                "bottom", "peak", "final", "core", "coeur", "altar", "autel", "sanctuaire",
+                "den", "crucible", "guardian", "boss")
 
 
 @dataclass
@@ -29,6 +38,7 @@ class GroundCheck:
     boss_mode: str = ""
     boss_ground: str = ""
     boss_map: str = ""
+    canonical_end_candidates: List[str] = field(default_factory=list)
     ok: bool = True
     problems: List[str] = field(default_factory=list)
     notes: List[str] = field(default_factory=list)
@@ -37,15 +47,39 @@ class GroundCheck:
         return dict(self.__dict__)
 
 
-def ground_exists(name: str) -> bool:
-    return bool(name) and (GROUND_DIR / f"{name}.rsground").exists()
+def ground_exists(name: str, ground_dir: Optional[Path] = None) -> bool:
+    return bool(name) and ((ground_dir or GROUND_DIR) / f"{name}.rsground").exists()
 
 
-def map_exists(name: str) -> bool:
-    return bool(name) and (MAP_DIR / f"{name}.rsmap").exists()
+def map_exists(name: str, map_dir: Optional[Path] = None) -> bool:
+    return bool(name) and ((map_dir or MAP_DIR) / f"{name}.rsmap").exists()
 
 
-def check_grounds(definition) -> GroundCheck:
+def find_canonical_end_grounds(definition, ground_dir: Optional[Path] = None) -> List[str]:
+    """Scan `Data/Ground` for an existing end-of-dungeon scene of this dungeon.
+
+    Matching uses the dungeon id plus any `aliases` declared in the definition
+    (e.g. `gloomy_forest` also answers to `sinister_woods`), combined with the
+    project's end-scene suffixes.
+    """
+    ground_dir = ground_dir or GROUND_DIR
+    names = {definition.id}
+    names |= {str(a) for a in getattr(definition, "aliases", []) or []}
+    found: List[str] = []
+    for path in sorted(ground_dir.glob("*.rsground")):
+        stem = path.stem
+        for base in names:
+            if not stem.startswith(base):
+                continue
+            suffix = stem[len(base):].strip("_")
+            if suffix and any(re.fullmatch(rf"{s}\d*", suffix) for s in END_SUFFIXES):
+                found.append(stem)
+                break
+    return found
+
+
+def check_grounds(definition, ground_dir: Optional[Path] = None,
+                  map_dir: Optional[Path] = None) -> GroundCheck:
     grounds = definition.fixed_grounds or {}
     check = GroundCheck(entrance=grounds.get("entrance", ""), mid=grounds.get("mid", ""),
                         end=grounds.get("end", ""))
@@ -55,13 +89,13 @@ def check_grounds(definition) -> GroundCheck:
         if not name:
             check.notes.append(f"no fixed '{role}' Ground declared")
             continue
-        if not ground_exists(name):
+        if not ground_exists(name, ground_dir):
             check.problems.append(f"{role} Ground '{name}.rsground' missing from Data/Ground")
 
     midpoint = definition.midpoint or {}
     if midpoint:
         template = midpoint.get("template", "")
-        if template and not ground_exists(template):
+        if template and not ground_exists(template, ground_dir):
             check.problems.append(f"midpoint template Ground '{template}' missing")
         if not midpoint.get("retexture"):
             check.problems.append("midpoint must declare 'retexture' (biome tileset of this dungeon)")
@@ -74,41 +108,67 @@ def check_grounds(definition) -> GroundCheck:
             if not midpoint.get(feature, False):
                 check.notes.append(f"midpoint does not provide '{feature}'")
 
+    candidates = find_canonical_end_grounds(definition, ground_dir)
+    check.canonical_end_candidates = candidates
+
     boss = definition.boss or {}
     check.boss_mode = boss.get("mode", "")
-    if boss:
-        if check.boss_mode == CANONICAL_GROUND:
-            ground = boss.get("ground") or grounds.get("end", "")
-            check.boss_ground = ground
-            if not ground_exists(ground):
-                check.problems.append(f"boss Ground '{ground}' declared canonical but missing")
-            else:
-                check.notes.append(f"final battle stays on the canonical end Ground '{ground}' "
-                                   "(no separate arena created)")
-            arena = boss.get("map", "")
-            if arena:
-                check.boss_map = arena
-                if not map_exists(arena):
-                    check.problems.append(f"boss scene map '{arena}.rsmap' declared but missing")
-                else:
-                    check.notes.append(f"scene source of truth: {arena}.rsmap matches the end Ground")
-        elif check.boss_mode == DEDICATED_ARENA:
-            arena = boss.get("map", "")
-            check.boss_map = arena
-            if not map_exists(arena):
-                check.problems.append(
-                    f"dedicated arena '{arena}.rsmap' must exist in Data/Map before conversion")
-            ground = boss.get("ground", "")
-            check.boss_ground = ground
-            if ground and not ground_exists(ground):
-                check.notes.append(f"arena Ground '{ground}' not converted yet")
+    if not boss:
+        check.notes.append("no boss scene declared")
+        check.ok = not check.problems
+        return check
+
+    if check.boss_mode not in BOSS_MODES:
+        check.problems.append(
+            f"boss.mode must be one of {BOSS_MODES}, got '{check.boss_mode}'")
+        check.ok = False
+        return check
+
+    if check.boss_mode == CANONICAL_GROUND:
+        ground = boss.get("ground") or grounds.get("end", "")
+        check.boss_ground = ground
+        if not ground:
+            check.problems.append("boss.mode=canonical_ground requires 'ground' "
+                                  "(or fixed_grounds.end)")
+        elif not ground_exists(ground, ground_dir):
+            check.problems.append(f"boss Ground '{ground}' declared canonical but missing")
         else:
+            check.notes.append(f"final battle stays on the canonical end Ground '{ground}' "
+                               "(no separate arena created)")
+        if candidates and ground and ground not in candidates:
+            check.notes.append(f"declared boss Ground '{ground}' is not among the detected "
+                               f"canonical end scenes {candidates}")
+        if boss.get("map"):
+            check.boss_map = boss["map"]
+            if not map_exists(check.boss_map, map_dir):
+                check.problems.append(
+                    f"boss scene map '{check.boss_map}.rsmap' declared but missing")
+            else:
+                check.notes.append(
+                    f"scene source of truth: {check.boss_map}.rsmap matches the end Ground")
+    else:  # ARENA_RSMAP
+        if candidates:
             check.problems.append(
-                f"boss.mode must be '{CANONICAL_GROUND}' or '{DEDICATED_ARENA}', got '{check.boss_mode}'")
+                "boss.mode=arena_rsmap is forbidden: this dungeon already owns a canonical end "
+                f"Ground ({', '.join(candidates)}). Fight there with mode=canonical_ground.")
+        arena = boss.get("map", "")
+        check.boss_map = arena
+        if not arena:
+            check.problems.append("boss.mode=arena_rsmap requires a 'map' (.rsmap arena)")
+        elif not map_exists(arena, map_dir):
+            check.problems.append(
+                f"dedicated arena '{arena}.rsmap' must exist in Data/Map before conversion")
+        else:
+            check.notes.append(f"dedicated arena scene: {arena}.rsmap (source of truth) "
+                               "→ to be converted into a boss Ground")
+        ground = boss.get("ground", "")
+        check.boss_ground = ground
+        if ground and not ground_exists(ground, ground_dir):
+            check.notes.append(f"arena Ground '{ground}' not converted yet")
 
     for miniboss in definition.minibosses or []:
         map_id = miniboss.get("map", "")
-        if map_id and not map_exists(map_id):
+        if map_id and not map_exists(map_id, map_dir):
             check.problems.append(f"miniboss arena '{map_id}.rsmap' missing from Data/Map")
 
     check.ok = not check.problems

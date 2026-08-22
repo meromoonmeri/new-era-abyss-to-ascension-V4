@@ -12,7 +12,8 @@ chiffres annoncés ont donc été recomptés directement sur l'arbre de travail
 | 27 routes principales Ch.6–32 | 27 chapitres (6→32) référencés dans `docs/inventaire_donjons.md` ; **aucune** zone principale Ch.6+ n'existe encore dans `Data/Zone` (purge du commit de base) | ✅ compte des chapitres exact, ❌ « routes » **non implémentées** |
 | 51 donjons PMD Red | `docs/ROSTER_IMPORT_DONJONS_PMD_RED_CH7_CH32.md` : « 51 donjons d'histoire importables (49 à créer + 2 faits) » | ✅ cohérent (planning, pas contenu) |
 | 245 Grounds Red archivés | `RESERVE/red_grounds` = **245** fichiers, `RESERVE/red_tiles` = 245 | ✅ exact |
-| 23 packages DTEF importés | `Data/AutoTile` = **11 AutoTileData** ; un seul **triplet complet** floor/wall/secondary : `sinister_woods_b41`. Les 8 `apricorn_grove_*` sont des variantes de couleur, pas des triplets DTEF | ❌ **corrigé : 1 package DTEF exploitable, pas 23** |
+| 23 packages DTEF importés | `Data/AutoTile` = **11 AutoTileData** ; un seul **triplet complet** floor/wall/secondary appartenant au mod : `sinister_woods_b41`. Les 8 `apricorn_grove_*` sont des variantes de couleur, pas des triplets DTEF | ❌ **corrigé : 1 package DTEF importé par le mod, pas 23** |
+| (non annoncé) tilesets utilisables | **49 triplets de biome supplémentaires** fournis par PMDO et déjà référencés par des zones/maps/grounds livrés (`treeshroud_forest_1`, `magma_cavern_2`, `crystal_cave_1/2`, `western_cave_1/2`, `mt_blaze`, `mt_freeze`, `frosty_forest`, `lapis_cave`, `sealed_ruin`, `spacial_rift_1/2`, `stormy_sea_1`, `quicksand_pit`, `purity_forest_4/6/7/8`, `world_abyss_2`, …) | ✅ **découverte : la couverture réelle est de 50 triplets, pas 1** |
 
 Autres mesures utiles :
 
@@ -27,15 +28,22 @@ Autres mesures utiles :
 
 ## Conséquences pour le Dungeon Builder
 
-1. **Le DTEF est le goulot d'étranglement réel**, pas la génération. Un donjon
+1. **Le tileset est le goulot d'étranglement réel**, pas la génération. Un donjon
    ne peut être généré avec son identité visuelle propre que si son triplet
-   `<biome>_floor` / `_wall` / `_secondary` est importé dans `Data/AutoTile`.
+   `<biome>_floor` / `_wall` / `_secondary` est soit importé dans
+   `Data/AutoTile` (DTEF propre au mod), soit déjà référencé par des données
+   livrées (tileset de base PMDO). `dungeon_builder audit` liste les deux
+   familles, et `check_tileset_uniqueness()` **interdit à deux donjons de
+   partager le même triplet** sans champ `dtef.justification` explicite.
    `tools/dungeon_builder.py audit` liste à tout moment les packages
    disponibles, et `generate` **refuse** d'écrire une zone dont le tileset
    n'est pas importé (aucun partage aveugle de tileset entre deux donjons).
-2. Sinister Woods est le seul donjon Ch.6–32 immédiatement générable
-   aujourd'hui (`sinister_woods_b41` importé, Ground de fin canonique
-   `sinister_woods_clearing` présent).
+2. Sinister Woods reste le donjon de référence validé de bout en bout
+   (`sinister_woods_b41` importé, midpoint produit, Ground de fin canonique
+   `sinister_woods_clearing` présent). Les 49 triplets de base permettent
+   d'attribuer un tileset distinct par biome aux donjons suivants, mais chaque
+   attribution doit être décidée donjon par donjon (biome canonique) et non
+   recopiée.
 3. Les donjons hors périmètre (Aegis Cave / `cloven_ruins`) ne sont pas
    touchés : aucun fichier de ces zones n'est modifié, et un test de
    non-régression le vérifie.

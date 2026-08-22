@@ -360,7 +360,7 @@ def save_vars_zone_step() -> Dict[str, Any]:
     return {"$type": "PMDC.LevelGen.SaveVarsZoneStep, PMDC", "Priority": priority(-6)}
 
 
-def miniboss_step(mob: Dict[str, Any], amount: Tuple[int, int] = (1, 2)) -> Dict[str, Any]:
+def miniboss_step(mob: Dict[str, Any]) -> Dict[str, Any]:
     """A single reinforced foe on one floor (RogueEssence.LevelGen.MobSpawnStep +
     PlaceRandomMobsStep-compatible PoolTeamSpawner, as used by the shipped zones)."""
     return {"$type": _t("RogueEssence.LevelGen.MobSpawnStep", "RogueEssence", MAP_CTX),
@@ -368,5 +368,4 @@ def miniboss_step(mob: Dict[str, Any], amount: Tuple[int, int] = (1, 2)) -> Dict
                                   "Explorer": False,
                                   "Spawns": [{"Spawn": {"Spawn": mob, "Role": 0}, "Rate": 10}],
                                   "TeamSizes": [{"Spawn": 1, "Rate": 10}]},
-                        "Rate": 10}],
-            "Amount": rand_range(amount)}
+                        "Rate": 10}]}

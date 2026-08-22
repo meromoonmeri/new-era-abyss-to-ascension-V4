@@ -140,7 +140,7 @@ def floor_gen_steps(definition: DungeonDefinition, segment: Segment, profile: Ar
                          miniboss.get("tactic", "wander_smart"),
                          miniboss.get("skills", ()),
                          tuple(miniboss.get("features", ("unrecruitable",))))
-        entries.append((S.priority(6, 3), S.miniboss_step(mob, tuple(miniboss.get("amount", (1, 2))))))
+        entries.append((S.priority(6, 3), S.miniboss_step(mob)))
     entries.append((S.priority(7), S.detect_isolated_stairs()))
 
     gen = {"$type": "RogueEssence.LevelGen.GridFloorGen, RogueEssence",

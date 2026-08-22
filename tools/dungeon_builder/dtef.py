@@ -9,13 +9,18 @@ runtime.  This module only *resolves and verifies* those references.
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
+from functools import lru_cache
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Sequence, Tuple
 
 ROOT = Path(__file__).resolve().parents[2]
 AUTOTILE_DIR = ROOT / "Data" / "AutoTile"
 TILE_DIR = ROOT / "Content" / "Tile"
+ZONE_DIR = ROOT / "Data" / "Zone"
+MAP_DIR = ROOT / "Data" / "Map"
+GROUND_DIR = ROOT / "Data" / "Ground"
 
 ROLES = ("floor", "wall", "secondary")
 
@@ -32,6 +37,8 @@ class DtefPackage:
     secondary: str
     element: str = "normal"
     sheets: Optional[List[str]] = None
+    origin: str = "mod"          # mod = imported in Data/AutoTile, base = shipped by PMDO
+    justification: str = ""
 
     def as_texture_args(self):
         return self.floor, self.wall, self.secondary, self.element
@@ -56,6 +63,32 @@ def available_packages(autotile_dir: Path = AUTOTILE_DIR) -> Dict[str, DtefPacka
         if set(roles) == set(ROLES):
             packages[base] = DtefPackage(base, roles["floor"], roles["wall"], roles["secondary"])
     return packages
+
+
+@lru_cache(maxsize=1)
+def base_tilesets() -> frozenset:
+    """Auto-tilesets referenced by the data already shipped and working.
+
+    PMDO ships hundreds of auto-tilesets that a mod does not re-import; the only
+    trustworthy evidence that a name resolves at runtime is that an existing
+    zone/map/ground already uses it.
+    """
+    names = set()
+    pattern = re.compile(r'"(?:AutoTileset|GroundTileset|BlockTileset|WaterTileset)"\s*:\s*"([a-z0-9_]+)"')
+    for folder, suffix in ((ZONE_DIR, "*.json"), (MAP_DIR, "*.rsmap"), (GROUND_DIR, "*.rsground")):
+        if not folder.exists():
+            continue
+        for path in folder.glob(suffix):
+            try:
+                names.update(pattern.findall(path.read_text(encoding="utf-8-sig")))
+            except (UnicodeDecodeError, OSError):
+                continue
+    names.discard("")
+    return frozenset(names)
+
+
+def known_tilesets() -> set:
+    return set(available_autotiles()) | set(base_tilesets())
 
 
 def sheets_of(tile_id: str, autotile_dir: Path = AUTOTILE_DIR) -> List[str]:
@@ -100,12 +133,25 @@ def resolve(spec: Dict[str, str], autotile_dir: Path = AUTOTILE_DIR,
         package = DtefPackage(spec.get("name", spec["floor"]), spec["floor"], spec["wall"],
                               spec["secondary"], spec.get("element", "normal"))
 
+    package.justification = spec.get("justification", "")
+
     if strict:
-        known = set(available_autotiles(autotile_dir))
+        imported = set(available_autotiles(autotile_dir))
+        shipped = base_tilesets()
+        origins = set()
         for role in ROLES:
             tile_id = getattr(package, role)
-            if tile_id and tile_id not in known:
-                raise DtefError(f"auto-tileset '{tile_id}' is not imported in Data/AutoTile")
+            if not tile_id:
+                continue
+            if tile_id in imported:
+                origins.add("mod")
+            elif tile_id in shipped:
+                origins.add("base")
+            else:
+                raise DtefError(
+                    f"auto-tileset '{tile_id}' is neither imported in Data/AutoTile nor used by "
+                    "any shipped zone/map/ground: import its DTEF package first")
+        package.origin = "mod" if origins == {"mod"} else ("base" if origins == {"base"} else "mixed")
         sheets = set()
         for role in ROLES:
             sheets.update(sheets_of(getattr(package, role), autotile_dir))
@@ -115,3 +161,41 @@ def resolve(spec: Dict[str, str], autotile_dir: Path = AUTOTILE_DIR,
                 raise DtefError(f"tile sheet '{sheet}.tile' referenced by "
                                 f"'{package.name}' is missing from Content/Tile")
     return package
+
+
+# ---------------------------------------------------------------------------
+def triplet_of(spec: Dict[str, str], autotile_dir: Path = AUTOTILE_DIR) -> Tuple[str, str, str]:
+    package = resolve(spec, autotile_dir, strict=False)
+    return package.floor, package.wall, package.secondary
+
+
+def check_tileset_uniqueness(definitions: Sequence) -> List[str]:
+    """No two dungeons may share the same DTEF triplet without a justification.
+
+    Sharing a raw tileset is what makes two dungeons look identical; when no
+    exact canonical equivalent exists, the definition must say so explicitly via
+    `dtef.justification`.
+    """
+    problems: List[str] = []
+    owners: Dict[Tuple[str, str, str], List[Tuple[str, str]]] = {}
+    for definition in definitions:
+        for segment in definition.segments:
+            spec = definition.dtef_for(segment)
+            if not spec:
+                continue
+            try:
+                triplet = triplet_of(spec)
+            except DtefError:
+                continue
+            owners.setdefault(triplet, []).append(
+                (definition.id, str(spec.get("justification", ""))))
+    for triplet, users in owners.items():
+        dungeons = {name for name, _ in users}
+        if len(dungeons) < 2:
+            continue
+        unjustified = sorted({name for name, why in users if not why})
+        if len(unjustified) > 1:
+            problems.append(
+                f"tileset {triplet[0]}/{triplet[1]}/{triplet[2]} is shared by {unjustified} "
+                "without any 'justification' in their dtef block")
+    return problems

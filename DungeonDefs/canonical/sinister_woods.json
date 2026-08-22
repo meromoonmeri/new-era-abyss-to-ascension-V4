@@ -4,6 +4,9 @@
     "en": "Sinister Woods",
     "fr": "Bois Sinistre"
   },
+  "aliases": [
+    "sinister_woods"
+  ],
   "chapter": 6,
   "route": "main",
   "source": "Pokémon Mystery Dungeon: Rescue Team (Red/Blue Rescue Team & Rescue Team DX) — Sinister Woods, B1F-B12F. Species/items adapted to PMDO spawn tables and rescaled to New Era chapter 6 (30 years later).",
@@ -14,181 +17,559 @@
   "rescues": 2,
   "released": true,
   "floors": 14,
-  "money": [140, 190],
-
+  "money": [
+    140,
+    190
+  ],
   "dtef": {
     "package": "sinister_woods_b41",
     "element": "grass"
   },
-
   "variation": {
     "direction": "fond",
     "time_limit": 1500,
     "max_foes": 6,
     "respawn_time": 100
   },
-
   "stairs": {
     "min_distance": 4,
     "exit_tile": "stairs_go_down"
   },
-
   "profiles": [
-    { "name": "branching", "weight": 24 },
-    { "name": "looping", "weight": 18 },
-    { "name": "dense", "weight": 14 },
-    { "name": "large_rooms", "weight": 12 },
-    { "name": "mixed", "weight": 16 },
-    { "name": "ring", "weight": 8 },
-    { "name": "crossroads", "weight": 8 }
+    {
+      "name": "branching",
+      "weight": 24
+    },
+    {
+      "name": "looping",
+      "weight": 18
+    },
+    {
+      "name": "dense",
+      "weight": 14
+    },
+    {
+      "name": "large_rooms",
+      "weight": 12
+    },
+    {
+      "name": "mixed",
+      "weight": 16
+    },
+    {
+      "name": "ring",
+      "weight": 8
+    },
+    {
+      "name": "crossroads",
+      "weight": 8
+    }
   ],
-
   "pokemon": [
-    { "species": "oddish",    "level": [17, 19], "weight": 12, "skills": ["absorb", "growth"] },
-    { "species": "sentret",   "level": [17, 18], "weight": 10, "skills": ["quick_attack", "foresight"] },
-    { "species": "shroomish", "level": [17, 20], "weight": 12, "skills": ["absorb", "stun_spore"] },
-    { "species": "ledyba",    "level": [17, 19], "weight": 10, "skills": ["comet_punch", "supersonic"] },
-    { "species": "hoothoot",  "level": [17, 20], "weight": 10, "skills": ["peck", "hypnosis"] }
+    {
+      "species": "oddish",
+      "level": [
+        17,
+        19
+      ],
+      "weight": 12,
+      "skills": [
+        "absorb",
+        "growth"
+      ]
+    },
+    {
+      "species": "sentret",
+      "level": [
+        17,
+        18
+      ],
+      "weight": 10,
+      "skills": [
+        "quick_attack",
+        "foresight"
+      ]
+    },
+    {
+      "species": "shroomish",
+      "level": [
+        17,
+        20
+      ],
+      "weight": 12,
+      "skills": [
+        "absorb",
+        "stun_spore"
+      ]
+    },
+    {
+      "species": "ledyba",
+      "level": [
+        17,
+        19
+      ],
+      "weight": 10,
+      "skills": [
+        "comet_punch",
+        "supersonic"
+      ]
+    },
+    {
+      "species": "hoothoot",
+      "level": [
+        17,
+        20
+      ],
+      "weight": 10,
+      "skills": [
+        "peck",
+        "hypnosis"
+      ]
+    }
   ],
-
   "items": {
     "necessities": {
-      "amount": [3, 6],
+      "amount": [
+        3,
+        6
+      ],
       "entries": [
-        { "item": "food_apple", "weight": 12 },
-        { "item": "berry_oran", "weight": 10 },
-        { "item": "berry_cheri", "weight": 6 },
-        { "item": "berry_pecha", "weight": 6 },
-        { "item": "berry_rawst", "weight": 5 },
-        { "item": "seed_reviver", "weight": 3 }
+        {
+          "item": "food_apple",
+          "weight": 12
+        },
+        {
+          "item": "berry_oran",
+          "weight": 10
+        },
+        {
+          "item": "berry_cheri",
+          "weight": 6
+        },
+        {
+          "item": "berry_pecha",
+          "weight": 6
+        },
+        {
+          "item": "berry_rawst",
+          "weight": 5
+        },
+        {
+          "item": "seed_reviver",
+          "weight": 3
+        }
       ]
     },
     "forest_finds": {
-      "amount": [1, 3],
+      "amount": [
+        1,
+        3
+      ],
       "entries": [
-        { "item": "seed_blast", "weight": 8 },
-        { "item": "seed_sleep", "weight": 5 },
-        { "item": "seed_warp", "weight": 5 },
-        { "item": "apricorn_plain", "weight": 6 },
-        { "item": "apricorn_green", "weight": 4 }
+        {
+          "item": "seed_blast",
+          "weight": 8
+        },
+        {
+          "item": "seed_sleep",
+          "weight": 5
+        },
+        {
+          "item": "seed_warp",
+          "weight": 5
+        },
+        {
+          "item": "apricorn_plain",
+          "weight": 6
+        },
+        {
+          "item": "apricorn_green",
+          "weight": 4
+        }
       ]
     },
     "gummis": {
-      "amount": [0, 2],
+      "amount": [
+        0,
+        2
+      ],
       "entries": [
-        { "item": "gummi_grass", "weight": 8 },
-        { "item": "gummi_green", "weight": 6 },
-        { "item": "gummi_clear", "weight": 4 },
-        { "item": "gummi_brown", "weight": 4 }
+        {
+          "item": "gummi_grass",
+          "weight": 8
+        },
+        {
+          "item": "gummi_green",
+          "weight": 6
+        },
+        {
+          "item": "gummi_clear",
+          "weight": 4
+        },
+        {
+          "item": "gummi_brown",
+          "weight": 4
+        }
       ]
     }
   },
-
   "features": {
     "shop": {
       "enabled": true,
-      "floors": [4, 12],
+      "floors": [
+        4,
+        12
+      ],
       "trials": 2,
       "percent": 45,
       "items": [
-        { "item": "seed_reviver", "price": 800, "weight": 12 },
-        { "item": "berry_oran", "price": 100, "weight": 12 },
-        { "item": "food_apple", "price": 80, "weight": 10 },
-        { "item": "seed_blast", "price": 300, "weight": 8 },
-        { "item": "orb_escape", "price": 500, "weight": 6 },
-        { "item": "orb_luminous", "price": 600, "weight": 5 },
-        { "item": "gummi_grass", "price": 500, "weight": 5 }
+        {
+          "item": "seed_reviver",
+          "price": 800,
+          "weight": 12
+        },
+        {
+          "item": "berry_oran",
+          "price": 100,
+          "weight": 12
+        },
+        {
+          "item": "food_apple",
+          "price": 80,
+          "weight": 10
+        },
+        {
+          "item": "seed_blast",
+          "price": 300,
+          "weight": 8
+        },
+        {
+          "item": "orb_escape",
+          "price": 500,
+          "weight": 6
+        },
+        {
+          "item": "orb_luminous",
+          "price": 600,
+          "weight": 5
+        },
+        {
+          "item": "gummi_grass",
+          "price": 500,
+          "weight": 5
+        }
       ]
     },
     "monster_house": {
       "enabled": true,
-      "floors": [5, 14],
+      "floors": [
+        5,
+        14
+      ],
       "trials": 2,
       "percent": 30,
       "species": 6,
       "level_boost": 2,
       "items": [
-        { "item": "food_apple", "weight": 8 },
-        { "item": "berry_oran", "weight": 8 },
-        { "item": "seed_blast", "weight": 5 },
-        { "item": "gummi_grass", "weight": 4 }
+        {
+          "item": "food_apple",
+          "weight": 8
+        },
+        {
+          "item": "berry_oran",
+          "weight": 8
+        },
+        {
+          "item": "seed_blast",
+          "weight": 5
+        },
+        {
+          "item": "gummi_grass",
+          "weight": 4
+        }
       ]
     },
     "weather": [
-      { "status": "fog", "floors": [6, 10], "chance": 35 },
-      { "status": "light_rain", "floors": [11, 14], "chance": 30 }
+      {
+        "status": "fog",
+        "floors": [
+          6,
+          10
+        ],
+        "chance": 35
+      },
+      {
+        "status": "light_rain",
+        "floors": [
+          11,
+          14
+        ],
+        "chance": 30
+      }
     ]
   },
-
   "segments": [
     {
       "name": "Lisière hantée",
-      "floors": [1, 5],
+      "floors": [
+        1,
+        5
+      ],
       "biome": "forest_edge",
-      "money": [140, 175],
+      "money": [
+        140,
+        175
+      ],
       "max_foes": 5,
       "respawn_time": 110,
       "profiles": [
-        { "name": "branching", "weight": 30 },
-        { "name": "dense", "weight": 18 },
-        { "name": "mixed", "weight": 16 },
-        { "name": "crossroads", "weight": 10 }
+        {
+          "name": "branching",
+          "weight": 30
+        },
+        {
+          "name": "dense",
+          "weight": 18
+        },
+        {
+          "name": "mixed",
+          "weight": 16
+        },
+        {
+          "name": "crossroads",
+          "weight": 10
+        }
       ],
       "pokemon": [
-        { "species": "sudowoodo", "level": [18, 19], "weight": 6, "skills": ["rock_throw", "mimic"] },
-        { "species": "silcoon",   "level": [17, 18], "weight": 7, "skills": ["harden"] },
-        { "species": "cascoon",   "level": [17, 18], "weight": 7, "skills": ["harden"] },
-        { "species": "swinub",    "level": [17, 18], "weight": 5, "skills": ["powder_snow", "odor_sleuth"], "floors": [1, 3] }
+        {
+          "species": "sudowoodo",
+          "level": [
+            18,
+            19
+          ],
+          "weight": 6,
+          "skills": [
+            "rock_throw",
+            "mimic"
+          ]
+        },
+        {
+          "species": "silcoon",
+          "level": [
+            17,
+            18
+          ],
+          "weight": 7,
+          "skills": [
+            "harden"
+          ]
+        },
+        {
+          "species": "cascoon",
+          "level": [
+            17,
+            18
+          ],
+          "weight": 7,
+          "skills": [
+            "harden"
+          ]
+        },
+        {
+          "species": "swinub",
+          "level": [
+            17,
+            18
+          ],
+          "weight": 5,
+          "skills": [
+            "powder_snow",
+            "odor_sleuth"
+          ],
+          "floors": [
+            1,
+            3
+          ]
+        }
       ]
     },
     {
       "name": "Bois profonds",
-      "floors": [6, 10],
+      "floors": [
+        6,
+        10
+      ],
       "biome": "deep_forest",
-      "money": [160, 200],
+      "money": [
+        160,
+        200
+      ],
       "max_foes": 6,
       "respawn_time": 100,
       "profiles": [
-        { "name": "looping", "weight": 26 },
-        { "name": "branching", "weight": 20 },
-        { "name": "large_rooms", "weight": 16 },
-        { "name": "mixed", "weight": 18 },
-        { "name": "ring", "weight": 10 }
+        {
+          "name": "looping",
+          "weight": 26
+        },
+        {
+          "name": "branching",
+          "weight": 20
+        },
+        {
+          "name": "large_rooms",
+          "weight": 16
+        },
+        {
+          "name": "mixed",
+          "weight": 18
+        },
+        {
+          "name": "ring",
+          "weight": 10
+        }
       ],
       "pokemon": [
-        { "species": "sunflora",  "level": [19, 21], "weight": 8, "skills": ["razor_leaf", "growth"] },
-        { "species": "bonsly",    "level": [19, 20], "weight": 6, "skills": ["rock_throw", "flail"] },
-        { "species": "linoone",   "level": [20, 22], "weight": 7, "skills": ["headbutt", "sand_attack"] },
-        { "species": "exeggutor", "level": [21, 23], "weight": 5, "skills": ["confusion", "stomp"] }
+        {
+          "species": "sunflora",
+          "level": [
+            19,
+            21
+          ],
+          "weight": 8,
+          "skills": [
+            "razor_leaf",
+            "growth"
+          ]
+        },
+        {
+          "species": "bonsly",
+          "level": [
+            19,
+            20
+          ],
+          "weight": 6,
+          "skills": [
+            "rock_throw",
+            "flail"
+          ]
+        },
+        {
+          "species": "linoone",
+          "level": [
+            20,
+            22
+          ],
+          "weight": 7,
+          "skills": [
+            "headbutt",
+            "sand_attack"
+          ]
+        },
+        {
+          "species": "exeggutor",
+          "level": [
+            21,
+            23
+          ],
+          "weight": 5,
+          "skills": [
+            "confusion",
+            "stomp"
+          ]
+        }
       ]
     },
     {
       "name": "Clairière du Filou",
-      "floors": [11, 14],
+      "floors": [
+        11,
+        14
+      ],
       "biome": "forest_clearing",
-      "money": [180, 230],
+      "money": [
+        180,
+        230
+      ],
       "max_foes": 7,
       "respawn_time": 90,
       "profiles": [
-        { "name": "mixed", "weight": 26 },
-        { "name": "large_rooms", "weight": 20 },
-        { "name": "looping", "weight": 18 },
-        { "name": "branching", "weight": 16 }
+        {
+          "name": "mixed",
+          "weight": 26
+        },
+        {
+          "name": "large_rooms",
+          "weight": 20
+        },
+        {
+          "name": "looping",
+          "weight": 18
+        },
+        {
+          "name": "branching",
+          "weight": 16
+        }
       ],
       "pokemon": [
-        { "species": "scyther",   "level": [22, 24], "weight": 6, "skills": ["fury_cutter", "false_swipe"] },
-        { "species": "slakoth",   "level": [21, 22], "weight": 7, "skills": ["scratch", "yawn"] },
-        { "species": "exeggutor", "level": [22, 24], "weight": 6, "skills": ["confusion", "stomp"] },
-        { "species": "hoothoot",  "level": [21, 23], "weight": 8, "skills": ["peck", "hypnosis"] }
+        {
+          "species": "scyther",
+          "level": [
+            22,
+            24
+          ],
+          "weight": 6,
+          "skills": [
+            "fury_cutter",
+            "false_swipe"
+          ]
+        },
+        {
+          "species": "slakoth",
+          "level": [
+            21,
+            22
+          ],
+          "weight": 7,
+          "skills": [
+            "scratch",
+            "yawn"
+          ]
+        },
+        {
+          "species": "exeggutor",
+          "level": [
+            22,
+            24
+          ],
+          "weight": 6,
+          "skills": [
+            "confusion",
+            "stomp"
+          ]
+        },
+        {
+          "species": "hoothoot",
+          "level": [
+            21,
+            23
+          ],
+          "weight": 8,
+          "skills": [
+            "peck",
+            "hypnosis"
+          ]
+        }
       ]
     }
   ],
-
   "minibosses": [
     {
       "name": "Scyther le Guetteur",
       "species": "scyther",
-      "level": [26, 26],
+      "level": [
+        26,
+        26
+      ],
       "floor": 7,
       "mode": "floor_encounter",
       "notes": "Renforcé au-dessus des résidents du segment (Lv 19-21)."
@@ -196,13 +577,15 @@
     {
       "name": "Exeggutor l'Ancien",
       "species": "exeggutor",
-      "level": [28, 28],
+      "level": [
+        28,
+        28
+      ],
       "floor": 11,
       "mode": "floor_encounter",
       "notes": "Garde l'entrée de la clairière."
     }
   ],
-
   "midpoint": {
     "floor": 8,
     "template": "searing_tunnel_midpoint",
@@ -212,22 +595,47 @@
     "save": true,
     "rest": true,
     "statue": "kangaskhan",
-    "notes": "Ground fixe : structure du template validé, retexturée avec le DTEF forestier de Sinister Woods. Jamais généré procéduralement."
+    "notes": "Ground fixe : structure du template validé, retexturée avec le DTEF forestier de Sinister Woods. Jamais généré procéduralement.",
+    "ground": "gloomy_forest_midpoint",
+    "sheet": "SinisterWoodsB41",
+    "required_objects": [
+      "Kangaskhan_Rock",
+      "North_Exit",
+      "South_Exit"
+    ]
   },
-
   "boss": {
     "mode": "canonical_ground",
     "ground": "sinister_woods_clearing",
     "team": "Team Dazzling (héritiers de Team Meanies)",
     "roster": [
-      { "species": "gengar", "level": [26, 26], "role": "leader" },
-      { "species": "medicham", "level": [24, 24] },
-      { "species": "ekans", "level": [24, 24] }
+      {
+        "species": "gengar",
+        "level": [
+          26,
+          26
+        ],
+        "role": "leader"
+      },
+      {
+        "species": "medicham",
+        "level": [
+          24,
+          24
+        ]
+      },
+      {
+        "species": "ekans",
+        "level": [
+          24,
+          24
+        ]
+      }
     ],
     "notes": "Sinister Woods possède un Ground de fin canonique exploitable (D04P02 → sinister_woods_clearing) : le combat final s'y déroule directement, aucune arène séparée n'est créée."
   },
-
   "fixed_grounds": {
-    "end": "sinister_woods_clearing"
+    "end": "sinister_woods_clearing",
+    "mid": "gloomy_forest_midpoint"
   }
 }
