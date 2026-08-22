@@ -1,15 +1,15 @@
-﻿{
+{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Dungeon.Map, RogueEssence",
     "Name": {
-      "DefaultText": "Gloomy Hollow",
+      "DefaultText": "Beedrill Swarm",
       "LocalTexts": {
-        "fr": "Creux Ombragé"
+        "fr": "Essaim de Dardargnan"
       }
     },
     "Released": true,
-    "Comment": "Arène 19x19 directement issue du Ground 24px gloomy_forest_miniboss; mêmes couches et collision agrégée.",
+    "Comment": "Sinister Woods mini-boss: Beedrill swarm led by the evolved Beedrill chief.",
     "Begun": false,
     "ID": 0,
     "MapTeams": [
@@ -37,7 +37,7 @@
               "Gender": 1
             },
             "CurrentForm": {
-              "Species": "shiftry",
+              "Species": "beedrill",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1
@@ -189,11 +189,11 @@
               "Assembly": false,
               "Index": -1
             },
-            "Nickname": "Tengalice",
+            "Nickname": "Dardargnan Alpha",
             "OriginalUUID": "",
             "OriginalTeam": "",
             "BaseForm": {
-              "Species": "shiftry",
+              "Species": "beedrill",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1
@@ -281,7 +281,7 @@
               "Gender": 1
             },
             "CurrentForm": {
-              "Species": "murkrow",
+              "Species": "beedrill",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1
@@ -433,16 +433,16 @@
               "Assembly": false,
               "Index": -1
             },
-            "Nickname": "Cornèbre",
+            "Nickname": "Dardargnan",
             "OriginalUUID": "",
             "OriginalTeam": "",
             "BaseForm": {
-              "Species": "murkrow",
+              "Species": "beedrill",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1
             },
-            "Level": 28,
+            "Level": 27,
             "EXP": 0,
             "MaxHPBonus": 60,
             "AtkBonus": 0,
@@ -530,7 +530,7 @@
               "Gender": 1
             },
             "CurrentForm": {
-              "Species": "nuzleaf",
+              "Species": "beedrill",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1
@@ -682,16 +682,16 @@
               "Assembly": false,
               "Index": -1
             },
-            "Nickname": "",
+            "Nickname": "Dardargnan",
             "OriginalUUID": "",
             "OriginalTeam": "",
             "BaseForm": {
-              "Species": "nuzleaf",
+              "Species": "beedrill",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1
             },
-            "Level": 24,
+            "Level": 27,
             "EXP": 0,
             "MaxHPBonus": 0,
             "AtkBonus": 0,
@@ -779,7 +779,7 @@
               "Gender": 1
             },
             "CurrentForm": {
-              "Species": "nuzleaf",
+              "Species": "beedrill",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1
@@ -931,16 +931,16 @@
               "Assembly": false,
               "Index": -1
             },
-            "Nickname": "",
+            "Nickname": "Dardargnan",
             "OriginalUUID": "",
             "OriginalTeam": "",
             "BaseForm": {
-              "Species": "nuzleaf",
+              "Species": "beedrill",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1
             },
-            "Level": 24,
+            "Level": 27,
             "EXP": 0,
             "MaxHPBonus": 0,
             "AtkBonus": 0,
@@ -1028,7 +1028,7 @@
               "Gender": 1
             },
             "CurrentForm": {
-              "Species": "seedot",
+              "Species": "beedrill",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1
@@ -1180,16 +1180,16 @@
               "Assembly": false,
               "Index": -1
             },
-            "Nickname": "",
+            "Nickname": "Dardargnan",
             "OriginalUUID": "",
             "OriginalTeam": "",
             "BaseForm": {
-              "Species": "seedot",
+              "Species": "beedrill",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1
             },
-            "Level": 24,
+            "Level": 27,
             "EXP": 0,
             "MaxHPBonus": 0,
             "AtkBonus": 0,
@@ -1277,7 +1277,7 @@
               "Gender": 1
             },
             "CurrentForm": {
-              "Species": "seedot",
+              "Species": "beedrill",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1
@@ -1429,16 +1429,16 @@
               "Assembly": false,
               "Index": -1
             },
-            "Nickname": "",
+            "Nickname": "Dardargnan",
             "OriginalUUID": "",
             "OriginalTeam": "",
             "BaseForm": {
-              "Species": "seedot",
+              "Species": "beedrill",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1
             },
-            "Level": 24,
+            "Level": 27,
             "EXP": 0,
             "MaxHPBonus": 0,
             "AtkBonus": 0,

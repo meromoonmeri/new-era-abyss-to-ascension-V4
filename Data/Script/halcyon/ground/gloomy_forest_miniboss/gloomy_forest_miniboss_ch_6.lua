@@ -1,6 +1,6 @@
 --[[
     gloomy_forest_miniboss_ch_6.lua
-    Forêt Sinistre — Mini-Boss : Tengalice + Cornèbre (gardiens du cœur)
+    Forêt Sinistre — Mini-Boss : meute de Dardargnan menée par son chef évolué
     Simple : flash blanc + dialogues (directive utilisateur).
     Salle 456x456 px, ring de 2 tuiles de murs : plancher de (48,48) à (408,408).
 ]]
@@ -86,22 +86,22 @@ function gloomy_forest_miniboss_ch_6.FirstPreBossScene()
   GAME:WaitFrames(20)
 
   -- Ordre imposé : Gardien qui parle -> Flash -> Apparition.
-  -- Tengalice existe AVANT de parler (mais reste caché) : c'est lui qui
+  -- Dardargnan Alpha existe AVANT de parler (mais reste caché) : c'est lui qui
   -- interpelle le duo, pas un oracle. Patron du clan Limagma au Creuset
   -- (searing_crucible_ch_5.lua:626-629).
-  local shiftry = CharacterEssentials.MakeCharactersFromList({
-    {'Shiftry', BOSS_1[1], BOSS_1[2], Direction.DownRight}
+  local chief = CharacterEssentials.MakeCharactersFromList({
+    {'Beedrill_Chief', BOSS_1[1], BOSS_1[2], Direction.DownRight}
   })
-  GROUND:Hide('Shiftry')
+  GROUND:Hide('Beedrill_Chief')
 
-  BossFX.GuardianVoice(shiftry, 'GFM_004')
+  BossFX.GuardianVoice(chief, 'GFM_004')
   GAME:WaitFrames(20)
 
-  -- Tengalice apparaît sous un flash blanc.
+  -- Dardargnan Alpha apparaît sous un flash blanc.
   SOUND:PlayBattleSE('EVT_Emote_Shock_2')
   BossFX.Flash(BOSS_1[1], BOSS_1[2], 3, 5, 20)
   GAME:WaitFrames(8)
-  GROUND:Unhide('Shiftry')
+  GROUND:Unhide('Beedrill_Chief')
   BossFX.Impact(7)
 
   GAME:WaitFrames(20)
@@ -110,16 +110,16 @@ function gloomy_forest_miniboss_ch_6.FirstPreBossScene()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM_005']))
   GAME:WaitFrames(20)
 
-  -- Cornèbre apparaît sous un flash blanc.
-  local murkrow = CharacterEssentials.MakeCharactersFromList({
-    {'Cornebre_Boss', BOSS_2[1], BOSS_2[2], Direction.DownLeft}
+  -- Dardargnan apparaît sous un flash blanc.
+  local scout = CharacterEssentials.MakeCharactersFromList({
+    {'Beedrill_Scout', BOSS_2[1], BOSS_2[2], Direction.DownLeft}
   })
-  GROUND:Hide('Cornebre_Boss')
+  GROUND:Hide('Beedrill_Scout')
   SOUND:PlayBattleSE('_UNK_EVT_102')
   GAME:WaitFrames(10)
   BossFX.Flash(BOSS_2[1], BOSS_2[2], 3, 5, 20)
   GAME:WaitFrames(8)
-  GROUND:Unhide('Cornebre_Boss')
+  GROUND:Unhide('Beedrill_Scout')
   BossFX.Impact(7)
 
   GAME:WaitFrames(20)
@@ -130,10 +130,10 @@ function gloomy_forest_miniboss_ch_6.FirstPreBossScene()
   GAME:WaitFrames(20)
 
   -- Les gardiens prennent la parole.
-  UI:SetSpeaker(shiftry)
+  UI:SetSpeaker(chief)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM_007']))
   GAME:WaitFrames(12)
-  UI:SetSpeaker(murkrow)
+  UI:SetSpeaker(scout)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM_008']))
   GAME:WaitFrames(20)
 
@@ -153,19 +153,19 @@ end
 function gloomy_forest_miniboss_ch_6.SecondPreBossScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
-  local shiftry = CharacterEssentials.MakeCharactersFromList({
-    {'Shiftry', BOSS_1[1], BOSS_1[2], Direction.Down}
+  local chief = CharacterEssentials.MakeCharactersFromList({
+    {'Beedrill_Chief', BOSS_1[1], BOSS_1[2], Direction.Down}
   })
-  local murkrow = CharacterEssentials.MakeCharactersFromList({
-    {'Cornebre_Boss', BOSS_2[1], BOSS_2[2], Direction.Down}
+  local scout = CharacterEssentials.MakeCharactersFromList({
+    {'Beedrill_Scout', BOSS_2[1], BOSS_2[2], Direction.Down}
   })
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:FadeOutBGM(60)
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(60)
-  GROUND:CharSetAnim(shiftry, "Idle", true)
-  GROUND:CharSetAnim(murkrow, "Idle", true)
+  GROUND:CharSetAnim(chief, "Idle", true)
+  GROUND:CharSetAnim(scout, "Idle", true)
   PlaceTeam(hero, partner)
   GAME:MoveCamera(CAM_FOYER[1], CAM_FOYER[2], 1, false)
 
@@ -209,14 +209,14 @@ local function DefeatedBossBody()
 	pcall(function() GAME:FadeOut(false, 1) end)
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
-  local shiftry = CharacterEssentials.MakeCharactersFromList({
-    {'Shiftry', BOSS_1[1], BOSS_1[2], Direction.Down}
+  local chief = CharacterEssentials.MakeCharactersFromList({
+    {'Beedrill_Chief', BOSS_1[1], BOSS_1[2], Direction.Down}
   })
-  local murkrow = CharacterEssentials.MakeCharactersFromList({
-    {'Cornebre_Boss', BOSS_2[1], BOSS_2[2], Direction.Down}
+  local scout = CharacterEssentials.MakeCharactersFromList({
+    {'Beedrill_Scout', BOSS_2[1], BOSS_2[2], Direction.Down}
   })
-  GROUND:CharSetAnim(shiftry, "Idle", true)
-  GROUND:CharSetAnim(murkrow, "Idle", true)
+  GROUND:CharSetAnim(chief, "Idle", true)
+  GROUND:CharSetAnim(scout, "Idle", true)
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
@@ -231,10 +231,10 @@ local function DefeatedBossBody()
   SOUND:PlayBGM('Mystifying Forest.ogg', false)
 
   GAME:WaitFrames(30)
-  UI:SetSpeaker(shiftry)
+  UI:SetSpeaker(chief)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM_011']))
   GAME:WaitFrames(12)
-  UI:SetSpeaker(murkrow)
+  UI:SetSpeaker(scout)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM_012']))
   GAME:WaitFrames(20)
 
@@ -248,8 +248,8 @@ local function DefeatedBossBody()
   -- Les gardiens s'effacent dans un flash blanc : la voie du cœur s'ouvre.
   BossFX.Flash(248, 150, 2, 2, 20)
   GAME:WaitFrames(16)
-  pcall(function() GROUND:Hide('Shiftry') end)
-  pcall(function() GROUND:Hide('Cornebre_Boss') end)
+  pcall(function() GROUND:Hide('Beedrill_Chief') end)
+  pcall(function() GROUND:Hide('Beedrill_Scout') end)
   GAME:WaitFrames(30)
 
   GAME:FadeOut(false, 60)
@@ -280,14 +280,14 @@ function gloomy_forest_miniboss_ch_6.DiedToBoss()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  local shiftry = CharacterEssentials.MakeCharactersFromList({
-    {'Shiftry', BOSS_1[1], BOSS_1[2], Direction.Down}
+  local chief = CharacterEssentials.MakeCharactersFromList({
+    {'Beedrill_Chief', BOSS_1[1], BOSS_1[2], Direction.Down}
   })
-  GROUND:CharSetAnim(shiftry, "Idle", true)
-  local murkrow = CharacterEssentials.MakeCharactersFromList({
-    {'Cornebre_Boss', BOSS_2[1], BOSS_2[2], Direction.Down}
+  GROUND:CharSetAnim(chief, "Idle", true)
+  local scout = CharacterEssentials.MakeCharactersFromList({
+    {'Beedrill_Scout', BOSS_2[1], BOSS_2[2], Direction.Down}
   })
-  GROUND:CharSetAnim(murkrow, "Idle", true)
+  GROUND:CharSetAnim(scout, "Idle", true)
 
   -- L'équipe est au sol, vaincue.
   PlaceTeam(hero, partner)
@@ -299,10 +299,10 @@ function gloomy_forest_miniboss_ch_6.DiedToBoss()
   GAME:WaitFrames(40)
 
   -- Triomphe des gardiens, puis la Voix.
-  UI:SetSpeaker(shiftry)
+  UI:SetSpeaker(chief)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM_015']))
   GAME:WaitFrames(20)
-  BossFX.GuardianVoice(shiftry, 'GFM_016')
+  BossFX.GuardianVoice(chief, 'GFM_016')
   GAME:WaitFrames(20)
 
   GAME:FadeOut(false, 60)

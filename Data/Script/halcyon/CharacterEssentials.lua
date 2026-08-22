@@ -378,6 +378,16 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
+		-- Sinister Woods guardian swarm: the evolved Beedrill chief leads
+		-- the pack that blocks Chenipent's path before the final Dazzling duel.
+		Beedrill_Chief = {
+			species = "beedrill", nickname = 'Dardargnan Alpha', instance = 'Beedrill_Chief',
+			gender = Gender.Male, form = 0, skin = "normal"
+		},
+		Beedrill_Scout = {
+			species = "beedrill", nickname = 'Dardargnan', instance = 'Beedrill_Scout',
+			gender = Gender.Female, form = 0, skin = "normal"
+		},
 		--Chapitre 5 : mini-boss et gardiens des donjons de l'expedition
 		Mudbray = {
 			species = "mudbray",
