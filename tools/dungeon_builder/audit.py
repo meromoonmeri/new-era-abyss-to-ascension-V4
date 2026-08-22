@@ -253,6 +253,34 @@ def audit_definition(path: Path, known_items: set, known_statuses: set,
                 f"BLOCKED/INVALID_DEFINITION: miniboss {miniboss.get('species')} is not stronger "
                 "than the dungeon residents")
 
+    # --- boss coherence
+    boss = definition.boss or {}
+    if boss and not boss.get("roster") and boss.get("mode"):
+        audit.notes.append("boss declared without a roster")
+
+    # --- can the Builder actually generate this dungeon? (smoke test)
+    if not audit.blockers:
+        from .profiles import customize as _customize
+        from .rng import DungeonRng as _Rng
+        from .validation import validate_floor as _validate
+        rng = _Rng(label=f"smoke:{definition.id}")
+        sample_floors = sorted({1, max(1, definition.floors // 2), definition.floors})
+        for floor in sample_floors:
+            segment = definition.segment_for_floor(floor)
+            if floor in segment.fixed_floors:
+                continue
+            profiles = [_customize(choice.name, choice.overrides)
+                        for choice in definition.profiles_for(segment)]
+            report, _ = _validate(floor, profiles, rng, count=5)
+            if not report.ok:
+                audit.blockers.append(
+                    f"BLOCKED/GENERATION_FAILED: floor {floor} could not produce 5 valid, "
+                    f"distinct layouts ({'; '.join(report.notes) or 'see validation'})")
+                break
+        else:
+            audit.notes.append("generation smoke test passed (5 distinct valid layouts per "
+                               "sampled floor)")
+
     audit.cinematic_ground = audit.cinematic_ground or check.cinematic_ground
     audit.battle_ground = audit.battle_ground or check.battle_ground
 
@@ -278,6 +306,10 @@ def audit_definition(path: Path, known_items: set, known_statuses: set,
 
     # --- narrative content must not be lost
     if (audit.cutscenes or audit.red_cinematics) and not audit.narrative_transferred:
+        audit.blockers.append(
+            "BLOCKED/NARRATIVE_NOT_TRANSFERRED: "
+            f"{audit.cutscenes} cutscene folder(s) / {audit.red_cinematics} PMD Red cinematic(s) "
+            "are not bound to the new implementation yet")
         audit.notes.append(
             f"{audit.cutscenes} cutscene folder(s) and {audit.red_cinematics} PMD Red cinematic(s) "
             "to re-attach (narrative.transferred is still false)")

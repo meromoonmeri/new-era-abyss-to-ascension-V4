@@ -1069,3 +1069,73 @@ class TestTakeoverCompletion(unittest.TestCase):
                          .read_text(encoding="utf-8-sig"))
         self.assertIn("scene_candidates", raw)
         self.assertTrue(raw["scene_candidates"]["candidates"])
+
+
+class TestProductionReadinessRules(unittest.TestCase):
+    """READY_FOR_GENERATION must mean 'the Builder can really rebuild it'."""
+
+    @classmethod
+    def setUpClass(cls):
+        from dungeon_builder.audit import audit_all
+        cls.audits, _ = audit_all()
+        cls.by_id = {a.dungeon: a for a in cls.audits}
+
+    def test_ready_dungeons_passed_a_real_generation_smoke_test(self):
+        ready = [a for a in self.audits if a.readiness == "READY_FOR_GENERATION"]
+        self.assertGreaterEqual(len(ready), 45)
+        for audit in ready:
+            self.assertTrue(any("generation smoke test passed" in note for note in audit.notes),
+                            audit.dungeon)
+
+    def test_untransferred_narrative_blocks_readiness(self):
+        from dungeon_builder.audit import audit_definition, _known_items, _known_statuses
+        import tempfile
+        raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
+        raw["narrative"]["transferred"] = False
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "sinister_woods.json"
+            path.write_text(json.dumps(raw, ensure_ascii=False), encoding="utf-8")
+            audit, _ = audit_definition(path, _known_items(), _known_statuses(), set())
+        self.assertTrue(any("NARRATIVE_NOT_TRANSFERRED" in b for b in audit.blockers))
+
+    def test_in_dungeon_boss_is_documented_with_source_evidence(self):
+        for dungeon, symbol in (("buried_relic", "Regirock"), ("meteor_cave", "Deoxys")):
+            raw = json.loads((REPO / "DungeonDefs" / "canonical" / f"{dungeon}.json")
+                             .read_text(encoding="utf-8-sig"))
+            boss = raw["boss"]
+            self.assertEqual(boss["mode"], "arena_rsmap")
+            self.assertEqual(boss["arena_kind"], "in_dungeon_fixed_room")
+            evidence = boss["canonical_evidence"]
+            self.assertIn("dungeon_boss_dialogue.c", evidence["source"])
+            self.assertIn(symbol, evidence["symbols"])
+
+    def test_rejected_scene_candidates_are_explained(self):
+        raw = json.loads((REPO / "DungeonDefs" / "canonical" / "buried_relic.json")
+                         .read_text(encoding="utf-8-sig"))
+        self.assertIn("rejected_reason", raw["scene_candidates"])
+
+    def test_northwind_field_still_has_no_borrowed_tileset(self):
+        from dungeon_builder.dtef import base_tilesets
+        names = base_tilesets()
+        icy = sorted({n[:-6] for n in names if n.endswith("_floor")
+                      and any(k in n for k in ("frost", "freeze", "snow", "ice", "boreal"))})
+        self.assertEqual(icy, ["frosty_forest", "mt_freeze"],
+                         "if a new icy triplet appears, northwind_field must be revisited")
+        raw = json.loads((REPO / "DungeonDefs" / "canonical" / "northwind_field.json")
+                         .read_text(encoding="utf-8-sig"))
+        self.assertFalse(raw.get("dtef"))
+
+    def test_sample_validation_document_is_present_and_complex(self):
+        doc = (REPO / "docs" / "dungeon_builder" / "SAMPLE_VALIDATION.md").read_text(encoding="utf-8")
+        for dungeon in ("gloomy_forest", "magma_cavern", "stormy_sea", "silver_trench",
+                        "great_canyon", "murky_cave", "joyous_tower", "desert_region"):
+            self.assertIn(dungeon, doc)
+        self.assertIn("cinématique = combat = fin", doc)
+        self.assertNotIn("| 0/10 |", doc)      # every sampled floor is traversable
+
+    def test_no_mass_generation_happened_yet(self):
+        allowed = {"gloomy_forest", "mt_blaze", "mt_freeze", "frosty_forest", "lapis_cave",
+                   "wish_cave", "sky_tower", "sky_tower_summit"}
+        ids = {a.dungeon for a in self.audits}
+        written = {p.stem for p in (REPO / "Data" / "Zone").glob("*.json")} & ids
+        self.assertTrue(written <= allowed, written - allowed)

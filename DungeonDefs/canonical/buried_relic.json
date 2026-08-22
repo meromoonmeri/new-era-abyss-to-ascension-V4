@@ -1443,12 +1443,19 @@
       "tour_reliques_porte",
       "fleche_reliques_courroux",
       "sanctuaire_titans (déjà utilisé par cloven_ruins ch5)"
-    ]
+    ],
+    "rejected_reason": "aucun de ces Grounds n'est la scène canonique de ce donjon : la source ne fournit aucun Ground pour lui et le combat est scripté en donjon"
   },
   "boss": {
     "mode": "arena_rsmap",
     "map": "buried_relic_arena",
-    "notes": "Aucune scène canonique dans l'inventaire PMD Red : arène dédiée à créer (architecture de combat adaptée au boss), puis à convertir en Ground unique pour cinématique et combat.",
+    "arena_kind": "in_dungeon_fixed_room",
+    "notes": "Aucune scène canonique (actif ni archive) : le combat canonique se déroule à l'intérieur du donjon (dialogue de boss en donjon), la salle fixe .rsmap est donc l'implémentation correcte.",
+    "canonical_evidence": {
+      "source": "pret/pmd-red src/dungeon_boss_dialogue.c",
+      "symbols": "gRegirockPreFightDialogue, gRegicePreFightDialogue, gRegisteelPreFightDialogue",
+      "conclusion": "rencontre en donjon, aucun Ground de cinématique dans la source (les archives PMD Red ne couvrent que D01–D25)"
+    },
     "roster": [
       {
         "species": "regirock",

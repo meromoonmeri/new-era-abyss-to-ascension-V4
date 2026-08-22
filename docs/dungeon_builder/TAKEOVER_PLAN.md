@@ -1,6 +1,6 @@
 # Plan de reprise des donjons (takeover)
 
-_Généré le 2026-08-22T22:47:34+00:00 — 50 donjons analysés._
+_Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 
 `HARVEST` = donnée canonique réutilisée telle quelle · `TRANSFER` = contenu narratif/scène qui suit le donjon dans le nouveau pipeline · `REPLACE` = ancienne implémentation supprimée après reconstruction · `PROTECT` = hors périmètre, intouchable.
 

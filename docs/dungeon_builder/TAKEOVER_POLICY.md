@@ -143,3 +143,77 @@ sous `zone/`). État : **33 définitions** avec narratif marqué transféré,
 | `northwind_field` | `BLOCKED_MISSING_TILESET` | aucun triplet de plaine glacée disponible ; **aucun tileset n'a été emprunté pour faire disparaître le blocage** |
 
 État global : **48 / 51 `READY_FOR_GENERATION`**.
+
+
+---
+
+## 8. Vérifications finales avant génération massive (2026-08-23)
+
+### 8.1 `buried_relic` — enquête, pas de devinette
+
+Les candidats repérés (`relique_ancienne`, `tour_reliques_porte`,
+`fleche_reliques_courroux`, `sanctuaire_titans`) ont été **écartés avec preuve** :
+
+* l'archive des Grounds PMD Red ne couvre que **D01–D25** (vérifié : codes
+  présents dans `RESERVE/red_grounds` et `RESERVE/red_cinematics`) ; Buried
+  Relic n'a donc **aucun Ground de scène dans la source** ;
+* `pret/pmd-red/src/dungeon_boss_dialogue.c` contient
+  `gRegirockPreFightDialogue`, `gRegicePreFightDialogue`,
+  `gRegisteelPreFightDialogue` : le combat est **scripté en donjon**, pas sur un
+  Ground de cinématique.
+
+Conclusion canonique : l'implémentation correcte est une **salle fixe de
+donjon** (`.rsmap` chargé en étage via `LoadGen`), pas un Ground inventé.
+La définition porte désormais `boss.arena_kind = "in_dungeon_fixed_room"` et
+`boss.canonical_evidence` (source + symboles). Le donjon reste
+`BLOCKED_MISSING_ASSET` tant que la salle fixe n'est pas produite.
+
+### 8.2 `meteor_cave` — même conclusion
+
+`gDeoxysPreFightDialogue_1..4` : rencontre en donjon, aucune scène canonique
+active ni archivée. La création de `meteor_cave_arena.rsmap` est donc légitime
+et documentée comme exception, avec la même nature de salle fixe.
+
+### 8.3 `northwind_field` — recherche exhaustive refaite
+
+Scan de **tout** le dépôt (données actives, `RESERVE/`, index) : 74 triplets
+complets, dont seulement trois de biome glacé — `frosty_forest`, `mt_freeze`,
+`sky_peak_4th_pass` — tous déjà propriétaires. **Aucun emprunt effectué**, le
+donjon reste `BLOCKED_MISSING_TILESET`. Un test échouera si un nouveau triplet
+glacé apparaît, pour forcer la ré-évaluation.
+
+### 8.4 `READY_FOR_GENERATION` ne veut plus dire « JSON valide »
+
+L'audit exécute désormais, pour chaque donjon sans blocage :
+
+* résolution DTEF (propriétaire ou emprunt justifié) ;
+* Ground d'entrée / relais / scène finale réellement présents ;
+* invariant `cinematic_ground == battle_ground == canonical_end_ground` ;
+* narratif **transféré** (sinon `BLOCKED/NARRATIVE_NOT_TRANSFERRED`) ;
+* tables Pokémon/objets non vides, features valides, boss cohérent ;
+* **test de génération réel** : 5 variantes valides et structurellement
+  distinctes sur 3 étages échantillonnés (1er, milieu, dernier), sinon
+  `BLOCKED/GENERATION_FAILED`.
+
+### 8.5 Échantillon de validation
+
+`docs/dungeon_builder/SAMPLE_VALIDATION.md` — 8 donjons de biomes et profils
+différents, 10 variantes chacun, aucun fichier de production écrit :
+
+| Donjon | Profils | Rooms min/moy/max | Halls | Branches | Culs-de-sac | Boucles | Traversables |
+|---|---|---|---|---|---|---|---|
+| `gloomy_forest` F7 | looping/branching/large_rooms/mixed/ring | 4/11.4/23 | 14.2 | 3.6 | 2.3 | 1.8 | 10/10 |
+| `magma_cavern` F12 | looping/lattice/mixed | 5/10.1/21 | 13.7 | 4.0 | 1.9 | 2.4 | 10/10 |
+| `stormy_sea` F20 | ring/lattice/looping | 4/8.0/13 | 13.1 | 2.6 | 1.3 | 1.7 | 10/10 |
+| `silver_trench` F50 | ring/lattice/looping | 5/8.7/11 | 15.0 | 4.0 | 1.8 | 2.6 | 10/10 |
+| `great_canyon` F6 | twosides/branching/mixed | 6/9.5/14 | 11.1 | 2.5 | 2.8 | 0.9 | 10/10 |
+| `murky_cave` F9 | branching/mixed/dense | 8/14.0/22 | 16.8 | 5.3 | 4.0 | 1.8 | 10/10 |
+| `joyous_tower` F40 | lattice/looping/mixed | 8/11.8/23 | 15.5 | 4.7 | 3.4 | 2.0 | 10/10 |
+| `desert_region` F10 | large_rooms/twosides/mixed | 6/9.6/19 | 11.3 | 2.4 | 2.1 | 1.2 | 10/10 |
+
+10 signatures distinctes sur 10 pour chaque étage échantillonné, 100 % de
+traversabilité, aires de salles hétérogènes (20 → 64 tuiles sur le seul
+`murky_cave` F9). Les layouts ASCII sont inclus dans le document.
+
+**Statut : 48 / 51 `READY_FOR_GENERATION`. `generate-all` reste non lancé, en
+attente de validation de cet échantillon.**

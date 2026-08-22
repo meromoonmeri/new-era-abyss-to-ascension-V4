@@ -234,6 +234,18 @@ SCENE_CANDIDATES = {
     "meteor_cave": [],
 }
 
+#: Dungeons whose canonical boss encounter happens INSIDE the dungeon.
+#: Evidence: pret/pmd-red `src/dungeon_boss_dialogue.c` holds in-dungeon
+#: pre/post-fight dialogue for these bosses, and the PMD Red ground archive only
+#: covers D01–D25 — these dungeons own no Ground scene at all.  The correct
+#: implementation is therefore a fixed dungeon room (.rsmap loaded as a floor),
+#: never an invented cutscene Ground.
+IN_DUNGEON_BOSS = {
+    "buried_relic": ("Regirock / Regice / Registeel", "gRegirockPreFightDialogue, "
+                     "gRegicePreFightDialogue, gRegisteelPreFightDialogue"),
+    "meteor_cave": ("Deoxys", "gDeoxysPreFightDialogue_1..4"),
+}
+
 #: canonical entrance Grounds already converted in Data/Ground
 ENTRANCE_GROUND = {
     "frosty_forest": "foret_givree_oree",
@@ -902,10 +914,24 @@ def build_definition(row: Dict[str, Any], source: CanonicalSource,
         blocked.append(f"BLOCKED/{scene_reason}")
     elif boss_name and boss_name not in ("", "—"):
         arena = f"{slug}_arena"
+        in_dungeon = IN_DUNGEON_BOSS.get(slug)
         boss = {"mode": "arena_rsmap", "map": arena,
-                "notes": ("Aucune scène canonique dans l'inventaire PMD Red : arène dédiée à "
-                          "créer (architecture de combat adaptée au boss), puis à convertir en "
-                          "Ground unique pour cinématique et combat.")}
+                "arena_kind": "in_dungeon_fixed_room" if in_dungeon else "dedicated_arena",
+                "notes": ("Aucune scène canonique (actif ni archive) : le combat canonique se "
+                          "déroule à l'intérieur du donjon (dialogue de boss en donjon), la salle "
+                          "fixe .rsmap est donc l'implémentation correcte."
+                          if in_dungeon else
+                          "Aucune scène canonique dans l'inventaire PMD Red : arène dédiée à "
+                          "créer, puis à raccorder au narratif du donjon.")}
+        if in_dungeon:
+            boss["canonical_evidence"] = {
+                "source": "pret/pmd-red src/dungeon_boss_dialogue.c",
+                "symbols": in_dungeon[1],
+                "conclusion": ("rencontre en donjon, aucun Ground de cinématique dans la source "
+                               "(les archives PMD Red ne couvrent que D01–D25)")}
+            definition.setdefault("scene_candidates", {})["rejected_reason"] = (
+                "aucun de ces Grounds n'est la scène canonique de ce donjon : la source ne fournit "
+                "aucun Ground pour lui et le combat est scripté en donjon")
         if arena not in map_names:
             blocked.append(f"BLOCKED/MISSING_ASSET: arena '{arena}.rsmap' must be authored before "
                            "the boss scene can be converted to a Ground")
