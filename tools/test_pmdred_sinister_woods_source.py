@@ -42,13 +42,15 @@ class SinisterWoodsSourceTests(unittest.TestCase):
     def test_active_music_and_b41_assets_match_the_canonical_gate(self) -> None:
         gate = json.loads(MUSIC_TILE_GATE.read_text())
         self.assertEqual(gate["status"], "PASS_CANONICAL_MUSIC_TILESET_ACTIVE_ROM_EXACT")
-        paths = [gate["music"], *gate["procedural_tileset"]["autotiles"].values()]
-        paths.append(gate["procedural_tileset"]["tile"])
-        for record in paths:
-            self.assertEqual(hashlib.sha256((ROOT / record["path"]).read_bytes()).hexdigest(), record["sha256"])
+        # The music gate remains byte-exact.  The historical b41 chunk atlas
+        # was superseded because its 16-column layout did not preserve the
+        # native RogueEssence sparse AutoTile topology; see the dedicated
+        # RogueElements promotion test for the live tile route.
+        record = gate["music"]
+        self.assertEqual(hashlib.sha256((ROOT / record["path"]).read_bytes()).hexdigest(), record["sha256"])
         zone_text = (ROOT / gate["zone_validation"]["zone"]).read_text(encoding="utf-8-sig")
         self.assertIn("Sinister Woods.ogg", zone_text)
-        for name in ("sinister_woods_b41_floor", "sinister_woods_b41_wall", "sinister_woods_b41_secondary"):
+        for name in ("sinister_woods_floor", "sinister_woods_wall", "sinister_woods_secondary"):
             self.assertIn(name, zone_text)
         self.assertNotIn("treeshroud_forest_1_", zone_text)
         self.assertNotIn("relic_forest_blob_", zone_text)

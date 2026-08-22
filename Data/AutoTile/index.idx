@@ -106,6 +106,33 @@
       "Released": true,
       "Comment": "PMD Red EU b41 procedural material for dungeon ID 3; promoted under the unique SinisterWoodsB41 namespace. CEX variants 0..2 and independent CANM overlay layers are retained.",
       "SortOrder": 0
+    },
+    "sinister_woods_floor": {
+      "Name": {
+        "DefaultText": "Sinister Woods Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "PMD Red EU b41 palette/CANM applied to authenticated UproarForest RogueEssence AutoTile topology.",
+      "SortOrder": 0
+    },
+    "sinister_woods_wall": {
+      "Name": {
+        "DefaultText": "Sinister Woods Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "PMD Red EU b41 palette/CANM applied to authenticated UproarForest RogueEssence AutoTile topology.",
+      "SortOrder": 0
+    },
+    "sinister_woods_secondary": {
+      "Name": {
+        "DefaultText": "Sinister Woods Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "PMD Red EU b41 palette/CANM applied to authenticated UproarForest RogueEssence AutoTile topology.",
+      "SortOrder": 0
     }
   }
 }

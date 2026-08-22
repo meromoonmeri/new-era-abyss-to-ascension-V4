@@ -288,7 +288,7 @@ def install_material_candidate(quest: Path, candidate: Path | None, auto_files: 
     index = json.loads((ROOT / ".runtime-cache/DumpAsset/Data/AutoTile/index.idx").read_text(encoding="utf-8-sig"))
     entries = index["Object"]
     for name in auto_files.values():
-        payload = json.loads((target / name).read_text(encoding="utf-8"))["Object"]
+        payload = json.loads((target / name).read_text(encoding="utf-8-sig"))["Object"]
         auto_id = Path(name).stem
         entries[auto_id] = {
             "Name": payload["Name"],
