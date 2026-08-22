@@ -1,52 +1,47 @@
 # Reconstruction canonique des donjons — Ch. 6 à 32
 
-Ce dossier suit le **livrable unique** demandé après la purge contrôlée des
-substituts Ch. 6–32 (`docs/pmdred_eu/chapter6_32_dungeon_purge_manifest.json`).
-Le périmètre choisi fusionne les routes principales de la Master Timeline et
-le roster des 51 donjons PMD Red.
+Ce dossier est la source de suivi de la reconstruction demandée après la purge
+contrôlée des substituts Ch. 6–32 (`docs/pmdred_eu/chapter6_32_dungeon_purge_manifest.json`).
 
-## Contrat commun
+## Règles de production
 
-1. **Aucun layout procédural mis en cache.** Chaque exploration emploie trois
-   familles RogueElements runtime : réseau branché, grille étagée et réseau à
-   boucles. Aucune seed de production n'est sérialisée.
-2. **Grounds fixes par intention.** Toute zone physique possède
-   `[zone]_entrance`, `[zone]_mid`, `[zone]_boss`. Les transitions graphiques
-   viennent de l'AutoTile PMDO, jamais d'une peinture de raccord manuelle.
-3. **DTEF sans convertisseur maison.** Les sources RawAsset XML-less sont
-   répliquées sous `Content/TileDtef/canonical/`; l'import est le workflow natif
-   **PMDO / Import DTEF**.
-4. **Données adaptées, non copiées.** Les poids PMDO et les tranches de spawn
-   sont dérivés des sources par étage ; les tableaux wiki ne sont pas recopiés
-   dans les fichiers de jeu.
-5. **Déduplication des lieux.** Sinister Woods, Magma Cavern/Pit et Sky
-   Tower/Summit partagent une zone canonique au lieu d'être dupliqués.
+1. **Un chapitre à la fois.** Le premier lot actif est le chapitre 6,
+   **Sinister Woods**. Les autres zones ne sont pas recréées par remplissage
+   automatique.
+2. **Aucun layout procédural mis en cache.** Chaque étage d'exploration doit
+   contenir plusieurs `ChanceFloorGen` avec des familles RogueElements distinctes
+   (grid branché, grille étagée, grille à boucles), sans seed de production.
+3. **Les Grounds restent fixes par intention.** Entrée, relais et boss sont les
+   seules cartes non régénérées. Leur transition graphique est produite par
+   l'AutoTile PMDO, jamais peinte cellule par cellule.
+4. **DTEF sans convertisseur maison.** Les dossiers source restent sous
+   `Content/TileDtef/`. Le format XML-less est celui de RawAsset et peut être
+   ouvert par **Import DTEF** de PMDO. Les bindings de runtime sont consignés
+   dans `dtef_bindings.json`.
+5. **Données canonique adaptées.** Les tables de jeu sont des poids et plages
+   PMDO, pas un copier-coller d'un tableau wiki. Chaque fiche cite la source,
+   énumère ce qui est conservé et les éventuelles adaptations nécessaires.
 
-## État du bundle
+## État du lot
 
-| Ensemble | Entrées | Zones physiques |
-|---|---:|---:|
-| Routes principales Ch. 6–32 | 27 | 27, dont `gloomy_forest` détaillé à la main |
-| Roster PMD Red | 51 | 46 nouvelles + 5 alias de lieux partagés |
-| **Total** | **78** | **73 zones canoniques actives** |
+| Chapitre | Zone technique | Donjon public | État |
+|---:|---|---|---|
+| 6 | `gloomy_forest` | Sinister Woods / Forêt Sinistre | **construit et validé statiquement** |
+| 7–32 | — | liste canonique du projet | à traiter chapitre par chapitre |
 
-Les listes, mappings DTEF, tables normalisées et alias sont dans
-[`complete_bundle_registry.json`](complete_bundle_registry.json). Voir aussi :
+Le nom technique `gloomy_forest` est conservé pour la compatibilité des
+sauvegardes. Les noms de Grounds suivent en revanche la convention neuve :
+`sinister_woods_entrance`, `sinister_woods_mid`, `sinister_woods_boss`.
 
-- [COMPLETE_BUNDLE.md](COMPLETE_BUNDLE.md) — contrat, sources et limites ;
-- [complete_dtef_bindings.json](complete_dtef_bindings.json) — 78 bindings ;
-- [SINISTER_WOODS.md](SINISTER_WOODS.md) — fiche détaillée Ch. 6.
-
-## Commandes de contrôle
+## Commandes de contrôle — Ch. 6
 
 ```bash
-python3 tools/build_complete_canonical_bundle.py --write --check
-python3 tools/fetch_canonical_dtef_sources.py --check
-python3 tools/test_complete_canonical_bundle.py
-python3 tools/validate_complete_canonical_variation.py
+python3 tools/build_chapter6_sinister_woods.py --write --check
 python3 tools/validate_sinister_woods_variation.py --passes 10
+python3 tools/mapgen/gen_map.py check --cible Data/Ground/sinister_woods_mid.rsground
+python3 tools/verify_zone_index.py .
 ```
 
-Un smoke-test PMDO reste requis avant publication : le binaire moteur n'est pas
-présent dans ce sandbox. Il faut notamment faire 5–10 entrées réelles dans
-chaque famille de génération et tester les relais, défaites et finales.
+Un test PMDO en jeu reste requis après chaque changement de moteur ou de version
+PMDO : il doit parcourir les 12 étages, valider le relais Kangourex, la défaite
+après le relais et le combat fixe du 13e étage.
