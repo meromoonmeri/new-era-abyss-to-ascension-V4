@@ -64,6 +64,10 @@ class RogueElementsAutoTileTests(unittest.TestCase):
         coords = [struct.unpack_from("<ii", sheet, 8 + index * 16) for index in range(count)]
         self.assertEqual(count, 1598)
         self.assertGreater(max(x for x, _ in coords), 15)
+        # PMDO resolves sheets through this binary index.  Without this node
+        # every valid AutoTile frame degrades to the checkerboard placeholder.
+        import build_pmdred_eu_runtime_fixture as fixture
+        self.assertIn("SinisterWoods", fixture.read_tile_index(ROOT / "Content/Tile/index.idx"))
 
 
 if __name__ == "__main__":

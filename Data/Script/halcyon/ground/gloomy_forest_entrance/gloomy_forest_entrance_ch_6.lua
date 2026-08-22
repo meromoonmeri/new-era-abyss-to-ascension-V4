@@ -16,8 +16,11 @@ local function dialogue(chara, key, emotion)
 end
 
 function gloomy_forest_entrance_ch_6.SetupGround()
+  -- These actors are temporary during the final cinematic.  Calling Hide on
+  -- an absent entity raises from the engine after the Lua coroutine has yielded
+  -- (outside pcall), which was aborting the entrance on a fresh save.
   for _, name in ipairs({'Adagio','Aria','Sonata'}) do
-    pcall(function() GROUND:Hide(name) end)
+    if CH(name) ~= nil then GROUND:Hide(name) end
   end
 end
 
