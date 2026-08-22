@@ -1,12 +1,12 @@
 # Plan de reprise des donjons (takeover)
 
-_Généré le 2026-08-22T23:03:13+00:00 — 50 donjons analysés._
+_Généré le 2026-08-22T23:20:35+00:00 — 51 donjons analysés._
 
 `HARVEST` = donnée canonique réutilisée telle quelle · `TRANSFER` = contenu narratif/scène qui suit le donjon dans le nouveau pipeline · `REPLACE` = ancienne implémentation supprimée après reconstruction · `PROTECT` = hors périmètre, intouchable.
 
 | Donjon | HARVEST | TRANSFER | REPLACE | PROTECT | Cinématiques | Notes |
 |---|---|---|---|---|---|---|
-| `buried_relic` | 0 | 0 | 0 | 0 | 0 | no narrative content found for this dungeon |
+| `buried_relic` | 1 | 0 | 0 | 0 | 0 | no narrative content found for this dungeon |
 | `darknight_relic` | 0 | 0 | 0 | 0 | 0 | no narrative content found for this dungeon |
 | `desert_region` | 0 | 0 | 0 | 0 | 0 | no narrative content found for this dungeon |
 | `fantasy_strait` | 0 | 0 | 0 | 0 | 0 | no narrative content found for this dungeon |
@@ -23,7 +23,7 @@ _Généré le 2026-08-22T23:03:13+00:00 — 50 donjons analysés._
 | `magma_cavern` | 3 | 11 | 0 | 0 | 3 | — |
 | `magma_cavern_pit` | 3 | 9 | 0 | 0 | 3 | — |
 | `marvelous_sea` | 0 | 0 | 0 | 0 | 0 | no narrative content found for this dungeon |
-| `meteor_cave` | 0 | 2 | 0 | 0 | 0 | — |
+| `meteor_cave` | 1 | 2 | 0 | 0 | 0 | — |
 | `mt_blaze` | 4 | 10 | 0 | 0 | 3 | — |
 | `mt_blaze_peak` | 3 | 7 | 0 | 0 | 3 | — |
 | `mt_faraway` | 1 | 5 | 0 | 0 | 1 | — |
@@ -34,6 +34,7 @@ _Généré le 2026-08-22T23:03:13+00:00 — 50 donjons analysés._
 | `mt_thunder_peak` | 3 | 5 | 0 | 0 | 3 | — |
 | `murky_cave` | 2 | 6 | 0 | 0 | 2 | — |
 | `northern_range` | 1 | 3 | 0 | 0 | 1 | — |
+| `northwind_field` | 1 | 5 | 0 | 0 | 1 | — |
 | `oddity_cave` | 0 | 0 | 0 | 0 | 0 | no narrative content found for this dungeon |
 | `pitfall_valley` | 1 | 3 | 0 | 0 | 1 | — |
 | `purity_forest` | 1 | 4 | 0 | 0 | 0 | — |
@@ -56,6 +57,11 @@ _Généré le 2026-08-22T23:03:13+00:00 — 50 donjons analysés._
 | `western_cave` | 1 | 5 | 0 | 0 | 1 | — |
 | `wish_cave` | 2 | 4 | 0 | 0 | 1 | — |
 | `wyvern_hill` | 0 | 0 | 0 | 0 | 0 | no narrative content found for this dungeon |
+
+## `buried_relic` — Buried Relic
+
+- **CURRENT** `Data/Zone/buried_relic.json` — already produced by this Builder: it is the current canonical implementation
+- **HARVEST** `Data/Map/buried_relic_arena.rsmap` — canonical scene available as a map: becomes the Ground of this very scene
 
 ## `darknight_relic` — Darknight Relic
 
@@ -214,6 +220,8 @@ _Généré le 2026-08-22T23:03:13+00:00 — 50 donjons analysés._
 
 ## `meteor_cave` — Meteor Cave
 
+- **CURRENT** `Data/Zone/meteor_cave.json` — already produced by this Builder: it is the current canonical implementation
+- **HARVEST** `Data/Map/meteor_cave_arena.rsmap` — canonical scene available as a map: becomes the Ground of this very scene
 - **TRANSFER** `Data/Script/halcyon/zone/meteor_cave` — zone script (floor events, boss trigger) rebound to the regenerated zone
 - **TRANSFER** `RESERVE/scripts_zone/meteor_cave` *(archivé)* — archived zone script to restore
 
@@ -355,6 +363,16 @@ _Généré le 2026-08-22T23:03:13+00:00 — 50 donjons analysés._
 - **TRANSFER** `Data/Script/halcyon/ground/cretes_boreales` — cutscene of scene 'cretes_boreales' must follow the dungeon
 - **TRANSFER** `RESERVE/scripts_ground/cretes_boreales` *(archivé)* — archived cutscene of scene 'cretes_boreales' to restore
 - **TRANSFER** `RESERVE/red_cinematics/d21p01.cif.json` *(archivé)* — canonical PMD Red cutscene of D21: audio, camera, dialogue and battle trigger to replay on the same Ground
+
+## `northwind_field` — Northwind Field
+
+- **CURRENT** `Data/Zone/northwind_field.json` — already produced by this Builder: it is the current canonical implementation
+- **HARVEST** `Data/Ground/champ_vent_boreal.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
+- **TRANSFER** `Data/Script/halcyon/ground/champ_vent_boreal` — cutscene of scene 'champ_vent_boreal' must follow the dungeon
+- **TRANSFER** `RESERVE/scripts_ground/champ_vent_boreal` *(archivé)* — archived cutscene of scene 'champ_vent_boreal' to restore
+- **TRANSFER** `Data/Script/halcyon/zone/northwind_field` — zone script (floor events, boss trigger) rebound to the regenerated zone
+- **TRANSFER** `RESERVE/scripts_zone/northwind_field` *(archivé)* — archived zone script to restore
+- **TRANSFER** `RESERVE/red_cinematics/d18p01.cif.json` *(archivé)* — canonical PMD Red cutscene of D18: audio, camera, dialogue and battle trigger to replay on the same Ground
 
 ## `oddity_cave` — Oddity Cave
 

@@ -1315,5 +1315,10 @@
   },
   "fixed_grounds": {
     "end": "fosse_argentee"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/silver_trench.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

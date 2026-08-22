@@ -712,5 +712,10 @@
   },
   "fixed_grounds": {
     "end": "bois_des_plaintes"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/howling_forest.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

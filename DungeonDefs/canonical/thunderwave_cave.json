@@ -344,5 +344,10 @@
   "fixed_grounds": {
     "entrance": "grotte_statique_seuil",
     "end": "d02p02"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/thunderwave_cave.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

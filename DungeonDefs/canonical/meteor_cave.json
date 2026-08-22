@@ -181,7 +181,13 @@
       ],
       "inherit_pokemon": false,
       "items": {},
-      "inherit_items": false
+      "inherit_items": false,
+      "fixed_floors": {
+        "20": {
+          "map": "meteor_cave_arena",
+          "comment": "Salle fixe canonique du boss, chargée en étage par LoadGen + MappedRoomStep : le combat reste dans le donjon."
+        }
+      }
     }
   ],
   "money": [
@@ -326,6 +332,8 @@
     "map": "meteor_cave_arena",
     "arena_kind": "in_dungeon_fixed_room",
     "notes": "Aucune scène canonique (actif ni archive) : le combat canonique se déroule à l'intérieur du donjon (dialogue de boss en donjon), la salle fixe .rsmap est donc l'implémentation correcte.",
+    "floor": 20,
+    "fixed_room": "meteor_cave_arena",
     "canonical_evidence": {
       "source": "pret/pmd-red src/dungeon_boss_dialogue.c",
       "symbols": "gDeoxysPreFightDialogue_1..4",
@@ -343,7 +351,9 @@
     ]
   },
   "fixed_grounds": {},
-  "blocked": [
-    "BLOCKED/MISSING_ASSET: arena 'meteor_cave_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
-  ]
+  "takeover": {
+    "legacy_zone": "Data/Zone/meteor_cave.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
+  }
 }

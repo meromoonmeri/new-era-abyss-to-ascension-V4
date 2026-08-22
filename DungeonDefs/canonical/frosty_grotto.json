@@ -311,5 +311,10 @@
   "fixed_grounds": {
     "entrance": "foret_givree_oree",
     "end": "d10p03"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/frosty_grotto.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

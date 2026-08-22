@@ -790,5 +790,10 @@
   },
   "fixed_grounds": {
     "end": "cretes_boreales"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/northern_range.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

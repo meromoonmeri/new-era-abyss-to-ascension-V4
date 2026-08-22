@@ -571,5 +571,10 @@
     "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
-  "fixed_grounds": {}
+  "fixed_grounds": {},
+  "takeover": {
+    "legacy_zone": "Data/Zone/waterfall_pond.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
+  }
 }

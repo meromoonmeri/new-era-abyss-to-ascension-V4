@@ -486,5 +486,10 @@
   },
   "fixed_grounds": {
     "end": "caverne_trouble_fond"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/murky_cave.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

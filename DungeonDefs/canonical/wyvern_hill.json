@@ -752,5 +752,10 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
-  "fixed_grounds": {}
+  "fixed_grounds": {},
+  "takeover": {
+    "legacy_zone": "Data/Zone/wyvern_hill.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
+  }
 }

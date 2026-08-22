@@ -71,6 +71,47 @@ def cmd_audit(args) -> int:
     return 0
 
 
+def cmd_preflight(args) -> int:
+    """Check that every asset referenced by the generated zones exists."""
+    from .runtime_check import preflight_all, runtime_kit, write_report
+    results = preflight_all()
+    for result in sorted(results, key=lambda r: (r.ok, r.dungeon)):
+        flag = "OK  " if result.ok else "FAIL"
+        print(f"[{flag}] {result.dungeon:22s} tilesets={result.tilesets:>2d} "
+              f"checks={result.checks:>3d} problems={len(result.problems)}")
+        if not result.ok and args.verbose:
+            for problem in result.problems:
+                print(f"        {problem}")
+    good = sum(1 for r in results if r.ok)
+    print(f"\n{good}/{len(results)} zones with every reference resolved")
+    if args.report:
+        for path in write_report(results):
+            print(f"report: {path}")
+    if args.kit:
+        for path in runtime_kit():
+            print(f"runtime kit: {path}")
+    return 0 if good == len(results) else 1
+
+
+def cmd_bind_narrative(args) -> int:
+    """Check (and fix) cutscenes that send the player back into a rebuilt dungeon."""
+    from .narrative_binding import rebind, scan
+    report = scan()
+    print(f"{len(report.references)} EnterDungeon references to Builder-owned dungeons")
+    for reference in report.references:
+        flag = "OK " if reference.valid else "BAD"
+        print(f"  [{flag}] {reference.dungeon:16s} seg={reference.segment} floor={reference.floor} "
+              f"{reference.path}")
+    if report.unresolved and (args.apply or args.dry_run):
+        report = rebind(report, dry_run=not args.apply)
+        for path in report.rewritten:
+            print(f"  {'rebound' if args.apply else 'would rebind'} {path}")
+    for reference in report.unresolved:
+        print(f"  ! unresolved: {reference.path} -> {reference.dungeon} "
+              f"seg {reference.segment} ({reference.reason})")
+    return 0 if not report.unresolved else 1
+
+
 def cmd_post_audit(args) -> int:
     """Re-open every generated zone and verify what is really inside."""
     from .postaudit import audit_all_zones, write_report
@@ -429,6 +470,18 @@ def build_parser() -> argparse.ArgumentParser:
     sub = parser.add_subparsers(dest="command", required=True)
 
     sub.add_parser("audit", help="list profiles, DTEF packages and definitions").set_defaults(func=cmd_audit)
+
+    pre = sub.add_parser("preflight", help="verify every asset referenced by the zones")
+    pre.add_argument("--report", action="store_true")
+    pre.add_argument("--verbose", action="store_true")
+    pre.add_argument("--kit", action="store_true", help="write the runtime validation script")
+    pre.set_defaults(func=cmd_preflight)
+
+    bind = sub.add_parser("bind-narrative",
+                          help="verify/repair cutscenes pointing at rebuilt dungeons")
+    bind.add_argument("--apply", action="store_true")
+    bind.add_argument("--dry-run", action="store_true")
+    bind.set_defaults(func=cmd_bind_narrative)
 
     post = sub.add_parser("post-audit", help="verify every generated zone on disk")
     post.add_argument("--report", action="store_true")

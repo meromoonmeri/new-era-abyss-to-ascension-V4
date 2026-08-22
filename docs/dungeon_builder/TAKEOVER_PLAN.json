@@ -10,7 +10,22 @@
     "notes": [
       "no narrative content found for this dungeon"
     ],
-    "artefacts": []
+    "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/buried_relic.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
+      {
+        "kind": "map",
+        "path": "Data/Map/buried_relic_arena.rsmap",
+        "action": "HARVEST",
+        "reason": "canonical scene available as a map: becomes the Ground of this very scene",
+        "state": "active"
+      }
+    ]
   },
   {
     "dungeon": "darknight_relic",
@@ -1055,6 +1070,20 @@
     "notes": [],
     "artefacts": [
       {
+        "kind": "zone",
+        "path": "Data/Zone/meteor_cave.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
+      {
+        "kind": "map",
+        "path": "Data/Map/meteor_cave_arena.rsmap",
+        "action": "HARVEST",
+        "reason": "canonical scene available as a map: becomes the Ground of this very scene",
+        "state": "active"
+      },
+      {
         "kind": "script_zone",
         "path": "Data/Script/halcyon/zone/meteor_cave",
         "action": "TRANSFER",
@@ -2029,6 +2058,73 @@
         "path": "RESERVE/red_cinematics/d21p01.cif.json",
         "action": "TRANSFER",
         "reason": "canonical PMD Red cutscene of D21: audio, camera, dialogue and battle trigger to replay on the same Ground",
+        "state": "archived"
+      }
+    ]
+  },
+  {
+    "dungeon": "northwind_field",
+    "name": "Northwind Field",
+    "in_scope": true,
+    "narrative": {
+      "cutscenes": [
+        "Data/Script/halcyon/ground/champ_vent_boreal",
+        "Data/Script/halcyon/zone/northwind_field",
+        "RESERVE/scripts_ground/champ_vent_boreal"
+      ],
+      "red_cinematics": [
+        "RESERVE/red_cinematics/d18p01.cif.json"
+      ]
+    },
+    "notes": [],
+    "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/northwind_field.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
+      {
+        "kind": "ground",
+        "path": "Data/Ground/champ_vent_boreal.rsground",
+        "action": "HARVEST",
+        "reason": "canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle",
+        "state": "active"
+      },
+      {
+        "kind": "script_ground",
+        "path": "Data/Script/halcyon/ground/champ_vent_boreal",
+        "action": "TRANSFER",
+        "reason": "cutscene of scene 'champ_vent_boreal' must follow the dungeon",
+        "state": "active"
+      },
+      {
+        "kind": "script_ground",
+        "path": "RESERVE/scripts_ground/champ_vent_boreal",
+        "action": "TRANSFER",
+        "reason": "archived cutscene of scene 'champ_vent_boreal' to restore",
+        "state": "archived"
+      },
+      {
+        "kind": "script_zone",
+        "path": "Data/Script/halcyon/zone/northwind_field",
+        "action": "TRANSFER",
+        "reason": "zone script (floor events, boss trigger) rebound to the regenerated zone",
+        "state": "active"
+      },
+      {
+        "kind": "script_zone",
+        "path": "RESERVE/scripts_zone/northwind_field",
+        "action": "TRANSFER",
+        "reason": "archived zone script to restore",
+        "state": "archived"
+      },
+      {
+        "kind": "cinematic",
+        "path": "RESERVE/red_cinematics/d18p01.cif.json",
+        "action": "TRANSFER",
+        "reason": "canonical PMD Red cutscene of D18: audio, camera, dialogue and battle trigger to replay on the same Ground",
         "state": "archived"
       }
     ]

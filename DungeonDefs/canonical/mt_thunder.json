@@ -648,5 +648,10 @@
   "fixed_grounds": {
     "entrance": "mont_grondant_pied",
     "end": "d06p03"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/mt_thunder.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

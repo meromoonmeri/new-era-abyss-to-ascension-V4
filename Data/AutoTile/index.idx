@@ -1,4 +1,4 @@
-{
+﻿{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
@@ -105,6 +105,39 @@
       },
       "Released": true,
       "Comment": "PMD Red EU b41 procedural material for dungeon ID 3; promoted under the unique SinisterWoodsB41 namespace. CEX variants 0..2 and independent CANM overlay layers are retained.",
+      "SortOrder": 0
+    },
+    "northwind_field_wall": {
+      "Name": {
+        "DefaultText": "Northwind Field — wall",
+        "LocalTexts": {
+          "fr": "Champ du Vent du Nord — wall"
+        }
+      },
+      "Released": true,
+      "Comment": "DTEF importé depuis PMDCollab/RawAsset/TileDtef/NorthwindField (3 variations, 47 classes d'adjacence). Conversion vérifiée contre la table d'adjacence RogueEssence.",
+      "SortOrder": 0
+    },
+    "northwind_field_secondary": {
+      "Name": {
+        "DefaultText": "Northwind Field — secondary",
+        "LocalTexts": {
+          "fr": "Champ du Vent du Nord — secondary"
+        }
+      },
+      "Released": true,
+      "Comment": "DTEF importé depuis PMDCollab/RawAsset/TileDtef/NorthwindField (3 variations, 47 classes d'adjacence). Conversion vérifiée contre la table d'adjacence RogueEssence.",
+      "SortOrder": 0
+    },
+    "northwind_field_floor": {
+      "Name": {
+        "DefaultText": "Northwind Field — floor",
+        "LocalTexts": {
+          "fr": "Champ du Vent du Nord — floor"
+        }
+      },
+      "Released": true,
+      "Comment": "DTEF importé depuis PMDCollab/RawAsset/TileDtef/NorthwindField (3 variations, 47 classes d'adjacence). Conversion vérifiée contre la table d'adjacence RogueEssence.",
       "SortOrder": 0
     }
   }

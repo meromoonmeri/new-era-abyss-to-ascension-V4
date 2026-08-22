@@ -1053,20 +1053,21 @@ class TestTakeoverCompletion(unittest.TestCase):
             if narrative.get("transferred"):
                 self.assertTrue(narrative_is_live(definition), audit.dungeon)
 
-    def test_remaining_blockers_are_only_the_documented_ones(self):
+    def test_no_blocker_remains(self):
         blocked = {a.dungeon: a.readiness for a in self.audits
                    if a.readiness != "READY_FOR_GENERATION"}
-        self.assertEqual(blocked, {"buried_relic": "BLOCKED_MISSING_ASSET",
-                                   "meteor_cave": "BLOCKED_MISSING_ASSET",
-                                   "northwind_field": "BLOCKED_MISSING_TILESET"})
+        self.assertFalse(blocked, blocked)
 
-    def test_northwind_field_was_not_unblocked_by_stealing_a_tileset(self):
+    def test_northwind_field_uses_the_canonical_pmdcollab_dtef(self):
         raw = json.loads((REPO / "DungeonDefs" / "canonical" / "northwind_field.json")
                          .read_text(encoding="utf-8-sig"))
-        self.assertFalse(raw.get("dtef"))
-        self.assertTrue(any("MISSING_TILESET" in b for b in raw.get("blocked", [])))
+        self.assertEqual(raw["dtef"]["package"], "northwind_field")
+        self.assertFalse(raw.get("blocked"))
+        comment = json.loads((REPO / "Data" / "AutoTile" / "northwind_field_floor.json")
+                             .read_text(encoding="utf-8-sig"))["Object"]["Comment"]
+        self.assertIn("PMDCollab/RawAsset/TileDtef/NorthwindField", comment)
 
-    def test_arena_candidates_are_recorded_for_human_arbitration(self):
+    def test_rejected_candidates_stay_documented(self):
         raw = json.loads((REPO / "DungeonDefs" / "canonical" / "buried_relic.json")
                          .read_text(encoding="utf-8-sig"))
         self.assertIn("scene_candidates", raw)
@@ -1116,16 +1117,16 @@ class TestProductionReadinessRules(unittest.TestCase):
                          .read_text(encoding="utf-8-sig"))
         self.assertIn("rejected_reason", raw["scene_candidates"])
 
-    def test_northwind_field_still_has_no_borrowed_tileset(self):
-        from dungeon_builder.dtef import base_tilesets
-        names = base_tilesets()
-        icy = sorted({n[:-6] for n in names if n.endswith("_floor")
-                      and any(k in n for k in ("frost", "freeze", "snow", "ice", "boreal"))})
-        self.assertEqual(icy, ["frosty_forest", "mt_freeze"],
-                         "if a new icy triplet appears, northwind_field must be revisited")
-        raw = json.loads((REPO / "DungeonDefs" / "canonical" / "northwind_field.json")
-                         .read_text(encoding="utf-8-sig"))
-        self.assertFalse(raw.get("dtef"))
+    def test_northwind_field_owns_its_tileset_exclusively(self):
+        from dungeon_builder.dtef import check_tileset_uniqueness
+        from dungeon_builder.definitions import list_definitions, load_definition
+        definitions = [load_definition(p) for p in list_definitions()]
+        self.assertFalse(check_tileset_uniqueness(definitions))
+        owners = [d.id for d in definitions
+                  for segment in d.segments
+                  if (d.dtef_for(segment).get("package") == "northwind_field"
+                      or d.dtef_for(segment).get("floor") == "northwind_field_floor")]
+        self.assertEqual(set(owners), {"northwind_field"})
 
     def test_sample_validation_document_is_present_and_complex(self):
         doc = (REPO / "docs" / "dungeon_builder" / "SAMPLE_VALIDATION.md").read_text(encoding="utf-8")
@@ -1135,10 +1136,10 @@ class TestProductionReadinessRules(unittest.TestCase):
         self.assertIn("cinématique = combat = fin", doc)
         self.assertNotIn("| 0/10 |", doc)      # every sampled floor is traversable
 
-    def test_blocked_dungeons_stay_out_of_the_batch(self):
-        for dungeon in ("buried_relic", "meteor_cave", "northwind_field"):
-            self.assertFalse((REPO / "Data" / "Zone" / f"{dungeon}.json").exists(), dungeon)
-            self.assertNotEqual(self.by_id[dungeon].readiness, "READY_FOR_GENERATION")
+    def test_nothing_is_blocked_anymore(self):
+        blocked = {a.dungeon: a.readiness for a in self.audits
+                   if a.readiness != "READY_FOR_GENERATION"}
+        self.assertFalse(blocked, blocked)
 
 
 class TestBatchResult(unittest.TestCase):
@@ -1155,17 +1156,23 @@ class TestBatchResult(unittest.TestCase):
     def test_every_ready_dungeon_has_a_zone(self):
         ready = {a.dungeon for a in self.audits if a.readiness == "READY_FOR_GENERATION"}
         written = {p.stem for p in (REPO / "Data" / "Zone").glob("*.json")}
-        self.assertEqual(len(ready), 48)
+        self.assertEqual(len(ready), 51, "all 51 canonical dungeons are ready")
         self.assertTrue(ready <= written, ready - written)
 
-    def test_blocked_dungeons_were_not_generated(self):
+    def test_the_last_three_blockers_are_resolved_with_real_assets(self):
+        """buried_relic / meteor_cave: canonical in-dungeon fixed rooms.
+        northwind_field: its own imported DTEF, not a borrowed one."""
         for dungeon in ("buried_relic", "meteor_cave", "northwind_field"):
-            self.assertFalse((REPO / "Data" / "Zone" / f"{dungeon}.json").exists(), dungeon)
+            self.assertTrue((REPO / "Data" / "Zone" / f"{dungeon}.json").exists(), dungeon)
+            self.assertEqual(self.by_zone[dungeon].problems, [], dungeon)
+        self.assertTrue((REPO / "Data" / "Map" / "buried_relic_arena.rsmap").exists())
+        self.assertTrue((REPO / "Data" / "Map" / "meteor_cave_arena.rsmap").exists())
+        self.assertTrue((REPO / "Data" / "AutoTile" / "northwind_field_floor.json").exists())
 
     def test_post_generation_audit_is_clean(self):
         failing = [z.dungeon for z in self.zones if not z.ok]
         self.assertFalse(failing, failing)
-        self.assertEqual(len(self.zones), 48)
+        self.assertEqual(len(self.zones), 51)
 
     def test_written_floor_counts_match_the_canon(self):
         for zone in self.zones:
@@ -1225,3 +1232,99 @@ class TestBatchResult(unittest.TestCase):
                 continue
             comment = json.loads(path.read_text(encoding="utf-8-sig"))["Object"].get("Comment", "")
             self.assertIn("tools/dungeon_builder", comment, path.name)
+
+
+class TestFinalBlockersResolved(unittest.TestCase):
+    """The last three blockers are resolved with canonical assets, not shortcuts."""
+
+    def test_fixed_boss_rooms_exist_and_are_wired_as_floors(self):
+        for dungeon, tileset in (("buried_relic", "buried_relic_1"),
+                                 ("meteor_cave", "spacial_rift_1")):
+            raw = json.loads((REPO / "DungeonDefs" / "canonical" / f"{dungeon}.json")
+                             .read_text(encoding="utf-8-sig"))
+            room = raw["boss"]["fixed_room"]
+            path = REPO / "Data" / "Map" / f"{room}.rsmap"
+            self.assertTrue(path.exists(), room)
+            obj = json.loads(path.read_text(encoding="utf-8-sig"))["Object"]
+            blob = json.dumps(obj)
+            self.assertIn(f"{tileset}_floor", blob, dungeon)
+            self.assertIn(f"{tileset}_wall", blob, dungeon)
+            self.assertTrue(obj["EntryPoints"], "the party must be able to enter the room")
+            last = raw["segments"][-1]
+            self.assertIn(str(raw["floors"]), last["fixed_floors"])
+            self.assertEqual(last["fixed_floors"][str(raw["floors"])]["map"], room)
+
+    def test_fixed_room_is_loaded_by_loadgen_in_the_zone(self):
+        for dungeon in ("buried_relic", "meteor_cave"):
+            zone = json.loads((REPO / "Data" / "Zone" / f"{dungeon}.json")
+                              .read_text(encoding="utf-8-sig"))["Object"]
+            last_floor = zone["Segments"][-1]["Floors"][-1]
+            self.assertIn("LoadGen", last_floor["$type"], dungeon)
+            self.assertIn("MappedRoomStep", last_floor["GenSteps"][0]["Value"]["$type"])
+            self.assertEqual(last_floor["GenSteps"][0]["Value"]["MapID"], f"{dungeon}_arena")
+
+    def test_northwind_field_owns_a_real_imported_dtef(self):
+        for role in ("floor", "wall", "secondary"):
+            path = REPO / "Data" / "AutoTile" / f"northwind_field_{role}.json"
+            self.assertTrue(path.exists(), role)
+            tiles = json.loads(path.read_text(encoding="utf-8-sig"))["Object"]["Tiles"]
+            codes = [k for k in tiles if re.fullmatch(r"Tilex[0-9A-F]{2}", k)]
+            self.assertEqual(len(codes), 47, role)
+            self.assertEqual(len(tiles["Tilex00"]), 3, "three DTEF variations expected")
+        self.assertTrue((REPO / "Content" / "Tile" / "NorthwindFieldDtef.tile").exists())
+        raw = json.loads((REPO / "DungeonDefs" / "canonical" / "northwind_field.json")
+                         .read_text(encoding="utf-8-sig"))
+        self.assertEqual(raw["dtef"]["package"], "northwind_field")
+        self.assertFalse(raw.get("blocked"))
+
+    def test_dtef_rule_mapping_is_verified_not_assumed(self):
+        try:
+            from dungeon_builder.dtef_import import verify_rule_mapping
+            ok, codes = verify_rule_mapping()
+        except Exception:
+            self.skipTest("skytemple-dtef not installed in this environment")
+        self.assertTrue(ok)
+        self.assertEqual(len(set(codes)), 47)
+
+    def test_every_dungeon_is_ready_and_generated(self):
+        from dungeon_builder.audit import audit_all
+        audits, _ = audit_all()
+        self.assertEqual(len(audits), 51)
+        self.assertTrue(all(a.readiness == "READY_FOR_GENERATION" for a in audits),
+                        [a.dungeon for a in audits if a.readiness != "READY_FOR_GENERATION"])
+        for audit in audits:
+            self.assertTrue((REPO / "Data" / "Zone" / f"{audit.dungeon}.json").exists(),
+                            audit.dungeon)
+
+
+class TestNarrativeRebinding(unittest.TestCase):
+    def test_no_cutscene_points_at_a_dead_segment(self):
+        from dungeon_builder.narrative_binding import scan
+        report = scan()
+        self.assertTrue(report.references)
+        self.assertFalse([r.path for r in report.unresolved], report.unresolved)
+
+    def test_rebound_scenes_target_the_canonical_successor(self):
+        text = (REPO / "Data" / "Script" / "halcyon" / "ground" / "d09p03" / "init.lua").read_text(
+            encoding="utf-8")
+        self.assertIn("EnterDungeon('mt_blaze_peak', 0, 0", text)
+        self.assertIn("[dungeon_builder]", text)
+        text = (REPO / "Data" / "Script" / "halcyon" / "ground" / "d10p03" / "init.lua").read_text(
+            encoding="utf-8")
+        self.assertIn("EnterDungeon('frosty_grotto', 0, 0", text)
+
+
+class TestRuntimePreflight(unittest.TestCase):
+    def test_every_zone_reference_resolves(self):
+        from dungeon_builder.runtime_check import preflight_all
+        results = preflight_all()
+        self.assertEqual(len(results), 51)
+        failing = {r.dungeon: r.problems for r in results if not r.ok}
+        self.assertFalse(failing, failing)
+
+    def test_runtime_kit_is_available_for_the_real_engine_run(self):
+        script = REPO / "tools" / "runtime" / "run_runtime_check.sh"
+        self.assertTrue(script.exists())
+        text = script.read_text(encoding="utf-8")
+        self.assertIn("MODS", text)
+        self.assertIn("no teleport to another arena", text)

@@ -883,5 +883,10 @@
   },
   "fixed_grounds": {
     "end": "champ_braises"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/fiery_field.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

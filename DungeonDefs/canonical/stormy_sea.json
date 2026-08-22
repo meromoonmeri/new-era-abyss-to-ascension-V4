@@ -1110,5 +1110,10 @@
   },
   "fixed_grounds": {
     "end": "abime_tempetes"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/stormy_sea.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

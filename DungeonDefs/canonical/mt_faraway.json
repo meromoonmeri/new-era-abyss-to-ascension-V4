@@ -695,5 +695,10 @@
   },
   "fixed_grounds": {
     "end": "sommet_aurore"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/mt_faraway.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

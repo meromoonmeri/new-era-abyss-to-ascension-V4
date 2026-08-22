@@ -292,5 +292,10 @@
   "fixed_grounds": {
     "entrance": "mont_cendre_pied",
     "end": "d09p03"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/mt_blaze_peak.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

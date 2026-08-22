@@ -1138,5 +1138,10 @@
   },
   "fixed_grounds": {
     "end": "antre_occident"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/western_cave.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

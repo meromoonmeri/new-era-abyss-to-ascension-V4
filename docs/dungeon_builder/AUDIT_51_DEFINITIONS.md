@@ -1,6 +1,6 @@
 # Audit de readiness — 51 donjons canoniques Ch.6–32
 
-_Généré le 2026-08-22T22:58:40+00:00 — 51 définitions : **48 READY_FOR_GENERATION**, 3 non prêtes._
+_Généré le 2026-08-22T23:13:49+00:00 — 51 définitions : **51 READY_FOR_GENERATION**, 0 non prêtes._
 
 Aucun étage procédural n'a été généré à cette étape ; `generate-all` n'a pas été lancé.
 
@@ -8,9 +8,7 @@ Aucun étage procédural n'a été généré à cette étape ; `generate-all` n'
 
 | Statut | Nombre |
 |---|---|
-| `READY_FOR_GENERATION` | 48 |
-| `BLOCKED_MISSING_ASSET` | 2 |
-| `BLOCKED_MISSING_TILESET` | 1 |
+| `READY_FOR_GENERATION` | 51 |
 
 ## Tableau de readiness
 
@@ -37,7 +35,9 @@ Aucun étage procédural n'a été généré à cette étape ; `generate-all` n'
 | `mt_freeze_peak` | Pokémon Mystery Dungeon: Red Rescue Team | freeze_peak | sommet | 5 | 1 | large_rooms, crossroads, mixed | `mt_freeze` | 1 | 14 | — | d11p03 | d11p03 | d11p03 | — | 3+3 | — | **READY_FOR_GENERATION** | — |
 | `silver_trench` | Pokémon Mystery Dungeon: Red Rescue Team | silver_shelf | fond | 99 | 3 | looping, ring, mixed, lattice, large_rooms | `silver_trench_3` | 59 | 61 | — | fosse_argentee | fosse_argentee | fosse_argentee | — | 1+1 | — | **READY_FOR_GENERATION** | — |
 | `stormy_sea` | Pokémon Mystery Dungeon: Red Rescue Team | stormy_shelf | fond | 40 | 3 | looping, ring, mixed, lattice, large_rooms | `stormy_sea_1` | 24 | 116 | — | abime_tempetes | abime_tempetes | abime_tempetes | — | 1+1 | — | **READY_FOR_GENERATION** | — |
+| `meteor_cave` | Pokémon Mystery Dungeon: Red Rescue Team | meteor_shell | fond | 20 | 2 | branching, mixed, dense, looping, lattice | `spacial_rift_1` | 7 | 0 | — | — | — | — | meteor_cave_arena | 0+0 | — | **READY_FOR_GENERATION** | — |
 | `western_cave` | Pokémon Mystery Dungeon: Red Rescue Team | western_gallery | fond | 99 | 3 | branching, mixed, dense, looping, lattice, large_rooms | `western_cave_1` | 55 | 36 | — | antre_occident | antre_occident | antre_occident | — | 1+1 | — | **READY_FOR_GENERATION** | — |
+| `buried_relic` | Pokémon Mystery Dungeon: Red Rescue Team | relic_halls | fond | 99 | 3 | crossroads, lattice, mixed, looping, dense, large_rooms | `buried_relic_1` | 50 | 120 | — | — | — | — | buried_relic_arena | 0+0 | — | **READY_FOR_GENERATION** | — |
 | `wish_cave` | Pokémon Mystery Dungeon: Red Rescue Team | wish_gallery | fond | 99 | 2 | branching, mixed, dense, looping, lattice | `wish_cave_1` | 83 | 80 | — | sanctuaire_voeu | sanctuaire_voeu | sanctuaire_voeu | — | 1+1 | — | **READY_FOR_GENERATION** | — |
 | `northern_range` | Pokémon Mystery Dungeon: Red Rescue Team | north_ridge | sommet | 25 | 2 | twosides, branching, mixed, crossroads | `craggy_peak` | 19 | 53 | — | cretes_boreales | cretes_boreales | cretes_boreales | — | 1+1 | — | **READY_FOR_GENERATION** | — |
 | `pitfall_valley` | Pokémon Mystery Dungeon: Red Rescue Team | pitfall_rim | fond | 25 | 2 | twosides, branching, mixed, crossroads | `pitfall_valley_1` | 17 | 53 | — | vallon_perdu | vallon_perdu | vallon_perdu | — | 1+1 | — | **READY_FOR_GENERATION** | — |
@@ -45,6 +45,7 @@ Aucun étage procédural n'a été généré à cette étape ; `generate-all` n'
 | `southern_cavern` | Pokémon Mystery Dungeon: Red Rescue Team | south_gallery | fond | 50 | 3 | branching, mixed, dense, looping, lattice, large_rooms | `crystal_cave_1` | 31 | 55 | — | — | — | — | — | 0+0 | — | **READY_FOR_GENERATION** | — |
 | `fiery_field` | Pokémon Mystery Dungeon: Red Rescue Team | ember_plain | sommet | 30 | 2 | twosides, large_rooms, mixed, looping | `deep_dark_crater` | 23 | 66 | — | champ_braises | champ_braises | champ_braises | — | 1+1 | — | **READY_FOR_GENERATION** | — |
 | `wyvern_hill` | Pokémon Mystery Dungeon: Red Rescue Team | wyvern_slope | sommet | 30 | 2 | twosides, branching, mixed, crossroads | `wyvern_hill` | 18 | 59 | — | — | — | — | — | 0+0 | — | **READY_FOR_GENERATION** | — |
+| `northwind_field` | Pokémon Mystery Dungeon: Red Rescue Team | north_plain | sommet | 30 | 2 | twosides, large_rooms, mixed, looping | `northwind_field` | 20 | 66 | — | champ_vent_boreal | champ_vent_boreal | champ_vent_boreal | — | 1+1 | — | **READY_FOR_GENERATION** | — |
 | `solar_cave` | Pokémon Mystery Dungeon: Red Rescue Team | solar_gallery | fond | 20 | 2 | branching, mixed, dense, looping, lattice | `golden_chamber` | 25 | 36 | — | — | — | — | — | 0+0 | — | **READY_FOR_GENERATION** | — |
 | `darknight_relic` | Pokémon Mystery Dungeon: Red Rescue Team | dark_halls | fond | 15 | 2 | crossroads, lattice, mixed, looping, dense | `the_nightmare` | 14 | 42 | — | — | — | — | — | 0+0 | — | **READY_FOR_GENERATION** | — |
 | `lightning_field` | Pokémon Mystery Dungeon: Red Rescue Team | storm_plain | sommet | 30 | 2 | twosides, large_rooms, mixed, looping | `lightning_field` | 22 | 66 | — | champ_foudre | champ_foudre | champ_foudre | — | 1+1 | — | **READY_FOR_GENERATION** | — |
@@ -64,23 +65,8 @@ Aucun étage procédural n'a été généré à cette étape ; `generate-all` n'
 | `joyous_tower` | Pokémon Mystery Dungeon: Red Rescue Team | tower_base | sommet | 99 | 3 | crossroads, branching, mixed, lattice, looping, large_rooms | `lush_prairie` | 125 | 132 | — | — | — | — | — | 0+0 | — | **READY_FOR_GENERATION** | — |
 | `mt_faraway` | Pokémon Mystery Dungeon: Red Rescue Team | faraway_slope | sommet | 40 | 3 | twosides, branching, mixed, crossroads, large_rooms | `hidden_highland` | 24 | 18 | — | sommet_aurore | sommet_aurore | sommet_aurore | — | 1+1 | — | **READY_FOR_GENERATION** | — |
 | `purity_forest` | Pokémon Mystery Dungeon: Red Rescue Team | purity_outer | sommet | 99 | 4 | branching, dense, mixed, looping, large_rooms | `purity_forest_4` | 154 | 171 | — | — | — | — | — | 1+0 | — | **READY_FOR_GENERATION** | — |
-| `meteor_cave` | Pokémon Mystery Dungeon: Red Rescue Team | meteor_shell | fond | 20 | 2 | branching, mixed, dense, looping, lattice | `spacial_rift_1` | 7 | 0 | — | — | — | — | meteor_cave_arena | 0+0 | — | **BLOCKED_MISSING_ASSET** | MISSING_ASSET: arena 'meteor_cave_arena.rsmap' must be authored before the boss scene can be converted to a Ground; SCENE: dedicated arena 'meteor_cave_arena.rsmap' must exist in Data/Map before conversion |
-| `buried_relic` | Pokémon Mystery Dungeon: Red Rescue Team | relic_halls | fond | 99 | 3 | crossroads, lattice, mixed, looping, dense, large_rooms | `buried_relic_1` | 50 | 120 | — | — | — | — | buried_relic_arena | 0+0 | — | **BLOCKED_MISSING_ASSET** | MISSING_ASSET: arena 'buried_relic_arena.rsmap' must be authored before the boss scene can be converted to a Ground; SCENE: dedicated arena 'buried_relic_arena.rsmap' must exist in Data/Map before conversion |
-| `northwind_field` | — | — | sommet | 30 | 2 | — | `—` | 0 | 0 | — | — | — | — | — | 0+0 | — | **BLOCKED_MISSING_TILESET** | INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment); MISSING_TILESET: no DTEF triplet assigned for this biome |
 
 ## Blocages détaillés
-
-### `meteor_cave` — Meteor Cave (ch.14)
-- BLOCKED/MISSING_ASSET: arena 'meteor_cave_arena.rsmap' must be authored before the boss scene can be converted to a Ground
-- BLOCKED/SCENE: dedicated arena 'meteor_cave_arena.rsmap' must exist in Data/Map before conversion
-
-### `buried_relic` — Buried Relic (ch.15)
-- BLOCKED/MISSING_ASSET: arena 'buried_relic_arena.rsmap' must be authored before the boss scene can be converted to a Ground
-- BLOCKED/SCENE: dedicated arena 'buried_relic_arena.rsmap' must exist in Data/Map before conversion
-
-### `northwind_field` — Northwind Field (ch.19)
-- BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)
-- BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome
 
 ## Limites connues de l'environnement
 

@@ -759,5 +759,10 @@
   "fixed_grounds": {
     "entrance": "vallon_perdu",
     "end": "vallon_perdu"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/pitfall_valley.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

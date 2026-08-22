@@ -2989,5 +2989,10 @@
   },
   "fixed_grounds": {
     "end": "foret_guerison"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/purity_forest.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

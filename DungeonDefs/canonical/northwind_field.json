@@ -36,7 +36,10 @@
     "min_distance": 4,
     "exit_tile": "stairs_go_up"
   },
-  "dtef": {},
+  "dtef": {
+    "package": "northwind_field",
+    "element": "ice"
+  },
   "canonical_items_without_pmdo_equivalent": [
     "ITEM_ALLURE_SEED",
     "ITEM_BLOWBACK_ORB",
@@ -807,21 +810,21 @@
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
   "narrative": {
-    "transferred": false,
+    "transferred": true,
     "cutscenes": [
       {
         "scene": "champ_vent_boreal",
-        "state": "archived",
-        "path": "RESERVE/scripts_ground/champ_vent_boreal",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/champ_vent_boreal",
         "restore_to": "Data/Script/halcyon/ground/champ_vent_boreal"
       }
     ],
     "red_cinematics": [
       "RESERVE/red_cinematics/d18p01.cif.json"
     ],
-    "zone_script": "",
+    "zone_script": "Data/Script/halcyon/zone/northwind_field",
     "pending_cinematics": [],
-    "transfer_check": "some cutscene folders are still archived",
+    "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
   "boss": {
@@ -841,8 +844,5 @@
   },
   "fixed_grounds": {
     "end": "champ_vent_boreal"
-  },
-  "blocked": [
-    "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome"
-  ]
+  }
 }

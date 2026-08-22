@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-22T22:58:40+00:00",
+  "generated_at": "2026-08-22T23:13:49+00:00",
   "total": 51,
-  "pass": 48,
-  "fail": 3,
+  "pass": 51,
+  "fail": 0,
   "limits": [
     "Pas de runtime .NET dans cet environnement : la validation runtime in-engine (chargement réel d'une zone par RogueEssence) reste impossible ici ; les rapports laissent le champ « runtime » non renseigné.",
     "`GridPathTiered` / `GridPathTreads` restent hors profils tant que leur comportement réel n'a pas été lu dans les sources RogueEssence (dépôt non accessible publiquement)."
@@ -43,17 +43,17 @@
       "arena_rsmap": "buried_relic_arena",
       "scene_state": "",
       "ownership": "SAFE_TO_BUILD",
-      "readiness": "BLOCKED_MISSING_ASSET",
-      "blockers": [
-        "BLOCKED/MISSING_ASSET: arena 'buried_relic_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
-        "BLOCKED/SCENE: dedicated arena 'buried_relic_arena.rsmap' must exist in Data/Map before conversion"
-      ],
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared"
+        "no fixed 'end' Ground declared",
+        "dedicated arena scene: buried_relic_arena.rsmap (source of truth) → to be converted into a boss Ground",
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "darknight_relic.json",
@@ -787,18 +787,18 @@
       "arena_rsmap": "meteor_cave_arena",
       "scene_state": "",
       "ownership": "SAFE_TO_BUILD",
-      "readiness": "BLOCKED_MISSING_ASSET",
-      "blockers": [
-        "BLOCKED/MISSING_ASSET: arena 'meteor_cave_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
-        "BLOCKED/SCENE: dedicated arena 'meteor_cave_arena.rsmap' must exist in Data/Map before conversion"
-      ],
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
         "no floor items (canonical: money only)",
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared"
+        "no fixed 'end' Ground declared",
+        "dedicated arena scene: meteor_cave_arena.rsmap (source of truth) → to be converted into a boss Ground",
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "mt_blaze.json",
@@ -1234,32 +1234,40 @@
       "floors": 30,
       "segments": 2,
       "direction": "sommet",
-      "dtef": "",
-      "profiles": [],
-      "species": 0,
-      "item_entries": 0,
-      "boss_mode": "",
-      "end_scene": "",
-      "midpoint": "",
-      "source": "",
-      "biome": "",
-      "cinematic_ground": "",
-      "cutscenes": 0,
-      "red_cinematics": 0,
-      "narrative_transferred": false,
-      "legacy_zone": "",
-      "battle_ground": "",
-      "canonical_end_ground": "",
-      "arena_rsmap": "",
-      "scene_state": "",
-      "ownership": "SAFE_TO_BUILD",
-      "readiness": "BLOCKED_MISSING_TILESET",
-      "blockers": [
-        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
-        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome"
+      "dtef": "northwind_field",
+      "profiles": [
+        "twosides",
+        "large_rooms",
+        "mixed",
+        "looping"
       ],
-      "notes": [],
-      "status": "FAIL"
+      "species": 20,
+      "item_entries": 66,
+      "boss_mode": "canonical_ground",
+      "end_scene": "champ_vent_boreal",
+      "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "north_plain",
+      "cinematic_ground": "champ_vent_boreal",
+      "cutscenes": 1,
+      "red_cinematics": 1,
+      "narrative_transferred": true,
+      "legacy_zone": "",
+      "battle_ground": "champ_vent_boreal",
+      "canonical_end_ground": "champ_vent_boreal",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "final battle stays on the canonical end Ground 'champ_vent_boreal' (no separate arena created)",
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
+      ],
+      "status": "PASS"
     },
     {
       "file": "oddity_cave.json",

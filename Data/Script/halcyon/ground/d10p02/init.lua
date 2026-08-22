@@ -1,3 +1,4 @@
+-- [dungeon_builder] scène re-raccordée au donjon reconstruit : frosty_forest seg 1 -> frosty_forest seg 0 étage 4. d10p02 est le relais de mi-parcours : la Forêt Givrée reconstruite tient en un seul segment de 9 étages, le relais renvoie donc au même segment à l'étage 5
 --[[ d10p02 — étape de l'Arc Fugitif (ch11, canon PMD Red).
      Ground pixel-perfect du port PMD-RED-PMDO-PORT. La scène est jouée
      par FugitiveArc.Play (dialogues par clés SCENE_*, à adopter). ]]
@@ -16,7 +17,7 @@ function d10p02.Enter(map)
     local ok,scene=pcall(require,'halcyon.arc_fugitif.scene.d10p02')
     if ok and scene and scene.Cutscene then pcall(scene.Cutscene) end
     SV.CanonicalDungeons.Pending=nil; GAME:FadeOut(false,30)
-    GAME:EnterDungeon('frosty_forest',1,0,0,RogueEssence.Data.GameProgress.DungeonStakes.Risk,true,false)
+    GAME:EnterDungeon('frosty_forest', 0, 4,0,RogueEssence.Data.GameProgress.DungeonStakes.Risk,true,false)
   else FugitiveArc.Play('d10p02') end
 end
 

@@ -468,5 +468,10 @@
   "fixed_grounds": {
     "entrance": "gouffre_muet_bord",
     "end": "d05p02"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/silent_chasm.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

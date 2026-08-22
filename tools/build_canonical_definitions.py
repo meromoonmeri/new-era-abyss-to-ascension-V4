@@ -164,7 +164,8 @@ DUNGEON_SETUP: Dict[str, Dict[str, Any]] = {
     "fiery_field":       {"nature": "field", "biomes": ["ember_plain", "burning_plain"],
                           "tileset": "deep_dark_crater", "justification": 'Plaine Ardente : cratère volcanique, aucun triplet Fiery Field importé ; utilisateur unique.'},
     "northwind_field":   {"nature": "field", "biomes": ["north_plain", "gale_plain"],
-                          "tileset": None, "justification": None},
+                          "tileset": "northwind_field", "dtef_package": True,
+                          "justification": None},
     "solar_cave":        {"nature": "cave", "biomes": ["solar_gallery", "solar_heart"],
                           "tileset": "golden_chamber",
                           "justification": 'Grotte Solaire : chambre dorée, seul biome lumineux disponible ; unique utilisateur.'},
@@ -240,6 +241,12 @@ SCENE_CANDIDATES = {
 #: covers D01–D25 — these dungeons own no Ground scene at all.  The correct
 #: implementation is therefore a fixed dungeon room (.rsmap loaded as a floor),
 #: never an invented cutscene Ground.
+#: fixed in-dungeon boss rooms produced by tools/dungeon_builder/fixed_rooms.py
+FIXED_BOSS_ROOM = {
+    "buried_relic": "buried_relic_arena",
+    "meteor_cave": "meteor_cave_arena",
+}
+
 IN_DUNGEON_BOSS = {
     "buried_relic": ("Regirock / Regice / Registeel", "gRegirockPreFightDialogue, "
                      "gRegicePreFightDialogue, gRegisteelPreFightDialogue"),
@@ -591,6 +598,9 @@ def build_definition(row: Dict[str, Any], source: CanonicalSource,
     if not tileset:
         blocked.append("BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome")
         definition["dtef"] = {}
+    elif setup.get("dtef_package"):
+        definition["dtef"] = {"package": tileset,
+                              "element": setup.get("element", "ice" if "wind" in slug else "normal")}
     elif tileset == "sinister_woods_b41":
         definition["dtef"] = {"package": tileset, "element": "grass"}
     else:
@@ -767,6 +777,15 @@ def build_definition(row: Dict[str, Any], source: CanonicalSource,
                                   "d'objets du mod et sont omis de la table (liste conservée dans "
                                   "`canonical_items_without_pmdo_equivalent`).")
 
+    fixed_room = FIXED_BOSS_ROOM.get(slug)
+    if fixed_room and fixed_room in map_names and segments:
+        last = segments[-1]
+        last.setdefault("fixed_floors", {})[str(total_floors)] = {
+            "map": fixed_room,
+            "comment": ("Salle fixe canonique du boss, chargée en étage par LoadGen + "
+                        "MappedRoomStep : le combat reste dans le donjon."),
+        }
+
     definition["segments"] = segments
     definition["money"] = [100 + 20 * row["chapter"], 140 + 26 * row["chapter"]]
     definition["profiles"] = [{"name": name, "weight": 10} for name in profile_sets[0]]
@@ -923,6 +942,9 @@ def build_definition(row: Dict[str, Any], source: CanonicalSource,
                           if in_dungeon else
                           "Aucune scène canonique dans l'inventaire PMD Red : arène dédiée à "
                           "créer, puis à raccorder au narratif du donjon.")}
+        if in_dungeon and FIXED_BOSS_ROOM.get(slug) in map_names:
+            boss["floor"] = total_floors
+            boss["fixed_room"] = FIXED_BOSS_ROOM[slug]
         if in_dungeon:
             boss["canonical_evidence"] = {
                 "source": "pret/pmd-red src/dungeon_boss_dialogue.c",

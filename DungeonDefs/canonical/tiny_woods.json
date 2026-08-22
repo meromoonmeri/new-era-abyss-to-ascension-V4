@@ -289,5 +289,10 @@
   "fixed_grounds": {
     "entrance": "foret_tendre_oree",
     "end": "d01p02"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/tiny_woods.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

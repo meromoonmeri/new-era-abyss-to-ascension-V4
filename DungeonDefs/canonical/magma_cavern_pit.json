@@ -313,5 +313,10 @@
   "fixed_grounds": {
     "entrance": "gorge_ardente_porte",
     "end": "fosse_ardente"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/magma_cavern_pit.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

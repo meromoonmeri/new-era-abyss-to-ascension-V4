@@ -313,5 +313,10 @@
   "fixed_grounds": {
     "entrance": "mont_gele_pied",
     "end": "d11p03"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/mt_freeze_peak.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

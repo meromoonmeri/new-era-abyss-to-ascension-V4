@@ -668,5 +668,10 @@
   "fixed_grounds": {
     "entrance": "grand_canyon_porte",
     "end": "d07p02"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/great_canyon.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

@@ -1,5 +1,49 @@
 [
   {
+    "dungeon": "buried_relic",
+    "name": "Buried Relic",
+    "chapter": 15,
+    "floors_expected": 99,
+    "floors_written": 99,
+    "segments": 3,
+    "profiles": [
+      "crossroads",
+      "dense",
+      "large_rooms",
+      "lattice",
+      "looping",
+      "mixed"
+    ],
+    "grid_variants": 17,
+    "path_steps": [
+      "GridPathBranch",
+      "GridPathCross",
+      "GridPathGrid"
+    ],
+    "dtef": [
+      "buried_relic_1_floor",
+      "buried_relic_1_secondary",
+      "buried_relic_1_wall"
+    ],
+    "species": 50,
+    "item_entries": 120,
+    "features": [
+      "FloorNameDropZoneStep",
+      "ItemSpawnZoneStep",
+      "MoneySpawnZoneStep",
+      "SpreadHouseZoneStep",
+      "SpreadStepRangeZoneStep",
+      "TeamSpawnZoneStep"
+    ],
+    "minibosses": 0,
+    "boss_mode": "arena_rsmap",
+    "end_scene": "buried_relic_arena",
+    "narrative_bound": false,
+    "builder_stamp": true,
+    "problems": [],
+    "ok": true
+  },
+  {
     "dungeon": "darknight_relic",
     "name": "Darknight Relic",
     "chapter": 20,
@@ -662,6 +706,47 @@
     "ok": true
   },
   {
+    "dungeon": "meteor_cave",
+    "name": "Meteor Cave",
+    "chapter": 14,
+    "floors_expected": 20,
+    "floors_written": 20,
+    "segments": 2,
+    "profiles": [
+      "branching",
+      "dense",
+      "lattice",
+      "looping",
+      "mixed"
+    ],
+    "grid_variants": 9,
+    "path_steps": [
+      "GridPathBranch",
+      "GridPathGrid"
+    ],
+    "dtef": [
+      "spacial_rift_1_floor",
+      "spacial_rift_1_secondary",
+      "spacial_rift_1_wall"
+    ],
+    "species": 7,
+    "item_entries": 0,
+    "features": [
+      "FloorNameDropZoneStep",
+      "MoneySpawnZoneStep",
+      "SpreadHouseZoneStep",
+      "SpreadStepRangeZoneStep",
+      "TeamSpawnZoneStep"
+    ],
+    "minibosses": 0,
+    "boss_mode": "arena_rsmap",
+    "end_scene": "meteor_cave_arena",
+    "narrative_bound": true,
+    "builder_stamp": true,
+    "problems": [],
+    "ok": true
+  },
+  {
     "dungeon": "mt_blaze",
     "name": "Mt. Blaze",
     "chapter": 10,
@@ -1062,6 +1147,47 @@
     "minibosses": 0,
     "boss_mode": "canonical_ground",
     "end_scene": "cretes_boreales",
+    "narrative_bound": true,
+    "builder_stamp": true,
+    "problems": [],
+    "ok": true
+  },
+  {
+    "dungeon": "northwind_field",
+    "name": "Northwind Field",
+    "chapter": 19,
+    "floors_expected": 30,
+    "floors_written": 30,
+    "segments": 2,
+    "profiles": [
+      "large_rooms",
+      "looping",
+      "mixed",
+      "twosides"
+    ],
+    "grid_variants": 11,
+    "path_steps": [
+      "GridPathBranch",
+      "GridPathTwoSides"
+    ],
+    "dtef": [
+      "northwind_field_floor",
+      "northwind_field_secondary",
+      "northwind_field_wall"
+    ],
+    "species": 20,
+    "item_entries": 66,
+    "features": [
+      "FloorNameDropZoneStep",
+      "ItemSpawnZoneStep",
+      "MoneySpawnZoneStep",
+      "SpreadHouseZoneStep",
+      "SpreadStepRangeZoneStep",
+      "TeamSpawnZoneStep"
+    ],
+    "minibosses": 0,
+    "boss_mode": "canonical_ground",
+    "end_scene": "champ_vent_boreal",
     "narrative_bound": true,
     "builder_stamp": true,
     "problems": [],

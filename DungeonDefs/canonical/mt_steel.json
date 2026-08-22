@@ -384,5 +384,10 @@
   "fixed_grounds": {
     "entrance": "pic_ferreux_pied",
     "end": "d03p02"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/mt_steel.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }

@@ -871,5 +871,10 @@
   },
   "fixed_grounds": {
     "end": "champ_foudre"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/lightning_field.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
   }
 }
