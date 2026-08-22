@@ -5,6 +5,8 @@
 - **PMDO** par [audinowho](https://github.com/audinowho) — moteur RogueEssence / PMDC
 - **RogueCollab** — [RogueEssence](https://github.com/RogueCollab/RogueEssence), [RogueElements](https://github.com/rogueessence/RogueElements), [PMDC](https://github.com/PMDCollab/PMDC)
 - **PMDODump** / **DumpAsset** — contenu dumpé du jeu officiel
+- **PMDCollab RawAsset** — package DTEF `TreeshroudForest1` conservé sous `Content/TileDtef/sinister_woods/` pour la reconstruction de Sinister Woods ; source : https://github.com/PMDCollab/RawAsset
+- **SkyTemple DTEF** — spécification du format Dungeon Tile Exchange Format et workflow d'import PMDO : https://github.com/SkyTemple/skytemple-dtef
 
 ## Packs intégrés
 

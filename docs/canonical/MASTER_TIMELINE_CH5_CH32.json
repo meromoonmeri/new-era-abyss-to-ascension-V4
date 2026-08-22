@@ -4,7 +4,7 @@
   "casting": "New Era cast plus surviving/evolved veterans from Rescue Team and Explorers of Sky; historical cast must age and may not replay old introductions",
   "chapters": [
     {"chapter":5,"title":"Les Aegis Cave","main":"cloven_ruins","boss":"regigigas","continuity":"Team Dazzling cameo only after Regigigas; establishes prior acquaintance for chapter 6."},
-    {"chapter":6,"title":"Sinister Woods","main":"gloomy_forest","boss":"zeraora","continuity":"Team Dazzling reunion, not first meeting; Caterpie rescue role retained."},
+    {"chapter":6,"title":"Sinister Woods","main":"gloomy_forest","boss":"team_meanies","continuity":"Canonical 13F Team Meanies roster retained; Team Dazzling may fill narrative roles without replacing the dungeon’s official encounter data."},
     {"chapter":7,"title":"Magma Cavern","main":"magma_cavern","boss":"groudon","continuity":"original Team ACT, evolved/aged veterans."},
     {"chapter":8,"title":"Crystal Sanctuary","main":"waterfall_pond","boss":"diancie","continuity":"New Era crystal fragment arc."},
     {"chapter":9,"title":"Bottomless Sea","main":"bottomless_sea","boss":"kyogre","continuity":"replaces obsolete Mega-Blastoise climax; ocean imbalance answers Groudon's awakening."},

@@ -1,0 +1,205 @@
+{
+  "schema": "new-era.rawasset-dtef-source.v1",
+  "source_repository": "https://github.com/PMDCollab/RawAsset",
+  "source_path": "TileDtef/TreeshroudForest1",
+  "ref": "master",
+  "format": "XML-less DTEF package accepted by PMDO Import DTEF",
+  "files": [
+    {
+      "name": "tileset_0.png",
+      "sha256": "4c49106215bf2da5a6cb22c3cb4ce0b216afec4f0d31f38c009cf2bbcde47e1b",
+      "bytes": 42335,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0.png",
+      "git_blob_sha": "5dc15c79717f2916f27c6938468288ca520d9c31"
+    },
+    {
+      "name": "tileset_0_frame0_0.18.png",
+      "sha256": "99e7f4a84597b16c91cfd7bda2e6307f8ea2c59f0210f672e916f12d3bcef835",
+      "bytes": 42652,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame0_0.18.png",
+      "git_blob_sha": "0d5d79333cd1c8808f2a4bb96b76f0e3bc0255fc"
+    },
+    {
+      "name": "tileset_0_frame0_1.18.png",
+      "sha256": "6fb6bc7270a3087382fabf0b30dcefc05fecd44be777341826d1ce1f86b3d5ed",
+      "bytes": 42787,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame0_1.18.png",
+      "git_blob_sha": "1bba193dc173cb4e6f98bf36c64dede1b8368efc"
+    },
+    {
+      "name": "tileset_0_frame0_10.18.png",
+      "sha256": "92c5433e3e008e92b1855b8642f85862986359accd5231d70b50775998a145d7",
+      "bytes": 43248,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame0_10.18.png",
+      "git_blob_sha": "4c3bdea40418b653e02d790ba33b0f8ff274c656"
+    },
+    {
+      "name": "tileset_0_frame0_11.18.png",
+      "sha256": "6fb6bc7270a3087382fabf0b30dcefc05fecd44be777341826d1ce1f86b3d5ed",
+      "bytes": 42787,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame0_11.18.png",
+      "git_blob_sha": "1bba193dc173cb4e6f98bf36c64dede1b8368efc"
+    },
+    {
+      "name": "tileset_0_frame0_2.18.png",
+      "sha256": "92c5433e3e008e92b1855b8642f85862986359accd5231d70b50775998a145d7",
+      "bytes": 43248,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame0_2.18.png",
+      "git_blob_sha": "4c3bdea40418b653e02d790ba33b0f8ff274c656"
+    },
+    {
+      "name": "tileset_0_frame0_3.18.png",
+      "sha256": "8ec8afae2b47bbf6b2257e8e3ed2b2ab680ec65961dfd9beaeee8e2a794468dd",
+      "bytes": 43593,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame0_3.18.png",
+      "git_blob_sha": "2bb67fc4be60ae244e8cb0f7959f28ffb2d43f5e"
+    },
+    {
+      "name": "tileset_0_frame0_4.18.png",
+      "sha256": "afbbf45960e60595d4d485b2f1fa03ccdfa73bc7809ee3bccf33c75a09f36609",
+      "bytes": 43534,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame0_4.18.png",
+      "git_blob_sha": "13ff7e8288d16c13289c91eeb143e3e9bbb3faab"
+    },
+    {
+      "name": "tileset_0_frame0_5.18.png",
+      "sha256": "69014181ebe00a58da5c9e2c8d775b7e098c28af48b623557f737d9b75f87e6e",
+      "bytes": 43655,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame0_5.18.png",
+      "git_blob_sha": "1b6c7a47e31e84d3aba4953b254a77bb7813cd57"
+    },
+    {
+      "name": "tileset_0_frame0_6.18.png",
+      "sha256": "805bee5146362995f62b0c1926ff5a4136bcf669ad7c28915b0b354a2a95a090",
+      "bytes": 43339,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame0_6.18.png",
+      "git_blob_sha": "8b60a2aa240c1b655c8025b0c210ef79aba839fa"
+    },
+    {
+      "name": "tileset_0_frame0_7.18.png",
+      "sha256": "69014181ebe00a58da5c9e2c8d775b7e098c28af48b623557f737d9b75f87e6e",
+      "bytes": 43655,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame0_7.18.png",
+      "git_blob_sha": "1b6c7a47e31e84d3aba4953b254a77bb7813cd57"
+    },
+    {
+      "name": "tileset_0_frame0_8.18.png",
+      "sha256": "4d4acfa767e4492df328ffe6c57dfde8c2e7dcb25797f6bdce9973b956f26d98",
+      "bytes": 43468,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame0_8.18.png",
+      "git_blob_sha": "69c56e23d5f841c415b83492fe1482ee9f57bdf5"
+    },
+    {
+      "name": "tileset_0_frame0_9.18.png",
+      "sha256": "8ec8afae2b47bbf6b2257e8e3ed2b2ab680ec65961dfd9beaeee8e2a794468dd",
+      "bytes": 43593,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame0_9.18.png",
+      "git_blob_sha": "2bb67fc4be60ae244e8cb0f7959f28ffb2d43f5e"
+    },
+    {
+      "name": "tileset_0_frame1_0.6.png",
+      "sha256": "c784a82b66a634a2d7f1a8681cd0e9fa3035c41bef99b8e9dab6aa813198a365",
+      "bytes": 42637,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame1_0.6.png",
+      "git_blob_sha": "4f1cff44235df7249bb98f26b0632b1e1020578c"
+    },
+    {
+      "name": "tileset_0_frame1_1.6.png",
+      "sha256": "da2e606398ea8543073dfed04c20d7f2b19465992ce9c2456d72229e3d7e0f61",
+      "bytes": 42204,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame1_1.6.png",
+      "git_blob_sha": "7af2974126a266fa9d248bc10f66563267675cad"
+    },
+    {
+      "name": "tileset_0_frame1_10.6.png",
+      "sha256": "a1c1d77c3bcbdd900ca4a4228826642ed1688c09d69f1013f0f6467d89e99903",
+      "bytes": 42700,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame1_10.6.png",
+      "git_blob_sha": "d00dd06b494674f35dc3fb97e888732755527634"
+    },
+    {
+      "name": "tileset_0_frame1_11.6.png",
+      "sha256": "da2e606398ea8543073dfed04c20d7f2b19465992ce9c2456d72229e3d7e0f61",
+      "bytes": 42204,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame1_11.6.png",
+      "git_blob_sha": "7af2974126a266fa9d248bc10f66563267675cad"
+    },
+    {
+      "name": "tileset_0_frame1_2.6.png",
+      "sha256": "a1c1d77c3bcbdd900ca4a4228826642ed1688c09d69f1013f0f6467d89e99903",
+      "bytes": 42700,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame1_2.6.png",
+      "git_blob_sha": "d00dd06b494674f35dc3fb97e888732755527634"
+    },
+    {
+      "name": "tileset_0_frame1_3.6.png",
+      "sha256": "da2e606398ea8543073dfed04c20d7f2b19465992ce9c2456d72229e3d7e0f61",
+      "bytes": 42204,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame1_3.6.png",
+      "git_blob_sha": "7af2974126a266fa9d248bc10f66563267675cad"
+    },
+    {
+      "name": "tileset_0_frame1_4.6.png",
+      "sha256": "c784a82b66a634a2d7f1a8681cd0e9fa3035c41bef99b8e9dab6aa813198a365",
+      "bytes": 42637,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame1_4.6.png",
+      "git_blob_sha": "4f1cff44235df7249bb98f26b0632b1e1020578c"
+    },
+    {
+      "name": "tileset_0_frame1_5.6.png",
+      "sha256": "da2e606398ea8543073dfed04c20d7f2b19465992ce9c2456d72229e3d7e0f61",
+      "bytes": 42204,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame1_5.6.png",
+      "git_blob_sha": "7af2974126a266fa9d248bc10f66563267675cad"
+    },
+    {
+      "name": "tileset_0_frame1_6.6.png",
+      "sha256": "a1c1d77c3bcbdd900ca4a4228826642ed1688c09d69f1013f0f6467d89e99903",
+      "bytes": 42700,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame1_6.6.png",
+      "git_blob_sha": "d00dd06b494674f35dc3fb97e888732755527634"
+    },
+    {
+      "name": "tileset_0_frame1_7.6.png",
+      "sha256": "da2e606398ea8543073dfed04c20d7f2b19465992ce9c2456d72229e3d7e0f61",
+      "bytes": 42204,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame1_7.6.png",
+      "git_blob_sha": "7af2974126a266fa9d248bc10f66563267675cad"
+    },
+    {
+      "name": "tileset_0_frame1_8.6.png",
+      "sha256": "c784a82b66a634a2d7f1a8681cd0e9fa3035c41bef99b8e9dab6aa813198a365",
+      "bytes": 42637,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame1_8.6.png",
+      "git_blob_sha": "4f1cff44235df7249bb98f26b0632b1e1020578c"
+    },
+    {
+      "name": "tileset_0_frame1_9.6.png",
+      "sha256": "da2e606398ea8543073dfed04c20d7f2b19465992ce9c2456d72229e3d7e0f61",
+      "bytes": 42204,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_0_frame1_9.6.png",
+      "git_blob_sha": "7af2974126a266fa9d248bc10f66563267675cad"
+    },
+    {
+      "name": "tileset_1.png",
+      "sha256": "504889bf5aab0827c80c4c1fd5aa52de23df992760bc52f5abff9c6c9e6e69b2",
+      "bytes": 5433,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_1.png",
+      "git_blob_sha": "50526b6b4fe56a912abd02cb8da41300e542c705"
+    },
+    {
+      "name": "tileset_2.png",
+      "sha256": "30abf6fc6677223b6b81c9572b072b990c698110f4d4919ec3fa8050392fb49e",
+      "bytes": 4786,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_2.png",
+      "git_blob_sha": "1290d72de930f08500da0a45dbc17547aa0e5992"
+    },
+    {
+      "name": "tileset_more.png",
+      "sha256": "eb63414c380ee831c421e059e41206ae82e83a7c0fcb6fddcda10a4ddba05ac0",
+      "bytes": 902,
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/TreeshroudForest1/tileset_more.png",
+      "git_blob_sha": "38ee32bec6fbacafbba607408c1fbe1244011f7b"
+    }
+  ]
+}

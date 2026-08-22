@@ -1965,24 +1965,60 @@
    ]
   },
   "gloomy_forest": {
-   "zones_fr": "Gloomy Forest",
+   "zones_fr": "Sinister Woods",
    "segments": [
     {
      "type": "RangeDictSegment",
      "plages": [
       [
        0,
-       18
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       7,
+       8
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       9,
+       10
       ]
      ],
      "tilesets": [
-      "treeshroud_forest_1_floor"
+      "sinister_woods_b41_floor"
      ],
      "elements": [
       "grass"
      ],
      "musiques": [
-      "Mystifying Forest.ogg"
+      "Sinister Woods.ogg"
      ]
     },
     {
@@ -1990,17 +2026,21 @@
      "plages": [
       [
        0,
-       3
+       1
+      ],
+      [
+       1,
+       2
       ]
      ],
      "tilesets": [
-      "treeshroud_forest_1_floor"
+      "sinister_woods_b41_floor"
      ],
      "elements": [
       "grass"
      ],
      "musiques": [
-      "Mystifying Forest.ogg"
+      "Sinister Woods.ogg"
      ]
     },
     {
@@ -2008,55 +2048,15 @@
      "plages": [],
      "tilesets": [],
      "elements": [],
-     "musiques": []
-    },
-    {
-     "type": "LayeredSegment",
-     "plages": [],
-     "tilesets": [],
-     "elements": [],
-     "musiques": []
-    },
-    {
-     "type": "LayeredSegment",
-     "plages": [],
-     "tilesets": [],
-     "elements": [],
-     "musiques": []
-    },
-    {
-     "type": "LayeredSegment",
-     "plages": [],
-     "tilesets": [],
-     "elements": [],
-     "musiques": []
-    },
-    {
-     "type": "LayeredSegment",
-     "plages": [],
-     "tilesets": [],
-     "elements": [],
-     "musiques": []
-    },
-    {
-     "type": "LayeredSegment",
-     "plages": [],
-     "tilesets": [],
-     "elements": [],
-     "musiques": []
-    },
-    {
-     "type": "LayeredSegment",
-     "plages": [],
-     "tilesets": [],
-     "elements": [],
-     "musiques": []
+     "musiques": [
+      "Boss Battle!.ogg"
+     ]
     }
    ],
    "groundmaps": [
-    "gloomy_forest_entrance",
-    "gloomy_forest_midpoint",
-    "gloomy_forest_boss"
+    "sinister_woods_entrance",
+    "sinister_woods_mid",
+    "sinister_woods_boss"
    ]
   },
   "grass_maze": {

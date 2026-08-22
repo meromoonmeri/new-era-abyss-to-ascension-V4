@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Static asset contracts discovered by the real Sinister Woods chain replay."""
+"""Asset-chain guards for the rebuilt canonical Sinister Woods route."""
 from __future__ import annotations
 
 import json
@@ -7,44 +7,52 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+MATERIALS = {"sinister_woods_b41_floor", "sinister_woods_b41_wall", "sinister_woods_b41_secondary"}
+
+
+def load(path: Path):
+    return json.loads(path.read_text(encoding="utf-8-sig"))["Object"]
 
 
 class SinisterWoodsChainAssetTests(unittest.TestCase):
-    def test_boss_map_is_deserializable_native_shape(self):
-        path = ROOT / "Data/Map/gloomy_forest_boss.rsmap"
-        data = json.loads(path.read_text(encoding="utf-8-sig"))["Object"]
+    def test_boss_map_is_native_and_uses_only_the_unique_material(self):
+        data = load(ROOT / "Data/Map/sinister_woods_boss.rsmap")
         self.assertEqual(data["$type"], "RogueEssence.Dungeon.Map, RogueEssence")
-        self.assertEqual(data["MapTeams"][0]["$type"], "RogueEssence.Dungeon.MonsterTeam, RogueEssence")
-        player = data["MapTeams"][0]["Players"][0]
-        self.assertIsInstance(player["Tactic"], dict)
-        self.assertEqual(player["Tactic"]["ID"], "boss")
-        effects = data["MapEffect"]["OnMapStarts"]
-        self.assertEqual(
-            [entry["Value"]["$type"] for entry in effects],
-            [
-                "PMDC.Dungeon.BattlePositionEvent, PMDC",
-                "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
-                "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
-            ],
-        )
-        self.assertIsNone(effects[0]["Value"]["Positions"])
+        self.assertEqual(data["AssetName"], "sinister_woods_boss")
+        self.assertEqual(len(data["MapTeams"]), 3)
+        materials = {
+            tile["Data"]["TileTex"]["AutoTileset"]
+            for column in data["Tiles"]
+            for tile in column
+        }
+        self.assertEqual(materials, {"sinister_woods_b41_floor", "sinister_woods_b41_wall"})
+        self.assertNotIn("treeshroud_forest_1_", json.dumps(data))
 
-    def test_chain_fixture_copies_only_runtime_fixture_assets(self):
-        source = (ROOT / "tools/build_sinister_woods_chain_fixture.py").read_text(encoding="utf-8")
-        self.assertIn("production_assets_modified", source)
-        self.assertIn("TreeshroudForest1", source)
-        self.assertIn("gloomy_forest_boss_Canonical_Final_Render", source)
-        # Shared Treeshroud is admitted only for protected legacy Grounds in
-        # the ignored fixture; the production Sinister Woods zone still has no
-        # Treeshroud procedural reference.
-        zone = json.loads((ROOT / "Data/Zone/gloomy_forest.json").read_text(encoding="utf-8-sig"))["Object"]
-        self.assertNotIn("treeshroud_forest_1_", json.dumps(zone))
+    def test_every_fixed_ground_uses_computed_auto_tiles_not_sheet_coordinates(self):
+        for name in ("sinister_woods_entrance", "sinister_woods_mid", "sinister_woods_boss"):
+            ground = load(ROOT / "Data/Ground" / f"{name}.rsground")
+            self.assertEqual(ground["AssetName"], name)
+            cells = [cell for layer in ground["Layers"] for column in layer["Tiles"] for cell in column]
+            self.assertTrue(cells)
+            self.assertTrue(all(cell["AutoTileset"] in MATERIALS for cell in cells))
+            self.assertTrue(all(not cell["Layers"] for cell in cells))
+            self.assertTrue(all(0 <= cell["NeighborCode"] <= 255 for cell in cells))
 
-    def test_entrance_dynamic_cast_does_not_require_preexisting_rivals(self):
-        source = (ROOT / "Data/Script/halcyon/ground/gloomy_forest_entrance/gloomy_forest_entrance_ch_6.lua").read_text(encoding="utf-8")
-        self.assertIn("local actor = CH(name)", source)
-        self.assertIn("if actor ~= nil then GROUND:Hide(name) end", source)
-        self.assertNotIn("GROUND:Hide(name) end\n  end", source)
+    def test_rawasset_dtef_bundle_is_complete_and_has_a_hash_manifest(self):
+        folder = ROOT / "Content/TileDtef/sinister_woods/TreeshroudForest1"
+        manifest = json.loads((folder / "RAWASSET_PROVENANCE.json").read_text())
+        self.assertEqual(manifest["source_path"], "TileDtef/TreeshroudForest1")
+        self.assertEqual(len(manifest["files"]), 28)
+        self.assertTrue((folder / "tileset_0.png").is_file())
+        self.assertTrue((folder / "tileset_1.png").is_file())
+        self.assertTrue((folder / "tileset_2.png").is_file())
+
+    def test_runtime_autotiles_and_sheet_are_registered(self):
+        index = load(ROOT / "Data/AutoTile/index.idx")
+        for material in MATERIALS:
+            self.assertIn(material, index)
+            self.assertTrue((ROOT / "Data/AutoTile" / f"{material}.json").is_file())
+        self.assertTrue((ROOT / "Content/Tile/SinisterWoodsB41.tile").is_file())
 
 
 if __name__ == "__main__":

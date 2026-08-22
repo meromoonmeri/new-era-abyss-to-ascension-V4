@@ -1,82 +1,47 @@
 #!/usr/bin/env python3
-"""Execute the chapter-6 relay duel transition through the real Lua module.
+"""Transition contract for the rebuilt canonical Chapter 6 route.
 
-This is a focused logic/runtime regression for the existing New Era Gloomy
-Forest route.  It does not promote the PMD Red dungeon chain: it only proves
-that the Team Dazzling relay interaction enters its own segment and cannot
-accidentally relaunch the Zeraora arena.
+The former test executed an optional Team Dazzling relay duel in segment 7,
+which was deleted with the obsolete chapter substitute.  This guard instead
+checks the three real canonical transitions: 10F -> checkpoint, 12F -> boss
+Ground, boss result -> town/checkpoint.
 """
 from __future__ import annotations
 
 import unittest
 from pathlib import Path
 
-from lupa import LuaRuntime
-
 ROOT = Path(__file__).resolve().parents[1]
-MODULE = ROOT / "Data/Script/halcyon/ground/gloomy_forest_midpoint/gloomy_forest_midpoint_ch_6.lua"
+ZONE_SCRIPT = ROOT / "Data/Script/halcyon/zone/gloomy_forest/init.lua"
+MID_SCRIPT = ROOT / "Data/Script/halcyon/ground/sinister_woods_mid/init.lua"
+BOSS_SCRIPT = ROOT / "Data/Script/halcyon/ground/sinister_woods_boss/init.lua"
 
 
-class Chapter6RelayTransitionRuntime(unittest.TestCase):
-    def test_dazzling_trial_enters_segment_7_not_zeraora_segment_4(self) -> None:
-        lua = LuaRuntime(unpack_returned_tuples=True)
-        calls: list[tuple[str, tuple[object, ...]]] = []
+class Chapter6CanonicalTransitionTests(unittest.TestCase):
+    def test_zone_has_only_the_three_canonical_segments(self):
+        source = ZONE_SCRIPT.read_text(encoding="utf-8")
+        self.assertIn("segmentID == 0", source)
+        self.assertIn("segmentID == 1", source)
+        self.assertNotIn("segmentID == 7", source)
+        self.assertNotIn("gloomy_forest_miniboss", source)
 
-        def record(name: str, *args: object) -> None:
-            calls.append((name, args))
+    def test_ten_floor_checkpoint_and_twelve_floor_boss_ground_are_explicit(self):
+        source = ZONE_SCRIPT.read_text(encoding="utf-8")
+        self.assertIn("GAME:EnterGroundMap('sinister_woods_mid'", source)
+        self.assertIn("GAME:EnterGroundMap('sinister_woods_boss'", source)
+        self.assertIn("SinisterWoodsCheckpoint", source)
 
-        lua.globals().PYREC = record
-        lua.execute(
-            r'''
-            function require(_) return true end
-            local function namespace(name)
-              return setmetatable({}, {__index=function(t, key)
-                local f = function(_, ...) PYREC(name .. "." .. key, ...) end
-                rawset(t, key, f)
-                return f
-              end})
-            end
-            GAME = namespace("GAME")
-            SOUND = namespace("SOUND")
-            GROUND = namespace("GROUND")
-            UI = namespace("UI")
-            AI = namespace("AI")
-            DEBUG = namespace("DEBUG")
-            UI.ChoiceResult = function(_) return true end
-            TASK = {
-              BranchCoroutine = function(_, f) if f then f() end return {} end,
-              JoinCoroutines = function(_) end,
-            }
-            GeneralFunctions = {
-              StartConversation = function(...) end,
-              EndConversation = function(...) end,
-              SetEmotion = function(...) end,
-            }
-            MidpointTemplate = {}
-            CharacterEssentials = {}
-            CH = function(name)
-              return {EntName=name, Position={X=0, Y=0}}
-            end
-            Direction = {Up="Up", Down="Down", Left="Left", Right="Right"}
-            SV = {Chapter6={DazzlingTrialCleared=false}}
-            RogueEssence = {
-              Data = {GameProgress = {DungeonStakes = {Risk="Risk"}}}
-            }
-            function PrintInfo(_) end
-            '''
-        )
+    def test_midpoint_keeps_kangaskhan_and_continues_only_to_segment_one(self):
+        source = MID_SCRIPT.read_text(encoding="utf-8")
+        self.assertIn("Kangashkhan_Rock_Interact", source)
+        self.assertIn("GAME:EnterDungeon('gloomy_forest', 1", source)
+        self.assertNotIn("', 7,", source)
 
-        lua.execute(MODULE.read_text(encoding="utf-8"))
-        lua.globals().gloomy_forest_midpoint_ch_6.Adagio_Action(
-            lua.eval("{EntName='Adagio'}"), lua.eval("{}")
-        )
-
-        transitions = [args for name, args in calls if name == "GAME.ContinueDungeon"]
-        self.assertEqual(len(transitions), 1)
-        self.assertEqual(transitions[0][0], "gloomy_forest")
-        self.assertEqual(transitions[0][1], 7)
-        self.assertNotEqual(transitions[0][1], 4)
+    def test_boss_ground_loads_the_fixed_thirteenth_floor(self):
+        source = BOSS_SCRIPT.read_text(encoding="utf-8")
+        self.assertIn("GAME:EnterDungeon('gloomy_forest', 2", source)
+        self.assertIn("Team Meanies", source)
 
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(verbosity=2)

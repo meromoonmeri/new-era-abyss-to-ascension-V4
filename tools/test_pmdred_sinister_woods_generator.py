@@ -1,115 +1,173 @@
 #!/usr/bin/env python3
-"""Static contract tests for the PMD Red Sinister Woods generator adapter.
-
-These tests do not certify the PMDO executable.  They prove only that the
-checked-in source profile and the serialized ZoneData are wired to PMDO's
-native procedural steps, with the b41 material and the fixed final Ground
-kept distinct.
-"""
+"""Regression tests for the clean canonical Chapter 6 Sinister Woods bundle."""
 from __future__ import annotations
 
 import json
+import subprocess
 import unittest
+from collections import deque
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PROFILE_PATH = ROOT / "docs/canonical/red/sinister_woods_generator_profile.json"
 ZONE_PATH = ROOT / "Data/Zone/gloomy_forest.json"
+BOSS_PATH = ROOT / "Data/Map/sinister_woods_boss.rsmap"
+GROUNDS = ("sinister_woods_entrance", "sinister_woods_mid", "sinister_woods_boss")
+MATERIALS = {"sinister_woods_b41_floor", "sinister_woods_b41_wall", "sinister_woods_b41_secondary"}
 
 
 def load(path: Path):
-    return json.loads(path.read_text(encoding="utf-8-sig"))
+    return json.loads(path.read_text(encoding="utf-8-sig"))["Object"]
 
 
-def steps(node):
-    return [entry["Value"] for entry in node.get("Item", node).get("GenSteps", [])]
+def gen_steps(grid: dict):
+    return [entry["Value"] for entry in grid["GenSteps"]]
 
 
-def walk(value):
-    yield value
-    if isinstance(value, dict):
-        for child in value.values():
-            yield from walk(child)
-    elif isinstance(value, list):
-        for child in value:
-            yield from walk(child)
+def step(grid: dict, token: str):
+    return next(value for value in gen_steps(grid) if token in value.get("$type", ""))
 
 
-def find_step(node, token: str):
-    return next(value for value in walk(node) if isinstance(value, dict) and token in value.get("$type", ""))
-
-
-class SinisterWoodsProfileTests(unittest.TestCase):
+class SinisterWoodsGeneratorTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.profile = load(PROFILE_PATH)
-        cls.zone = load(ZONE_PATH)["Object"]
+        cls.zone = load(ZONE_PATH)
 
-    def test_profile_is_source_derived_and_explicitly_not_a_runtime_verdict(self):
-        self.assertEqual(self.profile["schema"], "new-era.pmdred.sinister-woods-generator-profile.v1")
-        self.assertEqual(self.profile["source"]["repository"], "pret/pmd-red")
-        self.assertEqual(self.profile["source"]["commit"], "bf0092d0e34fd8e49b859a0b5f96f00740faa42d")
-        self.assertEqual(self.profile["result"], "PROFILE_ONLY_NOT_RUNTIME_CERTIFICATION")
-        self.assertEqual(len(self.profile["floors"]), 13)
-
-    def test_canonical_floor_properties_and_tilesets(self):
-        floors = self.profile["floors"]
-        self.assertEqual([row["floor"] for row in floors], list(range(1, 14)))
-        self.assertTrue(all(row["floor_properties"]["tileset"] == 41 for row in floors[:12]))
-        self.assertEqual(floors[12]["floor_properties"]["tileset"], 65)
-        self.assertEqual(floors[12]["floor_properties"]["fixedRoomNumber"], 2)
-        self.assertTrue(all(row["tileset_binding"]["music"] == "Sinister Woods.ogg" for row in floors[:12]))
-        self.assertIsNone(floors[12]["tileset_binding"]["music"])
-
-    def test_display_identity_and_profile_link(self):
+    def test_public_identity_and_canonical_floor_count(self):
         self.assertEqual(self.zone["Name"]["DefaultText"], "Sinister Woods")
         self.assertEqual(self.zone["Name"]["LocalTexts"]["fr"], "Forêt Sinistre")
-        self.assertEqual(self.zone["PMDRedGeneratorProfile"], "docs/canonical/red/sinister_woods_generator_profile.json")
+        self.assertEqual(self.zone["TeamSize"], 3)
+        self.assertEqual(self.zone["Rescues"], 10)
+        self.assertEqual(len(self.zone["Segments"]), 3)
+        self.assertEqual(self.zone["GroundMaps"], list(GROUNDS))
+        self.assertEqual(sum(len(segment.get("Floors", {}).get("nodes", [])) for segment in self.zone["Segments"][:2]) + 1, 13)
 
-    def test_all_procedural_floors_are_native_and_use_b41(self):
-        for segment_index in (0, 1, 3):
-            nodes = self.zone["Segments"][segment_index]["Floors"]["nodes"]
-            self.assertGreater(len(nodes), 1)
-            for node in nodes:
-                self.assertIn("GridFloorGen", node["Item"]["$type"])
-                self.assertIsNotNone(find_step(node, "InitGridPlanStep"))
-                self.assertIsNotNone(find_step(node, "GridPathBranch"))
-                self.assertIsNotNone(find_step(node, "ConnectGridBranchStep"))
-                self.assertIsNotNone(find_step(node, "FloorStairsStep"))
-                texture = find_step(node, "MapTextureStep")
-                self.assertEqual(texture["GroundTileset"], "sinister_woods_b41_floor")
-                self.assertEqual(texture["BlockTileset"], "sinister_woods_b41_wall")
-                self.assertEqual(texture["WaterTileset"], "sinister_woods_b41_secondary")
-                data = find_step(node, "MapDataStep")
-                self.assertEqual(data["Music"], "Sinister Woods.ogg")
-                self.assertEqual(data["TimeLimit"], 1000)
-                self.assertFalse(any("RoomGenRound" in value.get("$type", "") for value in walk(node) if isinstance(value, dict)))
-                self.assertTrue(any("RoomGenSquare" in value.get("$type", "") for value in walk(node) if isinstance(value, dict)))
+    def test_display_names_follow_name_then_global_floor_number(self):
+        first = self.zone["Segments"][0]["ZoneSteps"]
+        title = next(value for value in first if "FloorNameDropZoneStep" in value["$type"])
+        self.assertEqual(title["Name"]["DefaultText"], "Sinister Woods {0}")
+        self.assertEqual(title["Name"]["LocalTexts"]["fr"], "Forêt Sinistre {0}")
+        for floor, node in enumerate(self.zone["Segments"][1]["Floors"]["nodes"], start=11):
+            direct = step(node["Item"]["Spawns"][0]["Spawn"], "MapNameIDStep")
+            self.assertEqual(direct["Name"]["DefaultText"], "Sinister Woods {0}")
+            self.assertEqual(direct["IDOffset"], 11)
+        boss_title = next(value for value in self.zone["Segments"][2]["ZoneSteps"] if "FloorNameDropZoneStep" in value["$type"])
+        self.assertEqual(boss_title["Name"]["DefaultText"], "Sinister Woods 13")
 
-    def test_canonical_secondary_terrain_flags_are_represented_by_native_step(self):
-        # Source floors 8F-10F set ROOM_FLAG_ALLOW_SECONDARY_TERRAIN and the
-        # adapter adds PMDO's native wall-lake generator.  The other source
-        # floors do not get a fabricated water pass.
-        first_segment = self.zone["Segments"][0]["Floors"]["nodes"]
-        for index, node in enumerate(first_segment[:12]):
-            has_perlin = any("PerlinWaterStep" in value.get("$type", "") for value in steps(node))
-            if index in (7, 8, 9):
-                self.assertTrue(has_perlin, f"canonical secondary terrain missing at local floor {index}")
-            else:
-                self.assertFalse(has_perlin, f"fabricated secondary terrain at local floor {index}")
+    def test_every_procedural_floor_has_three_native_topologies_and_no_seed(self):
+        expected = (10, 2)
+        signatures = set()
+        for segment_id, expected_nodes in enumerate(expected):
+            nodes = self.zone["Segments"][segment_id]["Floors"]["nodes"]
+            self.assertEqual(len(nodes), expected_nodes)
+            for local_floor, node in enumerate(nodes):
+                self.assertEqual(node["Range"], {"Min": local_floor, "Max": local_floor + 1})
+                chance = node["Item"]
+                self.assertIn("ChanceFloorGen", chance["$type"])
+                self.assertEqual(len(chance["Spawns"]), 3)
+                variants = set()
+                for choice in chance["Spawns"]:
+                    grid = choice["Spawn"]
+                    text = json.dumps(grid, sort_keys=True)
+                    self.assertNotIn("FirstSeed", text)
+                    self.assertNotIn('"seed"', text.lower())
+                    self.assertIn("InitGridPlanStep", text)
+                    self.assertIn("FloorStairsStep", text)
+                    self.assertIn("ConnectGridBranchStep", text)
+                    texture = step(grid, "MapTextureStep")
+                    self.assertEqual(
+                        {texture["GroundTileset"], texture["BlockTileset"], texture["WaterTileset"]},
+                        MATERIALS,
+                    )
+                    stairs = step(grid, "FloorStairsStep")
+                    self.assertEqual(stairs["Exits"][0]["Tile"]["ID"], "stairs_go_up")
+                    self.assertGreaterEqual(stairs["MinDistance"], 1)
+                    init = step(grid, "InitGridPlanStep")
+                    path = next(value for value in gen_steps(grid) if "GridPath" in value["$type"])
+                    tunnel_count = text.count("AddTunnelStep")
+                    connect = next(value for value in gen_steps(grid) if "ConnectGridBranchStep" in value["$type"])
+                    signature = (
+                        init["CellX"], init["CellY"], init["CellWidth"], init["CellHeight"],
+                        path["$type"], json.dumps(path.get("RoomRatio", path.get("TierConnections", {})), sort_keys=True),
+                        json.dumps(path.get("BranchRatio", {}), sort_keys=True), connect.get("ConnectPercent"), tunnel_count,
+                    )
+                    variants.add(signature)
+                    signatures.add(signature)
+                self.assertEqual(len(variants), 3, f"segment {segment_id} floor {local_floor}")
+        self.assertGreaterEqual(len(signatures), 12)
 
-    def test_fixed_story_segments_remain_load_generators(self):
-        for segment_index in (2, 4, 5, 6, 7, 8, 9, 10):
-            floors = self.zone["Segments"][segment_index]["Floors"]
-            self.assertIsInstance(floors, list)
-            self.assertTrue(any("LoadGen" in floor.get("$type", "") for floor in floors))
-            self.assertTrue(any("MappedRoomStep" in value.get("$type", "") for value in walk(floors) if isinstance(value, dict)))
+    def test_rb_darkness_and_no_forbidden_house_shop_trap_features(self):
+        dark_floors = set()
+        for segment_id in (0, 1):
+            for local_floor, node in enumerate(self.zone["Segments"][segment_id]["Floors"]["nodes"]):
+                global_floor = local_floor + (1 if segment_id == 0 else 11)
+                has_darkness = any("darkness" in json.dumps(choice["Spawn"]) for choice in node["Item"]["Spawns"])
+                if has_darkness:
+                    dark_floors.add(global_floor)
+        self.assertEqual(dark_floors, {5, 6, 7, 11, 12})
+        payload = json.dumps(self.zone)
+        for forbidden in ("ShopStep", "SpreadHouse", "MonsterHouse", "BuriedItem", "trap_"):
+            self.assertNotIn(forbidden, payload)
 
-    def test_old_relic_blob_path_is_absent_from_zone(self):
-        payload = json.dumps(self.zone, ensure_ascii=False)
-        self.assertNotIn("LoadBlobStep", payload)
-        self.assertNotIn("ReverseRelicForest", payload)
-        self.assertNotIn("relic_forest_blob_", payload)
+    def test_official_wildlife_is_preserved_as_fifteen_species(self):
+        species = set()
+        levels = {}
+        for segment in self.zone["Segments"][:2]:
+            spawn_step = next(value for value in segment["ZoneSteps"] if "TeamSpawnZoneStep" in value["$type"])
+            for row in spawn_step["Spawns"]:
+                mob = row["Spawn"]["Spawn"]
+                species.add(mob["BaseForm"]["Species"])
+                levels.setdefault(mob["BaseForm"]["Species"], mob["Level"]["Min"])
+        self.assertEqual(
+            species,
+            {"swinub", "oddish", "sudowoodo", "sunflora", "sentret", "silcoon", "cascoon", "shroomish", "linoone", "ledyba", "wooper", "scyther", "exeggutor", "hoothoot", "slakoth"},
+        )
+        self.assertEqual({key: levels[key] for key in ("swinub", "shroomish", "wooper", "scyther", "slakoth")}, {"swinub": 8, "shroomish": 9, "wooper": 10, "scyther": 10, "slakoth": 8})
+
+    def test_fixed_boss_is_the_canonical_trio_and_reachable(self):
+        game_map = load(BOSS_PATH)
+        roster = {team["Players"][0]["BaseForm"]["Species"]: team["Players"][0]["Level"] for team in game_map["MapTeams"]}
+        self.assertEqual(roster, {"gengar": 15, "ekans": 15, "medicham": 12})
+        self.assertEqual((len(game_map["Tiles"]), len(game_map["Tiles"][0])), (15, 18))
+        start = game_map["EntryPoints"][0]["Loc"]
+        floors = {
+            (x, y)
+            for x, column in enumerate(game_map["Tiles"])
+            for y, cell in enumerate(column)
+            if cell["Data"]["ID"] == "floor"
+        }
+        seen = {tuple(start.values())}
+        queue = deque(seen)
+        while queue:
+            x, y = queue.popleft()
+            for point in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+                if point in floors and point not in seen:
+                    seen.add(point)
+                    queue.append(point)
+        for team in game_map["MapTeams"]:
+            pos = team["Players"][0]["serializationLoc"]
+            self.assertIn((pos["X"], pos["Y"]), seen)
+
+    def test_fixed_grounds_are_auto_tiled_and_registered(self):
+        index = load(ROOT / "Data/Zone/index.idx")
+        self.assertIn("gloomy_forest", index)
+        self.assertEqual(index["gloomy_forest"]["Grounds"], list(GROUNDS))
+        master = load(ROOT / "Data/Zone/master_zone.json")
+        self.assertNotIn("sinister_woods_clearing", master["GroundMaps"])
+        for name in GROUNDS:
+            self.assertIn(name, master["GroundMaps"])
+            ground = load(ROOT / "Data/Ground" / f"{name}.rsground")
+            self.assertEqual(ground["AssetName"], name)
+            auto = {
+                cell["AutoTileset"]
+                for layer in ground["Layers"]
+                for column in layer["Tiles"]
+                for cell in column
+            }
+            self.assertEqual(auto, {"sinister_woods_b41_floor", "sinister_woods_b41_wall"})
+
+    def test_builder_and_ten_pass_variation_contract(self):
+        subprocess.run(["python3", str(ROOT / "tools/build_chapter6_sinister_woods.py"), "--check"], cwd=ROOT, check=True)
+        subprocess.run(["python3", str(ROOT / "tools/validate_sinister_woods_variation.py"), "--passes", "10"], cwd=ROOT, check=True)
 
 
 if __name__ == "__main__":

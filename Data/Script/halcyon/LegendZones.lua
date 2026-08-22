@@ -58,16 +58,20 @@ LegendZones = {}
 
 LegendZones.LIST = {
     ------------------------------------------------------------------
-    -- JOUABLES AUJOURD'HUI (restaures le 2026-08-06 : la purge de la
-    -- reduction les avait emportes par erreur).
+    -- Contrats historiques. Une entrée reste jouable uniquement si son champ
+    -- `ready` confirme qu'une zone et son segment actifs existent.
     ------------------------------------------------------------------
     {
         key = 'verdant_oath', species = 'zeraora',
         name = 'LZ_Name_Verdant_Oath', blurb = 'LZ_Blurb_Verdant_Oath',
         sight = 'LZ_Sight_Verdant_Oath', price = 15000,
-        -- Pose par zone/gloomy_forest/init.lua (segment 4, victoire).
-        flag = function() return SV.Chapter6 ~= nil and SV.Chapter6.DefeatedGloomyBoss == true end,
-        zone = 'gloomy_forest', segment = 5, roam = true, ready = true
+        -- The former Chapter 6 substitute hosted Zeraora in segments 4/5.
+        -- Canonical Sinister Woods now ends at its fixed Team Meanies 13F;
+        -- keep this shop contract dormant until Zeraora receives a separate,
+        -- canonical-location route rather than pointing players at a deleted
+        -- segment.
+        flag = function() return false end,
+        zone = 'gloomy_forest', segment = 5, roam = true, ready = false
     },
     {
         key = 'colossus_quarry', species = 'regigigas',

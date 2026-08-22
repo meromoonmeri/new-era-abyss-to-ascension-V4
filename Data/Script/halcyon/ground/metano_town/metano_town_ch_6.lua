@@ -128,7 +128,7 @@ function metano_town_ch_6.SetupGround()
 	--------------------------------------------------------------------
 	-- RETOUR DU DUEL DE LA PLACE. Le combat s'est joue sur
 	-- metano_town_duel.rsmap ; on revient ici pour l'acte III.
-	-- PlazaPending est pose par zone/gloomy_forest/init.lua (segment 7).
+	-- PlazaPending appartient au duel de place historique, désormais séparé de la route canonique de Sinister Woods.
 	--------------------------------------------------------------------
 	if SV.Chapter6.PlazaPending ~= nil and SV.Chapter6.PlazaPending ~= false then
 		local issue = SV.Chapter6.PlazaPending
@@ -598,7 +598,7 @@ function metano_town_ch_6.Butterfree_Action(chara, activator)
 		AI:DisableCharacterAI(partner)
 		SOUND:FadeOutBGM(40)
 		GAME:FadeOut(false, 40)
-		GAME:EnterGroundMap("gloomy_forest_entrance", "Main_Entrance_Marker")
+		GAME:EnterGroundMap("sinister_woods_entrance", "Main_Entrance_Marker")
 	else
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_022']))
 		GeneralFunctions.EndConversation(chara)

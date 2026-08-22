@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
-"""Validate the PMDO family setter used by gloomy_forest's deep shadow floors.
+"""Validate MapStatus data and the canonical darkness use in Sinister Woods.
 
-``deep_shadow`` is not a ROM asset and is not a visual replacement for the
-PMD Red material.  It is the MapStatus family setter required by PMDC's
-DefaultMapStatusStep: the step stores the selected status in MapIDState and
-WeatherFillEvent materializes that selected status.  This test rejects a
-visual-only or darkness-copy implementation.
+``deep_shadow`` remains a reusable PMDO family setter for other content, but
+clean canonical Sinister Woods must use the RB darkness floors directly rather
+than inherit the former New Era deep-shadow extension.
 """
 from __future__ import annotations
 
@@ -68,23 +66,24 @@ class DeepShadowMapStatus(unittest.TestCase):
         self.assertEqual(turn_ends[0]["Key"]["str"], [6])
         self.assertEqual(turn_ends[0]["Value"]["$type"], "PMDC.Dungeon.WeatherFillEvent, PMDC")
 
-    def test_zone_defaults_are_the_existing_visual_statuses(self):
+    def test_canonical_zone_uses_rb_darkness_not_the_old_deep_shadow_extension(self):
         zone = load(ZONE_PATH)["Object"]
+        payload = json.dumps(zone)
+        self.assertNotIn("deep_shadow", payload)
         setters = [
             node for node in walk(zone)
             if isinstance(node, dict)
-            and node.get("$type", "").startswith("PMDC.LevelGen.DefaultMapStatusStep")
+            and node.get("$type", "").startswith("PMDC.LevelGen.StateMapStatusStep")
+            and node.get("MapStatus") == "darkness"
         ]
-        self.assertEqual(len(setters), 1)
-        self.assertEqual(setters[0]["SetterID"], "deep_shadow")
-        self.assertEqual(set(setters[0]["DefaultMapStatus"]), set(DEFAULT_IDS))
-        for status_id in DEFAULT_IDS:
-            status = load(ROOT / "Data/MapStatus" / f"{status_id}.json")["Object"]
-            self.assertTrue(any(
-                isinstance(node, dict)
-                and node.get("$type") == "RogueEssence.Dungeon.MapWeatherState, RogueEssence"
-                for node in status["StatusStates"]
-            ), status_id)
+        # Five official dark floors, each with three runtime layout families.
+        self.assertEqual(len(setters), 15)
+        status = load(ROOT / "Data/MapStatus/darkness.json")["Object"]
+        self.assertTrue(any(
+            isinstance(node, dict)
+            and node.get("$type") == "RogueEssence.Dungeon.MapWeatherState, RogueEssence"
+            for node in status["StatusStates"]
+        ))
 
     def test_index_registers_the_status(self):
         index = load(INDEX_PATH)["Object"]

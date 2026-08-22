@@ -152,9 +152,9 @@ SceneDebug.scenes = {
   {
     key = 'dazzling',
     label = "Ch6 — Foret Lugubre : arrivee de la Team Dazzling",
-    chapter = 6, ground = 'gloomy_forest_entrance', entry = 'Main_Entrance_Marker',
-    note = "gloomy_forest_entrance/init.lua:30 — chapitre 6 et not FinishedGloomyForestIntro",
-    set = { Chapter6 = { FinishedGloomyForestIntro = false }},
+    chapter = 6, ground = 'sinister_woods_entrance', entry = 'Main_Entrance_Marker',
+    note = "sinister_woods_entrance/init.lua — entrée canonique de la Forêt Sinistre",
+    set = { CanonicalDungeons = { SinisterWoodsApproachSeen = false }},
   },
   {
     key = 'kirlia',

@@ -83369,7 +83369,6 @@
       "arc_parvis_celeste",
       "arc_palier_celeste",
       "arc_tour_ciel_sommet",
-      "sinister_woods_clearing",
       "luluby_town_morning",
       "luluby_town_evening",
       "luluby_town_night",
@@ -83421,7 +83420,10 @@
       "sky_eos_p01p01a",
       "sky_eos_p01p02a",
       "sky_eos_t01p03a",
-      "s04p01a"
+      "s04p01a",
+      "sinister_woods_entrance",
+      "sinister_woods_mid",
+      "sinister_woods_boss"
     ]
   }
 }

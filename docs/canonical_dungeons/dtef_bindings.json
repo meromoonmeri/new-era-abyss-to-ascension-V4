@@ -1,0 +1,39 @@
+{
+  "schema": "new-era.canonical-dungeon-dtef-bindings.v1",
+  "policy": {
+    "source_format": "DTEF",
+    "manual_transition_painting": false,
+    "import_path": "PMDO editor / Data / AutoTiles / Import DTEF",
+    "custom_dtef_converter": false,
+    "note": "RawAsset packages remain intact. Runtime bindings use PMDO AutoTileAdjacent data and must be validated against an existing Content/Tile sheet."
+  },
+  "dungeons": {
+    "gloomy_forest": {
+      "public_name": "Sinister Woods",
+      "chapter": 6,
+      "rawasset": {
+        "repository": "https://github.com/PMDCollab/RawAsset",
+        "path": "TileDtef/TreeshroudForest1",
+        "local_package": "Content/TileDtef/sinister_woods/TreeshroudForest1",
+        "format": "XML-less DTEF",
+        "provenance_manifest": "Content/TileDtef/sinister_woods/TreeshroudForest1/RAWASSET_PROVENANCE.json"
+      },
+      "runtime": {
+        "sheet": "SinisterWoodsB41",
+        "floor": "sinister_woods_b41_floor",
+        "wall": "sinister_woods_b41_wall",
+        "secondary": "sinister_woods_b41_secondary",
+        "namespace_policy": "unique; must not overwrite shared treeshroud_forest_1_* material",
+        "autotile_type": "RogueEssence.Dungeon.AutoTileAdjacent",
+        "adjacency_policy": "Neighbour codes are generated from topology through the RogueEssence AutoTileAdjacent rule; fixed Grounds never contain hand-selected sheet coordinates."
+      },
+      "biome_progression": {
+        "floors_1_10": "forest material",
+        "floors_11_12": "same canonical forest material plus RB darkness status",
+        "boss_13": "fixed forest clearing material",
+        "vertical_direction": "none",
+        "ground_suffix": null
+      }
+    }
+  }
+}

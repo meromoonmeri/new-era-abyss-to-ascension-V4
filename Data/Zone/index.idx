@@ -759,7 +759,6 @@
         "arc_parvis_celeste",
         "arc_palier_celeste",
         "arc_tour_ciel_sommet",
-        "sinister_woods_clearing",
         "luluby_town_morning",
         "luluby_town_evening",
         "luluby_town_night",
@@ -811,7 +810,10 @@
         "sky_eos_p01p01a",
         "sky_eos_p01p02a",
         "sky_eos_t01p03a",
-        "s04p01a"
+        "s04p01a",
+        "sinister_woods_entrance",
+        "sinister_woods_mid",
+        "sinister_woods_boss"
       ],
       "Maps": [
         [
@@ -2405,6 +2407,57 @@
       },
       "Released": true,
       "SortOrder": 0
+    },
+    "gloomy_forest": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 10,
+      "CountedFloors": 13,
+      "Rogue": 0,
+      "Grounds": [
+        "sinister_woods_entrance",
+        "sinister_woods_mid",
+        "sinister_woods_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Sinister Woods",
+        "LocalTexts": {
+          "fr": "Forêt Sinistre"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Canonical Sinister Woods: 10F -> midpoint -> 2F -> Team Meanies 13F."
     }
   }
 }

@@ -1401,6 +1401,20 @@
     "Lodestone Quarry.ogg"
    ],
    "etages_cumules": 254
+  },
+  "sinister_woods_b41_floor": {
+   "wall": "sinister_woods_b41_wall",
+   "water_wall": "sinister_woods_b41_secondary",
+   "elements": [
+    "grass"
+   ],
+   "zones": [
+    "gloomy_forest"
+   ],
+   "musiques": [
+    "Sinister Woods.ogg"
+   ],
+   "etages_cumules": 12
   }
  }
 }

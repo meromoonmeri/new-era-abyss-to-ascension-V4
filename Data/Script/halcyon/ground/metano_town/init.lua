@@ -532,7 +532,7 @@ function metano_town.ShowDestinationMenu(dungeon_entrances,ground_entrances)
     vast_steppe = "vast_steppe_entrance",
     searing_tunnel = "searing_tunnel_entrance",
     mount_windswept = "mount_windswept_entrance",
-    gloomy_forest = "gloomy_forest_entrance",
+    gloomy_forest = "sinister_woods_entrance",
     cloven_ruins = "cloven_ruins_entrance",
     poisonous_forest = "poisonous_forest_entrance"
   }
