@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-22T22:32:28+00:00",
+  "generated_at": "2026-08-22T22:47:28+00:00",
   "total": 51,
-  "pass": 32,
-  "fail": 19,
+  "pass": 48,
+  "fail": 3,
   "limits": [
     "Pas de runtime .NET dans cet environnement : la validation runtime in-engine (chargement réel d'une zone par RogueEssence) reste impossible ici ; les rapports laissent le champ « runtime » non renseigné.",
     "`GridPathTiered` / `GridPathTreads` restent hors profils tant que leur comportement réel n'a pas été lu dans les sources RogueEssence (dépôt non accessible publiquement)."
@@ -251,7 +251,7 @@
       "cinematic_ground": "champ_braises",
       "cutscenes": 1,
       "red_cinematics": 1,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "champ_braises",
       "canonical_end_ground": "champ_braises",
@@ -263,8 +263,7 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'champ_braises' (no separate arena created)",
-        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'champ_braises' (no separate arena created)"
       ],
       "status": "PASS"
     },
@@ -286,29 +285,26 @@
       "item_entries": 22,
       "boss_mode": "canonical_ground",
       "end_scene": "d10p03",
-      "midpoint": "",
+      "midpoint": "frosty_forest_midpoint",
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "frosty_edge",
       "cinematic_ground": "d10p03",
-      "cutscenes": 4,
+      "cutscenes": 3,
       "red_cinematics": 3,
-      "narrative_transferred": false,
-      "legacy_zone": "Data/Zone/frosty_forest.json",
+      "narrative_transferred": true,
+      "legacy_zone": "",
       "battle_ground": "d10p03",
       "canonical_end_ground": "d10p03",
       "arena_rsmap": "",
       "scene_state": "ACTIVE_GROUND",
-      "ownership": "TAKEOVER_PENDING",
-      "readiness": "TAKEOVER_PENDING",
-      "blockers": [
-        "BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/frosty_forest.json must be replaced by the Builder's regeneration (harvest + transfer first)"
-      ],
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
-        "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'd10p03' (no separate arena created)",
-        "4 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "legacy zone already replaced by this Builder"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "frosty_grotto.json",
@@ -332,9 +328,9 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "frosty_grotto",
       "cinematic_ground": "d10p03",
-      "cutscenes": 4,
+      "cutscenes": 3,
       "red_cinematics": 3,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "d10p03",
       "canonical_end_ground": "d10p03",
@@ -345,8 +341,7 @@
       "blockers": [],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'd10p03' (no separate arena created)",
-        "4 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'd10p03' (no separate arena created)"
       ],
       "status": "PASS"
     },
@@ -417,7 +412,7 @@
       "cinematic_ground": "d07p02",
       "cutscenes": 1,
       "red_cinematics": 2,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "d07p02",
       "canonical_end_ground": "d07p02",
@@ -427,10 +422,8 @@
       "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
-        "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'd07p02' (no separate arena created)",
-        "1 cutscene folder(s) and 2 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'd07p02' (no separate arena created)"
       ],
       "status": "PASS"
     },
@@ -459,7 +452,7 @@
       "cinematic_ground": "bois_des_plaintes",
       "cutscenes": 1,
       "red_cinematics": 1,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "bois_des_plaintes",
       "canonical_end_ground": "bois_des_plaintes",
@@ -471,8 +464,7 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'bois_des_plaintes' (no separate arena created)",
-        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'bois_des_plaintes' (no separate arena created)"
       ],
       "status": "PASS"
     },
@@ -544,25 +536,23 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "lapis_gallery",
       "cinematic_ground": "grotte_lazuli_fond",
-      "cutscenes": 4,
+      "cutscenes": 2,
       "red_cinematics": 2,
-      "narrative_transferred": false,
-      "legacy_zone": "Data/Zone/lapis_cave.json",
+      "narrative_transferred": true,
+      "legacy_zone": "",
       "battle_ground": "grotte_lazuli_fond",
       "canonical_end_ground": "grotte_lazuli_fond",
       "arena_rsmap": "",
       "scene_state": "ACTIVE_GROUND",
-      "ownership": "TAKEOVER_PENDING",
-      "readiness": "TAKEOVER_PENDING",
-      "blockers": [
-        "BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/lapis_cave.json must be replaced by the Builder's regeneration (harvest + transfer first)"
-      ],
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'grotte_lazuli_fond' (no separate arena created)",
-        "4 cutscene folder(s) and 2 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "legacy zone already replaced by this Builder"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "lightning_field.json",
@@ -589,25 +579,21 @@
       "cinematic_ground": "champ_foudre",
       "cutscenes": 1,
       "red_cinematics": 1,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "champ_foudre",
       "canonical_end_ground": "champ_foudre",
       "arena_rsmap": "",
-      "scene_state": "ARCHIVED",
+      "scene_state": "ACTIVE_GROUND",
       "ownership": "SAFE_TO_BUILD",
-      "readiness": "REQUIRES_INTEGRATION",
-      "blockers": [
-        "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'champ_foudre' is archived in RESERVE/grounds/champ_foudre.rsground; restore it as the cinematic/battle Ground (no separate arena)",
-        "BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'champ_foudre' (RESERVE/grounds/champ_foudre.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena"
-      ],
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'champ_foudre' (no separate arena created)"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "magma_cavern.json",
@@ -634,9 +620,9 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "magma_gallery",
       "cinematic_ground": "fosse_ardente",
-      "cutscenes": 6,
+      "cutscenes": 3,
       "red_cinematics": 3,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "fosse_ardente",
       "canonical_end_ground": "fosse_ardente",
@@ -647,8 +633,7 @@
       "blockers": [],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'fosse_ardente' (no separate arena created)",
-        "6 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'fosse_ardente' (no separate arena created)"
       ],
       "status": "PASS"
     },
@@ -674,9 +659,9 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "magma_pit",
       "cinematic_ground": "fosse_ardente",
-      "cutscenes": 6,
+      "cutscenes": 3,
       "red_cinematics": 3,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "fosse_ardente",
       "canonical_end_ground": "fosse_ardente",
@@ -688,8 +673,7 @@
       "notes": [
         "no floor items (canonical: money only)",
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'fosse_ardente' (no separate arena created)",
-        "6 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'fosse_ardente' (no separate arena created)"
       ],
       "status": "PASS"
     },
@@ -761,7 +745,7 @@
       "cinematic_ground": "",
       "cutscenes": 0,
       "red_cinematics": 0,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
@@ -800,29 +784,26 @@
       "item_entries": 24,
       "boss_mode": "canonical_ground",
       "end_scene": "d09p03",
-      "midpoint": "",
+      "midpoint": "mt_blaze_midpoint",
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "blaze_slope",
       "cinematic_ground": "d09p03",
-      "cutscenes": 4,
+      "cutscenes": 3,
       "red_cinematics": 3,
-      "narrative_transferred": false,
-      "legacy_zone": "Data/Zone/mt_blaze.json",
+      "narrative_transferred": true,
+      "legacy_zone": "",
       "battle_ground": "d09p03",
       "canonical_end_ground": "d09p03",
       "arena_rsmap": "",
       "scene_state": "ACTIVE_GROUND",
-      "ownership": "TAKEOVER_PENDING",
-      "readiness": "TAKEOVER_PENDING",
-      "blockers": [
-        "BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/mt_blaze.json must be replaced by the Builder's regeneration (harvest + transfer first)"
-      ],
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
-        "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'd09p03' (no separate arena created)",
-        "4 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "legacy zone already replaced by this Builder"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "mt_blaze_peak.json",
@@ -846,9 +827,9 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "blaze_peak",
       "cinematic_ground": "d09p03",
-      "cutscenes": 4,
+      "cutscenes": 3,
       "red_cinematics": 3,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "d09p03",
       "canonical_end_ground": "d09p03",
@@ -859,8 +840,7 @@
       "blockers": [],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'd09p03' (no separate arena created)",
-        "4 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'd09p03' (no separate arena created)"
       ],
       "status": "PASS"
     },
@@ -890,7 +870,7 @@
       "cinematic_ground": "sommet_aurore",
       "cutscenes": 1,
       "red_cinematics": 1,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "sommet_aurore",
       "canonical_end_ground": "sommet_aurore",
@@ -902,8 +882,7 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'sommet_aurore' (no separate arena created)",
-        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'sommet_aurore' (no separate arena created)"
       ],
       "status": "PASS"
     },
@@ -926,29 +905,26 @@
       "item_entries": 56,
       "boss_mode": "canonical_ground",
       "end_scene": "d11p03",
-      "midpoint": "",
+      "midpoint": "mt_freeze_midpoint",
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "freeze_slope",
       "cinematic_ground": "d11p03",
-      "cutscenes": 4,
+      "cutscenes": 3,
       "red_cinematics": 3,
-      "narrative_transferred": false,
-      "legacy_zone": "Data/Zone/mt_freeze.json",
+      "narrative_transferred": true,
+      "legacy_zone": "",
       "battle_ground": "d11p03",
       "canonical_end_ground": "d11p03",
       "arena_rsmap": "",
       "scene_state": "ACTIVE_GROUND",
-      "ownership": "TAKEOVER_PENDING",
-      "readiness": "TAKEOVER_PENDING",
-      "blockers": [
-        "BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/mt_freeze.json must be replaced by the Builder's regeneration (harvest + transfer first)"
-      ],
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
-        "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'd11p03' (no separate arena created)",
-        "4 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "legacy zone already replaced by this Builder"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "mt_freeze_peak.json",
@@ -972,9 +948,9 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "freeze_peak",
       "cinematic_ground": "d11p03",
-      "cutscenes": 4,
+      "cutscenes": 3,
       "red_cinematics": 3,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "d11p03",
       "canonical_end_ground": "d11p03",
@@ -985,8 +961,7 @@
       "blockers": [],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'd11p03' (no separate arena created)",
-        "4 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'd11p03' (no separate arena created)"
       ],
       "status": "PASS"
     },
@@ -1014,25 +989,20 @@
       "cinematic_ground": "d03p02",
       "cutscenes": 1,
       "red_cinematics": 2,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "d03p02",
       "canonical_end_ground": "d03p02",
       "arena_rsmap": "",
-      "scene_state": "ARCHIVED",
+      "scene_state": "ACTIVE_GROUND",
       "ownership": "SAFE_TO_BUILD",
-      "readiness": "REQUIRES_INTEGRATION",
-      "blockers": [
-        "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd03p02' is archived in RESERVE/red_grounds/d03p02.rsground; restore it as the cinematic/battle Ground (no separate arena)",
-        "BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'd03p02' (RESERVE/red_grounds/d03p02.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena"
-      ],
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
-        "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "1 cutscene folder(s) and 2 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'd03p02' (no separate arena created)"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "mt_thunder.json",
@@ -1059,25 +1029,20 @@
       "cinematic_ground": "d06p03",
       "cutscenes": 1,
       "red_cinematics": 3,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "d06p03",
       "canonical_end_ground": "d06p03",
       "arena_rsmap": "",
-      "scene_state": "ARCHIVED",
+      "scene_state": "ACTIVE_GROUND",
       "ownership": "SAFE_TO_BUILD",
-      "readiness": "REQUIRES_INTEGRATION",
-      "blockers": [
-        "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd06p03' is archived in RESERVE/red_grounds/d06p03.rsground; restore it as the cinematic/battle Ground (no separate arena)",
-        "BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'd06p03' (RESERVE/red_grounds/d06p03.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena"
-      ],
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
-        "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "1 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'd06p03' (no separate arena created)"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "mt_thunder_peak.json",
@@ -1103,25 +1068,20 @@
       "cinematic_ground": "d06p03",
       "cutscenes": 1,
       "red_cinematics": 3,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "d06p03",
       "canonical_end_ground": "d06p03",
       "arena_rsmap": "",
-      "scene_state": "ARCHIVED",
+      "scene_state": "ACTIVE_GROUND",
       "ownership": "SAFE_TO_BUILD",
-      "readiness": "REQUIRES_INTEGRATION",
-      "blockers": [
-        "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd06p03' is archived in RESERVE/red_grounds/d06p03.rsground; restore it as the cinematic/battle Ground (no separate arena)",
-        "BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'd06p03' (RESERVE/red_grounds/d06p03.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena"
-      ],
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
-        "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "1 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'd06p03' (no separate arena created)"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "murky_cave.json",
@@ -1149,26 +1109,22 @@
       "cinematic_ground": "caverne_trouble_fond",
       "cutscenes": 2,
       "red_cinematics": 2,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "caverne_trouble_fond",
       "canonical_end_ground": "caverne_trouble_fond",
       "arena_rsmap": "",
-      "scene_state": "ARCHIVED",
+      "scene_state": "ACTIVE_GROUND",
       "ownership": "SAFE_TO_BUILD",
-      "readiness": "REQUIRES_INTEGRATION",
-      "blockers": [
-        "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'caverne_trouble_fond' is archived in RESERVE/grounds/caverne_trouble_fond.rsground; restore it as the cinematic/battle Ground (no separate arena)",
-        "BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'caverne_trouble_fond' (RESERVE/grounds/caverne_trouble_fond.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena"
-      ],
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
         "no floor items (canonical: money only)",
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "2 cutscene folder(s) and 2 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'caverne_trouble_fond' (no separate arena created)"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "northern_range.json",
@@ -1195,7 +1151,7 @@
       "cinematic_ground": "cretes_boreales",
       "cutscenes": 1,
       "red_cinematics": 1,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "cretes_boreales",
       "canonical_end_ground": "cretes_boreales",
@@ -1207,8 +1163,7 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'cretes_boreales' (no separate arena created)",
-        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'cretes_boreales' (no separate arena created)"
       ],
       "status": "PASS"
     },
@@ -1315,7 +1270,7 @@
       "cinematic_ground": "vallon_perdu",
       "cutscenes": 1,
       "red_cinematics": 1,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "vallon_perdu",
       "canonical_end_ground": "vallon_perdu",
@@ -1326,8 +1281,7 @@
       "blockers": [],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'vallon_perdu' (no separate arena created)",
-        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'vallon_perdu' (no separate arena created)"
       ],
       "status": "PASS"
     },
@@ -1349,32 +1303,29 @@
       ],
       "species": 154,
       "item_entries": 171,
-      "boss_mode": "arena_rsmap",
-      "end_scene": "purity_forest_arena",
+      "boss_mode": "canonical_ground",
+      "end_scene": "foret_guerison",
       "midpoint": "",
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "purity_outer",
       "cinematic_ground": "",
-      "cutscenes": 0,
+      "cutscenes": 1,
       "red_cinematics": 0,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
-      "arena_rsmap": "purity_forest_arena",
+      "arena_rsmap": "",
       "scene_state": "",
       "ownership": "SAFE_TO_BUILD",
-      "readiness": "BLOCKED_MISSING_ASSET",
-      "blockers": [
-        "BLOCKED/MISSING_ASSET: arena 'purity_forest_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
-        "BLOCKED/SCENE: dedicated arena 'purity_forest_arena.rsmap' must exist in Data/Map before conversion"
-      ],
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared"
+        "final battle stays on the canonical end Ground 'foret_guerison' (no separate arena created)"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "remains_island.json",
@@ -1484,25 +1435,20 @@
       "cinematic_ground": "d05p02",
       "cutscenes": 1,
       "red_cinematics": 2,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "d05p02",
       "canonical_end_ground": "d05p02",
       "arena_rsmap": "",
-      "scene_state": "ARCHIVED",
+      "scene_state": "ACTIVE_GROUND",
       "ownership": "SAFE_TO_BUILD",
-      "readiness": "REQUIRES_INTEGRATION",
-      "blockers": [
-        "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd05p02' is archived in RESERVE/red_grounds/d05p02.rsground; restore it as the cinematic/battle Ground (no separate arena)",
-        "BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'd05p02' (RESERVE/red_grounds/d05p02.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena"
-      ],
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
-        "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "1 cutscene folder(s) and 2 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'd05p02' (no separate arena created)"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "silver_trench.json",
@@ -1530,7 +1476,7 @@
       "cinematic_ground": "fosse_argentee",
       "cutscenes": 1,
       "red_cinematics": 1,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "fosse_argentee",
       "canonical_end_ground": "fosse_argentee",
@@ -1542,8 +1488,7 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'fosse_argentee' (no separate arena created)",
-        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'fosse_argentee' (no separate arena created)"
       ],
       "status": "PASS"
     },
@@ -1573,9 +1518,9 @@
       "source": "Pokémon Mystery Dungeon: Rescue Team (Red/Blue Rescue Team & Rescue Team DX)",
       "biome": "forest",
       "cinematic_ground": "sinister_woods_clearing",
-      "cutscenes": 0,
-      "red_cinematics": 0,
-      "narrative_transferred": false,
+      "cutscenes": 3,
+      "red_cinematics": 2,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "sinister_woods_clearing",
       "canonical_end_ground": "",
@@ -1586,7 +1531,8 @@
       "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
-        "final battle stays on the canonical end Ground 'sinister_woods_clearing' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'sinister_woods_clearing' (no separate arena created)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1614,23 +1560,21 @@
       "cinematic_ground": "arc_tour_ciel_sommet",
       "cutscenes": 3,
       "red_cinematics": 3,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "arc_tour_ciel_sommet",
       "canonical_end_ground": "arc_tour_ciel_sommet",
       "arena_rsmap": "",
       "scene_state": "ACTIVE_GROUND",
-      "ownership": "TAKEOVER_PENDING",
-      "readiness": "TAKEOVER_PENDING",
-      "blockers": [
-        "BLOCKED/TAKEOVER_PENDING: legacy implementation from a previous agent must be rebuilt by this Builder, then deleted"
-      ],
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'arc_tour_ciel_sommet' (no separate arena created)",
-        "3 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "legacy zone already replaced by this Builder"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "sky_tower_summit.json",
@@ -1656,23 +1600,21 @@
       "cinematic_ground": "arc_tour_ciel_sommet",
       "cutscenes": 3,
       "red_cinematics": 3,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "arc_tour_ciel_sommet",
       "canonical_end_ground": "arc_tour_ciel_sommet",
       "arena_rsmap": "",
       "scene_state": "ACTIVE_GROUND",
-      "ownership": "TAKEOVER_PENDING",
-      "readiness": "TAKEOVER_PENDING",
-      "blockers": [
-        "BLOCKED/TAKEOVER_PENDING: legacy implementation from a previous agent must be rebuilt by this Builder, then deleted"
-      ],
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'arc_tour_ciel_sommet' (no separate arena created)",
-        "3 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "legacy zone already replaced by this Builder"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "snow_path.json",
@@ -1828,7 +1770,7 @@
       "cinematic_ground": "abime_tempetes",
       "cutscenes": 1,
       "red_cinematics": 1,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "abime_tempetes",
       "canonical_end_ground": "abime_tempetes",
@@ -1840,8 +1782,7 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'abime_tempetes' (no separate arena created)",
-        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'abime_tempetes' (no separate arena created)"
       ],
       "status": "PASS"
     },
@@ -1869,25 +1810,20 @@
       "cinematic_ground": "d02p02",
       "cutscenes": 1,
       "red_cinematics": 2,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "d02p02",
       "canonical_end_ground": "d02p02",
       "arena_rsmap": "",
-      "scene_state": "ARCHIVED",
+      "scene_state": "ACTIVE_GROUND",
       "ownership": "SAFE_TO_BUILD",
-      "readiness": "REQUIRES_INTEGRATION",
-      "blockers": [
-        "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd02p02' is archived in RESERVE/red_grounds/d02p02.rsground; restore it as the cinematic/battle Ground (no separate arena)",
-        "BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'd02p02' (RESERVE/red_grounds/d02p02.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena"
-      ],
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
-        "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "1 cutscene folder(s) and 2 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'd02p02' (no separate arena created)"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "tiny_woods.json",
@@ -1913,25 +1849,20 @@
       "cinematic_ground": "d01p02",
       "cutscenes": 1,
       "red_cinematics": 2,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "d01p02",
       "canonical_end_ground": "d01p02",
       "arena_rsmap": "",
-      "scene_state": "ARCHIVED",
+      "scene_state": "ACTIVE_GROUND",
       "ownership": "SAFE_TO_BUILD",
-      "readiness": "REQUIRES_INTEGRATION",
-      "blockers": [
-        "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd01p02' is archived in RESERVE/red_grounds/d01p02.rsground; restore it as the cinematic/battle Ground (no separate arena)",
-        "BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'd01p02' (RESERVE/red_grounds/d01p02.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena"
-      ],
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
-        "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "1 cutscene folder(s) and 2 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'd01p02' (no separate arena created)"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "unown_relic.json",
@@ -2043,7 +1974,7 @@
       "cinematic_ground": "",
       "cutscenes": 0,
       "red_cinematics": 0,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
@@ -2087,7 +2018,7 @@
       "cinematic_ground": "antre_occident",
       "cutscenes": 1,
       "red_cinematics": 1,
-      "narrative_transferred": false,
+      "narrative_transferred": true,
       "legacy_zone": "",
       "battle_ground": "antre_occident",
       "canonical_end_ground": "antre_occident",
@@ -2099,8 +2030,7 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'antre_occident' (no separate arena created)",
-        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "final battle stays on the canonical end Ground 'antre_occident' (no separate arena created)"
       ],
       "status": "PASS"
     },
@@ -2130,25 +2060,23 @@
       "cinematic_ground": "sanctuaire_voeu",
       "cutscenes": 1,
       "red_cinematics": 1,
-      "narrative_transferred": false,
-      "legacy_zone": "Data/Zone/wish_cave.json",
+      "narrative_transferred": true,
+      "legacy_zone": "",
       "battle_ground": "sanctuaire_voeu",
       "canonical_end_ground": "sanctuaire_voeu",
       "arena_rsmap": "",
       "scene_state": "ACTIVE_GROUND",
-      "ownership": "TAKEOVER_PENDING",
-      "readiness": "TAKEOVER_PENDING",
-      "blockers": [
-        "BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/wish_cave.json must be replaced by the Builder's regeneration (harvest + transfer first)"
-      ],
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'sanctuaire_voeu' (no separate arena created)",
         "scene source of truth: sanctuaire_voeu.rsmap matches the end Ground",
-        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
+        "legacy zone already replaced by this Builder"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "wyvern_hill.json",

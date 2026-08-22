@@ -563,10 +563,12 @@
     }
   },
   "narrative": {
-    "transferred": false,
+    "transferred": true,
     "cutscenes": [],
     "red_cinematics": [],
     "zone_script": "Data/Script/halcyon/zone/waterfall_pond",
+    "pending_cinematics": [],
+    "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
   "fixed_grounds": {}

@@ -16,7 +16,22 @@
   "level": 24,
   "rescues": 2,
   "released": false,
-  "music": "",
+  "music": "Mt. Blaze.ogg",
+  "harvested_from_legacy": {
+    "zone": "Data/Zone/mt_blaze.json",
+    "kept": {
+      "music": "Mt. Blaze.ogg",
+      "rescues": 2,
+      "grounds": [
+        "mont_cendre_pied",
+        "d09p02",
+        "d09p03",
+        "mt_blaze_midpoint"
+      ],
+      "note": "Donjon canonique PMD Red restauré: 12F, D09P02, Peak 3F, D09P03/Moltres. Casting/cinématiques adaptés New Era. Canonical encounters: pret/pmd-red MtBlaze/MtBlazePeak; 15-species New Era additive pool."
+    },
+    "discarded": "legacy floor structure (3 floors vs 12 canonical) — rebuilt by the Builder"
+  },
   "variation": {
     "direction": "sommet",
     "time_limit": 1000,
@@ -468,7 +483,7 @@
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
   "narrative": {
-    "transferred": false,
+    "transferred": true,
     "cutscenes": [
       {
         "scene": "d09p02",
@@ -484,11 +499,6 @@
         "scene": "mont_cendre_pied",
         "state": "active",
         "path": "Data/Script/halcyon/ground/mont_cendre_pied"
-      },
-      {
-        "scene": "mont_cendre_pied",
-        "state": "archived",
-        "path": "RESERVE/scripts_ground/mont_cendre_pied"
       }
     ],
     "red_cinematics": [
@@ -497,6 +507,8 @@
       "RESERVE/red_cinematics/d09p03.cif.json"
     ],
     "zone_script": "Data/Script/halcyon/zone/mt_blaze",
+    "pending_cinematics": [],
+    "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
   "boss": {
@@ -505,14 +517,13 @@
     "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
   },
   "fixed_grounds": {
+    "mid": "mt_blaze_midpoint",
     "entrance": "mont_cendre_pied",
     "end": "d09p03"
   },
   "takeover": {
     "legacy_zone": "Data/Zone/mt_blaze.json",
-    "policy": "rebuild then remove the legacy implementation"
-  },
-  "blocked": [
-    "BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/mt_blaze.json must be replaced by the Builder's regeneration (harvest + transfer first)"
-  ]
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
+  }
 }

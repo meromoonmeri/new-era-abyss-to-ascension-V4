@@ -16,7 +16,22 @@
   "level": 26,
   "rescues": 2,
   "released": false,
-  "music": "",
+  "music": "Frosty Forest.ogg",
+  "harvested_from_legacy": {
+    "zone": "Data/Zone/frosty_forest.json",
+    "kept": {
+      "music": "Frosty Forest.ogg",
+      "rescues": 2,
+      "grounds": [
+        "foret_givree_oree",
+        "d10p02",
+        "d10p03",
+        "frosty_forest_midpoint"
+      ],
+      "note": "Donjon canonique PMD Red: Frosty Forest 9F, D10P02, Frosty Grotto 5F, D10P03/Articuno. Recasting New Era."
+    },
+    "discarded": "legacy floor structure (3 floors vs 9 canonical) — rebuilt by the Builder"
+  },
   "variation": {
     "direction": "sommet",
     "time_limit": 1000,
@@ -414,7 +429,7 @@
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
   "narrative": {
-    "transferred": false,
+    "transferred": true,
     "cutscenes": [
       {
         "scene": "d10p02",
@@ -430,11 +445,6 @@
         "scene": "foret_givree_oree",
         "state": "active",
         "path": "Data/Script/halcyon/ground/foret_givree_oree"
-      },
-      {
-        "scene": "foret_givree_oree",
-        "state": "archived",
-        "path": "RESERVE/scripts_ground/foret_givree_oree"
       }
     ],
     "red_cinematics": [
@@ -443,6 +453,8 @@
       "RESERVE/red_cinematics/d10p03.cif.json"
     ],
     "zone_script": "Data/Script/halcyon/zone/frosty_forest",
+    "pending_cinematics": [],
+    "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
   "boss": {
@@ -451,14 +463,13 @@
     "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
   },
   "fixed_grounds": {
+    "mid": "frosty_forest_midpoint",
     "entrance": "foret_givree_oree",
     "end": "d10p03"
   },
   "takeover": {
     "legacy_zone": "Data/Zone/frosty_forest.json",
-    "policy": "rebuild then remove the legacy implementation"
-  },
-  "blocked": [
-    "BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/frosty_forest.json must be replaced by the Builder's regeneration (harvest + transfer first)"
-  ]
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
+  }
 }

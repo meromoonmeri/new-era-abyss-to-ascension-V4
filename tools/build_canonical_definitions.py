@@ -40,8 +40,8 @@ CONVERSION_ITEMS = ROOT / "CONVERSION" / "Item.txt"
 sys.path.insert(0, str(ROOT / "tools"))
 from dungeon_builder.dtef import base_tilesets  # noqa: E402
 from dungeon_builder.grounds import END_SUFFIXES  # noqa: E402
-from dungeon_builder.scenes import (ACTIVE_GROUND, ARCHIVED, NONE, parse_inventory,
-                                    readiness, scenes_for)  # noqa: E402
+from dungeon_builder.scenes import (ACTIVE_GROUND, ARCHIVED, NONE, locate as locate_scene,
+                                    parse_inventory, readiness, scenes_for)  # noqa: E402
 
 # --------------------------------------------------------------------------
 # Hand-authored mapping tables.  Every entry is a decision, documented inline.
@@ -221,6 +221,17 @@ END_GROUND = {
     "wish_cave": "sanctuaire_voeu",            # salle finale du Vœu (Jirachi) + .rsmap homonyme
     "lapis_cave": "grotte_lazuli_fond",        # fond de la Grotte Lazuli
     "magma_cavern": "gorge_ardente_coeur",     # cœur de la Gorge Ardente
+    # Forêt de la Pureté : le mod situe Celebi dans « forêt de guérison »
+    # (arbitrage §4.6 du roster) ; la scène existe en archive et fait donc foi.
+    "purity_forest": "foret_guerison",
+}
+
+#: scenes that *might* correspond to a dungeon but need a human arbitration.
+#: They are recorded, never used silently.
+SCENE_CANDIDATES = {
+    "buried_relic": ["relique_ancienne", "tour_reliques_porte", "fleche_reliques_courroux",
+                     "sanctuaire_titans (déjà utilisé par cloven_ruins ch5)"],
+    "meteor_cave": [],
 }
 
 #: canonical entrance Grounds already converted in Data/Ground
@@ -287,6 +298,71 @@ def roster_assets(cell: str) -> set:
             elif re.fullmatch(r"[a-z0-9_]+", part):
                 names.add(part)
     return names
+
+
+BUILDER_MARKER = "tools/dungeon_builder"
+
+
+def _legacy_from_git(rel_path: str) -> str:
+    """Read a file as it was in the repository's root commit (pre-takeover)."""
+    import subprocess
+    try:
+        root = subprocess.run(["git", "rev-list", "--max-parents=0", "HEAD"], cwd=ROOT,
+                              capture_output=True, text=True, check=True).stdout.split()[0]
+        return subprocess.run(["git", "show", f"{root}:{rel_path}"], cwd=ROOT,
+                              capture_output=True, text=True, check=True).stdout
+    except (subprocess.CalledProcessError, IndexError, OSError):
+        return ""
+
+
+def harvest_legacy_zone(zone_id: str) -> Dict[str, Any]:
+    """Extract the still-useful data from a legacy zone before replacing it.
+
+    Only project-authored values are kept (music, level/rescue flags, Ground
+    references, the canonical note); the legacy floor structure is discarded on
+    purpose — that is precisely what the Builder rebuilds.
+    """
+    path = ZONE_DIR / f"{zone_id}.json"
+    text = ""
+    if path.exists():
+        text = path.read_text(encoding="utf-8-sig")
+    if not text or BUILDER_MARKER in text[:4000]:
+        # our rebuild already replaced it: read the legacy content from the
+        # repository's root commit so the provenance never disappears
+        text = _legacy_from_git(f"Data/Zone/{zone_id}.json")
+    if not text:
+        return {}
+    try:
+        obj = json.loads(text.lstrip("\ufeff"))["Object"]
+    except (json.JSONDecodeError, KeyError):
+        return {}
+    if BUILDER_MARKER in (obj.get("Comment") or ""):
+        return {}                       # already ours, nothing to harvest
+    music: List[str] = []
+
+    def walk(node):
+        if isinstance(node, dict):
+            value = node.get("Music")
+            if isinstance(value, str) and value and value not in music:
+                music.append(value)
+            for child in node.values():
+                walk(child)
+        elif isinstance(node, list):
+            for child in node:
+                walk(child)
+
+    walk(obj)
+    floors = sum(len(segment.get("Floors", [])) for segment in obj.get("Segments", []))
+    return {
+        "music": music[0] if music else "",
+        "all_music": music,
+        "level": obj.get("Level", -1),
+        "rescues": obj.get("Rescues", 2),
+        "released": bool(obj.get("Released", False)),
+        "grounds": list(obj.get("GroundMaps", [])),
+        "note": (obj.get("Comment") or "").strip(),
+        "legacy_floor_count": floors,
+    }
 
 
 def slugify(name: str) -> str:
@@ -456,11 +532,34 @@ def build_definition(row: Dict[str, Any], source: CanonicalSource,
         blocked.append(f"BLOCKED/MISSING_SOURCE: dungeon_data.json has no entry named {const}")
 
     direction = "sommet" if flags.get("stairDirectionUp") else "fond"
+    legacy = harvest_legacy_zone(setup.get("owner", slug))
+    previous_path = OUT_DIR / f"{slug}.json"
+    previous: Dict[str, Any] = {}
+    if previous_path.exists():
+        try:
+            previous = json.loads(previous_path.read_text(encoding="utf-8-sig"))
+        except json.JSONDecodeError:
+            previous = {}
     definition["biome"] = (setup.get("biomes") or ["unknown"])[0]
     definition["level"] = chapter_base_level(row["chapter"])
     definition["rescues"] = 2 if flags.get("rescuesAllowed", -1) != 0 else 0
     definition["released"] = False
-    definition["music"] = ""
+    definition["music"] = legacy.get("music", "")
+    if not legacy and previous.get("harvested_from_legacy"):
+        # the legacy zone has already been replaced by our rebuild: keep the
+        # provenance record so the takeover stays auditable
+        definition["harvested_from_legacy"] = previous["harvested_from_legacy"]
+        definition["music"] = definition["music"] or previous.get("music", "")
+        definition["rescues"] = previous.get("rescues", definition["rescues"])
+    if legacy:
+        definition["harvested_from_legacy"] = {
+            "zone": f"Data/Zone/{setup.get('owner', slug)}.json",
+            "kept": {k: legacy[k] for k in ("music", "rescues", "grounds", "note") if legacy.get(k)},
+            "discarded": (f"legacy floor structure ({legacy.get('legacy_floor_count', 0)} floors "
+                          f"vs {row['floors']} canonical) — rebuilt by the Builder"),
+        }
+        if legacy.get("rescues") is not None:
+            definition["rescues"] = int(legacy["rescues"])
     definition["variation"] = {
         "direction": direction,
         "time_limit": int(flags.get("turnLimit", 1500) or 1500),
@@ -703,16 +802,24 @@ def build_definition(row: Dict[str, Any], source: CanonicalSource,
     narrative: Dict[str, Any] = {"transferred": False, "cutscenes": [], "red_cinematics": [],
                                  "zone_script": ""}
     scene_asset_names = []
+    curated_scene = END_GROUND.get(slug)
+    if curated_scene:
+        scene_asset_names.append(curated_scene)
     if scene_set:
         for asset in [scene_set.entrance, scene_set.relay, *scene_set.end]:
             if asset and asset.name:
                 scene_asset_names.append(asset.name)
     for asset_name in sorted(set(scene_asset_names)):
-        for base, state in ((ROOT / "Data" / "Script" / "halcyon" / "ground", "active"),
-                            (ROOT / "RESERVE" / "scripts_ground", "archived")):
-            if (base / asset_name).is_dir():
-                narrative["cutscenes"].append({"scene": asset_name, "state": state,
-                                               "path": str((base / asset_name).relative_to(ROOT))})
+        # the live script tree wins; the archive is only listed when nothing is live
+        live = ROOT / "Data" / "Script" / "halcyon" / "ground" / asset_name
+        archived = ROOT / "RESERVE" / "scripts_ground" / asset_name
+        if live.is_dir():
+            narrative["cutscenes"].append({"scene": asset_name, "state": "active",
+                                           "path": str(live.relative_to(ROOT))})
+        elif archived.is_dir():
+            narrative["cutscenes"].append({"scene": asset_name, "state": "archived",
+                                           "path": str(archived.relative_to(ROOT)),
+                                           "restore_to": f"Data/Script/halcyon/ground/{asset_name}"})
     zone_script = ROOT / "Data" / "Script" / "halcyon" / "zone" / definition["id"]
     if zone_script.is_dir():
         narrative["zone_script"] = str(zone_script.relative_to(ROOT))
@@ -720,6 +827,21 @@ def build_definition(row: Dict[str, Any], source: CanonicalSource,
         for cif in sorted((ROOT / "RESERVE" / "red_cinematics").glob(
                 f"{scene_set.code.lower()}p*.cif.json")):
             narrative["red_cinematics"].append(str(cif.relative_to(ROOT)))
+    has_content = bool(narrative["cutscenes"] or narrative["zone_script"])
+    scripts_live = has_content and all(entry["state"] == "active"
+                                       for entry in narrative["cutscenes"])
+    unported = [c for c in narrative["red_cinematics"]
+                if not narrative["cutscenes"] and not narrative["zone_script"]]
+    narrative["pending_cinematics"] = unported
+    narrative["transferred"] = scripts_live and not unported
+    if narrative["transferred"]:
+        narrative["transfer_check"] = ("every cutscene folder is live under Data/Script/halcyon "
+                                       "and is replayed on the canonical Ground")
+    elif not scripts_live:
+        narrative["transfer_check"] = "some cutscene folders are still archived"
+    else:
+        narrative["transfer_check"] = ("PMD Red cinematic IR not ported to Lua yet: "
+                                       + ", ".join(unported))
     if narrative["cutscenes"] or narrative["red_cinematics"] or narrative["zone_script"]:
         narrative["rule"] = ("Ces séquences appartiennent au donjon : elles sont reprises par le "
                              "nouveau pipeline et rejouées sur le Ground canonique "
@@ -737,11 +859,24 @@ def build_definition(row: Dict[str, Any], source: CanonicalSource,
                     candidates.append(name)
                     break
     curated_end = END_GROUND.get(slug)
-    if curated_end and curated_end in ground_names and curated_end not in candidates:
-        candidates.insert(0, curated_end)
+    if curated_end:
+        located = locate_scene(curated_end)
+        if located.exists and curated_end not in candidates and located.state == "ACTIVE_GROUND":
+            candidates.insert(0, curated_end)
+        elif located.exists and not scene_end:
+            scene_end, (scene_state, scene_reason) = located, readiness(located)
+    if SCENE_CANDIDATES.get(slug):
+        definition["scene_candidates"] = {
+            "note": ("scènes possiblement canoniques repérées dans le dépôt : arbitrage humain "
+                     "requis avant toute création d'arène"),
+            "candidates": SCENE_CANDIDATES[slug]}
     if scene_end and scene_end.state == ACTIVE_GROUND and scene_end.name not in candidates:
         candidates.insert(0, scene_end.name)
     fixed: Dict[str, str] = {}
+    # relay/midpoint Ground harvested from the legacy implementation
+    for ground in legacy.get("grounds", []):
+        if ground.endswith("_midpoint") and ground in ground_names:
+            fixed["mid"] = ground
     entrance = ENTRANCE_GROUND.get(slug, f"{slug}_entrance")
     if scene_set and scene_set.entrance and scene_set.entrance.state == ACTIVE_GROUND:
         entrance = scene_set.entrance.name
@@ -806,16 +941,30 @@ def build_definition(row: Dict[str, Any], source: CanonicalSource,
     # A legacy implementation is not a reason to stop: the dungeon is in this
     # Builder's scope, so the old content is harvested, its narrative is
     # transferred, and the old files are deleted once the rebuild exists.
-    if row["already_done"]:
-        definition["takeover"] = {"legacy": "imported by a previous agent (Sky Tower arc)",
-                                  "policy": "rebuild then remove the legacy implementation"}
-        blocked.append("BLOCKED/TAKEOVER_PENDING: legacy implementation from a previous agent "
-                       "must be rebuilt by this Builder, then deleted")
-    if definition["id"] in zone_names and definition["id"] != "gloomy_forest":
-        definition.setdefault("takeover", {})["legacy_zone"] = f"Data/Zone/{definition['id']}.json"
-        definition["takeover"]["policy"] = "rebuild then remove the legacy implementation"
-        blocked.append(f"BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/{definition['id']}.json "
-                       "must be replaced by the Builder's regeneration (harvest + transfer first)")
+    zone_path = ZONE_DIR / f"{definition['id']}.json"
+    zone_is_ours = zone_path.exists() and BUILDER_MARKER in zone_path.read_text(
+        encoding="utf-8-sig")[:4000]
+    if zone_is_ours:
+        definition.setdefault("takeover", {}).update({
+            "legacy_zone": f"Data/Zone/{definition['id']}.json",
+            "status": "COMPLETED",
+            "policy": "legacy implementation replaced by this Builder's regeneration"})
+    else:
+        if row["already_done"]:
+            definition.setdefault("takeover", {}).update({
+                "legacy": "imported by a previous agent (Sky Tower arc)",
+                "status": "PENDING",
+                "policy": "rebuild then remove the legacy implementation"})
+            blocked.append("BLOCKED/TAKEOVER_PENDING: legacy implementation from a previous agent "
+                           "must be rebuilt by this Builder, then deleted")
+        if definition["id"] in zone_names and definition["id"] != "gloomy_forest":
+            definition.setdefault("takeover", {}).update({
+                "legacy_zone": f"Data/Zone/{definition['id']}.json",
+                "status": "PENDING",
+                "policy": "rebuild then remove the legacy implementation"})
+            blocked.append(
+                f"BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/{definition['id']}.json must be "
+                "replaced by the Builder's regeneration (harvest + transfer first)")
 
     if blocked:
         definition["blocked"] = blocked

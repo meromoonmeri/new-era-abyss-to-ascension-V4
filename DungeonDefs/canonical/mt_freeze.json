@@ -16,7 +16,22 @@
   "level": 26,
   "rescues": 2,
   "released": false,
-  "music": "",
+  "music": "Mt. Freeze.ogg",
+  "harvested_from_legacy": {
+    "zone": "Data/Zone/mt_freeze.json",
+    "kept": {
+      "music": "Mt. Freeze.ogg",
+      "rescues": 2,
+      "grounds": [
+        "mont_gele_pied",
+        "d11p02",
+        "d11p03",
+        "mt_freeze_midpoint"
+      ],
+      "note": "Donjon canonique PMD Red: Mt. Freeze 15F, D11P02, Peak 5F, D11P03/Ninetales. Recasting New Era; aucune fausse bataille ajoutée. Canonical encounters: pret/pmd-red MtFreeze/MtFreezePeak; 15-species New Era additive pool."
+    },
+    "discarded": "legacy floor structure (2 floors vs 15 canonical) — rebuilt by the Builder"
+  },
   "variation": {
     "direction": "sommet",
     "time_limit": 2000,
@@ -649,7 +664,7 @@
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
   "narrative": {
-    "transferred": false,
+    "transferred": true,
     "cutscenes": [
       {
         "scene": "d11p02",
@@ -665,11 +680,6 @@
         "scene": "mont_gele_pied",
         "state": "active",
         "path": "Data/Script/halcyon/ground/mont_gele_pied"
-      },
-      {
-        "scene": "mont_gele_pied",
-        "state": "archived",
-        "path": "RESERVE/scripts_ground/mont_gele_pied"
       }
     ],
     "red_cinematics": [
@@ -678,6 +688,8 @@
       "RESERVE/red_cinematics/d11p03.cif.json"
     ],
     "zone_script": "Data/Script/halcyon/zone/mt_freeze",
+    "pending_cinematics": [],
+    "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
   "boss": {
@@ -686,14 +698,13 @@
     "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
   },
   "fixed_grounds": {
+    "mid": "mt_freeze_midpoint",
     "entrance": "mont_gele_pied",
     "end": "d11p03"
   },
   "takeover": {
     "legacy_zone": "Data/Zone/mt_freeze.json",
-    "policy": "rebuild then remove the legacy implementation"
-  },
-  "blocked": [
-    "BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/mt_freeze.json must be replaced by the Builder's regeneration (harvest + transfer first)"
-  ]
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
+  }
 }

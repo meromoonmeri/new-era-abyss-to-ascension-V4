@@ -643,12 +643,12 @@
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
   "narrative": {
-    "transferred": false,
+    "transferred": true,
     "cutscenes": [
       {
         "scene": "grand_canyon_porte",
-        "state": "archived",
-        "path": "RESERVE/scripts_ground/grand_canyon_porte"
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/grand_canyon_porte"
       }
     ],
     "red_cinematics": [
@@ -656,6 +656,8 @@
       "RESERVE/red_cinematics/d07p02.cif.json"
     ],
     "zone_script": "",
+    "pending_cinematics": [],
+    "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
   "boss": {
@@ -664,6 +666,7 @@
     "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
   },
   "fixed_grounds": {
+    "entrance": "grand_canyon_porte",
     "end": "d07p02"
   }
 }

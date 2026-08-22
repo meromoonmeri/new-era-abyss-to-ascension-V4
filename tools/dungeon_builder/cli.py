@@ -71,6 +71,43 @@ def cmd_audit(args) -> int:
     return 0
 
 
+def cmd_integrate(args) -> int:
+    """Restore archived canonical scenes and re-attach their narrative content."""
+    from .integration import integrate, refresh_definition
+    from .scenes import parse_inventory
+    inventory = parse_inventory()
+    definitions = []
+    if args.dungeon:
+        definitions.append(load_definition(find_definition(args.dungeon)))
+    else:
+        for path in list_definitions():
+            try:
+                definitions.append(load_definition(path))
+            except DefinitionError:
+                continue
+    total_grounds = total_scripts = 0
+    for definition in definitions:
+        result = integrate(definition, inventory, dry_run=args.dry_run)
+        if not (result.restored_grounds or result.restored_scripts or result.missing):
+            continue
+        total_grounds += len(result.restored_grounds)
+        total_scripts += len(result.restored_scripts)
+        verb = "would restore" if args.dry_run else "restored"
+        print(f"[{definition.id}] {verb} grounds={result.restored_grounds} "
+              f"scripts={result.restored_scripts}")
+        for note in result.notes:
+            print(f"    {note}")
+        for missing in result.missing:
+            print(f"    ! no canonical asset found for '{missing}'")
+        if not args.dry_run:
+            narrative = refresh_definition(definition)
+            if narrative:
+                print(f"    narrative.transferred={narrative.get('transferred')}")
+    print(f"{total_grounds} grounds and {total_scripts} script folders "
+          f"{'would be ' if args.dry_run else ''}restored")
+    return 0
+
+
 def cmd_takeover(args) -> int:
     """Audit (and optionally execute) the replacement of a legacy implementation."""
     from .audit import audit_all
@@ -353,6 +390,12 @@ def build_parser() -> argparse.ArgumentParser:
     sub = parser.add_subparsers(dest="command", required=True)
 
     sub.add_parser("audit", help="list profiles, DTEF packages and definitions").set_defaults(func=cmd_audit)
+
+    integrate_parser = sub.add_parser("integrate",
+                                      help="restore archived canonical scenes + their cutscenes")
+    integrate_parser.add_argument("dungeon", nargs="?", default=None)
+    integrate_parser.add_argument("--dry-run", action="store_true")
+    integrate_parser.set_defaults(func=cmd_integrate)
 
     takeover = sub.add_parser("takeover",
                               help="audit/replace the legacy implementation of a dungeon")

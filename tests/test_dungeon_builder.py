@@ -632,15 +632,16 @@ class TestCanonicalDefinitionSet(unittest.TestCase):
             self.assertGreaterEqual(raw["chapter"], 6)
             self.assertLessEqual(raw["chapter"], 32)
 
-    def test_existing_zone_is_a_guarded_takeover_never_a_silent_overwrite(self):
-        """A legacy zone in scope must be rebuilt then removed, never overwritten
-        without the takeover plan (harvest + narrative transfer first)."""
-        zones = {p.stem for p in (REPO / "Data" / "Zone").glob("*.json")}
-        for audit in self.audits:
-            if audit.dungeon in zones and audit.dungeon != "gloomy_forest":
-                self.assertEqual(audit.status, "FAIL", audit.dungeon)
-                self.assertTrue(any("TAKEOVER_PENDING" in b for b in audit.blockers), audit.dungeon)
-                self.assertEqual(audit.readiness, "TAKEOVER_PENDING")
+    def test_no_legacy_zone_survives_in_scope(self):
+        """Every zone of a scoped dungeon is either rebuilt here or still flagged
+        TAKEOVER_PENDING — never a silent legacy leftover."""
+        ids = {a.dungeon for a in self.audits}
+        for path in sorted((REPO / "Data" / "Zone").glob("*.json")):
+            if path.stem not in ids:
+                continue
+            comment = json.loads(path.read_text(encoding="utf-8-sig"))["Object"].get("Comment", "")
+            if "tools/dungeon_builder" not in comment:
+                self.assertEqual(self.by_id[path.stem].readiness, "TAKEOVER_PENDING", path.name)
 
     def test_blocked_definitions_are_never_silently_passing(self):
         for path in sorted((REPO / "DungeonDefs" / "canonical").glob("*.json")):
@@ -721,11 +722,14 @@ class TestCanonicalDefinitionSet(unittest.TestCase):
         self.assertEqual(audit.midpoint, "gloomy_forest_midpoint")
         self.assertEqual(audit.floors, 14)
 
-    def test_no_procedural_zone_was_generated_for_the_new_definitions(self):
-        zones = {p.stem for p in (REPO / "Data" / "Zone").glob("*.json")}
-        produced = {a.dungeon for a in self.audits if a.status == "PASS"} - {"gloomy_forest"}
-        self.assertFalse(produced & zones,
-                         "step 6 must not write any zone; generate-all is not authorised yet")
+    def test_only_takeover_dungeons_have_been_rebuilt_so_far(self):
+        """`generate-all` is still not authorised: only the dungeons whose legacy
+        implementation had to be replaced own a zone at this stage."""
+        allowed = {"gloomy_forest", "mt_blaze", "mt_freeze", "frosty_forest", "lapis_cave",
+                   "wish_cave", "sky_tower", "sky_tower_summit"}
+        ids = {a.dungeon for a in self.audits}
+        written = {p.stem for p in (REPO / "Data" / "Zone").glob("*.json")} & ids
+        self.assertTrue(written <= allowed, written - allowed)
 
 
 class TestCanonicalSceneRule(unittest.TestCase):
@@ -789,15 +793,14 @@ class TestCanonicalSceneRule(unittest.TestCase):
         with self.assertRaises(DefinitionError):
             parse_definition(raw)
 
-    def test_archived_scene_is_integration_not_a_new_arena(self):
+    def test_archived_scene_became_a_live_ground_not_an_arena(self):
         from dungeon_builder.definitions import find_definition, load_definition
         definition = load_definition(find_definition("lightning_field"))
         self.assertEqual(definition.boss["mode"], "canonical_ground")
-        self.assertTrue(definition.boss.get("pending_integration"))
-        check = check_grounds(definition)
-        self.assertFalse(check.ok)
-        self.assertTrue(any("REQUIRES_INTEGRATION" in p for p in check.problems))
+        self.assertEqual(definition.boss["ground"], "champ_foudre")
         self.assertNotIn("_arena", json.dumps(definition.boss))
+        self.assertTrue((REPO / "Data" / "Ground" / "champ_foudre.rsground").exists())
+        self.assertTrue(check_grounds(definition).ok)
 
 
 class TestFloorVariationContract(unittest.TestCase):
@@ -875,11 +878,12 @@ class TestTakeover(unittest.TestCase):
         cls.scan = staticmethod(scan)
         cls.load = staticmethod(lambda name: load_definition(find_definition(name)))
 
-    def test_legacy_zone_of_an_in_scope_dungeon_is_marked_replace(self):
+    def test_a_rebuilt_legacy_zone_is_now_current(self):
         definition = self.load("mt_blaze")
         plan = self.scan(definition, None, {definition.id})
-        replaced = [a.path for a in plan.by_action("REPLACE")]
-        self.assertIn("Data/Zone/mt_blaze.json", replaced)
+        self.assertFalse(plan.by_action("REPLACE"))
+        self.assertIn("Data/Zone/mt_blaze.json",
+                      [a.path for a in plan.artefacts if a.action == "CURRENT"])
 
     def test_a_zone_already_built_here_is_not_replaced(self):
         definition = self.load("gloomy_forest")
@@ -942,14 +946,12 @@ class TestTakeover(unittest.TestCase):
                 self.assertTrue((REPO / cinematic).exists(), cinematic)
         self.assertGreaterEqual(counted, 20)
 
-    def test_legacy_zones_are_flagged_takeover_not_excused(self):
+    def test_already_implemented_status_no_longer_exists(self):
         from dungeon_builder.audit import audit_all
         audits, _ = audit_all()
-        by_id = {a.dungeon: a for a in audits}
-        for dungeon in ("mt_blaze", "mt_freeze", "frosty_forest", "lapis_cave", "wish_cave"):
-            self.assertEqual(by_id[dungeon].readiness, "TAKEOVER_PENDING", dungeon)
-            self.assertTrue(by_id[dungeon].legacy_zone)
         self.assertFalse(any(a.readiness == "ALREADY_IMPLEMENTED" for a in audits))
+        self.assertFalse(any("OUT_OF_SCOPE: already imported" in b
+                             for a in audits for b in a.blockers))
 
 
 class TestVaultRooms(unittest.TestCase):
@@ -986,3 +988,84 @@ class TestVaultRooms(unittest.TestCase):
     def test_vault_is_opt_in(self):
         export = build_zone(load_sinister(), DungeonRng(seed=13))
         self.assertNotIn("SpreadVaultZoneStep", json.dumps(export.zone_json))
+
+
+class TestTakeoverCompletion(unittest.TestCase):
+    """The rebuild really happened: no legacy zone survives in scope."""
+
+    @classmethod
+    def setUpClass(cls):
+        from dungeon_builder.audit import audit_all
+        cls.audits, _ = audit_all()
+        cls.by_id = {a.dungeon: a for a in cls.audits}
+
+    def test_rebuilt_dungeons_are_no_longer_takeover_pending(self):
+        for dungeon in ("mt_blaze", "mt_freeze", "frosty_forest", "lapis_cave", "wish_cave",
+                        "sky_tower", "sky_tower_summit"):
+            self.assertNotEqual(self.by_id[dungeon].readiness, "TAKEOVER_PENDING", dungeon)
+
+    def test_every_zone_of_a_scoped_dungeon_carries_the_builder_stamp(self):
+        ids = {a.dungeon for a in self.audits}
+        for path in sorted((REPO / "Data" / "Zone").glob("*.json")):
+            if path.stem not in ids:
+                continue          # out of scope, untouched
+            comment = json.loads(path.read_text(encoding="utf-8-sig"))["Object"].get("Comment", "")
+            self.assertIn("tools/dungeon_builder", comment, path.name)
+
+    def test_rebuilt_zones_have_the_canonical_floor_count(self):
+        expected = {"mt_blaze": 12, "mt_freeze": 15, "frosty_forest": 9, "lapis_cave": 14,
+                    "wish_cave": 99, "sky_tower": 25, "sky_tower_summit": 9}
+        for dungeon, floors in expected.items():
+            zone = json.loads((REPO / "Data" / "Zone" / f"{dungeon}.json")
+                              .read_text(encoding="utf-8-sig"))["Object"]
+            total = sum(len(segment["Floors"]) for segment in zone["Segments"])
+            self.assertEqual(total, floors, dungeon)
+
+    def test_legacy_data_was_harvested_not_lost(self):
+        for dungeon, music in (("mt_blaze", "Mt. Blaze.ogg"), ("frosty_forest", "Frosty Forest.ogg"),
+                               ("wish_cave", "Wish Cave.ogg")):
+            raw = json.loads((REPO / "DungeonDefs" / "canonical" / f"{dungeon}.json")
+                             .read_text(encoding="utf-8-sig"))
+            self.assertEqual(raw["music"], music, dungeon)
+            self.assertIn("harvested_from_legacy", raw, dungeon)
+            self.assertIn("discarded", raw["harvested_from_legacy"])
+
+    def test_restored_scenes_are_live_grounds(self):
+        for ground in ("champ_foudre", "caverne_trouble_fond", "d06p03", "foret_tendre_oree",
+                       "bois_sombres_oree", "foret_guerison"):
+            self.assertTrue((REPO / "Data" / "Ground" / f"{ground}.rsground").exists(), ground)
+
+    def test_restored_scenes_kept_their_cutscenes(self):
+        for scene in ("champ_foudre", "abime_tempetes", "antre_occident", "foret_tendre_oree",
+                      "foret_guerison"):
+            self.assertTrue((REPO / "Data" / "Script" / "halcyon" / "ground" / scene).is_dir(), scene)
+
+    def test_narrative_is_marked_transferred_only_when_live(self):
+        from dungeon_builder.definitions import find_definition, load_definition
+        from dungeon_builder.integration import narrative_is_live
+        for audit in self.audits:
+            if audit.readiness != "READY_FOR_GENERATION" or not audit.dungeon:
+                continue
+            definition = load_definition(find_definition(audit.dungeon))
+            narrative = definition.narrative or {}
+            if narrative.get("transferred"):
+                self.assertTrue(narrative_is_live(definition), audit.dungeon)
+
+    def test_remaining_blockers_are_only_the_documented_ones(self):
+        blocked = {a.dungeon: a.readiness for a in self.audits
+                   if a.readiness != "READY_FOR_GENERATION"}
+        self.assertEqual(blocked, {"buried_relic": "BLOCKED_MISSING_ASSET",
+                                   "meteor_cave": "BLOCKED_MISSING_ASSET",
+                                   "northwind_field": "BLOCKED_MISSING_TILESET"})
+
+    def test_northwind_field_was_not_unblocked_by_stealing_a_tileset(self):
+        raw = json.loads((REPO / "DungeonDefs" / "canonical" / "northwind_field.json")
+                         .read_text(encoding="utf-8-sig"))
+        self.assertFalse(raw.get("dtef"))
+        self.assertTrue(any("MISSING_TILESET" in b for b in raw.get("blocked", [])))
+
+    def test_arena_candidates_are_recorded_for_human_arbitration(self):
+        raw = json.loads((REPO / "DungeonDefs" / "canonical" / "buried_relic.json")
+                         .read_text(encoding="utf-8-sig"))
+        self.assertIn("scene_candidates", raw)
+        self.assertTrue(raw["scene_candidates"]["candidates"])

@@ -246,7 +246,7 @@
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
   "narrative": {
-    "transferred": false,
+    "transferred": true,
     "cutscenes": [
       {
         "scene": "d09p02",
@@ -262,11 +262,6 @@
         "scene": "mont_cendre_pied",
         "state": "active",
         "path": "Data/Script/halcyon/ground/mont_cendre_pied"
-      },
-      {
-        "scene": "mont_cendre_pied",
-        "state": "archived",
-        "path": "RESERVE/scripts_ground/mont_cendre_pied"
       }
     ],
     "red_cinematics": [
@@ -275,6 +270,8 @@
       "RESERVE/red_cinematics/d09p03.cif.json"
     ],
     "zone_script": "",
+    "pending_cinematics": [],
+    "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
   "boss": {

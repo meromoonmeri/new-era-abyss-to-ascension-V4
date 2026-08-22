@@ -257,19 +257,19 @@
     "entrance_ground": "foret_tendre_oree",
     "relay_ground": "",
     "canonical_end_ground": "d01p02",
-    "state": "ARCHIVED",
-    "location": "RESERVE/red_grounds/d01p02.rsground",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/d01p02.rsground",
     "cinematic_ground": "d01p02",
     "battle_ground": "d01p02",
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
   "narrative": {
-    "transferred": false,
+    "transferred": true,
     "cutscenes": [
       {
         "scene": "foret_tendre_oree",
-        "state": "archived",
-        "path": "RESERVE/scripts_ground/foret_tendre_oree"
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/foret_tendre_oree"
       }
     ],
     "red_cinematics": [
@@ -277,17 +277,17 @@
       "RESERVE/red_cinematics/d01p02.cif.json"
     ],
     "zone_script": "",
+    "pending_cinematics": [],
+    "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
   "boss": {
     "mode": "canonical_ground",
     "ground": "d01p02",
-    "pending_integration": true,
-    "source_asset": "RESERVE/red_grounds/d01p02.rsground",
-    "notes": "Scène canonique existante : à intégrer telle quelle comme Ground de cinématique ET de combat ; aucune arène séparée."
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
   },
-  "fixed_grounds": {},
-  "blocked": [
-    "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd01p02' is archived in RESERVE/red_grounds/d01p02.rsground; restore it as the cinematic/battle Ground (no separate arena)"
-  ]
+  "fixed_grounds": {
+    "entrance": "foret_tendre_oree",
+    "end": "d01p02"
+  }
 }

@@ -309,6 +309,15 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
+  "narrative": {
+    "transferred": true,
+    "cutscenes": [],
+    "red_cinematics": [],
+    "zone_script": "Data/Script/halcyon/zone/meteor_cave",
+    "pending_cinematics": [],
+    "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
+    "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
+  },
   "boss": {
     "mode": "arena_rsmap",
     "map": "meteor_cave_arena",

@@ -257,7 +257,18 @@ def audit_definition(path: Path, known_items: set, known_statuses: set,
     audit.battle_ground = audit.battle_ground or check.battle_ground
 
     # --- legacy implementation: takeover, not an excuse
-    if definition.id in zone_names and definition.id != "gloomy_forest":
+    zone_path = ZONE_DIR / f"{definition.id}.json"
+    rebuilt_here = False
+    if zone_path.exists():
+        try:
+            rebuilt_here = "tools/dungeon_builder" in json.loads(
+                zone_path.read_text(encoding="utf-8-sig"))["Object"].get("Comment", "")
+        except (json.JSONDecodeError, KeyError, OSError):
+            rebuilt_here = False
+    if rebuilt_here:
+        audit.blockers = [b for b in audit.blockers if "TAKEOVER_PENDING" not in b]
+        audit.notes.append("legacy zone already replaced by this Builder")
+    elif definition.id in zone_names:
         audit.legacy_zone = f"Data/Zone/{definition.id}.json"
         if not any("TAKEOVER_PENDING" in blocker for blocker in audit.blockers):
             audit.blockers.append(

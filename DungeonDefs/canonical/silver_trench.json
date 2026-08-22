@@ -1282,18 +1282,20 @@
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
   "narrative": {
-    "transferred": false,
+    "transferred": true,
     "cutscenes": [
       {
         "scene": "fosse_argentee",
-        "state": "archived",
-        "path": "RESERVE/scripts_ground/fosse_argentee"
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/fosse_argentee"
       }
     ],
     "red_cinematics": [
       "RESERVE/red_cinematics/d15p01.cif.json"
     ],
-    "zone_script": "",
+    "zone_script": "Data/Script/halcyon/zone/silver_trench",
+    "pending_cinematics": [],
+    "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
   "boss": {

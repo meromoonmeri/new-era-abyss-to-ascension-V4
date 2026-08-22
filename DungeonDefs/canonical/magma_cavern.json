@@ -767,7 +767,7 @@
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
   "narrative": {
-    "transferred": false,
+    "transferred": true,
     "cutscenes": [
       {
         "scene": "fosse_ardente",
@@ -775,29 +775,14 @@
         "path": "Data/Script/halcyon/ground/fosse_ardente"
       },
       {
-        "scene": "fosse_ardente",
-        "state": "archived",
-        "path": "RESERVE/scripts_ground/fosse_ardente"
-      },
-      {
         "scene": "gorge_ardente_coeur",
         "state": "active",
         "path": "Data/Script/halcyon/ground/gorge_ardente_coeur"
       },
       {
-        "scene": "gorge_ardente_coeur",
-        "state": "archived",
-        "path": "RESERVE/scripts_ground/gorge_ardente_coeur"
-      },
-      {
         "scene": "gorge_ardente_porte",
         "state": "active",
         "path": "Data/Script/halcyon/ground/gorge_ardente_porte"
-      },
-      {
-        "scene": "gorge_ardente_porte",
-        "state": "archived",
-        "path": "RESERVE/scripts_ground/gorge_ardente_porte"
       }
     ],
     "red_cinematics": [
@@ -806,6 +791,8 @@
       "RESERVE/red_cinematics/d12p04.cif.json"
     ],
     "zone_script": "Data/Script/halcyon/zone/magma_cavern",
+    "pending_cinematics": [],
+    "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
   "boss": {

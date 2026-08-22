@@ -16,7 +16,19 @@
   "level": 33,
   "rescues": 2,
   "released": false,
-  "music": "",
+  "music": "Wish Cave.ogg",
+  "harvested_from_legacy": {
+    "zone": "Data/Zone/wish_cave.json",
+    "kept": {
+      "music": "Wish Cave.ogg",
+      "rescues": 2,
+      "grounds": [
+        "sanctuaire_voeu"
+      ],
+      "note": "Wish Cave canonique: 98 floors + 99F Jirachi; niveau 1, argent interdit, vœux."
+    },
+    "discarded": "legacy floor structure (2 floors vs 99 canonical) — rebuilt by the Builder"
+  },
   "variation": {
     "direction": "fond",
     "time_limit": 2000,
@@ -1664,7 +1676,7 @@
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
   "narrative": {
-    "transferred": false,
+    "transferred": true,
     "cutscenes": [
       {
         "scene": "sanctuaire_voeu",
@@ -1676,6 +1688,8 @@
       "RESERVE/red_cinematics/d23p01.cif.json"
     ],
     "zone_script": "Data/Script/halcyon/zone/wish_cave",
+    "pending_cinematics": [],
+    "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
   "boss": {
@@ -1699,9 +1713,7 @@
   },
   "takeover": {
     "legacy_zone": "Data/Zone/wish_cave.json",
-    "policy": "rebuild then remove the legacy implementation"
-  },
-  "blocked": [
-    "BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/wish_cave.json must be replaced by the Builder's regeneration (harvest + transfer first)"
-  ]
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
+  }
 }

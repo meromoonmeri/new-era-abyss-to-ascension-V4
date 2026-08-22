@@ -450,24 +450,24 @@
     "entrance_ground": "",
     "relay_ground": "",
     "canonical_end_ground": "caverne_trouble_fond",
-    "state": "ARCHIVED",
-    "location": "RESERVE/grounds/caverne_trouble_fond.rsground",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/caverne_trouble_fond.rsground",
     "cinematic_ground": "caverne_trouble_fond",
     "battle_ground": "caverne_trouble_fond",
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
   "narrative": {
-    "transferred": false,
+    "transferred": true,
     "cutscenes": [
       {
         "scene": "caverne_trouble_autel",
-        "state": "archived",
-        "path": "RESERVE/scripts_ground/caverne_trouble_autel"
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/caverne_trouble_autel"
       },
       {
         "scene": "caverne_trouble_fond",
-        "state": "archived",
-        "path": "RESERVE/scripts_ground/caverne_trouble_fond"
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/caverne_trouble_fond"
       }
     ],
     "red_cinematics": [
@@ -475,17 +475,16 @@
       "RESERVE/red_cinematics/d24p02.cif.json"
     ],
     "zone_script": "",
+    "pending_cinematics": [],
+    "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
   "boss": {
     "mode": "canonical_ground",
     "ground": "caverne_trouble_fond",
-    "pending_integration": true,
-    "source_asset": "RESERVE/grounds/caverne_trouble_fond.rsground",
-    "notes": "Scène canonique existante : à intégrer telle quelle comme Ground de cinématique ET de combat ; aucune arène séparée."
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
   },
-  "fixed_grounds": {},
-  "blocked": [
-    "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'caverne_trouble_fond' is archived in RESERVE/grounds/caverne_trouble_fond.rsground; restore it as the cinematic/battle Ground (no separate arena)"
-  ]
+  "fixed_grounds": {
+    "end": "caverne_trouble_fond"
+  }
 }

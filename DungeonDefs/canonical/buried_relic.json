@@ -1436,6 +1436,15 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
+  "scene_candidates": {
+    "note": "scènes possiblement canoniques repérées dans le dépôt : arbitrage humain requis avant toute création d'arène",
+    "candidates": [
+      "relique_ancienne",
+      "tour_reliques_porte",
+      "fleche_reliques_courroux",
+      "sanctuaire_titans (déjà utilisé par cloven_ruins ch5)"
+    ]
+  },
   "boss": {
     "mode": "arena_rsmap",
     "map": "buried_relic_arena",

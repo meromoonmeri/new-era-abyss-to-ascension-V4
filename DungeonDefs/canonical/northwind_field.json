@@ -812,13 +812,16 @@
       {
         "scene": "champ_vent_boreal",
         "state": "archived",
-        "path": "RESERVE/scripts_ground/champ_vent_boreal"
+        "path": "RESERVE/scripts_ground/champ_vent_boreal",
+        "restore_to": "Data/Script/halcyon/ground/champ_vent_boreal"
       }
     ],
     "red_cinematics": [
       "RESERVE/red_cinematics/d18p01.cif.json"
     ],
     "zone_script": "",
+    "pending_cinematics": [],
+    "transfer_check": "some cutscene folders are still archived",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
   "boss": {

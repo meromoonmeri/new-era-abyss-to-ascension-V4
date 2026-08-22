@@ -637,5 +637,32 @@
   "fixed_grounds": {
     "end": "sinister_woods_clearing",
     "mid": "gloomy_forest_midpoint"
+  },
+  "narrative": {
+    "transferred": true,
+    "cutscenes": [
+      {
+        "scene": "sinister_woods_clearing",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/sinister_woods_clearing"
+      },
+      {
+        "scene": "gloomy_forest_midpoint",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/gloomy_forest_midpoint"
+      },
+      {
+        "scene": "bois_sombres_oree",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/bois_sombres_oree"
+      }
+    ],
+    "zone_script": "Data/Script/halcyon/zone/gloomy_forest",
+    "red_cinematics": [
+      "RESERVE/red_cinematics/d04p01.cif.json",
+      "RESERVE/red_cinematics/d04p02.cif.json"
+    ],
+    "transfer_check": "chaîne D04P01 (approche) → étages procéduraux → D04P02 (clairière) : cinématique et combat Team Dazzling sur le même Ground",
+    "rule": "Ces séquences appartiennent au donjon : rejouées sur le Ground canonique (cinématique = combat = fin)."
   }
 }

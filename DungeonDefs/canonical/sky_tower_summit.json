@@ -362,7 +362,7 @@
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
   "narrative": {
-    "transferred": false,
+    "transferred": true,
     "cutscenes": [
       {
         "scene": "arc_palier_celeste",
@@ -386,6 +386,8 @@
       "RESERVE/red_cinematics/d13p03.cif.json"
     ],
     "zone_script": "",
+    "pending_cinematics": [],
+    "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
   "boss": {
@@ -408,10 +410,8 @@
     "end": "arc_tour_ciel_sommet"
   },
   "takeover": {
-    "legacy": "imported by a previous agent (Sky Tower arc)",
-    "policy": "rebuild then remove the legacy implementation"
-  },
-  "blocked": [
-    "BLOCKED/TAKEOVER_PENDING: legacy implementation from a previous agent must be rebuilt by this Builder, then deleted"
-  ]
+    "legacy_zone": "Data/Zone/sky_tower_summit.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
+  }
 }

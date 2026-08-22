@@ -1105,18 +1105,20 @@
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
   "narrative": {
-    "transferred": false,
+    "transferred": true,
     "cutscenes": [
       {
         "scene": "antre_occident",
-        "state": "archived",
-        "path": "RESERVE/scripts_ground/antre_occident"
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/antre_occident"
       }
     ],
     "red_cinematics": [
       "RESERVE/red_cinematics/d20p01.cif.json"
     ],
-    "zone_script": "",
+    "zone_script": "Data/Script/halcyon/zone/western_cave",
+    "pending_cinematics": [],
+    "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
   "boss": {

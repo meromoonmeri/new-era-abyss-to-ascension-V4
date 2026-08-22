@@ -831,33 +831,33 @@
     "entrance_ground": "",
     "relay_ground": "",
     "canonical_end_ground": "champ_foudre",
-    "state": "ARCHIVED",
-    "location": "RESERVE/grounds/champ_foudre.rsground",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/champ_foudre.rsground",
     "cinematic_ground": "champ_foudre",
     "battle_ground": "champ_foudre",
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
   "narrative": {
-    "transferred": false,
+    "transferred": true,
     "cutscenes": [
       {
         "scene": "champ_foudre",
-        "state": "archived",
-        "path": "RESERVE/scripts_ground/champ_foudre"
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/champ_foudre"
       }
     ],
     "red_cinematics": [
       "RESERVE/red_cinematics/d17p01.cif.json"
     ],
-    "zone_script": "",
+    "zone_script": "Data/Script/halcyon/zone/lightning_field",
+    "pending_cinematics": [],
+    "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
   "boss": {
     "mode": "canonical_ground",
     "ground": "champ_foudre",
-    "pending_integration": true,
-    "source_asset": "RESERVE/grounds/champ_foudre.rsground",
-    "notes": "Scène canonique existante : à intégrer telle quelle comme Ground de cinématique ET de combat ; aucune arène séparée.",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée.",
     "roster": [
       {
         "species": "raikou",
@@ -869,8 +869,7 @@
       }
     ]
   },
-  "fixed_grounds": {},
-  "blocked": [
-    "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'champ_foudre' is archived in RESERVE/grounds/champ_foudre.rsground; restore it as the cinematic/battle Ground (no separate arena)"
-  ]
+  "fixed_grounds": {
+    "end": "champ_foudre"
+  }
 }

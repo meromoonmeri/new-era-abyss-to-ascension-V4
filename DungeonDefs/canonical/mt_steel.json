@@ -352,19 +352,19 @@
     "entrance_ground": "pic_ferreux_pied",
     "relay_ground": "",
     "canonical_end_ground": "d03p02",
-    "state": "ARCHIVED",
-    "location": "RESERVE/red_grounds/d03p02.rsground",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/d03p02.rsground",
     "cinematic_ground": "d03p02",
     "battle_ground": "d03p02",
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
   "narrative": {
-    "transferred": false,
+    "transferred": true,
     "cutscenes": [
       {
         "scene": "pic_ferreux_pied",
-        "state": "archived",
-        "path": "RESERVE/scripts_ground/pic_ferreux_pied"
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/pic_ferreux_pied"
       }
     ],
     "red_cinematics": [
@@ -372,17 +372,17 @@
       "RESERVE/red_cinematics/d03p02.cif.json"
     ],
     "zone_script": "",
+    "pending_cinematics": [],
+    "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
   "boss": {
     "mode": "canonical_ground",
     "ground": "d03p02",
-    "pending_integration": true,
-    "source_asset": "RESERVE/red_grounds/d03p02.rsground",
-    "notes": "Scène canonique existante : à intégrer telle quelle comme Ground de cinématique ET de combat ; aucune arène séparée."
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
   },
-  "fixed_grounds": {},
-  "blocked": [
-    "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd03p02' is archived in RESERVE/red_grounds/d03p02.rsground; restore it as the cinematic/battle Ground (no separate arena)"
-  ]
+  "fixed_grounds": {
+    "entrance": "pic_ferreux_pied",
+    "end": "d03p02"
+  }
 }

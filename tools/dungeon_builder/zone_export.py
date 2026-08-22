@@ -299,8 +299,9 @@ def build_zone(definition: DungeonDefinition, rng: Optional[DungeonRng] = None,
             "Name": {"DefaultText": definition.name.get("en", definition.id),
                      "LocalTexts": {k: v for k, v in definition.name.items() if k != "en"}},
             "Released": definition.released,
-            "Comment": definition.comment or f"Built by tools/dungeon_builder from "
-                                             f"{definition.path.name if definition.path else 'definition'}",
+            "Comment": ((definition.comment + " ") if definition.comment else "")
+                       + (f"[built by tools/dungeon_builder from "
+                          f"{definition.path.name if definition.path else 'definition'}]"),
             "NoEXP": False, "ExpPercent": 100, "Level": definition.level, "LevelCap": False,
             "KeepSkills": False, "TeamRestrict": False, "TeamSize": -1, "MoneyRestrict": False,
             "BagRestrict": -1, "KeepTreasure": False, "BagSize": -1, "Persistent": False,
