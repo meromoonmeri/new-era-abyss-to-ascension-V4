@@ -110,7 +110,19 @@ class RoomGen:
             for jj in range(margin_y, max(margin_y + 1, d.h - margin_y))
             for ii in range(margin_x, max(margin_x + 1, d.w - margin_x))
         }
-        return sorted(keep | core)
+        blob = keep | core
+        # RoomGenCave draws one contiguous blob: drop anything detached from the
+        # core, otherwise a corridor could land on an island inside the room.
+        stack = list(core)
+        connected = set(core)
+        while stack:
+            x, y = stack.pop()
+            for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                nxt = (x + dx, y + dy)
+                if nxt in blob and nxt not in connected:
+                    connected.add(nxt)
+                    stack.append(nxt)
+        return sorted(connected)
 
 
 def _within_round(base_x: int, base_y: int, diameter: int, w: int, h: int) -> bool:

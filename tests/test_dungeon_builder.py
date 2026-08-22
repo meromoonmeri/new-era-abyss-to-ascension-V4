@@ -1408,3 +1408,58 @@ class TestEngineSourceConformance(unittest.TestCase):
             (Path(tmp) / "fake.json").write_text(json.dumps(zone), encoding="utf-8")
             report = run(self.roots, zone_dir=Path(tmp))
         self.assertTrue(report.unknown_members)
+
+
+class TestEmittedArchitecture(unittest.TestCase):
+    """Replay the parameters actually written in the zones and measure them."""
+
+    @classmethod
+    def setUpClass(cls):
+        from dungeon_builder.definitions import list_definitions, load_definition
+        from dungeon_builder.zone_sim import analyse_zone
+        cls.analyses = []
+        for path in list_definitions():
+            analysis = analyse_zone(load_definition(path), variants=1)
+            if analysis:
+                cls.analyses.append(analysis)
+
+    def test_every_zone_can_be_replayed(self):
+        self.assertEqual(len(self.analyses), 51)
+        for analysis in self.analyses:
+            self.assertGreater(analysis.samples, 0, analysis.dungeon)
+
+    def test_no_zone_produces_a_degenerate_architecture(self):
+        failing = {a.dungeon: a.problems for a in self.analyses if not a.ok}
+        self.assertFalse(failing, failing)
+
+    def test_rooms_have_several_shapes_and_sizes(self):
+        for analysis in self.analyses:
+            if analysis.floors < 6:
+                continue
+            self.assertGreaterEqual(len(analysis.room_kinds), 2, analysis.dungeon)
+            self.assertGreater(analysis.room_area[1], analysis.room_area[0], analysis.dungeon)
+
+    def test_corridors_have_bends_and_the_graph_has_branches(self):
+        for analysis in self.analyses:
+            self.assertGreater(analysis.bends_avg, 0, analysis.dungeon)
+            self.assertGreater(analysis.branches_avg + analysis.dead_ends_avg, 0, analysis.dungeon)
+
+    def test_loops_exist_where_the_profiles_promise_them(self):
+        looping = [a for a in self.analyses
+                   if {"looping", "ring", "lattice"} & set(a.profiles)]
+        self.assertTrue(looping)
+        for analysis in looping:
+            self.assertGreater(analysis.loops_avg, 0, analysis.dungeon)
+
+    def test_every_replay_is_structurally_unique(self):
+        for analysis in self.analyses:
+            self.assertEqual(analysis.distinct_signatures, analysis.samples, analysis.dungeon)
+
+    def test_fixed_rooms_are_counted_and_not_simulated(self):
+        by_id = {a.dungeon: a for a in self.analyses}
+        self.assertEqual(by_id["buried_relic"].fixed_floors, 1)
+        self.assertEqual(by_id["meteor_cave"].fixed_floors, 1)
+
+    def test_total_floor_count_matches_the_canon(self):
+        total = sum(a.floors for a in self.analyses)
+        self.assertEqual(total, 1429)

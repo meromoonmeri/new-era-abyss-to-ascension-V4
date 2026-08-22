@@ -1,6 +1,6 @@
 # Audit post-génération des zones produites
 
-_Généré le 2026-08-22T23:35:14+00:00 — 51 zones relues sur disque : **51 conformes**, 0 avec anomalie._
+_Généré le 2026-08-22T23:56:31+00:00 — 51 zones relues sur disque : **51 conformes**, 0 avec anomalie._
 
 Cet audit ne relit pas les intentions : il rouvre chaque `Data/Zone/<id>.json` écrit et vérifie ce qu'il contient réellement.
 

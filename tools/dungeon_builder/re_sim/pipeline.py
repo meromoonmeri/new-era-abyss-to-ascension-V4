@@ -60,18 +60,23 @@ def draw_floor(plan: GridPlan, floor: FloorPlan, rand: random.Random, hall_turn_
                profile: str = "", seed: int = 0) -> FloorResult:
     tiles = [[WALL] * floor.width for _ in range(floor.height)]
 
+    room_tiles: List[set] = []
     for idx, rect in enumerate(floor.rooms):
         gen = plan.array_rooms[idx].gen
+        drawn = set()
         for x, y in gen.tiles():
             if 0 <= x < floor.width and 0 <= y < floor.height:
                 tiles[y][x] = ROOM
+                drawn.add((x, y))
+        room_tiles.append(drawn)
 
     edges: List[Tuple[int, int]] = []
     for hall in floor.halls:
         a = floor.rooms[hall.from_room]
         b = floor.rooms[hall.to_room]
         vertical = hall.rect.h > 0 and a.end_y <= b.y
-        _dig_hall(tiles, a, b, vertical, rand, hall_turn_bias)
+        _dig_hall(tiles, a, b, vertical, rand, hall_turn_bias,
+                  room_tiles[hall.from_room], room_tiles[hall.to_room])
         edges.append((hall.from_room, hall.to_room))
 
     result = FloorResult(tiles, list(floor.rooms), list(floor.room_is_hall), edges,
@@ -79,55 +84,79 @@ def draw_floor(plan: GridPlan, floor: FloorPlan, rand: random.Random, hall_turn_
     return result
 
 
-def _dig_hall(tiles, a: Rect, b: Rect, vertical: bool, rand: random.Random, turn_bias: int) -> None:
+def _dig_hall(tiles, a: Rect, b: Rect, vertical: bool, rand: random.Random, turn_bias: int,
+              a_tiles: Optional[set] = None, b_tiles: Optional[set] = None) -> None:
+    """Connect two rooms the way RoomGenAngledHall does: the corridor always
+    starts and ends on a tile that really belongs to each room.
+
+    RogueElements guarantees this through `AskBorderFromRoom` + `DigAtBorder`;
+    reproducing it here matters, because rooms are not always rectangles (round,
+    cross, cave) and a corridor aimed at a bounding box corner would connect to
+    nothing.
+    """
     h, w = len(tiles), len(tiles[0])
+    a_tiles = a_tiles if a_tiles is not None else set(a.tiles())
+    b_tiles = b_tiles if b_tiles is not None else set(b.tiles())
 
     def carve(x: int, y: int) -> None:
         if 0 <= x < w and 0 <= y < h and tiles[y][x] == WALL:
             tiles[y][x] = HALL
 
     if vertical:
-        overlap = _overlap(a.x, a.end_x, b.x, b.end_x)
-        turn = rand.randrange(100) < turn_bias or overlap is None
-        if not turn and overlap:
-            col = rand.randrange(overlap[0], overlap[1])
+        # rows -> the room's lowest / highest real tile in that column
+        a_cols = {}
+        for x, y in a_tiles:
+            a_cols[x] = max(a_cols.get(x, -1), y)
+        b_cols = {}
+        for x, y in b_tiles:
+            b_cols[x] = min(b_cols.get(x, 1 << 30), y)
+        if not a_cols or not b_cols:
+            return
+        shared = sorted(set(a_cols) & set(b_cols))
+        straight = shared and rand.randrange(100) >= turn_bias
+        if straight:
+            col = shared[rand.randrange(len(shared))]
             xa = xb = col
         else:
-            xa = rand.randrange(a.x, a.end_x)
-            xb = rand.randrange(b.x, b.end_x)
-        y0, y1 = a.end_y, b.y
-        if y1 <= y0:
+            xa = sorted(a_cols)[rand.randrange(len(a_cols))]
+            xb = sorted(b_cols)[rand.randrange(len(b_cols))]
+        y0, y1 = a_cols[xa] + 1, b_cols[xb] - 1
+        if y1 < y0:
             return
-        turn_y = rand.randrange(y0, y1 + 1) if y1 > y0 else y0
-        for y in range(y0, turn_y):
+        turn_y = y0 if xa == xb else rand.randrange(y0, y1 + 1)
+        for y in range(y0, turn_y + 1):
             carve(xa, y)
         for x in range(min(xa, xb), max(xa, xb) + 1):
-            carve(x, min(turn_y, y1 - 1) if y1 > y0 else turn_y)
-        for y in range(turn_y, y1):
+            carve(x, turn_y)
+        for y in range(turn_y, y1 + 1):
             carve(xb, y)
-        _dig_border(tiles, a, xa, "down")
-        _dig_border(tiles, b, xb, "up")
     else:
-        overlap = _overlap(a.y, a.end_y, b.y, b.end_y)
-        turn = rand.randrange(100) < turn_bias or overlap is None
-        if not turn and overlap:
-            row = rand.randrange(overlap[0], overlap[1])
+        a_rows = {}
+        for x, y in a_tiles:
+            a_rows[y] = max(a_rows.get(y, -1), x)
+        b_rows = {}
+        for x, y in b_tiles:
+            b_rows[y] = min(b_rows.get(y, 1 << 30), x)
+        if not a_rows or not b_rows:
+            return
+        shared = sorted(set(a_rows) & set(b_rows))
+        straight = shared and rand.randrange(100) >= turn_bias
+        if straight:
+            row = shared[rand.randrange(len(shared))]
             ya = yb = row
         else:
-            ya = rand.randrange(a.y, a.end_y)
-            yb = rand.randrange(b.y, b.end_y)
-        x0, x1 = a.end_x, b.x
-        if x1 <= x0:
+            ya = sorted(a_rows)[rand.randrange(len(a_rows))]
+            yb = sorted(b_rows)[rand.randrange(len(b_rows))]
+        x0, x1 = a_rows[ya] + 1, b_rows[yb] - 1
+        if x1 < x0:
             return
-        turn_x = rand.randrange(x0, x1 + 1) if x1 > x0 else x0
-        for x in range(x0, turn_x):
+        turn_x = x0 if ya == yb else rand.randrange(x0, x1 + 1)
+        for x in range(x0, turn_x + 1):
             carve(x, ya)
         for y in range(min(ya, yb), max(ya, yb) + 1):
-            carve(min(turn_x, x1 - 1) if x1 > x0 else turn_x, y)
-        for x in range(turn_x, x1):
+            carve(turn_x, y)
+        for x in range(turn_x, x1 + 1):
             carve(x, yb)
-        _dig_border(tiles, a, ya, "right")
-        _dig_border(tiles, b, yb, "left")
 
 
 def _dig_border(tiles, room: Rect, scalar: int, direction: str) -> None:
