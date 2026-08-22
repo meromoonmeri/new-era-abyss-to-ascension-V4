@@ -15,7 +15,7 @@ class Tests(unittest.TestCase):
   for cast in ["{'Adagio',272,128", "{'Aria',312,144", "{'Sonata',240,144"]:self.assertIn(cast,text)
  def test_nine_source_dialogue_slots_and_native_transition_are_wired(self):
   text=SCRIPT.read_text();keys=re.findall(r"dialogue\([^\n]*'GF6E_A(0[4-9]|1[0-2])'",text);self.assertEqual(keys,['04','05','06','07','08','09','10','11','12']);self.assertIn("GAME:ContinueDungeon('gloomy_forest', 4, 0, 0",text)
-  clearing=CLEARING.read_text();self.assertIn('gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()',clearing)
+  final_ground=(ROOT/'Data/Script/halcyon/ground/gloomy_forest_entrance/init.lua').read_text();self.assertIn('SinisterFinalGroundPending',final_ground);self.assertIn('gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()',final_ground)
  def test_choreography_keeps_joined_entry_and_reactions(self):
   text=SCRIPT.read_text();self.assertEqual(len(re.findall(r'local enter[123]=TASK:BranchCoroutine',text)),3);self.assertIn('TASK:JoinCoroutines({enter1,enter2,enter3,cam})',text);self.assertIn('CharTurnToCharAnimated',text);self.assertIn("CharSetEmote(aria, 'exclaim'",text);self.assertIn("CharSetEmote(sonata, 'angry'",text)
 if __name__=='__main__':unittest.main()

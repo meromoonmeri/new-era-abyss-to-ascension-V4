@@ -1,7 +1,7 @@
 --[[
     init.lua
     Sinister Woods midpoint — mid-dungeon relay (checkpoint) for chapter 6.
-    Modeled on ground/crooked_cavern_midpoint/init.lua (itself modeled on searing_tunnel_midpoint).
+    Sinister Woods Entrance — Ground rebuilt from the searing_tunnel_midpoint template.
     See docs/audit_checkpoint_crooked_cavern.md (reusable pattern).
 ]]--
 require 'origin.common'

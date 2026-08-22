@@ -155,8 +155,9 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 		-- Les étages F16-F20 de sauvetage sont derrière nous : le gardien du coeur attend
 		-- (mini-boss, segment 2). La mission Chenipent doit etre remplie avant.
 		if SV.Chapter6.ChenipentFound or ReplayEnding.IsCleared('gloomy_forest') then
-			PrintInfo("[NREPROBE][transition] gloomy seg1 cleared -> miniboss ground")
-			GAME:EnterGroundMap('gloomy_forest_miniboss', 'Main_Entrance_Marker')
+			PrintInfo("[NREPROBE][transition] gloomy seg1 cleared -> guardian clearing")
+			SV.Chapter6.SinisterMiniBossGroundPending = true
+			GAME:EnterGroundMap('sinister_woods_clearing', 'Main_Entrance_Marker')
 		else
 			-- The rescue objective is required before the heart of the forest opens.
 			SV.Chapter6.MissionAccepted = false

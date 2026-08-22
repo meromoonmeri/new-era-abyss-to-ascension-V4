@@ -13,11 +13,14 @@ end
 
 function sinister_woods_clearing.Enter(map)
   local ok, err = pcall(function()
-    if SV.ChapterProgression.Chapter == 6
-       and not SV.Chapter6.FinishedGloomyForestIntro then
-      gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()
+    -- This physical Ground is the guardian/miniboss clearing.  It is entered
+    -- after 10F; the final Team Dazzling scene lives on gloomy_forest_entrance.
+    if SV.Chapter6.SinisterMiniBossGroundPending then
+      SV.Chapter6.SinisterMiniBossGroundPending = false
+      GAME:ContinueDungeon('gloomy_forest', 2, 0, 0,
+        RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     else
-      GAME:ContinueDungeon('gloomy_forest', 4, 0, 0,
+      GAME:ContinueDungeon('gloomy_forest', 2, 0, 0,
         RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     end
   end)
