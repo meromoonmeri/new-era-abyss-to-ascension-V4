@@ -36,7 +36,10 @@ function gloomy_forest_entrance.PlotScripting()
 	--exactement le symptome constate en jeu.
 	--Le MapStatus a ete cree, mais la protection reste : aucune scene ne
 	--doit pouvoir laisser le joueur devant un ecran noir.
-	if SV.ChapterProgression.Chapter == 6 and not SV.Chapter6.SinisterApproachSeen then
+	if SV.ChapterProgression.Chapter == 6 and SV.Chapter6.SinisterFinalGroundPending then
+		SV.Chapter6.SinisterFinalGroundPending = false
+		gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()
+	elseif SV.ChapterProgression.Chapter == 6 and not SV.Chapter6.SinisterApproachSeen then
 		local ok, err = pcall(function()
 			gloomy_forest_entrance_ch_6.ApproachCutscene()
 			gloomy_forest_entrance_ch_6.DazzlingEntranceBlockade()

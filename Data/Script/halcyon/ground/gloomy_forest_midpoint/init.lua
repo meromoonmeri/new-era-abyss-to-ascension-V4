@@ -52,6 +52,17 @@ function gloomy_forest_midpoint.GameLoad(map)
 end
 
 function gloomy_forest_midpoint.PlotScripting()
+  -- Cette carte est le vrai Ground d'entrée.  Le relais checkpoint n'est
+  -- utilisé qu'après les étages 1F-7F ; une arrivée depuis Butterfree lance
+  -- donc directement le premier segment au lieu de la route 8F.
+  if SV.ChapterProgression.Chapter == 6
+     and SV.Chapter6.MissionAccepted
+     and not SV.Chapter6.SinisterApproachSeen then
+    SV.Chapter6.SinisterApproachSeen = true
+    GAME:FadeOut(false, 20)
+    GAME:EnterDungeon("gloomy_forest", 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, true)
+    return
+  end
   --L'Epreuve des Trois : la Team Dazzling campe au relais tant que le
   --duel n'a pas eu lieu. Pose AVANT les cinematiques pour que les trois
   --soient deja sur la carte quand le joueur reprend la main.

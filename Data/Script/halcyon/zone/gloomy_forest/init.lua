@@ -181,8 +181,9 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 	if segmentID == 3 then
 		-- F21-F23 Deep Shadow : le coeur de la foret s'ouvre au bout.
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-			PrintInfo("[NREPROBE][transition] Sinister Woods seg3 -> clairiere canonique D04P02")
-			GAME:EnterGroundMap('sinister_woods_clearing', 'Main_Entrance_Marker')
+			PrintInfo("[NREPROBE][transition] Sinister Woods seg3 -> final D04P02 ground (gloomy_forest_entrance)")
+			SV.Chapter6.SinisterFinalGroundPending = true
+			GAME:EnterGroundMap('gloomy_forest_entrance', 'Main_Entrance_Marker')
 		elseif result == RogueEssence.Data.GameProgress.ResultType.Escaped then
 			-- Escaped: leave to the entrance, NOT the relay (mirrors Searing Tunnel).
 			GAME:WaitFrames(20)

@@ -599,7 +599,7 @@ function metano_town_ch_6.Butterfree_Action(chara, activator)
 		AI:DisableCharacterAI(partner)
 		SOUND:FadeOutBGM(40)
 		GAME:FadeOut(false, 40)
-		GAME:EnterGroundMap("gloomy_forest_entrance", "Main_Entrance_Marker")
+		GAME:EnterGroundMap("gloomy_forest_midpoint", "Main_Entrance_Marker")
 	else
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_022']))
 		GeneralFunctions.EndConversation(chara)
