@@ -1,0 +1,269 @@
+{
+  "id": "mt_freeze_peak",
+  "aliases": [],
+  "name": {
+    "en": "Mt. Freeze Peak",
+    "fr": "Cime du Mont Gelé"
+  },
+  "chapter": 12,
+  "route": "secondary",
+  "source": "Pokémon Mystery Dungeon: Red Rescue Team — Mt. Freeze Peak (5F). Espèces, niveaux, probabilités, tables d'objets, pièges et boutiques extraits de pret/pmd-red (data/dungeon/MtFreezePeak) via tools/build_canonical_definitions.py ; niveaux renivelés au palier du chapitre 12. Recoupé avec Bulbapedia (page « Mt. Freeze Peak »).",
+  "comment": "Définition canonique générée pour le chapitre 12. Aucun étage pré-calculé : la topologie est produite en jeu par RogueElements. 1 objets canoniques n'existent pas dans le jeu d'objets du mod et sont omis de la table (liste conservée dans `canonical_items_without_pmdo_equivalent`).",
+  "floors": 5,
+  "biome": "freeze_peak",
+  "level": 28,
+  "rescues": 2,
+  "released": false,
+  "music": "",
+  "variation": {
+    "direction": "sommet",
+    "time_limit": 800,
+    "max_foes": 6,
+    "respawn_time": 100,
+    "level_scaling": {
+      "policy": "translation to chapter tier",
+      "chapter_base_level": 28
+    },
+    "canonical_flags": {
+      "maxItemsAllowed": 20,
+      "maxPartyMembers": 4,
+      "keepMoney": true,
+      "recruitingEnabled": true,
+      "stairDirectionUp": true
+    }
+  },
+  "stairs": {
+    "min_distance": 4,
+    "exit_tile": "stairs_go_up"
+  },
+  "dtef": {
+    "floor": "sky_peak_4th_pass_floor",
+    "wall": "sky_peak_4th_pass_wall",
+    "secondary": "sky_peak_4th_pass_secondary",
+    "name": "sky_peak_4th_pass",
+    "element": "normal",
+    "justification": "cime enneigée ; col d'altitude enneigé disponible."
+  },
+  "canonical_items_without_pmdo_equivalent": [
+    "ITEM_MAX_ELIXIR"
+  ],
+  "segments": [
+    {
+      "name": "freeze_peak",
+      "floors": [
+        1,
+        5
+      ],
+      "biome": "freeze_peak",
+      "profiles": [
+        {
+          "name": "large_rooms",
+          "weight": 24
+        },
+        {
+          "name": "crossroads",
+          "weight": 18
+        },
+        {
+          "name": "mixed",
+          "weight": 14
+        }
+      ],
+      "pokemon": [
+        {
+          "species": "glalie",
+          "level": [
+            28,
+            28
+          ],
+          "weight": 20,
+          "floors": [
+            1,
+            5
+          ]
+        }
+      ],
+      "inherit_pokemon": false,
+      "items": {
+        "canonical": {
+          "amount": [
+            2,
+            5
+          ],
+          "entries": [
+            {
+              "item": "berry_cheri",
+              "weight": 2
+            },
+            {
+              "item": "berry_oran",
+              "weight": 9
+            },
+            {
+              "item": "gummi_blue",
+              "weight": 6
+            },
+            {
+              "item": "gummi_brown",
+              "weight": 1
+            },
+            {
+              "item": "gummi_clear",
+              "weight": 1
+            },
+            {
+              "item": "gummi_gold",
+              "weight": 1
+            },
+            {
+              "item": "gummi_gray",
+              "weight": 1
+            },
+            {
+              "item": "gummi_orange",
+              "weight": 1
+            },
+            {
+              "item": "gummi_pink",
+              "weight": 1
+            },
+            {
+              "item": "gummi_silver",
+              "weight": 1
+            },
+            {
+              "item": "gummi_sky",
+              "weight": 1
+            },
+            {
+              "item": "gummi_white",
+              "weight": 1
+            },
+            {
+              "item": "gummi_yellow",
+              "weight": 1
+            },
+            {
+              "item": "seed_reviver",
+              "weight": 7
+            }
+          ]
+        }
+      },
+      "inherit_items": false
+    }
+  ],
+  "money": [
+    340,
+    452
+  ],
+  "profiles": [
+    {
+      "name": "large_rooms",
+      "weight": 10
+    },
+    {
+      "name": "crossroads",
+      "weight": 10
+    },
+    {
+      "name": "mixed",
+      "weight": 10
+    }
+  ],
+  "items": {},
+  "features": {
+    "shop": {
+      "enabled": true,
+      "floors": [
+        1,
+        5
+      ],
+      "trials": 2,
+      "percent": 45,
+      "price_policy": "Data/Item Price x5",
+      "items": [
+        {
+          "item": "berry_oran",
+          "price": 50,
+          "weight": 2
+        },
+        {
+          "item": "seed_reviver",
+          "price": 800,
+          "weight": 4
+        },
+        {
+          "item": "berry_rawst",
+          "price": 70,
+          "weight": 2
+        },
+        {
+          "item": "berry_pecha",
+          "price": 60,
+          "weight": 2
+        },
+        {
+          "item": "berry_cheri",
+          "price": 70,
+          "weight": 2
+        },
+        {
+          "item": "food_apple",
+          "price": 50,
+          "weight": 11
+        },
+        {
+          "item": "food_apple_big",
+          "price": 100,
+          "weight": 3
+        },
+        {
+          "item": "held_power_band",
+          "price": 2000,
+          "weight": 4
+        },
+        {
+          "item": "held_pecha_scarf",
+          "price": 1500,
+          "weight": 4
+        },
+        {
+          "item": "held_insomniascope",
+          "price": 1500,
+          "weight": 4
+        },
+        {
+          "item": "seed_warp",
+          "price": 150,
+          "weight": 2
+        },
+        {
+          "item": "orb_petrify",
+          "price": 250,
+          "weight": 3
+        }
+      ]
+    },
+    "monster_house": {
+      "enabled": true,
+      "floors": [
+        1,
+        5
+      ],
+      "trials": 2,
+      "percent": 30,
+      "species": 6,
+      "level_boost": 2,
+      "items": []
+    },
+    "traps": {
+      "enabled": true,
+      "canonical_kinds": [
+        "Wonder Tile"
+      ],
+      "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
+    }
+  },
+  "fixed_grounds": {}
+}

@@ -71,6 +71,27 @@ def cmd_audit(args) -> int:
     return 0
 
 
+def cmd_audit_all(args) -> int:
+    """Step 6 gate: load every definition and report PASS/FAIL with exact blockers."""
+    from .audit import audit_all, write_report
+    audits, global_problems = audit_all(Path(args.folder) if args.folder else None)
+    for audit in sorted(audits, key=lambda a: (a.status == "FAIL", a.chapter, a.dungeon)):
+        head = f"[{audit.status}] ch{audit.chapter:<3d} {audit.dungeon or audit.file:22s}"
+        print(f"{head} {audit.floors:>3d}F seg={audit.segments} dtef={audit.dtef or '-':22s} "
+              f"species={audit.species:>3d} end={audit.boss_mode or '-'}")
+        if args.verbose:
+            for blocker in audit.blockers:
+                print(f"        {blocker}")
+    passed = sum(1 for a in audits if a.status == "PASS")
+    print(f"\n{passed}/{len(audits)} PASS, {len(audits) - passed} FAIL")
+    for problem in global_problems:
+        print(f"! {problem}")
+    if args.report:
+        for path in write_report(audits, global_problems):
+            print(f"report: {path}")
+    return 0
+
+
 def cmd_ground(args) -> int:
     """Produce the dungeon's fixed Grounds (midpoint, arena) from validated templates."""
     from .ground_pipeline import build_fixed_ground, render_preview, GroundPipelineError
@@ -284,6 +305,13 @@ def build_parser() -> argparse.ArgumentParser:
     sub = parser.add_subparsers(dest="command", required=True)
 
     sub.add_parser("audit", help="list profiles, DTEF packages and definitions").set_defaults(func=cmd_audit)
+
+    audit_all_parser = sub.add_parser("audit-all",
+                                      help="PASS/FAIL audit of every dungeon definition")
+    audit_all_parser.add_argument("--folder", default=None)
+    audit_all_parser.add_argument("--report", action="store_true")
+    audit_all_parser.add_argument("--verbose", action="store_true")
+    audit_all_parser.set_defaults(func=cmd_audit_all)
 
     ground = sub.add_parser("ground", help="build a fixed Ground (midpoint/arena) from its template")
     ground.add_argument("dungeon")

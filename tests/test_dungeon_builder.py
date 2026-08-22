@@ -597,3 +597,121 @@ class TestDtefRegistry(unittest.TestCase):
         clone["dtef"]["justification"] = "no canonical DTEF exists yet for this biome"
         third = parse_definition(clone)
         self.assertFalse(check_tileset_uniqueness([first, third]))
+
+
+class TestCanonicalDefinitionSet(unittest.TestCase):
+    """Step 6: the 51 canonical Ch.6-32 definitions and their global audit."""
+
+    @classmethod
+    def setUpClass(cls):
+        from dungeon_builder.audit import audit_all
+        cls.audits, cls.global_problems = audit_all()
+        cls.by_id = {a.dungeon: a for a in cls.audits}
+
+    def test_the_roster_has_51_dungeons_and_all_are_defined(self):
+        roster = (REPO / "docs" / "ROSTER_IMPORT_DONJONS_PMD_RED_CH7_CH32.md").read_text(encoding="utf-8")
+        rows = [line for line in roster.splitlines()
+                if line.startswith("| ") and line.split("|")[1].strip().isdigit()]
+        self.assertEqual(len(rows), 51, "the project roster must stay at 51 dungeons")
+        self.assertEqual(len(self.audits), 51, "one definition file per roster entry")
+
+    def test_every_definition_records_a_canonical_source(self):
+        for path in sorted((REPO / "DungeonDefs" / "canonical").glob("*.json")):
+            raw = json.loads(path.read_text(encoding="utf-8-sig"))
+            self.assertTrue(raw.get("source"), path.name)
+            self.assertIn("chapter", raw)
+            self.assertGreaterEqual(raw["chapter"], 6)
+            self.assertLessEqual(raw["chapter"], 32)
+
+    def test_no_definition_targets_an_existing_zone_without_being_blocked(self):
+        zones = {p.stem for p in (REPO / "Data" / "Zone").glob("*.json")}
+        for audit in self.audits:
+            if audit.dungeon in zones and audit.dungeon != "gloomy_forest":
+                self.assertEqual(audit.status, "FAIL",
+                                 f"{audit.dungeon} would overwrite another agent's zone")
+                self.assertTrue(any("OUT_OF_SCOPE" in b for b in audit.blockers))
+
+    def test_blocked_definitions_are_never_silently_passing(self):
+        for path in sorted((REPO / "DungeonDefs" / "canonical").glob("*.json")):
+            raw = json.loads(path.read_text(encoding="utf-8-sig"))
+            if raw.get("blocked"):
+                audit = self.by_id.get(raw.get("id"))
+                self.assertIsNotNone(audit, path.name)
+                self.assertEqual(audit.status, "FAIL", path.name)
+
+    def test_canonical_end_grounds_win_over_arenas(self):
+        """Wherever a converted end Ground exists, no arena may be declared."""
+        expected = {
+            "gloomy_forest": "sinister_woods_clearing",
+            "magma_cavern_pit": "fosse_ardente",
+            "wish_cave": "sanctuaire_voeu",
+            "lapis_cave": "grotte_lazuli_fond",
+        }
+        for dungeon, ground in expected.items():
+            path = None
+            for candidate in (REPO / "DungeonDefs" / "canonical").glob("*.json"):
+                raw = json.loads(candidate.read_text(encoding="utf-8-sig"))
+                if raw.get("id") == dungeon:
+                    path = raw
+                    break
+            self.assertIsNotNone(path, dungeon)
+            self.assertEqual(path["boss"]["mode"], "canonical_ground", dungeon)
+            self.assertEqual(path["boss"]["ground"], ground, dungeon)
+            self.assertNotIn("_arena", json.dumps(path["boss"]), dungeon)
+            self.assertTrue((REPO / "Data" / "Ground" / f"{ground}.rsground").exists())
+
+    def test_arena_mode_only_when_no_canonical_end_ground(self):
+        from dungeon_builder.grounds import find_canonical_end_grounds
+        from dungeon_builder.definitions import load_definition
+        for path in sorted((REPO / "DungeonDefs" / "canonical").glob("*.json")):
+            raw = json.loads(path.read_text(encoding="utf-8-sig"))
+            if (raw.get("boss") or {}).get("mode") != "arena_rsmap":
+                continue
+            try:
+                definition = load_definition(path)
+            except DefinitionError:
+                continue
+            self.assertFalse(find_canonical_end_grounds(definition),
+                             f"{raw['id']} declares an arena while a canonical end Ground exists")
+
+    def test_no_tileset_is_shared_without_justification(self):
+        self.assertFalse(self.global_problems, self.global_problems)
+
+    def test_passing_dungeons_are_fully_resolvable(self):
+        from dungeon_builder.definitions import find_definition, load_definition
+        from dungeon_builder.dtef import resolve as resolve_dtef
+        passing = [a for a in self.audits if a.status == "PASS"]
+        self.assertGreaterEqual(len(passing), 20)
+        for audit in passing:
+            definition = load_definition(find_definition(audit.dungeon))
+            for segment in definition.segments:
+                resolve_dtef(definition.dtef_for(segment))
+                self.assertTrue(definition.profiles_for(segment))
+                self.assertTrue(definition.mobs_for(segment), audit.dungeon)
+
+    def test_species_levels_follow_the_chapter_tier(self):
+        from dungeon_builder.definitions import find_definition, load_definition
+        for audit in self.audits:
+            if audit.status != "PASS" or not audit.dungeon:
+                continue
+            definition = load_definition(find_definition(audit.dungeon))
+            levels = [mob.level[0] for segment in definition.segments
+                      for mob in definition.mobs_for(segment)]
+            if not levels:
+                continue
+            self.assertGreaterEqual(min(levels), 5, audit.dungeon)
+            self.assertLess(max(levels), 100, audit.dungeon)
+
+    def test_sinister_woods_reference_is_untouched(self):
+        audit = self.by_id["gloomy_forest"]
+        self.assertEqual(audit.status, "PASS")
+        self.assertEqual(audit.dtef, "sinister_woods_b41")
+        self.assertEqual(audit.boss_mode, "canonical_ground")
+        self.assertEqual(audit.midpoint, "gloomy_forest_midpoint")
+        self.assertEqual(audit.floors, 14)
+
+    def test_no_procedural_zone_was_generated_for_the_new_definitions(self):
+        zones = {p.stem for p in (REPO / "Data" / "Zone").glob("*.json")}
+        produced = {a.dungeon for a in self.audits if a.status == "PASS"} - {"gloomy_forest"}
+        self.assertFalse(produced & zones,
+                         "step 6 must not write any zone; generate-all is not authorised yet")

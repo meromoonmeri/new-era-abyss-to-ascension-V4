@@ -1,0 +1,1442 @@
+{
+  "generated_at": "2026-08-22T22:01:43+00:00",
+  "total": 51,
+  "pass": 26,
+  "fail": 25,
+  "limits": [
+    "Pas de runtime .NET dans cet environnement : la validation runtime in-engine (chargement réel d'une zone par RogueEssence) reste impossible ici ; les rapports laissent le champ « runtime » non renseigné.",
+    "`GridPathTiered` / `GridPathTreads` restent hors profils tant que leur comportement réel n'a pas été lu dans les sources RogueEssence (dépôt non accessible publiquement)."
+  ],
+  "global_problems": [],
+  "dungeons": [
+    {
+      "file": "buried_relic.json",
+      "dungeon": "buried_relic",
+      "name": "Buried Relic",
+      "chapter": 15,
+      "floors": 99,
+      "segments": 3,
+      "direction": "fond",
+      "dtef": "sealed_ruin",
+      "profiles": [
+        "crossroads",
+        "lattice",
+        "mixed",
+        "looping",
+        "dense",
+        "large_rooms"
+      ],
+      "species": 50,
+      "item_entries": 120,
+      "boss_mode": "arena_rsmap",
+      "end_scene": "buried_relic_arena",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/MISSING_ASSET: arena 'buried_relic_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
+        "BLOCKED/SCENE: dedicated arena 'buried_relic_arena.rsmap' must exist in Data/Map before conversion"
+      ],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "file": "darknight_relic.json",
+      "dungeon": "darknight_relic",
+      "name": "Darknight Relic",
+      "chapter": 20,
+      "floors": 15,
+      "segments": 2,
+      "direction": "fond",
+      "dtef": "the_nightmare",
+      "profiles": [
+        "crossroads",
+        "lattice",
+        "mixed",
+        "looping",
+        "dense"
+      ],
+      "species": 14,
+      "item_entries": 42,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "desert_region.json",
+      "dungeon": "desert_region",
+      "name": "Desert Region",
+      "chapter": 17,
+      "floors": 20,
+      "segments": 2,
+      "direction": "sommet",
+      "dtef": "quicksand_pit",
+      "profiles": [
+        "large_rooms",
+        "twosides",
+        "mixed",
+        "looping",
+        "dense"
+      ],
+      "species": 13,
+      "item_entries": 28,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "fantasy_strait.json",
+      "dungeon": "fantasy_strait",
+      "name": "Fantasy Strait",
+      "chapter": 24,
+      "floors": 30,
+      "segments": 2,
+      "direction": "fond",
+      "dtef": "",
+      "profiles": [],
+      "species": 0,
+      "item_entries": 0,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
+        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome"
+      ],
+      "notes": [],
+      "status": "FAIL"
+    },
+    {
+      "file": "far_off_sea.json",
+      "dungeon": "far_off_sea",
+      "name": "Far-Off Sea",
+      "chapter": 27,
+      "floors": 75,
+      "segments": 3,
+      "direction": "fond",
+      "dtef": "zero_isle_east_4",
+      "profiles": [
+        "looping",
+        "ring",
+        "mixed",
+        "lattice",
+        "large_rooms"
+      ],
+      "species": 36,
+      "item_entries": 60,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "fiery_field.json",
+      "dungeon": "fiery_field",
+      "name": "Fiery Field",
+      "chapter": 18,
+      "floors": 30,
+      "segments": 2,
+      "direction": "sommet",
+      "dtef": "",
+      "profiles": [],
+      "species": 0,
+      "item_entries": 0,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
+        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
+        "BLOCKED/MISSING_ASSET: arena 'fiery_field_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
+      ],
+      "notes": [],
+      "status": "FAIL"
+    },
+    {
+      "file": "frosty_forest.json",
+      "dungeon": "frosty_forest",
+      "name": "Frosty Forest",
+      "chapter": 11,
+      "floors": 9,
+      "segments": 1,
+      "direction": "sommet",
+      "dtef": "frosty_forest",
+      "profiles": [
+        "branching",
+        "dense",
+        "mixed"
+      ],
+      "species": 8,
+      "item_entries": 22,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/OUT_OF_SCOPE: Data/Zone/frosty_forest.json already exists and belongs to another agent"
+      ],
+      "notes": [
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "file": "frosty_grotto.json",
+      "dungeon": "frosty_grotto",
+      "name": "Frosty Grotto",
+      "chapter": 11,
+      "floors": 5,
+      "segments": 1,
+      "direction": "sommet",
+      "dtef": "mt_freeze",
+      "profiles": [
+        "branching",
+        "mixed",
+        "dense"
+      ],
+      "species": 3,
+      "item_entries": 5,
+      "boss_mode": "arena_rsmap",
+      "end_scene": "frosty_grotto_arena",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/MISSING_ASSET: arena 'frosty_grotto_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
+        "BLOCKED/SCENE: dedicated arena 'frosty_grotto_arena.rsmap' must exist in Data/Map before conversion"
+      ],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "file": "grand_sea.json",
+      "dungeon": "grand_sea",
+      "name": "Grand Sea",
+      "chapter": 21,
+      "floors": 30,
+      "segments": 2,
+      "direction": "fond",
+      "dtef": "",
+      "profiles": [],
+      "species": 0,
+      "item_entries": 0,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
+        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome"
+      ],
+      "notes": [],
+      "status": "FAIL"
+    },
+    {
+      "file": "great_canyon.json",
+      "dungeon": "great_canyon",
+      "name": "Great Canyon",
+      "chapter": 9,
+      "floors": 12,
+      "segments": 2,
+      "direction": "sommet",
+      "dtef": "mt_horn",
+      "profiles": [
+        "twosides",
+        "branching",
+        "mixed",
+        "crossroads"
+      ],
+      "species": 16,
+      "item_entries": 44,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "howling_forest.json",
+      "dungeon": "howling_forest",
+      "name": "Howling Forest",
+      "chapter": 25,
+      "floors": 15,
+      "segments": 2,
+      "direction": "sommet",
+      "dtef": "howling_forest_2",
+      "profiles": [
+        "branching",
+        "dense",
+        "mixed",
+        "looping"
+      ],
+      "species": 16,
+      "item_entries": 54,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "joyous_tower.json",
+      "dungeon": "joyous_tower",
+      "name": "Joyous Tower",
+      "chapter": 27,
+      "floors": 99,
+      "segments": 3,
+      "direction": "sommet",
+      "dtef": "lush_prairie",
+      "profiles": [
+        "crossroads",
+        "branching",
+        "mixed",
+        "lattice",
+        "looping",
+        "large_rooms"
+      ],
+      "species": 125,
+      "item_entries": 132,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "lapis_cave.json",
+      "dungeon": "lapis_cave",
+      "name": "Lapis Cave",
+      "chapter": 10,
+      "floors": 14,
+      "segments": 2,
+      "direction": "fond",
+      "dtef": "lapis_cave",
+      "profiles": [
+        "branching",
+        "mixed",
+        "dense",
+        "looping",
+        "lattice"
+      ],
+      "species": 11,
+      "item_entries": 44,
+      "boss_mode": "canonical_ground",
+      "end_scene": "grotte_lazuli_fond",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/OUT_OF_SCOPE: Data/Zone/lapis_cave.json already exists and belongs to another agent"
+      ],
+      "notes": [
+        "no fixed 'mid' Ground declared",
+        "final battle stays on the canonical end Ground 'grotte_lazuli_fond' (no separate arena created)"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "file": "lightning_field.json",
+      "dungeon": "lightning_field",
+      "name": "Lightning Field",
+      "chapter": 20,
+      "floors": 30,
+      "segments": 2,
+      "direction": "sommet",
+      "dtef": "far_amp_plains",
+      "profiles": [
+        "twosides",
+        "large_rooms",
+        "mixed",
+        "looping"
+      ],
+      "species": 22,
+      "item_entries": 66,
+      "boss_mode": "arena_rsmap",
+      "end_scene": "lightning_field_arena",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/MISSING_ASSET: arena 'lightning_field_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
+        "BLOCKED/SCENE: dedicated arena 'lightning_field_arena.rsmap' must exist in Data/Map before conversion"
+      ],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "file": "magma_cavern.json",
+      "dungeon": "magma_cavern",
+      "name": "Magma Cavern",
+      "chapter": 12,
+      "floors": 23,
+      "segments": 3,
+      "direction": "fond",
+      "dtef": "magma_cavern_2",
+      "profiles": [
+        "branching",
+        "mixed",
+        "dense",
+        "looping",
+        "lattice",
+        "large_rooms"
+      ],
+      "species": 22,
+      "item_entries": 45,
+      "boss_mode": "canonical_ground",
+      "end_scene": "gorge_ardente_coeur",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'mid' Ground declared",
+        "final battle stays on the canonical end Ground 'gorge_ardente_coeur' (no separate arena created)"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "magma_cavern_pit.json",
+      "dungeon": "magma_cavern_pit",
+      "name": "Magma Cavern Pit",
+      "chapter": 12,
+      "floors": 3,
+      "segments": 1,
+      "direction": "fond",
+      "dtef": "world_abyss_2",
+      "profiles": [
+        "branching",
+        "mixed",
+        "dense"
+      ],
+      "species": 5,
+      "item_entries": 0,
+      "boss_mode": "canonical_ground",
+      "end_scene": "fosse_ardente",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no floor items (canonical: money only)",
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "final battle stays on the canonical end Ground 'fosse_ardente' (no separate arena created)"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "marvelous_sea.json",
+      "dungeon": "marvelous_sea",
+      "name": "Marvelous Sea",
+      "chapter": 23,
+      "floors": 20,
+      "segments": 2,
+      "direction": "fond",
+      "dtef": "miracle_sea",
+      "profiles": [
+        "looping",
+        "ring",
+        "mixed",
+        "lattice"
+      ],
+      "species": 15,
+      "item_entries": 36,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "meteor_cave.json",
+      "dungeon": "meteor_cave",
+      "name": "Meteor Cave",
+      "chapter": 14,
+      "floors": 20,
+      "segments": 2,
+      "direction": "fond",
+      "dtef": "spacial_rift_1",
+      "profiles": [
+        "branching",
+        "mixed",
+        "dense",
+        "looping",
+        "lattice"
+      ],
+      "species": 7,
+      "item_entries": 0,
+      "boss_mode": "arena_rsmap",
+      "end_scene": "meteor_cave_arena",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/MISSING_ASSET: arena 'meteor_cave_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
+        "BLOCKED/SCENE: dedicated arena 'meteor_cave_arena.rsmap' must exist in Data/Map before conversion"
+      ],
+      "notes": [
+        "no floor items (canonical: money only)",
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "file": "mt_blaze.json",
+      "dungeon": "mt_blaze",
+      "name": "Mt. Blaze",
+      "chapter": 10,
+      "floors": 12,
+      "segments": 2,
+      "direction": "sommet",
+      "dtef": "mt_blaze",
+      "profiles": [
+        "twosides",
+        "branching",
+        "mixed",
+        "crossroads"
+      ],
+      "species": 9,
+      "item_entries": 24,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/OUT_OF_SCOPE: Data/Zone/mt_blaze.json already exists and belongs to another agent"
+      ],
+      "notes": [
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "file": "mt_blaze_peak.json",
+      "dungeon": "mt_blaze_peak",
+      "name": "Mt. Blaze Peak",
+      "chapter": 10,
+      "floors": 3,
+      "segments": 1,
+      "direction": "sommet",
+      "dtef": "magma_cavern_2",
+      "profiles": [
+        "large_rooms",
+        "crossroads",
+        "mixed"
+      ],
+      "species": 3,
+      "item_entries": 1,
+      "boss_mode": "arena_rsmap",
+      "end_scene": "mt_blaze_peak_arena",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/MISSING_ASSET: arena 'mt_blaze_peak_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
+        "BLOCKED/SCENE: dedicated arena 'mt_blaze_peak_arena.rsmap' must exist in Data/Map before conversion"
+      ],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "file": "mt_faraway.json",
+      "dungeon": "mt_faraway",
+      "name": "Mt. Faraway",
+      "chapter": 28,
+      "floors": 40,
+      "segments": 3,
+      "direction": "sommet",
+      "dtef": "",
+      "profiles": [],
+      "species": 0,
+      "item_entries": 0,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
+        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
+        "BLOCKED/MISSING_ASSET: arena 'mt_faraway_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
+      ],
+      "notes": [],
+      "status": "FAIL"
+    },
+    {
+      "file": "mt_freeze.json",
+      "dungeon": "mt_freeze",
+      "name": "Mt. Freeze",
+      "chapter": 11,
+      "floors": 15,
+      "segments": 2,
+      "direction": "sommet",
+      "dtef": "mt_freeze",
+      "profiles": [
+        "twosides",
+        "branching",
+        "mixed",
+        "crossroads"
+      ],
+      "species": 13,
+      "item_entries": 56,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/OUT_OF_SCOPE: Data/Zone/mt_freeze.json already exists and belongs to another agent"
+      ],
+      "notes": [
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "file": "mt_freeze_peak.json",
+      "dungeon": "mt_freeze_peak",
+      "name": "Mt. Freeze Peak",
+      "chapter": 12,
+      "floors": 5,
+      "segments": 1,
+      "direction": "sommet",
+      "dtef": "sky_peak_4th_pass",
+      "profiles": [
+        "large_rooms",
+        "crossroads",
+        "mixed"
+      ],
+      "species": 1,
+      "item_entries": 14,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "mt_steel.json",
+      "dungeon": "mt_steel",
+      "name": "Mt. Steel",
+      "chapter": 7,
+      "floors": 9,
+      "segments": 1,
+      "direction": "sommet",
+      "dtef": "steel_aegis_cave",
+      "profiles": [
+        "twosides",
+        "branching",
+        "mixed"
+      ],
+      "species": 9,
+      "item_entries": 9,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "mt_thunder.json",
+      "dungeon": "mt_thunder",
+      "name": "Mt. Thunder",
+      "chapter": 9,
+      "floors": 10,
+      "segments": 2,
+      "direction": "sommet",
+      "dtef": "craggy_peak",
+      "profiles": [
+        "twosides",
+        "branching",
+        "mixed",
+        "crossroads"
+      ],
+      "species": 15,
+      "item_entries": 44,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "mt_thunder_peak.json",
+      "dungeon": "mt_thunder_peak",
+      "name": "Mt. Thunder Peak",
+      "chapter": 9,
+      "floors": 3,
+      "segments": 1,
+      "direction": "sommet",
+      "dtef": "",
+      "profiles": [],
+      "species": 0,
+      "item_entries": 0,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
+        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
+        "BLOCKED/MISSING_ASSET: arena 'mt_thunder_peak_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
+      ],
+      "notes": [],
+      "status": "FAIL"
+    },
+    {
+      "file": "murky_cave.json",
+      "dungeon": "murky_cave",
+      "name": "Murky Cave",
+      "chapter": 21,
+      "floors": 19,
+      "segments": 2,
+      "direction": "fond",
+      "dtef": "dark_hill",
+      "profiles": [
+        "branching",
+        "mixed",
+        "dense",
+        "looping",
+        "lattice"
+      ],
+      "species": 17,
+      "item_entries": 0,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no floor items (canonical: money only)",
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "northern_range.json",
+      "dungeon": "northern_range",
+      "name": "Northern Range",
+      "chapter": 16,
+      "floors": 25,
+      "segments": 2,
+      "direction": "sommet",
+      "dtef": "",
+      "profiles": [],
+      "species": 0,
+      "item_entries": 0,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
+        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
+        "BLOCKED/MISSING_ASSET: arena 'northern_range_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
+      ],
+      "notes": [],
+      "status": "FAIL"
+    },
+    {
+      "file": "northwind_field.json",
+      "dungeon": "northwind_field",
+      "name": "Northwind Field",
+      "chapter": 19,
+      "floors": 30,
+      "segments": 2,
+      "direction": "sommet",
+      "dtef": "",
+      "profiles": [],
+      "species": 0,
+      "item_entries": 0,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
+        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
+        "BLOCKED/MISSING_ASSET: arena 'northwind_field_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
+      ],
+      "notes": [],
+      "status": "FAIL"
+    },
+    {
+      "file": "oddity_cave.json",
+      "dungeon": "oddity_cave",
+      "name": "Oddity Cave",
+      "chapter": 22,
+      "floors": 15,
+      "segments": 2,
+      "direction": "fond",
+      "dtef": "spacial_rift_2",
+      "profiles": [
+        "branching",
+        "mixed",
+        "dense",
+        "looping",
+        "lattice"
+      ],
+      "species": 24,
+      "item_entries": 58,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "pitfall_valley.json",
+      "dungeon": "pitfall_valley",
+      "name": "Pitfall Valley",
+      "chapter": 16,
+      "floors": 25,
+      "segments": 2,
+      "direction": "fond",
+      "dtef": "pitfall_valley_1",
+      "profiles": [
+        "twosides",
+        "branching",
+        "mixed",
+        "crossroads"
+      ],
+      "species": 17,
+      "item_entries": 53,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "purity_forest.json",
+      "dungeon": "purity_forest",
+      "name": "Purity Forest",
+      "chapter": 29,
+      "floors": 99,
+      "segments": 4,
+      "direction": "sommet",
+      "dtef": "purity_forest_4",
+      "profiles": [
+        "branching",
+        "dense",
+        "mixed",
+        "looping",
+        "large_rooms"
+      ],
+      "species": 154,
+      "item_entries": 171,
+      "boss_mode": "arena_rsmap",
+      "end_scene": "purity_forest_arena",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/MISSING_ASSET: arena 'purity_forest_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
+        "BLOCKED/SCENE: dedicated arena 'purity_forest_arena.rsmap' must exist in Data/Map before conversion"
+      ],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "file": "remains_island.json",
+      "dungeon": "remains_island",
+      "name": "Remains Island",
+      "chapter": 23,
+      "floors": 20,
+      "segments": 2,
+      "direction": "fond",
+      "dtef": "concealed_ruins",
+      "profiles": [
+        "crossroads",
+        "lattice",
+        "mixed",
+        "looping",
+        "dense"
+      ],
+      "species": 27,
+      "item_entries": 58,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "rock_path.json",
+      "dungeon": "rock_path",
+      "name": "Rock Path",
+      "chapter": 24,
+      "floors": 4,
+      "segments": 1,
+      "direction": "fond",
+      "dtef": "rock_path_rb",
+      "profiles": [
+        "branching",
+        "mixed",
+        "dense"
+      ],
+      "species": 5,
+      "item_entries": 15,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "silent_chasm.json",
+      "dungeon": "silent_chasm",
+      "name": "Silent Chasm",
+      "chapter": 8,
+      "floors": 9,
+      "segments": 1,
+      "direction": "fond",
+      "dtef": "chasm_cave",
+      "profiles": [
+        "branching",
+        "mixed",
+        "dense"
+      ],
+      "species": 12,
+      "item_entries": 21,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "silver_trench.json",
+      "dungeon": "silver_trench",
+      "name": "Silver Trench",
+      "chapter": 13,
+      "floors": 99,
+      "segments": 3,
+      "direction": "fond",
+      "dtef": "",
+      "profiles": [],
+      "species": 0,
+      "item_entries": 0,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
+        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
+        "BLOCKED/MISSING_ASSET: arena 'silver_trench_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
+      ],
+      "notes": [],
+      "status": "FAIL"
+    },
+    {
+      "file": "sinister_woods.json",
+      "dungeon": "gloomy_forest",
+      "name": "Sinister Woods",
+      "chapter": 6,
+      "floors": 14,
+      "segments": 3,
+      "direction": "fond",
+      "dtef": "sinister_woods_b41",
+      "profiles": [
+        "branching",
+        "dense",
+        "mixed",
+        "crossroads",
+        "looping",
+        "large_rooms",
+        "ring"
+      ],
+      "species": 27,
+      "item_entries": 45,
+      "boss_mode": "canonical_ground",
+      "end_scene": "sinister_woods_clearing",
+      "midpoint": "gloomy_forest_midpoint",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "final battle stays on the canonical end Ground 'sinister_woods_clearing' (no separate arena created)"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "sky_tower.json",
+      "dungeon": "sky_tower",
+      "name": "Sky Tower",
+      "chapter": 10,
+      "floors": 25,
+      "segments": 1,
+      "direction": "sommet",
+      "dtef": "",
+      "profiles": [],
+      "species": 0,
+      "item_entries": 0,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
+        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
+        "BLOCKED/OUT_OF_SCOPE: already imported by another agent (Sky Tower arc)"
+      ],
+      "notes": [],
+      "status": "FAIL"
+    },
+    {
+      "file": "sky_tower_summit.json",
+      "dungeon": "sky_tower_summit",
+      "name": "Sky Tower Summit",
+      "chapter": 10,
+      "floors": 9,
+      "segments": 1,
+      "direction": "sommet",
+      "dtef": "",
+      "profiles": [],
+      "species": 0,
+      "item_entries": 0,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
+        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
+        "BLOCKED/MISSING_ASSET: arena 'sky_tower_summit_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
+        "BLOCKED/OUT_OF_SCOPE: already imported by another agent (Sky Tower arc)"
+      ],
+      "notes": [],
+      "status": "FAIL"
+    },
+    {
+      "file": "snow_path.json",
+      "dungeon": "snow_path",
+      "name": "Snow Path",
+      "chapter": 25,
+      "floors": 4,
+      "segments": 1,
+      "direction": "fond",
+      "dtef": "",
+      "profiles": [],
+      "species": 0,
+      "item_entries": 0,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
+        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome"
+      ],
+      "notes": [],
+      "status": "FAIL"
+    },
+    {
+      "file": "solar_cave.json",
+      "dungeon": "solar_cave",
+      "name": "Solar Cave",
+      "chapter": 19,
+      "floors": 20,
+      "segments": 2,
+      "direction": "fond",
+      "dtef": "golden_chamber",
+      "profiles": [
+        "branching",
+        "mixed",
+        "dense",
+        "looping",
+        "lattice"
+      ],
+      "species": 25,
+      "item_entries": 36,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "southern_cavern.json",
+      "dungeon": "southern_cavern",
+      "name": "Southern Cavern",
+      "chapter": 17,
+      "floors": 50,
+      "segments": 3,
+      "direction": "fond",
+      "dtef": "western_cave_2",
+      "profiles": [
+        "branching",
+        "mixed",
+        "dense",
+        "looping",
+        "lattice",
+        "large_rooms"
+      ],
+      "species": 31,
+      "item_entries": 55,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "stormy_sea.json",
+      "dungeon": "stormy_sea",
+      "name": "Stormy Sea",
+      "chapter": 13,
+      "floors": 40,
+      "segments": 3,
+      "direction": "fond",
+      "dtef": "stormy_sea_1",
+      "profiles": [
+        "looping",
+        "ring",
+        "mixed",
+        "lattice",
+        "large_rooms"
+      ],
+      "species": 24,
+      "item_entries": 116,
+      "boss_mode": "arena_rsmap",
+      "end_scene": "stormy_sea_arena",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/MISSING_ASSET: arena 'stormy_sea_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
+        "BLOCKED/SCENE: dedicated arena 'stormy_sea_arena.rsmap' must exist in Data/Map before conversion"
+      ],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "file": "thunderwave_cave.json",
+      "dungeon": "thunderwave_cave",
+      "name": "Thunderwave Cave",
+      "chapter": 7,
+      "floors": 5,
+      "segments": 1,
+      "direction": "fond",
+      "dtef": "chasm_cave",
+      "profiles": [
+        "branching",
+        "mixed",
+        "dense"
+      ],
+      "species": 7,
+      "item_entries": 6,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "tiny_woods.json",
+      "dungeon": "tiny_woods",
+      "name": "Tiny Woods",
+      "chapter": 7,
+      "floors": 3,
+      "segments": 1,
+      "direction": "fond",
+      "dtef": "mystifying_forest",
+      "profiles": [
+        "branching",
+        "dense",
+        "mixed"
+      ],
+      "species": 4,
+      "item_entries": 2,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "unown_relic.json",
+      "dungeon": "unown_relic",
+      "name": "Unown Relic",
+      "chapter": 26,
+      "floors": 11,
+      "segments": 2,
+      "direction": "fond",
+      "dtef": "sealed_ruin_pit",
+      "profiles": [
+        "crossroads",
+        "lattice",
+        "mixed",
+        "looping",
+        "dense"
+      ],
+      "species": 52,
+      "item_entries": 28,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "uproar_forest.json",
+      "dungeon": "uproar_forest",
+      "name": "Uproar Forest",
+      "chapter": 22,
+      "floors": 10,
+      "segments": 2,
+      "direction": "fond",
+      "dtef": "treeshroud_forest_2",
+      "profiles": [
+        "branching",
+        "dense",
+        "mixed",
+        "looping"
+      ],
+      "species": 10,
+      "item_entries": 15,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "waterfall_pond.json",
+      "dungeon": "waterfall_pond",
+      "name": "Waterfall Pond",
+      "chapter": 26,
+      "floors": 19,
+      "segments": 2,
+      "direction": "fond",
+      "dtef": "unused_waterfall_pond",
+      "profiles": [
+        "looping",
+        "ring",
+        "mixed",
+        "lattice"
+      ],
+      "species": 23,
+      "item_entries": 12,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
+      ],
+      "status": "PASS"
+    },
+    {
+      "file": "western_cave.json",
+      "dungeon": "western_cave",
+      "name": "Western Cave",
+      "chapter": 14,
+      "floors": 99,
+      "segments": 3,
+      "direction": "fond",
+      "dtef": "western_cave_1",
+      "profiles": [
+        "branching",
+        "mixed",
+        "dense",
+        "looping",
+        "lattice",
+        "large_rooms"
+      ],
+      "species": 55,
+      "item_entries": 36,
+      "boss_mode": "arena_rsmap",
+      "end_scene": "western_cave_arena",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/MISSING_ASSET: arena 'western_cave_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
+        "BLOCKED/SCENE: dedicated arena 'western_cave_arena.rsmap' must exist in Data/Map before conversion"
+      ],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "file": "wish_cave.json",
+      "dungeon": "wish_cave",
+      "name": "Wish Cave",
+      "chapter": 15,
+      "floors": 99,
+      "segments": 2,
+      "direction": "fond",
+      "dtef": "",
+      "profiles": [],
+      "species": 0,
+      "item_entries": 0,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
+        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
+        "BLOCKED/OUT_OF_SCOPE: Data/Zone/wish_cave.json already exists and belongs to another agent"
+      ],
+      "notes": [],
+      "status": "FAIL"
+    },
+    {
+      "file": "wyvern_hill.json",
+      "dungeon": "wyvern_hill",
+      "name": "Wyvern Hill",
+      "chapter": 18,
+      "floors": 30,
+      "segments": 2,
+      "direction": "sommet",
+      "dtef": "",
+      "profiles": [],
+      "species": 0,
+      "item_entries": 0,
+      "boss_mode": "",
+      "end_scene": "",
+      "midpoint": "",
+      "blockers": [
+        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
+        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome"
+      ],
+      "notes": [],
+      "status": "FAIL"
+    }
+  ]
+}

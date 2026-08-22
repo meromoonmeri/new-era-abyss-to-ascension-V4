@@ -145,6 +145,7 @@ class DungeonDefinition:
     midpoint: Dict[str, Any] = field(default_factory=dict)
     variation: Dict[str, Any] = field(default_factory=dict)
     aliases: List[str] = field(default_factory=list)
+    blocked: List[str] = field(default_factory=list)
     path: Optional[Path] = None
 
     # -- cascade helpers ----------------------------------------------
@@ -320,6 +321,7 @@ def parse_definition(data: Dict[str, Any], path: Optional[Path] = None) -> Dunge
         midpoint=dict(data.get("midpoint", {})),
         variation=dict(data.get("variation", {})),
         aliases=[str(a) for a in data.get("aliases", [])],
+        blocked=[str(b) for b in data.get("blocked", [])],
         path=path,
     )
 
@@ -372,6 +374,15 @@ def find_definition(name: str, folder: Optional[Path] = None) -> Path:
     candidate = folder / f"{name}.json"
     if candidate.exists():
         return candidate
+    # a definition may declare an id that differs from its file name
+    # (e.g. sinister_woods.json -> id "gloomy_forest" kept for save compatibility)
+    for path in sorted(folder.glob("*.json")):
+        try:
+            data = json.loads(path.read_text(encoding="utf-8-sig"))
+        except json.JSONDecodeError:
+            continue
+        if data.get("id") == name:
+            return path
     raise DefinitionError(f"no definition '{name}' in {folder}")
 
 

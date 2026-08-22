@@ -1,0 +1,411 @@
+{
+  "id": "frosty_forest",
+  "aliases": [
+    "foret_givree_oree"
+  ],
+  "name": {
+    "en": "Frosty Forest",
+    "fr": "Forêt Givrée"
+  },
+  "chapter": 11,
+  "route": "secondary",
+  "source": "Pokémon Mystery Dungeon: Red Rescue Team — Frosty Forest (9F). Espèces, niveaux, probabilités, tables d'objets, pièges et boutiques extraits de pret/pmd-red (data/dungeon/FrostyForest) via tools/build_canonical_definitions.py ; niveaux renivelés au palier du chapitre 11. Recoupé avec Bulbapedia (page « Frosty Forest »).",
+  "comment": "Définition canonique générée pour le chapitre 11. Aucun étage pré-calculé : la topologie est produite en jeu par RogueElements. 21 objets canoniques n'existent pas dans le jeu d'objets du mod et sont omis de la table (liste conservée dans `canonical_items_without_pmdo_equivalent`).",
+  "floors": 9,
+  "biome": "frosty_edge",
+  "level": 26,
+  "rescues": 2,
+  "released": false,
+  "music": "",
+  "variation": {
+    "direction": "sommet",
+    "time_limit": 1000,
+    "max_foes": 6,
+    "respawn_time": 100,
+    "level_scaling": {
+      "policy": "translation to chapter tier",
+      "chapter_base_level": 26
+    },
+    "canonical_flags": {
+      "maxItemsAllowed": 20,
+      "maxPartyMembers": 3,
+      "keepMoney": true,
+      "recruitingEnabled": true,
+      "stairDirectionUp": true
+    }
+  },
+  "stairs": {
+    "min_distance": 4,
+    "exit_tile": "stairs_go_up"
+  },
+  "dtef": {
+    "floor": "frosty_forest_floor",
+    "wall": "frosty_forest_wall",
+    "secondary": "frosty_forest_secondary",
+    "name": "frosty_forest",
+    "element": "normal"
+  },
+  "canonical_items_without_pmdo_equivalent": [
+    "ITEM_GRAVELEROCK",
+    "ITEM_MAX_ELIXIR",
+    "ITEM_STAMINA_BAND",
+    "ITEM_TM_AERIAL_ACE",
+    "ITEM_TM_BRICK_BREAK",
+    "ITEM_TM_BULLET_SEED",
+    "ITEM_TM_DIG",
+    "ITEM_TM_FACADE",
+    "ITEM_TM_FRUSTRATION",
+    "ITEM_TM_GIGA_DRAIN",
+    "ITEM_TM_HIDDEN_POWER",
+    "ITEM_TM_REST",
+    "ITEM_TM_RETURN",
+    "ITEM_TM_ROAR",
+    "ITEM_TM_SAFEGUARD",
+    "ITEM_TM_SECRET_POWER",
+    "ITEM_TM_SHADOW_BALL",
+    "ITEM_TM_SHOCK_WAVE",
+    "ITEM_TM_TAUNT",
+    "ITEM_TM_THIEF",
+    "ITEM_TM_TOXIC"
+  ],
+  "segments": [
+    {
+      "name": "frosty_edge",
+      "floors": [
+        1,
+        9
+      ],
+      "biome": "frosty_edge",
+      "profiles": [
+        {
+          "name": "branching",
+          "weight": 24
+        },
+        {
+          "name": "dense",
+          "weight": 18
+        },
+        {
+          "name": "mixed",
+          "weight": 14
+        }
+      ],
+      "pokemon": [
+        {
+          "species": "azurill",
+          "level": [
+            26,
+            26
+          ],
+          "weight": 7,
+          "floors": [
+            1,
+            3
+          ]
+        },
+        {
+          "species": "ditto",
+          "level": [
+            40,
+            40
+          ],
+          "weight": 4,
+          "floors": [
+            4,
+            9
+          ]
+        },
+        {
+          "species": "furret",
+          "level": [
+            29,
+            29
+          ],
+          "weight": 10,
+          "floors": [
+            1,
+            4
+          ]
+        },
+        {
+          "species": "lairon",
+          "level": [
+            32,
+            32
+          ],
+          "weight": 7,
+          "floors": [
+            7,
+            9
+          ]
+        },
+        {
+          "species": "mightyena",
+          "level": [
+            32,
+            32
+          ],
+          "weight": 7,
+          "floors": [
+            7,
+            9
+          ]
+        },
+        {
+          "species": "nosepass",
+          "level": [
+            28,
+            28
+          ],
+          "weight": 8,
+          "floors": [
+            3,
+            6
+          ]
+        },
+        {
+          "species": "piloswine",
+          "level": [
+            29,
+            29
+          ],
+          "weight": 6,
+          "floors": [
+            4,
+            6
+          ]
+        },
+        {
+          "species": "snorunt",
+          "level": [
+            35,
+            35
+          ],
+          "weight": 4,
+          "floors": [
+            8,
+            9
+          ]
+        }
+      ],
+      "inherit_pokemon": false,
+      "items": {
+        "canonical": {
+          "amount": [
+            2,
+            5
+          ],
+          "entries": [
+            {
+              "item": "berry_cheri",
+              "weight": 1
+            },
+            {
+              "item": "berry_oran",
+              "weight": 9
+            },
+            {
+              "item": "berry_pecha",
+              "weight": 4
+            },
+            {
+              "item": "food_apple",
+              "weight": 12
+            },
+            {
+              "item": "gummi_black",
+              "weight": 1
+            },
+            {
+              "item": "gummi_blue",
+              "weight": 1
+            },
+            {
+              "item": "gummi_brown",
+              "weight": 1
+            },
+            {
+              "item": "gummi_clear",
+              "weight": 1
+            },
+            {
+              "item": "gummi_gold",
+              "weight": 1
+            },
+            {
+              "item": "gummi_orange",
+              "weight": 1
+            },
+            {
+              "item": "gummi_pink",
+              "weight": 1
+            },
+            {
+              "item": "gummi_silver",
+              "weight": 1
+            },
+            {
+              "item": "gummi_sky",
+              "weight": 1
+            },
+            {
+              "item": "gummi_white",
+              "weight": 1
+            },
+            {
+              "item": "gummi_yellow",
+              "weight": 1
+            },
+            {
+              "item": "held_pecha_scarf",
+              "weight": 4
+            },
+            {
+              "item": "held_power_band",
+              "weight": 5
+            },
+            {
+              "item": "held_special_band",
+              "weight": 5
+            },
+            {
+              "item": "machine_recall_box",
+              "weight": 20
+            },
+            {
+              "item": "seed_blast",
+              "weight": 3
+            },
+            {
+              "item": "tm_attract",
+              "weight": 2
+            },
+            {
+              "item": "tm_torment",
+              "weight": 2
+            }
+          ]
+        }
+      },
+      "inherit_items": false
+    }
+  ],
+  "money": [
+    320,
+    426
+  ],
+  "profiles": [
+    {
+      "name": "branching",
+      "weight": 10
+    },
+    {
+      "name": "dense",
+      "weight": 10
+    },
+    {
+      "name": "mixed",
+      "weight": 10
+    }
+  ],
+  "items": {},
+  "features": {
+    "shop": {
+      "enabled": true,
+      "floors": [
+        1,
+        9
+      ],
+      "trials": 2,
+      "percent": 45,
+      "price_policy": "Data/Item Price x5",
+      "items": [
+        {
+          "item": "berry_oran",
+          "price": 50,
+          "weight": 2
+        },
+        {
+          "item": "seed_reviver",
+          "price": 800,
+          "weight": 4
+        },
+        {
+          "item": "berry_rawst",
+          "price": 70,
+          "weight": 2
+        },
+        {
+          "item": "berry_pecha",
+          "price": 60,
+          "weight": 2
+        },
+        {
+          "item": "berry_cheri",
+          "price": 70,
+          "weight": 2
+        },
+        {
+          "item": "food_apple",
+          "price": 50,
+          "weight": 11
+        },
+        {
+          "item": "food_apple_big",
+          "price": 100,
+          "weight": 3
+        },
+        {
+          "item": "held_power_band",
+          "price": 2000,
+          "weight": 4
+        },
+        {
+          "item": "held_pecha_scarf",
+          "price": 1500,
+          "weight": 4
+        },
+        {
+          "item": "held_insomniascope",
+          "price": 1500,
+          "weight": 4
+        },
+        {
+          "item": "seed_warp",
+          "price": 150,
+          "weight": 2
+        },
+        {
+          "item": "orb_petrify",
+          "price": 250,
+          "weight": 3
+        }
+      ]
+    },
+    "monster_house": {
+      "enabled": true,
+      "floors": [
+        1,
+        9
+      ],
+      "trials": 2,
+      "percent": 30,
+      "species": 6,
+      "level_boost": 2,
+      "items": []
+    },
+    "traps": {
+      "enabled": true,
+      "canonical_kinds": [
+        "Wonder Tile"
+      ],
+      "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
+    }
+  },
+  "fixed_grounds": {
+    "entrance": "foret_givree_oree"
+  },
+  "blocked": [
+    "BLOCKED/OUT_OF_SCOPE: Data/Zone/frosty_forest.json already exists and belongs to another agent"
+  ]
+}
