@@ -1,0 +1,79 @@
+{
+  "schema": "new-era.pmdred-eu.sinister-woods.runtime-tile-safety.v1",
+  "runtime": "PMDO 0.8.12 headless",
+  "fixture": "sinister-woods-procedural-fixture-active",
+  "fix": "Removed delayed mutation of shared AutoTile frame lists from SinisterWoodsB41StartupAdapter; native PMDO TileLayer animation remains authoritative.",
+  "checks": {
+    "index_zone_exit": 0,
+    "legacy_adapter_log_absent": true,
+    "events": [
+      {
+        "event": "bootstrap"
+      },
+      {
+        "event": "enter",
+        "segment": 0
+      },
+      {
+        "event": "map",
+        "segment": 0,
+        "width": 38,
+        "height": 51,
+        "music": "PMD Red EU - Sinister Woods.ogg",
+        "deep_shadow_setter": false,
+        "darkness": false,
+        "dusk": false,
+        "free_collision_probe": true,
+        "blocked_collision_probe": true
+      },
+      {
+        "event": "enter",
+        "segment": 1
+      },
+      {
+        "event": "map",
+        "segment": 1,
+        "width": 51,
+        "height": 38,
+        "music": "PMD Red EU - Sinister Woods.ogg",
+        "deep_shadow_setter": false,
+        "darkness": false,
+        "dusk": false,
+        "free_collision_probe": true,
+        "blocked_collision_probe": true
+      },
+      {
+        "event": "enter",
+        "segment": 3
+      },
+      {
+        "event": "map",
+        "segment": 3,
+        "width": 38,
+        "height": 64,
+        "music": "PMD Red EU - Sinister Woods.ogg",
+        "deep_shadow_setter": true,
+        "darkness": false,
+        "dusk": true,
+        "free_collision_probe": true,
+        "blocked_collision_probe": true
+      },
+      {
+        "event": "end",
+        "normal_unload_requested": true
+      }
+    ],
+    "segments_checked": [
+      0,
+      1,
+      3
+    ],
+    "all_segments_have_free_and_blocked_collision": true,
+    "music_exact_all_segments": true
+  },
+  "files": {
+    "Data/Script/halcyon/services/sinister_woods_b41_startup_adapter/init.lua": "9512be80a2e68849ca3a0776072374f789413909efedd0af89190044e25cee41",
+    "Data/Zone/gloomy_forest.json": "a3fac0fc1540f3aab1a96b922ac400dcb25533a66e14b30b33020201fbf60a5a",
+    "Content/Tile/SinisterWoodsB41.tile": "fc01caa619e413712b70c4531c260d2eb05378fc80bd795829f371abe860a2d0"
+  }
+}
