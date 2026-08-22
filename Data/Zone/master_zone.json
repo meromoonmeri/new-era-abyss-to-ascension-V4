@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -83076,7 +83076,6 @@
       "hero_dream",
       "bourg_comptoir",
       "colline_sans_lumiere",
-      "gloomy_forest_entrance",
       "testmap",
       "vast_steppe_miniboss",
       "vast_steppe_guardian",
@@ -83084,7 +83083,6 @@
       "mount_windswept_miniboss",
       "mount_windswept_guardian",
       "crooked_cavern_midpoint",
-      "gloomy_forest_midpoint",
       "vast_steppe_midpoint",
       "mount_windswept_midpoint",
       "cloven_ruins_entrance",
@@ -83092,7 +83090,6 @@
       "cloven_ruins_midpoint",
       "metano_town_nuit",
       "guild_guildmasters_bedroom",
-      "gloomy_forest_miniboss",
       "cloven_ruins_miniboss",
       "cap_dents_mer",
       "carrefour_assemblee",
@@ -83138,7 +83135,6 @@
       "mont_gele_pied",
       "mont_lune_vue",
       "nef_prisme_est",
-      "palier_celeste",
       "plaines_brulees",
       "porte_plaines_foudre",
       "pre_tonnerre",
@@ -83149,9 +83145,6 @@
       "vallon_malsain_fond",
       "vallon_perdu",
       "vigie_stratos",
-      "tour_ciel_sommet",
-      "parvis_celeste",
-      "poisonous_forest_entrance",
       "a02p01",
       "a02p02",
       "a02p03",
