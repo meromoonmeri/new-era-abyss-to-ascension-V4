@@ -303,7 +303,7 @@
                       "GroundTileset": "sinister_woods_floor",
                       "BlockTileset": "sinister_woods_wall",
                       "WaterTileset": "sinister_woods_secondary",
-                      "LayeredGround": false,
+                      "LayeredGround": true,
                       "IndependentGround": false,
                       "GroundElement": "grass"
                     }
@@ -4803,7 +4803,7 @@
                       "GroundTileset": "sinister_woods_floor",
                       "BlockTileset": "sinister_woods_wall",
                       "WaterTileset": "sinister_woods_secondary",
-                      "LayeredGround": false,
+                      "LayeredGround": true,
                       "IndependentGround": false,
                       "GroundElement": "grass"
                     }
@@ -6915,7 +6915,7 @@
                       "GroundTileset": "sinister_woods_floor",
                       "BlockTileset": "sinister_woods_wall",
                       "WaterTileset": "sinister_woods_secondary",
-                      "LayeredGround": false,
+                      "LayeredGround": true,
                       "IndependentGround": false,
                       "GroundElement": "grass"
                     }

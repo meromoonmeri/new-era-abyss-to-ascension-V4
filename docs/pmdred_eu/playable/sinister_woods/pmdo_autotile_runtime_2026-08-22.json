@@ -1,0 +1,97 @@
+{
+  "schema": "new-era.pmdred-eu.pmdo-autotile-runtime.v1",
+  "engine_mechanism": {
+    "texture_assignment": "RogueEssence.LevelGen.MapTextureStep",
+    "autotile_selection": "AutoTileAdjacent.AutoTileArea writes NeighborCode and AutoTileAdjacent.GetLayers selects matching TilexNN variant",
+    "terrain_mapping": {
+      "floor": "sinister_woods_floor",
+      "wall_unbreakable": "sinister_woods_wall",
+      "water_lava_pit_grass": "sinister_woods_secondary"
+    },
+    "underlay": "LayeredGround=true: PMDO creates a ground underlayer so transparent wall/border pixels reveal the floor texture rather than BlankBG."
+  },
+  "fault_corrected": "The active MapTextureStep had LayeredGround=false. Forest walls contain transparent border pixels, exposing BlankBG and producing the large uniform green/disconnected appearance.",
+  "runtime": "PMDO 0.8.12 headless",
+  "events": [
+    {
+      "event": "bootstrap"
+    },
+    {
+      "event": "enter",
+      "segment": 0
+    },
+    {
+      "event": "map",
+      "segment": 0,
+      "width": 38,
+      "height": 51,
+      "music": "PMD Red EU - Sinister Woods.ogg",
+      "deep_shadow_setter": false,
+      "darkness": false,
+      "dusk": false,
+      "free_collision_probe": true,
+      "blocked_collision_probe": true,
+      "floor_tex": 328,
+      "wall_tex": 1610,
+      "secondary_tex": 0,
+      "neighbor_resolved": 1938,
+      "neighbor_uncomputed": 0
+    },
+    {
+      "event": "enter",
+      "segment": 1
+    },
+    {
+      "event": "map",
+      "segment": 1,
+      "width": 51,
+      "height": 38,
+      "music": "PMD Red EU - Sinister Woods.ogg",
+      "deep_shadow_setter": false,
+      "darkness": false,
+      "dusk": false,
+      "free_collision_probe": true,
+      "blocked_collision_probe": true,
+      "floor_tex": 570,
+      "wall_tex": 1368,
+      "secondary_tex": 0,
+      "neighbor_resolved": 1938,
+      "neighbor_uncomputed": 0
+    },
+    {
+      "event": "enter",
+      "segment": 3
+    },
+    {
+      "event": "map",
+      "segment": 3,
+      "width": 38,
+      "height": 64,
+      "music": "PMD Red EU - Sinister Woods.ogg",
+      "deep_shadow_setter": true,
+      "darkness": false,
+      "dusk": true,
+      "free_collision_probe": true,
+      "blocked_collision_probe": true,
+      "floor_tex": 508,
+      "wall_tex": 1924,
+      "secondary_tex": 0,
+      "neighbor_resolved": 2432,
+      "neighbor_uncomputed": 0
+    },
+    {
+      "event": "end",
+      "normal_unload_requested": true
+    }
+  ],
+  "checks": {
+    "all_texture_cells_have_neighbor_codes": true,
+    "wall_autotiles_present": true,
+    "floor_autotiles_present": true
+  },
+  "sources": {
+    "MapTextureStep.cs": "RogueEssence-source/RogueEssence/LevelGen/Floors/GenSteps/MapTextureStep.cs",
+    "Map.cs": "RogueEssence-source/RogueEssence/Dungeon/Maps/Map.cs",
+    "AutoTileAdjacent.cs": "RogueEssence-source/RogueEssence/Dungeon/Tiles/AutoTileAdjacent.cs"
+  }
+}
