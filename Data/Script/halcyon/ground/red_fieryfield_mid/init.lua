@@ -9,7 +9,7 @@ function red_fieryfield_mid.Init(map_data)
 end
 function red_fieryfield_mid.Enter(map_data) GAME:FadeIn(20) end
 function red_fieryfield_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo('Continuer dans Plaine Ardent ?', true)
+  UI:ChoiceMenuYesNo("Continuer dans Plaine Ardent ?", true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

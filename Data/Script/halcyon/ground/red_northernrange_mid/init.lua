@@ -9,7 +9,7 @@ function red_northernrange_mid.Init(map_data)
 end
 function red_northernrange_mid.Enter(map_data) GAME:FadeIn(20) end
 function red_northernrange_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo('Continuer dans Chaîne Nordique ?', true)
+  UI:ChoiceMenuYesNo("Continuer dans Chaîne Nordique ?", true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

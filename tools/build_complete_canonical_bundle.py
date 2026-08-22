@@ -890,9 +890,13 @@ def generic_zone(entry: dict[str, Any]) -> dict[str, Any]:
 
 def ground_script(entry: dict[str, Any], role: str, exploration_segments: int, has_boss: bool) -> str:
     zone = entry["id"]
+    # JSON string serialization is valid Lua for these simple strings and
+    # safely handles French apostrophes (ex. Fosse d'Argent).
+    enter_prompt = json.dumps(f"Entrer dans {entry['french_name']} ?", ensure_ascii=False)
+    continue_prompt = json.dumps(f"Continuer dans {entry['french_name']} ?", ensure_ascii=False)
     if role == "entrance":
         body = f"""function map.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo('Entrer dans {entry['french_name']} ?', true)
+  UI:ChoiceMenuYesNo({enter_prompt}, true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)
@@ -914,7 +918,7 @@ end
             else f"GAME:EnterGroundMap('{zone}_boss', 'Main_Entrance_Marker')"
         )
         body = f"""function map.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo('Continuer dans {entry['french_name']} ?', true)
+  UI:ChoiceMenuYesNo({continue_prompt}, true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

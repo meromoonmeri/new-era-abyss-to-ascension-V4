@@ -9,7 +9,7 @@ function red_waterfallpond_entrance.Init(map_data)
 end
 function red_waterfallpond_entrance.Enter(map_data) GAME:FadeIn(20) end
 function red_waterfallpond_entrance.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo('Entrer dans Étang de la Cascade ?', true)
+  UI:ChoiceMenuYesNo("Entrer dans Étang de la Cascade ?", true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

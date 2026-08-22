@@ -9,7 +9,7 @@ function world_nerve_entrance.Init(map_data)
 end
 function world_nerve_entrance.Enter(map_data) GAME:FadeIn(20) end
 function world_nerve_entrance.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo('Entrer dans Des Abysses à l’Ascension ?', true)
+  UI:ChoiceMenuYesNo("Entrer dans Des Abysses à l’Ascension ?", true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

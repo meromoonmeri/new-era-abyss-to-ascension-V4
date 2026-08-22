@@ -9,7 +9,7 @@ function hidden_land_mid.Init(map_data)
 end
 function hidden_land_mid.Enter(map_data) GAME:FadeIn(20) end
 function hidden_land_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo('Continuer dans Fracture de la Terre Cachée ?', true)
+  UI:ChoiceMenuYesNo("Continuer dans Fracture de la Terre Cachée ?", true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

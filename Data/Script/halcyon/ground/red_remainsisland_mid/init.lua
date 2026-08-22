@@ -9,7 +9,7 @@ function red_remainsisland_mid.Init(map_data)
 end
 function red_remainsisland_mid.Enter(map_data) GAME:FadeIn(20) end
 function red_remainsisland_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo('Continuer dans Île des Vestiges ?', true)
+  UI:ChoiceMenuYesNo("Continuer dans Île des Vestiges ?", true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

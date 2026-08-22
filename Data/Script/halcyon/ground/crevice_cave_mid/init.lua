@@ -9,7 +9,7 @@ function crevice_cave_mid.Init(map_data)
 end
 function crevice_cave_mid.Enter(map_data) GAME:FadeIn(20) end
 function crevice_cave_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo('Continuer dans Grotte Fissure ?', true)
+  UI:ChoiceMenuYesNo("Continuer dans Grotte Fissure ?", true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

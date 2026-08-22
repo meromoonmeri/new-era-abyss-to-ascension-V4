@@ -9,7 +9,7 @@ function fugitive_arc_mid.Init(map_data)
 end
 function fugitive_arc_mid.Enter(map_data) GAME:FadeIn(20) end
 function fugitive_arc_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo('Continuer dans Les Accusés ?', true)
+  UI:ChoiceMenuYesNo("Continuer dans Les Accusés ?", true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

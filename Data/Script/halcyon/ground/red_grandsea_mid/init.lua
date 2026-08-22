@@ -9,7 +9,7 @@ function red_grandsea_mid.Init(map_data)
 end
 function red_grandsea_mid.Enter(map_data) GAME:FadeIn(20) end
 function red_grandsea_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo('Continuer dans Grande Mer ?', true)
+  UI:ChoiceMenuYesNo("Continuer dans Grande Mer ?", true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

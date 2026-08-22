@@ -9,7 +9,7 @@ function fogbound_lake_mid.Init(map_data)
 end
 function fogbound_lake_mid.Enter(map_data) GAME:FadeIn(20) end
 function fogbound_lake_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo('Continuer dans Lac Brumeux ?', true)
+  UI:ChoiceMenuYesNo("Continuer dans Lac Brumeux ?", true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

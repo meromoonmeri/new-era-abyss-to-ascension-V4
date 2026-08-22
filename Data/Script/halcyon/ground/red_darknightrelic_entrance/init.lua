@@ -9,7 +9,7 @@ function red_darknightrelic_entrance.Init(map_data)
 end
 function red_darknightrelic_entrance.Enter(map_data) GAME:FadeIn(20) end
 function red_darknightrelic_entrance.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo('Entrer dans Relique de la Nuit ?', true)
+  UI:ChoiceMenuYesNo("Entrer dans Relique de la Nuit ?", true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

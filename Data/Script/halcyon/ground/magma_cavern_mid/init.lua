@@ -9,7 +9,7 @@ function magma_cavern_mid.Init(map_data)
 end
 function magma_cavern_mid.Enter(map_data) GAME:FadeIn(20) end
 function magma_cavern_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo('Continuer dans Grotte Magma ?', true)
+  UI:ChoiceMenuYesNo("Continuer dans Grotte Magma ?", true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

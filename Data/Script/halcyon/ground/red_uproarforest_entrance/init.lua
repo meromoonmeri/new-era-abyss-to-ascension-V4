@@ -9,7 +9,7 @@ function red_uproarforest_entrance.Init(map_data)
 end
 function red_uproarforest_entrance.Enter(map_data) GAME:FadeIn(20) end
 function red_uproarforest_entrance.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo('Entrer dans Forêt du Tumulte ?', true)
+  UI:ChoiceMenuYesNo("Entrer dans Forêt du Tumulte ?", true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

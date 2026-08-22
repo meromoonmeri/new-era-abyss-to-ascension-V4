@@ -9,7 +9,7 @@ function red_waterfallpond_mid.Init(map_data)
 end
 function red_waterfallpond_mid.Enter(map_data) GAME:FadeIn(20) end
 function red_waterfallpond_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo('Continuer dans Étang de la Cascade ?', true)
+  UI:ChoiceMenuYesNo("Continuer dans Étang de la Cascade ?", true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

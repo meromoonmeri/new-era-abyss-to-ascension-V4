@@ -9,7 +9,7 @@ function red_fantasystrait_mid.Init(map_data)
 end
 function red_fantasystrait_mid.Enter(map_data) GAME:FadeIn(20) end
 function red_fantasystrait_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo('Continuer dans Détroit Fantastique ?', true)
+  UI:ChoiceMenuYesNo("Continuer dans Détroit Fantastique ?", true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

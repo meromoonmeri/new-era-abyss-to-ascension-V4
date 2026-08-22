@@ -9,7 +9,7 @@ function amp_plains_mid.Init(map_data)
 end
 function amp_plains_mid.Enter(map_data) GAME:FadeIn(20) end
 function amp_plains_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo('Continuer dans Plaines Ampère ?', true)
+  UI:ChoiceMenuYesNo("Continuer dans Plaines Ampère ?", true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)
