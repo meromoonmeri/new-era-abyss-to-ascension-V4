@@ -38,7 +38,13 @@
     "min_distance": 4,
     "exit_tile": "stairs_go_down"
   },
-  "dtef": {},
+  "dtef": {
+    "floor": "wish_cave_1_floor",
+    "wall": "wish_cave_1_wall",
+    "secondary": "wish_cave_1_secondary",
+    "name": "wish_cave_1",
+    "element": "normal"
+  },
   "canonical_items_without_pmdo_equivalent": [
     "ITEM_ALLURE_SEED",
     "ITEM_BLOWBACK_ORB",
@@ -1646,6 +1652,17 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "",
+    "relay_ground": "",
+    "canonical_end_ground": "sanctuaire_voeu",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/sanctuaire_voeu.rsground",
+    "cinematic_ground": "sanctuaire_voeu",
+    "battle_ground": "sanctuaire_voeu",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
   "boss": {
     "mode": "canonical_ground",
     "ground": "sanctuaire_voeu",
@@ -1666,7 +1683,6 @@
     "end": "sanctuaire_voeu"
   },
   "blocked": [
-    "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
     "BLOCKED/OUT_OF_SCOPE: Data/Zone/wish_cave.json already exists and belongs to another agent"
   ]
 }

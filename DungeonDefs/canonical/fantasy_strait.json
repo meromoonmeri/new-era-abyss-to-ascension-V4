@@ -36,7 +36,14 @@
     "min_distance": 4,
     "exit_tile": "stairs_go_down"
   },
-  "dtef": {},
+  "dtef": {
+    "floor": "craggy_coast_floor",
+    "wall": "craggy_coast_wall",
+    "secondary": "craggy_coast_secondary",
+    "name": "craggy_coast",
+    "element": "normal",
+    "justification": "Détroit Fantastique : côte escarpée, seul biome de détroit disponible ; utilisateur unique."
+  },
   "canonical_items_without_pmdo_equivalent": [
     "ITEM_ALLURE_SEED",
     "ITEM_BLOWBACK_ORB",
@@ -747,8 +754,5 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
-  "fixed_grounds": {},
-  "blocked": [
-    "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome"
-  ]
+  "fixed_grounds": {}
 }

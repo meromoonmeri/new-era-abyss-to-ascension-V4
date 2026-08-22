@@ -1,71 +1,101 @@
-# Audit global des définitions canoniques Ch.6–32
+# Audit de readiness — 51 donjons canoniques Ch.6–32
 
-_Généré le 2026-08-22T22:01:43+00:00 — 51 définitions : **26 PASS**, **25 FAIL**._
+_Généré le 2026-08-22T22:20:20+00:00 — 51 définitions : **32 READY_FOR_GENERATION**, 19 non prêtes._
 
-Aucun étage procédural n'a été généré à cette étape, et `generate-all` n'a pas été lancé.
+Aucun étage procédural n'a été généré à cette étape ; `generate-all` n'a pas été lancé.
 
-## Tableau de bord
+## Répartition des statuts
 
-| Statut | Donjon | Ch. | Ét. | Seg. | Dir. | DTEF | Profils | Espèces | Objets | Fin | Blocage principal |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| ✅ PASS | `gloomy_forest` | 6 | 14 | 3 | fond | `sinister_woods_b41` | branching, dense, mixed, crossroads, looping, large_rooms, ring | 27 | 45 | canonical_ground | — |
-| ✅ PASS | `mt_steel` | 7 | 9 | 1 | sommet | `steel_aegis_cave` | twosides, branching, mixed | 9 | 9 | — | — |
-| ✅ PASS | `thunderwave_cave` | 7 | 5 | 1 | fond | `chasm_cave` | branching, mixed, dense | 7 | 6 | — | — |
-| ✅ PASS | `tiny_woods` | 7 | 3 | 1 | fond | `mystifying_forest` | branching, dense, mixed | 4 | 2 | — | — |
-| ✅ PASS | `silent_chasm` | 8 | 9 | 1 | fond | `chasm_cave` | branching, mixed, dense | 12 | 21 | — | — |
-| ✅ PASS | `great_canyon` | 9 | 12 | 2 | sommet | `mt_horn` | twosides, branching, mixed, crossroads | 16 | 44 | — | — |
-| ✅ PASS | `mt_thunder` | 9 | 10 | 2 | sommet | `craggy_peak` | twosides, branching, mixed, crossroads | 15 | 44 | — | — |
-| ✅ PASS | `magma_cavern` | 12 | 23 | 3 | fond | `magma_cavern_2` | branching, mixed, dense, looping, lattice, large_rooms | 22 | 45 | canonical_ground | — |
-| ✅ PASS | `magma_cavern_pit` | 12 | 3 | 1 | fond | `world_abyss_2` | branching, mixed, dense | 5 | 0 | canonical_ground | — |
-| ✅ PASS | `mt_freeze_peak` | 12 | 5 | 1 | sommet | `sky_peak_4th_pass` | large_rooms, crossroads, mixed | 1 | 14 | — | — |
-| ✅ PASS | `pitfall_valley` | 16 | 25 | 2 | fond | `pitfall_valley_1` | twosides, branching, mixed, crossroads | 17 | 53 | — | — |
-| ✅ PASS | `desert_region` | 17 | 20 | 2 | sommet | `quicksand_pit` | large_rooms, twosides, mixed, looping, dense | 13 | 28 | — | — |
-| ✅ PASS | `southern_cavern` | 17 | 50 | 3 | fond | `western_cave_2` | branching, mixed, dense, looping, lattice, large_rooms | 31 | 55 | — | — |
-| ✅ PASS | `solar_cave` | 19 | 20 | 2 | fond | `golden_chamber` | branching, mixed, dense, looping, lattice | 25 | 36 | — | — |
-| ✅ PASS | `darknight_relic` | 20 | 15 | 2 | fond | `the_nightmare` | crossroads, lattice, mixed, looping, dense | 14 | 42 | — | — |
-| ✅ PASS | `murky_cave` | 21 | 19 | 2 | fond | `dark_hill` | branching, mixed, dense, looping, lattice | 17 | 0 | — | — |
-| ✅ PASS | `oddity_cave` | 22 | 15 | 2 | fond | `spacial_rift_2` | branching, mixed, dense, looping, lattice | 24 | 58 | — | — |
-| ✅ PASS | `uproar_forest` | 22 | 10 | 2 | fond | `treeshroud_forest_2` | branching, dense, mixed, looping | 10 | 15 | — | — |
-| ✅ PASS | `marvelous_sea` | 23 | 20 | 2 | fond | `miracle_sea` | looping, ring, mixed, lattice | 15 | 36 | — | — |
-| ✅ PASS | `remains_island` | 23 | 20 | 2 | fond | `concealed_ruins` | crossroads, lattice, mixed, looping, dense | 27 | 58 | — | — |
-| ✅ PASS | `rock_path` | 24 | 4 | 1 | fond | `rock_path_rb` | branching, mixed, dense | 5 | 15 | — | — |
-| ✅ PASS | `howling_forest` | 25 | 15 | 2 | sommet | `howling_forest_2` | branching, dense, mixed, looping | 16 | 54 | — | — |
-| ✅ PASS | `unown_relic` | 26 | 11 | 2 | fond | `sealed_ruin_pit` | crossroads, lattice, mixed, looping, dense | 52 | 28 | — | — |
-| ✅ PASS | `waterfall_pond` | 26 | 19 | 2 | fond | `unused_waterfall_pond` | looping, ring, mixed, lattice | 23 | 12 | — | — |
-| ✅ PASS | `far_off_sea` | 27 | 75 | 3 | fond | `zero_isle_east_4` | looping, ring, mixed, lattice, large_rooms | 36 | 60 | — | — |
-| ✅ PASS | `joyous_tower` | 27 | 99 | 3 | sommet | `lush_prairie` | crossroads, branching, mixed, lattice, looping, large_rooms | 125 | 132 | — | — |
-| ❌ FAIL | `mt_thunder_peak` | 9 | 3 | 1 | sommet | `—` | — | 0 | 0 | — | BLOCKED/INVALID_DEFINITION |
-| ❌ FAIL | `lapis_cave` | 10 | 14 | 2 | fond | `lapis_cave` | branching, mixed, dense, looping, lattice | 11 | 44 | canonical_ground | BLOCKED/OUT_OF_SCOPE |
-| ❌ FAIL | `mt_blaze` | 10 | 12 | 2 | sommet | `mt_blaze` | twosides, branching, mixed, crossroads | 9 | 24 | — | BLOCKED/OUT_OF_SCOPE |
-| ❌ FAIL | `mt_blaze_peak` | 10 | 3 | 1 | sommet | `magma_cavern_2` | large_rooms, crossroads, mixed | 3 | 1 | arena_rsmap | BLOCKED/MISSING_ASSET |
-| ❌ FAIL | `sky_tower` | 10 | 25 | 1 | sommet | `—` | — | 0 | 0 | — | BLOCKED/INVALID_DEFINITION |
-| ❌ FAIL | `sky_tower_summit` | 10 | 9 | 1 | sommet | `—` | — | 0 | 0 | — | BLOCKED/INVALID_DEFINITION |
-| ❌ FAIL | `frosty_forest` | 11 | 9 | 1 | sommet | `frosty_forest` | branching, dense, mixed | 8 | 22 | — | BLOCKED/OUT_OF_SCOPE |
-| ❌ FAIL | `frosty_grotto` | 11 | 5 | 1 | sommet | `mt_freeze` | branching, mixed, dense | 3 | 5 | arena_rsmap | BLOCKED/MISSING_ASSET |
-| ❌ FAIL | `mt_freeze` | 11 | 15 | 2 | sommet | `mt_freeze` | twosides, branching, mixed, crossroads | 13 | 56 | — | BLOCKED/OUT_OF_SCOPE |
-| ❌ FAIL | `silver_trench` | 13 | 99 | 3 | fond | `—` | — | 0 | 0 | — | BLOCKED/INVALID_DEFINITION |
-| ❌ FAIL | `stormy_sea` | 13 | 40 | 3 | fond | `stormy_sea_1` | looping, ring, mixed, lattice, large_rooms | 24 | 116 | arena_rsmap | BLOCKED/MISSING_ASSET |
-| ❌ FAIL | `meteor_cave` | 14 | 20 | 2 | fond | `spacial_rift_1` | branching, mixed, dense, looping, lattice | 7 | 0 | arena_rsmap | BLOCKED/MISSING_ASSET |
-| ❌ FAIL | `western_cave` | 14 | 99 | 3 | fond | `western_cave_1` | branching, mixed, dense, looping, lattice, large_rooms | 55 | 36 | arena_rsmap | BLOCKED/MISSING_ASSET |
-| ❌ FAIL | `buried_relic` | 15 | 99 | 3 | fond | `sealed_ruin` | crossroads, lattice, mixed, looping, dense, large_rooms | 50 | 120 | arena_rsmap | BLOCKED/MISSING_ASSET |
-| ❌ FAIL | `wish_cave` | 15 | 99 | 2 | fond | `—` | — | 0 | 0 | — | BLOCKED/INVALID_DEFINITION |
-| ❌ FAIL | `northern_range` | 16 | 25 | 2 | sommet | `—` | — | 0 | 0 | — | BLOCKED/INVALID_DEFINITION |
-| ❌ FAIL | `fiery_field` | 18 | 30 | 2 | sommet | `—` | — | 0 | 0 | — | BLOCKED/INVALID_DEFINITION |
-| ❌ FAIL | `wyvern_hill` | 18 | 30 | 2 | sommet | `—` | — | 0 | 0 | — | BLOCKED/INVALID_DEFINITION |
-| ❌ FAIL | `northwind_field` | 19 | 30 | 2 | sommet | `—` | — | 0 | 0 | — | BLOCKED/INVALID_DEFINITION |
-| ❌ FAIL | `lightning_field` | 20 | 30 | 2 | sommet | `far_amp_plains` | twosides, large_rooms, mixed, looping | 22 | 66 | arena_rsmap | BLOCKED/MISSING_ASSET |
-| ❌ FAIL | `grand_sea` | 21 | 30 | 2 | fond | `—` | — | 0 | 0 | — | BLOCKED/INVALID_DEFINITION |
-| ❌ FAIL | `fantasy_strait` | 24 | 30 | 2 | fond | `—` | — | 0 | 0 | — | BLOCKED/INVALID_DEFINITION |
-| ❌ FAIL | `snow_path` | 25 | 4 | 1 | fond | `—` | — | 0 | 0 | — | BLOCKED/INVALID_DEFINITION |
-| ❌ FAIL | `mt_faraway` | 28 | 40 | 3 | sommet | `—` | — | 0 | 0 | — | BLOCKED/INVALID_DEFINITION |
-| ❌ FAIL | `purity_forest` | 29 | 99 | 4 | sommet | `purity_forest_4` | branching, dense, mixed, looping, large_rooms | 154 | 171 | arena_rsmap | BLOCKED/MISSING_ASSET |
+| Statut | Nombre |
+|---|---|
+| `READY_FOR_GENERATION` | 32 |
+| `REQUIRES_INTEGRATION` | 8 |
+| `OWNED_BY_OTHER_AGENT` | 5 |
+| `BLOCKED_MISSING_ASSET` | 3 |
+| `ALREADY_IMPLEMENTED` | 2 |
+| `BLOCKED_MISSING_TILESET` | 1 |
+
+## Tableau de readiness
+
+| DUNGEON | SOURCE CANONIQUE | BIOME | DIR. | FLOORS | SEG. | PROFILS ROGUEELEMENTS | DTEF | POKÉMON | OBJETS | MIDPOINT | CINEMATIC GROUND | BATTLE GROUND | CANONICAL END GROUND | ARENA RSMAP | STATUS | BLOCKING REASON |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| `gloomy_forest` | Pokémon Mystery Dungeon: Rescue Team (Red/Blue Rescue Team & Rescue Team DX) | forest | fond | 14 | 3 | branching, dense, mixed, crossroads, looping, large_rooms, ring | `sinister_woods_b41` | 27 | 45 | gloomy_forest_midpoint | sinister_woods_clearing | sinister_woods_clearing | — | — | **READY_FOR_GENERATION** | — |
+| `great_canyon` | Pokémon Mystery Dungeon: Red Rescue Team | canyon_rim | sommet | 12 | 2 | twosides, branching, mixed, crossroads | `mt_horn` | 16 | 44 | — | d07p02 | d07p02 | d07p02 | — | **READY_FOR_GENERATION** | — |
+| `mt_blaze_peak` | Pokémon Mystery Dungeon: Red Rescue Team | blaze_peak | sommet | 3 | 1 | large_rooms, crossroads, mixed | `magma_cavern_2` | 3 | 1 | — | d09p03 | d09p03 | d09p03 | — | **READY_FOR_GENERATION** | — |
+| `frosty_grotto` | Pokémon Mystery Dungeon: Red Rescue Team | frosty_grotto | sommet | 5 | 1 | branching, mixed, dense | `mt_freeze` | 3 | 5 | — | d10p03 | d10p03 | d10p03 | — | **READY_FOR_GENERATION** | — |
+| `magma_cavern` | Pokémon Mystery Dungeon: Red Rescue Team | magma_gallery | fond | 23 | 3 | branching, mixed, dense, looping, lattice, large_rooms | `magma_cavern_2` | 22 | 45 | — | fosse_ardente | fosse_ardente | fosse_ardente | — | **READY_FOR_GENERATION** | — |
+| `magma_cavern_pit` | Pokémon Mystery Dungeon: Red Rescue Team | magma_pit | fond | 3 | 1 | branching, mixed, dense | `world_abyss_2` | 5 | 0 | — | fosse_ardente | fosse_ardente | fosse_ardente | — | **READY_FOR_GENERATION** | — |
+| `mt_freeze_peak` | Pokémon Mystery Dungeon: Red Rescue Team | freeze_peak | sommet | 5 | 1 | large_rooms, crossroads, mixed | `mt_freeze` | 1 | 14 | — | d11p03 | d11p03 | d11p03 | — | **READY_FOR_GENERATION** | — |
+| `silver_trench` | Pokémon Mystery Dungeon: Red Rescue Team | silver_shelf | fond | 99 | 3 | looping, ring, mixed, lattice, large_rooms | `silver_trench_3` | 59 | 61 | — | fosse_argentee | fosse_argentee | fosse_argentee | — | **READY_FOR_GENERATION** | — |
+| `stormy_sea` | Pokémon Mystery Dungeon: Red Rescue Team | stormy_shelf | fond | 40 | 3 | looping, ring, mixed, lattice, large_rooms | `stormy_sea_1` | 24 | 116 | — | abime_tempetes | abime_tempetes | abime_tempetes | — | **READY_FOR_GENERATION** | — |
+| `western_cave` | Pokémon Mystery Dungeon: Red Rescue Team | western_gallery | fond | 99 | 3 | branching, mixed, dense, looping, lattice, large_rooms | `western_cave_1` | 55 | 36 | — | antre_occident | antre_occident | antre_occident | — | **READY_FOR_GENERATION** | — |
+| `northern_range` | Pokémon Mystery Dungeon: Red Rescue Team | north_ridge | sommet | 25 | 2 | twosides, branching, mixed, crossroads | `craggy_peak` | 19 | 53 | — | cretes_boreales | cretes_boreales | cretes_boreales | — | **READY_FOR_GENERATION** | — |
+| `pitfall_valley` | Pokémon Mystery Dungeon: Red Rescue Team | pitfall_rim | fond | 25 | 2 | twosides, branching, mixed, crossroads | `pitfall_valley_1` | 17 | 53 | — | vallon_perdu | vallon_perdu | vallon_perdu | — | **READY_FOR_GENERATION** | — |
+| `desert_region` | Pokémon Mystery Dungeon: Red Rescue Team | dunes | sommet | 20 | 2 | large_rooms, twosides, mixed, looping, dense | `northern_desert_1` | 13 | 28 | — | — | — | — | — | **READY_FOR_GENERATION** | — |
+| `southern_cavern` | Pokémon Mystery Dungeon: Red Rescue Team | south_gallery | fond | 50 | 3 | branching, mixed, dense, looping, lattice, large_rooms | `crystal_cave_1` | 31 | 55 | — | — | — | — | — | **READY_FOR_GENERATION** | — |
+| `fiery_field` | Pokémon Mystery Dungeon: Red Rescue Team | ember_plain | sommet | 30 | 2 | twosides, large_rooms, mixed, looping | `deep_dark_crater` | 23 | 66 | — | champ_braises | champ_braises | champ_braises | — | **READY_FOR_GENERATION** | — |
+| `wyvern_hill` | Pokémon Mystery Dungeon: Red Rescue Team | wyvern_slope | sommet | 30 | 2 | twosides, branching, mixed, crossroads | `wyvern_hill` | 18 | 59 | — | — | — | — | — | **READY_FOR_GENERATION** | — |
+| `solar_cave` | Pokémon Mystery Dungeon: Red Rescue Team | solar_gallery | fond | 20 | 2 | branching, mixed, dense, looping, lattice | `golden_chamber` | 25 | 36 | — | — | — | — | — | **READY_FOR_GENERATION** | — |
+| `darknight_relic` | Pokémon Mystery Dungeon: Red Rescue Team | dark_halls | fond | 15 | 2 | crossroads, lattice, mixed, looping, dense | `the_nightmare` | 14 | 42 | — | — | — | — | — | **READY_FOR_GENERATION** | — |
+| `grand_sea` | Pokémon Mystery Dungeon: Red Rescue Team | grand_shelf | fond | 30 | 2 | looping, ring, mixed, lattice | `surrounded_sea` | 23 | 40 | — | — | — | — | — | **READY_FOR_GENERATION** | — |
+| `oddity_cave` | Pokémon Mystery Dungeon: Red Rescue Team | oddity_gallery | fond | 15 | 2 | branching, mixed, dense, looping, lattice | `spacial_rift_2` | 24 | 58 | — | — | — | — | — | **READY_FOR_GENERATION** | — |
+| `uproar_forest` | Pokémon Mystery Dungeon: Red Rescue Team | uproar_edge | fond | 10 | 2 | branching, dense, mixed, looping | `treeshroud_forest_2` | 10 | 15 | — | — | — | — | — | **READY_FOR_GENERATION** | — |
+| `marvelous_sea` | Pokémon Mystery Dungeon: Red Rescue Team | marvelous_shelf | fond | 20 | 2 | looping, ring, mixed, lattice | `miracle_sea` | 15 | 36 | — | — | — | — | — | **READY_FOR_GENERATION** | — |
+| `remains_island` | Pokémon Mystery Dungeon: Red Rescue Team | remains_shore | fond | 20 | 2 | crossroads, lattice, mixed, looping, dense | `concealed_ruins` | 27 | 58 | — | — | — | — | — | **READY_FOR_GENERATION** | — |
+| `fantasy_strait` | Pokémon Mystery Dungeon: Red Rescue Team | strait_shelf | fond | 30 | 2 | looping, ring, mixed, lattice | `craggy_coast` | 29 | 36 | — | — | — | — | — | **READY_FOR_GENERATION** | — |
+| `rock_path` | Pokémon Mystery Dungeon: Red Rescue Team | rock_path | fond | 4 | 1 | branching, mixed, dense | `rock_path_rb` | 5 | 15 | — | — | — | — | — | **READY_FOR_GENERATION** | — |
+| `howling_forest` | Pokémon Mystery Dungeon: Red Rescue Team | howling_edge | sommet | 15 | 2 | branching, dense, mixed, looping | `howling_forest_2` | 16 | 54 | — | bois_des_plaintes | bois_des_plaintes | bois_des_plaintes | — | **READY_FOR_GENERATION** | — |
+| `snow_path` | Pokémon Mystery Dungeon: Red Rescue Team | snow_path | fond | 4 | 1 | twosides, large_rooms, mixed | `sky_peak_4th_pass` | 4 | 15 | — | — | — | — | — | **READY_FOR_GENERATION** | — |
+| `unown_relic` | Pokémon Mystery Dungeon: Red Rescue Team | unown_halls | fond | 11 | 2 | crossroads, lattice, mixed, looping, dense | `sealed_ruin_pit` | 52 | 28 | — | — | — | — | — | **READY_FOR_GENERATION** | — |
+| `waterfall_pond` | Pokémon Mystery Dungeon: Red Rescue Team | pond_shore | fond | 19 | 2 | looping, ring, mixed, lattice | `unused_waterfall_pond` | 23 | 12 | — | — | — | — | — | **READY_FOR_GENERATION** | — |
+| `far_off_sea` | Pokémon Mystery Dungeon: Red Rescue Team | far_shelf | fond | 75 | 3 | looping, ring, mixed, lattice, large_rooms | `zero_isle_east_4` | 36 | 60 | — | — | — | — | — | **READY_FOR_GENERATION** | — |
+| `joyous_tower` | Pokémon Mystery Dungeon: Red Rescue Team | tower_base | sommet | 99 | 3 | crossroads, branching, mixed, lattice, looping, large_rooms | `lush_prairie` | 125 | 132 | — | — | — | — | — | **READY_FOR_GENERATION** | — |
+| `mt_faraway` | Pokémon Mystery Dungeon: Red Rescue Team | faraway_slope | sommet | 40 | 3 | twosides, branching, mixed, crossroads, large_rooms | `hidden_highland` | 24 | 18 | — | sommet_aurore | sommet_aurore | sommet_aurore | — | **READY_FOR_GENERATION** | — |
+| `mt_steel` | Pokémon Mystery Dungeon: Red Rescue Team | steel_slope | sommet | 9 | 1 | twosides, branching, mixed | `steel_aegis_cave` | 9 | 9 | — | d03p02 | d03p02 | d03p02 | — | **REQUIRES_INTEGRATION** | REQUIRES_INTEGRATION: canonical scene 'd03p02' is archived in RESERVE/red_grounds/d03p02.rsground; restore it as the cinematic/battle Ground (no separate arena); SCENE: REQUIRES_INTEGRATION: canonical scene 'd03p02' (RESERVE/red_grounds/d03p02.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena |
+| `thunderwave_cave` | Pokémon Mystery Dungeon: Red Rescue Team | static_cave | fond | 5 | 1 | branching, mixed, dense | `crystal_cave_2` | 7 | 6 | — | d02p02 | d02p02 | d02p02 | — | **REQUIRES_INTEGRATION** | REQUIRES_INTEGRATION: canonical scene 'd02p02' is archived in RESERVE/red_grounds/d02p02.rsground; restore it as the cinematic/battle Ground (no separate arena); SCENE: REQUIRES_INTEGRATION: canonical scene 'd02p02' (RESERVE/red_grounds/d02p02.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena |
+| `tiny_woods` | Pokémon Mystery Dungeon: Red Rescue Team | young_woods | fond | 3 | 1 | branching, dense, mixed | `tiny_meadow` | 4 | 2 | — | d01p02 | d01p02 | d01p02 | — | **REQUIRES_INTEGRATION** | REQUIRES_INTEGRATION: canonical scene 'd01p02' is archived in RESERVE/red_grounds/d01p02.rsground; restore it as the cinematic/battle Ground (no separate arena); SCENE: REQUIRES_INTEGRATION: canonical scene 'd01p02' (RESERVE/red_grounds/d01p02.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena |
+| `silent_chasm` | Pokémon Mystery Dungeon: Red Rescue Team | silent_rim | fond | 9 | 1 | branching, mixed, dense | `chasm_cave` | 12 | 21 | — | d05p02 | d05p02 | d05p02 | — | **REQUIRES_INTEGRATION** | REQUIRES_INTEGRATION: canonical scene 'd05p02' is archived in RESERVE/red_grounds/d05p02.rsground; restore it as the cinematic/battle Ground (no separate arena); SCENE: REQUIRES_INTEGRATION: canonical scene 'd05p02' (RESERVE/red_grounds/d05p02.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena |
+| `mt_thunder` | Pokémon Mystery Dungeon: Red Rescue Team | thunder_slope | sommet | 10 | 2 | twosides, branching, mixed, crossroads | `mt_thunder` | 15 | 44 | — | d06p03 | d06p03 | d06p03 | — | **REQUIRES_INTEGRATION** | REQUIRES_INTEGRATION: canonical scene 'd06p03' is archived in RESERVE/red_grounds/d06p03.rsground; restore it as the cinematic/battle Ground (no separate arena); SCENE: REQUIRES_INTEGRATION: canonical scene 'd06p03' (RESERVE/red_grounds/d06p03.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena |
+| `mt_thunder_peak` | Pokémon Mystery Dungeon: Red Rescue Team | thunder_peak | sommet | 3 | 1 | large_rooms, crossroads, mixed | `far_amp_plains` | 6 | 13 | — | d06p03 | d06p03 | d06p03 | — | **REQUIRES_INTEGRATION** | REQUIRES_INTEGRATION: canonical scene 'd06p03' is archived in RESERVE/red_grounds/d06p03.rsground; restore it as the cinematic/battle Ground (no separate arena); SCENE: REQUIRES_INTEGRATION: canonical scene 'd06p03' (RESERVE/red_grounds/d06p03.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena |
+| `lapis_cave` | Pokémon Mystery Dungeon: Red Rescue Team | lapis_gallery | fond | 14 | 2 | branching, mixed, dense, looping, lattice | `lapis_cave` | 11 | 44 | — | grotte_lazuli_fond | grotte_lazuli_fond | grotte_lazuli_fond | — | **OWNED_BY_OTHER_AGENT** | OUT_OF_SCOPE: Data/Zone/lapis_cave.json already exists and belongs to another agent |
+| `mt_blaze` | Pokémon Mystery Dungeon: Red Rescue Team | blaze_slope | sommet | 12 | 2 | twosides, branching, mixed, crossroads | `mt_blaze` | 9 | 24 | — | d09p03 | d09p03 | d09p03 | — | **OWNED_BY_OTHER_AGENT** | OUT_OF_SCOPE: Data/Zone/mt_blaze.json already exists and belongs to another agent |
+| `sky_tower` | Pokémon Mystery Dungeon: Red Rescue Team | sky_ascent | sommet | 25 | 1 | crossroads, branching, mixed | `sky_tower` | 16 | 16 | — | arc_tour_ciel_sommet | arc_tour_ciel_sommet | arc_tour_ciel_sommet | — | **ALREADY_IMPLEMENTED** | OUT_OF_SCOPE: already imported by another agent (Sky Tower arc) |
+| `sky_tower_summit` | Pokémon Mystery Dungeon: Red Rescue Team | sky_summit | sommet | 9 | 1 | large_rooms, crossroads, mixed | `sky_tower` | 7 | 8 | — | arc_tour_ciel_sommet | arc_tour_ciel_sommet | arc_tour_ciel_sommet | — | **ALREADY_IMPLEMENTED** | OUT_OF_SCOPE: already imported by another agent (Sky Tower arc) |
+| `frosty_forest` | Pokémon Mystery Dungeon: Red Rescue Team | frosty_edge | sommet | 9 | 1 | branching, dense, mixed | `frosty_forest` | 8 | 22 | — | d10p03 | d10p03 | d10p03 | — | **OWNED_BY_OTHER_AGENT** | OUT_OF_SCOPE: Data/Zone/frosty_forest.json already exists and belongs to another agent |
+| `mt_freeze` | Pokémon Mystery Dungeon: Red Rescue Team | freeze_slope | sommet | 15 | 2 | twosides, branching, mixed, crossroads | `mt_freeze` | 13 | 56 | — | d11p03 | d11p03 | d11p03 | — | **OWNED_BY_OTHER_AGENT** | OUT_OF_SCOPE: Data/Zone/mt_freeze.json already exists and belongs to another agent |
+| `meteor_cave` | Pokémon Mystery Dungeon: Red Rescue Team | meteor_shell | fond | 20 | 2 | branching, mixed, dense, looping, lattice | `spacial_rift_1` | 7 | 0 | — | — | — | — | meteor_cave_arena | **BLOCKED_MISSING_ASSET** | MISSING_ASSET: arena 'meteor_cave_arena.rsmap' must be authored before the boss scene can be converted to a Ground; SCENE: dedicated arena 'meteor_cave_arena.rsmap' must exist in Data/Map before conversion |
+| `buried_relic` | Pokémon Mystery Dungeon: Red Rescue Team | relic_halls | fond | 99 | 3 | crossroads, lattice, mixed, looping, dense, large_rooms | `buried_relic_1` | 50 | 120 | — | — | — | — | buried_relic_arena | **BLOCKED_MISSING_ASSET** | MISSING_ASSET: arena 'buried_relic_arena.rsmap' must be authored before the boss scene can be converted to a Ground; SCENE: dedicated arena 'buried_relic_arena.rsmap' must exist in Data/Map before conversion |
+| `wish_cave` | Pokémon Mystery Dungeon: Red Rescue Team | wish_gallery | fond | 99 | 2 | branching, mixed, dense, looping, lattice | `wish_cave_1` | 83 | 80 | — | sanctuaire_voeu | sanctuaire_voeu | sanctuaire_voeu | — | **OWNED_BY_OTHER_AGENT** | OUT_OF_SCOPE: Data/Zone/wish_cave.json already exists and belongs to another agent |
+| `northwind_field` | — | — | sommet | 30 | 2 | — | `—` | 0 | 0 | — | — | — | — | — | **BLOCKED_MISSING_TILESET** | INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment); MISSING_TILESET: no DTEF triplet assigned for this biome |
+| `lightning_field` | Pokémon Mystery Dungeon: Red Rescue Team | storm_plain | sommet | 30 | 2 | twosides, large_rooms, mixed, looping | `lightning_field` | 22 | 66 | — | champ_foudre | champ_foudre | champ_foudre | — | **REQUIRES_INTEGRATION** | REQUIRES_INTEGRATION: canonical scene 'champ_foudre' is archived in RESERVE/grounds/champ_foudre.rsground; restore it as the cinematic/battle Ground (no separate arena); SCENE: REQUIRES_INTEGRATION: canonical scene 'champ_foudre' (RESERVE/grounds/champ_foudre.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena |
+| `murky_cave` | Pokémon Mystery Dungeon: Red Rescue Team | murky_gallery | fond | 19 | 2 | branching, mixed, dense, looping, lattice | `murky_cave` | 17 | 0 | — | caverne_trouble_fond | caverne_trouble_fond | caverne_trouble_fond | — | **REQUIRES_INTEGRATION** | REQUIRES_INTEGRATION: canonical scene 'caverne_trouble_fond' is archived in RESERVE/grounds/caverne_trouble_fond.rsground; restore it as the cinematic/battle Ground (no separate arena); SCENE: REQUIRES_INTEGRATION: canonical scene 'caverne_trouble_fond' (RESERVE/grounds/caverne_trouble_fond.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena |
+| `purity_forest` | Pokémon Mystery Dungeon: Red Rescue Team | purity_outer | sommet | 99 | 4 | branching, dense, mixed, looping, large_rooms | `purity_forest_4` | 154 | 171 | — | — | — | — | purity_forest_arena | **BLOCKED_MISSING_ASSET** | MISSING_ASSET: arena 'purity_forest_arena.rsmap' must be authored before the boss scene can be converted to a Ground; SCENE: dedicated arena 'purity_forest_arena.rsmap' must exist in Data/Map before conversion |
 
 ## Blocages détaillés
 
+### `mt_steel` — Mt. Steel (ch.7)
+- BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd03p02' is archived in RESERVE/red_grounds/d03p02.rsground; restore it as the cinematic/battle Ground (no separate arena)
+- BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'd03p02' (RESERVE/red_grounds/d03p02.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena
+
+### `thunderwave_cave` — Thunderwave Cave (ch.7)
+- BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd02p02' is archived in RESERVE/red_grounds/d02p02.rsground; restore it as the cinematic/battle Ground (no separate arena)
+- BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'd02p02' (RESERVE/red_grounds/d02p02.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena
+
+### `tiny_woods` — Tiny Woods (ch.7)
+- BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd01p02' is archived in RESERVE/red_grounds/d01p02.rsground; restore it as the cinematic/battle Ground (no separate arena)
+- BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'd01p02' (RESERVE/red_grounds/d01p02.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena
+
+### `silent_chasm` — Silent Chasm (ch.8)
+- BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd05p02' is archived in RESERVE/red_grounds/d05p02.rsground; restore it as the cinematic/battle Ground (no separate arena)
+- BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'd05p02' (RESERVE/red_grounds/d05p02.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena
+
+### `mt_thunder` — Mt. Thunder (ch.9)
+- BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd06p03' is archived in RESERVE/red_grounds/d06p03.rsground; restore it as the cinematic/battle Ground (no separate arena)
+- BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'd06p03' (RESERVE/red_grounds/d06p03.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena
+
 ### `mt_thunder_peak` — Mt. Thunder Peak (ch.9)
-- BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)
-- BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome
-- BLOCKED/MISSING_ASSET: arena 'mt_thunder_peak_arena.rsmap' must be authored before the boss scene can be converted to a Ground
+- BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd06p03' is archived in RESERVE/red_grounds/d06p03.rsground; restore it as the cinematic/battle Ground (no separate arena)
+- BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'd06p03' (RESERVE/red_grounds/d06p03.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena
 
 ### `lapis_cave` — Lapis Cave (ch.10)
 - BLOCKED/OUT_OF_SCOPE: Data/Zone/lapis_cave.json already exists and belongs to another agent
@@ -73,96 +103,40 @@ Aucun étage procédural n'a été généré à cette étape, et `generate-all` 
 ### `mt_blaze` — Mt. Blaze (ch.10)
 - BLOCKED/OUT_OF_SCOPE: Data/Zone/mt_blaze.json already exists and belongs to another agent
 
-### `mt_blaze_peak` — Mt. Blaze Peak (ch.10)
-- BLOCKED/MISSING_ASSET: arena 'mt_blaze_peak_arena.rsmap' must be authored before the boss scene can be converted to a Ground
-- BLOCKED/SCENE: dedicated arena 'mt_blaze_peak_arena.rsmap' must exist in Data/Map before conversion
-
 ### `sky_tower` — Sky Tower (ch.10)
-- BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)
-- BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome
 - BLOCKED/OUT_OF_SCOPE: already imported by another agent (Sky Tower arc)
 
 ### `sky_tower_summit` — Sky Tower Summit (ch.10)
-- BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)
-- BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome
-- BLOCKED/MISSING_ASSET: arena 'sky_tower_summit_arena.rsmap' must be authored before the boss scene can be converted to a Ground
 - BLOCKED/OUT_OF_SCOPE: already imported by another agent (Sky Tower arc)
 
 ### `frosty_forest` — Frosty Forest (ch.11)
 - BLOCKED/OUT_OF_SCOPE: Data/Zone/frosty_forest.json already exists and belongs to another agent
 
-### `frosty_grotto` — Frosty Grotto (ch.11)
-- BLOCKED/MISSING_ASSET: arena 'frosty_grotto_arena.rsmap' must be authored before the boss scene can be converted to a Ground
-- BLOCKED/SCENE: dedicated arena 'frosty_grotto_arena.rsmap' must exist in Data/Map before conversion
-
 ### `mt_freeze` — Mt. Freeze (ch.11)
 - BLOCKED/OUT_OF_SCOPE: Data/Zone/mt_freeze.json already exists and belongs to another agent
-
-### `silver_trench` — Silver Trench (ch.13)
-- BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)
-- BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome
-- BLOCKED/MISSING_ASSET: arena 'silver_trench_arena.rsmap' must be authored before the boss scene can be converted to a Ground
-
-### `stormy_sea` — Stormy Sea (ch.13)
-- BLOCKED/MISSING_ASSET: arena 'stormy_sea_arena.rsmap' must be authored before the boss scene can be converted to a Ground
-- BLOCKED/SCENE: dedicated arena 'stormy_sea_arena.rsmap' must exist in Data/Map before conversion
 
 ### `meteor_cave` — Meteor Cave (ch.14)
 - BLOCKED/MISSING_ASSET: arena 'meteor_cave_arena.rsmap' must be authored before the boss scene can be converted to a Ground
 - BLOCKED/SCENE: dedicated arena 'meteor_cave_arena.rsmap' must exist in Data/Map before conversion
-
-### `western_cave` — Western Cave (ch.14)
-- BLOCKED/MISSING_ASSET: arena 'western_cave_arena.rsmap' must be authored before the boss scene can be converted to a Ground
-- BLOCKED/SCENE: dedicated arena 'western_cave_arena.rsmap' must exist in Data/Map before conversion
 
 ### `buried_relic` — Buried Relic (ch.15)
 - BLOCKED/MISSING_ASSET: arena 'buried_relic_arena.rsmap' must be authored before the boss scene can be converted to a Ground
 - BLOCKED/SCENE: dedicated arena 'buried_relic_arena.rsmap' must exist in Data/Map before conversion
 
 ### `wish_cave` — Wish Cave (ch.15)
-- BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)
-- BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome
 - BLOCKED/OUT_OF_SCOPE: Data/Zone/wish_cave.json already exists and belongs to another agent
-
-### `northern_range` — Northern Range (ch.16)
-- BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)
-- BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome
-- BLOCKED/MISSING_ASSET: arena 'northern_range_arena.rsmap' must be authored before the boss scene can be converted to a Ground
-
-### `fiery_field` — Fiery Field (ch.18)
-- BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)
-- BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome
-- BLOCKED/MISSING_ASSET: arena 'fiery_field_arena.rsmap' must be authored before the boss scene can be converted to a Ground
-
-### `wyvern_hill` — Wyvern Hill (ch.18)
-- BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)
-- BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome
 
 ### `northwind_field` — Northwind Field (ch.19)
 - BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)
 - BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome
-- BLOCKED/MISSING_ASSET: arena 'northwind_field_arena.rsmap' must be authored before the boss scene can be converted to a Ground
 
 ### `lightning_field` — Lightning Field (ch.20)
-- BLOCKED/MISSING_ASSET: arena 'lightning_field_arena.rsmap' must be authored before the boss scene can be converted to a Ground
-- BLOCKED/SCENE: dedicated arena 'lightning_field_arena.rsmap' must exist in Data/Map before conversion
+- BLOCKED/REQUIRES_INTEGRATION: canonical scene 'champ_foudre' is archived in RESERVE/grounds/champ_foudre.rsground; restore it as the cinematic/battle Ground (no separate arena)
+- BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'champ_foudre' (RESERVE/grounds/champ_foudre.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena
 
-### `grand_sea` — Grand Sea (ch.21)
-- BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)
-- BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome
-
-### `fantasy_strait` — Fantasy Strait (ch.24)
-- BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)
-- BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome
-
-### `snow_path` — Snow Path (ch.25)
-- BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)
-- BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome
-
-### `mt_faraway` — Mt. Faraway (ch.28)
-- BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)
-- BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome
-- BLOCKED/MISSING_ASSET: arena 'mt_faraway_arena.rsmap' must be authored before the boss scene can be converted to a Ground
+### `murky_cave` — Murky Cave (ch.21)
+- BLOCKED/REQUIRES_INTEGRATION: canonical scene 'caverne_trouble_fond' is archived in RESERVE/grounds/caverne_trouble_fond.rsground; restore it as the cinematic/battle Ground (no separate arena)
+- BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'caverne_trouble_fond' (RESERVE/grounds/caverne_trouble_fond.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena
 
 ### `purity_forest` — Purity Forest (ch.29)
 - BLOCKED/MISSING_ASSET: arena 'purity_forest_arena.rsmap' must be authored before the boss scene can be converted to a Ground

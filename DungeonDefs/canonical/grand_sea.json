@@ -36,7 +36,13 @@
     "min_distance": 4,
     "exit_tile": "stairs_go_down"
   },
-  "dtef": {},
+  "dtef": {
+    "floor": "surrounded_sea_floor",
+    "wall": "surrounded_sea_wall",
+    "secondary": "surrounded_sea_secondary",
+    "name": "surrounded_sea",
+    "element": "normal"
+  },
   "canonical_items_without_pmdo_equivalent": [
     "ITEM_ALLURE_SEED",
     "ITEM_BLOWBACK_ORB",
@@ -718,8 +724,5 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
-  "fixed_grounds": {},
-  "blocked": [
-    "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome"
-  ]
+  "fixed_grounds": {}
 }

@@ -37,10 +37,10 @@
     "exit_tile": "stairs_go_up"
   },
   "dtef": {
-    "floor": "far_amp_plains_floor",
-    "wall": "far_amp_plains_wall",
-    "secondary": "far_amp_plains_secondary",
-    "name": "far_amp_plains",
+    "floor": "lightning_field_floor",
+    "wall": "lightning_field_wall",
+    "secondary": "lightning_field_secondary",
+    "name": "lightning_field",
     "element": "normal",
     "justification": "Champ de Foudre : plaines électriques canoniques ; unique utilisateur."
   },
@@ -826,10 +826,23 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "",
+    "relay_ground": "",
+    "canonical_end_ground": "champ_foudre",
+    "state": "ARCHIVED",
+    "location": "RESERVE/grounds/champ_foudre.rsground",
+    "cinematic_ground": "champ_foudre",
+    "battle_ground": "champ_foudre",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
   "boss": {
-    "mode": "arena_rsmap",
-    "map": "lightning_field_arena",
-    "notes": "Aucun Ground de fin canonique : arène dédiée à créer puis convertir.",
+    "mode": "canonical_ground",
+    "ground": "champ_foudre",
+    "pending_integration": true,
+    "source_asset": "RESERVE/grounds/champ_foudre.rsground",
+    "notes": "Scène canonique existante : à intégrer telle quelle comme Ground de cinématique ET de combat ; aucune arène séparée.",
     "roster": [
       {
         "species": "raikou",
@@ -843,6 +856,6 @@
   },
   "fixed_grounds": {},
   "blocked": [
-    "BLOCKED/MISSING_ASSET: arena 'lightning_field_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
+    "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'champ_foudre' is archived in RESERVE/grounds/champ_foudre.rsground; restore it as the cinematic/battle Ground (no separate arena)"
   ]
 }

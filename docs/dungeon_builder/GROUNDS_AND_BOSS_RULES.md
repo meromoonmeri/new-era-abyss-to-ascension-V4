@@ -63,7 +63,42 @@ clairière forestière avec l'aire de repos centrale ouverte et les masses
 d'arbres en bordure ; un passage artistique manuel reste possible, le pipeline
 étant rejouable avec une autre planche via `--sheet`.
 
-## 3. Ce qui reste à produire pour un nouveau donjon
+## 3. Inventaire canonique des scènes (source d'autorité)
+
+`tools/dungeon_builder/scenes.py` lit
+`docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md` — l'inventaire des 245 Grounds PMD
+Red convertis, qui donne pour chaque donjon GBA son Ground d'ENTRÉE, de RELAIS
+et de FIN/ARÈNE. Chaque nom est ensuite localisé :
+
+| État | Signification | Conséquence |
+|---|---|---|
+| `ACTIVE_GROUND` | présent dans `Data/Ground` | `canonical_ground`, prêt |
+| `ACTIVE_RSMAP` | présent dans `Data/Map` | ce `.rsmap` **devient** ce Ground (pas une seconde arène) → `REQUIRES_INTEGRATION` |
+| `ARCHIVED` | présent dans `RESERVE/…` | scène à restaurer telle quelle → `REQUIRES_INTEGRATION` |
+| `NONE` | absente partout | et seulement alors : `arena_rsmap` autorisé |
+
+Les sous-donjons de cime/fosse héritent de la scène de leur lieu parent
+(`Mt. Blaze Peak` → `d09p03`, `Frosty Grotto` → `d10p03`,
+`Magma Cavern Pit` → `fosse_ardente`, `Sky Tower Summit` →
+`arc_tour_ciel_sommet`) : la cinématique du légendaire et son combat s'y
+déroulent, aucune arène n'est fabriquée.
+
+### Invariant vérifié par les tests
+
+Pour toute définition : `scenes.cinematic_ground == scenes.battle_ground ==
+scenes.canonical_end_ground`. Le schéma refuse une définition qui séparerait la
+cinématique du combat, et refuse `arena_rsmap` dès que l'inventaire nomme une
+scène — **même archivée**.
+
+Résultat du scan exhaustif : sur les 9 arènes que l'étape 6 croyait devoir
+créer, **6 possédaient déjà un Ground canonique actif** (`abime_tempetes`
+Kyogre, `fosse_argentee` Lugia, `champ_braises`, `champ_vent_boreal`,
+`sommet_aurore` Ho-Oh, `antre_occident` Mewtwo, `cretes_boreales` Latios,
+`bois_des_plaintes` Suicune) et 2 une scène archivée (`champ_foudre` Raikou,
+`caverne_trouble_fond`). Il ne reste que **3 arènes réellement à créer** :
+Buried Relic (Regis), Meteor Cave (Deoxys), Purity Forest (Celebi).
+
+## 4. Ce qui reste à produire pour un nouveau donjon
 
 * si le donjon n'a pas de Ground de fin : créer le `.rsmap` d'arène, puis le
   convertir en Ground (le Builder refuse tant que le `.rsmap` n'existe pas) ;

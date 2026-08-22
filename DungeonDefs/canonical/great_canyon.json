@@ -631,5 +631,23 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
-  "fixed_grounds": {}
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "grand_canyon_porte",
+    "relay_ground": "",
+    "canonical_end_ground": "d07p02",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/d07p02.rsground",
+    "cinematic_ground": "d07p02",
+    "battle_ground": "d07p02",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "d07p02",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
+  },
+  "fixed_grounds": {
+    "end": "d07p02"
+  }
 }

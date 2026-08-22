@@ -234,10 +234,21 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "mont_cendre_pied",
+    "relay_ground": "d09p02",
+    "canonical_end_ground": "d09p03",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/d09p03.rsground",
+    "cinematic_ground": "d09p03",
+    "battle_ground": "d09p03",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
   "boss": {
-    "mode": "arena_rsmap",
-    "map": "mt_blaze_peak_arena",
-    "notes": "Aucun Ground de fin canonique : arène dédiée à créer puis convertir.",
+    "mode": "canonical_ground",
+    "ground": "d09p03",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée.",
     "roster": [
       {
         "species": "moltres",
@@ -249,8 +260,8 @@
       }
     ]
   },
-  "fixed_grounds": {},
-  "blocked": [
-    "BLOCKED/MISSING_ASSET: arena 'mt_blaze_peak_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
-  ]
+  "fixed_grounds": {
+    "entrance": "mont_cendre_pied",
+    "end": "d09p03"
+  }
 }

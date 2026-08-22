@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-22T22:01:43+00:00",
+  "generated_at": "2026-08-22T22:20:20+00:00",
   "total": 51,
-  "pass": 26,
-  "fail": 25,
+  "pass": 32,
+  "fail": 19,
   "limits": [
     "Pas de runtime .NET dans cet environnement : la validation runtime in-engine (chargement réel d'une zone par RogueEssence) reste impossible ici ; les rapports laissent le champ « runtime » non renseigné.",
     "`GridPathTiered` / `GridPathTreads` restent hors profils tant que leur comportement réel n'a pas été lu dans les sources RogueEssence (dépôt non accessible publiquement)."
@@ -17,7 +17,7 @@
       "floors": 99,
       "segments": 3,
       "direction": "fond",
-      "dtef": "sealed_ruin",
+      "dtef": "buried_relic_1",
       "profiles": [
         "crossroads",
         "lattice",
@@ -31,6 +31,15 @@
       "boss_mode": "arena_rsmap",
       "end_scene": "buried_relic_arena",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "relic_halls",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "buried_relic_arena",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "BLOCKED_MISSING_ASSET",
       "blockers": [
         "BLOCKED/MISSING_ASSET: arena 'buried_relic_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
         "BLOCKED/SCENE: dedicated arena 'buried_relic_arena.rsmap' must exist in Data/Map before conversion"
@@ -63,6 +72,15 @@
       "boss_mode": "",
       "end_scene": "",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "dark_halls",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
@@ -80,7 +98,7 @@
       "floors": 20,
       "segments": 2,
       "direction": "sommet",
-      "dtef": "quicksand_pit",
+      "dtef": "northern_desert_1",
       "profiles": [
         "large_rooms",
         "twosides",
@@ -93,6 +111,15 @@
       "boss_mode": "",
       "end_scene": "",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "dunes",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
@@ -110,19 +137,35 @@
       "floors": 30,
       "segments": 2,
       "direction": "fond",
-      "dtef": "",
-      "profiles": [],
-      "species": 0,
-      "item_entries": 0,
+      "dtef": "craggy_coast",
+      "profiles": [
+        "looping",
+        "ring",
+        "mixed",
+        "lattice"
+      ],
+      "species": 29,
+      "item_entries": 36,
       "boss_mode": "",
       "end_scene": "",
       "midpoint": "",
-      "blockers": [
-        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
-        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome"
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "strait_shelf",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
       ],
-      "notes": [],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "far_off_sea.json",
@@ -145,6 +188,15 @@
       "boss_mode": "",
       "end_scene": "",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "far_shelf",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
@@ -162,20 +214,34 @@
       "floors": 30,
       "segments": 2,
       "direction": "sommet",
-      "dtef": "",
-      "profiles": [],
-      "species": 0,
-      "item_entries": 0,
-      "boss_mode": "",
-      "end_scene": "",
-      "midpoint": "",
-      "blockers": [
-        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
-        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
-        "BLOCKED/MISSING_ASSET: arena 'fiery_field_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
+      "dtef": "deep_dark_crater",
+      "profiles": [
+        "twosides",
+        "large_rooms",
+        "mixed",
+        "looping"
       ],
-      "notes": [],
-      "status": "FAIL"
+      "species": 23,
+      "item_entries": 66,
+      "boss_mode": "canonical_ground",
+      "end_scene": "champ_braises",
+      "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "ember_plain",
+      "cinematic_ground": "champ_braises",
+      "battle_ground": "champ_braises",
+      "canonical_end_ground": "champ_braises",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "final battle stays on the canonical end Ground 'champ_braises' (no separate arena created)"
+      ],
+      "status": "PASS"
     },
     {
       "file": "frosty_forest.json",
@@ -193,16 +259,24 @@
       ],
       "species": 8,
       "item_entries": 22,
-      "boss_mode": "",
-      "end_scene": "",
+      "boss_mode": "canonical_ground",
+      "end_scene": "d10p03",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "frosty_edge",
+      "cinematic_ground": "d10p03",
+      "battle_ground": "d10p03",
+      "canonical_end_ground": "d10p03",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "OWNED_BY_OTHER_AGENT",
+      "readiness": "OWNED_BY_OTHER_AGENT",
       "blockers": [
         "BLOCKED/OUT_OF_SCOPE: Data/Zone/frosty_forest.json already exists and belongs to another agent"
       ],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "no boss scene declared"
+        "final battle stays on the canonical end Ground 'd10p03' (no separate arena created)"
       ],
       "status": "FAIL"
     },
@@ -222,19 +296,24 @@
       ],
       "species": 3,
       "item_entries": 5,
-      "boss_mode": "arena_rsmap",
-      "end_scene": "frosty_grotto_arena",
+      "boss_mode": "canonical_ground",
+      "end_scene": "d10p03",
       "midpoint": "",
-      "blockers": [
-        "BLOCKED/MISSING_ASSET: arena 'frosty_grotto_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
-        "BLOCKED/SCENE: dedicated arena 'frosty_grotto_arena.rsmap' must exist in Data/Map before conversion"
-      ],
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "frosty_grotto",
+      "cinematic_ground": "d10p03",
+      "battle_ground": "d10p03",
+      "canonical_end_ground": "d10p03",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
-        "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared"
+        "final battle stays on the canonical end Ground 'd10p03' (no separate arena created)"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "grand_sea.json",
@@ -244,19 +323,35 @@
       "floors": 30,
       "segments": 2,
       "direction": "fond",
-      "dtef": "",
-      "profiles": [],
-      "species": 0,
-      "item_entries": 0,
+      "dtef": "surrounded_sea",
+      "profiles": [
+        "looping",
+        "ring",
+        "mixed",
+        "lattice"
+      ],
+      "species": 23,
+      "item_entries": 40,
       "boss_mode": "",
       "end_scene": "",
       "midpoint": "",
-      "blockers": [
-        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
-        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome"
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "grand_shelf",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
       ],
-      "notes": [],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "great_canyon.json",
@@ -275,15 +370,23 @@
       ],
       "species": 16,
       "item_entries": 44,
-      "boss_mode": "",
-      "end_scene": "",
+      "boss_mode": "canonical_ground",
+      "end_scene": "d07p02",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "canyon_rim",
+      "cinematic_ground": "d07p02",
+      "battle_ground": "d07p02",
+      "canonical_end_ground": "d07p02",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "no boss scene declared"
+        "final battle stays on the canonical end Ground 'd07p02' (no separate arena created)"
       ],
       "status": "PASS"
     },
@@ -304,15 +407,23 @@
       ],
       "species": 16,
       "item_entries": 54,
-      "boss_mode": "",
-      "end_scene": "",
+      "boss_mode": "canonical_ground",
+      "end_scene": "bois_des_plaintes",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "howling_edge",
+      "cinematic_ground": "bois_des_plaintes",
+      "battle_ground": "bois_des_plaintes",
+      "canonical_end_ground": "bois_des_plaintes",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "no boss scene declared"
+        "final battle stays on the canonical end Ground 'bois_des_plaintes' (no separate arena created)"
       ],
       "status": "PASS"
     },
@@ -338,6 +449,15 @@
       "boss_mode": "",
       "end_scene": "",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "tower_base",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
@@ -368,6 +488,15 @@
       "boss_mode": "canonical_ground",
       "end_scene": "grotte_lazuli_fond",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "lapis_gallery",
+      "cinematic_ground": "grotte_lazuli_fond",
+      "battle_ground": "grotte_lazuli_fond",
+      "canonical_end_ground": "grotte_lazuli_fond",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "OWNED_BY_OTHER_AGENT",
+      "readiness": "OWNED_BY_OTHER_AGENT",
       "blockers": [
         "BLOCKED/OUT_OF_SCOPE: Data/Zone/lapis_cave.json already exists and belongs to another agent"
       ],
@@ -385,7 +514,7 @@
       "floors": 30,
       "segments": 2,
       "direction": "sommet",
-      "dtef": "far_amp_plains",
+      "dtef": "lightning_field",
       "profiles": [
         "twosides",
         "large_rooms",
@@ -394,12 +523,21 @@
       ],
       "species": 22,
       "item_entries": 66,
-      "boss_mode": "arena_rsmap",
-      "end_scene": "lightning_field_arena",
+      "boss_mode": "canonical_ground",
+      "end_scene": "champ_foudre",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "storm_plain",
+      "cinematic_ground": "champ_foudre",
+      "battle_ground": "champ_foudre",
+      "canonical_end_ground": "champ_foudre",
+      "arena_rsmap": "",
+      "scene_state": "ARCHIVED",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "REQUIRES_INTEGRATION",
       "blockers": [
-        "BLOCKED/MISSING_ASSET: arena 'lightning_field_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
-        "BLOCKED/SCENE: dedicated arena 'lightning_field_arena.rsmap' must exist in Data/Map before conversion"
+        "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'champ_foudre' is archived in RESERVE/grounds/champ_foudre.rsground; restore it as the cinematic/battle Ground (no separate arena)",
+        "BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'champ_foudre' (RESERVE/grounds/champ_foudre.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena"
       ],
       "notes": [
         "no fixed 'entrance' Ground declared",
@@ -428,12 +566,21 @@
       "species": 22,
       "item_entries": 45,
       "boss_mode": "canonical_ground",
-      "end_scene": "gorge_ardente_coeur",
+      "end_scene": "fosse_ardente",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "magma_gallery",
+      "cinematic_ground": "fosse_ardente",
+      "battle_ground": "fosse_ardente",
+      "canonical_end_ground": "fosse_ardente",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'gorge_ardente_coeur' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'fosse_ardente' (no separate arena created)"
       ],
       "status": "PASS"
     },
@@ -456,10 +603,18 @@
       "boss_mode": "canonical_ground",
       "end_scene": "fosse_ardente",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "magma_pit",
+      "cinematic_ground": "fosse_ardente",
+      "battle_ground": "fosse_ardente",
+      "canonical_end_ground": "fosse_ardente",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
         "no floor items (canonical: money only)",
-        "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'fosse_ardente' (no separate arena created)"
       ],
@@ -485,6 +640,15 @@
       "boss_mode": "",
       "end_scene": "",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "marvelous_shelf",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
@@ -515,6 +679,15 @@
       "boss_mode": "arena_rsmap",
       "end_scene": "meteor_cave_arena",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "meteor_shell",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "meteor_cave_arena",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "BLOCKED_MISSING_ASSET",
       "blockers": [
         "BLOCKED/MISSING_ASSET: arena 'meteor_cave_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
         "BLOCKED/SCENE: dedicated arena 'meteor_cave_arena.rsmap' must exist in Data/Map before conversion"
@@ -544,16 +717,24 @@
       ],
       "species": 9,
       "item_entries": 24,
-      "boss_mode": "",
-      "end_scene": "",
+      "boss_mode": "canonical_ground",
+      "end_scene": "d09p03",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "blaze_slope",
+      "cinematic_ground": "d09p03",
+      "battle_ground": "d09p03",
+      "canonical_end_ground": "d09p03",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "OWNED_BY_OTHER_AGENT",
+      "readiness": "OWNED_BY_OTHER_AGENT",
       "blockers": [
         "BLOCKED/OUT_OF_SCOPE: Data/Zone/mt_blaze.json already exists and belongs to another agent"
       ],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "no boss scene declared"
+        "final battle stays on the canonical end Ground 'd09p03' (no separate arena created)"
       ],
       "status": "FAIL"
     },
@@ -573,19 +754,24 @@
       ],
       "species": 3,
       "item_entries": 1,
-      "boss_mode": "arena_rsmap",
-      "end_scene": "mt_blaze_peak_arena",
+      "boss_mode": "canonical_ground",
+      "end_scene": "d09p03",
       "midpoint": "",
-      "blockers": [
-        "BLOCKED/MISSING_ASSET: arena 'mt_blaze_peak_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
-        "BLOCKED/SCENE: dedicated arena 'mt_blaze_peak_arena.rsmap' must exist in Data/Map before conversion"
-      ],
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "blaze_peak",
+      "cinematic_ground": "d09p03",
+      "battle_ground": "d09p03",
+      "canonical_end_ground": "d09p03",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
-        "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared"
+        "final battle stays on the canonical end Ground 'd09p03' (no separate arena created)"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "mt_faraway.json",
@@ -595,20 +781,35 @@
       "floors": 40,
       "segments": 3,
       "direction": "sommet",
-      "dtef": "",
-      "profiles": [],
-      "species": 0,
-      "item_entries": 0,
-      "boss_mode": "",
-      "end_scene": "",
-      "midpoint": "",
-      "blockers": [
-        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
-        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
-        "BLOCKED/MISSING_ASSET: arena 'mt_faraway_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
+      "dtef": "hidden_highland",
+      "profiles": [
+        "twosides",
+        "branching",
+        "mixed",
+        "crossroads",
+        "large_rooms"
       ],
-      "notes": [],
-      "status": "FAIL"
+      "species": 24,
+      "item_entries": 18,
+      "boss_mode": "canonical_ground",
+      "end_scene": "sommet_aurore",
+      "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "faraway_slope",
+      "cinematic_ground": "sommet_aurore",
+      "battle_ground": "sommet_aurore",
+      "canonical_end_ground": "sommet_aurore",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "final battle stays on the canonical end Ground 'sommet_aurore' (no separate arena created)"
+      ],
+      "status": "PASS"
     },
     {
       "file": "mt_freeze.json",
@@ -627,16 +828,24 @@
       ],
       "species": 13,
       "item_entries": 56,
-      "boss_mode": "",
-      "end_scene": "",
+      "boss_mode": "canonical_ground",
+      "end_scene": "d11p03",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "freeze_slope",
+      "cinematic_ground": "d11p03",
+      "battle_ground": "d11p03",
+      "canonical_end_ground": "d11p03",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "OWNED_BY_OTHER_AGENT",
+      "readiness": "OWNED_BY_OTHER_AGENT",
       "blockers": [
         "BLOCKED/OUT_OF_SCOPE: Data/Zone/mt_freeze.json already exists and belongs to another agent"
       ],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "no boss scene declared"
+        "final battle stays on the canonical end Ground 'd11p03' (no separate arena created)"
       ],
       "status": "FAIL"
     },
@@ -648,7 +857,7 @@
       "floors": 5,
       "segments": 1,
       "direction": "sommet",
-      "dtef": "sky_peak_4th_pass",
+      "dtef": "mt_freeze",
       "profiles": [
         "large_rooms",
         "crossroads",
@@ -656,15 +865,22 @@
       ],
       "species": 1,
       "item_entries": 14,
-      "boss_mode": "",
-      "end_scene": "",
+      "boss_mode": "canonical_ground",
+      "end_scene": "d11p03",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "freeze_peak",
+      "cinematic_ground": "d11p03",
+      "battle_ground": "d11p03",
+      "canonical_end_ground": "d11p03",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
-        "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "no boss scene declared"
+        "final battle stays on the canonical end Ground 'd11p03' (no separate arena created)"
       ],
       "status": "PASS"
     },
@@ -684,17 +900,28 @@
       ],
       "species": 9,
       "item_entries": 9,
-      "boss_mode": "",
-      "end_scene": "",
+      "boss_mode": "canonical_ground",
+      "end_scene": "d03p02",
       "midpoint": "",
-      "blockers": [],
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "steel_slope",
+      "cinematic_ground": "d03p02",
+      "battle_ground": "d03p02",
+      "canonical_end_ground": "d03p02",
+      "arena_rsmap": "",
+      "scene_state": "ARCHIVED",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "REQUIRES_INTEGRATION",
+      "blockers": [
+        "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd03p02' is archived in RESERVE/red_grounds/d03p02.rsground; restore it as the cinematic/battle Ground (no separate arena)",
+        "BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'd03p02' (RESERVE/red_grounds/d03p02.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena"
+      ],
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "no boss scene declared"
+        "no fixed 'end' Ground declared"
       ],
-      "status": "PASS"
+      "status": "FAIL"
     },
     {
       "file": "mt_thunder.json",
@@ -704,7 +931,7 @@
       "floors": 10,
       "segments": 2,
       "direction": "sommet",
-      "dtef": "craggy_peak",
+      "dtef": "mt_thunder",
       "profiles": [
         "twosides",
         "branching",
@@ -713,17 +940,28 @@
       ],
       "species": 15,
       "item_entries": 44,
-      "boss_mode": "",
-      "end_scene": "",
+      "boss_mode": "canonical_ground",
+      "end_scene": "d06p03",
       "midpoint": "",
-      "blockers": [],
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "thunder_slope",
+      "cinematic_ground": "d06p03",
+      "battle_ground": "d06p03",
+      "canonical_end_ground": "d06p03",
+      "arena_rsmap": "",
+      "scene_state": "ARCHIVED",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "REQUIRES_INTEGRATION",
+      "blockers": [
+        "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd06p03' is archived in RESERVE/red_grounds/d06p03.rsground; restore it as the cinematic/battle Ground (no separate arena)",
+        "BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'd06p03' (RESERVE/red_grounds/d06p03.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena"
+      ],
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "no boss scene declared"
+        "no fixed 'end' Ground declared"
       ],
-      "status": "PASS"
+      "status": "FAIL"
     },
     {
       "file": "mt_thunder_peak.json",
@@ -733,19 +971,35 @@
       "floors": 3,
       "segments": 1,
       "direction": "sommet",
-      "dtef": "",
-      "profiles": [],
-      "species": 0,
-      "item_entries": 0,
-      "boss_mode": "",
-      "end_scene": "",
-      "midpoint": "",
-      "blockers": [
-        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
-        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
-        "BLOCKED/MISSING_ASSET: arena 'mt_thunder_peak_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
+      "dtef": "far_amp_plains",
+      "profiles": [
+        "large_rooms",
+        "crossroads",
+        "mixed"
       ],
-      "notes": [],
+      "species": 6,
+      "item_entries": 13,
+      "boss_mode": "canonical_ground",
+      "end_scene": "d06p03",
+      "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "thunder_peak",
+      "cinematic_ground": "d06p03",
+      "battle_ground": "d06p03",
+      "canonical_end_ground": "d06p03",
+      "arena_rsmap": "",
+      "scene_state": "ARCHIVED",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "REQUIRES_INTEGRATION",
+      "blockers": [
+        "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd06p03' is archived in RESERVE/red_grounds/d06p03.rsground; restore it as the cinematic/battle Ground (no separate arena)",
+        "BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'd06p03' (RESERVE/red_grounds/d06p03.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena"
+      ],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared"
+      ],
       "status": "FAIL"
     },
     {
@@ -756,7 +1010,7 @@
       "floors": 19,
       "segments": 2,
       "direction": "fond",
-      "dtef": "dark_hill",
+      "dtef": "murky_cave",
       "profiles": [
         "branching",
         "mixed",
@@ -766,18 +1020,29 @@
       ],
       "species": 17,
       "item_entries": 0,
-      "boss_mode": "",
-      "end_scene": "",
+      "boss_mode": "canonical_ground",
+      "end_scene": "caverne_trouble_fond",
       "midpoint": "",
-      "blockers": [],
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "murky_gallery",
+      "cinematic_ground": "caverne_trouble_fond",
+      "battle_ground": "caverne_trouble_fond",
+      "canonical_end_ground": "caverne_trouble_fond",
+      "arena_rsmap": "",
+      "scene_state": "ARCHIVED",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "REQUIRES_INTEGRATION",
+      "blockers": [
+        "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'caverne_trouble_fond' is archived in RESERVE/grounds/caverne_trouble_fond.rsground; restore it as the cinematic/battle Ground (no separate arena)",
+        "BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'caverne_trouble_fond' (RESERVE/grounds/caverne_trouble_fond.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena"
+      ],
       "notes": [
         "no floor items (canonical: money only)",
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "no boss scene declared"
+        "no fixed 'end' Ground declared"
       ],
-      "status": "PASS"
+      "status": "FAIL"
     },
     {
       "file": "northern_range.json",
@@ -787,20 +1052,34 @@
       "floors": 25,
       "segments": 2,
       "direction": "sommet",
-      "dtef": "",
-      "profiles": [],
-      "species": 0,
-      "item_entries": 0,
-      "boss_mode": "",
-      "end_scene": "",
-      "midpoint": "",
-      "blockers": [
-        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
-        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
-        "BLOCKED/MISSING_ASSET: arena 'northern_range_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
+      "dtef": "craggy_peak",
+      "profiles": [
+        "twosides",
+        "branching",
+        "mixed",
+        "crossroads"
       ],
-      "notes": [],
-      "status": "FAIL"
+      "species": 19,
+      "item_entries": 53,
+      "boss_mode": "canonical_ground",
+      "end_scene": "cretes_boreales",
+      "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "north_ridge",
+      "cinematic_ground": "cretes_boreales",
+      "battle_ground": "cretes_boreales",
+      "canonical_end_ground": "cretes_boreales",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "final battle stays on the canonical end Ground 'cretes_boreales' (no separate arena created)"
+      ],
+      "status": "PASS"
     },
     {
       "file": "northwind_field.json",
@@ -817,10 +1096,18 @@
       "boss_mode": "",
       "end_scene": "",
       "midpoint": "",
+      "source": "",
+      "biome": "",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "BLOCKED_MISSING_TILESET",
       "blockers": [
         "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
-        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
-        "BLOCKED/MISSING_ASSET: arena 'northwind_field_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
+        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome"
       ],
       "notes": [],
       "status": "FAIL"
@@ -846,6 +1133,15 @@
       "boss_mode": "",
       "end_scene": "",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "oddity_gallery",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
@@ -872,14 +1168,22 @@
       ],
       "species": 17,
       "item_entries": 53,
-      "boss_mode": "",
-      "end_scene": "",
+      "boss_mode": "canonical_ground",
+      "end_scene": "vallon_perdu",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "pitfall_rim",
+      "cinematic_ground": "vallon_perdu",
+      "battle_ground": "vallon_perdu",
+      "canonical_end_ground": "vallon_perdu",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "no boss scene declared"
+        "final battle stays on the canonical end Ground 'vallon_perdu' (no separate arena created)"
       ],
       "status": "PASS"
     },
@@ -904,6 +1208,15 @@
       "boss_mode": "arena_rsmap",
       "end_scene": "purity_forest_arena",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "purity_outer",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "purity_forest_arena",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "BLOCKED_MISSING_ASSET",
       "blockers": [
         "BLOCKED/MISSING_ASSET: arena 'purity_forest_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
         "BLOCKED/SCENE: dedicated arena 'purity_forest_arena.rsmap' must exist in Data/Map before conversion"
@@ -936,6 +1249,15 @@
       "boss_mode": "",
       "end_scene": "",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "remains_shore",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
@@ -964,6 +1286,15 @@
       "boss_mode": "",
       "end_scene": "",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "rock_path",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
@@ -989,17 +1320,28 @@
       ],
       "species": 12,
       "item_entries": 21,
-      "boss_mode": "",
-      "end_scene": "",
+      "boss_mode": "canonical_ground",
+      "end_scene": "d05p02",
       "midpoint": "",
-      "blockers": [],
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "silent_rim",
+      "cinematic_ground": "d05p02",
+      "battle_ground": "d05p02",
+      "canonical_end_ground": "d05p02",
+      "arena_rsmap": "",
+      "scene_state": "ARCHIVED",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "REQUIRES_INTEGRATION",
+      "blockers": [
+        "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd05p02' is archived in RESERVE/red_grounds/d05p02.rsground; restore it as the cinematic/battle Ground (no separate arena)",
+        "BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'd05p02' (RESERVE/red_grounds/d05p02.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena"
+      ],
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "no boss scene declared"
+        "no fixed 'end' Ground declared"
       ],
-      "status": "PASS"
+      "status": "FAIL"
     },
     {
       "file": "silver_trench.json",
@@ -1009,20 +1351,35 @@
       "floors": 99,
       "segments": 3,
       "direction": "fond",
-      "dtef": "",
-      "profiles": [],
-      "species": 0,
-      "item_entries": 0,
-      "boss_mode": "",
-      "end_scene": "",
-      "midpoint": "",
-      "blockers": [
-        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
-        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
-        "BLOCKED/MISSING_ASSET: arena 'silver_trench_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
+      "dtef": "silver_trench_3",
+      "profiles": [
+        "looping",
+        "ring",
+        "mixed",
+        "lattice",
+        "large_rooms"
       ],
-      "notes": [],
-      "status": "FAIL"
+      "species": 59,
+      "item_entries": 61,
+      "boss_mode": "canonical_ground",
+      "end_scene": "fosse_argentee",
+      "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "silver_shelf",
+      "cinematic_ground": "fosse_argentee",
+      "battle_ground": "fosse_argentee",
+      "canonical_end_ground": "fosse_argentee",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "final battle stays on the canonical end Ground 'fosse_argentee' (no separate arena created)"
+      ],
+      "status": "PASS"
     },
     {
       "file": "sinister_woods.json",
@@ -1047,6 +1404,15 @@
       "boss_mode": "canonical_ground",
       "end_scene": "sinister_woods_clearing",
       "midpoint": "gloomy_forest_midpoint",
+      "source": "Pokémon Mystery Dungeon: Rescue Team (Red/Blue Rescue Team & Rescue Team DX)",
+      "biome": "forest",
+      "cinematic_ground": "sinister_woods_clearing",
+      "battle_ground": "sinister_woods_clearing",
+      "canonical_end_ground": "",
+      "arena_rsmap": "",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
@@ -1062,19 +1428,33 @@
       "floors": 25,
       "segments": 1,
       "direction": "sommet",
-      "dtef": "",
-      "profiles": [],
-      "species": 0,
-      "item_entries": 0,
-      "boss_mode": "",
-      "end_scene": "",
+      "dtef": "sky_tower",
+      "profiles": [
+        "crossroads",
+        "branching",
+        "mixed"
+      ],
+      "species": 16,
+      "item_entries": 16,
+      "boss_mode": "canonical_ground",
+      "end_scene": "arc_tour_ciel_sommet",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "sky_ascent",
+      "cinematic_ground": "arc_tour_ciel_sommet",
+      "battle_ground": "arc_tour_ciel_sommet",
+      "canonical_end_ground": "arc_tour_ciel_sommet",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "ALREADY_IMPLEMENTED",
+      "readiness": "ALREADY_IMPLEMENTED",
       "blockers": [
-        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
-        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
         "BLOCKED/OUT_OF_SCOPE: already imported by another agent (Sky Tower arc)"
       ],
-      "notes": [],
+      "notes": [
+        "no fixed 'mid' Ground declared",
+        "final battle stays on the canonical end Ground 'arc_tour_ciel_sommet' (no separate arena created)"
+      ],
       "status": "FAIL"
     },
     {
@@ -1085,20 +1465,33 @@
       "floors": 9,
       "segments": 1,
       "direction": "sommet",
-      "dtef": "",
-      "profiles": [],
-      "species": 0,
-      "item_entries": 0,
-      "boss_mode": "",
-      "end_scene": "",
+      "dtef": "sky_tower",
+      "profiles": [
+        "large_rooms",
+        "crossroads",
+        "mixed"
+      ],
+      "species": 7,
+      "item_entries": 8,
+      "boss_mode": "canonical_ground",
+      "end_scene": "arc_tour_ciel_sommet",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "sky_summit",
+      "cinematic_ground": "arc_tour_ciel_sommet",
+      "battle_ground": "arc_tour_ciel_sommet",
+      "canonical_end_ground": "arc_tour_ciel_sommet",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "ALREADY_IMPLEMENTED",
+      "readiness": "ALREADY_IMPLEMENTED",
       "blockers": [
-        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
-        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
-        "BLOCKED/MISSING_ASSET: arena 'sky_tower_summit_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
         "BLOCKED/OUT_OF_SCOPE: already imported by another agent (Sky Tower arc)"
       ],
-      "notes": [],
+      "notes": [
+        "no fixed 'mid' Ground declared",
+        "final battle stays on the canonical end Ground 'arc_tour_ciel_sommet' (no separate arena created)"
+      ],
       "status": "FAIL"
     },
     {
@@ -1109,19 +1502,34 @@
       "floors": 4,
       "segments": 1,
       "direction": "fond",
-      "dtef": "",
-      "profiles": [],
-      "species": 0,
-      "item_entries": 0,
+      "dtef": "sky_peak_4th_pass",
+      "profiles": [
+        "twosides",
+        "large_rooms",
+        "mixed"
+      ],
+      "species": 4,
+      "item_entries": 15,
       "boss_mode": "",
       "end_scene": "",
       "midpoint": "",
-      "blockers": [
-        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
-        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome"
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "snow_path",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
       ],
-      "notes": [],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "solar_cave.json",
@@ -1144,6 +1552,15 @@
       "boss_mode": "",
       "end_scene": "",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "solar_gallery",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
@@ -1161,7 +1578,7 @@
       "floors": 50,
       "segments": 3,
       "direction": "fond",
-      "dtef": "western_cave_2",
+      "dtef": "crystal_cave_1",
       "profiles": [
         "branching",
         "mixed",
@@ -1175,6 +1592,15 @@
       "boss_mode": "",
       "end_scene": "",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "south_gallery",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
@@ -1202,19 +1628,25 @@
       ],
       "species": 24,
       "item_entries": 116,
-      "boss_mode": "arena_rsmap",
-      "end_scene": "stormy_sea_arena",
+      "boss_mode": "canonical_ground",
+      "end_scene": "abime_tempetes",
       "midpoint": "",
-      "blockers": [
-        "BLOCKED/MISSING_ASSET: arena 'stormy_sea_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
-        "BLOCKED/SCENE: dedicated arena 'stormy_sea_arena.rsmap' must exist in Data/Map before conversion"
-      ],
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "stormy_shelf",
+      "cinematic_ground": "abime_tempetes",
+      "battle_ground": "abime_tempetes",
+      "canonical_end_ground": "abime_tempetes",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared"
+        "final battle stays on the canonical end Ground 'abime_tempetes' (no separate arena created)"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "thunderwave_cave.json",
@@ -1224,7 +1656,7 @@
       "floors": 5,
       "segments": 1,
       "direction": "fond",
-      "dtef": "chasm_cave",
+      "dtef": "crystal_cave_2",
       "profiles": [
         "branching",
         "mixed",
@@ -1232,17 +1664,28 @@
       ],
       "species": 7,
       "item_entries": 6,
-      "boss_mode": "",
-      "end_scene": "",
+      "boss_mode": "canonical_ground",
+      "end_scene": "d02p02",
       "midpoint": "",
-      "blockers": [],
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "static_cave",
+      "cinematic_ground": "d02p02",
+      "battle_ground": "d02p02",
+      "canonical_end_ground": "d02p02",
+      "arena_rsmap": "",
+      "scene_state": "ARCHIVED",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "REQUIRES_INTEGRATION",
+      "blockers": [
+        "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd02p02' is archived in RESERVE/red_grounds/d02p02.rsground; restore it as the cinematic/battle Ground (no separate arena)",
+        "BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'd02p02' (RESERVE/red_grounds/d02p02.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena"
+      ],
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "no boss scene declared"
+        "no fixed 'end' Ground declared"
       ],
-      "status": "PASS"
+      "status": "FAIL"
     },
     {
       "file": "tiny_woods.json",
@@ -1252,7 +1695,7 @@
       "floors": 3,
       "segments": 1,
       "direction": "fond",
-      "dtef": "mystifying_forest",
+      "dtef": "tiny_meadow",
       "profiles": [
         "branching",
         "dense",
@@ -1260,17 +1703,28 @@
       ],
       "species": 4,
       "item_entries": 2,
-      "boss_mode": "",
-      "end_scene": "",
+      "boss_mode": "canonical_ground",
+      "end_scene": "d01p02",
       "midpoint": "",
-      "blockers": [],
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "young_woods",
+      "cinematic_ground": "d01p02",
+      "battle_ground": "d01p02",
+      "canonical_end_ground": "d01p02",
+      "arena_rsmap": "",
+      "scene_state": "ARCHIVED",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "REQUIRES_INTEGRATION",
+      "blockers": [
+        "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd01p02' is archived in RESERVE/red_grounds/d01p02.rsground; restore it as the cinematic/battle Ground (no separate arena)",
+        "BLOCKED/SCENE: REQUIRES_INTEGRATION: canonical scene 'd01p02' (RESERVE/red_grounds/d01p02.rsground) must be restored/converted as the cinematic + battle Ground — no separate arena"
+      ],
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared",
-        "no boss scene declared"
+        "no fixed 'end' Ground declared"
       ],
-      "status": "PASS"
+      "status": "FAIL"
     },
     {
       "file": "unown_relic.json",
@@ -1293,6 +1747,15 @@
       "boss_mode": "",
       "end_scene": "",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "unown_halls",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
@@ -1322,6 +1785,15 @@
       "boss_mode": "",
       "end_scene": "",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "uproar_edge",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
@@ -1351,6 +1823,15 @@
       "boss_mode": "",
       "end_scene": "",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "pond_shore",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
       "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
@@ -1379,19 +1860,25 @@
       ],
       "species": 55,
       "item_entries": 36,
-      "boss_mode": "arena_rsmap",
-      "end_scene": "western_cave_arena",
+      "boss_mode": "canonical_ground",
+      "end_scene": "antre_occident",
       "midpoint": "",
-      "blockers": [
-        "BLOCKED/MISSING_ASSET: arena 'western_cave_arena.rsmap' must be authored before the boss scene can be converted to a Ground",
-        "BLOCKED/SCENE: dedicated arena 'western_cave_arena.rsmap' must exist in Data/Map before conversion"
-      ],
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "western_gallery",
+      "cinematic_ground": "antre_occident",
+      "battle_ground": "antre_occident",
+      "canonical_end_ground": "antre_occident",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared"
+        "final battle stays on the canonical end Ground 'antre_occident' (no separate arena created)"
       ],
-      "status": "FAIL"
+      "status": "PASS"
     },
     {
       "file": "wish_cave.json",
@@ -1401,19 +1888,37 @@
       "floors": 99,
       "segments": 2,
       "direction": "fond",
-      "dtef": "",
-      "profiles": [],
-      "species": 0,
-      "item_entries": 0,
-      "boss_mode": "",
-      "end_scene": "",
+      "dtef": "wish_cave_1",
+      "profiles": [
+        "branching",
+        "mixed",
+        "dense",
+        "looping",
+        "lattice"
+      ],
+      "species": 83,
+      "item_entries": 80,
+      "boss_mode": "canonical_ground",
+      "end_scene": "sanctuaire_voeu",
       "midpoint": "",
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "wish_gallery",
+      "cinematic_ground": "sanctuaire_voeu",
+      "battle_ground": "sanctuaire_voeu",
+      "canonical_end_ground": "sanctuaire_voeu",
+      "arena_rsmap": "",
+      "scene_state": "ACTIVE_GROUND",
+      "ownership": "OWNED_BY_OTHER_AGENT",
+      "readiness": "OWNED_BY_OTHER_AGENT",
       "blockers": [
-        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
-        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
         "BLOCKED/OUT_OF_SCOPE: Data/Zone/wish_cave.json already exists and belongs to another agent"
       ],
-      "notes": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "final battle stays on the canonical end Ground 'sanctuaire_voeu' (no separate arena created)",
+        "scene source of truth: sanctuaire_voeu.rsmap matches the end Ground"
+      ],
       "status": "FAIL"
     },
     {
@@ -1424,19 +1929,35 @@
       "floors": 30,
       "segments": 2,
       "direction": "sommet",
-      "dtef": "",
-      "profiles": [],
-      "species": 0,
-      "item_entries": 0,
+      "dtef": "wyvern_hill",
+      "profiles": [
+        "twosides",
+        "branching",
+        "mixed",
+        "crossroads"
+      ],
+      "species": 18,
+      "item_entries": 59,
       "boss_mode": "",
       "end_scene": "",
       "midpoint": "",
-      "blockers": [
-        "BLOCKED/INVALID_DEFINITION: no DTEF tileset declared (dungeon level or every segment)",
-        "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome"
+      "source": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "biome": "wyvern_slope",
+      "cinematic_ground": "",
+      "battle_ground": "",
+      "canonical_end_ground": "",
+      "arena_rsmap": "",
+      "scene_state": "",
+      "ownership": "SAFE_TO_BUILD",
+      "readiness": "READY_FOR_GENERATION",
+      "blockers": [],
+      "notes": [
+        "no fixed 'entrance' Ground declared",
+        "no fixed 'mid' Ground declared",
+        "no fixed 'end' Ground declared",
+        "no boss scene declared"
       ],
-      "notes": [],
-      "status": "FAIL"
+      "status": "PASS"
     }
   ]
 }

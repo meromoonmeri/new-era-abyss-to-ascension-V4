@@ -1065,10 +1065,21 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "",
+    "relay_ground": "",
+    "canonical_end_ground": "abime_tempetes",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/abime_tempetes.rsground",
+    "cinematic_ground": "abime_tempetes",
+    "battle_ground": "abime_tempetes",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
   "boss": {
-    "mode": "arena_rsmap",
-    "map": "stormy_sea_arena",
-    "notes": "Aucun Ground de fin canonique : arène dédiée à créer puis convertir.",
+    "mode": "canonical_ground",
+    "ground": "abime_tempetes",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée.",
     "roster": [
       {
         "species": "kyogre",
@@ -1080,8 +1091,7 @@
       }
     ]
   },
-  "fixed_grounds": {},
-  "blocked": [
-    "BLOCKED/MISSING_ASSET: arena 'stormy_sea_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
-  ]
+  "fixed_grounds": {
+    "end": "abime_tempetes"
+  }
 }

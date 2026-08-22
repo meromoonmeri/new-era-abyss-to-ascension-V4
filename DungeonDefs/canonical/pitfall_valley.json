@@ -723,7 +723,24 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "",
+    "relay_ground": "",
+    "canonical_end_ground": "vallon_perdu",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/vallon_perdu.rsground",
+    "cinematic_ground": "vallon_perdu",
+    "battle_ground": "vallon_perdu",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "vallon_perdu",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
+  },
   "fixed_grounds": {
-    "entrance": "vallon_perdu"
+    "entrance": "vallon_perdu",
+    "end": "vallon_perdu"
   }
 }

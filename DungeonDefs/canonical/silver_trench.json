@@ -36,7 +36,13 @@
     "min_distance": 4,
     "exit_tile": "stairs_go_down"
   },
-  "dtef": {},
+  "dtef": {
+    "floor": "silver_trench_3_floor",
+    "wall": "silver_trench_3_wall",
+    "secondary": "silver_trench_3_secondary",
+    "name": "silver_trench_3",
+    "element": "normal"
+  },
   "canonical_items_without_pmdo_equivalent": [
     "ITEM_BLOWBACK_ORB",
     "ITEM_DETECT_BAND",
@@ -1264,10 +1270,21 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "",
+    "relay_ground": "",
+    "canonical_end_ground": "fosse_argentee",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/fosse_argentee.rsground",
+    "cinematic_ground": "fosse_argentee",
+    "battle_ground": "fosse_argentee",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
   "boss": {
-    "mode": "arena_rsmap",
-    "map": "silver_trench_arena",
-    "notes": "Aucun Ground de fin canonique : arène dédiée à créer puis convertir.",
+    "mode": "canonical_ground",
+    "ground": "fosse_argentee",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée.",
     "roster": [
       {
         "species": "lugia",
@@ -1279,9 +1296,7 @@
       }
     ]
   },
-  "fixed_grounds": {},
-  "blocked": [
-    "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
-    "BLOCKED/MISSING_ASSET: arena 'silver_trench_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
-  ]
+  "fixed_grounds": {
+    "end": "fosse_argentee"
+  }
 }

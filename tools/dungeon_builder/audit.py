@@ -26,6 +26,17 @@ STATUS_DIR = ROOT / "Data" / "MapStatus"
 DOC_DIR = ROOT / "docs" / "dungeon_builder"
 
 
+READY = "READY_FOR_GENERATION"
+REQUIRES_INTEGRATION = "REQUIRES_INTEGRATION"
+BLOCKED_TILESET = "BLOCKED_MISSING_TILESET"
+BLOCKED_ASSET = "BLOCKED_MISSING_ASSET"
+BLOCKED_SOURCE = "BLOCKED_MISSING_SOURCE"
+BLOCKED_DEFINITION = "BLOCKED_INVALID_DEFINITION"
+ALREADY_IMPLEMENTED = "ALREADY_IMPLEMENTED"
+OWNED_BY_OTHER_AGENT = "OWNED_BY_OTHER_AGENT"
+SAFE_TO_BUILD = "SAFE_TO_BUILD"
+
+
 @dataclass
 class DungeonAudit:
     file: str
@@ -42,12 +53,45 @@ class DungeonAudit:
     boss_mode: str = ""
     end_scene: str = ""
     midpoint: str = ""
+    source: str = ""
+    biome: str = ""
+    cinematic_ground: str = ""
+    battle_ground: str = ""
+    canonical_end_ground: str = ""
+    arena_rsmap: str = ""
+    scene_state: str = ""
+    ownership: str = SAFE_TO_BUILD
+    readiness: str = READY
     blockers: List[str] = field(default_factory=list)
     notes: List[str] = field(default_factory=list)
 
     @property
     def status(self) -> str:
         return "PASS" if not self.blockers else "FAIL"
+
+    def classify(self) -> None:
+        """Turn the blocker list into one actionable readiness status."""
+        text = " ".join(self.blockers)
+        if not self.blockers:
+            self.readiness = READY
+        elif "REQUIRES_INTEGRATION" in text:
+            self.readiness = REQUIRES_INTEGRATION
+        elif "MISSING_TILESET" in text:
+            self.readiness = BLOCKED_TILESET
+        elif "MISSING_ASSET" in text:
+            self.readiness = BLOCKED_ASSET
+        elif "MISSING_SOURCE" in text or "MISSING_ITEM" in text:
+            self.readiness = BLOCKED_SOURCE
+        elif "OUT_OF_SCOPE" in text:
+            self.readiness = self.ownership
+        else:
+            self.readiness = BLOCKED_DEFINITION
+        if "already imported by another agent" in text:
+            self.ownership = ALREADY_IMPLEMENTED
+        elif "already exists" in text:
+            self.ownership = OWNED_BY_OTHER_AGENT
+        if self.ownership in (ALREADY_IMPLEMENTED, OWNED_BY_OTHER_AGENT):
+            self.readiness = self.ownership
 
 
 def _known_items() -> set:
@@ -76,6 +120,7 @@ def audit_definition(path: Path, known_items: set, known_statuses: set,
             audit.blockers.extend(str(b) for b in raw.get("blocked", []))
         except (json.JSONDecodeError, OSError, ValueError):
             audit.dungeon = path.stem
+        audit.classify()
         return audit, None
 
     audit.dungeon = definition.id
@@ -84,6 +129,15 @@ def audit_definition(path: Path, known_items: set, known_statuses: set,
     audit.floors = definition.floors
     audit.segments = len(definition.segments)
     audit.direction = str(definition.variation.get("direction", ""))
+    audit.source = definition.source.split(" —")[0][:90]
+    audit.biome = definition.biome
+    declared = definition.scenes or {}
+    audit.canonical_end_ground = declared.get("canonical_end_ground", "")
+    audit.cinematic_ground = declared.get("cinematic_ground", "")
+    audit.battle_ground = declared.get("battle_ground", "")
+    audit.scene_state = declared.get("state", "")
+    if (definition.boss or {}).get("mode") == "arena_rsmap":
+        audit.arena_rsmap = (definition.boss or {}).get("map", "")
 
     # blockers recorded by the extraction step itself
     audit.blockers.extend(definition.blocked)
@@ -190,11 +244,16 @@ def audit_definition(path: Path, known_items: set, known_statuses: set,
                 f"BLOCKED/INVALID_DEFINITION: miniboss {miniboss.get('species')} is not stronger "
                 "than the dungeon residents")
 
+    audit.cinematic_ground = audit.cinematic_ground or check.cinematic_ground
+    audit.battle_ground = audit.battle_ground or check.battle_ground
+
     # --- ownership
     if definition.id in zone_names and definition.id != "gloomy_forest":
         if not any("OUT_OF_SCOPE" in blocker for blocker in audit.blockers):
             audit.blockers.append(
                 f"BLOCKED/OUT_OF_SCOPE: Data/Zone/{definition.id}.json already exists")
+        audit.ownership = OWNED_BY_OTHER_AGENT
+    audit.classify()
     return audit, definition
 
 
@@ -229,21 +288,34 @@ LIMITS = [
 def markdown(audits: Sequence[DungeonAudit], global_problems: Sequence[str]) -> str:
     passed = [a for a in audits if a.status == "PASS"]
     failed = [a for a in audits if a.status == "FAIL"]
-    lines = ["# Audit global des définitions canoniques Ch.6–32", "",
+    ready = [a for a in audits if a.readiness == "READY_FOR_GENERATION"]
+    counts: Dict[str, int] = {}
+    for audit in audits:
+        counts[audit.readiness] = counts.get(audit.readiness, 0) + 1
+    lines = ["# Audit de readiness — 51 donjons canoniques Ch.6–32", "",
              f"_Généré le {datetime.now(timezone.utc).isoformat(timespec='seconds')} — "
-             f"{len(audits)} définitions : **{len(passed)} PASS**, **{len(failed)} FAIL**._", "",
-             "Aucun étage procédural n'a été généré à cette étape, et `generate-all` n'a pas été lancé.",
-             "", "## Tableau de bord", "",
-             "| Statut | Donjon | Ch. | Ét. | Seg. | Dir. | DTEF | Profils | Espèces | Objets | "
-             "Fin | Blocage principal |",
-             "|---|---|---|---|---|---|---|---|---|---|---|---|"]
-    for audit in sorted(audits, key=lambda a: (a.status == "FAIL", a.chapter, a.dungeon)):
-        blocker = audit.blockers[0].split(": ", 1)[0] if audit.blockers else "—"
+             f"{len(audits)} définitions : **{len(ready)} READY_FOR_GENERATION**, "
+             f"{len(audits) - len(ready)} non prêtes._", "",
+             "Aucun étage procédural n'a été généré à cette étape ; `generate-all` n'a pas été lancé.",
+             "", "## Répartition des statuts", "",
+             "| Statut | Nombre |", "|---|---|"]
+    for status, count in sorted(counts.items(), key=lambda kv: (-kv[1], kv[0])):
+        lines.append(f"| `{status}` | {count} |")
+    lines += ["", "## Tableau de readiness", "",
+              "| DUNGEON | SOURCE CANONIQUE | BIOME | DIR. | FLOORS | SEG. | PROFILS ROGUEELEMENTS | "
+              "DTEF | POKÉMON | OBJETS | MIDPOINT | CINEMATIC GROUND | BATTLE GROUND | "
+              "CANONICAL END GROUND | ARENA RSMAP | STATUS | BLOCKING REASON |",
+              "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+    for audit in sorted(audits, key=lambda a: (a.readiness != "READY_FOR_GENERATION",
+                                               a.chapter, a.dungeon)):
+        reason = "; ".join(b.replace("BLOCKED/", "") for b in audit.blockers[:2]) or "—"
         lines.append(
-            f"| {'✅ PASS' if audit.status == 'PASS' else '❌ FAIL'} | `{audit.dungeon or audit.file}` | "
-            f"{audit.chapter} | {audit.floors} | {audit.segments} | {audit.direction or '—'} | "
-            f"`{audit.dtef or '—'}` | {', '.join(audit.profiles) or '—'} | {audit.species} | "
-            f"{audit.item_entries} | {audit.boss_mode or '—'} | {blocker} |")
+            f"| `{audit.dungeon or audit.file}` | {audit.source or '—'} | {audit.biome or '—'} | "
+            f"{audit.direction or '—'} | {audit.floors} | {audit.segments} | "
+            f"{', '.join(audit.profiles) or '—'} | `{audit.dtef or '—'}` | {audit.species} | "
+            f"{audit.item_entries} | {audit.midpoint or '—'} | {audit.cinematic_ground or '—'} | "
+            f"{audit.battle_ground or '—'} | {audit.canonical_end_ground or '—'} | "
+            f"{audit.arena_rsmap or '—'} | **{audit.readiness}** | {reason} |")
 
     lines += ["", "## Blocages détaillés", ""]
     for audit in sorted(failed, key=lambda a: (a.chapter, a.dungeon)):

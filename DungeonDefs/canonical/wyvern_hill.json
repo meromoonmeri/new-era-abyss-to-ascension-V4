@@ -36,7 +36,13 @@
     "min_distance": 4,
     "exit_tile": "stairs_go_up"
   },
-  "dtef": {},
+  "dtef": {
+    "floor": "wyvern_hill_floor",
+    "wall": "wyvern_hill_wall",
+    "secondary": "wyvern_hill_secondary",
+    "name": "wyvern_hill",
+    "element": "normal"
+  },
   "canonical_items_without_pmdo_equivalent": [
     "ITEM_ALLURE_SEED",
     "ITEM_BLOWBACK_ORB",
@@ -746,8 +752,5 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
-  "fixed_grounds": {},
-  "blocked": [
-    "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome"
-  ]
+  "fixed_grounds": {}
 }

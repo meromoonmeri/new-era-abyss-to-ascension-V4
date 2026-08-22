@@ -36,7 +36,14 @@
     "min_distance": 4,
     "exit_tile": "stairs_go_down"
   },
-  "dtef": {},
+  "dtef": {
+    "floor": "sky_peak_4th_pass_floor",
+    "wall": "sky_peak_4th_pass_wall",
+    "secondary": "sky_peak_4th_pass_secondary",
+    "name": "sky_peak_4th_pass",
+    "element": "normal",
+    "justification": "Sentier Neigeux : col d'altitude enneigé ; utilisateur unique après déplacement de la Cime du Mont Gelé."
+  },
   "canonical_items_without_pmdo_equivalent": [
     "ITEM_BLOWBACK_ORB",
     "ITEM_EVASION_ORB",
@@ -306,8 +313,5 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
-  "fixed_grounds": {},
-  "blocked": [
-    "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome"
-  ]
+  "fixed_grounds": {}
 }

@@ -40,6 +40,8 @@ CONVERSION_ITEMS = ROOT / "CONVERSION" / "Item.txt"
 sys.path.insert(0, str(ROOT / "tools"))
 from dungeon_builder.dtef import base_tilesets  # noqa: E402
 from dungeon_builder.grounds import END_SUFFIXES  # noqa: E402
+from dungeon_builder.scenes import (ACTIVE_GROUND, ARCHIVED, NONE, parse_inventory,
+                                    readiness, scenes_for)  # noqa: E402
 
 # --------------------------------------------------------------------------
 # Hand-authored mapping tables.  Every entry is a decision, documented inline.
@@ -94,10 +96,9 @@ NATURE_PROFILES = {
 #: A tileset is only assigned when a triplet really exists locally (mod DTEF or a
 #: base PMDO tileset already referenced by shipped data) AND matches the biome.
 DUNGEON_SETUP: Dict[str, Dict[str, Any]] = {
-    "tiny_woods":        {"nature": "forest", "biomes": ["young_woods"], "tileset": "mystifying_forest",
-                          "justification": "Tiny Woods n'a pas de DTEF propre importé ; forêt claire de départ, "
-                                           "tileset forestier PMDO le plus proche."},
-    "thunderwave_cave":  {"nature": "cave", "biomes": ["static_cave"], "tileset": "chasm_cave",
+    "tiny_woods":        {"nature": "forest", "biomes": ["young_woods"], "tileset": "tiny_meadow",
+                          "justification": 'Forêt Tendre : biome de prairie/bosquet de départ ; utilisateur unique.'},
+    "thunderwave_cave":  {"nature": "cave", "biomes": ["static_cave"], "tileset": "crystal_cave_2",
                           "justification": 'Grotte Statique : aucun DTEF Thunderwave importé ; même biome de grotte sèche que le Gouffre Muet, qui reste propriétaire du triplet.'},
     "mt_steel":          {"nature": "mountain", "biomes": ["steel_slope", "steel_summit"],
                           "tileset": "steel_aegis_cave",
@@ -107,9 +108,9 @@ DUNGEON_SETUP: Dict[str, Dict[str, Any]] = {
     "silent_chasm":      {"nature": "cave", "biomes": ["silent_rim", "chasm_depths"], "tileset": "chasm_cave",
                           "justification": None},
     "mt_thunder":        {"nature": "mountain", "biomes": ["thunder_slope", "thunder_ridge"],
-                          "tileset": "craggy_peak", "justification": None},
-    "mt_thunder_peak":   {"nature": "peak", "biomes": ["thunder_peak"], "tileset": None,
-                          "justification": None},
+                          "tileset": "mt_thunder", "justification": None},
+    "mt_thunder_peak":   {"nature": "peak", "biomes": ["thunder_peak"], "tileset": "far_amp_plains",
+                          "justification": 'Cime du Mont Grondant : plaines électriques, seul utilisateur ; le triplet mt_thunder reste au massif.'},
     "great_canyon":      {"nature": "mountain", "biomes": ["canyon_rim", "canyon_floor"],
                           "tileset": "mt_horn", "justification": None},
     "lapis_cave":        {"nature": "cave", "biomes": ["lapis_gallery", "lapis_depths"],
@@ -124,18 +125,20 @@ DUNGEON_SETUP: Dict[str, Dict[str, Any]] = {
                           "justification": 'Grotte Givrée : cavité du massif du Mont Gelé (Artikodin) ; même biome canonique que le massif.'},
     "mt_freeze":         {"nature": "mountain", "biomes": ["freeze_slope", "freeze_ridge"],
                           "tileset": "mt_freeze", "justification": None},
-    "mt_freeze_peak":    {"nature": "peak", "biomes": ["freeze_peak"], "tileset": "sky_peak_4th_pass",
-                          "justification": "cime enneigée ; col d'altitude enneigé disponible."},
+    "mt_freeze_peak":    {"nature": "peak", "biomes": ["freeze_peak"], "tileset": "mt_freeze",
+                          "justification": 'Cime du Mont Gelé : même massif que le Mont Gelé, biome canonique identique.'},
     "magma_cavern":      {"nature": "cave", "biomes": ["magma_gallery", "magma_core", "magma_abyss"],
                           "tileset": "magma_cavern_2", "justification": None},
     "magma_cavern_pit":  {"nature": "cave", "biomes": ["magma_pit"], "tileset": "world_abyss_2",
                           "justification": 'Fond de la Gorge Ardente (Groudon) : abysse volcanique, unique utilisateur de ce triplet.'},
-    "sky_tower":         {"nature": "tower", "biomes": ["sky_ascent"], "tileset": None},
-    "sky_tower_summit":  {"nature": "peak", "biomes": ["sky_summit"], "tileset": None},
+    "sky_tower":         {"nature": "tower", "biomes": ["sky_ascent"], "tileset": "sky_tower"},
+    "sky_tower_summit":  {"nature": "peak", "biomes": ["sky_summit"], "tileset": "sky_tower",
+                          "justification": "Sommet de la Tour Céleste : même édifice que la Tour "
+                                           "Céleste, biome canonique identique."},
     "stormy_sea":        {"nature": "sea", "biomes": ["stormy_shelf", "stormy_deep", "stormy_abyss"],
                           "tileset": "stormy_sea_1", "justification": None},
     "silver_trench":     {"nature": "sea", "biomes": ["silver_shelf", "silver_deep", "silver_trench"],
-                          "tileset": None,
+                          "tileset": "silver_trench_3",
                           "justification": None},
     "meteor_cave":       {"nature": "cave", "biomes": ["meteor_shell", "meteor_core"],
                           "tileset": "spacial_rift_1",
@@ -143,37 +146,37 @@ DUNGEON_SETUP: Dict[str, Dict[str, Any]] = {
     "western_cave":      {"nature": "cave", "biomes": ["western_gallery", "western_depths", "western_abyss"],
                           "tileset": "western_cave_1", "justification": None},
     "wish_cave":         {"nature": "cave", "biomes": ["wish_gallery", "wish_sanctum"],
-                          "tileset": None,
+                          "tileset": "wish_cave_1",
                           "justification": None},
     "buried_relic":      {"nature": "relic", "biomes": ["relic_halls", "relic_depths", "relic_vault"],
-                          "tileset": "sealed_ruin", "justification": None},
+                          "tileset": "buried_relic_1", "justification": None},
     "pitfall_valley":    {"nature": "mountain", "biomes": ["pitfall_rim", "pitfall_floor"],
                           "tileset": "pitfall_valley_1", "justification": None},
     "northern_range":    {"nature": "mountain", "biomes": ["north_ridge", "north_heights"],
-                          "tileset": None,
-                          "justification": None},   # resolved as a conflict below if reused
+                          "tileset": "craggy_peak",
+                          "justification": 'Chaîne Nordique : crêtes rocheuses, aucun triplet Northern Range importé ; utilisateur unique.'},   # resolved as a conflict below if reused
     "desert_region":     {"nature": "desert", "biomes": ["dunes", "deep_desert"],
-                          "tileset": "quicksand_pit", "justification": None},
+                          "tileset": "northern_desert_1", "justification": None},
     "southern_cavern":   {"nature": "cave", "biomes": ["south_gallery", "south_depths", "south_abyss"],
-                          "tileset": "western_cave_2", "justification": 'Caverne Méridionale : seconde variante de la grande caverne occidentale, distincte de western_cave_1 conservé par Western Cave.'},
+                          "tileset": "crystal_cave_1", "justification": 'Caverne Méridionale : seconde variante de la grande caverne occidentale, distincte de western_cave_1 conservé par Western Cave.'},
     "wyvern_hill":       {"nature": "mountain", "biomes": ["wyvern_slope", "wyvern_crest"],
-                          "tileset": None, "justification": None},
+                          "tileset": "wyvern_hill", "justification": None},
     "fiery_field":       {"nature": "field", "biomes": ["ember_plain", "burning_plain"],
-                          "tileset": None, "justification": None},
+                          "tileset": "deep_dark_crater", "justification": 'Plaine Ardente : cratère volcanique, aucun triplet Fiery Field importé ; utilisateur unique.'},
     "northwind_field":   {"nature": "field", "biomes": ["north_plain", "gale_plain"],
                           "tileset": None, "justification": None},
     "solar_cave":        {"nature": "cave", "biomes": ["solar_gallery", "solar_heart"],
                           "tileset": "golden_chamber",
                           "justification": 'Grotte Solaire : chambre dorée, seul biome lumineux disponible ; unique utilisateur.'},
     "lightning_field":   {"nature": "field", "biomes": ["storm_plain", "thunder_plain"],
-                          "tileset": "far_amp_plains", "justification": 'Champ de Foudre : plaines électriques canoniques ; unique utilisateur.'},
+                          "tileset": "lightning_field", "justification": 'Champ de Foudre : plaines électriques canoniques ; unique utilisateur.'},
     "darknight_relic":   {"nature": "relic", "biomes": ["dark_halls", "dark_sanctum"],
                           "tileset": "the_nightmare",
                           "justification": "relique nocturne ; biome onirique sombre disponible."},
     "murky_cave":        {"nature": "cave", "biomes": ["murky_gallery", "murky_depths"],
-                          "tileset": "dark_hill", "justification": None},
+                          "tileset": "murky_cave", "justification": None},
     "grand_sea":         {"nature": "sea", "biomes": ["grand_shelf", "grand_deep"],
-                          "tileset": None, "justification": None},
+                          "tileset": "surrounded_sea", "justification": None},
     "uproar_forest":     {"nature": "forest", "biomes": ["uproar_edge", "uproar_heart"],
                           "tileset": "treeshroud_forest_2", "justification": 'Forêt du Tumulte : second tileset forestier PMDO, distinct de howling_forest_2 conservé par la Forêt des Hurlements.'},
     "oddity_cave":       {"nature": "cave", "biomes": ["oddity_gallery", "oddity_core"],
@@ -185,11 +188,11 @@ DUNGEON_SETUP: Dict[str, Dict[str, Any]] = {
     "marvelous_sea":     {"nature": "sea", "biomes": ["marvelous_shelf", "marvelous_deep"],
                           "tileset": "miracle_sea", "justification": None},
     "fantasy_strait":    {"nature": "sea", "biomes": ["strait_shelf", "strait_deep"],
-                          "tileset": None, "justification": None},
+                          "tileset": "craggy_coast", "justification": 'Détroit Fantastique : côte escarpée, seul biome de détroit disponible ; utilisateur unique.'},
     "rock_path":         {"nature": "cave", "biomes": ["rock_path"], "tileset": "rock_path_rb",
                           "justification": None},
-    "snow_path":         {"nature": "field", "biomes": ["snow_path"], "tileset": None,
-                          "justification": None},
+    "snow_path":         {"nature": "field", "biomes": ["snow_path"], "tileset": "sky_peak_4th_pass",
+                          "justification": "Sentier Neigeux : col d'altitude enneigé ; utilisateur unique après déplacement de la Cime du Mont Gelé."},
     "howling_forest":    {"nature": "forest", "biomes": ["howling_edge", "howling_heart"],
                           "tileset": "howling_forest_2", "justification": None},
     "waterfall_pond":    {"nature": "sea", "biomes": ["pond_shore", "pond_depths"],
@@ -205,7 +208,7 @@ DUNGEON_SETUP: Dict[str, Dict[str, Any]] = {
                           "tileset": "zero_isle_east_4",
                           "justification": "mer lointaine ; biome insulaire lointain disponible."},
     "mt_faraway":        {"nature": "mountain", "biomes": ["faraway_slope", "faraway_ridge", "faraway_peak"],
-                          "tileset": None, "justification": None},
+                          "tileset": "hidden_highland", "justification": 'Mont Lointain : hautes terres isolées, aucun triplet Mt. Faraway importé ; utilisateur unique.'},
     "purity_forest":     {"nature": "forest", "biomes": ["purity_outer", "purity_inner", "purity_heart",
                                                          "purity_core"],
                           "tileset": "purity_forest_4", "justification": None},
@@ -411,7 +414,7 @@ def chapter_base_level(chapter: int) -> int:
 def build_definition(row: Dict[str, Any], source: CanonicalSource,
                      conversion: Dict[str, str], prices: Dict[str, int],
                      tilesets: set, ground_names: set, map_names: set,
-                     zone_names: set) -> Dict[str, Any]:
+                     zone_names: set, inventory: Dict[str, Any]) -> Dict[str, Any]:
     slug = slugify(row["name"])
     setup = DUNGEON_SETUP.get(slug, {})
     blocked: List[str] = []
@@ -676,6 +679,26 @@ def build_definition(row: Dict[str, Any], source: CanonicalSource,
                              "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"}
     definition["features"] = features
 
+    # ---- canonical scenes (cinematic = battle = end) ---------------------
+    scene_set = scenes_for(row["name"], inventory)
+    scene_end = scene_set.canonical_end if scene_set else None
+    scene_state, scene_reason = readiness(scene_end)
+    if scene_set:
+        definition["scenes"] = {
+            "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+            "entrance_ground": scene_set.entrance.name if scene_set.entrance
+                               and scene_set.entrance.exists else "",
+            "relay_ground": scene_set.relay.name if scene_set.relay and scene_set.relay.exists else "",
+            "canonical_end_ground": scene_end.name if scene_end and scene_end.exists else "",
+            "state": scene_state,
+            "location": scene_end.location if scene_end else "",
+            "cinematic_ground": scene_end.name if scene_end and scene_end.exists else "",
+            "battle_ground": scene_end.name if scene_end and scene_end.exists else "",
+            "rule": ("La cinématique, les dialogues, le déclenchement du combat, le combat et "
+                     "sa conclusion se déroulent sur ce même Ground : aucune arène séparée, "
+                     "aucune téléportation."),
+        }
+
     # ---- fixed grounds / boss -------------------------------------------
     candidates = []
     aliases = {slug, definition["id"], *definition.get("aliases", [])}
@@ -689,8 +712,12 @@ def build_definition(row: Dict[str, Any], source: CanonicalSource,
     curated_end = END_GROUND.get(slug)
     if curated_end and curated_end in ground_names and curated_end not in candidates:
         candidates.insert(0, curated_end)
+    if scene_end and scene_end.state == ACTIVE_GROUND and scene_end.name not in candidates:
+        candidates.insert(0, scene_end.name)
     fixed: Dict[str, str] = {}
     entrance = ENTRANCE_GROUND.get(slug, f"{slug}_entrance")
+    if scene_set and scene_set.entrance and scene_set.entrance.state == ACTIVE_GROUND:
+        entrance = scene_set.entrance.name
     if entrance in ground_names:
         fixed["entrance"] = entrance
     boss_name = row["boss"]
@@ -703,10 +730,20 @@ def build_definition(row: Dict[str, Any], source: CanonicalSource,
         rsmap = f"{candidates[0]}"
         if rsmap in map_names:
             boss["map"] = rsmap
+    elif scene_end and scene_end.exists:
+        # the canonical scene exists but is not a live Ground yet: it must be
+        # integrated as-is, never replaced by a separate arena
+        boss = {"mode": "canonical_ground", "ground": scene_end.name,
+                "pending_integration": True, "source_asset": scene_end.location,
+                "notes": ("Scène canonique existante : à intégrer telle quelle comme Ground de "
+                          "cinématique ET de combat ; aucune arène séparée.")}
+        blocked.append(f"BLOCKED/{scene_reason}")
     elif boss_name and boss_name not in ("", "—"):
         arena = f"{slug}_arena"
         boss = {"mode": "arena_rsmap", "map": arena,
-                "notes": "Aucun Ground de fin canonique : arène dédiée à créer puis convertir."}
+                "notes": ("Aucune scène canonique dans l'inventaire PMD Red : arène dédiée à "
+                          "créer (architecture de combat adaptée au boss), puis à convertir en "
+                          "Ground unique pour cinématique et combat.")}
         if arena not in map_names:
             blocked.append(f"BLOCKED/MISSING_ASSET: arena '{arena}.rsmap' must be authored before "
                            "the boss scene can be converted to a Ground")
@@ -760,6 +797,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     args = parser.parse_args(argv)
 
     source = CanonicalSource(Path(args.source).expanduser())
+    inventory = parse_inventory()
     conversion = load_item_conversion()
     prices = known_items()
     tilesets = base_tilesets() | {p.stem for p in (ROOT / "Data" / "AutoTile").glob("*.json")}
@@ -780,7 +818,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             print(f"  = {slug}: kept as-is (validated reference dungeon)")
             continue
         definition = build_definition(row, source, conversion, prices, tilesets,
-                                      ground_names, map_names, zone_names)
+                                      ground_names, map_names, zone_names, inventory)
         path = out_dir / f"{slug}.json"
         if not args.dry_run:
             path.write_text(json.dumps(definition, ensure_ascii=False, indent=2) + "\n",

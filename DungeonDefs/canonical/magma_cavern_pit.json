@@ -255,6 +255,17 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "gorge_ardente_porte",
+    "relay_ground": "gorge_ardente_coeur",
+    "canonical_end_ground": "fosse_ardente",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/fosse_ardente.rsground",
+    "cinematic_ground": "fosse_ardente",
+    "battle_ground": "fosse_ardente",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
   "boss": {
     "mode": "canonical_ground",
     "ground": "fosse_ardente",
@@ -271,6 +282,7 @@
     ]
   },
   "fixed_grounds": {
+    "entrance": "gorge_ardente_porte",
     "end": "fosse_ardente"
   }
 }

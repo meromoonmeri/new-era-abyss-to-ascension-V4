@@ -456,8 +456,25 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "mont_cendre_pied",
+    "relay_ground": "d09p02",
+    "canonical_end_ground": "d09p03",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/d09p03.rsground",
+    "cinematic_ground": "d09p03",
+    "battle_ground": "d09p03",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "d09p03",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
+  },
   "fixed_grounds": {
-    "entrance": "mont_cendre_pied"
+    "entrance": "mont_cendre_pied",
+    "end": "d09p03"
   },
   "blocked": [
     "BLOCKED/OUT_OF_SCOPE: Data/Zone/mt_blaze.json already exists and belongs to another agent"

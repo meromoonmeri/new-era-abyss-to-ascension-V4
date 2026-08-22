@@ -205,6 +205,37 @@ def erase_isolated() -> Dict[str, Any]:
             "Terrain": WALL_TILE}
 
 
+def terrain_tile(terrain_id: str) -> Dict[str, Any]:
+    return {"$type": "RogueEssence.Dungeon.Tile, RogueEssence",
+            "Data": {"ID": terrain_id, "TileTex": {"AutoTileset": "", "Associates": [], "Layers": [],
+                                                   "NeighborCode": -1}, "StableTex": False},
+            "Effect": {"TileLoc": {"X": 0, "Y": 0}, "ID": "", "Revealed": False, "Owner": 0,
+                       "TileStates": []}}
+
+
+def perlin_water(percent: Tuple[int, int], terrain_id: str = "water", complexity: int = 3,
+                 softness: int = 1, bowl: bool = True, protect_paths: bool = True) -> Dict[str, Any]:
+    """RogueElements.PerlinWaterStep — native water/lava fields.
+
+    `protect_paths` wraps the terrain stencil in NoChokepointTerrainStencil so the
+    engine itself refuses to cut a mandatory path with terrain.
+    """
+    stencil: Dict[str, Any] = {"$type": _t("RogueElements.MapTerrainStencil", "RogueElements", MAP_CTX),
+                               "Room": False, "Wall": True, "Blocked": False, "Not": False}
+    if protect_paths:
+        # exact shape used by the shipped zones (apricorn_grove): the stencil
+        # refuses any terrain placement that would create a chokepoint.
+        stencil = {"$type": _t("RogueElements.NoChokepointTerrainStencil", "RogueElements", MAP_CTX),
+                   "TileStencil": {"$type": _t("RogueElements.MapTerrainStencil", "RogueElements",
+                                               MAP_CTX),
+                                   "Room": True, "Wall": False, "Blocked": False, "Not": False},
+                   "Global": False, "Negate": True}
+    return {"$type": _t("RogueElements.PerlinWaterStep", "RogueElements", MAP_CTX),
+            "OrderComplexity": complexity, "OrderSoftness": softness,
+            "WaterPercent": rand_range(percent), "Bowl": bowl,
+            "Terrain": terrain_tile(terrain_id), "TerrainStencil": stencil}
+
+
 def map_texture(floor_tileset: str, wall_tileset: str, secondary_tileset: str,
                 element: str = "normal") -> Dict[str, Any]:
     return {"$type": _t("RogueEssence.LevelGen.MapTextureStep", "RogueEssence", MAP_CTX),

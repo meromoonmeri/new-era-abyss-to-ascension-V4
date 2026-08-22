@@ -38,7 +38,13 @@
     "min_distance": 4,
     "exit_tile": "stairs_go_up"
   },
-  "dtef": {},
+  "dtef": {
+    "floor": "sky_tower_floor",
+    "wall": "sky_tower_wall",
+    "secondary": "sky_tower_secondary",
+    "name": "sky_tower",
+    "element": "normal"
+  },
   "canonical_items_without_pmdo_equivalent": [
     "ITEM_DETECT_BAND",
     "ITEM_GOLD_RIBBON",
@@ -494,9 +500,27 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
-  "fixed_grounds": {},
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "arc_parvis_celeste",
+    "relay_ground": "arc_palier_celeste",
+    "canonical_end_ground": "arc_tour_ciel_sommet",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/arc_tour_ciel_sommet.rsground",
+    "cinematic_ground": "arc_tour_ciel_sommet",
+    "battle_ground": "arc_tour_ciel_sommet",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "arc_tour_ciel_sommet",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
+  },
+  "fixed_grounds": {
+    "entrance": "arc_parvis_celeste",
+    "end": "arc_tour_ciel_sommet"
+  },
   "blocked": [
-    "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
     "BLOCKED/OUT_OF_SCOPE: already imported by another agent (Sky Tower arc)"
   ]
 }

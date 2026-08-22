@@ -37,12 +37,12 @@
     "exit_tile": "stairs_go_up"
   },
   "dtef": {
-    "floor": "sky_peak_4th_pass_floor",
-    "wall": "sky_peak_4th_pass_wall",
-    "secondary": "sky_peak_4th_pass_secondary",
-    "name": "sky_peak_4th_pass",
+    "floor": "mt_freeze_floor",
+    "wall": "mt_freeze_wall",
+    "secondary": "mt_freeze_secondary",
+    "name": "mt_freeze",
     "element": "normal",
-    "justification": "cime enneigée ; col d'altitude enneigé disponible."
+    "justification": "Cime du Mont Gelé : même massif que le Mont Gelé, biome canonique identique."
   },
   "canonical_items_without_pmdo_equivalent": [
     "ITEM_MAX_ELIXIR"
@@ -265,5 +265,24 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
-  "fixed_grounds": {}
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "mont_gele_pied",
+    "relay_ground": "d11p02",
+    "canonical_end_ground": "d11p03",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/d11p03.rsground",
+    "cinematic_ground": "d11p03",
+    "battle_ground": "d11p03",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "d11p03",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
+  },
+  "fixed_grounds": {
+    "entrance": "mont_gele_pied",
+    "end": "d11p03"
+  }
 }

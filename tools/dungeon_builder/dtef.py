@@ -21,6 +21,11 @@ TILE_DIR = ROOT / "Content" / "Tile"
 ZONE_DIR = ROOT / "Data" / "Zone"
 MAP_DIR = ROOT / "Data" / "Map"
 GROUND_DIR = ROOT / "Data" / "Ground"
+RESERVE_DIR = ROOT / "RESERVE"
+#: archives that prove a PMDO auto-tileset exists (converted zones/grounds kept
+#: out of the live data but produced by the same pipeline)
+RESERVE_SOURCES = ("zones", "maps", "grounds", "red_grounds", "sky_grounds",
+                   "pmdred_pre_promotion", "pmdred_direct")
 
 ROLES = ("floor", "wall", "secondary")
 
@@ -65,26 +70,63 @@ def available_packages(autotile_dir: Path = AUTOTILE_DIR) -> Dict[str, DtefPacka
     return packages
 
 
-@lru_cache(maxsize=1)
-def base_tilesets() -> frozenset:
-    """Auto-tilesets referenced by the data already shipped and working.
+TILESET_PATTERN = re.compile(
+    r'"(?:AutoTileset|GroundTileset|BlockTileset|WaterTileset)"\s*:\s*"([a-z0-9_]+)"')
 
-    PMDO ships hundreds of auto-tilesets that a mod does not re-import; the only
-    trustworthy evidence that a name resolves at runtime is that an existing
-    zone/map/ground already uses it.
+
+def _scan(paths) -> set:
+    names = set()
+    for path in paths:
+        if path.is_dir():
+            continue
+        try:
+            names.update(TILESET_PATTERN.findall(path.read_text(encoding="utf-8-sig")))
+        except (UnicodeDecodeError, OSError):
+            continue
+    names.discard("")
+    return names
+
+
+@lru_cache(maxsize=1)
+def active_tilesets() -> frozenset:
+    """Auto-tilesets referenced by the *live* data (Data/Zone, Map, Ground)."""
+    names = set()
+    for folder, suffix in ((ZONE_DIR, "*.json"), (MAP_DIR, "*.rsmap"), (GROUND_DIR, "*.rsground")):
+        if folder.exists():
+            names |= _scan(folder.glob(suffix))
+    return frozenset(names)
+
+
+@lru_cache(maxsize=1)
+def archived_tilesets() -> frozenset:
+    """Auto-tilesets attested by the RESERVE archives (converted, not live).
+
+    An archive reference is proof that the PMDO tileset exists and was already
+    produced by this project's conversion pipeline; the definition records the
+    attestation so the difference with a live reference stays visible.
     """
     names = set()
-    pattern = re.compile(r'"(?:AutoTileset|GroundTileset|BlockTileset|WaterTileset)"\s*:\s*"([a-z0-9_]+)"')
-    for folder, suffix in ((ZONE_DIR, "*.json"), (MAP_DIR, "*.rsmap"), (GROUND_DIR, "*.rsground")):
-        if not folder.exists():
-            continue
-        for path in folder.glob(suffix):
-            try:
-                names.update(pattern.findall(path.read_text(encoding="utf-8-sig")))
-            except (UnicodeDecodeError, OSError):
-                continue
-    names.discard("")
-    return frozenset(names)
+    for folder in RESERVE_SOURCES:
+        path = RESERVE_DIR / folder
+        if path.exists():
+            names |= _scan(path.glob("*"))
+    return frozenset(names - active_tilesets())
+
+
+@lru_cache(maxsize=1)
+def base_tilesets() -> frozenset:
+    """Every auto-tileset attested somewhere in this repository."""
+    return frozenset(active_tilesets() | archived_tilesets())
+
+
+def attestation_of(tile_id: str) -> str:
+    if tile_id in {p.stem for p in AUTOTILE_DIR.glob("*.json")}:
+        return "mod_dtef"
+    if tile_id in active_tilesets():
+        return "active_data"
+    if tile_id in archived_tilesets():
+        return "reserve_archive"
+    return "unknown"
 
 
 def known_tilesets() -> set:
@@ -146,12 +188,12 @@ def resolve(spec: Dict[str, str], autotile_dir: Path = AUTOTILE_DIR,
             if tile_id in imported:
                 origins.add("mod")
             elif tile_id in shipped:
-                origins.add("base")
+                origins.add(attestation_of(tile_id))
             else:
                 raise DtefError(
                     f"auto-tileset '{tile_id}' is neither imported in Data/AutoTile nor used by "
                     "any shipped zone/map/ground: import its DTEF package first")
-        package.origin = "mod" if origins == {"mod"} else ("base" if origins == {"base"} else "mixed")
+        package.origin = origins.pop() if len(origins) == 1 else "mixed"
         sheets = set()
         for role in ROLES:
             sheets.update(sheets_of(getattr(package, role), autotile_dir))

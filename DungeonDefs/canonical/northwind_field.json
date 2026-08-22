@@ -795,10 +795,21 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "",
+    "relay_ground": "",
+    "canonical_end_ground": "champ_vent_boreal",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/champ_vent_boreal.rsground",
+    "cinematic_ground": "champ_vent_boreal",
+    "battle_ground": "champ_vent_boreal",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
   "boss": {
-    "mode": "arena_rsmap",
-    "map": "northwind_field_arena",
-    "notes": "Aucun Ground de fin canonique : arène dédiée à créer puis convertir.",
+    "mode": "canonical_ground",
+    "ground": "champ_vent_boreal",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée.",
     "roster": [
       {
         "species": "suicune",
@@ -810,9 +821,10 @@
       }
     ]
   },
-  "fixed_grounds": {},
+  "fixed_grounds": {
+    "end": "champ_vent_boreal"
+  },
   "blocked": [
-    "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
-    "BLOCKED/MISSING_ASSET: arena 'northwind_field_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
+    "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome"
   ]
 }

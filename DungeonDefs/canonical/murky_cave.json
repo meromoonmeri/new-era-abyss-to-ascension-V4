@@ -40,10 +40,10 @@
     "exit_tile": "stairs_go_down"
   },
   "dtef": {
-    "floor": "dark_hill_floor",
-    "wall": "dark_hill_wall",
-    "secondary": "dark_hill_secondary",
-    "name": "dark_hill",
+    "floor": "murky_cave_floor",
+    "wall": "murky_cave_wall",
+    "secondary": "murky_cave_secondary",
+    "name": "murky_cave",
     "element": "normal"
   },
   "segments": [
@@ -445,5 +445,26 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
-  "fixed_grounds": {}
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "",
+    "relay_ground": "",
+    "canonical_end_ground": "caverne_trouble_fond",
+    "state": "ARCHIVED",
+    "location": "RESERVE/grounds/caverne_trouble_fond.rsground",
+    "cinematic_ground": "caverne_trouble_fond",
+    "battle_ground": "caverne_trouble_fond",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "caverne_trouble_fond",
+    "pending_integration": true,
+    "source_asset": "RESERVE/grounds/caverne_trouble_fond.rsground",
+    "notes": "Scène canonique existante : à intégrer telle quelle comme Ground de cinématique ET de combat ; aucune arène séparée."
+  },
+  "fixed_grounds": {},
+  "blocked": [
+    "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'caverne_trouble_fond' is archived in RESERVE/grounds/caverne_trouble_fond.rsground; restore it as the cinematic/battle Ground (no separate arena)"
+  ]
 }

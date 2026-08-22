@@ -312,7 +312,7 @@
   "boss": {
     "mode": "arena_rsmap",
     "map": "meteor_cave_arena",
-    "notes": "Aucun Ground de fin canonique : arène dédiée à créer puis convertir.",
+    "notes": "Aucune scène canonique dans l'inventaire PMD Red : arène dédiée à créer (architecture de combat adaptée au boss), puis à convertir en Ground unique pour cinématique et combat.",
     "roster": [
       {
         "species": "deoxys",

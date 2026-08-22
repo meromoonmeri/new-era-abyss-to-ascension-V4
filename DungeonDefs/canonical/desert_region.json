@@ -37,10 +37,10 @@
     "exit_tile": "stairs_go_up"
   },
   "dtef": {
-    "floor": "quicksand_pit_floor",
-    "wall": "quicksand_pit_wall",
-    "secondary": "quicksand_pit_secondary",
-    "name": "quicksand_pit",
+    "floor": "northern_desert_1_floor",
+    "wall": "northern_desert_1_wall",
+    "secondary": "northern_desert_1_secondary",
+    "name": "northern_desert_1",
     "element": "normal"
   },
   "canonical_items_without_pmdo_equivalent": [

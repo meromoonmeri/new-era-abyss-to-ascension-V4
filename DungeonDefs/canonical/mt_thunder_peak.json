@@ -36,7 +36,14 @@
     "min_distance": 4,
     "exit_tile": "stairs_go_up"
   },
-  "dtef": {},
+  "dtef": {
+    "floor": "far_amp_plains_floor",
+    "wall": "far_amp_plains_wall",
+    "secondary": "far_amp_plains_secondary",
+    "name": "far_amp_plains",
+    "element": "normal",
+    "justification": "Cime du Mont Grondant : plaines électriques, seul utilisateur ; le triplet mt_thunder reste au massif."
+  },
   "canonical_items_without_pmdo_equivalent": [
     "ITEM_MAX_ELIXIR"
   ],
@@ -314,10 +321,23 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "mont_grondant_pied",
+    "relay_ground": "d06p02",
+    "canonical_end_ground": "d06p03",
+    "state": "ARCHIVED",
+    "location": "RESERVE/red_grounds/d06p03.rsground",
+    "cinematic_ground": "d06p03",
+    "battle_ground": "d06p03",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
   "boss": {
-    "mode": "arena_rsmap",
-    "map": "mt_thunder_peak_arena",
-    "notes": "Aucun Ground de fin canonique : arène dédiée à créer puis convertir.",
+    "mode": "canonical_ground",
+    "ground": "d06p03",
+    "pending_integration": true,
+    "source_asset": "RESERVE/red_grounds/d06p03.rsground",
+    "notes": "Scène canonique existante : à intégrer telle quelle comme Ground de cinématique ET de combat ; aucune arène séparée.",
     "roster": [
       {
         "species": "zapdos",
@@ -331,7 +351,6 @@
   },
   "fixed_grounds": {},
   "blocked": [
-    "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
-    "BLOCKED/MISSING_ASSET: arena 'mt_thunder_peak_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
+    "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd06p03' is archived in RESERVE/red_grounds/d06p03.rsground; restore it as the cinematic/battle Ground (no separate arena)"
   ]
 }

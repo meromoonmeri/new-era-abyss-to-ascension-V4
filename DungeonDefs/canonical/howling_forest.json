@@ -677,5 +677,23 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
-  "fixed_grounds": {}
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "",
+    "relay_ground": "",
+    "canonical_end_ground": "bois_des_plaintes",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/bois_des_plaintes.rsground",
+    "cinematic_ground": "bois_des_plaintes",
+    "battle_ground": "bois_des_plaintes",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "bois_des_plaintes",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
+  },
+  "fixed_grounds": {
+    "end": "bois_des_plaintes"
+  }
 }

@@ -162,3 +162,32 @@ issues de l'entropie OS) : rooms 4→29 par étage, halls 6→31, branches 0→1
 culs-de-sac 0→7, boucles 0→8, aires de salles de 9 à 240 tuiles, 100 % des
 étages acceptés traversables avec escalier atteignable, et **aucune signature
 structurelle dupliquée**.
+
+
+---
+
+## 10. Relecture de vérification (2026-08-23) — capacités natives non encore exploitées
+
+Deuxième passe complète sur les sources clonées (`audinowho/RogueElements`,
+HEAD `a3869ec`), pour répondre à une question précise : *reste-t-il du natif que
+le Builder réimplémenterait ou ignorerait ?*
+
+| Fichier relu | Capacité | Décision |
+|---|---|---|
+| `Tiles/Water/PerlinWaterStep.cs` (+`WaterStep`, `IPerlinWaterStep`) | Champs d'eau/lave par bruit de Perlin : `WaterPercent`, `OrderComplexity`, `OrderSoftness`, `Bowl`, `Terrain`, `TerrainStencil` | **Adopté** : bloc `variation.terrain` dans la définition → `PerlinWaterStep` natif émis. |
+| `Tiles/Water/NoChokepointTerrainStencil.cs` | Refuse toute pose de terrain qui créerait un goulot d'étranglement | **Adopté** : enveloppe systématique quand `protect_paths` (défaut) → la traversabilité reste garantie par le moteur lui-même. |
+| `Tiles/Water/BlobWaterStep.cs`, `BlobTileStencil`, `MultiBlobStencil` | Taches de terrain localisées | Disponible, non exposé pour l'instant (le Perlin couvre le besoin actuel). |
+| `Grid/SetGridSpecialRoomStep.cs` | Remplace une salle de la grille par une salle spéciale dimensionnée | Retenu pour les Treasure/Key rooms — **à brancher** avec `PMDC.SpreadVaultZoneStep` (déjà présent dans les zones du dépôt). |
+| `FloorPlan/AddDisconnectedRoomsRandStep.cs` | Salles secondaires déconnectées (zones cachées) | Disponible ; nécessite `RoomFloorGen`, hors du chemin `GridFloorGen` retenu. |
+| `FloorPlan/ResizeFloorStep.cs`, `ClampFloorStep.cs` | Redimensionnement du plancher (utilisé par les coffres PMDC) | Utilisé indirectement via les templates PMDC. |
+| `Rooms/RoomGenBump.cs`, `RoomGenBlocked.cs` | Salles bosselées / salles à bloc interne | `RoomGenBlocked` déjà émis par les combos de grandes salles ; `RoomGenBump` disponible pour un futur profil. |
+| `Grid/Paths/GridPathSpecific.cs` | Grille scriptée | Réservé aux étages imposés ; non utilisé (contraire au besoin d'aléatoire). |
+
+Conclusion inchangée : **aucun générateur maison n'est nécessaire**, et les deux
+seules capacités qui manquaient au Builder (terrain natif, salles spéciales de
+grille) sont désormais soit branchées, soit identifiées avec leur classe native
+exacte. La parité `profiles.py` ↔ `re_sim` ↔ `steps.py` reste vérifiée
+mécaniquement (`dungeon_builder verify`), et la conformité de l'export a de
+nouveau détecté deux erreurs réelles pendant cette passe : un champ `Amount`
+inexistant sur `MobSpawnStep`, et les champs `TileStencil`/`Global`/`Negate`
+(et non `TerrainStencil`/`Terrain`) sur `NoChokepointTerrainStencil`.

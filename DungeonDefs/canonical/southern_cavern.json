@@ -37,10 +37,10 @@
     "exit_tile": "stairs_go_down"
   },
   "dtef": {
-    "floor": "western_cave_2_floor",
-    "wall": "western_cave_2_wall",
-    "secondary": "western_cave_2_secondary",
-    "name": "western_cave_2",
+    "floor": "crystal_cave_1_floor",
+    "wall": "crystal_cave_1_wall",
+    "secondary": "crystal_cave_1_secondary",
+    "name": "crystal_cave_1",
     "element": "normal",
     "justification": "Caverne Méridionale : seconde variante de la grande caverne occidentale, distincte de western_cave_1 conservé par Western Cave."
   },

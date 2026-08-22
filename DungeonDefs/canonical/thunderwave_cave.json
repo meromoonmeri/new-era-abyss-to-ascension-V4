@@ -39,10 +39,10 @@
     "exit_tile": "stairs_go_down"
   },
   "dtef": {
-    "floor": "chasm_cave_floor",
-    "wall": "chasm_cave_wall",
-    "secondary": "chasm_cave_secondary",
-    "name": "chasm_cave",
+    "floor": "crystal_cave_2_floor",
+    "wall": "crystal_cave_2_wall",
+    "secondary": "crystal_cave_2_secondary",
+    "name": "crystal_cave_2",
     "element": "normal",
     "justification": "Grotte Statique : aucun DTEF Thunderwave importé ; même biome de grotte sèche que le Gouffre Muet, qui reste propriétaire du triplet."
   },
@@ -307,5 +307,26 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
-  "fixed_grounds": {}
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "grotte_statique_seuil",
+    "relay_ground": "",
+    "canonical_end_ground": "d02p02",
+    "state": "ARCHIVED",
+    "location": "RESERVE/red_grounds/d02p02.rsground",
+    "cinematic_ground": "d02p02",
+    "battle_ground": "d02p02",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "d02p02",
+    "pending_integration": true,
+    "source_asset": "RESERVE/red_grounds/d02p02.rsground",
+    "notes": "Scène canonique existante : à intégrer telle quelle comme Ground de cinématique ET de combat ; aucune arène séparée."
+  },
+  "fixed_grounds": {},
+  "blocked": [
+    "BLOCKED/REQUIRES_INTEGRATION: canonical scene 'd02p02' is archived in RESERVE/red_grounds/d02p02.rsground; restore it as the cinematic/battle Ground (no separate arena)"
+  ]
 }

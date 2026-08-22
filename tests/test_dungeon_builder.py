@@ -341,6 +341,8 @@ class TestGroundsAndBoss(unittest.TestCase):
     def test_arena_mode_requires_an_existing_rsmap(self):
         raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
         raw["id"] = "dungeon_without_end_ground"
+        raw["name"] = {"en": "Dungeon Without End Ground"}
+        raw.pop("scenes", None)
         raw["aliases"] = []
         raw["fixed_grounds"] = {}
         raw["midpoint"] = {}
@@ -487,6 +489,8 @@ class TestBossSceneRules(unittest.TestCase):
     def test_arena_mode_is_legal_without_any_canonical_end_ground(self):
         raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
         raw["id"] = "brand_new_dungeon"
+        raw["name"] = {"en": "Brand New Dungeon"}   # unknown to the PMD Red scene inventory
+        raw.pop("scenes", None)
         raw["aliases"] = []
         raw["fixed_grounds"] = {}
         raw["midpoint"] = {}
@@ -570,11 +574,16 @@ class TestDtefRegistry(unittest.TestCase):
         self.assertGreater(len(names), 100)
         self.assertIn("treeshroud_forest_1_floor", names)
 
-    def test_base_triplet_resolves_and_is_flagged_as_base(self):
+    def test_base_triplet_resolves_with_its_attestation(self):
+        """A base PMDO tileset is accepted, and the report says where it is attested."""
         package = resolve_dtef({"floor": "treeshroud_forest_1_floor",
                                 "wall": "treeshroud_forest_1_wall",
                                 "secondary": "treeshroud_forest_1_secondary"})
-        self.assertEqual(package.origin, "base")
+        self.assertEqual(package.origin, "active_data")
+        archived = resolve_dtef({"floor": "silver_trench_3_floor",
+                                 "wall": "silver_trench_3_wall",
+                                 "secondary": "silver_trench_3_secondary"})
+        self.assertEqual(archived.origin, "reserve_archive")
 
     def test_imported_package_is_flagged_as_mod(self):
         package = resolve_dtef({"package": "sinister_woods_b41"})
@@ -715,3 +724,140 @@ class TestCanonicalDefinitionSet(unittest.TestCase):
         produced = {a.dungeon for a in self.audits if a.status == "PASS"} - {"gloomy_forest"}
         self.assertFalse(produced & zones,
                          "step 6 must not write any zone; generate-all is not authorised yet")
+
+
+class TestCanonicalSceneRule(unittest.TestCase):
+    """The cutscene, the battle and the aftermath share one single Ground."""
+
+    def test_scene_inventory_is_parsed(self):
+        from dungeon_builder.scenes import parse_inventory
+        inventory = parse_inventory()
+        self.assertGreaterEqual(len(inventory), 25)
+        self.assertIn("Stormy Sea", inventory)
+        self.assertEqual(inventory["Stormy Sea"].canonical_end.name, "abime_tempetes")
+
+    def test_peak_dungeons_inherit_the_parent_canonical_scene(self):
+        from dungeon_builder.scenes import scenes_for
+        for dungeon, expected in (("Mt. Blaze Peak", "d09p03"),
+                                  ("Frosty Grotto", "d10p03"),
+                                  ("Magma Cavern Pit", "fosse_ardente")):
+            scenes = scenes_for(dungeon)
+            self.assertIsNotNone(scenes, dungeon)
+            self.assertEqual(scenes.canonical_end.name, expected, dungeon)
+
+    def test_definitions_never_declare_an_arena_when_a_scene_exists(self):
+        from dungeon_builder.scenes import scenes_for
+        for path in sorted((REPO / "DungeonDefs" / "canonical").glob("*.json")):
+            raw = json.loads(path.read_text(encoding="utf-8-sig"))
+            boss = raw.get("boss") or {}
+            if boss.get("mode") != "arena_rsmap":
+                continue
+            scenes = scenes_for(raw["name"]["en"])
+            has_scene = bool(scenes and scenes.canonical_end and scenes.canonical_end.exists)
+            name = scenes.canonical_end.name if has_scene else ""
+            self.assertFalse(has_scene,
+                             f"{raw['id']} declares an arena while '{name}' exists in the "
+                             "PMD Red scene inventory")
+
+    def test_cinematic_battle_and_end_ground_are_the_same_space(self):
+        for path in sorted((REPO / "DungeonDefs" / "canonical").glob("*.json")):
+            raw = json.loads(path.read_text(encoding="utf-8-sig"))
+            scenes = raw.get("scenes") or {}
+            end = scenes.get("canonical_end_ground", "")
+            if not end:
+                continue
+            self.assertEqual(scenes.get("cinematic_ground"), end, raw["id"])
+            self.assertEqual(scenes.get("battle_ground"), end, raw["id"])
+
+    def test_schema_rejects_a_split_between_cutscene_and_battle(self):
+        raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
+        raw["scenes"] = {"canonical_end_ground": "sinister_woods_clearing",
+                         "cinematic_ground": "sinister_woods_clearing",
+                         "battle_ground": "searing_crucible"}
+        with self.assertRaises(DefinitionError):
+            parse_definition(raw)
+
+    def test_schema_rejects_an_arena_when_the_scene_block_names_a_ground(self):
+        raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
+        raw["fixed_grounds"] = {}
+        raw["scenes"] = {"canonical_end_ground": "sinister_woods_clearing",
+                         "cinematic_ground": "sinister_woods_clearing",
+                         "battle_ground": "sinister_woods_clearing"}
+        raw["boss"] = {"mode": "arena_rsmap", "map": "searing_crucible"}
+        with self.assertRaises(DefinitionError):
+            parse_definition(raw)
+
+    def test_archived_scene_is_integration_not_a_new_arena(self):
+        from dungeon_builder.definitions import find_definition, load_definition
+        definition = load_definition(find_definition("lightning_field"))
+        self.assertEqual(definition.boss["mode"], "canonical_ground")
+        self.assertTrue(definition.boss.get("pending_integration"))
+        check = check_grounds(definition)
+        self.assertFalse(check.ok)
+        self.assertTrue(any("REQUIRES_INTEGRATION" in p for p in check.problems))
+        self.assertNotIn("_arena", json.dumps(definition.boss))
+
+
+class TestFloorVariationContract(unittest.TestCase):
+    """Every architecture must keep producing complex, unique, traversable floors."""
+
+    def _profiles(self, dungeon: str, floor: int):
+        from dungeon_builder.definitions import find_definition, load_definition
+        definition = load_definition(find_definition(dungeon))
+        segment = definition.segment_for_floor(floor)
+        return [customize(c.name, c.overrides) for c in definition.profiles_for(segment)]
+
+    def test_ten_variants_on_several_canonical_dungeons(self):
+        rng = DungeonRng(seed=20260823)
+        for dungeon, floor in (("gloomy_forest", 3), ("gloomy_forest", 12),
+                               ("tiny_woods", 2), ("murky_cave", 9), ("stormy_sea", 20)):
+            profiles = self._profiles(dungeon, floor)
+            report, _ = validate_floor(floor, profiles, rng, count=10)
+            self.assertTrue(report.ok, f"{dungeon} F{floor}: {report.notes}")
+            metrics = [v.metrics for v in report.accepted()]
+            self.assertEqual(len(metrics), 10)
+            self.assertEqual(len({m.signature for m in metrics}), 10,
+                             f"{dungeon} F{floor}: clone layouts accepted")
+            for m in metrics:
+                self.assertTrue(m.stairs_reachable)
+                self.assertEqual(m.components, 1)
+                self.assertGreaterEqual(m.reachable_ratio, 0.97)
+                self.assertGreaterEqual(m.rooms, 4)
+                self.assertGreaterEqual(m.halls, 3)
+                self.assertGreater(m.hall_tiles, 0)
+                self.assertGreater(m.room_area_max, m.room_area_min)
+
+    def test_architecture_variety_is_measurable_across_variants(self):
+        rng = DungeonRng(seed=777001)
+        profiles = self._profiles("gloomy_forest", 7)
+        report, _ = validate_floor(7, profiles, rng, count=10)
+        metrics = [v.metrics for v in report.accepted()]
+        self.assertGreater(len({m.rooms for m in metrics}), 2)
+        self.assertGreater(sum(m.branches for m in metrics), 0)
+        self.assertGreater(sum(m.dead_ends for m in metrics), 0)
+        self.assertGreater(sum(m.loops for m in metrics), 0)
+
+
+class TestNativeTerrainStep(unittest.TestCase):
+    """Water/lava fields use the native PerlinWaterStep + chokepoint stencil."""
+
+    def test_terrain_block_emits_native_step_with_path_protection(self):
+        raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
+        raw["variation"]["terrain"] = {"enabled": True, "percent": [8, 12], "id": "water"}
+        export = build_zone(parse_definition(raw), DungeonRng(seed=5))
+        blob = json.dumps(export.zone_json)
+        self.assertIn("RogueElements.PerlinWaterStep", blob)
+        self.assertIn("NoChokepointTerrainStencil", blob)
+
+    def test_terrain_is_opt_in(self):
+        export = build_zone(load_sinister(), DungeonRng(seed=5))
+        self.assertNotIn("PerlinWaterStep", json.dumps(export.zone_json))
+
+    def test_terrain_output_conforms_to_the_shipped_schema(self):
+        from dungeon_builder.conformance import check_zone_conformance
+        raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
+        raw["variation"]["terrain"] = {"enabled": True, "percent": [10, 15], "id": "water"}
+        export = build_zone(parse_definition(raw), DungeonRng(seed=6))
+        report = check_zone_conformance(export.zone_json, exclude=["gloomy_forest.json"])
+        self.assertFalse(report.unknown_types, report.unknown_types)
+        self.assertFalse(report.unknown_fields, report.unknown_fields)

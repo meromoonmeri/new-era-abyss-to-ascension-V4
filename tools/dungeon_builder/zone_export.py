@@ -131,6 +131,16 @@ def floor_gen_steps(definition: DungeonDefinition, segment: Segment, profile: Ar
         (S.priority(2), S.floor_stairs(min_distance, stairs.get("exit_tile", "stairs_go_up"))),
         (S.priority(4), S.map_texture(*package.as_texture_args())),
     ])
+    terrain = dict(definition.variation.get("terrain", {}))
+    terrain.update(segment.stairs.get("terrain", {}) if segment.stairs else {})
+    if terrain.get("enabled"):
+        entries.append((S.priority(-1, 2),
+                        S.perlin_water(tuple(terrain.get("percent", (8, 14))),
+                                       terrain.get("id", "water"),
+                                       int(terrain.get("complexity", 3)),
+                                       int(terrain.get("softness", 1)),
+                                       bool(terrain.get("bowl", True)),
+                                       bool(terrain.get("protect_paths", True)))))
     if weather:
         entries.append((S.priority(4, 2), S.default_map_status(list(weather))))
     for miniboss in definition.minibosses or []:

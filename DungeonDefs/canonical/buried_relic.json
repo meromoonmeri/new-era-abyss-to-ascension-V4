@@ -37,10 +37,10 @@
     "exit_tile": "stairs_go_down"
   },
   "dtef": {
-    "floor": "sealed_ruin_floor",
-    "wall": "sealed_ruin_wall",
-    "secondary": "sealed_ruin_secondary",
-    "name": "sealed_ruin",
+    "floor": "buried_relic_1_floor",
+    "wall": "buried_relic_1_wall",
+    "secondary": "buried_relic_1_secondary",
+    "name": "buried_relic_1",
     "element": "normal"
   },
   "canonical_items_without_pmdo_equivalent": [
@@ -1439,7 +1439,7 @@
   "boss": {
     "mode": "arena_rsmap",
     "map": "buried_relic_arena",
-    "notes": "Aucun Ground de fin canonique : arène dédiée à créer puis convertir.",
+    "notes": "Aucune scène canonique dans l'inventaire PMD Red : arène dédiée à créer (architecture de combat adaptée au boss), puis à convertir en Ground unique pour cinématique et combat.",
     "roster": [
       {
         "species": "regirock",

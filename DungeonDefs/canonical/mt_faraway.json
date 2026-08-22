@@ -36,7 +36,14 @@
     "min_distance": 4,
     "exit_tile": "stairs_go_up"
   },
-  "dtef": {},
+  "dtef": {
+    "floor": "hidden_highland_floor",
+    "wall": "hidden_highland_wall",
+    "secondary": "hidden_highland_secondary",
+    "name": "hidden_highland",
+    "element": "normal",
+    "justification": "Mont Lointain : hautes terres isolées, aucun triplet Mt. Faraway importé ; utilisateur unique."
+  },
   "canonical_items_without_pmdo_equivalent": [
     "ITEM_ALLURE_SEED"
   ],
@@ -643,10 +650,21 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "",
+    "relay_ground": "",
+    "canonical_end_ground": "sommet_aurore",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/sommet_aurore.rsground",
+    "cinematic_ground": "sommet_aurore",
+    "battle_ground": "sommet_aurore",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
   "boss": {
-    "mode": "arena_rsmap",
-    "map": "mt_faraway_arena",
-    "notes": "Aucun Ground de fin canonique : arène dédiée à créer puis convertir.",
+    "mode": "canonical_ground",
+    "ground": "sommet_aurore",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée.",
     "roster": [
       {
         "species": "ho_oh",
@@ -658,9 +676,7 @@
       }
     ]
   },
-  "fixed_grounds": {},
-  "blocked": [
-    "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
-    "BLOCKED/MISSING_ASSET: arena 'mt_faraway_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
-  ]
+  "fixed_grounds": {
+    "end": "sommet_aurore"
+  }
 }

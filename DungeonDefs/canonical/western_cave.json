@@ -1093,10 +1093,21 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "",
+    "relay_ground": "",
+    "canonical_end_ground": "antre_occident",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/antre_occident.rsground",
+    "cinematic_ground": "antre_occident",
+    "battle_ground": "antre_occident",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
   "boss": {
-    "mode": "arena_rsmap",
-    "map": "western_cave_arena",
-    "notes": "Aucun Ground de fin canonique : arène dédiée à créer puis convertir.",
+    "mode": "canonical_ground",
+    "ground": "antre_occident",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée.",
     "roster": [
       {
         "species": "mewtwo",
@@ -1108,8 +1119,7 @@
       }
     ]
   },
-  "fixed_grounds": {},
-  "blocked": [
-    "BLOCKED/MISSING_ASSET: arena 'western_cave_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
-  ]
+  "fixed_grounds": {
+    "end": "antre_occident"
+  }
 }

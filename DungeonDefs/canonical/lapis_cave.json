@@ -564,6 +564,17 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "grotte_lazuli_seuil",
+    "relay_ground": "",
+    "canonical_end_ground": "grotte_lazuli_fond",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/grotte_lazuli_fond.rsground",
+    "cinematic_ground": "grotte_lazuli_fond",
+    "battle_ground": "grotte_lazuli_fond",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
   "boss": {
     "mode": "canonical_ground",
     "ground": "grotte_lazuli_fond",

@@ -16,6 +16,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, List, Optional, Sequence
 
+from .scenes import ACTIVE_GROUND, NONE, readiness, scenes_for
+
 ROOT = Path(__file__).resolve().parents[2]
 GROUND_DIR = ROOT / "Data" / "Ground"
 MAP_DIR = ROOT / "Data" / "Map"
@@ -33,6 +35,9 @@ END_SUFFIXES = ("clearing", "end", "fond", "fin", "summit", "sommet", "depths", 
 @dataclass
 class GroundCheck:
     entrance: str = ""
+    cinematic_ground: str = ""
+    battle_ground: str = ""
+    scene_state: str = ""
     mid: str = ""
     end: str = ""
     boss_mode: str = ""
@@ -109,6 +114,30 @@ def check_grounds(definition, ground_dir: Optional[Path] = None,
                 check.notes.append(f"midpoint does not provide '{feature}'")
 
     candidates = find_canonical_end_grounds(definition, ground_dir)
+
+    # the PMD Red scene inventory is authoritative: a scene that exists there,
+    # even archived, forbids a separate arena
+    scene_set = scenes_for(definition.name.get("en", definition.id))
+    scene_end = scene_set.canonical_end if scene_set else None
+    scene_state, scene_reason = readiness(scene_end)
+    check.scene_state = scene_state
+    if scene_end and scene_end.exists:
+        check.cinematic_ground = check.battle_ground = scene_end.name
+        if scene_end.name not in candidates:
+            candidates.append(scene_end.name)
+    declared = definition.scenes or {}
+    if declared:
+        for role in ("cinematic_ground", "battle_ground"):
+            value = declared.get(role, "")
+            if value and declared.get("canonical_end_ground") and \
+                    value != declared["canonical_end_ground"]:
+                check.problems.append(
+                    f"scenes.{role} must equal scenes.canonical_end_ground "
+                    "(one single space for cutscene + battle)")
+        if declared.get("cinematic_ground"):
+            check.cinematic_ground = declared["cinematic_ground"]
+        if declared.get("battle_ground"):
+            check.battle_ground = declared["battle_ground"]
     check.canonical_end_candidates = candidates
 
     boss = definition.boss or {}
@@ -131,7 +160,13 @@ def check_grounds(definition, ground_dir: Optional[Path] = None,
             check.problems.append("boss.mode=canonical_ground requires 'ground' "
                                   "(or fixed_grounds.end)")
         elif not ground_exists(ground, ground_dir):
-            check.problems.append(f"boss Ground '{ground}' declared canonical but missing")
+            if boss.get("pending_integration"):
+                check.problems.append(
+                    f"REQUIRES_INTEGRATION: canonical scene '{ground}' "
+                    f"({boss.get('source_asset', 'archived')}) must be restored/converted as the "
+                    "cinematic + battle Ground — no separate arena")
+            else:
+                check.problems.append(f"boss Ground '{ground}' declared canonical but missing")
         else:
             check.notes.append(f"final battle stays on the canonical end Ground '{ground}' "
                                "(no separate arena created)")
@@ -147,6 +182,10 @@ def check_grounds(definition, ground_dir: Optional[Path] = None,
                 check.notes.append(
                     f"scene source of truth: {check.boss_map}.rsmap matches the end Ground")
     else:  # ARENA_RSMAP
+        if scene_end and scene_end.exists:
+            check.problems.append(
+                "boss.mode=arena_rsmap is forbidden: the PMD Red scene inventory lists "
+                f"'{scene_end.name}' ({scene_end.state}) for this dungeon — {scene_reason}")
         if candidates:
             check.problems.append(
                 "boss.mode=arena_rsmap is forbidden: this dungeon already owns a canonical end "

@@ -36,7 +36,14 @@
     "min_distance": 4,
     "exit_tile": "stairs_go_up"
   },
-  "dtef": {},
+  "dtef": {
+    "floor": "craggy_peak_floor",
+    "wall": "craggy_peak_wall",
+    "secondary": "craggy_peak_secondary",
+    "name": "craggy_peak",
+    "element": "normal",
+    "justification": "Chaîne Nordique : crêtes rocheuses, aucun triplet Northern Range importé ; utilisateur unique."
+  },
   "canonical_items_without_pmdo_equivalent": [
     "ITEM_BLOWBACK_ORB",
     "ITEM_EVASION_ORB",
@@ -738,10 +745,21 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "",
+    "relay_ground": "",
+    "canonical_end_ground": "cretes_boreales",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/cretes_boreales.rsground",
+    "cinematic_ground": "cretes_boreales",
+    "battle_ground": "cretes_boreales",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
   "boss": {
-    "mode": "arena_rsmap",
-    "map": "northern_range_arena",
-    "notes": "Aucun Ground de fin canonique : arène dédiée à créer puis convertir.",
+    "mode": "canonical_ground",
+    "ground": "cretes_boreales",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée.",
     "roster": [
       {
         "species": "latios",
@@ -753,9 +771,7 @@
       }
     ]
   },
-  "fixed_grounds": {},
-  "blocked": [
-    "BLOCKED/MISSING_TILESET: no DTEF triplet assigned for this biome",
-    "BLOCKED/MISSING_ASSET: arena 'northern_range_arena.rsmap' must be authored before the boss scene can be converted to a Ground"
-  ]
+  "fixed_grounds": {
+    "end": "cretes_boreales"
+  }
 }

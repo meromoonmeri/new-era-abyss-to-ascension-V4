@@ -146,6 +146,7 @@ class DungeonDefinition:
     variation: Dict[str, Any] = field(default_factory=dict)
     aliases: List[str] = field(default_factory=list)
     blocked: List[str] = field(default_factory=list)
+    scenes: Dict[str, Any] = field(default_factory=dict)
     path: Optional[Path] = None
 
     # -- cascade helpers ----------------------------------------------
@@ -322,6 +323,7 @@ def parse_definition(data: Dict[str, Any], path: Optional[Path] = None) -> Dunge
         variation=dict(data.get("variation", {})),
         aliases=[str(a) for a in data.get("aliases", [])],
         blocked=[str(b) for b in data.get("blocked", [])],
+        scenes=dict(data.get("scenes", {})),
         path=path,
     )
 
@@ -347,6 +349,19 @@ def parse_definition(data: Dict[str, Any], path: Optional[Path] = None) -> Dunge
                 raise DefinitionError(
                     "boss.mode=arena_rsmap conflicts with fixed_grounds.end: the canonical end "
                     "Ground must host the final battle")
+    scenes = definition.scenes
+    if scenes:
+        end = scenes.get("canonical_end_ground", "")
+        for role in ("cinematic_ground", "battle_ground"):
+            value = scenes.get(role, "")
+            if end and value and value != end:
+                raise DefinitionError(
+                    f"scenes.{role} ('{value}') must be the canonical end Ground ('{end}'): the "
+                    "cutscene, the battle and its aftermath happen in the same space")
+        if end and definition.boss.get("mode") == "arena_rsmap":
+            raise DefinitionError(
+                f"boss.mode=arena_rsmap is forbidden: canonical scene '{end}' exists for this "
+                "dungeon and must host the cutscene and the battle")
     for miniboss in definition.minibosses:
         for required in ("species", "level"):
             if required not in miniboss:
