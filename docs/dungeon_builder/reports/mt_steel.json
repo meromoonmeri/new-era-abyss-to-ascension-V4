@@ -1,0 +1,499 @@
+{
+  "generated_at": "2026-08-22T22:57:59+00:00",
+  "dungeon": "mt_steel",
+  "name": {
+    "en": "Mt. Steel",
+    "fr": "Pic Ferreux"
+  },
+  "chapter": 7,
+  "route": "secondary",
+  "source": "Pokémon Mystery Dungeon: Red Rescue Team — Mt. Steel (9F). Espèces, niveaux, probabilités, tables d'objets, pièges et boutiques extraits de pret/pmd-red (data/dungeon/MtSteel) via tools/build_canonical_definitions.py ; niveaux renivelés au palier du chapitre 7. Recoupé avec Bulbapedia (page « Mt. Steel »).",
+  "floors": 9,
+  "biome": "steel_slope",
+  "direction": "sommet",
+  "zone_file": "Data/Zone/mt_steel.json",
+  "segments": [
+    {
+      "name": "steel_slope",
+      "floors": [
+        1,
+        9
+      ],
+      "biome": "steel_slope",
+      "dtef": {
+        "floor": "steel_aegis_cave_floor",
+        "wall": "steel_aegis_cave_wall",
+        "secondary": "steel_aegis_cave_secondary",
+        "name": "steel_aegis_cave",
+        "element": "normal",
+        "justification": "biome métallique ; tileset acier disponible localement."
+      },
+      "profiles": [
+        "twosides",
+        "branching",
+        "mixed"
+      ],
+      "pokemon": 9,
+      "item_tables": {
+        "canonical": {
+          "amount": [
+            2,
+            5
+          ],
+          "entries": 9
+        }
+      },
+      "shop": true,
+      "monster_house": true,
+      "treasure_room": false,
+      "key_room": false,
+      "mystery": false,
+      "weather": []
+    }
+  ],
+  "fixed_grounds": {
+    "entrance": "pic_ferreux_pied",
+    "end": "d03p02"
+  },
+  "midpoint": {},
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "d03p02",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
+  },
+  "minibosses": [],
+  "ground_check": {
+    "entrance": "pic_ferreux_pied",
+    "cinematic_ground": "d03p02",
+    "battle_ground": "d03p02",
+    "scene_state": "ACTIVE_GROUND",
+    "mid": "",
+    "end": "d03p02",
+    "boss_mode": "canonical_ground",
+    "boss_ground": "d03p02",
+    "boss_map": "",
+    "canonical_end_candidates": [
+      "d03p02"
+    ],
+    "ok": true,
+    "problems": [],
+    "notes": [
+      "no fixed 'mid' Ground declared",
+      "final battle stays on the canonical end Ground 'd03p02' (no separate arena created)"
+    ]
+  },
+  "rng": {
+    "label": "generate:mt_steel",
+    "root_seed": 3875972985926429040,
+    "explicit_seed": false,
+    "derived_seeds": 51
+  },
+  "warnings": [],
+  "floor_reports": [
+    {
+      "floor": 1,
+      "segment": "steel_slope",
+      "kind": "procedural",
+      "profile": "twosides+branching+mixed",
+      "grid": [
+        3,
+        4
+      ],
+      "cell": [
+        12,
+        10
+      ],
+      "dtef": "steel_aegis_cave",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 1,
+      "max_pair_similarity": 0.836,
+      "seeds": [
+        7759557227853454630,
+        3325850036339706080,
+        1066175502723277492,
+        8702440050270053693,
+        7192763660972337620
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 9.2,
+        "rooms_min": 7,
+        "rooms_max": 12,
+        "halls_avg": 9.4,
+        "branches_avg": 2.4,
+        "dead_ends_avg": 4.4,
+        "loops_avg": 0.4,
+        "connections_avg": 9.4,
+        "room_area_min": 20,
+        "room_area_max": 80,
+        "stair_distance_avg": 43.2,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 2,
+      "segment": "steel_slope",
+      "kind": "procedural",
+      "profile": "twosides+branching+mixed",
+      "grid": [
+        7,
+        5
+      ],
+      "cell": [
+        14,
+        11
+      ],
+      "dtef": "steel_aegis_cave",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 1,
+      "max_pair_similarity": 0.9129,
+      "seeds": [
+        1117564036707896050,
+        2129224038667107392,
+        4577710228257014387,
+        4300792447049072530,
+        5577931804460263697
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 10.4,
+        "rooms_min": 6,
+        "rooms_max": 13,
+        "halls_avg": 11.4,
+        "branches_avg": 2.6,
+        "dead_ends_avg": 3.2,
+        "loops_avg": 1.0,
+        "connections_avg": 11.4,
+        "room_area_min": 20,
+        "room_area_max": 81,
+        "stair_distance_avg": 34.6,
+        "reachable_ratio_min": 0.9981,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 3,
+      "segment": "steel_slope",
+      "kind": "procedural",
+      "profile": "twosides+branching+mixed",
+      "grid": [
+        3,
+        3
+      ],
+      "cell": [
+        11,
+        8
+      ],
+      "dtef": "steel_aegis_cave",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.7898,
+      "seeds": [
+        4359364502032017794,
+        9051803092389590450,
+        5828065689256808100,
+        2142018033076743248,
+        9036945188310397100
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 8.4,
+        "rooms_min": 6,
+        "rooms_max": 12,
+        "halls_avg": 9.6,
+        "branches_avg": 1.8,
+        "dead_ends_avg": 2.6,
+        "loops_avg": 0.6,
+        "connections_avg": 9.6,
+        "room_area_min": 28,
+        "room_area_max": 80,
+        "stair_distance_avg": 37.6,
+        "reachable_ratio_min": 0.9973,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 4,
+      "segment": "steel_slope",
+      "kind": "procedural",
+      "profile": "twosides+branching+mixed",
+      "grid": [
+        5,
+        4
+      ],
+      "cell": [
+        13,
+        8
+      ],
+      "dtef": "steel_aegis_cave",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 1,
+      "max_pair_similarity": 0.8572,
+      "seeds": [
+        3130147341108830359,
+        2019476055841554094,
+        3345059171235446157,
+        8226897434472508806,
+        8506569021387098469
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 12.2,
+        "rooms_min": 8,
+        "rooms_max": 21,
+        "halls_avg": 13.8,
+        "branches_avg": 3.2,
+        "dead_ends_avg": 3.4,
+        "loops_avg": 1.2,
+        "connections_avg": 13.8,
+        "room_area_min": 20,
+        "room_area_max": 72,
+        "stair_distance_avg": 37.4,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 5,
+      "segment": "steel_slope",
+      "kind": "procedural",
+      "profile": "twosides+branching+mixed",
+      "grid": [
+        3,
+        4
+      ],
+      "cell": [
+        12,
+        8
+      ],
+      "dtef": "steel_aegis_cave",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 2,
+      "max_pair_similarity": 0.8363,
+      "seeds": [
+        4450546031695460680,
+        7452961384582618370,
+        4857674746916580397,
+        5595583224674925855,
+        7369509688995662025
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 10.6,
+        "rooms_min": 6,
+        "rooms_max": 16,
+        "halls_avg": 11.4,
+        "branches_avg": 2.6,
+        "dead_ends_avg": 4.2,
+        "loops_avg": 0.4,
+        "connections_avg": 11.4,
+        "room_area_min": 20,
+        "room_area_max": 81,
+        "stair_distance_avg": 39.8,
+        "reachable_ratio_min": 0.9975,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 6,
+      "segment": "steel_slope",
+      "kind": "procedural",
+      "profile": "twosides+branching+mixed",
+      "grid": [
+        3,
+        3
+      ],
+      "cell": [
+        11,
+        9
+      ],
+      "dtef": "steel_aegis_cave",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 1,
+      "max_pair_similarity": 0.8571,
+      "seeds": [
+        7226497464581143965,
+        5564637073957945112,
+        1159588034297934961,
+        6550112240799571000,
+        8470374908608104594
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 9.0,
+        "rooms_min": 8,
+        "rooms_max": 11,
+        "halls_avg": 9.6,
+        "branches_avg": 2.2,
+        "dead_ends_avg": 3.2,
+        "loops_avg": 0.6,
+        "connections_avg": 9.6,
+        "room_area_min": 20,
+        "room_area_max": 80,
+        "stair_distance_avg": 38.4,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 7,
+      "segment": "steel_slope",
+      "kind": "procedural",
+      "profile": "twosides+branching+mixed",
+      "grid": [
+        3,
+        4
+      ],
+      "cell": [
+        11,
+        9
+      ],
+      "dtef": "steel_aegis_cave",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.7544,
+      "seeds": [
+        6449554504258375015,
+        1714996812849024276,
+        1216204480493712196,
+        8314212964208533899,
+        6706537053897804224
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 10.4,
+        "rooms_min": 6,
+        "rooms_max": 18,
+        "halls_avg": 11.6,
+        "branches_avg": 2.6,
+        "dead_ends_avg": 3.4,
+        "loops_avg": 0.8,
+        "connections_avg": 11.6,
+        "room_area_min": 20,
+        "room_area_max": 147,
+        "stair_distance_avg": 40.4,
+        "reachable_ratio_min": 0.9975,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 8,
+      "segment": "steel_slope",
+      "kind": "procedural",
+      "profile": "twosides+branching+mixed",
+      "grid": [
+        4,
+        3
+      ],
+      "cell": [
+        9,
+        10
+      ],
+      "dtef": "steel_aegis_cave",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.7743,
+      "seeds": [
+        6134441338898438209,
+        614180027404365205,
+        9106461204456107589,
+        6484895324893212788,
+        6142078321006269687
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 11.6,
+        "rooms_min": 6,
+        "rooms_max": 23,
+        "halls_avg": 14.6,
+        "branches_avg": 3.6,
+        "dead_ends_avg": 2.0,
+        "loops_avg": 2.0,
+        "connections_avg": 14.6,
+        "room_area_min": 20,
+        "room_area_max": 72,
+        "stair_distance_avg": 39.0,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 9,
+      "segment": "steel_slope",
+      "kind": "procedural",
+      "profile": "twosides+branching+mixed",
+      "grid": [
+        6,
+        4
+      ],
+      "cell": [
+        12,
+        9
+      ],
+      "dtef": "steel_aegis_cave",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.8221,
+      "seeds": [
+        4935646463532877213,
+        4026574213219574287,
+        4975768753969157956,
+        2176220034143780979,
+        3134913196472418587
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 11.4,
+        "rooms_min": 6,
+        "rooms_max": 17,
+        "halls_avg": 13.4,
+        "branches_avg": 2.8,
+        "dead_ends_avg": 3.8,
+        "loops_avg": 1.2,
+        "connections_avg": 13.4,
+        "room_area_min": 20,
+        "room_area_max": 144,
+        "stair_distance_avg": 37.8,
+        "reachable_ratio_min": 0.9984,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    }
+  ]
+}

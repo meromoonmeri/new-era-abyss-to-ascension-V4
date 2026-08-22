@@ -31,6 +31,7 @@ class FloorPlanEntry:
     floor: int
     segment: str
     profile: str
+    authoring_seed: int = 0
     kind: str = "procedural"          # procedural | fixed
     grid: Tuple[int, int] = (0, 0)
     cell: Tuple[int, int] = (0, 0)
@@ -97,7 +98,8 @@ def combine_step(profile: ArchitectureProfile) -> Optional[Dict[str, Any]]:
 
 def floor_gen_steps(definition: DungeonDefinition, segment: Segment, profile: ArchitectureProfile,
                     package: DtefPackage, floor: int, rand: random.Random,
-                    weather: Sequence[str] = ()) -> Tuple[Dict[str, Any], FloorPlanEntry]:
+                    weather: Sequence[str] = (),
+                    authoring_seed: Optional[int] = None) -> Tuple[Dict[str, Any], FloorPlanEntry]:
     grid_x = rand.randrange(*_span(profile.grid_x))
     grid_y = rand.randrange(*_span(profile.grid_y))
     if profile.path in ("circle", "grid"):
@@ -155,8 +157,11 @@ def floor_gen_steps(definition: DungeonDefinition, segment: Segment, profile: Ar
 
     gen = {"$type": "RogueEssence.LevelGen.GridFloorGen, RogueEssence",
            "GenSteps": [{"Key": key, "Value": value} for key, value in entries],
-           "Comment": f"{segment.name} — profile {profile.name} — grid {grid_x}x{grid_y} cells {cell_w}x{cell_h}"}
-    plan = FloorPlanEntry(floor, segment.name, profile.name, "procedural",
+           "Comment": (f"{segment.name} — profile {profile.name} — grid {grid_x}x{grid_y} "
+                       f"cells {cell_w}x{cell_h} — authoring-seed {authoring_seed} "
+                       "(debug only: selects the parameters, NOT the layout; the layout is rolled "
+                       "by the engine RNG at every entry)")}
+    plan = FloorPlanEntry(floor, segment.name, profile.name, authoring_seed or 0, "procedural",
                           (grid_x, grid_y), (cell_w, cell_h), weather=tuple(weather),
                           dtef=package.name)
     return gen, plan
@@ -274,11 +279,13 @@ def build_zone(definition: DungeonDefinition, rng: Optional[DungeonRng] = None,
                 if not (MAP_DIR / f"{map_id}.rsmap").exists():
                     result.warnings.append(f"floor {floor}: fixed map '{map_id}' not found in Data/Map")
                 floors_json.append(fixed_floor(map_id, fixed.get("comment", "")))
-                result.floors.append(FloorPlanEntry(floor, segment.name, "-", "fixed", map_id=map_id))
+                result.floors.append(FloorPlanEntry(floor, segment.name, "-", 0, "fixed",
+                                                    map_id=map_id))
                 continue
             profile = pick_profile(definition, segment, rand)
             weather = _weather_for(definition, segment, floor, rand)
-            gen, plan = floor_gen_steps(definition, segment, profile, package, floor, rand, weather)
+            gen, plan = floor_gen_steps(definition, segment, profile, package, floor, rand,
+                                        weather, authoring_seed=rng.seed)
             floors_json.append(gen)
             result.floors.append(plan)
 

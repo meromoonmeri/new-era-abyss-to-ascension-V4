@@ -71,6 +71,26 @@ def cmd_audit(args) -> int:
     return 0
 
 
+def cmd_post_audit(args) -> int:
+    """Re-open every generated zone and verify what is really inside."""
+    from .postaudit import audit_all_zones, write_report
+    audits = audit_all_zones()
+    for audit in sorted(audits, key=lambda a: (a.ok, a.chapter, a.dungeon)):
+        flag = "OK  " if audit.ok else "FAIL"
+        print(f"[{flag}] {audit.dungeon:22s} {audit.floors_written:>3d}/{audit.floors_expected:<3d}F "
+              f"seg={audit.segments} profiles={len(audit.profiles)} grids={audit.grid_variants} "
+              f"paths={','.join(audit.path_steps) or '-'} end={audit.boss_mode or '-'}")
+        if not audit.ok and args.verbose:
+            for problem in audit.problems:
+                print(f"        {problem}")
+    good = sum(1 for a in audits if a.ok)
+    print(f"\n{good}/{len(audits)} zones conform")
+    if args.report:
+        for path in write_report(audits):
+            print(f"report: {path}")
+    return 0 if good == len(audits) else 1
+
+
 def cmd_integrate(args) -> int:
     """Restore archived canonical scenes and re-attach their narrative content."""
     from .integration import integrate, refresh_definition
@@ -370,12 +390,31 @@ def cmd_generate(args) -> int:
 
 
 def cmd_generate_all(args) -> int:
+    from .audit import audit_all
     lo, hi = (int(x) for x in args.chapters.split("-"))
+    ready = set()
+    if not args.include_blocked:
+        audits, _ = audit_all()
+        ready = {a.dungeon for a in audits if a.readiness == "READY_FOR_GENERATION"}
+        print(f"{len(ready)} dungeons are READY_FOR_GENERATION")
     exit_code = 0
     for path in list_definitions():
-        definition = load_definition(path)
+        try:
+            definition = load_definition(path)
+        except DefinitionError as exc:
+            print(f"skip {path.name}: {exc}")
+            continue
         if not (lo <= definition.chapter <= hi):
             continue
+        if ready and definition.id not in ready:
+            print(f"skip {definition.id}: not READY_FOR_GENERATION")
+            continue
+        if args.skip_existing and (ROOT / "Data" / "Zone" / f"{definition.id}.json").exists():
+            zone_text = (ROOT / "Data" / "Zone" / f"{definition.id}.json").read_text(
+                encoding="utf-8-sig")[:4000]
+            if "tools/dungeon_builder" in zone_text:
+                print(f"skip {definition.id}: already rebuilt by the Builder")
+                continue
         print(f"\n=== {definition.id} (chapter {definition.chapter})")
         sub = argparse.Namespace(dungeon=str(path), seed=None, count=args.count,
                                  force=args.force, dry_run=args.dry_run, report=True,
@@ -390,6 +429,11 @@ def build_parser() -> argparse.ArgumentParser:
     sub = parser.add_subparsers(dest="command", required=True)
 
     sub.add_parser("audit", help="list profiles, DTEF packages and definitions").set_defaults(func=cmd_audit)
+
+    post = sub.add_parser("post-audit", help="verify every generated zone on disk")
+    post.add_argument("--report", action="store_true")
+    post.add_argument("--verbose", action="store_true")
+    post.set_defaults(func=cmd_post_audit)
 
     integrate_parser = sub.add_parser("integrate",
                                       help="restore archived canonical scenes + their cutscenes")
@@ -465,6 +509,10 @@ def build_parser() -> argparse.ArgumentParser:
     batch.add_argument("--force", action="store_true")
     batch.add_argument("--dry-run", action="store_true")
     batch.add_argument("--no-index", action="store_true")
+    batch.add_argument("--include-blocked", action="store_true",
+                       help="also try dungeons that are not READY (not recommended)")
+    batch.add_argument("--skip-existing", action="store_true",
+                       help="skip dungeons already rebuilt by the Builder")
     batch.set_defaults(func=cmd_generate_all)
     return parser
 

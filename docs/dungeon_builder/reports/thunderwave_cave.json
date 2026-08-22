@@ -1,0 +1,319 @@
+{
+  "generated_at": "2026-08-22T22:58:01+00:00",
+  "dungeon": "thunderwave_cave",
+  "name": {
+    "en": "Thunderwave Cave",
+    "fr": "Grotte Statique"
+  },
+  "chapter": 7,
+  "route": "secondary",
+  "source": "Pokémon Mystery Dungeon: Red Rescue Team — Thunderwave Cave (5F). Espèces, niveaux, probabilités, tables d'objets, pièges et boutiques extraits de pret/pmd-red (data/dungeon/ThunderwaveCave) via tools/build_canonical_definitions.py ; niveaux renivelés au palier du chapitre 7. Recoupé avec Bulbapedia (page « Thunderwave Cave »).",
+  "floors": 5,
+  "biome": "static_cave",
+  "direction": "fond",
+  "zone_file": "Data/Zone/thunderwave_cave.json",
+  "segments": [
+    {
+      "name": "static_cave",
+      "floors": [
+        1,
+        5
+      ],
+      "biome": "static_cave",
+      "dtef": {
+        "floor": "crystal_cave_2_floor",
+        "wall": "crystal_cave_2_wall",
+        "secondary": "crystal_cave_2_secondary",
+        "name": "crystal_cave_2",
+        "element": "normal",
+        "justification": "Grotte Statique : aucun DTEF Thunderwave importé ; même biome de grotte sèche que le Gouffre Muet, qui reste propriétaire du triplet."
+      },
+      "profiles": [
+        "branching",
+        "mixed",
+        "dense"
+      ],
+      "pokemon": 7,
+      "item_tables": {
+        "canonical": {
+          "amount": [
+            2,
+            5
+          ],
+          "entries": 6
+        }
+      },
+      "shop": true,
+      "monster_house": true,
+      "treasure_room": false,
+      "key_room": false,
+      "mystery": false,
+      "weather": []
+    }
+  ],
+  "fixed_grounds": {
+    "entrance": "grotte_statique_seuil",
+    "end": "d02p02"
+  },
+  "midpoint": {},
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "d02p02",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
+  },
+  "minibosses": [],
+  "ground_check": {
+    "entrance": "grotte_statique_seuil",
+    "cinematic_ground": "d02p02",
+    "battle_ground": "d02p02",
+    "scene_state": "ACTIVE_GROUND",
+    "mid": "",
+    "end": "d02p02",
+    "boss_mode": "canonical_ground",
+    "boss_ground": "d02p02",
+    "boss_map": "",
+    "canonical_end_candidates": [
+      "d02p02"
+    ],
+    "ok": true,
+    "problems": [],
+    "notes": [
+      "no fixed 'mid' Ground declared",
+      "final battle stays on the canonical end Ground 'd02p02' (no separate arena created)"
+    ]
+  },
+  "rng": {
+    "label": "generate:thunderwave_cave",
+    "root_seed": 2986267779560758377,
+    "explicit_seed": false,
+    "derived_seeds": 26
+  },
+  "warnings": [],
+  "floor_reports": [
+    {
+      "floor": 1,
+      "segment": "static_cave",
+      "kind": "procedural",
+      "profile": "branching+mixed+dense",
+      "grid": [
+        6,
+        4
+      ],
+      "cell": [
+        11,
+        10
+      ],
+      "dtef": "crystal_cave_2",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.8536,
+      "seeds": [
+        3033166957530136338,
+        363747484110983155,
+        5744874605925221926,
+        8442152773662840572,
+        1982818530717158275
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 15.2,
+        "rooms_min": 10,
+        "rooms_max": 24,
+        "halls_avg": 17.6,
+        "branches_avg": 4.2,
+        "dead_ends_avg": 4.0,
+        "loops_avg": 1.8,
+        "connections_avg": 17.6,
+        "room_area_min": 12,
+        "room_area_max": 80,
+        "stair_distance_avg": 42.4,
+        "reachable_ratio_min": 0.9986,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 2,
+      "segment": "static_cave",
+      "kind": "procedural",
+      "profile": "branching+mixed+dense",
+      "grid": [
+        6,
+        5
+      ],
+      "cell": [
+        8,
+        7
+      ],
+      "dtef": "crystal_cave_2",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.8764,
+      "seeds": [
+        3661358051551523979,
+        6625961932375411185,
+        4019798709985685235,
+        362800260212834727,
+        7902641099171199711
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 17.4,
+        "rooms_min": 15,
+        "rooms_max": 22,
+        "halls_avg": 19.4,
+        "branches_avg": 6.4,
+        "dead_ends_avg": 5.8,
+        "loops_avg": 1.8,
+        "connections_avg": 19.4,
+        "room_area_min": 9,
+        "room_area_max": 160,
+        "stair_distance_avg": 44.2,
+        "reachable_ratio_min": 0.9987,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 3,
+      "segment": "static_cave",
+      "kind": "procedural",
+      "profile": "branching+mixed+dense",
+      "grid": [
+        4,
+        4
+      ],
+      "cell": [
+        11,
+        10
+      ],
+      "dtef": "crystal_cave_2",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.7454,
+      "seeds": [
+        784741212718202114,
+        7766134230769817499,
+        1185978380060909550,
+        4219619368498965961,
+        6354119272384872727
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 17.4,
+        "rooms_min": 12,
+        "rooms_max": 28,
+        "halls_avg": 21.2,
+        "branches_avg": 6.8,
+        "dead_ends_avg": 4.8,
+        "loops_avg": 2.4,
+        "connections_avg": 21.2,
+        "room_area_min": 9,
+        "room_area_max": 207,
+        "stair_distance_avg": 45.0,
+        "reachable_ratio_min": 0.9983,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 4,
+      "segment": "static_cave",
+      "kind": "procedural",
+      "profile": "branching+mixed+dense",
+      "grid": [
+        7,
+        5
+      ],
+      "cell": [
+        8,
+        8
+      ],
+      "dtef": "crystal_cave_2",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.8535,
+      "seeds": [
+        282338716871708951,
+        3691903045322602083,
+        2399134628886036027,
+        3779079571383012720,
+        6903396934668783404
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 16.4,
+        "rooms_min": 14,
+        "rooms_max": 20,
+        "halls_avg": 19.0,
+        "branches_avg": 5.2,
+        "dead_ends_avg": 4.2,
+        "loops_avg": 2.0,
+        "connections_avg": 19.0,
+        "room_area_min": 9,
+        "room_area_max": 80,
+        "stair_distance_avg": 50.0,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 5,
+      "segment": "static_cave",
+      "kind": "procedural",
+      "profile": "branching+mixed+dense",
+      "grid": [
+        5,
+        3
+      ],
+      "cell": [
+        9,
+        10
+      ],
+      "dtef": "crystal_cave_2",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 1,
+      "max_pair_similarity": 0.8365,
+      "seeds": [
+        8016389502197586200,
+        3043001447655942541,
+        3058534560397440040,
+        6466817025181978021,
+        7071584720929672074
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 14.2,
+        "rooms_min": 10,
+        "rooms_max": 20,
+        "halls_avg": 17.0,
+        "branches_avg": 5.4,
+        "dead_ends_avg": 4.8,
+        "loops_avg": 1.8,
+        "connections_avg": 17.0,
+        "room_area_min": 9,
+        "room_area_max": 308,
+        "stair_distance_avg": 31.2,
+        "reachable_ratio_min": 0.9955,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    }
+  ]
+}

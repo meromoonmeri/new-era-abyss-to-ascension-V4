@@ -1,0 +1,239 @@
+{
+  "generated_at": "2026-08-22T22:57:59+00:00",
+  "dungeon": "mt_thunder_peak",
+  "name": {
+    "en": "Mt. Thunder Peak",
+    "fr": "Cime du Mont Grondant"
+  },
+  "chapter": 9,
+  "route": "secondary",
+  "source": "Pokémon Mystery Dungeon: Red Rescue Team — Mt. Thunder Peak (3F). Espèces, niveaux, probabilités, tables d'objets, pièges et boutiques extraits de pret/pmd-red (data/dungeon/MtThunderPeak) via tools/build_canonical_definitions.py ; niveaux renivelés au palier du chapitre 9. Recoupé avec Bulbapedia (page « Mt. Thunder Peak »).",
+  "floors": 3,
+  "biome": "thunder_peak",
+  "direction": "sommet",
+  "zone_file": "Data/Zone/mt_thunder_peak.json",
+  "segments": [
+    {
+      "name": "thunder_peak",
+      "floors": [
+        1,
+        3
+      ],
+      "biome": "thunder_peak",
+      "dtef": {
+        "floor": "far_amp_plains_floor",
+        "wall": "far_amp_plains_wall",
+        "secondary": "far_amp_plains_secondary",
+        "name": "far_amp_plains",
+        "element": "normal",
+        "justification": "Cime du Mont Grondant : plaines électriques, seul utilisateur ; le triplet mt_thunder reste au massif."
+      },
+      "profiles": [
+        "large_rooms",
+        "crossroads",
+        "mixed"
+      ],
+      "pokemon": 6,
+      "item_tables": {
+        "canonical": {
+          "amount": [
+            2,
+            5
+          ],
+          "entries": 13
+        }
+      },
+      "shop": true,
+      "monster_house": true,
+      "treasure_room": false,
+      "key_room": false,
+      "mystery": false,
+      "weather": []
+    }
+  ],
+  "fixed_grounds": {
+    "entrance": "mont_grondant_pied",
+    "end": "d06p03"
+  },
+  "midpoint": {},
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "d06p03",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée.",
+    "roster": [
+      {
+        "species": "zapdos",
+        "level": [
+          33,
+          33
+        ],
+        "role": "leader"
+      }
+    ]
+  },
+  "minibosses": [],
+  "ground_check": {
+    "entrance": "mont_grondant_pied",
+    "cinematic_ground": "d06p03",
+    "battle_ground": "d06p03",
+    "scene_state": "ACTIVE_GROUND",
+    "mid": "",
+    "end": "d06p03",
+    "boss_mode": "canonical_ground",
+    "boss_ground": "d06p03",
+    "boss_map": "",
+    "canonical_end_candidates": [
+      "d06p03"
+    ],
+    "ok": true,
+    "problems": [],
+    "notes": [
+      "no fixed 'mid' Ground declared",
+      "final battle stays on the canonical end Ground 'd06p03' (no separate arena created)"
+    ]
+  },
+  "rng": {
+    "label": "generate:mt_thunder_peak",
+    "root_seed": 8490819363021106161,
+    "explicit_seed": false,
+    "derived_seeds": 15
+  },
+  "warnings": [],
+  "floor_reports": [
+    {
+      "floor": 1,
+      "segment": "thunder_peak",
+      "kind": "procedural",
+      "profile": "large_rooms+crossroads+mixed",
+      "grid": [
+        3,
+        3
+      ],
+      "cell": [
+        15,
+        10
+      ],
+      "dtef": "far_amp_plains",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.8543,
+      "seeds": [
+        8514438822404911890,
+        4967487069557496655,
+        218529037135886156,
+        1597626078037812619,
+        2119770359369162637
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 9.6,
+        "rooms_min": 4,
+        "rooms_max": 18,
+        "halls_avg": 10.0,
+        "branches_avg": 1.8,
+        "dead_ends_avg": 3.0,
+        "loops_avg": 0.8,
+        "connections_avg": 10.0,
+        "room_area_min": 20,
+        "room_area_max": 132,
+        "stair_distance_avg": 27.8,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 2,
+      "segment": "thunder_peak",
+      "kind": "procedural",
+      "profile": "large_rooms+crossroads+mixed",
+      "grid": [
+        5,
+        4
+      ],
+      "cell": [
+        10,
+        10
+      ],
+      "dtef": "far_amp_plains",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.8843,
+      "seeds": [
+        5420483076452919218,
+        8269063597804381969,
+        7434116045008302398,
+        575589879908534477,
+        7062151569848590520
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 7.0,
+        "rooms_min": 4,
+        "rooms_max": 9,
+        "halls_avg": 6.4,
+        "branches_avg": 0.6,
+        "dead_ends_avg": 2.2,
+        "loops_avg": 0.4,
+        "connections_avg": 6.4,
+        "room_area_min": 24,
+        "room_area_max": 152,
+        "stair_distance_avg": 36.8,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 3,
+      "segment": "thunder_peak",
+      "kind": "procedural",
+      "profile": "large_rooms+crossroads+mixed",
+      "grid": [
+        7,
+        3
+      ],
+      "cell": [
+        11,
+        7
+      ],
+      "dtef": "far_amp_plains",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.8419,
+      "seeds": [
+        6484388986629418036,
+        3476498230429223941,
+        2426154218899771882,
+        303954668838778514,
+        3232664909151699665
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 7.0,
+        "rooms_min": 4,
+        "rooms_max": 9,
+        "halls_avg": 6.6,
+        "branches_avg": 1.4,
+        "dead_ends_avg": 2.6,
+        "loops_avg": 0.6,
+        "connections_avg": 6.6,
+        "room_area_min": 20,
+        "room_area_max": 330,
+        "stair_distance_avg": 35.8,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    }
+  ]
+}

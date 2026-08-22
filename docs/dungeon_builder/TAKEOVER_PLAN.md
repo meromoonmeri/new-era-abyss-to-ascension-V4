@@ -1,6 +1,6 @@
 # Plan de reprise des donjons (takeover)
 
-_Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
+_Généré le 2026-08-22T23:03:13+00:00 — 50 donjons analysés._
 
 `HARVEST` = donnée canonique réutilisée telle quelle · `TRANSFER` = contenu narratif/scène qui suit le donjon dans le nouveau pipeline · `REPLACE` = ancienne implémentation supprimée après reconstruction · `PROTECT` = hors périmètre, intouchable.
 
@@ -57,8 +57,25 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 | `wish_cave` | 2 | 4 | 0 | 0 | 1 | — |
 | `wyvern_hill` | 0 | 0 | 0 | 0 | 0 | no narrative content found for this dungeon |
 
+## `darknight_relic` — Darknight Relic
+
+- **CURRENT** `Data/Zone/darknight_relic.json` — already produced by this Builder: it is the current canonical implementation
+
+## `desert_region` — Desert Region
+
+- **CURRENT** `Data/Zone/desert_region.json` — already produced by this Builder: it is the current canonical implementation
+
+## `fantasy_strait` — Fantasy Strait
+
+- **CURRENT** `Data/Zone/fantasy_strait.json` — already produced by this Builder: it is the current canonical implementation
+
+## `far_off_sea` — Far-Off Sea
+
+- **CURRENT** `Data/Zone/far_off_sea.json` — already produced by this Builder: it is the current canonical implementation
+
 ## `fiery_field` — Fiery Field
 
+- **CURRENT** `Data/Zone/fiery_field.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/champ_braises.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **TRANSFER** `Data/Script/halcyon/ground/champ_braises` — cutscene of scene 'champ_braises' must follow the dungeon
 - **TRANSFER** `RESERVE/scripts_ground/champ_braises` *(archivé)* — archived cutscene of scene 'champ_braises' to restore
@@ -91,6 +108,7 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 
 ## `frosty_grotto` — Frosty Grotto
 
+- **CURRENT** `Data/Zone/frosty_grotto.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/d10p02.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/d10p03.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/foret_givree_oree.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
@@ -102,8 +120,13 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 - **TRANSFER** `RESERVE/red_cinematics/d10p02.cif.json` *(archivé)* — canonical PMD Red cutscene of D10: audio, camera, dialogue and battle trigger to replay on the same Ground
 - **TRANSFER** `RESERVE/red_cinematics/d10p03.cif.json` *(archivé)* — canonical PMD Red cutscene of D10: audio, camera, dialogue and battle trigger to replay on the same Ground
 
+## `grand_sea` — Grand Sea
+
+- **CURRENT** `Data/Zone/grand_sea.json` — already produced by this Builder: it is the current canonical implementation
+
 ## `great_canyon` — Great Canyon
 
+- **CURRENT** `Data/Zone/great_canyon.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/d07p02.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/grand_canyon_porte.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **TRANSFER** `Data/Script/halcyon/ground/grand_canyon_porte` — cutscene of scene 'grand_canyon_porte' must follow the dungeon
@@ -113,10 +136,15 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 
 ## `howling_forest` — Howling Forest
 
+- **CURRENT** `Data/Zone/howling_forest.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/bois_des_plaintes.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **TRANSFER** `Data/Script/halcyon/ground/bois_des_plaintes` — cutscene of scene 'bois_des_plaintes' must follow the dungeon
 - **TRANSFER** `RESERVE/scripts_ground/bois_des_plaintes` *(archivé)* — archived cutscene of scene 'bois_des_plaintes' to restore
 - **TRANSFER** `RESERVE/red_cinematics/d25p01.cif.json` *(archivé)* — canonical PMD Red cutscene of D25: audio, camera, dialogue and battle trigger to replay on the same Ground
+
+## `joyous_tower` — Joyous Tower
+
+- **CURRENT** `Data/Zone/joyous_tower.json` — already produced by this Builder: it is the current canonical implementation
 
 ## `lapis_cave` — Lapis Cave
 
@@ -135,6 +163,7 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 
 ## `lightning_field` — Lightning Field
 
+- **CURRENT** `Data/Zone/lightning_field.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/champ_foudre.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **TRANSFER** `Data/Script/halcyon/ground/champ_foudre` — cutscene of scene 'champ_foudre' must follow the dungeon
 - **TRANSFER** `RESERVE/scripts_ground/champ_foudre` *(archivé)* — archived cutscene of scene 'champ_foudre' to restore
@@ -144,6 +173,7 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 
 ## `magma_cavern` — Magma Cavern
 
+- **CURRENT** `Data/Zone/magma_cavern.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/fosse_ardente.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/gorge_ardente_coeur.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/gorge_ardente_porte.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
@@ -164,6 +194,7 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 
 ## `magma_cavern_pit` — Magma Cavern Pit
 
+- **CURRENT** `Data/Zone/magma_cavern_pit.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/fosse_ardente.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/gorge_ardente_coeur.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/gorge_ardente_porte.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
@@ -176,6 +207,10 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 - **TRANSFER** `RESERVE/red_cinematics/d12p01.cif.json` *(archivé)* — canonical PMD Red cutscene of D12: audio, camera, dialogue and battle trigger to replay on the same Ground
 - **TRANSFER** `RESERVE/red_cinematics/d12p02.cif.json` *(archivé)* — canonical PMD Red cutscene of D12: audio, camera, dialogue and battle trigger to replay on the same Ground
 - **TRANSFER** `RESERVE/red_cinematics/d12p04.cif.json` *(archivé)* — canonical PMD Red cutscene of D12: audio, camera, dialogue and battle trigger to replay on the same Ground
+
+## `marvelous_sea` — Marvelous Sea
+
+- **CURRENT** `Data/Zone/marvelous_sea.json` — already produced by this Builder: it is the current canonical implementation
 
 ## `meteor_cave` — Meteor Cave
 
@@ -206,6 +241,7 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 
 ## `mt_blaze_peak` — Mt. Blaze Peak
 
+- **CURRENT** `Data/Zone/mt_blaze_peak.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/d09p02.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/d09p03.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/mont_cendre_pied.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
@@ -219,6 +255,7 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 
 ## `mt_faraway` — Mt. Faraway
 
+- **CURRENT** `Data/Zone/mt_faraway.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/sommet_aurore.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **TRANSFER** `Data/Script/halcyon/ground/sommet_aurore` — cutscene of scene 'sommet_aurore' must follow the dungeon
 - **TRANSFER** `RESERVE/scripts_ground/sommet_aurore` *(archivé)* — archived cutscene of scene 'sommet_aurore' to restore
@@ -249,6 +286,7 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 
 ## `mt_freeze_peak` — Mt. Freeze Peak
 
+- **CURRENT** `Data/Zone/mt_freeze_peak.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/d11p02.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/d11p03.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/mont_gele_pied.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
@@ -262,6 +300,7 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 
 ## `mt_steel` — Mt. Steel
 
+- **CURRENT** `Data/Zone/mt_steel.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/d03p02.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/pic_ferreux_pied.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **TRANSFER** `Data/Script/halcyon/ground/pic_ferreux_pied` — cutscene of scene 'pic_ferreux_pied' must follow the dungeon
@@ -271,6 +310,7 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 
 ## `mt_thunder` — Mt. Thunder
 
+- **CURRENT** `Data/Zone/mt_thunder.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/d06p02.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/d06p03.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/mont_grondant_pied.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
@@ -286,6 +326,7 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 
 ## `mt_thunder_peak` — Mt. Thunder Peak
 
+- **CURRENT** `Data/Zone/mt_thunder_peak.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/d06p02.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/d06p03.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/mont_grondant_pied.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
@@ -297,6 +338,7 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 
 ## `murky_cave` — Murky Cave
 
+- **CURRENT** `Data/Zone/murky_cave.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/caverne_trouble_autel.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/caverne_trouble_fond.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **TRANSFER** `Data/Script/halcyon/ground/caverne_trouble_autel` — cutscene of scene 'caverne_trouble_autel' must follow the dungeon
@@ -308,13 +350,19 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 
 ## `northern_range` — Northern Range
 
+- **CURRENT** `Data/Zone/northern_range.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/cretes_boreales.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **TRANSFER** `Data/Script/halcyon/ground/cretes_boreales` — cutscene of scene 'cretes_boreales' must follow the dungeon
 - **TRANSFER** `RESERVE/scripts_ground/cretes_boreales` *(archivé)* — archived cutscene of scene 'cretes_boreales' to restore
 - **TRANSFER** `RESERVE/red_cinematics/d21p01.cif.json` *(archivé)* — canonical PMD Red cutscene of D21: audio, camera, dialogue and battle trigger to replay on the same Ground
 
+## `oddity_cave` — Oddity Cave
+
+- **CURRENT** `Data/Zone/oddity_cave.json` — already produced by this Builder: it is the current canonical implementation
+
 ## `pitfall_valley` — Pitfall Valley
 
+- **CURRENT** `Data/Zone/pitfall_valley.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/vallon_perdu.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **TRANSFER** `Data/Script/halcyon/ground/vallon_perdu` — cutscene of scene 'vallon_perdu' must follow the dungeon
 - **TRANSFER** `RESERVE/scripts_ground/vallon_perdu` *(archivé)* — archived cutscene of scene 'vallon_perdu' to restore
@@ -322,14 +370,24 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 
 ## `purity_forest` — Purity Forest
 
+- **CURRENT** `Data/Zone/purity_forest.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/foret_guerison.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **TRANSFER** `Data/Script/halcyon/ground/foret_guerison` — cutscene of scene 'foret_guerison' must follow the dungeon
 - **TRANSFER** `RESERVE/scripts_ground/foret_guerison` *(archivé)* — archived cutscene of scene 'foret_guerison' to restore
 - **TRANSFER** `Data/Script/halcyon/zone/purity_forest` — zone script (floor events, boss trigger) rebound to the regenerated zone
 - **TRANSFER** `RESERVE/scripts_zone/purity_forest` *(archivé)* — archived zone script to restore
 
+## `remains_island` — Remains Island
+
+- **CURRENT** `Data/Zone/remains_island.json` — already produced by this Builder: it is the current canonical implementation
+
+## `rock_path` — Rock Path
+
+- **CURRENT** `Data/Zone/rock_path.json` — already produced by this Builder: it is the current canonical implementation
+
 ## `silent_chasm` — Silent Chasm
 
+- **CURRENT** `Data/Zone/silent_chasm.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/d05p02.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/gouffre_muet_bord.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **TRANSFER** `Data/Script/halcyon/ground/gouffre_muet_bord` — cutscene of scene 'gouffre_muet_bord' must follow the dungeon
@@ -339,6 +397,7 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 
 ## `silver_trench` — Silver Trench
 
+- **CURRENT** `Data/Zone/silver_trench.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/fosse_argentee.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **TRANSFER** `Data/Script/halcyon/ground/fosse_argentee` — cutscene of scene 'fosse_argentee' must follow the dungeon
 - **TRANSFER** `RESERVE/scripts_ground/fosse_argentee` *(archivé)* — archived cutscene of scene 'fosse_argentee' to restore
@@ -406,8 +465,21 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 - **TRANSFER** `RESERVE/red_cinematics/d13p02.cif.json` *(archivé)* — canonical PMD Red cutscene of D13: audio, camera, dialogue and battle trigger to replay on the same Ground
 - **TRANSFER** `RESERVE/red_cinematics/d13p03.cif.json` *(archivé)* — canonical PMD Red cutscene of D13: audio, camera, dialogue and battle trigger to replay on the same Ground
 
+## `snow_path` — Snow Path
+
+- **CURRENT** `Data/Zone/snow_path.json` — already produced by this Builder: it is the current canonical implementation
+
+## `solar_cave` — Solar Cave
+
+- **CURRENT** `Data/Zone/solar_cave.json` — already produced by this Builder: it is the current canonical implementation
+
+## `southern_cavern` — Southern Cavern
+
+- **CURRENT** `Data/Zone/southern_cavern.json` — already produced by this Builder: it is the current canonical implementation
+
 ## `stormy_sea` — Stormy Sea
 
+- **CURRENT** `Data/Zone/stormy_sea.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/abime_tempetes.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **TRANSFER** `Data/Script/halcyon/ground/abime_tempetes` — cutscene of scene 'abime_tempetes' must follow the dungeon
 - **TRANSFER** `RESERVE/scripts_ground/abime_tempetes` *(archivé)* — archived cutscene of scene 'abime_tempetes' to restore
@@ -417,6 +489,7 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 
 ## `thunderwave_cave` — Thunderwave Cave
 
+- **CURRENT** `Data/Zone/thunderwave_cave.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/d02p02.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/grotte_statique_seuil.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **TRANSFER** `Data/Script/halcyon/ground/grotte_statique_seuil` — cutscene of scene 'grotte_statique_seuil' must follow the dungeon
@@ -426,6 +499,7 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 
 ## `tiny_woods` — Tiny Woods
 
+- **CURRENT** `Data/Zone/tiny_woods.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/d01p02.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **HARVEST** `Data/Ground/foret_tendre_oree.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **TRANSFER** `Data/Script/halcyon/ground/foret_tendre_oree` — cutscene of scene 'foret_tendre_oree' must follow the dungeon
@@ -433,8 +507,17 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 - **TRANSFER** `RESERVE/red_cinematics/d01p01.cif.json` *(archivé)* — canonical PMD Red cutscene of D01: audio, camera, dialogue and battle trigger to replay on the same Ground
 - **TRANSFER** `RESERVE/red_cinematics/d01p02.cif.json` *(archivé)* — canonical PMD Red cutscene of D01: audio, camera, dialogue and battle trigger to replay on the same Ground
 
+## `unown_relic` — Unown Relic
+
+- **CURRENT** `Data/Zone/unown_relic.json` — already produced by this Builder: it is the current canonical implementation
+
+## `uproar_forest` — Uproar Forest
+
+- **CURRENT** `Data/Zone/uproar_forest.json` — already produced by this Builder: it is the current canonical implementation
+
 ## `waterfall_pond` — Waterfall Pond
 
+- **CURRENT** `Data/Zone/waterfall_pond.json` — already produced by this Builder: it is the current canonical implementation
 - **TRANSFER** `Data/Script/halcyon/zone/waterfall_pond` — zone script (floor events, boss trigger) rebound to the regenerated zone
 - **REVIEW** `tools/audit_geometry_uniqueness.py` — legacy generator that writes this dungeon's zone: superseded by the Builder, to retire manually once the rebuild is validated
 - **REVIEW** `tools/audit_red_narrative.py` — legacy generator that writes this dungeon's zone: superseded by the Builder, to retire manually once the rebuild is validated
@@ -444,6 +527,7 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 
 ## `western_cave` — Western Cave
 
+- **CURRENT** `Data/Zone/western_cave.json` — already produced by this Builder: it is the current canonical implementation
 - **HARVEST** `Data/Ground/antre_occident.rsground` — canonical scene kept as-is: geometry, collisions, markers and objects are the source of truth for cutscene + battle
 - **TRANSFER** `Data/Script/halcyon/ground/antre_occident` — cutscene of scene 'antre_occident' must follow the dungeon
 - **TRANSFER** `RESERVE/scripts_ground/antre_occident` *(archivé)* — archived cutscene of scene 'antre_occident' to restore
@@ -462,3 +546,7 @@ _Généré le 2026-08-22T22:54:46+00:00 — 50 donjons analysés._
 - **TRANSFER** `RESERVE/red_cinematics/d23p01.cif.json` *(archivé)* — canonical PMD Red cutscene of D23: audio, camera, dialogue and battle trigger to replay on the same Ground
 - **REVIEW** `tools/audit_geometry_uniqueness.py` — legacy generator that writes this dungeon's zone: superseded by the Builder, to retire manually once the rebuild is validated
 - **REVIEW** `tools/audit_red_narrative.py` — legacy generator that writes this dungeon's zone: superseded by the Builder, to retire manually once the rebuild is validated
+
+## `wyvern_hill` — Wyvern Hill
+
+- **CURRENT** `Data/Zone/wyvern_hill.json` — already produced by this Builder: it is the current canonical implementation

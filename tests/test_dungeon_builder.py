@@ -580,10 +580,13 @@ class TestDtefRegistry(unittest.TestCase):
                                 "wall": "treeshroud_forest_1_wall",
                                 "secondary": "treeshroud_forest_1_secondary"})
         self.assertEqual(package.origin, "active_data")
+        # note: a tileset attested only by the archives becomes `active_data`
+        # once one of our generated zones ships it — both are valid attestations,
+        # an unknown one is not.
         archived = resolve_dtef({"floor": "silver_trench_3_floor",
                                  "wall": "silver_trench_3_wall",
                                  "secondary": "silver_trench_3_secondary"})
-        self.assertEqual(archived.origin, "reserve_archive")
+        self.assertIn(archived.origin, ("reserve_archive", "active_data"))
 
     def test_imported_package_is_flagged_as_mod(self):
         package = resolve_dtef({"package": "sinister_woods_b41"})
@@ -722,14 +725,13 @@ class TestCanonicalDefinitionSet(unittest.TestCase):
         self.assertEqual(audit.midpoint, "gloomy_forest_midpoint")
         self.assertEqual(audit.floors, 14)
 
-    def test_only_takeover_dungeons_have_been_rebuilt_so_far(self):
-        """`generate-all` is still not authorised: only the dungeons whose legacy
-        implementation had to be replaced own a zone at this stage."""
-        allowed = {"gloomy_forest", "mt_blaze", "mt_freeze", "frosty_forest", "lapis_cave",
-                   "wish_cave", "sky_tower", "sky_tower_summit"}
-        ids = {a.dungeon for a in self.audits}
-        written = {p.stem for p in (REPO / "Data" / "Zone").glob("*.json")} & ids
-        self.assertTrue(written <= allowed, written - allowed)
+    def test_only_ready_dungeons_were_generated(self):
+        """The batch covers exactly the READY dungeons — never a blocked one."""
+        ready = {a.dungeon for a in self.audits if a.readiness == "READY_FOR_GENERATION"}
+        blocked = {a.dungeon for a in self.audits if a.readiness != "READY_FOR_GENERATION"}
+        written = {p.stem for p in (REPO / "Data" / "Zone").glob("*.json")}
+        self.assertTrue(ready <= written, ready - written)
+        self.assertFalse(blocked & written, blocked & written)
 
 
 class TestCanonicalSceneRule(unittest.TestCase):
@@ -1133,9 +1135,93 @@ class TestProductionReadinessRules(unittest.TestCase):
         self.assertIn("cinématique = combat = fin", doc)
         self.assertNotIn("| 0/10 |", doc)      # every sampled floor is traversable
 
-    def test_no_mass_generation_happened_yet(self):
-        allowed = {"gloomy_forest", "mt_blaze", "mt_freeze", "frosty_forest", "lapis_cave",
-                   "wish_cave", "sky_tower", "sky_tower_summit"}
+    def test_blocked_dungeons_stay_out_of_the_batch(self):
+        for dungeon in ("buried_relic", "meteor_cave", "northwind_field"):
+            self.assertFalse((REPO / "Data" / "Zone" / f"{dungeon}.json").exists(), dungeon)
+            self.assertNotEqual(self.by_id[dungeon].readiness, "READY_FOR_GENERATION")
+
+
+class TestBatchResult(unittest.TestCase):
+    """The 48 READY dungeons are really built, the 3 blocked ones are untouched."""
+
+    @classmethod
+    def setUpClass(cls):
+        from dungeon_builder.audit import audit_all
+        from dungeon_builder.postaudit import audit_all_zones
+        cls.audits, _ = audit_all()
+        cls.zones = audit_all_zones()
+        cls.by_zone = {z.dungeon: z for z in cls.zones}
+
+    def test_every_ready_dungeon_has_a_zone(self):
+        ready = {a.dungeon for a in self.audits if a.readiness == "READY_FOR_GENERATION"}
+        written = {p.stem for p in (REPO / "Data" / "Zone").glob("*.json")}
+        self.assertEqual(len(ready), 48)
+        self.assertTrue(ready <= written, ready - written)
+
+    def test_blocked_dungeons_were_not_generated(self):
+        for dungeon in ("buried_relic", "meteor_cave", "northwind_field"):
+            self.assertFalse((REPO / "Data" / "Zone" / f"{dungeon}.json").exists(), dungeon)
+
+    def test_post_generation_audit_is_clean(self):
+        failing = [z.dungeon for z in self.zones if not z.ok]
+        self.assertFalse(failing, failing)
+        self.assertEqual(len(self.zones), 48)
+
+    def test_written_floor_counts_match_the_canon(self):
+        for zone in self.zones:
+            self.assertEqual(zone.floors_written, zone.floors_expected, zone.dungeon)
+
+    def test_every_zone_varies_its_architecture(self):
+        for zone in self.zones:
+            if zone.floors_expected < 6:
+                continue
+            self.assertGreaterEqual(len(zone.profiles), 2, zone.dungeon)
+            self.assertGreaterEqual(zone.grid_variants, 2, zone.dungeon)
+            self.assertTrue(zone.path_steps, zone.dungeon)
+
+    def test_no_precomputed_layout_and_no_production_seed(self):
+        for path in sorted((REPO / "Data" / "Zone").glob("*.json")):
+            if path.stem not in self.by_zone:
+                continue
+            blob = path.read_text(encoding="utf-8-sig")
+            self.assertNotIn('"Seed"', blob, path.name)
+            self.assertNotIn('"FirstSeed"', blob, path.name)
+            zone = json.loads(blob)["Object"]
+            for segment in zone["Segments"]:
+                for floor in segment["Floors"]:
+                    if "LoadGen" in floor.get("$type", ""):
+                        continue
+                    names = {step["Value"]["$type"] for step in floor["GenSteps"]}
+                    self.assertFalse(any("MappedRoomStep" in n for n in names), path.name)
+
+    def test_debug_metadata_is_present_on_every_procedural_floor(self):
+        for path in sorted((REPO / "Data" / "Zone").glob("*.json")):
+            if path.stem not in self.by_zone:
+                continue
+            zone = json.loads(path.read_text(encoding="utf-8-sig"))["Object"]
+            for segment in zone["Segments"]:
+                for floor in segment["Floors"]:
+                    if "LoadGen" in floor.get("$type", ""):
+                        continue
+                    self.assertIn("authoring-seed", floor.get("Comment", ""), path.name)
+                    self.assertIn("NOT the layout", floor.get("Comment", ""), path.name)
+
+    def test_final_scene_is_one_single_space(self):
+        for zone in self.zones:
+            if zone.boss_mode != "canonical_ground":
+                continue
+            raw = json.loads((REPO / "DungeonDefs" / "canonical" /
+                              f"{[p.stem for p in (REPO / 'DungeonDefs' / 'canonical').glob('*.json') if json.loads((REPO / 'DungeonDefs' / 'canonical' / p.name).read_text(encoding='utf-8-sig')).get('id') == zone.dungeon][0]}.json")
+                             .read_text(encoding="utf-8-sig"))
+            scenes = raw.get("scenes") or {}
+            if scenes.get("canonical_end_ground"):
+                self.assertEqual(scenes["cinematic_ground"], scenes["canonical_end_ground"])
+                self.assertEqual(scenes["battle_ground"], scenes["canonical_end_ground"])
+
+    def test_no_legacy_zone_remains_active_in_scope(self):
         ids = {a.dungeon for a in self.audits}
-        written = {p.stem for p in (REPO / "Data" / "Zone").glob("*.json")} & ids
-        self.assertTrue(written <= allowed, written - allowed)
+        for path in sorted((REPO / "Data" / "Zone").glob("*.json")):
+            if path.stem not in ids:
+                continue
+            comment = json.loads(path.read_text(encoding="utf-8-sig"))["Object"].get("Comment", "")
+            self.assertIn("tools/dungeon_builder", comment, path.name)

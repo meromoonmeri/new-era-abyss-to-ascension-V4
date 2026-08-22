@@ -23,7 +23,15 @@
     "notes": [
       "no narrative content found for this dungeon"
     ],
-    "artefacts": []
+    "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/darknight_relic.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      }
+    ]
   },
   {
     "dungeon": "desert_region",
@@ -36,7 +44,15 @@
     "notes": [
       "no narrative content found for this dungeon"
     ],
-    "artefacts": []
+    "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/desert_region.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      }
+    ]
   },
   {
     "dungeon": "fantasy_strait",
@@ -49,7 +65,15 @@
     "notes": [
       "no narrative content found for this dungeon"
     ],
-    "artefacts": []
+    "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/fantasy_strait.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      }
+    ]
   },
   {
     "dungeon": "far_off_sea",
@@ -62,7 +86,15 @@
     "notes": [
       "no narrative content found for this dungeon"
     ],
-    "artefacts": []
+    "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/far_off_sea.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      }
+    ]
   },
   {
     "dungeon": "fiery_field",
@@ -80,6 +112,13 @@
     },
     "notes": [],
     "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/fiery_field.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
       {
         "kind": "ground",
         "path": "Data/Ground/champ_braises.rsground",
@@ -307,6 +346,13 @@
     "notes": [],
     "artefacts": [
       {
+        "kind": "zone",
+        "path": "Data/Zone/frosty_grotto.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
+      {
         "kind": "ground",
         "path": "Data/Ground/d10p02.rsground",
         "action": "HARVEST",
@@ -389,7 +435,15 @@
     "notes": [
       "no narrative content found for this dungeon"
     ],
-    "artefacts": []
+    "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/grand_sea.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      }
+    ]
   },
   {
     "dungeon": "great_canyon",
@@ -407,6 +461,13 @@
     },
     "notes": [],
     "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/great_canyon.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
       {
         "kind": "ground",
         "path": "Data/Ground/d07p02.rsground",
@@ -467,6 +528,13 @@
     "notes": [],
     "artefacts": [
       {
+        "kind": "zone",
+        "path": "Data/Zone/howling_forest.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
+      {
         "kind": "ground",
         "path": "Data/Ground/bois_des_plaintes.rsground",
         "action": "HARVEST",
@@ -507,7 +575,15 @@
     "notes": [
       "no narrative content found for this dungeon"
     ],
-    "artefacts": []
+    "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/joyous_tower.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      }
+    ]
   },
   {
     "dungeon": "lapis_cave",
@@ -631,6 +707,13 @@
     "notes": [],
     "artefacts": [
       {
+        "kind": "zone",
+        "path": "Data/Zone/lightning_field.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
+      {
         "kind": "ground",
         "path": "Data/Ground/champ_foudre.rsground",
         "action": "HARVEST",
@@ -696,6 +779,13 @@
     },
     "notes": [],
     "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/magma_cavern.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
       {
         "kind": "ground",
         "path": "Data/Ground/fosse_ardente.rsground",
@@ -839,6 +929,13 @@
     "notes": [],
     "artefacts": [
       {
+        "kind": "zone",
+        "path": "Data/Zone/magma_cavern_pit.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
+      {
         "kind": "ground",
         "path": "Data/Ground/fosse_ardente.rsground",
         "action": "HARVEST",
@@ -935,7 +1032,15 @@
     "notes": [
       "no narrative content found for this dungeon"
     ],
-    "artefacts": []
+    "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/marvelous_sea.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      }
+    ]
   },
   {
     "dungeon": "meteor_cave",
@@ -1141,6 +1246,13 @@
     "notes": [],
     "artefacts": [
       {
+        "kind": "zone",
+        "path": "Data/Zone/mt_blaze_peak.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
+      {
         "kind": "ground",
         "path": "Data/Ground/d09p02.rsground",
         "action": "HARVEST",
@@ -1228,6 +1340,13 @@
     },
     "notes": [],
     "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/mt_faraway.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
       {
         "kind": "ground",
         "path": "Data/Ground/sommet_aurore.rsground",
@@ -1441,6 +1560,13 @@
     "notes": [],
     "artefacts": [
       {
+        "kind": "zone",
+        "path": "Data/Zone/mt_freeze_peak.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
+      {
         "kind": "ground",
         "path": "Data/Ground/d11p02.rsground",
         "action": "HARVEST",
@@ -1529,6 +1655,13 @@
     "notes": [],
     "artefacts": [
       {
+        "kind": "zone",
+        "path": "Data/Zone/mt_steel.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
+      {
         "kind": "ground",
         "path": "Data/Ground/d03p02.rsground",
         "action": "HARVEST",
@@ -1590,6 +1723,13 @@
     },
     "notes": [],
     "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/mt_thunder.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
       {
         "kind": "ground",
         "path": "Data/Ground/d06p02.rsground",
@@ -1694,6 +1834,13 @@
     "notes": [],
     "artefacts": [
       {
+        "kind": "zone",
+        "path": "Data/Zone/mt_thunder_peak.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
+      {
         "kind": "ground",
         "path": "Data/Ground/d06p02.rsground",
         "action": "HARVEST",
@@ -1770,6 +1917,13 @@
     "notes": [],
     "artefacts": [
       {
+        "kind": "zone",
+        "path": "Data/Zone/murky_cave.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
+      {
         "kind": "ground",
         "path": "Data/Ground/caverne_trouble_autel.rsground",
         "action": "HARVEST",
@@ -1843,6 +1997,13 @@
     "notes": [],
     "artefacts": [
       {
+        "kind": "zone",
+        "path": "Data/Zone/northern_range.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
+      {
         "kind": "ground",
         "path": "Data/Ground/cretes_boreales.rsground",
         "action": "HARVEST",
@@ -1883,7 +2044,15 @@
     "notes": [
       "no narrative content found for this dungeon"
     ],
-    "artefacts": []
+    "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/oddity_cave.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      }
+    ]
   },
   {
     "dungeon": "pitfall_valley",
@@ -1900,6 +2069,13 @@
     },
     "notes": [],
     "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/pitfall_valley.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
       {
         "kind": "ground",
         "path": "Data/Ground/vallon_perdu.rsground",
@@ -1944,6 +2120,13 @@
     },
     "notes": [],
     "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/purity_forest.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
       {
         "kind": "ground",
         "path": "Data/Ground/foret_guerison.rsground",
@@ -1992,7 +2175,15 @@
     "notes": [
       "no narrative content found for this dungeon"
     ],
-    "artefacts": []
+    "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/remains_island.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      }
+    ]
   },
   {
     "dungeon": "rock_path",
@@ -2005,7 +2196,15 @@
     "notes": [
       "no narrative content found for this dungeon"
     ],
-    "artefacts": []
+    "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/rock_path.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      }
+    ]
   },
   {
     "dungeon": "silent_chasm",
@@ -2023,6 +2222,13 @@
     },
     "notes": [],
     "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/silent_chasm.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
       {
         "kind": "ground",
         "path": "Data/Ground/d05p02.rsground",
@@ -2083,6 +2289,13 @@
     },
     "notes": [],
     "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/silver_trench.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
       {
         "kind": "ground",
         "path": "Data/Ground/fosse_argentee.rsground",
@@ -2557,7 +2770,15 @@
     "notes": [
       "no narrative content found for this dungeon"
     ],
-    "artefacts": []
+    "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/snow_path.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      }
+    ]
   },
   {
     "dungeon": "solar_cave",
@@ -2570,7 +2791,15 @@
     "notes": [
       "no narrative content found for this dungeon"
     ],
-    "artefacts": []
+    "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/solar_cave.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      }
+    ]
   },
   {
     "dungeon": "southern_cavern",
@@ -2583,7 +2812,15 @@
     "notes": [
       "no narrative content found for this dungeon"
     ],
-    "artefacts": []
+    "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/southern_cavern.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      }
+    ]
   },
   {
     "dungeon": "stormy_sea",
@@ -2601,6 +2838,13 @@
     },
     "notes": [],
     "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/stormy_sea.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
       {
         "kind": "ground",
         "path": "Data/Ground/abime_tempetes.rsground",
@@ -2662,6 +2906,13 @@
     "notes": [],
     "artefacts": [
       {
+        "kind": "zone",
+        "path": "Data/Zone/thunderwave_cave.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
+      {
         "kind": "ground",
         "path": "Data/Ground/d02p02.rsground",
         "action": "HARVEST",
@@ -2722,6 +2973,13 @@
     "notes": [],
     "artefacts": [
       {
+        "kind": "zone",
+        "path": "Data/Zone/tiny_woods.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
+      {
         "kind": "ground",
         "path": "Data/Ground/d01p02.rsground",
         "action": "HARVEST",
@@ -2776,7 +3034,15 @@
     "notes": [
       "no narrative content found for this dungeon"
     ],
-    "artefacts": []
+    "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/unown_relic.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      }
+    ]
   },
   {
     "dungeon": "uproar_forest",
@@ -2789,7 +3055,15 @@
     "notes": [
       "no narrative content found for this dungeon"
     ],
-    "artefacts": []
+    "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/uproar_forest.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      }
+    ]
   },
   {
     "dungeon": "waterfall_pond",
@@ -2803,6 +3077,13 @@
     },
     "notes": [],
     "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/waterfall_pond.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
       {
         "kind": "script_zone",
         "path": "Data/Script/halcyon/zone/waterfall_pond",
@@ -2863,6 +3144,13 @@
     },
     "notes": [],
     "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/western_cave.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      },
       {
         "kind": "ground",
         "path": "Data/Ground/antre_occident.rsground",
@@ -2998,6 +3286,14 @@
     "notes": [
       "no narrative content found for this dungeon"
     ],
-    "artefacts": []
+    "artefacts": [
+      {
+        "kind": "zone",
+        "path": "Data/Zone/wyvern_hill.json",
+        "action": "CURRENT",
+        "reason": "already produced by this Builder: it is the current canonical implementation",
+        "state": "active"
+      }
+    ]
   }
 ]

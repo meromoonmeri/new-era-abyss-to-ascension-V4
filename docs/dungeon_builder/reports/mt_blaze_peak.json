@@ -1,0 +1,239 @@
+{
+  "generated_at": "2026-08-22T22:57:58+00:00",
+  "dungeon": "mt_blaze_peak",
+  "name": {
+    "en": "Mt. Blaze Peak",
+    "fr": "Cime du Mont Cendré"
+  },
+  "chapter": 10,
+  "route": "secondary",
+  "source": "Pokémon Mystery Dungeon: Red Rescue Team — Mt. Blaze Peak (3F). Espèces, niveaux, probabilités, tables d'objets, pièges et boutiques extraits de pret/pmd-red (data/dungeon/MtBlazePeak) via tools/build_canonical_definitions.py ; niveaux renivelés au palier du chapitre 10. Recoupé avec Bulbapedia (page « Mt. Blaze Peak »).",
+  "floors": 3,
+  "biome": "blaze_peak",
+  "direction": "sommet",
+  "zone_file": "Data/Zone/mt_blaze_peak.json",
+  "segments": [
+    {
+      "name": "blaze_peak",
+      "floors": [
+        1,
+        3
+      ],
+      "biome": "blaze_peak",
+      "dtef": {
+        "floor": "magma_cavern_2_floor",
+        "wall": "magma_cavern_2_wall",
+        "secondary": "magma_cavern_2_secondary",
+        "name": "magma_cavern_2",
+        "element": "normal",
+        "justification": "Cime du Mont Cendré : même massif volcanique que la Gorge Ardente (Sulfura) ; réutilisation du biome canonique du massif, assumée et documentée."
+      },
+      "profiles": [
+        "large_rooms",
+        "crossroads",
+        "mixed"
+      ],
+      "pokemon": 3,
+      "item_tables": {
+        "canonical": {
+          "amount": [
+            2,
+            5
+          ],
+          "entries": 1
+        }
+      },
+      "shop": true,
+      "monster_house": true,
+      "treasure_room": false,
+      "key_room": false,
+      "mystery": false,
+      "weather": []
+    }
+  ],
+  "fixed_grounds": {
+    "entrance": "mont_cendre_pied",
+    "end": "d09p03"
+  },
+  "midpoint": {},
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "d09p03",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée.",
+    "roster": [
+      {
+        "species": "moltres",
+        "level": [
+          34,
+          34
+        ],
+        "role": "leader"
+      }
+    ]
+  },
+  "minibosses": [],
+  "ground_check": {
+    "entrance": "mont_cendre_pied",
+    "cinematic_ground": "d09p03",
+    "battle_ground": "d09p03",
+    "scene_state": "ACTIVE_GROUND",
+    "mid": "",
+    "end": "d09p03",
+    "boss_mode": "canonical_ground",
+    "boss_ground": "d09p03",
+    "boss_map": "",
+    "canonical_end_candidates": [
+      "d09p03"
+    ],
+    "ok": true,
+    "problems": [],
+    "notes": [
+      "no fixed 'mid' Ground declared",
+      "final battle stays on the canonical end Ground 'd09p03' (no separate arena created)"
+    ]
+  },
+  "rng": {
+    "label": "generate:mt_blaze_peak",
+    "root_seed": 1092414373703114457,
+    "explicit_seed": false,
+    "derived_seeds": 16
+  },
+  "warnings": [],
+  "floor_reports": [
+    {
+      "floor": 1,
+      "segment": "blaze_peak",
+      "kind": "procedural",
+      "profile": "large_rooms+crossroads+mixed",
+      "grid": [
+        4,
+        4
+      ],
+      "cell": [
+        12,
+        7
+      ],
+      "dtef": "magma_cavern_2",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.9102,
+      "seeds": [
+        2293695466172141571,
+        8676186008389282978,
+        7281463666523386620,
+        5336777353210492645,
+        5844350015899741316
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 9.2,
+        "rooms_min": 4,
+        "rooms_max": 16,
+        "halls_avg": 9.0,
+        "branches_avg": 1.6,
+        "dead_ends_avg": 3.2,
+        "loops_avg": 0.4,
+        "connections_avg": 9.0,
+        "room_area_min": 20,
+        "room_area_max": 299,
+        "stair_distance_avg": 45.4,
+        "reachable_ratio_min": 0.9988,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 2,
+      "segment": "blaze_peak",
+      "kind": "procedural",
+      "profile": "large_rooms+crossroads+mixed",
+      "grid": [
+        7,
+        4
+      ],
+      "cell": [
+        12,
+        10
+      ],
+      "dtef": "magma_cavern_2",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.8838,
+      "seeds": [
+        8884408909896499361,
+        1445180300832608949,
+        2227507185745811335,
+        68867740361224104,
+        7617466405387711729
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 8.6,
+        "rooms_min": 6,
+        "rooms_max": 15,
+        "halls_avg": 8.6,
+        "branches_avg": 2.0,
+        "dead_ends_avg": 3.0,
+        "loops_avg": 0.6,
+        "connections_avg": 8.6,
+        "room_area_min": 24,
+        "room_area_max": 250,
+        "stair_distance_avg": 47.2,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 3,
+      "segment": "blaze_peak",
+      "kind": "procedural",
+      "profile": "large_rooms+crossroads+mixed",
+      "grid": [
+        7,
+        5
+      ],
+      "cell": [
+        10,
+        8
+      ],
+      "dtef": "magma_cavern_2",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 1,
+      "max_pair_similarity": 0.8488,
+      "seeds": [
+        7296064391447892910,
+        7600714100151338313,
+        4924907829297745340,
+        2654122381964117988,
+        1861762458617829493
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 8.6,
+        "rooms_min": 5,
+        "rooms_max": 13,
+        "halls_avg": 8.8,
+        "branches_avg": 1.6,
+        "dead_ends_avg": 2.0,
+        "loops_avg": 1.0,
+        "connections_avg": 8.8,
+        "room_area_min": 20,
+        "room_area_max": 117,
+        "stair_distance_avg": 35.2,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    }
+  ]
+}

@@ -1,0 +1,669 @@
+{
+  "generated_at": "2026-08-22T22:57:58+00:00",
+  "dungeon": "great_canyon",
+  "name": {
+    "en": "Great Canyon",
+    "fr": "Grand Canyon"
+  },
+  "chapter": 9,
+  "route": "secondary",
+  "source": "Pokémon Mystery Dungeon: Red Rescue Team — Great Canyon (12F). Espèces, niveaux, probabilités, tables d'objets, pièges et boutiques extraits de pret/pmd-red (data/dungeon/GreatCanyon) via tools/build_canonical_definitions.py ; niveaux renivelés au palier du chapitre 9. Recoupé avec Bulbapedia (page « Great Canyon »).",
+  "floors": 12,
+  "biome": "canyon_rim",
+  "direction": "sommet",
+  "zone_file": "Data/Zone/great_canyon.json",
+  "segments": [
+    {
+      "name": "canyon_rim",
+      "floors": [
+        1,
+        6
+      ],
+      "biome": "canyon_rim",
+      "dtef": {
+        "floor": "mt_horn_floor",
+        "wall": "mt_horn_wall",
+        "secondary": "mt_horn_secondary",
+        "name": "mt_horn",
+        "element": "normal"
+      },
+      "profiles": [
+        "twosides",
+        "branching",
+        "mixed"
+      ],
+      "pokemon": 9,
+      "item_tables": {
+        "canonical": {
+          "amount": [
+            2,
+            5
+          ],
+          "entries": 22
+        }
+      },
+      "shop": true,
+      "monster_house": true,
+      "treasure_room": false,
+      "key_room": false,
+      "mystery": false,
+      "weather": []
+    },
+    {
+      "name": "canyon_floor",
+      "floors": [
+        7,
+        12
+      ],
+      "biome": "canyon_floor",
+      "dtef": {
+        "floor": "mt_horn_floor",
+        "wall": "mt_horn_wall",
+        "secondary": "mt_horn_secondary",
+        "name": "mt_horn",
+        "element": "normal"
+      },
+      "profiles": [
+        "branching",
+        "crossroads",
+        "mixed"
+      ],
+      "pokemon": 7,
+      "item_tables": {
+        "canonical": {
+          "amount": [
+            2,
+            5
+          ],
+          "entries": 22
+        }
+      },
+      "shop": true,
+      "monster_house": true,
+      "treasure_room": false,
+      "key_room": false,
+      "mystery": false,
+      "weather": []
+    }
+  ],
+  "fixed_grounds": {
+    "entrance": "grand_canyon_porte",
+    "end": "d07p02"
+  },
+  "midpoint": {},
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "d07p02",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
+  },
+  "minibosses": [],
+  "ground_check": {
+    "entrance": "grand_canyon_porte",
+    "cinematic_ground": "d07p02",
+    "battle_ground": "d07p02",
+    "scene_state": "ACTIVE_GROUND",
+    "mid": "",
+    "end": "d07p02",
+    "boss_mode": "canonical_ground",
+    "boss_ground": "d07p02",
+    "boss_map": "",
+    "canonical_end_candidates": [
+      "d07p02"
+    ],
+    "ok": true,
+    "problems": [],
+    "notes": [
+      "no fixed 'mid' Ground declared",
+      "final battle stays on the canonical end Ground 'd07p02' (no separate arena created)"
+    ]
+  },
+  "rng": {
+    "label": "generate:great_canyon",
+    "root_seed": 5735272182289411920,
+    "explicit_seed": false,
+    "derived_seeds": 68
+  },
+  "warnings": [],
+  "floor_reports": [
+    {
+      "floor": 1,
+      "segment": "canyon_rim",
+      "kind": "procedural",
+      "profile": "twosides+branching+mixed",
+      "grid": [
+        3,
+        4
+      ],
+      "cell": [
+        11,
+        9
+      ],
+      "dtef": "mt_horn",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.7803,
+      "seeds": [
+        767340046366568227,
+        486319171384565757,
+        4548591948605618656,
+        7484740429337881442,
+        4565839770727918978
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 8.6,
+        "rooms_min": 5,
+        "rooms_max": 12,
+        "halls_avg": 9.6,
+        "branches_avg": 2.4,
+        "dead_ends_avg": 3.2,
+        "loops_avg": 0.6,
+        "connections_avg": 9.6,
+        "room_area_min": 20,
+        "room_area_max": 180,
+        "stair_distance_avg": 37.4,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 2,
+      "segment": "canyon_rim",
+      "kind": "procedural",
+      "profile": "twosides+branching+mixed",
+      "grid": [
+        4,
+        4
+      ],
+      "cell": [
+        10,
+        8
+      ],
+      "dtef": "mt_horn",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.8807,
+      "seeds": [
+        5992714952377585043,
+        8001559807655455606,
+        7462766192198064018,
+        7727997658805190880,
+        6290006854173781926
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 8.4,
+        "rooms_min": 6,
+        "rooms_max": 10,
+        "halls_avg": 9.8,
+        "branches_avg": 2.0,
+        "dead_ends_avg": 2.0,
+        "loops_avg": 1.0,
+        "connections_avg": 9.8,
+        "room_area_min": 20,
+        "room_area_max": 80,
+        "stair_distance_avg": 31.8,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 3,
+      "segment": "canyon_rim",
+      "kind": "procedural",
+      "profile": "twosides+branching+mixed",
+      "grid": [
+        4,
+        4
+      ],
+      "cell": [
+        11,
+        9
+      ],
+      "dtef": "mt_horn",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 2,
+      "max_pair_similarity": 0.8492,
+      "seeds": [
+        4107368387258105552,
+        6282050838893621964,
+        8411343919751776486,
+        5657032481754171647,
+        3274969664016869716
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 10.6,
+        "rooms_min": 8,
+        "rooms_max": 14,
+        "halls_avg": 11.0,
+        "branches_avg": 2.8,
+        "dead_ends_avg": 3.4,
+        "loops_avg": 1.0,
+        "connections_avg": 11.0,
+        "room_area_min": 24,
+        "room_area_max": 72,
+        "stair_distance_avg": 33.8,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 4,
+      "segment": "canyon_rim",
+      "kind": "procedural",
+      "profile": "twosides+branching+mixed",
+      "grid": [
+        3,
+        4
+      ],
+      "cell": [
+        11,
+        10
+      ],
+      "dtef": "mt_horn",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 1,
+      "max_pair_similarity": 0.7642,
+      "seeds": [
+        1537169926923875500,
+        3053016344117503433,
+        1724375262981151962,
+        5357253569089186423,
+        7383405365945767587
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 11.0,
+        "rooms_min": 8,
+        "rooms_max": 14,
+        "halls_avg": 12.2,
+        "branches_avg": 2.8,
+        "dead_ends_avg": 3.4,
+        "loops_avg": 1.0,
+        "connections_avg": 12.2,
+        "room_area_min": 20,
+        "room_area_max": 72,
+        "stair_distance_avg": 36.8,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 5,
+      "segment": "canyon_rim",
+      "kind": "procedural",
+      "profile": "twosides+branching+mixed",
+      "grid": [
+        5,
+        3
+      ],
+      "cell": [
+        14,
+        8
+      ],
+      "dtef": "mt_horn",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 2,
+      "max_pair_similarity": 0.946,
+      "seeds": [
+        5609373554918552587,
+        7580360027555584377,
+        7701821720057949184,
+        4509915985321013121,
+        4285585426248999340
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 12.6,
+        "rooms_min": 7,
+        "rooms_max": 21,
+        "halls_avg": 15.0,
+        "branches_avg": 3.8,
+        "dead_ends_avg": 3.6,
+        "loops_avg": 1.2,
+        "connections_avg": 15.0,
+        "room_area_min": 20,
+        "room_area_max": 243,
+        "stair_distance_avg": 40.4,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 6,
+      "segment": "canyon_rim",
+      "kind": "procedural",
+      "profile": "twosides+branching+mixed",
+      "grid": [
+        3,
+        3
+      ],
+      "cell": [
+        10,
+        11
+      ],
+      "dtef": "mt_horn",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.7788,
+      "seeds": [
+        8885895363564212590,
+        1501956442772740344,
+        232979203679726506,
+        2459025343246763875,
+        4842320059570332447
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 12.0,
+        "rooms_min": 6,
+        "rooms_max": 24,
+        "halls_avg": 14.6,
+        "branches_avg": 3.6,
+        "dead_ends_avg": 3.0,
+        "loops_avg": 1.6,
+        "connections_avg": 14.6,
+        "room_area_min": 20,
+        "room_area_max": 189,
+        "stair_distance_avg": 38.2,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 7,
+      "segment": "canyon_floor",
+      "kind": "procedural",
+      "profile": "branching+crossroads+mixed",
+      "grid": [
+        6,
+        5
+      ],
+      "cell": [
+        11,
+        7
+      ],
+      "dtef": "mt_horn",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.8181,
+      "seeds": [
+        6157573965733306115,
+        8429260592710400380,
+        4180903782272881668,
+        2000184550564805976,
+        2361883351188387202
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 11.8,
+        "rooms_min": 7,
+        "rooms_max": 17,
+        "halls_avg": 11.6,
+        "branches_avg": 3.0,
+        "dead_ends_avg": 4.4,
+        "loops_avg": 0.8,
+        "connections_avg": 11.6,
+        "room_area_min": 25,
+        "room_area_max": 80,
+        "stair_distance_avg": 47.8,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 8,
+      "segment": "canyon_floor",
+      "kind": "procedural",
+      "profile": "branching+crossroads+mixed",
+      "grid": [
+        4,
+        3
+      ],
+      "cell": [
+        9,
+        9
+      ],
+      "dtef": "mt_horn",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 1,
+      "max_pair_similarity": 0.8229,
+      "seeds": [
+        4882011741793466748,
+        4206332358027601612,
+        8497257453291739760,
+        6716145114708896896,
+        3645890669972452417
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 11.4,
+        "rooms_min": 8,
+        "rooms_max": 17,
+        "halls_avg": 12.6,
+        "branches_avg": 3.8,
+        "dead_ends_avg": 3.4,
+        "loops_avg": 1.4,
+        "connections_avg": 12.6,
+        "room_area_min": 20,
+        "room_area_max": 160,
+        "stair_distance_avg": 35.4,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 9,
+      "segment": "canyon_floor",
+      "kind": "procedural",
+      "profile": "branching+crossroads+mixed",
+      "grid": [
+        7,
+        3
+      ],
+      "cell": [
+        10,
+        9
+      ],
+      "dtef": "mt_horn",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.824,
+      "seeds": [
+        2780446298452855143,
+        7256623280275397553,
+        6657365409462599072,
+        2184020623233619261,
+        4677634631003287221
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 12.0,
+        "rooms_min": 8,
+        "rooms_max": 17,
+        "halls_avg": 12.2,
+        "branches_avg": 3.0,
+        "dead_ends_avg": 4.2,
+        "loops_avg": 0.6,
+        "connections_avg": 12.2,
+        "room_area_min": 24,
+        "room_area_max": 120,
+        "stair_distance_avg": 41.6,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 10,
+      "segment": "canyon_floor",
+      "kind": "procedural",
+      "profile": "branching+crossroads+mixed",
+      "grid": [
+        6,
+        3
+      ],
+      "cell": [
+        11,
+        9
+      ],
+      "dtef": "mt_horn",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.8202,
+      "seeds": [
+        8479294436727479306,
+        7942986148648069210,
+        4623393482977891545,
+        1006873460773974888,
+        6456768523364822719
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 9.6,
+        "rooms_min": 7,
+        "rooms_max": 13,
+        "halls_avg": 9.2,
+        "branches_avg": 2.2,
+        "dead_ends_avg": 3.6,
+        "loops_avg": 0.6,
+        "connections_avg": 9.2,
+        "room_area_min": 20,
+        "room_area_max": 168,
+        "stair_distance_avg": 39.6,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 11,
+      "segment": "canyon_floor",
+      "kind": "procedural",
+      "profile": "branching+crossroads+mixed",
+      "grid": [
+        5,
+        4
+      ],
+      "cell": [
+        12,
+        8
+      ],
+      "dtef": "mt_horn",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.8983,
+      "seeds": [
+        1763238108429530326,
+        1518153074716082954,
+        7699952600198551692,
+        2490672407435282820,
+        379649988526306486
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 12.6,
+        "rooms_min": 9,
+        "rooms_max": 16,
+        "halls_avg": 12.4,
+        "branches_avg": 3.2,
+        "dead_ends_avg": 5.2,
+        "loops_avg": 0.6,
+        "connections_avg": 12.4,
+        "room_area_min": 20,
+        "room_area_max": 70,
+        "stair_distance_avg": 38.8,
+        "reachable_ratio_min": 0.9984,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 12,
+      "segment": "canyon_floor",
+      "kind": "procedural",
+      "profile": "branching+crossroads+mixed",
+      "grid": [
+        5,
+        3
+      ],
+      "cell": [
+        10,
+        10
+      ],
+      "dtef": "mt_horn",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 2,
+      "max_pair_similarity": 0.9461,
+      "seeds": [
+        8982044690489273959,
+        7753926209865042340,
+        4207399191090173836,
+        143166952820736968,
+        2473430150330165269
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 11.6,
+        "rooms_min": 7,
+        "rooms_max": 18,
+        "halls_avg": 11.2,
+        "branches_avg": 3.2,
+        "dead_ends_avg": 5.0,
+        "loops_avg": 0.6,
+        "connections_avg": 11.2,
+        "room_area_min": 20,
+        "room_area_max": 72,
+        "stair_distance_avg": 42.0,
+        "reachable_ratio_min": 0.9978,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    }
+  ]
+}

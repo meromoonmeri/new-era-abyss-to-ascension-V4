@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T22:52:32+00:00",
+  "generated_at": "2026-08-22T22:58:40+00:00",
   "total": 51,
   "pass": 48,
   "fail": 3,
@@ -95,7 +95,8 @@
         "no fixed 'mid' Ground declared",
         "no fixed 'end' Ground declared",
         "no boss scene declared",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -139,7 +140,8 @@
         "no fixed 'mid' Ground declared",
         "no fixed 'end' Ground declared",
         "no boss scene declared",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -182,7 +184,8 @@
         "no fixed 'mid' Ground declared",
         "no fixed 'end' Ground declared",
         "no boss scene declared",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -226,7 +229,8 @@
         "no fixed 'mid' Ground declared",
         "no fixed 'end' Ground declared",
         "no boss scene declared",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -268,7 +272,8 @@
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'champ_braises' (no separate arena created)",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -349,7 +354,8 @@
       "notes": [
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'd10p03' (no separate arena created)",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -392,7 +398,8 @@
         "no fixed 'mid' Ground declared",
         "no fixed 'end' Ground declared",
         "no boss scene declared",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -434,7 +441,8 @@
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'd07p02' (no separate arena created)",
         "boss declared without a roster",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -477,7 +485,8 @@
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'bois_des_plaintes' (no separate arena created)",
         "boss declared without a roster",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -522,7 +531,8 @@
         "no fixed 'mid' Ground declared",
         "no fixed 'end' Ground declared",
         "no boss scene declared",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -608,7 +618,8 @@
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'champ_foudre' (no separate arena created)",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -652,7 +663,8 @@
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'fosse_ardente' (no separate arena created)",
         "boss declared without a roster",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -693,7 +705,8 @@
         "no floor items (canonical: money only)",
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'fosse_ardente' (no separate arena created)",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -736,7 +749,8 @@
         "no fixed 'mid' Ground declared",
         "no fixed 'end' Ground declared",
         "no boss scene declared",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -864,7 +878,8 @@
       "notes": [
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'd09p03' (no separate arena created)",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -907,7 +922,8 @@
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'sommet_aurore' (no separate arena created)",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -990,7 +1006,8 @@
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'd11p03' (no separate arena created)",
         "boss declared without a roster",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1031,7 +1048,8 @@
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'd03p02' (no separate arena created)",
         "boss declared without a roster",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1073,7 +1091,8 @@
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'd06p03' (no separate arena created)",
         "boss declared without a roster",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1113,7 +1132,8 @@
       "notes": [
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'd06p03' (no separate arena created)",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1158,7 +1178,8 @@
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'caverne_trouble_fond' (no separate arena created)",
         "boss declared without a roster",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1200,7 +1221,8 @@
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'cretes_boreales' (no separate arena created)",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1279,7 +1301,8 @@
         "no fixed 'mid' Ground declared",
         "no fixed 'end' Ground declared",
         "no boss scene declared",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1321,7 +1344,8 @@
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'vallon_perdu' (no separate arena created)",
         "boss declared without a roster",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1364,7 +1388,8 @@
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'foret_guerison' (no separate arena created)",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1408,7 +1433,8 @@
         "no fixed 'mid' Ground declared",
         "no fixed 'end' Ground declared",
         "no boss scene declared",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1450,7 +1476,8 @@
         "no fixed 'mid' Ground declared",
         "no fixed 'end' Ground declared",
         "no boss scene declared",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1491,7 +1518,8 @@
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'd05p02' (no separate arena created)",
         "boss declared without a roster",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1534,7 +1562,8 @@
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'fosse_argentee' (no separate arena created)",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1704,7 +1733,8 @@
         "no fixed 'mid' Ground declared",
         "no fixed 'end' Ground declared",
         "no boss scene declared",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1748,7 +1778,8 @@
         "no fixed 'mid' Ground declared",
         "no fixed 'end' Ground declared",
         "no boss scene declared",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1793,7 +1824,8 @@
         "no fixed 'mid' Ground declared",
         "no fixed 'end' Ground declared",
         "no boss scene declared",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1836,7 +1868,8 @@
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'abime_tempetes' (no separate arena created)",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1877,7 +1910,8 @@
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'd02p02' (no separate arena created)",
         "boss declared without a roster",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1918,7 +1952,8 @@
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'd01p02' (no separate arena created)",
         "boss declared without a roster",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -1962,7 +1997,8 @@
         "no fixed 'mid' Ground declared",
         "no fixed 'end' Ground declared",
         "no boss scene declared",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -2005,7 +2041,8 @@
         "no fixed 'mid' Ground declared",
         "no fixed 'end' Ground declared",
         "no boss scene declared",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -2048,7 +2085,8 @@
         "no fixed 'mid' Ground declared",
         "no fixed 'end' Ground declared",
         "no boss scene declared",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -2092,7 +2130,8 @@
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'antre_occident' (no separate arena created)",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     },
@@ -2180,7 +2219,8 @@
         "no fixed 'mid' Ground declared",
         "no fixed 'end' Ground declared",
         "no boss scene declared",
-        "generation smoke test passed (5 distinct valid layouts per sampled floor)"
+        "generation smoke test passed (5 distinct valid layouts per sampled floor)",
+        "legacy zone already replaced by this Builder"
       ],
       "status": "PASS"
     }

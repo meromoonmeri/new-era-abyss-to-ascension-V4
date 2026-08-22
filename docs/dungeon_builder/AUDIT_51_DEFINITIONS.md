@@ -1,6 +1,6 @@
 # Audit de readiness — 51 donjons canoniques Ch.6–32
 
-_Généré le 2026-08-22T22:52:32+00:00 — 51 définitions : **48 READY_FOR_GENERATION**, 3 non prêtes._
+_Généré le 2026-08-22T22:58:40+00:00 — 51 définitions : **48 READY_FOR_GENERATION**, 3 non prêtes._
 
 Aucun étage procédural n'a été généré à cette étape ; `generate-all` n'a pas été lancé.
 
