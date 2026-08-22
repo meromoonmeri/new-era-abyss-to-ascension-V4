@@ -9,7 +9,7 @@ function red_snowpath_mid.Init(map_data)
 end
 function red_snowpath_mid.Enter(map_data) GAME:FadeIn(20) end
 function red_snowpath_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo("Continuer dans Sentier Neigeux ?", true)
+  UI:ChoiceMenuYesNo('Continuer dans Sentier Neigeux ?', true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

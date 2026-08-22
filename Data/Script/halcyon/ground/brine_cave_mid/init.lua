@@ -9,7 +9,7 @@ function brine_cave_mid.Init(map_data)
 end
 function brine_cave_mid.Enter(map_data) GAME:FadeIn(20) end
 function brine_cave_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo("Continuer dans Grotte Saumâtre et Terre Cachée ?", true)
+  UI:ChoiceMenuYesNo('Continuer dans Grotte Saumâtre et Terre Cachée ?', true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

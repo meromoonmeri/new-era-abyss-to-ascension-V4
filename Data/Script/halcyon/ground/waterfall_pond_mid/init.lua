@@ -9,7 +9,7 @@ function waterfall_pond_mid.Init(map_data)
 end
 function waterfall_pond_mid.Enter(map_data) GAME:FadeIn(20) end
 function waterfall_pond_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo("Continuer dans Sanctuaire de Cristal ?", true)
+  UI:ChoiceMenuYesNo('Continuer dans Sanctuaire de Cristal ?', true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

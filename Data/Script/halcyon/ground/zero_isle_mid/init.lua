@@ -9,7 +9,7 @@ function zero_isle_mid.Init(map_data)
 end
 function zero_isle_mid.Enter(map_data) GAME:FadeIn(20) end
 function zero_isle_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo("Continuer dans Réseau Île Zéro ?", true)
+  UI:ChoiceMenuYesNo('Continuer dans Réseau Île Zéro ?', true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

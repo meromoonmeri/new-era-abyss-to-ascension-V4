@@ -9,7 +9,7 @@ function red_northwindfield_mid.Init(map_data)
 end
 function red_northwindfield_mid.Enter(map_data) GAME:FadeIn(20) end
 function red_northwindfield_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo("Continuer dans Champ du Vent du Nord ?", true)
+  UI:ChoiceMenuYesNo('Continuer dans Champ du Vent du Nord ?', true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

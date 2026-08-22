@@ -9,7 +9,7 @@ function crystal_crossing_mid.Init(map_data)
 end
 function crystal_crossing_mid.Enter(map_data) GAME:FadeIn(20) end
 function crystal_crossing_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo("Continuer dans Passage Cristal ?", true)
+  UI:ChoiceMenuYesNo('Continuer dans Passage Cristal ?', true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

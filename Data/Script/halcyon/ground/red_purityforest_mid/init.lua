@@ -9,7 +9,7 @@ function red_purityforest_mid.Init(map_data)
 end
 function red_purityforest_mid.Enter(map_data) GAME:FadeIn(20) end
 function red_purityforest_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo("Continuer dans Forêt de la Pureté ?", true)
+  UI:ChoiceMenuYesNo('Continuer dans Forêt de la Pureté ?', true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

@@ -9,7 +9,7 @@ function mystifying_forest_mid.Init(map_data)
 end
 function mystifying_forest_mid.Enter(map_data) GAME:FadeIn(20) end
 function mystifying_forest_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo("Continuer dans Héritage de la Remise de Diplôme ?", true)
+  UI:ChoiceMenuYesNo('Continuer dans Héritage de la Remise de Diplôme ?', true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

@@ -9,7 +9,7 @@ function red_wishcave_mid.Init(map_data)
 end
 function red_wishcave_mid.Enter(map_data) GAME:FadeIn(20) end
 function red_wishcave_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo("Continuer dans Grotte du Vœu ?", true)
+  UI:ChoiceMenuYesNo('Continuer dans Grotte du Vœu ?', true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

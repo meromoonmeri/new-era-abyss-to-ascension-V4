@@ -9,7 +9,7 @@ function miracle_sea_mid.Init(map_data)
 end
 function miracle_sea_mid.Enter(map_data) GAME:FadeIn(20) end
 function miracle_sea_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo("Continuer dans Mer Miracle ?", true)
+  UI:ChoiceMenuYesNo('Continuer dans Mer Miracle ?', true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

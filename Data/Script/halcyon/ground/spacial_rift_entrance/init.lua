@@ -9,7 +9,7 @@ function spacial_rift_entrance.Init(map_data)
 end
 function spacial_rift_entrance.Enter(map_data) GAME:FadeIn(20) end
 function spacial_rift_entrance.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo("Entrer dans Faille Spatiale ?", true)
+  UI:ChoiceMenuYesNo('Entrer dans Faille Spatiale ?', true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

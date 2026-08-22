@@ -9,7 +9,7 @@ function red_howlingforest_mid.Init(map_data)
 end
 function red_howlingforest_mid.Enter(map_data) GAME:FadeIn(20) end
 function red_howlingforest_mid.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo("Continuer dans Forêt des Hurlements ?", true)
+  UI:ChoiceMenuYesNo('Continuer dans Forêt des Hurlements ?', true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)

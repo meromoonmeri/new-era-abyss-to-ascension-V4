@@ -9,7 +9,7 @@ function red_frostyforest_entrance.Init(map_data)
 end
 function red_frostyforest_entrance.Enter(map_data) GAME:FadeIn(20) end
 function red_frostyforest_entrance.North_Exit_Touch(obj, activator)
-  UI:ChoiceMenuYesNo("Entrer dans Forêt Givrée ?", true)
+  UI:ChoiceMenuYesNo('Entrer dans Forêt Givrée ?', true)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(20)
