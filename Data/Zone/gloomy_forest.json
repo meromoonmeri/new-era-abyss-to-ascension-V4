@@ -8302,7 +8302,7 @@
                 },
                 "Value": {
                   "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-                  "MapID": "gloomy_forest_boss"
+                  "MapID": "sinister_woods_dazzling"
                 }
               }
             ],
@@ -8340,7 +8340,7 @@
           }
         ],
         "IsRelevant": true,
-        "Comment": "Zarude boss arena."
+        "Comment": "Sinister Woods final D04P02 clearing battle: Team Dazzling replaces Team Meanies in the canonical final encounter."
       },
       {
         "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",

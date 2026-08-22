@@ -222,8 +222,10 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 
 	if segmentID == 4 then
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-			SV.Chapter6.GloomyBossEncountered = true
-			SV.Chapter6.DefeatedGloomyBoss = true
+			-- Final D04P02 battle: Team Dazzling is the New Era casting of
+			-- the canonical Team Meanies encounter, not the obsolete Zeraora boss.
+			SV.Chapter6.DazzlingFinalBattleCleared = true
+			SV.Chapter6.DazzlingTrialCleared = true
 			SV.Chapter6.MissionComplete = true
 			SV.Chapter6.DazzlingPresenceStage = 5
 			SV.Chapter6.DazzlingChapterResolved = true
@@ -235,18 +237,13 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 				  'La Team Dazzling et une équipe de Metano ont traversé la forêt ensemble.',
 				  {'treasure','guild','metano'},1)
 			end)
-			SV.Chapter6.DefeatedByZeraora = false
 			SinisterLifecycle.Victory()
 			SV.Chapter6.MissionAccepted = false
-			--Scene d'apres-boss : la consequence se joue AVANT le retour en
-			--ville, exactement comme aux chapitres 8, 9 et 10
-			--(ChapterAftermath). Sans elle, le seul boss « personnage » du
-			--chapitre s'eteignait sur un fondu au noir.
-			DazzlingArc.GloomyVictory()
-			--Le duel des Trois est desormais propose au relais : elles ont
-			--suivi l'equipe et attendent au coeur de la clairiere.
-			SV.Chapter6.DazzlingTrialOffered = true
-			-- Beat the boss: return to town (UNCHANGED).
+			-- The final D04P02 cutscene already played on sinister_woods_clearing;
+			-- leave the battle directly for the guild aftermath, without moving the
+			-- Dazzling encounter to the midpoint or replaying a Zeraora scene.
+			SV.Chapter6.DazzlingTrialOffered = false
+			-- Victory: return to the guild aftermath.
 			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
 		elseif result == RogueEssence.Data.GameProgress.ResultType.Escaped then
 			-- Abandon volontaire : rapport a la guilde et cycle de fin de journee.

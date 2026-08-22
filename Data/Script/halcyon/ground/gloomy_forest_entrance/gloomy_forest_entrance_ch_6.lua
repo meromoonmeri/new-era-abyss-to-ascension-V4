@@ -142,17 +142,18 @@ function gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()
   dialogue(adagio, 'GF6E_A11', 'Normal')
   dialogue(aria, 'GF6E_A12', 'Happy')
 
-  -- Dans Deep Shadow, la rivalité cesse d'être une plaisanterie. La Team
-  -- Dazzling a entendu Chenipent avant nous et ne peut plus feindre l'insouciance.
-  UI:SetSpeaker(sonata);GeneralFunctions.SetEmotion('Worried')
-  UI:WaitShowDialogue("Attendez...[pause=18] Ce bruit ne venait pas d'un Pokémon qui nous suivait.[pause=15] Il venait de devant.")
+  -- D04P02 est la rencontre finale : dans Red, Team Meanies coupe la route
+  -- ici.  Le casting New Era conserve la géométrie, le triangle et le timing,
+  -- mais Team Dazzling prend le combat.
+  UI:SetSpeaker(sonata);GeneralFunctions.SetEmotion('Determined')
+  UI:WaitShowDialogue("C'est ici que ça se décide.[pause=15] Pas de raccourci, pas d'excuse.")
   UI:SetSpeaker(adagio);GeneralFunctions.SetEmotion('Determined')
-  UI:WaitShowDialogue("Chenipent est tout près.[pause=15] Notre concours s'arrête ici. Si quelque chose le retient, nous ouvrons le passage ensemble.")
-  UI:SetSpeaker(aria);GeneralFunctions.SetEmotion('Worried')
-  UI:WaitShowDialogue("Je déteste quand la forêt devient assez sérieuse pour donner raison à Adagio...")
-  GeneralFunctions.HeroDialogue(hero,"(Elles ont peur, elles aussi.[pause=15] Mais aucune ne recule.)",'Worried')
+  UI:WaitShowDialogue("Nous avons traversé la forêt les premières.[pause=15] Si vous voulez continuer, montrez-nous que vous le méritez.")
+  UI:SetSpeaker(aria);GeneralFunctions.SetEmotion('Happy')
+  UI:WaitShowDialogue("Trois contre deux ![pause=15] Promis, on vous laissera une très jolie défaite.")
+  GeneralFunctions.HeroDialogue(hero,"(La Team Dazzling nous attendait au bout du chemin.[pause=15] Ce combat décidera qui atteint Chenipent.)",'Determined')
   SV.Chapter6.DazzlingPresenceStage = 4
-  SV.Chapter6.DazzlingPreRescueSeen = true
+  SV.Chapter6.DazzlingFinalBattleSeen = true
 
   -- Les neuf poses finales de la CIF sont rendues par les orientations et
   -- réactions successives, sans déplacer les personnages hors de leurs slots.
@@ -165,6 +166,7 @@ function gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()
   SV.Chapter6.FinishedGloomyForestIntro = true
   SV.Chapter6.DazzlingPresenceStage = 4
   GAME:FadeOut(false, 30)
+  COMMON.BossTransition()
   GAME:CutsceneMode(false)
   GAME:ContinueDungeon('gloomy_forest', 4, 0, 0,
     RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
