@@ -101,7 +101,7 @@ def install_probe(quest: Path) -> None:
         f'''    end\n'''
         f'''  end\n'''
         f'''  emit('{{"event":"map","segment":'..SEGMENTS[self.index]..',"width":'..width..',"height":'..height..',"music":"'..tostring(music)..'","deep_shadow_setter":'..tostring(setter)..',"darkness":'..tostring(darkness)..',"dusk":'..tostring(dusk)..',"free_collision_probe":'..tostring(free_probe)..',"blocked_collision_probe":'..tostring(blocked_probe)..',"floor_tex":'..floor_tex..',"wall_tex":'..wall_tex..',"secondary_tex":'..secondary_tex..',"neighbor_resolved":'..resolved_neighbor..',"neighbor_uncomputed":'..missing_neighbor..'}}')\n'''
-        f'''  _GROUND:Screenshot()\n'''
+        f'''  RogueEssence.Dungeon.DungeonScene.Instance:Screenshot()\n'''
         f'''  GAME:WaitFrames(3)\n'''
         f'''  if self.startup_adapter then GAME:WaitFrames(18) end\n'''
         f'''  self.entered=false\n'''
