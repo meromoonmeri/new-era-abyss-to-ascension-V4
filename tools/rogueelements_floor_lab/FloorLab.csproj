@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RogueElementsRoot Condition="'$(RogueElementsRoot)' == ''">../../.runtime/RogueElements</RogueElementsRoot>
+    <RogueEssenceRoot Condition="'$(RogueEssenceRoot)' == ''">../../.runtime/RogueEssence</RogueEssenceRoot>
+    <PmdcRoot Condition="'$(PmdcRoot)' == ''">../../.runtime/PMDC</PmdcRoot>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(RogueElementsRoot)/RogueElements/RogueElements.csproj" />
+    <!-- Exact PMDO path variants compiled against RogueElements for the lab. -->
+    <Compile Include="$(RogueEssenceRoot)/RogueEssence/LevelGen/Floors/GenSteps/FloorPlan/GridPathTiered.cs" Link="Imported/GridPathTiered.cs" />
+    <Compile Include="$(PmdcRoot)/PMDC/LevelGen/Floors/GenSteps/FloorPlan/IGridPathTreads.cs" Link="Imported/GridPathTreads.cs" />
+  </ItemGroup>
+</Project>
