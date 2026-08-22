@@ -1367,3 +1367,44 @@ class TestTieredProfileAndRuntimeKit(unittest.TestCase):
         self.assertIn("MapGenTest", script)
         self.assertIn("-quest", script)
         self.assertIn("stress test", script.lower())
+
+
+class TestEngineSourceConformance(unittest.TestCase):
+    """Strongest static proof available: validate against the engine's own C# code."""
+
+    @classmethod
+    def setUpClass(cls):
+        from dungeon_builder.source_conformance import default_source_roots
+        cls.roots = default_source_roots()
+        if not all(root.exists() for root in cls.roots):
+            raise unittest.SkipTest("engine sources not cloned in this environment")
+
+    def test_our_zones_only_use_real_engine_types_and_members(self):
+        from dungeon_builder.source_conformance import run
+        ids = sorted({json.loads(p.read_text(encoding="utf-8-sig"))["id"]
+                      for p in (REPO / "DungeonDefs" / "canonical").glob("*.json")})
+        report = run(self.roots, only=ids)
+        self.assertGreater(report.objects_checked, 10000)
+        self.assertFalse(report.unknown_types, report.unknown_types[:10])
+        self.assertFalse(report.unknown_members, report.unknown_members[:10])
+        self.assertFalse(report.wrong_namespace, report.wrong_namespace[:10])
+
+    def test_the_index_really_saw_the_engine(self):
+        from dungeon_builder.source_conformance import index_sources
+        index = index_sources(*self.roots)
+        for expected in ("GridPathBranch", "GridPathTiered", "ShopStep", "SpreadVaultZoneStep",
+                         "PerlinWaterStep", "FloorStairsStep", "MappedRoomStep"):
+            self.assertIn(expected, index, expected)
+        self.assertEqual(index["GridPathTiered"].assembly, "RogueEssence")
+        self.assertEqual(index["GridPathBranch"].assembly, "RogueElements")
+
+    def test_detects_an_invented_member(self):
+        import tempfile
+        from dungeon_builder.source_conformance import run
+        with tempfile.TemporaryDirectory() as tmp:
+            zone = {"Object": {"$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen."
+                                        "MapGenContext, RogueEssence]], RogueElements",
+                               "CellX": 3, "TotallyInvented": 7}}
+            (Path(tmp) / "fake.json").write_text(json.dumps(zone), encoding="utf-8")
+            report = run(self.roots, zone_dir=Path(tmp))
+        self.assertTrue(report.unknown_members)

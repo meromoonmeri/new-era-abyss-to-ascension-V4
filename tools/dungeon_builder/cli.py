@@ -71,6 +71,42 @@ def cmd_audit(args) -> int:
     return 0
 
 
+def cmd_verify_source(args) -> int:
+    """Validate the emitted zones against the engine's own C# sources."""
+    from .source_conformance import default_source_roots, run
+    roots = [Path(p) for p in args.sources] if args.sources else default_source_roots()
+    missing = [str(r) for r in roots if not r.exists()]
+    if missing:
+        print("engine sources not found: " + ", ".join(missing), file=sys.stderr)
+        print("clone them with: git clone --recurse-submodules "
+              "https://github.com/PMDCollab/PMDC.git", file=sys.stderr)
+        return 2
+    only = None
+    if args.only_ours:
+        only = sorted({load_definition(p).id for p in list_definitions()
+                       if _safe_id(p)})
+    report = run(roots, only=only)
+    print(f"{report.types_checked} engine types indexed, {report.objects_checked} objects checked")
+    print(f"unknown $types: {len(report.unknown_types)}")
+    for kind in report.unknown_types[:20]:
+        print(f"  ! {kind}")
+    print(f"unknown members: {len(report.unknown_members)}")
+    for type_name, member, zone in report.unknown_members[:20]:
+        print(f"  ! {type_name}.{member}  ({zone})")
+    print(f"namespace/assembly mismatches: {len(report.wrong_namespace)}")
+    for emitted, expected, zone in report.wrong_namespace[:20]:
+        print(f"  ! {emitted} -> expected {expected} ({zone})")
+    return 0 if report.ok else 1
+
+
+def _safe_id(path) -> bool:
+    try:
+        load_definition(path)
+        return True
+    except DefinitionError:
+        return False
+
+
 def cmd_preflight(args) -> int:
     """Check that every asset referenced by the generated zones exists."""
     from .runtime_check import preflight_all, runtime_kit, write_report
@@ -470,6 +506,13 @@ def build_parser() -> argparse.ArgumentParser:
     sub = parser.add_subparsers(dest="command", required=True)
 
     sub.add_parser("audit", help="list profiles, DTEF packages and definitions").set_defaults(func=cmd_audit)
+
+    vsrc = sub.add_parser("verify-source",
+                          help="validate the zones against the engine C# sources")
+    vsrc.add_argument("--sources", nargs="*", default=None)
+    vsrc.add_argument("--only-ours", action="store_true",
+                      help="restrict to the dungeons this Builder owns")
+    vsrc.set_defaults(func=cmd_verify_source)
 
     pre = sub.add_parser("preflight", help="verify every asset referenced by the zones")
     pre.add_argument("--report", action="store_true")

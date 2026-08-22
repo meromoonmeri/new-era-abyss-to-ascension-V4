@@ -57,3 +57,40 @@ Ce contrôle ne remplace pas l'exécution par le moteur : il vérifie que **tout
 | `western_cave` | 3 | — | 26 | 0 |
 | `wish_cave` | 3 | Wish Cave.ogg | 46 | 0 |
 | `wyvern_hill` | 3 | — | 34 | 0 |
+
+## Exécution de MapGenTest : tentative et blocage exact (2026-08-23)
+
+| Prérequis | État dans ce sandbox |
+|---|---|
+| Sources de MapGenTest | ✅ présentes (`PMDCollab/PMDC`, submodules inclus) |
+| Données de base PMDO | ✅ récupérées (`audinowho/DumpAsset`) |
+| Binaire PMDO | ✅ exécutable |
+| **SDK .NET pour compiler MapGenTest** | ❌ `dot.net`, `builds.dotnet.microsoft.com`, `api.nuget.org`, `ci.dot.net` : tous injoignables (code 000). PyPI ne fournit qu'un *runtime* .NET Core 3.1 (`dotnetcore2`), pas de compilateur, et MapGenTest cible .NET 8. |
+| Pilote graphique (pour le jeu complet) | ❌ aucun `libGL`/`libEGL`/`libvulkan` sur la machine |
+
+MapGenTest est un projet C# : sans SDK, il ne peut pas être compilé, donc
+**l'exécution réelle des `GenSteps` reste impossible ici**. Le script
+`tools/runtime/run_mapgen_check.sh` fait exactement ce travail sur une machine
+disposant du SDK (`dotnet build` + `-quest` + stress test), sans écran.
+
+## Ce qui a été fait à la place : validation contre les sources du moteur
+
+Puisque les sources C# sont désormais disponibles, `dungeon_builder verify-source`
+indexe **2 144 classes** de RogueElements / RogueEssence / PMDC et vérifie nos
+zones membre par membre :
+
+| Contrôle | Résultat sur les 51 zones du Builder |
+|---|---|
+| objets JSON inspectés | **65 894** |
+| `$type` inconnus du moteur | **0** |
+| membres émis absents de la classe (ou de ses bases) | **0** |
+| namespace/assembly incohérents avec la source | **0** |
+
+C'est précisément la famille d'erreurs que MapGenTest signalerait au
+chargement (`$type` introuvable, champ inexistant, mauvais assembly).
+
+À noter : le même contrôle appliqué aux **anciennes zones hors périmètre**
+(`bois_filou`, `chasm_cave`, …, produites par d'autres agents) remonte
+**38 membres inconnus** (`RoomGenSquare.Size`, `RoomGenSquare.Resizable`,
+`PickerSpawner.Spawns`, `DueSpawnStep.MaxToSpawn`, …). Ces zones ne sont pas
+dans notre périmètre et n'ont pas été touchées, mais le signal est consigné ici.
