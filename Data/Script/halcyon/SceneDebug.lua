@@ -157,6 +157,21 @@ SceneDebug.scenes = {
     set = { Chapter6 = { FinishedGloomyForestIntro = false }},
   },
   {
+    key = 'sinister_dazzling_final',
+    label = "Ch6 — Forêt Sinistre : cinématique finale Team Dazzling",
+    chapter = 6, ground = 'gloomy_forest_entrance', entry = 'Main_Entrance_Marker',
+    note = "D04P02 final : SinisterFinalGroundPending déclenche la scène calquée sur Team Meanies puis l'arène Dazzling",
+    set = { Chapter6 = {
+      MissionAccepted = true,
+      MissionComplete = false,
+      SinisterApproachSeen = true,
+      DazzlingEntranceSeen = true,
+      SinisterFinalGroundPending = true,
+      FinishedGloomyForestIntro = false,
+      DazzlingFinalBattleSeen = false,
+    }},
+  },
+  {
     key = 'kirlia',
     label = "Ch8 — Cafe Spinda : quizz de Kirlia",
     chapter = 8, ground = 'metano_cafe', entry = 'Main_Entrance_Marker',
@@ -616,6 +631,25 @@ end
 --------------------------------------------------------------------
 -- Menu de selection. A appeler depuis un PNJ ou objet de debug.
 --------------------------------------------------------------------
+-- Accès développeur direct aux treize étages canoniques.  La borne 1F-7F,
+-- 8F-10F et 11F-13F conserve les trois segments et donc leurs tables ROM
+-- distinctes ; aucun Ground ni checkpoint n'est traversé pour ce test.
+function SceneDebug.GoSinisterFloor(floor)
+  floor = tonumber(floor)
+  if floor == nil or floor < 1 or floor > 13 then
+    PrintInfo('[SceneDebug] étage Sinister invalide : '..tostring(floor)..' (1..13)')
+    return
+  end
+  local segment, map = 0, floor - 1
+  if floor >= 8 and floor <= 10 then segment, map = 1, floor - 8 end
+  if floor >= 11 then segment, map = 3, floor - 11 end
+  SV.ChapterProgression.Chapter = 6
+  SV.Chapter6.MissionAccepted = true
+  SV.Chapter6.SinisterApproachSeen = true
+  PrintInfo(string.format('[SceneDebug] Sinister Woods %dF -> segment=%d map=%d', floor, segment, map))
+  GAME:EnterDungeon('gloomy_forest', segment, map, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+end
+
 function SceneDebug.Menu()
   local labels = {}
   for _, sc in ipairs(SceneDebug.scenes) do
