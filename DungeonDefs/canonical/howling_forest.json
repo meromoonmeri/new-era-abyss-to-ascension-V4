@@ -688,6 +688,21 @@
     "battle_ground": "bois_des_plaintes",
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
+  "narrative": {
+    "transferred": false,
+    "cutscenes": [
+      {
+        "scene": "bois_des_plaintes",
+        "state": "archived",
+        "path": "RESERVE/scripts_ground/bois_des_plaintes"
+      }
+    ],
+    "red_cinematics": [
+      "RESERVE/red_cinematics/d25p01.cif.json"
+    ],
+    "zone_script": "",
+    "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
+  },
   "boss": {
     "mode": "canonical_ground",
     "ground": "bois_des_plaintes",

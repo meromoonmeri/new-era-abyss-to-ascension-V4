@@ -642,6 +642,22 @@
     "battle_ground": "d07p02",
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
+  "narrative": {
+    "transferred": false,
+    "cutscenes": [
+      {
+        "scene": "grand_canyon_porte",
+        "state": "archived",
+        "path": "RESERVE/scripts_ground/grand_canyon_porte"
+      }
+    ],
+    "red_cinematics": [
+      "RESERVE/red_cinematics/d07p01.cif.json",
+      "RESERVE/red_cinematics/d07p02.cif.json"
+    ],
+    "zone_script": "",
+    "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
+  },
   "boss": {
     "mode": "canonical_ground",
     "ground": "d07p02",

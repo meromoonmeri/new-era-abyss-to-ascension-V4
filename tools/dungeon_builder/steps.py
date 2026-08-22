@@ -400,3 +400,25 @@ def miniboss_step(mob: Dict[str, Any]) -> Dict[str, Any]:
                                   "Spawns": [{"Spawn": {"Spawn": mob, "Role": 0}, "Rate": 10}],
                                   "TeamSizes": [{"Spawn": 1, "Rate": 10}]},
                         "Rate": 10}]}
+
+
+def vault_zone_step(items: Sequence[Tuple[str, int]], floor_range: Tuple[int, int],
+                    amount: Tuple[int, int] = (1, 3), trials: int = 3,
+                    percent: int = 40) -> Dict[str, Any]:
+    """Treasure/Key room: PMDC.LevelGen.SpreadVaultZoneStep (native).
+
+    The vault machinery (ResizeFloorStep, AddConnectedRoomsRandStep, locked-door
+    tiles, key placement) comes from the validated in-repo template; the builder
+    only injects the dungeon's treasure list and floor range.
+    """
+    template = _template("vault_room")
+    step = dict(template)
+    step["Items"] = [{"Spawn": {"ID": item_id, "Cursed": False, "HiddenValue": "", "Amount": 0,
+                                "Price": 0}, "Rate": rate, "Range": rand_range(floor_range)}
+                     for item_id, rate in items]
+    step["ItemAmount"] = {"nodes": [{"Item": rand_range(amount), "Range": rand_range(floor_range)}]}
+    step["SpreadPlan"] = {"$type": "RogueEssence.LevelGen.SpreadPlanQuota, RogueEssence",
+                          "Quota": {"$type": "RogueElements.RandBinomial, RogueElements",
+                                    "Offset": 0, "Trials": trials, "Percent": percent},
+                          "Replaceable": False, "FloorRange": rand_range(floor_range)}
+    return step

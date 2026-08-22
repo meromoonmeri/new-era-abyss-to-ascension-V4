@@ -575,6 +575,37 @@
     "battle_ground": "grotte_lazuli_fond",
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
+  "narrative": {
+    "transferred": false,
+    "cutscenes": [
+      {
+        "scene": "grotte_lazuli_fond",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/grotte_lazuli_fond"
+      },
+      {
+        "scene": "grotte_lazuli_fond",
+        "state": "archived",
+        "path": "RESERVE/scripts_ground/grotte_lazuli_fond"
+      },
+      {
+        "scene": "grotte_lazuli_seuil",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/grotte_lazuli_seuil"
+      },
+      {
+        "scene": "grotte_lazuli_seuil",
+        "state": "archived",
+        "path": "RESERVE/scripts_ground/grotte_lazuli_seuil"
+      }
+    ],
+    "red_cinematics": [
+      "RESERVE/red_cinematics/d08p01.cif.json",
+      "RESERVE/red_cinematics/d08p02.cif.json"
+    ],
+    "zone_script": "Data/Script/halcyon/zone/lapis_cave",
+    "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
+  },
   "boss": {
     "mode": "canonical_ground",
     "ground": "grotte_lazuli_fond",
@@ -584,7 +615,11 @@
     "entrance": "grotte_lazuli_seuil",
     "end": "grotte_lazuli_fond"
   },
+  "takeover": {
+    "legacy_zone": "Data/Zone/lapis_cave.json",
+    "policy": "rebuild then remove the legacy implementation"
+  },
   "blocked": [
-    "BLOCKED/OUT_OF_SCOPE: Data/Zone/lapis_cave.json already exists and belongs to another agent"
+    "BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/lapis_cave.json must be replaced by the Builder's regeneration (harvest + transfer first)"
   ]
 }

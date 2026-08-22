@@ -147,6 +147,7 @@ class DungeonDefinition:
     aliases: List[str] = field(default_factory=list)
     blocked: List[str] = field(default_factory=list)
     scenes: Dict[str, Any] = field(default_factory=dict)
+    narrative: Dict[str, Any] = field(default_factory=dict)
     path: Optional[Path] = None
 
     # -- cascade helpers ----------------------------------------------
@@ -324,6 +325,7 @@ def parse_definition(data: Dict[str, Any], path: Optional[Path] = None) -> Dunge
         aliases=[str(a) for a in data.get("aliases", [])],
         blocked=[str(b) for b in data.get("blocked", [])],
         scenes=dict(data.get("scenes", {})),
+        narrative=dict(data.get("narrative", {})),
         path=path,
     )
 

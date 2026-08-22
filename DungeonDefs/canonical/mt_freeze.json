@@ -648,6 +648,38 @@
     "battle_ground": "d11p03",
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
+  "narrative": {
+    "transferred": false,
+    "cutscenes": [
+      {
+        "scene": "d11p02",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/d11p02"
+      },
+      {
+        "scene": "d11p03",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/d11p03"
+      },
+      {
+        "scene": "mont_gele_pied",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/mont_gele_pied"
+      },
+      {
+        "scene": "mont_gele_pied",
+        "state": "archived",
+        "path": "RESERVE/scripts_ground/mont_gele_pied"
+      }
+    ],
+    "red_cinematics": [
+      "RESERVE/red_cinematics/d11p01.cif.json",
+      "RESERVE/red_cinematics/d11p02.cif.json",
+      "RESERVE/red_cinematics/d11p03.cif.json"
+    ],
+    "zone_script": "Data/Script/halcyon/zone/mt_freeze",
+    "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
+  },
   "boss": {
     "mode": "canonical_ground",
     "ground": "d11p03",
@@ -657,7 +689,11 @@
     "entrance": "mont_gele_pied",
     "end": "d11p03"
   },
+  "takeover": {
+    "legacy_zone": "Data/Zone/mt_freeze.json",
+    "policy": "rebuild then remove the legacy implementation"
+  },
   "blocked": [
-    "BLOCKED/OUT_OF_SCOPE: Data/Zone/mt_freeze.json already exists and belongs to another agent"
+    "BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/mt_freeze.json must be replaced by the Builder's regeneration (harvest + transfer first)"
   ]
 }

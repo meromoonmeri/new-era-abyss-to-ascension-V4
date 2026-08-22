@@ -456,6 +456,27 @@
     "battle_ground": "caverne_trouble_fond",
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
+  "narrative": {
+    "transferred": false,
+    "cutscenes": [
+      {
+        "scene": "caverne_trouble_autel",
+        "state": "archived",
+        "path": "RESERVE/scripts_ground/caverne_trouble_autel"
+      },
+      {
+        "scene": "caverne_trouble_fond",
+        "state": "archived",
+        "path": "RESERVE/scripts_ground/caverne_trouble_fond"
+      }
+    ],
+    "red_cinematics": [
+      "RESERVE/red_cinematics/d24p01.cif.json",
+      "RESERVE/red_cinematics/d24p02.cif.json"
+    ],
+    "zone_script": "",
+    "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
+  },
   "boss": {
     "mode": "canonical_ground",
     "ground": "caverne_trouble_fond",

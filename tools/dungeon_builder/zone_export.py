@@ -240,6 +240,19 @@ def zone_steps(definition: DungeonDefinition, segment: Segment) -> List[Dict[str
             steps.append(S.monster_house_zone_step(mob_pool, items, rng,
                                                    int(house.get("trials", 2)),
                                                    int(house.get("percent", 35))))
+    vault = features.treasure_room or features.key_room or {}
+    if vault.get("enabled"):
+        items = [(entry["item"], int(entry.get("weight", 10))) for entry in vault.get("items", [])]
+        if not items:
+            tables = definition.items_for(segment)
+            items = [(entry.item, entry.weight) for table in tables for entry in table.entries][:8]
+        if items:
+            floors = vault.get("floors")
+            rng = span if not floors else (max(0, floors[0] - lo), min(span[1], floors[1] - lo + 1))
+            steps.append(S.vault_zone_step(items, rng,
+                                           tuple(vault.get("amount", (1, 3))),
+                                           int(vault.get("trials", 3)),
+                                           int(vault.get("percent", 35))))
     return steps
 
 

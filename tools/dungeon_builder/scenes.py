@@ -48,6 +48,7 @@ class SceneAsset:
 @dataclass
 class DungeonScenes:
     dungeon: str
+    code: str = ""          # GBA dungeon code (D01…D25) used by the cinematic archives
     boss: str = ""
     entrance: Optional[SceneAsset] = None
     relay: Optional[SceneAsset] = None
@@ -66,6 +67,7 @@ class DungeonScenes:
     def to_dict(self) -> Dict[str, object]:
         return {
             "dungeon": self.dungeon,
+            "code": self.code,
             "boss": self.boss,
             "entrance": self.entrance.__dict__ if self.entrance else None,
             "relay": self.relay.__dict__ if self.relay else None,
@@ -114,12 +116,13 @@ def parse_inventory(path: Optional[Path] = None) -> Dict[str, DungeonScenes]:
             continue
         cells = [c.strip() for c in line.strip().strip("|").split("|")]
         header = re.sub(r"\*\*", "", cells[0])
-        match = re.match(r"D\d+\s+(.+)", header)
+        match = re.match(r"(D\d+)\s+(.+)", header)
         if not match:
             continue
-        dungeon = match.group(1).strip()
+        code = match.group(1).strip()
+        dungeon = match.group(2).strip()
         boss = re.sub(r"\*\*", "", cells[1]).strip(" —") if len(cells) > 1 else ""
-        entry = DungeonScenes(dungeon=dungeon, boss=boss)
+        entry = DungeonScenes(dungeon=dungeon, code=code, boss=boss)
         if len(cells) == 5:            # section 1: entry | relay | end
             entry.entrance = locate(_clean(cells[2])[0]) if _clean(cells[2]) else None
             entry.relay = locate(_clean(cells[3])[0]) if _clean(cells[3]) else None

@@ -699,6 +699,33 @@ def build_definition(row: Dict[str, Any], source: CanonicalSource,
                      "aucune téléportation."),
         }
 
+    # ---- narrative content that must follow the dungeon ------------------
+    narrative: Dict[str, Any] = {"transferred": False, "cutscenes": [], "red_cinematics": [],
+                                 "zone_script": ""}
+    scene_asset_names = []
+    if scene_set:
+        for asset in [scene_set.entrance, scene_set.relay, *scene_set.end]:
+            if asset and asset.name:
+                scene_asset_names.append(asset.name)
+    for asset_name in sorted(set(scene_asset_names)):
+        for base, state in ((ROOT / "Data" / "Script" / "halcyon" / "ground", "active"),
+                            (ROOT / "RESERVE" / "scripts_ground", "archived")):
+            if (base / asset_name).is_dir():
+                narrative["cutscenes"].append({"scene": asset_name, "state": state,
+                                               "path": str((base / asset_name).relative_to(ROOT))})
+    zone_script = ROOT / "Data" / "Script" / "halcyon" / "zone" / definition["id"]
+    if zone_script.is_dir():
+        narrative["zone_script"] = str(zone_script.relative_to(ROOT))
+    if scene_set and scene_set.code:
+        for cif in sorted((ROOT / "RESERVE" / "red_cinematics").glob(
+                f"{scene_set.code.lower()}p*.cif.json")):
+            narrative["red_cinematics"].append(str(cif.relative_to(ROOT)))
+    if narrative["cutscenes"] or narrative["red_cinematics"] or narrative["zone_script"]:
+        narrative["rule"] = ("Ces séquences appartiennent au donjon : elles sont reprises par le "
+                             "nouveau pipeline et rejouées sur le Ground canonique "
+                             "(cinématique = combat = fin).")
+        definition["narrative"] = narrative
+
     # ---- fixed grounds / boss -------------------------------------------
     candidates = []
     aliases = {slug, definition["id"], *definition.get("aliases", [])}
@@ -776,11 +803,19 @@ def build_definition(row: Dict[str, Any], source: CanonicalSource,
         definition["comment"] += (" Donjon secondaire : aucun relais/midpoint (règle du framework "
                                   "§1, réservés aux donjons d'histoire).")
 
+    # A legacy implementation is not a reason to stop: the dungeon is in this
+    # Builder's scope, so the old content is harvested, its narrative is
+    # transferred, and the old files are deleted once the rebuild exists.
     if row["already_done"]:
-        blocked.append("BLOCKED/OUT_OF_SCOPE: already imported by another agent (Sky Tower arc)")
+        definition["takeover"] = {"legacy": "imported by a previous agent (Sky Tower arc)",
+                                  "policy": "rebuild then remove the legacy implementation"}
+        blocked.append("BLOCKED/TAKEOVER_PENDING: legacy implementation from a previous agent "
+                       "must be rebuilt by this Builder, then deleted")
     if definition["id"] in zone_names and definition["id"] != "gloomy_forest":
-        blocked.append(f"BLOCKED/OUT_OF_SCOPE: Data/Zone/{definition['id']}.json already exists "
-                       "and belongs to another agent")
+        definition.setdefault("takeover", {})["legacy_zone"] = f"Data/Zone/{definition['id']}.json"
+        definition["takeover"]["policy"] = "rebuild then remove the legacy implementation"
+        blocked.append(f"BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/{definition['id']}.json "
+                       "must be replaced by the Builder's regeneration (harvest + transfer first)")
 
     if blocked:
         definition["blocked"] = blocked

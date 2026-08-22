@@ -32,8 +32,8 @@ BLOCKED_TILESET = "BLOCKED_MISSING_TILESET"
 BLOCKED_ASSET = "BLOCKED_MISSING_ASSET"
 BLOCKED_SOURCE = "BLOCKED_MISSING_SOURCE"
 BLOCKED_DEFINITION = "BLOCKED_INVALID_DEFINITION"
-ALREADY_IMPLEMENTED = "ALREADY_IMPLEMENTED"
-OWNED_BY_OTHER_AGENT = "OWNED_BY_OTHER_AGENT"
+TAKEOVER_PENDING = "TAKEOVER_PENDING"
+OWNED_BY_OTHER_AGENT = "OWNED_BY_OTHER_AGENT"   # out of scope only
 SAFE_TO_BUILD = "SAFE_TO_BUILD"
 
 
@@ -56,6 +56,10 @@ class DungeonAudit:
     source: str = ""
     biome: str = ""
     cinematic_ground: str = ""
+    cutscenes: int = 0
+    red_cinematics: int = 0
+    narrative_transferred: bool = False
+    legacy_zone: str = ""
     battle_ground: str = ""
     canonical_end_ground: str = ""
     arena_rsmap: str = ""
@@ -82,16 +86,15 @@ class DungeonAudit:
             self.readiness = BLOCKED_ASSET
         elif "MISSING_SOURCE" in text or "MISSING_ITEM" in text:
             self.readiness = BLOCKED_SOURCE
+        elif "TAKEOVER_PENDING" in text:
+            self.readiness = TAKEOVER_PENDING
         elif "OUT_OF_SCOPE" in text:
             self.readiness = self.ownership
         else:
             self.readiness = BLOCKED_DEFINITION
-        if "already imported by another agent" in text:
-            self.ownership = ALREADY_IMPLEMENTED
-        elif "already exists" in text:
-            self.ownership = OWNED_BY_OTHER_AGENT
-        if self.ownership in (ALREADY_IMPLEMENTED, OWNED_BY_OTHER_AGENT):
-            self.readiness = self.ownership
+        if "TAKEOVER_PENDING" in text:
+            self.ownership = TAKEOVER_PENDING
+            self.readiness = TAKEOVER_PENDING
 
 
 def _known_items() -> set:
@@ -138,6 +141,12 @@ def audit_definition(path: Path, known_items: set, known_statuses: set,
     audit.scene_state = declared.get("state", "")
     if (definition.boss or {}).get("mode") == "arena_rsmap":
         audit.arena_rsmap = (definition.boss or {}).get("map", "")
+    narrative = definition.narrative or {}
+    audit.cutscenes = len(narrative.get("cutscenes", []))
+    audit.red_cinematics = len(narrative.get("red_cinematics", []))
+    audit.narrative_transferred = bool(narrative.get("transferred"))
+    audit.legacy_zone = (getattr(definition, "takeover", {}) or {}).get("legacy_zone", "") \
+        if hasattr(definition, "takeover") else ""
 
     # blockers recorded by the extraction step itself
     audit.blockers.extend(definition.blocked)
@@ -247,12 +256,20 @@ def audit_definition(path: Path, known_items: set, known_statuses: set,
     audit.cinematic_ground = audit.cinematic_ground or check.cinematic_ground
     audit.battle_ground = audit.battle_ground or check.battle_ground
 
-    # --- ownership
+    # --- legacy implementation: takeover, not an excuse
     if definition.id in zone_names and definition.id != "gloomy_forest":
-        if not any("OUT_OF_SCOPE" in blocker for blocker in audit.blockers):
+        audit.legacy_zone = f"Data/Zone/{definition.id}.json"
+        if not any("TAKEOVER_PENDING" in blocker for blocker in audit.blockers):
             audit.blockers.append(
-                f"BLOCKED/OUT_OF_SCOPE: Data/Zone/{definition.id}.json already exists")
-        audit.ownership = OWNED_BY_OTHER_AGENT
+                f"BLOCKED/TAKEOVER_PENDING: legacy zone {audit.legacy_zone} must be rebuilt by "
+                "the Builder and then removed")
+        audit.ownership = TAKEOVER_PENDING
+
+    # --- narrative content must not be lost
+    if (audit.cutscenes or audit.red_cinematics) and not audit.narrative_transferred:
+        audit.notes.append(
+            f"{audit.cutscenes} cutscene folder(s) and {audit.red_cinematics} PMD Red cinematic(s) "
+            "to re-attach (narrative.transferred is still false)")
     audit.classify()
     return audit, definition
 
@@ -304,8 +321,8 @@ def markdown(audits: Sequence[DungeonAudit], global_problems: Sequence[str]) -> 
     lines += ["", "## Tableau de readiness", "",
               "| DUNGEON | SOURCE CANONIQUE | BIOME | DIR. | FLOORS | SEG. | PROFILS ROGUEELEMENTS | "
               "DTEF | POKÉMON | OBJETS | MIDPOINT | CINEMATIC GROUND | BATTLE GROUND | "
-              "CANONICAL END GROUND | ARENA RSMAP | STATUS | BLOCKING REASON |",
-              "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+              "CANONICAL END GROUND | ARENA RSMAP | CUTSCENES | LEGACY | STATUS | BLOCKING REASON |",
+              "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for audit in sorted(audits, key=lambda a: (a.readiness != "READY_FOR_GENERATION",
                                                a.chapter, a.dungeon)):
         reason = "; ".join(b.replace("BLOCKED/", "") for b in audit.blockers[:2]) or "—"
@@ -315,7 +332,8 @@ def markdown(audits: Sequence[DungeonAudit], global_problems: Sequence[str]) -> 
             f"{', '.join(audit.profiles) or '—'} | `{audit.dtef or '—'}` | {audit.species} | "
             f"{audit.item_entries} | {audit.midpoint or '—'} | {audit.cinematic_ground or '—'} | "
             f"{audit.battle_ground or '—'} | {audit.canonical_end_ground or '—'} | "
-            f"{audit.arena_rsmap or '—'} | **{audit.readiness}** | {reason} |")
+            f"{audit.arena_rsmap or '—'} | {audit.cutscenes}+{audit.red_cinematics} | "
+            f"{audit.legacy_zone or '—'} | **{audit.readiness}** | {reason} |")
 
     lines += ["", "## Blocages détaillés", ""]
     for audit in sorted(failed, key=lambda a: (a.chapter, a.dungeon)):

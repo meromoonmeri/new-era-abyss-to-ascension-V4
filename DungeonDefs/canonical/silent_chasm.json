@@ -442,6 +442,22 @@
     "battle_ground": "d05p02",
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
+  "narrative": {
+    "transferred": false,
+    "cutscenes": [
+      {
+        "scene": "gouffre_muet_bord",
+        "state": "archived",
+        "path": "RESERVE/scripts_ground/gouffre_muet_bord"
+      }
+    ],
+    "red_cinematics": [
+      "RESERVE/red_cinematics/d05p01.cif.json",
+      "RESERVE/red_cinematics/d05p02.cif.json"
+    ],
+    "zone_script": "",
+    "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
+  },
   "boss": {
     "mode": "canonical_ground",
     "ground": "d05p02",

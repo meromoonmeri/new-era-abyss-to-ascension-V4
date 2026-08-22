@@ -1663,6 +1663,21 @@
     "battle_ground": "sanctuaire_voeu",
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
+  "narrative": {
+    "transferred": false,
+    "cutscenes": [
+      {
+        "scene": "sanctuaire_voeu",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/sanctuaire_voeu"
+      }
+    ],
+    "red_cinematics": [
+      "RESERVE/red_cinematics/d23p01.cif.json"
+    ],
+    "zone_script": "Data/Script/halcyon/zone/wish_cave",
+    "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
+  },
   "boss": {
     "mode": "canonical_ground",
     "ground": "sanctuaire_voeu",
@@ -1682,7 +1697,11 @@
   "fixed_grounds": {
     "end": "sanctuaire_voeu"
   },
+  "takeover": {
+    "legacy_zone": "Data/Zone/wish_cave.json",
+    "policy": "rebuild then remove the legacy implementation"
+  },
   "blocked": [
-    "BLOCKED/OUT_OF_SCOPE: Data/Zone/wish_cave.json already exists and belongs to another agent"
+    "BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/wish_cave.json must be replaced by the Builder's regeneration (harvest + transfer first)"
   ]
 }

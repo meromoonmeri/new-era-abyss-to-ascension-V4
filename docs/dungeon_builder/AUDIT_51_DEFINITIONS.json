@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T22:20:20+00:00",
+  "generated_at": "2026-08-22T22:32:28+00:00",
   "total": 51,
   "pass": 32,
   "fail": 19,
@@ -34,6 +34,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "relic_halls",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "buried_relic_arena",
@@ -75,6 +79,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "dark_halls",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "",
@@ -114,6 +122,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "dunes",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "",
@@ -152,6 +164,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "strait_shelf",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "",
@@ -191,6 +207,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "far_shelf",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "",
@@ -229,6 +249,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "ember_plain",
       "cinematic_ground": "champ_braises",
+      "cutscenes": 1,
+      "red_cinematics": 1,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "champ_braises",
       "canonical_end_ground": "champ_braises",
       "arena_rsmap": "",
@@ -239,7 +263,8 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'champ_braises' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'champ_braises' (no separate arena created)",
+        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "PASS"
     },
@@ -265,18 +290,23 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "frosty_edge",
       "cinematic_ground": "d10p03",
+      "cutscenes": 4,
+      "red_cinematics": 3,
+      "narrative_transferred": false,
+      "legacy_zone": "Data/Zone/frosty_forest.json",
       "battle_ground": "d10p03",
       "canonical_end_ground": "d10p03",
       "arena_rsmap": "",
       "scene_state": "ACTIVE_GROUND",
-      "ownership": "OWNED_BY_OTHER_AGENT",
-      "readiness": "OWNED_BY_OTHER_AGENT",
+      "ownership": "TAKEOVER_PENDING",
+      "readiness": "TAKEOVER_PENDING",
       "blockers": [
-        "BLOCKED/OUT_OF_SCOPE: Data/Zone/frosty_forest.json already exists and belongs to another agent"
+        "BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/frosty_forest.json must be replaced by the Builder's regeneration (harvest + transfer first)"
       ],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'd10p03' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'd10p03' (no separate arena created)",
+        "4 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "FAIL"
     },
@@ -302,6 +332,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "frosty_grotto",
       "cinematic_ground": "d10p03",
+      "cutscenes": 4,
+      "red_cinematics": 3,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "d10p03",
       "canonical_end_ground": "d10p03",
       "arena_rsmap": "",
@@ -311,7 +345,8 @@
       "blockers": [],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'd10p03' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'd10p03' (no separate arena created)",
+        "4 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "PASS"
     },
@@ -338,6 +373,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "grand_shelf",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "",
@@ -376,6 +415,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "canyon_rim",
       "cinematic_ground": "d07p02",
+      "cutscenes": 1,
+      "red_cinematics": 2,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "d07p02",
       "canonical_end_ground": "d07p02",
       "arena_rsmap": "",
@@ -386,7 +429,8 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'd07p02' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'd07p02' (no separate arena created)",
+        "1 cutscene folder(s) and 2 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "PASS"
     },
@@ -413,6 +457,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "howling_edge",
       "cinematic_ground": "bois_des_plaintes",
+      "cutscenes": 1,
+      "red_cinematics": 1,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "bois_des_plaintes",
       "canonical_end_ground": "bois_des_plaintes",
       "arena_rsmap": "",
@@ -423,7 +471,8 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'bois_des_plaintes' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'bois_des_plaintes' (no separate arena created)",
+        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "PASS"
     },
@@ -452,6 +501,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "tower_base",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "",
@@ -491,18 +544,23 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "lapis_gallery",
       "cinematic_ground": "grotte_lazuli_fond",
+      "cutscenes": 4,
+      "red_cinematics": 2,
+      "narrative_transferred": false,
+      "legacy_zone": "Data/Zone/lapis_cave.json",
       "battle_ground": "grotte_lazuli_fond",
       "canonical_end_ground": "grotte_lazuli_fond",
       "arena_rsmap": "",
       "scene_state": "ACTIVE_GROUND",
-      "ownership": "OWNED_BY_OTHER_AGENT",
-      "readiness": "OWNED_BY_OTHER_AGENT",
+      "ownership": "TAKEOVER_PENDING",
+      "readiness": "TAKEOVER_PENDING",
       "blockers": [
-        "BLOCKED/OUT_OF_SCOPE: Data/Zone/lapis_cave.json already exists and belongs to another agent"
+        "BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/lapis_cave.json must be replaced by the Builder's regeneration (harvest + transfer first)"
       ],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'grotte_lazuli_fond' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'grotte_lazuli_fond' (no separate arena created)",
+        "4 cutscene folder(s) and 2 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "FAIL"
     },
@@ -529,6 +587,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "storm_plain",
       "cinematic_ground": "champ_foudre",
+      "cutscenes": 1,
+      "red_cinematics": 1,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "champ_foudre",
       "canonical_end_ground": "champ_foudre",
       "arena_rsmap": "",
@@ -542,7 +604,8 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared"
+        "no fixed 'end' Ground declared",
+        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "FAIL"
     },
@@ -571,6 +634,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "magma_gallery",
       "cinematic_ground": "fosse_ardente",
+      "cutscenes": 6,
+      "red_cinematics": 3,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "fosse_ardente",
       "canonical_end_ground": "fosse_ardente",
       "arena_rsmap": "",
@@ -580,7 +647,8 @@
       "blockers": [],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'fosse_ardente' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'fosse_ardente' (no separate arena created)",
+        "6 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "PASS"
     },
@@ -606,6 +674,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "magma_pit",
       "cinematic_ground": "fosse_ardente",
+      "cutscenes": 6,
+      "red_cinematics": 3,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "fosse_ardente",
       "canonical_end_ground": "fosse_ardente",
       "arena_rsmap": "",
@@ -616,7 +688,8 @@
       "notes": [
         "no floor items (canonical: money only)",
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'fosse_ardente' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'fosse_ardente' (no separate arena created)",
+        "6 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "PASS"
     },
@@ -643,6 +716,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "marvelous_shelf",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "",
@@ -682,6 +759,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "meteor_shell",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "meteor_cave_arena",
@@ -723,18 +804,23 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "blaze_slope",
       "cinematic_ground": "d09p03",
+      "cutscenes": 4,
+      "red_cinematics": 3,
+      "narrative_transferred": false,
+      "legacy_zone": "Data/Zone/mt_blaze.json",
       "battle_ground": "d09p03",
       "canonical_end_ground": "d09p03",
       "arena_rsmap": "",
       "scene_state": "ACTIVE_GROUND",
-      "ownership": "OWNED_BY_OTHER_AGENT",
-      "readiness": "OWNED_BY_OTHER_AGENT",
+      "ownership": "TAKEOVER_PENDING",
+      "readiness": "TAKEOVER_PENDING",
       "blockers": [
-        "BLOCKED/OUT_OF_SCOPE: Data/Zone/mt_blaze.json already exists and belongs to another agent"
+        "BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/mt_blaze.json must be replaced by the Builder's regeneration (harvest + transfer first)"
       ],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'd09p03' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'd09p03' (no separate arena created)",
+        "4 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "FAIL"
     },
@@ -760,6 +846,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "blaze_peak",
       "cinematic_ground": "d09p03",
+      "cutscenes": 4,
+      "red_cinematics": 3,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "d09p03",
       "canonical_end_ground": "d09p03",
       "arena_rsmap": "",
@@ -769,7 +859,8 @@
       "blockers": [],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'd09p03' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'd09p03' (no separate arena created)",
+        "4 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "PASS"
     },
@@ -797,6 +888,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "faraway_slope",
       "cinematic_ground": "sommet_aurore",
+      "cutscenes": 1,
+      "red_cinematics": 1,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "sommet_aurore",
       "canonical_end_ground": "sommet_aurore",
       "arena_rsmap": "",
@@ -807,7 +902,8 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'sommet_aurore' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'sommet_aurore' (no separate arena created)",
+        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "PASS"
     },
@@ -834,18 +930,23 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "freeze_slope",
       "cinematic_ground": "d11p03",
+      "cutscenes": 4,
+      "red_cinematics": 3,
+      "narrative_transferred": false,
+      "legacy_zone": "Data/Zone/mt_freeze.json",
       "battle_ground": "d11p03",
       "canonical_end_ground": "d11p03",
       "arena_rsmap": "",
       "scene_state": "ACTIVE_GROUND",
-      "ownership": "OWNED_BY_OTHER_AGENT",
-      "readiness": "OWNED_BY_OTHER_AGENT",
+      "ownership": "TAKEOVER_PENDING",
+      "readiness": "TAKEOVER_PENDING",
       "blockers": [
-        "BLOCKED/OUT_OF_SCOPE: Data/Zone/mt_freeze.json already exists and belongs to another agent"
+        "BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/mt_freeze.json must be replaced by the Builder's regeneration (harvest + transfer first)"
       ],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'd11p03' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'd11p03' (no separate arena created)",
+        "4 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "FAIL"
     },
@@ -871,6 +972,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "freeze_peak",
       "cinematic_ground": "d11p03",
+      "cutscenes": 4,
+      "red_cinematics": 3,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "d11p03",
       "canonical_end_ground": "d11p03",
       "arena_rsmap": "",
@@ -880,7 +985,8 @@
       "blockers": [],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'd11p03' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'd11p03' (no separate arena created)",
+        "4 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "PASS"
     },
@@ -906,6 +1012,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "steel_slope",
       "cinematic_ground": "d03p02",
+      "cutscenes": 1,
+      "red_cinematics": 2,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "d03p02",
       "canonical_end_ground": "d03p02",
       "arena_rsmap": "",
@@ -919,7 +1029,8 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared"
+        "no fixed 'end' Ground declared",
+        "1 cutscene folder(s) and 2 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "FAIL"
     },
@@ -946,6 +1057,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "thunder_slope",
       "cinematic_ground": "d06p03",
+      "cutscenes": 1,
+      "red_cinematics": 3,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "d06p03",
       "canonical_end_ground": "d06p03",
       "arena_rsmap": "",
@@ -959,7 +1074,8 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared"
+        "no fixed 'end' Ground declared",
+        "1 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "FAIL"
     },
@@ -985,6 +1101,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "thunder_peak",
       "cinematic_ground": "d06p03",
+      "cutscenes": 1,
+      "red_cinematics": 3,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "d06p03",
       "canonical_end_ground": "d06p03",
       "arena_rsmap": "",
@@ -998,7 +1118,8 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared"
+        "no fixed 'end' Ground declared",
+        "1 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "FAIL"
     },
@@ -1026,6 +1147,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "murky_gallery",
       "cinematic_ground": "caverne_trouble_fond",
+      "cutscenes": 2,
+      "red_cinematics": 2,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "caverne_trouble_fond",
       "canonical_end_ground": "caverne_trouble_fond",
       "arena_rsmap": "",
@@ -1040,7 +1165,8 @@
         "no floor items (canonical: money only)",
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared"
+        "no fixed 'end' Ground declared",
+        "2 cutscene folder(s) and 2 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "FAIL"
     },
@@ -1067,6 +1193,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "north_ridge",
       "cinematic_ground": "cretes_boreales",
+      "cutscenes": 1,
+      "red_cinematics": 1,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "cretes_boreales",
       "canonical_end_ground": "cretes_boreales",
       "arena_rsmap": "",
@@ -1077,7 +1207,8 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'cretes_boreales' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'cretes_boreales' (no separate arena created)",
+        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "PASS"
     },
@@ -1099,6 +1230,10 @@
       "source": "",
       "biome": "",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "",
@@ -1136,6 +1271,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "oddity_gallery",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "",
@@ -1174,6 +1313,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "pitfall_rim",
       "cinematic_ground": "vallon_perdu",
+      "cutscenes": 1,
+      "red_cinematics": 1,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "vallon_perdu",
       "canonical_end_ground": "vallon_perdu",
       "arena_rsmap": "",
@@ -1183,7 +1326,8 @@
       "blockers": [],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'vallon_perdu' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'vallon_perdu' (no separate arena created)",
+        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "PASS"
     },
@@ -1211,6 +1355,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "purity_outer",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "purity_forest_arena",
@@ -1252,6 +1400,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "remains_shore",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "",
@@ -1289,6 +1441,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "rock_path",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "",
@@ -1326,6 +1482,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "silent_rim",
       "cinematic_ground": "d05p02",
+      "cutscenes": 1,
+      "red_cinematics": 2,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "d05p02",
       "canonical_end_ground": "d05p02",
       "arena_rsmap": "",
@@ -1339,7 +1499,8 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared"
+        "no fixed 'end' Ground declared",
+        "1 cutscene folder(s) and 2 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "FAIL"
     },
@@ -1367,6 +1528,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "silver_shelf",
       "cinematic_ground": "fosse_argentee",
+      "cutscenes": 1,
+      "red_cinematics": 1,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "fosse_argentee",
       "canonical_end_ground": "fosse_argentee",
       "arena_rsmap": "",
@@ -1377,7 +1542,8 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'fosse_argentee' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'fosse_argentee' (no separate arena created)",
+        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "PASS"
     },
@@ -1407,6 +1573,10 @@
       "source": "Pokémon Mystery Dungeon: Rescue Team (Red/Blue Rescue Team & Rescue Team DX)",
       "biome": "forest",
       "cinematic_ground": "sinister_woods_clearing",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "sinister_woods_clearing",
       "canonical_end_ground": "",
       "arena_rsmap": "",
@@ -1442,18 +1612,23 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "sky_ascent",
       "cinematic_ground": "arc_tour_ciel_sommet",
+      "cutscenes": 3,
+      "red_cinematics": 3,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "arc_tour_ciel_sommet",
       "canonical_end_ground": "arc_tour_ciel_sommet",
       "arena_rsmap": "",
       "scene_state": "ACTIVE_GROUND",
-      "ownership": "ALREADY_IMPLEMENTED",
-      "readiness": "ALREADY_IMPLEMENTED",
+      "ownership": "TAKEOVER_PENDING",
+      "readiness": "TAKEOVER_PENDING",
       "blockers": [
-        "BLOCKED/OUT_OF_SCOPE: already imported by another agent (Sky Tower arc)"
+        "BLOCKED/TAKEOVER_PENDING: legacy implementation from a previous agent must be rebuilt by this Builder, then deleted"
       ],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'arc_tour_ciel_sommet' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'arc_tour_ciel_sommet' (no separate arena created)",
+        "3 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "FAIL"
     },
@@ -1479,18 +1654,23 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "sky_summit",
       "cinematic_ground": "arc_tour_ciel_sommet",
+      "cutscenes": 3,
+      "red_cinematics": 3,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "arc_tour_ciel_sommet",
       "canonical_end_ground": "arc_tour_ciel_sommet",
       "arena_rsmap": "",
       "scene_state": "ACTIVE_GROUND",
-      "ownership": "ALREADY_IMPLEMENTED",
-      "readiness": "ALREADY_IMPLEMENTED",
+      "ownership": "TAKEOVER_PENDING",
+      "readiness": "TAKEOVER_PENDING",
       "blockers": [
-        "BLOCKED/OUT_OF_SCOPE: already imported by another agent (Sky Tower arc)"
+        "BLOCKED/TAKEOVER_PENDING: legacy implementation from a previous agent must be rebuilt by this Builder, then deleted"
       ],
       "notes": [
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'arc_tour_ciel_sommet' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'arc_tour_ciel_sommet' (no separate arena created)",
+        "3 cutscene folder(s) and 3 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "FAIL"
     },
@@ -1516,6 +1696,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "snow_path",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "",
@@ -1555,6 +1739,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "solar_gallery",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "",
@@ -1595,6 +1783,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "south_gallery",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "",
@@ -1634,6 +1826,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "stormy_shelf",
       "cinematic_ground": "abime_tempetes",
+      "cutscenes": 1,
+      "red_cinematics": 1,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "abime_tempetes",
       "canonical_end_ground": "abime_tempetes",
       "arena_rsmap": "",
@@ -1644,7 +1840,8 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'abime_tempetes' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'abime_tempetes' (no separate arena created)",
+        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "PASS"
     },
@@ -1670,6 +1867,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "static_cave",
       "cinematic_ground": "d02p02",
+      "cutscenes": 1,
+      "red_cinematics": 2,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "d02p02",
       "canonical_end_ground": "d02p02",
       "arena_rsmap": "",
@@ -1683,7 +1884,8 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared"
+        "no fixed 'end' Ground declared",
+        "1 cutscene folder(s) and 2 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "FAIL"
     },
@@ -1709,6 +1911,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "young_woods",
       "cinematic_ground": "d01p02",
+      "cutscenes": 1,
+      "red_cinematics": 2,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "d01p02",
       "canonical_end_ground": "d01p02",
       "arena_rsmap": "",
@@ -1722,7 +1928,8 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "no fixed 'end' Ground declared"
+        "no fixed 'end' Ground declared",
+        "1 cutscene folder(s) and 2 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "FAIL"
     },
@@ -1750,6 +1957,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "unown_halls",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "",
@@ -1788,6 +1999,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "uproar_edge",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "",
@@ -1826,6 +2041,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "pond_shore",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "",
@@ -1866,6 +2085,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "western_gallery",
       "cinematic_ground": "antre_occident",
+      "cutscenes": 1,
+      "red_cinematics": 1,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "antre_occident",
       "canonical_end_ground": "antre_occident",
       "arena_rsmap": "",
@@ -1876,7 +2099,8 @@
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
-        "final battle stays on the canonical end Ground 'antre_occident' (no separate arena created)"
+        "final battle stays on the canonical end Ground 'antre_occident' (no separate arena created)",
+        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "PASS"
     },
@@ -1904,20 +2128,25 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "wish_gallery",
       "cinematic_ground": "sanctuaire_voeu",
+      "cutscenes": 1,
+      "red_cinematics": 1,
+      "narrative_transferred": false,
+      "legacy_zone": "Data/Zone/wish_cave.json",
       "battle_ground": "sanctuaire_voeu",
       "canonical_end_ground": "sanctuaire_voeu",
       "arena_rsmap": "",
       "scene_state": "ACTIVE_GROUND",
-      "ownership": "OWNED_BY_OTHER_AGENT",
-      "readiness": "OWNED_BY_OTHER_AGENT",
+      "ownership": "TAKEOVER_PENDING",
+      "readiness": "TAKEOVER_PENDING",
       "blockers": [
-        "BLOCKED/OUT_OF_SCOPE: Data/Zone/wish_cave.json already exists and belongs to another agent"
+        "BLOCKED/TAKEOVER_PENDING: legacy zone Data/Zone/wish_cave.json must be replaced by the Builder's regeneration (harvest + transfer first)"
       ],
       "notes": [
         "no fixed 'entrance' Ground declared",
         "no fixed 'mid' Ground declared",
         "final battle stays on the canonical end Ground 'sanctuaire_voeu' (no separate arena created)",
-        "scene source of truth: sanctuaire_voeu.rsmap matches the end Ground"
+        "scene source of truth: sanctuaire_voeu.rsmap matches the end Ground",
+        "1 cutscene folder(s) and 1 PMD Red cinematic(s) to re-attach (narrative.transferred is still false)"
       ],
       "status": "FAIL"
     },
@@ -1944,6 +2173,10 @@
       "source": "Pokémon Mystery Dungeon: Red Rescue Team",
       "biome": "wyvern_slope",
       "cinematic_ground": "",
+      "cutscenes": 0,
+      "red_cinematics": 0,
+      "narrative_transferred": false,
+      "legacy_zone": "",
       "battle_ground": "",
       "canonical_end_ground": "",
       "arena_rsmap": "",

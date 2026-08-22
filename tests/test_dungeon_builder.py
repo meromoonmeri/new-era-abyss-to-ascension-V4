@@ -632,13 +632,15 @@ class TestCanonicalDefinitionSet(unittest.TestCase):
             self.assertGreaterEqual(raw["chapter"], 6)
             self.assertLessEqual(raw["chapter"], 32)
 
-    def test_no_definition_targets_an_existing_zone_without_being_blocked(self):
+    def test_existing_zone_is_a_guarded_takeover_never_a_silent_overwrite(self):
+        """A legacy zone in scope must be rebuilt then removed, never overwritten
+        without the takeover plan (harvest + narrative transfer first)."""
         zones = {p.stem for p in (REPO / "Data" / "Zone").glob("*.json")}
         for audit in self.audits:
             if audit.dungeon in zones and audit.dungeon != "gloomy_forest":
-                self.assertEqual(audit.status, "FAIL",
-                                 f"{audit.dungeon} would overwrite another agent's zone")
-                self.assertTrue(any("OUT_OF_SCOPE" in b for b in audit.blockers))
+                self.assertEqual(audit.status, "FAIL", audit.dungeon)
+                self.assertTrue(any("TAKEOVER_PENDING" in b for b in audit.blockers), audit.dungeon)
+                self.assertEqual(audit.readiness, "TAKEOVER_PENDING")
 
     def test_blocked_definitions_are_never_silently_passing(self):
         for path in sorted((REPO / "DungeonDefs" / "canonical").glob("*.json")):
@@ -861,3 +863,126 @@ class TestNativeTerrainStep(unittest.TestCase):
         report = check_zone_conformance(export.zone_json, exclude=["gloomy_forest.json"])
         self.assertFalse(report.unknown_types, report.unknown_types)
         self.assertFalse(report.unknown_fields, report.unknown_fields)
+
+
+class TestTakeover(unittest.TestCase):
+    """A dungeon in scope is rebuilt, its narrative follows, the legacy is removed."""
+
+    @classmethod
+    def setUpClass(cls):
+        from dungeon_builder.definitions import find_definition, load_definition
+        from dungeon_builder.takeover import scan
+        cls.scan = staticmethod(scan)
+        cls.load = staticmethod(lambda name: load_definition(find_definition(name)))
+
+    def test_legacy_zone_of_an_in_scope_dungeon_is_marked_replace(self):
+        definition = self.load("mt_blaze")
+        plan = self.scan(definition, None, {definition.id})
+        replaced = [a.path for a in plan.by_action("REPLACE")]
+        self.assertIn("Data/Zone/mt_blaze.json", replaced)
+
+    def test_a_zone_already_built_here_is_not_replaced(self):
+        definition = self.load("gloomy_forest")
+        plan = self.scan(definition, None, {definition.id})
+        self.assertFalse(plan.by_action("REPLACE"))
+        current = [a.path for a in plan.artefacts if a.action == "CURRENT"]
+        self.assertIn("Data/Zone/gloomy_forest.json", current)
+
+    def test_canonical_scenes_are_harvested_never_replaced(self):
+        for name in ("mt_blaze", "stormy_sea", "gloomy_forest"):
+            definition = self.load(name)
+            plan = self.scan(definition, None, {definition.id})
+            for artefact in plan.artefacts:
+                if artefact.kind in ("ground", "map"):
+                    self.assertIn(artefact.action, ("HARVEST", "TRANSFER"), artefact.path)
+
+    def test_narrative_content_is_always_transferred_not_dropped(self):
+        definition = self.load("mt_blaze")
+        plan = self.scan(definition, None, {definition.id})
+        transfers = [a.path for a in plan.by_action("TRANSFER")]
+        self.assertTrue(any(p.startswith("Data/Script/halcyon/ground/") for p in transfers))
+        self.assertTrue(any(p.startswith("RESERVE/red_cinematics/") for p in transfers))
+        self.assertTrue(any("scripts_zone" in p or "zone/" in p for p in transfers))
+
+    def test_tools_are_never_auto_deleted(self):
+        definition = self.load("gloomy_forest")
+        plan = self.scan(definition, None, {definition.id})
+        for artefact in plan.artefacts:
+            if artefact.kind == "tool":
+                self.assertEqual(artefact.action, "REVIEW", artefact.path)
+
+    def test_apply_is_blocked_until_rebuild_and_narrative_transfer(self):
+        from dungeon_builder.takeover import can_apply
+        definition = self.load("mt_blaze")
+        plan = self.scan(definition, None, {definition.id})
+        blockers = can_apply(plan, definition, "TAKEOVER_PENDING", zone_exists=True)
+        self.assertTrue(blockers)
+        blockers = can_apply(plan, definition, "READY_FOR_GENERATION", zone_exists=False)
+        self.assertIn("the new zone has not been generated yet", blockers)
+
+    def test_out_of_scope_dungeon_is_protected(self):
+        definition = self.load("mt_blaze")
+        plan = self.scan(definition, None, {"some_other_dungeon"})
+        self.assertFalse(plan.in_scope)
+        self.assertFalse(plan.by_action("REPLACE"))
+        self.assertTrue(plan.by_action("PROTECT"))
+
+    def test_definitions_carry_their_narrative_inventory(self):
+        counted = 0
+        for path in sorted((REPO / "DungeonDefs" / "canonical").glob("*.json")):
+            raw = json.loads(path.read_text(encoding="utf-8-sig"))
+            narrative = raw.get("narrative")
+            if not narrative:
+                continue
+            counted += 1
+            self.assertIn("transferred", narrative)
+            for cutscene in narrative.get("cutscenes", []):
+                self.assertTrue((REPO / cutscene["path"]).exists(), cutscene["path"])
+            for cinematic in narrative.get("red_cinematics", []):
+                self.assertTrue((REPO / cinematic).exists(), cinematic)
+        self.assertGreaterEqual(counted, 20)
+
+    def test_legacy_zones_are_flagged_takeover_not_excused(self):
+        from dungeon_builder.audit import audit_all
+        audits, _ = audit_all()
+        by_id = {a.dungeon: a for a in audits}
+        for dungeon in ("mt_blaze", "mt_freeze", "frosty_forest", "lapis_cave", "wish_cave"):
+            self.assertEqual(by_id[dungeon].readiness, "TAKEOVER_PENDING", dungeon)
+            self.assertTrue(by_id[dungeon].legacy_zone)
+        self.assertFalse(any(a.readiness == "ALREADY_IMPLEMENTED" for a in audits))
+
+
+class TestVaultRooms(unittest.TestCase):
+    """Treasure / Key rooms use the native PMDC vault machinery."""
+
+    def _with_vault(self):
+        raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
+        raw["features"]["treasure_room"] = {
+            "enabled": True, "floors": [5, 12], "amount": [1, 3],
+            "items": [{"item": "seed_reviver", "weight": 10}, {"item": "gummi_grass", "weight": 6}]}
+        return parse_definition(raw)
+
+    def test_vault_step_is_native_and_conformant(self):
+        from dungeon_builder.conformance import check_zone_conformance
+        export = build_zone(self._with_vault(), DungeonRng(seed=11))
+        blob = json.dumps(export.zone_json)
+        self.assertIn("PMDC.LevelGen.SpreadVaultZoneStep", blob)
+        report = check_zone_conformance(export.zone_json, exclude=["gloomy_forest.json"])
+        self.assertFalse(report.unknown_types, report.unknown_types)
+        self.assertFalse(report.unknown_fields, report.unknown_fields)
+
+    def test_vault_keeps_the_validated_template_machinery(self):
+        export = build_zone(self._with_vault(), DungeonRng(seed=12))
+        vault = None
+        for segment in export.zone_json["Object"]["Segments"]:
+            for step in segment["ZoneSteps"]:
+                if "SpreadVaultZoneStep" in step["$type"]:
+                    vault = step
+        self.assertIsNotNone(vault)
+        self.assertTrue(vault["VaultSteps"], "the native vault gen steps must be preserved")
+        self.assertTrue(vault["Items"])
+        self.assertTrue(vault["ItemPlacements"]["nodes"])
+
+    def test_vault_is_opt_in(self):
+        export = build_zone(load_sinister(), DungeonRng(seed=13))
+        self.assertNotIn("SpreadVaultZoneStep", json.dumps(export.zone_json))

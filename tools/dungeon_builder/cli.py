@@ -71,6 +71,54 @@ def cmd_audit(args) -> int:
     return 0
 
 
+def cmd_takeover(args) -> int:
+    """Audit (and optionally execute) the replacement of a legacy implementation."""
+    from .audit import audit_all
+    from .takeover import apply_plan, can_apply, scan, write_report
+    from .scenes import parse_inventory
+    inventory = parse_inventory()
+    definitions = []
+    if args.dungeon:
+        definitions.append(load_definition(find_definition(args.dungeon)))
+    else:
+        for path in list_definitions():
+            try:
+                definitions.append(load_definition(path))
+            except DefinitionError:
+                continue
+    scope = {d.id for d in definitions}
+    audits, _ = audit_all()
+    readiness = {a.dungeon: a.readiness for a in audits}
+
+    plans = []
+    for definition in definitions:
+        plan = scan(definition, inventory, scope)
+        plans.append(plan)
+        if args.dungeon or plan.artefacts:
+            print(f"[{definition.id}] harvest={len(plan.by_action('HARVEST'))} "
+                  f"transfer={len(plan.by_action('TRANSFER'))} "
+                  f"replace={len(plan.by_action('REPLACE'))} "
+                  f"protect={len(plan.by_action('PROTECT'))}")
+        if args.verbose:
+            for artefact in plan.artefacts:
+                print(f"    {artefact.action:9s} {artefact.path}")
+        if args.apply or args.dry_run:
+            zone_exists = (ROOT / "Data" / "Zone" / f"{definition.id}.json").exists()
+            blockers = can_apply(plan, definition, readiness.get(definition.id, "UNKNOWN"),
+                                 zone_exists)
+            if blockers:
+                print(f"    apply refused: {'; '.join(blockers)}")
+                continue
+            removed = apply_plan(plan, dry_run=not args.apply)
+            verb = "removed" if args.apply else "would remove"
+            for path in removed:
+                print(f"    {verb} {path}")
+    if args.report:
+        for path in write_report(plans):
+            print(f"report: {path}")
+    return 0
+
+
 def cmd_audit_all(args) -> int:
     """Step 6 gate: load every definition and report PASS/FAIL with exact blockers."""
     from .audit import audit_all, write_report
@@ -305,6 +353,16 @@ def build_parser() -> argparse.ArgumentParser:
     sub = parser.add_subparsers(dest="command", required=True)
 
     sub.add_parser("audit", help="list profiles, DTEF packages and definitions").set_defaults(func=cmd_audit)
+
+    takeover = sub.add_parser("takeover",
+                              help="audit/replace the legacy implementation of a dungeon")
+    takeover.add_argument("dungeon", nargs="?", default=None)
+    takeover.add_argument("--report", action="store_true")
+    takeover.add_argument("--verbose", action="store_true")
+    takeover.add_argument("--dry-run", action="store_true")
+    takeover.add_argument("--apply", action="store_true",
+                          help="delete the REPLACE artefacts (guarded)")
+    takeover.set_defaults(func=cmd_takeover)
 
     audit_all_parser = sub.add_parser("audit-all",
                                       help="PASS/FAIL audit of every dungeon definition")

@@ -837,6 +837,21 @@
     "battle_ground": "champ_foudre",
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
+  "narrative": {
+    "transferred": false,
+    "cutscenes": [
+      {
+        "scene": "champ_foudre",
+        "state": "archived",
+        "path": "RESERVE/scripts_ground/champ_foudre"
+      }
+    ],
+    "red_cinematics": [
+      "RESERVE/red_cinematics/d17p01.cif.json"
+    ],
+    "zone_script": "",
+    "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
+  },
   "boss": {
     "mode": "canonical_ground",
     "ground": "champ_foudre",

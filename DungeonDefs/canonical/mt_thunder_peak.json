@@ -332,6 +332,23 @@
     "battle_ground": "d06p03",
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
+  "narrative": {
+    "transferred": false,
+    "cutscenes": [
+      {
+        "scene": "mont_grondant_pied",
+        "state": "archived",
+        "path": "RESERVE/scripts_ground/mont_grondant_pied"
+      }
+    ],
+    "red_cinematics": [
+      "RESERVE/red_cinematics/d06p01.cif.json",
+      "RESERVE/red_cinematics/d06p02.cif.json",
+      "RESERVE/red_cinematics/d06p03.cif.json"
+    ],
+    "zone_script": "",
+    "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
+  },
   "boss": {
     "mode": "canonical_ground",
     "ground": "d06p03",

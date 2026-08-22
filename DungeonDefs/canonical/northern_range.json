@@ -756,6 +756,21 @@
     "battle_ground": "cretes_boreales",
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
+  "narrative": {
+    "transferred": false,
+    "cutscenes": [
+      {
+        "scene": "cretes_boreales",
+        "state": "archived",
+        "path": "RESERVE/scripts_ground/cretes_boreales"
+      }
+    ],
+    "red_cinematics": [
+      "RESERVE/red_cinematics/d21p01.cif.json"
+    ],
+    "zone_script": "",
+    "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
+  },
   "boss": {
     "mode": "canonical_ground",
     "ground": "cretes_boreales",

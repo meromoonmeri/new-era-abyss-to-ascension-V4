@@ -562,5 +562,12 @@
       "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
     }
   },
+  "narrative": {
+    "transferred": false,
+    "cutscenes": [],
+    "red_cinematics": [],
+    "zone_script": "Data/Script/halcyon/zone/waterfall_pond",
+    "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
+  },
   "fixed_grounds": {}
 }

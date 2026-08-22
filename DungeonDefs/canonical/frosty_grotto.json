@@ -264,6 +264,38 @@
     "battle_ground": "d10p03",
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
+  "narrative": {
+    "transferred": false,
+    "cutscenes": [
+      {
+        "scene": "d10p02",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/d10p02"
+      },
+      {
+        "scene": "d10p03",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/d10p03"
+      },
+      {
+        "scene": "foret_givree_oree",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/foret_givree_oree"
+      },
+      {
+        "scene": "foret_givree_oree",
+        "state": "archived",
+        "path": "RESERVE/scripts_ground/foret_givree_oree"
+      }
+    ],
+    "red_cinematics": [
+      "RESERVE/red_cinematics/d10p01.cif.json",
+      "RESERVE/red_cinematics/d10p02.cif.json",
+      "RESERVE/red_cinematics/d10p03.cif.json"
+    ],
+    "zone_script": "",
+    "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
+  },
   "boss": {
     "mode": "canonical_ground",
     "ground": "d10p03",

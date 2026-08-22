@@ -849,6 +849,21 @@
     "battle_ground": "champ_braises",
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
+  "narrative": {
+    "transferred": false,
+    "cutscenes": [
+      {
+        "scene": "champ_braises",
+        "state": "archived",
+        "path": "RESERVE/scripts_ground/champ_braises"
+      }
+    ],
+    "red_cinematics": [
+      "RESERVE/red_cinematics/d16p01.cif.json"
+    ],
+    "zone_script": "",
+    "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
+  },
   "boss": {
     "mode": "canonical_ground",
     "ground": "champ_braises",

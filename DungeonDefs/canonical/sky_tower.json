@@ -511,6 +511,33 @@
     "battle_ground": "arc_tour_ciel_sommet",
     "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
   },
+  "narrative": {
+    "transferred": false,
+    "cutscenes": [
+      {
+        "scene": "arc_palier_celeste",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/arc_palier_celeste"
+      },
+      {
+        "scene": "arc_parvis_celeste",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/arc_parvis_celeste"
+      },
+      {
+        "scene": "arc_tour_ciel_sommet",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/arc_tour_ciel_sommet"
+      }
+    ],
+    "red_cinematics": [
+      "RESERVE/red_cinematics/d13p01.cif.json",
+      "RESERVE/red_cinematics/d13p02.cif.json",
+      "RESERVE/red_cinematics/d13p03.cif.json"
+    ],
+    "zone_script": "Data/Script/halcyon/zone/sky_tower",
+    "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
+  },
   "boss": {
     "mode": "canonical_ground",
     "ground": "arc_tour_ciel_sommet",
@@ -520,7 +547,11 @@
     "entrance": "arc_parvis_celeste",
     "end": "arc_tour_ciel_sommet"
   },
+  "takeover": {
+    "legacy": "imported by a previous agent (Sky Tower arc)",
+    "policy": "rebuild then remove the legacy implementation"
+  },
   "blocked": [
-    "BLOCKED/OUT_OF_SCOPE: already imported by another agent (Sky Tower arc)"
+    "BLOCKED/TAKEOVER_PENDING: legacy implementation from a previous agent must be rebuilt by this Builder, then deleted"
   ]
 }
