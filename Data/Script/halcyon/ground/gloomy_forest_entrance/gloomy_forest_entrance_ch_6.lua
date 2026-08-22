@@ -175,6 +175,35 @@ function gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()
     RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
+-- Post-battle D04P02 rescue.  The victory flag is set only after Chenipent
+-- appears and is handed back safely, matching the original Caterpie beat.
+function gloomy_forest_entrance_ch_6.DazzlingVictoryRescueCutscene()
+  local hero, partner = CH('PLAYER'), CH('Teammate1')
+  GAME:FadeOut(false, 1); GAME:CutsceneMode(true)
+  GROUND:TeleportTo(hero,256,260,Direction.Up)
+  if partner then GROUND:TeleportTo(partner,296,260,Direction.Up) end
+  local trio=CharacterEssentials.MakeCharactersFromList({
+    {'Adagio',272,192,Direction.Down},{'Aria',312,224,Direction.Left},{'Sonata',240,224,Direction.Right},
+    {'Chenipent',272,160,Direction.Down},
+  })
+  local chenipent=CH('Chenipent')
+  GAME:MoveCamera(276,220,1,false); SOUND:PlayBGM('PMD Red EU - In The Depths Of The Pit.ogg',true); GAME:FadeIn(30)
+  UI:SetSpeaker(adagio); UI:WaitShowDialogue("Vous avez gagné.[pause=15] Et le petit aussi.")
+  if chenipent then GROUND:MoveToPosition(chenipent,272,208,false,1) end
+  UI:SetSpeaker(partner); UI:WaitShowDialogue("Chenipent ![pause=15] Tu es sain et sauf !")
+  UI:SetSpeaker(aria); UI:WaitShowDialogue("Ne vous habituez pas à nous voir remettre quelqu'un en sécurité.[pause=15] C'est une exception très élégante.")
+  UI:SetSpeaker(sonata); UI:WaitShowDialogue("On vous laisse la gloire cette fois.[pause=15] Mais la prochaine clairière est pour nous !")
+  SV.Chapter6.ChenipentFound=true
+  SV.Chapter6.DazzlingTrialCleared=true
+  SV.Chapter6.MissionComplete=true
+  SV.Chapter6.DazzlingPresenceStage=5
+  SV.Chapter6.DazzlingChapterResolved=true
+  SV.TemporaryFlags.MissionCompleted=true
+  pcall(function() LivingWorld.Publish('chenipent_rescued','guild_report','Chenipent a été sauvé après le duel dans la Forêt Sinistre.',{'guild','treasure','metano'},1) end)
+  GAME:FadeOut(false,20); GAME:CutsceneMode(false)
+  GAME:EnterGroundMap('guild_second_floor','Main_Entrance_Marker')
+end
+
 function gloomy_forest_entrance_ch_6.Butterfree_Action(obj, activator)
   UI:SetSpeaker(obj)
   UI:WaitShowDialogue("Chenipent est quelque part dans Sinister Woods...[pause=20] Retrouvez-le, je vous en prie !")

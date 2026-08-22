@@ -226,31 +226,18 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 			-- Final D04P02 battle: Team Dazzling is the New Era casting of
 			-- the canonical Team Meanies encounter, not the obsolete Zeraora boss.
+			-- The rescue/victory marker is deliberately delayed until the D04P02
+			-- post-battle scene has shown Chenipent, mirroring Caterpie's rescue.
 			SV.Chapter6.DazzlingFinalBattleCleared = true
-			SV.Chapter6.DazzlingTrialCleared = true
-			SV.Chapter6.MissionComplete = true
-			SV.Chapter6.DazzlingPresenceStage = 5
-			SV.Chapter6.DazzlingChapterResolved = true
-			pcall(function()
-				LivingWorld.Publish('chenipent_rescued','guild_report',
-				  'Chenipent a été retrouvé dans les profondeurs de la Forêt Sinistre.',
-				  {'guild','treasure','metano'},1)
-				LivingWorld.Publish('dazzling_gloomy_rivalry','traveler_report',
-				  'La Team Dazzling et une équipe de Metano ont traversé la forêt ensemble.',
-				  {'treasure','guild','metano'},1)
-			end)
-			SinisterLifecycle.Victory()
+			SV.Chapter6.FinalVictoryPending = true
 			SV.Chapter6.MissionAccepted = false
-			-- The final D04P02 cutscene already played on sinister_woods_clearing;
-			-- leave the battle directly for the guild aftermath, without moving the
-			-- Dazzling encounter to the midpoint or replaying a Zeraora scene.
-			SV.Chapter6.DazzlingTrialOffered = false
-			-- Victory: return to the guild aftermath.
-			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
+			GAME:EnterGroundMap('gloomy_forest_entrance', 'Main_Entrance_Marker')
 		elseif result == RogueEssence.Data.GameProgress.ResultType.Escaped then
-			-- Abandon volontaire : rapport a la guilde et cycle de fin de journee.
+			-- Abandon: return to the Sinister midpoint first so its retreat scene
+			-- plays before the guild's evening lifecycle.
 			SV.Chapter6.MissionAccepted = false
-			EndDayReturn(result)
+			SV.Chapter6.SinisterRetreatPending = true
+			GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('gloomy_forest_midpoint'), 0, true, true)
 		else
 			-- Defaite au boss : checkpoint de la clairiere, puis vraie scene de retry.
 			SV.GloomyForest.DiedPastCheckpoint = true

@@ -266,7 +266,21 @@ function gloomy_forest_midpoint_ch_6.FirstArrival()
 end
 
 
--- Returned after fainting past the checkpoint (depth floors or Zeraora).
+function gloomy_forest_midpoint_ch_6.RetreatCutscene()
+  local hero, partner = CH('PLAYER'), CH('Teammate1')
+  GAME:FadeOut(false,1); GAME:CutsceneMode(true)
+  if partner then AI:DisableCharacterAI(partner) end
+  GROUND:TeleportTo(hero,292,176,Direction.Left)
+  if partner then GROUND:TeleportTo(partner,260,176,Direction.Right) end
+  GAME:MoveCamera(276,176,1,false); GAME:FadeIn(30)
+  UI:SetSpeaker(partner)
+  UI:WaitShowDialogue("On a dû battre en retraite...[pause=15] Mais Chenipent est encore là-bas.")
+  GeneralFunctions.HeroDialogue(hero,"(La prochaine fois, nous irons plus loin.)",'Determined')
+  GAME:FadeOut(false,20); GAME:CutsceneMode(false)
+  GAME:EnterGroundMap('guild_second_floor','Main_Entrance_Marker')
+end
+
+-- Returned after fainting past the checkpoint (depth floors or final battle).
 function gloomy_forest_midpoint_ch_6.WipedCutscene()
 
 	--LE NOIR AVANT TOUTE MISE EN PLACE (correctif de retour de boss,

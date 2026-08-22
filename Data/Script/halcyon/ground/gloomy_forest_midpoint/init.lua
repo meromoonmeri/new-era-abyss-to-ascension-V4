@@ -63,6 +63,11 @@ function gloomy_forest_midpoint.PlotScripting()
     GAME:EnterDungeon("gloomy_forest", 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, true)
     return
   end
+  if SV.Chapter6.SinisterRetreatPending then
+    SV.Chapter6.SinisterRetreatPending = false
+    gloomy_forest_midpoint_ch_6.RetreatCutscene()
+    return
+  end
   --L'Epreuve des Trois : la Team Dazzling campe au relais tant que le
   --duel n'a pas eu lieu. Pose AVANT les cinematiques pour que les trois
   --soient deja sur la carte quand le joueur reprend la main.
