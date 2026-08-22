@@ -21,6 +21,20 @@ class FinalDazzlingEncounterTests(unittest.TestCase):
         arena = json.loads((ROOT / 'Data/Map/sinister_woods_dazzling.rsmap').read_text(encoding='utf-8-sig'))['Object']
         species = [member['BaseForm']['Species'] for team in arena['MapTeams'] for member in team['Players']]
         self.assertEqual(species, ['tsareena', 'lopunny', 'mismagius'])
+        refs = set()
+        def walk(value):
+            if isinstance(value, dict):
+                if value.get('AutoTileset'):
+                    refs.add(value['AutoTileset'])
+                for child in value.values():
+                    walk(child)
+            elif isinstance(value, list):
+                for child in value:
+                    walk(child)
+        walk(arena)
+        self.assertEqual(refs, {'sinister_woods_floor', 'sinister_woods_wall'})
+        for autotile in refs:
+            self.assertTrue((ROOT / 'Data/AutoTile' / f'{autotile}.json').is_file())
 
     def test_d04p02_cinematic_transitions_to_final_team_battle(self):
         scene = (ROOT / 'Data/Script/halcyon/ground/gloomy_forest_entrance/gloomy_forest_entrance_ch_6.lua').read_text()

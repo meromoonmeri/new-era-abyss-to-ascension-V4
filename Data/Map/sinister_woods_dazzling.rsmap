@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Dungeon.Map, RogueEssence",
@@ -9,7 +9,7 @@
       }
     },
     "Released": true,
-    "Comment": "Duel amical contre la Team Dazzling (chapitre 6). Geometrie 1:1 de gloomy_forest_boss.",
+    "Comment": "Final Sinister Woods D04P02 battle arena. Team Dazzling replaces Team Meanies; all map AutoTiles use the registered SinisterWoods PMDO resources.",
     "Begun": false,
     "ID": 0,
     "MapTeams": [
@@ -916,7 +916,7 @@
       }
     },
     "BlankBG": {
-      "AutoTileset": "treeshroud_forest_1_wall",
+      "AutoTileset": "sinister_woods_wall",
       "Associates": [],
       "Layers": [],
       "NeighborCode": -1
@@ -2938,7 +2938,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -2960,7 +2960,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -2982,7 +2982,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3004,7 +3004,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3026,7 +3026,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3048,7 +3048,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3070,7 +3070,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3092,7 +3092,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3114,7 +3114,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3136,7 +3136,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3158,7 +3158,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3180,7 +3180,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3202,7 +3202,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3224,7 +3224,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3246,7 +3246,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3268,7 +3268,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3290,7 +3290,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3312,7 +3312,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3336,7 +3336,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3358,7 +3358,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3380,7 +3380,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3402,7 +3402,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3424,7 +3424,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3446,7 +3446,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3468,7 +3468,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3490,7 +3490,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3512,7 +3512,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3534,7 +3534,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3556,7 +3556,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3578,7 +3578,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3600,7 +3600,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3622,7 +3622,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3644,7 +3644,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3666,7 +3666,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3688,7 +3688,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3710,7 +3710,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3734,7 +3734,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3756,7 +3756,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3778,7 +3778,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3800,7 +3800,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 127
@@ -3822,7 +3822,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -3844,7 +3844,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -3866,7 +3866,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -3888,7 +3888,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -3910,7 +3910,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -3932,7 +3932,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -3954,7 +3954,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -3976,7 +3976,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -3998,7 +3998,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -4020,7 +4020,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -4042,7 +4042,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -4064,7 +4064,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 191
@@ -4086,7 +4086,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4108,7 +4108,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4132,7 +4132,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4154,7 +4154,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4176,7 +4176,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4198,7 +4198,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -4220,7 +4220,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 137
@@ -4242,7 +4242,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -4264,7 +4264,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -4286,7 +4286,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -4308,7 +4308,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -4330,7 +4330,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -4352,7 +4352,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -4374,7 +4374,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -4396,7 +4396,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -4418,7 +4418,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -4440,7 +4440,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 76
@@ -4462,7 +4462,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -4484,7 +4484,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4506,7 +4506,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4530,7 +4530,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4552,7 +4552,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4574,7 +4574,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 127
@@ -4596,7 +4596,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 294
@@ -4618,7 +4618,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -4640,7 +4640,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4662,7 +4662,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4684,7 +4684,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4706,7 +4706,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4728,7 +4728,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4750,7 +4750,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4772,7 +4772,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4794,7 +4794,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4816,7 +4816,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4838,7 +4838,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -4860,7 +4860,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -4882,7 +4882,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4904,7 +4904,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4928,7 +4928,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4950,7 +4950,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4972,7 +4972,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 366
@@ -4994,7 +4994,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 137
@@ -5016,7 +5016,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 223
@@ -5038,7 +5038,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5060,7 +5060,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5082,7 +5082,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5104,7 +5104,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5126,7 +5126,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5148,7 +5148,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5170,7 +5170,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5192,7 +5192,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5214,7 +5214,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5236,7 +5236,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -5258,7 +5258,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -5280,7 +5280,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5302,7 +5302,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5326,7 +5326,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5348,7 +5348,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5370,7 +5370,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -5392,7 +5392,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -5414,7 +5414,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5436,7 +5436,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5458,7 +5458,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5480,7 +5480,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5502,7 +5502,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5524,7 +5524,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5546,7 +5546,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5568,7 +5568,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5590,7 +5590,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5612,7 +5612,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5634,7 +5634,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -5656,7 +5656,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -5678,7 +5678,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5700,7 +5700,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5724,7 +5724,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5746,7 +5746,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5768,7 +5768,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 622
@@ -5790,7 +5790,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -5812,7 +5812,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5834,7 +5834,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5856,7 +5856,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5878,7 +5878,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5900,7 +5900,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5922,7 +5922,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5944,7 +5944,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5966,7 +5966,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5988,7 +5988,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6010,7 +6010,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6032,7 +6032,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -6054,7 +6054,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -6076,7 +6076,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6098,7 +6098,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6122,7 +6122,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6144,7 +6144,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6166,7 +6166,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -6188,7 +6188,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -6210,7 +6210,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6232,7 +6232,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6254,7 +6254,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6276,7 +6276,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6298,7 +6298,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6320,7 +6320,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6342,7 +6342,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6364,7 +6364,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6386,7 +6386,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6408,7 +6408,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6430,7 +6430,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -6452,7 +6452,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -6474,7 +6474,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6496,7 +6496,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6520,7 +6520,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6542,7 +6542,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6564,7 +6564,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 366
@@ -6586,7 +6586,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 19
@@ -6608,7 +6608,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 191
@@ -6630,7 +6630,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6652,7 +6652,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6674,7 +6674,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6696,7 +6696,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6718,7 +6718,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6740,7 +6740,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6762,7 +6762,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6784,7 +6784,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6806,7 +6806,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6828,7 +6828,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -6850,7 +6850,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -6872,7 +6872,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6894,7 +6894,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6918,7 +6918,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6940,7 +6940,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6962,7 +6962,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 239
@@ -6984,7 +6984,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 588
@@ -7006,7 +7006,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -7028,7 +7028,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7050,7 +7050,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7072,7 +7072,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7094,7 +7094,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7116,7 +7116,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7138,7 +7138,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7160,7 +7160,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7182,7 +7182,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7204,7 +7204,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7226,7 +7226,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -7248,7 +7248,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -7270,7 +7270,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7292,7 +7292,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7316,7 +7316,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7338,7 +7338,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7360,7 +7360,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7382,7 +7382,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 622
@@ -7404,7 +7404,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 19
@@ -7426,7 +7426,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -7448,7 +7448,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -7470,7 +7470,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -7492,7 +7492,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -7514,7 +7514,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -7536,7 +7536,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -7558,7 +7558,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -7580,7 +7580,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -7602,7 +7602,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -7624,7 +7624,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_floor",
+              "AutoTileset": "sinister_woods_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 38
@@ -7646,7 +7646,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -7668,7 +7668,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7690,7 +7690,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7714,7 +7714,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7736,7 +7736,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7758,7 +7758,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7780,7 +7780,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 239
@@ -7802,7 +7802,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -7824,7 +7824,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -7846,7 +7846,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -7868,7 +7868,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -7890,7 +7890,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -7912,7 +7912,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -7934,7 +7934,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -7956,7 +7956,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -7978,7 +7978,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -8000,7 +8000,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -8022,7 +8022,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -8044,7 +8044,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 223
@@ -8066,7 +8066,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8088,7 +8088,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8112,7 +8112,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8134,7 +8134,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8156,7 +8156,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8178,7 +8178,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8200,7 +8200,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8222,7 +8222,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8244,7 +8244,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8266,7 +8266,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8288,7 +8288,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8310,7 +8310,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8332,7 +8332,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8354,7 +8354,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8376,7 +8376,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8398,7 +8398,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8420,7 +8420,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8442,7 +8442,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8464,7 +8464,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8486,7 +8486,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8510,7 +8510,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8532,7 +8532,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8554,7 +8554,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8576,7 +8576,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8598,7 +8598,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8620,7 +8620,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8642,7 +8642,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8664,7 +8664,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8686,7 +8686,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8708,7 +8708,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8730,7 +8730,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8752,7 +8752,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8774,7 +8774,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8796,7 +8796,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8818,7 +8818,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8840,7 +8840,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8862,7 +8862,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8884,7 +8884,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "treeshroud_forest_1_wall",
+              "AutoTileset": "sinister_woods_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
