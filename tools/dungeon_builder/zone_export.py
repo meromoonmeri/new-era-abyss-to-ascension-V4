@@ -77,6 +77,8 @@ def path_step(profile: ArchitectureProfile, rand: random.Random) -> Dict[str, An
         return S.grid_path_two_sides(rand.random() < 0.5, rooms, halls)
     if profile.path == "cross":
         return S.grid_path_cross(rooms, halls)
+    if profile.path == "tiered":
+        return S.grid_path_tiered(profile.tier_connections, rand.random() < 0.5, rooms, halls)
     return S.grid_path_branch(profile.room_ratio, profile.branch_ratio, rooms, halls,
                               profile.no_forced_branches)
 

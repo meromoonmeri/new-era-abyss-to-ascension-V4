@@ -18,6 +18,7 @@ from typing import Dict, List, Optional, Sequence, Tuple
 from .re_sim.gridplan import GridPlan
 from .re_sim.paths import (
     CombineGridRoomStep,
+    GridPathTiered,
     ConnectGridBranchStep,
     GridPathBranch,
     GridPathCircle,
@@ -60,6 +61,7 @@ class ArchitectureProfile:
     room_ratio: Range = (60, 85)          # GridPathBranch.RoomRatio
     branch_ratio: Range = (30, 70)        # GridPathBranch.BranchRatio
     no_forced_branches: bool = False
+    tier_connections: Range = (1, 3)      # GridPathTiered.TierConnections
     circle_room_ratio: Range = (50, 80)   # GridPathCircle.CircleRoomRatio
     circle_paths: Range = (1, 3)          # GridPathCircle.Paths
     grid_room_ratio: int = 60             # GridPathGrid.RoomRatio
@@ -115,6 +117,8 @@ class ArchitectureProfile:
             return GridPathTwoSides(picker)
         if self.path == "cross":
             return GridPathCross(picker)
+        if self.path == "tiered":
+            return GridPathTiered(picker, tier_connections=RandRange(*_r(self.tier_connections)))
         return GridPathBranch(picker, room_ratio=RandRange(*_r(self.room_ratio)),
                               branch_ratio=RandRange(*_r(self.branch_ratio)),
                               no_forced_branches=self.no_forced_branches)
@@ -187,6 +191,12 @@ BUILTIN_PROFILES: Dict[str, ArchitectureProfile] = {
         grid_x=(5, 8), grid_y=(3, 6), cell_width=(9, 14), cell_height=(8, 12),
         connect_percent=30, combine_rate=20, hall_turn_bias=45,
         rooms=FOREST_ROOMS, tags=("hub",),
+    ),
+    "tiered": ArchitectureProfile(
+        name="tiered", path="tiered",
+        grid_x=(4, 7), grid_y=(3, 5), cell_width=(9, 13), cell_height=(8, 12),
+        tier_connections=(1, 3), connect_percent=20, combine_rate=15, hall_turn_bias=35,
+        default_ratio=(5, 20), rooms=FOREST_ROOMS, tags=("tiers", "alt_paths"),
     ),
     "mixed": ArchitectureProfile(
         name="mixed", path="branch",

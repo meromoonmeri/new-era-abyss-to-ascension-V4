@@ -191,3 +191,21 @@ mécaniquement (`dungeon_builder verify`), et la conformité de l'export a de
 nouveau détecté deux erreurs réelles pendant cette passe : un champ `Amount`
 inexistant sur `MobSpawnStep`, et les champs `TileStencil`/`Global`/`Negate`
 (et non `TerrainStencil`/`Terrain`) sur `NoChokepointTerrainStencil`.
+
+
+---
+
+## 11. Sources du moteur enfin accessibles (2026-08-23, via PMDCollab/PMDC)
+
+Le dépôt `PMDCollab/PMDC` (submodules inclus) est accessible : il embarque
+**RogueEssence** et **MapGenTest**. Deux points restés ouverts sont donc clos :
+
+| Élément | Résultat |
+|---|---|
+| `GridPathTiered` | **Lu intégralement** (`RogueEssence/LevelGen/Floors/GenSteps/FloorPlan/GridPathTiered.cs`, 129 lignes) : `TierAxis` + `TierConnections`, chaînage complet des tiers le long d'un axe puis N ponts aléatoires entre tiers consécutifs. **Porté** dans le simulateur et exposé comme profil `tiered`, avec parité vérifiée. |
+| `GridPathTreads` | **N'existe pas** : aucune classe de ce nom dans RogueElements ni dans RogueEssence. La mention initiale était erronée ; plus rien à porter. |
+| `MapGenTest` | Harnais de génération **headless** du moteur (`-quest <mod>`, touche F2 = *stress test* de toutes les zones). C'est désormais l'outil de validation runtime recommandé : `tools/runtime/run_mapgen_check.sh`. |
+
+Le Builder expose donc **10 profils**, tous adossés à une classe native lue en
+source : `GridPathBranch`, `GridPathCircle`, `GridPathGrid`, `GridPathTwoSides`,
+`GridPathCross` (RogueElements) et `GridPathTiered` (RogueEssence).

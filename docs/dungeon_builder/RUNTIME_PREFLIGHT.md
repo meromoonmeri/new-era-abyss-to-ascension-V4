@@ -1,6 +1,6 @@
 # Pré-vol runtime des zones générées
 
-_Généré le 2026-08-22T23:16:53+00:00 — 51 zones vérifiées : **51 sans référence manquante**, 0 avec anomalie._
+_Généré le 2026-08-22T23:35:26+00:00 — 51 zones vérifiées : **51 sans référence manquante**, 0 avec anomalie._
 
 Ce contrôle ne remplace pas l'exécution par le moteur : il vérifie que **toutes les références** d'une zone existent (tilesets, Grounds, salles fixes, musiques, objets, index), ce qui est la cause principale d'échec au chargement.
 

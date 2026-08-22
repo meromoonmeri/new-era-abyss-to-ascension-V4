@@ -24,8 +24,8 @@ from typing import Any, Dict, Iterable, List, Optional, Sequence, Set, Tuple
 from . import steps as S
 from .profiles import ArchitectureProfile, BUILTIN_PROFILES
 from .re_sim.paths import (CombineGridRoomStep, ConnectGridBranchStep, GridPathBranch,
-                           GridPathCircle, GridPathCross, GridPathGrid, GridPathTwoSides,
-                           SetGridDefaultsStep)
+                           GridPathCircle, GridPathCross, GridPathGrid, GridPathTiered,
+                           GridPathTwoSides, SetGridDefaultsStep)
 
 ROOT = Path(__file__).resolve().parents[2]
 ZONE_DIR = ROOT / "Data" / "Zone"
@@ -37,6 +37,7 @@ PATH_BINDING = {
     "grid": (GridPathGrid, "RogueElements.GridPathGrid"),
     "twosides": (GridPathTwoSides, "RogueElements.GridPathTwoSides"),
     "cross": (GridPathCross, "RogueElements.GridPathCross"),
+    "tiered": (GridPathTiered, "RogueEssence.LevelGen.GridPathTiered"),
 }
 
 ROOM_KIND_TYPE = {

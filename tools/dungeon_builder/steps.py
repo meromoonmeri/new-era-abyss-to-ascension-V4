@@ -136,6 +136,15 @@ def grid_path_cross(rooms, halls) -> Dict[str, Any]:
             "GenericHalls": halls, "HallComponents": CONNECTIVITY_MAIN}
 
 
+def grid_path_tiered(tier_connections: Tuple[int, int], vertical: bool, rooms, halls) -> Dict[str, Any]:
+    """RogueEssence.LevelGen.GridPathTiered (native tiered grid)."""
+    return {"$type": _t("RogueEssence.LevelGen.GridPathTiered", "RogueEssence", MAP_CTX),
+            "TierAxis": 1 if vertical else 0,
+            "TierConnections": rand_range(tier_connections),
+            "GenericRooms": rooms, "RoomComponents": CONNECTIVITY_MAIN,
+            "GenericHalls": halls, "HallComponents": CONNECTIVITY_MAIN}
+
+
 def connect_grid_branch(percent: int, turn_bias: int = 50) -> Dict[str, Any]:
     return {"$type": _t("RogueElements.ConnectGridBranchStep", "RogueElements", MAP_CTX),
             "ConnectPercent": int(percent), "Filters": [FILTER_NOT_NOCONNECT],

@@ -405,6 +405,48 @@ class GridPathGrid(GridPathStep):
 
 # --------------------------------------------------------------------------
 @dataclass
+class GridPathTiered(GridPathStep):
+    """Direct port of RogueEssence.LevelGen.GridPathTiered<T>.
+
+    Source read: PMDC/RogueEssence/RogueEssence/LevelGen/Floors/GenSteps/
+    FloorPlan/GridPathTiered.cs — tiers of rooms fully chained along one axis,
+    then `TierConnections` bridges between consecutive tiers.
+    """
+
+    tier_connections: RandRange = field(default_factory=lambda: RandRange(1, 3))
+    vertical: bool = False          # TierAxis: False = horizontal tiers
+    name: str = "GridPathTiered"
+
+    def apply(self, rand: random.Random, plan: GridPlan) -> None:
+        plan.clear()
+        scalar = plan.grid_h if self.vertical else plan.grid_w
+        orth = plan.grid_w if self.vertical else plan.grid_h
+
+        def loc(s: int, o: int) -> Tuple[int, int]:
+            return (o, s) if self.vertical else (s, o)
+
+        axis_forward = DOWN if self.vertical else RIGHT
+        orth_back = LEFT if self.vertical else UP
+
+        for ii in range(scalar):
+            for jj in range(orth):
+                x, y = loc(ii, jj)
+                plan.add_cell_room(x, y, self.rooms.pick(rand), components=self.room_components)
+                if ii == scalar - 1:
+                    continue
+                plan.set_hall(x, y, axis_forward, True)
+
+        for jj in range(1, orth):
+            amount = max(1, self.tier_connections.pick(rand))
+            possible = list(range(scalar))
+            for _ in range(min(amount, len(possible))):
+                chosen = possible.pop(rand.randrange(len(possible)))
+                x, y = loc(chosen, jj)
+                plan.set_hall(x, y, orth_back, True)
+
+
+# --------------------------------------------------------------------------
+@dataclass
 class ConnectGridBranchStep:
     """Direct port of RogueElements.ConnectGridBranchStep<T> (creates loops)."""
 

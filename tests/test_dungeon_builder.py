@@ -1328,3 +1328,42 @@ class TestRuntimePreflight(unittest.TestCase):
         text = script.read_text(encoding="utf-8")
         self.assertIn("MODS", text)
         self.assertIn("no teleport to another arena", text)
+
+
+class TestTieredProfileAndRuntimeKit(unittest.TestCase):
+    """GridPathTiered is now a real native profile; the runtime kit is headless-capable."""
+
+    def test_tiered_profile_uses_the_engine_class(self):
+        from dungeon_builder.conformance import check_profile_parity
+        profile = get_profile("tiered")
+        row, problems = check_profile_parity(profile)
+        self.assertFalse(problems, problems)
+        self.assertTrue(row["path_step"].startswith("RogueEssence.LevelGen.GridPathTiered"))
+
+    def test_tiered_produces_valid_varied_floors(self):
+        from dungeon_builder.re_sim.pipeline import measure
+        metrics = [measure(get_profile("tiered").simulate(seed)) for seed in range(10)]
+        self.assertEqual(len({m.signature for m in metrics}), 10)
+        for m in metrics:
+            self.assertGreaterEqual(m.rooms, 4)
+            self.assertGreaterEqual(m.halls, 3)
+            self.assertGreaterEqual(m.reachable_ratio, 0.97)
+
+    def test_tiered_export_conforms(self):
+        from dungeon_builder.conformance import check_zone_conformance
+        raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
+        raw["profiles"] = [{"name": "tiered", "weight": 10}]
+        for segment in raw["segments"]:
+            segment["profiles"] = [{"name": "tiered", "weight": 10}]
+        export = build_zone(parse_definition(raw), DungeonRng(seed=8))
+        blob = json.dumps(export.zone_json)
+        self.assertIn("RogueEssence.LevelGen.GridPathTiered", blob)
+        report = check_zone_conformance(export.zone_json, exclude=["gloomy_forest.json"])
+        self.assertFalse(report.unknown_types, report.unknown_types)
+        self.assertFalse(report.unknown_fields, report.unknown_fields)
+
+    def test_headless_runtime_kit_targets_mapgentest(self):
+        script = (REPO / "tools" / "runtime" / "run_mapgen_check.sh").read_text(encoding="utf-8")
+        self.assertIn("MapGenTest", script)
+        self.assertIn("-quest", script)
+        self.assertIn("stress test", script.lower())
