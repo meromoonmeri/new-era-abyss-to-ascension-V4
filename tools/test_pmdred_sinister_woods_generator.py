@@ -147,23 +147,31 @@ class SinisterWoodsGeneratorTests(unittest.TestCase):
             pos = team["Players"][0]["serializationLoc"]
             self.assertIn((pos["X"], pos["Y"]), seen)
 
-    def test_fixed_grounds_are_auto_tiled_and_registered(self):
+    def test_fixed_grounds_use_real_canonical_scene_art_and_are_registered(self):
         index = load(ROOT / "Data/Zone/index.idx")
         self.assertIn("gloomy_forest", index)
         self.assertEqual(index["gloomy_forest"]["Grounds"], list(GROUNDS))
         master = load(ROOT / "Data/Zone/master_zone.json")
         self.assertNotIn("sinister_woods_clearing", master["GroundMaps"])
-        for name in GROUNDS:
+        expected = {
+            "sinister_woods_entrance": "d04p01_Base",
+            "sinister_woods_mid": "BoisDesPlaintes_Base",
+            "sinister_woods_boss": "SinisterWoodsFinalCanonical_Base",
+        }
+        for name, sheet in expected.items():
             self.assertIn(name, master["GroundMaps"])
             ground = load(ROOT / "Data/Ground" / f"{name}.rsground")
             self.assertEqual(ground["AssetName"], name)
-            auto = {
-                cell["AutoTileset"]
+            sheets = {
+                frame["Sheet"]
                 for layer in ground["Layers"]
                 for column in layer["Tiles"]
                 for cell in column
+                for tile_layer in cell.get("Layers", [])
+                for frame in tile_layer.get("Frames", [])
             }
-            self.assertEqual(auto, {"sinister_woods_b41_floor", "sinister_woods_b41_wall"})
+            self.assertEqual(sheets, {sheet})
+            self.assertTrue((ROOT / "Content/Tile" / f"{sheet}.tile").is_file())
 
     def test_builder_and_ten_pass_variation_contract(self):
         subprocess.run(["python3", str(ROOT / "tools/build_chapter6_sinister_woods.py"), "--check"], cwd=ROOT, check=True)

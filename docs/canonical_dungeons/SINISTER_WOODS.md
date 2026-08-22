@@ -47,13 +47,15 @@ Le package RawAsset est conservé dans son format DTEF XML-less original, avec
 les frames d'animation et son manifeste de hash. PMDO sait l'importer via son
 outil **Import DTEF** ; aucun convertisseur DTEF maison n'est ajouté au projet.
 
-Le runtime utilise le matériau `SinisterWoodsB41` déjà isolé dans le dépôt,
-plutôt que de réutiliser les noms `TreeshroudForest1` partagés avec Relic Forest.
-Ses trois `AutoTileAdjacent` sont vérifiés avant construction et les Grounds ou
-la salle de boss reçoivent uniquement une topologie `floor`/`wall` : le code de
-voisinage est calculé d'après la même règle que RogueEssence, donc les bordures,
-coins et raccords viennent des 47 cas PMDO de l'AutoTile, jamais d'une peinture
-manuelle.
+Le runtime procédural utilise le matériau `SinisterWoodsB41` déjà isolé dans
+le dépôt, plutôt que de réutiliser les noms `TreeshroudForest1` partagés avec
+Relic Forest. Ses trois `AutoTileAdjacent` sont vérifiés avant construction.
+
+Les **Grounds fixes** ne sont en revanche pas réduits à une salle carrée
+auto-générée : l'entrée conserve D04P01, le boss conserve la clairière D04P02,
+et le relais conserve une scène forestière composée à la main. Ainsi les
+transitions DTEF restent réservées aux étages procéduraux, tandis que les lieux
+narratifs gardent une composition canonique lisible.
 
 Voir aussi [`dtef_bindings.json`](dtef_bindings.json) et
 `Content/TileDtef/sinister_woods/TreeshroudForest1/RAWASSET_PROVENANCE.json`.

@@ -254,7 +254,52 @@ def template_entity(path: str, category: str, name: str) -> dict[str, Any]:
     raise ValueError(f"{path}: {category}/{name} missing")
 
 
+def install_ground_runtime_entities(ground: dict[str, Any], *, exits: bool, kangaskhan: bool) -> None:
+    """Attach the validated checkpoint interactions without repainting a Ground.
+
+    Ground visuals remain the extracted canonical scene.  Only invisible
+    markers/triggers are introduced, which keeps the scene's tile composition,
+    collision and decorative layers intact instead of reducing it to a square
+    AutoTile room.
+    """
+    obstacles = ground["obstacles"]
+    entry_x, entry_y = free_rect(obstacles, len(obstacles) // 2, len(obstacles[0]) - 4)
+    north_x, north_y = free_rect(obstacles, len(obstacles) // 2, 4)
+    mate_x, mate_y = free_rect(obstacles, max(0, entry_x - 3), entry_y)
+    center_x, center_y = free_rect(obstacles, len(obstacles) // 2, len(obstacles[0]) // 2)
+
+    teammate = template_entity("Data/Ground/crooked_den.rsground", "Spawners", "TEAMMATE_1")
+    teammate["Collider"] = collider(mate_x * 8, mate_y * 8)
+    teammate["NPCName"] = "Teammate1"
+    teammate["EntName"] = "TEAMMATE_1"
+
+    entity_layer = {
+        "Name": "Canonical Runtime Entities",
+        "Visible": True,
+        "Markers": [
+            ground_marker("Main_Entrance_Marker", entry_x * 8, entry_y * 8),
+            ground_marker("Entrance", entry_x * 8, entry_y * 8),
+        ],
+        "Spawners": [teammate],
+        "GroundObjects": [],
+        "MapChars": [],
+    }
+    if exits:
+        north = template_entity("Data/Ground/crooked_cavern_midpoint.rsground", "GroundObjects", "North_Exit")
+        south = template_entity("Data/Ground/crooked_cavern_midpoint.rsground", "GroundObjects", "South_Exit")
+        north["Collider"] = collider(north_x * 8, north_y * 8, 24, 8)
+        south["Collider"] = collider(entry_x * 8, entry_y * 8, 24, 8)
+        entity_layer["GroundObjects"].extend([north, south])
+    if kangaskhan:
+        rock = template_entity("Data/Ground/crooked_cavern_midpoint.rsground", "GroundObjects", "Kangaskhan_Rock")
+        rock["Collider"] = collider(center_x * 8, center_y * 8, 24, 24)
+        entity_layer["GroundObjects"].append(rock)
+    ground["Entities"] = [entity_layer]
+
+
 def build_entrance_ground() -> dict[str, Any]:
+    # D04P01 is the actual Rescue Team Sinister Woods approach.  Preserve its
+    # authored tree/path composition rather than flattening it into autotiles.
     ground = copy.deepcopy(read_json(ROOT / "Data/Ground/d04p01.rsground")["Object"])
     ground.update(
         {
@@ -262,103 +307,44 @@ def build_entrance_ground() -> dict[str, Any]:
             "AssetName": "sinister_woods_entrance",
             "Music": MUSIC,
             "Released": True,
-            "Comment": (
-                "D04P01 geometry preserved as the canonical Sinister Woods approach. "
-                "Retextured with the unique DTEF-derived Sinister Woods AutoTiles."
-            ),
+            "Comment": "Canonical PMD Red D04P01 visual Ground; runtime entrance markers added without replacing its tiles.",
         }
     )
-    retile_ground_with_dtef(ground)
-
-    obstacles = ground["obstacles"]
-    entry_x, entry_y = free_rect(obstacles, len(obstacles) // 2, len(obstacles[0]) - 4)
-    north_x, north_y = free_rect(obstacles, len(obstacles) // 2, 8)
-    teammate_x, teammate_y = free_rect(obstacles, max(0, entry_x - 3), entry_y)
-
-    teammate = template_entity("Data/Ground/crooked_den.rsground", "Spawners", "TEAMMATE_1")
-    teammate["Collider"] = collider(teammate_x * 8, teammate_y * 8)
-    teammate["NPCName"] = "Teammate1"
-    teammate["EntName"] = "TEAMMATE_1"
-
-    north = template_entity("Data/Ground/searing_tunnel_midpoint.rsground", "GroundObjects", "North_Exit")
-    north["Collider"] = collider(north_x * 8, north_y * 8)
-    south = template_entity("Data/Ground/searing_tunnel_midpoint.rsground", "GroundObjects", "South_Exit")
-    south["Collider"] = collider(entry_x * 8, entry_y * 8)
-
-    ground["Entities"] = [
-        {
-            "Markers": [
-                ground_marker("Main_Entrance_Marker", entry_x * 8, entry_y * 8),
-                ground_marker("Entrance", entry_x * 8, entry_y * 8),
-            ],
-            "Spawners": [teammate],
-            "GroundObjects": [north, south],
-            "MapChars": [],
-        }
-    ]
+    install_ground_runtime_entities(ground, exits=True, kangaskhan=False)
     return ground
 
 
 def build_midpoint_ground() -> dict[str, Any]:
-    # Searing Tunnel's functional checkpoint supplies the Kangaskhan Rock,
-    # forward/back exits and partner spawn.  Only the visual material changes.
-    ground = copy.deepcopy(read_json(ROOT / "Data/Ground/searing_tunnel_midpoint.rsground")["Object"])
+    # A forest Ground keeps the midpoint visibly part of Sinister Woods.  The
+    # Searing Tunnel contribution is the proven Kangaskhan checkpoint behavior,
+    # not its unrelated cave artwork.
+    ground = copy.deepcopy(read_json(ROOT / "Data/Ground/bois_des_plaintes.rsground")["Object"])
     ground.update(
         {
             "Name": {"DefaultText": "Sinister Woods Midpoint", "LocalTexts": {"fr": "Relais de la Forêt Sinistre"}},
             "AssetName": "sinister_woods_mid",
             "Music": MUSIC,
             "Released": True,
-            "Comment": (
-                "Functional Searing Tunnel checkpoint template: Kangaskhan save/storage/rest, "
-                "forward/back exits, rethemed through the Sinister Woods DTEF AutoTiles. "
-                "Entity colliders are re-anchored on its proven connected collision component."
-            ),
+            "Comment": "Forest checkpoint Ground with the validated Searing Tunnel Kangaskhan save/rest/exit behavior; canonical forest artwork retained.",
         }
     )
-    retile_ground_with_dtef(ground)
-
-    # The historic Searing art grid is TexSize=3 while its collision grid is
-    # 8px.  Its original chapter scene positioned some entities outside the
-    # walkable component.  Re-anchor only the interactive points, preserving
-    # the template's statue and collision topology, so the checkpoint is
-    # actually usable rather than merely visually cloned.
-    obstacles = ground["obstacles"]
-    entry_x, entry_y = free_rect(obstacles, 30, 40)
-    north_x, north_y = free_rect(obstacles, 45, 20)
-    mate_x, mate_y = free_rect(obstacles, max(0, entry_x - 3), entry_y)
-    entities = ground["Entities"][0]
-    for marker in entities["Markers"]:
-        if marker.get("EntName") in {"Main_Entrance_Marker", "Entrance"}:
-            marker["Collider"] = collider(entry_x * 8, entry_y * 8)
-    for spawner in entities["Spawners"]:
-        if spawner.get("EntName") == "TEAMMATE_1":
-            spawner["Collider"] = collider(mate_x * 8, mate_y * 8)
-    for obj in entities["GroundObjects"]:
-        if obj.get("EntName") == "North_Exit":
-            obj["Collider"] = collider(north_x * 8, north_y * 8)
-        elif obj.get("EntName") == "South_Exit":
-            obj["Collider"] = collider(entry_x * 8, entry_y * 8)
+    install_ground_runtime_entities(ground, exits=True, kangaskhan=True)
     return ground
 
 
 def build_boss_ground() -> dict[str, Any]:
-    # Crooked Den is the approved compact boss-room template.  The fixed
-    # battle map is loaded only after this narrative staging Ground.
-    ground = copy.deepcopy(read_json(ROOT / "Data/Ground/crooked_den.rsground")["Object"])
+    # D04P02 is the canonical clearing where Team Meanies confront the player.
+    ground = copy.deepcopy(read_json(ROOT / "Data/Ground/sinister_woods_clearing.rsground")["Object"])
     ground.update(
         {
             "Name": {"DefaultText": "Sinister Woods Boss", "LocalTexts": {"fr": "Clairière de la Forêt Sinistre"}},
             "AssetName": "sinister_woods_boss",
             "Music": BOSS_MUSIC,
             "Released": True,
-            "Comment": (
-                "Crooked Den boss-room template calibrated for the three-member Team Meanies encounter; "
-                "retextured through the Sinister Woods DTEF AutoTiles."
-            ),
+            "Comment": "Canonical PMD Red D04P02 clearing, used as the Team Meanies boss Ground without synthetic tile replacement.",
         }
     )
-    retile_ground_with_dtef(ground)
+    install_ground_runtime_entities(ground, exits=False, kangaskhan=False)
     return ground
 
 
@@ -992,7 +978,12 @@ def validate() -> list[str]:
     master = read_json(ROOT / "Data/Zone/master_zone.json")["Object"]
     if "sinister_woods_clearing" in master.get("GroundMaps", []):
         errors.append("legacy sinister_woods_clearing is still registered as an active Ground")
-    for name in ("sinister_woods_entrance", "sinister_woods_mid", "sinister_woods_boss"):
+    expected_sheets = {
+        "sinister_woods_entrance": "d04p01_Base",
+        "sinister_woods_mid": "BoisDesPlaintes_Base",
+        "sinister_woods_boss": "SinisterWoodsFinalCanonical_Base",
+    }
+    for name, expected_sheet in expected_sheets.items():
         path = ROOT / "Data/Ground" / f"{name}.rsground"
         if not path.is_file():
             errors.append(f"missing ground {name}")
@@ -1000,14 +991,19 @@ def validate() -> list[str]:
         payload = read_json(path)["Object"]
         if payload.get("AssetName") != name:
             errors.append(f"ground {name}: AssetName mismatch")
-        all_auto = [
-            tile.get("AutoTileset", "")
+        sheets = {
+            frame.get("Sheet")
             for layer in payload.get("Layers", [])
             for column in layer.get("Tiles", [])
             for tile in column
-        ]
-        if not all_auto or any(value not in {DTEF_AUTOTILES["floor"], DTEF_AUTOTILES["wall"]} for value in all_auto):
-            errors.append(f"ground {name}: not fully DTEF auto-tiled")
+            for tile_layer in tile.get("Layers", [])
+            for frame in tile_layer.get("Frames", [])
+            if frame.get("Sheet")
+        }
+        if sheets != {expected_sheet}:
+            errors.append(f"ground {name}: expected canonical sheet {expected_sheet}, got {sorted(sheets)}")
+        if not (ROOT / "Content/Tile" / f"{expected_sheet}.tile").is_file():
+            errors.append(f"ground {name}: missing canonical sheet {expected_sheet}")
 
     boss = ROOT / "Data/Map/sinister_woods_boss.rsmap"
     if not boss.is_file():

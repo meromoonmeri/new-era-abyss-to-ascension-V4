@@ -28,15 +28,25 @@ class SinisterWoodsChainAssetTests(unittest.TestCase):
         self.assertEqual(materials, {"sinister_woods_b41_floor", "sinister_woods_b41_wall"})
         self.assertNotIn("treeshroud_forest_1_", json.dumps(data))
 
-    def test_every_fixed_ground_uses_computed_auto_tiles_not_sheet_coordinates(self):
-        for name in ("sinister_woods_entrance", "sinister_woods_mid", "sinister_woods_boss"):
+    def test_fixed_grounds_keep_canonical_scene_sheets_instead_of_square_autotile_placeholders(self):
+        expected = {
+            "sinister_woods_entrance": "d04p01_Base",
+            "sinister_woods_mid": "BoisDesPlaintes_Base",
+            "sinister_woods_boss": "SinisterWoodsFinalCanonical_Base",
+        }
+        for name, sheet in expected.items():
             ground = load(ROOT / "Data/Ground" / f"{name}.rsground")
             self.assertEqual(ground["AssetName"], name)
             cells = [cell for layer in ground["Layers"] for column in layer["Tiles"] for cell in column]
             self.assertTrue(cells)
-            self.assertTrue(all(cell["AutoTileset"] in MATERIALS for cell in cells))
-            self.assertTrue(all(not cell["Layers"] for cell in cells))
-            self.assertTrue(all(0 <= cell["NeighborCode"] <= 255 for cell in cells))
+            sheets = {
+                frame["Sheet"]
+                for cell in cells
+                for tile_layer in cell.get("Layers", [])
+                for frame in tile_layer.get("Frames", [])
+            }
+            self.assertEqual(sheets, {sheet})
+            self.assertTrue((ROOT / "Content/Tile" / f"{sheet}.tile").is_file())
 
     def test_rawasset_dtef_bundle_is_complete_and_has_a_hash_manifest(self):
         folder = ROOT / "Content/TileDtef/sinister_woods/TreeshroudForest1"
