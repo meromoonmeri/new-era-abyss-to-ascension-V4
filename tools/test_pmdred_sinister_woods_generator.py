@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ZONE_PATH = ROOT / "Data/Zone/gloomy_forest.json"
 BOSS_PATH = ROOT / "Data/Map/sinister_woods_boss.rsmap"
 GROUNDS = ("sinister_woods_entrance", "sinister_woods_mid", "sinister_woods_boss")
-MATERIALS = {"sinister_woods_b41_floor", "sinister_woods_b41_wall", "sinister_woods_b41_secondary"}
+MATERIALS = {"canon_treeshroud_floor", "canon_treeshroud_wall", "canon_treeshroud_secondary"}
 
 
 def load(path: Path):

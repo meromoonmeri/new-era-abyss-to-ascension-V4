@@ -64,7 +64,7 @@
 | Boss Ground | `sinister_woods_boss` |
 | Boss map | `Data/Map/sinister_woods_boss.rsmap` |
 | Étages | 1–10 → relais → 11–12 → boss fixe 13 |
-| Matériau | `sinister_woods_b41_floor/wall/secondary` + source `Content/TileDtef/sinister_woods/TreeshroudForest1/` |
+| Matériau | `canon_treeshroud_floor/wall/secondary` importé depuis `Content/TileDtef/sinister_woods/TreeshroudForest1/` |
 | Données source | [Bulbapedia — Sinister Woods](https://bulbapedia.bulbagarden.net/wiki/Sinister_Woods) |
 | Fiche | [`docs/canonical_dungeons/SINISTER_WOODS.md`](canonical_dungeons/SINISTER_WOODS.md) |
 

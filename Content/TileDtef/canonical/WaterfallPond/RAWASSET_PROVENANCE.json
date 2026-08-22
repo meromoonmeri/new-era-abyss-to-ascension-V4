@@ -1,0 +1,184 @@
+{
+  "schema": "new-era.rawasset-dtef-source.v1",
+  "repository": "https://github.com/PMDCollab/RawAsset",
+  "path": "TileDtef/WaterfallPond",
+  "ref": "master",
+  "format": "XML-less DTEF",
+  "files": [
+    {
+      "name": "tileset_0.png",
+      "bytes": 38219,
+      "sha256": "1c71f89042cf8bfefa6c15a5ff06aada4609182108c788f821fbf9955a1d8e69",
+      "git_blob_sha": "b40f39759e26783a0bd10552c2c45a81b908b8da",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0.png"
+    },
+    {
+      "name": "tileset_0_frame0_0.12.png",
+      "bytes": 38273,
+      "sha256": "6f9b8f0e3ae3493d45a18f2398c22d7d494be2c799062b597e334232a2202fbf",
+      "git_blob_sha": "027ff336fae2a2511bffbe39efef249af189a997",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_0.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_1.12.png",
+      "bytes": 38476,
+      "sha256": "90b88df55dc2524b30d32943f16b5b09ac4f0d91dffa4ccb39853db891109850",
+      "git_blob_sha": "fa969f2c96fae5be76f1acde049e8f0d4ca38747",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_1.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_10.12.png",
+      "bytes": 38299,
+      "sha256": "e03b34f99473d09cd885364297c3414e216b2a616090a5bac0b86945dc0af4db",
+      "git_blob_sha": "21673d808baf25f2bb785cc8722cd11ab2f5129e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_10.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_11.12.png",
+      "bytes": 38299,
+      "sha256": "e03b34f99473d09cd885364297c3414e216b2a616090a5bac0b86945dc0af4db",
+      "git_blob_sha": "21673d808baf25f2bb785cc8722cd11ab2f5129e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_11.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_12.12.png",
+      "bytes": 38285,
+      "sha256": "a13e37997f1f5a4f154be37be261c97f301cdc5d4bbd45fd6ad5d694e19a72a3",
+      "git_blob_sha": "676747faa64548784de57f56cb51c8b6bdb719e7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_12.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_13.12.png",
+      "bytes": 38353,
+      "sha256": "a29c829180a0f86cd88c7df7724299854cfd2be7723dd55f0a9a902258d4097f",
+      "git_blob_sha": "253066c68067318689ce1ff27a42b05add156ceb",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_13.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_14.12.png",
+      "bytes": 38360,
+      "sha256": "d87f964e7f23f2b7b9c335256f65c3aeb98c99a49a0b498715d5f3542126dbe4",
+      "git_blob_sha": "bd5a2840080d00c298d293835fb787a557cde801",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_14.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_15.12.png",
+      "bytes": 38360,
+      "sha256": "91b2b5f4aaa61488ed177da2a922552b890695d48d43787ab225469de231304f",
+      "git_blob_sha": "d1a2924682ba3fd7c4111718c0b282a912ea3c0c",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_15.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_16.12.png",
+      "bytes": 38464,
+      "sha256": "be4d3915d43c0c1ae14854501ec38abe86e7f985c61e75180c7424e5aa93d80e",
+      "git_blob_sha": "f62208649013c13a22fabd59b3caf2474bcd8f76",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_16.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_17.12.png",
+      "bytes": 38334,
+      "sha256": "2c17185c99692bb6002232f75cc0c09b06eaf248fb80df89b57c7696ff3663c7",
+      "git_blob_sha": "9408af3af81b154d72313b94248efa5dd9c978a6",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_17.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_18.12.png",
+      "bytes": 38407,
+      "sha256": "726b5943fc37296eedbd35a788a1107284a20100204b8f51961217437757c4b1",
+      "git_blob_sha": "36e0fe4ac2d2da1ce60ab02a5f02202cd0de9ffa",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_18.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_19.12.png",
+      "bytes": 38476,
+      "sha256": "90b88df55dc2524b30d32943f16b5b09ac4f0d91dffa4ccb39853db891109850",
+      "git_blob_sha": "fa969f2c96fae5be76f1acde049e8f0d4ca38747",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_19.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_2.12.png",
+      "bytes": 38407,
+      "sha256": "726b5943fc37296eedbd35a788a1107284a20100204b8f51961217437757c4b1",
+      "git_blob_sha": "36e0fe4ac2d2da1ce60ab02a5f02202cd0de9ffa",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_2.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_20.12.png",
+      "bytes": 38273,
+      "sha256": "6f9b8f0e3ae3493d45a18f2398c22d7d494be2c799062b597e334232a2202fbf",
+      "git_blob_sha": "027ff336fae2a2511bffbe39efef249af189a997",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_20.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_3.12.png",
+      "bytes": 38334,
+      "sha256": "2c17185c99692bb6002232f75cc0c09b06eaf248fb80df89b57c7696ff3663c7",
+      "git_blob_sha": "9408af3af81b154d72313b94248efa5dd9c978a6",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_3.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_4.12.png",
+      "bytes": 38464,
+      "sha256": "be4d3915d43c0c1ae14854501ec38abe86e7f985c61e75180c7424e5aa93d80e",
+      "git_blob_sha": "f62208649013c13a22fabd59b3caf2474bcd8f76",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_4.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_5.12.png",
+      "bytes": 38360,
+      "sha256": "91b2b5f4aaa61488ed177da2a922552b890695d48d43787ab225469de231304f",
+      "git_blob_sha": "d1a2924682ba3fd7c4111718c0b282a912ea3c0c",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_5.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_6.12.png",
+      "bytes": 38360,
+      "sha256": "d87f964e7f23f2b7b9c335256f65c3aeb98c99a49a0b498715d5f3542126dbe4",
+      "git_blob_sha": "bd5a2840080d00c298d293835fb787a557cde801",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_6.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_7.12.png",
+      "bytes": 38353,
+      "sha256": "a29c829180a0f86cd88c7df7724299854cfd2be7723dd55f0a9a902258d4097f",
+      "git_blob_sha": "253066c68067318689ce1ff27a42b05add156ceb",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_7.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_8.12.png",
+      "bytes": 38285,
+      "sha256": "a13e37997f1f5a4f154be37be261c97f301cdc5d4bbd45fd6ad5d694e19a72a3",
+      "git_blob_sha": "676747faa64548784de57f56cb51c8b6bdb719e7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_8.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_9.12.png",
+      "bytes": 38299,
+      "sha256": "e03b34f99473d09cd885364297c3414e216b2a616090a5bac0b86945dc0af4db",
+      "git_blob_sha": "21673d808baf25f2bb785cc8722cd11ab2f5129e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_0_frame0_9.12.png"
+    },
+    {
+      "name": "tileset_1.png",
+      "bytes": 10673,
+      "sha256": "2f297a70abd6ad49abc5283932f151a3ffb4afda09fe00abc15dfafe75a5bb90",
+      "git_blob_sha": "c86b975fe763ed366a97f77d3bf3e430da248ce4",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_1.png"
+    },
+    {
+      "name": "tileset_2.png",
+      "bytes": 7379,
+      "sha256": "ac6c5931e4f869d10e072dd2086199c8deda6fffe7f83e05a20a9c19d7fc7827",
+      "git_blob_sha": "848e2e32b0d904178225d1eefcea85457b07965c",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_2.png"
+    },
+    {
+      "name": "tileset_more.png",
+      "bytes": 181,
+      "sha256": "ab7a6da613e07e5cc8e45508b9c89b590c065841b55d60aee106003b6dba0886",
+      "git_blob_sha": "4b8133dc2bda049aec4ea55f5ac694192ac4acb0",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WaterfallPond/tileset_more.png"
+    }
+  ]
+}

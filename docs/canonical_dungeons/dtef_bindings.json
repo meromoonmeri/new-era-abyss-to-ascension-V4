@@ -19,10 +19,10 @@
         "provenance_manifest": "Content/TileDtef/sinister_woods/TreeshroudForest1/RAWASSET_PROVENANCE.json"
       },
       "runtime": {
-        "sheet": "SinisterWoodsB41",
-        "floor": "sinister_woods_b41_floor",
-        "wall": "sinister_woods_b41_wall",
-        "secondary": "sinister_woods_b41_secondary",
+        "sheet": "CanonTreeshroud",
+        "floor": "canon_treeshroud_floor",
+        "wall": "canon_treeshroud_wall",
+        "secondary": "canon_treeshroud_secondary",
         "namespace_policy": "unique; must not overwrite shared treeshroud_forest_1_* material",
         "autotile_type": "RogueEssence.Dungeon.AutoTileAdjacent",
         "adjacency_policy": "Neighbour codes are generated from topology through the RogueEssence AutoTileAdjacent rule; fixed Grounds never contain hand-selected sheet coordinates."

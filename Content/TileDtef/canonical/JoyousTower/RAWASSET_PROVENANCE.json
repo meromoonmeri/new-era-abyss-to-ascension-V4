@@ -1,0 +1,184 @@
+{
+  "schema": "new-era.rawasset-dtef-source.v1",
+  "repository": "https://github.com/PMDCollab/RawAsset",
+  "path": "TileDtef/JoyousTower",
+  "ref": "master",
+  "format": "XML-less DTEF",
+  "files": [
+    {
+      "name": "tileset_0.png",
+      "bytes": 31032,
+      "sha256": "b7d30a84de95e464c9b8413e8fab1fc2d8e107c3e05e1a107c0fd1c3d1ca74d3",
+      "git_blob_sha": "e4806d67a2233e2464b8e3f3532c8bad6af408a5",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0.png"
+    },
+    {
+      "name": "tileset_0_frame0_0.10.png",
+      "bytes": 31067,
+      "sha256": "9fdca6199eb51dee394255f9006a7cddfa045a3160d0996769583ea9715198e4",
+      "git_blob_sha": "f81224890683165dc197ff0228dcd0d1e8e75a4f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_0.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_1.10.png",
+      "bytes": 31039,
+      "sha256": "40ec4ddfc599843622481f1bc2e9c219054ba7cfbb2e49ca7c90bdb7c4cf1054",
+      "git_blob_sha": "b9dc28419463165667ac154f71e23df3e80f1fd9",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_1.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_10.10.png",
+      "bytes": 30984,
+      "sha256": "9e24c3a07b9a04aa76aea078ee0b1169ff0d9afe6cecffadfa17d734731912b5",
+      "git_blob_sha": "88f57968848cc42b1e1f4ef4abbd29b35227949d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_10.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_11.10.png",
+      "bytes": 30984,
+      "sha256": "9e24c3a07b9a04aa76aea078ee0b1169ff0d9afe6cecffadfa17d734731912b5",
+      "git_blob_sha": "88f57968848cc42b1e1f4ef4abbd29b35227949d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_11.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_12.10.png",
+      "bytes": 30984,
+      "sha256": "9e24c3a07b9a04aa76aea078ee0b1169ff0d9afe6cecffadfa17d734731912b5",
+      "git_blob_sha": "88f57968848cc42b1e1f4ef4abbd29b35227949d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_12.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_13.10.png",
+      "bytes": 31079,
+      "sha256": "18f8227d28e3d2374fdacfbea97e6a069b0414299f5476969f3eee1bd19da743",
+      "git_blob_sha": "a0d5d9b3fa4405d46078af334dbee9d0f774d860",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_13.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_14.10.png",
+      "bytes": 31079,
+      "sha256": "18f8227d28e3d2374fdacfbea97e6a069b0414299f5476969f3eee1bd19da743",
+      "git_blob_sha": "a0d5d9b3fa4405d46078af334dbee9d0f774d860",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_14.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_15.10.png",
+      "bytes": 31015,
+      "sha256": "fad362189e171733e56e3a7f8b8b9f2b5bf9d0e6cc4ec343a4ce08007b1b1843",
+      "git_blob_sha": "dc2f0f87c8c4fd1cd10ba79e04a92b9d878425c7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_15.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_16.10.png",
+      "bytes": 31015,
+      "sha256": "fad362189e171733e56e3a7f8b8b9f2b5bf9d0e6cc4ec343a4ce08007b1b1843",
+      "git_blob_sha": "dc2f0f87c8c4fd1cd10ba79e04a92b9d878425c7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_16.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_17.10.png",
+      "bytes": 31103,
+      "sha256": "191e6740aa6d940423c3f27337d73e4b213557eeff8188d5e675d04944bc1300",
+      "git_blob_sha": "df96e49bd114aba5ae58b5559ece5f583c08ed76",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_17.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_18.10.png",
+      "bytes": 31039,
+      "sha256": "40ec4ddfc599843622481f1bc2e9c219054ba7cfbb2e49ca7c90bdb7c4cf1054",
+      "git_blob_sha": "b9dc28419463165667ac154f71e23df3e80f1fd9",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_18.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_19.10.png",
+      "bytes": 31039,
+      "sha256": "40ec4ddfc599843622481f1bc2e9c219054ba7cfbb2e49ca7c90bdb7c4cf1054",
+      "git_blob_sha": "b9dc28419463165667ac154f71e23df3e80f1fd9",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_19.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_2.10.png",
+      "bytes": 31039,
+      "sha256": "40ec4ddfc599843622481f1bc2e9c219054ba7cfbb2e49ca7c90bdb7c4cf1054",
+      "git_blob_sha": "b9dc28419463165667ac154f71e23df3e80f1fd9",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_2.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_20.10.png",
+      "bytes": 31067,
+      "sha256": "9fdca6199eb51dee394255f9006a7cddfa045a3160d0996769583ea9715198e4",
+      "git_blob_sha": "f81224890683165dc197ff0228dcd0d1e8e75a4f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_20.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_3.10.png",
+      "bytes": 31103,
+      "sha256": "191e6740aa6d940423c3f27337d73e4b213557eeff8188d5e675d04944bc1300",
+      "git_blob_sha": "df96e49bd114aba5ae58b5559ece5f583c08ed76",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_3.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_4.10.png",
+      "bytes": 31015,
+      "sha256": "fad362189e171733e56e3a7f8b8b9f2b5bf9d0e6cc4ec343a4ce08007b1b1843",
+      "git_blob_sha": "dc2f0f87c8c4fd1cd10ba79e04a92b9d878425c7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_4.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_5.10.png",
+      "bytes": 31015,
+      "sha256": "fad362189e171733e56e3a7f8b8b9f2b5bf9d0e6cc4ec343a4ce08007b1b1843",
+      "git_blob_sha": "dc2f0f87c8c4fd1cd10ba79e04a92b9d878425c7",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_5.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_6.10.png",
+      "bytes": 31079,
+      "sha256": "18f8227d28e3d2374fdacfbea97e6a069b0414299f5476969f3eee1bd19da743",
+      "git_blob_sha": "a0d5d9b3fa4405d46078af334dbee9d0f774d860",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_6.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_7.10.png",
+      "bytes": 31079,
+      "sha256": "18f8227d28e3d2374fdacfbea97e6a069b0414299f5476969f3eee1bd19da743",
+      "git_blob_sha": "a0d5d9b3fa4405d46078af334dbee9d0f774d860",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_7.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_8.10.png",
+      "bytes": 30984,
+      "sha256": "9e24c3a07b9a04aa76aea078ee0b1169ff0d9afe6cecffadfa17d734731912b5",
+      "git_blob_sha": "88f57968848cc42b1e1f4ef4abbd29b35227949d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_8.10.png"
+    },
+    {
+      "name": "tileset_0_frame0_9.10.png",
+      "bytes": 30984,
+      "sha256": "9e24c3a07b9a04aa76aea078ee0b1169ff0d9afe6cecffadfa17d734731912b5",
+      "git_blob_sha": "88f57968848cc42b1e1f4ef4abbd29b35227949d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_0_frame0_9.10.png"
+    },
+    {
+      "name": "tileset_1.png",
+      "bytes": 12142,
+      "sha256": "0b33de5055b1ebce4e22e196c9c6fb95270f3c12f3d7d4b1a410326cc4625103",
+      "git_blob_sha": "f6b70c80da43a66959e81e1f79c108d231c2e10d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_1.png"
+    },
+    {
+      "name": "tileset_2.png",
+      "bytes": 9379,
+      "sha256": "adde8191cb8720fcc3f4e2d81868d7b73820d856f764250767e21def4abe1f50",
+      "git_blob_sha": "c35dae29f108c9526d0f53bc1f05d729d40ea019",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_2.png"
+    },
+    {
+      "name": "tileset_more.png",
+      "bytes": 180,
+      "sha256": "e7b0fa5226c59f63b056b4fa76e6af477ae98daabef0c705e1bb1e21744e0c26",
+      "git_blob_sha": "1d2fefb5f73f7ad9f04da8797b2bdcfb576ee033",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/JoyousTower/tileset_more.png"
+    }
+  ]
+}

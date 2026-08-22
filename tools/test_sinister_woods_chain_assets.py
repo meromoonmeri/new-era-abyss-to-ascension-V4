@@ -7,7 +7,7 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-MATERIALS = {"sinister_woods_b41_floor", "sinister_woods_b41_wall", "sinister_woods_b41_secondary"}
+MATERIALS = {"canon_treeshroud_floor", "canon_treeshroud_wall", "canon_treeshroud_secondary"}
 
 
 def load(path: Path):
@@ -25,7 +25,7 @@ class SinisterWoodsChainAssetTests(unittest.TestCase):
             for column in data["Tiles"]
             for tile in column
         }
-        self.assertEqual(materials, {"sinister_woods_b41_floor", "sinister_woods_b41_wall"})
+        self.assertEqual(materials, {"canon_treeshroud_floor", "canon_treeshroud_wall"})
         self.assertNotIn("treeshroud_forest_1_", json.dumps(data))
 
     def test_fixed_grounds_keep_canonical_scene_sheets_instead_of_square_autotile_placeholders(self):
@@ -62,7 +62,7 @@ class SinisterWoodsChainAssetTests(unittest.TestCase):
         for material in MATERIALS:
             self.assertIn(material, index)
             self.assertTrue((ROOT / "Data/AutoTile" / f"{material}.json").is_file())
-        self.assertTrue((ROOT / "Content/Tile/SinisterWoodsB41.tile").is_file())
+        self.assertTrue((ROOT / "Content/Tile/CanonTreeshroud.tile").is_file())
 
 
 if __name__ == "__main__":

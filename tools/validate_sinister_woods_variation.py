@@ -26,7 +26,7 @@ from typing import Any, Iterator
 
 ROOT = Path(__file__).resolve().parents[1]
 ZONE_PATH = ROOT / "Data/Zone/gloomy_forest.json"
-MATERIALS = {"sinister_woods_b41_floor", "sinister_woods_b41_wall", "sinister_woods_b41_secondary"}
+MATERIALS = {"canon_treeshroud_floor", "canon_treeshroud_wall", "canon_treeshroud_secondary"}
 
 
 def walk(value: Any) -> Iterator[Any]:

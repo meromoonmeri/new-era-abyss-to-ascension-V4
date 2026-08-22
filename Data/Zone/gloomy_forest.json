@@ -330,9 +330,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -772,9 +772,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -1275,9 +1275,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -1770,9 +1770,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -2212,9 +2212,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -2715,9 +2715,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -3210,9 +3210,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -3652,9 +3652,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -4155,9 +4155,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -4650,9 +4650,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -5092,9 +5092,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -5595,9 +5595,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -6103,9 +6103,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -6558,9 +6558,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -7074,9 +7074,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -7582,9 +7582,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -8037,9 +8037,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -8553,9 +8553,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -9061,9 +9061,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -9516,9 +9516,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -10032,9 +10032,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -10527,9 +10527,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -10969,9 +10969,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -11472,9 +11472,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -11967,9 +11967,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -12409,9 +12409,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -12912,9 +12912,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -13407,9 +13407,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -13849,9 +13849,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -14352,9 +14352,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -15767,9 +15767,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -16256,9 +16256,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -16806,9 +16806,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -17348,9 +17348,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -17837,9 +17837,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"
@@ -18387,9 +18387,9 @@
                           },
                           "Value": {
                             "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                            "GroundTileset": "sinister_woods_b41_floor",
-                            "BlockTileset": "sinister_woods_b41_wall",
-                            "WaterTileset": "sinister_woods_b41_secondary",
+                            "GroundTileset": "canon_treeshroud_floor",
+                            "BlockTileset": "canon_treeshroud_wall",
+                            "WaterTileset": "canon_treeshroud_secondary",
                             "LayeredGround": false,
                             "IndependentGround": false,
                             "GroundElement": "grass"

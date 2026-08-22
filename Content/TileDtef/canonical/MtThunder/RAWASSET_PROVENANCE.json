@@ -1,0 +1,261 @@
+{
+  "schema": "new-era.rawasset-dtef-source.v1",
+  "repository": "https://github.com/PMDCollab/RawAsset",
+  "path": "TileDtef/MtThunder",
+  "ref": "master",
+  "format": "XML-less DTEF",
+  "files": [
+    {
+      "name": "tileset_0.png",
+      "bytes": 44926,
+      "sha256": "79be22f175955cc2567633f432b45be97c5dbbcba497b1a948b06353c3a05845",
+      "git_blob_sha": "0da2d5c1a503a9b5c771383e3e4d839e4d53f7e4",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0.png"
+    },
+    {
+      "name": "tileset_0_frame0_0.12.png",
+      "bytes": 45220,
+      "sha256": "4f0096288c21c814044bb9955bd9832ac2d32852a5b496114439c68c8ec64b05",
+      "git_blob_sha": "9ee63a5eba23e398305812b5514abc43b3b392b2",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame0_0.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_1.12.png",
+      "bytes": 45234,
+      "sha256": "d1c2e6b1eb661b2e4e3ae97ba426d9cc897432fcb7204a0755bed0c3ef521e25",
+      "git_blob_sha": "243c53be5001de05c3666234199b77ec82b6861a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame0_1.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_10.12.png",
+      "bytes": 45151,
+      "sha256": "985b622ec4548978980fc1d27b5e5b5876b77bcf09fa3a1aad4ae8541ed072ac",
+      "git_blob_sha": "fe4d16260326d42c55e05f996dbf2ecc75708c76",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame0_10.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_11.12.png",
+      "bytes": 45412,
+      "sha256": "cc230f1f15e2a238f75be232495d2a053a1e30c6248fdda9ce0329a3ef34071e",
+      "git_blob_sha": "7ffecb3a48b1204f1bd94e76c1397f55bf4701ca",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame0_11.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_12.12.png",
+      "bytes": 45201,
+      "sha256": "1081c5b2be9136dd7eea4f00209a47a0d4aa6d94597074b7879c67b6cb822431",
+      "git_blob_sha": "556cf51b9a753a1c67dba5991e70380b30247094",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame0_12.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_13.12.png",
+      "bytes": 45229,
+      "sha256": "3a3e89328abb0f7253373c7381b16c9fec78326fd3aa384fbb08fc47edea5093",
+      "git_blob_sha": "aa2dfa70ee3eb2b4e429873baf025eda8517a1cb",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame0_13.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_14.12.png",
+      "bytes": 45168,
+      "sha256": "ca4cae431e11b616ae9c668bbe0285e7fa64bc734bccfc2518e9cdaee4322ce2",
+      "git_blob_sha": "2c77110c6a0fb5714637d1ee25d6e12bbb008209",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame0_14.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_15.12.png",
+      "bytes": 45189,
+      "sha256": "1fbfa1e75a09fbfd0f343a039096508fb328fa03096ba82fab0ee826e0b6bc43",
+      "git_blob_sha": "5420f530e1c1112887b6d84ba6b869a8e6865bbc",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame0_15.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_2.12.png",
+      "bytes": 45048,
+      "sha256": "9988d4217d841f1e72ccade70d9743dc1ad27bed5a2282c8d5618c6e19cdbac2",
+      "git_blob_sha": "6cefbcfa2f9a8c2b9d5bd34c99b2ce0a60713770",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame0_2.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_3.12.png",
+      "bytes": 45270,
+      "sha256": "30bf2194b3c3fc5e52f67fcdbcc45ccb84eec67f6f95c14ac641c90d55219c47",
+      "git_blob_sha": "05f6f2666517a0e4af359ebece27c34b4a957b4e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame0_3.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_4.12.png",
+      "bytes": 45184,
+      "sha256": "6ee7d5cc467d9ecc53f294bce34c7a79e6702acf757ea5b7764dfbced9c37be1",
+      "git_blob_sha": "3b524c480e0fb9c1e4559b68bf74ca224dd71d84",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame0_4.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_5.12.png",
+      "bytes": 45412,
+      "sha256": "cc230f1f15e2a238f75be232495d2a053a1e30c6248fdda9ce0329a3ef34071e",
+      "git_blob_sha": "7ffecb3a48b1204f1bd94e76c1397f55bf4701ca",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame0_5.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_6.12.png",
+      "bytes": 45412,
+      "sha256": "cc230f1f15e2a238f75be232495d2a053a1e30c6248fdda9ce0329a3ef34071e",
+      "git_blob_sha": "7ffecb3a48b1204f1bd94e76c1397f55bf4701ca",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame0_6.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_7.12.png",
+      "bytes": 45566,
+      "sha256": "3fb2a4793fe2426ae24ef26b17b2bca17298ed132117737912c59e8c5faa25a4",
+      "git_blob_sha": "080075a5b395ce24a9bc04a66b4725ac77bb10db",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame0_7.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_8.12.png",
+      "bytes": 45566,
+      "sha256": "3fb2a4793fe2426ae24ef26b17b2bca17298ed132117737912c59e8c5faa25a4",
+      "git_blob_sha": "080075a5b395ce24a9bc04a66b4725ac77bb10db",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame0_8.12.png"
+    },
+    {
+      "name": "tileset_0_frame0_9.12.png",
+      "bytes": 45566,
+      "sha256": "3fb2a4793fe2426ae24ef26b17b2bca17298ed132117737912c59e8c5faa25a4",
+      "git_blob_sha": "080075a5b395ce24a9bc04a66b4725ac77bb10db",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame0_9.12.png"
+    },
+    {
+      "name": "tileset_0_frame1_0.8.png",
+      "bytes": 45145,
+      "sha256": "a1239bbbe1f10a16967d443049dd243f3e4f7b9757eb0e38969769292027d79f",
+      "git_blob_sha": "a3766f7f175ad71c48c4454655d2cecceef1c37a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame1_0.8.png"
+    },
+    {
+      "name": "tileset_0_frame1_1.8.png",
+      "bytes": 44747,
+      "sha256": "4ec8d4f4fab68a6b9616fc069a6d48508a0201b85a4e7a4b1a80ccf4f588acd6",
+      "git_blob_sha": "c61ac3a9189269e4352745018d5d8f51de8fe56d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame1_1.8.png"
+    },
+    {
+      "name": "tileset_0_frame1_10.8.png",
+      "bytes": 45093,
+      "sha256": "62a70dbc2f73a61d455dad2d09514d908bdd22691e86fe904f421efd8f35f3ae",
+      "git_blob_sha": "b1ea3f9bb9c0f422878d5822b0f026d1f843e5f5",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame1_10.8.png"
+    },
+    {
+      "name": "tileset_0_frame1_11.8.png",
+      "bytes": 44747,
+      "sha256": "4ec8d4f4fab68a6b9616fc069a6d48508a0201b85a4e7a4b1a80ccf4f588acd6",
+      "git_blob_sha": "c61ac3a9189269e4352745018d5d8f51de8fe56d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame1_11.8.png"
+    },
+    {
+      "name": "tileset_0_frame1_12.8.png",
+      "bytes": 45145,
+      "sha256": "a1239bbbe1f10a16967d443049dd243f3e4f7b9757eb0e38969769292027d79f",
+      "git_blob_sha": "a3766f7f175ad71c48c4454655d2cecceef1c37a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame1_12.8.png"
+    },
+    {
+      "name": "tileset_0_frame1_13.8.png",
+      "bytes": 44747,
+      "sha256": "4ec8d4f4fab68a6b9616fc069a6d48508a0201b85a4e7a4b1a80ccf4f588acd6",
+      "git_blob_sha": "c61ac3a9189269e4352745018d5d8f51de8fe56d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame1_13.8.png"
+    },
+    {
+      "name": "tileset_0_frame1_14.8.png",
+      "bytes": 45093,
+      "sha256": "62a70dbc2f73a61d455dad2d09514d908bdd22691e86fe904f421efd8f35f3ae",
+      "git_blob_sha": "b1ea3f9bb9c0f422878d5822b0f026d1f843e5f5",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame1_14.8.png"
+    },
+    {
+      "name": "tileset_0_frame1_15.8.png",
+      "bytes": 44747,
+      "sha256": "4ec8d4f4fab68a6b9616fc069a6d48508a0201b85a4e7a4b1a80ccf4f588acd6",
+      "git_blob_sha": "c61ac3a9189269e4352745018d5d8f51de8fe56d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame1_15.8.png"
+    },
+    {
+      "name": "tileset_0_frame1_2.8.png",
+      "bytes": 45093,
+      "sha256": "62a70dbc2f73a61d455dad2d09514d908bdd22691e86fe904f421efd8f35f3ae",
+      "git_blob_sha": "b1ea3f9bb9c0f422878d5822b0f026d1f843e5f5",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame1_2.8.png"
+    },
+    {
+      "name": "tileset_0_frame1_3.8.png",
+      "bytes": 44747,
+      "sha256": "4ec8d4f4fab68a6b9616fc069a6d48508a0201b85a4e7a4b1a80ccf4f588acd6",
+      "git_blob_sha": "c61ac3a9189269e4352745018d5d8f51de8fe56d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame1_3.8.png"
+    },
+    {
+      "name": "tileset_0_frame1_4.8.png",
+      "bytes": 45145,
+      "sha256": "a1239bbbe1f10a16967d443049dd243f3e4f7b9757eb0e38969769292027d79f",
+      "git_blob_sha": "a3766f7f175ad71c48c4454655d2cecceef1c37a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame1_4.8.png"
+    },
+    {
+      "name": "tileset_0_frame1_5.8.png",
+      "bytes": 44747,
+      "sha256": "4ec8d4f4fab68a6b9616fc069a6d48508a0201b85a4e7a4b1a80ccf4f588acd6",
+      "git_blob_sha": "c61ac3a9189269e4352745018d5d8f51de8fe56d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame1_5.8.png"
+    },
+    {
+      "name": "tileset_0_frame1_6.8.png",
+      "bytes": 45093,
+      "sha256": "62a70dbc2f73a61d455dad2d09514d908bdd22691e86fe904f421efd8f35f3ae",
+      "git_blob_sha": "b1ea3f9bb9c0f422878d5822b0f026d1f843e5f5",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame1_6.8.png"
+    },
+    {
+      "name": "tileset_0_frame1_7.8.png",
+      "bytes": 44747,
+      "sha256": "4ec8d4f4fab68a6b9616fc069a6d48508a0201b85a4e7a4b1a80ccf4f588acd6",
+      "git_blob_sha": "c61ac3a9189269e4352745018d5d8f51de8fe56d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame1_7.8.png"
+    },
+    {
+      "name": "tileset_0_frame1_8.8.png",
+      "bytes": 45145,
+      "sha256": "a1239bbbe1f10a16967d443049dd243f3e4f7b9757eb0e38969769292027d79f",
+      "git_blob_sha": "a3766f7f175ad71c48c4454655d2cecceef1c37a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame1_8.8.png"
+    },
+    {
+      "name": "tileset_0_frame1_9.8.png",
+      "bytes": 44747,
+      "sha256": "4ec8d4f4fab68a6b9616fc069a6d48508a0201b85a4e7a4b1a80ccf4f588acd6",
+      "git_blob_sha": "c61ac3a9189269e4352745018d5d8f51de8fe56d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_0_frame1_9.8.png"
+    },
+    {
+      "name": "tileset_1.png",
+      "bytes": 5528,
+      "sha256": "2ab1c6a0d298a0957fc1581da86c54ed832c19fe0eb6682256b8daf69f0a1007",
+      "git_blob_sha": "d1325ac41e0da4ae14745aed1ed19417cc89e37d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_1.png"
+    },
+    {
+      "name": "tileset_2.png",
+      "bytes": 8551,
+      "sha256": "f3a65715e2d544a2fc9b9db305f22b237af0f19e2f7e2ee8cc644fbd592db562",
+      "git_blob_sha": "7bae7eb1f27f44708e67bee695d66dee21cef740",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_2.png"
+    },
+    {
+      "name": "tileset_more.png",
+      "bytes": 178,
+      "sha256": "241dbea4c9737ed0542e0865be61e85034a9503e6675c96bc25761de4b7bb25f",
+      "git_blob_sha": "05e93428446b5e99a7b2648422778722352b252d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/MtThunder/tileset_more.png"
+    }
+  ]
+}

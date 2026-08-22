@@ -1,0 +1,226 @@
+{
+  "schema": "new-era.rawasset-dtef-source.v1",
+  "repository": "https://github.com/PMDCollab/RawAsset",
+  "path": "TileDtef/StormySea1",
+  "ref": "master",
+  "format": "XML-less DTEF",
+  "files": [
+    {
+      "name": "tileset_0.png",
+      "bytes": 27618,
+      "sha256": "e876deb732ffe8d6c52e3e72a9f06f807804f37a969a2a6f4686bd7720fe5f78",
+      "git_blob_sha": "1f5ebe03f006f133c726ef3283bc284224ad517b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_0.png"
+    },
+    {
+      "name": "tileset_0_frame0_0.4.png",
+      "bytes": 28074,
+      "sha256": "7215a2eab508383cecc428c4e1c8a77da1d5eeafae53a9223dfbf458cf0559f9",
+      "git_blob_sha": "d38786af49bc288f72f4e07a1ab376e2cff4b28e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_0_frame0_0.4.png"
+    },
+    {
+      "name": "tileset_0_frame0_1.4.png",
+      "bytes": 28161,
+      "sha256": "6f15add764563e169c0bbba82c85e3f3b32bb66396012c6eab1387c942e18174",
+      "git_blob_sha": "83f737dc85be98d66ef5de137463d72f6a6dd2cd",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_0_frame0_1.4.png"
+    },
+    {
+      "name": "tileset_0_frame0_2.4.png",
+      "bytes": 28560,
+      "sha256": "b3d5878e675061f921d4a6397811f9a5b8cfebb7a0dc10d1e4852eda844de9b6",
+      "git_blob_sha": "9d7a3ca7e5359bbf3f57c6b842a0c93dd74f33c3",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_0_frame0_2.4.png"
+    },
+    {
+      "name": "tileset_0_frame0_3.4.png",
+      "bytes": 28144,
+      "sha256": "060e6c781900b8449117a34efd586ee89e8c862e080b3e600671a61959a11138",
+      "git_blob_sha": "59d7111a317ecacf747dbc00256b83d75511e462",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_0_frame0_3.4.png"
+    },
+    {
+      "name": "tileset_0_frame0_4.4.png",
+      "bytes": 26809,
+      "sha256": "79f6845f2a49c2cead47dc97ca1d24d3fbd0ebf5e39d154945a8096ea31cfd88",
+      "git_blob_sha": "b0cf0d521176d6a87c52ea9da9553bddb1a40a32",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_0_frame0_4.4.png"
+    },
+    {
+      "name": "tileset_0_frame0_5.4.png",
+      "bytes": 27610,
+      "sha256": "310bbdf8be023884c5ddb6b35316e1db2406f9a94316ce36d8219607195bd37d",
+      "git_blob_sha": "da6b673d3dd2d4cf66ed7310a11a9dacefc06fdc",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_0_frame0_5.4.png"
+    },
+    {
+      "name": "tileset_0_frame0_6.4.png",
+      "bytes": 28310,
+      "sha256": "e9df65bec736fbb1e7d9b8ee38b6fa64c86550b7cbd6a6d5539cfc8f843e0f0c",
+      "git_blob_sha": "025a74a2e0f68aa843702f479d4c2d1374664889",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_0_frame0_6.4.png"
+    },
+    {
+      "name": "tileset_0_frame0_7.4.png",
+      "bytes": 28311,
+      "sha256": "d8a99c3b025ac3ad2de5a5347164f4f34155be5b655332043c39516ae87ed6ad",
+      "git_blob_sha": "2879da1ca708fdbb1cc088c0728daa2c2be116a0",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_0_frame0_7.4.png"
+    },
+    {
+      "name": "tileset_0_frame0_8.4.png",
+      "bytes": 28223,
+      "sha256": "9effbde4437e9eb6970d7510c23e18b8e4a992b540c3425fad7384164584711b",
+      "git_blob_sha": "248f9b1081849fa36cb62e1dc02866a7b7bfc330",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_0_frame0_8.4.png"
+    },
+    {
+      "name": "tileset_1.png",
+      "bytes": 6008,
+      "sha256": "1cd39611c46958eb76a98fc0fd22aeb30322233d2ec8e90c6f49b6cf99a213d1",
+      "git_blob_sha": "07192a8d85f76950615a82ca22b9cdcea97e8924",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_1.png"
+    },
+    {
+      "name": "tileset_1_frame0_0.4.png",
+      "bytes": 6032,
+      "sha256": "4341660e50bdd342182a8166d6909cc0861426f059ff2673af345b65f9acf32e",
+      "git_blob_sha": "6978b633a6a80c1911b2dad537daf8333562436f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_1_frame0_0.4.png"
+    },
+    {
+      "name": "tileset_1_frame0_1.4.png",
+      "bytes": 6039,
+      "sha256": "3bc9a7ec6c22a77cc5d35036e194efad3d4e040b18b705d2d159a129e051510c",
+      "git_blob_sha": "0634ed35767a51f521c53b6fc44a151df739beb4",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_1_frame0_1.4.png"
+    },
+    {
+      "name": "tileset_1_frame0_2.4.png",
+      "bytes": 6041,
+      "sha256": "d0429004c2061eddba946a5ac149cb16c7c2b4bec2f8e1ec4f70efb7c0d7e9fd",
+      "git_blob_sha": "29ca9cd34be2edea2909bfda4c51fb4aef751dd6",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_1_frame0_2.4.png"
+    },
+    {
+      "name": "tileset_1_frame0_3.4.png",
+      "bytes": 6035,
+      "sha256": "79096856f830b1e3b643b039f2cfbd91263be12748d8c1ac68f2af189f5485c4",
+      "git_blob_sha": "79a42737e43c1bac93ffb6caff19fb86b660e300",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_1_frame0_3.4.png"
+    },
+    {
+      "name": "tileset_1_frame0_4.4.png",
+      "bytes": 6031,
+      "sha256": "04fa0b1dff917a6ede4f8295d8743525676d23a670cbbfd3c210f76a77430d73",
+      "git_blob_sha": "bf6f8a38a221753d7389c850cfd72c867ca338e0",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_1_frame0_4.4.png"
+    },
+    {
+      "name": "tileset_1_frame0_5.4.png",
+      "bytes": 6031,
+      "sha256": "249710823bb45998b098f05f474fe5e9c1bb9f8cce56248c348ae0968cfb2fb8",
+      "git_blob_sha": "bfcc68f6833b55f121e9bafb2cf37a925af278b9",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_1_frame0_5.4.png"
+    },
+    {
+      "name": "tileset_1_frame0_6.4.png",
+      "bytes": 6046,
+      "sha256": "b5b7948f718421446b07b534da376cda34b504e5c9584907d27148a252769a6d",
+      "git_blob_sha": "6667a22c8395b3f9eeca40d8b47fd5e06ec518ad",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_1_frame0_6.4.png"
+    },
+    {
+      "name": "tileset_1_frame0_7.4.png",
+      "bytes": 6037,
+      "sha256": "bd1e20e7cdb863ce9202a4f2d8f28dc65d819cb1ddac97e5177d0b685d1cc9ed",
+      "git_blob_sha": "57c50f94beca70d4399837e5dfd05a243a288a36",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_1_frame0_7.4.png"
+    },
+    {
+      "name": "tileset_1_frame0_8.4.png",
+      "bytes": 6042,
+      "sha256": "783c75ec8f31c6612f754ff2ca0ee3b39ed4d7b9da4a16122c568e6134536f1a",
+      "git_blob_sha": "10c9291aa23615d03a9109b40e7d8252f947d05a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_1_frame0_8.4.png"
+    },
+    {
+      "name": "tileset_2.png",
+      "bytes": 13684,
+      "sha256": "249d106875cab9d62ad972f42343fff6074bc3a3a4bda6806ae60f7a4d310755",
+      "git_blob_sha": "ac637ca70663d0a0bb4db997c9737182bab1e5f9",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_2.png"
+    },
+    {
+      "name": "tileset_2_frame0_0.4.png",
+      "bytes": 13734,
+      "sha256": "c5930775a7b2d706dc8fa6f59744d3635b8d894b489111e9b41cad30e25579d6",
+      "git_blob_sha": "54a99904db4be13fde06e64e4ec56a935b46d10e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_2_frame0_0.4.png"
+    },
+    {
+      "name": "tileset_2_frame0_1.4.png",
+      "bytes": 13775,
+      "sha256": "474e6a84381e7c7e79a8bf69f6b81694e5755c9bc8ba3b6fb3d7c9e8a98dd423",
+      "git_blob_sha": "cd1d91bc8e6825de78b6ae75188affbfcf56b129",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_2_frame0_1.4.png"
+    },
+    {
+      "name": "tileset_2_frame0_2.4.png",
+      "bytes": 13799,
+      "sha256": "ebe1d997a2721aff069c8377007aafc450215dafcdaf84d1de7f6ae0795eba27",
+      "git_blob_sha": "258b0d275f5f9b05bc11efeb68965a3219e73720",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_2_frame0_2.4.png"
+    },
+    {
+      "name": "tileset_2_frame0_3.4.png",
+      "bytes": 13675,
+      "sha256": "9491bc2a1cc35cac8aaf0fb8a309f8341f251c5b4a484c45ae2f20b4ded3f5d2",
+      "git_blob_sha": "61acec7ede578250aec4cc05841216182c5aaf2f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_2_frame0_3.4.png"
+    },
+    {
+      "name": "tileset_2_frame0_4.4.png",
+      "bytes": 13415,
+      "sha256": "b79e89c7af772c866ef0c9f76e2443dbb4cbfc08a2ec8c82554b0111972611d2",
+      "git_blob_sha": "d8efea7ed82621f7b6f6bf29c45630b70181236b",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_2_frame0_4.4.png"
+    },
+    {
+      "name": "tileset_2_frame0_5.4.png",
+      "bytes": 13536,
+      "sha256": "c99dc49ff2ed45dbfccf9dcf0ba1d92b1f243630177af7176084e83dc827d29f",
+      "git_blob_sha": "4ddd4cd93fc0246d39b17daa7193a881b7ed9d14",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_2_frame0_5.4.png"
+    },
+    {
+      "name": "tileset_2_frame0_6.4.png",
+      "bytes": 13693,
+      "sha256": "b99afdac3a9330bf678fafdc33c4939fc12654ae9288616332c565eda466c58e",
+      "git_blob_sha": "a71f125c3e1506b05eb524ebc170c225be82dd13",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_2_frame0_6.4.png"
+    },
+    {
+      "name": "tileset_2_frame0_7.4.png",
+      "bytes": 13790,
+      "sha256": "fc2484667219b02cde2349061eac065ecddc171ce96bf3021e6d57c5cf57b076",
+      "git_blob_sha": "bd2e9e7f557653d27e5e87f425deca5b6e1c4419",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_2_frame0_7.4.png"
+    },
+    {
+      "name": "tileset_2_frame0_8.4.png",
+      "bytes": 13780,
+      "sha256": "286505703e99999d3b223949af42c76bad87266ab6bdbecfa2c8deb125f3ff2c",
+      "git_blob_sha": "a8e6036caef9c407f1ae5abeba8d19847de76bd1",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_2_frame0_8.4.png"
+    },
+    {
+      "name": "tileset_more.png",
+      "bytes": 178,
+      "sha256": "241dbea4c9737ed0542e0865be61e85034a9503e6675c96bc25761de4b7bb25f",
+      "git_blob_sha": "05e93428446b5e99a7b2648422778722352b252d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/StormySea1/tileset_more.png"
+    }
+  ]
+}

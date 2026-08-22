@@ -1,0 +1,3573 @@
+﻿{
+  "Version": "0.8.12.0",
+  "Object": {
+    "$type": "RogueEssence.Data.AutoTileData, RogueEssence",
+    "Name": {
+      "DefaultText": "CanonMtBlaze Wall",
+      "LocalTexts": {}
+    },
+    "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+    "Tiles": {
+      "$type": "RogueEssence.Dungeon.AutoTileAdjacent, RogueEssence",
+      "Tilex89": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 0,
+                  "Y": 0
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex9B": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 1,
+                  "Y": 0
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 0
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 8
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 16
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 24
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 32
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 40
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 48
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 56
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 64
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 72
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 80
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 88
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 96
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 104
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 112
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 120
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 128
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ]
+      ],
+      "Tilex13": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 2,
+                  "Y": 0
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex09": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 3,
+                  "Y": 0
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex0A": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 4,
+                  "Y": 0
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex03": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 5,
+                  "Y": 0
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "TilexCD": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 0,
+                  "Y": 1
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 18,
+                  "Y": 1
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 18,
+                  "Y": 9
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 18,
+                  "Y": 17
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 18,
+                  "Y": 25
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 18,
+                  "Y": 33
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 18,
+                  "Y": 41
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 18,
+                  "Y": 49
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 18,
+                  "Y": 57
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 18,
+                  "Y": 65
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 18,
+                  "Y": 73
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 18,
+                  "Y": 81
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 18,
+                  "Y": 89
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 18,
+                  "Y": 97
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 18,
+                  "Y": 105
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 18,
+                  "Y": 113
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 18,
+                  "Y": 121
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 18,
+                  "Y": 129
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 36,
+                  "Y": 1
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 36,
+                  "Y": 9
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 36,
+                  "Y": 17
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 36,
+                  "Y": 25
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 36,
+                  "Y": 33
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 36,
+                  "Y": 41
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 36,
+                  "Y": 49
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 36,
+                  "Y": 57
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 36,
+                  "Y": 65
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 36,
+                  "Y": 73
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 36,
+                  "Y": 81
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 36,
+                  "Y": 89
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 36,
+                  "Y": 97
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 36,
+                  "Y": 105
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 36,
+                  "Y": 113
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 36,
+                  "Y": 121
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 36,
+                  "Y": 129
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ]
+      ],
+      "TilexFF": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 1,
+                  "Y": 1
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 19,
+                  "Y": 1
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 1
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex37": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 2,
+                  "Y": 1
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 1
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 9
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 17
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 25
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 33
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 41
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 49
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 57
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 65
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 73
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 81
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 89
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 97
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 105
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 113
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 121
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 129
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 1
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 9
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 17
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 25
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 33
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 41
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 49
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 57
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 65
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 73
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 81
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 89
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 97
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 105
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 113
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 121
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 129
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ]
+      ],
+      "Tilex05": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 3,
+                  "Y": 1
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex00": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 4,
+                  "Y": 1
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex06": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 5,
+                  "Y": 1
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex4C": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 0,
+                  "Y": 2
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex6E": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 1,
+                  "Y": 2
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 19,
+                  "Y": 2
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 19,
+                  "Y": 10
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 19,
+                  "Y": 18
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 19,
+                  "Y": 26
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 19,
+                  "Y": 34
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 19,
+                  "Y": 42
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 19,
+                  "Y": 50
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 19,
+                  "Y": 58
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 19,
+                  "Y": 66
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 19,
+                  "Y": 74
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 19,
+                  "Y": 82
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 19,
+                  "Y": 90
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 19,
+                  "Y": 98
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 19,
+                  "Y": 106
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 19,
+                  "Y": 114
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 19,
+                  "Y": 122
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 19,
+                  "Y": 130
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 2
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 10
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 18
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 26
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 34
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 42
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 50
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 58
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 66
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 74
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 82
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 90
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 98
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 106
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 114
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 122
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 37,
+                  "Y": 130
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ]
+      ],
+      "Tilex26": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 2,
+                  "Y": 2
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex0C": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 3,
+                  "Y": 2
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex01": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 4,
+                  "Y": 2
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex3F": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 0,
+                  "Y": 3
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "TilexCF": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 1,
+                  "Y": 3
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex0B": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 2,
+                  "Y": 3
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex08": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 3,
+                  "Y": 3
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex0F": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 4,
+                  "Y": 3
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex02": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 5,
+                  "Y": 3
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex9F": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 0,
+                  "Y": 4
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex6F": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 1,
+                  "Y": 4
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex0E": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 2,
+                  "Y": 4
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex0D": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 3,
+                  "Y": 4
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex04": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 4,
+                  "Y": 4
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex07": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 5,
+                  "Y": 4
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex7F": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 0,
+                  "Y": 5
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "TilexEF": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 1,
+                  "Y": 5
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 19,
+                  "Y": 5
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex4D": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 2,
+                  "Y": 5
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 5
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 13
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 21
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 29
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 37
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 45
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 53
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 61
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 69
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 77
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 85
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 93
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 101
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 109
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 117
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 125
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 133
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 5
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 13
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 21
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 29
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 37
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 45
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 53
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 61
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 69
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 77
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 85
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 93
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 101
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 109
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 117
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 125
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 133
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ]
+      ],
+      "Tilex27": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 3,
+                  "Y": 5
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 5
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 13
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 21
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 29
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 37
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 45
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 53
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 61
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 69
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 77
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 85
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 93
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 101
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 109
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 117
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 125
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 133
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 5
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 13
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 21
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 29
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 37
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 45
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 53
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 61
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 69
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 77
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 85
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 93
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 101
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 109
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 117
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 125
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 133
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ]
+      ],
+      "Tilex1B": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 4,
+                  "Y": 5
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 5
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 13
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 21
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 29
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 37
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 45
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 53
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 61
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 69
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 77
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 85
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 93
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 101
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 109
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 117
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 125
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 133
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ]
+      ],
+      "Tilex8B": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 5,
+                  "Y": 5
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 5
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 13
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 21
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 29
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 37
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 45
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 53
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 61
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 69
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 77
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 85
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 93
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 101
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 109
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 117
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 125
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 133
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ]
+      ],
+      "TilexBF": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 0,
+                  "Y": 6
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 18,
+                  "Y": 6
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "TilexDF": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 1,
+                  "Y": 6
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex8D": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 2,
+                  "Y": 6
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 6
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 14
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 22
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 30
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 38
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 46
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 54
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 62
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 70
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 78
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 86
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 94
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 102
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 110
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 118
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 126
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 20,
+                  "Y": 134
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 6
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 14
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 22
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 30
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 38
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 46
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 54
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 62
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 70
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 78
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 86
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 94
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 102
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 110
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 118
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 126
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 38,
+                  "Y": 134
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ]
+      ],
+      "Tilex17": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 3,
+                  "Y": 6
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 6
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 14
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 22
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 30
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 38
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 46
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 54
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 62
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 70
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 78
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 86
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 94
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 102
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 110
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 118
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 126
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 21,
+                  "Y": 134
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 6
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 14
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 22
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 30
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 38
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 46
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 54
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 62
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 70
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 78
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 86
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 94
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 102
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 110
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 118
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 126
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 39,
+                  "Y": 134
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ]
+      ],
+      "Tilex2E": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 4,
+                  "Y": 6
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 22,
+                  "Y": 6
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 22,
+                  "Y": 14
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 22,
+                  "Y": 22
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 22,
+                  "Y": 30
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 22,
+                  "Y": 38
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 22,
+                  "Y": 46
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 22,
+                  "Y": 54
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 22,
+                  "Y": 62
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 22,
+                  "Y": 70
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 22,
+                  "Y": 78
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 22,
+                  "Y": 86
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 22,
+                  "Y": 94
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 22,
+                  "Y": 102
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 22,
+                  "Y": 110
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 22,
+                  "Y": 118
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 22,
+                  "Y": 126
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 22,
+                  "Y": 134
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 6
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 14
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 22
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 30
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 38
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 46
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 54
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 62
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 70
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 78
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 86
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 94
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 102
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 110
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 118
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 126
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 40,
+                  "Y": 134
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ]
+      ],
+      "Tilex4E": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 5,
+                  "Y": 6
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 23,
+                  "Y": 6
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 23,
+                  "Y": 14
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 23,
+                  "Y": 22
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 23,
+                  "Y": 30
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 23,
+                  "Y": 38
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 23,
+                  "Y": 46
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 23,
+                  "Y": 54
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 23,
+                  "Y": 62
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 23,
+                  "Y": 70
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 23,
+                  "Y": 78
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 23,
+                  "Y": 86
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 23,
+                  "Y": 94
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 23,
+                  "Y": 102
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 23,
+                  "Y": 110
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 23,
+                  "Y": 118
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 23,
+                  "Y": 126
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 23,
+                  "Y": 134
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ],
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 6
+                }
+              }
+            ],
+            "FrameLength": 999
+          },
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 14
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 22
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 30
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 38
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 46
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 54
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 62
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 70
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 78
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 86
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 94
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 102
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 110
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 118
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 126
+                }
+              },
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 41,
+                  "Y": 134
+                }
+              }
+            ],
+            "FrameLength": 4
+          }
+        ]
+      ],
+      "Tilex8F": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 0,
+                  "Y": 7
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex1F": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 1,
+                  "Y": 7
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex4F": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 2,
+                  "Y": 7
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex2F": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 3,
+                  "Y": 7
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "Tilex5F": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 4,
+                  "Y": 7
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ],
+      "TilexAF": [
+        [
+          {
+            "Frames": [
+              {
+                "Sheet": "CanonMtBlaze",
+                "TexLoc": {
+                  "X": 5,
+                  "Y": 7
+                }
+              }
+            ],
+            "FrameLength": 999
+          }
+        ]
+      ]
+    }
+  }
+}

@@ -39,9 +39,11 @@ BOSS_MUSIC = "Boss Battle!.ogg"
 # docs/canonical_dungeons/dtef_bindings.json.  These names are deliberately
 # never shared with Relic Forest.
 DTEF_AUTOTILES = {
-    "floor": "sinister_woods_b41_floor",
-    "wall": "sinister_woods_b41_wall",
-    "secondary": "sinister_woods_b41_secondary",
+    # Imported from Content/TileDtef/sinister_woods/TreeshroudForest1 through
+    # the RogueEssence DtefImportHelper reference implementation.
+    "floor": "canon_treeshroud_floor",
+    "wall": "canon_treeshroud_wall",
+    "secondary": "canon_treeshroud_secondary",
 }
 
 VERSION = "0.8.12.0"

@@ -1,0 +1,2 @@
+# Required only for tools/import_rawasset_dtef.py
+Pillow>=10.0

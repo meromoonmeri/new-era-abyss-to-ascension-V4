@@ -1,0 +1,205 @@
+{
+  "schema": "new-era.rawasset-dtef-source.v1",
+  "repository": "https://github.com/PMDCollab/RawAsset",
+  "path": "TileDtef/AmpPlains",
+  "ref": "master",
+  "format": "XML-less DTEF",
+  "files": [
+    {
+      "name": "tileset_0.png",
+      "bytes": 40092,
+      "sha256": "f95b0c7318eb304fe28f307e1489c5e0d945ea9dc8d8a7faa327f3da8c8445bc",
+      "git_blob_sha": "952584916ff3048a554ad471eb8ad906c0425e59",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0.png"
+    },
+    {
+      "name": "tileset_0_frame0_0.18.png",
+      "bytes": 40378,
+      "sha256": "d3f9ba94df0b8c8633165f8fac1aa773496d0239c22a1b9f96a02c13dc71594a",
+      "git_blob_sha": "da52f495a925bde55a8f3fc762d49262e274038e",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame0_0.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_1.18.png",
+      "bytes": 40516,
+      "sha256": "a1ed08ed8919977f4d35522a3aa9839f9534069014e534b9760708b72e744680",
+      "git_blob_sha": "a245499c3a5e1001745626c01eb7a389df7262a8",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame0_1.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_10.18.png",
+      "bytes": 40164,
+      "sha256": "0ede9de4e87f8868fafed5d74d708b73493afe2ef96e5abb98ab6b6287b6caf2",
+      "git_blob_sha": "f55a4dbb34b6a49b36265eb5584c49e722354e89",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame0_10.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_11.18.png",
+      "bytes": 40516,
+      "sha256": "a1ed08ed8919977f4d35522a3aa9839f9534069014e534b9760708b72e744680",
+      "git_blob_sha": "a245499c3a5e1001745626c01eb7a389df7262a8",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame0_11.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_2.18.png",
+      "bytes": 40164,
+      "sha256": "0ede9de4e87f8868fafed5d74d708b73493afe2ef96e5abb98ab6b6287b6caf2",
+      "git_blob_sha": "f55a4dbb34b6a49b36265eb5584c49e722354e89",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame0_2.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_3.18.png",
+      "bytes": 40825,
+      "sha256": "1a33a11868e45d21baf91b9f33964ab24bf4876312553698ee74328d2e68aaa2",
+      "git_blob_sha": "d124e3fa54fb8da430295fd900065377af452668",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame0_3.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_4.18.png",
+      "bytes": 40704,
+      "sha256": "a3d2e63bbd381b520d8092adbbcd70ef62a7ea48880690abeabb2532c54c374e",
+      "git_blob_sha": "126ea503c07870a4a5a8d0048879edcfe40e4c56",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame0_4.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_5.18.png",
+      "bytes": 41040,
+      "sha256": "9204bc4ed2104ea5a53fb1e9d7f9f1527b7a17adebe3d84dcdd084261d1fdaf9",
+      "git_blob_sha": "c24bd2690b3f39baed963469eea551fcedd8066a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame0_5.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_6.18.png",
+      "bytes": 40539,
+      "sha256": "f450e764ec880cf90fa3dde551bf48aa1d401d45b3a83d54fe072c06233a96bb",
+      "git_blob_sha": "17eea2f9822ac93c423b575526aced2031a4ceda",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame0_6.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_7.18.png",
+      "bytes": 41040,
+      "sha256": "9204bc4ed2104ea5a53fb1e9d7f9f1527b7a17adebe3d84dcdd084261d1fdaf9",
+      "git_blob_sha": "c24bd2690b3f39baed963469eea551fcedd8066a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame0_7.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_8.18.png",
+      "bytes": 40704,
+      "sha256": "a3d2e63bbd381b520d8092adbbcd70ef62a7ea48880690abeabb2532c54c374e",
+      "git_blob_sha": "126ea503c07870a4a5a8d0048879edcfe40e4c56",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame0_8.18.png"
+    },
+    {
+      "name": "tileset_0_frame0_9.18.png",
+      "bytes": 40755,
+      "sha256": "a4027a561f5795f022cdc509cb4e9ec40ac52a11741c4255dba5a45d162fd9ea",
+      "git_blob_sha": "840a8a39cbd15a05c32c34036510ebf18fa27820",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame0_9.18.png"
+    },
+    {
+      "name": "tileset_0_frame1_0.6.png",
+      "bytes": 40256,
+      "sha256": "079af16b58dbe7e0363d000d43ae580458fb0ef0e9b682244ee00e92e7b19e08",
+      "git_blob_sha": "5b388b22bacd6c089714557de2fdc1668b41328f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame1_0.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_1.6.png",
+      "bytes": 39924,
+      "sha256": "d06d7b17293b68ed5aa7dcd24bb61fe1deb7e893de2ca269fe611a7bc780c98d",
+      "git_blob_sha": "1dca295a1005450d13542ded3580836a64f1a8fa",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame1_1.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_10.6.png",
+      "bytes": 40316,
+      "sha256": "dd7baba21d28fdb9b282b7536693854bc5335aa7f4d5f81da10e69a75360bcf4",
+      "git_blob_sha": "4af7e9e4626158cb94bca2a5db9991a17abcc05a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame1_10.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_11.6.png",
+      "bytes": 39924,
+      "sha256": "d06d7b17293b68ed5aa7dcd24bb61fe1deb7e893de2ca269fe611a7bc780c98d",
+      "git_blob_sha": "1dca295a1005450d13542ded3580836a64f1a8fa",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame1_11.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_2.6.png",
+      "bytes": 40316,
+      "sha256": "dd7baba21d28fdb9b282b7536693854bc5335aa7f4d5f81da10e69a75360bcf4",
+      "git_blob_sha": "4af7e9e4626158cb94bca2a5db9991a17abcc05a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame1_2.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_3.6.png",
+      "bytes": 39924,
+      "sha256": "d06d7b17293b68ed5aa7dcd24bb61fe1deb7e893de2ca269fe611a7bc780c98d",
+      "git_blob_sha": "1dca295a1005450d13542ded3580836a64f1a8fa",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame1_3.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_4.6.png",
+      "bytes": 40256,
+      "sha256": "079af16b58dbe7e0363d000d43ae580458fb0ef0e9b682244ee00e92e7b19e08",
+      "git_blob_sha": "5b388b22bacd6c089714557de2fdc1668b41328f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame1_4.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_5.6.png",
+      "bytes": 39924,
+      "sha256": "d06d7b17293b68ed5aa7dcd24bb61fe1deb7e893de2ca269fe611a7bc780c98d",
+      "git_blob_sha": "1dca295a1005450d13542ded3580836a64f1a8fa",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame1_5.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_6.6.png",
+      "bytes": 40316,
+      "sha256": "dd7baba21d28fdb9b282b7536693854bc5335aa7f4d5f81da10e69a75360bcf4",
+      "git_blob_sha": "4af7e9e4626158cb94bca2a5db9991a17abcc05a",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame1_6.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_7.6.png",
+      "bytes": 39924,
+      "sha256": "d06d7b17293b68ed5aa7dcd24bb61fe1deb7e893de2ca269fe611a7bc780c98d",
+      "git_blob_sha": "1dca295a1005450d13542ded3580836a64f1a8fa",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame1_7.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_8.6.png",
+      "bytes": 40256,
+      "sha256": "079af16b58dbe7e0363d000d43ae580458fb0ef0e9b682244ee00e92e7b19e08",
+      "git_blob_sha": "5b388b22bacd6c089714557de2fdc1668b41328f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame1_8.6.png"
+    },
+    {
+      "name": "tileset_0_frame1_9.6.png",
+      "bytes": 39924,
+      "sha256": "d06d7b17293b68ed5aa7dcd24bb61fe1deb7e893de2ca269fe611a7bc780c98d",
+      "git_blob_sha": "1dca295a1005450d13542ded3580836a64f1a8fa",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_0_frame1_9.6.png"
+    },
+    {
+      "name": "tileset_1.png",
+      "bytes": 4766,
+      "sha256": "7f711860aff17a2c6097ef05785f3b0fec481900d54859be2ab0c1963b207806",
+      "git_blob_sha": "3f5494d5af8a631ec30134155887ccd54a256716",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_1.png"
+    },
+    {
+      "name": "tileset_2.png",
+      "bytes": 4626,
+      "sha256": "efb7cbd88b050d10171bcefabaf44a70d7212dc0f54ab0ff16326c1be287f76e",
+      "git_blob_sha": "13a6baae27ae88745c1753b87a9cb4b06b7cf2a1",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_2.png"
+    },
+    {
+      "name": "tileset_more.png",
+      "bytes": 868,
+      "sha256": "adf4d7b5658ebf068a8c4662e7dfae5172f7987e777092f0fd9dff7498cbfb2d",
+      "git_blob_sha": "b3643bf684e6b8fa4973bb519f5d791b1d8ab65d",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/AmpPlains/tileset_more.png"
+    }
+  ]
+}

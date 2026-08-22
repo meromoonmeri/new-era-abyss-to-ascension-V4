@@ -1,0 +1,812 @@
+{
+  "schema": "new-era.canonical-dungeon-inventory.v1",
+  "authority": "MASTER_TIMELINE_CH5_CH32 plus ROSTER_IMPORT_DONJONS_PMD_RED_CH7_CH32",
+  "main_route": [
+    {
+      "chapter": 6,
+      "id": "gloomy_forest",
+      "title": "Sinister Woods",
+      "zone_present": true
+    },
+    {
+      "chapter": 7,
+      "id": "magma_cavern",
+      "title": "Magma Cavern",
+      "zone_present": false
+    },
+    {
+      "chapter": 8,
+      "id": "waterfall_pond",
+      "title": "Crystal Sanctuary",
+      "zone_present": false
+    },
+    {
+      "chapter": 9,
+      "id": "bottomless_sea",
+      "title": "Bottomless Sea",
+      "zone_present": false
+    },
+    {
+      "chapter": 10,
+      "id": "sky_tower",
+      "title": "Sky Tower",
+      "zone_present": false
+    },
+    {
+      "chapter": 11,
+      "id": "fugitive_arc",
+      "title": "Those Accused",
+      "zone_present": false
+    },
+    {
+      "chapter": 12,
+      "id": "treasure_town",
+      "title": "A New Guild Road",
+      "zone_present": false
+    },
+    {
+      "chapter": 13,
+      "id": "waterfall_cave",
+      "title": "Waterfall Cave",
+      "zone_present": false
+    },
+    {
+      "chapter": 14,
+      "id": "fogbound_lake",
+      "title": "Fogbound Lake",
+      "zone_present": false
+    },
+    {
+      "chapter": 15,
+      "id": "amp_plains",
+      "title": "Amp Plains",
+      "zone_present": false
+    },
+    {
+      "chapter": 16,
+      "id": "quicksand_cave",
+      "title": "Quicksand Cave",
+      "zone_present": false
+    },
+    {
+      "chapter": 17,
+      "id": "crystal_crossing",
+      "title": "Crystal Crossing",
+      "zone_present": false
+    },
+    {
+      "chapter": 18,
+      "id": "brine_cave",
+      "title": "Brine Cave and Hidden Land",
+      "zone_present": false
+    },
+    {
+      "chapter": 19,
+      "id": "temporal_tower",
+      "title": "Temporal Tower Restored",
+      "zone_present": false
+    },
+    {
+      "chapter": 20,
+      "id": "mystifying_forest",
+      "title": "Graduation Legacy",
+      "zone_present": false
+    },
+    {
+      "chapter": 21,
+      "id": "crevice_cave",
+      "title": "Crevice Cave",
+      "zone_present": false
+    },
+    {
+      "chapter": 22,
+      "id": "miracle_sea",
+      "title": "Miracle Sea",
+      "zone_present": false
+    },
+    {
+      "chapter": 23,
+      "id": "dark_crater",
+      "title": "Dark Crater",
+      "zone_present": false
+    },
+    {
+      "chapter": 24,
+      "id": "sky_peak",
+      "title": "Sky Peak",
+      "zone_present": false
+    },
+    {
+      "chapter": 25,
+      "id": "spacial_rift",
+      "title": "Spacial Rift",
+      "zone_present": false
+    },
+    {
+      "chapter": 26,
+      "id": "world_abyss",
+      "title": "World Abyss",
+      "zone_present": false
+    },
+    {
+      "chapter": 27,
+      "id": "zero_isle",
+      "title": "Zero Isle Network",
+      "zone_present": false
+    },
+    {
+      "chapter": 28,
+      "id": "destiny_tower",
+      "title": "Destiny Tower",
+      "zone_present": false
+    },
+    {
+      "chapter": 29,
+      "id": "hidden_land",
+      "title": "Hidden Land Fracture",
+      "zone_present": false
+    },
+    {
+      "chapter": 30,
+      "id": "the_sky",
+      "title": "Sky Suspended",
+      "zone_present": false
+    },
+    {
+      "chapter": 31,
+      "id": "starfall_heights",
+      "title": "The Two Lights",
+      "zone_present": false
+    },
+    {
+      "chapter": 32,
+      "id": "world_nerve",
+      "title": "Abyss to Ascension",
+      "zone_present": false
+    }
+  ],
+  "pmd_red_roster": [
+    {
+      "number": 1,
+      "source": "Tiny Woods",
+      "floors": 3,
+      "boss": "—",
+      "chapter": "**7**",
+      "french": "Forêt Tendre"
+    },
+    {
+      "number": 2,
+      "source": "Thunderwave Cave",
+      "floors": 5,
+      "boss": "—",
+      "chapter": "**7**",
+      "french": "Grotte Statique"
+    },
+    {
+      "number": 3,
+      "source": "Mt. Steel",
+      "floors": 9,
+      "boss": "—",
+      "chapter": "**7**",
+      "french": "Pic Ferreux"
+    },
+    {
+      "number": 4,
+      "source": "Sinister Woods",
+      "floors": 13,
+      "boss": "—",
+      "chapter": "**8**",
+      "french": "Bois Sombres"
+    },
+    {
+      "number": 5,
+      "source": "Silent Chasm",
+      "floors": 9,
+      "boss": "—",
+      "chapter": "**8**",
+      "french": "Gouffre Muet"
+    },
+    {
+      "number": 6,
+      "source": "Mt. Thunder",
+      "floors": 10,
+      "boss": "—",
+      "chapter": "**9**",
+      "french": "Mont Grondant"
+    },
+    {
+      "number": 7,
+      "source": "Mt. Thunder Peak",
+      "floors": 3,
+      "boss": "Zapdos",
+      "chapter": "**9**",
+      "french": "Cime du Mont Grondant"
+    },
+    {
+      "number": 8,
+      "source": "Great Canyon",
+      "floors": 12,
+      "boss": "—",
+      "chapter": "**9**",
+      "french": "Grand Canyon"
+    },
+    {
+      "number": 9,
+      "source": "Lapis Cave",
+      "floors": 14,
+      "boss": "—",
+      "chapter": "**10**",
+      "french": "Grotte Lazuli"
+    },
+    {
+      "number": 10,
+      "source": "Mt. Blaze",
+      "floors": 12,
+      "boss": "—",
+      "chapter": "**10**",
+      "french": "Mont Cendré"
+    },
+    {
+      "number": 11,
+      "source": "Mt. Blaze Peak",
+      "floors": 3,
+      "boss": "Moltres",
+      "chapter": "**10**",
+      "french": "Cime du Mont Cendré"
+    },
+    {
+      "number": 12,
+      "source": "Frosty Forest",
+      "floors": 9,
+      "boss": "—",
+      "chapter": "**11**",
+      "french": "Forêt Givrée"
+    },
+    {
+      "number": 13,
+      "source": "Frosty Grotto",
+      "floors": 5,
+      "boss": "Articuno",
+      "chapter": "**11**",
+      "french": "Grotte Givrée"
+    },
+    {
+      "number": 14,
+      "source": "Mt. Freeze",
+      "floors": 15,
+      "boss": "—",
+      "chapter": "**11**",
+      "french": "Mont Gelé"
+    },
+    {
+      "number": 15,
+      "source": "Mt. Freeze Peak",
+      "floors": 5,
+      "boss": "—",
+      "chapter": "**12**",
+      "french": "Cime du Mont Gelé"
+    },
+    {
+      "number": 16,
+      "source": "Magma Cavern",
+      "floors": 23,
+      "boss": "—",
+      "chapter": "**12**",
+      "french": "Gorge Ardente"
+    },
+    {
+      "number": 17,
+      "source": "Magma Cavern Pit",
+      "floors": 3,
+      "boss": "Groudon",
+      "chapter": "**12**",
+      "french": "Fond de la Gorge Ardente"
+    },
+    {
+      "number": 18,
+      "source": "Sky Tower",
+      "floors": 25,
+      "boss": "—",
+      "chapter": "✅ ch10",
+      "french": "Tour Céleste (déjà)"
+    },
+    {
+      "number": 19,
+      "source": "Sky Tower Summit",
+      "floors": 9,
+      "boss": "Rayquaza",
+      "chapter": "✅ ch10",
+      "french": "Sommet de la Tour Céleste (déjà)"
+    },
+    {
+      "number": 20,
+      "source": "Stormy Sea",
+      "floors": 40,
+      "boss": "Kyogre",
+      "chapter": "**13**",
+      "french": "Mer Orageuse"
+    },
+    {
+      "number": 21,
+      "source": "Silver Trench",
+      "floors": 99,
+      "boss": "Lugia",
+      "chapter": "**13**",
+      "french": "Fosse d'Argent"
+    },
+    {
+      "number": 22,
+      "source": "Meteor Cave",
+      "floors": 20,
+      "boss": "Deoxys",
+      "chapter": "**14**",
+      "french": "Grotte de la Météorite"
+    },
+    {
+      "number": 23,
+      "source": "Western Cave",
+      "floors": 99,
+      "boss": "Mewtwo",
+      "chapter": "**14**",
+      "french": "Grotte Occidentale"
+    },
+    {
+      "number": 24,
+      "source": "Wish Cave",
+      "floors": 99,
+      "boss": "Jirachi",
+      "chapter": "**15**",
+      "french": "Grotte du Vœu"
+    },
+    {
+      "number": 25,
+      "source": "Buried Relic",
+      "floors": 99,
+      "boss": "Regis",
+      "chapter": "**15**",
+      "french": "Relique Enfouie"
+    },
+    {
+      "number": 26,
+      "source": "Pitfall Valley",
+      "floors": 25,
+      "boss": "—",
+      "chapter": "**16**",
+      "french": "Vallon Perdu"
+    },
+    {
+      "number": 27,
+      "source": "Northern Range",
+      "floors": 25,
+      "boss": "Latios",
+      "chapter": "**16**",
+      "french": "Chaîne Nordique"
+    },
+    {
+      "number": 28,
+      "source": "Desert Region",
+      "floors": 20,
+      "boss": "—",
+      "chapter": "**17**",
+      "french": "Région Désertique"
+    },
+    {
+      "number": 29,
+      "source": "Southern Cavern",
+      "floors": 50,
+      "boss": "—",
+      "chapter": "**17**",
+      "french": "Caverne Méridionale"
+    },
+    {
+      "number": 30,
+      "source": "Wyvern Hill",
+      "floors": 30,
+      "boss": "—",
+      "chapter": "**18**",
+      "french": "Colline aux Drakes"
+    },
+    {
+      "number": 31,
+      "source": "Fiery Field",
+      "floors": 30,
+      "boss": "Entei",
+      "chapter": "**18**",
+      "french": "Plaine Ardent"
+    },
+    {
+      "number": 32,
+      "source": "Northwind Field",
+      "floors": 30,
+      "boss": "Suicune",
+      "chapter": "**19**",
+      "french": "Champ du Vent du Nord"
+    },
+    {
+      "number": 33,
+      "source": "Solar Cave",
+      "floors": 20,
+      "boss": "—",
+      "chapter": "**19**",
+      "french": "Grotte Solaire"
+    },
+    {
+      "number": 34,
+      "source": "Lightning Field",
+      "floors": 30,
+      "boss": "Raikou",
+      "chapter": "**20**",
+      "french": "Champ de Foudre"
+    },
+    {
+      "number": 35,
+      "source": "Darknight Relic",
+      "floors": 15,
+      "boss": "—",
+      "chapter": "**20**",
+      "french": "Relique de la Nuit"
+    },
+    {
+      "number": 36,
+      "source": "Murky Cave",
+      "floors": 19,
+      "boss": "—",
+      "chapter": "**21**",
+      "french": "Caverne Trouble"
+    },
+    {
+      "number": 37,
+      "source": "Grand Sea",
+      "floors": 30,
+      "boss": "—",
+      "chapter": "**21**",
+      "french": "Grande Mer"
+    },
+    {
+      "number": 38,
+      "source": "Uproar Forest",
+      "floors": 10,
+      "boss": "—",
+      "chapter": "**22**",
+      "french": "Forêt du Tumulte"
+    },
+    {
+      "number": 39,
+      "source": "Oddity Cave",
+      "floors": 15,
+      "boss": "—",
+      "chapter": "**22**",
+      "french": "Caverne Étrange"
+    },
+    {
+      "number": 40,
+      "source": "Remains Island",
+      "floors": 20,
+      "boss": "—",
+      "chapter": "**23**",
+      "french": "Île des Vestiges"
+    },
+    {
+      "number": 41,
+      "source": "Marvelous Sea",
+      "floors": 20,
+      "boss": "—",
+      "chapter": "**23**",
+      "french": "Mer Merveilleuse"
+    },
+    {
+      "number": 42,
+      "source": "Fantasy Strait",
+      "floors": 30,
+      "boss": "—",
+      "chapter": "**24**",
+      "french": "Détroit Fantastique"
+    },
+    {
+      "number": 43,
+      "source": "Rock Path",
+      "floors": 4,
+      "boss": "—",
+      "chapter": "**24**",
+      "french": "Sentier Rocheux"
+    },
+    {
+      "number": 44,
+      "source": "Snow Path",
+      "floors": 4,
+      "boss": "—",
+      "chapter": "**25**",
+      "french": "Sentier Neigeux"
+    },
+    {
+      "number": 45,
+      "source": "Howling Forest",
+      "floors": 15,
+      "boss": "—",
+      "chapter": "**25**",
+      "french": "Forêt des Hurlements"
+    },
+    {
+      "number": 46,
+      "source": "Waterfall Pond",
+      "floors": 19,
+      "boss": "—",
+      "chapter": "**26**",
+      "french": "Étang de la Cascade"
+    },
+    {
+      "number": 47,
+      "source": "Unown Relic",
+      "floors": 11,
+      "boss": "—",
+      "chapter": "**26**",
+      "french": "Relique des Zarbi"
+    },
+    {
+      "number": 48,
+      "source": "Joyous Tower",
+      "floors": 99,
+      "boss": "—",
+      "chapter": "**27**",
+      "french": "Tour Joyeuse"
+    },
+    {
+      "number": 49,
+      "source": "Far-Off Sea",
+      "floors": 75,
+      "boss": "—",
+      "chapter": "**27**",
+      "french": "Mer Lointaine"
+    },
+    {
+      "number": 50,
+      "source": "Mt. Faraway",
+      "floors": 40,
+      "boss": "Ho-Oh",
+      "chapter": "**28**",
+      "french": "Mont Lointain"
+    },
+    {
+      "number": 51,
+      "source": "Purity Forest",
+      "floors": 99,
+      "boss": "Celebi",
+      "chapter": "**29**",
+      "french": "Forêt de la Pureté"
+    }
+  ],
+  "counts": {
+    "main_route": 27,
+    "pmd_red_roster": 51,
+    "active_zone_files": 44,
+    "active_ground_files": 422,
+    "archived_red_grounds": 245,
+    "imported_dtef_packages": 23
+  },
+  "protected_from_prior_purge": {
+    "fugitive_arc_grounds": [
+      "a02p01",
+      "a02p02",
+      "a02p03",
+      "a02p04",
+      "a03p01",
+      "a03p02",
+      "a03p03",
+      "a04p01",
+      "a05p03",
+      "arc_palier_celeste",
+      "arc_parvis_celeste",
+      "arc_tour_ciel_sommet",
+      "d09p02",
+      "d09p03",
+      "d10p02",
+      "d10p03",
+      "d11p02",
+      "d11p03",
+      "foret_givree_oree",
+      "fosse_ardente",
+      "gorge_ardente_coeur",
+      "gorge_ardente_porte",
+      "grotte_lazuli_fond",
+      "grotte_lazuli_seuil",
+      "mont_cendre_pied",
+      "mont_gele_pied",
+      "t01p01"
+    ],
+    "protected_or_shared_maps": [
+      {
+        "id": "annexe_toupie",
+        "owners": [
+          "gloomy_forest",
+          "toundra_desolee"
+        ],
+        "kept_owners": [
+          "foret_embuscade"
+        ],
+        "reason": "protected_or_shared"
+      },
+      {
+        "id": "pattern_crosshair",
+        "owners": [
+          "bassin_tari",
+          "crevasse_geode"
+        ],
+        "kept_owners": [
+          "bois_filou",
+          "foret_embuscade",
+          "petit_tunnel"
+        ],
+        "reason": "protected_or_shared"
+      },
+      {
+        "id": "pattern_dither_fourth",
+        "owners": [
+          "bassin_tari"
+        ],
+        "kept_owners": [
+          "carriere_cuivre"
+        ],
+        "reason": "protected_or_shared"
+      },
+      {
+        "id": "pattern_plus",
+        "owners": [
+          "crevasse_geode"
+        ],
+        "kept_owners": [
+          "petit_tunnel"
+        ],
+        "reason": "protected_or_shared"
+      },
+      {
+        "id": "pattern_slash",
+        "owners": [
+          "crevasse_geode"
+        ],
+        "kept_owners": [
+          "bois_filou"
+        ],
+        "reason": "protected_or_shared"
+      },
+      {
+        "id": "pattern_squiggle",
+        "owners": [
+          "crevasse_geode",
+          "sentier_enneige"
+        ],
+        "kept_owners": [
+          "bois_filou",
+          "foret_embuscade"
+        ],
+        "reason": "protected_or_shared"
+      },
+      {
+        "id": "pattern_x",
+        "owners": [
+          "bassin_tari",
+          "sentier_enneige"
+        ],
+        "kept_owners": [
+          "carriere_cuivre"
+        ],
+        "reason": "protected_or_shared"
+      },
+      {
+        "id": "room_evo_altar_diamond",
+        "owners": [
+          "crevasse_geode"
+        ],
+        "kept_owners": [
+          "carriere_cuivre"
+        ],
+        "reason": "protected_or_shared"
+      },
+      {
+        "id": "room_evo_altar_normal",
+        "owners": [
+          "bassin_tari"
+        ],
+        "kept_owners": [
+          "grotte_echoue"
+        ],
+        "reason": "protected_or_shared"
+      },
+      {
+        "id": "room_evo_altar_small",
+        "owners": [
+          "marais_errants",
+          "sentier_enneige"
+        ],
+        "kept_owners": [
+          "jardin_secret",
+          "petit_tunnel"
+        ],
+        "reason": "protected_or_shared"
+      },
+      {
+        "id": "special_grass_maze",
+        "owners": [
+          "col_foudre",
+          "sentier_enneige"
+        ],
+        "kept_owners": [
+          "foret_embuscade"
+        ],
+        "reason": "protected_or_shared"
+      },
+      {
+        "id": "special_rby_fossil",
+        "owners": [
+          "bassin_tari"
+        ],
+        "kept_owners": [
+          "carriere_cuivre"
+        ],
+        "reason": "protected_or_shared"
+      }
+    ],
+    "protected_or_shared_grounds": [
+      {
+        "id": "fosse_ardente",
+        "owners": [
+          "magma_cavern"
+        ],
+        "kept_owners": [],
+        "reason": "protected_or_shared"
+      },
+      {
+        "id": "gorge_ardente_coeur",
+        "owners": [
+          "magma_cavern"
+        ],
+        "kept_owners": [],
+        "reason": "protected_or_shared"
+      },
+      {
+        "id": "gorge_ardente_porte",
+        "owners": [
+          "magma_cavern"
+        ],
+        "kept_owners": [],
+        "reason": "protected_or_shared"
+      },
+      {
+        "id": "sinister_woods_clearing",
+        "owners": [
+          "gloomy_forest"
+        ],
+        "kept_owners": [],
+        "reason": "protected_or_shared"
+      }
+    ],
+    "narrative_lua": "retained",
+    "reserve_and_archive_sources": "untouched",
+    "d04p01_d04p02": "untouched",
+    "relic_forest_blob_assets": "untouched"
+  },
+  "dtef_packages": [
+    "AmpPlains",
+    "BrineCave",
+    "BuriedRelic1",
+    "CrystalCave1",
+    "DarkCrater",
+    "DarknightRelic",
+    "DesertRegion",
+    "FrostyForest",
+    "JoyousTower",
+    "LapisCave",
+    "MagmaCavern2",
+    "MtBlaze",
+    "MtThunder",
+    "PurityForest2",
+    "QuicksandCave",
+    "SilverTrench3Floor",
+    "SkyTower",
+    "SpacialRift1",
+    "StormySea1",
+    "TemporalTower",
+    "TreeshroudForest1",
+    "WaterfallPond",
+    "WyvernHill"
+  ]
+}

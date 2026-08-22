@@ -1,0 +1,207 @@
+{
+  "schema": "new-era.dtef-import-manifest.v1",
+  "reference": "RogueEssence.Dev.DtefImportHelper.cs",
+  "entries": {
+    "AmpPlains": {
+      "source": "Content/TileDtef/canonical/AmpPlains",
+      "sheet": "CanonAmpPlains",
+      "autotiles": [
+        "canon_amp_plains_floor",
+        "canon_amp_plains_secondary",
+        "canon_amp_plains_wall"
+      ]
+    },
+    "BrineCave": {
+      "source": "Content/TileDtef/canonical/BrineCave",
+      "sheet": "CanonBrineCave",
+      "autotiles": [
+        "canon_brine_cave_floor",
+        "canon_brine_cave_secondary",
+        "canon_brine_cave_wall"
+      ]
+    },
+    "BuriedRelic1": {
+      "source": "Content/TileDtef/canonical/BuriedRelic1",
+      "sheet": "CanonBuriedRelic1",
+      "autotiles": [
+        "canon_buried_relic1_floor",
+        "canon_buried_relic1_secondary",
+        "canon_buried_relic1_wall"
+      ]
+    },
+    "CrystalCave1": {
+      "source": "Content/TileDtef/canonical/CrystalCave1",
+      "sheet": "CanonCrystalCave1",
+      "autotiles": [
+        "canon_crystal_cave1_floor",
+        "canon_crystal_cave1_secondary",
+        "canon_crystal_cave1_wall"
+      ]
+    },
+    "DarkCrater": {
+      "source": "Content/TileDtef/canonical/DarkCrater",
+      "sheet": "CanonDarkCrater",
+      "autotiles": [
+        "canon_dark_crater_floor",
+        "canon_dark_crater_secondary",
+        "canon_dark_crater_wall"
+      ]
+    },
+    "DarknightRelic": {
+      "source": "Content/TileDtef/canonical/DarknightRelic",
+      "sheet": "CanonDarknightRelic",
+      "autotiles": [
+        "canon_darknight_relic_floor",
+        "canon_darknight_relic_secondary",
+        "canon_darknight_relic_wall"
+      ]
+    },
+    "DesertRegion": {
+      "source": "Content/TileDtef/canonical/DesertRegion",
+      "sheet": "CanonDesertRegion",
+      "autotiles": [
+        "canon_desert_region_floor",
+        "canon_desert_region_secondary",
+        "canon_desert_region_wall"
+      ]
+    },
+    "FrostyForest": {
+      "source": "Content/TileDtef/canonical/FrostyForest",
+      "sheet": "CanonFrostyForest",
+      "autotiles": [
+        "canon_frosty_forest_floor",
+        "canon_frosty_forest_secondary",
+        "canon_frosty_forest_wall"
+      ]
+    },
+    "JoyousTower": {
+      "source": "Content/TileDtef/canonical/JoyousTower",
+      "sheet": "CanonJoyousTower",
+      "autotiles": [
+        "canon_joyous_tower_floor",
+        "canon_joyous_tower_secondary",
+        "canon_joyous_tower_wall"
+      ]
+    },
+    "LapisCave": {
+      "source": "Content/TileDtef/canonical/LapisCave",
+      "sheet": "CanonLapisCave",
+      "autotiles": [
+        "canon_lapis_cave_floor",
+        "canon_lapis_cave_secondary",
+        "canon_lapis_cave_wall"
+      ]
+    },
+    "MagmaCavern2": {
+      "source": "Content/TileDtef/canonical/MagmaCavern2",
+      "sheet": "CanonMagmaCavern2",
+      "autotiles": [
+        "canon_magma_cavern2_floor",
+        "canon_magma_cavern2_secondary",
+        "canon_magma_cavern2_wall"
+      ]
+    },
+    "MtBlaze": {
+      "source": "Content/TileDtef/canonical/MtBlaze",
+      "sheet": "CanonMtBlaze",
+      "autotiles": [
+        "canon_mt_blaze_floor",
+        "canon_mt_blaze_secondary",
+        "canon_mt_blaze_wall"
+      ]
+    },
+    "MtThunder": {
+      "source": "Content/TileDtef/canonical/MtThunder",
+      "sheet": "CanonMtThunder",
+      "autotiles": [
+        "canon_mt_thunder_floor",
+        "canon_mt_thunder_secondary",
+        "canon_mt_thunder_wall"
+      ]
+    },
+    "PurityForest2": {
+      "source": "Content/TileDtef/canonical/PurityForest2",
+      "sheet": "CanonPurityForest2",
+      "autotiles": [
+        "canon_purity_forest2_floor",
+        "canon_purity_forest2_secondary",
+        "canon_purity_forest2_wall"
+      ]
+    },
+    "QuicksandCave": {
+      "source": "Content/TileDtef/canonical/QuicksandCave",
+      "sheet": "CanonQuicksandCave",
+      "autotiles": [
+        "canon_quicksand_cave_floor",
+        "canon_quicksand_cave_secondary",
+        "canon_quicksand_cave_wall"
+      ]
+    },
+    "SilverTrench3Floor": {
+      "source": "Content/TileDtef/canonical/SilverTrench3Floor",
+      "sheet": "CanonSilverTrench3Floor",
+      "autotiles": [
+        "canon_silver_trench3_floor_wall"
+      ]
+    },
+    "SkyTower": {
+      "source": "Content/TileDtef/canonical/SkyTower",
+      "sheet": "CanonSkyTower",
+      "autotiles": [
+        "canon_sky_tower_floor",
+        "canon_sky_tower_secondary",
+        "canon_sky_tower_wall"
+      ]
+    },
+    "SpacialRift1": {
+      "source": "Content/TileDtef/canonical/SpacialRift1",
+      "sheet": "CanonSpacialRift1",
+      "autotiles": [
+        "canon_spacial_rift1_floor",
+        "canon_spacial_rift1_secondary",
+        "canon_spacial_rift1_wall"
+      ]
+    },
+    "StormySea1": {
+      "source": "Content/TileDtef/canonical/StormySea1",
+      "sheet": "CanonStormySea1",
+      "autotiles": [
+        "canon_stormy_sea1_floor",
+        "canon_stormy_sea1_secondary",
+        "canon_stormy_sea1_wall"
+      ]
+    },
+    "TemporalTower": {
+      "source": "Content/TileDtef/canonical/TemporalTower",
+      "sheet": "CanonTemporalTower",
+      "autotiles": [
+        "canon_temporal_tower_floor",
+        "canon_temporal_tower_secondary",
+        "canon_temporal_tower_wall"
+      ]
+    },
+    "TreeshroudForest1": {
+      "source": "Content/TileDtef/canonical/TreeshroudForest1",
+      "sheet": "CanonTreeshroudForest1",
+      "autotiles": []
+    },
+    "WaterfallPond": {
+      "source": "Content/TileDtef/canonical/WaterfallPond",
+      "sheet": "CanonWaterfallPond",
+      "autotiles": [
+        "canon_waterfall_pond_floor",
+        "canon_waterfall_pond_secondary",
+        "canon_waterfall_pond_wall"
+      ]
+    },
+    "WyvernHill": {
+      "source": "Content/TileDtef/canonical/WyvernHill",
+      "sheet": "CanonWyvernHill",
+      "autotiles": [
+        "canon_wyvern_hill_floor",
+        "canon_wyvern_hill_secondary",
+        "canon_wyvern_hill_wall"
+      ]
+    }
+  }
+}

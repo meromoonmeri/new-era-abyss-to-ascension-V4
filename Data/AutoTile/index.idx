@@ -106,6 +106,609 @@
       "Released": true,
       "Comment": "PMD Red EU b41 procedural material for dungeon ID 3; promoted under the unique SinisterWoodsB41 namespace. CEX variants 0..2 and independent CANM overlay layers are retained.",
       "SortOrder": 0
+    },
+    "canon_treeshroud_wall": {
+      "Name": {
+        "DefaultText": "CanonTreeshroud Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_treeshroud_secondary": {
+      "Name": {
+        "DefaultText": "CanonTreeshroud Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_treeshroud_floor": {
+      "Name": {
+        "DefaultText": "CanonTreeshroud Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_amp_plains_wall": {
+      "Name": {
+        "DefaultText": "CanonAmpPlains Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_amp_plains_secondary": {
+      "Name": {
+        "DefaultText": "CanonAmpPlains Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_amp_plains_floor": {
+      "Name": {
+        "DefaultText": "CanonAmpPlains Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_brine_cave_wall": {
+      "Name": {
+        "DefaultText": "CanonBrineCave Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_brine_cave_secondary": {
+      "Name": {
+        "DefaultText": "CanonBrineCave Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_brine_cave_floor": {
+      "Name": {
+        "DefaultText": "CanonBrineCave Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_buried_relic1_wall": {
+      "Name": {
+        "DefaultText": "CanonBuriedRelic1 Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_buried_relic1_secondary": {
+      "Name": {
+        "DefaultText": "CanonBuriedRelic1 Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_buried_relic1_floor": {
+      "Name": {
+        "DefaultText": "CanonBuriedRelic1 Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_crystal_cave1_wall": {
+      "Name": {
+        "DefaultText": "CanonCrystalCave1 Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_crystal_cave1_secondary": {
+      "Name": {
+        "DefaultText": "CanonCrystalCave1 Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_crystal_cave1_floor": {
+      "Name": {
+        "DefaultText": "CanonCrystalCave1 Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_dark_crater_wall": {
+      "Name": {
+        "DefaultText": "CanonDarkCrater Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_dark_crater_secondary": {
+      "Name": {
+        "DefaultText": "CanonDarkCrater Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_dark_crater_floor": {
+      "Name": {
+        "DefaultText": "CanonDarkCrater Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_darknight_relic_wall": {
+      "Name": {
+        "DefaultText": "CanonDarknightRelic Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_darknight_relic_secondary": {
+      "Name": {
+        "DefaultText": "CanonDarknightRelic Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_darknight_relic_floor": {
+      "Name": {
+        "DefaultText": "CanonDarknightRelic Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_desert_region_wall": {
+      "Name": {
+        "DefaultText": "CanonDesertRegion Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_desert_region_secondary": {
+      "Name": {
+        "DefaultText": "CanonDesertRegion Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_desert_region_floor": {
+      "Name": {
+        "DefaultText": "CanonDesertRegion Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_frosty_forest_wall": {
+      "Name": {
+        "DefaultText": "CanonFrostyForest Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_frosty_forest_secondary": {
+      "Name": {
+        "DefaultText": "CanonFrostyForest Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_frosty_forest_floor": {
+      "Name": {
+        "DefaultText": "CanonFrostyForest Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_joyous_tower_wall": {
+      "Name": {
+        "DefaultText": "CanonJoyousTower Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_joyous_tower_secondary": {
+      "Name": {
+        "DefaultText": "CanonJoyousTower Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_joyous_tower_floor": {
+      "Name": {
+        "DefaultText": "CanonJoyousTower Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_lapis_cave_wall": {
+      "Name": {
+        "DefaultText": "CanonLapisCave Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_lapis_cave_secondary": {
+      "Name": {
+        "DefaultText": "CanonLapisCave Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_lapis_cave_floor": {
+      "Name": {
+        "DefaultText": "CanonLapisCave Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_magma_cavern2_wall": {
+      "Name": {
+        "DefaultText": "CanonMagmaCavern2 Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_magma_cavern2_secondary": {
+      "Name": {
+        "DefaultText": "CanonMagmaCavern2 Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_magma_cavern2_floor": {
+      "Name": {
+        "DefaultText": "CanonMagmaCavern2 Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_mt_blaze_wall": {
+      "Name": {
+        "DefaultText": "CanonMtBlaze Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_mt_blaze_secondary": {
+      "Name": {
+        "DefaultText": "CanonMtBlaze Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_mt_blaze_floor": {
+      "Name": {
+        "DefaultText": "CanonMtBlaze Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_mt_thunder_wall": {
+      "Name": {
+        "DefaultText": "CanonMtThunder Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_mt_thunder_secondary": {
+      "Name": {
+        "DefaultText": "CanonMtThunder Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_mt_thunder_floor": {
+      "Name": {
+        "DefaultText": "CanonMtThunder Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_purity_forest2_wall": {
+      "Name": {
+        "DefaultText": "CanonPurityForest2 Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_purity_forest2_secondary": {
+      "Name": {
+        "DefaultText": "CanonPurityForest2 Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_purity_forest2_floor": {
+      "Name": {
+        "DefaultText": "CanonPurityForest2 Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_quicksand_cave_wall": {
+      "Name": {
+        "DefaultText": "CanonQuicksandCave Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_quicksand_cave_secondary": {
+      "Name": {
+        "DefaultText": "CanonQuicksandCave Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_quicksand_cave_floor": {
+      "Name": {
+        "DefaultText": "CanonQuicksandCave Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_silver_trench3_floor_wall": {
+      "Name": {
+        "DefaultText": "CanonSilverTrench3Floor Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_sky_tower_wall": {
+      "Name": {
+        "DefaultText": "CanonSkyTower Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_sky_tower_secondary": {
+      "Name": {
+        "DefaultText": "CanonSkyTower Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_sky_tower_floor": {
+      "Name": {
+        "DefaultText": "CanonSkyTower Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_spacial_rift1_wall": {
+      "Name": {
+        "DefaultText": "CanonSpacialRift1 Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_spacial_rift1_secondary": {
+      "Name": {
+        "DefaultText": "CanonSpacialRift1 Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_spacial_rift1_floor": {
+      "Name": {
+        "DefaultText": "CanonSpacialRift1 Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_stormy_sea1_wall": {
+      "Name": {
+        "DefaultText": "CanonStormySea1 Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_stormy_sea1_secondary": {
+      "Name": {
+        "DefaultText": "CanonStormySea1 Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_stormy_sea1_floor": {
+      "Name": {
+        "DefaultText": "CanonStormySea1 Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_temporal_tower_wall": {
+      "Name": {
+        "DefaultText": "CanonTemporalTower Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_temporal_tower_secondary": {
+      "Name": {
+        "DefaultText": "CanonTemporalTower Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_temporal_tower_floor": {
+      "Name": {
+        "DefaultText": "CanonTemporalTower Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_waterfall_pond_wall": {
+      "Name": {
+        "DefaultText": "CanonWaterfallPond Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_waterfall_pond_secondary": {
+      "Name": {
+        "DefaultText": "CanonWaterfallPond Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_waterfall_pond_floor": {
+      "Name": {
+        "DefaultText": "CanonWaterfallPond Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_wyvern_hill_wall": {
+      "Name": {
+        "DefaultText": "CanonWyvernHill Wall",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_wyvern_hill_secondary": {
+      "Name": {
+        "DefaultText": "CanonWyvernHill Secondary",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
+    },
+    "canon_wyvern_hill_floor": {
+      "Name": {
+        "DefaultText": "CanonWyvernHill Floor",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "Imported from RawAsset DTEF through the RogueEssence DtefImportHelper reference mapping.",
+      "SortOrder": 0
     }
   }
 }

@@ -1,0 +1,205 @@
+{
+  "schema": "new-era.rawasset-dtef-source.v1",
+  "repository": "https://github.com/PMDCollab/RawAsset",
+  "path": "TileDtef/WyvernHill",
+  "ref": "master",
+  "format": "XML-less DTEF",
+  "files": [
+    {
+      "name": "tileset_0.png",
+      "bytes": 42813,
+      "sha256": "246aa7ca2a790201c7659e3b9fd21131dadc033e3e624dd4770b2914af5967f2",
+      "git_blob_sha": "13fcf54f587e93b5dd3decbdf36d5d90dc3341a0",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0.png"
+    },
+    {
+      "name": "tileset_0_frame0_0.13.png",
+      "bytes": 43001,
+      "sha256": "f79651cf2a377f442ba03a5073396a57fcc15669c3ad746a042adab42c3d9d33",
+      "git_blob_sha": "761d76b618aea37e7f1c19edcfd947a381ad7f30",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame0_0.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_1.13.png",
+      "bytes": 42942,
+      "sha256": "ae134e662e00f107746c76136b83089654d05884b8bf61dfca4fbe3123800d6a",
+      "git_blob_sha": "80d656d3eb9c60e4ebf48efd3b9add93e83591e3",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame0_1.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_10.13.png",
+      "bytes": 42942,
+      "sha256": "ae134e662e00f107746c76136b83089654d05884b8bf61dfca4fbe3123800d6a",
+      "git_blob_sha": "80d656d3eb9c60e4ebf48efd3b9add93e83591e3",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame0_10.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_11.13.png",
+      "bytes": 42942,
+      "sha256": "ae134e662e00f107746c76136b83089654d05884b8bf61dfca4fbe3123800d6a",
+      "git_blob_sha": "80d656d3eb9c60e4ebf48efd3b9add93e83591e3",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame0_11.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_2.13.png",
+      "bytes": 42942,
+      "sha256": "ae134e662e00f107746c76136b83089654d05884b8bf61dfca4fbe3123800d6a",
+      "git_blob_sha": "80d656d3eb9c60e4ebf48efd3b9add93e83591e3",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame0_2.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_3.13.png",
+      "bytes": 42841,
+      "sha256": "5fef777c310c54031a879dce5bf97908fe4bfe38ffa21382b877f2c6aafd6dd9",
+      "git_blob_sha": "da4434ff606ea7c31a2e9b4660c797157e044645",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame0_3.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_4.13.png",
+      "bytes": 42841,
+      "sha256": "5fef777c310c54031a879dce5bf97908fe4bfe38ffa21382b877f2c6aafd6dd9",
+      "git_blob_sha": "da4434ff606ea7c31a2e9b4660c797157e044645",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame0_4.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_5.13.png",
+      "bytes": 42841,
+      "sha256": "5fef777c310c54031a879dce5bf97908fe4bfe38ffa21382b877f2c6aafd6dd9",
+      "git_blob_sha": "da4434ff606ea7c31a2e9b4660c797157e044645",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame0_5.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_6.13.png",
+      "bytes": 42841,
+      "sha256": "5fef777c310c54031a879dce5bf97908fe4bfe38ffa21382b877f2c6aafd6dd9",
+      "git_blob_sha": "da4434ff606ea7c31a2e9b4660c797157e044645",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame0_6.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_7.13.png",
+      "bytes": 42841,
+      "sha256": "5fef777c310c54031a879dce5bf97908fe4bfe38ffa21382b877f2c6aafd6dd9",
+      "git_blob_sha": "da4434ff606ea7c31a2e9b4660c797157e044645",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame0_7.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_8.13.png",
+      "bytes": 42841,
+      "sha256": "5fef777c310c54031a879dce5bf97908fe4bfe38ffa21382b877f2c6aafd6dd9",
+      "git_blob_sha": "da4434ff606ea7c31a2e9b4660c797157e044645",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame0_8.13.png"
+    },
+    {
+      "name": "tileset_0_frame0_9.13.png",
+      "bytes": 42942,
+      "sha256": "ae134e662e00f107746c76136b83089654d05884b8bf61dfca4fbe3123800d6a",
+      "git_blob_sha": "80d656d3eb9c60e4ebf48efd3b9add93e83591e3",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame0_9.13.png"
+    },
+    {
+      "name": "tileset_0_frame1_0.7.png",
+      "bytes": 42964,
+      "sha256": "e478f7c1edef9921965f950b5d89634ea90f1450d923212323931d22e3fb69be",
+      "git_blob_sha": "4fd82f32c0182649cd5e2beb48223c3800250318",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame1_0.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_1.7.png",
+      "bytes": 42499,
+      "sha256": "c575884413b52a37f5a4fe9dc21aaeeb2719bde0913006121811df2c18e503d2",
+      "git_blob_sha": "e05b40d192df63b6d8cc40448231369f5325145f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame1_1.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_10.7.png",
+      "bytes": 42925,
+      "sha256": "705a662802c919f62c1d62bcf28ee7d9fba2e5e4fefbc09ed0767fad342af96b",
+      "git_blob_sha": "d1eed64d06291b28769dc97ceb19dedd9c46cfb6",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame1_10.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_11.7.png",
+      "bytes": 42499,
+      "sha256": "c575884413b52a37f5a4fe9dc21aaeeb2719bde0913006121811df2c18e503d2",
+      "git_blob_sha": "e05b40d192df63b6d8cc40448231369f5325145f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame1_11.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_2.7.png",
+      "bytes": 42925,
+      "sha256": "705a662802c919f62c1d62bcf28ee7d9fba2e5e4fefbc09ed0767fad342af96b",
+      "git_blob_sha": "d1eed64d06291b28769dc97ceb19dedd9c46cfb6",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame1_2.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_3.7.png",
+      "bytes": 42499,
+      "sha256": "c575884413b52a37f5a4fe9dc21aaeeb2719bde0913006121811df2c18e503d2",
+      "git_blob_sha": "e05b40d192df63b6d8cc40448231369f5325145f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame1_3.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_4.7.png",
+      "bytes": 42964,
+      "sha256": "e478f7c1edef9921965f950b5d89634ea90f1450d923212323931d22e3fb69be",
+      "git_blob_sha": "4fd82f32c0182649cd5e2beb48223c3800250318",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame1_4.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_5.7.png",
+      "bytes": 42499,
+      "sha256": "c575884413b52a37f5a4fe9dc21aaeeb2719bde0913006121811df2c18e503d2",
+      "git_blob_sha": "e05b40d192df63b6d8cc40448231369f5325145f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame1_5.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_6.7.png",
+      "bytes": 42925,
+      "sha256": "705a662802c919f62c1d62bcf28ee7d9fba2e5e4fefbc09ed0767fad342af96b",
+      "git_blob_sha": "d1eed64d06291b28769dc97ceb19dedd9c46cfb6",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame1_6.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_7.7.png",
+      "bytes": 42499,
+      "sha256": "c575884413b52a37f5a4fe9dc21aaeeb2719bde0913006121811df2c18e503d2",
+      "git_blob_sha": "e05b40d192df63b6d8cc40448231369f5325145f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame1_7.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_8.7.png",
+      "bytes": 42964,
+      "sha256": "e478f7c1edef9921965f950b5d89634ea90f1450d923212323931d22e3fb69be",
+      "git_blob_sha": "4fd82f32c0182649cd5e2beb48223c3800250318",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame1_8.7.png"
+    },
+    {
+      "name": "tileset_0_frame1_9.7.png",
+      "bytes": 42499,
+      "sha256": "c575884413b52a37f5a4fe9dc21aaeeb2719bde0913006121811df2c18e503d2",
+      "git_blob_sha": "e05b40d192df63b6d8cc40448231369f5325145f",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_0_frame1_9.7.png"
+    },
+    {
+      "name": "tileset_1.png",
+      "bytes": 18946,
+      "sha256": "2db81873f3eadb4b1b0309793d2273f9c7591499fc188f1f7d5be7b565e06edc",
+      "git_blob_sha": "44f1e480b29d60bed18d233c21ddf703b810a864",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_1.png"
+    },
+    {
+      "name": "tileset_2.png",
+      "bytes": 16232,
+      "sha256": "6521f3e719a542032dbca123d8031c74397fb7fbb41cda65dc8726c9c0f10039",
+      "git_blob_sha": "c47d02f5f5f788880377081e2a29ea5eb3fb7ff2",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_2.png"
+    },
+    {
+      "name": "tileset_more.png",
+      "bytes": 180,
+      "sha256": "a7ee7d5b4b4d981b035743ac6fcba35c0dece08bd4f6ba3aa15c4535436ba309",
+      "git_blob_sha": "b391a77f84500931e4a4179820302fd022f4b3a3",
+      "source": "https://raw.githubusercontent.com/PMDCollab/RawAsset/master/TileDtef/WyvernHill/tileset_more.png"
+    }
+  ]
+}

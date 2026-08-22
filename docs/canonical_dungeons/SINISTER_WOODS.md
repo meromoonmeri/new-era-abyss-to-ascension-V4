@@ -39,15 +39,15 @@ seul Ground de boss actif.
 |---|---|
 | Dossier RawAsset associé | `Content/TileDtef/sinister_woods/TreeshroudForest1/` |
 | Source | `PMDCollab/RawAsset/TileDtef/TreeshroudForest1` |
-| Matériau runtime isolé | `SinisterWoodsB41.tile` |
-| AutoTiles PMDO | `sinister_woods_b41_floor`, `_wall`, `_secondary` |
+| Matériau runtime isolé | `CanonTreeshroud.tile` |
+| AutoTiles PMDO | `canon_treeshroud_floor`, `_wall`, `_secondary` |
 | Validation | `tools/build_chapter6_sinister_woods.py --check` |
 
 Le package RawAsset est conservé dans son format DTEF XML-less original, avec
 les frames d'animation et son manifeste de hash. PMDO sait l'importer via son
 outil **Import DTEF** ; aucun convertisseur DTEF maison n'est ajouté au projet.
 
-Le runtime procédural utilise le matériau `SinisterWoodsB41` déjà isolé dans
+Le runtime procédural utilise le matériau `CanonTreeshroud` déjà isolé dans
 le dépôt, plutôt que de réutiliser les noms `TreeshroudForest1` partagés avec
 Relic Forest. Ses trois `AutoTileAdjacent` sont vérifiés avant construction.
 
