@@ -67,7 +67,7 @@ function thunderwave_cave.ExitSegment(zone, result, rescue, segmentID, mapID)
     SV.CanonicalDungeons.Pending = 'thunderwave_cave_seg0'
     -- d02p02 ne porte aucun marqueur : la scène téléporte
     -- elle-même le joueur, on entre donc par index.
-    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, 'd02p02'), 0)
+    GAME:EnterZone(zone.ID, -1, ZONE_GROUND_IDX(zone, 'd02p02'), 0)
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end

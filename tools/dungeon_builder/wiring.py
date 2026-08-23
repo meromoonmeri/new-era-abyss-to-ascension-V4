@@ -677,7 +677,7 @@ def _branch(exit_: SegmentExit, dungeon: str) -> str:
         else:
             body.append(f"    -- {exit_.target} ne porte aucun marqueur : la scène téléporte")
             body.append("    -- elle-même le joueur, on entre donc par index.")
-            body.append(f"    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, '{exit_.target}'), 0)")
+            body.append(f"    GAME:EnterZone(zone.ID, -1, ZONE_GROUND_IDX(zone, '{exit_.target}'), 0)")
     elif exit_.kind == "zone":
         follow = 0 if exit_.target != dungeon else exit_.segment + 1
         body.append(f"    GAME:EnterDungeon('{exit_.target}', {follow}, 0, 0,")

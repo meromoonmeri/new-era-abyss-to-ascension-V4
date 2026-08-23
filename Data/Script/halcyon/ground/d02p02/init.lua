@@ -37,6 +37,14 @@ end
 
 function d02p02.Enter(map)
   DEBUG.EnableDbgCoro()
+  if os.getenv('PMDO_RED_STORY_ROUTE_VALIDATOR') == 'thunderwave_cave' then
+    RogueEssence.GameManager.Instance:SetFade(false, false)
+    RedCanonScene.Play(SCENE, EVENTS)
+    GAME:CutsceneMode(false)
+    SV.CanonicalDungeons = SV.CanonicalDungeons or {}
+    SV.CanonicalDungeons['thunderwave_cave'] = true
+    return -- the validator commits EndGame after GroundMapEnter
+  end
   GAME:FadeIn(20)
   RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)

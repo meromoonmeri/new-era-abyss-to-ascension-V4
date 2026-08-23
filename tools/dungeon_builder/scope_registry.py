@@ -89,6 +89,7 @@ def build_red(pret_root: Path) -> list[dict[str, Any]]:
             "status": state,
             "generated": state == "RUNTIME_VALIDATED",
             "mapgen_validated": state == "RUNTIME_VALIDATED",
+            "route_validated": state == "RUNTIME_VALIDATED",
             "runtime_validated": state == "RUNTIME_VALIDATED",
             "blockers": blockers,
         })
@@ -165,6 +166,7 @@ def build_pmdodump(pmdodump_root: Path) -> list[dict[str, Any]]:
             "status": "SOURCE_INVENTORIED",
             "generated": False,
             "mapgen_validated": False,
+            "route_validated": False,
             "runtime_validated": False,
             "blockers": blockers,
         })
@@ -193,6 +195,7 @@ def build_pmdodump(pmdodump_root: Path) -> list[dict[str, Any]]:
             "status": "SOURCE_INVENTORIED_UNMAPPED",
             "generated": False,
             "mapgen_validated": False,
+            "route_validated": False,
             "runtime_validated": False,
             "blockers": ["PROJECT_MAPPING_MISSING", "CANONICAL_DEFINITION_MISSING",
                          "RUNTIME_PMDO_NOT_VALIDATED"],
@@ -202,19 +205,70 @@ def build_pmdodump(pmdodump_root: Path) -> list[dict[str, Any]]:
     return rows
 
 
+def _apply_resolution_audit(red: list[dict[str, Any]]) -> None:
+    path = ROOT / "docs/canonical/red/PMD_RED_RESOLUTION_AUDIT.json"
+    if not path.is_file():
+        return
+    audit = json.loads(path.read_text(encoding="utf-8"))
+    by_definition = {row["definition"]: row for row in audit["entries"]}
+    for row in red:
+        if row["runtime_validated"] or not row.get("definition"):
+            continue
+        resolution = by_definition.get(row["definition"])
+        if not resolution or resolution["state"] == "SOURCE_RESOLVABLE":
+            continue
+        blockers = ["DEFINITION_RECONCILIATION_REQUIRED", "RUNTIME_PMDO_NOT_VALIDATED"]
+        if resolution["fixed_floors"]:
+            blockers.append("FIXED_FLOOR_COUNTERPART_REQUIRED:"
+                            + ",".join(map(str, resolution["fixed_floors"])))
+        if resolution["missing_items"]:
+            blockers.append("UNMAPPED_CANONICAL_ITEMS:"
+                            + ",".join(resolution["missing_items"]))
+        row["status"] = "BLOCKED_SOURCE_RESOLUTION"
+        row["blockers"] = blockers
+        row["resolution_audit"] = str(path.relative_to(ROOT))
+
+
 def _apply_batch_reports(red: list[dict[str, Any]]) -> None:
     by_definition = {row.get("definition"): row for row in red if row.get("definition")}
     for report_path in sorted((ROOT / "docs/dungeon_builder/batches").glob("*/batch_report.json")):
         report = json.loads(report_path.read_text(encoding="utf-8"))
         for entry in report.get("entries", []):
             row = by_definition.get(entry.get("definition"))
-            if row is None or entry.get("status") != "NATIVE_MAPGEN_VALIDATED_ROUTE_PENDING":
+            status = entry.get("status")
+            if row is None:
                 continue
+            if status == "BLOCKED_CONFIGURATION":
+                row.update({
+                    "status": status,
+                    "generated": False,
+                    "mapgen_validated": False,
+                    "route_validated": False,
+                    "runtime_validated": False,
+                    "batch_report": str(report_path.relative_to(ROOT)),
+                    "blockers": list(entry.get("blockers", [])),
+                })
+                continue
+            if status == "ROUTE_VALIDATED_ASSET_BLOCKED":
+                row.update({
+                    "status": status, "generated": True, "mapgen_validated": True,
+                    "route_validated": True, "runtime_validated": False,
+                    "staging_definition": entry.get("definition_path"),
+                    "staging_zone": entry.get("zone_path"),
+                    "batch_report": str(report_path.relative_to(ROOT)),
+                    "blockers": list(entry.get("blockers", [])),
+                })
+                continue
+            if status not in {"NATIVE_MAPGEN_VALIDATED_ROUTE_PENDING",
+                              "PROMOTED_RUNTIME_VALIDATED"}:
+                continue
+            promoted = status == "PROMOTED_RUNTIME_VALIDATED"
             row.update({
-                "status": "NATIVE_MAPGEN_VALIDATED_ROUTE_PENDING",
+                "status": status,
                 "generated": True,
                 "mapgen_validated": True,
-                "runtime_validated": False,
+                "route_validated": promoted,
+                "runtime_validated": promoted,
                 "staging_definition": entry.get("definition_path"),
                 "staging_zone": entry.get("zone_path"),
                 "batch_report": str(report_path.relative_to(ROOT)),
@@ -224,6 +278,7 @@ def _apply_batch_reports(red: list[dict[str, Any]]) -> None:
 
 def build(pret_root: Path, pmdodump_root: Path) -> dict[str, Any]:
     red = build_red(pret_root.resolve())
+    _apply_resolution_audit(red)
     _apply_batch_reports(red)
     pmdodump = build_pmdodump(pmdodump_root.resolve())
     entries = red + pmdodump
@@ -247,6 +302,7 @@ def build(pret_root: Path, pmdodump_root: Path) -> dict[str, Any]:
             "pmdodump": len(pmdodump),
             "generated": sum(row["generated"] for row in entries),
             "mapgen_validated": sum(row["mapgen_validated"] for row in entries),
+            "route_validated": sum(row["route_validated"] for row in entries),
             "runtime_validated": sum(row["runtime_validated"] for row in entries),
             "blocked": sum(bool(row["blockers"]) for row in entries),
             "blocked_by_reason": dict(sorted(blocked_by_reason.items())),
@@ -267,7 +323,8 @@ def render(payload: dict[str, Any]) -> str:
         f"- PMDODump : **{summary['pmdodump']}** ;",
         f"- candidates générées : **{summary['generated']}** ;",
         f"- mapgen PMDO validé : **{summary['mapgen_validated']}** ;",
-        f"- route/runtime complet validé : **{summary['runtime_validated']}** ;",
+        f"- route validée : **{summary['route_validated']}** ;",
+        f"- runtime complet sans blocker asset validé : **{summary['runtime_validated']}** ;",
         f"- entrées bloquées : **{summary['blocked']}**.", "",
         "`generated` inclut les candidates de staging ; `runtime_validated` exige la route complète.", "",
         "| Clé | Source | Identité | Statut | Générée | Mapgen | Route | Blocages exacts |",
@@ -280,7 +337,7 @@ def render(payload: dict[str, Any]) -> str:
             f"| `{row['scope_key']}` | {row['source']} | `{identity}` | {row['status']} | "
             f"{'oui' if row['generated'] else 'non'} | "
             f"{'oui' if row['mapgen_validated'] else 'non'} | "
-            f"{'oui' if row['runtime_validated'] else 'non'} | {blockers} |")
+            f"{'oui' if row['route_validated'] else 'non'} | {blockers} |")
     lines += ["", "## Totaux par raison de blocage", ""]
     for reason, count in summary["blocked_by_reason"].items():
         lines.append(f"- `{reason}` : {count}")

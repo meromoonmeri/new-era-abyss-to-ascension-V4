@@ -1,0 +1,39 @@
+{
+  "schema": "new-era.red-story-batch.v1",
+  "batch": "red_story_02",
+  "summary": {
+    "requested": 2,
+    "staged": 0,
+    "runtime_validated": 0,
+    "promoted": 0,
+    "blocked": 2
+  },
+  "entries": [
+    {
+      "definition": "silent_chasm",
+      "zone": "silent_chasm",
+      "floors": null,
+      "definition_path": null,
+      "zone_path": null,
+      "configuration_gate": false,
+      "warnings": [],
+      "status": "BLOCKED_CONFIGURATION",
+      "blockers": [
+        "silent_chasm: unmapped canonical items: ITEM_BLOWBACK_ORB, ITEM_HURL_ORB, ITEM_RADAR_ORB, ITEM_SWITCHER_ORB, ITEM_WARP_ORB"
+      ]
+    },
+    {
+      "definition": "great_canyon",
+      "zone": "great_canyon",
+      "floors": null,
+      "definition_path": null,
+      "zone_path": null,
+      "configuration_gate": false,
+      "warnings": [],
+      "status": "BLOCKED_CONFIGURATION",
+      "blockers": [
+        "great_canyon: unmapped canonical items: ITEM_LINK_BOX, ITEM_TM_TOXIC"
+      ]
+    }
+  ]
+}

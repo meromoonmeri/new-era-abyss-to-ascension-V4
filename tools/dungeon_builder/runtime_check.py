@@ -58,13 +58,19 @@ def _known_tilesets() -> Set[str]:
     return set(base_tilesets()) | {p.stem for p in AUTOTILE_DIR.glob("*.json")}
 
 
+def _known_items() -> Set[str]:
+    base = ROOT / "tools/dungeon_builder/data/base_items.txt"
+    return ({line.strip() for line in base.read_text().splitlines() if line.strip()}
+            if base.is_file() else set()) | {p.stem for p in ITEM_DIR.glob("*.json")}
+
+
 def preflight_zone(definition, known_tilesets: Optional[Set[str]] = None,
                    known_items: Optional[Set[str]] = None) -> Optional[PreflightResult]:
     path = ZONE_DIR / f"{definition.id}.json"
     if not path.exists():
         return None
     known_tilesets = known_tilesets if known_tilesets is not None else _known_tilesets()
-    known_items = known_items if known_items is not None else {p.stem for p in ITEM_DIR.glob("*.json")}
+    known_items = known_items if known_items is not None else _known_items()
 
     result = PreflightResult(dungeon=definition.id, zone=str(path.relative_to(ROOT)))
     text = path.read_text(encoding="utf-8-sig")
@@ -121,7 +127,7 @@ def preflight_zone(definition, known_tilesets: Optional[Set[str]] = None,
 def preflight_all() -> List[PreflightResult]:
     from .definitions import DefinitionError, list_definitions, load_definition
     known_tilesets = _known_tilesets()
-    known_items = {p.stem for p in ITEM_DIR.glob("*.json")}
+    known_items = _known_items()
     results: List[PreflightResult] = []
     for path in list_definitions():
         try:

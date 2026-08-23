@@ -67,7 +67,7 @@ function tiny_woods.ExitSegment(zone, result, rescue, segmentID, mapID)
     SV.CanonicalDungeons.Pending = 'tiny_woods_seg0'
     -- d01p02 ne porte aucun marqueur : la scène téléporte
     -- elle-même le joueur, on entre donc par index.
-    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, 'd01p02'), 0)
+    GAME:EnterZone(zone.ID, -1, ZONE_GROUND_IDX(zone, 'd01p02'), 0)
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end

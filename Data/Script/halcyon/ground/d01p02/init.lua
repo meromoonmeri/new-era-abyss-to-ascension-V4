@@ -40,6 +40,14 @@ end
 
 function d01p02.Enter(map)
   DEBUG.EnableDbgCoro()
+  if os.getenv('PMDO_RED_STORY_ROUTE_VALIDATOR') == 'tiny_woods' then
+    RogueEssence.GameManager.Instance:SetFade(false, false)
+    RedCanonScene.Play(SCENE, EVENTS)
+    GAME:CutsceneMode(false)
+    SV.CanonicalDungeons = SV.CanonicalDungeons or {}
+    SV.CanonicalDungeons['tiny_woods'] = true
+    return -- the validator commits EndGame after GroundMapEnter
+  end
   GAME:FadeIn(20)
   RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)

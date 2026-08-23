@@ -1167,9 +1167,9 @@
     "game": "PMD_RED",
     "status": {
       "configuration": "validated",
-      "runtime": "map_generation_validated_route_pending",
+      "runtime": "route_validated_asset_blocked",
       "batch_approved": false,
-      "reason": "50/50 native PMDO generations passed; canonical Ground route pending"
+      "reason": "Native PMDO mapgen and complete thunderwave_cave entrance->floors->canonical-end->return route passed. Canonical music asset missing."
     },
     "categories": {
       "floor_parameters": [

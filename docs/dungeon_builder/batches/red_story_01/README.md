@@ -2,58 +2,35 @@
 
 ## Statut
 
-| Donjon | Source | Floors | Zone candidate | Mapgen PMDO | Route | Promotion |
-|---|---|---:|---|---|---|---|
-| Tiny Woods | PMD Red ROM / pret `bf0092…` | 3 | générée en staging | 30/30, invalid 0 | en attente | non |
-| Thunderwave Cave | PMD Red ROM / pret `bf0092…` | 5 | générée en staging | 50/50, invalid 0 | en attente | non |
+| Donjon | Floors | Mapgen PMDO | Route PMDO | Promotion | Blocker restant |
+|---|---:|---:|---:|---:|---|
+| Tiny Woods | 3 | 30/30, invalid 0 | PASS | non | `CANONICAL_MUSIC_ASSET_MISSING` |
+| Thunderwave Cave | 5 | 50/50, invalid 0 | PASS | non | `CANONICAL_MUSIC_ASSET_MISSING` |
+
+Les deux routes chargent l’entrée canonique, chaque floor, le Ground final D01P02/D02P02, puis reviennent au Ground d’entrée après `EndGame` natif. Les seeds et escaliers sont journalisés.
 
 ## Règles réconciliées
 
-- shops désactivés : `kecleonShopChance=0` sur tous les floors ;
+- shops désactivés : `kecleonShopChance=0` ;
 - Monster Houses désactivées : `monsterHouseChance=0` ;
 - météo claire conservée ;
-- Tiny Woods : `trapDensity=0`, aucun piège généré ;
-- Thunderwave Cave : Wonder Tiles et densité 3 conservées ;
-- espèces, probabilités et plages de floors viennent des manifests ROM ;
-- objets sont portés avec plages propres aux floors ; l’argent reste traité par le step PMDO dédié ;
+- Tiny Woods : `trapDensity=0` ;
+- Thunderwave Cave : Wonder Tiles et densité 3 ;
+- espèces, probabilités, objets et floors issus des manifests ROM ;
+- objets limités à leurs floors source ;
 - niveaux New Era séparés comme `SUPPLEMENTAL` ;
-- profils RogueElements explicitement `INFERRED`, sélectionnés par `ChanceFloorGen` au runtime.
+- profils RogueElements explicitement `INFERRED` et sélectionnés par `ChanceFloorGen`.
 
-## Assets
+## Assets et décision de non-promotion
 
-- Tiny Woods : package PMDO canonique `tiny_woods_{floor,wall,secondary}` ;
-- Thunderwave Cave : package PMDO canonique `thunderwave_cave_{floor,wall,secondary}` ;
-- les Grounds D01/D02 et leurs scènes ROM sont référencés dans les provenances ;
-- aucune arène de boss n’est inventée : les scènes finales sont des scènes de sauvetage, sans faux combat.
+Les DTEF `tiny_woods` et `thunderwave_cave` existent dans PMDO. En revanche, les pistes PMD Red `Tiny Woods.ogg` et `Thunderwave Cave.ogg` n’existent ni dans `Content/Music` du mod ni dans le catalogue PMDO base. Le mapgen accepte le champ texte sans charger l’audio ; ce n’est donc pas une preuve d’asset.
 
-## Validation native
+La tentative de promotion a été annulée après le préflight. Les `Data/Zone` actives ont été restaurées. Aucune musique de remplacement n’est utilisée.
 
-Commande :
-
-```bash
-PMDO_MAPGEN_MOD_SRC=/tmp/red-story-01-mod \
-PMDO_MAPGEN_MOD_NAME=red-story-01 \
-PMDO_MAPGEN_VALIDATOR_SPEC=tiny_woods,thunderwave_cave \
-tools/runtime/run_engine_mapgen.sh /tmp/red-story-01-runtime 10
-```
-
-Résultat terminal :
-
-```json
-{"event":"end","attempted":80,"generated":80,"failures":0,"non_traversable":0,"invalid":0}
-```
-
-Preuves :
+## Preuves
 
 - `batch_report.json` ;
 - `native_mapgen_report.md` ;
-- `runtime/native_mapgen.jsonl`.
-
-## Blocages de promotion
-
-Les deux entrées restent bloquées par :
-
-- `ROUTE_RUNTIME_NOT_VALIDATED` ;
-- `NOT_PROMOTED`.
-
-Les `Data/Zone` actives ne sont pas modifiées par ce lot.
+- `runtime/native_mapgen.jsonl` ;
+- `runtime/routes/tiny_woods.jsonl` et `.log` ;
+- `runtime/routes/thunderwave_cave.jsonl` et `.log`.

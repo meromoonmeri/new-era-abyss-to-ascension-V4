@@ -6,7 +6,7 @@
     "staged": 2,
     "generated": 2,
     "runtime_pmdo_mapgen_validated": 2,
-    "route_validated": 0,
+    "route_validated": 2,
     "promoted": 0,
     "blocked": 2
   },
@@ -19,7 +19,7 @@
       "zone_path": "Staging/dungeon_builder/red_story_01/Data/Zone/tiny_woods.json",
       "configuration_gate": true,
       "warnings": [],
-      "status": "NATIVE_MAPGEN_VALIDATED_ROUTE_PENDING",
+      "status": "ROUTE_VALIDATED_ASSET_BLOCKED",
       "runtime": {
         "engine": "PMDO 0.8.12",
         "attempted": 30,
@@ -30,12 +30,28 @@
         "seeds_logged": 30
       },
       "blockers": [
-        "ROUTE_RUNTIME_NOT_VALIDATED",
+        "CANONICAL_MUSIC_ASSET_MISSING",
         "NOT_PROMOTED"
       ],
       "artifacts": {
-        "definition_sha256": "da81a8099ed78ebeb7549358687be3ae7f7b0945a4ea9e09ba5c7ce738ea878a",
+        "definition_sha256": "7c6a59a1c896a71efbd04680e94025df3727fe0d1d57882dc4295866b984d324",
         "zone_sha256": "a704eb49cb4e61993c946b4abd3a2e349f4e31d9cab93ad98b1d229502d1f62f"
+      },
+      "route_runtime": {
+        "jsonl": "docs/dungeon_builder/batches/red_story_01/runtime/routes/tiny_woods.jsonl",
+        "jsonl_sha256": "e360ba26e815d998a0a78ff049be6d5f196c8d6dc89187f62349195f9643dcfb",
+        "log": "docs/dungeon_builder/batches/red_story_01/runtime/routes/tiny_woods.log",
+        "maps": [
+          0,
+          1,
+          2
+        ],
+        "grounds": [
+          "foret_tendre_oree",
+          "d01p02",
+          "foret_tendre_oree"
+        ],
+        "fatals": 0
       }
     },
     {
@@ -46,7 +62,7 @@
       "zone_path": "Staging/dungeon_builder/red_story_01/Data/Zone/thunderwave_cave.json",
       "configuration_gate": true,
       "warnings": [],
-      "status": "NATIVE_MAPGEN_VALIDATED_ROUTE_PENDING",
+      "status": "ROUTE_VALIDATED_ASSET_BLOCKED",
       "runtime": {
         "engine": "PMDO 0.8.12",
         "attempted": 50,
@@ -57,12 +73,30 @@
         "seeds_logged": 50
       },
       "blockers": [
-        "ROUTE_RUNTIME_NOT_VALIDATED",
+        "CANONICAL_MUSIC_ASSET_MISSING",
         "NOT_PROMOTED"
       ],
       "artifacts": {
-        "definition_sha256": "ba1761f4f8e2caf15492651911024fa4164b17d8df394412eaafae35cb7c9861",
+        "definition_sha256": "e0e7f79af88eba7a0dec58eca122d7b3f1db39bae0454e3a70d0e857c7a9ca59",
         "zone_sha256": "1fda6f6fe7205769955f75b20176f6f9629f6bf35a831b63f725fbe485a5fa04"
+      },
+      "route_runtime": {
+        "jsonl": "docs/dungeon_builder/batches/red_story_01/runtime/routes/thunderwave_cave.jsonl",
+        "jsonl_sha256": "1cfb808b5a1838dd777c449cdaea5b31c1f2acbcdcd652f995eed7a78d1fb407",
+        "log": "docs/dungeon_builder/batches/red_story_01/runtime/routes/thunderwave_cave.log",
+        "maps": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "grounds": [
+          "grotte_statique_seuil",
+          "d02p02",
+          "grotte_statique_seuil"
+        ],
+        "fatals": 0
       }
     }
   ],

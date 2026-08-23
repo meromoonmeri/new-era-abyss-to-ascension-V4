@@ -8,16 +8,18 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import re
 import shutil
+from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
 
 import build_canonical_definitions as legacy_mapping
 
 from .canonical_gate import inspect
-from .definitions import parse_definition
+from .definitions import load_definition, parse_definition
 from .rng import DungeonRng
-from .zone_export import build_zone
+from .zone_export import ExportResult, build_zone, update_zone_index
 
 ROOT = Path(__file__).resolve().parents[2]
 BATCH_ID = "red_story_01"
@@ -66,7 +68,60 @@ PROFILE_SPECS = {
 
 EXPLICIT_ITEM_MAP = {
     "ITEM_GRAVELEROCK": "ammo_gravelerock",
+    "ITEM_MAX_ELIXIR": "medicine_max_elixir",
 }
+BASE_ITEMS = set((ROOT / "tools/dungeon_builder/data/base_items.txt").read_text().splitlines())
+BASE_ITEM_CATALOG = json.loads(
+    (ROOT / "tools/dungeon_builder/data/base_item_catalog.json").read_text(encoding="utf-8"))
+BASE_ITEMS_BY_NAME: dict[str, list[str]] = {}
+for _entry in BASE_ITEM_CATALOG["entries"]:
+    if not _entry["released"] or not _entry["name"]:
+        continue
+    _name = re.sub(r"[^a-z0-9]", "", _entry["name"].lower())
+    BASE_ITEMS_BY_NAME.setdefault(_name, []).append(_entry["id"])
+
+
+def _exact_name_item(value: str) -> str | None:
+    raw = value.removeprefix("ITEM_")
+    tokens = raw.split("_")
+    if tokens and tokens[0] == "TM":
+        tokens = tokens[1:]
+    aliases = {"DEF": "DEFENSE"}
+    display = " ".join(aliases.get(token, token) for token in tokens)
+    key = re.sub(r"[^a-z0-9]", "", display.lower())
+    candidates = BASE_ITEMS_BY_NAME.get(key, [])
+    prefixes: tuple[str, ...] = ()
+    if value.startswith("ITEM_TM_"): prefixes = ("tm_",)
+    elif value.endswith("_ORB"): prefixes = ("orb_",)
+    elif value.endswith("_SEED"): prefixes = ("seed_",)
+    elif value.endswith("_BERRY"): prefixes = ("berry_",)
+    elif value.endswith("_GUMMI"): prefixes = ("gummi_",)
+    elif any(value.endswith(suffix) for suffix in ("_BAND", "_SCARF", "_RIBBON", "_LENS", "SCOPE")):
+        prefixes = ("held_",)
+    elif "APPLE" in value: prefixes = ("food_",)
+    elif any(token in value for token in ("THORN", "SPIKE", "ROCK", "PEBBLE")):
+        prefixes = ("ammo_",)
+    elif "ELIXIR" in value: prefixes = ("medicine_",)
+    if prefixes:
+        candidates = [candidate for candidate in candidates if candidate.startswith(prefixes)]
+    return candidates[0] if len(candidates) == 1 else None
+
+
+@contextmanager
+def batch_context(batch_id: str, config: dict[str, Any],
+                  profiles: dict[str, dict[str, Any]]):
+    global BATCH_ID, CONFIG, PROFILE_SPECS, DEFINITION_DIR, ZONE_DIR, REPORT_PATH
+    saved = (BATCH_ID, CONFIG, PROFILE_SPECS, DEFINITION_DIR, ZONE_DIR, REPORT_PATH)
+    BATCH_ID = batch_id
+    CONFIG = config
+    PROFILE_SPECS = profiles
+    DEFINITION_DIR = ROOT / "DungeonDefs/staging" / batch_id
+    ZONE_DIR = ROOT / "Staging/dungeon_builder" / batch_id / "Data/Zone"
+    REPORT_PATH = ROOT / "docs/dungeon_builder/batches" / batch_id / "batch_report.json"
+    try:
+        yield
+    finally:
+        (BATCH_ID, CONFIG, PROFILE_SPECS, DEFINITION_DIR, ZONE_DIR, REPORT_PATH) = saved
 
 
 def _species(value: str) -> str:
@@ -76,11 +131,22 @@ def _species(value: str) -> str:
     return result
 
 
-def _item(value: str, conversion: dict[str, str], prices: dict[str, int]) -> str | None:
+def _item(value: str, conversion: dict[str, str], available: set[str]) -> str | None:
     if value in {"ITEM_NONE", "ITEM_POKE"}:
         return None
-    result = EXPLICIT_ITEM_MAP.get(value) or legacy_mapping.convert_item(value, conversion, prices)
-    return result
+    result = EXPLICIT_ITEM_MAP.get(value)
+    if value.startswith("ITEM_TM_"):
+        result = "tm_" + value.removeprefix("ITEM_TM_").lower()
+    result = result or _exact_name_item(value)
+    if result and result in available:
+        return result
+    key = value.removeprefix("ITEM_").lower()
+    candidate = conversion.get(key)
+    if candidate and candidate in available:
+        return candidate
+    if key in available:
+        return key
+    return None
 
 
 def _profiles(stem: str, floor: dict[str, Any]) -> list[dict[str, Any]]:
@@ -121,7 +187,7 @@ def _pokemon(manifest: dict[str, Any], base_level: int) -> list[dict[str, Any]]:
 
 def _items(manifest: dict[str, Any]) -> tuple[dict[str, Any], list[str]]:
     conversion = legacy_mapping.load_item_conversion()
-    prices = legacy_mapping.known_items()
+    available = BASE_ITEMS | set(legacy_mapping.known_items())
     entries = []
     missing: set[str] = set()
     for floor in manifest["floors"]:
@@ -133,7 +199,7 @@ def _items(manifest: dict[str, Any]) -> tuple[dict[str, Any], list[str]]:
                 probability = int(raw.get("itemProbability", 0))
                 if category_probability <= 0 or probability <= 0:
                     continue
-                item = _item(raw["item"], conversion, prices)
+                item = _item(raw["item"], conversion, available)
                 if item is None:
                     if raw["item"] not in {"ITEM_NONE", "ITEM_POKE"}:
                         missing.add(raw["item"])
@@ -178,6 +244,8 @@ def reconcile(stem: str) -> dict[str, Any]:
     config = CONFIG[stem]
     floors = int(manifest["floor_count"])
     items, missing_items = _items(manifest)
+    if missing_items:
+        raise ValueError(f"{stem}: unmapped canonical items: {', '.join(missing_items)}")
     segment = raw["segments"][0]
     segment.update({
         "name": raw.get("biome", stem),
@@ -190,6 +258,7 @@ def reconcile(stem: str) -> dict[str, Any]:
         "inherit_items": False,
         "floor_overrides": {},
     })
+    raw["segments"] = [segment]
     for floor in manifest["floors"]:
         number = int(floor["floor"])
         props = floor["floor_properties"]
@@ -293,31 +362,42 @@ def reconcile(stem: str) -> dict[str, Any]:
 def build(write: bool = False) -> dict[str, Any]:
     rows = []
     for stem in CONFIG:
-        raw = reconcile(stem)
-        definition_path = DEFINITION_DIR / f"{stem}.json"
-        definition = parse_definition(raw, definition_path)
-        gate_path = definition_path
-        if write:
-            DEFINITION_DIR.mkdir(parents=True, exist_ok=True)
-            definition_path.write_text(json.dumps(raw, ensure_ascii=False, indent=2) + "\n")
-        export = build_zone(definition, DungeonRng(label=f"staging:{BATCH_ID}:{stem}"))
-        zone_path = ZONE_DIR / f"{definition.id}.json"
-        if write:
-            ZONE_DIR.mkdir(parents=True, exist_ok=True)
-            zone_path.write_text("\ufeff" + json.dumps(export.zone_json, ensure_ascii=False, indent=2))
-        gate = inspect(gate_path) if write else None
-        rows.append({
-            "definition": stem, "zone": definition.id, "floors": definition.floors,
-            "definition_path": str(definition_path.relative_to(ROOT)),
-            "zone_path": str(zone_path.relative_to(ROOT)),
-            "configuration_gate": (gate.config_ready if gate else True),
-            "warnings": export.warnings,
-            "status": "STAGED_AWAITING_PMDO_RUNTIME",
-        })
+        try:
+            raw = reconcile(stem)
+            definition_path = DEFINITION_DIR / f"{stem}.json"
+            definition = parse_definition(raw, definition_path)
+            if write:
+                DEFINITION_DIR.mkdir(parents=True, exist_ok=True)
+                definition_path.write_text(json.dumps(raw, ensure_ascii=False, indent=2) + "\n")
+            export = build_zone(definition, DungeonRng(label=f"staging:{BATCH_ID}:{stem}"))
+            zone_path = ZONE_DIR / f"{definition.id}.json"
+            if write:
+                ZONE_DIR.mkdir(parents=True, exist_ok=True)
+                zone_path.write_text("\ufeff" + json.dumps(export.zone_json, ensure_ascii=False, indent=2))
+            gate = inspect(definition_path) if write else None
+            rows.append({
+                "definition": stem, "zone": definition.id, "floors": definition.floors,
+                "definition_path": str(definition_path.relative_to(ROOT)),
+                "zone_path": str(zone_path.relative_to(ROOT)),
+                "configuration_gate": (gate.config_ready if gate else True),
+                "warnings": export.warnings,
+                "status": "STAGED_AWAITING_PMDO_RUNTIME",
+                "blockers": [],
+            })
+        except Exception as exc:
+            rows.append({
+                "definition": stem, "zone": stem, "floors": None,
+                "definition_path": None, "zone_path": None,
+                "configuration_gate": False, "warnings": [],
+                "status": "BLOCKED_CONFIGURATION",
+                "blockers": [str(exc)],
+            })
+    staged = sum(row["status"] == "STAGED_AWAITING_PMDO_RUNTIME" for row in rows)
     report = {
         "schema": "new-era.red-story-batch.v1", "batch": BATCH_ID,
-        "summary": {"requested": len(rows), "staged": len(rows),
-                    "runtime_validated": 0, "promoted": 0, "blocked": 0},
+        "summary": {"requested": len(rows), "staged": staged,
+                    "runtime_validated": 0, "promoted": 0,
+                    "blocked": len(rows) - staged},
         "entries": rows,
     }
     if write:
@@ -333,15 +413,17 @@ def record_runtime(jsonl_path: Path, report_path: Path | None = None) -> dict[st
     terminal = next((row for row in rows if row.get("event") == "end"), None)
     if terminal is None:
         raise ValueError("native runtime JSONL has no terminal event")
-    expected = sum(raw["floors"] for raw in (reconcile(stem) for stem in CONFIG)) * 10
+    report = json.loads(REPORT_PATH.read_text(encoding="utf-8"))
+    candidates = [entry for entry in report["entries"]
+                  if entry["status"] == "STAGED_AWAITING_PMDO_RUNTIME"]
+    expected = sum(int(entry["floors"]) for entry in candidates) * 10
     if (int(terminal.get("attempted", -1)) != expected
             or int(terminal.get("generated", -1)) != expected
             or int(terminal.get("failures", -1)) != 0
             or int(terminal.get("non_traversable", -1)) != 0
             or int(terminal.get("invalid", -1)) != 0):
         raise ValueError(f"native runtime batch rejected: {terminal}")
-    report = json.loads(REPORT_PATH.read_text(encoding="utf-8"))
-    for entry in report["entries"]:
+    for entry in candidates:
         runs = [row for row in floors if row.get("zone") == entry["zone"]]
         expected_zone = int(entry["floors"]) * 10
         if len(runs) != expected_zone or any(not row.get("valid") for row in runs):
@@ -378,9 +460,9 @@ def record_runtime(jsonl_path: Path, report_path: Path | None = None) -> dict[st
     if report_path:
         shutil.copy2(report_path, target_report)
     report["summary"] = {
-        "requested": len(CONFIG), "staged": len(CONFIG), "generated": len(CONFIG),
-        "runtime_pmdo_mapgen_validated": len(CONFIG), "route_validated": 0,
-        "promoted": 0, "blocked": len(CONFIG),
+        "requested": len(CONFIG), "staged": len(candidates), "generated": len(candidates),
+        "runtime_pmdo_mapgen_validated": len(candidates), "route_validated": 0,
+        "promoted": 0, "blocked": len(CONFIG) - len(candidates),
     }
     report["runtime_evidence"] = {
         "jsonl": str(target_jsonl.relative_to(ROOT)),
@@ -389,6 +471,96 @@ def record_runtime(jsonl_path: Path, report_path: Path | None = None) -> dict[st
         "report_sha256": (hashlib.sha256(target_report.read_bytes()).hexdigest()
                           if target_report.is_file() else None),
         "end": terminal,
+    }
+    REPORT_PATH.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
+    return report
+
+
+def record_routes(route_dir: Path, promote: bool = False) -> dict[str, Any]:
+    report = json.loads(REPORT_PATH.read_text(encoding="utf-8"))
+    candidates = [entry for entry in report["entries"] if entry["status"] in {
+        "NATIVE_MAPGEN_VALIDATED_ROUTE_PENDING", "ROUTE_VALIDATED_READY_FOR_PROMOTION",
+        "ROUTE_VALIDATED_ASSET_BLOCKED"}]
+    if not candidates:
+        raise ValueError("route validation requires at least one mapgen-validated candidate")
+    runtime_dir = REPORT_PATH.parent / "runtime/routes"
+    runtime_dir.mkdir(parents=True, exist_ok=True)
+    for entry in candidates:
+        stem = entry["definition"]
+        source_jsonl = route_dir / f"{entry['zone']}.jsonl"
+        source_log = route_dir / f"{entry['zone']}.log"
+        rows = [json.loads(line) for line in source_jsonl.read_text().splitlines() if line.strip()]
+        maps = [row["floor"] for row in rows if row.get("event") == "map"]
+        grounds = [row["id"] for row in rows if row.get("event") == "ground"]
+        terminal = next((row for row in rows if row.get("event") == "end"), None)
+        canonical = next((row for row in rows if row.get("event") == "canonical_end"), None)
+        fatals = [row for row in rows if row.get("event") == "fatal"]
+        if (fatals or maps != list(range(int(entry["floors"]))) or len(grounds) != 3
+                or grounds[0] != grounds[-1] or not canonical or not canonical.get("scene_complete")
+                or not terminal or not terminal.get("canonical_complete")):
+            raise ValueError(f"{stem}: route evidence rejected")
+        if any(not row.get("map_seed") or row.get("stairs", 0) < 1
+               for row in rows if row.get("event") == "map"):
+            raise ValueError(f"{stem}: route map seed/stair evidence incomplete")
+        target_jsonl = runtime_dir / source_jsonl.name
+        target_log = runtime_dir / source_log.name
+        shutil.copy2(source_jsonl, target_jsonl)
+        if source_log.is_file():
+            shutil.copy2(source_log, target_log)
+        definition_path = ROOT / entry["definition_path"]
+        definition = json.loads(definition_path.read_text(encoding="utf-8"))
+        base_music_path = ROOT / "tools/dungeon_builder/data/base_music.txt"
+        base_music = {line.strip() for line in base_music_path.read_text().splitlines()
+                      if line.strip() and not line.startswith("#")}
+        local_music = {path.stem for path in (ROOT / "Content/Music").glob("*.ogg")}
+        music = str(definition.get("music") or "").removesuffix(".ogg")
+        asset_blockers = []
+        if music and music not in base_music and music not in local_music:
+            asset_blockers.append("CANONICAL_MUSIC_ASSET_MISSING")
+        can_promote = bool(promote) and not asset_blockers
+        definition["provenance"]["status"].update({
+            "runtime": ("validated" if not asset_blockers else "route_validated_asset_blocked"),
+            "batch_approved": can_promote,
+            "reason": (f"Native PMDO mapgen and complete {stem} entrance->floors->"
+                       "canonical-end->return route passed."
+                       + (" Canonical music asset missing." if asset_blockers else "")),
+        })
+        definition_path.write_text(json.dumps(definition, ensure_ascii=False, indent=2) + "\n")
+        entry["route_runtime"] = {
+            "jsonl": str(target_jsonl.relative_to(ROOT)),
+            "jsonl_sha256": hashlib.sha256(target_jsonl.read_bytes()).hexdigest(),
+            "log": str(target_log.relative_to(ROOT)) if target_log.is_file() else None,
+            "maps": maps, "grounds": grounds, "fatals": 0,
+        }
+        entry["blockers"] = ([] if can_promote else asset_blockers + ["NOT_PROMOTED"])
+        entry["status"] = ("PROMOTED_RUNTIME_VALIDATED" if can_promote
+                           else ("ROUTE_VALIDATED_ASSET_BLOCKED" if asset_blockers
+                                 else "ROUTE_VALIDATED_READY_FOR_PROMOTION"))
+        if can_promote:
+            canonical_definition = ROOT / "DungeonDefs/canonical" / f"{stem}.json"
+            active_zone = ROOT / "Data/Zone" / f"{entry['zone']}.json"
+            shutil.copy2(definition_path, canonical_definition)
+            shutil.copy2(ROOT / entry["zone_path"], active_zone)
+            parsed = load_definition(canonical_definition)
+            zone_json = json.loads(active_zone.read_text(encoding="utf-8-sig"))
+            update_zone_index(parsed, ExportResult(zone_path=active_zone, zone_json=zone_json))
+            entry["active_definition"] = str(canonical_definition.relative_to(ROOT))
+            entry["active_zone"] = str(active_zone.relative_to(ROOT))
+        zone_path = ROOT / entry["zone_path"]
+        entry["artifacts"] = {
+            "definition_sha256": hashlib.sha256(definition_path.read_bytes()).hexdigest(),
+            "zone_sha256": hashlib.sha256(zone_path.read_bytes()).hexdigest(),
+        }
+    preblocked = len(report["entries"]) - len(candidates)
+    promoted_count = sum(entry["status"] == "PROMOTED_RUNTIME_VALIDATED"
+                         for entry in candidates)
+    candidate_blocked = sum(bool(entry.get("blockers")) for entry in candidates)
+    report["summary"] = {
+        "requested": len(CONFIG), "staged": len(candidates), "generated": len(candidates),
+        "runtime_pmdo_mapgen_validated": len(candidates),
+        "route_validated": len(candidates),
+        "promoted": promoted_count,
+        "blocked": preblocked + candidate_blocked,
     }
     REPORT_PATH.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
     return report

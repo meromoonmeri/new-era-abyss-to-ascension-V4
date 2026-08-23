@@ -1,0 +1,13 @@
+{"event":"begin","zone":"tiny_woods","expected_floors":3}
+{"event":"ground","zone":"tiny_woods","id":"foret_tendre_oree"}
+{"event":"ground_transition","id":"foret_tendre_oree","target":"tiny_woods"}
+{"event":"map","zone":"tiny_woods","segment":0,"floor":0,"width":49,"height":28,"mobs":4,"stairs":1,"map_seed":"5854436569929006609","adventure_seed":"7782752486206859677"}
+{"event":"next_floor","from":0,"to":1}
+{"event":"map","zone":"tiny_woods","segment":0,"floor":1,"width":41,"height":28,"mobs":4,"stairs":1,"map_seed":"-8449054251120792061","adventure_seed":"7782752486206859677"}
+{"event":"next_floor","from":1,"to":2}
+{"event":"map","zone":"tiny_woods","segment":0,"floor":2,"width":45,"height":31,"mobs":3,"stairs":1,"map_seed":"-9141931158710544876","adventure_seed":"7782752486206859677"}
+{"event":"segment_clear","floor":2}
+{"event":"ground","zone":"tiny_woods","id":"d01p02"}
+{"event":"canonical_end","id":"d01p02","scene_complete":true}
+{"event":"ground","zone":"tiny_woods","id":"foret_tendre_oree"}
+{"event":"end","zone":"tiny_woods","canonical_complete":true}

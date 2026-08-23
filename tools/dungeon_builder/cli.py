@@ -527,20 +527,35 @@ def cmd_scope_111(args) -> int:
     return 0
 
 
-def cmd_batch_red_story_01(args) -> int:
-    from .red_story_batch import build, record_runtime
-    if args.runtime_jsonl:
+def _run_story_batch(args, module) -> int:
+    if args.route_dir:
+        if not args.apply:
+            raise ValueError("--route-dir requires --apply")
+        report = module.record_routes(Path(args.route_dir), promote=bool(args.promote))
+        promoted = int(report.get("summary", {}).get("promoted", 0))
+        action = f"route evidence recorded; {promoted} candidate(s) promoted"
+    elif args.runtime_jsonl:
         if not args.apply:
             raise ValueError("--runtime-jsonl requires --apply")
-        report = record_runtime(Path(args.runtime_jsonl),
-                                Path(args.runtime_report) if args.runtime_report else None)
+        report = module.record_runtime(Path(args.runtime_jsonl),
+                                       Path(args.runtime_report) if args.runtime_report else None)
         action = "native runtime evidence recorded"
     else:
-        report = build(write=bool(args.apply))
+        report = module.build(write=bool(args.apply))
         action = "staged definitions/zones written" if args.apply else "dry-run; staging unchanged"
     print(json.dumps(report["summary"], ensure_ascii=False, indent=2))
     print(action)
     return 0
+
+
+def cmd_batch_red_story_01(args) -> int:
+    from . import red_story_batch
+    return _run_story_batch(args, red_story_batch)
+
+
+def cmd_batch_red_story_02(args) -> int:
+    from . import red_story_batch_02
+    return _run_story_batch(args, red_story_batch_02)
 
 
 def cmd_canonical_audit(args) -> int:
@@ -805,7 +820,20 @@ def build_parser() -> argparse.ArgumentParser:
     red_story_01.add_argument("--apply", action="store_true")
     red_story_01.add_argument("--runtime-jsonl", default=None)
     red_story_01.add_argument("--runtime-report", default=None)
+    red_story_01.add_argument("--route-dir", default=None)
+    red_story_01.add_argument("--promote", action="store_true")
     red_story_01.set_defaults(func=cmd_batch_red_story_01)
+
+    red_story_02 = sub.add_parser(
+        "batch-red-story-02",
+        help="stage Silent Chasm and Great Canyon from their ROM manifests",
+    )
+    red_story_02.add_argument("--apply", action="store_true")
+    red_story_02.add_argument("--runtime-jsonl", default=None)
+    red_story_02.add_argument("--runtime-report", default=None)
+    red_story_02.add_argument("--route-dir", default=None)
+    red_story_02.add_argument("--promote", action="store_true")
+    red_story_02.set_defaults(func=cmd_batch_red_story_02)
 
     reconcile_sinister = sub.add_parser(
         "reconcile-sinister",

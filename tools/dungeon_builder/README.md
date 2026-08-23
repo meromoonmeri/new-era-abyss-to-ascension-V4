@@ -22,6 +22,7 @@ python3 tools/dungeon_builder.py canonical-audit --report             # gate ROM
 python3 tools/dungeon_builder.py extract-red-all --source /src/pmd-red --apply  # 51 manifests, aucune zone
 python3 tools/dungeon_builder.py scope-111 --pret-source /src/pmd-red --pmdodump-source /src/PMDODump --apply
 python3 tools/dungeon_builder.py batch-red-story-01 --apply            # staging Tiny Woods + Thunderwave Cave
+python3 tools/dungeon_builder.py batch-red-story-02 --apply            # Silent Chasm + Great Canyon, fail-closed items
 python3 tools/dungeon_builder.py generate sinister_woods              # écrit seulement si le gate canonique passe
 python3 tools/dungeon_builder.py generate-all --chapters 6-32         # fail-closed : runtime + batch_approved requis
 ```
@@ -57,10 +58,11 @@ le service runtime journalise cette seed pour reproduire un incident.
 | `prototype.py` | Ancien prototype Python conservé temporairement pour les aperçus ; il n'autorise jamais une production |
 
 > **État au 2026-08-23 :** le registre prioritaire contient 111 entrées exactes
-> (64 Red EU + 47 PMDODump). Sinister Woods est promu et route-validé ; Tiny
-> Woods et Thunderwave Cave sont générés en staging et passent 80/80 mapgen PMDO,
-> mais restent non promus tant que leurs routes Ground ne sont pas validées.
-> `generate-all` reste fermé pour toutes les autres entrées.
+> (64 Red EU + 47 PMDODump). Sinister Woods est promu et route-validé. Tiny
+> Woods et Thunderwave Cave passent 80/80 mapgen et leurs deux routes Ground,
+> mais restent non promus car leurs musiques PMD Red sont absentes des assets
+> PMDO. L’audit exhaustif trouve 49 autres manifests bloqués par floors fixes
+> et/ou items sans équivalent exact ; aucune substitution inter-famille n’est faite.
 
 ## Écrire une définition
 

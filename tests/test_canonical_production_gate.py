@@ -24,6 +24,8 @@ RED_BATCH_REPORT = REPO / "docs" / "canonical" / "red" / "PMD_RED_BATCH_EXTRACTI
 SCOPE_111 = REPO / "DungeonDefs" / "canonical_scope_111.json"
 RED_STORY_01_REPORT = (REPO / "docs/dungeon_builder/batches/red_story_01/batch_report.json")
 RED_STORY_01_JSONL = (REPO / "docs/dungeon_builder/batches/red_story_01/runtime/native_mapgen.jsonl")
+RED_STORY_02_REPORT = (REPO / "docs/dungeon_builder/batches/red_story_02/batch_report.json")
+RED_RESOLUTION_AUDIT = REPO / "docs/canonical/red/PMD_RED_RESOLUTION_AUDIT.json"
 ENGINE_REPORT = REPO / "docs" / "dungeon_builder" / "ENGINE_PROTOTYPE_NATIVE.md"
 ENGINE_JSONL = REPO / "docs" / "dungeon_builder" / "runtime" / "engine_prototype_native.jsonl"
 SINISTER_SMOKE_JSONL = (REPO / "docs" / "dungeon_builder" / "runtime" /
@@ -201,11 +203,32 @@ class TestPriorityScopeAndFirstBatch(unittest.TestCase):
         self.assertEqual(glacial["source_assets"][0]["path"],
                          "DataAsset/Zone/Glacial_Path.out.txt")
 
+    def test_resolution_audit_exhausts_current_exact_mappings(self):
+        audit = json.loads(RED_RESOLUTION_AUDIT.read_text(encoding="utf-8"))
+        self.assertEqual(audit["summary"], {
+            "manifests": 51, "source_resolvable": 2, "blocked": 49,
+            "fixed_floor_blocked": 26, "item_mapping_blocked": 47,
+        })
+        resolvable = {row["definition"] for row in audit["entries"]
+                      if row["state"] == "SOURCE_RESOLVABLE"}
+        self.assertEqual(resolvable, {"tiny_woods", "thunderwave_cave"})
+        steel = next(row for row in audit["entries"] if row["definition"] == "mt_steel")
+        self.assertEqual(steel["fixed_floors"], [9])
+        self.assertTrue(steel["missing_items"])
+
+    def test_second_batch_is_fail_closed_on_exact_missing_items(self):
+        report = json.loads(RED_STORY_02_REPORT.read_text(encoding="utf-8"))
+        self.assertEqual(report["summary"]["staged"], 0)
+        self.assertEqual(report["summary"]["blocked"], 2)
+        self.assertTrue(all(entry["status"] == "BLOCKED_CONFIGURATION"
+                            for entry in report["entries"]))
+        self.assertTrue(all(entry["blockers"] for entry in report["entries"]))
+
     def test_first_batch_has_80_of_80_native_generations(self):
         report = json.loads(RED_STORY_01_REPORT.read_text(encoding="utf-8"))
         self.assertEqual(report["summary"], {
             "requested": 2, "staged": 2, "generated": 2,
-            "runtime_pmdo_mapgen_validated": 2, "route_validated": 0,
+            "runtime_pmdo_mapgen_validated": 2, "route_validated": 2,
             "promoted": 0, "blocked": 2,
         })
         self.assertEqual(report["runtime_evidence"]["end"], {
@@ -225,7 +248,7 @@ class TestPriorityScopeAndFirstBatch(unittest.TestCase):
             staged = REPO / f"DungeonDefs/staging/red_story_01/{stem}.json"
             gate = inspect(staged)
             self.assertTrue(gate.config_ready, gate.blockers)
-            self.assertEqual(gate.runtime_state, "map_generation_validated_route_pending")
+            self.assertEqual(gate.runtime_state, "route_validated_asset_blocked")
             candidate = REPO / f"Staging/dungeon_builder/red_story_01/Data/Zone/{stem}.json"
             active = REPO / f"Data/Zone/{stem}.json"
             self.assertTrue(candidate.is_file())
@@ -247,6 +270,17 @@ class TestPriorityScopeAndFirstBatch(unittest.TestCase):
         self.assertEqual(wave["dtef"]["name"], "thunderwave_cave")
         tiny_items = tiny["segments"][0]["items"]["canonical_floor_items"]["entries"]
         self.assertEqual({tuple(row["floors"]) for row in tiny_items}, {(3, 3)})
+
+    def test_first_batch_routes_pass_but_music_assets_block_promotion(self):
+        report = json.loads(RED_STORY_01_REPORT.read_text(encoding="utf-8"))
+        for entry in report["entries"]:
+            self.assertEqual(entry["status"], "ROUTE_VALIDATED_ASSET_BLOCKED")
+            self.assertEqual(entry["blockers"],
+                             ["CANONICAL_MUSIC_ASSET_MISSING", "NOT_PROMOTED"])
+            route = REPO / entry["route_runtime"]["jsonl"]
+            rows = [json.loads(line) for line in route.read_text().splitlines()]
+            self.assertTrue(rows[-1]["canonical_complete"])
+            self.assertEqual([row for row in rows if row.get("event") == "fatal"], [])
 
 
 class TestRedCanonicalManifest(unittest.TestCase):
