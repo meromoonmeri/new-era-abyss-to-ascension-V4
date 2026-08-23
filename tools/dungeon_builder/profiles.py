@@ -146,15 +146,22 @@ BUILTIN_PROFILES: Dict[str, ArchitectureProfile] = {
     ),
     "looping": ArchitectureProfile(
         name="looping", path="branch",
-        grid_x=(4, 6), grid_y=(3, 5), room_ratio=(70, 95), branch_ratio=(20, 50),
-        connect_percent=85, default_ratio=(10, 30), combine_rate=0, hall_turn_bias=40,
+        # Promoted only after the native PMDO prototype produced 16/16 valid,
+        # distinct layouts.  The former 4x3-ish profile sometimes erased every
+        # dead end; a larger graph with less aggressive reconnecting preserves
+        # both branches and alternative paths.
+        grid_x=(5, 7), grid_y=(4, 6), room_ratio=(75, 95), branch_ratio=(55, 95),
+        connect_percent=65, default_ratio=(5, 20), combine_rate=0, hall_turn_bias=40,
         rooms=FOREST_ROOMS, tags=("loops", "alt_paths"),
     ),
     "large_rooms": ArchitectureProfile(
         name="large_rooms", path="branch",
-        grid_x=(3, 5), grid_y=(2, 4), cell_width=(12, 17), cell_height=(10, 14),
-        room_ratio=(70, 100), branch_ratio=(20, 60), connect_percent=35,
-        combine_rate=45, hall_turn_bias=35,
+        # The old 3x2 grid + 4-8 merge attempts collapsed to 2-3 rooms in the
+        # actual engine.  These values yielded 11-17 rooms, branches, dead ends
+        # and loops on 16/16 native runtime seeds.
+        grid_x=(5, 7), grid_y=(4, 6), cell_width=(10, 14), cell_height=(9, 13),
+        room_ratio=(80, 100), branch_ratio=(65, 105), connect_percent=45,
+        combine_rate=20, hall_turn_bias=35,
         rooms=(RoomSpec("square", (8, 15), (7, 12), 10), RoomSpec("round", (8, 13), (7, 12), 6),
                RoomSpec("cave", (9, 15), (7, 12), 4)),
         tags=("large_rooms",),

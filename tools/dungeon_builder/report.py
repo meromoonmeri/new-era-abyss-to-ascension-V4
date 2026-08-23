@@ -25,7 +25,7 @@ def build_report(definition: DungeonDefinition, export, validations: Sequence[Fl
             "floor": validation.floor,
             "segment": plan.segment if plan else "",
             "kind": plan.kind if plan else "",
-            "profile": validation.profile,
+            "profile": plan.profile if plan else validation.profile,
             "grid": list(plan.grid) if plan else [],
             "cell": list(plan.cell) if plan else [],
             "dtef": plan.dtef if plan else "",
@@ -65,6 +65,7 @@ def build_report(definition: DungeonDefinition, export, validations: Sequence[Fl
         "chapter": definition.chapter,
         "route": definition.route,
         "source": definition.source,
+        "provenance": definition.provenance,
         "floors": definition.floors,
         "biome": definition.biome,
         "direction": definition.variation.get("direction", ""),
@@ -88,8 +89,11 @@ def to_markdown(report: Dict[str, Any]) -> str:
     lines.append(f"- **Source canonique** : {report['source']}  ")
     lines.append(f"- **Étages** : {report['floors']} — direction `{report['direction'] or 'n/a'}`  ")
     lines.append(f"- **Zone écrite** : `{report['zone_file']}`  ")
-    lines.append(f"- **Seed d'auteur (debug)** : `{report['rng'].get('root_seed')}` "
-                 f"(explicite : {report['rng'].get('explicit_seed')})  ")
+    status = (report.get("provenance") or {}).get("status", {})
+    lines.append(f"- **Gate canonique** : configuration `{status.get('configuration', 'missing')}`, "
+                 f"runtime `{status.get('runtime', 'missing')}`  ")
+    lines.append("- **Seed runtime** : fournie et journalisée par PMDO lors du test moteur ; "
+                 "aucune seed de production n'est écrite dans la zone.  ")
     lines.append("")
     lines.append("## Segments")
     lines.append("")

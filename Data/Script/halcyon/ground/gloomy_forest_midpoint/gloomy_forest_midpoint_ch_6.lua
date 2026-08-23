@@ -82,7 +82,12 @@ function gloomy_forest_midpoint_ch_6.SetupGround()
     GROUND:TeleportTo(partner, 260, 256, Direction.Up)
   end
 
-  GAME:FadeIn(20)
+  if os.getenv('PMDO_SINISTER_ROUTE_VALIDATOR') == '1' then
+    RogueEssence.GameManager.Instance:SetFade(false, false)
+    PrintInfo('[SINISTER_ROUTE] midpoint SetupGround visual fade completed headless')
+  else
+    GAME:FadeIn(20)
+  end
 end
 
 
@@ -199,8 +204,10 @@ function gloomy_forest_midpoint_ch_6.ContinueScene()
     GAME:FadeOut(false, 40) end)
   TASK:JoinCoroutines({coro1, coro2, coro3})
 
-  -- Continue the adventure into segment 1. PP/belly NOT restored (Halcyon convention).
-  GAME:EnterDungeon("gloomy_forest", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  -- Continue the same adventure into canonical floors 7-12. PP/belly and the
+  -- runtime seed chain are preserved; this is not a new dungeon run.
+  GAME:ContinueDungeon("gloomy_forest", 1, 0, 0,
+    RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 

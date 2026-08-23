@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 import sys
 from pathlib import Path
 from typing import List, Optional, Sequence
@@ -29,15 +30,16 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def _profiles_for_floor(definition: DungeonDefinition, floor: int):
     segment = definition.segment_for_floor(floor)
-    choices = definition.profiles_for(segment)
+    choices = definition.profiles_for(segment, floor)
     return [customize(choice.name, choice.overrides) for choice in choices], segment
 
 
 def cmd_audit(args) -> int:
     print("Architecture profiles (all built from native RogueElements steps):")
     for name, profile in sorted(BUILTIN_PROFILES.items()):
+        merge_range = (max(1, profile.combine_rate // 10), max(2, profile.combine_rate // 5))
         print(f"  - {name:12s} path={profile.path:9s} connect={profile.connect_percent:3d}% "
-              f"combine={profile.combine_rate:3d}% tags={','.join(profile.tags)}")
+              f"merge-attempts={merge_range[0]}-{merge_range[1] - 1} tags={','.join(profile.tags)}")
     print()
     packages = available_packages()
     print(f"DTEF packages imported in Data/AutoTile (mod-owned): {len(packages)}")
@@ -352,23 +354,21 @@ def cmd_verify(args) -> int:
 
 
 def cmd_prototype(args) -> int:
-    from .prototype import run_prototype, markdown, write_prototype_report
+    if args.seed is not None:
+        print("--seed is not accepted by the engine prototype: PMDO supplies fresh runtime seeds",
+              file=sys.stderr)
+        return 2
+    workdir = Path(args.workdir).resolve()
+    runner = ROOT / "tools" / "runtime" / "run_engine_prototype.sh"
+    completed = subprocess.run([str(runner), str(workdir), str(args.per_profile)], cwd=ROOT)
+    if completed.returncode:
+        return completed.returncode
+    report = workdir / "ENGINE_PROTOTYPE_REPORT.md"
+    print(f"engine-native prototype report: {report}")
     if args.report:
-        path = write_prototype_report(args.per_profile, args.seed)
-        print(f"prototype report: {path}")
-        return 0
-    metrics, samples, rng, rejects = run_prototype(args.per_profile, args.seed)
-    total = sum(len(v) for v in metrics.values())
-    print(f"{total} floors generated (root debug seed {rng.seed})")
-    for name, values in metrics.items():
-        if not values:
-            continue
-        print(f"  {name:12s} rooms={min(m.rooms for m in values)}-{max(m.rooms for m in values):<3d} "
-              f"halls~{round(sum(m.halls for m in values)/len(values),1):<5} "
-              f"branches~{round(sum(m.branches for m in values)/len(values),1):<4} "
-              f"loops~{round(sum(m.loops for m in values)/len(values),1):<4} "
-              f"deadends~{round(sum(m.dead_ends for m in values)/len(values),1):<4} "
-              f"rejected={rejects[name]} distinct={len({m.signature for m in values})}/{len(values)}")
+        target = ROOT / "docs" / "dungeon_builder" / "ENGINE_PROTOTYPE_NATIVE.md"
+        target.write_text(report.read_text(encoding="utf-8"), encoding="utf-8")
+        print(f"persisted report: {target}")
     return 0
 
 
@@ -430,7 +430,20 @@ def cmd_validate(args) -> int:
 
 
 def cmd_generate(args) -> int:
-    definition = load_definition(find_definition(args.dungeon))
+    if args.seed is not None and not args.dry_run:
+        print("--seed is debug-only and requires --dry-run; production authoring seeds are forbidden",
+              file=sys.stderr)
+        return 2
+    definition_path = find_definition(args.dungeon)
+    from .canonical_gate import assert_generation_ready
+    try:
+        assert_generation_ready(definition_path)
+    except ValueError as exc:
+        print(str(exc), file=sys.stderr)
+        print("Use 'preview' for non-production experiments; production was not modified.",
+              file=sys.stderr)
+        return 3
+    definition = load_definition(definition_path)
     rng = DungeonRng(seed=args.seed, label=f"generate:{definition.id}")
     try:
         export = build_zone(definition, rng, strict_dtef=not args.no_dtef_check)
@@ -466,9 +479,71 @@ def cmd_generate(args) -> int:
     return 0
 
 
+def cmd_reconcile_sinister(args) -> int:
+    from .reconcile_sinister import reconcile_files
+    result = reconcile_files(write=bool(args.apply))
+    print(f"Sinister Woods: {result['floors']} procedural floors, "
+          f"{len(result['fixed_segments'])} fixed runtime segment(s)")
+    print("definition written" if args.apply else "dry-run; definition unchanged")
+    return 0
+
+
+def cmd_stage_sinister_final(args) -> int:
+    from .canonical_battle import stage_sinister
+    report = stage_sinister(Path(args.workdir))
+    print(json.dumps(report, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_extract_red_source(args) -> int:
+    from .red_source import write_manifest
+    output = Path(args.output) if args.output else (
+        ROOT / "docs" / "canonical" / "red" / f"{args.dungeon_id}_rom_manifest.json")
+    path = write_manifest(Path(args.source), args.folder, output)
+    print(f"manifest: {path}")
+    return 0
+
+
+def cmd_canonical_audit(args) -> int:
+    from .canonical_gate import inspect_all, write_report
+    results = inspect_all()
+    config_ready = sum(result.config_ready for result in results)
+    runtime_ready = sum(result.runtime_ready for result in results)
+    print(f"canonical config ready: {config_ready}/{len(results)}")
+    print(f"canonical runtime ready: {runtime_ready}/{len(results)}")
+    for result in results:
+        state = "READY" if result.runtime_ready and result.batch_approved else "BLOCKED"
+        print(f"[{state:7s}] {result.dungeon:24s} "
+              f"config={result.config_state} runtime={result.runtime_state} "
+              f"blockers={len(result.blockers)}")
+        if args.verbose:
+            for blocker in result.blockers:
+                print(f"    - {blocker}")
+    if args.report:
+        print(f"report: {write_report(results)}")
+    return 0 if config_ready == len(results) else 1
+
+
 def cmd_generate_all(args) -> int:
     from .audit import audit_all
+    from .canonical_gate import assert_batch_ready
     lo, hi = (int(x) for x in args.chapters.split("-"))
+    selected_paths = []
+    for path in list_definitions():
+        try:
+            candidate = load_definition(path)
+        except DefinitionError:
+            selected_paths.append(path)
+            continue
+        if lo <= candidate.chapter <= hi:
+            selected_paths.append(path)
+    try:
+        assert_batch_ready(selected_paths)
+    except ValueError as exc:
+        print(str(exc), file=sys.stderr)
+        print("generate-all is fail-closed until canonical provenance and runtime gates pass.",
+              file=sys.stderr)
+        return 3
     ready = set()
     if not args.include_blocked:
         audits, _ = audit_all()
@@ -647,6 +722,38 @@ def build_parser() -> argparse.ArgumentParser:
     audit_all_parser.add_argument("--verbose", action="store_true")
     audit_all_parser.set_defaults(func=cmd_audit_all)
 
+    canonical_audit = sub.add_parser(
+        "canonical-audit",
+        help="fail-closed ROM/provenance/runtime production gate",
+    )
+    canonical_audit.add_argument("--report", action="store_true")
+    canonical_audit.add_argument("--verbose", action="store_true")
+    canonical_audit.set_defaults(func=cmd_canonical_audit)
+
+    red_extract = sub.add_parser(
+        "extract-red-source",
+        help="extract a provenance-bearing canonical manifest from pret/pmd-red",
+    )
+    red_extract.add_argument("dungeon_id", help="output identifier, e.g. sinister_woods")
+    red_extract.add_argument("--source", required=True, help="pret/pmd-red checkout")
+    red_extract.add_argument("--folder", required=True, help="data/dungeon folder, e.g. SinisterWoods")
+    red_extract.add_argument("--output", default=None)
+    red_extract.set_defaults(func=cmd_extract_red_source)
+
+    reconcile_sinister = sub.add_parser(
+        "reconcile-sinister",
+        help="rebuild the Sinister Woods definition from its PMD Red manifest",
+    )
+    reconcile_sinister.add_argument("--apply", action="store_true")
+    reconcile_sinister.set_defaults(func=cmd_reconcile_sinister)
+
+    stage_final = sub.add_parser(
+        "stage-sinister-final",
+        help="stage a pixel-exact D04P02 battle map outside production",
+    )
+    stage_final.add_argument("--workdir", default="/tmp/sinister-final-stage")
+    stage_final.set_defaults(func=cmd_stage_sinister_final)
+
     ground = sub.add_parser("ground", help="build a fixed Ground (midpoint/arena) from its template")
     ground.add_argument("dungeon")
     ground.add_argument("--role", default="midpoint", choices=["midpoint"])
@@ -661,10 +768,17 @@ def build_parser() -> argparse.ArgumentParser:
     verify.add_argument("--report", action="store_true")
     verify.set_defaults(func=cmd_verify)
 
-    proto = sub.add_parser("prototype", help="isolated RogueElements capability prototype")
-    proto.add_argument("--per-profile", type=int, default=6)
-    proto.add_argument("--seed", type=int, default=None)
-    proto.add_argument("--report", action="store_true", help="write docs/dungeon_builder/PROTOTYPE_METRICS.md")
+    proto = sub.add_parser(
+        "prototype",
+        help="run the isolated prototype inside the real PMDO/RogueElements engine",
+    )
+    proto.add_argument("--per-profile", type=int, default=16,
+                       help="runtime seeds per profile (10-16; total remains 20-50)")
+    proto.add_argument("--seed", type=int, default=None,
+                       help="forbidden for this proof; PMDO supplies runtime seeds")
+    proto.add_argument("--workdir", default="/tmp/dungeon-builder-engine-prototype")
+    proto.add_argument("--report", action="store_true",
+                       help="also persist the engine report under docs/dungeon_builder")
     proto.set_defaults(func=cmd_prototype)
 
     preview = sub.add_parser("preview", help="generate variants of one floor without writing anything")

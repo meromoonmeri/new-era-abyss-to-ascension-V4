@@ -1411,14 +1411,14 @@
       "dense",
       "mixed"
     ],
-    "grid_variants": 6,
+    "grid_variants": 8,
     "path_steps": [
       "GridPathBranch"
     ],
     "dtef": [
-      "chasm_cave_floor",
-      "chasm_cave_secondary",
-      "chasm_cave_wall"
+      "silent_chasm_floor",
+      "silent_chasm_secondary",
+      "silent_chasm_wall"
     ],
     "species": 12,
     "item_entries": 21,
@@ -1485,39 +1485,34 @@
     "dungeon": "gloomy_forest",
     "name": "Sinister Woods",
     "chapter": 6,
-    "floors_expected": 14,
-    "floors_written": 14,
+    "floors_expected": 12,
+    "floors_written": 12,
     "segments": 3,
     "profiles": [
       "branching",
-      "crossroads",
       "large_rooms",
-      "looping",
-      "mixed",
-      "ring"
+      "looping"
     ],
-    "grid_variants": 9,
+    "grid_variants": 4,
     "path_steps": [
       "GridPathBranch",
-      "GridPathCircle",
-      "GridPathCross"
+      "GridPathCircle"
     ],
     "dtef": [
       "sinister_woods_b41_floor",
       "sinister_woods_b41_secondary",
       "sinister_woods_b41_wall"
     ],
-    "species": 27,
-    "item_entries": 45,
+    "species": 57,
+    "item_entries": 42,
     "features": [
       "FloorNameDropZoneStep",
       "ItemSpawnZoneStep",
       "MoneySpawnZoneStep",
-      "SpreadHouseZoneStep",
-      "SpreadStepRangeZoneStep",
-      "TeamSpawnZoneStep"
+      "TeamSpawnZoneStep",
+      "TileSpawnZoneStep"
     ],
-    "minibosses": 2,
+    "minibosses": 0,
     "boss_mode": "canonical_ground",
     "end_scene": "sinister_woods_clearing",
     "narrative_bound": true,
@@ -1858,21 +1853,20 @@
     "segments": 2,
     "profiles": [
       "crossroads",
-      "dense",
       "lattice",
       "looping",
       "mixed"
     ],
-    "grid_variants": 6,
+    "grid_variants": 7,
     "path_steps": [
       "GridPathBranch",
       "GridPathCross",
       "GridPathGrid"
     ],
     "dtef": [
-      "sealed_ruin_pit_floor",
-      "sealed_ruin_pit_secondary",
-      "sealed_ruin_pit_wall"
+      "deep_sealed_ruin_floor",
+      "deep_sealed_ruin_secondary",
+      "deep_sealed_ruin_wall"
     ],
     "species": 52,
     "item_entries": 28,

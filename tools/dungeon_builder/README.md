@@ -15,15 +15,18 @@ réellement vérifiées dans le code source) et
 python3 tools/dungeon_builder.py audit                       # profils, tilesets, définitions, partages interdits
 python3 tools/dungeon_builder.py verify sinister_woods --report   # parité profils/steps + conformité de l'export
 python3 tools/dungeon_builder.py ground sinister_woods --role midpoint --sheet SinisterWoodsB41 --preview
-python3 tools/dungeon_builder.py prototype --per-profile 6 --report
-python3 tools/dungeon_builder.py preview sinister_woods --floor 7 --count 10 --ascii
-python3 tools/dungeon_builder.py validate sinister_woods --count 10
-python3 tools/dungeon_builder.py generate sinister_woods     # écrit Data/Zone/<id>.json + rapport
-python3 tools/dungeon_builder.py generate-all --chapters 6-32
+python3 tools/dungeon_builder.py prototype --per-profile 16 --report  # vrai moteur PMDO, 48 floors isolés
+python3 tools/dungeon_builder.py preview sinister_woods --floor 7 --count 10 --ascii  # aperçu hors-ligne non certifiant
+python3 tools/dungeon_builder.py validate sinister_woods --count 10   # pré-contrôle non certifiant
+python3 tools/dungeon_builder.py canonical-audit --report             # gate ROM/provenance/runtime
+python3 tools/dungeon_builder.py generate sinister_woods              # écrit seulement si le gate canonique passe
+python3 tools/dungeon_builder.py generate-all --chapters 6-32         # fail-closed : runtime + batch_approved requis
 ```
 
-`--seed` existe partout : **debug uniquement**, pour rejouer un cas litigieux.
-Aucune seed n'est écrite dans les données de production.
+`--seed` est **debug uniquement**. `generate --seed` est refusé sans `--dry-run`,
+et le prototype moteur refuse toute seed imposée. La production sélectionne ses
+profils via `ChanceFloorGen` et construit sa géométrie avec la seed PMDO réelle ;
+le service runtime journalise cette seed pour reproduire un incident.
 
 ## Architecture
 
@@ -31,7 +34,7 @@ Aucune seed n'est écrite dans les données de production.
 |---|---|
 | `definitions.py` | `DungeonDefinition` / `Segment` : chargement, validation, cascade donjon → segment → étage |
 | `profiles.py` | `ArchitectureProfile` : `branching`, `looping`, `dense`, `large_rooms`, `mixed`, `ring`, `lattice`, `twosides`, `crossroads` (+ overrides par donjon) |
-| `re_sim/` | Simulateur hors-ligne : portage fidèle de `GridPlan`, `GridPath*`, `RoomGen*`, `ConnectGridBranchStep`, `SetGridDefaultsStep`, `CombineGridRoomStep`, `FloorStairsStep` — **validation et preview uniquement** |
+| `re_sim/` | Ancien aperçu hors-ligne, **non certifiant** et exclu des gates de production (RNG et certaines sémantiques ne sont pas identiques au C#). À terme, le preview doit passer lui aussi par le moteur. |
 | `steps.py` | Adaptateur RogueElements : fabrique les `$type` JSON natifs (vocabulaire vérifié contre les zones existantes) |
 | `templates/` | Gabarits natifs extraits du dépôt (boutique Kecleon, monster house) réutilisés tels quels |
 | `dtef.py` | Résolution/vérification des auto-tilesets DTEF (`Data/AutoTile` + `Content/Tile`) |
@@ -42,7 +45,15 @@ Aucune seed n'est écrite dans les données de production.
 | `conformance.py` | Parité profil ↔ simulateur ↔ export, et conformité des `$type`/champs émis aux zones livrées |
 | `ground_pipeline.py` | Grounds fixes : clone du template validé + retexture tuile à tuile sur la planche du donjon, index, preview PNG |
 | `report.py` | Rapport automatique JSON + Markdown (`docs/dungeon_builder/reports/`) |
-| `prototype.py` | Prototype isolé de démonstration des capacités |
+| `canonical_gate.py` | Gate fail-closed : provenance ROM/DTEF/Ground/scène, conflits canoniques, preuve runtime et autorisation batch |
+| `red_source.py` | Extraction sans génération des paramètres/floors/tables PMD Red depuis `pret/pmd-red` |
+| `tools/runtime/run_engine_prototype.sh` | Prototype isolé exécuté par le vrai binaire PMDO/RogueElements, avec métriques du `FloorPlan` natif |
+| `prototype.py` | Ancien prototype Python conservé temporairement pour les aperçus ; il n'autorise jamais une production |
+
+> **État au 2026-08-23 :** le nouveau gate canonique bloque volontairement les
+> 51 définitions historiques. Elles avaient passé un contrôle de chargement,
+> mais pas la traçabilité catégorielle et la conformité ROM exigées. Aucun batch
+> ne doit être relancé avant la validation complète de Sinister Woods.
 
 ## Écrire une définition
 

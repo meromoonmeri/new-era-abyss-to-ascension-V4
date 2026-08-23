@@ -22,6 +22,7 @@ from dungeon_builder.re_sim.pipeline import measure, similarity
 from dungeon_builder.rng import DungeonRng, fresh_seed
 from dungeon_builder.validation import Thresholds, check_layout, validate_floor
 from dungeon_builder.zone_export import build_zone
+from dungeon_builder.canonical_gate import inspect as inspect_canonical_gate, assert_batch_ready
 
 SINISTER = REPO / "DungeonDefs" / "canonical" / "sinister_woods.json"
 
@@ -30,27 +31,39 @@ def load_sinister():
     return load_definition(SINISTER)
 
 
+def floor_variants(floor):
+    """Yield native GridFloorGen candidates from a floor generator."""
+    if "ChanceFloorGen" in floor.get("$type", ""):
+        return [entry["Spawn"] for entry in floor["Spawns"]]
+    return [floor]
+
+
 class TestDefinitions(unittest.TestCase):
     def test_load_sinister_woods(self):
         d = load_sinister()
         self.assertEqual(d.id, "gloomy_forest")
-        self.assertEqual(d.floors, 14)
-        self.assertEqual(len(d.segments), 3)
+        self.assertEqual(d.floors, 12)
+        self.assertEqual(len(d.segments), 2)
+        self.assertEqual(len(d.fixed_segments), 1)
         self.assertTrue(d.profiles)
         # every floor resolves to exactly one segment
         for floor in range(1, d.floors + 1):
             self.assertIsNotNone(d.segment_for_floor(floor))
 
-    def test_inheritance_and_override(self):
+    def test_canonical_segment_spawns_and_floor_overrides(self):
         d = load_sinister()
         seg1 = d.segments[0]
-        base_species = {m.species for m in d.mobs}
         seg_species = {m.species for m in d.mobs_for(seg1)}
-        self.assertTrue(base_species <= seg_species)
-        self.assertIn("sudowoodo", seg_species)
-        self.assertGreaterEqual(len(seg_species), 8)
-        # item tables are inherited by default
-        self.assertTrue({t.name for t in d.items_for(seg1)} >= {"necessities", "gummis"})
+        # The first six source floors contain exactly these eight ROM species.
+        # Do not pad this table to satisfy an arbitrary diversity threshold.
+        self.assertEqual(seg_species, {
+            "cascoon", "oddish", "sentret", "shroomish", "silcoon",
+            "sudowoodo", "sunflora", "swinub",
+        })
+        self.assertEqual(len(d.mobs_for(seg1)), 27)
+        # Canonical item tables 11/12 flatten into one traceable PMDO table.
+        self.assertEqual({t.name for t in d.items_for(seg1)}, {"canonical_ground"})
+        self.assertEqual(len(seg1.floor_overrides), 6)
 
     def test_segment_gap_rejected(self):
         raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
@@ -72,7 +85,7 @@ class TestDefinitions(unittest.TestCase):
 
     def test_invalid_level_pair_rejected(self):
         raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
-        raw["pokemon"][0]["level"] = [20, 5]
+        raw["segments"][0]["pokemon"][0]["level"] = [20, 5]
         with self.assertRaises(DefinitionError):
             parse_definition(raw)
 
@@ -165,9 +178,10 @@ class TestVariationAndRejection(unittest.TestCase):
     def test_ten_variants_per_floor_are_structurally_distinct(self):
         d = load_sinister()
         rng = DungeonRng(seed=987654321, label="test")
-        for floor in (1, 7, 14):
+        for floor in (1, 7, 12):
+            segment = d.segment_for_floor(floor)
             profiles = [customize(c.name, c.overrides)
-                        for c in d.profiles_for(d.segment_for_floor(floor))]
+                        for c in d.profiles_for(segment, floor)]
             report, _ = validate_floor(floor, profiles, rng, count=10)
             self.assertTrue(report.ok, report.notes)
             self.assertEqual(len(report.accepted()), 10)
@@ -232,40 +246,65 @@ class TestZoneExport(unittest.TestCase):
     def test_zone_shape(self):
         self.assertEqual(self.zone["$type"], "RogueEssence.Data.ZoneData, RogueEssence")
         self.assertEqual(len(self.zone["Segments"]), 3)
-        total = sum(len(seg["Floors"]) for seg in self.zone["Segments"])
-        self.assertEqual(total, self.definition.floors)
+        counted = sum(len(seg["Floors"]) for seg in self.zone["Segments"] if seg["IsRelevant"])
+        fixed = sum(len(seg["Floors"]) for seg in self.zone["Segments"] if not seg["IsRelevant"])
+        self.assertEqual(counted, self.definition.floors)
+        self.assertEqual(fixed, 1)
 
     def test_every_floor_uses_native_grid_steps(self):
         needed = {"InitGridPlanStep", "DrawGridToFloorStep", "DrawFloorToTileStep",
-                  "FloorStairsStep", "MapTextureStep", "DetectIsolatedStairsStep"}
+                  "MapTextureStep", "DetectIsolatedStairsStep"}
         paths = set()
         for segment in self.zone["Segments"]:
+            if not segment["IsRelevant"]:
+                continue
             for floor in segment["Floors"]:
-                names = {gs["Value"]["$type"].split("`")[0].split(",")[0].split(".")[-1]
-                         for gs in floor["GenSteps"]}
-                self.assertTrue(needed <= names, names)
-                paths |= {n for n in names if n.startswith("GridPath")}
-        self.assertGreaterEqual(len(paths), 1)
+                self.assertIn("ChanceFloorGen", floor["$type"])
+                for variant in floor_variants(floor):
+                    names = {gs["Value"]["$type"].split("`")[0].split(",")[0].split(".")[-1]
+                             for gs in variant["GenSteps"]}
+                    self.assertTrue(needed <= names, names)
+                    self.assertTrue({"FloorStairsStep", "FloorStairsDistanceStep"} & names)
+                    paths |= {n for n in names if n.startswith("GridPath")}
+        self.assertGreaterEqual(len(paths), 2)  # GridPathBranch + GridPathCircle
 
-    def test_not_a_single_architecture_for_every_floor(self):
-        comments = [floor["Comment"] for segment in self.zone["Segments"] for floor in segment["Floors"]]
-        profiles = {c.split("profile ")[1].split(" —")[0] for c in comments}
-        grids = {c.split("grid ")[1].split(" ")[0] for c in comments}
+    def test_profiles_are_selected_by_native_runtime_rng(self):
+        profiles, grids = set(), set()
+        for segment in self.zone["Segments"]:
+            if not segment["IsRelevant"]:
+                continue
+            for floor in segment["Floors"]:
+                self.assertIn("ChanceFloorGen", floor["$type"])
+                self.assertGreaterEqual(len(floor["Spawns"]), 2)
+                for variant in floor_variants(floor):
+                    comment = variant["Comment"]
+                    profiles.add(comment.split("profile:")[1].split(" —")[0])
+                    grids.add(comment.split("grid ")[1].split(" ")[0])
+                    self.assertNotIn("authoring-seed", comment)
         self.assertGreaterEqual(len(profiles), 3, profiles)
         self.assertGreaterEqual(len(grids), 3, grids)
 
-    def test_zone_steps_carry_spawns_items_shop_and_house(self):
+    def test_zone_steps_carry_canonical_spawns_items_and_traps(self):
         for segment in self.zone["Segments"]:
+            if not segment["IsRelevant"]:
+                continue
             names = {zs["$type"].split("`")[0].split(",")[0].split(".")[-1] for zs in segment["ZoneSteps"]}
             self.assertIn("TeamSpawnZoneStep", names)
             self.assertIn("ItemSpawnZoneStep", names)
             self.assertIn("MoneySpawnZoneStep", names)
-            self.assertIn("SpreadStepRangeZoneStep", names)   # Kecleon shop
-            self.assertIn("SpreadHouseZoneStep", names)       # monster house
+            self.assertIn("TileSpawnZoneStep", names)
+            self.assertNotIn("SpreadStepRangeZoneStep", names)  # ROM chance = 0
+            self.assertNotIn("SpreadHouseZoneStep", names)      # ROM chance = 0
 
-    def test_shop_uses_native_kecleon_template(self):
+    def test_shop_uses_native_kecleon_template_when_explicitly_enabled(self):
+        raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
+        raw["features"]["shop"] = {
+            "enabled": True, "floors": [1, 2], "trials": 1, "percent": 50,
+            "items": [{"item": "berry_oran", "price": 50, "weight": 10}],
+        }
+        zone = build_zone(parse_definition(raw), DungeonRng(seed=2026)).zone_json["Object"]
         shop = None
-        for zs in self.zone["Segments"][0]["ZoneSteps"]:
+        for zs in zone["Segments"][0]["ZoneSteps"]:
             if "SpreadStepRangeZoneStep" in zs["$type"]:
                 shop = zs["Spawns"][0]["Spawn"]
         self.assertIsNotNone(shop)
@@ -277,43 +316,48 @@ class TestZoneExport(unittest.TestCase):
 
     def test_weather_steps_only_on_declared_floors(self):
         for segment_index, segment in enumerate(self.zone["Segments"]):
+            if not segment["IsRelevant"]:
+                continue
             first_floor = self.definition.segments[segment_index].floors[0]
             for offset, floor in enumerate(segment["Floors"]):
-                names = [gs["Value"]["$type"] for gs in floor["GenSteps"]]
-                has_weather = any("DefaultMapStatusStep" in n for n in names)
-                if has_weather:
-                    self.assertGreaterEqual(first_floor + offset, 6)
+                for variant in floor_variants(floor):
+                    names = [gs["Value"]["$type"] for gs in variant["GenSteps"]]
+                    has_weather = any("DefaultMapStatusStep" in n for n in names)
+                    if has_weather:
+                        self.assertGreaterEqual(first_floor + offset, 6)
 
     def test_minibosses_are_emitted_on_their_floor_and_stronger(self):
         placements = []
         for seg_index, segment in enumerate(self.zone["Segments"]):
+            if not segment["IsRelevant"]:
+                continue
             first = self.definition.segments[seg_index].floors[0]
             for offset, floor in enumerate(segment["Floors"]):
-                for gs in floor["GenSteps"]:
-                    if "MobSpawnStep" in gs["Value"]["$type"]:
-                        spawn = gs["Value"]["Spawns"][0]["Spawn"]["Spawns"][0]["Spawn"]["Spawn"]
-                        placements.append((first + offset, spawn["BaseForm"]["Species"],
-                                           spawn["Level"]["Min"]))
+                for variant in floor_variants(floor):
+                    for gs in variant["GenSteps"]:
+                        if "MobSpawnStep" in gs["Value"]["$type"]:
+                            spawn = gs["Value"]["Spawns"][0]["Spawn"]["Spawns"][0]["Spawn"]["Spawn"]
+                            placements.append((first + offset, spawn["BaseForm"]["Species"],
+                                               spawn["Level"]["Min"]))
         declared = {(int(m["floor"]), m["species"]) for m in self.definition.minibosses}
         self.assertEqual({(f, s) for f, s, _ in placements}, declared)
         residents = max(m.level[1] for m in self.definition.mobs_for(self.definition.segments[1]))
         for _, _, level in placements:
             self.assertGreater(level, residents, "a miniboss must outclass the segment residents")
 
-    def test_no_precomputed_layout_in_output(self):
-        blob = json.dumps(self.zone)
-        self.assertNotIn("MappedRoomStep", blob)   # no static map baked into procedural floors
-        self.assertNotIn('"Seed"', blob)           # never a stored seed
+    def test_no_precomputed_layout_in_procedural_output(self):
+        self.assertNotIn('"Seed"', json.dumps(self.zone))
+        for segment in self.zone["Segments"]:
+            if segment["IsRelevant"]:
+                self.assertNotIn("MappedRoomStep", json.dumps(segment))
 
-    def test_fixed_floor_uses_loadgen(self):
-        raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
-        raw["segments"][2]["fixed_floors"] = {"14": {"map": "searing_crucible", "comment": "test"}}
-        definition = parse_definition(raw)
-        export = build_zone(definition, DungeonRng(seed=7))
-        last = export.zone_json["Object"]["Segments"][2]["Floors"][-1]
+    def test_canonical_fixed_floor_uses_loadgen(self):
+        last = self.zone["Segments"][-1]["Floors"][0]
+        self.assertFalse(self.zone["Segments"][-1]["IsRelevant"])
         self.assertIn("LoadGen", last["$type"])
         self.assertIn("MappedRoomStep", last["GenSteps"][0]["Value"]["$type"])
-        self.assertFalse(export.warnings, export.warnings)
+        self.assertEqual(last["GenSteps"][0]["Value"]["MapID"], "gloomy_forest_boss")
+        self.assertFalse(self.export.warnings, self.export.warnings)
 
     def test_type_vocabulary_matches_shipped_zones(self):
         known = set()
@@ -325,6 +369,7 @@ class TestZoneExport(unittest.TestCase):
         unknown = produced - known
         allowed = {"RogueElements.GridPathCross`1[[RogueEssence.LevelGen.MapGenContext, "
                    "RogueEssence]], RogueElements"}
+        allowed.update(kind for kind in produced if "FloorStairsDistanceStep" in kind)
         self.assertTrue(unknown <= allowed, unknown - allowed)
 
 
@@ -382,7 +427,7 @@ class TestNonRegression(unittest.TestCase):
         index = json.loads((REPO / "Data" / "Zone" / "index.idx").read_text(encoding="utf-8-sig"))
         entry = index["Object"].get("gloomy_forest")
         self.assertIsNotNone(entry, "the builder must register the zone in index.idx")
-        self.assertEqual(entry["CountedFloors"], 14)
+        self.assertEqual(entry["CountedFloors"], 12)
         self.assertIn("sinister_woods_clearing", entry["Grounds"])
 
     def test_aegis_cloven_ruins_untouched(self):
@@ -394,7 +439,10 @@ class TestNonRegression(unittest.TestCase):
         zone = json.loads((REPO / "Data" / "Zone" / "gloomy_forest.json").read_text(encoding="utf-8-sig"))
         obj = zone["Object"]
         self.assertEqual(obj["Name"]["DefaultText"], "Sinister Woods")
-        self.assertEqual(sum(len(s["Floors"]) for s in obj["Segments"]), 14)
+        self.assertEqual(sum(len(s["Floors"]) for s in obj["Segments"]
+                             if s["IsRelevant"]), 12)
+        self.assertEqual(sum(len(s["Floors"]) for s in obj["Segments"]
+                             if not s["IsRelevant"]), 1)
         blob = json.dumps(obj)
         self.assertIn("sinister_woods_b41_floor", blob)
         self.assertIn("sinister_woods_b41_wall", blob)
@@ -463,9 +511,8 @@ class TestBossSceneRules(unittest.TestCase):
         raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
         raw["fixed_grounds"] = {}
         raw["boss"] = {"mode": "arena_rsmap", "map": "searing_crucible"}
-        check = check_grounds(parse_definition(raw))
-        self.assertFalse(check.ok)
-        self.assertTrue(any("already owns a canonical end Ground" in p for p in check.problems))
+        with self.assertRaises(DefinitionError):
+            parse_definition(raw)
 
     def test_arena_and_end_ground_cannot_be_declared_together(self):
         raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
@@ -491,6 +538,7 @@ class TestBossSceneRules(unittest.TestCase):
         raw["id"] = "brand_new_dungeon"
         raw["name"] = {"en": "Brand New Dungeon"}   # unknown to the PMD Red scene inventory
         raw.pop("scenes", None)
+        raw.pop("fixed_segments", None)
         raw["aliases"] = []
         raw["fixed_grounds"] = {}
         raw["midpoint"] = {}
@@ -502,6 +550,8 @@ class TestBossSceneRules(unittest.TestCase):
     def test_arena_mode_requires_the_rsmap_to_exist(self):
         raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
         raw["id"] = "brand_new_dungeon"
+        raw.pop("scenes", None)
+        raw.pop("fixed_segments", None)
         raw["aliases"] = []
         raw["fixed_grounds"] = {}
         raw["midpoint"] = {}
@@ -717,13 +767,26 @@ class TestCanonicalDefinitionSet(unittest.TestCase):
             self.assertGreaterEqual(min(levels), 5, audit.dungeon)
             self.assertLess(max(levels), 100, audit.dungeon)
 
-    def test_sinister_woods_reference_is_untouched(self):
+    def test_sinister_woods_candidate_matches_rom_floor_roles(self):
         audit = self.by_id["gloomy_forest"]
+        definition = load_sinister()
         self.assertEqual(audit.status, "PASS")
         self.assertEqual(audit.dtef, "sinister_woods_b41")
         self.assertEqual(audit.boss_mode, "canonical_ground")
         self.assertEqual(audit.midpoint, "gloomy_forest_midpoint")
-        self.assertEqual(audit.floors, 14)
+        self.assertEqual(audit.floors, 12)
+        self.assertEqual([segment.floor_numbers for segment in definition.segments],
+                         [list(range(1, 7)), list(range(7, 13))])
+        self.assertEqual(definition.fixed_segments, [{
+            "role": "canonical_final_boss",
+            "map": "gloomy_forest_boss",
+            "ground": "sinister_woods_clearing",
+            "source_floor": 13,
+            "source_fixed_room": 2,
+            "is_relevant": False,
+            "provenance": "PMD_RED_ROM",
+            "comment": "Exact .rsmap counterpart of D04P02; not an unrelated dedicated arena.",
+        }])
 
     def test_only_ready_dungeons_were_generated(self):
         """The batch covers exactly the READY dungeons — never a blocked one."""
@@ -1169,9 +1232,9 @@ class TestBatchResult(unittest.TestCase):
         self.assertTrue((REPO / "Data" / "Map" / "meteor_cave_arena.rsmap").exists())
         self.assertTrue((REPO / "Data" / "AutoTile" / "northwind_field_floor.json").exists())
 
-    def test_post_generation_audit_is_clean(self):
-        failing = [z.dungeon for z in self.zones if not z.ok]
-        self.assertFalse(failing, failing)
+    def test_post_generation_audit_is_clean_after_sinister_promotion(self):
+        failing = {z.dungeon: z.problems for z in self.zones if not z.ok}
+        self.assertEqual(failing, {})
         self.assertEqual(len(self.zones), 51)
 
     def test_written_floor_counts_match_the_canon(self):
@@ -1198,8 +1261,9 @@ class TestBatchResult(unittest.TestCase):
                 for floor in segment["Floors"]:
                     if "LoadGen" in floor.get("$type", ""):
                         continue
-                    names = {step["Value"]["$type"] for step in floor["GenSteps"]}
-                    self.assertFalse(any("MappedRoomStep" in n for n in names), path.name)
+                    for variant in floor_variants(floor):
+                        names = {step["Value"]["$type"] for step in variant["GenSteps"]}
+                        self.assertFalse(any("MappedRoomStep" in n for n in names), path.name)
 
     def test_debug_metadata_is_present_on_every_procedural_floor(self):
         for path in sorted((REPO / "Data" / "Zone").glob("*.json")):
@@ -1210,8 +1274,14 @@ class TestBatchResult(unittest.TestCase):
                 for floor in segment["Floors"]:
                     if "LoadGen" in floor.get("$type", ""):
                         continue
-                    self.assertIn("authoring-seed", floor.get("Comment", ""), path.name)
-                    self.assertIn("NOT the layout", floor.get("Comment", ""), path.name)
+                    for variant in floor_variants(floor):
+                        comment = variant.get("Comment", "")
+                        if "ChanceFloorGen" in floor.get("$type", ""):
+                            self.assertIn("profile:", comment, path.name)
+                            self.assertIn("rolled by PMDO ReRandom at runtime", comment, path.name)
+                        else:
+                            self.assertIn("authoring-seed", comment, path.name)
+                            self.assertIn("NOT the layout", comment, path.name)
 
     def test_final_scene_is_one_single_space(self):
         for zone in self.zones:
@@ -1349,12 +1419,12 @@ class TestExclusivity(unittest.TestCase):
 
 
 class TestRuntimePreflight(unittest.TestCase):
-    def test_every_zone_reference_resolves(self):
+    def test_every_promoted_zone_reference_resolves(self):
         from dungeon_builder.runtime_check import preflight_all
         results = preflight_all()
         self.assertEqual(len(results), 51)
         failing = {r.dungeon: r.problems for r in results if not r.ok}
-        self.assertFalse(failing, failing)
+        self.assertEqual(failing, {})
 
     def test_runtime_kit_is_available_for_the_real_engine_run(self):
         script = REPO / "tools" / "runtime" / "run_runtime_check.sh"
@@ -1386,9 +1456,14 @@ class TestTieredProfileAndRuntimeKit(unittest.TestCase):
     def test_tiered_export_conforms(self):
         from dungeon_builder.conformance import check_zone_conformance
         raw = json.loads(SINISTER.read_text(encoding="utf-8-sig"))
-        raw["profiles"] = [{"name": "tiered", "weight": 10}]
+        tiered = [{"name": "tiered", "weight": 10}]
+        raw["profiles"] = tiered
         for segment in raw["segments"]:
-            segment["profiles"] = [{"name": "tiered", "weight": 10}]
+            segment["profiles"] = tiered
+            # Sinister now has source-specific architecture on every floor;
+            # replace those overrides too so this fixture actually exercises Tiered.
+            for override in segment.get("floor_overrides", {}).values():
+                override["profiles"] = tiered
         export = build_zone(parse_definition(raw), DungeonRng(seed=8))
         blob = json.dumps(export.zone_json)
         self.assertIn("RogueEssence.LevelGen.GridPathTiered", blob)
@@ -1496,4 +1571,4 @@ class TestEmittedArchitecture(unittest.TestCase):
 
     def test_total_floor_count_matches_the_canon(self):
         total = sum(a.floors for a in self.analyses)
-        self.assertEqual(total, 1429)
+        self.assertEqual(total, 1427)

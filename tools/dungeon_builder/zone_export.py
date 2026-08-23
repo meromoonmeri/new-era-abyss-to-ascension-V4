@@ -109,7 +109,7 @@ def floor_gen_steps(definition: DungeonDefinition, segment: Segment, profile: Ar
     cell_w = rand.randrange(*_span(profile.cell_width))
     cell_h = rand.randrange(*_span(profile.cell_height))
 
-    stairs = definition.stairs_for(segment)
+    stairs = definition.stairs_for(segment, floor)
     min_distance = int(stairs.get("min_distance", max(3, profile.min_stair_distance // 4)))
     music = segment.music or definition.music
     max_foes = segment.max_foes or int(definition.variation.get("max_foes", 6))
@@ -120,19 +120,27 @@ def floor_gen_steps(definition: DungeonDefinition, segment: Segment, profile: Ar
         (S.priority(-5), S.init_grid_plan(grid_x, grid_y, cell_w, cell_h, profile.cell_wall)),
         (S.priority(-4), path_step(profile, rand)),
     ]
-    if profile.connect_percent > 0:
-        entries.append((S.priority(-4), S.connect_grid_branch(profile.connect_percent, profile.hall_turn_bias)))
+    # PMDO contains both orderings.  This Builder combines first, then
+    # reconnects surviving terminals: that exact sequence is the one exercised
+    # by ENGINE_PROTOTYPE_NATIVE (48 real engine floors).  Reconnecting first
+    # can create a loop that a later merge immediately erases.
     combined = combine_step(profile)
     if combined:
         entries.append((S.priority(-4), combined))
+    if profile.connect_percent > 0:
+        entries.append((S.priority(-4), S.connect_grid_branch(profile.connect_percent, profile.hall_turn_bias)))
     if profile.default_ratio[1] > 0:
         entries.append((S.priority(-4), S.set_grid_defaults(profile.default_ratio)))
+    stair_distance = stairs.get("distance")
+    stair_step = (S.floor_stairs_distance(tuple(stair_distance), stairs.get("exit_tile", "stairs_go_up"))
+                  if stair_distance else
+                  S.floor_stairs(min_distance, stairs.get("exit_tile", "stairs_go_up")))
     entries.extend([
         (S.priority(-3), S.draw_grid_to_floor()),
         (S.priority(-1), S.draw_floor_to_tile(1)),
         (S.priority(0, 1), S.unbreakable_border(1)),
         (S.priority(1, 2), S.mob_spawn_settings(max_foes, respawn)),
-        (S.priority(2), S.floor_stairs(min_distance, stairs.get("exit_tile", "stairs_go_up"))),
+        (S.priority(2), stair_step),
         (S.priority(4), S.map_texture(*package.as_texture_args())),
     ])
     terrain = dict(definition.variation.get("terrain", {}))
@@ -147,6 +155,31 @@ def floor_gen_steps(definition: DungeonDefinition, segment: Segment, profile: Ar
                                        bool(terrain.get("protect_paths", True)))))
     if weather:
         entries.append((S.priority(4, 2), S.default_map_status(list(weather))))
+    traps = (definition.features_for(segment).traps or {})
+    trap_floors = traps.get("floors")
+    trap_enabled_here = (traps.get("enabled") and
+                         (not trap_floors or trap_floors[0] <= floor <= trap_floors[1]))
+    if trap_enabled_here:
+        entries.append((S.priority(5), S.trap_spawn_step(tuple(traps.get("amount", (2, 5))))))
+
+    if definition.money != (0, 0) or segment.money != (0, 0):
+        entries.append((S.priority(6), S.money_placement_step(
+            tuple(definition.variation.get("money_piles", (2, 4))))))
+    item_tables = definition.items_for(segment)
+    if item_tables:
+        default_item_amount = (
+            min(table.amount[0] for table in item_tables),
+            max(table.amount[1] for table in item_tables),
+        )
+        entries.append((S.priority(6, 1), S.item_spawn_step(
+            tuple(definition.variation.get("item_amount", default_item_amount)),
+            int(definition.variation.get("item_success_percent", 25)))))
+    if definition.mobs_for(segment):
+        initial_mobs = tuple(definition.variation.get(
+            "initial_mobs", (2, max(3, min(max_foes + 1, 8)))))
+        entries.append((S.priority(6, 2), S.mob_placement_step(
+            initial_mobs, int(definition.variation.get("mob_clump_factor", 20)))))
+
     for miniboss in definition.minibosses or []:
         if int(miniboss.get("floor", -1)) != floor:
             continue
@@ -159,14 +192,56 @@ def floor_gen_steps(definition: DungeonDefinition, segment: Segment, profile: Ar
 
     gen = {"$type": "RogueEssence.LevelGen.GridFloorGen, RogueEssence",
            "GenSteps": [{"Key": key, "Value": value} for key, value in entries],
-           "Comment": (f"{segment.name} — profile {profile.name} — grid {grid_x}x{grid_y} "
-                       f"cells {cell_w}x{cell_h} — authoring-seed {authoring_seed} "
-                       "(debug only: selects the parameters, NOT the layout; the layout is rolled "
-                       "by the engine RNG at every entry)")}
-    plan = FloorPlanEntry(floor, segment.name, profile.name, authoring_seed or 0, "procedural",
+           "Comment": (f"{segment.name} — profile:{profile.name} — grid {grid_x}x{grid_y} "
+                       f"cells {cell_w}x{cell_h} — layout rolled by PMDO ReRandom at runtime")}
+    plan = FloorPlanEntry(floor, segment.name, profile.name, 0, "procedural",
                           (grid_x, grid_y), (cell_w, cell_h), weather=tuple(weather),
                           dtef=package.name)
     return gen, plan
+
+
+def chance_floor_gen(definition: DungeonDefinition, segment: Segment, package: DtefPackage,
+                     floor: int, rand: random.Random, weather: Sequence[str] = ()) -> Tuple[Dict[str, Any], FloorPlanEntry]:
+    """Build a native runtime-weighted set of architecture profiles.
+
+    ``ChanceFloorGen`` uses ``ReRandom(zoneContext.Seed)`` in RogueEssence, so
+    profile selection and the selected GridFloorGen both derive from PMDO's
+    real map seed.  The Builder no longer freezes one profile per floor during
+    authoring.
+    """
+    choices = definition.profiles_for(segment, floor)
+    spawns: List[Dict[str, Any]] = []
+    grids: List[Tuple[int, int]] = []
+    cells: List[Tuple[int, int]] = []
+    names: List[str] = []
+    for choice in choices:
+        profile = customize(choice.name, choice.overrides)
+        gen, plan = floor_gen_steps(
+            definition, segment, profile, package, floor, rand, weather,
+            authoring_seed=None,
+        )
+        spawns.append({"Spawn": gen, "Rate": max(1, int(choice.weight))})
+        grids.append(plan.grid)
+        cells.append(plan.cell)
+        names.append(profile.name)
+    if not spawns:
+        raise ValueError(f"floor {floor} of {definition.id} has no generation profile")
+    wrapper = {
+        "$type": "RogueEssence.LevelGen.ChanceFloorGen, RogueEssence",
+        "Spawns": spawns,
+    }
+    plan = FloorPlanEntry(
+        floor=floor,
+        segment=segment.name,
+        profile="|".join(names),
+        authoring_seed=0,
+        kind="procedural",
+        grid=grids[0],
+        cell=cells[0],
+        weather=tuple(weather),
+        dtef=package.name,
+    )
+    return wrapper, plan
 
 
 def fixed_floor(map_id: str, comment: str) -> Dict[str, Any]:
@@ -224,6 +299,22 @@ def zone_steps(definition: DungeonDefinition, segment: Segment) -> List[Dict[str
                                       [(1, 12, span), (2, 4, span)]))
 
     features = definition.features_for(segment)
+
+    traps = features.traps or {}
+    if traps.get("enabled"):
+        trap_entries = []
+        for entry in traps.get("entries", []):
+            floors = entry.get("floors") or traps.get("floors")
+            rng = span if not floors else (
+                max(0, int(floors[0]) - lo), min(span[1], int(floors[1]) - lo + 1))
+            if rng[1] <= rng[0]:
+                continue
+            tile_id = entry.get("tile") or entry.get("id")
+            if tile_id:
+                trap_entries.append((str(tile_id), int(entry.get("weight", 10)), rng,
+                                     bool(entry.get("revealed", False))))
+        if trap_entries:
+            steps.append(S.tile_zone_step(trap_entries))
 
     shop = features.shop or {}
     if shop.get("enabled"):
@@ -284,10 +375,8 @@ def build_zone(definition: DungeonDefinition, rng: Optional[DungeonRng] = None,
                 result.floors.append(FloorPlanEntry(floor, segment.name, "-", 0, "fixed",
                                                     map_id=map_id))
                 continue
-            profile = pick_profile(definition, segment, rand)
             weather = _weather_for(definition, segment, floor, rand)
-            gen, plan = floor_gen_steps(definition, segment, profile, package, floor, rand,
-                                        weather, authoring_seed=rng.seed)
+            gen, plan = chance_floor_gen(definition, segment, package, floor, rand, weather)
             floors_json.append(gen)
             result.floors.append(plan)
 
@@ -299,7 +388,40 @@ def build_zone(definition: DungeonDefinition, rng: Optional[DungeonRng] = None,
             "Comment": f"{segment.name} ({segment.floors[0]}-{segment.floors[1]}) biome={segment.biome}",
         })
         result.segments.append({"name": segment.name, "floors": list(segment.floors),
-                                "biome": segment.biome, "dtef": package.name})
+                                "biome": segment.biome, "dtef": package.name,
+                                "kind": "procedural"})
+
+    # Fixed/event/boss floors are runtime segments but do not contribute to the
+    # canonical procedural floor count.  This is how PMDO can enter an exact
+    # .rsmap counterpart of a canonical Ground without inventing a new biome.
+    for fixed_index, fixed_segment in enumerate(definition.fixed_segments):
+        map_id = str(fixed_segment["map"])
+        if not (MAP_DIR / f"{map_id}.rsmap").exists():
+            result.warnings.append(
+                f"fixed segment {fixed_index}: map '{map_id}' not found in Data/Map")
+        source_floor = int(fixed_segment.get("source_floor", definition.floors + fixed_index + 1))
+        floor_json = fixed_floor(map_id, str(fixed_segment.get("comment", "")))
+        segments_json.append({
+            "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+            "Floors": [floor_json],
+            "ZoneSteps": [S.save_vars_zone_step()],
+            "IsRelevant": False,
+            "Comment": (f"fixed {fixed_segment.get('role')} source_floor={source_floor} "
+                        f"ground={fixed_segment.get('ground', '')}"),
+        })
+        result.floors.append(FloorPlanEntry(
+            source_floor, str(fixed_segment.get("role", "fixed")), "-", 0,
+            "fixed", map_id=map_id,
+        ))
+        result.segments.append({
+            "name": str(fixed_segment.get("role", "fixed")),
+            "floors": [source_floor, source_floor],
+            "biome": str(fixed_segment.get("biome", definition.biome)),
+            "dtef": str(fixed_segment.get("dtef", "canonical_ground_layers")),
+            "kind": "fixed",
+            "map": map_id,
+            "ground": str(fixed_segment.get("ground", "")),
+        })
 
     zone = {
         "Version": VERSION,
@@ -357,6 +479,7 @@ def update_zone_index(definition: DungeonDefinition, result: ExportResult,
     maps = []
     for segment in definition.segments:
         maps.append(list(range(segment.length)))
+    maps.extend([[0] for _ in definition.fixed_segments])
     obj[definition.id] = {
         "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
         "ExpPercent": 100, "Level": definition.level, "LevelCap": False, "KeepSkills": False,

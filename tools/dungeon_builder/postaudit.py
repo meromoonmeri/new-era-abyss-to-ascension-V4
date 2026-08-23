@@ -33,7 +33,8 @@ DOC_DIR = ROOT / "docs" / "dungeon_builder"
 BUILDER_MARKER = "tools/dungeon_builder"
 
 REQUIRED_FLOOR_STEPS = ("InitGridPlanStep", "DrawGridToFloorStep", "DrawFloorToTileStep",
-                        "FloorStairsStep", "MapTextureStep", "DetectIsolatedStairsStep")
+                        "MapTextureStep", "DetectIsolatedStairsStep")
+STAIR_STEPS = {"FloorStairsStep", "FloorStairsDistanceStep"}
 FORBIDDEN_IN_PROCEDURAL = ("MappedRoomStep",)   # a baked map inside a procedural floor
 
 
@@ -84,37 +85,48 @@ def audit_zone(definition: DungeonDefinition) -> Optional[ZoneAudit]:
 
     segments = zone.get("Segments", [])
     audit.segments = len(segments)
-    if len(segments) != len(definition.segments):
+    expected_segments = len(definition.segments) + len(definition.fixed_segments)
+    if len(segments) != expected_segments:
         audit.problems.append(f"{len(segments)} segments written for "
-                              f"{len(definition.segments)} declared")
+                              f"{expected_segments} declared (procedural + fixed)")
 
     grids: set = set()
     profiles: set = set()
     path_steps: set = set()
     for index, segment in enumerate(segments):
         floors = segment.get("Floors", [])
-        audit.floors_written += len(floors)
+        relevant = bool(segment.get("IsRelevant", True))
+        if relevant:
+            audit.floors_written += len(floors)
         expected_dtef = definition.dtef_for(definition.segments[index]) if \
-            index < len(definition.segments) else {}
+            relevant and index < len(definition.segments) else {}
         for floor in floors:
-            names = {_type_name(step["Value"]["$type"]) for step in floor.get("GenSteps", [])}
             if "LoadGen" in floor.get("$type", ""):
                 continue                       # fixed floor: no procedural pipeline expected
-            missing = [step for step in REQUIRED_FLOOR_STEPS if step not in names]
-            if missing:
-                audit.problems.append(f"floor missing native steps {missing}")
-            for forbidden in FORBIDDEN_IN_PROCEDURAL:
-                if forbidden in names:
-                    audit.problems.append(f"procedural floor contains {forbidden}")
-            path_steps |= {n for n in names if n.startswith("GridPath")}
-            comment = floor.get("Comment", "")
-            match = re.search(r"profile (\w+) — grid (\d+x\d+)", comment)
-            if match:
-                profiles.add(match.group(1))
-                grids.add(match.group(2))
-            if "authoring-seed" not in comment:
-                audit.problems.append("floor without debug metadata (authoring seed)")
+            variants = ([entry["Spawn"] for entry in floor.get("Spawns", [])]
+                        if "ChanceFloorGen" in floor.get("$type", "") else [floor])
+            if not variants:
+                audit.problems.append("ChanceFloorGen has no native candidates")
+            for variant in variants:
+                names = {_type_name(step["Value"]["$type"])
+                         for step in variant.get("GenSteps", [])}
+                missing = [step for step in REQUIRED_FLOOR_STEPS if step not in names]
+                if not (names & STAIR_STEPS):
+                    missing.append("FloorStairsStep|FloorStairsDistanceStep")
+                if missing:
+                    audit.problems.append(f"floor missing native steps {missing}")
+                for forbidden in FORBIDDEN_IN_PROCEDURAL:
+                    if forbidden in names:
+                        audit.problems.append(f"procedural floor contains {forbidden}")
+                path_steps |= {n for n in names if n.startswith("GridPath")}
+                comment = variant.get("Comment", "")
+                match = re.search(r"profile(?::| )(\w+) — grid (\d+x\d+)", comment)
+                if match:
+                    profiles.add(match.group(1))
+                    grids.add(match.group(2))
 
+        if not relevant:
+            continue
         blob = json.dumps(segment)
         for role in ("floor", "wall", "secondary"):
             expected = expected_dtef.get(role) or (

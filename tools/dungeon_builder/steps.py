@@ -191,16 +191,41 @@ def mob_spawn_settings(max_foes: int, respawn_time: int) -> Dict[str, Any]:
             "MaxFoes": 0, "RespawnTime": 0}
 
 
+def _stairs_payload(exit_tile: str) -> Dict[str, Any]:
+    return {
+        "Entrances": [{"Loc": {"X": 0, "Y": 0}, "Dir": 0}],
+        "Exits": [{"Loc": {"X": 0, "Y": 0},
+                   "Tile": {"TileLoc": {"X": 0, "Y": 0}, "ID": exit_tile, "Revealed": True,
+                            "Owner": 0, "TileStates": []}}],
+        "Filters": [FILTER_CONNECTIVITY_MAIN, FILTER_NOT_BOSS],
+    }
+
+
 def floor_stairs(min_distance: int, exit_tile: str = "stairs_go_up") -> Dict[str, Any]:
-    return {"$type": ("RogueElements.FloorStairsStep`3[["
-                      f"{MAP_CTX}],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],"
-                      "[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"),
-            "MinDistance": int(min_distance),
-            "Entrances": [{"Loc": {"X": 0, "Y": 0}, "Dir": 0}],
-            "Exits": [{"Loc": {"X": 0, "Y": 0},
-                       "Tile": {"TileLoc": {"X": 0, "Y": 0}, "ID": exit_tile, "Revealed": True,
-                                "Owner": 0, "TileStates": []}}],
-            "Filters": [FILTER_CONNECTIVITY_MAIN, FILTER_NOT_BOSS]}
+    return {
+        "$type": ("RogueElements.FloorStairsStep`3[["
+                  f"{MAP_CTX}],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],"
+                  "[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"),
+        "MinDistance": int(min_distance),
+        **_stairs_payload(exit_tile),
+    }
+
+
+def floor_stairs_distance(distance: Tuple[int, int], exit_tile: str = "stairs_go_up") -> Dict[str, Any]:
+    """Native PMDC stair placement with an inclusive/exclusive tile range.
+
+    ``FloorStairsDistanceStep`` measures Manhattan distance between candidate
+    room origins.  Runtime validation still measures the actual traversable
+    tile path after placement; this step is a fair-play bound, not a substitute
+    for reachability validation.
+    """
+    return {
+        "$type": ("PMDC.LevelGen.FloorStairsDistanceStep`3[["
+                  f"{MAP_CTX}],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],"
+                  "[RogueEssence.LevelGen.MapGenExit, RogueEssence]], PMDC"),
+        "Distance": {"Min": int(distance[0]), "Max": int(distance[1])},
+        **_stairs_payload(exit_tile),
+    }
 
 
 def detect_isolated_stairs() -> Dict[str, Any]:
@@ -332,6 +357,79 @@ def team_zone_step(spawns: Sequence[Dict[str, Any]], team_sizes: Sequence[Tuple[
 
 def team_spawn(mob: Dict[str, Any], rate: int, floor_range: Tuple[int, int]) -> Dict[str, Any]:
     return {"Spawn": {"Spawn": mob, "Role": 0}, "Rate": rate, "Range": rand_range(floor_range)}
+
+
+def tile_zone_step(entries: Sequence[Tuple[str, int, Tuple[int, int], bool]]) -> Dict[str, Any]:
+    """Native per-floor trap/tile spawn table."""
+    spawns = []
+    for tile_id, weight, floor_range, revealed in entries:
+        spawns.append({
+            "Spawn": {"TileLoc": {"X": 0, "Y": 0}, "ID": tile_id,
+                      "Revealed": bool(revealed), "Owner": 0, "TileStates": []},
+            "Rate": int(weight), "Range": rand_range(floor_range),
+        })
+    return {"$type": "RogueEssence.LevelGen.TileSpawnZoneStep, RogueEssence",
+            "Priority": priority(1, 3), "Spawns": spawns}
+
+
+def _context_spawner(spawnable: str, amount: Tuple[int, int]) -> Dict[str, Any]:
+    return {
+        "$type": ("RogueElements.ContextSpawner`2[["
+                  f"{MAP_CTX}],[{spawnable}]], RogueElements"),
+        "Amount": rand_range(amount),
+    }
+
+
+def trap_spawn_step(amount: Tuple[int, int]) -> Dict[str, Any]:
+    """Place traps drawn from the map's native EffectTile spawn table."""
+    effect = "RogueEssence.Dungeon.EffectTile, RogueEssence"
+    return {
+        "$type": ("RogueElements.RandomRoomSpawnStep`2[["
+                  f"{MAP_CTX}],[{effect}]], RogueElements"),
+        "SuccessPercent": 100, "IncludeHalls": False,
+        "Filters": [FILTER_CONNECTIVITY_MAIN, FILTER_NOT_BOSS],
+        "Spawn": _context_spawner(effect, amount),
+    }
+
+
+def item_spawn_step(amount: Tuple[int, int], success_percent: int = 25) -> Dict[str, Any]:
+    """Native distance-weighted placement from ItemSpawnZoneStep's table."""
+    item = "RogueEssence.Dungeon.InvItem, RogueEssence"
+    entrance = "RogueEssence.LevelGen.MapGenEntrance, RogueEssence"
+    return {
+        "$type": ("RogueElements.DueSpawnStep`3[["
+                  f"{MAP_CTX}],[{item}],[{entrance}]], RogueElements"),
+        "SuccessPercent": int(success_percent), "IncludeHalls": False,
+        "Filters": [FILTER_CONNECTIVITY_MAIN, FILTER_NOT_BOSS],
+        "Spawn": _context_spawner(item, amount),
+    }
+
+
+def mob_placement_step(amount: Tuple[int, int], clump_factor: int = 20) -> Dict[str, Any]:
+    return {
+        "$type": _t("RogueEssence.LevelGen.PlaceRandomMobsStep", "RogueEssence", MAP_CTX),
+        "Filters": [FILTER_CONNECTIVITY_MAIN, FILTER_NOT_BOSS],
+        "IncludeHalls": False,
+        "Spawn": {
+            "$type": _t("RogueEssence.LevelGen.TeamContextSpawner", "RogueEssence", MAP_CTX),
+            "Amount": rand_range(amount),
+        },
+        "Ally": False, "ClumpFactor": int(clump_factor),
+    }
+
+
+def money_placement_step(div_amount: Tuple[int, int] = (2, 4)) -> Dict[str, Any]:
+    money = "RogueEssence.LevelGen.MoneySpawn, RogueEssence"
+    return {
+        "$type": ("RogueElements.TerminalSpawnStep`2[["
+                  f"{MAP_CTX}],[{money}]], RogueElements"),
+        "IncludeHalls": False,
+        "Filters": [FILTER_CONNECTIVITY_MAIN, FILTER_NOT_BOSS],
+        "Spawn": {
+            "$type": _t("RogueEssence.LevelGen.MoneyDivSpawner", "RogueEssence", MAP_CTX),
+            "DivAmount": rand_range(div_amount),
+        },
+    }
 
 
 def _template(name: str) -> Dict[str, Any]:

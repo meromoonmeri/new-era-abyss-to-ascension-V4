@@ -104,6 +104,7 @@ class Segment:
     max_foes: int = 0
     respawn_time: int = 0
     fixed_floors: Dict[int, Dict[str, str]] = field(default_factory=dict)
+    floor_overrides: Dict[int, Dict[str, Any]] = field(default_factory=dict)
 
     @property
     def floor_numbers(self) -> List[int]:
@@ -148,6 +149,8 @@ class DungeonDefinition:
     blocked: List[str] = field(default_factory=list)
     scenes: Dict[str, Any] = field(default_factory=dict)
     narrative: Dict[str, Any] = field(default_factory=dict)
+    provenance: Dict[str, Any] = field(default_factory=dict)
+    fixed_segments: List[Dict[str, Any]] = field(default_factory=list)
     path: Optional[Path] = None
 
     # -- cascade helpers ----------------------------------------------
@@ -157,7 +160,11 @@ class DungeonDefinition:
                 return seg
         raise DefinitionError(f"floor {floor} of '{self.id}' belongs to no segment")
 
-    def profiles_for(self, seg: Segment) -> List[ProfileChoice]:
+    def profiles_for(self, seg: Segment, floor: Optional[int] = None) -> List[ProfileChoice]:
+        if floor is not None:
+            override = seg.floor_overrides.get(floor, {})
+            if override.get("profiles"):
+                return list(override["profiles"])
         return seg.profiles or self.profiles
 
     def mobs_for(self, seg: Segment) -> List[MobEntry]:
@@ -181,9 +188,11 @@ class DungeonDefinition:
         merged.update(seg.dtef or {})
         return merged
 
-    def stairs_for(self, seg: Segment) -> Dict[str, Any]:
+    def stairs_for(self, seg: Segment, floor: Optional[int] = None) -> Dict[str, Any]:
         merged = dict(self.stairs)
         merged.update(seg.stairs or {})
+        if floor is not None:
+            merged.update(seg.floor_overrides.get(floor, {}).get("stairs", {}))
         return merged
 
 
@@ -261,6 +270,24 @@ def parse_definition(data: Dict[str, Any], path: Optional[Path] = None) -> Dunge
         for required in ("name", "floors"):
             if required not in raw:
                 raise DefinitionError(f"segment missing '{required}'")
+        floor_overrides: Dict[int, Dict[str, Any]] = {}
+        for floor_key, override_raw in raw.get("floor_overrides", {}).items():
+            floor_id = int(floor_key)
+            if not isinstance(override_raw, dict):
+                raise DefinitionError(
+                    f"segment '{raw['name']}' floor override {floor_key} must be an object")
+            allowed = {"profiles", "stairs", "notes", "source_floor"}
+            unknown = set(override_raw) - allowed
+            if unknown:
+                raise DefinitionError(
+                    f"segment '{raw['name']}' floor override {floor_key}: unknown keys {sorted(unknown)}")
+            floor_overrides[floor_id] = {
+                "profiles": _profiles(override_raw.get("profiles", []),
+                                      f"segment '{raw['name']}' floor {floor_id}"),
+                "stairs": dict(override_raw.get("stairs", {})),
+                "notes": str(override_raw.get("notes", "")),
+                "source_floor": dict(override_raw.get("source_floor", {})),
+            }
         seg = Segment(
             name=str(raw["name"]),
             floors=_tuple2(raw["floors"], "segment.floors"),
@@ -278,6 +305,7 @@ def parse_definition(data: Dict[str, Any], path: Optional[Path] = None) -> Dunge
             max_foes=int(raw.get("max_foes", 0)),
             respawn_time=int(raw.get("respawn_time", 0)),
             fixed_floors={int(k): v for k, v in raw.get("fixed_floors", {}).items()},
+            floor_overrides=floor_overrides,
         )
         segments.append(seg)
 
@@ -289,6 +317,10 @@ def parse_definition(data: Dict[str, Any], path: Optional[Path] = None) -> Dunge
         if seg.floors[0] < 1 or seg.floors[1] > floors:
             raise DefinitionError(
                 f"segment '{seg.name}' range {seg.floors} is outside 1..{floors}")
+        outside = sorted(set(seg.floor_overrides) - set(seg.floor_numbers))
+        if outside:
+            raise DefinitionError(
+                f"segment '{seg.name}' has floor overrides outside its range: {outside}")
         covered.extend(seg.floor_numbers)
     if len(covered) != len(set(covered)):
         raise DefinitionError("segments overlap on at least one floor")
@@ -326,6 +358,8 @@ def parse_definition(data: Dict[str, Any], path: Optional[Path] = None) -> Dunge
         blocked=[str(b) for b in data.get("blocked", [])],
         scenes=dict(data.get("scenes", {})),
         narrative=dict(data.get("narrative", {})),
+        provenance=dict(data.get("provenance", {})),
+        fixed_segments=[dict(segment) for segment in data.get("fixed_segments", [])],
         path=path,
     )
 
@@ -333,6 +367,27 @@ def parse_definition(data: Dict[str, Any], path: Optional[Path] = None) -> Dunge
         raise DefinitionError("no architecture profile declared (dungeon level or every segment)")
     if not definition.dtef and not all(seg.dtef for seg in segments):
         raise DefinitionError("no DTEF tileset declared (dungeon level or every segment)")
+
+    stair_specs = [("dungeon", definition.stairs)]
+    for seg in segments:
+        stair_specs.append((f"segment '{seg.name}'", seg.stairs))
+        for floor_id, override in seg.floor_overrides.items():
+            stair_specs.append((f"segment '{seg.name}' floor {floor_id}", override.get("stairs", {})))
+    for where, stair_spec in stair_specs:
+        if "distance" in stair_spec:
+            lo, hi = _tuple2(stair_spec["distance"], f"{where}.stairs.distance")
+            if lo < 0 or hi <= lo:
+                raise DefinitionError(
+                    f"{where}.stairs.distance must be [min,max] with 0 <= min < max")
+
+    for index, fixed_segment in enumerate(definition.fixed_segments):
+        if not fixed_segment.get("map"):
+            raise DefinitionError(f"fixed_segments[{index}] requires map")
+        if not fixed_segment.get("role"):
+            raise DefinitionError(f"fixed_segments[{index}] requires role")
+        if fixed_segment.get("is_relevant", False):
+            raise DefinitionError(
+                f"fixed_segments[{index}] must be non-relevant; counted floors belong in segments")
 
     boss = definition.boss
     if boss:

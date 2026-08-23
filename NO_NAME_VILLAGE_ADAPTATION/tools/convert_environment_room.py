@@ -39,7 +39,7 @@ except ImportError as exc:  # pragma: no cover - explicit operator failure
 from pmu_adaptation.composer import (  # noqa: E402
     _empty_cell, _empty_ground_object, _ground_shell, _marker, _png_bytes, _unpremultiply, write_tile,
 )
-from smart_dungeon.assets import _tile_entries  # noqa: E402
+from pmdo_ground.assets import _tile_entries  # noqa: E402
 
 SOURCE_SHA256 = "2f33b595b450b40355554d73f5acc5d7272e5d54519e35cd8971e0f336401227"
 UPSTREAM_REPOSITORY = "https://github.com/meromoonmeri/nonamevillage"

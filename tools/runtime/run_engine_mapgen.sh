@@ -26,8 +26,9 @@ set -euo pipefail
 WORK="${1:?usage: run_engine_mapgen.sh <dossier-de-travail> [itérations]}"
 ITER="${2:-1}"
 HERE="$(cd "$(dirname "$0")" && pwd)"
-MOD_SRC="$(cd "$HERE/../.." && pwd)"
-MOD_NAME="new-era"
+REPO_ROOT="$(cd "$HERE/../.." && pwd)"
+MOD_SRC="${PMDO_MAPGEN_MOD_SRC:-$REPO_ROOT}"
+MOD_NAME="${PMDO_MAPGEN_MOD_NAME:-new-era}"
 
 BUNDLE="$WORK/pmdo-headless-bundle"
 ASSET="$WORK/asset"
@@ -136,8 +137,11 @@ for target in "$EXTRACT"/PMDO/*/libSDL2-2.0.so.0; do
   cp "$BUNDLE/libSDL2-2.0.so.0" "$target"
 done
 
-echo "== 6. liste des 51 donjons du périmètre =="
-ZONES="$(python3 - "$MOD_SRC" <<'PY'
+echo "== 6. liste des zones à tester =="
+if [ -n "${PMDO_MAPGEN_VALIDATOR_SPEC:-}" ]; then
+  ZONES="$PMDO_MAPGEN_VALIDATOR_SPEC"
+else
+  ZONES="$(python3 - "$MOD_SRC" <<'PY'
 import json, os, sys
 root = sys.argv[1]
 d = os.path.join(root, "DungeonDefs", "canonical")
@@ -146,6 +150,7 @@ ids = sorted(json.loads(open(os.path.join(d, f), encoding="utf-8-sig").read())["
 print(",".join(ids))
 PY
 )"
+fi
 
 echo "== 7. génération réelle par le moteur ($ITER itération(s)) =="
 rm -f "$OUT"

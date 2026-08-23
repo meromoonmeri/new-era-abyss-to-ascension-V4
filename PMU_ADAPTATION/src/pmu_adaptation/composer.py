@@ -21,13 +21,13 @@ from PIL import Image
 from pmu_extraction.constants import TILE_TYPES
 from pmu_extraction.sql_dump import parse_insert_rows
 from pmu_extraction.tilesets import TileArchive
-from smart_dungeon.assets import _tile_entries
-from smart_dungeon.ground_gen import (
+from pmdo_ground.assets import _tile_entries
+from pmdo_ground.ground_gen import (
     _aligned_layers, _classes, _empty_cell, _has_visual, _layer_role,
     _mask, _pick_source, _transition_signature, build_cell_grammar,
 )
-from smart_dungeon.ground_library import _visual_profile, visual_distance
-from smart_dungeon.knowledge import analyze_references
+from pmdo_ground.ground_library import _visual_profile, visual_distance
+from pmdo_ground.knowledge import analyze_references
 
 DEFINITE_BLOCK = {1, 14, 31}
 CONDITIONAL_BLOCK = {10, 24, 25}

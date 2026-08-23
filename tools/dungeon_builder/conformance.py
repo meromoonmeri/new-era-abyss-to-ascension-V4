@@ -212,6 +212,8 @@ class ConformanceReport:
 # use yet.  Each one was read in the upstream source before being allowed.
 KNOWN_NEW_TYPES = {
     "RogueElements.GridPathCross": "RogueElements/MapGen/Grid/Paths/GridPathCross.cs",
+    "PMDC.LevelGen.FloorStairsDistanceStep":
+        "PMDC/LevelGen/Floors/GenSteps/FloorPlan/FloorStairsDistanceStep.cs",
 }
 
 

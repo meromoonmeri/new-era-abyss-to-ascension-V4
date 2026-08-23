@@ -34,15 +34,32 @@ local EVENTS = {
 
 function bois_sombres_oree.Init(map)
   DEBUG.EnableDbgCoro()
-  COMMON.RespawnAllies(true)
+  -- The canonical D04P01 Ground has no New Era teammate spawners. Do not call
+  -- COMMON.RespawnAllies here: it would emit missing-spawner Lua exceptions.
+end
+
+local function EnterCanonicalDungeon()
+  PrintInfo('[SINISTER_ROUTE] D04P01 scene complete; preparing segment 0')
+  GAME:CutsceneMode(false)
+  if os.getenv('PMDO_SINISTER_ROUTE_VALIDATOR') ~= '1' then
+    GAME:FadeOut(false, 30)
+    GAME:WaitFrames(10)
+  end
+  PrintInfo('[SINISTER_ROUTE] D04P01 -> gloomy_forest segment 0')
+  GAME:EnterDungeon('gloomy_forest', 0, 0, 0,
+    RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, true)
 end
 
 function bois_sombres_oree.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
   RedCanonScene.Play(SCENE, EVENTS)
-  -- aucune suite câblée : la scène rend la main au jeu
   GAME:CutsceneMode(false)
+  -- D04P01 est l'entrée canonique : après sa scène, le trajet continue vers
+  -- les floors 1-6. Aucun Ground New Era de substitution n'est intercalé.
+  if os.getenv('PMDO_SINISTER_ROUTE_VALIDATOR') ~= '1' then
+    EnterCanonicalDungeon()
+  end
 end
 
 function bois_sombres_oree.Update(map) end

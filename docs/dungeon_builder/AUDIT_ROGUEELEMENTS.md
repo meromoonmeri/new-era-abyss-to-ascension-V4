@@ -1,5 +1,14 @@
 # Audit RogueElements — capacités réelles vérifiées dans le code source
 
+> **RECTIFICATIF 2026-08-23 — ce document historique n'est plus un gate de
+> production.** Voir `AUDIT_CORRECTIF_ENGINE_CANONICAL_2026-08-23.md` et
+> `ENGINE_PROTOTYPE_NATIVE.md`. Les sources RogueEssence/PMDC sont désormais
+> disponibles et ont invalidé trois affirmations ci-dessous : `AddLargeRoomStep`
+> existe dans RogueEssence ; le `try/catch` de `MapGen.ApplyGenSteps` empêche
+> `DetectIsolatedStairsStep` de déclencher à lui seul la régénération ; `re_sim`
+> n'est pas fidèle (`random.Random`, sémantique de fusion différente) et ne peut
+> certifier aucune production.
+
 **Date** : 2026-08-22
 **Méthode** : lecture intégrale des sources upstream `audinowho/RogueElements`
 (clonées et lues fichier par fichier, HEAD `a3869ec`), croisée avec le

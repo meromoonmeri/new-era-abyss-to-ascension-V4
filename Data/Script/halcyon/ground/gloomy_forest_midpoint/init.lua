@@ -17,9 +17,12 @@ local gloomy_forest_midpoint = {}
 -------------------------------
 function gloomy_forest_midpoint.Init(map)
   DEBUG.EnableDbgCoro()
-  print('=>> Init_gloomy_forest_midpoint <<=') 
+  print('=>> Init_gloomy_forest_midpoint <<=')
+  PrintInfo('[SINISTER_ROUTE] midpoint Init before RespawnAllies')
   COMMON.RespawnAllies(true)
+  PrintInfo('[SINISTER_ROUTE] midpoint Init after RespawnAllies')
   PartnerEssentials.InitializePartnerSpawn()
+  PrintInfo('[SINISTER_ROUTE] midpoint Init after InitializePartnerSpawn')
 end
 
 function gloomy_forest_midpoint.Enter(map)
@@ -52,10 +55,8 @@ function gloomy_forest_midpoint.GameLoad(map)
 end
 
 function gloomy_forest_midpoint.PlotScripting()
-  --L'Epreuve des Trois : la Team Dazzling campe au relais tant que le
-  --duel n'a pas eu lieu. Pose AVANT les cinematiques pour que les trois
-  --soient deja sur la carte quand le joueur reprend la main.
-  gloomy_forest_midpoint_ch_6.SetupDazzlingTrial()
+  -- Canonical validation route: the New Era Dazzling trial is supplemental
+  -- and disabled. This Ground only provides checkpoint/heal/save/rest.
 
   -- ROUTEUR DU POINT MEDIAN — meme ordre de branches que le Tunnel
   -- Incandescent et le Mont Venteux (template partage).

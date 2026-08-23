@@ -455,17 +455,12 @@ def convert_item(raw: str, conversion: Dict[str, str], prices: Dict[str, int]) -
     candidate = conversion.get(key)
     if candidate and candidate in prices:
         return candidate
-    # direct hit (already a PMDO id) or simple family guesses
+    # Direct hit is safe.  Cross-family guessing is forbidden: it previously
+    # mapped ITEM_WARP_ORB to seed_warp merely because orb_warp was absent.
+    # A missing mapping must stay visible until CONVERSION/Item.txt or the
+    # explicit override table documents a real runtime equivalent.
     if key in prices:
         return key
-    for prefix in ("berry_", "seed_", "orb_", "gummi_", "food_", "held_", "apricorn_", "boost_"):
-        stem = key
-        for suffix in ("_berry", "_seed", "_orb", "_gummi"):
-            if stem.endswith(suffix):
-                stem = stem[: -len(suffix)]
-        guess = f"{prefix}{stem}"
-        if guess in prices:
-            return guess
     return None
 
 

@@ -89,6 +89,13 @@ end
 function metano_town.Enter(map)
 	DEBUG.EnableDbgCoro()
 	print('Enter_metano_town')
+	if os.getenv('PMDO_SINISTER_ROUTE_VALIDATOR') == '1' then
+		-- The route proof ends once the real destination Ground has loaded.
+		-- Do not run unrelated town post-mission cutscenes in the headless harness.
+		RogueEssence.GameManager.Instance:SetFade(false, false)
+		PrintInfo('[SINISTER_ROUTE] Metano Town loaded; town cutscenes skipped headless')
+		return
+	end
 	if SV.TemporaryFlags and SV.TemporaryFlags.RewardCutsceneQuest then
 		local q_id = SV.TemporaryFlags.RewardCutsceneQuest
 		SV.TemporaryFlags.RewardCutsceneQuest = nil
@@ -532,7 +539,7 @@ function metano_town.ShowDestinationMenu(dungeon_entrances,ground_entrances)
     vast_steppe = "vast_steppe_entrance",
     searing_tunnel = "searing_tunnel_entrance",
     mount_windswept = "mount_windswept_entrance",
-    gloomy_forest = "gloomy_forest_entrance",
+    gloomy_forest = "bois_sombres_oree", -- PMD Red D04P01 canonical entrance
     cloven_ruins = "cloven_ruins_entrance",
     poisonous_forest = "poisonous_forest_entrance"
   }

@@ -81,7 +81,9 @@ def read_floor_config(floor_json: Dict[str, Any], floor_number: int,
         return config
 
     comment = floor_json.get("Comment", "")
-    if "profile " in comment:
+    if "profile:" in comment:
+        config.profile = comment.split("profile:")[1].split(" ")[0]
+    elif "profile " in comment:
         config.profile = comment.split("profile ")[1].split(" ")[0]
 
     for step in floor_json.get("GenSteps", []):
@@ -118,6 +120,8 @@ def read_floor_config(floor_json: Dict[str, Any], floor_number: int,
             config.default_ratio = _range(value.get("DefaultRatio"), (0, 1))
         elif name == "FloorStairsStep":
             config.min_stair_distance = int(value.get("MinDistance", 3))
+        elif name == "FloorStairsDistanceStep":
+            config.min_stair_distance = _range(value.get("Distance"), (3, 100))[0]
     return config
 
 
@@ -241,24 +245,34 @@ def analyse_zone(definition, variants: int = 3, zone_dir: Optional[Path] = None,
 
     for segment in zone.get("Segments", []):
         segment_name = segment.get("Comment", "").split(" (")[0]
+        relevant = bool(segment.get("IsRelevant", True))
         for offset, floor_json in enumerate(segment.get("Floors", [])):
-            result.floors += 1
-            config = read_floor_config(floor_json, offset + 1, segment_name)
-            if config.fixed_map:
-                result.fixed_floors += 1
+            if not relevant:
+                if "LoadGen" in floor_json.get("$type", ""):
+                    result.fixed_floors += 1
                 continue
-            if config.profile:
-                profiles.add(config.profile)
-            if config.grid:
-                grids.add(f"{config.grid[0]}x{config.grid[1]}")
-            kinds |= set(config.room_kinds)
-            for _ in range(variants):
-                simulated = simulate_config(config, rand.getrandbits(63))
-                if simulated is None:
-                    result.problems.append(f"floor {config.floor}: parameters could not be replayed")
+            result.floors += 1
+            candidates = ([entry["Spawn"] for entry in floor_json.get("Spawns", [])]
+                          if "ChanceFloorGen" in floor_json.get("$type", "")
+                          else [floor_json])
+            for candidate in candidates:
+                config = read_floor_config(candidate, offset + 1, segment_name)
+                if config.fixed_map:
+                    result.fixed_floors += 1
                     continue
-                metrics.append(measure(simulated))
-                bends.append(_bends(simulated))
+                if config.profile:
+                    profiles.add(config.profile)
+                if config.grid:
+                    grids.add(f"{config.grid[0]}x{config.grid[1]}")
+                kinds |= set(config.room_kinds)
+                for _ in range(variants):
+                    simulated = simulate_config(config, rand.getrandbits(63))
+                    if simulated is None:
+                        result.problems.append(
+                            f"floor {config.floor} profile {config.profile}: parameters could not be replayed")
+                        continue
+                    metrics.append(measure(simulated))
+                    bends.append(_bends(simulated))
 
     result.profiles = sorted(profiles)
     result.grids = sorted(grids)

@@ -12,7 +12,7 @@ from build_pmdred_eu_runtime_fixture import (
     fixture_ground, overlay_children, overlay_data_root, read_json, read_tile_index,
     symlink, tile_node, write_json_bom, write_tile_index,
 )
-from smart_dungeon.ground_runtime import (
+from pmdo_ground.ground_runtime import (
     EVENTS, capture_points, ground_script, runtime_env, sha256_file, validator_script,
 )
 
