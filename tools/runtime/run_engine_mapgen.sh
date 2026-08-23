@@ -50,7 +50,9 @@ if [ ! -f "$BUNDLE/libvk_swiftshader.so" ]; then
   ( cd "$WORK" && npm pack @sparticuz/chromium >/dev/null )
   TGZ="$(ls "$WORK"/sparticuz-chromium-*.tgz | head -1)"
   tar xzf "$TGZ" -C "$WORK"
-  python3 - "$WORK" <<'PY'
+  # brotli n'est pas garanti présent : installation locale au dossier de travail.
+  python3 -c "import brotli" 2>/dev/null || pip install --quiet --target "$WORK/pylibs" brotli
+  PYTHONPATH="$WORK/pylibs" python3 - "$WORK" <<'PY'
 import brotli, io, sys, tarfile
 work = sys.argv[1]
 data = brotli.decompress(open(f"{work}/package/bin/swiftshader.tar.br", "rb").read())

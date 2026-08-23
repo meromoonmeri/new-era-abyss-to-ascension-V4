@@ -23,6 +23,14 @@ local function GROUND_IDX(name)
   return idx
 end
 
+local function ZONE_GROUND_IDX(zone, name)
+  for ii = 0, zone.GroundMaps.Count - 1 do
+    if zone.GroundMaps[ii] == name then return ii end
+  end
+  PrintInfo('[fiery_field] Ground absent de la zone : ' .. tostring(name))
+  return 0
+end
+
 local RETURN_GROUND = 'metano_town'
 
 function fiery_field.Init(zone)
@@ -57,7 +65,9 @@ function fiery_field.ExitSegment(zone, result, rescue, segmentID, mapID)
   if segmentID == 0 then
     -- cinématique du gardien puis retour dans le donjon pour le combat : cinématique et combat au même endroit, aucune arène séparée
     SV.CanonicalDungeons.Pending = 'fiery_field_seg0'
-    GAME:EnterGroundMap('champ_braises', 'Main_Entrance_Marker')
+    -- champ_braises ne porte aucun marqueur : la scène téléporte
+    -- elle-même le joueur, on entre donc par index.
+    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, 'champ_braises'), 0)
   elseif segmentID == 1 then
     -- étage d'arène franchi : fin de run sur place, la scène a déjà été jouée
     SV.CanonicalDungeons['fiery_field'] = true

@@ -33,6 +33,7 @@ import json
 import re
 import shutil
 from dataclasses import dataclass, field
+from functools import lru_cache
 from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple
 
@@ -198,6 +199,35 @@ def _is_arena_return_ground(name: str) -> bool:
     """
     return "ContinueDungeon" in _ground_script_text(name)
 
+
+
+@lru_cache(maxsize=None)
+def ground_entry_marker(ground: str) -> Optional[str]:
+    """Marqueur d'entrée réellement présent dans le Ground, ou None.
+
+    `GAME:EnterGroundMap(nom, marqueur)` passe par
+    `GroundMap.GetEntryPointIdx`, qui lève `KeyNotFoundException` si le
+    marqueur n'existe pas : viser `Main_Entrance_Marker` sans vérifier plante
+    le jeu. Les Grounds de scène qui téléportent eux-mêmes le joueur n'ont
+    aucun marqueur ; ils sont alors adressés par index (`GetEntryPoint(int)`
+    renvoie Loc.Zero au lieu de lever).
+    """
+    path = GROUND_DIR / f"{ground}.rsground"
+    if not path.is_file():
+        return None
+    try:
+        raw = _read_json(path)["Object"]
+    except (OSError, json.JSONDecodeError, KeyError):
+        return None
+    names: List[str] = []
+    for layer in raw.get("Entities") or []:
+        for marker in layer.get("Markers") or []:
+            name = marker.get("EntName")
+            if isinstance(name, str) and name:
+                names.append(name)
+    if "Main_Entrance_Marker" in names:
+        return "Main_Entrance_Marker"
+    return names[0] if names else None
 
 def _zone_segments(dungeon: str) -> int:
     path = ZONE_DIR / f"{dungeon}.json"
@@ -574,6 +604,14 @@ local function GROUND_IDX(name)
   return idx
 end
 
+local function ZONE_GROUND_IDX(zone, name)
+  for ii = 0, zone.GroundMaps.Count - 1 do
+    if zone.GroundMaps[ii] == name then return ii end
+  end
+  PrintInfo('[{dungeon}] Ground absent de la zone : ' .. tostring(name))
+  return 0
+end
+
 local RETURN_GROUND = {return_ground}
 
 function {dungeon}.Init(zone)
@@ -633,7 +671,13 @@ def _branch(exit_: SegmentExit, dungeon: str) -> str:
     if exit_.kind == "ground":
         pending = _pending_key(exit_.target, f"{dungeon}_seg{exit_.segment}")
         body.append(f"    SV.CanonicalDungeons.Pending = '{pending}'")
-        body.append(f"    GAME:EnterGroundMap('{exit_.target}', 'Main_Entrance_Marker')")
+        marker = ground_entry_marker(exit_.target)
+        if marker:
+            body.append(f"    GAME:EnterGroundMap('{exit_.target}', '{marker}')")
+        else:
+            body.append(f"    -- {exit_.target} ne porte aucun marqueur : la scène téléporte")
+            body.append("    -- elle-même le joueur, on entre donc par index.")
+            body.append(f"    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, '{exit_.target}'), 0)")
     elif exit_.kind == "zone":
         follow = 0 if exit_.target != dungeon else exit_.segment + 1
         body.append(f"    GAME:EnterDungeon('{exit_.target}', {follow}, 0, 0,")

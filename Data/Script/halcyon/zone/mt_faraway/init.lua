@@ -23,6 +23,14 @@ local function GROUND_IDX(name)
   return idx
 end
 
+local function ZONE_GROUND_IDX(zone, name)
+  for ii = 0, zone.GroundMaps.Count - 1 do
+    if zone.GroundMaps[ii] == name then return ii end
+  end
+  PrintInfo('[mt_faraway] Ground absent de la zone : ' .. tostring(name))
+  return 0
+end
+
 local RETURN_GROUND = 'metano_town'
 
 function mt_faraway.Init(zone)
@@ -61,7 +69,9 @@ function mt_faraway.ExitSegment(zone, result, rescue, segmentID, mapID)
   elseif segmentID == 1 then
     -- cinématique du gardien puis retour dans le donjon pour le combat : cinématique et combat au même endroit, aucune arène séparée
     SV.CanonicalDungeons.Pending = 'mt_faraway_seg1'
-    GAME:EnterGroundMap('sommet_aurore', 'Main_Entrance_Marker')
+    -- sommet_aurore ne porte aucun marqueur : la scène téléporte
+    -- elle-même le joueur, on entre donc par index.
+    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, 'sommet_aurore'), 0)
   elseif segmentID == 2 then
     -- étage d'arène franchi : fin de run sur place, la scène a déjà été jouée
     SV.CanonicalDungeons['mt_faraway'] = true

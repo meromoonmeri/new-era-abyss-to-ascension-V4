@@ -10,6 +10,30 @@ MapGenTest), binaire PMDO officiel en headless ANGLE/SwiftShader.
 - réussies : **4287**
 - échecs : **0**
 
+## Traversabilité (données du moteur, `Map:TileBlocked`)
+
+- étages analysés : **4287**
+- étages dont tous les escaliers sont atteignables depuis le point d'entrée : **4281**
+- étages avec une poche de terrain praticable non atteinte : **0**
+
+| Zone | Segment | Étage | Escaliers | Atteignables | Praticables | Atteints |
+|---|---|---|---|---|---|---|
+| `buried_relic` | 2 | 32 | 0 | 0 | 345 | 345 |
+| `buried_relic` | 2 | 32 | 0 | 0 | 345 | 345 |
+| `buried_relic` | 2 | 32 | 0 | 0 | 345 | 345 |
+| `meteor_cave` | 1 | 9 | 0 | 0 | 345 | 345 |
+| `meteor_cave` | 1 | 9 | 0 | 0 | 345 | 345 |
+| `meteor_cave` | 1 | 9 | 0 | 0 | 345 | 345 |
+
+Un étage sans escalier est un **étage terminal** (salle fixe de boss chargée en `fixed_floors`) : le donjon s'y achève, il n'y a rien à rejoindre.
+
+## Grounds de scène chargés par le moteur
+
+- liaisons zone → Ground vérifiées : **54**
+- problèmes : **0**
+
+Chaque Ground est réellement désérialisé par `DataManager.GetGround`, son mode d'entrée est celui qu'appelle le script de zone (marqueur nommé ou index), et sa présence dans les `GroundMaps` de la zone est vérifiée : sans elle, `MoveToGround` refuse la transition.
+
 ## Échecs
 
 Aucun. Tous les étages demandés ont été construits par le moteur.
@@ -18,57 +42,57 @@ Aucun. Tous les étages demandés ont été construits par le moteur.
 
 | Donjon | Étages générés | Salles min/moy/max | Largeur moy | Hauteur moy | ms moy |
 |---|---|---|---|---|---|
-| `buried_relic` | 297 | 1/9.2/33 | 62 | 40 | 21.3 |
-| `darknight_relic` | 45 | 4/8.9/18 | 58 | 41 | 21.2 |
-| `desert_region` | 60 | 3/9.9/26 | 61 | 39 | 15.6 |
-| `fantasy_strait` | 90 | 4/9.6/26 | 51 | 40 | 10.9 |
-| `far_off_sea` | 225 | 2/8.9/24 | 57 | 39 | 12.0 |
-| `fiery_field` | 90 | 2/8.2/18 | 57 | 37 | 11.5 |
-| `frosty_forest` | 27 | 6/10.1/26 | 53 | 37 | 7.7 |
-| `frosty_grotto` | 15 | 7/13.7/23 | 64 | 35 | 8.9 |
-| `gloomy_forest` | 42 | 5/11.2/22 | 61 | 41 | 11.8 |
-| `grand_sea` | 90 | 3/9.3/17 | 58 | 39 | 11.7 |
-| `great_canyon` | 36 | 5/9.1/17 | 55 | 36 | 7.8 |
-| `howling_forest` | 45 | 7/14.9/32 | 59 | 38 | 12.0 |
-| `joyous_tower` | 297 | 1/8.9/25 | 62 | 40 | 10.7 |
-| `lapis_cave` | 42 | 5/13.0/31 | 65 | 40 | 19.4 |
-| `lightning_field` | 90 | 2/8.8/23 | 54 | 37 | 7.5 |
-| `magma_cavern` | 69 | 2/11.2/23 | 60 | 37 | 10.5 |
-| `magma_cavern_pit` | 9 | 9/14.9/22 | 67 | 45 | 11.2 |
-| `marvelous_sea` | 60 | 3/9.3/23 | 54 | 41 | 10.4 |
-| `meteor_cave` | 60 | 4/12.6/29 | 60 | 39 | 12.7 |
-| `mt_blaze` | 36 | 3/9.8/20 | 58 | 35 | 7.9 |
-| `mt_blaze_peak` | 9 | 8/11.7/20 | 74 | 41 | 10.1 |
-| `mt_faraway` | 120 | 2/8.2/27 | 57 | 36 | 9.7 |
-| `mt_freeze` | 45 | 4/10.3/23 | 57 | 44 | 13.2 |
-| `mt_freeze_peak` | 15 | 1/3.5/9 | 55 | 31 | 4.8 |
-| `mt_steel` | 27 | 5/9.9/27 | 54 | 39 | 8.6 |
-| `mt_thunder` | 30 | 5/8.2/14 | 57 | 39 | 7.0 |
-| `mt_thunder_peak` | 9 | 3/8.1/13 | 63 | 35 | 10.8 |
-| `murky_cave` | 57 | 4/11.5/27 | 61 | 39 | 11.8 |
-| `northern_range` | 75 | 5/9.2/22 | 59 | 38 | 10.7 |
-| `northwind_field` | 90 | 1/7.5/14 | 55 | 33 | 8.6 |
-| `oddity_cave` | 45 | 6/13.6/30 | 62 | 41 | 9.3 |
-| `pitfall_valley` | 75 | 5/9.7/26 | 61 | 39 | 11.1 |
-| `purity_forest` | 297 | 1/10.5/31 | 60 | 37 | 10.3 |
-| `remains_island` | 60 | 4/8.8/24 | 61 | 40 | 13.1 |
-| `rock_path` | 12 | 7/13.5/23 | 68 | 36 | 11.9 |
-| `silent_chasm` | 27 | 4/15.9/31 | 60 | 43 | 9.6 |
-| `silver_trench` | 297 | 1/7.8/25 | 56 | 35 | 8.7 |
-| `sky_tower` | 75 | 4/9.6/17 | 61 | 40 | 11.7 |
-| `sky_tower_summit` | 27 | 3/10.6/26 | 61 | 45 | 17.2 |
-| `snow_path` | 12 | 2/4.9/8 | 43 | 40 | 5.8 |
-| `solar_cave` | 60 | 5/11.3/26 | 60 | 37 | 7.6 |
-| `southern_cavern` | 150 | 2/10.9/29 | 57 | 39 | 11.1 |
-| `stormy_sea` | 120 | 2/8.5/25 | 58 | 36 | 9.5 |
-| `thunderwave_cave` | 15 | 6/14.4/23 | 58 | 42 | 7.7 |
-| `tiny_woods` | 9 | 10/19.6/31 | 69 | 34 | 9.8 |
-| `unown_relic` | 33 | 5/7.4/11 | 63 | 38 | 7.5 |
-| `uproar_forest` | 30 | 8/13.3/27 | 60 | 35 | 8.4 |
-| `waterfall_pond` | 57 | 4/8.4/14 | 55 | 35 | 10.9 |
-| `western_cave` | 297 | 1/11.0/33 | 61 | 39 | 11.1 |
-| `wish_cave` | 297 | 3/11.4/30 | 58 | 38 | 9.9 |
-| `wyvern_hill` | 90 | 4/9.3/25 | 59 | 39 | 10.2 |
+| `buried_relic` | 297 | 2/9.3/32 | 62 | 40 | 10.4 |
+| `darknight_relic` | 45 | 5/9.0/19 | 58 | 41 | 4.3 |
+| `desert_region` | 60 | 2/10.1/28 | 61 | 39 | 6.7 |
+| `fantasy_strait` | 90 | 4/9.5/25 | 51 | 40 | 5.4 |
+| `far_off_sea` | 225 | 1/8.9/28 | 57 | 39 | 7.1 |
+| `fiery_field` | 90 | 2/8.4/19 | 57 | 37 | 6.5 |
+| `frosty_forest` | 27 | 6/10.9/26 | 53 | 37 | 6.5 |
+| `frosty_grotto` | 15 | 7/14.3/23 | 64 | 35 | 8.6 |
+| `gloomy_forest` | 42 | 5/11.0/22 | 61 | 41 | 9.3 |
+| `grand_sea` | 90 | 4/9.8/17 | 58 | 39 | 8.0 |
+| `great_canyon` | 36 | 4/8.9/24 | 55 | 36 | 8.0 |
+| `howling_forest` | 45 | 5/15.3/34 | 59 | 38 | 7.2 |
+| `joyous_tower` | 297 | 1/8.9/28 | 62 | 40 | 7.7 |
+| `lapis_cave` | 42 | 5/13.3/29 | 65 | 40 | 6.9 |
+| `lightning_field` | 90 | 2/8.4/18 | 54 | 37 | 6.5 |
+| `magma_cavern` | 69 | 2/11.4/26 | 60 | 37 | 7.0 |
+| `magma_cavern_pit` | 9 | 11/14.2/20 | 67 | 45 | 10.2 |
+| `marvelous_sea` | 60 | 4/9.1/23 | 54 | 41 | 6.1 |
+| `meteor_cave` | 60 | 4/12.3/27 | 60 | 39 | 7.4 |
+| `mt_blaze` | 36 | 4/10.4/19 | 58 | 35 | 6.7 |
+| `mt_blaze_peak` | 9 | 7/10.1/18 | 74 | 41 | 7.8 |
+| `mt_faraway` | 120 | 1/8.1/24 | 57 | 36 | 5.8 |
+| `mt_freeze` | 45 | 5/10.2/22 | 57 | 44 | 7.6 |
+| `mt_freeze_peak` | 15 | 2/3.8/9 | 55 | 31 | 3.9 |
+| `mt_steel` | 27 | 5/9.1/22 | 54 | 39 | 6.5 |
+| `mt_thunder` | 30 | 4/8.2/13 | 57 | 39 | 7.4 |
+| `mt_thunder_peak` | 9 | 4/9.0/14 | 63 | 35 | 8.3 |
+| `murky_cave` | 57 | 4/11.4/28 | 61 | 39 | 7.1 |
+| `northern_range` | 75 | 4/9.1/20 | 59 | 38 | 7.5 |
+| `northwind_field` | 90 | 2/7.6/16 | 55 | 33 | 6.5 |
+| `oddity_cave` | 45 | 6/13.7/31 | 62 | 41 | 9.2 |
+| `pitfall_valley` | 75 | 4/9.7/26 | 61 | 39 | 7.0 |
+| `purity_forest` | 297 | 1/10.5/32 | 60 | 37 | 6.9 |
+| `remains_island` | 60 | 4/8.4/22 | 61 | 40 | 7.4 |
+| `rock_path` | 12 | 6/12.3/21 | 68 | 36 | 7.8 |
+| `silent_chasm` | 27 | 5/15.9/30 | 60 | 43 | 6.9 |
+| `silver_trench` | 297 | 2/7.8/22 | 56 | 35 | 5.8 |
+| `sky_tower` | 75 | 4/9.3/17 | 61 | 40 | 6.4 |
+| `sky_tower_summit` | 27 | 3/10.0/26 | 61 | 45 | 11.6 |
+| `snow_path` | 12 | 2/5.0/7 | 43 | 40 | 6.7 |
+| `solar_cave` | 60 | 5/11.1/22 | 60 | 37 | 7.9 |
+| `southern_cavern` | 150 | 2/10.7/26 | 57 | 39 | 6.4 |
+| `stormy_sea` | 120 | 2/8.5/23 | 58 | 36 | 7.4 |
+| `thunderwave_cave` | 15 | 6/14.3/27 | 58 | 42 | 7.1 |
+| `tiny_woods` | 9 | 9/19.7/33 | 69 | 34 | 6.9 |
+| `unown_relic` | 33 | 5/7.8/12 | 63 | 38 | 6.6 |
+| `uproar_forest` | 30 | 7/13.3/24 | 60 | 35 | 7.9 |
+| `waterfall_pond` | 57 | 3/8.1/16 | 55 | 35 | 5.5 |
+| `western_cave` | 297 | 2/11.2/30 | 61 | 39 | 7.6 |
+| `wish_cave` | 297 | 4/11.7/30 | 58 | 38 | 6.5 |
+| `wyvern_hill` | 90 | 4/9.1/25 | 59 | 39 | 6.7 |
 
-Ligne terminale du moteur : `{"event": "end", "attempted": 4287, "generated": 4287, "failures": 0}`
+Ligne terminale du moteur : `{"event": "end", "attempted": 4287, "generated": 4287, "failures": 0, "non_traversable": 6}`
 

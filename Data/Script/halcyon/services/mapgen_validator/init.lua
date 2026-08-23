@@ -45,6 +45,8 @@ function MapGenValidator:initialize()
   self.spec = os.getenv('PMDO_MAPGEN_VALIDATOR')
   self.enabled = (self.spec ~= nil and self.spec ~= '')
   self.iterations = tonumber(os.getenv('PMDO_MAPGEN_ITER') or '1') or 1
+  -- analyse de traversabilité active par défaut ; PMDO_MAPGEN_TRAVERSAL=0 la coupe
+  self.traversal = (os.getenv('PMDO_MAPGEN_TRAVERSAL') ~= '0')
   self.done = false
   if self.enabled then
     PrintInfo('[MAPGEN] service actif, spec=' .. tostring(self.spec)
@@ -84,6 +86,97 @@ function MapGenValidator:zone_list()
   return list
 end
 
+
+--------------------------------------------------------------------
+-- Analyse de traversabilité, sur la carte RÉELLEMENT générée.
+--
+-- On n'estime rien : on interroge le moteur (`Map:TileBlocked`) pour
+-- chaque case, on repart du point d'entrée (`Map.EntryPoints[0]`) et on
+-- vérifie que les escaliers posés sur la carte sont atteignables.
+--------------------------------------------------------------------
+local Loc = nil
+local STAIR_IDS = { stairs_go_up = true, stairs_go_down = true }
+
+local function analyse(map)
+  if Loc == nil then
+    luanet.load_assembly('RogueElements')
+    Loc = luanet.import_type('RogueElements.Loc')
+  end
+  local w, h = map.Width, map.Height
+  local blocked = {}
+  local walkable = 0
+  for x = 0, w - 1 do
+    blocked[x] = {}
+    for y = 0, h - 1 do
+      local b = map:TileBlocked(Loc(x, y))
+      blocked[x][y] = b
+      if not b then walkable = walkable + 1 end
+    end
+  end
+
+  local stairs = {}
+  for x = 0, w - 1 do
+    for y = 0, h - 1 do
+      local tile = map.Tiles[x][y]
+      local eff = tile.Effect
+      if eff ~= nil and eff.ID ~= nil and STAIR_IDS[tostring(eff.ID)] then
+        stairs[#stairs + 1] = { x = x, y = y }
+      end
+    end
+  end
+
+  local entry = nil
+  if map.EntryPoints ~= nil and map.EntryPoints.Count > 0 then
+    local pt = map.EntryPoints[0].Loc
+    entry = { x = pt.X, y = pt.Y }
+  end
+  if entry == nil then
+    return { walkable = walkable, stairs = #stairs, reached = -1,
+             entry_ok = false, stairs_reachable = false }
+  end
+  local entry_ok = (entry.x >= 0 and entry.y >= 0 and entry.x < w and entry.y < h
+                    and not blocked[entry.x][entry.y])
+
+  -- parcours en largeur, 8 directions ; une diagonale n'est franchissable
+  -- que si les deux orthogonales adjacentes le sont (règle du moteur).
+  local seen = {}
+  for x = 0, w - 1 do seen[x] = {} end
+  local queue = { entry }
+  seen[entry.x][entry.y] = true
+  local reached = 1
+  local head = 1
+  local DIRS = { {1,0},{-1,0},{0,1},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1} }
+  while head <= #queue do
+    local cur = queue[head]; head = head + 1
+    for _, d in ipairs(DIRS) do
+      local nx, ny = cur.x + d[1], cur.y + d[2]
+      if nx >= 0 and ny >= 0 and nx < w and ny < h and not seen[nx][ny]
+         and not blocked[nx][ny] then
+        local ok = true
+        if d[1] ~= 0 and d[2] ~= 0 then
+          ok = (not blocked[cur.x + d[1]][cur.y]) and (not blocked[cur.x][cur.y + d[2]])
+        end
+        if ok then
+          seen[nx][ny] = true
+          reached = reached + 1
+          queue[#queue + 1] = { x = nx, y = ny }
+        end
+      end
+    end
+  end
+
+  local reachable_stairs = 0
+  for _, st in ipairs(stairs) do
+    if seen[st.x][st.y] then reachable_stairs = reachable_stairs + 1 end
+  end
+
+  return {
+    walkable = walkable, reached = reached, stairs = #stairs,
+    reachable_stairs = reachable_stairs, entry_ok = entry_ok,
+    stairs_reachable = (#stairs > 0 and reachable_stairs == #stairs),
+  }
+end
+
 --------------------------------------------------------------------
 -- Génération réelle d'un étage.
 --------------------------------------------------------------------
@@ -96,7 +189,7 @@ function MapGenValidator:run()
   local zones = self:zone_list()
   emit(string.format('{"event":"begin","zones":%d,"iterations":%d}', #zones, self.iterations))
 
-  local total, failures, floors = 0, 0, 0
+  local total, failures, floors, unreachable = 0, 0, 0, 0
   for _, zoneId in ipairs(zones) do
     local okZone, zone = pcall(function() return _DATA:GetZone(zoneId) end)
     if not okZone or zone == nil then
@@ -136,10 +229,29 @@ function MapGenValidator:run()
                 w = result.Map.Width; h = result.Map.Height
                 rooms = result.RoomPlan.RoomCount
               end)
-              emit(string.format(
-                '{"event":"floor","zone":"%s","segment":%d,"floor":%d,"iter":%d,"status":"OK",'
-                .. '"width":%d,"height":%d,"rooms":%d,"ms":%d,"seed":"%s"}',
-                esc(zoneId), seg, floorId, iter, w, h, rooms, ms, tostring(ctx.Seed)))
+              local trav, terr = nil, ''
+              if self.traversal then
+                local okt, res = pcall(function() return analyse(result.Map) end)
+                if okt then trav = res else terr = tostring(res) end
+              end
+              if trav ~= nil then
+                if not (trav.entry_ok and trav.stairs_reachable) then
+                  unreachable = unreachable + 1
+                end
+                emit(string.format(
+                  '{"event":"floor","zone":"%s","segment":%d,"floor":%d,"iter":%d,"status":"OK",'
+                  .. '"width":%d,"height":%d,"rooms":%d,"ms":%d,"walkable":%d,"reached":%d,'
+                  .. '"stairs":%d,"stairs_reachable":%d,"entry_ok":%s,"traversable":%s,"seed":"%s"}',
+                  esc(zoneId), seg, floorId, iter, w, h, rooms, ms,
+                  trav.walkable, trav.reached, trav.stairs, trav.reachable_stairs,
+                  tostring(trav.entry_ok), tostring(trav.entry_ok and trav.stairs_reachable),
+                  tostring(ctx.Seed)))
+              else
+                emit(string.format(
+                  '{"event":"floor","zone":"%s","segment":%d,"floor":%d,"iter":%d,"status":"OK",'
+                  .. '"width":%d,"height":%d,"rooms":%d,"ms":%d,"traversal_error":"%s","seed":"%s"}',
+                  esc(zoneId), seg, floorId, iter, w, h, rooms, ms, esc(terr), tostring(ctx.Seed)))
+              end
             else
               failures = failures + 1
               -- NLua remonte l'objet exception : on extrait le vrai type,
@@ -164,14 +276,85 @@ function MapGenValidator:run()
     end
   end
 
-  emit(string.format('{"event":"end","attempted":%d,"generated":%d,"failures":%d}',
-                     total, floors, failures))
+  emit(string.format('{"event":"end","attempted":%d,"generated":%d,"failures":%d,'
+                     .. '"non_traversable":%d}', total, floors, failures, unreachable))
+end
+
+
+--------------------------------------------------------------------
+-- Contrôle moteur des Grounds de scène.
+--
+-- Le moteur charge et désérialise réellement chaque Ground cité par le
+-- câblage (entrée, relais, scène finale), puis on vérifie que le marqueur
+-- d'entrée utilisé par les scripts existe bien sur la carte. Un Ground
+-- illisible ou sans marqueur = téléportation ratée en jeu.
+--------------------------------------------------------------------
+function MapGenValidator:check_grounds(entries)
+  local checked, failed = 0, 0
+  for _, entry in ipairs(entries) do
+    -- entrée = "zone|ground|marqueur" ; marqueur vide = entrée par index
+    local zoneId, name, marker = string.match(entry, '([^|]*)|([^|]*)|([^|]*)')
+    checked = checked + 1
+    local ok, res = pcall(function()
+      local ground = _DATA:GetGround(name)
+      if ground == nil then error('GetGround a renvoyé nil') end
+      local markers = {}
+      local count = 0
+      for ii = 0, ground.Entities.Count - 1 do
+        local layer = ground.Entities[ii]
+        for jj = 0, layer.Markers.Count - 1 do
+          markers[tostring(layer.Markers[jj].EntName)] = true
+          count = count + 1
+        end
+      end
+      -- le Ground doit être déclaré par la zone, sinon MoveToGround refuse
+      local declared = false
+      local zdata = _DATA:GetZone(zoneId)
+      if zdata ~= nil then
+        for ii = 0, zdata.GroundMaps.Count - 1 do
+          if zdata.GroundMaps[ii] == name then declared = true end
+        end
+      end
+      local entry_ok
+      if marker ~= '' then entry_ok = (markers[marker] == true)
+      else entry_ok = true end   -- entrée par index : GetEntryPoint(int) ne lève pas
+      return { w = ground.Width, h = ground.Height, count = count,
+               declared = declared, entry_ok = entry_ok,
+               mode = (marker ~= '' and 'marker' or 'index') }
+    end)
+    if ok then
+      local problem = (not res.entry_ok) or (not res.declared)
+      if problem then failed = failed + 1 end
+      emit(string.format('{"event":"ground","zone":"%s","ground":"%s","status":"%s",'
+        .. '"width":%d,"height":%d,"markers":%d,"entry_mode":"%s","entry":"%s",'
+        .. '"entry_ok":%s,"declared_in_zone":%s}',
+        esc(zoneId), esc(name), problem and 'PROBLEM' or 'OK', res.w, res.h, res.count,
+        res.mode, esc(marker), tostring(res.entry_ok), tostring(res.declared)))
+    else
+      failed = failed + 1
+      local etype, emsg = 'unknown', tostring(res)
+      pcall(function()
+        local inner = res.InnerException or res
+        etype = inner:GetType():ToString(); emsg = inner.Message
+      end)
+      emit(string.format('{"event":"ground","zone":"%s","ground":"%s","status":"FAIL",'
+        .. '"type":"%s","message":"%s"}', esc(zoneId), esc(name), esc(etype), esc(emsg)))
+    end
+  end
+  emit(string.format('{"event":"grounds_end","checked":%d,"problems":%d}', checked, failed))
 end
 
 function MapGenValidator:OnInit()
   if not self.enabled then return end
   local ok, err = pcall(function() self:run() end)
   if not ok then emit(string.format('{"event":"fatal","error":"%s"}', esc(err))) end
+  local grounds = os.getenv('PMDO_GROUND_CHECK')
+  if grounds ~= nil and grounds ~= '' then
+    local list = {}
+    for id in string.gmatch(grounds, '[^,%s]+') do list[#list + 1] = id end
+    local okg, errg = pcall(function() self:check_grounds(list) end)
+    if not okg then emit(string.format('{"event":"fatal","error":"%s"}', esc(errg))) end
+  end
 end
 
 function MapGenValidator:Subscribe(med)

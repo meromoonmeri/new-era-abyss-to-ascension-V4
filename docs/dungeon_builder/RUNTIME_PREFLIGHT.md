@@ -139,3 +139,34 @@ cités par une donnée du dépôt. Corrigé en `silent_chasm_*` et
 `deep_sealed_ruin_*`, et la liste officielle des 473 AutoTiles du jeu de base est
 désormais embarquée (`tools/dungeon_builder/data/base_autotiles.txt`) pour que la
 vérification statique attrape ce cas à l'avenir.
+
+
+### Deuxième passe : traversabilité et Grounds de scène (2026-08-23)
+
+Le validateur moteur a été étendu à deux contrôles supplémentaires, faits sur les
+objets que le moteur vient de construire :
+
+1. **Traversabilité** — pour chaque étage généré : lecture case par case de
+   `Map:TileBlocked`, parcours en largeur 8 directions depuis
+   `Map.EntryPoints[0]`, position des escaliers relevée sur les `EffectTile`.
+   Résultat sur 4 287 étages : **0 poche praticable non atteinte**,
+   **4 281 étages avec tous les escaliers atteignables**, les 6 restants étant
+   les deux salles fixes de boss sans escalier (étages terminaux).
+2. **Grounds de scène** — les **54 liaisons zone → Ground** du câblage sont
+   chargées par `DataManager.GetGround`, avec vérification du mode d'entrée
+   réellement appelé par le script de zone et de la présence du Ground dans les
+   `GroundMaps` de la zone. Résultat : **0 problème**.
+
+#### Deuxième erreur réelle trouvée et corrigée
+
+Neuf Grounds de scène (`champ_braises`, `abime_tempetes`, `antre_occident`,
+`bois_des_plaintes`, `cretes_boreales`, `fosse_argentee`, `sommet_aurore`,
+`vallon_perdu`, `d07p02`) ne portent **aucun marqueur** : leur scène téléporte
+elle-même le joueur. Or les scripts de zone générés appelaient
+`GAME:EnterGroundMap(nom, 'Main_Entrance_Marker')`, qui passe par
+`GroundMap.GetEntryPointIdx` et lève `KeyNotFoundException` quand le marqueur
+n'existe pas — plantage garanti à la fin de ces neuf donjons.
+
+Le générateur lit désormais les marqueurs réellement présents dans le
+`.rsground` (`wiring.ground_entry_marker`) : marqueur nommé quand il existe,
+entrée par index (`GetEntryPoint(int)`, qui ne lève pas) sinon.

@@ -18,7 +18,8 @@ def main(argv: list[str]) -> int:
         print("usage: summarize_engine_mapgen.py <jsonl> <report.md>", file=sys.stderr)
         return 2
     source, target = Path(argv[1]), Path(argv[2])
-    rows = []
+    rows: list[dict] = []
+    grounds: list[dict] = []
     begin = end = None
     for line in source.read_text(encoding="utf-8").splitlines():
         line = line.strip()
@@ -30,6 +31,8 @@ def main(argv: list[str]) -> int:
             continue
         if row.get("event") == "floor":
             rows.append(row)
+        elif row.get("event") == "ground":
+            grounds.append(row)
         elif row.get("event") == "begin":
             begin = row
         elif row.get("event") == "end":
@@ -55,6 +58,54 @@ def main(argv: list[str]) -> int:
         f"- échecs : **{len(failures)}**",
         "",
     ]
+
+    traversal = [r for r in ok if "traversable" in r]
+    not_traversable = [r for r in traversal if r["traversable"] is not True]
+    pockets = [r for r in traversal if r.get("reached", 0) < r.get("walkable", 0)]
+    if traversal:
+        lines += [
+            "## Traversabilité (données du moteur, `Map:TileBlocked`)",
+            "",
+            f"- étages analysés : **{len(traversal)}**",
+            f"- étages dont tous les escaliers sont atteignables depuis le point d'entrée : "
+            f"**{len(traversal) - len(not_traversable)}**",
+            f"- étages avec une poche de terrain praticable non atteinte : **{len(pockets)}**",
+            "",
+        ]
+        if not_traversable:
+            lines += ["| Zone | Segment | Étage | Escaliers | Atteignables | Praticables | Atteints |",
+                      "|---|---|---|---|---|---|---|"]
+            for row in not_traversable:
+                lines.append("| `{zone}` | {segment} | {floor} | {stairs} | {reach} | {walk} | {reached} |".format(
+                    zone=row["zone"], segment=row["segment"], floor=row["floor"],
+                    stairs=row.get("stairs"), reach=row.get("stairs_reachable"),
+                    walk=row.get("walkable"), reached=row.get("reached")))
+            lines += ["",
+                      "Un étage sans escalier est un **étage terminal** (salle fixe de boss chargée "
+                      "en `fixed_floors`) : le donjon s'y achève, il n'y a rien à rejoindre.",
+                      ""]
+
+    if grounds:
+        problems = [g for g in grounds if g.get("status") != "OK"]
+        lines += [
+            "## Grounds de scène chargés par le moteur",
+            "",
+            f"- liaisons zone → Ground vérifiées : **{len(grounds)}**",
+            f"- problèmes : **{len(problems)}**",
+            "",
+            "Chaque Ground est réellement désérialisé par `DataManager.GetGround`, son mode "
+            "d'entrée est celui qu'appelle le script de zone (marqueur nommé ou index), et sa "
+            "présence dans les `GroundMaps` de la zone est vérifiée : sans elle, "
+            "`MoveToGround` refuse la transition.",
+            "",
+        ]
+        if problems:
+            lines += ["| Zone | Ground | Statut | Détail |", "|---|---|---|---|"]
+            for g in problems:
+                lines.append(f"| `{g.get('zone')}` | `{g.get('ground')}` | {g.get('status')} | "
+                             f"{g.get('message', '')[:120]} entrée={g.get('entry')} "
+                             f"ok={g.get('entry_ok')} déclaré={g.get('declared_in_zone')} |")
+            lines.append("")
 
     if failures:
         lines += ["## Échecs", "", "| Zone | Segment | Étage | Type | Message | Seed |", "|---|---|---|---|---|---|"]

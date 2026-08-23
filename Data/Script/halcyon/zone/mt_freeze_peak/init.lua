@@ -23,6 +23,14 @@ local function GROUND_IDX(name)
   return idx
 end
 
+local function ZONE_GROUND_IDX(zone, name)
+  for ii = 0, zone.GroundMaps.Count - 1 do
+    if zone.GroundMaps[ii] == name then return ii end
+  end
+  PrintInfo('[mt_freeze_peak] Ground absent de la zone : ' .. tostring(name))
+  return 0
+end
+
 local RETURN_GROUND = 'mont_gele_pied'
 
 function mt_freeze_peak.Init(zone)

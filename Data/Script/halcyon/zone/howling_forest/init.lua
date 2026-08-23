@@ -23,6 +23,14 @@ local function GROUND_IDX(name)
   return idx
 end
 
+local function ZONE_GROUND_IDX(zone, name)
+  for ii = 0, zone.GroundMaps.Count - 1 do
+    if zone.GroundMaps[ii] == name then return ii end
+  end
+  PrintInfo('[howling_forest] Ground absent de la zone : ' .. tostring(name))
+  return 0
+end
+
 local RETURN_GROUND = 'metano_town'
 
 function howling_forest.Init(zone)
@@ -57,7 +65,9 @@ function howling_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
   if segmentID == 0 then
     -- cinématique du gardien puis retour dans le donjon pour le combat : cinématique et combat au même endroit, aucune arène séparée
     SV.CanonicalDungeons.Pending = 'howling_forest_seg0'
-    GAME:EnterGroundMap('bois_des_plaintes', 'Main_Entrance_Marker')
+    -- bois_des_plaintes ne porte aucun marqueur : la scène téléporte
+    -- elle-même le joueur, on entre donc par index.
+    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, 'bois_des_plaintes'), 0)
   elseif segmentID == 1 then
     -- étage d'arène franchi : fin de run sur place, la scène a déjà été jouée
     SV.CanonicalDungeons['howling_forest'] = true

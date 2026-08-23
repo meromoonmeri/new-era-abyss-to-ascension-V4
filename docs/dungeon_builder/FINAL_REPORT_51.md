@@ -132,3 +132,17 @@ Ce que cela ne prouve pas encore, et qui reste à faire en jeu : la traversée
 réelle (collisions, escaliers empruntés), les scènes et combats de boss sur les
 Grounds canoniques, les transitions de chaîne pied → cime, le retour au bourg.
 C'est l'objet de `tools/runtime/run_runtime_check.sh`.
+
+
+### Consolidation (2026-08-23, deuxième passe moteur)
+
+| Contrôle exécuté par le moteur | Volume | Résultat |
+|---|---|---|
+| génération des étages (`ZoneSegmentBase.GetMap`) | 4 287 | 0 échec |
+| escaliers atteignables depuis l'entrée (`Map:TileBlocked`) | 4 287 | 4 281 OK, 6 = salles fixes de boss sans escalier |
+| poches praticables non atteintes | 4 287 | 0 |
+| Grounds de scène chargés + mode d'entrée + déclaration dans la zone | 54 | 0 problème |
+
+Reste hors périmètre de cette validation : le déroulé joué (déplacement du
+joueur image par image, combats effectifs, dialogues), qui demande une session
+de jeu pilotée — `tools/runtime/run_runtime_check.sh`.

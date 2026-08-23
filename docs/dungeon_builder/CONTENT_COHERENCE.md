@@ -70,7 +70,14 @@ Ce contrôle ne lit pas les définitions : il relit **ce qui a été écrit** da
 > couloirs. `DetectIsolatedStairsStep` **reste actif sur les 51 zones** (vérifié :
 > 51/51) et rejette côté moteur toute carte dont l'escalier serait inatteignable ;
 > il n'a jamais été désactivé, et aucun test ne doit l'être pour obtenir un PASS.
-> Le verdict définitif appartient à MapGenTest (`tools/runtime/run_mapgen_check.sh`).
+> Le verdict définitif appartient au moteur — et il est tombé : sur **4 287 étages
+> réellement générés par RogueEssence**, la mesure faite avec les données du moteur
+> (`Map:TileBlocked` depuis `Map.EntryPoints[0]`) donne **0 poche praticable non
+> atteinte** et **4 281 / 4 287 étages dont tous les escaliers sont atteignables** ;
+> les 6 restants sont les deux salles fixes de boss (Buried Relic F99, Meteor Cave
+> F20), qui n'ont pas d'escalier par conception. Le résidu de 1–3 % était donc bien
+> un artefact du traceur hors-ligne, pas un défaut des étages produits. Voir
+> `docs/dungeon_builder/runtime/MAPGEN_RUNTIME_REPORT.md`.
 
 
 - `buried_relic` : 7/196 replays (3.6%) disconnected in the offline tracer — engine-side guarded by AskBorderFromRoom/DigAtBorder + DetectIsolatedStairsStep

@@ -23,6 +23,14 @@ local function GROUND_IDX(name)
   return idx
 end
 
+local function ZONE_GROUND_IDX(zone, name)
+  for ii = 0, zone.GroundMaps.Count - 1 do
+    if zone.GroundMaps[ii] == name then return ii end
+  end
+  PrintInfo('[great_canyon] Ground absent de la zone : ' .. tostring(name))
+  return 0
+end
+
 local RETURN_GROUND = 'grand_canyon_porte'
 
 function great_canyon.Init(zone)
@@ -61,7 +69,9 @@ function great_canyon.ExitSegment(zone, result, rescue, segmentID, mapID)
   elseif segmentID == 1 then
     -- Ground final canonique : cinématique, combat et fin au même endroit
     SV.CanonicalDungeons.Pending = 'great_canyon_seg1'
-    GAME:EnterGroundMap('d07p02', 'Main_Entrance_Marker')
+    -- d07p02 ne porte aucun marqueur : la scène téléporte
+    -- elle-même le joueur, on entre donc par index.
+    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, 'd07p02'), 0)
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end
