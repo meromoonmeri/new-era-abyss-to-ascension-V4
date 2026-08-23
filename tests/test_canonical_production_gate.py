@@ -6,6 +6,7 @@ import hashlib
 import json
 import re
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -19,6 +20,7 @@ from dungeon_builder.zone_export import build_zone
 
 SINISTER = REPO / "DungeonDefs" / "canonical" / "sinister_woods.json"
 MANIFEST = REPO / "docs" / "canonical" / "red" / "sinister_woods_rom_manifest.json"
+RED_BATCH_REPORT = REPO / "docs" / "canonical" / "red" / "PMD_RED_BATCH_EXTRACTION.json"
 ENGINE_REPORT = REPO / "docs" / "dungeon_builder" / "ENGINE_PROTOTYPE_NATIVE.md"
 ENGINE_JSONL = REPO / "docs" / "dungeon_builder" / "runtime" / "engine_prototype_native.jsonl"
 SINISTER_SMOKE_JSONL = (REPO / "docs" / "dungeon_builder" / "runtime" /
@@ -110,6 +112,71 @@ class TestItemMappingSafety(unittest.TestCase):
         self.assertIsNone(canonical_builder.convert_item("ITEM_WARP_ORB", conversion, prices))
         self.assertEqual(canonical_builder.convert_item("ITEM_LUMINOUS_ORB", conversion, prices),
                          "orb_luminous")
+
+
+class TestRedSourceGlobalTables(unittest.TestCase):
+    def test_global_main_data_rows_may_cross_assembler_lines(self):
+        from dungeon_builder.red_source import FIELD_NAMES, parse_global_main_data
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "Early").mkdir()
+            local = ", ".join(f"0x{value:02x}" for value in range(len(FIELD_NAMES)))
+            (root / "Early/main_data.inc").write_text(f".byte {local}\n")
+            values = list(range(len(FIELD_NAMES))) + list(range(40, 40 + len(FIELD_NAMES)))
+            first = ", ".join(f"0x{value:02x}" for value in values[:36])
+            second = ", ".join(f"0x{value:02x}" for value in values[36:])
+            (root / "main_data.inc").write_text(
+                '#include "Early/main_data.inc"\n' + f".byte {first}\n.byte {second}\n")
+            offset, rows = parse_global_main_data(root / "main_data.inc")
+        self.assertEqual(offset, 1)
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(rows[0]["layout"], 0)
+        self.assertEqual(rows[1]["layout"], 40)
+
+    def test_borrowed_absolute_pokemon_table_is_resolved(self):
+        from dungeon_builder.red_source import resolve_pokemon_table
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            for folder, base, names in (("Local", 10, ["local"]),
+                                        ("Owner", 20, ["owner-20", "owner-21"])):
+                path = root / folder
+                path.mkdir()
+                (path / "floor_id.json").write_text(json.dumps({
+                    "tables": [{"Pokemon": base}],
+                }))
+                (path / "pokemon_found.json").write_text(json.dumps({
+                    "tables": [{"name": name, "pokemon": []} for name in names],
+                }))
+            table, source = resolve_pokemon_table(
+                root, [{"name": "local", "pokemon": []}], 10, 21,
+                root / "Local/pokemon_found.json")
+        self.assertEqual(table["name"], "owner-21")
+        self.assertEqual(source.parent.name, "Owner")
+
+
+class TestRedBatchExtraction(unittest.TestCase):
+    def test_all_51_red_sources_are_extracted_but_not_mass_promoted(self):
+        report = json.loads(RED_BATCH_REPORT.read_text(encoding="utf-8"))
+        self.assertEqual(report["source"]["commit"],
+                         "bf0092d0e34fd8e49b859a0b5f96f00740faa42d")
+        self.assertEqual(report["summary"], {
+            "requested": 51, "extracted": 51, "errors": 0, "bytes": 5191964,
+            "runtime_validated": 1, "reconciliation_required": 50,
+            "source_conflicts": 69, "zones_generated": 0, "zones_promoted": 0,
+        })
+        for row in report["entries"]:
+            path = REPO / "docs/canonical/red" / f"{row['definition']}_rom_manifest.json"
+            self.assertTrue(path.is_file(), row["definition"])
+
+    def test_tiny_woods_scaffold_conflicts_are_fail_closed(self):
+        report = json.loads(RED_BATCH_REPORT.read_text(encoding="utf-8"))
+        tiny = next(row for row in report["entries"] if row["definition"] == "tiny_woods")
+        self.assertEqual(tiny["reconciliation"]["state"], "RECONCILIATION_REQUIRED")
+        self.assertEqual(set(tiny["reconciliation"]["source_conflicts"]), {
+            "INVENTED_SHOP_SOURCE_CHANCE_ZERO",
+            "INVENTED_MONSTER_HOUSE_SOURCE_CHANCE_ZERO",
+            "INVENTED_TRAPS_SOURCE_DENSITY_ZERO",
+        })
 
 
 class TestRedCanonicalManifest(unittest.TestCase):

@@ -504,6 +504,15 @@ def cmd_extract_red_source(args) -> int:
     return 0
 
 
+def cmd_extract_red_all(args) -> int:
+    from .red_batch import DEFAULT_OUTPUT, extract_all
+    output = Path(args.output_dir) if args.output_dir else DEFAULT_OUTPUT
+    report = extract_all(Path(args.source), output, write=bool(args.apply))
+    print(json.dumps(report["summary"], ensure_ascii=False, indent=2))
+    print(f"output: {output}" if args.apply else "dry-run; no manifests written")
+    return 0
+
+
 def cmd_canonical_audit(args) -> int:
     from .canonical_gate import inspect_all, write_report
     results = inspect_all()
@@ -739,6 +748,15 @@ def build_parser() -> argparse.ArgumentParser:
     red_extract.add_argument("--folder", required=True, help="data/dungeon folder, e.g. SinisterWoods")
     red_extract.add_argument("--output", default=None)
     red_extract.set_defaults(func=cmd_extract_red_source)
+
+    red_extract_all = sub.add_parser(
+        "extract-red-all",
+        help="bulk-extract all 51 PMD Red manifests without generating zones",
+    )
+    red_extract_all.add_argument("--source", required=True, help="pret/pmd-red checkout")
+    red_extract_all.add_argument("--output-dir", default=None)
+    red_extract_all.add_argument("--apply", action="store_true")
+    red_extract_all.set_defaults(func=cmd_extract_red_all)
 
     reconcile_sinister = sub.add_parser(
         "reconcile-sinister",

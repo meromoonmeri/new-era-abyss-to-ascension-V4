@@ -19,6 +19,7 @@ python3 tools/dungeon_builder.py prototype --per-profile 16 --report  # vrai mot
 python3 tools/dungeon_builder.py preview sinister_woods --floor 7 --count 10 --ascii  # aperçu hors-ligne non certifiant
 python3 tools/dungeon_builder.py validate sinister_woods --count 10   # pré-contrôle non certifiant
 python3 tools/dungeon_builder.py canonical-audit --report             # gate ROM/provenance/runtime
+python3 tools/dungeon_builder.py extract-red-all --source /src/pmd-red --apply  # 51 manifests, aucune zone
 python3 tools/dungeon_builder.py generate sinister_woods              # écrit seulement si le gate canonique passe
 python3 tools/dungeon_builder.py generate-all --chapters 6-32         # fail-closed : runtime + batch_approved requis
 ```
@@ -46,14 +47,16 @@ le service runtime journalise cette seed pour reproduire un incident.
 | `ground_pipeline.py` | Grounds fixes : clone du template validé + retexture tuile à tuile sur la planche du donjon, index, preview PNG |
 | `report.py` | Rapport automatique JSON + Markdown (`docs/dungeon_builder/reports/`) |
 | `canonical_gate.py` | Gate fail-closed : provenance ROM/DTEF/Ground/scène, conflits canoniques, preuve runtime et autorisation batch |
-| `red_source.py` | Extraction sans génération des paramètres/floors/tables PMD Red depuis `pret/pmd-red` |
+| `red_source.py` | Extraction sans génération des paramètres/floors/tables PMD Red depuis `pret/pmd-red`, y compris les tables globales et emprunts inter-donjons |
+| `red_batch.py` | Extraction massive fail-closed des 51 manifests et file de réconciliation ; n'écrit jamais de zone |
 | `tools/runtime/run_engine_prototype.sh` | Prototype isolé exécuté par le vrai binaire PMDO/RogueElements, avec métriques du `FloorPlan` natif |
 | `prototype.py` | Ancien prototype Python conservé temporairement pour les aperçus ; il n'autorise jamais une production |
 
-> **État au 2026-08-23 :** le nouveau gate canonique bloque volontairement les
-> 51 définitions historiques. Elles avaient passé un contrôle de chargement,
-> mais pas la traçabilité catégorielle et la conformité ROM exigées. Aucun batch
-> ne doit être relancé avant la validation complète de Sinister Woods.
+> **État au 2026-08-23 :** Sinister Woods est promu et validé dans PMDO
+> (130/130 générations natives et route active). Les 51 manifests PMD Red du
+> périmètre sont extraits au commit `bf0092…`, mais 50 définitions restent dans
+> la file de réconciliation/runtime. `generate-all` reste donc fermé et ne peut
+> pas transformer ces anciens scaffolds en production canonique.
 
 ## Écrire une définition
 
