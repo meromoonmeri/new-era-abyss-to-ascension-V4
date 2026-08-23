@@ -48,6 +48,7 @@ class ItemEntry:
     weight: int = 10
     price: int = 0
     amount: int = 0
+    floors: Optional[Tuple[int, int]] = None
 
 
 @dataclass
@@ -228,8 +229,11 @@ def _item_table(name: str, data: Dict[str, Any]) -> ItemTable:
     for raw in data.get("entries", []):
         if "item" not in raw:
             raise DefinitionError(f"item entry missing 'item': {raw!r}")
+        floors = (_tuple2(raw["floors"], f"item table '{name}' floors")
+                  if "floors" in raw else None)
         entries.append(ItemEntry(str(raw["item"]), int(raw.get("weight", 10)),
-                                 int(raw.get("price", 0)), int(raw.get("amount", 0))))
+                                 int(raw.get("price", 0)), int(raw.get("amount", 0)),
+                                 floors))
     if not entries:
         raise DefinitionError(f"item table '{name}' has no entries")
     return ItemTable(name, _tuple2(data.get("amount", [2, 5]), "item_table.amount"), entries)
@@ -276,7 +280,8 @@ def parse_definition(data: Dict[str, Any], path: Optional[Path] = None) -> Dunge
             if not isinstance(override_raw, dict):
                 raise DefinitionError(
                     f"segment '{raw['name']}' floor override {floor_key} must be an object")
-            allowed = {"profiles", "stairs", "notes", "source_floor"}
+            allowed = {"profiles", "stairs", "notes", "source_floor",
+                       "item_amount", "initial_mobs", "trap_amount"}
             unknown = set(override_raw) - allowed
             if unknown:
                 raise DefinitionError(
@@ -287,6 +292,12 @@ def parse_definition(data: Dict[str, Any], path: Optional[Path] = None) -> Dunge
                 "stairs": dict(override_raw.get("stairs", {})),
                 "notes": str(override_raw.get("notes", "")),
                 "source_floor": dict(override_raw.get("source_floor", {})),
+                "item_amount": (_tuple2(override_raw["item_amount"], "floor.item_amount")
+                                if "item_amount" in override_raw else None),
+                "initial_mobs": (_tuple2(override_raw["initial_mobs"], "floor.initial_mobs")
+                                 if "initial_mobs" in override_raw else None),
+                "trap_amount": (_tuple2(override_raw["trap_amount"], "floor.trap_amount")
+                                if "trap_amount" in override_raw else None),
             }
         seg = Segment(
             name=str(raw["name"]),

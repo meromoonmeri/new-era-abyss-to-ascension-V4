@@ -371,15 +371,22 @@ function MapGenValidator:run()
                 local procedural = (generator_kind == 'GridFloorGen' or generator_kind == 'RoomFloorGen')
                 local profile_shape_ok = true
                 if profile == 'looping' then
+                  -- A pure cycle is valid looping architecture even when no
+                  -- room has degree 3. Requiring a branch here rejects the
+                  -- exact structure this profile promises.
                   profile_shape_ok = trav.loops >= 1
                 elseif profile == 'branching' then
-                  profile_shape_ok = trav.dead_ends >= 1
+                  profile_shape_ok = trav.branches >= 1 and trav.dead_ends >= 1
                 elseif profile == 'large_rooms' then
-                  profile_shape_ok = trav.large_rooms >= 1 and (trav.dead_ends >= 1 or trav.loops >= 1)
+                  profile_shape_ok = trav.large_rooms >= 1
+                    and (trav.branches >= 1 or trav.loops >= 1)
+                    and (trav.dead_ends >= 1 or trav.loops >= 1)
+                else
+                  profile_shape_ok = trav.branches >= 1 or trav.loops >= 1
                 end
                 local topology_ok = (not procedural) or
                   (trav.room_count >= 4 and trav.hall_count >= 3 and trav.components == 1
-                   and trav.branches >= 1 and profile_shape_ok)
+                   and profile_shape_ok)
                 local valid = traversable and topology_ok
                 if not valid then invalid = invalid + 1 end
                 emit(string.format(

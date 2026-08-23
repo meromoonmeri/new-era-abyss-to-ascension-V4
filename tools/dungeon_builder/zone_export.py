@@ -155,12 +155,14 @@ def floor_gen_steps(definition: DungeonDefinition, segment: Segment, profile: Ar
                                        bool(terrain.get("protect_paths", True)))))
     if weather:
         entries.append((S.priority(4, 2), S.default_map_status(list(weather))))
+    floor_override = segment.floor_overrides.get(floor, {})
     traps = (definition.features_for(segment).traps or {})
     trap_floors = traps.get("floors")
     trap_enabled_here = (traps.get("enabled") and
                          (not trap_floors or trap_floors[0] <= floor <= trap_floors[1]))
     if trap_enabled_here:
-        entries.append((S.priority(5), S.trap_spawn_step(tuple(traps.get("amount", (2, 5))))))
+        trap_amount = floor_override.get("trap_amount") or tuple(traps.get("amount", (2, 5)))
+        entries.append((S.priority(5), S.trap_spawn_step(tuple(trap_amount))))
 
     if definition.money != (0, 0) or segment.money != (0, 0):
         entries.append((S.priority(6), S.money_placement_step(
@@ -171,14 +173,15 @@ def floor_gen_steps(definition: DungeonDefinition, segment: Segment, profile: Ar
             min(table.amount[0] for table in item_tables),
             max(table.amount[1] for table in item_tables),
         )
+        item_amount = (floor_override.get("item_amount")
+                       or tuple(definition.variation.get("item_amount", default_item_amount)))
         entries.append((S.priority(6, 1), S.item_spawn_step(
-            tuple(definition.variation.get("item_amount", default_item_amount)),
-            int(definition.variation.get("item_success_percent", 25)))))
+            tuple(item_amount), int(definition.variation.get("item_success_percent", 25)))))
     if definition.mobs_for(segment):
-        initial_mobs = tuple(definition.variation.get(
+        initial_mobs = floor_override.get("initial_mobs") or tuple(definition.variation.get(
             "initial_mobs", (2, max(3, min(max_foes + 1, 8)))))
         entries.append((S.priority(6, 2), S.mob_placement_step(
-            initial_mobs, int(definition.variation.get("mob_clump_factor", 20)))))
+            tuple(initial_mobs), int(definition.variation.get("mob_clump_factor", 20)))))
 
     for miniboss in definition.minibosses or []:
         if int(miniboss.get("floor", -1)) != floor:
@@ -276,7 +279,15 @@ def item_tables_json(tables: Sequence[ItemTable], segment: Segment) -> Dict[str,
     span = (0, hi - lo + 1)
     out = {}
     for table in tables:
-        entries = [(entry.item, entry.weight, span) for entry in table.entries]
+        entries = []
+        for entry in table.entries:
+            floor_range = span
+            if entry.floors:
+                floor_range = (max(0, entry.floors[0] - lo),
+                               min(hi - lo + 1, entry.floors[1] - lo + 1))
+                if floor_range[1] <= floor_range[0]:
+                    continue
+            entries.append((entry.item, entry.weight, floor_range))
         out[table.name] = S.item_table_json(entries, table.amount, span)
     return out
 

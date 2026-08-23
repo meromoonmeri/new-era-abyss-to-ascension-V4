@@ -20,6 +20,8 @@ python3 tools/dungeon_builder.py preview sinister_woods --floor 7 --count 10 --a
 python3 tools/dungeon_builder.py validate sinister_woods --count 10   # pré-contrôle non certifiant
 python3 tools/dungeon_builder.py canonical-audit --report             # gate ROM/provenance/runtime
 python3 tools/dungeon_builder.py extract-red-all --source /src/pmd-red --apply  # 51 manifests, aucune zone
+python3 tools/dungeon_builder.py scope-111 --pret-source /src/pmd-red --pmdodump-source /src/PMDODump --apply
+python3 tools/dungeon_builder.py batch-red-story-01 --apply            # staging Tiny Woods + Thunderwave Cave
 python3 tools/dungeon_builder.py generate sinister_woods              # écrit seulement si le gate canonique passe
 python3 tools/dungeon_builder.py generate-all --chapters 6-32         # fail-closed : runtime + batch_approved requis
 ```
@@ -49,14 +51,16 @@ le service runtime journalise cette seed pour reproduire un incident.
 | `canonical_gate.py` | Gate fail-closed : provenance ROM/DTEF/Ground/scène, conflits canoniques, preuve runtime et autorisation batch |
 | `red_source.py` | Extraction sans génération des paramètres/floors/tables PMD Red depuis `pret/pmd-red`, y compris les tables globales et emprunts inter-donjons |
 | `red_batch.py` | Extraction massive fail-closed des 51 manifests et file de réconciliation ; n'écrit jamais de zone |
+| `scope_registry.py` | Registre machine 111, recoupant ROM EU, pret et les 47 assets PMDODump |
+| `red_story_batch.py` | Lot staging Tiny Woods / Thunderwave Cave, définition + ZoneData + enregistrement des preuves PMDO |
 | `tools/runtime/run_engine_prototype.sh` | Prototype isolé exécuté par le vrai binaire PMDO/RogueElements, avec métriques du `FloorPlan` natif |
 | `prototype.py` | Ancien prototype Python conservé temporairement pour les aperçus ; il n'autorise jamais une production |
 
-> **État au 2026-08-23 :** Sinister Woods est promu et validé dans PMDO
-> (130/130 générations natives et route active). Les 51 manifests PMD Red du
-> périmètre sont extraits au commit `bf0092…`, mais 50 définitions restent dans
-> la file de réconciliation/runtime. `generate-all` reste donc fermé et ne peut
-> pas transformer ces anciens scaffolds en production canonique.
+> **État au 2026-08-23 :** le registre prioritaire contient 111 entrées exactes
+> (64 Red EU + 47 PMDODump). Sinister Woods est promu et route-validé ; Tiny
+> Woods et Thunderwave Cave sont générés en staging et passent 80/80 mapgen PMDO,
+> mais restent non promus tant que leurs routes Ground ne sont pas validées.
+> `generate-all` reste fermé pour toutes les autres entrées.
 
 ## Écrire une définition
 

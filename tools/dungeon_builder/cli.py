@@ -513,6 +513,36 @@ def cmd_extract_red_all(args) -> int:
     return 0
 
 
+def cmd_scope_111(args) -> int:
+    from .scope_registry import OUTPUT, build, write
+    output = Path(args.output) if args.output else OUTPUT
+    if args.apply:
+        write(Path(args.pret_source), Path(args.pmdodump_source), output)
+        payload = json.loads(output.read_text(encoding="utf-8"))
+        print(f"output: {output}")
+    else:
+        payload = build(Path(args.pret_source), Path(args.pmdodump_source))
+        print("dry-run; registry not written")
+    print(json.dumps(payload["summary"], ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_batch_red_story_01(args) -> int:
+    from .red_story_batch import build, record_runtime
+    if args.runtime_jsonl:
+        if not args.apply:
+            raise ValueError("--runtime-jsonl requires --apply")
+        report = record_runtime(Path(args.runtime_jsonl),
+                                Path(args.runtime_report) if args.runtime_report else None)
+        action = "native runtime evidence recorded"
+    else:
+        report = build(write=bool(args.apply))
+        action = "staged definitions/zones written" if args.apply else "dry-run; staging unchanged"
+    print(json.dumps(report["summary"], ensure_ascii=False, indent=2))
+    print(action)
+    return 0
+
+
 def cmd_canonical_audit(args) -> int:
     from .canonical_gate import inspect_all, write_report
     results = inspect_all()
@@ -757,6 +787,25 @@ def build_parser() -> argparse.ArgumentParser:
     red_extract_all.add_argument("--output-dir", default=None)
     red_extract_all.add_argument("--apply", action="store_true")
     red_extract_all.set_defaults(func=cmd_extract_red_all)
+
+    scope_111 = sub.add_parser(
+        "scope-111",
+        help="build the machine inventory for 64 PMD Red EU + 47 PMDODump",
+    )
+    scope_111.add_argument("--pret-source", required=True)
+    scope_111.add_argument("--pmdodump-source", required=True)
+    scope_111.add_argument("--output", default=None)
+    scope_111.add_argument("--apply", action="store_true")
+    scope_111.set_defaults(func=cmd_scope_111)
+
+    red_story_01 = sub.add_parser(
+        "batch-red-story-01",
+        help="stage Tiny Woods and Thunderwave Cave from their ROM manifests",
+    )
+    red_story_01.add_argument("--apply", action="store_true")
+    red_story_01.add_argument("--runtime-jsonl", default=None)
+    red_story_01.add_argument("--runtime-report", default=None)
+    red_story_01.set_defaults(func=cmd_batch_red_story_01)
 
     reconcile_sinister = sub.add_parser(
         "reconcile-sinister",

@@ -21,6 +21,9 @@ from dungeon_builder.zone_export import build_zone
 SINISTER = REPO / "DungeonDefs" / "canonical" / "sinister_woods.json"
 MANIFEST = REPO / "docs" / "canonical" / "red" / "sinister_woods_rom_manifest.json"
 RED_BATCH_REPORT = REPO / "docs" / "canonical" / "red" / "PMD_RED_BATCH_EXTRACTION.json"
+SCOPE_111 = REPO / "DungeonDefs" / "canonical_scope_111.json"
+RED_STORY_01_REPORT = (REPO / "docs/dungeon_builder/batches/red_story_01/batch_report.json")
+RED_STORY_01_JSONL = (REPO / "docs/dungeon_builder/batches/red_story_01/runtime/native_mapgen.jsonl")
 ENGINE_REPORT = REPO / "docs" / "dungeon_builder" / "ENGINE_PROTOTYPE_NATIVE.md"
 ENGINE_JSONL = REPO / "docs" / "dungeon_builder" / "runtime" / "engine_prototype_native.jsonl"
 SINISTER_SMOKE_JSONL = (REPO / "docs" / "dungeon_builder" / "runtime" /
@@ -177,6 +180,73 @@ class TestRedBatchExtraction(unittest.TestCase):
             "INVENTED_MONSTER_HOUSE_SOURCE_CHANCE_ZERO",
             "INVENTED_TRAPS_SOURCE_DENSITY_ZERO",
         })
+
+
+class TestPriorityScopeAndFirstBatch(unittest.TestCase):
+    def test_machine_inventory_is_exactly_64_plus_47(self):
+        scope = json.loads(SCOPE_111.read_text(encoding="utf-8"))
+        self.assertEqual(scope["summary"]["total"], 111)
+        self.assertEqual(scope["summary"]["pmd_red_eu"], 64)
+        self.assertEqual(scope["summary"]["pmdodump"], 47)
+        self.assertEqual(sum(row["source"] == "PMD_RED_ROM" for row in scope["entries"]), 64)
+        self.assertEqual(sum(row["source"] == "PMDODUMP" for row in scope["entries"]), 47)
+        self.assertTrue(all("blockers" in row for row in scope["entries"]))
+
+    def test_missing_documented_pmdodump_entry_is_source_identified(self):
+        scope = json.loads(SCOPE_111.read_text(encoding="utf-8"))
+        glacial = next(row for row in scope["entries"]
+                       if row.get("upstream_id") == "Glacial_Path")
+        self.assertEqual(glacial["status"], "SOURCE_INVENTORIED_UNMAPPED")
+        self.assertIn("PROJECT_MAPPING_MISSING", glacial["blockers"])
+        self.assertEqual(glacial["source_assets"][0]["path"],
+                         "DataAsset/Zone/Glacial_Path.out.txt")
+
+    def test_first_batch_has_80_of_80_native_generations(self):
+        report = json.loads(RED_STORY_01_REPORT.read_text(encoding="utf-8"))
+        self.assertEqual(report["summary"], {
+            "requested": 2, "staged": 2, "generated": 2,
+            "runtime_pmdo_mapgen_validated": 2, "route_validated": 0,
+            "promoted": 0, "blocked": 2,
+        })
+        self.assertEqual(report["runtime_evidence"]["end"], {
+            "event": "end", "attempted": 80, "generated": 80,
+            "failures": 0, "non_traversable": 0, "invalid": 0,
+        })
+        rows = [json.loads(line) for line in RED_STORY_01_JSONL.read_text().splitlines()]
+        floors = [row for row in rows if row.get("event") == "floor"]
+        self.assertEqual(len(floors), 80)
+        self.assertTrue(all(row["valid"] and row["traversable"] and row["seed"]
+                            for row in floors))
+        self.assertEqual({row["zone"] for row in floors},
+                         {"tiny_woods", "thunderwave_cave"})
+
+    def test_first_batch_is_staged_and_not_promoted(self):
+        for stem in ("tiny_woods", "thunderwave_cave"):
+            staged = REPO / f"DungeonDefs/staging/red_story_01/{stem}.json"
+            gate = inspect(staged)
+            self.assertTrue(gate.config_ready, gate.blockers)
+            self.assertEqual(gate.runtime_state, "map_generation_validated_route_pending")
+            candidate = REPO / f"Staging/dungeon_builder/red_story_01/Data/Zone/{stem}.json"
+            active = REPO / f"Data/Zone/{stem}.json"
+            self.assertTrue(candidate.is_file())
+            self.assertNotEqual(hashlib.sha256(candidate.read_bytes()).hexdigest(),
+                                hashlib.sha256(active.read_bytes()).hexdigest())
+
+    def test_first_batch_removes_rom_conflicts_and_keeps_floor_rules(self):
+        tiny = json.loads((REPO / "DungeonDefs/staging/red_story_01/tiny_woods.json").read_text())
+        wave = json.loads((REPO / "DungeonDefs/staging/red_story_01/thunderwave_cave.json").read_text())
+        for raw in (tiny, wave):
+            self.assertFalse(raw["features"]["shop"]["enabled"])
+            self.assertFalse(raw["features"]["monster_house"]["enabled"])
+            self.assertEqual(len(raw["segments"][0]["floor_overrides"]), raw["floors"])
+            self.assertTrue(all(row["source_floor"]["kind"] == "PMD_RED_ROM"
+                                for row in raw["segments"][0]["floor_overrides"].values()))
+        self.assertFalse(tiny["features"]["traps"]["enabled"])
+        self.assertTrue(wave["features"]["traps"]["enabled"])
+        self.assertEqual(tiny["dtef"]["name"], "tiny_woods")
+        self.assertEqual(wave["dtef"]["name"], "thunderwave_cave")
+        tiny_items = tiny["segments"][0]["items"]["canonical_floor_items"]["entries"]
+        self.assertEqual({tuple(row["floors"]) for row in tiny_items}, {(3, 3)})
 
 
 class TestRedCanonicalManifest(unittest.TestCase):
