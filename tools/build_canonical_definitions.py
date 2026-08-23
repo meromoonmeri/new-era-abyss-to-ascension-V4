@@ -105,7 +105,7 @@ DUNGEON_SETUP: Dict[str, Dict[str, Any]] = {
                           "justification": "biome métallique ; tileset acier disponible localement."},
     "sinister_woods":    {"nature": "forest", "biomes": ["forest_edge", "deep_forest", "forest_clearing"],
                           "tileset": "sinister_woods_b41", "owner": "gloomy_forest"},
-    "silent_chasm":      {"nature": "cave", "biomes": ["silent_rim", "chasm_depths"], "tileset": "chasm_cave",
+    "silent_chasm":      {"nature": "cave", "biomes": ["silent_rim", "chasm_depths"], "tileset": "silent_chasm",
                           "justification": None},
     "mt_thunder":        {"nature": "mountain", "biomes": ["thunder_slope", "thunder_ridge"],
                           "tileset": "mt_thunder", "justification": None},
@@ -199,7 +199,7 @@ DUNGEON_SETUP: Dict[str, Dict[str, Any]] = {
     "waterfall_pond":    {"nature": "sea", "biomes": ["pond_shore", "pond_depths"],
                           "tileset": "unused_waterfall_pond", "justification": None},
     "unown_relic":       {"nature": "relic", "biomes": ["unown_halls", "unown_vault"],
-                          "tileset": "sealed_ruin_pit",
+                          "tileset": "deep_sealed_ruin",
                           "justification": "relique des Zarbi ; fosse de ruine scellée, distincte de "
                                            "sealed_ruin."},
     "joyous_tower":      {"nature": "tower", "biomes": ["tower_base", "tower_middle", "tower_top"],

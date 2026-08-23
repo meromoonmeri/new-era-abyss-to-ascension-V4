@@ -37,12 +37,13 @@
     "exit_tile": "stairs_go_down"
   },
   "dtef": {
-    "floor": "sealed_ruin_pit_floor",
-    "wall": "sealed_ruin_pit_wall",
-    "secondary": "sealed_ruin_pit_secondary",
-    "name": "sealed_ruin_pit",
+    "floor": "deep_sealed_ruin_floor",
+    "wall": "deep_sealed_ruin_wall",
+    "secondary": "deep_sealed_ruin_secondary",
+    "name": "deep_sealed_ruin",
     "element": "normal",
-    "justification": "relique des Zarbi ; fosse de ruine scellée, distincte de sealed_ruin."
+    "justification": "Le triplet sealed_ruin_pit_* n'existe pas dans l'index AutoTile du jeu. Emprunt de même famille canonique : deep_sealed_ruin_floor/_wall/_secondary (profondeurs de la Ruine Scellée), seule famille de ruines scellées présente dans les assets. Erreur détectée par l'exécution moteur (KeyNotFoundException dans MapTextureStep).",
+    "replaced": "sealed_ruin_pit"
   },
   "canonical_items_without_pmdo_equivalent": [
     "ITEM_BLOWBACK_ORB",

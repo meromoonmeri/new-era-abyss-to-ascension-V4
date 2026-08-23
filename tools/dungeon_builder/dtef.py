@@ -114,9 +114,28 @@ def archived_tilesets() -> frozenset:
 
 
 @lru_cache(maxsize=1)
+@lru_cache(maxsize=1)
+def shipped_autotiles() -> frozenset:
+    """AutoTiles livrés par le jeu de base (liste extraite de l'index officiel).
+
+    Sans cette référence, la vérification ne voyait que les AutoTiles du mod et
+    ceux déjà cités par une donnée du dépôt : un identifiant inventé comme
+    `chasm_cave_floor` passait le contrôle statique et n'échouait qu'au moteur.
+    """
+    path = Path(__file__).resolve().parent / "data" / "base_autotiles.txt"
+    if not path.is_file():
+        return frozenset()
+    ids = set()
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if line and not line.startswith("#"):
+            ids.add(line)
+    return frozenset(ids)
+
+
 def base_tilesets() -> frozenset:
-    """Every auto-tileset attested somewhere in this repository."""
-    return frozenset(active_tilesets() | archived_tilesets())
+    """Every auto-tileset attested somewhere in this repository or in the game."""
+    return frozenset(active_tilesets() | archived_tilesets() | shipped_autotiles())
 
 
 def attestation_of(tile_id: str) -> str:

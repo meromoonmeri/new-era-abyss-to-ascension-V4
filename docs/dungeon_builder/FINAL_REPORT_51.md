@@ -113,3 +113,22 @@ remplacement n'a été inventé : ces cas demandent une décision narrative.
   MapGenTest sur les 51 donjons / 1 429 étages et produit `mapgen_report.txt`.
   Rien dans ce dépôt ne doit être présenté comme « validé en jeu » avant ce
   rapport.
+
+
+## Statut runtime (mise à jour 2026-08-23)
+
+**La génération des 51 donjons est validée par le moteur.** Le binaire PMDO
+0.8.12 officiel a construit, en headless, **4 287 étages** (51 donjons × 1 429
+étages × 3 itérations) via `ZoneSegmentBase.GetMap(ZoneGenContext)` — le même
+appel que MapGenTest — avec **0 échec**. Voir
+`docs/dungeon_builder/runtime/MAPGEN_RUNTIME_REPORT.md`.
+
+Ce que cela prouve : les 51 zones se chargent, leurs GenSteps s'exécutent, les
+étages se construisent avec leurs salles, couloirs, spawns, features et
+`DetectIsolatedStairsStep` actif (une carte à escalier inatteignable ferait
+échouer la génération).
+
+Ce que cela ne prouve pas encore, et qui reste à faire en jeu : la traversée
+réelle (collisions, escaliers empruntés), les scènes et combats de boss sur les
+Grounds canoniques, les transitions de chaîne pied → cime, le retour au bourg.
+C'est l'objet de `tools/runtime/run_runtime_check.sh`.

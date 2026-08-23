@@ -94,3 +94,48 @@ chargement (`$type` introuvable, champ inexistant, mauvais assembly).
 **38 membres inconnus** (`RoomGenSquare.Size`, `RoomGenSquare.Resizable`,
 `PickerSpawner.Spawns`, `DueSpawnStep.MaxToSpawn`, …). Ces zones ne sont pas
 dans notre périmètre et n'ont pas été touchées, mais le signal est consigné ici.
+
+
+## Exécution moteur réalisée (2026-08-23) — sans SDK .NET
+
+Le blocage « pas de SDK .NET » a été contourné : au lieu de compiler MapGenTest,
+on fait tourner le **binaire PMDO officiel** en headless et on rejoue sa boucle
+depuis un service Lua du mod.
+
+Pile utilisée, entièrement reconstructible avec les seuls hôtes joignables
+(`github.com`, `codeload.github.com`, `registry.npmjs.org`) :
+
+| Élément | Origine |
+|---|---|
+| binaire PMDO 0.8.12 self-contained | `meromoonmeri/RUNTIMEPMDO` (`pmdc-linux-x64.zip`) |
+| ANGLE + SwiftShader (`libEGL.so`, `libGLESv2.so`, `libvk_swiftshader.so`) | paquet npm `@sparticuz/chromium` (`bin/swiftshader.tar.br`) |
+| SDL 2.30.3 corrigé | `libsdl-org/SDL`, correctif : le pilote `offscreen` exige `eglQueryDevicesEXT` (EXT_device_enumeration) qu'ANGLE n'expose pas ; ajout d'un repli `eglGetDisplay(EGL_DEFAULT_DISPLAY)` sous `PMDO_HEADLESS_ANGLE_DEFAULT_DISPLAY=1` |
+| assets du jeu de base | `audinowho/DumpAsset` (`Base Data Strings Controls CONFIG Content`) |
+| boucle de génération | `Data/Script/halcyon/services/mapgen_validator/init.lua`, copie fidèle de `MapGenTest.Example.StressTestAll` |
+
+Renderer effectivement obtenu :
+`ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero)), SwiftShader driver-5.0.0)`.
+
+Script : `tools/runtime/run_engine_mapgen.sh <dossier-de-travail> [itérations]`.
+
+### Résultat
+
+| Passe | Générations | Échecs |
+|---|---|---|
+| 1 itération (51 donjons × 1 429 étages) | 1 429 | 0 |
+| 3 itérations (stress) | 4 287 | **0** |
+
+Rapport : `docs/dungeon_builder/runtime/MAPGEN_RUNTIME_REPORT.md`,
+données brutes : `docs/dungeon_builder/runtime/mapgen_runtime_stress.jsonl`
+(une ligne par étage : dimensions, nombre de salles, durée, seed).
+
+### Erreur réelle trouvée et corrigée par cette exécution
+
+`silent_chasm` et `unown_relic` pointaient vers des AutoTiles inexistants
+(`chasm_cave_*`, `sealed_ruin_pit_*`) : le moteur levait
+`KeyNotFoundException` dans `MapTextureStep.ToString()`. Le contrôle statique ne
+pouvait pas le voir : il ne connaissait que les AutoTiles du mod et ceux déjà
+cités par une donnée du dépôt. Corrigé en `silent_chasm_*` et
+`deep_sealed_ruin_*`, et la liste officielle des 473 AutoTiles du jeu de base est
+désormais embarquée (`tools/dungeon_builder/data/base_autotiles.txt`) pour que la
+vérification statique attrape ce cas à l'avenir.

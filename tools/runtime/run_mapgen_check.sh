@@ -8,6 +8,10 @@
 #   ./run_mapgen_check.sh <PMDO-install> [iterations] [PMDC-checkout]
 #
 #   <PMDO-install>  folder containing Base/, Data/, Content/, MODS/ and PMDO
+#
+# No .NET SDK on the machine?  Use tools/runtime/run_engine_mapgen.sh instead:
+# it drives the official PMDO binary headless (ANGLE + SwiftShader) and makes
+# the engine itself generate every floor -- no compilation required.
 #   [iterations]    generations per floor (default 5)
 #   [PMDC-checkout] optional; cloned automatically next to this script if absent
 #

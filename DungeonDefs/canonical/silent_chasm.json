@@ -39,11 +39,13 @@
     "exit_tile": "stairs_go_down"
   },
   "dtef": {
-    "floor": "chasm_cave_floor",
-    "wall": "chasm_cave_wall",
-    "secondary": "chasm_cave_secondary",
-    "name": "chasm_cave",
-    "element": "normal"
+    "floor": "silent_chasm_floor",
+    "wall": "silent_chasm_wall",
+    "secondary": "silent_chasm_secondary",
+    "name": "silent_chasm",
+    "element": "normal",
+    "justification": "Le triplet chasm_cave_* n'existe pas dans l'index AutoTile du jeu (vérifié : 484 AutoTiles base+mod). Triplet canonique correct pour Silent Chasm : silent_chasm_floor/_wall/_secondary. Erreur détectée par l'exécution moteur (KeyNotFoundException dans MapTextureStep).",
+    "replaced": "chasm_cave"
   },
   "canonical_items_without_pmdo_equivalent": [
     "ITEM_BLOWBACK_ORB",

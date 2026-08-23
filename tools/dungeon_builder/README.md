@@ -90,3 +90,18 @@ substituts purgés, références de donjon, verrou des anciens générateurs
 
 Aucun de ces contrôles ne remplace le moteur : la validation runtime reste
 `tools/runtime/run_mapgen_check.sh`.
+
+
+## Validation par le moteur, sans SDK .NET
+
+```
+tools/runtime/run_engine_mapgen.sh /chemin/de/travail 3
+```
+
+Reconstruit une pile PMDO headless (binaire officiel + ANGLE/SwiftShader issus
+du paquet npm `@sparticuz/chromium` + SDL 2.30.3 corrigé pour le pilote
+`offscreen`), installe le mod, puis fait générer chaque étage des 51 donjons par
+le moteur lui-même (`ZoneSegmentBase.GetMap`). Résultat : `mapgen_report.md`.
+
+`tools/runtime/run_mapgen_check.sh` reste le chemin officiel quand un SDK .NET
+est disponible (il compile et exécute MapGenTest).
