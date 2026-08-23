@@ -18,8 +18,39 @@ require 'halcyon.RedCanonScene'
 local fosse_ardente = {}
 
 local SCENE = 'd12p04'
-local LINES = {'SCENE_D12P04_001', 'SCENE_D12P04_002', 'SCENE_D12P04_003', 'SCENE_D12P04_004', 'SCENE_D12P04_005', 'SCENE_D12P04_006', 'SCENE_D12P04_007', 'SCENE_D12P04_008', 'SCENE_D12P04_009', 'SCENE_D12P04_010', 'SCENE_D12P04_011', 'SCENE_D12P04_012', 'SCENE_D12P04_013', 'SCENE_D12P04_014', 'SCENE_D12P04_015'}
-local MUSIC = 'In the Depths of the Pit'
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d12p04.cif.json).
+local EVENTS = {
+  {t='bgm', track='In the Depths of the Pit'},
+  {t='bgm_fade', frames=60},
+  {t='msg', key='SCENE_D12P04_001'},
+  {t='msg', key='SCENE_D12P04_002'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D12P04_003'},
+  {t='msg', key='SCENE_D12P04_004'},
+  {t='msg', key='SCENE_D12P04_005'},
+  {t='msg', key='SCENE_D12P04_006'},
+  {t='msg', key='SCENE_D12P04_007'},
+  {t='msg', key='SCENE_D12P04_008'},
+  {t='msg', key='SCENE_D12P04_009'},
+  {t='msg', key='SCENE_D12P04_010'},
+  {t='msg', key='SCENE_D12P04_011'},
+  {t='msg', key='SCENE_D12P04_012'},
+  {t='msg', key='SCENE_D12P04_013'},
+  {t='msg', key='SCENE_D12P04_014'},
+  {t='msg', key='SCENE_D12P04_015'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='22'},
+  {t='anim', id='23'},
+  {t='anim', id='2'},
+  {t='anim', id='25'},
+  {t='anim', id='2'},
+  {t='anim', id='23'},
+  {t='anim', id='2'},
+  {t='shake', frames=30},
+}
 
 function fosse_ardente.Init(map)
   DEBUG.EnableDbgCoro()
@@ -29,7 +60,7 @@ end
 function fosse_ardente.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   SV.CanonicalDungeons = SV.CanonicalDungeons or {}
   SV.CanonicalDungeons['magma_cavern_pit'] = true

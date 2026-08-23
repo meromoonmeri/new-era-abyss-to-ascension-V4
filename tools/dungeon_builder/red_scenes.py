@@ -38,6 +38,7 @@ from typing import Dict, List, Optional, Tuple
 
 ROOT = Path(__file__).resolve().parents[2]
 SCENE_REF = ROOT / "RESERVE" / "red_scene_reference"
+SCENE_CIF = ROOT / "RESERVE" / "red_cinematics"
 SCRIPT_GROUND = ROOT / "Data" / "Script" / "halcyon" / "ground"
 GROUND_DIR = ROOT / "Data" / "Ground"
 STRINGS_DIR = ROOT / "Strings"
@@ -104,6 +105,8 @@ DIALOGUE_RE = re.compile(r'STRINGS:FormatKey\("([A-Z0-9_]+)"\)')
 
 
 def _normalise(name: str) -> str:
+    # les pistes du script ROM sont des symboles « MUS_MT_THUNDER »
+    name = re.sub(r"^MUS_", "", name)
     return re.sub(r"[^a-z0-9]", "", name.lower())
 
 
@@ -144,6 +147,8 @@ class ScenePort:
     lines: List[str] = field(default_factory=list)
     music: str = ""
     music_wanted: str = ""
+    events: List[dict] = field(default_factory=list)
+    undecoded: int = 0
     invented_before: bool = False
     archived: str = ""
 
@@ -173,6 +178,53 @@ def read_reference_raw(scene: str) -> Tuple[List[str], str]:
     if match:
         music = match.group(1)
     return DIALOGUE_RE.findall(text), music
+
+
+def read_sequence(scene: str) -> Tuple[List[dict], str, int]:
+    """Séquence canonique complète extraite de la ROM.
+
+    `RESERVE/red_cinematics/<scene>.cif.json` donne l'ordre exact des
+    évènements du script d'origine : Dialog, Audio (SWITCH/FADEOUT), Effect
+    (SHAKE), Camera (INIT_PAN), Animation (anim_id). Les clés de dialogue
+    viennent du squelette `RESERVE/red_scene_reference/<scene>.lua`, dans le
+    même ordre.
+    """
+    keys, wanted = read_reference_raw(scene)
+    path = SCENE_CIF / f"{scene}.cif.json"
+    if not path.is_file():
+        return ([{"t": "msg", "key": k} for k in keys], resolve_music(wanted), 0)
+    raw = json.loads(path.read_text(encoding="utf-8")).get("raw_sequence", [])
+    events: List[dict] = []
+    undecoded = 0
+    dialogue = list(keys)
+    for item in raw:
+        kind = item.get("type")
+        action = item.get("action")
+        if kind == "Dialog":
+            if dialogue:
+                events.append({"t": "msg", "key": dialogue.pop(0)})
+            else:
+                undecoded += 1
+        elif kind == "Audio" and action == "SWITCH":
+            track = resolve_music(item.get("track", "") or "")
+            events.append({"t": "bgm", "track": track})
+            if not track:
+                undecoded += 1
+        elif kind == "Audio" and action == "FADEOUT":
+            events.append({"t": "bgm_fade", "frames": int(item.get("frames") or 30)})
+        elif kind == "Effect" and action == "SHAKE":
+            events.append({"t": "shake", "frames": int(item.get("frames") or 30)})
+        elif kind == "Camera":
+            events.append({"t": "camera", "action": str(action)})
+            undecoded += 1
+        elif kind == "Animation":
+            events.append({"t": "anim", "id": str(item.get("anim_id"))})
+            undecoded += 1
+        else:
+            undecoded += 1
+    for key in dialogue:            # sécurité : aucune réplique perdue
+        events.append({"t": "msg", "key": key})
+    return events, resolve_music(wanted), undecoded
 
 
 def read_reference(scene: str) -> Tuple[List[str], str, str]:
@@ -213,8 +265,11 @@ require 'halcyon.RedCanonScene'
 local {var} = {{}}
 
 local SCENE = '{scene}'
-local LINES = {{{lines}}}
-local MUSIC = {music}
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/{scene}.cif.json).
+local EVENTS = {{
+{events}
+}}
 
 function {var}.Init(map)
   DEBUG.EnableDbgCoro()
@@ -224,7 +279,7 @@ end
 function {var}.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
 {transition}
 end
 
@@ -269,10 +324,30 @@ def plan(wiring_index: Optional[Dict[str, dict]] = None) -> List[ScenePort]:
         if not (GROUND_DIR / f"{ground}.rsground").is_file():
             continue
         lines, music, wanted = read_reference(scene)
+        events, _music, undecoded = read_sequence(scene)
         ports.append(ScenePort(ground=ground, scene=scene, role=role, lines=lines,
-                               music=music, music_wanted=wanted,
-                               invented_before=is_invented(ground)))
+                               music=music, music_wanted=wanted, events=events,
+                               undecoded=undecoded, invented_before=is_invented(ground)))
     return ports
+
+
+def _render_events(port: ScenePort) -> str:
+    rows = []
+    for ev in port.events:
+        if ev["t"] == "msg":
+            rows.append(f"  {{t='msg', key='{ev['key']}'}},")
+        elif ev["t"] == "bgm":
+            track = ev.get("track") or ""
+            rows.append(f"  {{t='bgm', track='{track}'}},")
+        elif ev["t"] == "bgm_fade":
+            rows.append(f"  {{t='bgm_fade', frames={ev.get('frames', 30)}}},")
+        elif ev["t"] == "shake":
+            rows.append(f"  {{t='shake', frames={ev.get('frames', 30)}}},")
+        elif ev["t"] == "camera":
+            rows.append(f"  {{t='camera', action='{ev.get('action')}'}},")
+        elif ev["t"] == "anim":
+            rows.append(f"  {{t='anim', id='{ev.get('id')}'}},")
+    return "\n".join(rows)
 
 
 def render(port: ScenePort, wiring_index: Dict[str, dict]) -> str:
@@ -284,8 +359,7 @@ def render(port: ScenePort, wiring_index: Dict[str, dict]) -> str:
     return LUA_TEMPLATE.format(
         marker=MARKER, scene=port.scene, role=port.role, ground=port.ground,
         upper=port.scene.upper(), role_fr=ROLE_FR[port.role], boss_note=boss, var=var,
-        lines=", ".join(f"'{k}'" for k in port.lines),
-        music=f"'{port.music}'" if port.music else "nil",
+        events=_render_events(port),
         transition=transition_for(port.ground, port.role, wiring_index))
 
 
@@ -332,14 +406,14 @@ def report(result: Dict[str, object]) -> str:
         "Les cinématiques inventées qui occupaient ces Grounds (« Veilleurs du Réseau des "
         "Anciens Chemins », « cinématiques d'Ancrage ») sont archivées sous "
         "`RESERVE/legacy_ch6_32/invented_scenes/`.", "",
-        "| Ground | Scène ROM | Rôle canonique | Répliques ROM | Texte importé | Contenait une scène inventée |",
-        "|---|---|---|---|---|---|",
+        "| Ground | Scène ROM | Rôle canonique | Évènements ROM | Répliques | Texte importé | Non décodés | Scène inventée avant |",
+        "|---|---|---|---|---|---|---|---|",
     ]
     for port in ports:
         have = sum(1 for key in port.lines if key in known)
         lines.append(f"| `{port.ground}` | `{port.scene.upper()}` | {ROLE_FR[port.role]} | "
-                     f"{len(port.lines)} | {have}/{len(port.lines)} | "
-                     f"{'oui' if port.invented_before else 'non'} |")
+                     f"{len(port.events)} | {len(port.lines)} | {have}/{len(port.lines)} | "
+                     f"{port.undecoded} | {'oui' if port.invented_before else 'non'} |")
     absent = sorted({p.music_wanted for p in ports if p.music_wanted and not p.music})
     if absent:
         lines += ["", "## Pistes de la ROM non importées dans le mod", "",

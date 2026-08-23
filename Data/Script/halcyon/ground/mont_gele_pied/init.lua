@@ -19,8 +19,67 @@ require 'halcyon.RedCanonScene'
 local mont_gele_pied = {}
 
 local SCENE = 'd11p01'
-local LINES = {'SCENE_D11P01_001', 'SCENE_D11P01_002', 'SCENE_D11P01_003', 'SCENE_D11P01_004', 'SCENE_D11P01_005', 'SCENE_D11P01_006', 'SCENE_D11P01_007', 'SCENE_D11P01_008', 'SCENE_D11P01_009', 'SCENE_D11P01_010', 'SCENE_D11P01_011', 'SCENE_D11P01_012', 'SCENE_D11P01_013', 'SCENE_D11P01_014', 'SCENE_D11P01_015', 'SCENE_D11P01_016', 'SCENE_D11P01_017', 'SCENE_D11P01_018', 'SCENE_D11P01_019', 'SCENE_D11P01_020', 'SCENE_D11P01_021', 'SCENE_D11P01_022', 'SCENE_D11P01_023'}
-local MUSIC = nil
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d11p01.cif.json).
+local EVENTS = {
+  {t='bgm', track=''},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='bgm', track=''},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D11P01_001'},
+  {t='msg', key='SCENE_D11P01_002'},
+  {t='msg', key='SCENE_D11P01_003'},
+  {t='msg', key='SCENE_D11P01_004'},
+  {t='msg', key='SCENE_D11P01_005'},
+  {t='msg', key='SCENE_D11P01_006'},
+  {t='msg', key='SCENE_D11P01_007'},
+  {t='msg', key='SCENE_D11P01_008'},
+  {t='msg', key='SCENE_D11P01_009'},
+  {t='msg', key='SCENE_D11P01_010'},
+  {t='msg', key='SCENE_D11P01_011'},
+  {t='anim', id='5'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D11P01_012'},
+  {t='msg', key='SCENE_D11P01_013'},
+  {t='msg', key='SCENE_D11P01_014'},
+  {t='bgm_fade', frames=120},
+  {t='camera', action='PAN'},
+  {t='bgm_fade', frames=120},
+  {t='camera', action='PAN'},
+  {t='msg', key='SCENE_D11P01_015'},
+  {t='bgm_fade', frames=120},
+  {t='camera', action='PAN'},
+  {t='bgm_fade', frames=120},
+  {t='camera', action='PAN'},
+  {t='anim', id='2'},
+  {t='anim', id='5'},
+  {t='camera', action='PAN'},
+  {t='anim', id='5'},
+  {t='camera', action='PAN'},
+  {t='bgm', track=''},
+  {t='msg', key='SCENE_D11P01_016'},
+  {t='msg', key='SCENE_D11P01_017'},
+  {t='bgm', track=''},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D11P01_018'},
+  {t='msg', key='SCENE_D11P01_019'},
+  {t='anim', id='2'},
+  {t='bgm', track=''},
+  {t='msg', key='SCENE_D11P01_020'},
+  {t='msg', key='SCENE_D11P01_021'},
+  {t='bgm', track='Mt. Freeze'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D11P01_022'},
+  {t='msg', key='SCENE_D11P01_023'},
+  {t='anim', id='2'},
+  {t='camera', action='PAN'},
+}
 
 function mont_gele_pied.Init(map)
   DEBUG.EnableDbgCoro()
@@ -30,7 +89,7 @@ end
 function mont_gele_pied.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   GAME:FadeOut(false, 30)
   GAME:EnterDungeon('mt_freeze', 0, 0, 0,

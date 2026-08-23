@@ -73,7 +73,9 @@ function magma_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
   elseif segmentID == 2 then
     -- scène canonique de transition vers magma_cavern_pit
     SV.CanonicalDungeons.Pending = 'magma_cavern_seg2'
-    GAME:EnterGroundMap('gorge_ardente_coeur', 'Main_Entrance_Marker')
+    -- gorge_ardente_coeur ne porte aucun marqueur : la scène téléporte
+    -- elle-même le joueur, on entre donc par index.
+    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, 'gorge_ardente_coeur'), 0)
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end

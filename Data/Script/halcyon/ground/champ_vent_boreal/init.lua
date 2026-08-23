@@ -18,8 +18,43 @@ require 'halcyon.RedCanonScene'
 local champ_vent_boreal = {}
 
 local SCENE = 'd18p01'
-local LINES = {'SCENE_D18P01_001', 'SCENE_D18P01_002', 'SCENE_D18P01_003', 'SCENE_D18P01_004', 'SCENE_D18P01_005', 'SCENE_D18P01_006', 'SCENE_D18P01_007', 'SCENE_D18P01_008', 'SCENE_D18P01_009', 'SCENE_D18P01_010', 'SCENE_D18P01_011', 'SCENE_D18P01_012', 'SCENE_D18P01_013', 'SCENE_D18P01_014', 'SCENE_D18P01_015', 'SCENE_D18P01_016', 'SCENE_D18P01_017', 'SCENE_D18P01_018', 'SCENE_D18P01_019'}
-local MUSIC = 'In the Depths of the Pit'
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d18p01.cif.json).
+local EVENTS = {
+  {t='bgm', track='In the Depths of the Pit'},
+  {t='bgm_fade', frames=60},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D18P01_001'},
+  {t='msg', key='SCENE_D18P01_002'},
+  {t='msg', key='SCENE_D18P01_003'},
+  {t='msg', key='SCENE_D18P01_004'},
+  {t='msg', key='SCENE_D18P01_005'},
+  {t='msg', key='SCENE_D18P01_006'},
+  {t='bgm_fade', frames=30},
+  {t='msg', key='SCENE_D18P01_007'},
+  {t='anim', id='9'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D18P01_008'},
+  {t='msg', key='SCENE_D18P01_009'},
+  {t='bgm', track='In the Depths of the Pit'},
+  {t='msg', key='SCENE_D18P01_010'},
+  {t='msg', key='SCENE_D18P01_011'},
+  {t='msg', key='SCENE_D18P01_012'},
+  {t='msg', key='SCENE_D18P01_013'},
+  {t='msg', key='SCENE_D18P01_014'},
+  {t='msg', key='SCENE_D18P01_015'},
+  {t='msg', key='SCENE_D18P01_016'},
+  {t='msg', key='SCENE_D18P01_017'},
+  {t='msg', key='SCENE_D18P01_018'},
+  {t='msg', key='SCENE_D18P01_019'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='19'},
+  {t='anim', id='2'},
+  {t='anim', id='9'},
+  {t='anim', id='22'},
+  {t='anim', id='2'},
+}
 
 function champ_vent_boreal.Init(map)
   DEBUG.EnableDbgCoro()
@@ -29,7 +64,7 @@ end
 function champ_vent_boreal.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   SV.CanonicalDungeons = SV.CanonicalDungeons or {}
   SV.CanonicalDungeons['northwind_field'] = true

@@ -18,8 +18,19 @@ require 'halcyon.RedCanonScene'
 local grotte_lazuli_fond = {}
 
 local SCENE = 'd08p02'
-local LINES = {'SCENE_D08P02_001', 'SCENE_D08P02_002', 'SCENE_D08P02_003', 'SCENE_D08P02_004', 'SCENE_D08P02_005', 'SCENE_D08P02_006'}
-local MUSIC = nil
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d08p02.cif.json).
+local EVENTS = {
+  {t='bgm', track=''},
+  {t='msg', key='SCENE_D08P02_001'},
+  {t='msg', key='SCENE_D08P02_002'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D08P02_003'},
+  {t='msg', key='SCENE_D08P02_004'},
+  {t='msg', key='SCENE_D08P02_005'},
+  {t='msg', key='SCENE_D08P02_006'},
+  {t='anim', id='2'},
+}
 
 function grotte_lazuli_fond.Init(map)
   DEBUG.EnableDbgCoro()
@@ -29,7 +40,7 @@ end
 function grotte_lazuli_fond.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   SV.CanonicalDungeons = SV.CanonicalDungeons or {}
   SV.CanonicalDungeons['lapis_cave'] = true

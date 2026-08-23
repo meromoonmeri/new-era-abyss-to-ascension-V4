@@ -19,8 +19,24 @@ require 'halcyon.RedCanonScene'
 local gorge_ardente_porte = {}
 
 local SCENE = 'd12p01'
-local LINES = {'SCENE_D12P01_001', 'SCENE_D12P01_002', 'SCENE_D12P01_003'}
-local MUSIC = 'Magma Cavern'
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d12p01.cif.json).
+local EVENTS = {
+  {t='bgm', track='Magma Cavern'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='bgm', track='Magma Cavern'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D12P01_001'},
+  {t='msg', key='SCENE_D12P01_002'},
+  {t='anim', id='2'},
+  {t='bgm', track='Magma Cavern'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D12P01_003'},
+  {t='anim', id='2'},
+}
 
 function gorge_ardente_porte.Init(map)
   DEBUG.EnableDbgCoro()
@@ -30,7 +46,7 @@ end
 function gorge_ardente_porte.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   GAME:FadeOut(false, 30)
   GAME:EnterDungeon('magma_cavern', 0, 0, 0,

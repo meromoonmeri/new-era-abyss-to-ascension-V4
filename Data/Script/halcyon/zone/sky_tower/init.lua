@@ -65,7 +65,9 @@ function sky_tower.ExitSegment(zone, result, rescue, segmentID, mapID)
   if segmentID == 0 then
     -- scène canonique de transition vers sky_tower_summit
     SV.CanonicalDungeons.Pending = 'sky_tower_seg0'
-    GAME:EnterGroundMap('arc_palier_celeste', 'Main_Entrance_Marker')
+    -- arc_palier_celeste ne porte aucun marqueur : la scène téléporte
+    -- elle-même le joueur, on entre donc par index.
+    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, 'arc_palier_celeste'), 0)
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end

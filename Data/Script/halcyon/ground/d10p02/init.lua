@@ -19,8 +19,24 @@ require 'halcyon.RedCanonScene'
 local d10p02 = {}
 
 local SCENE = 'd10p02'
-local LINES = {'SCENE_D10P02_001', 'SCENE_D10P02_002', 'SCENE_D10P02_003', 'SCENE_D10P02_004', 'SCENE_D10P02_005'}
-local MUSIC = 'Frosty Forest'
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d10p02.cif.json).
+local EVENTS = {
+  {t='bgm', track='Frosty Forest'},
+  {t='bgm_fade', frames=60},
+  {t='bgm_fade', frames=30},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='bgm', track='Frosty Forest'},
+  {t='msg', key='SCENE_D10P02_001'},
+  {t='msg', key='SCENE_D10P02_002'},
+  {t='msg', key='SCENE_D10P02_003'},
+  {t='bgm', track='Frosty Forest'},
+  {t='msg', key='SCENE_D10P02_004'},
+  {t='msg', key='SCENE_D10P02_005'},
+}
 
 function d10p02.Init(map)
   DEBUG.EnableDbgCoro()
@@ -30,7 +46,7 @@ end
 function d10p02.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   GAME:FadeOut(false, 30)
   GAME:EnterDungeon('frosty_grotto', 0, 0, 0,

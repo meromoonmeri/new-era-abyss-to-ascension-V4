@@ -18,8 +18,13 @@ require 'halcyon.RedCanonScene'
 local abime_tempetes = {}
 
 local SCENE = 'd14p01'
-local LINES = {}
-local MUSIC = nil
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d14p01.cif.json).
+local EVENTS = {
+  {t='bgm', track=''},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+}
 
 function abime_tempetes.Init(map)
   DEBUG.EnableDbgCoro()
@@ -29,7 +34,7 @@ end
 function abime_tempetes.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   SV.CanonicalDungeons = SV.CanonicalDungeons or {}
   SV.CanonicalDungeons['stormy_sea'] = true

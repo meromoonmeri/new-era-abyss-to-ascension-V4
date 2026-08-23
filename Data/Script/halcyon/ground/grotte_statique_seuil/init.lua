@@ -19,8 +19,39 @@ require 'halcyon.RedCanonScene'
 local grotte_statique_seuil = {}
 
 local SCENE = 'd02p01'
-local LINES = {'SCENE_D02P01_001', 'SCENE_D02P01_002', 'SCENE_D02P01_003', 'SCENE_D02P01_004', 'SCENE_D02P01_005', 'SCENE_D02P01_006', 'SCENE_D02P01_007', 'SCENE_D02P01_008', 'SCENE_D02P01_009', 'SCENE_D02P01_010'}
-local MUSIC = nil
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d02p01.cif.json).
+local EVENTS = {
+  {t='bgm', track=''},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D02P01_001'},
+  {t='msg', key='SCENE_D02P01_002'},
+  {t='msg', key='SCENE_D02P01_003'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='bgm', track=''},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D02P01_004'},
+  {t='msg', key='SCENE_D02P01_005'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='bgm', track=''},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D02P01_006'},
+  {t='msg', key='SCENE_D02P01_007'},
+  {t='msg', key='SCENE_D02P01_008'},
+  {t='msg', key='SCENE_D02P01_009'},
+  {t='msg', key='SCENE_D02P01_010'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+}
 
 function grotte_statique_seuil.Init(map)
   DEBUG.EnableDbgCoro()
@@ -30,7 +61,7 @@ end
 function grotte_statique_seuil.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   GAME:FadeOut(false, 30)
   GAME:EnterDungeon('thunderwave_cave', 0, 0, 0,

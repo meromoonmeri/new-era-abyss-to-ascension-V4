@@ -65,7 +65,9 @@ function sky_tower_summit.ExitSegment(zone, result, rescue, segmentID, mapID)
   if segmentID == 0 then
     -- Ground final canonique : cinématique, combat et fin au même endroit
     SV.CanonicalDungeons.Pending = 'sky_tower_summit_seg0'
-    GAME:EnterGroundMap('arc_tour_ciel_sommet', 'Main_Entrance_Marker')
+    -- arc_tour_ciel_sommet ne porte aucun marqueur : la scène téléporte
+    -- elle-même le joueur, on entre donc par index.
+    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, 'arc_tour_ciel_sommet'), 0)
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end

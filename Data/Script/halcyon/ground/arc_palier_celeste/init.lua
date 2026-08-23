@@ -19,8 +19,20 @@ require 'halcyon.RedCanonScene'
 local arc_palier_celeste = {}
 
 local SCENE = 'd13p02'
-local LINES = {'SCENE_D13P02_001', 'SCENE_D13P02_002'}
-local MUSIC = 'Sky Tower'
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d13p02.cif.json).
+local EVENTS = {
+  {t='bgm', track='Sky Tower'},
+  {t='bgm_fade', frames=60},
+  {t='bgm_fade', frames=30},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='bgm', track='Sky Tower'},
+  {t='msg', key='SCENE_D13P02_001'},
+  {t='msg', key='SCENE_D13P02_002'},
+}
 
 function arc_palier_celeste.Init(map)
   DEBUG.EnableDbgCoro()
@@ -30,7 +42,7 @@ end
 function arc_palier_celeste.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   GAME:FadeOut(false, 30)
   GAME:EnterDungeon('sky_tower_summit', 0, 0, 0,

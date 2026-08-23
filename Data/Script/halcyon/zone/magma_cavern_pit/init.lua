@@ -65,7 +65,9 @@ function magma_cavern_pit.ExitSegment(zone, result, rescue, segmentID, mapID)
   if segmentID == 0 then
     -- Ground final canonique : cinématique, combat et fin au même endroit
     SV.CanonicalDungeons.Pending = 'magma_cavern_pit_seg0'
-    GAME:EnterGroundMap('fosse_ardente', 'Main_Entrance_Marker')
+    -- fosse_ardente ne porte aucun marqueur : la scène téléporte
+    -- elle-même le joueur, on entre donc par index.
+    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, 'fosse_ardente'), 0)
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end

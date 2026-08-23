@@ -18,8 +18,23 @@ require 'halcyon.RedCanonScene'
 local cretes_boreales = {}
 
 local SCENE = 'd21p01'
-local LINES = {'SCENE_D21P01_001', 'SCENE_D21P01_002', 'SCENE_D21P01_003', 'SCENE_D21P01_004'}
-local MUSIC = 'In the Depths of the Pit'
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d21p01.cif.json).
+local EVENTS = {
+  {t='bgm', track='In the Depths of the Pit'},
+  {t='bgm_fade', frames=60},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D21P01_001'},
+  {t='msg', key='SCENE_D21P01_002'},
+  {t='msg', key='SCENE_D21P01_003'},
+  {t='msg', key='SCENE_D21P01_004'},
+  {t='shake', frames=30},
+  {t='anim', id='2'},
+  {t='anim', id='19'},
+  {t='anim', id='25'},
+  {t='anim', id='33'},
+  {t='anim', id='9'},
+}
 
 function cretes_boreales.Init(map)
   DEBUG.EnableDbgCoro()
@@ -29,7 +44,7 @@ end
 function cretes_boreales.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   SV.CanonicalDungeons = SV.CanonicalDungeons or {}
   SV.CanonicalDungeons['northern_range'] = true

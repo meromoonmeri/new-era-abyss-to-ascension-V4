@@ -69,7 +69,9 @@ function lightning_field.ExitSegment(zone, result, rescue, segmentID, mapID)
   elseif segmentID == 1 then
     -- Ground final canonique : cinématique, combat et fin au même endroit
     SV.CanonicalDungeons.Pending = 'lightning_field_seg1'
-    GAME:EnterGroundMap('champ_foudre', 'Main_Entrance_Marker')
+    -- champ_foudre ne porte aucun marqueur : la scène téléporte
+    -- elle-même le joueur, on entre donc par index.
+    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, 'champ_foudre'), 0)
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end

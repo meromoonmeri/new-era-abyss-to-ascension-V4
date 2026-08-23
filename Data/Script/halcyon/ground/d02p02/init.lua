@@ -18,8 +18,17 @@ require 'halcyon.RedCanonScene'
 local d02p02 = {}
 
 local SCENE = 'd02p02'
-local LINES = {'SCENE_D02P02_001'}
-local MUSIC = 'In the Depths of the Pit'
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d02p02.cif.json).
+local EVENTS = {
+  {t='bgm', track='In the Depths of the Pit'},
+  {t='bgm_fade', frames=120},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D02P02_001'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+}
 
 function d02p02.Init(map)
   DEBUG.EnableDbgCoro()
@@ -29,7 +38,7 @@ end
 function d02p02.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   SV.CanonicalDungeons = SV.CanonicalDungeons or {}
   SV.CanonicalDungeons['thunderwave_cave'] = true

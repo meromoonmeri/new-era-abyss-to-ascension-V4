@@ -18,8 +18,59 @@ require 'halcyon.RedCanonScene'
 local antre_occident = {}
 
 local SCENE = 'd20p01'
-local LINES = {'SCENE_D20P01_001', 'SCENE_D20P01_002', 'SCENE_D20P01_003', 'SCENE_D20P01_004', 'SCENE_D20P01_005', 'SCENE_D20P01_006', 'SCENE_D20P01_007', 'SCENE_D20P01_008', 'SCENE_D20P01_009', 'SCENE_D20P01_010', 'SCENE_D20P01_011', 'SCENE_D20P01_012', 'SCENE_D20P01_013', 'SCENE_D20P01_014', 'SCENE_D20P01_015', 'SCENE_D20P01_016', 'SCENE_D20P01_017', 'SCENE_D20P01_018', 'SCENE_D20P01_019', 'SCENE_D20P01_020', 'SCENE_D20P01_021', 'SCENE_D20P01_022', 'SCENE_D20P01_023', 'SCENE_D20P01_024', 'SCENE_D20P01_025', 'SCENE_D20P01_026', 'SCENE_D20P01_027', 'SCENE_D20P01_028', 'SCENE_D20P01_029', 'SCENE_D20P01_030', 'SCENE_D20P01_031', 'SCENE_D20P01_032', 'SCENE_D20P01_033', 'SCENE_D20P01_034'}
-local MUSIC = nil
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d20p01.cif.json).
+local EVENTS = {
+  {t='msg', key='SCENE_D20P01_001'},
+  {t='msg', key='SCENE_D20P01_002'},
+  {t='bgm', track=''},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D20P01_003'},
+  {t='msg', key='SCENE_D20P01_004'},
+  {t='msg', key='SCENE_D20P01_005'},
+  {t='msg', key='SCENE_D20P01_006'},
+  {t='msg', key='SCENE_D20P01_007'},
+  {t='msg', key='SCENE_D20P01_008'},
+  {t='msg', key='SCENE_D20P01_009'},
+  {t='msg', key='SCENE_D20P01_010'},
+  {t='msg', key='SCENE_D20P01_011'},
+  {t='msg', key='SCENE_D20P01_012'},
+  {t='msg', key='SCENE_D20P01_013'},
+  {t='msg', key='SCENE_D20P01_014'},
+  {t='msg', key='SCENE_D20P01_015'},
+  {t='msg', key='SCENE_D20P01_016'},
+  {t='msg', key='SCENE_D20P01_017'},
+  {t='msg', key='SCENE_D20P01_018'},
+  {t='msg', key='SCENE_D20P01_019'},
+  {t='bgm_fade', frames=30},
+  {t='msg', key='SCENE_D20P01_020'},
+  {t='msg', key='SCENE_D20P01_021'},
+  {t='msg', key='SCENE_D20P01_022'},
+  {t='msg', key='SCENE_D20P01_023'},
+  {t='msg', key='SCENE_D20P01_024'},
+  {t='bgm', track=''},
+  {t='msg', key='SCENE_D20P01_025'},
+  {t='msg', key='SCENE_D20P01_026'},
+  {t='msg', key='SCENE_D20P01_027'},
+  {t='msg', key='SCENE_D20P01_028'},
+  {t='msg', key='SCENE_D20P01_029'},
+  {t='msg', key='SCENE_D20P01_030'},
+  {t='msg', key='SCENE_D20P01_031'},
+  {t='bgm', track='Boss Battle!'},
+  {t='msg', key='SCENE_D20P01_032'},
+  {t='msg', key='SCENE_D20P01_033'},
+  {t='msg', key='SCENE_D20P01_034'},
+  {t='bgm_fade', frames=60},
+  {t='anim', id='2'},
+  {t='anim', id='9'},
+  {t='anim', id='2'},
+  {t='anim', id='18'},
+  {t='anim', id='2'},
+  {t='anim', id='18'},
+  {t='anim', id='2'},
+  {t='anim', id='18'},
+  {t='anim', id='2'},
+}
 
 function antre_occident.Init(map)
   DEBUG.EnableDbgCoro()
@@ -29,7 +80,7 @@ end
 function antre_occident.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   SV.CanonicalDungeons = SV.CanonicalDungeons or {}
   SV.CanonicalDungeons['western_cave'] = true

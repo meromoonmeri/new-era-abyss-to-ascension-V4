@@ -18,8 +18,20 @@ require 'halcyon.RedCanonScene'
 local d01p02 = {}
 
 local SCENE = 'd01p02'
-local LINES = {'SCENE_D01P02_001', 'SCENE_D01P02_002', 'SCENE_D01P02_003', 'SCENE_D01P02_004', 'SCENE_D01P02_005', 'SCENE_D01P02_006'}
-local MUSIC = 'In the Depths of the Pit'
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d01p02.cif.json).
+local EVENTS = {
+  {t='bgm', track='In the Depths of the Pit'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D01P02_001'},
+  {t='msg', key='SCENE_D01P02_002'},
+  {t='msg', key='SCENE_D01P02_003'},
+  {t='msg', key='SCENE_D01P02_004'},
+  {t='msg', key='SCENE_D01P02_005'},
+  {t='msg', key='SCENE_D01P02_006'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+}
 
 function d01p02.Init(map)
   DEBUG.EnableDbgCoro()
@@ -29,7 +41,7 @@ end
 function d01p02.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   SV.CanonicalDungeons = SV.CanonicalDungeons or {}
   SV.CanonicalDungeons['tiny_woods'] = true

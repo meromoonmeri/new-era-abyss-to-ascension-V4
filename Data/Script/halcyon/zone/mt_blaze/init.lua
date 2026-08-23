@@ -69,7 +69,9 @@ function mt_blaze.ExitSegment(zone, result, rescue, segmentID, mapID)
   elseif segmentID == 1 then
     -- scène canonique de transition vers mt_blaze_peak
     SV.CanonicalDungeons.Pending = 'mt_blaze_seg1'
-    GAME:EnterGroundMap('d09p02', 'Main_Entrance_Marker')
+    -- d09p02 ne porte aucun marqueur : la scène téléporte
+    -- elle-même le joueur, on entre donc par index.
+    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, 'd09p02'), 0)
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end

@@ -19,8 +19,23 @@ require 'halcyon.RedCanonScene'
 local mont_grondant_pied = {}
 
 local SCENE = 'd06p01'
-local LINES = {'SCENE_D06P01_001', 'SCENE_D06P01_002', 'SCENE_D06P01_003', 'SCENE_D06P01_004', 'SCENE_D06P01_005'}
-local MUSIC = 'Mt. Thunder'
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d06p01.cif.json).
+local EVENTS = {
+  {t='bgm', track='Mt. Thunder'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D06P01_001'},
+  {t='msg', key='SCENE_D06P01_002'},
+  {t='msg', key='SCENE_D06P01_003'},
+  {t='msg', key='SCENE_D06P01_004'},
+  {t='anim', id='2'},
+  {t='anim', id='9'},
+  {t='anim', id='2'},
+  {t='bgm', track='Mt. Thunder'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D06P01_005'},
+  {t='anim', id='2'},
+}
 
 function mont_grondant_pied.Init(map)
   DEBUG.EnableDbgCoro()
@@ -30,7 +45,7 @@ end
 function mont_grondant_pied.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   GAME:FadeOut(false, 30)
   GAME:EnterDungeon('mt_thunder', 0, 0, 0,

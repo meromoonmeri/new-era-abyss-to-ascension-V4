@@ -18,8 +18,16 @@ require 'halcyon.RedCanonScene'
 local bois_des_plaintes = {}
 
 local SCENE = 'd25p01'
-local LINES = {'SCENE_D25P01_001'}
-local MUSIC = 'In the Depths of the Pit'
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d25p01.cif.json).
+local EVENTS = {
+  {t='bgm', track='In the Depths of the Pit'},
+  {t='bgm_fade', frames=120},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D25P01_001'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+}
 
 function bois_des_plaintes.Init(map)
   DEBUG.EnableDbgCoro()
@@ -29,7 +37,7 @@ end
 function bois_des_plaintes.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   SV.CanonicalDungeons = SV.CanonicalDungeons or {}
   SV.CanonicalDungeons['howling_forest'] = true

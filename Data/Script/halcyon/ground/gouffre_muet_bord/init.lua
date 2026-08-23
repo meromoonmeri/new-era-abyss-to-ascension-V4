@@ -19,8 +19,56 @@ require 'halcyon.RedCanonScene'
 local gouffre_muet_bord = {}
 
 local SCENE = 'd05p01'
-local LINES = {'SCENE_D05P01_001', 'SCENE_D05P01_002', 'SCENE_D05P01_003', 'SCENE_D05P01_004', 'SCENE_D05P01_005', 'SCENE_D05P01_006', 'SCENE_D05P01_007', 'SCENE_D05P01_008', 'SCENE_D05P01_009', 'SCENE_D05P01_010', 'SCENE_D05P01_011', 'SCENE_D05P01_012', 'SCENE_D05P01_013', 'SCENE_D05P01_014', 'SCENE_D05P01_015', 'SCENE_D05P01_016', 'SCENE_D05P01_017', 'SCENE_D05P01_018', 'SCENE_D05P01_019', 'SCENE_D05P01_020', 'SCENE_D05P01_021', 'SCENE_D05P01_022', 'SCENE_D05P01_023', 'SCENE_D05P01_024', 'SCENE_D05P01_025', 'SCENE_D05P01_026', 'SCENE_D05P01_027', 'SCENE_D05P01_028', 'SCENE_D05P01_029', 'SCENE_D05P01_030', 'SCENE_D05P01_031', 'SCENE_D05P01_032', 'SCENE_D05P01_033', 'SCENE_D05P01_034', 'SCENE_D05P01_035', 'SCENE_D05P01_036', 'SCENE_D05P01_037', 'SCENE_D05P01_038'}
-local MUSIC = nil
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d05p01.cif.json).
+local EVENTS = {
+  {t='bgm', track=''},
+  {t='camera', action='INIT_PAN'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D05P01_001'},
+  {t='msg', key='SCENE_D05P01_002'},
+  {t='msg', key='SCENE_D05P01_003'},
+  {t='msg', key='SCENE_D05P01_004'},
+  {t='msg', key='SCENE_D05P01_005'},
+  {t='msg', key='SCENE_D05P01_006'},
+  {t='msg', key='SCENE_D05P01_007'},
+  {t='msg', key='SCENE_D05P01_008'},
+  {t='msg', key='SCENE_D05P01_009'},
+  {t='msg', key='SCENE_D05P01_010'},
+  {t='msg', key='SCENE_D05P01_011'},
+  {t='msg', key='SCENE_D05P01_012'},
+  {t='msg', key='SCENE_D05P01_013'},
+  {t='msg', key='SCENE_D05P01_014'},
+  {t='msg', key='SCENE_D05P01_015'},
+  {t='msg', key='SCENE_D05P01_016'},
+  {t='msg', key='SCENE_D05P01_017'},
+  {t='msg', key='SCENE_D05P01_018'},
+  {t='msg', key='SCENE_D05P01_019'},
+  {t='msg', key='SCENE_D05P01_020'},
+  {t='msg', key='SCENE_D05P01_021'},
+  {t='msg', key='SCENE_D05P01_022'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D05P01_023'},
+  {t='msg', key='SCENE_D05P01_024'},
+  {t='msg', key='SCENE_D05P01_025'},
+  {t='msg', key='SCENE_D05P01_026'},
+  {t='msg', key='SCENE_D05P01_027'},
+  {t='msg', key='SCENE_D05P01_028'},
+  {t='msg', key='SCENE_D05P01_029'},
+  {t='msg', key='SCENE_D05P01_030'},
+  {t='msg', key='SCENE_D05P01_031'},
+  {t='msg', key='SCENE_D05P01_032'},
+  {t='msg', key='SCENE_D05P01_033'},
+  {t='msg', key='SCENE_D05P01_034'},
+  {t='msg', key='SCENE_D05P01_035'},
+  {t='msg', key='SCENE_D05P01_036'},
+  {t='msg', key='SCENE_D05P01_037'},
+  {t='msg', key='SCENE_D05P01_038'},
+  {t='anim', id='2'},
+  {t='anim', id='8'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+}
 
 function gouffre_muet_bord.Init(map)
   DEBUG.EnableDbgCoro()
@@ -30,7 +78,7 @@ end
 function gouffre_muet_bord.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   GAME:FadeOut(false, 30)
   GAME:EnterDungeon('silent_chasm', 0, 0, 0,

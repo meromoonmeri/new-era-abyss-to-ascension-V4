@@ -18,8 +18,29 @@ require 'halcyon.RedCanonScene'
 local fosse_argentee = {}
 
 local SCENE = 'd15p01'
-local LINES = {'SCENE_D15P01_001', 'SCENE_D15P01_002', 'SCENE_D15P01_003', 'SCENE_D15P01_004', 'SCENE_D15P01_005', 'SCENE_D15P01_006', 'SCENE_D15P01_007', 'SCENE_D15P01_008', 'SCENE_D15P01_009', 'SCENE_D15P01_010', 'SCENE_D15P01_011', 'SCENE_D15P01_012', 'SCENE_D15P01_013', 'SCENE_D15P01_014', 'SCENE_D15P01_015', 'SCENE_D15P01_016'}
-local MUSIC = nil
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d15p01.cif.json).
+local EVENTS = {
+  {t='bgm', track=''},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D15P01_001'},
+  {t='msg', key='SCENE_D15P01_002'},
+  {t='msg', key='SCENE_D15P01_003'},
+  {t='msg', key='SCENE_D15P01_004'},
+  {t='msg', key='SCENE_D15P01_005'},
+  {t='msg', key='SCENE_D15P01_006'},
+  {t='msg', key='SCENE_D15P01_007'},
+  {t='msg', key='SCENE_D15P01_008'},
+  {t='msg', key='SCENE_D15P01_009'},
+  {t='msg', key='SCENE_D15P01_010'},
+  {t='msg', key='SCENE_D15P01_011'},
+  {t='msg', key='SCENE_D15P01_012'},
+  {t='msg', key='SCENE_D15P01_013'},
+  {t='msg', key='SCENE_D15P01_014'},
+  {t='msg', key='SCENE_D15P01_015'},
+  {t='msg', key='SCENE_D15P01_016'},
+  {t='anim', id='2'},
+}
 
 function fosse_argentee.Init(map)
   DEBUG.EnableDbgCoro()
@@ -29,7 +50,7 @@ end
 function fosse_argentee.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   SV.CanonicalDungeons = SV.CanonicalDungeons or {}
   SV.CanonicalDungeons['silver_trench'] = true

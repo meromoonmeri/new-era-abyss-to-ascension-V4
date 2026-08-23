@@ -19,8 +19,37 @@ require 'halcyon.RedCanonScene'
 local arc_parvis_celeste = {}
 
 local SCENE = 'd13p01'
-local LINES = {'SCENE_D13P01_001', 'SCENE_D13P01_002', 'SCENE_D13P01_003', 'SCENE_D13P01_004', 'SCENE_D13P01_005', 'SCENE_D13P01_006', 'SCENE_D13P01_007', 'SCENE_D13P01_008'}
-local MUSIC = 'Sky Tower'
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d13p01.cif.json).
+local EVENTS = {
+  {t='bgm_fade', frames=30},
+  {t='bgm', track='Sky Tower'},
+  {t='anim', id='48'},
+  {t='msg', key='SCENE_D13P01_001'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D13P01_002'},
+  {t='msg', key='SCENE_D13P01_003'},
+  {t='msg', key='SCENE_D13P01_004'},
+  {t='anim', id='48'},
+  {t='anim', id='2'},
+  {t='anim', id='49'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='bgm', track='Sky Tower'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D13P01_005'},
+  {t='msg', key='SCENE_D13P01_006'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='bgm', track='Sky Tower'},
+  {t='anim', id='48'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D13P01_007'},
+  {t='msg', key='SCENE_D13P01_008'},
+  {t='anim', id='48'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+}
 
 function arc_parvis_celeste.Init(map)
   DEBUG.EnableDbgCoro()
@@ -30,7 +59,7 @@ end
 function arc_parvis_celeste.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   GAME:FadeOut(false, 30)
   GAME:EnterDungeon('sky_tower', 0, 0, 0,

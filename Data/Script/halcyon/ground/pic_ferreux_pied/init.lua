@@ -19,8 +19,32 @@ require 'halcyon.RedCanonScene'
 local pic_ferreux_pied = {}
 
 local SCENE = 'd03p01'
-local LINES = {'SCENE_D03P01_001', 'SCENE_D03P01_002', 'SCENE_D03P01_003', 'SCENE_D03P01_004', 'SCENE_D03P01_005', 'SCENE_D03P01_006', 'SCENE_D03P01_007', 'SCENE_D03P01_008'}
-local MUSIC = nil
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d03p01.cif.json).
+local EVENTS = {
+  {t='bgm', track=''},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D03P01_001'},
+  {t='msg', key='SCENE_D03P01_002'},
+  {t='shake', frames=30},
+  {t='msg', key='SCENE_D03P01_003'},
+  {t='msg', key='SCENE_D03P01_004'},
+  {t='anim', id='2'},
+  {t='anim', id='22'},
+  {t='anim', id='2'},
+  {t='anim', id='23'},
+  {t='bgm', track=''},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D03P01_005'},
+  {t='msg', key='SCENE_D03P01_006'},
+  {t='shake', frames=30},
+  {t='msg', key='SCENE_D03P01_007'},
+  {t='msg', key='SCENE_D03P01_008'},
+  {t='anim', id='2'},
+  {t='anim', id='22'},
+  {t='anim', id='2'},
+  {t='anim', id='23'},
+}
 
 function pic_ferreux_pied.Init(map)
   DEBUG.EnableDbgCoro()
@@ -30,7 +54,7 @@ end
 function pic_ferreux_pied.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   GAME:FadeOut(false, 30)
   GAME:EnterDungeon('mt_steel', 0, 0, 0,

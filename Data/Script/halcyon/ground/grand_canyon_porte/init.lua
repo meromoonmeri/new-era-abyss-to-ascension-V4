@@ -19,8 +19,20 @@ require 'halcyon.RedCanonScene'
 local grand_canyon_porte = {}
 
 local SCENE = 'd07p01'
-local LINES = {'SCENE_D07P01_001', 'SCENE_D07P01_002', 'SCENE_D07P01_003', 'SCENE_D07P01_004'}
-local MUSIC = nil
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d07p01.cif.json).
+local EVENTS = {
+  {t='bgm', track=''},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D07P01_001'},
+  {t='msg', key='SCENE_D07P01_002'},
+  {t='msg', key='SCENE_D07P01_003'},
+  {t='anim', id='2'},
+  {t='bgm', track=''},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D07P01_004'},
+  {t='anim', id='2'},
+}
 
 function grand_canyon_porte.Init(map)
   DEBUG.EnableDbgCoro()
@@ -30,7 +42,7 @@ end
 function grand_canyon_porte.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   GAME:FadeOut(false, 30)
   GAME:EnterDungeon('great_canyon', 0, 0, 0,

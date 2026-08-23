@@ -19,8 +19,58 @@ require 'halcyon.RedCanonScene'
 local foret_givree_oree = {}
 
 local SCENE = 'd10p01'
-local LINES = {'SCENE_D10P01_001', 'SCENE_D10P01_002', 'SCENE_D10P01_003', 'SCENE_D10P01_004', 'SCENE_D10P01_005', 'SCENE_D10P01_006', 'SCENE_D10P01_007', 'SCENE_D10P01_008', 'SCENE_D10P01_009', 'SCENE_D10P01_010', 'SCENE_D10P01_011', 'SCENE_D10P01_012', 'SCENE_D10P01_013', 'SCENE_D10P01_014', 'SCENE_D10P01_015'}
-local MUSIC = nil
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d10p01.cif.json).
+local EVENTS = {
+  {t='bgm', track=''},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='bgm', track=''},
+  {t='camera', action='INIT_PAN'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D10P01_001'},
+  {t='msg', key='SCENE_D10P01_002'},
+  {t='msg', key='SCENE_D10P01_003'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D10P01_004'},
+  {t='msg', key='SCENE_D10P01_005'},
+  {t='bgm_fade', frames=120},
+  {t='camera', action='PAN'},
+  {t='bgm_fade', frames=120},
+  {t='camera', action='PAN'},
+  {t='msg', key='SCENE_D10P01_006'},
+  {t='bgm_fade', frames=120},
+  {t='camera', action='PAN'},
+  {t='bgm_fade', frames=120},
+  {t='camera', action='PAN'},
+  {t='anim', id='2'},
+  {t='camera', action='PAN'},
+  {t='camera', action='PAN'},
+  {t='bgm', track=''},
+  {t='msg', key='SCENE_D10P01_007'},
+  {t='msg', key='SCENE_D10P01_008'},
+  {t='msg', key='SCENE_D10P01_009'},
+  {t='bgm', track=''},
+  {t='anim', id='8'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D10P01_010'},
+  {t='msg', key='SCENE_D10P01_011'},
+  {t='anim', id='8'},
+  {t='anim', id='2'},
+  {t='bgm', track=''},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D10P01_012'},
+  {t='msg', key='SCENE_D10P01_013'},
+  {t='anim', id='2'},
+  {t='bgm', track=''},
+  {t='msg', key='SCENE_D10P01_014'},
+  {t='msg', key='SCENE_D10P01_015'},
+}
 
 function foret_givree_oree.Init(map)
   DEBUG.EnableDbgCoro()
@@ -30,7 +80,7 @@ end
 function foret_givree_oree.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   GAME:FadeOut(false, 30)
   GAME:EnterDungeon('frosty_forest', 0, 0, 0,

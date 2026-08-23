@@ -18,8 +18,15 @@ require 'halcyon.RedCanonScene'
 local caverne_trouble_autel = {}
 
 local SCENE = 'd24p02'
-local LINES = {'SCENE_D24P02_001', 'SCENE_D24P02_002'}
-local MUSIC = nil
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d24p02.cif.json).
+local EVENTS = {
+  {t='bgm', track=''},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D24P02_001'},
+  {t='msg', key='SCENE_D24P02_002'},
+  {t='anim', id='2'},
+}
 
 function caverne_trouble_autel.Init(map)
   DEBUG.EnableDbgCoro()
@@ -29,7 +36,7 @@ end
 function caverne_trouble_autel.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   -- aucune suite câblée : la scène rend la main au jeu
   GAME:CutsceneMode(false)
 end

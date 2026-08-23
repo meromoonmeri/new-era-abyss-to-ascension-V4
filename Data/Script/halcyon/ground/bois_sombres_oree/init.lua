@@ -19,8 +19,18 @@ require 'halcyon.RedCanonScene'
 local bois_sombres_oree = {}
 
 local SCENE = 'd04p01'
-local LINES = {'SCENE_D04P01_001', 'SCENE_D04P01_002'}
-local MUSIC = 'Sinister Woods'
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d04p01.cif.json).
+local EVENTS = {
+  {t='bgm', track='Sinister Woods'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D04P01_001'},
+  {t='anim', id='2'},
+  {t='bgm', track='Sinister Woods'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D04P01_002'},
+  {t='anim', id='2'},
+}
 
 function bois_sombres_oree.Init(map)
   DEBUG.EnableDbgCoro()
@@ -30,7 +40,7 @@ end
 function bois_sombres_oree.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   -- aucune suite câblée : la scène rend la main au jeu
   GAME:CutsceneMode(false)
 end

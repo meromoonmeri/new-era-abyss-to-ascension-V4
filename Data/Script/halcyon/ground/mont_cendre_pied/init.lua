@@ -19,8 +19,63 @@ require 'halcyon.RedCanonScene'
 local mont_cendre_pied = {}
 
 local SCENE = 'd09p01'
-local LINES = {'SCENE_D09P01_001', 'SCENE_D09P01_002', 'SCENE_D09P01_003', 'SCENE_D09P01_004', 'SCENE_D09P01_005', 'SCENE_D09P01_006', 'SCENE_D09P01_007', 'SCENE_D09P01_008', 'SCENE_D09P01_009', 'SCENE_D09P01_010', 'SCENE_D09P01_011', 'SCENE_D09P01_012', 'SCENE_D09P01_013', 'SCENE_D09P01_014', 'SCENE_D09P01_015', 'SCENE_D09P01_016', 'SCENE_D09P01_017', 'SCENE_D09P01_018', 'SCENE_D09P01_019', 'SCENE_D09P01_020', 'SCENE_D09P01_021', 'SCENE_D09P01_022', 'SCENE_D09P01_023', 'SCENE_D09P01_024', 'SCENE_D09P01_025', 'SCENE_D09P01_026', 'SCENE_D09P01_027', 'SCENE_D09P01_028', 'SCENE_D09P01_029', 'SCENE_D09P01_030', 'SCENE_D09P01_031', 'SCENE_D09P01_032'}
-local MUSIC = 'Mt. Blaze'
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d09p01.cif.json).
+local EVENTS = {
+  {t='bgm', track='Mt. Blaze'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D09P01_001'},
+  {t='msg', key='SCENE_D09P01_002'},
+  {t='msg', key='SCENE_D09P01_003'},
+  {t='msg', key='SCENE_D09P01_004'},
+  {t='msg', key='SCENE_D09P01_005'},
+  {t='msg', key='SCENE_D09P01_006'},
+  {t='msg', key='SCENE_D09P01_007'},
+  {t='msg', key='SCENE_D09P01_008'},
+  {t='bgm', track='Mt. Blaze'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D09P01_009'},
+  {t='msg', key='SCENE_D09P01_010'},
+  {t='msg', key='SCENE_D09P01_011'},
+  {t='msg', key='SCENE_D09P01_012'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D09P01_013'},
+  {t='msg', key='SCENE_D09P01_014'},
+  {t='msg', key='SCENE_D09P01_015'},
+  {t='bgm_fade', frames=60},
+  {t='bgm_fade', frames=60},
+  {t='anim', id='2'},
+  {t='bgm', track='Mt. Blaze'},
+  {t='msg', key='SCENE_D09P01_016'},
+  {t='msg', key='SCENE_D09P01_017'},
+  {t='camera', action='PAN'},
+  {t='msg', key='SCENE_D09P01_018'},
+  {t='msg', key='SCENE_D09P01_019'},
+  {t='msg', key='SCENE_D09P01_020'},
+  {t='msg', key='SCENE_D09P01_021'},
+  {t='msg', key='SCENE_D09P01_022'},
+  {t='msg', key='SCENE_D09P01_023'},
+  {t='msg', key='SCENE_D09P01_024'},
+  {t='msg', key='SCENE_D09P01_025'},
+  {t='msg', key='SCENE_D09P01_026'},
+  {t='msg', key='SCENE_D09P01_027'},
+  {t='msg', key='SCENE_D09P01_028'},
+  {t='camera', action='PAN'},
+  {t='bgm', track='Mt. Blaze'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D09P01_029'},
+  {t='msg', key='SCENE_D09P01_030'},
+  {t='anim', id='2'},
+  {t='bgm', track='Mt. Blaze'},
+  {t='msg', key='SCENE_D09P01_031'},
+  {t='msg', key='SCENE_D09P01_032'},
+}
 
 function mont_cendre_pied.Init(map)
   DEBUG.EnableDbgCoro()
@@ -30,7 +85,7 @@ end
 function mont_cendre_pied.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   GAME:FadeOut(false, 30)
   GAME:EnterDungeon('mt_blaze', 0, 0, 0,

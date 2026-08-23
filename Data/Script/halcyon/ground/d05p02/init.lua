@@ -18,8 +18,49 @@ require 'halcyon.RedCanonScene'
 local d05p02 = {}
 
 local SCENE = 'd05p02'
-local LINES = {'SCENE_D05P02_001', 'SCENE_D05P02_002', 'SCENE_D05P02_003', 'SCENE_D05P02_004', 'SCENE_D05P02_005', 'SCENE_D05P02_006', 'SCENE_D05P02_007', 'SCENE_D05P02_008', 'SCENE_D05P02_009', 'SCENE_D05P02_010', 'SCENE_D05P02_011', 'SCENE_D05P02_012', 'SCENE_D05P02_013', 'SCENE_D05P02_014', 'SCENE_D05P02_015', 'SCENE_D05P02_016', 'SCENE_D05P02_017', 'SCENE_D05P02_018', 'SCENE_D05P02_019', 'SCENE_D05P02_020', 'SCENE_D05P02_021', 'SCENE_D05P02_022', 'SCENE_D05P02_023', 'SCENE_D05P02_024', 'SCENE_D05P02_025'}
-local MUSIC = 'In the Depths of the Pit'
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d05p02.cif.json).
+local EVENTS = {
+  {t='bgm', track='In the Depths of the Pit'},
+  {t='bgm_fade', frames=60},
+  {t='camera', action='INIT_PAN'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D05P02_001'},
+  {t='msg', key='SCENE_D05P02_002'},
+  {t='msg', key='SCENE_D05P02_003'},
+  {t='msg', key='SCENE_D05P02_004'},
+  {t='msg', key='SCENE_D05P02_005'},
+  {t='msg', key='SCENE_D05P02_006'},
+  {t='msg', key='SCENE_D05P02_007'},
+  {t='msg', key='SCENE_D05P02_008'},
+  {t='msg', key='SCENE_D05P02_009'},
+  {t='msg', key='SCENE_D05P02_010'},
+  {t='msg', key='SCENE_D05P02_011'},
+  {t='msg', key='SCENE_D05P02_012'},
+  {t='msg', key='SCENE_D05P02_013'},
+  {t='msg', key='SCENE_D05P02_014'},
+  {t='msg', key='SCENE_D05P02_015'},
+  {t='msg', key='SCENE_D05P02_016'},
+  {t='msg', key='SCENE_D05P02_017'},
+  {t='msg', key='SCENE_D05P02_018'},
+  {t='msg', key='SCENE_D05P02_019'},
+  {t='msg', key='SCENE_D05P02_020'},
+  {t='bgm', track='Rising Fear'},
+  {t='msg', key='SCENE_D05P02_021'},
+  {t='msg', key='SCENE_D05P02_022'},
+  {t='msg', key='SCENE_D05P02_023'},
+  {t='msg', key='SCENE_D05P02_024'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='9'},
+  {t='anim', id='5'},
+  {t='anim', id='2'},
+  {t='anim', id='22'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D05P02_025'},
+}
 
 function d05p02.Init(map)
   DEBUG.EnableDbgCoro()
@@ -29,7 +70,7 @@ end
 function d05p02.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   SV.CanonicalDungeons = SV.CanonicalDungeons or {}
   SV.CanonicalDungeons['silent_chasm'] = true

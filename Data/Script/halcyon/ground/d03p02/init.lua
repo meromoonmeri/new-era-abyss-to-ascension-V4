@@ -18,8 +18,35 @@ require 'halcyon.RedCanonScene'
 local d03p02 = {}
 
 local SCENE = 'd03p02'
-local LINES = {'SCENE_D03P02_001', 'SCENE_D03P02_002', 'SCENE_D03P02_003', 'SCENE_D03P02_004', 'SCENE_D03P02_005', 'SCENE_D03P02_006', 'SCENE_D03P02_007', 'SCENE_D03P02_008', 'SCENE_D03P02_009', 'SCENE_D03P02_010', 'SCENE_D03P02_011', 'SCENE_D03P02_012'}
-local MUSIC = 'In the Depths of the Pit'
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d03p02.cif.json).
+local EVENTS = {
+  {t='bgm', track='In the Depths of the Pit'},
+  {t='camera', action='INIT_PAN'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D03P02_001'},
+  {t='msg', key='SCENE_D03P02_002'},
+  {t='msg', key='SCENE_D03P02_003'},
+  {t='msg', key='SCENE_D03P02_004'},
+  {t='msg', key='SCENE_D03P02_005'},
+  {t='msg', key='SCENE_D03P02_006'},
+  {t='msg', key='SCENE_D03P02_007'},
+  {t='msg', key='SCENE_D03P02_008'},
+  {t='msg', key='SCENE_D03P02_009'},
+  {t='msg', key='SCENE_D03P02_010'},
+  {t='msg', key='SCENE_D03P02_011'},
+  {t='msg', key='SCENE_D03P02_012'},
+  {t='anim', id='2'},
+  {t='anim', id='40'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='9'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='23'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+}
 
 function d03p02.Init(map)
   DEBUG.EnableDbgCoro()
@@ -29,7 +56,7 @@ end
 function d03p02.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   SV.CanonicalDungeons = SV.CanonicalDungeons or {}
   SV.CanonicalDungeons['mt_steel'] = true

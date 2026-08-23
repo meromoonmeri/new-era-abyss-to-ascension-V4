@@ -18,8 +18,19 @@ require 'halcyon.RedCanonScene'
 local vallon_perdu = {}
 
 local SCENE = 'd22p01'
-local LINES = {'SCENE_D22P01_001', 'SCENE_D22P01_002', 'SCENE_D22P01_003', 'SCENE_D22P01_004', 'SCENE_D22P01_005'}
-local MUSIC = nil
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d22p01.cif.json).
+local EVENTS = {
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D22P01_001'},
+  {t='msg', key='SCENE_D22P01_002'},
+  {t='msg', key='SCENE_D22P01_003'},
+  {t='msg', key='SCENE_D22P01_004'},
+  {t='msg', key='SCENE_D22P01_005'},
+  {t='bgm_fade', frames=90},
+  {t='anim', id='4'},
+  {t='anim', id='22'},
+}
 
 function vallon_perdu.Init(map)
   DEBUG.EnableDbgCoro()
@@ -29,7 +40,7 @@ end
 function vallon_perdu.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   SV.CanonicalDungeons = SV.CanonicalDungeons or {}
   SV.CanonicalDungeons['pitfall_valley'] = true

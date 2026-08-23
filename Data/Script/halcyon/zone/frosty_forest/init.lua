@@ -65,7 +65,9 @@ function frosty_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
   if segmentID == 0 then
     -- scène canonique de transition vers frosty_grotto
     SV.CanonicalDungeons.Pending = 'frosty_forest_seg0'
-    GAME:EnterGroundMap('d10p02', 'Main_Entrance_Marker')
+    -- d10p02 ne porte aucun marqueur : la scène téléporte
+    -- elle-même le joueur, on entre donc par index.
+    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, 'd10p02'), 0)
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end

@@ -65,7 +65,9 @@ function mt_steel.ExitSegment(zone, result, rescue, segmentID, mapID)
   if segmentID == 0 then
     -- Ground final canonique : cinématique, combat et fin au même endroit
     SV.CanonicalDungeons.Pending = 'mt_steel_seg0'
-    GAME:EnterGroundMap('d03p02', 'Main_Entrance_Marker')
+    -- d03p02 ne porte aucun marqueur : la scène téléporte
+    -- elle-même le joueur, on entre donc par index.
+    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, 'd03p02'), 0)
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end

@@ -19,8 +19,51 @@ require 'halcyon.RedCanonScene'
 local grotte_lazuli_seuil = {}
 
 local SCENE = 'd08p01'
-local LINES = {'SCENE_D08P01_001', 'SCENE_D08P01_002', 'SCENE_D08P01_003', 'SCENE_D08P01_004', 'SCENE_D08P01_005', 'SCENE_D08P01_006', 'SCENE_D08P01_007', 'SCENE_D08P01_008', 'SCENE_D08P01_009', 'SCENE_D08P01_010', 'SCENE_D08P01_011', 'SCENE_D08P01_012', 'SCENE_D08P01_013', 'SCENE_D08P01_014', 'SCENE_D08P01_015', 'SCENE_D08P01_016', 'SCENE_D08P01_017', 'SCENE_D08P01_018'}
-local MUSIC = 'Lapis Cave'
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d08p01.cif.json).
+local EVENTS = {
+  {t='bgm', track='Lapis Cave'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='bgm', track=''},
+  {t='anim', id='2'},
+  {t='bgm_fade', frames=30},
+  {t='msg', key='SCENE_D08P01_001'},
+  {t='bgm', track='Lapis Cave'},
+  {t='msg', key='SCENE_D08P01_002'},
+  {t='msg', key='SCENE_D08P01_003'},
+  {t='msg', key='SCENE_D08P01_004'},
+  {t='msg', key='SCENE_D08P01_005'},
+  {t='msg', key='SCENE_D08P01_006'},
+  {t='msg', key='SCENE_D08P01_007'},
+  {t='msg', key='SCENE_D08P01_008'},
+  {t='msg', key='SCENE_D08P01_009'},
+  {t='camera', action='PAN'},
+  {t='anim', id='2'},
+  {t='camera', action='PAN'},
+  {t='bgm', track='Lapis Cave'},
+  {t='msg', key='SCENE_D08P01_010'},
+  {t='msg', key='SCENE_D08P01_011'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D08P01_012'},
+  {t='msg', key='SCENE_D08P01_013'},
+  {t='msg', key='SCENE_D08P01_014'},
+  {t='bgm_fade', frames=60},
+  {t='bgm_fade', frames=60},
+  {t='anim', id='2'},
+  {t='bgm', track='Lapis Cave'},
+  {t='anim', id='2'},
+  {t='msg', key='SCENE_D08P01_015'},
+  {t='msg', key='SCENE_D08P01_016'},
+  {t='anim', id='2'},
+  {t='bgm', track='Lapis Cave'},
+  {t='msg', key='SCENE_D08P01_017'},
+  {t='msg', key='SCENE_D08P01_018'},
+}
 
 function grotte_lazuli_seuil.Init(map)
   DEBUG.EnableDbgCoro()
@@ -30,7 +73,7 @@ end
 function grotte_lazuli_seuil.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   GAME:FadeOut(false, 30)
   GAME:EnterDungeon('lapis_cave', 0, 0, 0,

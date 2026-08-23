@@ -19,8 +19,20 @@ require 'halcyon.RedCanonScene'
 local d09p02 = {}
 
 local SCENE = 'd09p02'
-local LINES = {'SCENE_D09P02_001', 'SCENE_D09P02_002'}
-local MUSIC = 'Mt. Blaze'
+-- Séquence canonique, dans l'ordre du script de la ROM
+-- (RESERVE/red_cinematics/d09p02.cif.json).
+local EVENTS = {
+  {t='bgm', track='Mt. Blaze'},
+  {t='bgm_fade', frames=60},
+  {t='bgm_fade', frames=30},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='anim', id='2'},
+  {t='bgm', track='Mt. Blaze'},
+  {t='msg', key='SCENE_D09P02_001'},
+  {t='msg', key='SCENE_D09P02_002'},
+}
 
 function d09p02.Init(map)
   DEBUG.EnableDbgCoro()
@@ -30,7 +42,7 @@ end
 function d09p02.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
-  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
   GAME:FadeOut(false, 30)
   GAME:EnterDungeon('mt_blaze_peak', 0, 0, 0,
