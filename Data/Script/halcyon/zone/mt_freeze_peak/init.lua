@@ -64,7 +64,7 @@ function mt_freeze_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
 
   if segmentID == 0 then
     -- Ground final canonique : cinématique, combat et fin au même endroit
-    SV.CanonicalDungeons.Pending = 'mt_freeze_summit'
+    SV.CanonicalDungeons.Pending = 'mt_freeze_peak_seg0'
     GAME:EnterGroundMap('d11p03', 'Main_Entrance_Marker')
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)

@@ -68,7 +68,7 @@ function mt_blaze.ExitSegment(zone, result, rescue, segmentID, mapID)
     GAME:EnterGroundMap('mt_blaze_midpoint', 'Main_Entrance_Marker')
   elseif segmentID == 1 then
     -- scène canonique de transition vers mt_blaze_peak
-    SV.CanonicalDungeons.Pending = 'mt_blaze_mid'
+    SV.CanonicalDungeons.Pending = 'mt_blaze_seg1'
     GAME:EnterGroundMap('d09p02', 'Main_Entrance_Marker')
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)

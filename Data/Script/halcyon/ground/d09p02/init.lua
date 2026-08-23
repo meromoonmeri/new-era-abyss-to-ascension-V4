@@ -1,11 +1,26 @@
--- [dungeon_builder] recâblage : scène canonique de transition : elle enchaîne sur mt_blaze_peak, donjon suivant de la chaîne PMD Red
---[[ d09p02 — étape de l'Arc Fugitif (ch11, canon PMD Red).
-     Ground pixel-perfect du port PMD-RED-PMDO-PORT. La scène est jouée
-     par FugitiveArc.Play (dialogues par clés SCENE_*, à adopter). ]]
+-- [dungeon_builder] scène canonique PMD Red — scène d09p02 (relay).
+--[[ d09p02 — cinématique canonique de Pokémon Mystery Dungeon: Red Rescue Team.
+
+     Structure reprise du squelette extrait de la ROM
+     (RESERVE/red_scene_reference/d09p02.lua) : musique, ordre et nombre de
+     répliques, actions. Aucune réplique inventée : chaque ligne est la clé de
+     texte canonique `SCENE_D09P02_nnn`. Les clés absentes des Strings du mod
+     sont sautées — importer le texte de la ROM avec
+     `tools/audit_pmdred_eu_rom.py` les fera apparaître.
+
+     Rôle canonique : relais de mi-parcours — aucun combat (docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md).
+     Aucun boss ici : dans PMD Red les combats de gardien se jouent à la
+     scène de fin du donjon ou dans le donjon lui-même.
+     Regénérer : python3 tools/dungeon_builder.py canon-scenes --apply ]]
 require 'origin.common'
-require 'halcyon.FugitiveArc'
+require 'halcyon.GeneralFunctions'
+require 'halcyon.RedCanonScene'
 
 local d09p02 = {}
+
+local SCENE = 'd09p02'
+local LINES = {'SCENE_D09P02_001', 'SCENE_D09P02_002'}
+local MUSIC = 'Mt. Blaze'
 
 function d09p02.Init(map)
   DEBUG.EnableDbgCoro()
@@ -13,16 +28,13 @@ function d09p02.Init(map)
 end
 
 function d09p02.Enter(map)
-  if SV.CanonicalDungeons and SV.CanonicalDungeons.Pending == 'mt_blaze_mid' then
-    local ok, scene = pcall(require, 'halcyon.arc_fugitif.scene.d09p02')
-    if ok and scene and scene.Cutscene then pcall(scene.Cutscene) end
-    SV.CanonicalDungeons.Pending = nil
-    GAME:FadeOut(false, 30)
-    GAME:EnterDungeon('mt_blaze_peak', 0, 0, 0,
-      RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
-  else
-    FugitiveArc.Play('d09p02')
-  end
+  DEBUG.EnableDbgCoro()
+  GAME:FadeIn(20)
+  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  GAME:CutsceneMode(false)
+  GAME:FadeOut(false, 30)
+  GAME:EnterDungeon('mt_blaze_peak', 0, 0, 0,
+    RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function d09p02.Update(map) end

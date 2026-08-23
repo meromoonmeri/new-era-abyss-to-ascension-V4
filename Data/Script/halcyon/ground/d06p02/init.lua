@@ -1,13 +1,26 @@
--- [dungeon_builder] script de Ground canonique généré — ne pas éditer à la main.
---[[ d06p02 — relais canonique de mt_thunder.
-     Ground canonique existant : la scène, le combat et la conclusion s'y
-     déroulent au même endroit. Ce script assure uniquement la continuité du
-     parcours ; les dialogues restent portés par la scène du Ground.
-     Regénérer avec : python3 tools/dungeon_builder.py wire-scenes --apply ]]
+-- [dungeon_builder] scène canonique PMD Red — scène d06p02 (relay).
+--[[ d06p02 — cinématique canonique de Pokémon Mystery Dungeon: Red Rescue Team.
+
+     Structure reprise du squelette extrait de la ROM
+     (RESERVE/red_scene_reference/d06p02.lua) : musique, ordre et nombre de
+     répliques, actions. Aucune réplique inventée : chaque ligne est la clé de
+     texte canonique `SCENE_D06P02_nnn`. Les clés absentes des Strings du mod
+     sont sautées — importer le texte de la ROM avec
+     `tools/audit_pmdred_eu_rom.py` les fera apparaître.
+
+     Rôle canonique : relais de mi-parcours — aucun combat (docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md).
+     Aucun boss ici : dans PMD Red les combats de gardien se jouent à la
+     scène de fin du donjon ou dans le donjon lui-même.
+     Regénérer : python3 tools/dungeon_builder.py canon-scenes --apply ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.RedCanonScene'
 
 local d06p02 = {}
+
+local SCENE = 'd06p02'
+local LINES = {'SCENE_D06P02_001', 'SCENE_D06P02_002'}
+local MUSIC = 'Mt. Thunder'
 
 function d06p02.Init(map)
   DEBUG.EnableDbgCoro()
@@ -17,6 +30,8 @@ end
 function d06p02.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
+  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  GAME:CutsceneMode(false)
   GAME:FadeOut(false, 30)
   GAME:EnterDungeon('mt_thunder_peak', 0, 0, 0,
     RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)

@@ -1,10 +1,26 @@
---[[ arc_palier_celeste — étape de l'Arc Fugitif (ch11, canon PMD Red).
-     Copie 1:1 de palier_celeste (géométrie pixel-perfect), AssetName distinct du
-     climax ch10. Scène jouée par FugitiveArc.Play. ]]
+-- [dungeon_builder] scène canonique PMD Red — scène d13p02 (relay).
+--[[ arc_palier_celeste — cinématique canonique de Pokémon Mystery Dungeon: Red Rescue Team.
+
+     Structure reprise du squelette extrait de la ROM
+     (RESERVE/red_scene_reference/d13p02.lua) : musique, ordre et nombre de
+     répliques, actions. Aucune réplique inventée : chaque ligne est la clé de
+     texte canonique `SCENE_D13P02_nnn`. Les clés absentes des Strings du mod
+     sont sautées — importer le texte de la ROM avec
+     `tools/audit_pmdred_eu_rom.py` les fera apparaître.
+
+     Rôle canonique : relais de mi-parcours — aucun combat (docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md).
+     Aucun boss ici : dans PMD Red les combats de gardien se jouent à la
+     scène de fin du donjon ou dans le donjon lui-même.
+     Regénérer : python3 tools/dungeon_builder.py canon-scenes --apply ]]
 require 'origin.common'
-require 'halcyon.FugitiveArc'
+require 'halcyon.GeneralFunctions'
+require 'halcyon.RedCanonScene'
 
 local arc_palier_celeste = {}
+
+local SCENE = 'd13p02'
+local LINES = {'SCENE_D13P02_001', 'SCENE_D13P02_002'}
+local MUSIC = 'Sky Tower'
 
 function arc_palier_celeste.Init(map)
   DEBUG.EnableDbgCoro()
@@ -12,7 +28,13 @@ function arc_palier_celeste.Init(map)
 end
 
 function arc_palier_celeste.Enter(map)
-  FugitiveArc.Play('arc_palier_celeste')
+  DEBUG.EnableDbgCoro()
+  GAME:FadeIn(20)
+  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  GAME:CutsceneMode(false)
+  GAME:FadeOut(false, 30)
+  GAME:EnterDungeon('sky_tower_summit', 0, 0, 0,
+    RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function arc_palier_celeste.Update(map) end

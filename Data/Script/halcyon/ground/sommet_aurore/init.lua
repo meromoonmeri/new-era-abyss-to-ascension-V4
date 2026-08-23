@@ -1,88 +1,46 @@
--- [dungeon_builder] recâblage : scène du gardien puis combat sur l'étage d'arène du segment 2 de mt_faraway : cinématique et combat au même endroit
---[[ Ho-Oh, le Bûcher de l'Aurore — cinématique d'Ancrage (Livre II, ch18).
-     Ground template d'origine conservé 1:1 ; dialogues New Era.
-     Grammaire Rescue Team : signal -> irruption -> recul -> flash -> reveal
-     -> titre -> ligne courte. Rematch : intro raccourcie. ]]
+-- [dungeon_builder] scène canonique PMD Red — scène d19p01 (end).
+--[[ sommet_aurore — cinématique canonique de Pokémon Mystery Dungeon: Red Rescue Team.
+
+     Structure reprise du squelette extrait de la ROM
+     (RESERVE/red_scene_reference/d19p01.lua) : musique, ordre et nombre de
+     répliques, actions. Aucune réplique inventée : chaque ligne est la clé de
+     texte canonique `SCENE_D19P01_nnn`. Les clés absentes des Strings du mod
+     sont sautées — importer le texte de la ROM avec
+     `tools/audit_pmdred_eu_rom.py` les fera apparaître.
+
+     Rôle canonique : scène de fin / arène du donjon (docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md).
+     
+     Regénérer : python3 tools/dungeon_builder.py canon-scenes --apply ]]
 require 'origin.common'
-require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
-require 'halcyon.CharacterEssentials'
-require 'halcyon.BossFX'
-require 'halcyon.LegendZones'
-require 'halcyon.BossMusic'
+require 'halcyon.RedCanonScene'
 
 local sommet_aurore = {}
+
+local SCENE = 'd19p01'
+local LINES = {'SCENE_D19P01_001', 'SCENE_D19P01_002', 'SCENE_D19P01_003', 'SCENE_D19P01_004', 'SCENE_D19P01_005', 'SCENE_D19P01_006', 'SCENE_D19P01_007', 'SCENE_D19P01_008', 'SCENE_D19P01_009', 'SCENE_D19P01_010', 'SCENE_D19P01_011', 'SCENE_D19P01_012', 'SCENE_D19P01_013', 'SCENE_D19P01_014', 'SCENE_D19P01_015', 'SCENE_D19P01_016', 'SCENE_D19P01_017', 'SCENE_D19P01_018', 'SCENE_D19P01_019'}
+local MUSIC = nil
 
 function sommet_aurore.Init(map)
   DEBUG.EnableDbgCoro()
   COMMON.RespawnAllies(true)
-  PartnerEssentials.InitializePartnerSpawn()
 end
 
 function sommet_aurore.Enter(map)
   DEBUG.EnableDbgCoro()
-  local hero = CH('PLAYER')
-  local partner = CH('Teammate1')
-  GAME:CutsceneMode(true)
-  GROUND:TeleportTo(hero, 280, 256, Direction.Up)
-  if partner ~= nil then GROUND:TeleportTo(partner, 256, 256, Direction.Up) end
-  local hooh = CharacterEssentials.MakeCharactersFromList({{'HoOh', 280, 208, Direction.Down}})
-  GROUND:Hide('HoOh')
-  GAME:MoveCamera(280, 200, 1, false)
-  GAME:FadeIn(40)
-  GAME:WaitFrames(30)
-
-  if LegendZones.IsDefeated('rainbow_ash') then
-    -- REMATCH : le gardien connaît déjà l'équipe, pas de cérémonie.
-    GROUND:Unhide('HoOh')
-    UI:SetSpeaker(hooh)
-    UI:WaitShowDialogue("J'ai promis de revenir quand les cœurs seraient purs.[pause=20] Montrez-moi que j'ai bien choisi ma date.")
-    COMMON.BossTransition()
-    GAME:CutsceneMode(false)
-    GAME:ContinueDungeon("mt_faraway", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
-    return
-  end
-
-  -- 1. Le signal : la voix du gardien, avant toute image.
-  UI:ResetSpeaker(false)
-  UI:SetCenter(true)
-  UI:WaitShowDialogue("CEUX QUI GRIMPENT POUR ÊTRE VUS TOMBENT.[pause=20] CEUX QUI GRIMPENT POUR VOIR, PARFOIS, S'ENVOLENT.")
-  UI:SetCenter(false)
-  GAME:WaitFrames(30)
-
-  -- 2. L'irruption (motif propre à ce gardien — fiche anti-répétition).
-  BossFX.DescendSky(hooh, 280, 208, 160)
-  GAME:WaitFrames(20)
-
-  -- 3. Le recul du groupe.
-  BossFX.PushBack({hero, partner}, Direction.Down)
-  GAME:WaitFrames(10)
-
-  -- 4/5. Reveal : pose figée puis garde.
-  GROUND:Unhide('HoOh')
-  GROUND:CharSetAnim(hooh, "Attack", false)
-  GAME:WaitFrames(18)
-  GROUND:CharSetAnim(hooh, "Idle", true)
-  -- 6. Titre + thème.
-  BossMusic.Play('sommet_aurore')
-  UI:WaitShowTitle("Ho-Oh, le Bûcher de l'Aurore", 20)
-  GAME:WaitFrames(50)
-  UI:WaitHideTitle(20)
-
-  -- 7. L'échange — court, à la Explorers.
-  UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Happy")
-  UI:WaitShowDialogue(STRINGS:Format("Un arc-en-ciel...[pause=10] en pleine nuit ![pause=20] {0}, regarde — le ciel BRÛLE de couleurs !", hero:GetDisplayName()))
-  UI:SetSpeaker(hooh)
-  UI:WaitShowDialogue("J'ai promis de revenir quand les cœurs seraient purs.[pause=20] Montrez-moi que j'ai bien choisi ma date.")
-
-  COMMON.BossTransition()
+  GAME:FadeIn(20)
+  RedCanonScene.Play(SCENE, LINES, MUSIC)
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("mt_faraway", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  SV.CanonicalDungeons = SV.CanonicalDungeons or {}
+  SV.CanonicalDungeons['mt_faraway'] = true
+  GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared,
+    'master_zone', -1, 1, 0, true, true)
 end
 
-function sommet_aurore.Update(map, time) end
+function sommet_aurore.Update(map) end
 function sommet_aurore.GameSave(map) end
-function sommet_aurore.GameLoad(map) end
+function sommet_aurore.GameLoad(map)
+  GAME:FadeIn(20)
+end
 
 return sommet_aurore

@@ -1,92 +1,43 @@
---[[ La Voie des Eaux Troubles — scene "ouverture de la voie" (Reseau des Anciens Chemins).
-     Ground pmd-red importe 1:1 ; geometrie intouchee, dialogues New Era.
-     Jouee UNE SEULE FOIS a la premiere victoire (SV.Reseau.VoiesOuvertes).
-     Sortie garantie en fin de scene ET en cas de rejeu : jamais de blocage. ]]
+-- [dungeon_builder] scène canonique PMD Red — scène d24p02 (end).
+--[[ caverne_trouble_autel — cinématique canonique de Pokémon Mystery Dungeon: Red Rescue Team.
+
+     Structure reprise du squelette extrait de la ROM
+     (RESERVE/red_scene_reference/d24p02.lua) : musique, ordre et nombre de
+     répliques, actions. Aucune réplique inventée : chaque ligne est la clé de
+     texte canonique `SCENE_D24P02_nnn`. Les clés absentes des Strings du mod
+     sont sautées — importer le texte de la ROM avec
+     `tools/audit_pmdred_eu_rom.py` les fera apparaître.
+
+     Rôle canonique : scène de fin / arène du donjon (docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md).
+     
+     Regénérer : python3 tools/dungeon_builder.py canon-scenes --apply ]]
 require 'origin.common'
-require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
-require 'halcyon.CharacterEssentials'
-require 'halcyon.BossFX'
+require 'halcyon.RedCanonScene'
 
 local caverne_trouble_autel = {}
 
-local function sortie()
-  GAME:FadeOut(false, 40)
-  GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, "master_zone", -1, 1, 0, true, true)
-end
+local SCENE = 'd24p02'
+local LINES = {'SCENE_D24P02_001', 'SCENE_D24P02_002'}
+local MUSIC = nil
 
 function caverne_trouble_autel.Init(map)
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> Init_caverne_trouble_autel")
   COMMON.RespawnAllies(true)
-  PartnerEssentials.InitializePartnerSpawn()
 end
 
 function caverne_trouble_autel.Enter(map)
   DEBUG.EnableDbgCoro()
-  local hero = CH('PLAYER')
-  local partner = CH('Teammate1')
-  GAME:CutsceneMode(true)
-  GROUND:TeleportTo(hero, 216, 168, Direction.Up)
-  if partner ~= nil then GROUND:TeleportTo(partner, 184, 168, Direction.Up) end
-  GAME:MoveCamera(200, 152, 1, false)
-  GAME:FadeIn(40)
-  GAME:WaitFrames(30)
-
-  if partner ~= nil then
-    UI:SetSpeaker(partner)
-    GeneralFunctions.SetEmotion("Worried")
-    UI:WaitShowDialogue("L'eau est opaque...[pause=20] On ne voit même pas nos propres pattes.")
-  end
-  GAME:WaitFrames(12)
-  UI:ResetSpeaker(false)
-  UI:SetCenter(true)
-  UI:WaitShowDialogue("Au centre du bassin, une plateforme de pierre émerge à peine de la vase.")
-  UI:SetCenter(false)
-  GAME:WaitFrames(12)
-  if partner ~= nil then
-    UI:SetSpeaker(partner)
-    GeneralFunctions.SetEmotion("Normal")
-    UI:WaitShowDialogue("Un autel ?[pause=20] Non...[pause=15] regarde les rainures sur le dessus.")
-  end
-  GAME:WaitFrames(12)
-  -- Le mecanisme des batisseurs se rallume.
-  SOUND:PlayBattleSE("EVT_Battle_Flash")
-  BossFX.Flash(200, 152, 4, 6, 24)
-  GAME:WaitFrames(24)
-  GAME:WaitFrames(12)
-  UI:ResetSpeaker(false)
-  UI:SetCenter(true)
-  UI:WaitShowDialogue("Les rainures se remplissent de lumière et l'eau se retire lentement du socle.")
-  UI:SetCenter(false)
-  GAME:WaitFrames(12)
-  if partner ~= nil then
-    UI:SetSpeaker(partner)
-    GeneralFunctions.SetEmotion("Surprised")
-    UI:WaitShowDialogue("L'eau lui obéit ![pause=20] Ce n'est pas un autel, c'est une écluse !")
-  end
-  GAME:WaitFrames(12)
-  if partner ~= nil then
-    UI:SetSpeaker(partner)
-    GeneralFunctions.SetEmotion("Normal")
-    UI:WaitShowDialogue("Les bâtisseurs contrôlaient le niveau pour garder la voie praticable.")
-  end
-  GAME:WaitFrames(12)
-  GeneralFunctions.HeroDialogue(hero, "Tout ici sert à faire passer quelqu'un.", "Normal")
-  GAME:WaitFrames(12)
-  if partner ~= nil then
-    UI:SetSpeaker(partner)
-    GeneralFunctions.SetEmotion("Inspired")
-    UI:WaitShowDialogue("Et ce quelqu'un, aujourd'hui, c'est nous.")
-  end
-  GAME:WaitFrames(12)
-  GAME:WaitFrames(20)
+  GAME:FadeIn(20)
+  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  -- aucune suite câblée : la scène rend la main au jeu
   GAME:CutsceneMode(false)
-  sortie()
 end
 
-function caverne_trouble_autel.Update(map, time) end
+function caverne_trouble_autel.Update(map) end
 function caverne_trouble_autel.GameSave(map) end
-function caverne_trouble_autel.GameLoad(map) end
+function caverne_trouble_autel.GameLoad(map)
+  GAME:FadeIn(20)
+end
 
 return caverne_trouble_autel

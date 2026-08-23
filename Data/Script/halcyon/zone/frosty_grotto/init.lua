@@ -64,7 +64,7 @@ function frosty_grotto.ExitSegment(zone, result, rescue, segmentID, mapID)
 
   if segmentID == 0 then
     -- Ground final canonique : cinématique, combat et fin au même endroit
-    SV.CanonicalDungeons.Pending = 'frosty_forest_summit'
+    SV.CanonicalDungeons.Pending = 'frosty_grotto_seg0'
     GAME:EnterGroundMap('d10p03', 'Main_Entrance_Marker')
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)

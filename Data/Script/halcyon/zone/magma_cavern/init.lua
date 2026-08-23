@@ -72,7 +72,7 @@ function magma_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
       RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
   elseif segmentID == 2 then
     -- scène canonique de transition vers magma_cavern_pit
-    SV.CanonicalDungeons.Pending = 'magma_cavern_mid'
+    SV.CanonicalDungeons.Pending = 'magma_cavern_seg2'
     GAME:EnterGroundMap('gorge_ardente_coeur', 'Main_Entrance_Marker')
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)

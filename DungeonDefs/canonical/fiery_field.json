@@ -900,22 +900,20 @@
     "segment_exits": [
       {
         "segment": 0,
-        "kind": "ground",
-        "target": "champ_braises",
-        "reason": "cinématique du gardien puis retour dans le donjon pour le combat : cinématique et combat au même endroit, aucune arène séparée"
+        "kind": "zone",
+        "target": "fiery_field",
+        "reason": "poursuite directe vers le segment 1 du même donjon"
       },
       {
         "segment": 1,
-        "kind": "end_run",
-        "target": "master_zone",
-        "reason": "étage d'arène franchi : fin de run sur place, la scène a déjà été jouée"
+        "kind": "ground",
+        "target": "champ_braises",
+        "reason": "Ground final canonique : cinématique, combat et fin au même endroit"
       }
     ],
     "zone_script": "Data/Script/halcyon/zone/fiery_field/init.lua",
     "archived_script": "",
-    "notes": [
-      "champ_braises est une scène d'Ancrage qui rend la main au donjon : elle se joue à la fin du segment 0, le combat a lieu sur l'étage d'arène du segment 1"
-    ],
+    "notes": [],
     "rule": "cinématique = combat = fin sur le Ground canonique ; boss interne = étage fixe du donjon, jamais un Ground inventé",
     "ground_rebinds": []
   }

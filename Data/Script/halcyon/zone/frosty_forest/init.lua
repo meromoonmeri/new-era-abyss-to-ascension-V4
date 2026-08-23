@@ -64,7 +64,7 @@ function frosty_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 
   if segmentID == 0 then
     -- scène canonique de transition vers frosty_grotto
-    SV.CanonicalDungeons.Pending = 'frosty_forest_mid'
+    SV.CanonicalDungeons.Pending = 'frosty_forest_seg0'
     GAME:EnterGroundMap('d10p02', 'Main_Entrance_Marker')
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)

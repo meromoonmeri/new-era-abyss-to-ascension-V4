@@ -1,92 +1,46 @@
---[[ La Voie du Gouffre Muet — scene "ouverture de la voie" (Reseau des Anciens Chemins).
-     Ground pmd-red importe 1:1 ; geometrie intouchee, dialogues New Era.
-     Jouee UNE SEULE FOIS a la premiere victoire (SV.Reseau.VoiesOuvertes).
-     Sortie garantie en fin de scene ET en cas de rejeu : jamais de blocage. ]]
+-- [dungeon_builder] scène canonique PMD Red — scène d05p01 (entrance).
+--[[ gouffre_muet_bord — cinématique canonique de Pokémon Mystery Dungeon: Red Rescue Team.
+
+     Structure reprise du squelette extrait de la ROM
+     (RESERVE/red_scene_reference/d05p01.lua) : musique, ordre et nombre de
+     répliques, actions. Aucune réplique inventée : chaque ligne est la clé de
+     texte canonique `SCENE_D05P01_nnn`. Les clés absentes des Strings du mod
+     sont sautées — importer le texte de la ROM avec
+     `tools/audit_pmdred_eu_rom.py` les fera apparaître.
+
+     Rôle canonique : entrée du donjon — aucun combat (docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md).
+     Aucun boss ici : dans PMD Red les combats de gardien se jouent à la
+     scène de fin du donjon ou dans le donjon lui-même.
+     Regénérer : python3 tools/dungeon_builder.py canon-scenes --apply ]]
 require 'origin.common'
-require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
-require 'halcyon.CharacterEssentials'
-require 'halcyon.BossFX'
+require 'halcyon.RedCanonScene'
 
 local gouffre_muet_bord = {}
 
-local function sortie()
-  GAME:FadeOut(false, 40)
-  GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, "master_zone", -1, 1, 0, true, true)
-end
+local SCENE = 'd05p01'
+local LINES = {'SCENE_D05P01_001', 'SCENE_D05P01_002', 'SCENE_D05P01_003', 'SCENE_D05P01_004', 'SCENE_D05P01_005', 'SCENE_D05P01_006', 'SCENE_D05P01_007', 'SCENE_D05P01_008', 'SCENE_D05P01_009', 'SCENE_D05P01_010', 'SCENE_D05P01_011', 'SCENE_D05P01_012', 'SCENE_D05P01_013', 'SCENE_D05P01_014', 'SCENE_D05P01_015', 'SCENE_D05P01_016', 'SCENE_D05P01_017', 'SCENE_D05P01_018', 'SCENE_D05P01_019', 'SCENE_D05P01_020', 'SCENE_D05P01_021', 'SCENE_D05P01_022', 'SCENE_D05P01_023', 'SCENE_D05P01_024', 'SCENE_D05P01_025', 'SCENE_D05P01_026', 'SCENE_D05P01_027', 'SCENE_D05P01_028', 'SCENE_D05P01_029', 'SCENE_D05P01_030', 'SCENE_D05P01_031', 'SCENE_D05P01_032', 'SCENE_D05P01_033', 'SCENE_D05P01_034', 'SCENE_D05P01_035', 'SCENE_D05P01_036', 'SCENE_D05P01_037', 'SCENE_D05P01_038'}
+local MUSIC = nil
 
 function gouffre_muet_bord.Init(map)
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> Init_gouffre_muet_bord")
   COMMON.RespawnAllies(true)
-  PartnerEssentials.InitializePartnerSpawn()
 end
 
 function gouffre_muet_bord.Enter(map)
   DEBUG.EnableDbgCoro()
-  local hero = CH('PLAYER')
-  local partner = CH('Teammate1')
-  GAME:CutsceneMode(true)
-  GROUND:TeleportTo(hero, 240, 144, Direction.Up)
-  if partner ~= nil then GROUND:TeleportTo(partner, 208, 144, Direction.Up) end
-  GAME:MoveCamera(224, 128, 1, false)
-  GAME:FadeIn(40)
-  GAME:WaitFrames(30)
-
-  if partner ~= nil then
-    UI:SetSpeaker(partner)
-    GeneralFunctions.SetEmotion("Worried")
-    UI:WaitShowDialogue("Écoute...[pause=25] Non. Justement.[pause=20] On n'entend rien du tout.")
-  end
-  GAME:WaitFrames(12)
-  UI:ResetSpeaker(false)
-  UI:SetCenter(true)
-  UI:WaitShowDialogue("Le gouffre avale les sons. Même les pas ne portent pas.")
-  UI:SetCenter(false)
-  GAME:WaitFrames(12)
-  if partner ~= nil then
-    UI:SetSpeaker(partner)
-    GeneralFunctions.SetEmotion("Surprised")
-    UI:WaitShowDialogue("J'ai crié et je ne me suis pas entendu ![pause=20] C'est ce silence qui est anormal.")
-  end
-  GAME:WaitFrames(12)
-  -- Le mecanisme des batisseurs se rallume.
-  SOUND:PlayBattleSE("EVT_Battle_Flash")
-  BossFX.Flash(224, 128, 4, 6, 24)
-  GAME:WaitFrames(24)
-  GAME:WaitFrames(12)
-  UI:ResetSpeaker(false)
-  UI:SetCenter(true)
-  UI:WaitShowDialogue("Une plaque gravée s'illumine au bord du vide, et un son grave revient enfin.")
-  UI:SetCenter(false)
-  GAME:WaitFrames(12)
-  if partner ~= nil then
-    UI:SetSpeaker(partner)
-    GeneralFunctions.SetEmotion("Normal")
-    UI:WaitShowDialogue("Le son est... rendu ?[pause=20] Comme si le mécanisme le retenait jusqu'ici.")
-  end
-  GAME:WaitFrames(12)
-  if partner ~= nil then
-    UI:SetSpeaker(partner)
-    GeneralFunctions.SetEmotion("Worried")
-    UI:WaitShowDialogue("Les bâtisseurs ont fait taire ce gouffre exprès.[pause=20] Pour protéger quoi ?")
-  end
-  GAME:WaitFrames(12)
-  GeneralFunctions.HeroDialogue(hero, "Peut-être pour protéger ceux qui passaient.", "Normal")
-  GAME:WaitFrames(12)
-  if partner ~= nil then
-    UI:SetSpeaker(partner)
-    GeneralFunctions.SetEmotion("Inspired")
-    UI:WaitShowDialogue("La voie est rouverte.[pause=20] Et elle a retrouvé sa voix.")
-  end
-  GAME:WaitFrames(12)
-  GAME:WaitFrames(20)
+  GAME:FadeIn(20)
+  RedCanonScene.Play(SCENE, LINES, MUSIC)
   GAME:CutsceneMode(false)
-  sortie()
+  GAME:FadeOut(false, 30)
+  GAME:EnterDungeon('silent_chasm', 0, 0, 0,
+    RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function gouffre_muet_bord.Update(map, time) end
+function gouffre_muet_bord.Update(map) end
 function gouffre_muet_bord.GameSave(map) end
-function gouffre_muet_bord.GameLoad(map) end
+function gouffre_muet_bord.GameLoad(map)
+  GAME:FadeIn(20)
+end
 
 return gouffre_muet_bord

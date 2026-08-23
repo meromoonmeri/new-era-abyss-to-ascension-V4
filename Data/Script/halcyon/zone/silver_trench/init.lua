@@ -67,15 +67,15 @@ function silver_trench.ExitSegment(zone, result, rescue, segmentID, mapID)
     GAME:EnterDungeon('silver_trench', 1, 0, 0,
       RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
   elseif segmentID == 1 then
-    -- cinématique du gardien puis retour dans le donjon pour le combat : cinématique et combat au même endroit, aucune arène séparée
-    SV.CanonicalDungeons.Pending = 'silver_trench_seg1'
+    -- poursuite directe vers le segment 2 du même donjon
+    GAME:EnterDungeon('silver_trench', 2, 0, 0,
+      RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  elseif segmentID == 2 then
+    -- Ground final canonique : cinématique, combat et fin au même endroit
+    SV.CanonicalDungeons.Pending = 'silver_trench_seg2'
     -- fosse_argentee ne porte aucun marqueur : la scène téléporte
     -- elle-même le joueur, on entre donc par index.
     GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, 'fosse_argentee'), 0)
-  elseif segmentID == 2 then
-    -- étage d'arène franchi : fin de run sur place, la scène a déjà été jouée
-    SV.CanonicalDungeons['silver_trench'] = true
-    GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end

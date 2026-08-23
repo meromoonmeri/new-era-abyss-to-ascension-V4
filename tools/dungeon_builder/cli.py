@@ -559,6 +559,40 @@ def cmd_verify_exclusivity(args) -> int:
     return 0
 
 
+def cmd_canon_scenes(args) -> int:
+    """Rejouer les cinématiques canoniques PMD Red sur leurs Grounds."""
+    from . import red_scenes, wiring
+
+    plan_result = wiring.plan()
+    expected = wiring._expected_targets(plan_result)
+    index = {}
+    for ground, spec in expected.items():
+        if spec["mode"] == "end_run":
+            index[ground] = {"kind": "end_run", "target": spec["dungeon"]}
+        else:
+            zone, segment, _floor = spec["target"]
+            index[ground] = {"kind": "enter_zone", "target": zone, "segment": segment}
+
+    outcome = red_scenes.apply(index, write=bool(args.apply))
+    ports = outcome["ports"]
+    invented = [p for p in ports if p.invented_before]
+    print(f"{len(ports)} Grounds canoniques")
+    print(f"  scripts {'écrits' if args.apply else 'à écrire'} : {len(outcome['written'])}")
+    print(f"  scènes inventées archivées : {len(outcome['archived'])}")
+    print(f"  répliques canoniques sans texte importé : {outcome['missing_text_keys']}")
+    if args.verbose:
+        for port in invented:
+            print(f"    inventé -> canon : {port.ground} ({port.scene.upper()}, {port.role})")
+    if args.report:
+        path = ROOT / "docs" / "dungeon_builder" / "CANON_SCENES.md"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(red_scenes.report(outcome), encoding="utf-8")
+        print(f"rapport: {path.relative_to(ROOT)}")
+    if not args.apply:
+        print("(simulation : relancer avec --apply pour écrire)")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="dungeon_builder",
                                      description="Configuration-driven dungeon builder on top of RogueElements")
@@ -657,6 +691,13 @@ def build_parser() -> argparse.ArgumentParser:
     generate.add_argument("--no-index", action="store_true")
     generate.add_argument("--no-dtef-check", action="store_true")
     generate.set_defaults(func=cmd_generate)
+
+    canon = sub.add_parser("canon-scenes",
+                           help="rejouer les cinématiques canoniques PMD Red sur leurs Grounds")
+    canon.add_argument("--apply", action="store_true")
+    canon.add_argument("--report", action="store_true")
+    canon.add_argument("--verbose", action="store_true")
+    canon.set_defaults(func=cmd_canon_scenes)
 
     wire = sub.add_parser("wire-scenes",
                           help="câblage narratif canonique (scripts de zone + Grounds)")

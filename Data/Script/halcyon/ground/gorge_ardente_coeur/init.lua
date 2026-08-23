@@ -1,11 +1,26 @@
--- [dungeon_builder] recâblage : scène canonique de transition : elle enchaîne sur magma_cavern_pit, donjon suivant de la chaîne PMD Red
---[[ gorge_ardente_coeur — étape de l'Arc Fugitif (ch11, canon PMD Red).
-     Ground pixel-perfect du port PMD-RED-PMDO-PORT. La scène est jouée
-     par FugitiveArc.Play (dialogues par clés SCENE_*, à adopter). ]]
+-- [dungeon_builder] scène canonique PMD Red — scène d12p02 (relay).
+--[[ gorge_ardente_coeur — cinématique canonique de Pokémon Mystery Dungeon: Red Rescue Team.
+
+     Structure reprise du squelette extrait de la ROM
+     (RESERVE/red_scene_reference/d12p02.lua) : musique, ordre et nombre de
+     répliques, actions. Aucune réplique inventée : chaque ligne est la clé de
+     texte canonique `SCENE_D12P02_nnn`. Les clés absentes des Strings du mod
+     sont sautées — importer le texte de la ROM avec
+     `tools/audit_pmdred_eu_rom.py` les fera apparaître.
+
+     Rôle canonique : relais de mi-parcours — aucun combat (docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md).
+     Aucun boss ici : dans PMD Red les combats de gardien se jouent à la
+     scène de fin du donjon ou dans le donjon lui-même.
+     Regénérer : python3 tools/dungeon_builder.py canon-scenes --apply ]]
 require 'origin.common'
-require 'halcyon.FugitiveArc'
+require 'halcyon.GeneralFunctions'
+require 'halcyon.RedCanonScene'
 
 local gorge_ardente_coeur = {}
+
+local SCENE = 'd12p02'
+local LINES = {'SCENE_D12P02_001', 'SCENE_D12P02_002'}
+local MUSIC = 'Magma Cavern'
 
 function gorge_ardente_coeur.Init(map)
   DEBUG.EnableDbgCoro()
@@ -13,12 +28,13 @@ function gorge_ardente_coeur.Init(map)
 end
 
 function gorge_ardente_coeur.Enter(map)
-  if SV.CanonicalDungeons and SV.CanonicalDungeons.Pending=='magma_cavern_mid' then
-    local ok,scene=pcall(require,'halcyon.arc_fugitif.scene.d12p02')
-    if ok and scene and scene.Cutscene then pcall(scene.Cutscene) end
-    SV.CanonicalDungeons.Pending=nil;GAME:FadeOut(false,30)
-    GAME:EnterDungeon('magma_cavern_pit', 0, 0,0,RogueEssence.Data.GameProgress.DungeonStakes.Risk,true,false)
-  else FugitiveArc.Play('gorge_ardente_coeur') end
+  DEBUG.EnableDbgCoro()
+  GAME:FadeIn(20)
+  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  GAME:CutsceneMode(false)
+  GAME:FadeOut(false, 30)
+  GAME:EnterDungeon('magma_cavern_pit', 0, 0, 0,
+    RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function gorge_ardente_coeur.Update(map) end

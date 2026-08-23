@@ -64,7 +64,7 @@ function mt_blaze_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
 
   if segmentID == 0 then
     -- Ground final canonique : cinématique, combat et fin au même endroit
-    SV.CanonicalDungeons.Pending = 'mt_blaze_summit'
+    SV.CanonicalDungeons.Pending = 'mt_blaze_peak_seg0'
     GAME:EnterGroundMap('d09p03', 'Main_Entrance_Marker')
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)

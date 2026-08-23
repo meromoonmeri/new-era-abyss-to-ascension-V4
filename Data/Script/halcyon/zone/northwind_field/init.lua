@@ -63,13 +63,13 @@ function northwind_field.ExitSegment(zone, result, rescue, segmentID, mapID)
   end
 
   if segmentID == 0 then
-    -- cinématique du gardien puis retour dans le donjon pour le combat : cinématique et combat au même endroit, aucune arène séparée
-    SV.CanonicalDungeons.Pending = 'northwind_field_seg0'
-    GAME:EnterGroundMap('champ_vent_boreal', 'Main_Entrance_Marker')
+    -- poursuite directe vers le segment 1 du même donjon
+    GAME:EnterDungeon('northwind_field', 1, 0, 0,
+      RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
   elseif segmentID == 1 then
-    -- étage d'arène franchi : fin de run sur place, la scène a déjà été jouée
-    SV.CanonicalDungeons['northwind_field'] = true
-    GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
+    -- Ground final canonique : cinématique, combat et fin au même endroit
+    SV.CanonicalDungeons.Pending = 'northwind_field_seg1'
+    GAME:EnterGroundMap('champ_vent_boreal', 'Main_Entrance_Marker')
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end

@@ -68,7 +68,7 @@ function lapis_cave.ExitSegment(zone, result, rescue, segmentID, mapID)
       RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
   elseif segmentID == 1 then
     -- Ground final canonique : cinématique, combat et fin au même endroit
-    SV.CanonicalDungeons.Pending = 'lapis_cave_exit'
+    SV.CanonicalDungeons.Pending = 'lapis_cave_seg1'
     GAME:EnterGroundMap('grotte_lazuli_fond', 'Main_Entrance_Marker')
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)

@@ -1,13 +1,25 @@
--- [dungeon_builder] script de Ground canonique généré — ne pas éditer à la main.
---[[ d02p02 — Ground final canonique de thunderwave_cave.
-     Ground canonique existant : la scène, le combat et la conclusion s'y
-     déroulent au même endroit. Ce script assure uniquement la continuité du
-     parcours ; les dialogues restent portés par la scène du Ground.
-     Regénérer avec : python3 tools/dungeon_builder.py wire-scenes --apply ]]
+-- [dungeon_builder] scène canonique PMD Red — scène d02p02 (end).
+--[[ d02p02 — cinématique canonique de Pokémon Mystery Dungeon: Red Rescue Team.
+
+     Structure reprise du squelette extrait de la ROM
+     (RESERVE/red_scene_reference/d02p02.lua) : musique, ordre et nombre de
+     répliques, actions. Aucune réplique inventée : chaque ligne est la clé de
+     texte canonique `SCENE_D02P02_nnn`. Les clés absentes des Strings du mod
+     sont sautées — importer le texte de la ROM avec
+     `tools/audit_pmdred_eu_rom.py` les fera apparaître.
+
+     Rôle canonique : scène de fin / arène du donjon (docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md).
+     
+     Regénérer : python3 tools/dungeon_builder.py canon-scenes --apply ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.RedCanonScene'
 
 local d02p02 = {}
+
+local SCENE = 'd02p02'
+local LINES = {'SCENE_D02P02_001'}
+local MUSIC = 'In the Depths of the Pit'
 
 function d02p02.Init(map)
   DEBUG.EnableDbgCoro()
@@ -17,6 +29,8 @@ end
 function d02p02.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(20)
+  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  GAME:CutsceneMode(false)
   SV.CanonicalDungeons = SV.CanonicalDungeons or {}
   SV.CanonicalDungeons['thunderwave_cave'] = true
   GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared,

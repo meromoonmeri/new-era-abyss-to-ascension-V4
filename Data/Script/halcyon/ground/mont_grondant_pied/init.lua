@@ -1,98 +1,46 @@
--- [dungeon_builder] recâblage : Ground d'entrée de mt_thunder : il ouvre le donjon reconstruit à son premier étage
---[[ Câble-Vif, Veilleur du Grand Orage — cinematique de Veilleur (Reseau des Anciens Chemins).
-     Ground pmd-red importe 1:1 ; geometrie intouchee, dialogues New Era.
-     Grammaire : signal -> irruption -> recul -> reveal -> titre -> echange
-     -> BossTransition -> arene. Rematch : intro raccourcie. ]]
+-- [dungeon_builder] scène canonique PMD Red — scène d06p01 (entrance).
+--[[ mont_grondant_pied — cinématique canonique de Pokémon Mystery Dungeon: Red Rescue Team.
+
+     Structure reprise du squelette extrait de la ROM
+     (RESERVE/red_scene_reference/d06p01.lua) : musique, ordre et nombre de
+     répliques, actions. Aucune réplique inventée : chaque ligne est la clé de
+     texte canonique `SCENE_D06P01_nnn`. Les clés absentes des Strings du mod
+     sont sautées — importer le texte de la ROM avec
+     `tools/audit_pmdred_eu_rom.py` les fera apparaître.
+
+     Rôle canonique : entrée du donjon — aucun combat (docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md).
+     Aucun boss ici : dans PMD Red les combats de gardien se jouent à la
+     scène de fin du donjon ou dans le donjon lui-même.
+     Regénérer : python3 tools/dungeon_builder.py canon-scenes --apply ]]
 require 'origin.common'
-require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
-require 'halcyon.CharacterEssentials'
-require 'halcyon.BossFX'
-require 'halcyon.BossMusic'
+require 'halcyon.RedCanonScene'
 
-local mt_thunder_pied = {}
+local mont_grondant_pied = {}
 
-function mt_thunder_pied.Init(map)
+local SCENE = 'd06p01'
+local LINES = {'SCENE_D06P01_001', 'SCENE_D06P01_002', 'SCENE_D06P01_003', 'SCENE_D06P01_004', 'SCENE_D06P01_005'}
+local MUSIC = 'Mt. Thunder'
+
+function mont_grondant_pied.Init(map)
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> Init_mt_thunder_pied")
   COMMON.RespawnAllies(true)
-  PartnerEssentials.InitializePartnerSpawn()
 end
 
-function mt_thunder_pied.Enter(map)
+function mont_grondant_pied.Enter(map)
   DEBUG.EnableDbgCoro()
-  local hero = CH('PLAYER')
-  local partner = CH('Teammate1')
-  GAME:CutsceneMode(true)
-
-  -- Duo cote a cote (32 px d'ecart), ~72 px sous le Veilleur.
-  GROUND:TeleportTo(hero, 200, 248, Direction.Up)
-  if partner ~= nil then GROUND:TeleportTo(partner, 168, 248, Direction.Up) end
-  local cablevif = CharacterEssentials.MakeCharactersFromList({{'CableVif', 184, 176, Direction.Down}})
-  GROUND:Hide('CableVif')
-  -- Camera entre le duo et le Veilleur.
-  GAME:MoveCamera(184, 212, 1, false)
-  GAME:FadeIn(40)
-  GAME:WaitFrames(30)
-
-  if SV.Reseau ~= nil and SV.Reseau.Veilleurs ~= nil and SV.Reseau.Veilleurs['new_era_zone_05'] then
-    -- REMATCH : le Veilleur connait deja l'equipe, pas de ceremonie.
-    GROUND:Unhide('CableVif')
-    UI:SetSpeaker(cablevif)
-    UI:WaitShowDialogue("Signal — connu.[pause=15] Recommence.")
-    COMMON.BossTransition()
-    GAME:CutsceneMode(false)
-    GAME:ContinueDungeon("mt_thunder", 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
-    return
-  end
-
-  -- 1. Le signal : la voie parle avant toute image.
-  UI:ResetSpeaker(false)
-  UI:SetCenter(true)
-  UI:WaitShowDialogue("L'ANTENNE CRACHE.[pause=20] QUELQUE CHOSE REMONTE LE CÂBLE.")
-  UI:SetCenter(false)
-  GAME:WaitFrames(30)
-
-  -- 2. L'irruption (motif propre a ce Veilleur).
-  BossFX.Flash(184, 176, 3, 5, 20)
-  GAME:WaitFrames(8)
-  BossFX.Impact(10)
-  GAME:WaitFrames(20)
-
-  -- 3. Le recul du duo.
-  BossFX.PushBack({hero, partner}, Direction.Down)
-  GAME:WaitFrames(10)
-
-  -- 4. Reveal.
-  GROUND:Unhide('CableVif')
-  GAME:WaitFrames(18)
-
-  -- 5. Titre + theme.
-  BossMusic.Play('mt_thunder_pied')
-  UI:WaitShowTitle("Câble-Vif, Veilleur du Grand Orage", 20)
-  GAME:WaitFrames(50)
-  UI:WaitHideTitle(20)
-
-  -- 6. L'echange : le Veilleur tient la porte, il teste, il ne hait pas.
-  UI:SetSpeaker(cablevif)
-  UI:WaitShowDialogue("Signal — reçu.[pause=15] Intrus — confirmé.")
-  UI:SetSpeaker(cablevif)
-  UI:WaitShowDialogue("Je tiens la ligne.[pause=15] Depuis toujours.[pause=15] Prouve que tu passes.")
-
-  if partner ~= nil then
-    UI:SetSpeaker(partner)
-    GeneralFunctions.SetEmotion("Surprised")
-    UI:WaitShowDialogue("Sa voix grésille comme un parasite...[pause=20] Elle sort des câbles eux-mêmes !")
-  end
-  GeneralFunctions.HeroDialogue(hero, "On ne coupera pas la ligne. On la traverse.", "Determined")
-
-  COMMON.BossTransition()
+  GAME:FadeIn(20)
+  RedCanonScene.Play(SCENE, LINES, MUSIC)
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("mt_thunder", 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:FadeOut(false, 30)
+  GAME:EnterDungeon('mt_thunder', 0, 0, 0,
+    RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function mt_thunder_pied.Update(map, time) end
-function mt_thunder_pied.GameSave(map) end
-function mt_thunder_pied.GameLoad(map) end
+function mont_grondant_pied.Update(map) end
+function mont_grondant_pied.GameSave(map) end
+function mont_grondant_pied.GameLoad(map)
+  GAME:FadeIn(20)
+end
 
-return mt_thunder_pied
+return mont_grondant_pied

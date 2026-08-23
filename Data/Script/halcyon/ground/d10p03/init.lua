@@ -1,12 +1,25 @@
--- [dungeon_builder] recâblage : conclusion de frosty_grotto sur son Ground final : la scène s'y termine, aucun renvoi vers une ancienne implémentation
--- [dungeon_builder] scène re-raccordée au donjon reconstruit : frosty_forest seg 2 -> frosty_grotto seg 0 étage 0. d10p03 est la scène de fin de la Forêt Givrée (Artikodin) : la suite canonique est la Grotte Givrée, désormais un donjon à part entière de 5 étages
---[[ d10p03 — étape de l'Arc Fugitif (ch11, canon PMD Red).
-     Ground pixel-perfect du port PMD-RED-PMDO-PORT. La scène est jouée
-     par FugitiveArc.Play (dialogues par clés SCENE_*, à adopter). ]]
+-- [dungeon_builder] scène canonique PMD Red — scène d10p03 (end).
+--[[ d10p03 — cinématique canonique de Pokémon Mystery Dungeon: Red Rescue Team.
+
+     Structure reprise du squelette extrait de la ROM
+     (RESERVE/red_scene_reference/d10p03.lua) : musique, ordre et nombre de
+     répliques, actions. Aucune réplique inventée : chaque ligne est la clé de
+     texte canonique `SCENE_D10P03_nnn`. Les clés absentes des Strings du mod
+     sont sautées — importer le texte de la ROM avec
+     `tools/audit_pmdred_eu_rom.py` les fera apparaître.
+
+     Rôle canonique : scène de fin / arène du donjon (docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md).
+     
+     Regénérer : python3 tools/dungeon_builder.py canon-scenes --apply ]]
 require 'origin.common'
-require 'halcyon.FugitiveArc'
+require 'halcyon.GeneralFunctions'
+require 'halcyon.RedCanonScene'
 
 local d10p03 = {}
+
+local SCENE = 'd10p03'
+local LINES = {'SCENE_D10P03_001', 'SCENE_D10P03_002', 'SCENE_D10P03_003', 'SCENE_D10P03_004', 'SCENE_D10P03_005', 'SCENE_D10P03_006', 'SCENE_D10P03_007', 'SCENE_D10P03_008', 'SCENE_D10P03_009', 'SCENE_D10P03_010', 'SCENE_D10P03_011', 'SCENE_D10P03_012', 'SCENE_D10P03_013', 'SCENE_D10P03_014', 'SCENE_D10P03_015', 'SCENE_D10P03_016', 'SCENE_D10P03_017', 'SCENE_D10P03_018', 'SCENE_D10P03_019', 'SCENE_D10P03_020', 'SCENE_D10P03_021', 'SCENE_D10P03_022', 'SCENE_D10P03_023', 'SCENE_D10P03_024', 'SCENE_D10P03_025', 'SCENE_D10P03_026', 'SCENE_D10P03_027', 'SCENE_D10P03_028', 'SCENE_D10P03_029', 'SCENE_D10P03_030', 'SCENE_D10P03_031', 'SCENE_D10P03_032', 'SCENE_D10P03_033', 'SCENE_D10P03_034', 'SCENE_D10P03_035', 'SCENE_D10P03_036', 'SCENE_D10P03_037', 'SCENE_D10P03_038', 'SCENE_D10P03_039', 'SCENE_D10P03_040', 'SCENE_D10P03_041', 'SCENE_D10P03_042', 'SCENE_D10P03_043', 'SCENE_D10P03_044', 'SCENE_D10P03_045', 'SCENE_D10P03_046', 'SCENE_D10P03_047', 'SCENE_D10P03_048', 'SCENE_D10P03_049', 'SCENE_D10P03_050', 'SCENE_D10P03_051', 'SCENE_D10P03_052', 'SCENE_D10P03_053', 'SCENE_D10P03_054'}
+local MUSIC = 'In the Depths of the Pit'
 
 function d10p03.Init(map)
   DEBUG.EnableDbgCoro()
@@ -14,12 +27,14 @@ function d10p03.Init(map)
 end
 
 function d10p03.Enter(map)
-  if SV.CanonicalDungeons and SV.CanonicalDungeons.Pending=='frosty_forest_summit' then
-    local ok,scene=pcall(require,'halcyon.arc_fugitif.scene.d10p03')
-    if ok and scene and scene.Cutscene then pcall(scene.Cutscene) end
-    SV.CanonicalDungeons.Pending=nil; GAME:FadeOut(false,30)
-    GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, 'master_zone', -1, 1, 0, true, true)
-  else FugitiveArc.Play('d10p03') end
+  DEBUG.EnableDbgCoro()
+  GAME:FadeIn(20)
+  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  GAME:CutsceneMode(false)
+  SV.CanonicalDungeons = SV.CanonicalDungeons or {}
+  SV.CanonicalDungeons['frosty_grotto'] = true
+  GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared,
+    'master_zone', -1, 1, 0, true, true)
 end
 
 function d10p03.Update(map) end

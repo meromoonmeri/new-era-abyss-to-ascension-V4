@@ -140,3 +140,67 @@ elle est **appliquée par le câblage** et **vérifiée**.
   Ground de scène. Leur combat se déroule dans la salle fixe
   `Data/Map/<id>_arena.rsmap` chargée en étage. Le contrôle `scene_rule` échoue
   si un Ground narratif leur est attribué.
+
+
+## 6. Correction : retour aux cinématiques canoniques de la ROM (2026-08-23)
+
+### Ce qui n'allait pas
+
+Les Grounds PMD Red importés dans le mod avaient été récrits par des passes
+antérieures avec des cinématiques **inventées** — « Veilleurs du Réseau des
+Anciens Chemins » et « cinématiques d'Ancrage (Livre II) ». Conséquence
+directe, mesurée : **8 combats de boss inventés se déclenchaient dans des
+Grounds d'entrée ou de relais**, là où le canon n'en met aucun :
+
+| Ground | Rôle canonique | Contenu inventé trouvé |
+|---|---|---|
+| `foret_tendre_oree` (D01P01) | entrée Tiny Woods | boss « Veilleur » |
+| `grotte_statique_seuil` (D02P01) | entrée Thunderwave Cave | boss « Veilleur » |
+| `pic_ferreux_pied` (D03P01) | entrée Mt. Steel | boss « Rempart, Veilleur du Vieux Fer » |
+| `bois_sombres_oree` (D04P01) | entrée Sinister Woods | boss « Veilleur » |
+| `gouffre_muet_bord` (D05P01) | entrée Silent Chasm | boss « Veilleur » |
+| `mont_grondant_pied` (D06P01) | entrée Mt. Thunder | boss « Câble-Vif, Veilleur du Grand Orage » |
+| `palier_celeste` (D13P02) | relais Sky Tower | boss « Déchire-Nuages » |
+| `gloomy_forest_midpoint` | relais | scène de boss |
+
+Dix autres Grounds d'arène portaient des dialogues inventés d'« Ancrage » à la
+place du texte de la ROM.
+
+### Pourquoi c'est arrivé
+
+Le texte canonique des scènes existe pourtant dans le dépôt
+(`Data/Script/halcyon/arc_fugitif/strings*.resx`, 4 186 clés `SCENE_*`), mais il
+n'était **pas branché** : `Text.FormatKey` lit `Strings/strings*.resx`, que le
+mod ne fournissait pas. Chaque `STRINGS:FormatKey("SCENE_D06P01_001")` renvoyait
+donc la clé, et les passes précédentes ont écrit des dialogues à la place.
+
+### Ce qui a été fait
+
+1. `tools/import_red_scene_strings.py` : import des **930 répliques canoniques**
+   des scènes de donjon D01–D25 dans `Strings/strings.fr.resx` et
+   `Strings/strings.resx`.
+2. `tools/dungeon_builder.py canon-scenes --apply` : régénération des **44
+   Grounds canoniques** à partir des squelettes extraits de la ROM
+   (`RESERVE/red_scene_reference/*.lua`) — musique, ordre et nombre de
+   répliques. Le lecteur `halcyon.RedCanonScene` saute une réplique dont le
+   texte n'est pas importé plutôt que d'en inventer une.
+3. Les 18 cinématiques inventées sont archivées sous
+   `RESERVE/legacy_ch6_32/invented_scenes/` (rien n'est détruit).
+4. Rôles respectés : **entrée et relais ne contiennent aucun combat** ; les boss
+   restent à la scène de fin canonique (D06P03 Zapdos, D09P03 Moltres, D10P03
+   Articuno, D11P03 Feunard, D12P04 Groudon, D13P03 Rayquaza, D14–D25 arènes de
+   post-game) ou dans le donjon (`fixed_floors` pour Buried Relic et Meteor
+   Cave, comme `src/dungeon_boss_dialogue.c`).
+
+Rapport : `docs/dungeon_builder/CANON_SCENES.md`.
+
+### Vérifié par le moteur après correction
+
+1 429 étages générés (0 échec), 54 liaisons zone → Ground chargées (0 problème),
+aucun script Lua en erreur au chargement : `docs/dungeon_builder/runtime/MAPGEN_RUNTIME_CANON.md`.
+
+### Ce qui reste à importer
+
+13 pistes musicales citées par les scènes de la ROM n'existent pas dans
+`Content/Music` (liste dans `CANON_SCENES.md`) : la scène se joue sans changer
+la musique plutôt qu'avec un titre de remplacement inventé.

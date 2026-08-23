@@ -1338,22 +1338,20 @@
       },
       {
         "segment": 1,
-        "kind": "ground",
-        "target": "fosse_argentee",
-        "reason": "cinématique du gardien puis retour dans le donjon pour le combat : cinématique et combat au même endroit, aucune arène séparée"
+        "kind": "zone",
+        "target": "silver_trench",
+        "reason": "poursuite directe vers le segment 2 du même donjon"
       },
       {
         "segment": 2,
-        "kind": "end_run",
-        "target": "master_zone",
-        "reason": "étage d'arène franchi : fin de run sur place, la scène a déjà été jouée"
+        "kind": "ground",
+        "target": "fosse_argentee",
+        "reason": "Ground final canonique : cinématique, combat et fin au même endroit"
       }
     ],
     "zone_script": "Data/Script/halcyon/zone/silver_trench/init.lua",
     "archived_script": "",
-    "notes": [
-      "fosse_argentee est une scène d'Ancrage qui rend la main au donjon : elle se joue à la fin du segment 1, le combat a lieu sur l'étage d'arène du segment 2"
-    ],
+    "notes": [],
     "rule": "cinématique = combat = fin sur le Ground canonique ; boss interne = étage fixe du donjon, jamais un Ground inventé",
     "ground_rebinds": []
   }

@@ -1,88 +1,46 @@
--- [dungeon_builder] recâblage : scène du gardien puis combat sur l'étage d'arène du segment 1 de fiery_field : cinématique et combat au même endroit
---[[ Sulfura, la Longue Cendre — cinématique d'Ancrage (Livre II, ch14).
-     Ground template d'origine conservé 1:1 ; dialogues New Era.
-     Grammaire Rescue Team : signal -> irruption -> recul -> flash -> reveal
-     -> titre -> ligne courte. Rematch : intro raccourcie. ]]
+-- [dungeon_builder] scène canonique PMD Red — scène d16p01 (end).
+--[[ champ_braises — cinématique canonique de Pokémon Mystery Dungeon: Red Rescue Team.
+
+     Structure reprise du squelette extrait de la ROM
+     (RESERVE/red_scene_reference/d16p01.lua) : musique, ordre et nombre de
+     répliques, actions. Aucune réplique inventée : chaque ligne est la clé de
+     texte canonique `SCENE_D16P01_nnn`. Les clés absentes des Strings du mod
+     sont sautées — importer le texte de la ROM avec
+     `tools/audit_pmdred_eu_rom.py` les fera apparaître.
+
+     Rôle canonique : scène de fin / arène du donjon (docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md).
+     
+     Regénérer : python3 tools/dungeon_builder.py canon-scenes --apply ]]
 require 'origin.common'
-require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
-require 'halcyon.CharacterEssentials'
-require 'halcyon.BossFX'
-require 'halcyon.LegendZones'
-require 'halcyon.BossMusic'
+require 'halcyon.RedCanonScene'
 
 local champ_braises = {}
+
+local SCENE = 'd16p01'
+local LINES = {'SCENE_D16P01_001', 'SCENE_D16P01_002', 'SCENE_D16P01_003', 'SCENE_D16P01_004', 'SCENE_D16P01_005', 'SCENE_D16P01_006', 'SCENE_D16P01_007', 'SCENE_D16P01_008', 'SCENE_D16P01_009', 'SCENE_D16P01_010', 'SCENE_D16P01_011', 'SCENE_D16P01_012', 'SCENE_D16P01_013', 'SCENE_D16P01_014', 'SCENE_D16P01_015'}
+local MUSIC = 'In the Depths of the Pit'
 
 function champ_braises.Init(map)
   DEBUG.EnableDbgCoro()
   COMMON.RespawnAllies(true)
-  PartnerEssentials.InitializePartnerSpawn()
 end
 
 function champ_braises.Enter(map)
   DEBUG.EnableDbgCoro()
-  local hero = CH('PLAYER')
-  local partner = CH('Teammate1')
-  GAME:CutsceneMode(true)
-  GROUND:TeleportTo(hero, 176, 176, Direction.Up)
-  if partner ~= nil then GROUND:TeleportTo(partner, 152, 176, Direction.Up) end
-  local sulfura = CharacterEssentials.MakeCharactersFromList({{'Sulfura', 176, 136, Direction.Down}})
-  GROUND:Hide('Sulfura')
-  GAME:MoveCamera(176, 128, 1, false)
-  GAME:FadeIn(40)
-  GAME:WaitFrames(30)
-
-  if LegendZones.IsDefeated('long_ash') then
-    -- REMATCH : le gardien connaît déjà l'équipe, pas de cérémonie.
-    GROUND:Unhide('Sulfura')
-    UI:SetSpeaker(sulfura)
-    UI:WaitShowDialogue("Mon feu ne détruit que ce qui doit tomber.[pause=20] Tenez debout, et il vous éclairera.")
-    COMMON.BossTransition()
-    GAME:CutsceneMode(false)
-    GAME:ContinueDungeon("fiery_field", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
-    return
-  end
-
-  -- 1. Le signal : la voix du gardien, avant toute image.
-  UI:ResetSpeaker(false)
-  UI:SetCenter(true)
-  UI:WaitShowDialogue("LES CENDRES MONTENT.[pause=20] C'EST QUE LE FEU, EN BAS, S'EST SOUVENU DE VOUS.")
-  UI:SetCenter(false)
-  GAME:WaitFrames(30)
-
-  -- 2. L'irruption (motif propre à ce gardien — fiche anti-répétition).
-  BossFX.EmergeFire(sulfura, 176, 136)
-  GAME:WaitFrames(20)
-
-  -- 3. Le recul du groupe.
-  BossFX.PushBack({hero, partner}, Direction.Down)
-  GAME:WaitFrames(10)
-
-  -- 4/5. Reveal : pose figée puis garde.
-  GROUND:Unhide('Sulfura')
-  GROUND:CharSetAnim(sulfura, "Attack", false)
-  GAME:WaitFrames(18)
-  GROUND:CharSetAnim(sulfura, "Idle", true)
-  -- 6. Titre + thème.
-  BossMusic.Play('champ_braises')
-  UI:WaitShowTitle("Sulfura, la Longue Cendre", 20)
-  GAME:WaitFrames(50)
-  UI:WaitHideTitle(20)
-
-  -- 7. L'échange — court, à la Explorers.
-  UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Worried")
-  UI:WaitShowDialogue(STRINGS:Format("Ces flammes ne brûlent pas la pierre...[pause=20] elles l'ÉCLAIRENT. C'est un gardien, {0} !", hero:GetDisplayName()))
-  UI:SetSpeaker(sulfura)
-  UI:WaitShowDialogue("Mon feu ne détruit que ce qui doit tomber.[pause=20] Tenez debout, et il vous éclairera.")
-
-  COMMON.BossTransition()
+  GAME:FadeIn(20)
+  RedCanonScene.Play(SCENE, LINES, MUSIC)
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("fiery_field", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  SV.CanonicalDungeons = SV.CanonicalDungeons or {}
+  SV.CanonicalDungeons['fiery_field'] = true
+  GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared,
+    'master_zone', -1, 1, 0, true, true)
 end
 
-function champ_braises.Update(map, time) end
+function champ_braises.Update(map) end
 function champ_braises.GameSave(map) end
-function champ_braises.GameLoad(map) end
+function champ_braises.GameLoad(map)
+  GAME:FadeIn(20)
+end
 
 return champ_braises

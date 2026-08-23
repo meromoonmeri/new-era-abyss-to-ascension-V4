@@ -1,10 +1,25 @@
---[[ d11p03 — étape de l'Arc Fugitif (ch11, canon PMD Red).
-     Ground pixel-perfect du port PMD-RED-PMDO-PORT. La scène est jouée
-     par FugitiveArc.Play (dialogues par clés SCENE_*, à adopter). ]]
+-- [dungeon_builder] scène canonique PMD Red — scène d11p03 (end).
+--[[ d11p03 — cinématique canonique de Pokémon Mystery Dungeon: Red Rescue Team.
+
+     Structure reprise du squelette extrait de la ROM
+     (RESERVE/red_scene_reference/d11p03.lua) : musique, ordre et nombre de
+     répliques, actions. Aucune réplique inventée : chaque ligne est la clé de
+     texte canonique `SCENE_D11P03_nnn`. Les clés absentes des Strings du mod
+     sont sautées — importer le texte de la ROM avec
+     `tools/audit_pmdred_eu_rom.py` les fera apparaître.
+
+     Rôle canonique : scène de fin / arène du donjon (docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md).
+     
+     Regénérer : python3 tools/dungeon_builder.py canon-scenes --apply ]]
 require 'origin.common'
-require 'halcyon.FugitiveArc'
+require 'halcyon.GeneralFunctions'
+require 'halcyon.RedCanonScene'
 
 local d11p03 = {}
+
+local SCENE = 'd11p03'
+local LINES = {'SCENE_D11P03_001', 'SCENE_D11P03_002', 'SCENE_D11P03_003', 'SCENE_D11P03_004', 'SCENE_D11P03_005', 'SCENE_D11P03_006', 'SCENE_D11P03_007', 'SCENE_D11P03_008', 'SCENE_D11P03_009', 'SCENE_D11P03_010', 'SCENE_D11P03_011', 'SCENE_D11P03_012', 'SCENE_D11P03_013', 'SCENE_D11P03_014', 'SCENE_D11P03_015', 'SCENE_D11P03_016', 'SCENE_D11P03_017', 'SCENE_D11P03_018', 'SCENE_D11P03_019', 'SCENE_D11P03_020', 'SCENE_D11P03_021', 'SCENE_D11P03_022', 'SCENE_D11P03_023', 'SCENE_D11P03_024', 'SCENE_D11P03_025', 'SCENE_D11P03_026', 'SCENE_D11P03_027', 'SCENE_D11P03_028', 'SCENE_D11P03_029', 'SCENE_D11P03_030', 'SCENE_D11P03_031', 'SCENE_D11P03_032', 'SCENE_D11P03_033', 'SCENE_D11P03_034', 'SCENE_D11P03_035', 'SCENE_D11P03_036', 'SCENE_D11P03_037', 'SCENE_D11P03_038', 'SCENE_D11P03_039', 'SCENE_D11P03_040', 'SCENE_D11P03_041', 'SCENE_D11P03_042', 'SCENE_D11P03_043', 'SCENE_D11P03_044', 'SCENE_D11P03_045', 'SCENE_D11P03_046', 'SCENE_D11P03_047', 'SCENE_D11P03_048', 'SCENE_D11P03_049', 'SCENE_D11P03_050', 'SCENE_D11P03_051', 'SCENE_D11P03_052', 'SCENE_D11P03_053', 'SCENE_D11P03_054', 'SCENE_D11P03_055', 'SCENE_D11P03_056', 'SCENE_D11P03_057', 'SCENE_D11P03_058', 'SCENE_D11P03_059', 'SCENE_D11P03_060', 'SCENE_D11P03_061', 'SCENE_D11P03_062', 'SCENE_D11P03_063', 'SCENE_D11P03_064', 'SCENE_D11P03_065', 'SCENE_D11P03_066', 'SCENE_D11P03_067', 'SCENE_D11P03_068', 'SCENE_D11P03_069', 'SCENE_D11P03_070', 'SCENE_D11P03_071', 'SCENE_D11P03_072', 'SCENE_D11P03_073', 'SCENE_D11P03_074', 'SCENE_D11P03_075', 'SCENE_D11P03_076', 'SCENE_D11P03_077', 'SCENE_D11P03_078', 'SCENE_D11P03_079', 'SCENE_D11P03_080', 'SCENE_D11P03_081', 'SCENE_D11P03_082', 'SCENE_D11P03_083', 'SCENE_D11P03_084', 'SCENE_D11P03_085', 'SCENE_D11P03_086', 'SCENE_D11P03_087', 'SCENE_D11P03_088', 'SCENE_D11P03_089', 'SCENE_D11P03_090', 'SCENE_D11P03_091', 'SCENE_D11P03_092', 'SCENE_D11P03_093', 'SCENE_D11P03_094', 'SCENE_D11P03_095', 'SCENE_D11P03_096', 'SCENE_D11P03_097', 'SCENE_D11P03_098', 'SCENE_D11P03_099', 'SCENE_D11P03_100', 'SCENE_D11P03_101', 'SCENE_D11P03_102', 'SCENE_D11P03_103', 'SCENE_D11P03_104', 'SCENE_D11P03_105', 'SCENE_D11P03_106', 'SCENE_D11P03_107', 'SCENE_D11P03_108', 'SCENE_D11P03_109', 'SCENE_D11P03_110', 'SCENE_D11P03_111', 'SCENE_D11P03_112', 'SCENE_D11P03_113', 'SCENE_D11P03_114', 'SCENE_D11P03_115', 'SCENE_D11P03_116', 'SCENE_D11P03_117', 'SCENE_D11P03_118', 'SCENE_D11P03_119', 'SCENE_D11P03_120', 'SCENE_D11P03_121', 'SCENE_D11P03_122', 'SCENE_D11P03_123', 'SCENE_D11P03_124', 'SCENE_D11P03_125', 'SCENE_D11P03_126', 'SCENE_D11P03_127', 'SCENE_D11P03_128', 'SCENE_D11P03_129', 'SCENE_D11P03_130', 'SCENE_D11P03_131', 'SCENE_D11P03_132', 'SCENE_D11P03_133', 'SCENE_D11P03_134', 'SCENE_D11P03_135', 'SCENE_D11P03_136', 'SCENE_D11P03_137', 'SCENE_D11P03_138', 'SCENE_D11P03_139'}
+local MUSIC = nil
 
 function d11p03.Init(map)
   DEBUG.EnableDbgCoro()
@@ -12,15 +27,14 @@ function d11p03.Init(map)
 end
 
 function d11p03.Enter(map)
-  if SV.RuntimeGroundAudit and SV.RuntimeGroundAudit.Active then GAME:CutsceneMode(false); GAME:FadeIn(1); return end
-  if SV.CanonicalDungeons and SV.CanonicalDungeons.Pending=='mt_freeze_summit' then
-    local ok,scene=pcall(require,'halcyon.arc_fugitif.scene.d11p03')
-    if ok and scene and scene.Cutscene then pcall(scene.Cutscene) end
-    SV.CanonicalDungeons.Pending=nil
-    SV.CanonicalDungeons.MtFreezeCleared=true
-    GAME:FadeOut(false,30)
-    GAME:EnterZone('master_zone',-1,1,0)
-  else FugitiveArc.Play('d11p03') end
+  DEBUG.EnableDbgCoro()
+  GAME:FadeIn(20)
+  RedCanonScene.Play(SCENE, LINES, MUSIC)
+  GAME:CutsceneMode(false)
+  SV.CanonicalDungeons = SV.CanonicalDungeons or {}
+  SV.CanonicalDungeons['mt_freeze_peak'] = true
+  GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared,
+    'master_zone', -1, 1, 0, true, true)
 end
 
 function d11p03.Update(map) end

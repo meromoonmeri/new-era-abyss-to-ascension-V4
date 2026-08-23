@@ -1,92 +1,46 @@
---[[ La Voie de la Forêt Tendre — scene "ouverture de la voie" (Reseau des Anciens Chemins).
-     Ground pmd-red importe 1:1 ; geometrie intouchee, dialogues New Era.
-     Jouee UNE SEULE FOIS a la premiere victoire (SV.Reseau.VoiesOuvertes).
-     Sortie garantie en fin de scene ET en cas de rejeu : jamais de blocage. ]]
+-- [dungeon_builder] scène canonique PMD Red — scène d01p01 (entrance).
+--[[ foret_tendre_oree — cinématique canonique de Pokémon Mystery Dungeon: Red Rescue Team.
+
+     Structure reprise du squelette extrait de la ROM
+     (RESERVE/red_scene_reference/d01p01.lua) : musique, ordre et nombre de
+     répliques, actions. Aucune réplique inventée : chaque ligne est la clé de
+     texte canonique `SCENE_D01P01_nnn`. Les clés absentes des Strings du mod
+     sont sautées — importer le texte de la ROM avec
+     `tools/audit_pmdred_eu_rom.py` les fera apparaître.
+
+     Rôle canonique : entrée du donjon — aucun combat (docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md).
+     Aucun boss ici : dans PMD Red les combats de gardien se jouent à la
+     scène de fin du donjon ou dans le donjon lui-même.
+     Regénérer : python3 tools/dungeon_builder.py canon-scenes --apply ]]
 require 'origin.common'
-require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
-require 'halcyon.CharacterEssentials'
-require 'halcyon.BossFX'
+require 'halcyon.RedCanonScene'
 
 local foret_tendre_oree = {}
 
-local function sortie()
-  GAME:FadeOut(false, 40)
-  GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, "master_zone", -1, 1, 0, true, true)
-end
+local SCENE = 'd01p01'
+local LINES = {'SCENE_D01P01_001', 'SCENE_D01P01_002', 'SCENE_D01P01_003', 'SCENE_D01P01_004', 'SCENE_D01P01_005', 'SCENE_D01P01_006', 'SCENE_D01P01_007', 'SCENE_D01P01_008', 'SCENE_D01P01_009', 'SCENE_D01P01_010', 'SCENE_D01P01_011', 'SCENE_D01P01_012', 'SCENE_D01P01_013', 'SCENE_D01P01_014', 'SCENE_D01P01_015', 'SCENE_D01P01_016', 'SCENE_D01P01_017', 'SCENE_D01P01_018', 'SCENE_D01P01_019', 'SCENE_D01P01_020', 'SCENE_D01P01_021', 'SCENE_D01P01_022', 'SCENE_D01P01_023', 'SCENE_D01P01_024', 'SCENE_D01P01_025', 'SCENE_D01P01_026', 'SCENE_D01P01_027', 'SCENE_D01P01_028', 'SCENE_D01P01_029', 'SCENE_D01P01_030', 'SCENE_D01P01_031', 'SCENE_D01P01_032', 'SCENE_D01P01_033', 'SCENE_D01P01_034', 'SCENE_D01P01_035', 'SCENE_D01P01_036', 'SCENE_D01P01_037', 'SCENE_D01P01_038', 'SCENE_D01P01_039', 'SCENE_D01P01_040', 'SCENE_D01P01_041', 'SCENE_D01P01_042', 'SCENE_D01P01_043', 'SCENE_D01P01_044', 'SCENE_D01P01_045', 'SCENE_D01P01_046', 'SCENE_D01P01_047', 'SCENE_D01P01_048', 'SCENE_D01P01_049', 'SCENE_D01P01_050', 'SCENE_D01P01_051', 'SCENE_D01P01_052', 'SCENE_D01P01_053', 'SCENE_D01P01_054', 'SCENE_D01P01_055', 'SCENE_D01P01_056', 'SCENE_D01P01_057', 'SCENE_D01P01_058', 'SCENE_D01P01_059', 'SCENE_D01P01_060', 'SCENE_D01P01_061', 'SCENE_D01P01_062', 'SCENE_D01P01_063'}
+local MUSIC = nil
 
 function foret_tendre_oree.Init(map)
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> Init_foret_tendre_oree")
   COMMON.RespawnAllies(true)
-  PartnerEssentials.InitializePartnerSpawn()
 end
 
 function foret_tendre_oree.Enter(map)
   DEBUG.EnableDbgCoro()
-  local hero = CH('PLAYER')
-  local partner = CH('Teammate1')
-  GAME:CutsceneMode(true)
-  GROUND:TeleportTo(hero, 216, 184, Direction.Up)
-  if partner ~= nil then GROUND:TeleportTo(partner, 184, 184, Direction.Up) end
-  GAME:MoveCamera(200, 168, 1, false)
-  GAME:FadeIn(40)
-  GAME:WaitFrames(30)
-
-  if partner ~= nil then
-    UI:SetSpeaker(partner)
-    GeneralFunctions.SetEmotion("Normal")
-    UI:WaitShowDialogue("Regarde...[pause=20] la clairière s'est ouverte toute seule devant nous.")
-  end
-  GAME:WaitFrames(12)
-  if partner ~= nil then
-    UI:SetSpeaker(partner)
-    GeneralFunctions.SetEmotion("Happy")
-    UI:WaitShowDialogue("L'herbe est si douce ici.[pause=20] On dirait qu'elle n'a jamais été piétinée.")
-  end
-  GAME:WaitFrames(12)
-  UI:ResetSpeaker(false)
-  UI:SetCenter(true)
-  UI:WaitShowDialogue("Sous la mousse, une dalle plate affleure — trop régulière pour être une pierre.")
-  UI:SetCenter(false)
-  GAME:WaitFrames(12)
-  -- Le mecanisme des batisseurs se rallume.
-  SOUND:PlayBattleSE("EVT_Battle_Flash")
-  BossFX.Flash(200, 168, 4, 6, 24)
-  GAME:WaitFrames(24)
-  GAME:WaitFrames(12)
-  UI:ResetSpeaker(false)
-  UI:SetCenter(true)
-  UI:WaitShowDialogue("La dalle s'éclaire faiblement, puis émet un bourdonnement grave et régulier.")
-  UI:SetCenter(false)
-  GAME:WaitFrames(12)
-  if partner ~= nil then
-    UI:SetSpeaker(partner)
-    GeneralFunctions.SetEmotion("Surprised")
-    UI:WaitShowDialogue("Ça ronronne ![pause=20] Comme les Terminaux de Sauvegarde de la guilde !")
-  end
-  GAME:WaitFrames(12)
-  if partner ~= nil then
-    UI:SetSpeaker(partner)
-    GeneralFunctions.SetEmotion("Normal")
-    UI:WaitShowDialogue("Alors c'est vrai...[pause=20] les vieilles voies se rallument une par une.")
-  end
-  GAME:WaitFrames(12)
-  GeneralFunctions.HeroDialogue(hero, "Quelqu'un a construit tout ça. Et l'a laissé nous attendre.", "Normal")
-  GAME:WaitFrames(12)
-  if partner ~= nil then
-    UI:SetSpeaker(partner)
-    GeneralFunctions.SetEmotion("Inspired")
-    UI:WaitShowDialogue("Une voie de plus rouverte.[pause=20] Rentrons le dire à la guilde !")
-  end
-  GAME:WaitFrames(12)
-  GAME:WaitFrames(20)
+  GAME:FadeIn(20)
+  RedCanonScene.Play(SCENE, LINES, MUSIC)
   GAME:CutsceneMode(false)
-  sortie()
+  GAME:FadeOut(false, 30)
+  GAME:EnterDungeon('tiny_woods', 0, 0, 0,
+    RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function foret_tendre_oree.Update(map, time) end
+function foret_tendre_oree.Update(map) end
 function foret_tendre_oree.GameSave(map) end
-function foret_tendre_oree.GameLoad(map) end
+function foret_tendre_oree.GameLoad(map)
+  GAME:FadeIn(20)
+end
 
 return foret_tendre_oree
