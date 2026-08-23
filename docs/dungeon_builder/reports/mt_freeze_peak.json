@@ -1,0 +1,319 @@
+{
+  "generated_at": "2026-08-22T22:57:58+00:00",
+  "dungeon": "mt_freeze_peak",
+  "name": {
+    "en": "Mt. Freeze Peak",
+    "fr": "Cime du Mont Gelé"
+  },
+  "chapter": 12,
+  "route": "secondary",
+  "source": "Pokémon Mystery Dungeon: Red Rescue Team — Mt. Freeze Peak (5F). Espèces, niveaux, probabilités, tables d'objets, pièges et boutiques extraits de pret/pmd-red (data/dungeon/MtFreezePeak) via tools/build_canonical_definitions.py ; niveaux renivelés au palier du chapitre 12. Recoupé avec Bulbapedia (page « Mt. Freeze Peak »).",
+  "floors": 5,
+  "biome": "freeze_peak",
+  "direction": "sommet",
+  "zone_file": "Data/Zone/mt_freeze_peak.json",
+  "segments": [
+    {
+      "name": "freeze_peak",
+      "floors": [
+        1,
+        5
+      ],
+      "biome": "freeze_peak",
+      "dtef": {
+        "floor": "mt_freeze_floor",
+        "wall": "mt_freeze_wall",
+        "secondary": "mt_freeze_secondary",
+        "name": "mt_freeze",
+        "element": "normal",
+        "justification": "Cime du Mont Gelé : même massif que le Mont Gelé, biome canonique identique."
+      },
+      "profiles": [
+        "large_rooms",
+        "crossroads",
+        "mixed"
+      ],
+      "pokemon": 1,
+      "item_tables": {
+        "canonical": {
+          "amount": [
+            2,
+            5
+          ],
+          "entries": 14
+        }
+      },
+      "shop": true,
+      "monster_house": true,
+      "treasure_room": false,
+      "key_room": false,
+      "mystery": false,
+      "weather": []
+    }
+  ],
+  "fixed_grounds": {
+    "entrance": "mont_gele_pied",
+    "end": "d11p03"
+  },
+  "midpoint": {},
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "d11p03",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
+  },
+  "minibosses": [],
+  "ground_check": {
+    "entrance": "mont_gele_pied",
+    "cinematic_ground": "d11p03",
+    "battle_ground": "d11p03",
+    "scene_state": "ACTIVE_GROUND",
+    "mid": "",
+    "end": "d11p03",
+    "boss_mode": "canonical_ground",
+    "boss_ground": "d11p03",
+    "boss_map": "",
+    "canonical_end_candidates": [
+      "d11p03"
+    ],
+    "ok": true,
+    "problems": [],
+    "notes": [
+      "no fixed 'mid' Ground declared",
+      "final battle stays on the canonical end Ground 'd11p03' (no separate arena created)"
+    ]
+  },
+  "rng": {
+    "label": "generate:mt_freeze_peak",
+    "root_seed": 3229771724714019628,
+    "explicit_seed": false,
+    "derived_seeds": 28
+  },
+  "warnings": [],
+  "floor_reports": [
+    {
+      "floor": 1,
+      "segment": "freeze_peak",
+      "kind": "procedural",
+      "profile": "large_rooms+crossroads+mixed",
+      "grid": [
+        3,
+        2
+      ],
+      "cell": [
+        14,
+        13
+      ],
+      "dtef": "mt_freeze",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 1,
+      "max_pair_similarity": 0.8899,
+      "seeds": [
+        8022769874504565047,
+        1988619024814430188,
+        4302649059172478153,
+        3732123345564117120,
+        176686415815649222
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 9.4,
+        "rooms_min": 4,
+        "rooms_max": 18,
+        "halls_avg": 9.4,
+        "branches_avg": 2.4,
+        "dead_ends_avg": 3.4,
+        "loops_avg": 0.8,
+        "connections_avg": 9.4,
+        "room_area_min": 24,
+        "room_area_max": 390,
+        "stair_distance_avg": 31.4,
+        "reachable_ratio_min": 0.9991,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 2,
+      "segment": "freeze_peak",
+      "kind": "procedural",
+      "profile": "large_rooms+crossroads+mixed",
+      "grid": [
+        7,
+        4
+      ],
+      "cell": [
+        10,
+        9
+      ],
+      "dtef": "mt_freeze",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.8781,
+      "seeds": [
+        3833492567838903464,
+        4889813029513644657,
+        6057448741394825025,
+        4811837650689450780,
+        8526330963824653422
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 11.8,
+        "rooms_min": 4,
+        "rooms_max": 24,
+        "halls_avg": 13.2,
+        "branches_avg": 2.6,
+        "dead_ends_avg": 2.8,
+        "loops_avg": 1.4,
+        "connections_avg": 13.2,
+        "room_area_min": 20,
+        "room_area_max": 312,
+        "stair_distance_avg": 45.6,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 3,
+      "segment": "freeze_peak",
+      "kind": "procedural",
+      "profile": "large_rooms+crossroads+mixed",
+      "grid": [
+        3,
+        2
+      ],
+      "cell": [
+        16,
+        13
+      ],
+      "dtef": "mt_freeze",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.8984,
+      "seeds": [
+        663507199038484558,
+        923617965702001967,
+        4325070032640823834,
+        791782318917058226,
+        904490697163684858
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 8.2,
+        "rooms_min": 6,
+        "rooms_max": 13,
+        "halls_avg": 8.2,
+        "branches_avg": 1.6,
+        "dead_ends_avg": 2.8,
+        "loops_avg": 0.6,
+        "connections_avg": 8.2,
+        "room_area_min": 24,
+        "room_area_max": 300,
+        "stair_distance_avg": 34.2,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 4,
+      "segment": "freeze_peak",
+      "kind": "procedural",
+      "profile": "large_rooms+crossroads+mixed",
+      "grid": [
+        3,
+        2
+      ],
+      "cell": [
+        15,
+        13
+      ],
+      "dtef": "mt_freeze",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 2,
+      "max_pair_similarity": 0.9418,
+      "seeds": [
+        6192004421028511516,
+        162154586633632395,
+        7618689599970522890,
+        6097273778611575481,
+        4376470420215647895
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 11.2,
+        "rooms_min": 7,
+        "rooms_max": 18,
+        "halls_avg": 11.0,
+        "branches_avg": 2.0,
+        "dead_ends_avg": 3.4,
+        "loops_avg": 0.6,
+        "connections_avg": 11.0,
+        "room_area_min": 20,
+        "room_area_max": 132,
+        "stair_distance_avg": 37.2,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 5,
+      "segment": "freeze_peak",
+      "kind": "procedural",
+      "profile": "large_rooms+crossroads+mixed",
+      "grid": [
+        3,
+        2
+      ],
+      "cell": [
+        16,
+        11
+      ],
+      "dtef": "mt_freeze",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.8702,
+      "seeds": [
+        338319396935487289,
+        1692625776375108610,
+        9026809835537144152,
+        1401326555718794096,
+        3971293064624635585
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 9.4,
+        "rooms_min": 4,
+        "rooms_max": 13,
+        "halls_avg": 10.4,
+        "branches_avg": 2.4,
+        "dead_ends_avg": 2.0,
+        "loops_avg": 1.6,
+        "connections_avg": 10.4,
+        "room_area_min": 24,
+        "room_area_max": 338,
+        "stair_distance_avg": 44.8,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    }
+  ]
+}

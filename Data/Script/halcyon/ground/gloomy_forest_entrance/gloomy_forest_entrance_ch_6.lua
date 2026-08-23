@@ -1,3 +1,4 @@
+-- [dungeon_builder] recâblage : porte d'entrée des Bois Sombres : elle ouvre le donjon reconstruit à son premier étage
 --[[ Sinister Woods — adaptation New Era du diptyque canonique D04P01/D04P02.
 
 Les positions ne sont pas recomposées : elles viennent des marqueurs extraits
@@ -176,7 +177,7 @@ function gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()
   SV.Chapter6.DazzlingPresenceStage = 4
   GAME:FadeOut(false, 30)
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon('gloomy_forest', 4, 0, 0,
+  GAME:ContinueDungeon('gloomy_forest', 0, 0, 0,
     RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 

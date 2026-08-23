@@ -1,3 +1,4 @@
+-- [dungeon_builder] recâblage : frosty_forest_midpoint n'a plus de segment intermédiaire dans frosty_forest reconstruit : la station rend la main proprement au lieu de viser un segment disparu
 --[[ Station de la Forêt Givrée — midpoint de frosty_forest (route canonique PMD Red).
      Patron new_era_sky : clone exact de la station-relais (Terminal Kangourex
      + réserve, sortie Nord = suite, sortie Sud = retour Metano). ]]
@@ -37,7 +38,7 @@ function frosty_forest_midpoint.North_Exit_Touch(obj, activator)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     GAME:FadeOut(false, 60)
-    GAME:EnterDungeon("frosty_forest", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, 'master_zone', -1, 1, 0, true, true)
   end
 end
 

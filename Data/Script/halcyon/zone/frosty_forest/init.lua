@@ -1,26 +1,66 @@
--- Frosty Forest canonique : 9F -> D10P02 -> Grotto 5F -> D10P03/Articuno.
+-- [dungeon_builder] script de zone canonique généré — ne pas éditer à la main.
+--[[ Forêt Givrée (frosty_forest) — chapitre 11.
+     Zone reconstruite par tools/dungeon_builder : 1 segment(s).
+     Règle verrouillée : Ground de cinématique = Ground du combat = Ground final
+     canonique. Aucune arène séparée, aucune téléportation vers un décor inventé.
+     Regénérer avec : python3 tools/dungeon_builder.py wire-scenes --apply ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+
 local frosty_forest = {}
-function frosty_forest.Init(zone) DEBUG.EnableDbgCoro(); SV.TemporaryFlags.LastDungeonEntered='frosty_forest' end
-function frosty_forest.EnterSegment(zone,rescuing,segmentID,mapID)
-  if rescuing~=true then COMMON.BeginDungeon(zone.ID,segmentID,mapID) end
-  GAME:SetRescueAllowed(segmentID<2)
+
+local LAST_SEGMENT = 0
+
+local function GROUND_IDX(name)
+  local ok, idx = pcall(function()
+    local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("master_zone")
+    for ii = 0, zone.Grounds.Count - 1, 1 do
+      if zone.Grounds[ii] == name then return ii end
+    end
+    return -1
+  end)
+  if not ok or idx == nil or idx < 0 then return 1 end
+  return idx
 end
-function frosty_forest.Rescued(zone,name,mail) COMMON.Rescued(zone,name,mail) end
-function frosty_forest.ExitSegment(zone,result,rescue,segmentID,mapID)
-  if COMMON.ExitDungeonMissionCheck(result,rescue,zone.ID,segmentID) then return end
-  SV.adventure.Thief=false; SV.CanonicalDungeons=SV.CanonicalDungeons or {}
-  if result~=RogueEssence.Data.GameProgress.ResultType.Cleared then
-    GeneralFunctions.EndDungeonRun(result,'master_zone',-1,1,0,true,true); return
+
+local RETURN_GROUND = 'foret_givree_oree'
+
+function frosty_forest.Init(zone)
+  DEBUG.EnableDbgCoro()
+  SV.TemporaryFlags.LastDungeonEntered = 'frosty_forest'
+end
+
+function frosty_forest.EnterSegment(zone, rescuing, segmentID, mapID)
+  GeneralFunctions.CheckAllowSetRescue(zone.ID)
+  if rescuing ~= true then
+    COMMON.BeginDungeon(zone.ID, segmentID, mapID)
   end
-  if segmentID==0 then
-    SV.CanonicalDungeons.Pending='frosty_forest_mid'; GAME:EnterGroundMap('frosty_forest_midpoint','Main_Entrance_Marker')
-  elseif segmentID==1 then
-    SV.CanonicalDungeons.Pending='frosty_forest_summit'; GAME:EnterGroundMap('d10p03','Main_Entrance_Marker')
+  GAME:SetRescueAllowed(segmentID < LAST_SEGMENT)
+end
+
+function frosty_forest.Rescued(zone, name, mail)
+  COMMON.Rescued(zone, name, mail)
+end
+
+function frosty_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
+  GeneralFunctions.RestoreIdleAnim()
+  DEBUG.EnableDbgCoro()
+  if COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID) then return end
+  SV.adventure.Thief = false
+  SV.CanonicalDungeons = SV.CanonicalDungeons or {}
+
+  if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+    GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
+    return
+  end
+
+  if segmentID == 0 then
+    -- scène canonique de transition vers frosty_grotto
+    SV.CanonicalDungeons.Pending = 'frosty_forest_mid'
+    GAME:EnterGroundMap('d10p02', 'Main_Entrance_Marker')
   else
-    SV.CanonicalDungeons.FrostyForestCleared=true
-    GeneralFunctions.EndDungeonRun(result,'master_zone',-1,1,0,true,true)
+    GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end
 end
+
 return frosty_forest

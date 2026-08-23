@@ -1,0 +1,740 @@
+{
+  "id": "mt_freeze",
+  "aliases": [
+    "mont_gele_pied"
+  ],
+  "name": {
+    "en": "Mt. Freeze",
+    "fr": "Mont Gelé"
+  },
+  "chapter": 11,
+  "route": "secondary",
+  "source": "Pokémon Mystery Dungeon: Red Rescue Team — Mt. Freeze (15F). Espèces, niveaux, probabilités, tables d'objets, pièges et boutiques extraits de pret/pmd-red (data/dungeon/MtFreeze) via tools/build_canonical_definitions.py ; niveaux renivelés au palier du chapitre 11. Recoupé avec Bulbapedia (page « Mt. Freeze »).",
+  "comment": "Définition canonique générée pour le chapitre 11. Aucun étage pré-calculé : la topologie est produite en jeu par RogueElements. 24 objets canoniques n'existent pas dans le jeu d'objets du mod et sont omis de la table (liste conservée dans `canonical_items_without_pmdo_equivalent`). Donjon secondaire : aucun relais/midpoint (règle du framework §1, réservés aux donjons d'histoire).",
+  "floors": 15,
+  "biome": "freeze_slope",
+  "level": 26,
+  "rescues": 2,
+  "released": false,
+  "music": "Mt. Freeze.ogg",
+  "harvested_from_legacy": {
+    "zone": "Data/Zone/mt_freeze.json",
+    "kept": {
+      "music": "Mt. Freeze.ogg",
+      "rescues": 2,
+      "grounds": [
+        "mont_gele_pied",
+        "d11p02",
+        "d11p03",
+        "mt_freeze_midpoint"
+      ],
+      "note": "Donjon canonique PMD Red: Mt. Freeze 15F, D11P02, Peak 5F, D11P03/Ninetales. Recasting New Era; aucune fausse bataille ajoutée. Canonical encounters: pret/pmd-red MtFreeze/MtFreezePeak; 15-species New Era additive pool."
+    },
+    "discarded": "legacy floor structure (2 floors vs 15 canonical) — rebuilt by the Builder"
+  },
+  "variation": {
+    "direction": "sommet",
+    "time_limit": 2000,
+    "max_foes": 6,
+    "respawn_time": 100,
+    "level_scaling": {
+      "policy": "translation to chapter tier",
+      "chapter_base_level": 26
+    },
+    "canonical_flags": {
+      "maxItemsAllowed": 20,
+      "maxPartyMembers": 3,
+      "keepMoney": true,
+      "recruitingEnabled": true,
+      "stairDirectionUp": true
+    }
+  },
+  "stairs": {
+    "min_distance": 4,
+    "exit_tile": "stairs_go_up"
+  },
+  "dtef": {
+    "floor": "mt_freeze_floor",
+    "wall": "mt_freeze_wall",
+    "secondary": "mt_freeze_secondary",
+    "name": "mt_freeze",
+    "element": "normal"
+  },
+  "canonical_items_without_pmdo_equivalent": [
+    "ITEM_GRAVELEROCK",
+    "ITEM_HEAL_RIBBON",
+    "ITEM_MAX_ELIXIR",
+    "ITEM_STAMINA_BAND",
+    "ITEM_TM_AERIAL_ACE",
+    "ITEM_TM_BRICK_BREAK",
+    "ITEM_TM_BULLET_SEED",
+    "ITEM_TM_DIG",
+    "ITEM_TM_FACADE",
+    "ITEM_TM_FRUSTRATION",
+    "ITEM_TM_GIGA_DRAIN",
+    "ITEM_TM_HIDDEN_POWER",
+    "ITEM_TM_ICE_BEAM",
+    "ITEM_TM_REST",
+    "ITEM_TM_RETURN",
+    "ITEM_TM_ROAR",
+    "ITEM_TM_SAFEGUARD",
+    "ITEM_TM_SECRET_POWER",
+    "ITEM_TM_SHADOW_BALL",
+    "ITEM_TM_SHOCK_WAVE",
+    "ITEM_TM_TAUNT",
+    "ITEM_TM_THIEF",
+    "ITEM_TM_THUNDERBOLT",
+    "ITEM_TM_TOXIC"
+  ],
+  "segments": [
+    {
+      "name": "freeze_slope",
+      "floors": [
+        1,
+        8
+      ],
+      "biome": "freeze_slope",
+      "profiles": [
+        {
+          "name": "twosides",
+          "weight": 24
+        },
+        {
+          "name": "branching",
+          "weight": 18
+        },
+        {
+          "name": "mixed",
+          "weight": 14
+        }
+      ],
+      "pokemon": [
+        {
+          "species": "chimecho",
+          "level": [
+            33,
+            33
+          ],
+          "weight": 3,
+          "floors": [
+            7,
+            8
+          ]
+        },
+        {
+          "species": "pineco",
+          "level": [
+            29,
+            29
+          ],
+          "weight": 2,
+          "floors": [
+            1,
+            5
+          ]
+        },
+        {
+          "species": "pupitar",
+          "level": [
+            28,
+            28
+          ],
+          "weight": 2,
+          "floors": [
+            3,
+            5
+          ]
+        },
+        {
+          "species": "seel",
+          "level": [
+            29,
+            29
+          ],
+          "weight": 6,
+          "floors": [
+            3,
+            7
+          ]
+        },
+        {
+          "species": "shelgon",
+          "level": [
+            30,
+            30
+          ],
+          "weight": 7,
+          "floors": [
+            1,
+            6
+          ]
+        },
+        {
+          "species": "swablu",
+          "level": [
+            29,
+            29
+          ],
+          "weight": 7,
+          "floors": [
+            1,
+            6
+          ]
+        },
+        {
+          "species": "vigoroth",
+          "level": [
+            31,
+            31
+          ],
+          "weight": 7,
+          "floors": [
+            7,
+            8
+          ]
+        },
+        {
+          "species": "zangoose",
+          "level": [
+            29,
+            29
+          ],
+          "weight": 7,
+          "floors": [
+            7,
+            8
+          ]
+        }
+      ],
+      "inherit_pokemon": false,
+      "items": {
+        "canonical": {
+          "amount": [
+            2,
+            5
+          ],
+          "entries": [
+            {
+              "item": "ammo_iron_thorn",
+              "weight": 20
+            },
+            {
+              "item": "berry_cheri",
+              "weight": 1
+            },
+            {
+              "item": "berry_oran",
+              "weight": 6
+            },
+            {
+              "item": "berry_pecha",
+              "weight": 4
+            },
+            {
+              "item": "food_apple",
+              "weight": 12
+            },
+            {
+              "item": "gummi_black",
+              "weight": 1
+            },
+            {
+              "item": "gummi_blue",
+              "weight": 1
+            },
+            {
+              "item": "gummi_brown",
+              "weight": 1
+            },
+            {
+              "item": "gummi_clear",
+              "weight": 1
+            },
+            {
+              "item": "gummi_gold",
+              "weight": 1
+            },
+            {
+              "item": "gummi_gray",
+              "weight": 1
+            },
+            {
+              "item": "gummi_orange",
+              "weight": 1
+            },
+            {
+              "item": "gummi_pink",
+              "weight": 1
+            },
+            {
+              "item": "gummi_purple",
+              "weight": 1
+            },
+            {
+              "item": "gummi_royal",
+              "weight": 1
+            },
+            {
+              "item": "gummi_silver",
+              "weight": 1
+            },
+            {
+              "item": "gummi_sky",
+              "weight": 1
+            },
+            {
+              "item": "gummi_white",
+              "weight": 1
+            },
+            {
+              "item": "gummi_yellow",
+              "weight": 1
+            },
+            {
+              "item": "held_insomniascope",
+              "weight": 2
+            },
+            {
+              "item": "held_pecha_scarf",
+              "weight": 2
+            },
+            {
+              "item": "held_power_band",
+              "weight": 5
+            },
+            {
+              "item": "held_special_band",
+              "weight": 5
+            },
+            {
+              "item": "machine_recall_box",
+              "weight": 20
+            },
+            {
+              "item": "seed_blast",
+              "weight": 3
+            },
+            {
+              "item": "seed_reviver",
+              "weight": 3
+            },
+            {
+              "item": "tm_attract",
+              "weight": 2
+            },
+            {
+              "item": "tm_torment",
+              "weight": 2
+            }
+          ]
+        }
+      },
+      "inherit_items": false
+    },
+    {
+      "name": "freeze_ridge",
+      "floors": [
+        9,
+        15
+      ],
+      "biome": "freeze_ridge",
+      "profiles": [
+        {
+          "name": "branching",
+          "weight": 24
+        },
+        {
+          "name": "crossroads",
+          "weight": 18
+        },
+        {
+          "name": "mixed",
+          "weight": 14
+        }
+      ],
+      "pokemon": [
+        {
+          "species": "chimecho",
+          "level": [
+            33,
+            33
+          ],
+          "weight": 4,
+          "floors": [
+            9,
+            12
+          ]
+        },
+        {
+          "species": "seviper",
+          "level": [
+            30,
+            30
+          ],
+          "weight": 10,
+          "floors": [
+            13,
+            15
+          ]
+        },
+        {
+          "species": "slaking",
+          "level": [
+            26,
+            26
+          ],
+          "weight": 10,
+          "floors": [
+            12,
+            15
+          ]
+        },
+        {
+          "species": "vigoroth",
+          "level": [
+            31,
+            31
+          ],
+          "weight": 8,
+          "floors": [
+            9,
+            11
+          ]
+        },
+        {
+          "species": "zangoose",
+          "level": [
+            29,
+            29
+          ],
+          "weight": 8,
+          "floors": [
+            9,
+            12
+          ]
+        }
+      ],
+      "inherit_pokemon": false,
+      "items": {
+        "canonical": {
+          "amount": [
+            2,
+            5
+          ],
+          "entries": [
+            {
+              "item": "ammo_iron_thorn",
+              "weight": 20
+            },
+            {
+              "item": "berry_cheri",
+              "weight": 1
+            },
+            {
+              "item": "berry_oran",
+              "weight": 6
+            },
+            {
+              "item": "berry_pecha",
+              "weight": 4
+            },
+            {
+              "item": "food_apple",
+              "weight": 10
+            },
+            {
+              "item": "gummi_black",
+              "weight": 1
+            },
+            {
+              "item": "gummi_blue",
+              "weight": 1
+            },
+            {
+              "item": "gummi_brown",
+              "weight": 1
+            },
+            {
+              "item": "gummi_clear",
+              "weight": 1
+            },
+            {
+              "item": "gummi_gold",
+              "weight": 1
+            },
+            {
+              "item": "gummi_gray",
+              "weight": 1
+            },
+            {
+              "item": "gummi_orange",
+              "weight": 1
+            },
+            {
+              "item": "gummi_pink",
+              "weight": 1
+            },
+            {
+              "item": "gummi_purple",
+              "weight": 1
+            },
+            {
+              "item": "gummi_royal",
+              "weight": 1
+            },
+            {
+              "item": "gummi_silver",
+              "weight": 1
+            },
+            {
+              "item": "gummi_sky",
+              "weight": 1
+            },
+            {
+              "item": "gummi_white",
+              "weight": 1
+            },
+            {
+              "item": "gummi_yellow",
+              "weight": 1
+            },
+            {
+              "item": "held_insomniascope",
+              "weight": 2
+            },
+            {
+              "item": "held_pecha_scarf",
+              "weight": 2
+            },
+            {
+              "item": "held_power_band",
+              "weight": 5
+            },
+            {
+              "item": "held_special_band",
+              "weight": 5
+            },
+            {
+              "item": "machine_recall_box",
+              "weight": 20
+            },
+            {
+              "item": "seed_blast",
+              "weight": 3
+            },
+            {
+              "item": "seed_reviver",
+              "weight": 3
+            },
+            {
+              "item": "tm_attract",
+              "weight": 2
+            },
+            {
+              "item": "tm_torment",
+              "weight": 2
+            }
+          ]
+        }
+      },
+      "inherit_items": false
+    }
+  ],
+  "money": [
+    320,
+    426
+  ],
+  "profiles": [
+    {
+      "name": "twosides",
+      "weight": 10
+    },
+    {
+      "name": "branching",
+      "weight": 10
+    },
+    {
+      "name": "mixed",
+      "weight": 10
+    }
+  ],
+  "items": {},
+  "features": {
+    "shop": {
+      "enabled": true,
+      "floors": [
+        1,
+        15
+      ],
+      "trials": 2,
+      "percent": 45,
+      "price_policy": "Data/Item Price x5",
+      "items": [
+        {
+          "item": "berry_oran",
+          "price": 50,
+          "weight": 2
+        },
+        {
+          "item": "seed_reviver",
+          "price": 800,
+          "weight": 4
+        },
+        {
+          "item": "berry_rawst",
+          "price": 70,
+          "weight": 2
+        },
+        {
+          "item": "berry_pecha",
+          "price": 60,
+          "weight": 2
+        },
+        {
+          "item": "berry_cheri",
+          "price": 70,
+          "weight": 2
+        },
+        {
+          "item": "food_apple",
+          "price": 50,
+          "weight": 11
+        },
+        {
+          "item": "food_apple_big",
+          "price": 100,
+          "weight": 3
+        },
+        {
+          "item": "held_power_band",
+          "price": 2000,
+          "weight": 4
+        },
+        {
+          "item": "held_pecha_scarf",
+          "price": 1500,
+          "weight": 4
+        },
+        {
+          "item": "held_insomniascope",
+          "price": 1500,
+          "weight": 4
+        },
+        {
+          "item": "seed_warp",
+          "price": 150,
+          "weight": 2
+        },
+        {
+          "item": "orb_petrify",
+          "price": 250,
+          "weight": 3
+        }
+      ]
+    },
+    "monster_house": {
+      "enabled": true,
+      "floors": [
+        1,
+        15
+      ],
+      "trials": 2,
+      "percent": 30,
+      "species": 6,
+      "level_boost": 2,
+      "items": []
+    },
+    "traps": {
+      "enabled": true,
+      "canonical_kinds": [
+        "Wonder Tile"
+      ],
+      "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
+    }
+  },
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "mont_gele_pied",
+    "relay_ground": "d11p02",
+    "canonical_end_ground": "d11p03",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/d11p03.rsground",
+    "cinematic_ground": "d11p03",
+    "battle_ground": "d11p03",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
+  "narrative": {
+    "transferred": true,
+    "cutscenes": [
+      {
+        "scene": "d11p02",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/d11p02"
+      },
+      {
+        "scene": "d11p03",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/d11p03"
+      },
+      {
+        "scene": "mont_gele_pied",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/mont_gele_pied"
+      }
+    ],
+    "red_cinematics": [
+      "RESERVE/red_cinematics/d11p01.cif.json",
+      "RESERVE/red_cinematics/d11p02.cif.json",
+      "RESERVE/red_cinematics/d11p03.cif.json"
+    ],
+    "zone_script": "Data/Script/halcyon/zone/mt_freeze",
+    "pending_cinematics": [],
+    "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
+    "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
+  },
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "d11p03",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
+  },
+  "fixed_grounds": {
+    "mid": "mt_freeze_midpoint",
+    "entrance": "mont_gele_pied",
+    "end": "d11p03"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/mt_freeze.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
+  },
+  "wiring": {
+    "dungeon": "mt_freeze",
+    "segments": 2,
+    "entrance_ground": "mont_gele_pied",
+    "relay_ground": "d11p02",
+    "end_ground": "d11p03",
+    "next_zone": "mt_freeze_peak",
+    "boss_mode": "canonical_ground",
+    "segment_exits": [
+      {
+        "segment": 0,
+        "kind": "ground",
+        "target": "mt_freeze_midpoint",
+        "reason": "relais interne du donjon (station de mi-parcours) puis retour au segment suivant"
+      },
+      {
+        "segment": 1,
+        "kind": "ground",
+        "target": "d11p02",
+        "reason": "scène canonique de transition vers mt_freeze_peak"
+      }
+    ],
+    "zone_script": "Data/Script/halcyon/zone/mt_freeze/init.lua",
+    "archived_script": "",
+    "notes": [
+      "chaîne canonique : la scène finale appartient à mt_freeze_peak"
+    ],
+    "rule": "cinématique = combat = fin sur le Ground canonique ; boss interne = étage fixe du donjon, jamais un Ground inventé",
+    "ground_rebinds": []
+  }
+}

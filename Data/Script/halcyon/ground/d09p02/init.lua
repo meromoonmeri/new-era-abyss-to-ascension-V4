@@ -1,3 +1,4 @@
+-- [dungeon_builder] recâblage : scène canonique de transition : elle enchaîne sur mt_blaze_peak, donjon suivant de la chaîne PMD Red
 --[[ d09p02 — étape de l'Arc Fugitif (ch11, canon PMD Red).
      Ground pixel-perfect du port PMD-RED-PMDO-PORT. La scène est jouée
      par FugitiveArc.Play (dialogues par clés SCENE_*, à adopter). ]]
@@ -17,7 +18,7 @@ function d09p02.Enter(map)
     if ok and scene and scene.Cutscene then pcall(scene.Cutscene) end
     SV.CanonicalDungeons.Pending = nil
     GAME:FadeOut(false, 30)
-    GAME:EnterDungeon('mt_blaze', 1, 0, 0,
+    GAME:EnterDungeon('mt_blaze_peak', 0, 0, 0,
       RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
   else
     FugitiveArc.Play('d09p02')

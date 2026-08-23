@@ -15,6 +15,15 @@ Hard safety boundaries:
 * --dry-run is the default; --apply is required for deletion.
 """
 from __future__ import annotations
+# --- Verrou d'exclusivite Ch.6-32 (tools/perimeter_guard.py) ---
+import sys as _sys, pathlib as _pathlib
+for _anc in _pathlib.Path(__file__).resolve().parents:
+    if (_anc / 'tools' / 'perimeter_guard.py').is_file():
+        _sys.path.insert(0, str(_anc / 'tools'))
+        break
+from perimeter_guard import install as _install_perimeter_guard
+_install_perimeter_guard()
+# --- fin du verrou ---
 
 import argparse
 import copy

@@ -1,3 +1,5 @@
+-- [dungeon_builder] recâblage : conclusion de mt_blaze_peak sur son Ground final : la scène s'y termine, aucun renvoi vers une ancienne implémentation
+-- [dungeon_builder] scène re-raccordée au donjon reconstruit : mt_blaze seg 2 -> mt_blaze_peak seg 0 étage 0. d09p03 est la scène du sommet (Sulfura) : la suite canonique est la Cime du Mont Cendré, désormais un donjon à part entière de 3 étages
 --[[ d09p03 — étape de l'Arc Fugitif (ch11, canon PMD Red).
      Ground pixel-perfect du port PMD-RED-PMDO-PORT. La scène est jouée
      par FugitiveArc.Play (dialogues par clés SCENE_*, à adopter). ]]
@@ -17,8 +19,7 @@ function d09p03.Enter(map)
     if ok and scene and scene.Cutscene then pcall(scene.Cutscene) end
     SV.CanonicalDungeons.Pending = nil
     GAME:FadeOut(false, 30)
-    GAME:EnterDungeon('mt_blaze', 2, 0, 0,
-      RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, 'master_zone', -1, 1, 0, true, true)
   else
     FugitiveArc.Play('d09p03')
   end

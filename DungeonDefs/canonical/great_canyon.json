@@ -1,0 +1,705 @@
+{
+  "id": "great_canyon",
+  "aliases": [
+    "grand_canyon_porte"
+  ],
+  "name": {
+    "en": "Great Canyon",
+    "fr": "Grand Canyon"
+  },
+  "chapter": 9,
+  "route": "secondary",
+  "source": "Pokémon Mystery Dungeon: Red Rescue Team — Great Canyon (12F). Espèces, niveaux, probabilités, tables d'objets, pièges et boutiques extraits de pret/pmd-red (data/dungeon/GreatCanyon) via tools/build_canonical_definitions.py ; niveaux renivelés au palier du chapitre 9. Recoupé avec Bulbapedia (page « Great Canyon »).",
+  "comment": "Définition canonique générée pour le chapitre 9. Aucun étage pré-calculé : la topologie est produite en jeu par RogueElements. 20 objets canoniques n'existent pas dans le jeu d'objets du mod et sont omis de la table (liste conservée dans `canonical_items_without_pmdo_equivalent`). Donjon secondaire : aucun relais/midpoint (règle du framework §1, réservés aux donjons d'histoire).",
+  "floors": 12,
+  "biome": "canyon_rim",
+  "level": 23,
+  "rescues": 2,
+  "released": false,
+  "music": "",
+  "variation": {
+    "direction": "sommet",
+    "time_limit": 1000,
+    "max_foes": 6,
+    "respawn_time": 100,
+    "level_scaling": {
+      "policy": "translation to chapter tier",
+      "chapter_base_level": 23
+    },
+    "canonical_flags": {
+      "maxItemsAllowed": 20,
+      "maxPartyMembers": 3,
+      "keepMoney": true,
+      "recruitingEnabled": true,
+      "stairDirectionUp": true
+    }
+  },
+  "stairs": {
+    "min_distance": 4,
+    "exit_tile": "stairs_go_up"
+  },
+  "dtef": {
+    "floor": "mt_horn_floor",
+    "wall": "mt_horn_wall",
+    "secondary": "mt_horn_secondary",
+    "name": "mt_horn",
+    "element": "normal"
+  },
+  "canonical_items_without_pmdo_equivalent": [
+    "ITEM_GRAVELEROCK",
+    "ITEM_MAX_ELIXIR",
+    "ITEM_TM_AERIAL_ACE",
+    "ITEM_TM_BRICK_BREAK",
+    "ITEM_TM_BULLET_SEED",
+    "ITEM_TM_DIG",
+    "ITEM_TM_FACADE",
+    "ITEM_TM_FRUSTRATION",
+    "ITEM_TM_GIGA_DRAIN",
+    "ITEM_TM_HIDDEN_POWER",
+    "ITEM_TM_REST",
+    "ITEM_TM_RETURN",
+    "ITEM_TM_ROAR",
+    "ITEM_TM_SAFEGUARD",
+    "ITEM_TM_SECRET_POWER",
+    "ITEM_TM_SHADOW_BALL",
+    "ITEM_TM_SHOCK_WAVE",
+    "ITEM_TM_TAUNT",
+    "ITEM_TM_THIEF",
+    "ITEM_TM_TOXIC"
+  ],
+  "segments": [
+    {
+      "name": "canyon_rim",
+      "floors": [
+        1,
+        6
+      ],
+      "biome": "canyon_rim",
+      "profiles": [
+        {
+          "name": "twosides",
+          "weight": 24
+        },
+        {
+          "name": "branching",
+          "weight": 18
+        },
+        {
+          "name": "mixed",
+          "weight": 14
+        }
+      ],
+      "pokemon": [
+        {
+          "species": "breloom",
+          "level": [
+            24,
+            24
+          ],
+          "weight": 6,
+          "floors": [
+            4,
+            6
+          ]
+        },
+        {
+          "species": "cacturne",
+          "level": [
+            24,
+            24
+          ],
+          "weight": 4,
+          "floors": [
+            5,
+            6
+          ]
+        },
+        {
+          "species": "doduo",
+          "level": [
+            24,
+            24
+          ],
+          "weight": 3,
+          "floors": [
+            1,
+            4
+          ]
+        },
+        {
+          "species": "dunsparce",
+          "level": [
+            23,
+            23
+          ],
+          "weight": 6,
+          "floors": [
+            1,
+            3
+          ]
+        },
+        {
+          "species": "murkrow",
+          "level": [
+            24,
+            24
+          ],
+          "weight": 4,
+          "floors": [
+            5,
+            6
+          ]
+        },
+        {
+          "species": "noctowl",
+          "level": [
+            24,
+            24
+          ],
+          "weight": 4,
+          "floors": [
+            6,
+            6
+          ]
+        },
+        {
+          "species": "phanpy",
+          "level": [
+            24,
+            24
+          ],
+          "weight": 6,
+          "floors": [
+            1,
+            3
+          ]
+        },
+        {
+          "species": "skiploom",
+          "level": [
+            23,
+            23
+          ],
+          "weight": 6,
+          "floors": [
+            1,
+            3
+          ]
+        },
+        {
+          "species": "vileplume",
+          "level": [
+            24,
+            24
+          ],
+          "weight": 6,
+          "floors": [
+            4,
+            6
+          ]
+        }
+      ],
+      "inherit_pokemon": false,
+      "items": {
+        "canonical": {
+          "amount": [
+            2,
+            5
+          ],
+          "entries": [
+            {
+              "item": "berry_cheri",
+              "weight": 2
+            },
+            {
+              "item": "berry_oran",
+              "weight": 7
+            },
+            {
+              "item": "berry_pecha",
+              "weight": 2
+            },
+            {
+              "item": "berry_rawst",
+              "weight": 4
+            },
+            {
+              "item": "food_apple",
+              "weight": 11
+            },
+            {
+              "item": "gummi_brown",
+              "weight": 1
+            },
+            {
+              "item": "gummi_clear",
+              "weight": 1
+            },
+            {
+              "item": "gummi_gold",
+              "weight": 1
+            },
+            {
+              "item": "gummi_gray",
+              "weight": 1
+            },
+            {
+              "item": "gummi_orange",
+              "weight": 1
+            },
+            {
+              "item": "gummi_pink",
+              "weight": 1
+            },
+            {
+              "item": "gummi_red",
+              "weight": 1
+            },
+            {
+              "item": "gummi_silver",
+              "weight": 1
+            },
+            {
+              "item": "gummi_sky",
+              "weight": 1
+            },
+            {
+              "item": "gummi_white",
+              "weight": 1
+            },
+            {
+              "item": "gummi_yellow",
+              "weight": 1
+            },
+            {
+              "item": "held_power_band",
+              "weight": 10
+            },
+            {
+              "item": "held_special_band",
+              "weight": 10
+            },
+            {
+              "item": "machine_recall_box",
+              "weight": 20
+            },
+            {
+              "item": "seed_blast",
+              "weight": 2
+            },
+            {
+              "item": "tm_attract",
+              "weight": 2
+            },
+            {
+              "item": "tm_torment",
+              "weight": 2
+            }
+          ]
+        }
+      },
+      "inherit_items": false
+    },
+    {
+      "name": "canyon_floor",
+      "floors": [
+        7,
+        12
+      ],
+      "biome": "canyon_floor",
+      "profiles": [
+        {
+          "name": "branching",
+          "weight": 24
+        },
+        {
+          "name": "crossroads",
+          "weight": 18
+        },
+        {
+          "name": "mixed",
+          "weight": 14
+        }
+      ],
+      "pokemon": [
+        {
+          "species": "ariados",
+          "level": [
+            24,
+            24
+          ],
+          "weight": 7,
+          "floors": [
+            8,
+            11
+          ]
+        },
+        {
+          "species": "cacturne",
+          "level": [
+            24,
+            24
+          ],
+          "weight": 5,
+          "floors": [
+            7,
+            8
+          ]
+        },
+        {
+          "species": "heracross",
+          "level": [
+            24,
+            24
+          ],
+          "weight": 7,
+          "floors": [
+            7,
+            9
+          ]
+        },
+        {
+          "species": "houndoom",
+          "level": [
+            25,
+            25
+          ],
+          "weight": 9,
+          "floors": [
+            10,
+            12
+          ]
+        },
+        {
+          "species": "murkrow",
+          "level": [
+            24,
+            24
+          ],
+          "weight": 5,
+          "floors": [
+            7,
+            7
+          ]
+        },
+        {
+          "species": "noctowl",
+          "level": [
+            24,
+            24
+          ],
+          "weight": 5,
+          "floors": [
+            7,
+            8
+          ]
+        },
+        {
+          "species": "tauros",
+          "level": [
+            25,
+            25
+          ],
+          "weight": 7,
+          "floors": [
+            10,
+            12
+          ]
+        }
+      ],
+      "inherit_pokemon": false,
+      "items": {
+        "canonical": {
+          "amount": [
+            2,
+            5
+          ],
+          "entries": [
+            {
+              "item": "berry_cheri",
+              "weight": 2
+            },
+            {
+              "item": "berry_oran",
+              "weight": 7
+            },
+            {
+              "item": "berry_pecha",
+              "weight": 2
+            },
+            {
+              "item": "berry_rawst",
+              "weight": 4
+            },
+            {
+              "item": "food_apple",
+              "weight": 11
+            },
+            {
+              "item": "gummi_brown",
+              "weight": 1
+            },
+            {
+              "item": "gummi_clear",
+              "weight": 1
+            },
+            {
+              "item": "gummi_gold",
+              "weight": 1
+            },
+            {
+              "item": "gummi_gray",
+              "weight": 1
+            },
+            {
+              "item": "gummi_orange",
+              "weight": 1
+            },
+            {
+              "item": "gummi_pink",
+              "weight": 1
+            },
+            {
+              "item": "gummi_red",
+              "weight": 1
+            },
+            {
+              "item": "gummi_silver",
+              "weight": 1
+            },
+            {
+              "item": "gummi_sky",
+              "weight": 1
+            },
+            {
+              "item": "gummi_white",
+              "weight": 1
+            },
+            {
+              "item": "gummi_yellow",
+              "weight": 1
+            },
+            {
+              "item": "held_power_band",
+              "weight": 10
+            },
+            {
+              "item": "held_special_band",
+              "weight": 10
+            },
+            {
+              "item": "machine_recall_box",
+              "weight": 20
+            },
+            {
+              "item": "seed_blast",
+              "weight": 2
+            },
+            {
+              "item": "tm_attract",
+              "weight": 2
+            },
+            {
+              "item": "tm_torment",
+              "weight": 2
+            }
+          ]
+        }
+      },
+      "inherit_items": false
+    }
+  ],
+  "money": [
+    280,
+    374
+  ],
+  "profiles": [
+    {
+      "name": "twosides",
+      "weight": 10
+    },
+    {
+      "name": "branching",
+      "weight": 10
+    },
+    {
+      "name": "mixed",
+      "weight": 10
+    }
+  ],
+  "items": {},
+  "features": {
+    "shop": {
+      "enabled": true,
+      "floors": [
+        1,
+        12
+      ],
+      "trials": 2,
+      "percent": 45,
+      "price_policy": "Data/Item Price x5",
+      "items": [
+        {
+          "item": "ammo_stick",
+          "price": 50,
+          "weight": 8
+        },
+        {
+          "item": "ammo_iron_thorn",
+          "price": 50,
+          "weight": 5
+        },
+        {
+          "item": "ammo_geo_pebble",
+          "price": 50,
+          "weight": 4
+        },
+        {
+          "item": "seed_reviver",
+          "price": 800,
+          "weight": 7
+        },
+        {
+          "item": "gummi_white",
+          "price": 800,
+          "weight": 1
+        },
+        {
+          "item": "gummi_red",
+          "price": 800,
+          "weight": 1
+        },
+        {
+          "item": "gummi_blue",
+          "price": 800,
+          "weight": 1
+        },
+        {
+          "item": "gummi_grass",
+          "price": 800,
+          "weight": 1
+        },
+        {
+          "item": "gummi_yellow",
+          "price": 800,
+          "weight": 1
+        },
+        {
+          "item": "gummi_clear",
+          "price": 800,
+          "weight": 1
+        },
+        {
+          "item": "gummi_orange",
+          "price": 800,
+          "weight": 1
+        },
+        {
+          "item": "gummi_pink",
+          "price": 800,
+          "weight": 1
+        },
+        {
+          "item": "gummi_brown",
+          "price": 800,
+          "weight": 1
+        },
+        {
+          "item": "gummi_sky",
+          "price": 800,
+          "weight": 1
+        }
+      ]
+    },
+    "monster_house": {
+      "enabled": true,
+      "floors": [
+        1,
+        12
+      ],
+      "trials": 2,
+      "percent": 30,
+      "species": 6,
+      "level_boost": 2,
+      "items": []
+    },
+    "traps": {
+      "enabled": true,
+      "canonical_kinds": [
+        "Wonder Tile"
+      ],
+      "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
+    }
+  },
+  "scenes": {
+    "source": "docs/INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+    "entrance_ground": "grand_canyon_porte",
+    "relay_ground": "",
+    "canonical_end_ground": "d07p02",
+    "state": "ACTIVE_GROUND",
+    "location": "Data/Ground/d07p02.rsground",
+    "cinematic_ground": "d07p02",
+    "battle_ground": "d07p02",
+    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+  },
+  "narrative": {
+    "transferred": true,
+    "cutscenes": [
+      {
+        "scene": "grand_canyon_porte",
+        "state": "active",
+        "path": "Data/Script/halcyon/ground/grand_canyon_porte"
+      }
+    ],
+    "red_cinematics": [
+      "RESERVE/red_cinematics/d07p01.cif.json",
+      "RESERVE/red_cinematics/d07p02.cif.json"
+    ],
+    "zone_script": "",
+    "pending_cinematics": [],
+    "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
+    "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
+  },
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "d07p02",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
+  },
+  "fixed_grounds": {
+    "entrance": "grand_canyon_porte",
+    "end": "d07p02"
+  },
+  "takeover": {
+    "legacy_zone": "Data/Zone/great_canyon.json",
+    "status": "COMPLETED",
+    "policy": "legacy implementation replaced by this Builder's regeneration"
+  },
+  "wiring": {
+    "dungeon": "great_canyon",
+    "segments": 2,
+    "entrance_ground": "grand_canyon_porte",
+    "relay_ground": "",
+    "end_ground": "d07p02",
+    "next_zone": "",
+    "boss_mode": "canonical_ground",
+    "segment_exits": [
+      {
+        "segment": 0,
+        "kind": "zone",
+        "target": "great_canyon",
+        "reason": "poursuite directe vers le segment 1 du même donjon"
+      },
+      {
+        "segment": 1,
+        "kind": "ground",
+        "target": "d07p02",
+        "reason": "Ground final canonique : cinématique, combat et fin au même endroit"
+      }
+    ],
+    "zone_script": "Data/Script/halcyon/zone/great_canyon/init.lua",
+    "archived_script": "",
+    "notes": [],
+    "rule": "cinématique = combat = fin sur le Ground canonique ; boss interne = étage fixe du donjon, jamais un Ground inventé",
+    "ground_rebinds": []
+  }
+}

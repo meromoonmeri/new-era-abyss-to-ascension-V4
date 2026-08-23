@@ -1,3 +1,4 @@
+-- [dungeon_builder] recâblage : station de mi-parcours de mt_thunder : elle rend la main au segment 1 du même donjon
 --[[ Station du Mont Grondant — midpoint de mt_thunder (route canonique PMD Red).
      Patron new_era_sky : clone exact de la station-relais (Terminal Kangourex
      + réserve, sortie Nord = suite, sortie Sud = retour Metano). ]]
@@ -37,7 +38,7 @@ function mt_thunder_midpoint.North_Exit_Touch(obj, activator)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     GAME:FadeOut(false, 60)
-    GAME:EnterDungeon("col_foudre", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    GAME:EnterDungeon("mt_thunder", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
   end
 end
 

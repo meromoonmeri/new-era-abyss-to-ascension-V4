@@ -34,6 +34,15 @@ Divergence relevée vs la table FLOORS du générateur v1 : aucune, les 12 ids
 traités ici n'y figuraient pas (ils faisaient partie des SKIP ou étaient
 au-delà de l'id 43).
 """
+# --- Verrou d'exclusivite Ch.6-32 (tools/perimeter_guard.py) ---
+import sys as _sys, pathlib as _pathlib
+for _anc in _pathlib.Path(__file__).resolve().parents:
+    if (_anc / 'tools' / 'perimeter_guard.py').is_file():
+        _sys.path.insert(0, str(_anc / 'tools'))
+        break
+from perimeter_guard import install as _install_perimeter_guard
+_install_perimeter_guard()
+# --- fin du verrou ---
 import json, io, os, re, copy, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

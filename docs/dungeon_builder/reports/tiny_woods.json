@@ -1,0 +1,229 @@
+{
+  "generated_at": "2026-08-22T22:58:01+00:00",
+  "dungeon": "tiny_woods",
+  "name": {
+    "en": "Tiny Woods",
+    "fr": "Forêt Tendre"
+  },
+  "chapter": 7,
+  "route": "secondary",
+  "source": "Pokémon Mystery Dungeon: Red Rescue Team — Tiny Woods (3F). Espèces, niveaux, probabilités, tables d'objets, pièges et boutiques extraits de pret/pmd-red (data/dungeon/TinyWoods) via tools/build_canonical_definitions.py ; niveaux renivelés au palier du chapitre 7. Recoupé avec Bulbapedia (page « Tiny Woods »).",
+  "floors": 3,
+  "biome": "young_woods",
+  "direction": "fond",
+  "zone_file": "Data/Zone/tiny_woods.json",
+  "segments": [
+    {
+      "name": "young_woods",
+      "floors": [
+        1,
+        3
+      ],
+      "biome": "young_woods",
+      "dtef": {
+        "floor": "tiny_meadow_floor",
+        "wall": "tiny_meadow_wall",
+        "secondary": "tiny_meadow_secondary",
+        "name": "tiny_meadow",
+        "element": "normal",
+        "justification": "Forêt Tendre : biome de prairie/bosquet de départ ; utilisateur unique."
+      },
+      "profiles": [
+        "branching",
+        "dense",
+        "mixed"
+      ],
+      "pokemon": 4,
+      "item_tables": {
+        "canonical": {
+          "amount": [
+            2,
+            5
+          ],
+          "entries": 2
+        }
+      },
+      "shop": true,
+      "monster_house": true,
+      "treasure_room": false,
+      "key_room": false,
+      "mystery": false,
+      "weather": []
+    }
+  ],
+  "fixed_grounds": {
+    "entrance": "foret_tendre_oree",
+    "end": "d01p02"
+  },
+  "midpoint": {},
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "d01p02",
+    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
+  },
+  "minibosses": [],
+  "ground_check": {
+    "entrance": "foret_tendre_oree",
+    "cinematic_ground": "d01p02",
+    "battle_ground": "d01p02",
+    "scene_state": "ACTIVE_GROUND",
+    "mid": "",
+    "end": "d01p02",
+    "boss_mode": "canonical_ground",
+    "boss_ground": "d01p02",
+    "boss_map": "",
+    "canonical_end_candidates": [
+      "d01p02"
+    ],
+    "ok": true,
+    "problems": [],
+    "notes": [
+      "no fixed 'mid' Ground declared",
+      "final battle stays on the canonical end Ground 'd01p02' (no separate arena created)"
+    ]
+  },
+  "rng": {
+    "label": "generate:tiny_woods",
+    "root_seed": 8855158366534059952,
+    "explicit_seed": false,
+    "derived_seeds": 17
+  },
+  "warnings": [],
+  "floor_reports": [
+    {
+      "floor": 1,
+      "segment": "young_woods",
+      "kind": "procedural",
+      "profile": "branching+dense+mixed",
+      "grid": [
+        5,
+        4
+      ],
+      "cell": [
+        13,
+        8
+      ],
+      "dtef": "tiny_meadow",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.8024,
+      "seeds": [
+        4885086327883647305,
+        328035532357558714,
+        6148116327165426519,
+        5504052276688170711,
+        8786267107449793489
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 14.0,
+        "rooms_min": 7,
+        "rooms_max": 24,
+        "halls_avg": 16.8,
+        "branches_avg": 3.4,
+        "dead_ends_avg": 3.4,
+        "loops_avg": 1.2,
+        "connections_avg": 16.8,
+        "room_area_min": 12,
+        "room_area_max": 70,
+        "stair_distance_avg": 37.4,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 2,
+      "segment": "young_woods",
+      "kind": "procedural",
+      "profile": "branching+dense+mixed",
+      "grid": [
+        8,
+        5
+      ],
+      "cell": [
+        7,
+        6
+      ],
+      "dtef": "tiny_meadow",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 1,
+      "max_pair_similarity": 0.7981,
+      "seeds": [
+        7518858546944910882,
+        2437825235596032625,
+        3851602629561234885,
+        1536814486412504302,
+        5648474147889625513
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 15.4,
+        "rooms_min": 12,
+        "rooms_max": 23,
+        "halls_avg": 16.8,
+        "branches_avg": 5.0,
+        "dead_ends_avg": 5.4,
+        "loops_avg": 1.4,
+        "connections_avg": 16.8,
+        "room_area_min": 12,
+        "room_area_max": 290,
+        "stair_distance_avg": 41.2,
+        "reachable_ratio_min": 0.9983,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 3,
+      "segment": "young_woods",
+      "kind": "procedural",
+      "profile": "branching+dense+mixed",
+      "grid": [
+        7,
+        4
+      ],
+      "cell": [
+        9,
+        6
+      ],
+      "dtef": "tiny_meadow",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 5,
+      "variants_rejected": 1,
+      "max_pair_similarity": 0.6794,
+      "seeds": [
+        2735059396788553592,
+        1700739041648535105,
+        3919979600427556647,
+        8849836594802307114,
+        3608948867262585334
+      ],
+      "metrics": {
+        "variants": 5,
+        "rooms_avg": 16.0,
+        "rooms_min": 11,
+        "rooms_max": 25,
+        "halls_avg": 17.4,
+        "branches_avg": 4.8,
+        "dead_ends_avg": 4.2,
+        "loops_avg": 1.6,
+        "connections_avg": 17.4,
+        "room_area_min": 12,
+        "room_area_max": 264,
+        "stair_distance_avg": 39.4,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 5
+      },
+      "traversable": true,
+      "notes": []
+    }
+  ]
+}

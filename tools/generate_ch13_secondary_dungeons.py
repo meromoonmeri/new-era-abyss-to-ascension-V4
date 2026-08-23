@@ -4,6 +4,15 @@
 generate_ch13_secondary_dungeons.py — Générateur des 4 donjons secondaires
 du Chapitre 13 (Arc de la Brume du Nord) pour New Era : Abyss to Ascension.
 """
+# --- Verrou d'exclusivite Ch.6-32 (tools/perimeter_guard.py) ---
+import sys as _sys, pathlib as _pathlib
+for _anc in _pathlib.Path(__file__).resolve().parents:
+    if (_anc / 'tools' / 'perimeter_guard.py').is_file():
+        _sys.path.insert(0, str(_anc / 'tools'))
+        break
+from perimeter_guard import install as _install_perimeter_guard
+_install_perimeter_guard()
+# --- fin du verrou ---
 import os, sys, json, copy
 
 MOD_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))

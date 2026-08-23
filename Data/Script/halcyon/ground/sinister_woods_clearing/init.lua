@@ -1,3 +1,4 @@
+-- [dungeon_builder] recâblage : scène du gardien puis combat sur l'étage d'arène du segment 2 de gloomy_forest : cinématique et combat au même endroit
 -- D04P02 — clairière finale canonique de Sinister Woods, casting New Era.
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
@@ -17,7 +18,7 @@ function sinister_woods_clearing.Enter(map)
        and not SV.Chapter6.FinishedGloomyForestIntro then
       gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()
     else
-      GAME:ContinueDungeon('gloomy_forest', 4, 0, 0,
+      GAME:ContinueDungeon('gloomy_forest', 2, 0, 0,
         RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     end
   end)

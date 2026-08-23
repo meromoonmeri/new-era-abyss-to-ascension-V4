@@ -1,3 +1,4 @@
+-- [dungeon_builder] recâblage : scène de mi-parcours des Bois Sombres : elle rend la main au dernier segment, où se trouve l'étage d'arène
 --[[
     gloomy_forest_miniboss_ch_6.lua
     Forêt Lugubre — Mini-Boss : Tengalice + Cornèbre (gardiens du cœur)
@@ -268,7 +269,7 @@ function gloomy_forest_miniboss_ch_6.DefeatedBoss()
   GAME:CutsceneMode(false)
   -- Segment 3 : les 3F au-dessus du mini-boss, vers le cœur de la forêt.
   PrintInfo("[BossSeq][gloomy_forest_miniboss_ch_6] -> ContinueDungeon(seg 3)")
-  GAME:ContinueDungeon("gloomy_forest", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("gloomy_forest", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function gloomy_forest_miniboss_ch_6.DiedToBoss()

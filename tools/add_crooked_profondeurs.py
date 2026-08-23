@@ -16,6 +16,15 @@ audit_checkpoint_crooked_cavern.md §9.2.
 The PMDO editor serializes these JSON files in a flat (indent=0) format; we reproduce
 that exactly so the diff is minimal (only the inserted segment changes).
 """
+# --- Verrou d'exclusivite Ch.6-32 (tools/perimeter_guard.py) ---
+import sys as _sys, pathlib as _pathlib
+for _anc in _pathlib.Path(__file__).resolve().parents:
+    if (_anc / 'tools' / 'perimeter_guard.py').is_file():
+        _sys.path.insert(0, str(_anc / 'tools'))
+        break
+from perimeter_guard import install as _install_perimeter_guard
+_install_perimeter_guard()
+# --- fin du verrou ---
 import copy, json, sys, pathlib
 
 ZONE = pathlib.Path("Data/Zone/crooked_cavern.json")

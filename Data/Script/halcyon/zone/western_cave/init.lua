@@ -1,0 +1,74 @@
+-- [dungeon_builder] script de zone canonique généré — ne pas éditer à la main.
+--[[ Grotte Occidentale (western_cave) — chapitre 14.
+     Zone reconstruite par tools/dungeon_builder : 3 segment(s).
+     Règle verrouillée : Ground de cinématique = Ground du combat = Ground final
+     canonique. Aucune arène séparée, aucune téléportation vers un décor inventé.
+     Regénérer avec : python3 tools/dungeon_builder.py wire-scenes --apply ]]
+require 'origin.common'
+require 'halcyon.GeneralFunctions'
+
+local western_cave = {}
+
+local LAST_SEGMENT = 2
+
+local function GROUND_IDX(name)
+  local ok, idx = pcall(function()
+    local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("master_zone")
+    for ii = 0, zone.Grounds.Count - 1, 1 do
+      if zone.Grounds[ii] == name then return ii end
+    end
+    return -1
+  end)
+  if not ok or idx == nil or idx < 0 then return 1 end
+  return idx
+end
+
+local RETURN_GROUND = 'metano_town'
+
+function western_cave.Init(zone)
+  DEBUG.EnableDbgCoro()
+  SV.TemporaryFlags.LastDungeonEntered = 'western_cave'
+end
+
+function western_cave.EnterSegment(zone, rescuing, segmentID, mapID)
+  GeneralFunctions.CheckAllowSetRescue(zone.ID)
+  if rescuing ~= true then
+    COMMON.BeginDungeon(zone.ID, segmentID, mapID)
+  end
+  GAME:SetRescueAllowed(segmentID < LAST_SEGMENT)
+end
+
+function western_cave.Rescued(zone, name, mail)
+  COMMON.Rescued(zone, name, mail)
+end
+
+function western_cave.ExitSegment(zone, result, rescue, segmentID, mapID)
+  GeneralFunctions.RestoreIdleAnim()
+  DEBUG.EnableDbgCoro()
+  if COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID) then return end
+  SV.adventure.Thief = false
+  SV.CanonicalDungeons = SV.CanonicalDungeons or {}
+
+  if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+    GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
+    return
+  end
+
+  if segmentID == 0 then
+    -- poursuite directe vers le segment 1 du même donjon
+    GAME:EnterDungeon('western_cave', 1, 0, 0,
+      RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  elseif segmentID == 1 then
+    -- cinématique du gardien puis retour dans le donjon pour le combat : cinématique et combat au même endroit, aucune arène séparée
+    SV.CanonicalDungeons.Pending = 'western_cave_seg1'
+    GAME:EnterGroundMap('antre_occident', 'Main_Entrance_Marker')
+  elseif segmentID == 2 then
+    -- étage d'arène franchi : fin de run sur place, la scène a déjà été jouée
+    SV.CanonicalDungeons['western_cave'] = true
+    GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
+  else
+    GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
+  end
+end
+
+return western_cave

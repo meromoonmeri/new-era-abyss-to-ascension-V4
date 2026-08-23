@@ -1,3 +1,5 @@
+-- [dungeon_builder] recâblage : conclusion de frosty_grotto sur son Ground final : la scène s'y termine, aucun renvoi vers une ancienne implémentation
+-- [dungeon_builder] scène re-raccordée au donjon reconstruit : frosty_forest seg 2 -> frosty_grotto seg 0 étage 0. d10p03 est la scène de fin de la Forêt Givrée (Artikodin) : la suite canonique est la Grotte Givrée, désormais un donjon à part entière de 5 étages
 --[[ d10p03 — étape de l'Arc Fugitif (ch11, canon PMD Red).
      Ground pixel-perfect du port PMD-RED-PMDO-PORT. La scène est jouée
      par FugitiveArc.Play (dialogues par clés SCENE_*, à adopter). ]]
@@ -16,7 +18,7 @@ function d10p03.Enter(map)
     local ok,scene=pcall(require,'halcyon.arc_fugitif.scene.d10p03')
     if ok and scene and scene.Cutscene then pcall(scene.Cutscene) end
     SV.CanonicalDungeons.Pending=nil; GAME:FadeOut(false,30)
-    GAME:EnterDungeon('frosty_forest',2,0,0,RogueEssence.Data.GameProgress.DungeonStakes.Risk,true,false)
+    GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, 'master_zone', -1, 1, 0, true, true)
   else FugitiveArc.Play('d10p03') end
 end
 
