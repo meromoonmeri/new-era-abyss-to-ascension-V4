@@ -77,6 +77,15 @@ end
 
 function gouffre_muet_bord.Enter(map)
   DEBUG.EnableDbgCoro()
+  if os.getenv('PMDO_RED_STORY_ROUTE_VALIDATOR') == 'silent_chasm' then
+    -- The red_story_route_validator drives the transition itself in headless
+    -- runtime mode. Play the cutscene without any fade/enter of our own and
+    -- yield control back to the validator's OnGroundMapEnter handler.
+    RogueEssence.GameManager.Instance:SetFade(false, false)
+    RedCanonScene.Play(SCENE, EVENTS)
+    GAME:CutsceneMode(false)
+    return
+  end
   GAME:FadeIn(20)
   RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)

@@ -24,23 +24,32 @@ CONFIG = {
     },
 }
 PROFILE_SPECS: dict[str, dict[str, Any]] = {
+    # Silent Chasm: 9 procedural floors, tight rock/cave feel with alt paths.
+    # Grid width raised to [5, 7] and height to [4, 6] so every seed lands on
+    # >=20 cells before the room ratio prunes any of them (65% -> 13+ rooms),
+    # which eliminates the low-count "3 rooms 4 halls no branch" invalid floors
+    # observed on the initial runtime pass.
     "silent_ring": {"name": "ring", "weight": 24, "overrides": {
-        "grid_x": [4, 7], "grid_y": [3, 6], "circle_room_ratio": [65, 90],
-        "circle_paths": [2, 4], "connect_percent": 20, "combine_rate": 0,
+        "grid_x": [5, 7], "grid_y": [4, 6], "circle_room_ratio": [65, 90],
+        "circle_paths": [2, 4], "connect_percent": 25, "combine_rate": 0,
     }},
     "silent_lattice": {"name": "lattice", "weight": 18, "overrides": {
-        "grid_x": [4, 7], "grid_y": [3, 6], "grid_room_ratio": 75,
-        "grid_hall_ratio": 55, "connect_percent": 20, "combine_rate": 5,
+        "grid_x": [5, 7], "grid_y": [4, 6], "grid_room_ratio": 80,
+        "grid_hall_ratio": 55, "connect_percent": 25, "combine_rate": 0,
     }},
+    # Great Canyon: 12 procedural floors, wider corridors and tiered layout.
+    # Same tightening on the grid minima. combine_rate lowered to 0 so
+    # RogueElements never merges two neighbor rooms into a single cell
+    # (that was the direct cause of "3 rooms, 0 branches" great_canyon floors).
     "canyon_ring": {"name": "ring", "weight": 22, "overrides": {
-        "grid_x": [4, 7], "grid_y": [3, 6], "cell_width": [10, 14],
+        "grid_x": [5, 7], "grid_y": [4, 6], "cell_width": [10, 14],
         "cell_height": [8, 12], "circle_room_ratio": [60, 90],
-        "circle_paths": [2, 4], "connect_percent": 20, "combine_rate": 5,
+        "circle_paths": [2, 4], "connect_percent": 25, "combine_rate": 0,
     }},
     "canyon_lattice": {"name": "lattice", "weight": 18, "overrides": {
-        "grid_x": [4, 8], "grid_y": [3, 6], "cell_width": [10, 15],
-        "cell_height": [8, 13], "grid_room_ratio": 70,
-        "grid_hall_ratio": 55, "connect_percent": 20, "combine_rate": 10,
+        "grid_x": [5, 8], "grid_y": [4, 6], "cell_width": [10, 15],
+        "cell_height": [8, 13], "grid_room_ratio": 75,
+        "grid_hall_ratio": 55, "connect_percent": 25, "combine_rate": 0,
     }},
 }
 

@@ -7,6 +7,8 @@ local OUT=os.getenv('PMDO_RED_STORY_ROUTE_OUT') or '/tmp/red_story_route.jsonl'
 local CONFIG={
   tiny_woods={floors=3,entrance='foret_tendre_oree',final='d01p02'},
   thunderwave_cave={floors=5,entrance='grotte_statique_seuil',final='d02p02'},
+  silent_chasm={floors=9,entrance='gouffre_muet_bord',final='d05p02'},
+  great_canyon={floors=12,entrance='grand_canyon_porte',final='d07p02'},
 }
 local function esc(v)return tostring(v):gsub('\\','\\\\'):gsub('"','\\"'):gsub('\n',' | '):gsub('\r','')end
 local function emit(v)

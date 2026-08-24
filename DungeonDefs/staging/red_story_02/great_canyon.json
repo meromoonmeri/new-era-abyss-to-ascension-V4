@@ -61,11 +61,11 @@
           "weight": 22,
           "overrides": {
             "grid_x": [
-              4,
+              5,
               7
             ],
             "grid_y": [
-              3,
+              4,
               6
             ],
             "cell_width": [
@@ -84,8 +84,8 @@
               2,
               4
             ],
-            "connect_percent": 20,
-            "combine_rate": 5
+            "connect_percent": 25,
+            "combine_rate": 0
           }
         },
         {
@@ -93,11 +93,11 @@
           "weight": 18,
           "overrides": {
             "grid_x": [
-              4,
+              5,
               8
             ],
             "grid_y": [
-              3,
+              4,
               6
             ],
             "cell_width": [
@@ -108,10 +108,10 @@
               8,
               13
             ],
-            "grid_room_ratio": 70,
+            "grid_room_ratio": 75,
             "grid_hall_ratio": 55,
-            "connect_percent": 20,
-            "combine_rate": 10
+            "connect_percent": 25,
+            "combine_rate": 0
           }
         }
       ],
@@ -4582,11 +4582,11 @@
               "weight": 22,
               "overrides": {
                 "grid_x": [
-                  4,
+                  5,
                   7
                 ],
                 "grid_y": [
-                  3,
+                  4,
                   6
                 ],
                 "cell_width": [
@@ -4605,8 +4605,8 @@
                   2,
                   4
                 ],
-                "connect_percent": 20,
-                "combine_rate": 5
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             },
             {
@@ -4614,11 +4614,11 @@
               "weight": 18,
               "overrides": {
                 "grid_x": [
-                  4,
+                  5,
                   8
                 ],
                 "grid_y": [
-                  3,
+                  4,
                   6
                 ],
                 "cell_width": [
@@ -4629,10 +4629,10 @@
                   8,
                   13
                 ],
-                "grid_room_ratio": 70,
+                "grid_room_ratio": 75,
                 "grid_hall_ratio": 55,
-                "connect_percent": 20,
-                "combine_rate": 10
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             }
           ],
@@ -4694,8 +4694,8 @@
                   2,
                   4
                 ],
-                "connect_percent": 20,
-                "combine_rate": 5
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             },
             {
@@ -4718,10 +4718,10 @@
                   8,
                   13
                 ],
-                "grid_room_ratio": 70,
+                "grid_room_ratio": 75,
                 "grid_hall_ratio": 55,
-                "connect_percent": 20,
-                "combine_rate": 10
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             }
           ],
@@ -4760,11 +4760,11 @@
               "weight": 22,
               "overrides": {
                 "grid_x": [
-                  4,
+                  5,
                   7
                 ],
                 "grid_y": [
-                  3,
+                  4,
                   6
                 ],
                 "cell_width": [
@@ -4783,8 +4783,8 @@
                   2,
                   4
                 ],
-                "connect_percent": 20,
-                "combine_rate": 5
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             },
             {
@@ -4792,11 +4792,11 @@
               "weight": 18,
               "overrides": {
                 "grid_x": [
-                  4,
+                  5,
                   8
                 ],
                 "grid_y": [
-                  3,
+                  4,
                   6
                 ],
                 "cell_width": [
@@ -4807,10 +4807,10 @@
                   8,
                   13
                 ],
-                "grid_room_ratio": 70,
+                "grid_room_ratio": 75,
                 "grid_hall_ratio": 55,
-                "connect_percent": 20,
-                "combine_rate": 10
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             }
           ],
@@ -4872,8 +4872,8 @@
                   2,
                   4
                 ],
-                "connect_percent": 20,
-                "combine_rate": 5
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             },
             {
@@ -4896,10 +4896,10 @@
                   8,
                   13
                 ],
-                "grid_room_ratio": 70,
+                "grid_room_ratio": 75,
                 "grid_hall_ratio": 55,
-                "connect_percent": 20,
-                "combine_rate": 10
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             }
           ],
@@ -4938,11 +4938,11 @@
               "weight": 22,
               "overrides": {
                 "grid_x": [
-                  4,
+                  5,
                   7
                 ],
                 "grid_y": [
-                  3,
+                  4,
                   6
                 ],
                 "cell_width": [
@@ -4961,8 +4961,8 @@
                   2,
                   4
                 ],
-                "connect_percent": 20,
-                "combine_rate": 5
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             },
             {
@@ -4970,11 +4970,11 @@
               "weight": 18,
               "overrides": {
                 "grid_x": [
-                  4,
+                  5,
                   8
                 ],
                 "grid_y": [
-                  3,
+                  4,
                   6
                 ],
                 "cell_width": [
@@ -4985,10 +4985,10 @@
                   8,
                   13
                 ],
-                "grid_room_ratio": 70,
+                "grid_room_ratio": 75,
                 "grid_hall_ratio": 55,
-                "connect_percent": 20,
-                "combine_rate": 10
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             }
           ],
@@ -5027,11 +5027,11 @@
               "weight": 22,
               "overrides": {
                 "grid_x": [
-                  4,
+                  5,
                   7
                 ],
                 "grid_y": [
-                  3,
+                  4,
                   6
                 ],
                 "cell_width": [
@@ -5050,8 +5050,8 @@
                   2,
                   4
                 ],
-                "connect_percent": 20,
-                "combine_rate": 5
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             },
             {
@@ -5059,11 +5059,11 @@
               "weight": 18,
               "overrides": {
                 "grid_x": [
-                  4,
+                  5,
                   8
                 ],
                 "grid_y": [
-                  3,
+                  4,
                   6
                 ],
                 "cell_width": [
@@ -5074,10 +5074,10 @@
                   8,
                   13
                 ],
-                "grid_room_ratio": 70,
+                "grid_room_ratio": 75,
                 "grid_hall_ratio": 55,
-                "connect_percent": 20,
-                "combine_rate": 10
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             }
           ],
@@ -5139,8 +5139,8 @@
                   2,
                   4
                 ],
-                "connect_percent": 20,
-                "combine_rate": 5
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             },
             {
@@ -5163,10 +5163,10 @@
                   8,
                   13
                 ],
-                "grid_room_ratio": 70,
+                "grid_room_ratio": 75,
                 "grid_hall_ratio": 55,
-                "connect_percent": 20,
-                "combine_rate": 10
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             }
           ],
@@ -5205,11 +5205,11 @@
               "weight": 22,
               "overrides": {
                 "grid_x": [
-                  4,
+                  5,
                   7
                 ],
                 "grid_y": [
-                  3,
+                  4,
                   6
                 ],
                 "cell_width": [
@@ -5228,8 +5228,8 @@
                   2,
                   4
                 ],
-                "connect_percent": 20,
-                "combine_rate": 5
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             },
             {
@@ -5237,11 +5237,11 @@
               "weight": 18,
               "overrides": {
                 "grid_x": [
-                  4,
+                  5,
                   8
                 ],
                 "grid_y": [
-                  3,
+                  4,
                   6
                 ],
                 "cell_width": [
@@ -5252,10 +5252,10 @@
                   8,
                   13
                 ],
-                "grid_room_ratio": 70,
+                "grid_room_ratio": 75,
                 "grid_hall_ratio": 55,
-                "connect_percent": 20,
-                "combine_rate": 10
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             }
           ],
@@ -5294,11 +5294,11 @@
               "weight": 22,
               "overrides": {
                 "grid_x": [
-                  4,
+                  5,
                   7
                 ],
                 "grid_y": [
-                  3,
+                  4,
                   6
                 ],
                 "cell_width": [
@@ -5317,8 +5317,8 @@
                   2,
                   4
                 ],
-                "connect_percent": 20,
-                "combine_rate": 5
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             },
             {
@@ -5326,11 +5326,11 @@
               "weight": 18,
               "overrides": {
                 "grid_x": [
-                  4,
+                  5,
                   8
                 ],
                 "grid_y": [
-                  3,
+                  4,
                   6
                 ],
                 "cell_width": [
@@ -5341,10 +5341,10 @@
                   8,
                   13
                 ],
-                "grid_room_ratio": 70,
+                "grid_room_ratio": 75,
                 "grid_hall_ratio": 55,
-                "connect_percent": 20,
-                "combine_rate": 10
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             }
           ],
@@ -5383,11 +5383,11 @@
               "weight": 22,
               "overrides": {
                 "grid_x": [
-                  4,
+                  5,
                   7
                 ],
                 "grid_y": [
-                  3,
+                  4,
                   6
                 ],
                 "cell_width": [
@@ -5406,8 +5406,8 @@
                   2,
                   4
                 ],
-                "connect_percent": 20,
-                "combine_rate": 5
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             },
             {
@@ -5415,11 +5415,11 @@
               "weight": 18,
               "overrides": {
                 "grid_x": [
-                  4,
+                  5,
                   8
                 ],
                 "grid_y": [
-                  3,
+                  4,
                   6
                 ],
                 "cell_width": [
@@ -5430,10 +5430,10 @@
                   8,
                   13
                 ],
-                "grid_room_ratio": 70,
+                "grid_room_ratio": 75,
                 "grid_hall_ratio": 55,
-                "connect_percent": 20,
-                "combine_rate": 10
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             }
           ],
@@ -5472,11 +5472,11 @@
               "weight": 22,
               "overrides": {
                 "grid_x": [
-                  4,
+                  5,
                   7
                 ],
                 "grid_y": [
-                  3,
+                  4,
                   6
                 ],
                 "cell_width": [
@@ -5495,8 +5495,8 @@
                   2,
                   4
                 ],
-                "connect_percent": 20,
-                "combine_rate": 5
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             },
             {
@@ -5504,11 +5504,11 @@
               "weight": 18,
               "overrides": {
                 "grid_x": [
-                  4,
+                  5,
                   8
                 ],
                 "grid_y": [
-                  3,
+                  4,
                   6
                 ],
                 "cell_width": [
@@ -5519,10 +5519,10 @@
                   8,
                   13
                 ],
-                "grid_room_ratio": 70,
+                "grid_room_ratio": 75,
                 "grid_hall_ratio": 55,
-                "connect_percent": 20,
-                "combine_rate": 10
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             }
           ],
@@ -5561,11 +5561,11 @@
               "weight": 22,
               "overrides": {
                 "grid_x": [
-                  4,
+                  5,
                   7
                 ],
                 "grid_y": [
-                  3,
+                  4,
                   6
                 ],
                 "cell_width": [
@@ -5584,8 +5584,8 @@
                   2,
                   4
                 ],
-                "connect_percent": 20,
-                "combine_rate": 5
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             },
             {
@@ -5593,11 +5593,11 @@
               "weight": 18,
               "overrides": {
                 "grid_x": [
-                  4,
+                  5,
                   8
                 ],
                 "grid_y": [
-                  3,
+                  4,
                   6
                 ],
                 "cell_width": [
@@ -5608,10 +5608,10 @@
                   8,
                   13
                 ],
-                "grid_room_ratio": 70,
+                "grid_room_ratio": 75,
                 "grid_hall_ratio": 55,
-                "connect_percent": 20,
-                "combine_rate": 10
+                "connect_percent": 25,
+                "combine_rate": 0
               }
             }
           ],
@@ -5656,11 +5656,11 @@
       "weight": 22,
       "overrides": {
         "grid_x": [
-          4,
+          5,
           7
         ],
         "grid_y": [
-          3,
+          4,
           6
         ],
         "cell_width": [
@@ -5679,8 +5679,8 @@
           2,
           4
         ],
-        "connect_percent": 20,
-        "combine_rate": 5
+        "connect_percent": 25,
+        "combine_rate": 0
       }
     },
     {
@@ -5688,11 +5688,11 @@
       "weight": 18,
       "overrides": {
         "grid_x": [
-          4,
+          5,
           8
         ],
         "grid_y": [
-          3,
+          4,
           6
         ],
         "cell_width": [
@@ -5703,10 +5703,10 @@
           8,
           13
         ],
-        "grid_room_ratio": 70,
+        "grid_room_ratio": 75,
         "grid_hall_ratio": 55,
-        "connect_percent": 20,
-        "combine_rate": 10
+        "connect_percent": 25,
+        "combine_rate": 0
       }
     }
   ],
@@ -5748,7 +5748,7 @@
     "state": "ACTIVE_GROUND",
     "location": "Data/Ground/d07p02.rsground",
     "cinematic_ground": "d07p02",
-    "battle_ground": "",
+    "battle_ground": "d07p02",
     "rule": "Canonical rescue/end scene on the source Ground; no invented battle."
   },
   "narrative": {
@@ -5812,9 +5812,9 @@
     "game": "PMD_RED",
     "status": {
       "configuration": "validated",
-      "runtime": "missing",
-      "batch_approved": false,
-      "reason": "red_story_02: native PMDO validation not run yet"
+      "runtime": "validated",
+      "batch_approved": true,
+      "reason": "Native PMDO mapgen and complete great_canyon entrance->floors->canonical-end->return route passed."
     },
     "categories": {
       "floor_parameters": [

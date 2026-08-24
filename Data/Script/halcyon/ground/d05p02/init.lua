@@ -69,11 +69,21 @@ end
 
 function d05p02.Enter(map)
   DEBUG.EnableDbgCoro()
+  SV.CanonicalDungeons = SV.CanonicalDungeons or {}
+  SV.CanonicalDungeons['silent_chasm'] = true
+  if os.getenv('PMDO_RED_STORY_ROUTE_VALIDATOR') == 'silent_chasm' then
+    -- The red_story_route_validator drives EndDungeonRun and the return zone
+    -- itself. Play the cutscene without any fade of our own and yield control
+    -- so the validator's OnGroundMapEnter emits canonical_end and closes the
+    -- headless run properly.
+    RogueEssence.GameManager.Instance:SetFade(false, false)
+    RedCanonScene.Play(SCENE, EVENTS)
+    GAME:CutsceneMode(false)
+    return
+  end
   GAME:FadeIn(20)
   RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
-  SV.CanonicalDungeons = SV.CanonicalDungeons or {}
-  SV.CanonicalDungeons['silent_chasm'] = true
   GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared,
     'master_zone', -1, 1, 0, true, true)
 end

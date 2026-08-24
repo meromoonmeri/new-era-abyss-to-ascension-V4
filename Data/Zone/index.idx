@@ -2600,15 +2600,13 @@
           2,
           3,
           4,
-          5
-        ],
-        [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
         ]
       ],
       "Name": {
@@ -2618,7 +2616,7 @@
         }
       },
       "Released": false,
-      "Comment": "Définition canonique générée pour le chapitre 9. Aucun étage pré-calculé : la topologie est produite en jeu par RogueElements. 20 objets canoniques n'existent pas dans le jeu d'objets du mod et sont omis de la table (liste conservée dans `canonical_items_without_pmdo_equivalent`). Donjon secondaire : aucun relais/midpoint (règle du framework §1, réservés aux donjons d'histoire).",
+      "Comment": "Great Canyon staged canonical candidate from PMD Red ROM tables. Architecture translation to native RogueElements profiles is explicitly INFERRED.",
       "SortOrder": 9
     },
     "magma_cavern": {
@@ -2953,7 +2951,7 @@
         }
       },
       "Released": false,
-      "Comment": "Définition canonique générée pour le chapitre 8. Aucun étage pré-calculé : la topologie est produite en jeu par RogueElements. 6 objets canoniques n'existent pas dans le jeu d'objets du mod et sont omis de la table (liste conservée dans `canonical_items_without_pmdo_equivalent`).",
+      "Comment": "Silent Chasm staged canonical candidate from PMD Red ROM tables. Architecture translation to native RogueElements profiles is explicitly INFERRED.",
       "SortOrder": 8
     },
     "silver_trench": {

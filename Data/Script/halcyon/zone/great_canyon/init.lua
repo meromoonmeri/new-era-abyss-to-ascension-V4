@@ -63,13 +63,13 @@ function great_canyon.ExitSegment(zone, result, rescue, segmentID, mapID)
   end
 
   if segmentID == 0 then
-    -- poursuite directe vers le segment 1 du même donjon
-    GAME:EnterDungeon('great_canyon', 1, 0, 0,
-      RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
-  elseif segmentID == 1 then
-    -- Ground final canonique : cinématique, combat et fin au même endroit
-    SV.CanonicalDungeons.Pending = 'great_canyon_seg1'
-    GAME:EnterGroundMap('d07p02', 'Main_Entrance_Marker')
+    -- Great Canyon runs as a single 12-floor procedural segment ending on the
+    -- canonical d07p02 Ground (rescue scene). No invented boss arena: cinema,
+    -- (optional) battle and end all take place on the same PMD Red ground.
+    -- EnterZone is used (as in tiny_woods) to properly transition
+    -- DungeonScene → GroundScene.
+    SV.CanonicalDungeons.Pending = 'great_canyon_seg0'
+    GAME:EnterZone(zone.ID, -1, ZONE_GROUND_IDX(zone, 'd07p02'), 0)
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end

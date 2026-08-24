@@ -48,7 +48,7 @@ rows=[json.loads(line) for line in path.read_text().splitlines() if line.strip()
 fatals=[row for row in rows if row.get('event')=='fatal']
 maps=[row['floor'] for row in rows if row.get('event')=='map']
 grounds=[row['id'] for row in rows if row.get('event')=='ground']
-expected={'tiny_woods':3,'thunderwave_cave':5}[zone]
+expected={'tiny_woods':3,'thunderwave_cave':5,'silent_chasm':9,'great_canyon':12}[zone]
 end=next((row for row in rows if row.get('event')=='end'),None)
 canonical=next((row for row in rows if row.get('event')=='canonical_end'),None)
 summary={'zone':zone,'events':len(rows),'maps':maps,'grounds':grounds,

@@ -59,6 +59,14 @@ PMDO_TRACK_NAMES = {
     "MUS_TINY_WOODS": "Tiny Woods.ogg",
     "MUS_THUNDERWAVE_CAVE": "Thunderwave Cave.ogg",
     "MUS_SINISTER_WOODS": "Sinister Woods.ogg",
+    "MUS_SILENT_CHASM": "Silent Chasm.ogg",
+    "MUS_GREAT_CANYON": "Great Canyon.ogg",
+    "MUS_MT_STEEL": "Mt Steel.ogg",
+    "MUS_MT_THUNDER": "Mt Thunder.ogg",
+    "MUS_LAPIS_CAVE": "Lapis Cave.ogg",
+    "MUS_MT_BLAZE": "Mt Blaze.ogg",
+    "MUS_FROSTY_FOREST": "Frosty Forest.ogg",
+    "MUS_MT_FREEZE": "Mt Freeze.ogg",
 }
 
 

@@ -12,11 +12,11 @@
     "total": 111,
     "pmd_red_eu": 64,
     "pmdodump": 47,
-    "generated": 3,
-    "mapgen_validated": 3,
-    "route_validated": 3,
-    "runtime_validated": 3,
-    "blocked": 108,
+    "generated": 5,
+    "mapgen_validated": 5,
+    "route_validated": 5,
+    "runtime_validated": 5,
+    "blocked": 106,
     "blocked_by_reason": {
       "CANONICAL_DEFINITION_MISSING": 61,
       "DEFINITION_RECONCILIATION_REQUIRED": 45,
@@ -79,9 +79,7 @@
       "UNMAPPED_CANONICAL_ITEMS:ITEM_GOLD_RIBBON,ITEM_LINK_BOX,ITEM_STAMINA_BAND,ITEM_TM_TOXIC": 1,
       "UNMAPPED_CANONICAL_ITEMS:ITEM_GOLD_RIBBON,ITEM_LINK_BOX,ITEM_TM_TOXIC": 1,
       "UNMAPPED_CANONICAL_ITEMS:ITEM_HEAL_SEED": 1,
-      "UNMAPPED_CANONICAL_ITEMS:ITEM_INSOMNISCOPE,ITEM_LINK_BOX,ITEM_STAMINA_BAND,ITEM_TM_TOXIC": 1,
-      "great_canyon: unmapped canonical items: ITEM_LINK_BOX, ITEM_TM_TOXIC": 1,
-      "silent_chasm: unmapped canonical items: ITEM_BLOWBACK_ORB, ITEM_HURL_ORB, ITEM_RADAR_ORB, ITEM_SWITCHER_ORB, ITEM_WARP_ORB": 1
+      "UNMAPPED_CANONICAL_ITEMS:ITEM_INSOMNISCOPE,ITEM_LINK_BOX,ITEM_STAMINA_BAND,ITEM_TM_TOXIC": 1
     }
   },
   "entries": [
@@ -235,14 +233,12 @@
       "definition": "silent_chasm",
       "manifest": "docs/canonical/red/silent_chasm_rom_manifest.json",
       "final_ground": "d05p02",
-      "status": "BLOCKED_CONFIGURATION",
+      "status": "PROMOTED_RUNTIME_VALIDATED",
       "generated": false,
       "mapgen_validated": false,
-      "route_validated": false,
-      "runtime_validated": false,
-      "blockers": [
-        "silent_chasm: unmapped canonical items: ITEM_BLOWBACK_ORB, ITEM_HURL_ORB, ITEM_RADAR_ORB, ITEM_SWITCHER_ORB, ITEM_WARP_ORB"
-      ],
+      "route_validated": true,
+      "runtime_validated": true,
+      "blockers": [],
       "resolution_audit": "docs/canonical/red/PMD_RED_RESOLUTION_AUDIT.json",
       "batch_report": "docs/dungeon_builder/batches/red_story_02/batch_report.json"
     },
@@ -337,14 +333,12 @@
       "definition": "great_canyon",
       "manifest": "docs/canonical/red/great_canyon_rom_manifest.json",
       "final_ground": null,
-      "status": "BLOCKED_CONFIGURATION",
+      "status": "PROMOTED_RUNTIME_VALIDATED",
       "generated": false,
       "mapgen_validated": false,
-      "route_validated": false,
-      "runtime_validated": false,
-      "blockers": [
-        "great_canyon: unmapped canonical items: ITEM_LINK_BOX, ITEM_TM_TOXIC"
-      ],
+      "route_validated": true,
+      "runtime_validated": true,
+      "blockers": [],
       "resolution_audit": "docs/canonical/red/PMD_RED_RESOLUTION_AUDIT.json",
       "batch_report": "docs/dungeon_builder/batches/red_story_02/batch_report.json"
     },

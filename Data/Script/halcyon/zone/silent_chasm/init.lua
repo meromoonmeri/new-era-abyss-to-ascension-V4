@@ -66,8 +66,10 @@ function silent_chasm.ExitSegment(zone, result, rescue, segmentID, mapID)
     -- Ground final canonique : cinématique, combat et fin au même endroit
     SV.CanonicalDungeons.Pending = 'silent_chasm_seg0'
     -- d05p02 ne porte aucun marqueur : la scène téléporte
-    -- elle-même le joueur, on entre donc par index.
-    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, 'd05p02'), 0)
+    -- elle-même le joueur, on entre donc par index. EnterZone est utilisé
+    -- (comme tiny_woods) pour proprement basculer DungeonScene → GroundScene
+    -- ; EnterGroundMap seul restait dans la scène du dungeon.
+    GAME:EnterZone(zone.ID, -1, ZONE_GROUND_IDX(zone, 'd05p02'), 0)
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end

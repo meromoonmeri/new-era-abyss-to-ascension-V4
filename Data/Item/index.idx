@@ -3526,1777 +3526,31 @@
       "Comment": "", 
       "SortOrder": 12
     }, 
-    "mission_lost_band": {
+    "medicine_max_elixir": {
       "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 14, 
-      "UsageType": 0, 
+      "Icon": 7, 
+      "UsageType": 1, 
       "States": [], 
       "MaxStack": 0, 
-      "CannotDrop": true, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Lost Band", 
-        "LocalTexts": {}
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 0
-    }, 
-    "mission_lost_scarf": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 14, 
-      "UsageType": 0, 
-      "States": [], 
-      "MaxStack": 0, 
-      "CannotDrop": true, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Lost Scarf", 
-        "LocalTexts": {}
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 0
-    }, 
-    "mission_lost_specs": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 15, 
-      "UsageType": 0, 
-      "States": [], 
-      "MaxStack": 0, 
-      "CannotDrop": true, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Lost Specs", 
-        "LocalTexts": {}
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 0
-    }, 
-    "mission_stolen_band": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 14, 
-      "UsageType": 0, 
-      "States": [], 
-      "MaxStack": 0, 
-      "CannotDrop": true, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Stolen Band", 
-        "LocalTexts": {}
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 0
-    }, 
-    "mission_stolen_scarf": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 14, 
-      "UsageType": 0, 
-      "States": [], 
-      "MaxStack": 0, 
-      "CannotDrop": true, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Stolen Scarf", 
-        "LocalTexts": {}
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 0
-    }, 
-    "mission_stolen_specs": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 15, 
-      "UsageType": 0, 
-      "States": [], 
-      "MaxStack": 0, 
-      "CannotDrop": true, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Stolen Specs", 
-        "LocalTexts": {}
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 0
-    }, 
-    "orb_all_aim": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
       "CannotDrop": false, 
       "BagEffect": false, 
       "Name": {
-        "DefaultText": "All-Aim Orb", 
+        "DefaultText": "Max Elixir", 
         "LocalTexts": {
-          "fr": "Visorbe Tous", 
-          "de": "Trefferorb", 
-          "ko": "모두조준구슬"
+          "fr": "Max Élixir", 
+          "de": "Top-Elixier", 
+          "es": "Elixir Máximo", 
+          "it": "Elisir Max", 
+          "ko": "PP맥스", 
+          "ja": "ピーピーマックス", 
+          "ja-jp": "ピーピーマックス", 
+          "zh-hans": "PP多项全补剂", 
+          "zh-hant": "PP多項全補劑"
         }
       }, 
       "Released": true, 
       "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_all_dodge": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "All-Dodge Orb", 
-        "LocalTexts": {
-          "fr": "Esquivorbe Tous", 
-          "de": "Ausweichorb", 
-          "it": "Sfera Schivatutti", 
-          "ko": "모두회피구슬", 
-          "zh-hans": "全回避之玉"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_cleanse": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Cleanse Orb", 
-        "LocalTexts": {
-          "fr": "Nettoyorbe", 
-          "de": "Sterilorb", 
-          "ko": "깨끗구슬"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_endure": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Endure Orb", 
-        "LocalTexts": {
-          "fr": "Tankorbe", 
-          "de": "Ausdauerorb", 
-          "it": "Sfera Resistenza", 
-          "ko": "기합의구슬", 
-          "zh-hans": "忍耐之玉"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_escape": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Escape Orb", 
-        "LocalTexts": {
-          "fr": "Echaporbe", 
-          "de": "Fliehorb", 
-          "ko": "던전탈출구슬"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_fill_in": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Fill-In Orb", 
-        "LocalTexts": {
-          "fr": "Solidifiorbe", 
-          "de": "Füllorb", 
-          "it": "Solidosfera", 
-          "ko": "채움구슬", 
-          "zh-hans": "填充之玉"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_foe_hold": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Foe-Hold Orb", 
-        "LocalTexts": {
-          "fr": "Stupéfiorbe", 
-          "de": "Stopperorb", 
-          "ko": "상대묶음구슬"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_foe_seal": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Foe-Seal Orb", 
-        "LocalTexts": {
-          "fr": "Immobilisorbe", 
-          "de": "Lähmorb", 
-          "ko": "적봉인구슬"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_freeze": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Freeze Orb", 
-        "LocalTexts": {
-          "fr": "Blizzorbe", 
-          "de": "Frierorb", 
-          "it": "Gelosfera", 
-          "ko": "빙결구슬", 
-          "zh-hans": "冰冻之玉"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_halving": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Halving Orb", 
-        "LocalTexts": {
-          "fr": "Motiorbe", 
-          "de": "Halbierorb", 
-          "it": "Dimezzosfera", 
-          "ko": "절반구슬", 
-          "zh-hans": "减半之玉"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_invert": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Invert Orb", 
-        "LocalTexts": {
-          "fr": "Inversorbe", 
-          "de": "Umkehrorb", 
-          "ko": "트릭구슬"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_luminous": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Luminous Orb", 
-        "LocalTexts": {
-          "fr": "Lumiorbe", 
-          "de": "Strahlorb", 
-          "ko": "빛의구슬"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_mirror": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Mirror Orb", 
-        "LocalTexts": {
-          "fr": "Mirrorbe", 
-          "de": "Spiegelorb", 
-          "it": "Specchiosfera", 
-          "ko": "거울구슬", 
-          "zh-hans": "镜面之玉"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_mug": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Mug Orb", 
-        "LocalTexts": {
-          "fr": "Dépouillorbe", 
-          "de": "Rauborb", 
-          "it": "Carpisfera", 
-          "ko": "훔치기구슬", 
-          "zh-hans": "窃取之玉"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_nullify": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Nullify Orb", 
-        "LocalTexts": {
-          "fr": "Orbe AntiCapSpé", 
-          "de": "Fähigkeitensperrorb", 
-          "it": "Neutralisfera", 
-          "ko": "무효구슬", 
-          "zh-hans": "特性消除之玉"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_petrify": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Petrify Orb", 
-        "LocalTexts": {
-          "fr": "Pétrifiorbe", 
-          "de": "Erstarrorb", 
-          "ko": "묶어둠구슬"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_pierce": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Pierce Orb", 
-        "LocalTexts": {
-          "fr": "Perçorbe", 
-          "de": "Perforierorb", 
-          "it": "Perforosfera", 
-          "ko": "관통구슬", 
-          "zh-hans": "贯穿之玉"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_rebound": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Rebound Orb", 
-        "LocalTexts": {
-          "fr": "Rebondorbe", 
-          "de": "Konterorb", 
-          "it": "Ribattisfera", 
-          "ko": "반사구슬", 
-          "zh-hans": "反击之玉"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_revival": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Revival Orb", 
-        "LocalTexts": {
-          "fr": "Résurectorbe", 
-          "de": "Team-Beleberorb", 
-          "it": "Revitalsfera", 
-          "ko": "부활구슬", 
-          "zh-hans": "全复活之玉"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_rollcall": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Rollcall Orb", 
-        "LocalTexts": {
-          "fr": "Convocorbe", 
-          "de": "Appellorb", 
-          "ko": "출석구슬"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_scanner": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Scanner Orb", 
-        "LocalTexts": {
-          "fr": "Révélorbe", 
-          "de": "Scannerorb", 
-          "ko": "스캔구슬"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_slow": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Slow Orb", 
-        "LocalTexts": {
-          "fr": "Lentorbe", 
-          "de": "Reduzorb", 
-          "it": "Lentosfera", 
-          "ko": "느림구슬", 
-          "zh-hans": "缓速之玉"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_slumber": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Slumber Orb", 
-        "LocalTexts": {
-          "fr": "Roupillorbe", 
-          "de": "Schlaforb", 
-          "ko": "잠들기구슬"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_spurn": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Spurn Orb", 
-        "LocalTexts": {
-          "fr": "Repoussorbe", 
-          "de": "Streuorb", 
-          "ko": "날려보냄구슬"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_stayaway": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Stayaway Orb", 
-        "LocalTexts": {
-          "fr": "Envoûtorbe", 
-          "de": "Wandelorb", 
-          "ko": "저리가구슬", 
-          "zh-hans": "远离之玉"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_totter": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Totter Orb", 
-        "LocalTexts": {
-          "fr": "Foliorbe", 
-          "de": "Wirrorb", 
-          "ko": "비틀비틀구슬"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_trapbust": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Trapbust Orb", 
-        "LocalTexts": {
-          "fr": "Désamorbe", 
-          "de": "Annulierorb", 
-          "it": "Annullosfera", 
-          "ko": "함정파괴구슬", 
-          "zh-hans": "陷阱破坏之玉"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_trap_see": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Trap-See Orb", 
-        "LocalTexts": {
-          "fr": "Détectorbe", 
-          "de": "Seherorb", 
-          "it": "Trappolasfera", 
-          "ko": "함정보임구슬", 
-          "zh-hans": "陷阱查看之玉"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_trawl": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Trawl Orb", 
-        "LocalTexts": {
-          "fr": "Aspirorbe", 
-          "de": "Sogorb", 
-          "ko": "끌어당김구슬"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "orb_weather": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 9, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.OrbState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Weather Orb", 
-        "LocalTexts": {
-          "fr": "Météorbe", 
-          "de": "Wetterorb", 
-          "it": "Meteosfera", 
-          "ko": "기후조절구슬", 
-          "zh-hans": "天气变化之玉"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 11
-    }, 
-    "seed_blast": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 4, 
-      "UsageType": 4, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.EdibleState"
-        }, 
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.SeedState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Blast Seed", 
-        "LocalTexts": {
-          "fr": "Explograine", 
-          "de": "Plosivsamen", 
-          "ko": "폭렬의씨앗", 
-          "zh-hans": "爆炸之种"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 7
-    }, 
-    "seed_blinker": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 4, 
-      "UsageType": 4, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.EdibleState"
-        }, 
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.SeedState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Blinker Seed", 
-        "LocalTexts": {
-          "fr": "Eblouigraine", 
-          "de": "Flairsamen", 
-          "it": "Semetenebra", 
-          "ko": "앞못봄씨앗", 
-          "zh-hans": "失明之种"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 7
-    }, 
-    "seed_hunger": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 4, 
-      "UsageType": 4, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.EdibleState"
-        }, 
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.SeedState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Hunger Seed", 
-        "LocalTexts": {
-          "fr": "Famigraine", 
-          "de": "Gustosamen", 
-          "it": "Semevorax", 
-          "ko": "공복의씨앗", 
-          "zh-hans": "饥饿之种"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 7
-    }, 
-    "seed_ice": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 4, 
-      "UsageType": 4, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.EdibleState"
-        }, 
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.SeedState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Ice Seed", 
-        "LocalTexts": {
-          "fr": "Glacigraine", 
-          "de": "Eissamen", 
-          "ko": "얼음씨앗", 
-          "zh-hans": "冰冻之种"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 7
-    }, 
-    "seed_plain": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 4, 
-      "UsageType": 4, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.EdibleState"
-        }, 
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.SeedState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Plain Seed", 
-        "LocalTexts": {
-          "fr": "Graine Vide", 
-          "de": "Samen", 
-          "ko": "보통씨앗"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 7
-    }, 
-    "seed_quick": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 4, 
-      "UsageType": 4, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.EdibleState"
-        }, 
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.SeedState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Quick Seed", 
-        "LocalTexts": {}
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 7
-    }, 
-    "seed_reviver": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 4, 
-      "UsageType": 4, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.EdibleState"
-        }, 
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.SeedState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": true, 
-      "Name": {
-        "DefaultText": "Reviver Seed", 
-        "LocalTexts": {
-          "fr": "Résugraine", 
-          "de": "Belebersamen", 
-          "ko": "부활의씨앗"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 7
-    }, 
-    "seed_sleep": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 4, 
-      "UsageType": 4, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.EdibleState"
-        }, 
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.SeedState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Sleep Seed", 
-        "LocalTexts": {
-          "fr": "Roupigraine", 
-          "de": "Schlafsamen", 
-          "ko": "수면의씨앗"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 7
-    }, 
-    "seed_vile": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 4, 
-      "UsageType": 4, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.EdibleState"
-        }, 
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.SeedState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Vile Seed", 
-        "LocalTexts": {
-          "fr": "Infâmigraine", 
-          "de": "Schadsamen"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 7
-    }, 
-    "seed_warp": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 4, 
-      "UsageType": 4, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.EdibleState"
-        }, 
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.SeedState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Warp Seed", 
-        "LocalTexts": {
-          "fr": "Télégraine", 
-          "de": "Warp-Samen", 
-          "ko": "워프의씨앗"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 7
-    }, 
-    "tm_attract": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 13, 
-      "UsageType": 6, 
-      "States": [
-        {
-          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "RogueEssence.Dungeon.ItemIDState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "TM Attract", 
-        "LocalTexts": {
-          "fr": "CT Attraction", 
-          "de": "TM Anziehung", 
-          "es": "MT Atracción", 
-          "pt": "MT Attract", 
-          "it": "MT Attrazione", 
-          "ko": "헤롱헤롱 기술머신 ", 
-          "ja": "わざマシンメロメロ", 
-          "zh-hans": "TM 迷人", 
-          "zh-hant": "TM 迷人"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 13
-    }, 
-    "tm_captivate": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 13, 
-      "UsageType": 6, 
-      "States": [
-        {
-          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "RogueEssence.Dungeon.ItemIDState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "TM Captivate", 
-        "LocalTexts": {
-          "fr": "CT Séduction", 
-          "de": "TM Liebreiz", 
-          "es": "MT Seducción", 
-          "pt": "MT Captivate", 
-          "it": "MT Incanto", 
-          "ko": "유혹 기술머신 ", 
-          "ja": "わざマシンゆうわく", 
-          "zh-hans": "TM 诱惑", 
-          "zh-hant": "TM 誘惑"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 13
-    }, 
-    "tm_cut": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 13, 
-      "UsageType": 6, 
-      "States": [
-        {
-          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "RogueEssence.Dungeon.ItemIDState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "TM Cut", 
-        "LocalTexts": {
-          "fr": "CT Coupe", 
-          "de": "TM Zerschneider", 
-          "es": "MT Corte", 
-          "pt": "MT Cortar", 
-          "it": "MT Taglio", 
-          "ko": "풀베기 기술머신 ", 
-          "ja": "わざマシンいあいぎり", 
-          "zh-hans": "TM 居合斩", 
-          "zh-hant": "TM 居合斬"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 13
-    }, 
-    "tm_defog": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 13, 
-      "UsageType": 6, 
-      "States": [
-        {
-          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "RogueEssence.Dungeon.ItemIDState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "TM Defog", 
-        "LocalTexts": {
-          "fr": "CT Anti-Brume", 
-          "de": "TM Auflockern", 
-          "es": "MT Despejar", 
-          "pt": "MT Defog", 
-          "it": "MT Scacciabruma", 
-          "ko": "안개제거 기술머신 ", 
-          "ja": "わざマシンきりばらい", 
-          "zh-hans": "TM 清除浓雾", 
-          "zh-hant": "TM 清除濃霧"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 13
-    }, 
-    "tm_embargo": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 13, 
-      "UsageType": 6, 
-      "States": [
-        {
-          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "RogueEssence.Dungeon.ItemIDState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "TM Embargo", 
-        "LocalTexts": {
-          "fr": "CT Embargo", 
-          "de": "TM Itemsperre", 
-          "es": "MT Embargo", 
-          "pt": "MT Embargo", 
-          "it": "MT Divieto", 
-          "ko": "금제 기술머신 ", 
-          "ja": "わざマシンさしおさえ", 
-          "zh-hans": "TM 查封", 
-          "zh-hant": "TM 查封"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 13
-    }, 
-    "tm_endure": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 13, 
-      "UsageType": 6, 
-      "States": [
-        {
-          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "RogueEssence.Dungeon.ItemIDState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "TM Endure", 
-        "LocalTexts": {
-          "fr": "CT Ténacité", 
-          "de": "TM Ausdauer", 
-          "es": "MT Aguante", 
-          "pt": "MT Endure", 
-          "it": "MT Resistenza", 
-          "ko": "버티기 기술머신 ", 
-          "ja": "わざマシンこらえる", 
-          "zh-hans": "TM 挺住", 
-          "zh-hant": "TM 挺住"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 13
-    }, 
-    "tm_false_swipe": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 13, 
-      "UsageType": 6, 
-      "States": [
-        {
-          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "RogueEssence.Dungeon.ItemIDState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "TM False Swipe", 
-        "LocalTexts": {
-          "fr": "CT Faux-Chage", 
-          "de": "TM Trugschlag", 
-          "es": "MT Falsotortazo", 
-          "pt": "MT False Swipe", 
-          "it": "MT Falsofinale", 
-          "ko": "칼등치기 기술머신 ", 
-          "ja": "わざマシンみねうち", 
-          "zh-hans": "TM 点到为止", 
-          "zh-hant": "TM 點到為止"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 13
-    }, 
-    "tm_flash": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 13, 
-      "UsageType": 6, 
-      "States": [
-        {
-          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "RogueEssence.Dungeon.ItemIDState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "TM Flash", 
-        "LocalTexts": {
-          "fr": "CT Flash", 
-          "de": "TM Blitz", 
-          "es": "MT Destello", 
-          "pt": "MT Flash", 
-          "it": "MT Flash", 
-          "ko": "플래시 기술머신 ", 
-          "ja": "わざマシンフラッシュ", 
-          "zh-hans": "TM 闪光", 
-          "zh-hant": "TM 閃光"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 13
-    }, 
-    "tm_infestation": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 13, 
-      "UsageType": 6, 
-      "States": [
-        {
-          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "RogueEssence.Dungeon.ItemIDState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "TM Infestation", 
-        "LocalTexts": {
-          "fr": "CT Harcèlement", 
-          "de": "TM Plage", 
-          "es": "MT Acoso", 
-          "pt": "MT Infestation", 
-          "it": "MT Assillo", 
-          "ko": "엉겨붙기 기술머신 ", 
-          "ja": "わざマシンまとわりつく", 
-          "zh-hans": "TM 死缠烂打", 
-          "zh-hant": "TM 死纏爛打"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 13
-    }, 
-    "tm_psych_up": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 13, 
-      "UsageType": 6, 
-      "States": [
-        {
-          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "RogueEssence.Dungeon.ItemIDState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "TM Psych Up", 
-        "LocalTexts": {
-          "fr": "CT Boost", 
-          "de": "TM Psycho-Plus", 
-          "es": "MT Más Psique", 
-          "pt": "MT Psych Up", 
-          "it": "MT Psicamisù", 
-          "ko": "자기암시 기술머신 ", 
-          "ja": "わざマシンじこあんじ", 
-          "zh-hans": "TM 自我暗示", 
-          "zh-hant": "TM 自我暗示"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 13
-    }, 
-    "tm_quash": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 13, 
-      "UsageType": 6, 
-      "States": [
-        {
-          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "RogueEssence.Dungeon.ItemIDState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "TM Quash", 
-        "LocalTexts": {
-          "fr": "CT À la Queue", 
-          "de": "TM Verzögerung", 
-          "es": "MT Último Lugar", 
-          "pt": "MT Quash", 
-          "it": "MT Spintone", 
-          "ko": "순서미루기 기술머신 ", 
-          "ja": "わざマシンさきおくり", 
-          "zh-hans": "TM 延后", 
-          "zh-hant": "TM 延後"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 13
-    }, 
-    "tm_recycle": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 13, 
-      "UsageType": 6, 
-      "States": [
-        {
-          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "RogueEssence.Dungeon.ItemIDState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "TM Recycle", 
-        "LocalTexts": {
-          "fr": "CT Recyclage", 
-          "de": "TM Aufbereitung", 
-          "es": "MT Reciclaje", 
-          "pt": "MT Recycle", 
-          "it": "MT Riciclo", 
-          "ko": "리사이클 기술머신 ", 
-          "ja": "わざマシンリサイクル", 
-          "zh-hans": "TM 回收利用", 
-          "zh-hant": "TM 回收利用"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 13
-    }, 
-    "tm_snatch": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 13, 
-      "UsageType": 6, 
-      "States": [
-        {
-          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "RogueEssence.Dungeon.ItemIDState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "TM Snatch", 
-        "LocalTexts": {
-          "fr": "CT Saisie", 
-          "de": "TM Übernahme", 
-          "es": "MT Robo", 
-          "pt": "MT Snatch", 
-          "it": "MT Scippo", 
-          "ko": "가로챔 기술머신 ", 
-          "ja": "わざマシンよこどり", 
-          "zh-hans": "TM 抢夺", 
-          "zh-hant": "TM 搶奪"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 13
-    }, 
-    "tm_swagger": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 13, 
-      "UsageType": 6, 
-      "States": [
-        {
-          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "RogueEssence.Dungeon.ItemIDState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "TM Swagger", 
-        "LocalTexts": {
-          "fr": "CT Vantardise", 
-          "de": "TM Angeberei", 
-          "es": "MT Contoneo", 
-          "pt": "MT Swagger", 
-          "it": "MT Bullo", 
-          "ko": "뽐내기 기술머신 ", 
-          "ja": "わざマシンいばる", 
-          "zh-hans": "TM 虚张声势", 
-          "zh-hant": "TM 虛張聲勢"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 13
-    }, 
-    "tm_telekinesis": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 13, 
-      "UsageType": 6, 
-      "States": [
-        {
-          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "RogueEssence.Dungeon.ItemIDState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "TM Telekinesis", 
-        "LocalTexts": {
-          "fr": "CT Lévikinésie", 
-          "de": "TM Telekinese", 
-          "es": "MT Telequinesis", 
-          "pt": "MT Telekinesis", 
-          "it": "MT Telecinesi", 
-          "ko": "텔레키네시스 기술머신 ", 
-          "ja": "わざマシンテレキネシス", 
-          "zh-hans": "TM 意念移物", 
-          "zh-hant": "TM 意念移物"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 13
-    }, 
-    "tm_torment": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 13, 
-      "UsageType": 6, 
-      "States": [
-        {
-          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "RogueEssence.Dungeon.ItemIDState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "TM Torment", 
-        "LocalTexts": {
-          "fr": "CT Tourmente", 
-          "de": "TM Folterknecht", 
-          "es": "MT Tormento", 
-          "pt": "MT Torment", 
-          "it": "MT Attaccalite", 
-          "ko": "트집 기술머신 ", 
-          "ja": "わざマシンいちゃもん", 
-          "zh-hans": "TM 无理取闹", 
-          "zh-hant": "TM 無理取鬧"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 13
-    }, 
-    "tm_whirlpool": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 13, 
-      "UsageType": 6, 
-      "States": [
-        {
-          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "RogueEssence.Dungeon.ItemIDState"
-        }
-      ], 
-      "MaxStack": 0, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "TM Whirlpool", 
-        "LocalTexts": {
-          "fr": "CT Siphon", 
-          "de": "TM Whirlpool", 
-          "es": "MT Torbellino", 
-          "pt": "MT Whirlpool", 
-          "it": "MT Mulinello", 
-          "ko": "바다회오리 기술머신 ", 
-          "ja": "わざマシンうずしお", 
-          "zh-hans": "TM 潮旋", 
-          "zh-hant": "TM 潮旋"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 13
-    }, 
-    "wand_totter": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 8, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.WandState"
-        }
-      ], 
-      "MaxStack": 9, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Totter Wand", 
-        "LocalTexts": {
-          "fr": "Branche Confusion", 
-          "de": "Konfusionszweig", 
-          "ko": "혼란지팡이"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 3
-    }, 
-    "wand_transfer": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 8, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.WandState"
-        }
-      ], 
-      "MaxStack": 9, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Transfer Wand", 
-        "LocalTexts": {
-          "fr": "Branche Métamorph", 
-          "de": "Transferzweig", 
-          "it": "Ramo Sosia", 
-          "zh-hans": "变身之杖"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 3
-    }, 
-    "wand_vanish": {
-      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
-      "Icon": 8, 
-      "UsageType": 1, 
-      "States": [
-        {
-          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
-          "type": "PMDC.Dungeon.WandState"
-        }
-      ], 
-      "MaxStack": 9, 
-      "CannotDrop": false, 
-      "BagEffect": false, 
-      "Name": {
-        "DefaultText": "Vanish Wand", 
-        "LocalTexts": {
-          "fr": "Branche Disparition", 
-          "de": "Verschwindezweig", 
-          "it": "Dileguaramo", 
-          "zh-hans": "隐身之杖"
-        }
-      }, 
-      "Released": true, 
-      "Comment": "", 
-      "SortOrder": 3
+      "SortOrder": 2
     }, 
     "mega_abomasite": {
       "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
@@ -6162,6 +4416,883 @@
       "Comment": "", 
       "SortOrder": 13
     }, 
+    "mission_lost_band": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 14, 
+      "UsageType": 0, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": true, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Lost Band", 
+        "LocalTexts": {}
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 0
+    }, 
+    "mission_lost_scarf": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 14, 
+      "UsageType": 0, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": true, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Lost Scarf", 
+        "LocalTexts": {}
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 0
+    }, 
+    "mission_lost_specs": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 15, 
+      "UsageType": 0, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": true, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Lost Specs", 
+        "LocalTexts": {}
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 0
+    }, 
+    "mission_stolen_band": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 14, 
+      "UsageType": 0, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": true, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Stolen Band", 
+        "LocalTexts": {}
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 0
+    }, 
+    "mission_stolen_scarf": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 14, 
+      "UsageType": 0, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": true, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Stolen Scarf", 
+        "LocalTexts": {}
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 0
+    }, 
+    "mission_stolen_specs": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 15, 
+      "UsageType": 0, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": true, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Stolen Specs", 
+        "LocalTexts": {}
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 0
+    }, 
+    "orb_all_aim": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "All-Aim Orb", 
+        "LocalTexts": {
+          "fr": "Visorbe Tous", 
+          "de": "Trefferorb", 
+          "ko": "모두조준구슬"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_all_dodge": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "All-Dodge Orb", 
+        "LocalTexts": {
+          "fr": "Esquivorbe Tous", 
+          "de": "Ausweichorb", 
+          "it": "Sfera Schivatutti", 
+          "ko": "모두회피구슬", 
+          "zh-hans": "全回避之玉"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_cleanse": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Cleanse Orb", 
+        "LocalTexts": {
+          "fr": "Nettoyorbe", 
+          "de": "Sterilorb", 
+          "ko": "깨끗구슬"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_endure": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Endure Orb", 
+        "LocalTexts": {
+          "fr": "Tankorbe", 
+          "de": "Ausdauerorb", 
+          "it": "Sfera Resistenza", 
+          "ko": "기합의구슬", 
+          "zh-hans": "忍耐之玉"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_escape": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Escape Orb", 
+        "LocalTexts": {
+          "fr": "Echaporbe", 
+          "de": "Fliehorb", 
+          "ko": "던전탈출구슬"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_fill_in": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Fill-In Orb", 
+        "LocalTexts": {
+          "fr": "Solidifiorbe", 
+          "de": "Füllorb", 
+          "it": "Solidosfera", 
+          "ko": "채움구슬", 
+          "zh-hans": "填充之玉"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_foe_hold": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Foe-Hold Orb", 
+        "LocalTexts": {
+          "fr": "Stupéfiorbe", 
+          "de": "Stopperorb", 
+          "ko": "상대묶음구슬"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_foe_seal": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Foe-Seal Orb", 
+        "LocalTexts": {
+          "fr": "Immobilisorbe", 
+          "de": "Lähmorb", 
+          "ko": "적봉인구슬"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_freeze": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Freeze Orb", 
+        "LocalTexts": {
+          "fr": "Blizzorbe", 
+          "de": "Frierorb", 
+          "it": "Gelosfera", 
+          "ko": "빙결구슬", 
+          "zh-hans": "冰冻之玉"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_halving": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Halving Orb", 
+        "LocalTexts": {
+          "fr": "Motiorbe", 
+          "de": "Halbierorb", 
+          "it": "Dimezzosfera", 
+          "ko": "절반구슬", 
+          "zh-hans": "减半之玉"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_invert": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Invert Orb", 
+        "LocalTexts": {
+          "fr": "Inversorbe", 
+          "de": "Umkehrorb", 
+          "ko": "트릭구슬"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_luminous": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Luminous Orb", 
+        "LocalTexts": {
+          "fr": "Lumiorbe", 
+          "de": "Strahlorb", 
+          "ko": "빛의구슬"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_mirror": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Mirror Orb", 
+        "LocalTexts": {
+          "fr": "Mirrorbe", 
+          "de": "Spiegelorb", 
+          "it": "Specchiosfera", 
+          "ko": "거울구슬", 
+          "zh-hans": "镜面之玉"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_mug": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Mug Orb", 
+        "LocalTexts": {
+          "fr": "Dépouillorbe", 
+          "de": "Rauborb", 
+          "it": "Carpisfera", 
+          "ko": "훔치기구슬", 
+          "zh-hans": "窃取之玉"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_nullify": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Nullify Orb", 
+        "LocalTexts": {
+          "fr": "Orbe AntiCapSpé", 
+          "de": "Fähigkeitensperrorb", 
+          "it": "Neutralisfera", 
+          "ko": "무효구슬", 
+          "zh-hans": "特性消除之玉"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_petrify": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Petrify Orb", 
+        "LocalTexts": {
+          "fr": "Pétrifiorbe", 
+          "de": "Erstarrorb", 
+          "ko": "묶어둠구슬"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_pierce": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Pierce Orb", 
+        "LocalTexts": {
+          "fr": "Perçorbe", 
+          "de": "Perforierorb", 
+          "it": "Perforosfera", 
+          "ko": "관통구슬", 
+          "zh-hans": "贯穿之玉"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_rebound": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Rebound Orb", 
+        "LocalTexts": {
+          "fr": "Rebondorbe", 
+          "de": "Konterorb", 
+          "it": "Ribattisfera", 
+          "ko": "반사구슬", 
+          "zh-hans": "反击之玉"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_revival": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Revival Orb", 
+        "LocalTexts": {
+          "fr": "Résurectorbe", 
+          "de": "Team-Beleberorb", 
+          "it": "Revitalsfera", 
+          "ko": "부활구슬", 
+          "zh-hans": "全复活之玉"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_rollcall": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Rollcall Orb", 
+        "LocalTexts": {
+          "fr": "Convocorbe", 
+          "de": "Appellorb", 
+          "ko": "출석구슬"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_scanner": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Scanner Orb", 
+        "LocalTexts": {
+          "fr": "Révélorbe", 
+          "de": "Scannerorb", 
+          "ko": "스캔구슬"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_slow": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Slow Orb", 
+        "LocalTexts": {
+          "fr": "Lentorbe", 
+          "de": "Reduzorb", 
+          "it": "Lentosfera", 
+          "ko": "느림구슬", 
+          "zh-hans": "缓速之玉"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_slumber": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Slumber Orb", 
+        "LocalTexts": {
+          "fr": "Roupillorbe", 
+          "de": "Schlaforb", 
+          "ko": "잠들기구슬"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_spurn": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Spurn Orb", 
+        "LocalTexts": {
+          "fr": "Repoussorbe", 
+          "de": "Streuorb", 
+          "ko": "날려보냄구슬"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_stayaway": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Stayaway Orb", 
+        "LocalTexts": {
+          "fr": "Envoûtorbe", 
+          "de": "Wandelorb", 
+          "ko": "저리가구슬", 
+          "zh-hans": "远离之玉"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_totter": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Totter Orb", 
+        "LocalTexts": {
+          "fr": "Foliorbe", 
+          "de": "Wirrorb", 
+          "ko": "비틀비틀구슬"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_trap_see": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Trap-See Orb", 
+        "LocalTexts": {
+          "fr": "Détectorbe", 
+          "de": "Seherorb", 
+          "it": "Trappolasfera", 
+          "ko": "함정보임구슬", 
+          "zh-hans": "陷阱查看之玉"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_trapbust": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Trapbust Orb", 
+        "LocalTexts": {
+          "fr": "Désamorbe", 
+          "de": "Annulierorb", 
+          "it": "Annullosfera", 
+          "ko": "함정파괴구슬", 
+          "zh-hans": "陷阱破坏之玉"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_trawl": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Trawl Orb", 
+        "LocalTexts": {
+          "fr": "Aspirorbe", 
+          "de": "Sogorb", 
+          "ko": "끌어당김구슬"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
+    "orb_weather": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 9, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.OrbState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Weather Orb", 
+        "LocalTexts": {
+          "fr": "Météorbe", 
+          "de": "Wetterorb", 
+          "it": "Meteosfera", 
+          "ko": "기후조절구슬", 
+          "zh-hans": "天气变化之玉"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 11
+    }, 
     "ruines_pierre_a": {
       "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
       "Icon": -1, 
@@ -6323,6 +5454,1343 @@
       "Released": true, 
       "Comment": "Ruines Tordues — pierre de Zarbi R (portage Aegis Cave)", 
       "SortOrder": 0
+    }, 
+    "seed_blast": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 4, 
+      "UsageType": 4, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.EdibleState"
+        }, 
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.SeedState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Blast Seed", 
+        "LocalTexts": {
+          "fr": "Explograine", 
+          "de": "Plosivsamen", 
+          "ko": "폭렬의씨앗", 
+          "zh-hans": "爆炸之种"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 7
+    }, 
+    "seed_blinker": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 4, 
+      "UsageType": 4, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.EdibleState"
+        }, 
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.SeedState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Blinker Seed", 
+        "LocalTexts": {
+          "fr": "Eblouigraine", 
+          "de": "Flairsamen", 
+          "it": "Semetenebra", 
+          "ko": "앞못봄씨앗", 
+          "zh-hans": "失明之种"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 7
+    }, 
+    "seed_hunger": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 4, 
+      "UsageType": 4, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.EdibleState"
+        }, 
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.SeedState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Hunger Seed", 
+        "LocalTexts": {
+          "fr": "Famigraine", 
+          "de": "Gustosamen", 
+          "it": "Semevorax", 
+          "ko": "공복의씨앗", 
+          "zh-hans": "饥饿之种"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 7
+    }, 
+    "seed_ice": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 4, 
+      "UsageType": 4, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.EdibleState"
+        }, 
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.SeedState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Ice Seed", 
+        "LocalTexts": {
+          "fr": "Glacigraine", 
+          "de": "Eissamen", 
+          "ko": "얼음씨앗", 
+          "zh-hans": "冰冻之种"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 7
+    }, 
+    "seed_plain": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 4, 
+      "UsageType": 4, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.EdibleState"
+        }, 
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.SeedState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Plain Seed", 
+        "LocalTexts": {
+          "fr": "Graine Vide", 
+          "de": "Samen", 
+          "ko": "보통씨앗"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 7
+    }, 
+    "seed_quick": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 4, 
+      "UsageType": 4, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.EdibleState"
+        }, 
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.SeedState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Quick Seed", 
+        "LocalTexts": {}
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 7
+    }, 
+    "seed_reviver": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 4, 
+      "UsageType": 4, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.EdibleState"
+        }, 
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.SeedState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": true, 
+      "Name": {
+        "DefaultText": "Reviver Seed", 
+        "LocalTexts": {
+          "fr": "Résugraine", 
+          "de": "Belebersamen", 
+          "ko": "부활의씨앗"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 7
+    }, 
+    "seed_sleep": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 4, 
+      "UsageType": 4, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.EdibleState"
+        }, 
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.SeedState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Sleep Seed", 
+        "LocalTexts": {
+          "fr": "Roupigraine", 
+          "de": "Schlafsamen", 
+          "ko": "수면의씨앗"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 7
+    }, 
+    "seed_vile": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 4, 
+      "UsageType": 4, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.EdibleState"
+        }, 
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.SeedState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Vile Seed", 
+        "LocalTexts": {
+          "fr": "Infâmigraine", 
+          "de": "Schadsamen"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 7
+    }, 
+    "seed_warp": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 4, 
+      "UsageType": 4, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.EdibleState"
+        }, 
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.SeedState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Warp Seed", 
+        "LocalTexts": {
+          "fr": "Télégraine", 
+          "de": "Warp-Samen", 
+          "ko": "워프의씨앗"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 7
+    }, 
+    "tm_aerial_ace": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Aerial Ace", 
+        "LocalTexts": {
+          "fr": "CT Aéropique", 
+          "de": "TM Aero-Ass", 
+          "es": "MT Golpe Aéreo", 
+          "pt": "MT Aerial Ace", 
+          "it": "MT Aeroassalto", 
+          "ko": "제비반환 기술머신 ", 
+          "ja": "わざマシンつばめがえし", 
+          "zh-hans": "TM 燕返", 
+          "zh-hant": "TM 燕返"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 2
+    }, 
+    "tm_attract": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [
+        {
+          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "RogueEssence.Dungeon.ItemIDState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Attract", 
+        "LocalTexts": {
+          "fr": "CT Attraction", 
+          "de": "TM Anziehung", 
+          "es": "MT Atracción", 
+          "pt": "MT Attract", 
+          "it": "MT Attrazione", 
+          "ko": "헤롱헤롱 기술머신 ", 
+          "ja": "わざマシンメロメロ", 
+          "zh-hans": "TM 迷人", 
+          "zh-hant": "TM 迷人"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 13
+    }, 
+    "tm_brick_break": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Brick Break", 
+        "LocalTexts": {
+          "fr": "CT Casse-Brique", 
+          "de": "TM Durchbruch", 
+          "es": "MT Demolición", 
+          "pt": "MT Brick Break", 
+          "it": "MT Breccia", 
+          "ko": "깨트리다 기술머신 ", 
+          "ja": "わざマシンかわらわり", 
+          "zh-hans": "TM 劈瓦", 
+          "zh-hant": "TM 劈瓦"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 2
+    }, 
+    "tm_bullet_seed": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Bullet Seed", 
+        "LocalTexts": {
+          "fr": "CT Balle Graine", 
+          "de": "TM Kugelsaat", 
+          "es": "MT Recurrente", 
+          "pt": "MT Bullet Seed", 
+          "it": "MT Semitraglia", 
+          "ko": "기관총 기술머신 ", 
+          "ja": "わざマシンタネマシンガン", 
+          "zh-hans": "TM 种子机关枪", 
+          "zh-hant": "TM 種子機關槍"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 2
+    }, 
+    "tm_captivate": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [
+        {
+          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "RogueEssence.Dungeon.ItemIDState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Captivate", 
+        "LocalTexts": {
+          "fr": "CT Séduction", 
+          "de": "TM Liebreiz", 
+          "es": "MT Seducción", 
+          "pt": "MT Captivate", 
+          "it": "MT Incanto", 
+          "ko": "유혹 기술머신 ", 
+          "ja": "わざマシンゆうわく", 
+          "zh-hans": "TM 诱惑", 
+          "zh-hant": "TM 誘惑"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 13
+    }, 
+    "tm_cut": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [
+        {
+          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "RogueEssence.Dungeon.ItemIDState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Cut", 
+        "LocalTexts": {
+          "fr": "CT Coupe", 
+          "de": "TM Zerschneider", 
+          "es": "MT Corte", 
+          "pt": "MT Cortar", 
+          "it": "MT Taglio", 
+          "ko": "풀베기 기술머신 ", 
+          "ja": "わざマシンいあいぎり", 
+          "zh-hans": "TM 居合斩", 
+          "zh-hant": "TM 居合斬"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 13
+    }, 
+    "tm_defog": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [
+        {
+          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "RogueEssence.Dungeon.ItemIDState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Defog", 
+        "LocalTexts": {
+          "fr": "CT Anti-Brume", 
+          "de": "TM Auflockern", 
+          "es": "MT Despejar", 
+          "pt": "MT Defog", 
+          "it": "MT Scacciabruma", 
+          "ko": "안개제거 기술머신 ", 
+          "ja": "わざマシンきりばらい", 
+          "zh-hans": "TM 清除浓雾", 
+          "zh-hant": "TM 清除濃霧"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 13
+    }, 
+    "tm_dig": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Dig", 
+        "LocalTexts": {
+          "fr": "CT Tunnel", 
+          "de": "TM Schaufler", 
+          "es": "MT Excavar", 
+          "pt": "MT Cavar", 
+          "it": "MT Fossa", 
+          "ko": "구멍파기 기술머신 ", 
+          "ja": "わざマシンあなをほる", 
+          "zh-hans": "TM 挖洞", 
+          "zh-hant": "TM 挖洞"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 2
+    }, 
+    "tm_embargo": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [
+        {
+          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "RogueEssence.Dungeon.ItemIDState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Embargo", 
+        "LocalTexts": {
+          "fr": "CT Embargo", 
+          "de": "TM Itemsperre", 
+          "es": "MT Embargo", 
+          "pt": "MT Embargo", 
+          "it": "MT Divieto", 
+          "ko": "금제 기술머신 ", 
+          "ja": "わざマシンさしおさえ", 
+          "zh-hans": "TM 查封", 
+          "zh-hant": "TM 查封"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 13
+    }, 
+    "tm_endure": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [
+        {
+          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "RogueEssence.Dungeon.ItemIDState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Endure", 
+        "LocalTexts": {
+          "fr": "CT Ténacité", 
+          "de": "TM Ausdauer", 
+          "es": "MT Aguante", 
+          "pt": "MT Endure", 
+          "it": "MT Resistenza", 
+          "ko": "버티기 기술머신 ", 
+          "ja": "わざマシンこらえる", 
+          "zh-hans": "TM 挺住", 
+          "zh-hant": "TM 挺住"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 13
+    }, 
+    "tm_facade": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Façade", 
+        "LocalTexts": {
+          "fr": "CT Façade", 
+          "de": "TM Fassade", 
+          "es": "MT Imagen", 
+          "pt": "MT Façade", 
+          "it": "MT Facciata", 
+          "ko": "객기 기술머신 ", 
+          "ja": "わざマシンからげんき", 
+          "zh-hans": "TM 硬撑", 
+          "zh-hant": "TM 硬撐"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 2
+    }, 
+    "tm_false_swipe": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [
+        {
+          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "RogueEssence.Dungeon.ItemIDState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM False Swipe", 
+        "LocalTexts": {
+          "fr": "CT Faux-Chage", 
+          "de": "TM Trugschlag", 
+          "es": "MT Falsotortazo", 
+          "pt": "MT False Swipe", 
+          "it": "MT Falsofinale", 
+          "ko": "칼등치기 기술머신 ", 
+          "ja": "わざマシンみねうち", 
+          "zh-hans": "TM 点到为止", 
+          "zh-hant": "TM 點到為止"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 13
+    }, 
+    "tm_flash": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [
+        {
+          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "RogueEssence.Dungeon.ItemIDState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Flash", 
+        "LocalTexts": {
+          "fr": "CT Flash", 
+          "de": "TM Blitz", 
+          "es": "MT Destello", 
+          "pt": "MT Flash", 
+          "it": "MT Flash", 
+          "ko": "플래시 기술머신 ", 
+          "ja": "わざマシンフラッシュ", 
+          "zh-hans": "TM 闪光", 
+          "zh-hant": "TM 閃光"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 13
+    }, 
+    "tm_frustration": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Frustration", 
+        "LocalTexts": {
+          "fr": "CT Frustration", 
+          "de": "TM Frustration", 
+          "es": "MT Frustración", 
+          "pt": "MT Frustration", 
+          "it": "MT Frustrazione", 
+          "ko": "화풀이 기술머신 ", 
+          "ja": "わざマシンやつあたり", 
+          "zh-hans": "TM 迁怒", 
+          "zh-hant": "TM 遷怒"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 2
+    }, 
+    "tm_giga_drain": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Giga Drain", 
+        "LocalTexts": {
+          "fr": "CT Giga-Sangsue", 
+          "de": "TM Gigasauger", 
+          "es": "MT Gigadrenado", 
+          "pt": "MT Giga Drain", 
+          "it": "MT Gigassorbimento", 
+          "ko": "기가드레인 기술머신 ", 
+          "ja": "わざマシンギガドレイン", 
+          "zh-hans": "TM 终极吸取", 
+          "zh-hant": "TM 終極吸取"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 2
+    }, 
+    "tm_hidden_power": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Hidden Power", 
+        "LocalTexts": {
+          "fr": "CT Puissance Cachée", 
+          "de": "TM Kraftreserve", 
+          "es": "MT Poder Oculto", 
+          "pt": "MT Hidden Power", 
+          "it": "MT Introforza", 
+          "ko": "잠재파워 기술머신 ", 
+          "ja": "わざマシンめざめるパワー", 
+          "zh-hans": "TM 觉醒力量", 
+          "zh-hant": "TM 覺醒力量"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 2
+    }, 
+    "tm_infestation": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [
+        {
+          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "RogueEssence.Dungeon.ItemIDState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Infestation", 
+        "LocalTexts": {
+          "fr": "CT Harcèlement", 
+          "de": "TM Plage", 
+          "es": "MT Acoso", 
+          "pt": "MT Infestation", 
+          "it": "MT Assillo", 
+          "ko": "엉겨붙기 기술머신 ", 
+          "ja": "わざマシンまとわりつく", 
+          "zh-hans": "TM 死缠烂打", 
+          "zh-hant": "TM 死纏爛打"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 13
+    }, 
+    "tm_psych_up": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [
+        {
+          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "RogueEssence.Dungeon.ItemIDState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Psych Up", 
+        "LocalTexts": {
+          "fr": "CT Boost", 
+          "de": "TM Psycho-Plus", 
+          "es": "MT Más Psique", 
+          "pt": "MT Psych Up", 
+          "it": "MT Psicamisù", 
+          "ko": "자기암시 기술머신 ", 
+          "ja": "わざマシンじこあんじ", 
+          "zh-hans": "TM 自我暗示", 
+          "zh-hant": "TM 自我暗示"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 13
+    }, 
+    "tm_quash": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [
+        {
+          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "RogueEssence.Dungeon.ItemIDState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Quash", 
+        "LocalTexts": {
+          "fr": "CT À la Queue", 
+          "de": "TM Verzögerung", 
+          "es": "MT Último Lugar", 
+          "pt": "MT Quash", 
+          "it": "MT Spintone", 
+          "ko": "순서미루기 기술머신 ", 
+          "ja": "わざマシンさきおくり", 
+          "zh-hans": "TM 延后", 
+          "zh-hant": "TM 延後"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 13
+    }, 
+    "tm_recycle": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [
+        {
+          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "RogueEssence.Dungeon.ItemIDState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Recycle", 
+        "LocalTexts": {
+          "fr": "CT Recyclage", 
+          "de": "TM Aufbereitung", 
+          "es": "MT Reciclaje", 
+          "pt": "MT Recycle", 
+          "it": "MT Riciclo", 
+          "ko": "리사이클 기술머신 ", 
+          "ja": "わざマシンリサイクル", 
+          "zh-hans": "TM 回收利用", 
+          "zh-hant": "TM 回收利用"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 13
+    }, 
+    "tm_rest": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Rest", 
+        "LocalTexts": {
+          "fr": "CT Repos", 
+          "de": "TM Erholung", 
+          "es": "MT Descanso", 
+          "pt": "MT Rest", 
+          "it": "MT Riposo", 
+          "ko": "잠자기 기술머신 ", 
+          "ja": "わざマシンねむる", 
+          "zh-hans": "TM 睡觉", 
+          "zh-hant": "TM 睡覺"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 2
+    }, 
+    "tm_return": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Return", 
+        "LocalTexts": {
+          "fr": "CT Retour", 
+          "de": "TM Rückkehr", 
+          "es": "MT Retribución", 
+          "pt": "MT Return", 
+          "it": "MT Ritorno", 
+          "ko": "은혜갚기 기술머신 ", 
+          "ja": "わざマシンおんがえし", 
+          "zh-hans": "TM 报恩", 
+          "zh-hant": "TM 報恩"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 2
+    }, 
+    "tm_roar": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Roar", 
+        "LocalTexts": {
+          "fr": "CT Hurlement", 
+          "de": "TM Brüller", 
+          "es": "MT Rugido", 
+          "pt": "MT Rugido", 
+          "it": "MT Boato", 
+          "ko": "울부짖기 기술머신 ", 
+          "ja": "わざマシンほえる", 
+          "zh-hans": "TM 吼叫", 
+          "zh-hant": "TM 吼叫"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 2
+    }, 
+    "tm_safeguard": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Safeguard", 
+        "LocalTexts": {
+          "fr": "CT Rune Protect", 
+          "de": "TM Bodyguard", 
+          "es": "MT Velo Sagrado", 
+          "pt": "MT Safeguard", 
+          "it": "MT Salvaguardia", 
+          "ko": "신비의부적 기술머신 ", 
+          "ja": "わざマシンしんぴのまもり", 
+          "zh-hans": "TM 神秘守护", 
+          "zh-hant": "TM 神秘守護"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 2
+    }, 
+    "tm_secret_power": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Secret Power", 
+        "LocalTexts": {
+          "fr": "CT Force Cachée", 
+          "de": "TM Geheimpower", 
+          "es": "MT Daño Secreto", 
+          "pt": "MT Secret Power", 
+          "it": "MT Forzasegreta", 
+          "ko": "비밀의힘 기술머신 ", 
+          "ja": "わざマシンひみつのちから", 
+          "zh-hans": "TM 秘密之力", 
+          "zh-hant": "TM 秘密之力"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 2
+    }, 
+    "tm_shadow_ball": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Shadow Ball", 
+        "LocalTexts": {
+          "fr": "CT Ball'Ombre", 
+          "de": "TM Spukball", 
+          "es": "MT Bola Sombra", 
+          "pt": "MT Shadow Ball", 
+          "it": "MT Palla Ombra", 
+          "ko": "섀도볼 기술머신 ", 
+          "ja": "わざマシンシャドーボール", 
+          "zh-hans": "TM 暗影球", 
+          "zh-hant": "TM 暗影球"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 2
+    }, 
+    "tm_shock_wave": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Shock Wave", 
+        "LocalTexts": {
+          "fr": "CT Onde de Choc", 
+          "de": "TM Schockwelle", 
+          "es": "MT Onda Voltio", 
+          "pt": "MT Shock Wave", 
+          "it": "MT Ondashock", 
+          "ko": "전격파 기술머신 ", 
+          "ja": "わざマシンでんげきは", 
+          "zh-hans": "TM 电击波", 
+          "zh-hant": "TM 電擊波"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 2
+    }, 
+    "tm_snatch": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [
+        {
+          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "RogueEssence.Dungeon.ItemIDState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Snatch", 
+        "LocalTexts": {
+          "fr": "CT Saisie", 
+          "de": "TM Übernahme", 
+          "es": "MT Robo", 
+          "pt": "MT Snatch", 
+          "it": "MT Scippo", 
+          "ko": "가로챔 기술머신 ", 
+          "ja": "わざマシンよこどり", 
+          "zh-hans": "TM 抢夺", 
+          "zh-hant": "TM 搶奪"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 13
+    }, 
+    "tm_swagger": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [
+        {
+          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "RogueEssence.Dungeon.ItemIDState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Swagger", 
+        "LocalTexts": {
+          "fr": "CT Vantardise", 
+          "de": "TM Angeberei", 
+          "es": "MT Contoneo", 
+          "pt": "MT Swagger", 
+          "it": "MT Bullo", 
+          "ko": "뽐내기 기술머신 ", 
+          "ja": "わざマシンいばる", 
+          "zh-hans": "TM 虚张声势", 
+          "zh-hant": "TM 虛張聲勢"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 13
+    }, 
+    "tm_taunt": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Taunt", 
+        "LocalTexts": {
+          "fr": "CT Provoc", 
+          "de": "TM Verhöhner", 
+          "es": "MT Mofa", 
+          "pt": "MT Taunt", 
+          "it": "MT Provocazione", 
+          "ko": "도발 기술머신 ", 
+          "ja": "わざマシンちょうはつ", 
+          "zh-hans": "TM 挑衅", 
+          "zh-hant": "TM 挑釁"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 2
+    }, 
+    "tm_telekinesis": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [
+        {
+          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "RogueEssence.Dungeon.ItemIDState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Telekinesis", 
+        "LocalTexts": {
+          "fr": "CT Lévikinésie", 
+          "de": "TM Telekinese", 
+          "es": "MT Telequinesis", 
+          "pt": "MT Telekinesis", 
+          "it": "MT Telecinesi", 
+          "ko": "텔레키네시스 기술머신 ", 
+          "ja": "わざマシンテレキネシス", 
+          "zh-hans": "TM 意念移物", 
+          "zh-hant": "TM 意念移物"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 13
+    }, 
+    "tm_thief": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Thief", 
+        "LocalTexts": {
+          "fr": "CT Larcin", 
+          "de": "TM Raub", 
+          "es": "MT Ladrón", 
+          "pt": "MT Thief", 
+          "it": "MT Furto", 
+          "ko": "도둑질 기술머신 ", 
+          "ja": "わざマシンどろぼう", 
+          "zh-hans": "TM 小偷", 
+          "zh-hant": "TM 小偷"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 2
+    }, 
+    "tm_torment": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [
+        {
+          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "RogueEssence.Dungeon.ItemIDState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Torment", 
+        "LocalTexts": {
+          "fr": "CT Tourmente", 
+          "de": "TM Folterknecht", 
+          "es": "MT Tormento", 
+          "pt": "MT Torment", 
+          "it": "MT Attaccalite", 
+          "ko": "트집 기술머신 ", 
+          "ja": "わざマシンいちゃもん", 
+          "zh-hans": "TM 无理取闹", 
+          "zh-hant": "TM 無理取鬧"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 13
+    }, 
+    "tm_whirlpool": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 13, 
+      "UsageType": 6, 
+      "States": [
+        {
+          "assembly": "RogueEssence, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "RogueEssence.Dungeon.ItemIDState"
+        }
+      ], 
+      "MaxStack": 0, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "TM Whirlpool", 
+        "LocalTexts": {
+          "fr": "CT Siphon", 
+          "de": "TM Whirlpool", 
+          "es": "MT Torbellino", 
+          "pt": "MT Whirlpool", 
+          "it": "MT Mulinello", 
+          "ko": "바다회오리 기술머신 ", 
+          "ja": "わざマシンうずしお", 
+          "zh-hans": "TM 潮旋", 
+          "zh-hant": "TM 潮旋"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 13
+    }, 
+    "wand_totter": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 8, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.WandState"
+        }
+      ], 
+      "MaxStack": 9, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Totter Wand", 
+        "LocalTexts": {
+          "fr": "Branche Confusion", 
+          "de": "Konfusionszweig", 
+          "ko": "혼란지팡이"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 3
+    }, 
+    "wand_transfer": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 8, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.WandState"
+        }
+      ], 
+      "MaxStack": 9, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Transfer Wand", 
+        "LocalTexts": {
+          "fr": "Branche Métamorph", 
+          "de": "Transferzweig", 
+          "it": "Ramo Sosia", 
+          "zh-hans": "变身之杖"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 3
+    }, 
+    "wand_vanish": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 8, 
+      "UsageType": 1, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.WandState"
+        }
+      ], 
+      "MaxStack": 9, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Vanish Wand", 
+        "LocalTexts": {
+          "fr": "Branche Disparition", 
+          "de": "Verschwindezweig", 
+          "it": "Dileguaramo", 
+          "zh-hans": "隐身之杖"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 3
     }
   }
 }

@@ -4,8 +4,10 @@
   "summary": {
     "requested": 2,
     "staged": 2,
-    "runtime_validated": 0,
-    "promoted": 0,
+    "generated": 2,
+    "runtime_pmdo_mapgen_validated": 2,
+    "route_validated": 2,
+    "promoted": 2,
     "blocked": 0
   },
   "entries": [
@@ -17,8 +19,45 @@
       "zone_path": "Staging/dungeon_builder/red_story_02/Data/Zone/silent_chasm.json",
       "configuration_gate": true,
       "warnings": [],
-      "status": "STAGED_AWAITING_PMDO_RUNTIME",
-      "blockers": []
+      "status": "PROMOTED_RUNTIME_VALIDATED",
+      "blockers": [],
+      "runtime": {
+        "engine": "PMDO 0.8.12",
+        "attempted": 90,
+        "generated": 90,
+        "failures": 0,
+        "non_traversable": 0,
+        "invalid": 0,
+        "seeds_logged": 90
+      },
+      "artifacts": {
+        "definition_sha256": "b24edef9048d88a9b8d93a5e5a0cc9ab689421937a1c954ac242d27f76979ea6",
+        "zone_sha256": "4b66696c7e3bc973ddeaf6e029dc304b2ece7a3389ad53562915e472f085c3ac"
+      },
+      "route_runtime": {
+        "jsonl": "docs/dungeon_builder/batches/red_story_02/runtime/routes/silent_chasm.jsonl",
+        "jsonl_sha256": "f35cce0d60002428f872aaae48522db3005b90d9bb6d0fa31809ebb8c29549b9",
+        "log": "docs/dungeon_builder/batches/red_story_02/runtime/routes/silent_chasm.log",
+        "maps": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "grounds": [
+          "gouffre_muet_bord",
+          "d05p02",
+          "gouffre_muet_bord"
+        ],
+        "fatals": 0
+      },
+      "active_definition": "DungeonDefs/canonical/silent_chasm.json",
+      "active_zone": "Data/Zone/silent_chasm.json"
     },
     {
       "definition": "great_canyon",
@@ -28,8 +67,62 @@
       "zone_path": "Staging/dungeon_builder/red_story_02/Data/Zone/great_canyon.json",
       "configuration_gate": true,
       "warnings": [],
-      "status": "STAGED_AWAITING_PMDO_RUNTIME",
-      "blockers": []
+      "status": "PROMOTED_RUNTIME_VALIDATED",
+      "blockers": [],
+      "runtime": {
+        "engine": "PMDO 0.8.12",
+        "attempted": 120,
+        "generated": 120,
+        "failures": 0,
+        "non_traversable": 0,
+        "invalid": 0,
+        "seeds_logged": 120
+      },
+      "artifacts": {
+        "definition_sha256": "eab11941c28f116587c7af04188bae92889ca85a927a4b5f6e3d947b8d3badae",
+        "zone_sha256": "966d552782a154286abeaec703cc4996dd512d795a2881346d59ff0c3ef63eba"
+      },
+      "route_runtime": {
+        "jsonl": "docs/dungeon_builder/batches/red_story_02/runtime/routes/great_canyon.jsonl",
+        "jsonl_sha256": "fbe45b0e50907b6e2f0a5fa012548034196f8f429a323a92766e9fe5efc506fb",
+        "log": "docs/dungeon_builder/batches/red_story_02/runtime/routes/great_canyon.log",
+        "maps": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "grounds": [
+          "grand_canyon_porte",
+          "d07p02",
+          "grand_canyon_porte"
+        ],
+        "fatals": 0
+      },
+      "active_definition": "DungeonDefs/canonical/great_canyon.json",
+      "active_zone": "Data/Zone/great_canyon.json"
     }
-  ]
+  ],
+  "runtime_evidence": {
+    "jsonl": "docs/dungeon_builder/batches/red_story_02/runtime/native_mapgen.jsonl",
+    "jsonl_sha256": "64063e507476bb43a66f9623fcf7d1a98f50396db07b6f26c32cf4ce46616e7e",
+    "report": "docs/dungeon_builder/batches/red_story_02/native_mapgen_report.md",
+    "report_sha256": "5d304c644b789573bc5131943b2e8d98c24484a712fc61ef871921c391af1a27",
+    "end": {
+      "event": "end",
+      "attempted": 210,
+      "generated": 210,
+      "failures": 0,
+      "non_traversable": 0,
+      "invalid": 0
+    }
+  }
 }
