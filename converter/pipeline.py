@@ -29,6 +29,7 @@ from converter.stages import (
     s07_runtime,
     s08_report,
     s09_report_dungeons,
+    s10_promote,
 )
 from converter.stages.context import Context, StageResult, StageStatus
 
@@ -44,6 +45,7 @@ STAGES = [
     ("s06_validate", s06_validate),
     ("s07_runtime", s07_runtime),
     ("s09_report_dungeons", s09_report_dungeons),
+    ("s10_promote", s10_promote),
 ]
 
 
