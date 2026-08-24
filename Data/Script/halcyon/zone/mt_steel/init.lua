@@ -1,15 +1,23 @@
 -- [dungeon_builder] script de zone canonique généré — ne pas éditer à la main.
---[[ Pic Ferreux (mt_steel) — chapitre 7.
-     Zone reconstruite par tools/dungeon_builder : 1 segment(s).
-     Règle verrouillée : Ground de cinématique = Ground du combat = Ground final
-     canonique. Aucune arène séparée, aucune téléportation vers un décor inventé.
+--[[ Pic Ferreux (mt_steel) — chapitre 7 PMD Red.
+     Zone reconstruite par tools/dungeon_builder : 2 segment(s).
+       * segment 0 : 8 étages procéduraux (RogueElements natif, biome
+         steel_slope, DTEF mt_steel_1). Correspond aux floors 1–8 ROM.
+       * segment 1 : 1 étage boss fixe canonique (LoadGen +
+         MappedRoomStep('mt_steel_boss')) — contrepartie pixel-exacte du
+         Ground canonique d03p02, hébergeant Skarmory lvl 10
+         (PMD_RED_ROM/FIXED_ROOM_MT_STEEL_SKARMORY).
+       * Après clear seg 1, transition vers le Ground d03p02 pour la
+         cinématique canonique "In The Depths Of The Pit" (post-Skarmory).
+     Règle verrouillée : Ground de cinématique = Ground du combat (via
+     contrepartie .rsmap) = Ground final canonique. Aucune arène séparée.
      Regénérer avec : python3 tools/dungeon_builder.py wire-scenes --apply ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 
 local mt_steel = {}
 
-local LAST_SEGMENT = 0
+local LAST_SEGMENT = 1
 
 local function GROUND_IDX(name)
   local ok, idx = pcall(function()
@@ -63,11 +71,18 @@ function mt_steel.ExitSegment(zone, result, rescue, segmentID, mapID)
   end
 
   if segmentID == 0 then
-    -- Ground final canonique : cinématique, combat et fin au même endroit
-    SV.CanonicalDungeons.Pending = 'mt_steel_seg0'
-    -- d03p02 ne porte aucun marqueur : la scène téléporte
-    -- elle-même le joueur, on entre donc par index.
-    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, 'd03p02'), 0)
+    -- Segment procédural terminé : on enchaîne sur le segment boss fixe
+    -- (Skarmory sur la contrepartie .rsmap pixel-exacte de d03p02).
+    -- EnterZone(zone, segmentID>=0, floor, entryPoint) charge un segment de
+    -- donjon (au contraire de segmentID=-1 qui charge un GroundMap).
+    GAME:EnterZone(zone.ID, 1, 0, 0)
+  elseif segmentID == 1 then
+    -- Boss Skarmory battu : transition vers le Ground canonique d03p02
+    -- pour la cinématique canonique "In The Depths Of The Pit".
+    -- Même pattern que silent_chasm/great_canyon : EnterZone(zone, -1,
+    -- GroundIdx, 0) charge un GroundMap.
+    SV.CanonicalDungeons.Pending = 'mt_steel_seg1'
+    GAME:EnterZone(zone.ID, -1, ZONE_GROUND_IDX(zone, 'd03p02'), 0)
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end

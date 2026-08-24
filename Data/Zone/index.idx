@@ -2802,7 +2802,7 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 9,
+      "CountedFloors": 8,
       "Rogue": 0,
       "Grounds": [
         "pic_ferreux_pied",
@@ -2817,8 +2817,10 @@
           4,
           5,
           6,
-          7,
-          8
+          7
+        ],
+        [
+          0
         ]
       ],
       "Name": {
@@ -2828,7 +2830,7 @@
         }
       },
       "Released": false,
-      "Comment": "Définition canonique générée pour le chapitre 7. Aucun étage pré-calculé : la topologie est produite en jeu par RogueElements. 5 objets canoniques n'existent pas dans le jeu d'objets du mod et sont omis de la table (liste conservée dans `canonical_items_without_pmdo_equivalent`).",
+      "Comment": "Mt. Steel staged canonical candidate from PMD Red ROM tables. Architecture translation to native RogueElements profiles is explicitly INFERRED.",
       "SortOrder": 7
     },
     "mt_thunder": {

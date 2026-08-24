@@ -24,11 +24,24 @@ require 'origin.services.baseservice'
 
 local V=Class('RedStoryRouteValidator',BaseService)
 local OUT=os.getenv('PMDO_RED_STORY_ROUTE_OUT') or '/tmp/red_story_route.jsonl'
+-- Zones registered here become validable via the PMDO_RED_STORY_ROUTE_VALIDATOR
+-- environment variable. Each entry declares the procedural floor count of
+-- segment 0, the canonical entrance Ground and the canonical final Ground.
+-- Optional `boss = { segment = N, map = 'foo_boss', species = 'skarmory' }`
+-- declares a dedicated fixed boss segment attached after the procedural one
+-- (canonical PMD Red pattern for FIXED_ROOM_* rooms). When present, the
+-- validator inspects that segment's map for the expected canonical species
+-- and drives a native EndSegment(Cleared) to exit it — the fight itself is
+-- not replayed input-by-input in headless mode.
 local CONFIG={
   tiny_woods={floors=3,entrance='foret_tendre_oree',final='d01p02'},
   thunderwave_cave={floors=5,entrance='grotte_statique_seuil',final='d02p02'},
   silent_chasm={floors=9,entrance='gouffre_muet_bord',final='d05p02'},
   great_canyon={floors=12,entrance='grand_canyon_porte',final='d07p02'},
+  mt_steel={floors=8,entrance='pic_ferreux_pied',final='d03p02',
+            boss={segment=1,map='mt_steel_boss',species='skarmory',
+                  source_floor=9,source_fixed_room=1,
+                  provenance='PMD_RED_ROM/FIXED_ROOM_MT_STEEL_SKARMORY'}},
 }
 local function esc(v)return tostring(v):gsub('\\','\\\\'):gsub('"','\\"'):gsub('\n',' | '):gsub('\r','')end
 local function emit(v)
@@ -48,6 +61,8 @@ function V:initialize()
   self.terminated=false     -- true once OnUpdate signaled end and unloaded
   self.entrance_seen=0      -- 0 pre-entry, 1 initial entrance
   self.last_map=nil
+  self.boss_clear_pending=false
+  self.boss_cleared=false
 end
 
 -- Headless-runtime accommodation: PMDO's screen-fade coroutines (GAME:FadeIn,
@@ -96,15 +111,45 @@ function V:OnNewGame()
 end
 
 function V:inspect_map()
-  local map=_ZONE.CurrentMap;local stairs=0
+  local map=_ZONE.CurrentMap
+  local seg=_ZONE.CurrentMapID.Segment
+  local floor=_ZONE.CurrentMapID.ID
+  local stairs=0
   for x=0,map.Width-1 do for y=0,map.Height-1 do
     local id=tostring(map.Tiles[x][y].Effect.ID or '')
     if id=='stairs_go_down' or id=='stairs_go_up' then stairs=stairs+1 end
   end end
   local teams=map.MapTeams.Count;local mobs=0
   for ii=0,teams-1 do mobs=mobs+map.MapTeams[ii].Players.Count end
-  emit('{"event":"map","zone":"'..self.zone..'","segment":'.._ZONE.CurrentMapID.Segment
-    ..',"floor":'.._ZONE.CurrentMapID.ID..',"width":'..map.Width..',"height":'..map.Height
+
+  -- Boss segment inspection: instead of stairs, we require that the map has
+  -- loaded the canonical species declared in CONFIG[zone].boss.species. This
+  -- is the ROM->rsmap fidelity proof for the fixed_room fight.
+  local boss=self.config.boss
+  if boss and seg==boss.segment then
+    local boss_species=''
+    for ii=0,teams-1 do
+      local t=map.MapTeams[ii]
+      for pi=0,t.Players.Count-1 do
+        local ok,sp=pcall(function()return t.Players[pi].BaseForm.Species end)
+        if ok and sp then boss_species=tostring(sp) end
+      end
+    end
+    emit('{"event":"map","zone":"'..self.zone..'","segment":'..seg
+      ..',"floor":'..floor..',"width":'..map.Width..',"height":'..map.Height
+      ..',"mobs":'..mobs..',"stairs":'..stairs..',"boss_species":"'..esc(boss_species)
+      ..'","expected_boss_species":"'..esc(boss.species)..'","kind":"canonical_fixed_boss"'
+      ..',"map_seed":"'..esc(map.Rand.FirstSeed)
+      ..'","adventure_seed":"'..esc(_DATA.Save.Rand.FirstSeed)..'"}')
+    if boss_species~=boss.species then
+      error('boss segment map loaded '..boss_species..' but expected '..boss.species)
+    end
+    if mobs<1 then error('boss segment has no monster teams') end
+    return
+  end
+
+  emit('{"event":"map","zone":"'..self.zone..'","segment":'..seg
+    ..',"floor":'..floor..',"width":'..map.Width..',"height":'..map.Height
     ..',"mobs":'..mobs..',"stairs":'..stairs..',"map_seed":"'..esc(map.Rand.FirstSeed)
     ..'","adventure_seed":"'..esc(_DATA.Save.Rand.FirstSeed)..'"}')
   if stairs<1 then error('procedural floor has no stairs') end
@@ -117,21 +162,67 @@ function V:OnDungeonMapInit()
   self.last_map=key
   local ok,err=xpcall(function()self:inspect_map()end,debug.traceback)
   if not ok then emit('{"event":"fatal","phase":"map","error":"'..esc(err)..'"}') end
+
+  -- Nothing else to do here for the boss segment: with stairs now present
+  -- on mt_steel_boss.rsmap, PMDO advances the boss floor like a normal
+  -- procedural floor, and OnDungeonFloorEnter fires shortly after,
+  -- triggering the canonical boss-clear path below.
 end
 
 function V:OnDungeonFloorEnter()
   if not self.enabled or tostring(_ZONE.CurrentZoneID)~=self.zone then return end
+  local seg=_ZONE.CurrentMapID.Segment
   local floor=_ZONE.CurrentMapID.ID
+  local boss=self.config.boss
   local ok,err=xpcall(function()
+    -- Boss segment: emit a boss_clear observation (with the count of native
+    -- map-clear hooks - proves the map was staged with real boss detection
+    -- wiring) then trigger the native EndSegment(Cleared) via reflection so
+    -- the zone's ExitSegment handles the transition to the canonical
+    -- post-battle Ground. This mirrors sinister's proven pattern.
+    if boss and seg==boss.segment then
+      local map=_ZONE.CurrentMap
+      local loaded_species=''
+      for ti=0,map.MapTeams.Count-1 do
+        local t=map.MapTeams[ti]
+        for pi=0,t.Players.Count-1 do
+          local ok,sp=pcall(function() return t.Players[pi].BaseForm.Species end)
+          if ok and sp then loaded_species=tostring(sp) end
+        end
+      end
+      local hook_count=safe(function()
+        local status=map.Status['map_clear_check']
+        local MapCheckState=luanet.import_type('RogueEssence.Dungeon.MapCheckState')
+        local check=status.StatusStates:GetWithDefault(luanet.ctype(MapCheckState))
+        return check.CheckEvents.Count
+      end,-1)
+      emit('{"event":"boss_clear","zone":"'..self.zone..'","segment":'..seg
+        ..',"map":"'..esc(boss.map)..'","expected_species":"'..esc(boss.species)
+        ..'","loaded_species":"'..esc(loaded_species)
+        ..'","native_clear_hooks":'..hook_count
+        ..',"source_floor":'..(boss.source_floor or 0)
+        ..',"source_fixed_room":'..(boss.source_fixed_room or 0)..'}')
+      emit('{"event":"segment_clear","zone":"'..self.zone..'","segment":'..seg
+        ..',"floor":'..floor..',"kind":"canonical_fixed_boss"}')
+      local manager=RogueEssence.GameManager.Instance
+      local field=manager:GetType():GetField('SceneOutcome')
+      if field==nil then error('GameManager.SceneOutcome reflection field missing') end
+      manager:SetFade(true,false)
+      field:SetValue(manager,_GAME:EndSegment(RogueEssence.Data.GameProgress.ResultType.Cleared,true))
+      return
+    end
     if floor+1<self.config.floors then
       emit('{"event":"next_floor","from":'..floor..',"to":'..(floor+1)..'}')
-      GAME:EnterZone(self.zone,0,floor+1,0)
+      GAME:EnterZone(self.zone,seg,floor+1,0)
     else
       -- Last procedural floor cleared. Emit segment_clear and hand control
       -- back to the canonical zone script (ExitSegment) via EndSegment.
-      -- The canonical ExitSegment will then EnterZone(zone, -1, ground_idx, 0)
-      -- to reach the final canonical Ground on its own.
-      emit('{"event":"segment_clear","floor":'..floor..'}')
+      -- The canonical ExitSegment either enters the boss segment (dungeons
+      -- with a canonical fixed_room boss such as mt_steel) or transitions
+      -- directly to the final canonical Ground (dungeons whose ROM has no
+      -- fixed_room boss such as silent_chasm/great_canyon).
+      emit('{"event":"segment_clear","zone":"'..self.zone..'","segment":'..seg
+        ..',"floor":'..floor..',"kind":"procedural"}')
       local manager=RogueEssence.GameManager.Instance
       local field=manager:GetType():GetField('SceneOutcome')
       manager:SetFade(true,false)

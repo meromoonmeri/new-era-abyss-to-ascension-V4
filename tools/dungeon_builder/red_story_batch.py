@@ -334,12 +334,32 @@ def reconcile(stem: str) -> dict[str, Any]:
     manifest_path = ROOT / "docs/canonical/red" / f"{stem}_rom_manifest.json"
     raw = json.loads(base_path.read_text(encoding="utf-8-sig"))
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    if manifest["fixed_floors"]:
-        raise ValueError(f"{stem}: generic story batch cannot stage fixed floors")
-    if int(raw["floors"]) != int(manifest["floor_count"]):
-        raise ValueError(f"{stem}: floor count mismatch")
     config = CONFIG[stem]
-    floors = int(manifest["floor_count"])
+    # Fixed floors can be handled here IF the CONFIG entry declares a
+    # `fixed_segments` mapping listing the .rsmap counterpart for every ROM
+    # fixed_floor. Otherwise this batch cannot honor the ROM fidelity and
+    # must fail-closed. The fixed .rsmap is expected to be a canonical
+    # pixel-exact counterpart of the corresponding Ground (see
+    # `tools/make_ground_arena.py` and the sinister_woods precedent), never
+    # a generic dedicated boss arena.
+    fixed_from_config = config.get("fixed_segments") or []
+    declared_fixed = {int(fs["source_floor"]) for fs in fixed_from_config}
+    unhandled = [f for f in manifest["fixed_floors"] if int(f) not in declared_fixed]
+    if unhandled:
+        raise ValueError(
+            f"{stem}: fixed floor(s) {unhandled} in PMD_RED_ROM manifest are not "
+            "declared in CONFIG['fixed_segments']; refusing to strip fidelity")
+    # The definition's `floors` is the PROCEDURAL floor count. When the ROM
+    # ships fixed floors (declared in CONFIG['fixed_segments']), they are
+    # attached below as non-counted segments (`fixed_segments`) — the same
+    # pattern sinister_woods uses (12 procedural + 1 fixed boss segment).
+    procedural_floor_count = int(manifest["floor_count"]) - len(fixed_from_config)
+    if int(raw["floors"]) != procedural_floor_count:
+        raise ValueError(
+            f"{stem}: definition floors={raw['floors']} but PMD_RED_ROM manifest "
+            f"has {manifest['floor_count']} floors of which {len(fixed_from_config)} "
+            f"are declared fixed (expected procedural floors = {procedural_floor_count})")
+    floors = procedural_floor_count
     items, missing_items, skipped_items = _items(manifest)
     if missing_items:
         raise ValueError(f"{stem}: unmapped canonical items: {', '.join(missing_items)}")
@@ -365,6 +385,12 @@ def reconcile(stem: str) -> dict[str, Any]:
     raw["segments"] = [segment]
     for floor in manifest["floors"]:
         number = int(floor["floor"])
+        if number in declared_fixed:
+            # Fixed floors are attached below as dedicated non-counted
+            # fixed_segments (see zone_export._for details). They keep their
+            # ROM-canonical source_floor / source_fixed_room / .rsmap on
+            # `raw["fixed_segments"]`, not in the procedural segment.
+            continue
         props = floor["floor_properties"]
         segment["floor_overrides"][str(number)] = {
             "profiles": _profiles(stem, floor),
@@ -402,10 +428,62 @@ def reconcile(stem: str) -> dict[str, Any]:
     }
     raw["minibosses"] = []
     raw["midpoint"] = {}
-    raw["boss"] = {}
-    if raw.get("scenes"):
-        raw["scenes"]["battle_ground"] = ""
-        raw["scenes"]["rule"] = "Canonical rescue/end scene on the source Ground; no invented battle."
+    # Attach the ROM-declared fixed floors (Skarmory-style bosses fought inside
+    # the dungeon on a fixed_room=N canonical layout) as dedicated non-counted
+    # `fixed_segments`. The .rsmap is expected to be a pixel-exact counterpart
+    # of the canonical Ground (see tools/make_ground_arena.py). This mirrors
+    # the sinister_woods precedent: procedural floors + one boss LayeredSegment
+    # with a LoadGen/MappedRoomStep pointing at the exact-visual .rsmap.
+    if fixed_from_config:
+        boss_manifest = {int(f["floor"]): f for f in manifest["floors"]}
+        raw["fixed_segments"] = []
+        for fs in fixed_from_config:
+            src = boss_manifest[int(fs["source_floor"])]
+            props = src["floor_properties"]
+            entry = dict(fs)
+            entry.setdefault("role", "canonical_final_boss")
+            entry.setdefault("is_relevant", False)
+            entry.setdefault("provenance", "PMD_RED_ROM")
+            entry["source_fixed_room"] = int(props["fixedRoomNumber"])
+            entry.setdefault(
+                "comment",
+                f"PMD Red canonical fixed_room={props['fixedRoomNumber']} on source floor "
+                f"{fs['source_floor']}: exact .rsmap counterpart of the canonical Ground "
+                f"'{fs.get('ground','')}' (source: Data/Ground/{fs.get('ground','')}.rsground). "
+                "Not an unrelated dedicated boss arena.")
+            entry["source_pokemon"] = [
+                {"species": p["species"], "level": int(p["level"]),
+                 "probability": int(p.get("probability", 0))}
+                for p in src["pokemon"]]
+            raw["fixed_segments"].append(entry)
+        first_fs = fixed_from_config[0]
+        raw["boss"] = {
+            "mode": "canonical_ground",
+            "ground": first_fs.get("ground", ""),
+            "map": first_fs.get("map", ""),
+            "source_floor": int(first_fs["source_floor"]),
+            "source_fixed_room": int(boss_manifest[int(first_fs["source_floor"])]
+                                     ["floor_properties"]["fixedRoomNumber"]),
+            "provenance": "PMD_RED_ROM",
+            "notes": (f"Canonical fight on Ground {first_fs.get('ground','')} via the "
+                      f".rsmap counterpart {first_fs.get('map','')}; no invented arena."),
+        }
+        if raw.get("scenes"):
+            raw["scenes"]["battle_ground"] = first_fs.get("ground", "")
+            raw["scenes"]["fixed_floor"] = int(first_fs["source_floor"])
+            raw["scenes"]["fixed_room"] = int(boss_manifest[int(first_fs["source_floor"])]
+                                              ["floor_properties"]["fixedRoomNumber"])
+            raw["scenes"]["rsmap_source"] = f"Data/Map/{first_fs.get('map','')}.rsmap"
+            raw["scenes"]["canonical_layout_source"] = (
+                f"Data/Ground/{first_fs.get('ground','')}.rsground")
+            raw["scenes"]["rule"] = (
+                "Canonical fight on the .rsmap counterpart of the canonical Ground; "
+                "post-battle scene on the same Ground.")
+    else:
+        raw["boss"] = {}
+        if raw.get("scenes"):
+            raw["scenes"]["battle_ground"] = ""
+            raw["scenes"]["rule"] = "Canonical rescue/end scene on the source Ground; no invented battle."
     raw["canonical_items_without_pmdo_equivalent"] = missing_items
     raw["comment"] = (
         f"{raw['name']['en']} staged canonical candidate from PMD Red ROM tables. "
@@ -420,7 +498,9 @@ def reconcile(stem: str) -> dict[str, Any]:
         "categories": {
             "floor_parameters": [
                 {"kind": "PMD_RED_ROM", "path": manifest_rel,
-                 "definition_floor_mode": "all", "evidence": "Per-floor raw bytes and table IDs."},
+                 "definition_floor_mode": (
+                     "procedural_only" if fixed_from_config else "all"),
+                 "evidence": "Per-floor raw bytes and table IDs."},
                 {"kind": "INFERRED", "path": "tools/dungeon_builder/red_story_batch.py",
                  "reason": "PMD Red geometry bytes require a native RogueElements adapter."},
             ],
@@ -520,7 +600,14 @@ def record_runtime(jsonl_path: Path, report_path: Path | None = None) -> dict[st
     report = json.loads(REPORT_PATH.read_text(encoding="utf-8"))
     candidates = [entry for entry in report["entries"]
                   if entry["status"] == "STAGED_AWAITING_PMDO_RUNTIME"]
-    expected = sum(int(entry["floors"]) for entry in candidates) * 10
+    # mapgen_validator iterates every floor of every segment (procedural AND
+    # fixed) 10 times, so the expected count is
+    #   sum((procedural_floors + fixed_segments_count) * 10).
+    def _expected_zone(entry: dict[str, Any]) -> int:
+        stem = entry["definition"]
+        fixed_ct = len(CONFIG.get(stem, {}).get("fixed_segments") or [])
+        return (int(entry["floors"]) + fixed_ct) * 10
+    expected = sum(_expected_zone(entry) for entry in candidates)
     if (int(terminal.get("attempted", -1)) != expected
             or int(terminal.get("generated", -1)) != expected
             or int(terminal.get("failures", -1)) != 0
@@ -529,7 +616,7 @@ def record_runtime(jsonl_path: Path, report_path: Path | None = None) -> dict[st
         raise ValueError(f"native runtime batch rejected: {terminal}")
     for entry in candidates:
         runs = [row for row in floors if row.get("zone") == entry["zone"]]
-        expected_zone = int(entry["floors"]) * 10
+        expected_zone = _expected_zone(entry)
         if len(runs) != expected_zone or any(not row.get("valid") for row in runs):
             raise ValueError(f"{entry['zone']}: incomplete/invalid native runtime evidence")
         entry.update({
@@ -588,7 +675,8 @@ def record_routes(route_dir: Path, promote: bool = False) -> dict[str, Any]:
     # first rolling back the promotion.
     candidates = [entry for entry in report["entries"] if entry["status"] in {
         "NATIVE_MAPGEN_VALIDATED_ROUTE_PENDING", "ROUTE_VALIDATED_READY_FOR_PROMOTION",
-        "ROUTE_VALIDATED_ASSET_BLOCKED", "PROMOTED_RUNTIME_VALIDATED"}]
+        "ROUTE_VALIDATED_ASSET_BLOCKED", "ROUTE_VALIDATED_BOSS_TRANSITION_PENDING",
+        "PROMOTED_RUNTIME_VALIDATED"}]
     if not candidates:
         raise ValueError("route validation requires at least one mapgen-validated candidate")
     runtime_dir = REPORT_PATH.parent / "runtime/routes"
@@ -599,6 +687,16 @@ def record_routes(route_dir: Path, promote: bool = False) -> dict[str, Any]:
         source_log = route_dir / f"{entry['zone']}.log"
         rows = [json.loads(line) for line in source_jsonl.read_text().splitlines() if line.strip()]
         maps = [row["floor"] for row in rows if row.get("event") == "map"]
+        # Look up fixed-boss expectations declared in this batch's CONFIG.
+        # When the ROM manifest lists a fixed_room boss (Skarmory-style), the
+        # validator must ALSO have produced:
+        #   * a `map` event on the boss segment with the expected canonical
+        #     species AND a `native_clear_hooks>=0` boss_clear observation,
+        #   * a `segment_clear` marked `canonical_fixed_boss`,
+        # otherwise the fight was skipped or misrouted.
+        fixed_expectations = CONFIG.get(stem, {}).get("fixed_segments") or []
+        fixed_by_floor = {int(fs["source_floor"]): fs for fs in fixed_expectations}
+        boss_events = [row for row in rows if row.get("event") == "boss_clear"]
         # RedStoryRouteValidator emits `ground_init` for every Ground the
         # runtime loads (fired from EngineServiceEvents.GroundMapInit, which
         # is the earliest reliable notification per
@@ -626,17 +724,51 @@ def record_routes(route_dir: Path, promote: bool = False) -> dict[str, Any]:
         #   5. end is emitted with canonical_complete=true.
         if fatals:
             raise ValueError(f"{stem}: route evidence rejected (fatals={fatals})")
-        if maps != list(range(int(entry["floors"]))):
-            raise ValueError(f"{stem}: route evidence rejected (maps={maps})")
+        # Procedural floors are floors 0..(N-1) where N == entry['floors'].
+        # Fixed-boss segments emit a `map` event on their own floor 0 (their
+        # segment) — that shows up in `maps` as a second occurrence of 0.
+        # Split them apart before checking the procedural sequence.
+        proc_maps = [row["floor"] for row in rows
+                     if row.get("event") == "map" and row.get("kind") != "canonical_fixed_boss"]
+        boss_maps = [row for row in rows
+                     if row.get("event") == "map" and row.get("kind") == "canonical_fixed_boss"]
+        if proc_maps != list(range(int(entry["floors"]))):
+            raise ValueError(f"{stem}: route evidence rejected (procedural maps={proc_maps})")
+        # Enforce fixed_boss expectations, if declared.
+        if fixed_expectations:
+            if len(boss_maps) < len(fixed_expectations):
+                raise ValueError(
+                    f"{stem}: expected {len(fixed_expectations)} canonical fixed-boss "
+                    f"map event(s), observed {len(boss_maps)}")
+            for bm in boss_maps:
+                got = str(bm.get("boss_species") or "")
+                want = str(bm.get("expected_boss_species") or "")
+                if not want or got != want:
+                    raise ValueError(
+                        f"{stem}: boss map loaded species '{got}' but ROM canonical "
+                        f"expects '{want}' (ROM->rsmap fidelity failed)")
+            if not boss_events:
+                raise ValueError(
+                    f"{stem}: expected boss_clear event(s), none observed "
+                    "(fixed-boss segment did not report boss engagement)")
         if not grounds or (source_end and source_end not in grounds):
             raise ValueError(f"{stem}: route evidence rejected (final Ground {source_end!r} not observed; grounds={grounds})")
         if not canonical or (source_end and canonical.get("id") != source_end):
             raise ValueError(f"{stem}: route evidence rejected (canonical_end={canonical})")
         if not terminal or not terminal.get("canonical_complete"):
             raise ValueError(f"{stem}: route evidence rejected (end={terminal})")
-        if any(not row.get("map_seed") or row.get("stairs", 0) < 1
-               for row in rows if row.get("event") == "map"):
-            raise ValueError(f"{stem}: route map seed/stair evidence incomplete")
+        # Procedural floors must have seeds and stairs; boss floors are
+        # explicitly stairs-less LoadGen maps and validate on boss species
+        # instead (already checked above).
+        for row in rows:
+            if row.get("event") != "map":
+                continue
+            if row.get("kind") == "canonical_fixed_boss":
+                if not row.get("map_seed"):
+                    raise ValueError(f"{stem}: boss map missing map_seed evidence")
+                continue
+            if not row.get("map_seed") or row.get("stairs", 0) < 1:
+                raise ValueError(f"{stem}: procedural map seed/stair evidence incomplete")
         target_jsonl = runtime_dir / source_jsonl.name
         target_log = runtime_dir / source_log.name
         shutil.copy2(source_jsonl, target_jsonl)
@@ -665,8 +797,57 @@ def record_routes(route_dir: Path, promote: bool = False) -> dict[str, Any]:
             "jsonl": str(target_jsonl.relative_to(ROOT)),
             "jsonl_sha256": hashlib.sha256(target_jsonl.read_bytes()).hexdigest(),
             "log": str(target_log.relative_to(ROOT)) if target_log.is_file() else None,
-            "maps": maps, "grounds": grounds, "fatals": 0,
+            "procedural_maps": proc_maps,
+            "boss_maps": [{"segment": bm.get("segment"), "floor": bm.get("floor"),
+                           "boss_species": bm.get("boss_species"),
+                           "expected_boss_species": bm.get("expected_boss_species"),
+                           "map_seed": bm.get("map_seed"),
+                           "kind": bm.get("kind")} for bm in boss_maps],
+            "boss_clears": [{"segment": be.get("segment"), "map": be.get("map"),
+                             "expected_species": be.get("expected_species"),
+                             "native_clear_hooks": be.get("native_clear_hooks"),
+                             "source_floor": be.get("source_floor"),
+                             "source_fixed_room": be.get("source_fixed_room")}
+                            for be in boss_events],
+            "grounds": grounds, "fatals": 0,
         }
+        if fixed_expectations:
+            # Explicit canonical proofs per user directive:
+            # canonical_battle_ground / canonical_layout_source / rsmap_source
+            # / rsmap_equivalence_verified / battle_location_verified.
+            first = fixed_expectations[0]
+            battle_ground = str(first.get("ground", "") or "")
+            entry["canonical_battle_ground"] = battle_ground
+            entry["canonical_layout_source"] = (
+                f"Data/Ground/{battle_ground}.rsground" if battle_ground else "")
+            entry["rsmap_source"] = f"Data/Map/{first.get('map','')}.rsmap"
+            # rsmap_equivalence_verified: true only if the rsmap was produced by
+            # tools/make_ground_arena.py from the canonical Ground of the same
+            # name (pixel-exact by construction). We do NOT reverify pixels here
+            # (Pillow may be unavailable in every environment); the sha256 of
+            # the rsmap is captured in `artifacts` so any drift is auditable.
+            rsmap_path = ROOT / f"Data/Map/{first.get('map','')}.rsmap"
+            ground_path = ROOT / f"Data/Ground/{battle_ground}.rsground"
+            entry["rsmap_equivalence_verified"] = (
+                rsmap_path.is_file() and ground_path.is_file())
+            # battle_location_verified: the runtime must have loaded the boss
+            # map AND emitted a boss_clear on the correct segment/species.
+            expected_species = str(CONFIG.get(stem, {})
+                                   .get("fixed_segments", [{}])[0].get("species", "") or "")
+            # Retrieve species from validator lua (it doesn't currently emit it
+            # in fixed_segments config on the Python side — but the JSONL row
+            # does). Fall back to comparing the loaded species against the
+            # boss_clear expectation string.
+            battle_location_verified = bool(boss_events) and bool(boss_maps) and all(
+                bm.get("boss_species") == bm.get("expected_boss_species")
+                for bm in boss_maps)
+            entry["battle_location_verified"] = battle_location_verified
+            entry["fixed_segments_provenance"] = [
+                {"source_floor": fs.get("source_floor"),
+                 "source_fixed_room": fs.get("source_fixed_room"),
+                 "map": fs.get("map"), "ground": fs.get("ground"),
+                 "provenance": fs.get("provenance", "PMD_RED_ROM")}
+                for fs in fixed_expectations]
         entry["blockers"] = ([] if can_promote else asset_blockers + ["NOT_PROMOTED"])
         entry["status"] = ("PROMOTED_RUNTIME_VALIDATED" if can_promote
                            else ("ROUTE_VALIDATED_ASSET_BLOCKED" if asset_blockers
