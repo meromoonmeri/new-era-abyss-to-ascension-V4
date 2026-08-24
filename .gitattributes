@@ -1,0 +1,2 @@
+dist/windows-package/New-Era.zip.part_* binary linguist-vendored
+dist/windows-package/*.zip binary linguist-vendored

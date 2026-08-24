@@ -1,0 +1,41 @@
+{
+  "schema": "new-era.windows-package.split.v1",
+  "archive_name": "New-Era.zip",
+  "archive_sha256": "543972a8c2bec962f41e375e1208a6dd51065278bebd49756a6ea5445f09cf3c",
+  "archive_bytes": 436572852,
+  "archive_mib": 416.35,
+  "source_commit": "4f78df3b",
+  "source_branch": "arena/01a0337b-new-era-abyss-to-ascension-v4",
+  "packager_tool": "tools/package_windows.py",
+  "packager_report": "docs/dungeon_builder/packaging/PACKAGE_REPORT.json",
+  "layout_reference": "https://github.com/Palikadude/Halcyon",
+  "reassembly": "cat New-Era.zip.part_001 New-Era.zip.part_002 New-Era.zip.part_003 New-Era.zip.part_004 New-Era.zip.part_005 > New-Era.zip",
+  "reassembly_windows": "copy /b New-Era.zip.part_001 + New-Era.zip.part_002 + New-Era.zip.part_003 + New-Era.zip.part_004 + New-Era.zip.part_005 New-Era.zip",
+  "parts": [
+    {
+      "name": "New-Era.zip.part_001",
+      "bytes": 89128960,
+      "sha256": "93995ff56808b3c57adc4e218a9de5124b2d647ef2be864a38363ba9e7e1b24f"
+    },
+    {
+      "name": "New-Era.zip.part_002",
+      "bytes": 89128960,
+      "sha256": "44703bad63a9584e665785db6e9fffb36d786fd02a2273c3758e31e87de727bb"
+    },
+    {
+      "name": "New-Era.zip.part_003",
+      "bytes": 89128960,
+      "sha256": "4074d4df288b317afd46ff7c7362d06d8de9d7637c8800386762268176322473"
+    },
+    {
+      "name": "New-Era.zip.part_004",
+      "bytes": 89128960,
+      "sha256": "e8ea1c4bfa79725f247abca887cdac100c2ad7e9a967c61c4d90e4bcf1c2d24f"
+    },
+    {
+      "name": "New-Era.zip.part_005",
+      "bytes": 80057012,
+      "sha256": "beb10c4fbda4220fe2913a35e85520708e411223b7cf86e30a968a2f34f1eb34"
+    }
+  ]
+}
