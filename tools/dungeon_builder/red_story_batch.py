@@ -70,6 +70,54 @@ EXPLICIT_ITEM_MAP = {
     "ITEM_GRAVELEROCK": "ammo_gravelerock",
     "ITEM_MAX_ELIXIR": "medicine_max_elixir",
 }
+
+# PMD Red items that have NO canonical equivalent in the PMDO 0.8.9 base game
+# (audinowho/DumpAsset @ pinned commit). These are game-mechanics items that
+# were dropped, renamed with different semantics, or replaced by unrelated
+# machinery in PMDO. Rather than blocking every Red dungeon that references
+# them in a marginal item table slot, the batch skips these items with an
+# explicit provenance reason. The dungeon is still fail-closed if every item
+# on a floor is unavailable, so this cannot silently strip a whole floor.
+#
+# Every entry in this set must be documented individually below.
+#
+# ORBs that PMDO base dropped as a mechanic (no equivalent orb, seed, or wand
+# in current PMDO with the same effect):
+#   ITEM_BLOWBACK_ORB : knocks all foes back N tiles — no PMDO equivalent
+#   ITEM_HURL_ORB     : throws foe to random tile — no PMDO equivalent
+#   ITEM_SWITCHER_ORB : swaps positions with foe — no PMDO equivalent
+#     (PMDO has wand_switcher but semantics differ: wand vs one-shot orb;
+#      cross-family mapping is explicitly forbidden by convert_item's doc)
+#   ITEM_WARP_ORB     : random-warps the party — no orb_warp in PMDO base
+#     (PMDO has seed_warp for the same effect but it's a seed, not an orb;
+#      cross-family mapping is forbidden — the effect is preserved via seeds
+#      declared in floor tables when the ROM lists them)
+#   ITEM_RADAR_ORB    : reveals all traps — no orb_radar in PMDO base
+#     (PMDO has orb_scanner for reveal-rooms and orb_trap_see for reveal-traps;
+#      neither matches the exact ROM semantic)
+# TMs that PMDO base does not ship (Toxic is not a TM in PMDO 0.8.9):
+#   ITEM_TM_TOXIC     : no tm_toxic in Data/Item; Toxic is a base move only
+# Held items that PMDO renamed without preserving both variants:
+#   ITEM_STAMINA_BAND : PMDO has held_zinc_band with same effect but the
+#     rename dropped the Red identity; kept skipped rather than silently swapped
+#   ITEM_GOLD_RIBBON  : Gold Ribbon is a Sky-era item; PMDO base has no
+#     equivalent for the Red version
+#   ITEM_INSOMNISCOPE : LEGACY_ITEM_MAP already maps this to
+#     'held_insomniascope' (see convert_item); no need to skip
+#
+# When PMDODump ships one of these items in a later pin, remove it from the
+# set and let convert_item resolve it normally.
+PMDO_UNAVAILABLE_ITEMS: frozenset[str] = frozenset({
+    "ITEM_BLOWBACK_ORB",
+    "ITEM_HURL_ORB",
+    "ITEM_SWITCHER_ORB",
+    "ITEM_WARP_ORB",
+    "ITEM_RADAR_ORB",
+    "ITEM_TM_TOXIC",
+    "ITEM_STAMINA_BAND",
+    "ITEM_GOLD_RIBBON",
+})
+
 BASE_ITEMS = set((ROOT / "tools/dungeon_builder/data/base_items.txt").read_text().splitlines())
 BASE_ITEM_CATALOG = json.loads(
     (ROOT / "tools/dungeon_builder/data/base_item_catalog.json").read_text(encoding="utf-8"))
@@ -134,16 +182,27 @@ def _species(value: str) -> str:
 def _item(value: str, conversion: dict[str, str], available: set[str]) -> str | None:
     if value in {"ITEM_NONE", "ITEM_POKE"}:
         return None
+    # 1. Explicit local overrides declared by this batch module (highest prio,
+    #    used when a specific ROM constant needs a targeted PMDO id).
     result = EXPLICIT_ITEM_MAP.get(value)
     if value.startswith("ITEM_TM_"):
         result = "tm_" + value.removeprefix("ITEM_TM_").lower()
     result = result or _exact_name_item(value)
     if result and result in available:
         return result
+    # 2. Authoritative ROM->PMDO overrides declared by the project's canonical
+    #    definition builder (tools/build_canonical_definitions.py:ITEM_OVERRIDES).
+    #    These are curated, hand-maintained mappings such as
+    #    ITEM_LINK_BOX -> machine_recall_box that predate this batch.
+    legacy_override = legacy_mapping.ITEM_OVERRIDES.get(value)
+    if legacy_override and legacy_override in available:
+        return legacy_override
+    # 3. Convention-based lookup via CONVERSION/Item.txt (hand-authored).
     key = value.removeprefix("ITEM_").lower()
     candidate = conversion.get(key)
     if candidate and candidate in available:
         return candidate
+    # 4. Direct-hit: the ROM constant already looks like a PMDO id.
     if key in available:
         return key
     return None
@@ -185,11 +244,29 @@ def _pokemon(manifest: dict[str, Any], base_level: int) -> list[dict[str, Any]]:
     return rows
 
 
-def _items(manifest: dict[str, Any]) -> tuple[dict[str, Any], list[str]]:
+def _items(manifest: dict[str, Any]) -> tuple[dict[str, Any], list[str], dict[str, list[str]]]:
+    """Resolve PMD Red per-floor item tables to PMDO ids.
+
+    Returns:
+        (items_block, missing, skipped_by_reason)
+        - items_block: {"canonical_floor_items": {...}} ready to embed in
+          the reconciled definition, or {} if no floor has any resolvable item.
+        - missing: sorted list of PMD Red ITEM_* constants that could not be
+          resolved AND are NOT in PMDO_UNAVAILABLE_ITEMS. Any non-empty entry
+          here is a hard blocker: the batch stays fail-closed for this dungeon.
+        - skipped_by_reason: mapping reason_code -> sorted list of ITEM_*
+          constants that were intentionally skipped (documented absence).
+          Never a blocker on its own, but if the skip strips every item from
+          a specific floor the batch still fails closed because that floor
+          would become gameplay-empty.
+    """
     conversion = legacy_mapping.load_item_conversion()
     available = BASE_ITEMS | set(legacy_mapping.known_items())
-    entries = []
+    entries: list[dict[str, Any]] = []
     missing: set[str] = set()
+    skipped: dict[str, set[str]] = {"NOT_IN_PMDO_0_8_9_BASE": set()}
+    per_floor_kept: dict[int, int] = {}
+    per_floor_total: dict[int, int] = {}
     for floor in manifest["floors"]:
         number = int(floor["floor"])
         table = manifest["tables"]["items"][str(floor["table_ids"]["Items"])]
@@ -199,17 +276,37 @@ def _items(manifest: dict[str, Any]) -> tuple[dict[str, Any], list[str]]:
                 probability = int(raw.get("itemProbability", 0))
                 if category_probability <= 0 or probability <= 0:
                     continue
-                item = _item(raw["item"], conversion, available)
+                per_floor_total[number] = per_floor_total.get(number, 0) + 1
+                iid = raw["item"]
+                if iid in {"ITEM_NONE", "ITEM_POKE"}:
+                    continue
+                item = _item(iid, conversion, available)
                 if item is None:
-                    if raw["item"] not in {"ITEM_NONE", "ITEM_POKE"}:
-                        missing.add(raw["item"])
+                    if iid in PMDO_UNAVAILABLE_ITEMS:
+                        skipped["NOT_IN_PMDO_0_8_9_BASE"].add(iid)
+                        continue
+                    missing.add(iid)
                     continue
                 absolute_weight = max(1, round(category_probability * probability / 10000))
                 entries.append({"item": item, "weight": absolute_weight,
                                 "floors": [number, number]})
+                per_floor_kept[number] = per_floor_kept.get(number, 0) + 1
+
+    # A floor whose entire item table resolved to nothing is a real blocker:
+    # promoting it would ship a floor without a canonical item table at all.
+    for f, total in per_floor_total.items():
+        if total > 0 and per_floor_kept.get(f, 0) == 0:
+            missing.add(f"__FLOOR_{f}_HAS_NO_RESOLVABLE_ITEM__")
+
     if not entries:
-        return {}, sorted(missing)
-    return {"canonical_floor_items": {"amount": [1, 2], "entries": entries}}, sorted(missing)
+        return {}, sorted(missing), {k: sorted(v) for k, v in skipped.items() if v}
+
+    block = {"canonical_floor_items": {"amount": [1, 2], "entries": entries}}
+    if any(v for v in skipped.values()):
+        block["canonical_floor_items"]["skipped_by_reason"] = {
+            reason: sorted(items) for reason, items in skipped.items() if items
+        }
+    return block, sorted(missing), {k: sorted(v) for k, v in skipped.items() if v}
 
 
 def _traps(manifest: dict[str, Any]) -> dict[str, Any]:
@@ -243,9 +340,16 @@ def reconcile(stem: str) -> dict[str, Any]:
         raise ValueError(f"{stem}: floor count mismatch")
     config = CONFIG[stem]
     floors = int(manifest["floor_count"])
-    items, missing_items = _items(manifest)
+    items, missing_items, skipped_items = _items(manifest)
     if missing_items:
         raise ValueError(f"{stem}: unmapped canonical items: {', '.join(missing_items)}")
+    if skipped_items:
+        # Record the skips on the raw definition so that downstream reports can
+        # cite the exact ROM constants that were intentionally omitted for
+        # PMDO 0.8.9 base compatibility. This is only informational: the batch
+        # only errors on truly unmapped items above.
+        raw.setdefault("provenance", {}).setdefault("items", {})
+        raw["provenance"]["items"]["skipped"] = skipped_items
     segment = raw["segments"][0]
     segment.update({
         "name": raw.get("biome", stem),

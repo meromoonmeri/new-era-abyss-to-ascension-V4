@@ -3,37 +3,33 @@
   "batch": "red_story_02",
   "summary": {
     "requested": 2,
-    "staged": 0,
+    "staged": 2,
     "runtime_validated": 0,
     "promoted": 0,
-    "blocked": 2
+    "blocked": 0
   },
   "entries": [
     {
       "definition": "silent_chasm",
       "zone": "silent_chasm",
-      "floors": null,
-      "definition_path": null,
-      "zone_path": null,
-      "configuration_gate": false,
+      "floors": 9,
+      "definition_path": "DungeonDefs/staging/red_story_02/silent_chasm.json",
+      "zone_path": "Staging/dungeon_builder/red_story_02/Data/Zone/silent_chasm.json",
+      "configuration_gate": true,
       "warnings": [],
-      "status": "BLOCKED_CONFIGURATION",
-      "blockers": [
-        "silent_chasm: unmapped canonical items: ITEM_BLOWBACK_ORB, ITEM_HURL_ORB, ITEM_RADAR_ORB, ITEM_SWITCHER_ORB, ITEM_WARP_ORB"
-      ]
+      "status": "STAGED_AWAITING_PMDO_RUNTIME",
+      "blockers": []
     },
     {
       "definition": "great_canyon",
       "zone": "great_canyon",
-      "floors": null,
-      "definition_path": null,
-      "zone_path": null,
-      "configuration_gate": false,
+      "floors": 12,
+      "definition_path": "DungeonDefs/staging/red_story_02/great_canyon.json",
+      "zone_path": "Staging/dungeon_builder/red_story_02/Data/Zone/great_canyon.json",
+      "configuration_gate": true,
       "warnings": [],
-      "status": "BLOCKED_CONFIGURATION",
-      "blockers": [
-        "great_canyon: unmapped canonical items: ITEM_LINK_BOX, ITEM_TM_TOXIC"
-      ]
+      "status": "STAGED_AWAITING_PMDO_RUNTIME",
+      "blockers": []
     }
   ]
 }

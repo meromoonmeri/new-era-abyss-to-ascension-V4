@@ -204,25 +204,56 @@ class TestPriorityScopeAndFirstBatch(unittest.TestCase):
                          "DataAsset/Zone/Glacial_Path.out.txt")
 
     def test_resolution_audit_exhausts_current_exact_mappings(self):
+        # After the PMDO_UNAVAILABLE_ITEMS whitelist (see
+        # tools/dungeon_builder/red_story_batch.py) was introduced, dungeons
+        # that only referenced Red-era orbs/TMs with no PMDO 0.8.9 equivalent
+        # became SOURCE_RESOLVABLE. Real unmapped items are still hard blockers.
         audit = json.loads(RED_RESOLUTION_AUDIT.read_text(encoding="utf-8"))
         self.assertEqual(audit["summary"], {
-            "manifests": 51, "source_resolvable": 2, "blocked": 49,
-            "fixed_floor_blocked": 26, "item_mapping_blocked": 47,
+            "manifests": 51, "source_resolvable": 8, "blocked": 43,
+            "fixed_floor_blocked": 26, "item_mapping_blocked": 39,
+            "any_items_skipped": 46,
         })
         resolvable = {row["definition"] for row in audit["entries"]
                       if row["state"] == "SOURCE_RESOLVABLE"}
-        self.assertEqual(resolvable, {"tiny_woods", "thunderwave_cave"})
+        self.assertEqual(resolvable, {
+            "tiny_woods", "thunderwave_cave",
+            # Newly resolvable after the whitelist / legacy-override fix:
+            "silent_chasm", "great_canyon",
+            "mt_thunder", "mt_blaze", "mt_freeze", "lapis_cave",
+        })
+        # Mt Steel still requires a canonical fixed-room 1 counterpart on
+        # floor 9 (Skarmory battle) — item skipping alone cannot unblock it.
         steel = next(row for row in audit["entries"] if row["definition"] == "mt_steel")
         self.assertEqual(steel["fixed_floors"], [9])
-        self.assertTrue(steel["missing_items"])
+        # After the whitelist, mt_steel's four blocked orbs are documented as
+        # skipped (NOT_IN_PMDO_0_8_9_BASE) rather than "missing".
+        self.assertFalse(steel["missing_items"],
+                         "mt_steel must not report any orb as unmapped after whitelist")
+        self.assertTrue(steel["skipped_items"],
+                        "mt_steel's Red-only orbs must be documented as skipped")
 
-    def test_second_batch_is_fail_closed_on_exact_missing_items(self):
+    def test_second_batch_produces_documented_skips_not_silent_drops(self):
+        # Silent Chasm and Great Canyon are now staged. The batch must
+        # (a) succeed at staging, (b) record every ROM item omitted from the
+        # PMDO canonical_floor_items block in skipped_by_reason so the trace
+        # from PMD Red ROM -> PMDO ZoneData remains explicit and auditable.
         report = json.loads(RED_STORY_02_REPORT.read_text(encoding="utf-8"))
-        self.assertEqual(report["summary"]["staged"], 0)
-        self.assertEqual(report["summary"]["blocked"], 2)
-        self.assertTrue(all(entry["status"] == "BLOCKED_CONFIGURATION"
-                            for entry in report["entries"]))
-        self.assertTrue(all(entry["blockers"] for entry in report["entries"]))
+        self.assertEqual(report["summary"]["staged"], 2)
+        self.assertEqual(report["summary"]["blocked"], 0)
+        for stem in ("silent_chasm", "great_canyon"):
+            path = REPO / "DungeonDefs/staging/red_story_02" / f"{stem}.json"
+            self.assertTrue(path.is_file(), f"missing staged definition: {path}")
+            defn = json.loads(path.read_text(encoding="utf-8"))
+            block = defn["segments"][0]["items"]["canonical_floor_items"]
+            self.assertGreater(len(block["entries"]), 20,
+                               f"{stem} must keep a rich canonical item table")
+            skipped = block.get("skipped_by_reason", {})
+            self.assertIn("NOT_IN_PMDO_0_8_9_BASE", skipped,
+                          f"{stem} must document at least one skip")
+            for iid in skipped["NOT_IN_PMDO_0_8_9_BASE"]:
+                self.assertTrue(iid.startswith("ITEM_"),
+                                f"skipped id must stay as ROM constant: {iid}")
 
     def test_first_batch_has_80_of_80_native_generations(self):
         report = json.loads(RED_STORY_01_REPORT.read_text(encoding="utf-8"))
