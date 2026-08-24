@@ -1,15 +1,22 @@
 -- [dungeon_builder] script de zone canonique généré — ne pas éditer à la main.
---[[ Mont Gelé (mt_freeze) — chapitre 11.
-     Zone reconstruite par tools/dungeon_builder : 2 segment(s).
-     Règle verrouillée : Ground de cinématique = Ground du combat = Ground final
-     canonique. Aucune arène séparée, aucune téléportation vers un décor inventé.
+--[[ Mont Gelé (mt_freeze) — chapitre 11 PMD Red.
+     Zone reconstruite par tools/dungeon_builder : 1 segment(s).
+       * segment 0 : 15 étages procéduraux (RogueElements natif, biome
+         freeze_slope, DTEF mt_freeze). Correspond aux floors 1–15 ROM
+         (aucun fixed_room dans la ROM pour ce donjon).
+       * Après clear seg 0, transition vers le Ground canonique d11p02
+         (scène de relais PMD Red "Mt. Freeze").
+     Règle verrouillée : Ground de cinématique = Ground final canonique.
+     Aucune arène séparée, aucun midpoint générique inventé (le legacy
+     Kangourex clone `mt_freeze_midpoint` est déprécié et remplacé par ce
+     câblage canonique).
      Regénérer avec : python3 tools/dungeon_builder.py wire-scenes --apply ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 
 local mt_freeze = {}
 
-local LAST_SEGMENT = 1
+local LAST_SEGMENT = 0
 
 local function GROUND_IDX(name)
   local ok, idx = pcall(function()
@@ -63,15 +70,10 @@ function mt_freeze.ExitSegment(zone, result, rescue, segmentID, mapID)
   end
 
   if segmentID == 0 then
-    -- relais interne du donjon (station de mi-parcours) puis retour au segment suivant
+    -- Ground final canonique : cinématique de relais Mt. Freeze puis
+    -- transition vers mt_freeze_peak (chaînage story canonique).
     SV.CanonicalDungeons.Pending = 'mt_freeze_seg0'
-    GAME:EnterGroundMap('mt_freeze_midpoint', 'Main_Entrance_Marker')
-  elseif segmentID == 1 then
-    -- scène canonique de transition vers mt_freeze_peak
-    SV.CanonicalDungeons.Pending = 'mt_freeze_seg1'
-    -- d11p02 ne porte aucun marqueur : la scène téléporte
-    -- elle-même le joueur, on entre donc par index.
-    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, 'd11p02'), 0)
+    GAME:EnterZone(zone.ID, -1, ZONE_GROUND_IDX(zone, 'd11p02'), 0)
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end

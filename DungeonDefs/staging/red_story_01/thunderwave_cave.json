@@ -1107,7 +1107,7 @@
     "location": "Data/Ground/d02p02.rsground",
     "cinematic_ground": "d02p02",
     "battle_ground": "d02p02",
-    "rule": "Canonical rescue/end scene on the source Ground; no invented battle. battle_ground alias canonical_end_ground: the final scene plays on this single Ground and any conditional battle triggered by future content extensions must reuse the same space (no invented arena)."
+    "rule": "Canonical rescue/end scene on the source Ground; no invented battle."
   },
   "narrative": {
     "transferred": true,
@@ -1127,7 +1127,12 @@
     "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
-  "boss": {},
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "d02p02",
+    "provenance": "PMD_RED_ROM",
+    "notes": "Canonical end Ground d02p02 — the ROM has no in-dungeon boss fight for this dungeon, but the canonical end scene owns any potential battle space (no invented dedicated arena)."
+  },
   "fixed_grounds": {
     "entrance": "grotte_statique_seuil",
     "end": "d02p02"

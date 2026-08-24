@@ -5,39 +5,41 @@
 - **Source canonique** : Pokémon Mystery Dungeon: Red Rescue Team — Mt. Freeze (15F). Espèces, niveaux, probabilités, tables d'objets, pièges et boutiques extraits de pret/pmd-red (data/dungeon/MtFreeze) via tools/build_canonical_definitions.py ; niveaux renivelés au palier du chapitre 11. Recoupé avec Bulbapedia (page « Mt. Freeze »).  
 - **Étages** : 15 — direction `sommet`  
 - **Zone écrite** : `Data/Zone/mt_freeze.json`  
-- **Seed d'auteur (debug)** : `5423744189238460590` (explicite : False)  
+- **Gate canonique** : configuration `validated`, runtime `validated`  
+- **Seed runtime** : fournie et journalisée par PMDO lors du test moteur ; aucune seed de production n'est écrite dans la zone.  
 
 ## Segments
 
 | Segment | Étages | Biome | DTEF | Profils | Pokémon | Shop | M.House | Météo |
 |---|---|---|---|---|---|---|---|---|
-| freeze_slope | 1-8 | freeze_slope | `mt_freeze_floor` | twosides, branching, mixed | 8 | oui | oui | — |
-| freeze_ridge | 9-15 | freeze_ridge | `mt_freeze_floor` | branching, crossroads, mixed | 5 | oui | oui | — |
+| freeze_slope | 1-15 | freeze_slope | `mt_freeze_floor` | branching, lattice, looping | 49 | non | non | — |
 
 ## Scènes fixes
 
 - entrée : `mont_gele_pied`
-- midpoint : `mt_freeze_midpoint`
-- Ground de fin : `d11p03`
-- boss : mode `canonical_ground` → Ground `d11p03`, rsmap `—`
-  - final battle stays on the canonical end Ground 'd11p03' (no separate arena created)
+- midpoint : `—`
+- Ground de fin : `d11p02`
+- boss : mode `canonical_ground` → Ground `d11p02`, rsmap `—`
+  - no fixed 'mid' Ground declared
+  - final battle stays on the canonical end Ground 'd11p02' (no separate arena created)
+  - declared boss Ground 'd11p02' is not among the detected canonical end scenes ['d11p03']
 
 ## Étages
 
 | Ét. | Segment | Type | Profil | Grille | Cellule | Variantes OK | Rejets | Rooms (min/moy/max) | Halls | Branches | Culs-de-sac | Boucles | Dist. escaliers | Signatures | Traversable |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | freeze_slope | procedural | twosides+branching+mixed | 3x3 | 12x10 | 5 | 2 | 9/12.2/17 | 12.2 | 4.0 | 4.6 | 0.8 | 38.6 | 5 | oui |
-| 2 | freeze_slope | procedural | twosides+branching+mixed | 7x5 | 8x9 | 5 | 0 | 8/10.6/15 | 12.0 | 2.2 | 3.6 | 0.6 | 32.0 | 5 | oui |
-| 3 | freeze_slope | procedural | twosides+branching+mixed | 4x3 | 12x11 | 5 | 1 | 6/11.0/17 | 11.8 | 3.0 | 3.6 | 1.0 | 43.4 | 5 | oui |
-| 4 | freeze_slope | procedural | twosides+branching+mixed | 4x4 | 8x7 | 5 | 0 | 6/8.4/11 | 9.8 | 1.4 | 1.8 | 0.8 | 36.0 | 5 | oui |
-| 5 | freeze_slope | procedural | twosides+branching+mixed | 4x4 | 10x12 | 5 | 0 | 6/10.0/15 | 11.8 | 3.4 | 3.2 | 1.2 | 41.8 | 5 | oui |
-| 6 | freeze_slope | procedural | twosides+branching+mixed | 6x3 | 11x8 | 5 | 1 | 7/11.4/22 | 12.8 | 3.0 | 3.2 | 1.0 | 46.4 | 5 | oui |
-| 7 | freeze_slope | procedural | twosides+branching+mixed | 3x4 | 11x10 | 5 | 0 | 6/10.6/15 | 12.4 | 3.0 | 2.6 | 1.4 | 36.8 | 5 | oui |
-| 8 | freeze_slope | procedural | twosides+branching+mixed | 5x3 | 11x9 | 5 | 1 | 7/9.8/15 | 10.0 | 2.2 | 3.4 | 0.4 | 35.0 | 5 | oui |
-| 9 | freeze_ridge | procedural | branching+crossroads+mixed | 6x5 | 12x11 | 5 | 0 | 8/11.6/21 | 11.0 | 2.8 | 5.0 | 0.4 | 42.6 | 5 | oui |
-| 10 | freeze_ridge | procedural | branching+crossroads+mixed | 5x3 | 11x10 | 5 | 0 | 9/12.2/21 | 12.8 | 3.4 | 4.6 | 0.8 | 49.6 | 5 | oui |
-| 11 | freeze_ridge | procedural | branching+crossroads+mixed | 5x3 | 11x10 | 5 | 0 | 7/12.2/25 | 12.4 | 3.2 | 4.0 | 1.0 | 36.2 | 5 | oui |
-| 12 | freeze_ridge | procedural | branching+crossroads+mixed | 6x5 | 12x8 | 5 | 1 | 8/11.8/20 | 13.0 | 3.6 | 4.0 | 1.4 | 31.0 | 5 | oui |
-| 13 | freeze_ridge | procedural | branching+crossroads+mixed | 5x5 | 9x11 | 5 | 1 | 8/10.6/13 | 11.8 | 3.4 | 3.6 | 1.4 | 35.6 | 5 | oui |
-| 14 | freeze_ridge | procedural | branching+crossroads+mixed | 7x5 | 8x11 | 5 | 1 | 7/13.8/21 | 14.6 | 4.0 | 4.4 | 1.2 | 47.2 | 5 | oui |
-| 15 | freeze_ridge | procedural | branching+crossroads+mixed | 4x4 | 10x10 | 5 | 2 | 7/10.4/16 | 10.6 | 3.2 | 4.0 | 0.8 | 39.6 | 5 | oui |
+| 1 | freeze_slope | procedural | branching|lattice|looping | 5x5 | 12x9 | 10 | 0 | 12/16.6/21 | 26.9 | 8.5 | 4.7 | 4.6 | 50.9 | 10 | oui |
+| 2 | freeze_slope | procedural | branching|lattice|looping | 5x4 | 10x10 | 10 | 1 | 10/14.3/19 | 22.7 | 5.7 | 3.1 | 3.1 | 42.4 | 10 | oui |
+| 3 | freeze_slope | procedural | branching|lattice|looping | 6x5 | 10x10 | 10 | 0 | 9/16.4/28 | 25.7 | 7.8 | 4.5 | 4.1 | 45.2 | 10 | oui |
+| 4 | freeze_slope | procedural | branching|lattice|looping | 6x5 | 9x10 | 10 | 3 | 10/15.8/28 | 24.5 | 6.9 | 4.6 | 3.4 | 48.6 | 10 | oui |
+| 5 | freeze_slope | procedural | branching|lattice|looping | 7x5 | 12x8 | 10 | 0 | 12/16.8/25 | 25.5 | 7.7 | 4.5 | 3.7 | 50.9 | 10 | oui |
+| 6 | freeze_slope | procedural | branching|lattice|looping | 6x4 | 10x10 | 10 | 1 | 10/14.5/26 | 22.8 | 6.0 | 3.2 | 3.4 | 41.1 | 10 | oui |
+| 7 | freeze_slope | procedural | branching|lattice|looping | 5x4 | 10x8 | 10 | 5 | 12/15.2/22 | 25.4 | 8.1 | 4.2 | 4.7 | 41.0 | 10 | oui |
+| 8 | freeze_slope | procedural | branching|lattice|looping | 5x4 | 11x8 | 10 | 2 | 12/15.7/22 | 25.9 | 7.9 | 3.4 | 4.5 | 49.4 | 10 | oui |
+| 9 | freeze_slope | procedural | branching|lattice|looping | 6x5 | 12x10 | 10 | 0 | 10/15.3/21 | 23.8 | 7.4 | 4.6 | 3.6 | 43.6 | 10 | oui |
+| 10 | freeze_slope | procedural | branching|lattice|looping | 6x4 | 11x10 | 10 | 0 | 11/16.7/29 | 25.0 | 6.8 | 3.7 | 4.0 | 44.9 | 10 | oui |
+| 11 | freeze_slope | procedural | branching|lattice|looping | 6x5 | 11x10 | 10 | 0 | 10/16.6/24 | 25.6 | 7.8 | 4.7 | 4.0 | 49.1 | 10 | oui |
+| 12 | freeze_slope | procedural | branching|lattice|looping | 6x4 | 9x8 | 10 | 1 | 11/15.3/28 | 22.9 | 5.7 | 4.2 | 2.7 | 50.0 | 10 | oui |
+| 13 | freeze_slope | procedural | branching|lattice|looping | 6x4 | 12x10 | 10 | 1 | 11/17.6/25 | 25.5 | 7.4 | 5.1 | 3.6 | 50.2 | 10 | oui |
+| 14 | freeze_slope | procedural | branching|lattice|looping | 5x4 | 10x8 | 10 | 0 | 10/17.4/26 | 25.4 | 6.9 | 4.1 | 3.5 | 42.2 | 10 | oui |
+| 15 | freeze_slope | procedural | branching|lattice|looping | 7x5 | 10x10 | 10 | 2 | 11/16.3/23 | 25.9 | 8.3 | 4.4 | 4.2 | 43.7 | 10 | oui |

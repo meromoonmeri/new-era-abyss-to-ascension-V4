@@ -276,10 +276,13 @@ def _items(manifest: dict[str, Any]) -> tuple[dict[str, Any], list[str], dict[st
                 probability = int(raw.get("itemProbability", 0))
                 if category_probability <= 0 or probability <= 0:
                     continue
-                per_floor_total[number] = per_floor_total.get(number, 0) + 1
                 iid = raw["item"]
+                # ITEM_NONE / ITEM_POKE are not items (POKE is money, NONE is
+                # a placeholder). Skip BEFORE counting them in per_floor_total
+                # so a POKE-only floor is not flagged as "no resolvable item".
                 if iid in {"ITEM_NONE", "ITEM_POKE"}:
                     continue
+                per_floor_total[number] = per_floor_total.get(number, 0) + 1
                 item = _item(iid, conversion, available)
                 if item is None:
                     if iid in PMDO_UNAVAILABLE_ITEMS:
@@ -512,15 +515,25 @@ def reconcile(stem: str) -> dict[str, Any]:
                 "Canonical fight on the .rsmap counterpart of the canonical Ground; "
                 "post-battle scene on the same Ground.")
     else:
-        raw["boss"] = {}
+        # For dungeons without a canonical ROM fixed_room boss (silent_chasm,
+        # great_canyon, tiny_woods, thunderwave_cave, mt_thunder, lapis_cave,
+        # mt_freeze, mt_blaze — where the ROM has no in-dungeon boss fight),
+        # boss.mode is still set to "canonical_ground" pointing at the
+        # canonical end Ground. This encodes the canonical rule "the ROM's
+        # end scene is where any battle would happen" — enforced by
+        # test_canonical_end_grounds_win_over_arenas and required by the
+        # rule "no invented dedicated_boss_arena when a canonical Ground
+        # exists". No roster is declared (no boss to fight in ROM).
+        raw["boss"] = {
+            "mode": "canonical_ground",
+            "ground": config["source_end"],
+            "provenance": "PMD_RED_ROM",
+            "notes": (f"Canonical end Ground {config['source_end']} — "
+                      "the ROM has no in-dungeon boss fight for this dungeon, "
+                      "but the canonical end scene owns any potential battle "
+                      "space (no invented dedicated arena)."),
+        }
         if raw.get("scenes"):
-            # For dungeons without a canonical ROM fixed_room boss (like
-            # silent_chasm, great_canyon, tiny_woods, thunderwave_cave,
-            # mt_thunder — where the ROM has no in-dungeon boss fight), we
-            # still set battle_ground = source_end. This encodes the
-            # canonical rule "if a battle were to happen it would be at the
-            # canonical end Ground". The 4 already-promoted dungeons follow
-            # exactly this convention (their tests enforce it).
             raw["scenes"]["battle_ground"] = config["source_end"]
             raw["scenes"]["rule"] = "Canonical rescue/end scene on the source Ground; no invented battle."
     raw["canonical_items_without_pmdo_equivalent"] = missing_items

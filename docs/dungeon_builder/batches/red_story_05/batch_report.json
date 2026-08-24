@@ -1,0 +1,24 @@
+{
+  "schema": "new-era.red-story-batch.v1",
+  "batch": "red_story_05",
+  "summary": {
+    "requested": 1,
+    "staged": 1,
+    "runtime_validated": 0,
+    "promoted": 0,
+    "blocked": 0
+  },
+  "entries": [
+    {
+      "definition": "lapis_cave",
+      "zone": "lapis_cave",
+      "floors": 14,
+      "definition_path": "DungeonDefs/staging/red_story_05/lapis_cave.json",
+      "zone_path": "Staging/dungeon_builder/red_story_05/Data/Zone/lapis_cave.json",
+      "configuration_gate": true,
+      "warnings": [],
+      "status": "STAGED_AWAITING_PMDO_RUNTIME",
+      "blockers": []
+    }
+  ]
+}

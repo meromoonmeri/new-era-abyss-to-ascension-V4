@@ -20,6 +20,7 @@
       "configuration_gate": true,
       "warnings": [],
       "status": "PROMOTED_RUNTIME_VALIDATED",
+      "blockers": [],
       "runtime": {
         "engine": "PMDO 0.8.12",
         "attempted": 30,
@@ -29,20 +30,21 @@
         "invalid": 0,
         "seeds_logged": 30
       },
-      "blockers": [],
       "artifacts": {
-        "definition_sha256": "4bfec29a986a126be3098db194d4f5bb446976d4fe314c217ea6315c50075663",
-        "zone_sha256": "a704eb49cb4e61993c946b4abd3a2e349f4e31d9cab93ad98b1d229502d1f62f"
+        "definition_sha256": "3410b57f05183b5937f4cd1a11462a7df8694b650cfbbe7acf79a3294aa85563",
+        "zone_sha256": "5e0024637309050fcc7840968597025f678d15e228baba723bdaa9e299386cf3"
       },
       "route_runtime": {
         "jsonl": "docs/dungeon_builder/batches/red_story_01/runtime/routes/tiny_woods.jsonl",
         "jsonl_sha256": "078d5982489a4de33851e6b03bc35642c2edb88b1ad9232a57c17da5fc55ac0b",
         "log": "docs/dungeon_builder/batches/red_story_01/runtime/routes/tiny_woods.log",
-        "maps": [
+        "procedural_maps": [
           0,
           1,
           2
         ],
+        "boss_maps": [],
+        "boss_clears": [],
         "grounds": [
           "foret_tendre_oree",
           "d01p02"
@@ -61,6 +63,7 @@
       "configuration_gate": true,
       "warnings": [],
       "status": "PROMOTED_RUNTIME_VALIDATED",
+      "blockers": [],
       "runtime": {
         "engine": "PMDO 0.8.12",
         "attempted": 50,
@@ -70,22 +73,23 @@
         "invalid": 0,
         "seeds_logged": 50
       },
-      "blockers": [],
       "artifacts": {
-        "definition_sha256": "548cbb3ae2f2c273fffcea9b19a7add5a4a257405bbe585766d66902d6bb8b64",
-        "zone_sha256": "1fda6f6fe7205769955f75b20176f6f9629f6bf35a831b63f725fbe485a5fa04"
+        "definition_sha256": "f2408fa9433fa63904c95ffb60c93268837bd98f44218e054df1be3e43f95ebe",
+        "zone_sha256": "b8f0971485702a3953615e5bf897be3d7ad73ce02d86af1bd369be7260730650"
       },
       "route_runtime": {
         "jsonl": "docs/dungeon_builder/batches/red_story_01/runtime/routes/thunderwave_cave.jsonl",
         "jsonl_sha256": "b21a4ad289171c0d286923f0b54b894d0912e29a191b7cc4403e5cf1e063a1e0",
         "log": "docs/dungeon_builder/batches/red_story_01/runtime/routes/thunderwave_cave.log",
-        "maps": [
+        "procedural_maps": [
           0,
           1,
           2,
           3,
           4
         ],
+        "boss_maps": [],
+        "boss_clears": [],
         "grounds": [
           "grotte_statique_seuil",
           "d02p02"
@@ -100,7 +104,7 @@
     "jsonl": "docs/dungeon_builder/batches/red_story_01/runtime/native_mapgen.jsonl",
     "jsonl_sha256": "0879a1027180d45fb7d3c782164f2f6aef9879b785eb9389c5b13ce0577457d0",
     "report": "docs/dungeon_builder/batches/red_story_01/native_mapgen_report.md",
-    "report_sha256": "4d99f0ae31e9573a7513c69c17361f2a17c86e70040e604b63336ecbc09c62fd",
+    "report_sha256": "f9f99a30351de95d82c4e4a3f9bf3c5ac3894dc5176a3374bb3962a30265e2de",
     "end": {
       "event": "end",
       "attempted": 80,

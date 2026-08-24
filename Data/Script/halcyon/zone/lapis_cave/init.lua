@@ -1,6 +1,11 @@
 -- [dungeon_builder] script de zone canonique généré — ne pas éditer à la main.
---[[ Grotte Lazuli (lapis_cave) — chapitre 10.
-     Zone reconstruite par tools/dungeon_builder : 2 segment(s).
+--[[ Grotte Lazuli (lapis_cave) — chapitre 10 PMD Red.
+     Zone reconstruite par tools/dungeon_builder : 1 segment(s).
+       * segment 0 : 14 étages procéduraux (RogueElements natif, biome
+         lapis_gallery, DTEF lapis_cave). Correspond aux floors 1–14 ROM
+         (aucun fixed_room dans la ROM pour ce donjon).
+       * Après clear seg 0, transition vers le Ground canonique
+         grotte_lazuli_fond (scène de fin canonique PMD Red d08p02).
      Règle verrouillée : Ground de cinématique = Ground du combat = Ground final
      canonique. Aucune arène séparée, aucune téléportation vers un décor inventé.
      Regénérer avec : python3 tools/dungeon_builder.py wire-scenes --apply ]]
@@ -9,7 +14,7 @@ require 'halcyon.GeneralFunctions'
 
 local lapis_cave = {}
 
-local LAST_SEGMENT = 1
+local LAST_SEGMENT = 0
 
 local function GROUND_IDX(name)
   local ok, idx = pcall(function()
@@ -63,13 +68,9 @@ function lapis_cave.ExitSegment(zone, result, rescue, segmentID, mapID)
   end
 
   if segmentID == 0 then
-    -- poursuite directe vers le segment 1 du même donjon
-    GAME:EnterDungeon('lapis_cave', 1, 0, 0,
-      RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
-  elseif segmentID == 1 then
     -- Ground final canonique : cinématique, combat et fin au même endroit
-    SV.CanonicalDungeons.Pending = 'lapis_cave_seg1'
-    GAME:EnterGroundMap('grotte_lazuli_fond', 'Main_Entrance_Marker')
+    SV.CanonicalDungeons.Pending = 'lapis_cave_seg0'
+    GAME:EnterZone(zone.ID, -1, ZONE_GROUND_IDX(zone, 'grotte_lazuli_fond'), 0)
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end

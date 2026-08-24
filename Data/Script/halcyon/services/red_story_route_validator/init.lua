@@ -43,6 +43,9 @@ local CONFIG={
                   source_floor=9,source_fixed_room=1,
                   provenance='PMD_RED_ROM/FIXED_ROOM_MT_STEEL_SKARMORY'}},
   mt_thunder={floors=10,entrance='mont_grondant_pied',final='d06p02'},
+  lapis_cave={floors=14,entrance='grotte_lazuli_seuil',final='grotte_lazuli_fond'},
+  mt_freeze={floors=15,entrance='mont_gele_pied',final='d11p02'},
+  mt_blaze={floors=12,entrance='mont_cendre_pied',final='d09p02'},
 }
 local function esc(v)return tostring(v):gsub('\\','\\\\'):gsub('"','\\"'):gsub('\n',' | '):gsub('\r','')end
 local function emit(v)

@@ -98,7 +98,20 @@ class DungeonAudit:
 
 
 def _known_items() -> set:
-    return {path.stem for path in ITEM_DIR.glob("*.json")}
+    # Mod-local items (Data/Item/*.json) shadow the base game items and are
+    # authoritative. Plus every item shipped by the base game (audinowho/
+    # DumpAsset, mirrored in tools/dungeon_builder/data/base_items.txt) is
+    # available at runtime — the audit must not flag a base item as missing
+    # just because we don't ship a mod-local override for it. This is the
+    # same source of truth red_story_batch uses to build the item table.
+    known = {path.stem for path in ITEM_DIR.glob("*.json")}
+    base_items_file = Path(__file__).resolve().parent / "data" / "base_items.txt"
+    if base_items_file.is_file():
+        for line in base_items_file.read_text().splitlines():
+            s = line.strip()
+            if s and not s.startswith("#"):
+                known.add(s)
+    return known
 
 
 def _known_statuses() -> set:

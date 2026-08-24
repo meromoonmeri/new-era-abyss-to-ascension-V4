@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T23:00:22+00:00",
+  "generated_at": "2026-08-24T16:33:16+00:00",
   "dungeon": "mt_freeze",
   "name": {
     "en": "Mt. Freeze",
@@ -8,6 +8,91 @@
   "chapter": 11,
   "route": "secondary",
   "source": "Pokémon Mystery Dungeon: Red Rescue Team — Mt. Freeze (15F). Espèces, niveaux, probabilités, tables d'objets, pièges et boutiques extraits de pret/pmd-red (data/dungeon/MtFreeze) via tools/build_canonical_definitions.py ; niveaux renivelés au palier du chapitre 11. Recoupé avec Bulbapedia (page « Mt. Freeze »).",
+  "provenance": {
+    "schema": "new-era.dungeon-provenance.v1",
+    "game": "PMD_RED",
+    "status": {
+      "configuration": "validated",
+      "runtime": "validated",
+      "batch_approved": true,
+      "reason": "Native PMDO mapgen and complete mt_freeze entrance->floors->canonical-end->return route passed."
+    },
+    "categories": {
+      "floor_parameters": [
+        {
+          "kind": "PMD_RED_ROM",
+          "path": "docs/canonical/red/mt_freeze_rom_manifest.json",
+          "definition_floor_mode": "all",
+          "evidence": "Per-floor raw bytes and table IDs."
+        },
+        {
+          "kind": "INFERRED",
+          "path": "tools/dungeon_builder/red_story_batch.py",
+          "reason": "PMD Red geometry bytes require a native RogueElements adapter."
+        }
+      ],
+      "pokemon": [
+        {
+          "kind": "PMD_RED_ROM",
+          "path": "docs/canonical/red/mt_freeze_rom_manifest.json",
+          "evidence": "Per-floor species, source levels, and probabilities."
+        },
+        {
+          "kind": "SUPPLEMENTAL",
+          "path": "DungeonDefs/staging/red_story_06",
+          "reason": "Source levels translated to the New Era chapter tier."
+        }
+      ],
+      "items": [
+        {
+          "kind": "PMD_RED_ROM",
+          "path": "docs/canonical/red/mt_freeze_rom_manifest.json",
+          "evidence": "Per-floor category and item probabilities."
+        },
+        {
+          "kind": "INFERRED",
+          "path": "CONVERSION/Item.txt",
+          "reason": "Explicit PMD Red constant to PMDO item ID mapping."
+        }
+      ],
+      "tileset": [
+        {
+          "kind": "PMD_RED_ROM",
+          "path": "docs/canonical/red/mt_freeze_rom_manifest.json",
+          "evidence": "Per-floor source tileset IDs."
+        },
+        {
+          "kind": "PROJECT_DATA",
+          "path": "tools/dungeon_builder/data/base_autotiles.txt",
+          "evidence": "PMDO base DTEF triplet mt_freeze."
+        }
+      ],
+      "grounds": [
+        {
+          "kind": "PMD_RED_RESERVED_GROUND",
+          "path": "RESERVE/red_grounds/mont_gele_pied.rsground",
+          "evidence": "Canonical entrance Ground."
+        },
+        {
+          "kind": "PMD_RED_RESERVED_GROUND",
+          "path": "RESERVE/red_grounds/d11p02.rsground",
+          "evidence": "Canonical rescue/end Ground."
+        }
+      ],
+      "scenes": [
+        {
+          "kind": "PMD_RED_ROM",
+          "path": "RESERVE/red_cinematics/mont_gele_pied.cif.json",
+          "evidence": "Canonical entrance scene IR."
+        },
+        {
+          "kind": "PMD_RED_ROM",
+          "path": "RESERVE/red_cinematics/d11p02.cif.json",
+          "evidence": "Canonical end scene IR."
+        }
+      ]
+    }
+  },
   "floors": 15,
   "biome": "freeze_slope",
   "direction": "sommet",
@@ -17,7 +102,7 @@
       "name": "freeze_slope",
       "floors": [
         1,
-        8
+        15
       ],
       "biome": "freeze_slope",
       "dtef": {
@@ -25,61 +110,26 @@
         "wall": "mt_freeze_wall",
         "secondary": "mt_freeze_secondary",
         "name": "mt_freeze",
-        "element": "normal"
-      },
-      "profiles": [
-        "twosides",
-        "branching",
-        "mixed"
-      ],
-      "pokemon": 8,
-      "item_tables": {
-        "canonical": {
-          "amount": [
-            2,
-            5
-          ],
-          "entries": 28
-        }
-      },
-      "shop": true,
-      "monster_house": true,
-      "treasure_room": false,
-      "key_room": false,
-      "mystery": false,
-      "weather": []
-    },
-    {
-      "name": "freeze_ridge",
-      "floors": [
-        9,
-        15
-      ],
-      "biome": "freeze_ridge",
-      "dtef": {
-        "floor": "mt_freeze_floor",
-        "wall": "mt_freeze_wall",
-        "secondary": "mt_freeze_secondary",
-        "name": "mt_freeze",
-        "element": "normal"
+        "element": "normal",
+        "justification": "Canonical PMDO base package matching Mt. Freeze; source tileset IDs retained per floor."
       },
       "profiles": [
         "branching",
-        "crossroads",
-        "mixed"
+        "lattice",
+        "looping"
       ],
-      "pokemon": 5,
+      "pokemon": 49,
       "item_tables": {
-        "canonical": {
+        "canonical_floor_items": {
           "amount": [
-            2,
-            5
+            1,
+            2
           ],
-          "entries": 28
+          "entries": 741
         }
       },
-      "shop": true,
-      "monster_house": true,
+      "shop": false,
+      "monster_house": false,
       "treasure_room": false,
       "key_room": false,
       "mystery": false,
@@ -87,26 +137,26 @@
     }
   ],
   "fixed_grounds": {
-    "mid": "mt_freeze_midpoint",
     "entrance": "mont_gele_pied",
-    "end": "d11p03"
+    "end": "d11p02"
   },
   "midpoint": {},
   "boss": {
     "mode": "canonical_ground",
-    "ground": "d11p03",
-    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
+    "ground": "d11p02",
+    "provenance": "PMD_RED_ROM",
+    "notes": "Canonical end Ground d11p02 — the ROM has no in-dungeon boss fight for this dungeon, but the canonical end scene owns any potential battle space (no invented dedicated arena)."
   },
   "minibosses": [],
   "ground_check": {
     "entrance": "mont_gele_pied",
-    "cinematic_ground": "d11p03",
-    "battle_ground": "d11p03",
+    "cinematic_ground": "d11p02",
+    "battle_ground": "d11p02",
     "scene_state": "ACTIVE_GROUND",
-    "mid": "mt_freeze_midpoint",
-    "end": "d11p03",
+    "mid": "",
+    "end": "d11p02",
     "boss_mode": "canonical_ground",
-    "boss_ground": "d11p03",
+    "boss_ground": "d11p02",
     "boss_map": "",
     "canonical_end_candidates": [
       "d11p03"
@@ -114,14 +164,16 @@
     "ok": true,
     "problems": [],
     "notes": [
-      "final battle stays on the canonical end Ground 'd11p03' (no separate arena created)"
+      "no fixed 'mid' Ground declared",
+      "final battle stays on the canonical end Ground 'd11p02' (no separate arena created)",
+      "declared boss Ground 'd11p02' is not among the detected canonical end scenes ['d11p03']"
     ]
   },
   "rng": {
     "label": "generate:mt_freeze",
-    "root_seed": 5423744189238460590,
+    "root_seed": 8129904638395786664,
     "explicit_seed": false,
-    "derived_seeds": 85
+    "derived_seeds": 166
   },
   "warnings": [],
   "floor_reports": [
@@ -129,43 +181,48 @@
       "floor": 1,
       "segment": "freeze_slope",
       "kind": "procedural",
-      "profile": "twosides+branching+mixed",
+      "profile": "branching|lattice|looping",
       "grid": [
-        3,
-        3
+        5,
+        5
       ],
       "cell": [
         12,
-        10
+        9
       ],
       "dtef": "mt_freeze",
       "weather": [],
       "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 2,
-      "max_pair_similarity": 0.8127,
+      "variants_ok": 10,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.8809,
       "seeds": [
-        590683999073081435,
-        516446526217063582,
-        408349237438984865,
-        569209996166211456,
-        2317003510100494295
+        5370997360912935176,
+        8079348035302661281,
+        1345945130798142330,
+        5599313786140907098,
+        637923797111766148,
+        7045408525843266335,
+        5122111262217597742,
+        782227877077363274,
+        1781675193348116210,
+        503132222477669667
       ],
       "metrics": {
-        "variants": 5,
-        "rooms_avg": 12.2,
-        "rooms_min": 9,
-        "rooms_max": 17,
-        "halls_avg": 12.2,
-        "branches_avg": 4.0,
-        "dead_ends_avg": 4.6,
-        "loops_avg": 0.8,
-        "connections_avg": 12.2,
-        "room_area_min": 24,
-        "room_area_max": 210,
-        "stair_distance_avg": 38.6,
-        "reachable_ratio_min": 0.9989,
-        "distinct_signatures": 5
+        "variants": 10,
+        "rooms_avg": 16.6,
+        "rooms_min": 12,
+        "rooms_max": 21,
+        "halls_avg": 26.9,
+        "branches_avg": 8.5,
+        "dead_ends_avg": 4.7,
+        "loops_avg": 4.6,
+        "connections_avg": 26.9,
+        "room_area_min": 20,
+        "room_area_max": 81,
+        "stair_distance_avg": 50.9,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 10
       },
       "traversable": true,
       "notes": []
@@ -174,43 +231,48 @@
       "floor": 2,
       "segment": "freeze_slope",
       "kind": "procedural",
-      "profile": "twosides+branching+mixed",
+      "profile": "branching|lattice|looping",
       "grid": [
-        7,
-        5
+        5,
+        4
       ],
       "cell": [
-        8,
-        9
+        10,
+        10
       ],
       "dtef": "mt_freeze",
       "weather": [],
       "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 0,
-      "max_pair_similarity": 0.7819,
+      "variants_ok": 10,
+      "variants_rejected": 1,
+      "max_pair_similarity": 0.8774,
       "seeds": [
-        2365997715827032803,
-        3227822025212719388,
-        7566794594873462897,
-        5914908773706371100,
-        5292527535532878295
+        3389842707553521858,
+        8056105830559639272,
+        8429908718942996810,
+        2951731350553100250,
+        5260168388960304090,
+        1614570264736062287,
+        8037431239216209945,
+        9046618704648048276,
+        2792031473064518789,
+        3056913130654681476
       ],
       "metrics": {
-        "variants": 5,
-        "rooms_avg": 10.6,
-        "rooms_min": 8,
-        "rooms_max": 15,
-        "halls_avg": 12.0,
-        "branches_avg": 2.2,
-        "dead_ends_avg": 3.6,
-        "loops_avg": 0.6,
-        "connections_avg": 12.0,
+        "variants": 10,
+        "rooms_avg": 14.3,
+        "rooms_min": 10,
+        "rooms_max": 19,
+        "halls_avg": 22.7,
+        "branches_avg": 5.7,
+        "dead_ends_avg": 3.1,
+        "loops_avg": 3.1,
+        "connections_avg": 22.7,
         "room_area_min": 20,
-        "room_area_max": 168,
-        "stair_distance_avg": 32.0,
+        "room_area_max": 81,
+        "stair_distance_avg": 42.4,
         "reachable_ratio_min": 1.0,
-        "distinct_signatures": 5
+        "distinct_signatures": 10
       },
       "traversable": true,
       "notes": []
@@ -219,43 +281,48 @@
       "floor": 3,
       "segment": "freeze_slope",
       "kind": "procedural",
-      "profile": "twosides+branching+mixed",
+      "profile": "branching|lattice|looping",
       "grid": [
-        4,
-        3
+        6,
+        5
       ],
       "cell": [
-        12,
-        11
+        10,
+        10
       ],
       "dtef": "mt_freeze",
       "weather": [],
       "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 1,
-      "max_pair_similarity": 0.7761,
+      "variants_ok": 10,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.9253,
       "seeds": [
-        3460480372858322970,
-        3432711310862846898,
-        4751664660848417638,
-        8533604770889141931,
-        1362332530208562808
+        3169771821409259632,
+        4729299502979461029,
+        6327100424905472451,
+        3234369655448774374,
+        9098593915897736802,
+        4735731625067618638,
+        8985008055488756086,
+        3851306648484803041,
+        72982304957227540,
+        476818472452135044
       ],
       "metrics": {
-        "variants": 5,
-        "rooms_avg": 11.0,
-        "rooms_min": 6,
-        "rooms_max": 17,
-        "halls_avg": 11.8,
-        "branches_avg": 3.0,
-        "dead_ends_avg": 3.6,
-        "loops_avg": 1.0,
-        "connections_avg": 11.8,
-        "room_area_min": 20,
-        "room_area_max": 234,
-        "stair_distance_avg": 43.4,
+        "variants": 10,
+        "rooms_avg": 16.4,
+        "rooms_min": 9,
+        "rooms_max": 28,
+        "halls_avg": 25.7,
+        "branches_avg": 7.8,
+        "dead_ends_avg": 4.5,
+        "loops_avg": 4.1,
+        "connections_avg": 25.7,
+        "room_area_min": 24,
+        "room_area_max": 80,
+        "stair_distance_avg": 45.2,
         "reachable_ratio_min": 1.0,
-        "distinct_signatures": 5
+        "distinct_signatures": 10
       },
       "traversable": true,
       "notes": []
@@ -264,43 +331,48 @@
       "floor": 4,
       "segment": "freeze_slope",
       "kind": "procedural",
-      "profile": "twosides+branching+mixed",
+      "profile": "branching|lattice|looping",
       "grid": [
-        4,
-        4
+        6,
+        5
       ],
       "cell": [
-        8,
-        7
+        9,
+        10
       ],
       "dtef": "mt_freeze",
       "weather": [],
       "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 0,
-      "max_pair_similarity": 0.9006,
+      "variants_ok": 10,
+      "variants_rejected": 3,
+      "max_pair_similarity": 0.8947,
       "seeds": [
-        6059978395636835239,
-        2749640373483394618,
-        2689144095603668066,
-        6571441409218907605,
-        3251168177336817569
+        5263209548999430851,
+        4654945493682869632,
+        7461016902002470060,
+        4098744429072473180,
+        5569791880326784879,
+        7669757313433056541,
+        637189307916474068,
+        7503296653262959584,
+        5908543306290279241,
+        3896507155941629027
       ],
       "metrics": {
-        "variants": 5,
-        "rooms_avg": 8.4,
-        "rooms_min": 6,
-        "rooms_max": 11,
-        "halls_avg": 9.8,
-        "branches_avg": 1.4,
-        "dead_ends_avg": 1.8,
-        "loops_avg": 0.8,
-        "connections_avg": 9.8,
+        "variants": 10,
+        "rooms_avg": 15.8,
+        "rooms_min": 10,
+        "rooms_max": 28,
+        "halls_avg": 24.5,
+        "branches_avg": 6.9,
+        "dead_ends_avg": 4.6,
+        "loops_avg": 3.4,
+        "connections_avg": 24.5,
         "room_area_min": 20,
-        "room_area_max": 64,
-        "stair_distance_avg": 36.0,
-        "reachable_ratio_min": 0.9974,
-        "distinct_signatures": 5
+        "room_area_max": 80,
+        "stair_distance_avg": 48.6,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 10
       },
       "traversable": true,
       "notes": []
@@ -309,43 +381,48 @@
       "floor": 5,
       "segment": "freeze_slope",
       "kind": "procedural",
-      "profile": "twosides+branching+mixed",
+      "profile": "branching|lattice|looping",
       "grid": [
-        4,
-        4
+        7,
+        5
       ],
       "cell": [
-        10,
-        12
+        12,
+        8
       ],
       "dtef": "mt_freeze",
       "weather": [],
       "map_id": "",
-      "variants_ok": 5,
+      "variants_ok": 10,
       "variants_rejected": 0,
-      "max_pair_similarity": 0.8161,
+      "max_pair_similarity": 0.8995,
       "seeds": [
-        3759560282072733297,
-        3814721095556483505,
-        2727242629724067686,
-        5731586797904351974,
-        5482406748552478272
+        7332357331506896503,
+        7261381008033841108,
+        947688385748532279,
+        814868769688920084,
+        7635803807333701527,
+        8428970174264957774,
+        6089973871573032105,
+        4477268183906100848,
+        134837542995226448,
+        5964666904692861944
       ],
       "metrics": {
-        "variants": 5,
-        "rooms_avg": 10.0,
-        "rooms_min": 6,
-        "rooms_max": 15,
-        "halls_avg": 11.8,
-        "branches_avg": 3.4,
-        "dead_ends_avg": 3.2,
-        "loops_avg": 1.2,
-        "connections_avg": 11.8,
-        "room_area_min": 25,
-        "room_area_max": 72,
-        "stair_distance_avg": 41.8,
+        "variants": 10,
+        "rooms_avg": 16.8,
+        "rooms_min": 12,
+        "rooms_max": 25,
+        "halls_avg": 25.5,
+        "branches_avg": 7.7,
+        "dead_ends_avg": 4.5,
+        "loops_avg": 3.7,
+        "connections_avg": 25.5,
+        "room_area_min": 20,
+        "room_area_max": 81,
+        "stair_distance_avg": 50.9,
         "reachable_ratio_min": 1.0,
-        "distinct_signatures": 5
+        "distinct_signatures": 10
       },
       "traversable": true,
       "notes": []
@@ -354,414 +431,9 @@
       "floor": 6,
       "segment": "freeze_slope",
       "kind": "procedural",
-      "profile": "twosides+branching+mixed",
+      "profile": "branching|lattice|looping",
       "grid": [
         6,
-        3
-      ],
-      "cell": [
-        11,
-        8
-      ],
-      "dtef": "mt_freeze",
-      "weather": [],
-      "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 1,
-      "max_pair_similarity": 0.7483,
-      "seeds": [
-        3872052470582362695,
-        2787908184414184685,
-        5762875868830459321,
-        2191556224047913033,
-        7485406484547273247
-      ],
-      "metrics": {
-        "variants": 5,
-        "rooms_avg": 11.4,
-        "rooms_min": 7,
-        "rooms_max": 22,
-        "halls_avg": 12.8,
-        "branches_avg": 3.0,
-        "dead_ends_avg": 3.2,
-        "loops_avg": 1.0,
-        "connections_avg": 12.8,
-        "room_area_min": 20,
-        "room_area_max": 299,
-        "stair_distance_avg": 46.4,
-        "reachable_ratio_min": 0.9982,
-        "distinct_signatures": 5
-      },
-      "traversable": true,
-      "notes": []
-    },
-    {
-      "floor": 7,
-      "segment": "freeze_slope",
-      "kind": "procedural",
-      "profile": "twosides+branching+mixed",
-      "grid": [
-        3,
-        4
-      ],
-      "cell": [
-        11,
-        10
-      ],
-      "dtef": "mt_freeze",
-      "weather": [],
-      "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 0,
-      "max_pair_similarity": 0.813,
-      "seeds": [
-        6071713278520603795,
-        1111207764482487850,
-        2465683888979653416,
-        6904721737373825081,
-        8540750406626559278
-      ],
-      "metrics": {
-        "variants": 5,
-        "rooms_avg": 10.6,
-        "rooms_min": 6,
-        "rooms_max": 15,
-        "halls_avg": 12.4,
-        "branches_avg": 3.0,
-        "dead_ends_avg": 2.6,
-        "loops_avg": 1.4,
-        "connections_avg": 12.4,
-        "room_area_min": 20,
-        "room_area_max": 81,
-        "stair_distance_avg": 36.8,
-        "reachable_ratio_min": 0.9986,
-        "distinct_signatures": 5
-      },
-      "traversable": true,
-      "notes": []
-    },
-    {
-      "floor": 8,
-      "segment": "freeze_slope",
-      "kind": "procedural",
-      "profile": "twosides+branching+mixed",
-      "grid": [
-        5,
-        3
-      ],
-      "cell": [
-        11,
-        9
-      ],
-      "dtef": "mt_freeze",
-      "weather": [],
-      "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 1,
-      "max_pair_similarity": 0.9002,
-      "seeds": [
-        3097814466143766538,
-        8220544986317666751,
-        163301599112918869,
-        6980655614175250782,
-        3358996149627386382
-      ],
-      "metrics": {
-        "variants": 5,
-        "rooms_avg": 9.8,
-        "rooms_min": 7,
-        "rooms_max": 15,
-        "halls_avg": 10.0,
-        "branches_avg": 2.2,
-        "dead_ends_avg": 3.4,
-        "loops_avg": 0.4,
-        "connections_avg": 10.0,
-        "room_area_min": 20,
-        "room_area_max": 72,
-        "stair_distance_avg": 35.0,
-        "reachable_ratio_min": 1.0,
-        "distinct_signatures": 5
-      },
-      "traversable": true,
-      "notes": []
-    },
-    {
-      "floor": 9,
-      "segment": "freeze_ridge",
-      "kind": "procedural",
-      "profile": "branching+crossroads+mixed",
-      "grid": [
-        6,
-        5
-      ],
-      "cell": [
-        12,
-        11
-      ],
-      "dtef": "mt_freeze",
-      "weather": [],
-      "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 0,
-      "max_pair_similarity": 0.8623,
-      "seeds": [
-        2601218616655836892,
-        2466665540863992700,
-        5494676922892395475,
-        1669018071739715464,
-        7773991563064016692
-      ],
-      "metrics": {
-        "variants": 5,
-        "rooms_avg": 11.6,
-        "rooms_min": 8,
-        "rooms_max": 21,
-        "halls_avg": 11.0,
-        "branches_avg": 2.8,
-        "dead_ends_avg": 5.0,
-        "loops_avg": 0.4,
-        "connections_avg": 11.0,
-        "room_area_min": 20,
-        "room_area_max": 261,
-        "stair_distance_avg": 42.6,
-        "reachable_ratio_min": 0.9993,
-        "distinct_signatures": 5
-      },
-      "traversable": true,
-      "notes": []
-    },
-    {
-      "floor": 10,
-      "segment": "freeze_ridge",
-      "kind": "procedural",
-      "profile": "branching+crossroads+mixed",
-      "grid": [
-        5,
-        3
-      ],
-      "cell": [
-        11,
-        10
-      ],
-      "dtef": "mt_freeze",
-      "weather": [],
-      "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 0,
-      "max_pair_similarity": 0.9207,
-      "seeds": [
-        8044463527430086895,
-        6478401440338233669,
-        8097594293647388117,
-        246104793302716690,
-        5838817803427766718
-      ],
-      "metrics": {
-        "variants": 5,
-        "rooms_avg": 12.2,
-        "rooms_min": 9,
-        "rooms_max": 21,
-        "halls_avg": 12.8,
-        "branches_avg": 3.4,
-        "dead_ends_avg": 4.6,
-        "loops_avg": 0.8,
-        "connections_avg": 12.8,
-        "room_area_min": 20,
-        "room_area_max": 80,
-        "stair_distance_avg": 49.6,
-        "reachable_ratio_min": 1.0,
-        "distinct_signatures": 5
-      },
-      "traversable": true,
-      "notes": []
-    },
-    {
-      "floor": 11,
-      "segment": "freeze_ridge",
-      "kind": "procedural",
-      "profile": "branching+crossroads+mixed",
-      "grid": [
-        5,
-        3
-      ],
-      "cell": [
-        11,
-        10
-      ],
-      "dtef": "mt_freeze",
-      "weather": [],
-      "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 0,
-      "max_pair_similarity": 0.8953,
-      "seeds": [
-        1881127068267227822,
-        5826852704417335298,
-        1638096703783584280,
-        2711976663847274195,
-        9124741843717647441
-      ],
-      "metrics": {
-        "variants": 5,
-        "rooms_avg": 12.2,
-        "rooms_min": 7,
-        "rooms_max": 25,
-        "halls_avg": 12.4,
-        "branches_avg": 3.2,
-        "dead_ends_avg": 4.0,
-        "loops_avg": 1.0,
-        "connections_avg": 12.4,
-        "room_area_min": 20,
-        "room_area_max": 72,
-        "stair_distance_avg": 36.2,
-        "reachable_ratio_min": 1.0,
-        "distinct_signatures": 5
-      },
-      "traversable": true,
-      "notes": []
-    },
-    {
-      "floor": 12,
-      "segment": "freeze_ridge",
-      "kind": "procedural",
-      "profile": "branching+crossroads+mixed",
-      "grid": [
-        6,
-        5
-      ],
-      "cell": [
-        12,
-        8
-      ],
-      "dtef": "mt_freeze",
-      "weather": [],
-      "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 1,
-      "max_pair_similarity": 0.9328,
-      "seeds": [
-        6688431296880986393,
-        5133721452962956921,
-        2005592754812538538,
-        7914545438832933898,
-        1622365640941228971
-      ],
-      "metrics": {
-        "variants": 5,
-        "rooms_avg": 11.8,
-        "rooms_min": 8,
-        "rooms_max": 20,
-        "halls_avg": 13.0,
-        "branches_avg": 3.6,
-        "dead_ends_avg": 4.0,
-        "loops_avg": 1.4,
-        "connections_avg": 13.0,
-        "room_area_min": 24,
-        "room_area_max": 154,
-        "stair_distance_avg": 31.0,
-        "reachable_ratio_min": 1.0,
-        "distinct_signatures": 5
-      },
-      "traversable": true,
-      "notes": []
-    },
-    {
-      "floor": 13,
-      "segment": "freeze_ridge",
-      "kind": "procedural",
-      "profile": "branching+crossroads+mixed",
-      "grid": [
-        5,
-        5
-      ],
-      "cell": [
-        9,
-        11
-      ],
-      "dtef": "mt_freeze",
-      "weather": [],
-      "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 1,
-      "max_pair_similarity": 0.9161,
-      "seeds": [
-        7864534443209705834,
-        5609491238032742287,
-        6326088408051542409,
-        5236573976763407077,
-        3874849113013387416
-      ],
-      "metrics": {
-        "variants": 5,
-        "rooms_avg": 10.6,
-        "rooms_min": 8,
-        "rooms_max": 13,
-        "halls_avg": 11.8,
-        "branches_avg": 3.4,
-        "dead_ends_avg": 3.6,
-        "loops_avg": 1.4,
-        "connections_avg": 11.8,
-        "room_area_min": 20,
-        "room_area_max": 198,
-        "stair_distance_avg": 35.6,
-        "reachable_ratio_min": 1.0,
-        "distinct_signatures": 5
-      },
-      "traversable": true,
-      "notes": []
-    },
-    {
-      "floor": 14,
-      "segment": "freeze_ridge",
-      "kind": "procedural",
-      "profile": "branching+crossroads+mixed",
-      "grid": [
-        7,
-        5
-      ],
-      "cell": [
-        8,
-        11
-      ],
-      "dtef": "mt_freeze",
-      "weather": [],
-      "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 1,
-      "max_pair_similarity": 0.8672,
-      "seeds": [
-        4450208590599673930,
-        8523955547064835454,
-        880205048631849011,
-        7494686499881456681,
-        1107504297257069955
-      ],
-      "metrics": {
-        "variants": 5,
-        "rooms_avg": 13.8,
-        "rooms_min": 7,
-        "rooms_max": 21,
-        "halls_avg": 14.6,
-        "branches_avg": 4.0,
-        "dead_ends_avg": 4.4,
-        "loops_avg": 1.2,
-        "connections_avg": 14.6,
-        "room_area_min": 20,
-        "room_area_max": 72,
-        "stair_distance_avg": 47.2,
-        "reachable_ratio_min": 1.0,
-        "distinct_signatures": 5
-      },
-      "traversable": true,
-      "notes": []
-    },
-    {
-      "floor": 15,
-      "segment": "freeze_ridge",
-      "kind": "procedural",
-      "profile": "branching+crossroads+mixed",
-      "grid": [
-        4,
         4
       ],
       "cell": [
@@ -771,31 +443,486 @@
       "dtef": "mt_freeze",
       "weather": [],
       "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 2,
-      "max_pair_similarity": 0.9568,
+      "variants_ok": 10,
+      "variants_rejected": 1,
+      "max_pair_similarity": 0.8988,
       "seeds": [
-        4298582966818401119,
-        4342152280138163312,
-        6517259870807826566,
-        119592174208500160,
-        6332459417816199625
+        1605931738695642817,
+        3155735829097215437,
+        3127003097573438900,
+        2908511307262085864,
+        3775920374224503121,
+        989344118172305197,
+        8047305196496224002,
+        9132405447777348209,
+        5642059448768596889,
+        1898444456130536775
       ],
       "metrics": {
-        "variants": 5,
-        "rooms_avg": 10.4,
-        "rooms_min": 7,
-        "rooms_max": 16,
-        "halls_avg": 10.6,
-        "branches_avg": 3.2,
-        "dead_ends_avg": 4.0,
-        "loops_avg": 0.8,
-        "connections_avg": 10.6,
+        "variants": 10,
+        "rooms_avg": 14.5,
+        "rooms_min": 10,
+        "rooms_max": 26,
+        "halls_avg": 22.8,
+        "branches_avg": 6.0,
+        "dead_ends_avg": 3.2,
+        "loops_avg": 3.4,
+        "connections_avg": 22.8,
+        "room_area_min": 20,
+        "room_area_max": 81,
+        "stair_distance_avg": 41.1,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 10
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 7,
+      "segment": "freeze_slope",
+      "kind": "procedural",
+      "profile": "branching|lattice|looping",
+      "grid": [
+        5,
+        4
+      ],
+      "cell": [
+        10,
+        8
+      ],
+      "dtef": "mt_freeze",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 10,
+      "variants_rejected": 5,
+      "max_pair_similarity": 0.9622,
+      "seeds": [
+        7600133275308800985,
+        9046240594444043718,
+        1918301473931760165,
+        3926061782938018515,
+        6442340208212064250,
+        5126691767992448368,
+        7611785619562253267,
+        9021233173155514166,
+        7085286189056605981,
+        1458345032789850676
+      ],
+      "metrics": {
+        "variants": 10,
+        "rooms_avg": 15.2,
+        "rooms_min": 12,
+        "rooms_max": 22,
+        "halls_avg": 25.4,
+        "branches_avg": 8.1,
+        "dead_ends_avg": 4.2,
+        "loops_avg": 4.7,
+        "connections_avg": 25.4,
+        "room_area_min": 20,
+        "room_area_max": 81,
+        "stair_distance_avg": 41.0,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 10
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 8,
+      "segment": "freeze_slope",
+      "kind": "procedural",
+      "profile": "branching|lattice|looping",
+      "grid": [
+        5,
+        4
+      ],
+      "cell": [
+        11,
+        8
+      ],
+      "dtef": "mt_freeze",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 10,
+      "variants_rejected": 2,
+      "max_pair_similarity": 0.9314,
+      "seeds": [
+        7487807663622880004,
+        3906942859669530588,
+        8686566513710252796,
+        4412331321954929691,
+        8519752149817863985,
+        8706237624841593329,
+        7838567829908406030,
+        4973437531774747378,
+        9066870332761535158,
+        5951179220027953651
+      ],
+      "metrics": {
+        "variants": 10,
+        "rooms_avg": 15.7,
+        "rooms_min": 12,
+        "rooms_max": 22,
+        "halls_avg": 25.9,
+        "branches_avg": 7.9,
+        "dead_ends_avg": 3.4,
+        "loops_avg": 4.5,
+        "connections_avg": 25.9,
+        "room_area_min": 20,
+        "room_area_max": 81,
+        "stair_distance_avg": 49.4,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 10
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 9,
+      "segment": "freeze_slope",
+      "kind": "procedural",
+      "profile": "branching|lattice|looping",
+      "grid": [
+        6,
+        5
+      ],
+      "cell": [
+        12,
+        10
+      ],
+      "dtef": "mt_freeze",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 10,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.8997,
+      "seeds": [
+        3907710077373173079,
+        6617529077979852473,
+        5220210396611006575,
+        1298042160518038141,
+        3706653208086794079,
+        5661375567811566240,
+        9203909724897096458,
+        3154149884054678137,
+        1065854277513650781,
+        3546561550235082349
+      ],
+      "metrics": {
+        "variants": 10,
+        "rooms_avg": 15.3,
+        "rooms_min": 10,
+        "rooms_max": 21,
+        "halls_avg": 23.8,
+        "branches_avg": 7.4,
+        "dead_ends_avg": 4.6,
+        "loops_avg": 3.6,
+        "connections_avg": 23.8,
+        "room_area_min": 20,
+        "room_area_max": 81,
+        "stair_distance_avg": 43.6,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 10
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 10,
+      "segment": "freeze_slope",
+      "kind": "procedural",
+      "profile": "branching|lattice|looping",
+      "grid": [
+        6,
+        4
+      ],
+      "cell": [
+        11,
+        10
+      ],
+      "dtef": "mt_freeze",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 10,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.891,
+      "seeds": [
+        2155451961080817031,
+        5065442257971902281,
+        2747290461808642460,
+        1024961542299616144,
+        5946776993454593994,
+        2362725724458894862,
+        7058731082468662808,
+        6355393103122632404,
+        4732169072101663485,
+        2954198364587606473
+      ],
+      "metrics": {
+        "variants": 10,
+        "rooms_avg": 16.7,
+        "rooms_min": 11,
+        "rooms_max": 29,
+        "halls_avg": 25.0,
+        "branches_avg": 6.8,
+        "dead_ends_avg": 3.7,
+        "loops_avg": 4.0,
+        "connections_avg": 25.0,
         "room_area_min": 20,
         "room_area_max": 72,
-        "stair_distance_avg": 39.6,
-        "reachable_ratio_min": 0.9969,
-        "distinct_signatures": 5
+        "stair_distance_avg": 44.9,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 10
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 11,
+      "segment": "freeze_slope",
+      "kind": "procedural",
+      "profile": "branching|lattice|looping",
+      "grid": [
+        6,
+        5
+      ],
+      "cell": [
+        11,
+        10
+      ],
+      "dtef": "mt_freeze",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 10,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.9241,
+      "seeds": [
+        7026711123387597385,
+        6163971380011557188,
+        6211301701633304003,
+        8703867718108754382,
+        6667786761549514279,
+        6882811520799874076,
+        9066431205427335893,
+        4274739534531709697,
+        6742664156227232675,
+        4439973743088479303
+      ],
+      "metrics": {
+        "variants": 10,
+        "rooms_avg": 16.6,
+        "rooms_min": 10,
+        "rooms_max": 24,
+        "halls_avg": 25.6,
+        "branches_avg": 7.8,
+        "dead_ends_avg": 4.7,
+        "loops_avg": 4.0,
+        "connections_avg": 25.6,
+        "room_area_min": 20,
+        "room_area_max": 81,
+        "stair_distance_avg": 49.1,
+        "reachable_ratio_min": 0.9983,
+        "distinct_signatures": 10
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 12,
+      "segment": "freeze_slope",
+      "kind": "procedural",
+      "profile": "branching|lattice|looping",
+      "grid": [
+        6,
+        4
+      ],
+      "cell": [
+        9,
+        8
+      ],
+      "dtef": "mt_freeze",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 10,
+      "variants_rejected": 1,
+      "max_pair_similarity": 0.8389,
+      "seeds": [
+        7058342686166959745,
+        6599575405709597489,
+        8314405451837554531,
+        2371563468160287396,
+        1394339698057954784,
+        4593270402915796584,
+        3847408114457937953,
+        2428135176132836719,
+        5683730240965269765,
+        8546820938806295314
+      ],
+      "metrics": {
+        "variants": 10,
+        "rooms_avg": 15.3,
+        "rooms_min": 11,
+        "rooms_max": 28,
+        "halls_avg": 22.9,
+        "branches_avg": 5.7,
+        "dead_ends_avg": 4.2,
+        "loops_avg": 2.7,
+        "connections_avg": 22.9,
+        "room_area_min": 20,
+        "room_area_max": 80,
+        "stair_distance_avg": 50.0,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 10
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 13,
+      "segment": "freeze_slope",
+      "kind": "procedural",
+      "profile": "branching|lattice|looping",
+      "grid": [
+        6,
+        4
+      ],
+      "cell": [
+        12,
+        10
+      ],
+      "dtef": "mt_freeze",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 10,
+      "variants_rejected": 1,
+      "max_pair_similarity": 0.9591,
+      "seeds": [
+        6271514832670269391,
+        1715916193688600628,
+        8147471755335382957,
+        9077845816301184027,
+        399151828500955317,
+        5980677814087498273,
+        1293663896140854763,
+        4661486754551397309,
+        1422953113431588954,
+        5590753727731573819
+      ],
+      "metrics": {
+        "variants": 10,
+        "rooms_avg": 17.6,
+        "rooms_min": 11,
+        "rooms_max": 25,
+        "halls_avg": 25.5,
+        "branches_avg": 7.4,
+        "dead_ends_avg": 5.1,
+        "loops_avg": 3.6,
+        "connections_avg": 25.5,
+        "room_area_min": 20,
+        "room_area_max": 80,
+        "stair_distance_avg": 50.2,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 10
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 14,
+      "segment": "freeze_slope",
+      "kind": "procedural",
+      "profile": "branching|lattice|looping",
+      "grid": [
+        5,
+        4
+      ],
+      "cell": [
+        10,
+        8
+      ],
+      "dtef": "mt_freeze",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 10,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.9038,
+      "seeds": [
+        8308147527934650007,
+        8800804587849347893,
+        7923518510957902562,
+        575008420756470093,
+        2402469416060303109,
+        6233064012495439037,
+        3889894177173917432,
+        2268487358784640607,
+        6515095568941976803,
+        3198805521113595952
+      ],
+      "metrics": {
+        "variants": 10,
+        "rooms_avg": 17.4,
+        "rooms_min": 10,
+        "rooms_max": 26,
+        "halls_avg": 25.4,
+        "branches_avg": 6.9,
+        "dead_ends_avg": 4.1,
+        "loops_avg": 3.5,
+        "connections_avg": 25.4,
+        "room_area_min": 20,
+        "room_area_max": 81,
+        "stair_distance_avg": 42.2,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 10
+      },
+      "traversable": true,
+      "notes": []
+    },
+    {
+      "floor": 15,
+      "segment": "freeze_slope",
+      "kind": "procedural",
+      "profile": "branching|lattice|looping",
+      "grid": [
+        7,
+        5
+      ],
+      "cell": [
+        10,
+        10
+      ],
+      "dtef": "mt_freeze",
+      "weather": [],
+      "map_id": "",
+      "variants_ok": 10,
+      "variants_rejected": 2,
+      "max_pair_similarity": 0.8757,
+      "seeds": [
+        5181680350810696647,
+        2943046751994096456,
+        7627227407481300221,
+        1881102290677783037,
+        5309945676776750583,
+        1383304106508905911,
+        2263880865475729342,
+        6900119553973435631,
+        7778224473889558019,
+        1864683809414931802
+      ],
+      "metrics": {
+        "variants": 10,
+        "rooms_avg": 16.3,
+        "rooms_min": 11,
+        "rooms_max": 23,
+        "halls_avg": 25.9,
+        "branches_avg": 8.3,
+        "dead_ends_avg": 4.4,
+        "loops_avg": 4.2,
+        "connections_avg": 25.9,
+        "room_area_min": 20,
+        "room_area_max": 80,
+        "stair_distance_avg": 43.7,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 10
       },
       "traversable": true,
       "notes": []

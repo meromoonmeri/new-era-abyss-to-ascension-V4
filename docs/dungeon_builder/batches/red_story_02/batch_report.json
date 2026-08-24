@@ -31,14 +31,14 @@
         "seeds_logged": 90
       },
       "artifacts": {
-        "definition_sha256": "b24edef9048d88a9b8d93a5e5a0cc9ab689421937a1c954ac242d27f76979ea6",
-        "zone_sha256": "4b66696c7e3bc973ddeaf6e029dc304b2ece7a3389ad53562915e472f085c3ac"
+        "definition_sha256": "b8c243d5d6bb4ff996f29a598d27fe37b081d01b20a0dac11d01acc322f2ef89",
+        "zone_sha256": "967849c2798003f20486893293221a2af681dc6c92256c1731567beb7cf8d6f6"
       },
       "route_runtime": {
         "jsonl": "docs/dungeon_builder/batches/red_story_02/runtime/routes/silent_chasm.jsonl",
         "jsonl_sha256": "8624ed975c4d62284f0945d7ce0dc02bdbd319505fa9083a126a50ae5815a571",
         "log": "docs/dungeon_builder/batches/red_story_02/runtime/routes/silent_chasm.log",
-        "maps": [
+        "procedural_maps": [
           0,
           1,
           2,
@@ -49,6 +49,8 @@
           7,
           8
         ],
+        "boss_maps": [],
+        "boss_clears": [],
         "grounds": [
           "gouffre_muet_bord",
           "d05p02"
@@ -78,14 +80,14 @@
         "seeds_logged": 120
       },
       "artifacts": {
-        "definition_sha256": "eab11941c28f116587c7af04188bae92889ca85a927a4b5f6e3d947b8d3badae",
-        "zone_sha256": "966d552782a154286abeaec703cc4996dd512d795a2881346d59ff0c3ef63eba"
+        "definition_sha256": "e4d2bba1492e3cdd76d4048b60d14d88e8b759464c4186e99a41e850109d414a",
+        "zone_sha256": "385167dbdaff55610ef1e1e90c19f0472c8ea6cb12fe7673aa5c7b9ef80cb77e"
       },
       "route_runtime": {
         "jsonl": "docs/dungeon_builder/batches/red_story_02/runtime/routes/great_canyon.jsonl",
         "jsonl_sha256": "5de02effa49c2a629c936d3d427577787086a3f9d59a0dfd36001d1491ca067c",
         "log": "docs/dungeon_builder/batches/red_story_02/runtime/routes/great_canyon.log",
-        "maps": [
+        "procedural_maps": [
           0,
           1,
           2,
@@ -99,6 +101,8 @@
           10,
           11
         ],
+        "boss_maps": [],
+        "boss_clears": [],
         "grounds": [
           "grand_canyon_porte",
           "d07p02"

@@ -39,11 +39,16 @@ end
 
 function grotte_lazuli_fond.Enter(map)
   DEBUG.EnableDbgCoro()
+  -- See d05p02.Enter for the SV.CanonicalDungeons marker rationale:
+  -- the marker must be set BEFORE the cinematic runs so any external observer
+  -- (e.g. RedStoryRouteValidator via GroundMapInit) can detect that the
+  -- canonical scene actually played, even if the subsequent EndDungeonRun
+  -- unloads the runtime before the cinematic finishes.
+  SV.CanonicalDungeons = SV.CanonicalDungeons or {}
+  SV.CanonicalDungeons['lapis_cave'] = true
   GAME:FadeIn(20)
   RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
-  SV.CanonicalDungeons = SV.CanonicalDungeons or {}
-  SV.CanonicalDungeons['lapis_cave'] = true
   GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared,
     'master_zone', -1, 1, 0, true, true)
 end

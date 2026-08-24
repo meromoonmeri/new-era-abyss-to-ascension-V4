@@ -4817,7 +4817,12 @@
     "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
-  "boss": {},
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "d06p02",
+    "provenance": "PMD_RED_ROM",
+    "notes": "Canonical end Ground d06p02 — the ROM has no in-dungeon boss fight for this dungeon, but the canonical end scene owns any potential battle space (no invented dedicated arena)."
+  },
   "fixed_grounds": {
     "entrance": "mont_grondant_pied",
     "end": "d06p02"
@@ -4857,9 +4862,9 @@
     "game": "PMD_RED",
     "status": {
       "configuration": "validated",
-      "runtime": "validated",
-      "batch_approved": true,
-      "reason": "Native PMDO mapgen and complete mt_thunder entrance->floors->canonical-end->return route passed."
+      "runtime": "missing",
+      "batch_approved": false,
+      "reason": "red_story_04: native PMDO validation not run yet"
     },
     "categories": {
       "floor_parameters": [

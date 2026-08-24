@@ -3110,7 +3110,12 @@
     "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
-  "boss": {},
+  "boss": {
+    "mode": "canonical_ground",
+    "ground": "d05p02",
+    "provenance": "PMD_RED_ROM",
+    "notes": "Canonical end Ground d05p02 — the ROM has no in-dungeon boss fight for this dungeon, but the canonical end scene owns any potential battle space (no invented dedicated arena)."
+  },
   "fixed_grounds": {
     "entrance": "gouffre_muet_bord",
     "end": "d05p02"

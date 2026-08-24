@@ -41,6 +41,10 @@ end
 
 function d11p02.Enter(map)
   DEBUG.EnableDbgCoro()
+  -- Canonical PMD Red relay scene between mt_freeze and mt_freeze_peak.
+  -- See d05p02.Enter for the SV.CanonicalDungeons marker rationale.
+  SV.CanonicalDungeons = SV.CanonicalDungeons or {}
+  SV.CanonicalDungeons['mt_freeze'] = true
   GAME:FadeIn(20)
   RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
