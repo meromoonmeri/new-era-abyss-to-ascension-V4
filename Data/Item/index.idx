@@ -83,6 +83,35 @@
       "Comment": "", 
       "SortOrder": 2
     }, 
+    "ammo_gravelerock": {
+      "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
+      "Icon": 0, 
+      "UsageType": 3, 
+      "States": [
+        {
+          "assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null", 
+          "type": "PMDC.Dungeon.AmmoState"
+        }
+      ], 
+      "MaxStack": 9, 
+      "CannotDrop": false, 
+      "BagEffect": false, 
+      "Name": {
+        "DefaultText": "Gravelerock", 
+        "LocalTexts": {
+          "fr": "Gravalroche", 
+          "de": "Georokbrock", 
+          "it": "Gravelroccia", 
+          "ko": "데구리돌", 
+          "ja": "ゴローンのいし", 
+          "ja-jp": "ゴローンのいし", 
+          "zh-hans": "隆隆石之石"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "", 
+      "SortOrder": 2
+    }, 
     "ammo_iron_thorn": {
       "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence", 
       "Icon": 1, 

@@ -3202,7 +3202,7 @@
         }
       },
       "Released": false,
-      "Comment": "Définition canonique générée pour le chapitre 7. Aucun étage pré-calculé : la topologie est produite en jeu par RogueElements. 1 objets canoniques n'existent pas dans le jeu d'objets du mod et sont omis de la table (liste conservée dans `canonical_items_without_pmdo_equivalent`).",
+      "Comment": "Thunderwave Cave staged canonical candidate from PMD Red ROM tables. Architecture translation to native RogueElements profiles is explicitly INFERRED.",
       "SortOrder": 7
     },
     "tiny_woods": {
@@ -3238,7 +3238,7 @@
         }
       },
       "Released": false,
-      "Comment": "Définition canonique générée pour le chapitre 7. Aucun étage pré-calculé : la topologie est produite en jeu par RogueElements.",
+      "Comment": "Tiny Woods staged canonical candidate from PMD Red ROM tables. Architecture translation to native RogueElements profiles is explicitly INFERRED.",
       "SortOrder": 7
     },
     "western_cave": {

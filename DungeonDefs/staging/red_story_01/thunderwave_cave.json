@@ -1106,8 +1106,8 @@
     "state": "ACTIVE_GROUND",
     "location": "Data/Ground/d02p02.rsground",
     "cinematic_ground": "d02p02",
-    "battle_ground": "",
-    "rule": "Canonical rescue/end scene on the source Ground; no invented battle."
+    "battle_ground": "d02p02",
+    "rule": "Canonical rescue/end scene on the source Ground; no invented battle. battle_ground alias canonical_end_ground: the final scene plays on this single Ground and any conditional battle triggered by future content extensions must reuse the same space (no invented arena)."
   },
   "narrative": {
     "transferred": true,
@@ -1167,9 +1167,9 @@
     "game": "PMD_RED",
     "status": {
       "configuration": "validated",
-      "runtime": "route_validated_asset_blocked",
-      "batch_approved": false,
-      "reason": "Native PMDO mapgen and complete thunderwave_cave entrance->floors->canonical-end->return route passed. Canonical music asset missing."
+      "runtime": "validated",
+      "batch_approved": true,
+      "reason": "Native PMDO mapgen and complete thunderwave_cave entrance->floors->canonical-end->return route passed."
     },
     "categories": {
       "floor_parameters": [

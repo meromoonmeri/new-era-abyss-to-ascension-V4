@@ -7,8 +7,8 @@
     "generated": 2,
     "runtime_pmdo_mapgen_validated": 2,
     "route_validated": 2,
-    "promoted": 0,
-    "blocked": 2
+    "promoted": 2,
+    "blocked": 0
   },
   "entries": [
     {
@@ -19,7 +19,7 @@
       "zone_path": "Staging/dungeon_builder/red_story_01/Data/Zone/tiny_woods.json",
       "configuration_gate": true,
       "warnings": [],
-      "status": "ROUTE_VALIDATED_ASSET_BLOCKED",
+      "status": "PROMOTED_RUNTIME_VALIDATED",
       "runtime": {
         "engine": "PMDO 0.8.12",
         "attempted": 30,
@@ -29,12 +29,9 @@
         "invalid": 0,
         "seeds_logged": 30
       },
-      "blockers": [
-        "CANONICAL_MUSIC_ASSET_MISSING",
-        "NOT_PROMOTED"
-      ],
+      "blockers": [],
       "artifacts": {
-        "definition_sha256": "7c6a59a1c896a71efbd04680e94025df3727fe0d1d57882dc4295866b984d324",
+        "definition_sha256": "4bfec29a986a126be3098db194d4f5bb446976d4fe314c217ea6315c50075663",
         "zone_sha256": "a704eb49cb4e61993c946b4abd3a2e349f4e31d9cab93ad98b1d229502d1f62f"
       },
       "route_runtime": {
@@ -52,7 +49,9 @@
           "foret_tendre_oree"
         ],
         "fatals": 0
-      }
+      },
+      "active_definition": "DungeonDefs/canonical/tiny_woods.json",
+      "active_zone": "Data/Zone/tiny_woods.json"
     },
     {
       "definition": "thunderwave_cave",
@@ -62,7 +61,7 @@
       "zone_path": "Staging/dungeon_builder/red_story_01/Data/Zone/thunderwave_cave.json",
       "configuration_gate": true,
       "warnings": [],
-      "status": "ROUTE_VALIDATED_ASSET_BLOCKED",
+      "status": "PROMOTED_RUNTIME_VALIDATED",
       "runtime": {
         "engine": "PMDO 0.8.12",
         "attempted": 50,
@@ -72,12 +71,9 @@
         "invalid": 0,
         "seeds_logged": 50
       },
-      "blockers": [
-        "CANONICAL_MUSIC_ASSET_MISSING",
-        "NOT_PROMOTED"
-      ],
+      "blockers": [],
       "artifacts": {
-        "definition_sha256": "e0e7f79af88eba7a0dec58eca122d7b3f1db39bae0454e3a70d0e857c7a9ca59",
+        "definition_sha256": "548cbb3ae2f2c273fffcea9b19a7add5a4a257405bbe585766d66902d6bb8b64",
         "zone_sha256": "1fda6f6fe7205769955f75b20176f6f9629f6bf35a831b63f725fbe485a5fa04"
       },
       "route_runtime": {
@@ -97,7 +93,9 @@
           "grotte_statique_seuil"
         ],
         "fatals": 0
-      }
+      },
+      "active_definition": "DungeonDefs/canonical/thunderwave_cave.json",
+      "active_zone": "Data/Zone/thunderwave_cave.json"
     }
   ],
   "runtime_evidence": {

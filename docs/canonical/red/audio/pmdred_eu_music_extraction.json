@@ -1,0 +1,59 @@
+{
+  "schema": "new-era.rom-audio-extraction.v1",
+  "recorded_at": "2026-08-24T11:32:42+00:00",
+  "rom": {
+    "path": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/downloads/pmdred-eu.gba",
+    "size": 33554432,
+    "sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd",
+    "md5": "9837da1fdfe900c52f2109d9718d4e85"
+  },
+  "toolchain": {
+    "ripper_repo": "IAGOnGithub/gba-mus-ripper",
+    "ripper_commit": "16fc3735998b68e1adfa531f629e28301070b521",
+    "ripper_bin_dir": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/audio/gba-mus-ripper-iago/bin",
+    "synth": "pyFluidSynth (pygame-ce bundled libfluidsynth)",
+    "encoder": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/audio-venv/lib/python3.11/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+    "encoder_options": "libvorbis -qscale:a 5 -ar 44100 -ac 2"
+  },
+  "results": [
+    {
+      "music_name": "MUS_TINY_WOODS",
+      "music_id": 125,
+      "output_ogg_name": "Tiny Woods.ogg",
+      "status": "PASS",
+      "reason": "",
+      "midi_sha256": "754724259e8e1c6df3e7c2f41b7ee12084d0fe568c4ae0dbd413e68db8b460a3",
+      "sf2_sha256": "1609f71ac09b817ea35a2db6c41f41a807711802954b2b06a37f1240f7989e96",
+      "wav_sha256": "88609c95b85916308c3b00227eb532d5ea1e03de6de58cf90e1cf1889d53760c",
+      "ogg_sha256": "b80f5eee193b6e4f0c6739fda3b8622dcc1fcf753875542da0adcef492dc74b6",
+      "ogg_size": 922668,
+      "bank_dir": "soundbank_0001"
+    },
+    {
+      "music_name": "MUS_THUNDERWAVE_CAVE",
+      "music_id": 14,
+      "output_ogg_name": "Thunderwave Cave.ogg",
+      "status": "PASS",
+      "reason": "",
+      "midi_sha256": "e34305c2e9de80fe6c65e5959bbf6c7cc2cdf1adffedf53277d92c834a101e27",
+      "sf2_sha256": "402b16a7316db600f0780e0e01c63b802a867cdcbe492323bb33433bfdbd9dca",
+      "wav_sha256": "cd951359d08225b44dfee33fbb170e62dd78cb410785df7cd2ad79de6f97572b",
+      "ogg_sha256": "51ee3f2a593a704af59ba15dae6243de9071049aa843713bf73f592b8f1291f2",
+      "ogg_size": 1755289,
+      "bank_dir": "soundbank_0000"
+    },
+    {
+      "music_name": "MUS_SINISTER_WOODS",
+      "music_id": 15,
+      "output_ogg_name": "Sinister Woods.ogg",
+      "status": "PASS",
+      "reason": "",
+      "midi_sha256": "9ae58944378113a59ed84987cb53ee7b3cf0999b9d3f0ffc354370bb72552b2a",
+      "sf2_sha256": "402b16a7316db600f0780e0e01c63b802a867cdcbe492323bb33433bfdbd9dca",
+      "wav_sha256": "80e63118adff25ab73ad905d6ee6c1e94e71b742ffd11fc5163ca7db03aee120",
+      "ogg_sha256": "6a0cf68e7b21cb8a6cfd56e41a4b97666660eef1188bf84dc628d63acd027bc9",
+      "ogg_size": 1114538,
+      "bank_dir": "soundbank_0000"
+    }
+  ]
+}

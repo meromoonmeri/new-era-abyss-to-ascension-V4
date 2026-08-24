@@ -10,13 +10,13 @@
   "chapter": 7,
   "route": "secondary",
   "source": "Pokémon Mystery Dungeon: Red Rescue Team — Thunderwave Cave (5F). Espèces, niveaux, probabilités, tables d'objets, pièges et boutiques extraits de pret/pmd-red (data/dungeon/ThunderwaveCave) via tools/build_canonical_definitions.py ; niveaux renivelés au palier du chapitre 7. Recoupé avec Bulbapedia (page « Thunderwave Cave »).",
-  "comment": "Définition canonique générée pour le chapitre 7. Aucun étage pré-calculé : la topologie est produite en jeu par RogueElements. 1 objets canoniques n'existent pas dans le jeu d'objets du mod et sont omis de la table (liste conservée dans `canonical_items_without_pmdo_equivalent`).",
+  "comment": "Thunderwave Cave staged canonical candidate from PMD Red ROM tables. Architecture translation to native RogueElements profiles is explicitly INFERRED.",
   "floors": 5,
   "biome": "static_cave",
   "level": 20,
   "rescues": 2,
   "released": false,
-  "music": "",
+  "music": "Thunderwave Cave.ogg",
   "variation": {
     "direction": "fond",
     "time_limit": 1000,
@@ -39,16 +39,14 @@
     "exit_tile": "stairs_go_down"
   },
   "dtef": {
-    "floor": "crystal_cave_2_floor",
-    "wall": "crystal_cave_2_wall",
-    "secondary": "crystal_cave_2_secondary",
-    "name": "crystal_cave_2",
+    "floor": "thunderwave_cave_floor",
+    "wall": "thunderwave_cave_wall",
+    "secondary": "thunderwave_cave_secondary",
+    "name": "thunderwave_cave",
     "element": "normal",
-    "justification": "Grotte Statique : aucun DTEF Thunderwave importé ; même biome de grotte sèche que le Gouffre Muet, qui reste propriétaire du triplet."
+    "justification": "Canonical PMDO base package matching Thunderwave Cave; source tileset IDs retained per floor."
   },
-  "canonical_items_without_pmdo_equivalent": [
-    "ITEM_GRAVELEROCK"
-  ],
+  "canonical_items_without_pmdo_equivalent": [],
   "segments": [
     {
       "name": "static_cave",
@@ -60,40 +58,64 @@
       "profiles": [
         {
           "name": "branching",
-          "weight": 24
+          "weight": 24,
+          "overrides": {
+            "grid_x": [
+              4,
+              6
+            ],
+            "grid_y": [
+              3,
+              5
+            ],
+            "room_ratio": [
+              65,
+              85
+            ],
+            "branch_ratio": [
+              55,
+              90
+            ],
+            "connect_percent": 0,
+            "no_forced_branches": false
+          }
         },
         {
-          "name": "mixed",
-          "weight": 18
-        },
-        {
-          "name": "dense",
-          "weight": 14
+          "name": "looping",
+          "weight": 16,
+          "overrides": {
+            "path": "circle",
+            "grid_x": [
+              4,
+              6
+            ],
+            "grid_y": [
+              3,
+              5
+            ],
+            "circle_room_ratio": [
+              55,
+              80
+            ],
+            "circle_paths": [
+              1,
+              3
+            ],
+            "connect_percent": 15
+          }
         }
       ],
       "pokemon": [
         {
-          "species": "elekid",
-          "level": [
-            21,
-            21
-          ],
-          "weight": 6,
-          "floors": [
-            4,
-            5
-          ]
-        },
-        {
-          "species": "minun",
+          "species": "rattata",
           "level": [
             20,
             20
           ],
-          "weight": 3,
+          "weight": 5000,
           "floors": [
-            4,
-            5
+            1,
+            1
           ]
         },
         {
@@ -102,22 +124,10 @@
             21,
             21
           ],
-          "weight": 5,
+          "weight": 2500,
           "floors": [
             1,
-            3
-          ]
-        },
-        {
-          "species": "plusle",
-          "level": [
-            20,
-            20
-          ],
-          "weight": 3,
-          "floors": [
-            4,
-            5
+            1
           ]
         },
         {
@@ -126,10 +136,10 @@
             20,
             20
           ],
-          "weight": 5,
+          "weight": 2500,
           "floors": [
             1,
-            3
+            1
           ]
         },
         {
@@ -138,9 +148,57 @@
             20,
             20
           ],
-          "weight": 9,
+          "weight": 5000,
           "floors": [
-            1,
+            2,
+            2
+          ]
+        },
+        {
+          "species": "nidoran_f",
+          "level": [
+            21,
+            21
+          ],
+          "weight": 2500,
+          "floors": [
+            2,
+            2
+          ]
+        },
+        {
+          "species": "poochyena",
+          "level": [
+            20,
+            20
+          ],
+          "weight": 2500,
+          "floors": [
+            2,
+            2
+          ]
+        },
+        {
+          "species": "rattata",
+          "level": [
+            20,
+            20
+          ],
+          "weight": 4167,
+          "floors": [
+            3,
+            3
+          ]
+        },
+        {
+          "species": "nidoran_f",
+          "level": [
+            21,
+            21
+          ],
+          "weight": 2083,
+          "floors": [
+            3,
             3
           ]
         },
@@ -150,49 +208,810 @@
             20,
             20
           ],
-          "weight": 6,
+          "weight": 1667,
           "floors": [
             3,
+            3
+          ]
+        },
+        {
+          "species": "poochyena",
+          "level": [
+            20,
+            20
+          ],
+          "weight": 2083,
+          "floors": [
+            3,
+            3
+          ]
+        },
+        {
+          "species": "voltorb",
+          "level": [
+            20,
+            20
+          ],
+          "weight": 3846,
+          "floors": [
+            4,
+            4
+          ]
+        },
+        {
+          "species": "elekid",
+          "level": [
+            21,
+            21
+          ],
+          "weight": 3077,
+          "floors": [
+            4,
+            4
+          ]
+        },
+        {
+          "species": "plusle",
+          "level": [
+            20,
+            20
+          ],
+          "weight": 1539,
+          "floors": [
+            4,
+            4
+          ]
+        },
+        {
+          "species": "minun",
+          "level": [
+            20,
+            20
+          ],
+          "weight": 1538,
+          "floors": [
+            4,
+            4
+          ]
+        },
+        {
+          "species": "voltorb",
+          "level": [
+            20,
+            20
+          ],
+          "weight": 3846,
+          "floors": [
+            5,
+            5
+          ]
+        },
+        {
+          "species": "elekid",
+          "level": [
+            21,
+            21
+          ],
+          "weight": 3077,
+          "floors": [
+            5,
+            5
+          ]
+        },
+        {
+          "species": "plusle",
+          "level": [
+            20,
+            20
+          ],
+          "weight": 1539,
+          "floors": [
+            5,
+            5
+          ]
+        },
+        {
+          "species": "minun",
+          "level": [
+            20,
+            20
+          ],
+          "weight": 1538,
+          "floors": [
+            5,
             5
           ]
         }
       ],
       "inherit_pokemon": false,
       "items": {
-        "canonical": {
+        "canonical_floor_items": {
           "amount": [
-            2,
-            5
+            1,
+            2
           ],
           "entries": [
             {
-              "item": "berry_cheri",
-              "weight": 2
+              "item": "ammo_gravelerock",
+              "weight": 1250,
+              "floors": [
+                1,
+                1
+              ]
             },
             {
               "item": "berry_oran",
-              "weight": 8
+              "weight": 1406,
+              "floors": [
+                1,
+                1
+              ]
             },
             {
               "item": "berry_pecha",
-              "weight": 4
+              "weight": 703,
+              "floors": [
+                1,
+                1
+              ]
             },
             {
-              "item": "food_apple",
-              "weight": 20
-            },
-            {
-              "item": "seed_blast",
-              "weight": 4
+              "item": "berry_cheri",
+              "weight": 469,
+              "floors": [
+                1,
+                1
+              ]
             },
             {
               "item": "seed_sleep",
-              "weight": 2
+              "weight": 469,
+              "floors": [
+                1,
+                1
+              ]
+            },
+            {
+              "item": "seed_blast",
+              "weight": 703,
+              "floors": [
+                1,
+                1
+              ]
+            },
+            {
+              "item": "food_apple",
+              "weight": 2500,
+              "floors": [
+                1,
+                1
+              ]
+            },
+            {
+              "item": "ammo_gravelerock",
+              "weight": 1250,
+              "floors": [
+                2,
+                2
+              ]
+            },
+            {
+              "item": "berry_oran",
+              "weight": 1406,
+              "floors": [
+                2,
+                2
+              ]
+            },
+            {
+              "item": "berry_pecha",
+              "weight": 703,
+              "floors": [
+                2,
+                2
+              ]
+            },
+            {
+              "item": "berry_cheri",
+              "weight": 469,
+              "floors": [
+                2,
+                2
+              ]
+            },
+            {
+              "item": "seed_sleep",
+              "weight": 469,
+              "floors": [
+                2,
+                2
+              ]
+            },
+            {
+              "item": "seed_blast",
+              "weight": 703,
+              "floors": [
+                2,
+                2
+              ]
+            },
+            {
+              "item": "food_apple",
+              "weight": 2500,
+              "floors": [
+                2,
+                2
+              ]
+            },
+            {
+              "item": "ammo_gravelerock",
+              "weight": 1250,
+              "floors": [
+                3,
+                3
+              ]
+            },
+            {
+              "item": "berry_oran",
+              "weight": 1406,
+              "floors": [
+                3,
+                3
+              ]
+            },
+            {
+              "item": "berry_pecha",
+              "weight": 703,
+              "floors": [
+                3,
+                3
+              ]
+            },
+            {
+              "item": "berry_cheri",
+              "weight": 469,
+              "floors": [
+                3,
+                3
+              ]
+            },
+            {
+              "item": "seed_sleep",
+              "weight": 469,
+              "floors": [
+                3,
+                3
+              ]
+            },
+            {
+              "item": "seed_blast",
+              "weight": 703,
+              "floors": [
+                3,
+                3
+              ]
+            },
+            {
+              "item": "food_apple",
+              "weight": 2500,
+              "floors": [
+                3,
+                3
+              ]
+            },
+            {
+              "item": "ammo_gravelerock",
+              "weight": 1250,
+              "floors": [
+                4,
+                4
+              ]
+            },
+            {
+              "item": "berry_oran",
+              "weight": 1406,
+              "floors": [
+                4,
+                4
+              ]
+            },
+            {
+              "item": "berry_pecha",
+              "weight": 703,
+              "floors": [
+                4,
+                4
+              ]
+            },
+            {
+              "item": "berry_cheri",
+              "weight": 469,
+              "floors": [
+                4,
+                4
+              ]
+            },
+            {
+              "item": "seed_sleep",
+              "weight": 469,
+              "floors": [
+                4,
+                4
+              ]
+            },
+            {
+              "item": "seed_blast",
+              "weight": 703,
+              "floors": [
+                4,
+                4
+              ]
+            },
+            {
+              "item": "food_apple",
+              "weight": 2500,
+              "floors": [
+                4,
+                4
+              ]
+            },
+            {
+              "item": "ammo_gravelerock",
+              "weight": 1250,
+              "floors": [
+                5,
+                5
+              ]
+            },
+            {
+              "item": "berry_oran",
+              "weight": 1406,
+              "floors": [
+                5,
+                5
+              ]
+            },
+            {
+              "item": "berry_pecha",
+              "weight": 703,
+              "floors": [
+                5,
+                5
+              ]
+            },
+            {
+              "item": "berry_cheri",
+              "weight": 469,
+              "floors": [
+                5,
+                5
+              ]
+            },
+            {
+              "item": "seed_sleep",
+              "weight": 469,
+              "floors": [
+                5,
+                5
+              ]
+            },
+            {
+              "item": "seed_blast",
+              "weight": 703,
+              "floors": [
+                5,
+                5
+              ]
+            },
+            {
+              "item": "food_apple",
+              "weight": 2500,
+              "floors": [
+                5,
+                5
+              ]
             }
           ]
         }
       },
-      "inherit_items": false
+      "inherit_items": false,
+      "floor_overrides": {
+        "1": {
+          "profiles": [
+            {
+              "name": "branching",
+              "weight": 24,
+              "overrides": {
+                "grid_x": [
+                  4,
+                  6
+                ],
+                "grid_y": [
+                  3,
+                  5
+                ],
+                "room_ratio": [
+                  65,
+                  85
+                ],
+                "branch_ratio": [
+                  55,
+                  90
+                ],
+                "connect_percent": 0,
+                "no_forced_branches": false
+              }
+            },
+            {
+              "name": "looping",
+              "weight": 16,
+              "overrides": {
+                "path": "circle",
+                "grid_x": [
+                  4,
+                  6
+                ],
+                "grid_y": [
+                  3,
+                  5
+                ],
+                "circle_room_ratio": [
+                  55,
+                  80
+                ],
+                "circle_paths": [
+                  1,
+                  3
+                ],
+                "connect_percent": 15
+              }
+            }
+          ],
+          "item_amount": [
+            4,
+            5
+          ],
+          "initial_mobs": [
+            2,
+            5
+          ],
+          "trap_amount": [
+            3,
+            4
+          ],
+          "notes": "RogueElements adapter is INFERRED; source bytes retained below.",
+          "source_floor": {
+            "kind": "PMD_RED_ROM",
+            "raw_hex": "0b073202000f0400000000010000000403010005000a000202000000",
+            "layout": 11,
+            "room_density": 7,
+            "floor_connectivity": 15,
+            "allow_dead_ends": 1,
+            "extra_hallways": 5,
+            "item_density": 4,
+            "trap_density": 3,
+            "tileset": 50,
+            "weather": 0,
+            "fixed_room": 0
+          }
+        },
+        "2": {
+          "profiles": [
+            {
+              "name": "branching",
+              "weight": 24,
+              "overrides": {
+                "grid_x": [
+                  4,
+                  6
+                ],
+                "grid_y": [
+                  3,
+                  5
+                ],
+                "room_ratio": [
+                  65,
+                  85
+                ],
+                "branch_ratio": [
+                  55,
+                  90
+                ],
+                "connect_percent": 0,
+                "no_forced_branches": false
+              }
+            },
+            {
+              "name": "looping",
+              "weight": 16,
+              "overrides": {
+                "path": "circle",
+                "grid_x": [
+                  4,
+                  6
+                ],
+                "grid_y": [
+                  3,
+                  5
+                ],
+                "circle_room_ratio": [
+                  55,
+                  80
+                ],
+                "circle_paths": [
+                  1,
+                  3
+                ],
+                "connect_percent": 15
+              }
+            }
+          ],
+          "item_amount": [
+            4,
+            5
+          ],
+          "initial_mobs": [
+            2,
+            5
+          ],
+          "trap_amount": [
+            3,
+            4
+          ],
+          "notes": "RogueElements adapter is INFERRED; source bytes retained below.",
+          "source_floor": {
+            "kind": "PMD_RED_ROM",
+            "raw_hex": "0b073202000f0400000000010000000403020005000a000202000000",
+            "layout": 11,
+            "room_density": 7,
+            "floor_connectivity": 15,
+            "allow_dead_ends": 1,
+            "extra_hallways": 5,
+            "item_density": 4,
+            "trap_density": 3,
+            "tileset": 50,
+            "weather": 0,
+            "fixed_room": 0
+          }
+        },
+        "3": {
+          "profiles": [
+            {
+              "name": "branching",
+              "weight": 24,
+              "overrides": {
+                "grid_x": [
+                  4,
+                  6
+                ],
+                "grid_y": [
+                  3,
+                  5
+                ],
+                "room_ratio": [
+                  65,
+                  85
+                ],
+                "branch_ratio": [
+                  55,
+                  90
+                ],
+                "connect_percent": 0,
+                "no_forced_branches": false
+              }
+            },
+            {
+              "name": "looping",
+              "weight": 16,
+              "overrides": {
+                "path": "circle",
+                "grid_x": [
+                  4,
+                  6
+                ],
+                "grid_y": [
+                  3,
+                  5
+                ],
+                "circle_room_ratio": [
+                  55,
+                  80
+                ],
+                "circle_paths": [
+                  1,
+                  3
+                ],
+                "connect_percent": 15
+              }
+            }
+          ],
+          "item_amount": [
+            5,
+            6
+          ],
+          "initial_mobs": [
+            2,
+            5
+          ],
+          "trap_amount": [
+            3,
+            4
+          ],
+          "notes": "RogueElements adapter is INFERRED; source bytes retained below.",
+          "source_floor": {
+            "kind": "PMD_RED_ROM",
+            "raw_hex": "0b083202000f0400000000010000000503030005000a000202000000",
+            "layout": 11,
+            "room_density": 8,
+            "floor_connectivity": 15,
+            "allow_dead_ends": 1,
+            "extra_hallways": 5,
+            "item_density": 5,
+            "trap_density": 3,
+            "tileset": 50,
+            "weather": 0,
+            "fixed_room": 0
+          }
+        },
+        "4": {
+          "profiles": [
+            {
+              "name": "branching",
+              "weight": 24,
+              "overrides": {
+                "grid_x": [
+                  4,
+                  6
+                ],
+                "grid_y": [
+                  3,
+                  5
+                ],
+                "room_ratio": [
+                  65,
+                  85
+                ],
+                "branch_ratio": [
+                  55,
+                  90
+                ],
+                "connect_percent": 0,
+                "no_forced_branches": false
+              }
+            },
+            {
+              "name": "looping",
+              "weight": 16,
+              "overrides": {
+                "path": "circle",
+                "grid_x": [
+                  4,
+                  6
+                ],
+                "grid_y": [
+                  3,
+                  5
+                ],
+                "circle_room_ratio": [
+                  55,
+                  80
+                ],
+                "circle_paths": [
+                  1,
+                  3
+                ],
+                "connect_percent": 15
+              }
+            }
+          ],
+          "item_amount": [
+            5,
+            6
+          ],
+          "initial_mobs": [
+            2,
+            5
+          ],
+          "trap_amount": [
+            3,
+            4
+          ],
+          "notes": "RogueElements adapter is INFERRED; source bytes retained below.",
+          "source_floor": {
+            "kind": "PMD_RED_ROM",
+            "raw_hex": "0b083202000f0400000000010000000503040005000a000202000000",
+            "layout": 11,
+            "room_density": 8,
+            "floor_connectivity": 15,
+            "allow_dead_ends": 1,
+            "extra_hallways": 5,
+            "item_density": 5,
+            "trap_density": 3,
+            "tileset": 50,
+            "weather": 0,
+            "fixed_room": 0
+          }
+        },
+        "5": {
+          "profiles": [
+            {
+              "name": "branching",
+              "weight": 24,
+              "overrides": {
+                "grid_x": [
+                  4,
+                  6
+                ],
+                "grid_y": [
+                  3,
+                  5
+                ],
+                "room_ratio": [
+                  65,
+                  85
+                ],
+                "branch_ratio": [
+                  55,
+                  90
+                ],
+                "connect_percent": 0,
+                "no_forced_branches": false
+              }
+            },
+            {
+              "name": "looping",
+              "weight": 16,
+              "overrides": {
+                "path": "circle",
+                "grid_x": [
+                  4,
+                  6
+                ],
+                "grid_y": [
+                  3,
+                  5
+                ],
+                "circle_room_ratio": [
+                  55,
+                  80
+                ],
+                "circle_paths": [
+                  1,
+                  3
+                ],
+                "connect_percent": 15
+              }
+            }
+          ],
+          "item_amount": [
+            5,
+            6
+          ],
+          "initial_mobs": [
+            2,
+            5
+          ],
+          "trap_amount": [
+            3,
+            4
+          ],
+          "notes": "RogueElements adapter is INFERRED; source bytes retained below.",
+          "source_floor": {
+            "kind": "PMD_RED_ROM",
+            "raw_hex": "0b083202000f0400000000010000000503050005000a000202000000",
+            "layout": 11,
+            "room_density": 8,
+            "floor_connectivity": 15,
+            "allow_dead_ends": 1,
+            "extra_hallways": 5,
+            "item_density": 5,
+            "trap_density": 3,
+            "tileset": 50,
+            "weather": 0,
+            "fixed_room": 0
+          }
+        }
+      }
     }
   ],
   "money": [
@@ -202,109 +1021,81 @@
   "profiles": [
     {
       "name": "branching",
-      "weight": 10
+      "weight": 24,
+      "overrides": {
+        "grid_x": [
+          4,
+          6
+        ],
+        "grid_y": [
+          3,
+          5
+        ],
+        "room_ratio": [
+          65,
+          85
+        ],
+        "branch_ratio": [
+          55,
+          90
+        ],
+        "connect_percent": 0,
+        "no_forced_branches": false
+      }
     },
     {
-      "name": "mixed",
-      "weight": 10
-    },
-    {
-      "name": "dense",
-      "weight": 10
+      "name": "looping",
+      "weight": 16,
+      "overrides": {
+        "path": "circle",
+        "grid_x": [
+          4,
+          6
+        ],
+        "grid_y": [
+          3,
+          5
+        ],
+        "circle_room_ratio": [
+          55,
+          80
+        ],
+        "circle_paths": [
+          1,
+          3
+        ],
+        "connect_percent": 15
+      }
     }
   ],
   "items": {},
   "features": {
     "shop": {
-      "enabled": true,
-      "floors": [
-        1,
-        5
-      ],
-      "trials": 2,
-      "percent": 45,
-      "price_policy": "Data/Item Price x5",
-      "items": [
-        {
-          "item": "berry_oran",
-          "price": 50,
-          "weight": 2
-        },
-        {
-          "item": "seed_reviver",
-          "price": 800,
-          "weight": 4
-        },
-        {
-          "item": "berry_rawst",
-          "price": 70,
-          "weight": 2
-        },
-        {
-          "item": "berry_pecha",
-          "price": 60,
-          "weight": 2
-        },
-        {
-          "item": "berry_cheri",
-          "price": 70,
-          "weight": 2
-        },
-        {
-          "item": "seed_blast",
-          "price": 100,
-          "weight": 2
-        },
-        {
-          "item": "food_apple",
-          "price": 50,
-          "weight": 11
-        },
-        {
-          "item": "food_apple_big",
-          "price": 100,
-          "weight": 3
-        },
-        {
-          "item": "seed_warp",
-          "price": 150,
-          "weight": 1
-        },
-        {
-          "item": "orb_luminous",
-          "price": 250,
-          "weight": 1
-        },
-        {
-          "item": "orb_petrify",
-          "price": 250,
-          "weight": 3
-        },
-        {
-          "item": "orb_scanner",
-          "price": 250,
-          "weight": 1
-        }
-      ]
+      "enabled": false,
+      "reason": "PMD_RED_ROM kecleonShopChance=0"
     },
     "monster_house": {
-      "enabled": true,
-      "floors": [
-        1,
-        5
-      ],
-      "trials": 2,
-      "percent": 30,
-      "species": 6,
-      "level_boost": 2,
-      "items": []
+      "enabled": false,
+      "reason": "PMD_RED_ROM monsterHouseChance=0"
     },
     "traps": {
       "enabled": true,
-      "canonical_kinds": [
-        "Wonder Tile"
+      "floors": [
+        1,
+        5
       ],
-      "note": "conversion des pièges PMDO à faire par TileSpawnZoneStep"
+      "amount": [
+        1,
+        2
+      ],
+      "entries": [
+        {
+          "source": "Wonder Tile",
+          "tile": "tile_wonder",
+          "weight": 10000,
+          "revealed": true
+        }
+      ]
     }
   },
   "scenes": {
@@ -316,7 +1107,7 @@
     "location": "Data/Ground/d02p02.rsground",
     "cinematic_ground": "d02p02",
     "battle_ground": "d02p02",
-    "rule": "La cinématique, les dialogues, le déclenchement du combat, le combat et sa conclusion se déroulent sur ce même Ground : aucune arène séparée, aucune téléportation."
+    "rule": "Canonical rescue/end scene on the source Ground; no invented battle. battle_ground alias canonical_end_ground: the final scene plays on this single Ground and any conditional battle triggered by future content extensions must reuse the same space (no invented arena)."
   },
   "narrative": {
     "transferred": true,
@@ -336,11 +1127,7 @@
     "transfer_check": "every cutscene folder is live under Data/Script/halcyon and is replayed on the canonical Ground",
     "rule": "Ces séquences appartiennent au donjon : elles sont reprises par le nouveau pipeline et rejouées sur le Ground canonique (cinématique = combat = fin)."
   },
-  "boss": {
-    "mode": "canonical_ground",
-    "ground": "d02p02",
-    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
-  },
+  "boss": {},
   "fixed_grounds": {
     "entrance": "grotte_statique_seuil",
     "end": "d02p02"
@@ -371,5 +1158,93 @@
     "notes": [],
     "rule": "cinématique = combat = fin sur le Ground canonique ; boss interne = étage fixe du donjon, jamais un Ground inventé",
     "ground_rebinds": []
+  },
+  "pokemon": [],
+  "minibosses": [],
+  "midpoint": {},
+  "provenance": {
+    "schema": "new-era.dungeon-provenance.v1",
+    "game": "PMD_RED",
+    "status": {
+      "configuration": "validated",
+      "runtime": "validated",
+      "batch_approved": true,
+      "reason": "Native PMDO mapgen and complete thunderwave_cave entrance->floors->canonical-end->return route passed."
+    },
+    "categories": {
+      "floor_parameters": [
+        {
+          "kind": "PMD_RED_ROM",
+          "path": "docs/canonical/red/thunderwave_cave_rom_manifest.json",
+          "definition_floor_mode": "all",
+          "evidence": "Per-floor raw bytes and table IDs."
+        },
+        {
+          "kind": "INFERRED",
+          "path": "tools/dungeon_builder/red_story_batch.py",
+          "reason": "PMD Red geometry bytes require a native RogueElements adapter."
+        }
+      ],
+      "pokemon": [
+        {
+          "kind": "PMD_RED_ROM",
+          "path": "docs/canonical/red/thunderwave_cave_rom_manifest.json",
+          "evidence": "Per-floor species, source levels, and probabilities."
+        },
+        {
+          "kind": "SUPPLEMENTAL",
+          "path": "DungeonDefs/staging/red_story_01",
+          "reason": "Source levels translated to the New Era chapter tier."
+        }
+      ],
+      "items": [
+        {
+          "kind": "PMD_RED_ROM",
+          "path": "docs/canonical/red/thunderwave_cave_rom_manifest.json",
+          "evidence": "Per-floor category and item probabilities."
+        },
+        {
+          "kind": "INFERRED",
+          "path": "CONVERSION/Item.txt",
+          "reason": "Explicit PMD Red constant to PMDO item ID mapping."
+        }
+      ],
+      "tileset": [
+        {
+          "kind": "PMD_RED_ROM",
+          "path": "docs/canonical/red/thunderwave_cave_rom_manifest.json",
+          "evidence": "Per-floor source tileset IDs."
+        },
+        {
+          "kind": "PROJECT_DATA",
+          "path": "tools/dungeon_builder/data/base_autotiles.txt",
+          "evidence": "PMDO base DTEF triplet thunderwave_cave."
+        }
+      ],
+      "grounds": [
+        {
+          "kind": "PMD_RED_RESERVED_GROUND",
+          "path": "RESERVE/red_grounds/d02p01.rsground",
+          "evidence": "Canonical entrance Ground."
+        },
+        {
+          "kind": "PMD_RED_RESERVED_GROUND",
+          "path": "RESERVE/red_grounds/d02p02.rsground",
+          "evidence": "Canonical rescue/end Ground."
+        }
+      ],
+      "scenes": [
+        {
+          "kind": "PMD_RED_ROM",
+          "path": "RESERVE/red_cinematics/d02p01.cif.json",
+          "evidence": "Canonical entrance scene IR."
+        },
+        {
+          "kind": "PMD_RED_ROM",
+          "path": "RESERVE/red_cinematics/d02p02.cif.json",
+          "evidence": "Canonical end scene IR."
+        }
+      ]
+    }
   }
 }

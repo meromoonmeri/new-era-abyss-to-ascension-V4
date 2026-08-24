@@ -226,10 +226,14 @@ class TestPriorityScopeAndFirstBatch(unittest.TestCase):
 
     def test_first_batch_has_80_of_80_native_generations(self):
         report = json.loads(RED_STORY_01_REPORT.read_text(encoding="utf-8"))
+        # After ROM audio extraction (see docs/canonical/red/audio/
+        # pmdred_eu_music_extraction.json) Tiny Woods.ogg and
+        # Thunderwave Cave.ogg were rendered from the SHA-verified PMD Red EU
+        # ROM and both dungeons were promoted.
         self.assertEqual(report["summary"], {
             "requested": 2, "staged": 2, "generated": 2,
             "runtime_pmdo_mapgen_validated": 2, "route_validated": 2,
-            "promoted": 0, "blocked": 2,
+            "promoted": 2, "blocked": 0,
         })
         self.assertEqual(report["runtime_evidence"]["end"], {
             "event": "end", "attempted": 80, "generated": 80,
@@ -243,17 +247,22 @@ class TestPriorityScopeAndFirstBatch(unittest.TestCase):
         self.assertEqual({row["zone"] for row in floors},
                          {"tiny_woods", "thunderwave_cave"})
 
-    def test_first_batch_is_staged_and_not_promoted(self):
+    def test_first_batch_is_promoted_after_rom_audio_extraction(self):
+        # Both first-batch dungeons are now promoted: the required PMDO music
+        # assets are canonical .ogg renders derived from the SHA-verified
+        # PMD Red EU ROM (see tools/dungeon_builder/rom_audio_extract.py).
+        # The runtime state must reflect that, and the staged candidate zone
+        # must be byte-for-byte identical to the active zone.
         for stem in ("tiny_woods", "thunderwave_cave"):
             staged = REPO / f"DungeonDefs/staging/red_story_01/{stem}.json"
             gate = inspect(staged)
             self.assertTrue(gate.config_ready, gate.blockers)
-            self.assertEqual(gate.runtime_state, "route_validated_asset_blocked")
+            self.assertEqual(gate.runtime_state, "validated")
             candidate = REPO / f"Staging/dungeon_builder/red_story_01/Data/Zone/{stem}.json"
             active = REPO / f"Data/Zone/{stem}.json"
             self.assertTrue(candidate.is_file())
-            self.assertNotEqual(hashlib.sha256(candidate.read_bytes()).hexdigest(),
-                                hashlib.sha256(active.read_bytes()).hexdigest())
+            self.assertEqual(hashlib.sha256(candidate.read_bytes()).hexdigest(),
+                             hashlib.sha256(active.read_bytes()).hexdigest())
 
     def test_first_batch_removes_rom_conflicts_and_keeps_floor_rules(self):
         tiny = json.loads((REPO / "DungeonDefs/staging/red_story_01/tiny_woods.json").read_text())
@@ -271,16 +280,38 @@ class TestPriorityScopeAndFirstBatch(unittest.TestCase):
         tiny_items = tiny["segments"][0]["items"]["canonical_floor_items"]["entries"]
         self.assertEqual({tuple(row["floors"]) for row in tiny_items}, {(3, 3)})
 
-    def test_first_batch_routes_pass_but_music_assets_block_promotion(self):
+    def test_first_batch_routes_pass_and_promotion_succeeds(self):
+        # Post-audio-extraction: both entries must be fully promoted with no
+        # blockers, but the route evidence itself (canonical_complete, zero
+        # fatals) must remain intact so any future audit can still verify that
+        # promotion did not skip the route gate.
         report = json.loads(RED_STORY_01_REPORT.read_text(encoding="utf-8"))
         for entry in report["entries"]:
-            self.assertEqual(entry["status"], "ROUTE_VALIDATED_ASSET_BLOCKED")
-            self.assertEqual(entry["blockers"],
-                             ["CANONICAL_MUSIC_ASSET_MISSING", "NOT_PROMOTED"])
+            self.assertEqual(entry["status"], "PROMOTED_RUNTIME_VALIDATED")
+            self.assertEqual(entry["blockers"], [])
             route = REPO / entry["route_runtime"]["jsonl"]
             rows = [json.loads(line) for line in route.read_text().splitlines()]
             self.assertTrue(rows[-1]["canonical_complete"])
             self.assertEqual([row for row in rows if row.get("event") == "fatal"], [])
+
+    def test_first_batch_music_asset_gate_still_blocks_missing_audio(self):
+        # Regression guard: even after Tiny Woods.ogg / Thunderwave Cave.ogg
+        # were extracted from the ROM, the gate that refuses promotion when a
+        # canonical music asset is missing must still be present in the batch
+        # code path. This test does not run the batch; it enforces that the
+        # blocker label and the promotion decision remain wired together.
+        source = (REPO / "tools/dungeon_builder/red_story_batch.py").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("CANONICAL_MUSIC_ASSET_MISSING", source)
+        self.assertIn("asset_blockers", source)
+        self.assertIn('local_music', source)
+        # And the currently-required assets must exist as canonical .ogg files
+        # on disk, otherwise the gate above would immediately re-open.
+        for filename in ("Tiny Woods.ogg", "Thunderwave Cave.ogg"):
+            path = REPO / "Content/Music" / filename
+            self.assertTrue(path.is_file(), f"missing canonical asset: {path}")
+            self.assertGreater(path.stat().st_size, 100_000, filename)
 
 
 class TestRedCanonicalManifest(unittest.TestCase):

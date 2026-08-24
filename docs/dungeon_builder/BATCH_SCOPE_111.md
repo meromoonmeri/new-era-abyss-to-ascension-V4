@@ -6,15 +6,15 @@
 - candidates générées : **3** ;
 - mapgen PMDO validé : **3** ;
 - route validée : **3** ;
-- runtime complet sans blocker asset validé : **1** ;
-- entrées bloquées : **110**.
+- runtime complet sans blocker asset validé : **3** ;
+- entrées bloquées : **108**.
 
 `generated` inclut les candidates de staging ; `runtime_validated` exige la route complète.
 
 | Clé | Source | Identité | Statut | Générée | Mapgen | Route | Blocages exacts |
 |---|---|---|---|---:|---:|---:|---|
-| `red-eu:00` | PMD_RED_ROM | `DUNGEON_TINY_WOODS` | ROUTE_VALIDATED_ASSET_BLOCKED | oui | oui | oui | CANONICAL_MUSIC_ASSET_MISSING, NOT_PROMOTED |
-| `red-eu:01` | PMD_RED_ROM | `DUNGEON_THUNDERWAVE_CAVE` | ROUTE_VALIDATED_ASSET_BLOCKED | oui | oui | oui | CANONICAL_MUSIC_ASSET_MISSING, NOT_PROMOTED |
+| `red-eu:00` | PMD_RED_ROM | `DUNGEON_TINY_WOODS` | PROMOTED_RUNTIME_VALIDATED | oui | oui | oui | — |
+| `red-eu:01` | PMD_RED_ROM | `DUNGEON_THUNDERWAVE_CAVE` | PROMOTED_RUNTIME_VALIDATED | oui | oui | oui | — |
 | `red-eu:02` | PMD_RED_ROM | `DUNGEON_MT_STEEL` | BLOCKED_SOURCE_RESOLUTION | non | non | non | DEFINITION_RECONCILIATION_REQUIRED, RUNTIME_PMDO_NOT_VALIDATED, FIXED_FLOOR_COUNTERPART_REQUIRED:9, UNMAPPED_CANONICAL_ITEMS:ITEM_BLOWBACK_ORB,ITEM_HURL_ORB,ITEM_SWITCHER_ORB,ITEM_WARP_ORB |
 | `red-eu:03` | PMD_RED_ROM | `DUNGEON_SINISTER_WOODS` | RUNTIME_VALIDATED | oui | oui | oui | — |
 | `red-eu:04` | PMD_RED_ROM | `DUNGEON_SILENT_CHASM` | BLOCKED_CONFIGURATION | non | non | non | silent_chasm: unmapped canonical items: ITEM_BLOWBACK_ORB, ITEM_HURL_ORB, ITEM_RADAR_ORB, ITEM_SWITCHER_ORB, ITEM_WARP_ORB |
@@ -128,7 +128,6 @@
 ## Totaux par raison de blocage
 
 - `CANONICAL_DEFINITION_MISSING` : 61
-- `CANONICAL_MUSIC_ASSET_MISSING` : 2
 - `DEFINITION_RECONCILIATION_REQUIRED` : 45
 - `FIXED_FLOOR_COUNTERPART_REQUIRED:10` : 1
 - `FIXED_FLOOR_COUNTERPART_REQUIRED:10,15,20` : 1
@@ -149,7 +148,6 @@
 - `FIXED_FLOOR_COUNTERPART_REQUIRED:59,99` : 1
 - `FIXED_FLOOR_COUNTERPART_REQUIRED:9` : 2
 - `FIXED_FLOOR_COUNTERPART_REQUIRED:99` : 2
-- `NOT_PROMOTED` : 2
 - `PMDODUMP_SOURCE_RULES_NOT_IMPORTED` : 46
 - `PROJECT_MAPPING_MISSING` : 1
 - `RUNTIME_PMDO_NOT_VALIDATED` : 92
