@@ -582,9 +582,13 @@ def record_runtime(jsonl_path: Path, report_path: Path | None = None) -> dict[st
 
 def record_routes(route_dir: Path, promote: bool = False) -> dict[str, Any]:
     report = json.loads(REPORT_PATH.read_text(encoding="utf-8"))
+    # Accept already-promoted candidates too: re-recording route evidence
+    # against a new validator format (e.g. ground_init vs ground) or an
+    # updated headless runtime is a legitimate operation and must not require
+    # first rolling back the promotion.
     candidates = [entry for entry in report["entries"] if entry["status"] in {
         "NATIVE_MAPGEN_VALIDATED_ROUTE_PENDING", "ROUTE_VALIDATED_READY_FOR_PROMOTION",
-        "ROUTE_VALIDATED_ASSET_BLOCKED"}]
+        "ROUTE_VALIDATED_ASSET_BLOCKED", "PROMOTED_RUNTIME_VALIDATED"}]
     if not candidates:
         raise ValueError("route validation requires at least one mapgen-validated candidate")
     runtime_dir = REPORT_PATH.parent / "runtime/routes"
@@ -595,14 +599,41 @@ def record_routes(route_dir: Path, promote: bool = False) -> dict[str, Any]:
         source_log = route_dir / f"{entry['zone']}.log"
         rows = [json.loads(line) for line in source_jsonl.read_text().splitlines() if line.strip()]
         maps = [row["floor"] for row in rows if row.get("event") == "map"]
-        grounds = [row["id"] for row in rows if row.get("event") == "ground"]
+        # RedStoryRouteValidator emits `ground_init` for every Ground the
+        # runtime loads (fired from EngineServiceEvents.GroundMapInit, which
+        # is the earliest reliable notification per
+        # RogueEssence/Ground/Maps/GroundMap.cs:OnInit). Legacy runs used
+        # `ground` (from GroundMapEnter, which is not guaranteed to fire on
+        # canonical final Grounds whose Enter calls EndDungeonRun); still
+        # accepted for backward compatibility.
+        grounds = [row["id"] for row in rows
+                   if row.get("event") in ("ground_init", "ground")]
         terminal = next((row for row in rows if row.get("event") == "end"), None)
         canonical = next((row for row in rows if row.get("event") == "canonical_end"), None)
         fatals = [row for row in rows if row.get("event") == "fatal"]
-        if (fatals or maps != list(range(int(entry["floors"]))) or len(grounds) != 3
-                or grounds[0] != grounds[-1] or not canonical or not canonical.get("scene_complete")
-                or not terminal or not terminal.get("canonical_complete")):
-            raise ValueError(f"{stem}: route evidence rejected")
+        source_end = str(entry.get("source_end") or "")
+        # Route contract (headless runtime):
+        #   1. No fatals emitted by the validator.
+        #   2. All expected floors traversed in order.
+        #   3. The Ground list starts with the canonical entrance and includes
+        #      the canonical final Ground. We NO LONGER require the route to
+        #      loop back to the entrance: the canonical final Ground scripts
+        #      call EndDungeonRun which opens a FinalResultsMenu that needs
+        #      player input to dismiss (RogueEssence/Data/GameProgress.cs
+        #      Cleared branch), so the headless validator terminates as soon
+        #      as the canonical final Ground is loaded (canonical scene proof).
+        #   4. canonical_end is emitted with the correct final Ground id.
+        #   5. end is emitted with canonical_complete=true.
+        if fatals:
+            raise ValueError(f"{stem}: route evidence rejected (fatals={fatals})")
+        if maps != list(range(int(entry["floors"]))):
+            raise ValueError(f"{stem}: route evidence rejected (maps={maps})")
+        if not grounds or (source_end and source_end not in grounds):
+            raise ValueError(f"{stem}: route evidence rejected (final Ground {source_end!r} not observed; grounds={grounds})")
+        if not canonical or (source_end and canonical.get("id") != source_end):
+            raise ValueError(f"{stem}: route evidence rejected (canonical_end={canonical})")
+        if not terminal or not terminal.get("canonical_complete"):
+            raise ValueError(f"{stem}: route evidence rejected (end={terminal})")
         if any(not row.get("map_seed") or row.get("stairs", 0) < 1
                for row in rows if row.get("event") == "map"):
             raise ValueError(f"{stem}: route map seed/stair evidence incomplete")

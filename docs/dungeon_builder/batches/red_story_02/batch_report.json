@@ -36,7 +36,7 @@
       },
       "route_runtime": {
         "jsonl": "docs/dungeon_builder/batches/red_story_02/runtime/routes/silent_chasm.jsonl",
-        "jsonl_sha256": "f35cce0d60002428f872aaae48522db3005b90d9bb6d0fa31809ebb8c29549b9",
+        "jsonl_sha256": "8624ed975c4d62284f0945d7ce0dc02bdbd319505fa9083a126a50ae5815a571",
         "log": "docs/dungeon_builder/batches/red_story_02/runtime/routes/silent_chasm.log",
         "maps": [
           0,
@@ -51,8 +51,7 @@
         ],
         "grounds": [
           "gouffre_muet_bord",
-          "d05p02",
-          "gouffre_muet_bord"
+          "d05p02"
         ],
         "fatals": 0
       },
@@ -84,7 +83,7 @@
       },
       "route_runtime": {
         "jsonl": "docs/dungeon_builder/batches/red_story_02/runtime/routes/great_canyon.jsonl",
-        "jsonl_sha256": "fbe45b0e50907b6e2f0a5fa012548034196f8f429a323a92766e9fe5efc506fb",
+        "jsonl_sha256": "5de02effa49c2a629c936d3d427577787086a3f9d59a0dfd36001d1491ca067c",
         "log": "docs/dungeon_builder/batches/red_story_02/runtime/routes/great_canyon.log",
         "maps": [
           0,
@@ -102,8 +101,7 @@
         ],
         "grounds": [
           "grand_canyon_porte",
-          "d07p02",
-          "grand_canyon_porte"
+          "d07p02"
         ],
         "fatals": 0
       },

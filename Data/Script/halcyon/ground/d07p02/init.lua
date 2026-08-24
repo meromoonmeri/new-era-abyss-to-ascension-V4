@@ -175,18 +175,9 @@ end
 
 function d07p02.Enter(map)
   DEBUG.EnableDbgCoro()
+  -- See d05p02.Enter for the SV.CanonicalDungeons marker rationale.
   SV.CanonicalDungeons = SV.CanonicalDungeons or {}
   SV.CanonicalDungeons['great_canyon'] = true
-  if os.getenv('PMDO_RED_STORY_ROUTE_VALIDATOR') == 'great_canyon' then
-    -- The red_story_route_validator drives EndDungeonRun and the return zone
-    -- itself. Play the cutscene without any fade of our own and yield control
-    -- so the validator's OnGroundMapEnter emits canonical_end and closes the
-    -- headless run properly.
-    RogueEssence.GameManager.Instance:SetFade(false, false)
-    RedCanonScene.Play(SCENE, EVENTS)
-    GAME:CutsceneMode(false)
-    return
-  end
   GAME:FadeIn(20)
   RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)

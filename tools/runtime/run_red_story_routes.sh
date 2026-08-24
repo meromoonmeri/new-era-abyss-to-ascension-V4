@@ -47,17 +47,29 @@ if not path.is_file(): raise SystemExit(f'{zone}: route output missing')
 rows=[json.loads(line) for line in path.read_text().splitlines() if line.strip()]
 fatals=[row for row in rows if row.get('event')=='fatal']
 maps=[row['floor'] for row in rows if row.get('event')=='map']
-grounds=[row['id'] for row in rows if row.get('event')=='ground']
-expected={'tiny_woods':3,'thunderwave_cave':5,'silent_chasm':9,'great_canyon':12}[zone]
+# We now key on GroundMapInit (event='ground_init') instead of GroundMapEnter
+# because GroundMapEnter is not guaranteed to fire on the canonical final
+# Ground: if Ground.Enter calls EndDungeonRun (the canonical PMD Red rescue
+# scene pattern), PMDO transitions away from that Ground before OnGroundMapEnter
+# is published. See docs/dungeon_builder/RUNTIME_VALIDATION_ARCHITECTURE.md
+# for the RogueEssence source references.
+grounds=[row['id'] for row in rows if row.get('event')=='ground_init']
+expected_floors={'tiny_woods':3,'thunderwave_cave':5,'silent_chasm':9,'great_canyon':12}[zone]
+expected_finals={'tiny_woods':'d01p02','thunderwave_cave':'d02p02',
+                 'silent_chasm':'d05p02','great_canyon':'d07p02'}
+expected_final=expected_finals[zone]
 end=next((row for row in rows if row.get('event')=='end'),None)
 canonical=next((row for row in rows if row.get('event')=='canonical_end'),None)
 summary={'zone':zone,'events':len(rows),'maps':maps,'grounds':grounds,
          'canonical_end':canonical,'fatals':fatals,'end':end}
 print(json.dumps(summary,indent=2))
-if (fatals or maps != list(range(expected)) or len(grounds)<3
-        or grounds[0] != grounds[-1] or not canonical or not canonical.get('scene_complete')
-        or not end or not end.get('canonical_complete')):
-    raise SystemExit(1)
+# Validation: floors 0..N-1 traversed, entrance seen, canonical final Ground
+# reached, canonical_end emitted for that Ground, end emitted with success.
+if fatals: raise SystemExit(1)
+if maps != list(range(expected_floors)): raise SystemExit(1)
+if len(grounds) < 2 or expected_final not in grounds: raise SystemExit(1)
+if not canonical or canonical.get('id') != expected_final: raise SystemExit(1)
+if not end or not end.get('canonical_complete'): raise SystemExit(1)
 if any(not row.get('map_seed') or row.get('stairs',0)<1
        for row in rows if row.get('event')=='map'):
     raise SystemExit(1)

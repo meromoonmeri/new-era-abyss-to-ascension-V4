@@ -111,12 +111,6 @@ end
 
 function foret_tendre_oree.Enter(map)
   DEBUG.EnableDbgCoro()
-  if os.getenv('PMDO_RED_STORY_ROUTE_VALIDATOR') == 'tiny_woods' then
-    RogueEssence.GameManager.Instance:SetFade(false, false)
-    RedCanonScene.Play(SCENE, EVENTS)
-    GAME:CutsceneMode(false)
-    return -- the validator drives the transition after GroundMapEnter
-  end
   GAME:FadeIn(20)
   RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)
