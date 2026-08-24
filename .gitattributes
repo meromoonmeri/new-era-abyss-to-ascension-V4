@@ -1,4 +1,4 @@
-# L'ancien mécanisme de distribution par parts a été retiré au profit d'un
-# vrai installateur Inno Setup produit par GitHub Actions (voir
-# .github/workflows/build-installer.yml et installer/New-Era.iss).
-# Ce fichier reste vide de règles binaires ; les parts n'existent plus.
+# Windows installer split parts: binary, vendored (excluded from
+# linguist language stats) so GitHub does not attempt line diffs on them.
+dist/windows-installer/New-Era.zip.part_* binary linguist-vendored
+dist/windows-installer/*.zip              binary linguist-vendored
