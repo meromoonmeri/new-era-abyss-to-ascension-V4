@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T22:57:59+00:00",
+  "generated_at": "2026-08-24T15:45:44+00:00",
   "dungeon": "mt_steel",
   "name": {
     "en": "Mt. Steel",
@@ -8,7 +8,92 @@
   "chapter": 7,
   "route": "secondary",
   "source": "Pokémon Mystery Dungeon: Red Rescue Team — Mt. Steel (9F). Espèces, niveaux, probabilités, tables d'objets, pièges et boutiques extraits de pret/pmd-red (data/dungeon/MtSteel) via tools/build_canonical_definitions.py ; niveaux renivelés au palier du chapitre 7. Recoupé avec Bulbapedia (page « Mt. Steel »).",
-  "floors": 9,
+  "provenance": {
+    "schema": "new-era.dungeon-provenance.v1",
+    "game": "PMD_RED",
+    "status": {
+      "configuration": "validated",
+      "runtime": "validated",
+      "batch_approved": true,
+      "reason": "Native PMDO mapgen and complete mt_steel entrance->floors->canonical-end->return route passed."
+    },
+    "categories": {
+      "floor_parameters": [
+        {
+          "kind": "PMD_RED_ROM",
+          "path": "docs/canonical/red/mt_steel_rom_manifest.json",
+          "definition_floor_mode": "procedural_only",
+          "evidence": "Per-floor raw bytes and table IDs."
+        },
+        {
+          "kind": "INFERRED",
+          "path": "tools/dungeon_builder/red_story_batch.py",
+          "reason": "PMD Red geometry bytes require a native RogueElements adapter."
+        }
+      ],
+      "pokemon": [
+        {
+          "kind": "PMD_RED_ROM",
+          "path": "docs/canonical/red/mt_steel_rom_manifest.json",
+          "evidence": "Per-floor species, source levels, and probabilities."
+        },
+        {
+          "kind": "SUPPLEMENTAL",
+          "path": "DungeonDefs/staging/red_story_03",
+          "reason": "Source levels translated to the New Era chapter tier."
+        }
+      ],
+      "items": [
+        {
+          "kind": "PMD_RED_ROM",
+          "path": "docs/canonical/red/mt_steel_rom_manifest.json",
+          "evidence": "Per-floor category and item probabilities."
+        },
+        {
+          "kind": "INFERRED",
+          "path": "CONVERSION/Item.txt",
+          "reason": "Explicit PMD Red constant to PMDO item ID mapping."
+        }
+      ],
+      "tileset": [
+        {
+          "kind": "PMD_RED_ROM",
+          "path": "docs/canonical/red/mt_steel_rom_manifest.json",
+          "evidence": "Per-floor source tileset IDs."
+        },
+        {
+          "kind": "PROJECT_DATA",
+          "path": "tools/dungeon_builder/data/base_autotiles.txt",
+          "evidence": "PMDO base DTEF triplet mt_steel_1."
+        }
+      ],
+      "grounds": [
+        {
+          "kind": "PMD_RED_RESERVED_GROUND",
+          "path": "RESERVE/red_grounds/d03p01.rsground",
+          "evidence": "Canonical entrance Ground."
+        },
+        {
+          "kind": "PMD_RED_RESERVED_GROUND",
+          "path": "RESERVE/red_grounds/d03p02.rsground",
+          "evidence": "Canonical rescue/end Ground."
+        }
+      ],
+      "scenes": [
+        {
+          "kind": "PMD_RED_ROM",
+          "path": "RESERVE/red_cinematics/d03p01.cif.json",
+          "evidence": "Canonical entrance scene IR."
+        },
+        {
+          "kind": "PMD_RED_ROM",
+          "path": "RESERVE/red_cinematics/d03p02.cif.json",
+          "evidence": "Canonical end scene IR."
+        }
+      ]
+    }
+  },
+  "floors": 8,
   "biome": "steel_slope",
   "direction": "sommet",
   "zone_file": "Data/Zone/mt_steel.json",
@@ -17,34 +102,33 @@
       "name": "steel_slope",
       "floors": [
         1,
-        9
+        8
       ],
       "biome": "steel_slope",
       "dtef": {
-        "floor": "steel_aegis_cave_floor",
-        "wall": "steel_aegis_cave_wall",
-        "secondary": "steel_aegis_cave_secondary",
-        "name": "steel_aegis_cave",
+        "floor": "mt_steel_1_floor",
+        "wall": "mt_steel_1_wall",
+        "secondary": "mt_steel_1_secondary",
+        "name": "mt_steel_1",
         "element": "normal",
-        "justification": "biome métallique ; tileset acier disponible localement."
+        "justification": "Canonical PMDO base package matching Mt. Steel; source tileset IDs retained per floor."
       },
       "profiles": [
-        "twosides",
         "branching",
-        "mixed"
+        "lattice"
       ],
-      "pokemon": 9,
+      "pokemon": 40,
       "item_tables": {
-        "canonical": {
+        "canonical_floor_items": {
           "amount": [
-            2,
-            5
+            1,
+            2
           ],
-          "entries": 9
+          "entries": 90
         }
       },
-      "shop": true,
-      "monster_house": true,
+      "shop": false,
+      "monster_house": false,
       "treasure_room": false,
       "key_room": false,
       "mystery": false,
@@ -59,7 +143,23 @@
   "boss": {
     "mode": "canonical_ground",
     "ground": "d03p02",
-    "notes": "Ground de fin canonique existant : le combat final s'y déroule, aucune arène séparée."
+    "map": "mt_steel_boss",
+    "source_floor": 9,
+    "source_fixed_room": 1,
+    "provenance": "PMD_RED_ROM",
+    "roster": [
+      {
+        "species": "skarmory",
+        "level": [
+          10,
+          10
+        ],
+        "source_level": 10,
+        "role": "leader",
+        "provenance": "PMD_RED_ROM"
+      }
+    ],
+    "notes": "Canonical fight on Ground d03p02 via the .rsmap counterpart mt_steel_boss; no invented arena."
   },
   "minibosses": [],
   "ground_check": {
@@ -71,7 +171,7 @@
     "end": "d03p02",
     "boss_mode": "canonical_ground",
     "boss_ground": "d03p02",
-    "boss_map": "",
+    "boss_map": "mt_steel_boss",
     "canonical_end_candidates": [
       "d03p02"
     ],
@@ -79,14 +179,15 @@
     "problems": [],
     "notes": [
       "no fixed 'mid' Ground declared",
-      "final battle stays on the canonical end Ground 'd03p02' (no separate arena created)"
+      "final battle stays on the canonical end Ground 'd03p02' (no separate arena created)",
+      "scene source of truth: mt_steel_boss.rsmap matches the end Ground"
     ]
   },
   "rng": {
     "label": "generate:mt_steel",
-    "root_seed": 3875972985926429040,
+    "root_seed": 9169462980862016759,
     "explicit_seed": false,
-    "derived_seeds": 51
+    "derived_seeds": 88
   },
   "warnings": [],
   "floor_reports": [
@@ -94,43 +195,48 @@
       "floor": 1,
       "segment": "steel_slope",
       "kind": "procedural",
-      "profile": "twosides+branching+mixed",
+      "profile": "branching|lattice",
       "grid": [
-        3,
+        5,
         4
       ],
       "cell": [
-        12,
+        9,
         10
       ],
-      "dtef": "steel_aegis_cave",
+      "dtef": "mt_steel_1",
       "weather": [],
       "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 1,
-      "max_pair_similarity": 0.836,
+      "variants_ok": 10,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.9118,
       "seeds": [
-        7759557227853454630,
-        3325850036339706080,
-        1066175502723277492,
-        8702440050270053693,
-        7192763660972337620
+        747380010382893670,
+        2666406878181835495,
+        2982932210492892522,
+        267483310804163841,
+        3851588438035548008,
+        6318651126066390144,
+        3667094973459027937,
+        2048061237678090195,
+        6864090126941270770,
+        72896789468534994
       ],
       "metrics": {
-        "variants": 5,
-        "rooms_avg": 9.2,
-        "rooms_min": 7,
-        "rooms_max": 12,
-        "halls_avg": 9.4,
-        "branches_avg": 2.4,
-        "dead_ends_avg": 4.4,
-        "loops_avg": 0.4,
-        "connections_avg": 9.4,
+        "variants": 10,
+        "rooms_avg": 14.5,
+        "rooms_min": 10,
+        "rooms_max": 19,
+        "halls_avg": 23.2,
+        "branches_avg": 8.4,
+        "dead_ends_avg": 4.8,
+        "loops_avg": 4.5,
+        "connections_avg": 23.2,
         "room_area_min": 20,
-        "room_area_max": 80,
-        "stair_distance_avg": 43.2,
+        "room_area_max": 81,
+        "stair_distance_avg": 47.2,
         "reachable_ratio_min": 1.0,
-        "distinct_signatures": 5
+        "distinct_signatures": 10
       },
       "traversable": true,
       "notes": []
@@ -139,43 +245,48 @@
       "floor": 2,
       "segment": "steel_slope",
       "kind": "procedural",
-      "profile": "twosides+branching+mixed",
+      "profile": "branching|lattice",
       "grid": [
-        7,
+        5,
         5
       ],
       "cell": [
-        14,
-        11
+        11,
+        8
       ],
-      "dtef": "steel_aegis_cave",
+      "dtef": "mt_steel_1",
       "weather": [],
       "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 1,
-      "max_pair_similarity": 0.9129,
+      "variants_ok": 10,
+      "variants_rejected": 2,
+      "max_pair_similarity": 0.8992,
       "seeds": [
-        1117564036707896050,
-        2129224038667107392,
-        4577710228257014387,
-        4300792447049072530,
-        5577931804460263697
+        2023891581948862803,
+        325427374101425944,
+        5056759954164559616,
+        1547162324950080333,
+        3850556195455626952,
+        946905248968000757,
+        2964580674204483198,
+        4607875212807511923,
+        4856190752646656738,
+        3127158785749766743
       ],
       "metrics": {
-        "variants": 5,
-        "rooms_avg": 10.4,
-        "rooms_min": 6,
-        "rooms_max": 13,
-        "halls_avg": 11.4,
-        "branches_avg": 2.6,
-        "dead_ends_avg": 3.2,
-        "loops_avg": 1.0,
-        "connections_avg": 11.4,
+        "variants": 10,
+        "rooms_avg": 16.1,
+        "rooms_min": 13,
+        "rooms_max": 23,
+        "halls_avg": 20.9,
+        "branches_avg": 6.8,
+        "dead_ends_avg": 4.8,
+        "loops_avg": 3.1,
+        "connections_avg": 20.9,
         "room_area_min": 20,
-        "room_area_max": 81,
-        "stair_distance_avg": 34.6,
-        "reachable_ratio_min": 0.9981,
-        "distinct_signatures": 5
+        "room_area_max": 72,
+        "stair_distance_avg": 45.7,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 10
       },
       "traversable": true,
       "notes": []
@@ -184,43 +295,48 @@
       "floor": 3,
       "segment": "steel_slope",
       "kind": "procedural",
-      "profile": "twosides+branching+mixed",
+      "profile": "branching|lattice",
       "grid": [
-        3,
-        3
+        5,
+        4
       ],
       "cell": [
-        11,
-        8
+        10,
+        10
       ],
-      "dtef": "steel_aegis_cave",
+      "dtef": "mt_steel_1",
       "weather": [],
       "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 0,
-      "max_pair_similarity": 0.7898,
+      "variants_ok": 10,
+      "variants_rejected": 1,
+      "max_pair_similarity": 0.8962,
       "seeds": [
-        4359364502032017794,
-        9051803092389590450,
-        5828065689256808100,
-        2142018033076743248,
-        9036945188310397100
+        7018233969694013946,
+        3744280339962322857,
+        2321010694795990058,
+        5169130174031950369,
+        2766951001379010394,
+        378167107339499444,
+        3883693871110252515,
+        2228067394501551568,
+        8112626934504664431,
+        5929022587272269027
       ],
       "metrics": {
-        "variants": 5,
-        "rooms_avg": 8.4,
-        "rooms_min": 6,
-        "rooms_max": 12,
-        "halls_avg": 9.6,
-        "branches_avg": 1.8,
-        "dead_ends_avg": 2.6,
-        "loops_avg": 0.6,
-        "connections_avg": 9.6,
-        "room_area_min": 28,
+        "variants": 10,
+        "rooms_avg": 17.2,
+        "rooms_min": 12,
+        "rooms_max": 24,
+        "halls_avg": 23.1,
+        "branches_avg": 7.5,
+        "dead_ends_avg": 5.6,
+        "loops_avg": 3.3,
+        "connections_avg": 23.1,
+        "room_area_min": 20,
         "room_area_max": 80,
-        "stair_distance_avg": 37.6,
-        "reachable_ratio_min": 0.9973,
-        "distinct_signatures": 5
+        "stair_distance_avg": 47.3,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 10
       },
       "traversable": true,
       "notes": []
@@ -229,43 +345,48 @@
       "floor": 4,
       "segment": "steel_slope",
       "kind": "procedural",
-      "profile": "twosides+branching+mixed",
+      "profile": "branching|lattice",
       "grid": [
-        5,
-        4
+        6,
+        5
       ],
       "cell": [
-        13,
-        8
+        10,
+        10
       ],
-      "dtef": "steel_aegis_cave",
+      "dtef": "mt_steel_1",
       "weather": [],
       "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 1,
-      "max_pair_similarity": 0.8572,
+      "variants_ok": 10,
+      "variants_rejected": 3,
+      "max_pair_similarity": 0.9643,
       "seeds": [
-        3130147341108830359,
-        2019476055841554094,
-        3345059171235446157,
-        8226897434472508806,
-        8506569021387098469
+        3715485785716153046,
+        6017491213379592838,
+        5402797041505812457,
+        4611861324843512906,
+        7323621197961822439,
+        9122046782096292239,
+        1675773059124632675,
+        8158050846724814320,
+        2490010521285337921,
+        8134913717285638873
       ],
       "metrics": {
-        "variants": 5,
-        "rooms_avg": 12.2,
-        "rooms_min": 8,
-        "rooms_max": 21,
-        "halls_avg": 13.8,
-        "branches_avg": 3.2,
-        "dead_ends_avg": 3.4,
-        "loops_avg": 1.2,
-        "connections_avg": 13.8,
+        "variants": 10,
+        "rooms_avg": 15.0,
+        "rooms_min": 10,
+        "rooms_max": 20,
+        "halls_avg": 21.8,
+        "branches_avg": 7.2,
+        "dead_ends_avg": 5.1,
+        "loops_avg": 3.7,
+        "connections_avg": 21.8,
         "room_area_min": 20,
-        "room_area_max": 72,
-        "stair_distance_avg": 37.4,
+        "room_area_max": 80,
+        "stair_distance_avg": 54.4,
         "reachable_ratio_min": 1.0,
-        "distinct_signatures": 5
+        "distinct_signatures": 10
       },
       "traversable": true,
       "notes": []
@@ -274,43 +395,48 @@
       "floor": 5,
       "segment": "steel_slope",
       "kind": "procedural",
-      "profile": "twosides+branching+mixed",
+      "profile": "branching|lattice",
       "grid": [
-        3,
-        4
+        6,
+        5
       ],
       "cell": [
         12,
-        8
+        10
       ],
-      "dtef": "steel_aegis_cave",
+      "dtef": "mt_steel_1",
       "weather": [],
       "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 2,
-      "max_pair_similarity": 0.8363,
+      "variants_ok": 10,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.9143,
       "seeds": [
-        4450546031695460680,
-        7452961384582618370,
-        4857674746916580397,
-        5595583224674925855,
-        7369509688995662025
+        1296157923155344799,
+        2979909473867394489,
+        3082849644597500407,
+        8516745941274327475,
+        2238907042684480507,
+        4686404876593627185,
+        6215790560398509313,
+        4020649279525068944,
+        2228924616522975521,
+        3499242678869021425
       ],
       "metrics": {
-        "variants": 5,
-        "rooms_avg": 10.6,
-        "rooms_min": 6,
-        "rooms_max": 16,
-        "halls_avg": 11.4,
-        "branches_avg": 2.6,
-        "dead_ends_avg": 4.2,
-        "loops_avg": 0.4,
-        "connections_avg": 11.4,
+        "variants": 10,
+        "rooms_avg": 14.5,
+        "rooms_min": 9,
+        "rooms_max": 20,
+        "halls_avg": 21.8,
+        "branches_avg": 7.7,
+        "dead_ends_avg": 4.4,
+        "loops_avg": 4.1,
+        "connections_avg": 21.8,
         "room_area_min": 20,
         "room_area_max": 81,
-        "stair_distance_avg": 39.8,
-        "reachable_ratio_min": 0.9975,
-        "distinct_signatures": 5
+        "stair_distance_avg": 53.3,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 10
       },
       "traversable": true,
       "notes": []
@@ -319,43 +445,48 @@
       "floor": 6,
       "segment": "steel_slope",
       "kind": "procedural",
-      "profile": "twosides+branching+mixed",
+      "profile": "branching|lattice",
       "grid": [
-        3,
-        3
+        6,
+        4
       ],
       "cell": [
         11,
-        9
+        10
       ],
-      "dtef": "steel_aegis_cave",
+      "dtef": "mt_steel_1",
       "weather": [],
       "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 1,
-      "max_pair_similarity": 0.8571,
+      "variants_ok": 10,
+      "variants_rejected": 0,
+      "max_pair_similarity": 0.9144,
       "seeds": [
-        7226497464581143965,
-        5564637073957945112,
-        1159588034297934961,
-        6550112240799571000,
-        8470374908608104594
+        14352297381741719,
+        2157891927703054162,
+        1635794312068868113,
+        2342324004158074077,
+        704575551735786511,
+        1890965901101707092,
+        4661509943305593667,
+        5764256847029834003,
+        8642510495777308686,
+        7040434201371132248
       ],
       "metrics": {
-        "variants": 5,
-        "rooms_avg": 9.0,
-        "rooms_min": 8,
-        "rooms_max": 11,
-        "halls_avg": 9.6,
-        "branches_avg": 2.2,
-        "dead_ends_avg": 3.2,
-        "loops_avg": 0.6,
-        "connections_avg": 9.6,
+        "variants": 10,
+        "rooms_avg": 15.3,
+        "rooms_min": 10,
+        "rooms_max": 20,
+        "halls_avg": 22.5,
+        "branches_avg": 7.7,
+        "dead_ends_avg": 5.2,
+        "loops_avg": 3.9,
+        "connections_avg": 22.5,
         "room_area_min": 20,
-        "room_area_max": 80,
-        "stair_distance_avg": 38.4,
+        "room_area_max": 81,
+        "stair_distance_avg": 46.5,
         "reachable_ratio_min": 1.0,
-        "distinct_signatures": 5
+        "distinct_signatures": 10
       },
       "traversable": true,
       "notes": []
@@ -364,43 +495,48 @@
       "floor": 7,
       "segment": "steel_slope",
       "kind": "procedural",
-      "profile": "twosides+branching+mixed",
+      "profile": "branching|lattice",
       "grid": [
-        3,
+        5,
         4
       ],
       "cell": [
-        11,
-        9
+        9,
+        10
       ],
-      "dtef": "steel_aegis_cave",
+      "dtef": "mt_steel_1",
       "weather": [],
       "map_id": "",
-      "variants_ok": 5,
+      "variants_ok": 10,
       "variants_rejected": 0,
-      "max_pair_similarity": 0.7544,
+      "max_pair_similarity": 0.9189,
       "seeds": [
-        6449554504258375015,
-        1714996812849024276,
-        1216204480493712196,
-        8314212964208533899,
-        6706537053897804224
+        5049216362412192829,
+        7975473179129626354,
+        8806018414794330632,
+        8669194197711917321,
+        8610262183530239260,
+        8630441016249841061,
+        2748990749248386250,
+        7031617935255531398,
+        8101781150990625003,
+        4887065297517515387
       ],
       "metrics": {
-        "variants": 5,
-        "rooms_avg": 10.4,
-        "rooms_min": 6,
-        "rooms_max": 18,
-        "halls_avg": 11.6,
-        "branches_avg": 2.6,
-        "dead_ends_avg": 3.4,
-        "loops_avg": 0.8,
-        "connections_avg": 11.6,
+        "variants": 10,
+        "rooms_avg": 15.8,
+        "rooms_min": 12,
+        "rooms_max": 22,
+        "halls_avg": 24.9,
+        "branches_avg": 9.5,
+        "dead_ends_avg": 5.4,
+        "loops_avg": 4.9,
+        "connections_avg": 24.9,
         "room_area_min": 20,
-        "room_area_max": 147,
-        "stair_distance_avg": 40.4,
-        "reachable_ratio_min": 0.9975,
-        "distinct_signatures": 5
+        "room_area_max": 80,
+        "stair_distance_avg": 50.6,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 10
       },
       "traversable": true,
       "notes": []
@@ -409,88 +545,48 @@
       "floor": 8,
       "segment": "steel_slope",
       "kind": "procedural",
-      "profile": "twosides+branching+mixed",
-      "grid": [
-        4,
-        3
-      ],
-      "cell": [
-        9,
-        10
-      ],
-      "dtef": "steel_aegis_cave",
-      "weather": [],
-      "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 0,
-      "max_pair_similarity": 0.7743,
-      "seeds": [
-        6134441338898438209,
-        614180027404365205,
-        9106461204456107589,
-        6484895324893212788,
-        6142078321006269687
-      ],
-      "metrics": {
-        "variants": 5,
-        "rooms_avg": 11.6,
-        "rooms_min": 6,
-        "rooms_max": 23,
-        "halls_avg": 14.6,
-        "branches_avg": 3.6,
-        "dead_ends_avg": 2.0,
-        "loops_avg": 2.0,
-        "connections_avg": 14.6,
-        "room_area_min": 20,
-        "room_area_max": 72,
-        "stair_distance_avg": 39.0,
-        "reachable_ratio_min": 1.0,
-        "distinct_signatures": 5
-      },
-      "traversable": true,
-      "notes": []
-    },
-    {
-      "floor": 9,
-      "segment": "steel_slope",
-      "kind": "procedural",
-      "profile": "twosides+branching+mixed",
+      "profile": "branching|lattice",
       "grid": [
         6,
         4
       ],
       "cell": [
         12,
-        9
+        8
       ],
-      "dtef": "steel_aegis_cave",
+      "dtef": "mt_steel_1",
       "weather": [],
       "map_id": "",
-      "variants_ok": 5,
-      "variants_rejected": 0,
-      "max_pair_similarity": 0.8221,
+      "variants_ok": 10,
+      "variants_rejected": 2,
+      "max_pair_similarity": 0.9525,
       "seeds": [
-        4935646463532877213,
-        4026574213219574287,
-        4975768753969157956,
-        2176220034143780979,
-        3134913196472418587
+        1645288340384344664,
+        3865826498325077004,
+        2882139783817662910,
+        8727802487849772287,
+        3883313067314060945,
+        343151854227843024,
+        7850062662989265488,
+        9096189791384790354,
+        5843626098719339004,
+        7346647422327373120
       ],
       "metrics": {
-        "variants": 5,
-        "rooms_avg": 11.4,
-        "rooms_min": 6,
-        "rooms_max": 17,
-        "halls_avg": 13.4,
-        "branches_avg": 2.8,
-        "dead_ends_avg": 3.8,
-        "loops_avg": 1.2,
-        "connections_avg": 13.4,
+        "variants": 10,
+        "rooms_avg": 15.2,
+        "rooms_min": 10,
+        "rooms_max": 21,
+        "halls_avg": 18.7,
+        "branches_avg": 5.8,
+        "dead_ends_avg": 4.3,
+        "loops_avg": 2.4,
+        "connections_avg": 18.7,
         "room_area_min": 20,
-        "room_area_max": 144,
-        "stair_distance_avg": 37.8,
-        "reachable_ratio_min": 0.9984,
-        "distinct_signatures": 5
+        "room_area_max": 81,
+        "stair_distance_avg": 39.0,
+        "reachable_ratio_min": 1.0,
+        "distinct_signatures": 10
       },
       "traversable": true,
       "notes": []

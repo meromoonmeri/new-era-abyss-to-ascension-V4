@@ -40,6 +40,11 @@ CONFIG = {
                 "comment": ("PMD Red canonical FIXED_ROOM_MT_STEEL_SKARMORY on source "
                             "floor 9: exact .rsmap counterpart of d03p02.rsground "
                             "(via tools/make_ground_arena.py). Not an unrelated arena."),
+                # Canonical boss species allow-list for the ROM fixed_room:
+                # only these species from the source floor's Pokemon table are
+                # treated as the fixed-room roster. Others (Diglett/Aron/etc.)
+                # are dungeon-floor spawns, not the boss encounter.
+                "boss_species": ["skarmory"],
             },
         ],
     },

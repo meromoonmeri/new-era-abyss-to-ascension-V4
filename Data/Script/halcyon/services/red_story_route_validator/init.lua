@@ -163,10 +163,38 @@ function V:OnDungeonMapInit()
   local ok,err=xpcall(function()self:inspect_map()end,debug.traceback)
   if not ok then emit('{"event":"fatal","phase":"map","error":"'..esc(err)..'"}') end
 
-  -- Nothing else to do here for the boss segment: with stairs now present
-  -- on mt_steel_boss.rsmap, PMDO advances the boss floor like a normal
-  -- procedural floor, and OnDungeonFloorEnter fires shortly after,
-  -- triggering the canonical boss-clear path below.
+  -- Fixed-boss segment: DungeonFloorEnter does NOT fire for LoadGen boss
+  -- floors in PMDO 0.8.12 headless mode. Root cause identified by reading
+  -- RogueEssence 71236c63 + PMDC:
+  --   1. DungeonScene.BeginFloor() iterates UniversalEvent.OnMapStarts
+  --      BEFORE calling Map.OnEnter() (which is what publishes the
+  --      DungeonFloorEnter engine service event).
+  --   2. UniversalEvent.OnMapStarts contains PMDC.Dungeon.FadeInEvent
+  --      (Data/Universal.json), whose Apply() yields on
+  --      CoroutineManager.StartCoroutine(GameManager.Instance.FadeIn()) —
+  --      the C# FadeIn method, NOT the Lua-noop version we installed for
+  --      headless mode.
+  --   3. GameManager.FadeIn() = fadeScreen.Fade(false, ...) which yields
+  --      WaitForFrames N times when fadeAmount != 0. After the previous
+  --      segment's EndSegment(FadeOut), fadeAmount == 1f (black), so
+  --      FadeIn actually needs to tick N frames.
+  --   4. In headless offscreen mode those frame waits do NOT advance while
+  --      we are inside the current SceneOutcome coroutine chain (moveToZoneInit
+  --      → InitFloor → OnInit), because the ScreenMainCoroutine only ticks
+  --      frames when its outer loop iterates. Hence BeginFloor never
+  --      completes its event queue, Map.OnEnter is never called, and
+  --      DungeonFloorEnter is never published.
+  -- Generic fix (headless only, applies to ANY dungeon that lands on a
+  -- LoadGen boss floor after a faded segment transition): force the fade
+  -- state back to 0 (transparent) NOW, before BeginFloor runs FadeInEvent,
+  -- so its FadeIn() takes the `!fadeIn && fadeAmount==0f => yield break`
+  -- fast path (RogueEssence/Scene/FadeEffect.cs:61) and completes
+  -- instantly. Canonical Grounds and normal gameplay are untouched: the
+  -- headless validator is the only client of SetFade(false, false) here.
+  local boss=self.config.boss
+  if boss and _ZONE.CurrentMapID.Segment==boss.segment then
+    pcall(function() RogueEssence.GameManager.Instance:SetFade(false, false) end)
+  end
 end
 
 function V:OnDungeonFloorEnter()
@@ -175,11 +203,14 @@ function V:OnDungeonFloorEnter()
   local floor=_ZONE.CurrentMapID.ID
   local boss=self.config.boss
   local ok,err=xpcall(function()
-    -- Boss segment: emit a boss_clear observation (with the count of native
-    -- map-clear hooks - proves the map was staged with real boss detection
-    -- wiring) then trigger the native EndSegment(Cleared) via reflection so
-    -- the zone's ExitSegment handles the transition to the canonical
-    -- post-battle Ground. This mirrors sinister's proven pattern.
+    -- Fixed-boss segment: at this point Map.OnEnter has completed,
+    -- BeginFloor has processed the UniversalEvent OnMapStarts events
+    -- (FadeInEvent took the instant path thanks to the SetFade(false,false)
+    -- injected in OnDungeonMapInit above), and the boss species/rsmap have
+    -- been verified in inspect_map. Now we emit the boss_clear proof and
+    -- trigger the native EndSegment(Cleared,true) via SceneOutcome so the
+    -- zone's ExitSegment (which is a canonical Lua script, not a hack)
+    -- transitions to the post-battle canonical Ground on its own.
     if boss and seg==boss.segment then
       local map=_ZONE.CurrentMap
       local loaded_species=''

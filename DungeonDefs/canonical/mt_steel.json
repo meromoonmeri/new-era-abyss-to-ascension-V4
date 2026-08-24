@@ -2037,6 +2037,18 @@
     "source_floor": 9,
     "source_fixed_room": 1,
     "provenance": "PMD_RED_ROM",
+    "roster": [
+      {
+        "species": "skarmory",
+        "level": [
+          10,
+          10
+        ],
+        "source_level": 10,
+        "role": "leader",
+        "provenance": "PMD_RED_ROM"
+      }
+    ],
     "notes": "Canonical fight on Ground d03p02 via the .rsmap counterpart mt_steel_boss; no invented arena."
   },
   "fixed_grounds": {
@@ -2076,9 +2088,9 @@
     "game": "PMD_RED",
     "status": {
       "configuration": "validated",
-      "runtime": "route_validated_boss_transition_pending",
-      "batch_approved": false,
-      "reason": "Native RogueElements mapgen 90/90 PASS (8 procedural floors x 10 iter + 1 boss LoadGen x 10 iter). Route runtime observed entrance canonique -> 8 floors procéduraux -> segment_clear -> boss segment 1 loaded with pixel-exact d03p02 counterpart .rsmap and canonical Skarmory (species=expected). Transition to d03p02 blocked by PMDO 0.8.12 LoadGen not publishing DungeonFloorEnter in headless. See docs/dungeon_builder/batches/red_story_03/README.md for the full analysis."
+      "runtime": "validated",
+      "batch_approved": true,
+      "reason": "Native PMDO mapgen and complete mt_steel entrance->floors->canonical-end->return route passed."
     },
     "categories": {
       "floor_parameters": [
@@ -2166,6 +2178,9 @@
       "source_floor": 9,
       "provenance": "PMD_RED_ROM",
       "comment": "PMD Red canonical FIXED_ROOM_MT_STEEL_SKARMORY on source floor 9: exact .rsmap counterpart of d03p02.rsground (via tools/make_ground_arena.py). Not an unrelated arena.",
+      "boss_species": [
+        "skarmory"
+      ],
       "is_relevant": false,
       "source_fixed_room": 1,
       "source_pokemon": [

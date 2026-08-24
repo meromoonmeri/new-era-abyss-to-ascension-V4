@@ -457,6 +457,37 @@ def reconcile(stem: str) -> dict[str, Any]:
                 for p in src["pokemon"]]
             raw["fixed_segments"].append(entry)
         first_fs = fixed_from_config[0]
+        # The canonical boss roster comes from CONFIG['fixed_segments'][*].roster
+        # (species/level/role, PMD_RED_ROM-sourced) when the batch author wants
+        # to specify moves/HP explicitly. Otherwise it is synthesised from the
+        # ROM manifest's Pokemon table for the source floor, restricted to the
+        # species listed in CONFIG['fixed_segments'][*].boss_species (the
+        # canonical FIXED_ROOM_* enemies for that floor's fixed_room). This
+        # excludes the dungeon-floor spawns (Diglett/Aron/etc.) that PMD Red
+        # keeps in the same table without being part of the boss encounter.
+        boss_config_roster = list(first_fs.get("roster") or [])
+        if not boss_config_roster:
+            src_floor = boss_manifest[int(first_fs["source_floor"])]
+            allowed = {s.lower() for s in first_fs.get("boss_species") or []}
+            for p in src_floor.get("pokemon", []):
+                species = str(p["species"]).removeprefix("MONSTER_").lower()
+                if allowed and species not in allowed:
+                    continue
+                if not allowed:
+                    # No allow-list declared: fall back to "zero-probability
+                    # non-decoy species with meaningful level" — usually the
+                    # ROM's boss entry. Requires manual audit per dungeon.
+                    if int(p.get("probability", 0)) != 0 or int(p.get("level", 0)) <= 1:
+                        continue
+                    if species in {"kecleon", "decoy"}:
+                        continue
+                boss_config_roster.append({
+                    "species": species,
+                    "level": [int(p["level"]), int(p["level"])],
+                    "source_level": int(p["level"]),
+                    "role": "leader",
+                    "provenance": "PMD_RED_ROM",
+                })
         raw["boss"] = {
             "mode": "canonical_ground",
             "ground": first_fs.get("ground", ""),
@@ -465,6 +496,7 @@ def reconcile(stem: str) -> dict[str, Any]:
             "source_fixed_room": int(boss_manifest[int(first_fs["source_floor"])]
                                      ["floor_properties"]["fixedRoomNumber"]),
             "provenance": "PMD_RED_ROM",
+            "roster": boss_config_roster,
             "notes": (f"Canonical fight on Ground {first_fs.get('ground','')} via the "
                       f".rsmap counterpart {first_fs.get('map','')}; no invented arena."),
         }

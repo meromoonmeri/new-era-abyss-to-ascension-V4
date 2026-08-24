@@ -6,9 +6,9 @@
     "staged": 1,
     "generated": 1,
     "runtime_pmdo_mapgen_validated": 1,
-    "route_validated": 0,
-    "promoted": 0,
-    "blocked": 1
+    "route_validated": 1,
+    "promoted": 1,
+    "blocked": 0
   },
   "entries": [
     {
@@ -19,11 +19,8 @@
       "zone_path": "Staging/dungeon_builder/red_story_03/Data/Zone/mt_steel.json",
       "configuration_gate": true,
       "warnings": [],
-      "status": "ROUTE_VALIDATED_BOSS_TRANSITION_PENDING",
-      "blockers": [
-        "PMDO_LOADGEN_HEADLESS_NO_DUNGEONFLOORENTER",
-        "CANONICAL_GROUND_TRANSITION_UNVERIFIED_IN_HEADLESS"
-      ],
+      "status": "PROMOTED_RUNTIME_VALIDATED",
+      "blockers": [],
       "runtime": {
         "engine": "PMDO 0.8.12",
         "attempted": 90,
@@ -34,11 +31,12 @@
         "seeds_logged": 90
       },
       "artifacts": {
-        "definition_sha256": "f2fbad712e643b8e837fd6b165f2fdbae278e500096636622b456f2c6ca7a08d",
-        "zone_sha256": "febeab289295ffbc1e9f3297baf23da223eb407cb1b6530353246a8ea08ef80b"
+        "definition_sha256": "fe6f4fafe9eed277d2b3e1c98516092dc0218e30ce048b7aa1ee468a5d99062e",
+        "zone_sha256": "cb22034717b6f6c7a37207525834ae3381eb2a58f300da381b1b294965391e47"
       },
       "route_runtime": {
         "jsonl": "docs/dungeon_builder/batches/red_story_03/runtime/routes/mt_steel.jsonl",
+        "jsonl_sha256": "f9799566868664957b6e452bbf1a7e2ebdd0e217796211728183815511b77424",
         "log": "docs/dungeon_builder/batches/red_story_03/runtime/routes/mt_steel.log",
         "procedural_maps": [
           0,
@@ -56,29 +54,42 @@
             "floor": 0,
             "boss_species": "skarmory",
             "expected_boss_species": "skarmory",
+            "map_seed": "-4992052460361933602",
             "kind": "canonical_fixed_boss"
           }
         ],
-        "boss_clears": [],
-        "grounds": [
-          "pic_ferreux_pied"
+        "boss_clears": [
+          {
+            "segment": 1,
+            "map": "mt_steel_boss",
+            "expected_species": "skarmory",
+            "native_clear_hooks": 1,
+            "source_floor": 9,
+            "source_fixed_room": 1
+          }
         ],
-        "note": "PMDO 0.8.12 headless: DungeonFloorEnter is not published for LoadGen boss floors, so the EndSegment(Cleared) reflection trick sinister validated cannot be invoked at the right time. Boss species/rsmap fidelity IS proven (boss_species==expected_boss_species==skarmory) and canonical procedural floors 0-7 all traversed with distinct map_seeds. Transition to d03p02 pending PMDO-side event fix."
+        "grounds": [
+          "pic_ferreux_pied",
+          "d03p02"
+        ],
+        "fatals": 0
       },
       "canonical_battle_ground": "d03p02",
       "canonical_layout_source": "Data/Ground/d03p02.rsground",
       "rsmap_source": "Data/Map/mt_steel_boss.rsmap",
       "rsmap_equivalence_verified": true,
-      "battle_location_verified": false,
+      "battle_location_verified": true,
       "fixed_segments_provenance": [
         {
           "source_floor": 9,
-          "source_fixed_room": 1,
+          "source_fixed_room": null,
           "map": "mt_steel_boss",
           "ground": "d03p02",
-          "provenance": "PMD_RED_ROM/FIXED_ROOM_MT_STEEL_SKARMORY"
+          "provenance": "PMD_RED_ROM"
         }
-      ]
+      ],
+      "active_definition": "DungeonDefs/canonical/mt_steel.json",
+      "active_zone": "Data/Zone/mt_steel.json"
     }
   ],
   "runtime_evidence": {
