@@ -20,7 +20,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$ExpectedSha = "51eb223967730d6d48935f8028c6f3f56bdcd337d2936a6881233aa8b7fd2808"
+$ExpectedSha = "d172e45f0b1dfe3899c6b4615e88fc20032fa9508e9f024e9b46f3909a94edfb"
 $ExpectedSize = 382700080
 $ExeName = "New-Era-Setup.exe"
 

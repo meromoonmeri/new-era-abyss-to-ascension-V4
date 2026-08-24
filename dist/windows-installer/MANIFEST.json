@@ -5,36 +5,36 @@
   "installer_type": "7-Zip SFX (SetupSFX) — real Windows PE installer",
   "installer_kind": "Native Windows GUI (subsystem=GUI, machine=i386)",
   "exe_name": "New-Era-Setup.exe",
-  "exe_size_bytes": 382700080,
-  "exe_size_mib": 364.97,
-  "exe_sha256": "51eb223967730d6d48935f8028c6f3f56bdcd337d2936a6881233aa8b7fd2808",
+  "exe_size_bytes": 379793941,
+  "exe_size_mib": 362.2,
+  "exe_sha256": "d172e45f0b1dfe3899c6b4615e88fc20032fa9508e9f024e9b46f3909a94edfb",
   "part_count": 5,
   "part_max_size_bytes": 89128960,
   "parts": [
     {
       "name": "New-Era-Setup.exe.part_001",
       "size_bytes": 89128960,
-      "sha256": "9e25d52594b7b77c5a083dfa1ea76020c975f24441d8c516f93a1da676b08286"
+      "sha256": "181890b15176635fe00d690ae5687073306d8f606e87b1efacdf88feba129536"
     },
     {
       "name": "New-Era-Setup.exe.part_002",
       "size_bytes": 89128960,
-      "sha256": "4e9bede1e34c6e5d1ea64ad59939f41c59eac2beccbe59731ac0fd1a3a3ff2bc"
+      "sha256": "6b54776162ff3318d5b3fba93c040be0baa4a12c33483297c0885c60e26faeb0"
     },
     {
       "name": "New-Era-Setup.exe.part_003",
       "size_bytes": 89128960,
-      "sha256": "e39c102cab8ec479140e7c8036692712a26deb1ffc05c650f6ac33e77eef52de"
+      "sha256": "25f4405a7bdc98a17ddaea5322149ac1476be1f3fa4c608c3c2f8f16e2caddb7"
     },
     {
       "name": "New-Era-Setup.exe.part_004",
       "size_bytes": 89128960,
-      "sha256": "9c68b0b1e1644b062683fe3228543da2a443ecc50cd7fb9293e121f1836d1e48"
+      "sha256": "4093bdf9e170db1da2b0741da1162a0d2672616bed6f236cd74136f506fa4105"
     },
     {
       "name": "New-Era-Setup.exe.part_005",
-      "size_bytes": 26184240,
-      "sha256": "61338ae52aa7e7fe96af5010670c24034d598cca63f13eb05f423e771e526003"
+      "size_bytes": 23278101,
+      "sha256": "c70518665968ce8561839d84fc80f00b9399e26a87a77977041176e6b4946a2d"
     }
   ],
   "install_flow": [
@@ -63,5 +63,7 @@
     "sfx_module_source": "7zSD.sfx from 7-Zip Extra (LGPL, Copyright 1999-2018 Igor Pavlov). Redistribution allowed per LGPL. Bundled via npm package '7zip-standalone' at build time; module SHA-256 preserved.",
     "config_source": "Generated at build time (config.txt with GUI directives).",
     "archive_source": "Mod content of the current repo tree, packaged via dev/tools/package_windows.py, compressed with py7zr LZMA2 preset 6."
-  }
+  },
+  "built_utc": "2026-08-24T23:56:27.399352Z",
+  "content_note": "Includes the 27 canonical PMD Red EU ROM-converted grounds (12 previously promoted dungeons + 15 newly promoted: d04p02, d12p02, d12p04, d13p02, d13p03, d14p01, d15p01, d16p01, d17p01, d18p01, d19p01, d20p01, d21p01, d23p01, d25p01), each validated in real PMDO 0.8.12 headless runtime (LOAD/MOVEMENT/ANIMATION PASS, verdict SAFE)."
 }

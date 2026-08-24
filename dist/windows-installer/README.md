@@ -17,7 +17,7 @@
 - **Vrai fichier `.exe` Windows PE** — pas un `.bat`, pas un `.zip`
   renommé, pas un raccourci PowerShell. Signature `MZ...PE\0\0`,
   machine i386, subsystem GUI (fenêtre native).
-- **SHA-256** : `51eb223967730d6d48935f8028c6f3f56bdcd337d2936a6881233aa8b7fd2808`
+- **SHA-256** : `d172e45f0b1dfe3899c6b4615e88fc20032fa9508e9f024e9b46f3909a94edfb`
 - **Taille** : 382 700 080 octets (364.97 MiB)
 - **Type** : installateur self-extracting **7-Zip SFX (SetupSFX)**,
   utilisé par des milliers d'installeurs Windows dans la nature
@@ -86,4 +86,4 @@ désinstallation se fait en supprimant simplement le dossier
 ```
 certutil -hashfile New-Era-Setup.exe SHA256
 ```
-Résultat attendu : `51eb223967730d6d48935f8028c6f3f56bdcd337d2936a6881233aa8b7fd2808`
+Résultat attendu : `d172e45f0b1dfe3899c6b4615e88fc20032fa9508e9f024e9b46f3909a94edfb`
