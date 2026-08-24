@@ -1,2 +1,4 @@
-dist/windows-package/New-Era.zip.part_* binary linguist-vendored
-dist/windows-package/*.zip binary linguist-vendored
+# L'ancien mécanisme de distribution par parts a été retiré au profit d'un
+# vrai installateur Inno Setup produit par GitHub Actions (voir
+# .github/workflows/build-installer.yml et installer/New-Era.iss).
+# Ce fichier reste vide de règles binaires ; les parts n'existent plus.

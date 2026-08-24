@@ -1,0 +1,180 @@
+name: Build Windows installer (Inno Setup)
+
+# Déclenchement :
+#   - push d'un tag "installer-vX.Y.Z"  → build + Release publique
+#   - workflow_dispatch                  → build à la demande (artifact seulement)
+on:
+  push:
+    tags:
+      - 'installer-v*'
+  workflow_dispatch:
+    inputs:
+      create_release:
+        description: 'Créer une GitHub Release (true/false)'
+        required: false
+        default: 'false'
+      release_tag:
+        description: 'Tag de la Release (ex: installer-v0.5.1)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write   # nécessaire pour créer la Release et uploader l'asset
+
+jobs:
+  build:
+    name: Compile Inno Setup installer
+    runs-on: windows-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+          lfs: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Stage the Halcyon-conforming mod tree
+        shell: pwsh
+        run: |
+          # Utilise notre packager pour produire le dossier "New-Era\" propre
+          # (Mod.xml + Data + Content + Strings + CONVERSION + docs).
+          # On demande le format zip mais on utilise seulement le dossier
+          # "New-Era\" qu'il assemble en cours de route.
+          New-Item -ItemType Directory -Force -Path build\pkg | Out-Null
+          python dev\tools\package_windows.py `
+            --source . `
+            --dest build\pkg `
+            --format zip `
+            --extract-test none `
+            --report build\pkg\PACKAGE_REPORT.json
+
+          # Vérifications structurelles avant compile
+          $stage = "build\pkg\New-Era"
+          if (-not (Test-Path "$stage\Mod.xml")) {
+            Write-Error "Mod.xml manquant dans $stage"; exit 1
+          }
+          foreach ($d in @("Data","Content","Strings","CONVERSION")) {
+            if (-not (Test-Path "$stage\$d")) {
+              Write-Error "$d\ manquant dans $stage"; exit 1
+            }
+          }
+          Write-Host "Staged mod contents OK: $((Get-ChildItem -Recurse $stage | Measure-Object).Count) fichiers"
+
+      - name: Install Inno Setup 6
+        shell: pwsh
+        run: |
+          choco install innosetup --no-progress -y --version=6.2.2
+          # iscc.exe sera dans "C:\Program Files (x86)\Inno Setup 6\ISCC.exe"
+          $iscc = "C:\Program Files (x86)\Inno Setup 6\ISCC.exe"
+          if (-not (Test-Path $iscc)) {
+            Write-Error "ISCC.exe introuvable après installation"; exit 1
+          }
+          Write-Host "Inno Setup installé : $iscc"
+
+      - name: Compile installer with Inno Setup
+        shell: pwsh
+        run: |
+          $iscc = "C:\Program Files (x86)\Inno Setup 6\ISCC.exe"
+          $stage = (Resolve-Path "build\pkg\New-Era").Path
+          $out   = (Resolve-Path ".\build\pkg").Path + "\out"
+          New-Item -ItemType Directory -Force -Path $out | Out-Null
+
+          & $iscc `
+            "/DSourceDir=$stage" `
+            "/DOutputDir=$out" `
+            installer\New-Era.iss
+
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+          $exe = Join-Path $out "New-Era-Setup.exe"
+          if (-not (Test-Path $exe)) {
+            Write-Error "Installer .exe non produit"; exit 1
+          }
+          $size = (Get-Item $exe).Length
+          Write-Host "Installer produit : $exe ($([math]::Round($size/1MB,2)) MB)"
+
+      - name: Compute checksums
+        id: hash
+        shell: pwsh
+        run: |
+          $exe = "build\pkg\out\New-Era-Setup.exe"
+          $hash = (Get-FileHash -Algorithm SHA256 $exe).Hash.ToLower()
+          $size = (Get-Item $exe).Length
+          "sha256=$hash" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+          "size_bytes=$size" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+          "$hash *New-Era-Setup.exe" | Out-File -Encoding ASCII "build\pkg\out\New-Era-Setup.exe.sha256"
+          Write-Host "SHA-256: $hash"
+          Write-Host "Taille : $size bytes"
+
+      - name: Upload installer as build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: New-Era-Setup-Windows
+          path: |
+            build/pkg/out/New-Era-Setup.exe
+            build/pkg/out/New-Era-Setup.exe.sha256
+          retention-days: 30
+          if-no-files-found: error
+
+      - name: Create GitHub Release (on tag)
+        if: startsWith(github.ref, 'refs/tags/installer-v')
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: "New Era ${{ github.ref_name }} — Installateur Windows"
+          body: |
+            Installateur Windows du mod PMDO **New Era: Abyss to Ascension**.
+
+            ## Installation
+            1. Téléchargez et installez **PMDO** :
+               https://github.com/audinowho/PMDODump/releases
+            2. Téléchargez ci-dessous **New-Era-Setup.exe**.
+            3. Double-cliquez dessus. L'installateur détecte PMDO
+               automatiquement et propose `PMDO\MODS\New-Era` comme dossier.
+            4. Lancez PMDO → Special Episodes → New Era.
+
+            ## Vérification d'intégrité
+            SHA-256 : `${{ steps.hash.outputs.sha256 }}`
+            Taille  : ${{ steps.hash.outputs.size_bytes }} octets
+
+            ## Convention
+            Aligné sur l'arborescence PMDO Quest mod
+            [Palikadude/Halcyon](https://github.com/Palikadude/Halcyon)
+            (Mod.xml, Data\, Content\, Strings\, CONVERSION\, docs).
+          files: |
+            build/pkg/out/New-Era-Setup.exe
+            build/pkg/out/New-Era-Setup.exe.sha256
+          draft: false
+          prerelease: false
+          fail_on_unmatched_files: true
+
+      - name: Create GitHub Release (on workflow_dispatch with create_release=true)
+        if: >
+          github.event_name == 'workflow_dispatch' &&
+          github.event.inputs.create_release == 'true' &&
+          github.event.inputs.release_tag != ''
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.release_tag }}
+          name: "New Era ${{ github.event.inputs.release_tag }} — Installateur Windows"
+          body: |
+            Installateur Windows du mod PMDO **New Era: Abyss to Ascension**.
+
+            ## Installation
+            1. Téléchargez et installez PMDO : https://github.com/audinowho/PMDODump/releases
+            2. Téléchargez ci-dessous **New-Era-Setup.exe** puis double-cliquez.
+
+            SHA-256 : `${{ steps.hash.outputs.sha256 }}`
+            Taille  : ${{ steps.hash.outputs.size_bytes }} octets
+          files: |
+            build/pkg/out/New-Era-Setup.exe
+            build/pkg/out/New-Era-Setup.exe.sha256
+          draft: false
+          prerelease: false
+          fail_on_unmatched_files: true
