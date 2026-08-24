@@ -39,7 +39,7 @@ except ImportError as exc:  # pragma: no cover - explicit operator failure
 from pmu_adaptation.composer import (  # noqa: E402
     _empty_cell, _empty_ground_object, _ground_shell, _marker, _png_bytes, _unpremultiply, write_tile,
 )
-from pmdo_ground.assets import _tile_entries  # noqa: E402
+from smart_dungeon.assets import _tile_entries  # noqa: E402
 
 SOURCE_SHA256 = "2f33b595b450b40355554d73f5acc5d7272e5d54519e35cd8971e0f336401227"
 UPSTREAM_REPOSITORY = "https://github.com/meromoonmeri/nonamevillage"
@@ -288,10 +288,12 @@ def collision_mask(extracted: Path, sprite: dict[str, Any], scale_x: float, scal
         mask = masks[0]; binary = ((mask.get("Data") or {}).get("$binary") or {}); path = binary.get("path")
         if not path: return None
         bits = (extracted / path).read_bytes(); width, height = int(mask["Width"]), int(mask["Height"]); stride = (width + 7) // 8
-        image = Image.new("L", (width, height), 0); pixels = image.load()
-        for y in range(height):
-            for x in range(width):
-                if bits[y * stride + x // 8] & (1 << (7 - x % 8)): pixels[x, y] = 255
+        # Decode the 1-bit mask with Pillow's own unpacker instead of a per-pixel
+        # Python loop: identical output, but orders of magnitude faster on the
+        # large NNV sprites (some are several thousand pixels wide).
+        image = Image.frombytes("1", (stride * 8, height), bits).convert("L").point(lambda v: 255 if v else 0)
+        if image.width != width:
+            image = image.crop((0, 0, width, height))
     else:
         left, top = int(sprite.get("MarginLeft") or 0), int(sprite.get("MarginTop") or 0)
         right, bottom = int(sprite.get("MarginRight") or width - 1), int(sprite.get("MarginBottom") or height - 1)
@@ -304,6 +306,19 @@ def collision_mask(extracted: Path, sprite: dict[str, Any], scale_x: float, scal
     target = (max(1, image.width // SCALE_DIVISOR), max(1, image.height // SCALE_DIVISOR))
     image = image.resize(target, Image.Resampling.BOX).point(lambda value: 255 if value else 0)
     return image
+
+
+# Source fauna must never be baked into a Ground as decorative tiles. Every
+# occurrence is kept as separate data so it can later be cast as a native
+# Pokemon through NNVLife. Prefixes cover the animated mob families; the exact
+# set covers standalone critters that do not share the objmob* naming.
+FAUNA_PREFIXES = ("objmob", "objbmob", "objbfmob", "objbgmob", "objbird", "objbutterfly")
+FAUNA_EXACT = {"objbug0", "objfirefly", "objfrog", "objbutterfly0", "objbutterfly1", "objbird0"}
+
+
+def is_fauna(object_name: str) -> bool:
+    """True when the source object is animal life, never scenery."""
+    return object_name.startswith(FAUNA_PREFIXES) or object_name in FAUNA_EXACT
 
 
 def wildlife_semantics(gml: dict[str, str], object_name: str) -> dict[str, Any]:
@@ -409,7 +424,7 @@ def convert(repo: Path, room_name: str, season: str, extracted: Path, texture_ca
             })
             if code["newroom"] is None or not 0 <= code["newroom"] < len(rooms):
                 blockers.append(f"unresolved transition {placement.get('InstanceID')} newroom={code['newroom']}")
-        elif object_name.startswith(("objmob", "objbmob")):
+        elif is_fauna(object_name):
             wildlife_source.append({"instance_id": placement.get("InstanceID"), "object": object_name, "position_source_px": [placement.get("X"), placement.get("Y")], "position_pmdo_px": [round(placement.get("X") / SCALE_DIVISOR), round(placement.get("Y") / SCALE_DIVISOR)], "semantics": wildlife_semantics(gml, object_name)})
             blockers.append(f"wildlife role {placement.get('InstanceID')}:{object_name} requires native Pokemon encounter mapping")
         elif object_name in {"objlogger", "objhunter", "objcarpenter", "objherbalist", "objseamstress"}:
@@ -427,11 +442,22 @@ def convert(repo: Path, room_name: str, season: str, extracted: Path, texture_ca
     tile_entries: list[tuple[int, bytes]] = []
     sheet = f"NNV_{room_name}_{season.capitalize()}_Source"
 
+    raw_locations: dict[bytes, tuple[int, int]] = {}
+
     def add_image(image: Image.Image) -> tuple[int, int]:
+        # Deduplicate on raw pixels FIRST. The tile sheet is highly repetitive
+        # (a room reuses the same 64x64 cells thousands of times), and premultiply
+        # + PNG encoding accounted for ~90% of conversion time. Identical pixels
+        # always produce an identical payload, so the emitted sheet is unchanged.
+        raw = image.convert("RGBA").tobytes()
+        cached = raw_locations.get(raw)
+        if cached is not None:
+            return cached
         payload = _png_bytes(image)
         if payload not in payload_locations:
             index = len(payload_locations); loc = (index % 64, index // 64)
             payload_locations[payload] = loc; tile_entries.append((loc[0] | (loc[1] << 32), payload))
+        raw_locations[raw] = payload_locations[payload]
         return payload_locations[payload]
 
     source_layers = []
@@ -489,7 +515,7 @@ def convert(repo: Path, room_name: str, season: str, extracted: Path, texture_ca
                     object_index = ref_index(placement.get("ObjectDefinition"))
                     if object_index is None: continue
                     obj = objects[object_index]; object_name = obj["Name"]
-                    if object_name.startswith(("objmob", "objbmob")) or object_name in {"objlogger", "objhunter", "objcarpenter", "objherbalist", "objseamstress", "objplayer", "objfollower"}:
+                    if is_fauna(object_name) or object_name in {"objlogger", "objhunter", "objcarpenter", "objherbalist", "objseamstress", "objplayer", "objfollower"}:
                         continue
                     mapping = object_correspondence.get(object_name)
                     replacement = mapping.get(season) if mapping is not None else object_name

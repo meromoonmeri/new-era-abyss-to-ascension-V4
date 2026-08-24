@@ -22,8 +22,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 2200,
-        "Y": 776
+        "X": 275,
+        "Y": 97
       },
       "CollisionDisabled": false,
       "Data": {
@@ -112,8 +112,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 2200,
-        "Y": 776
+        "X": 275,
+        "Y": 97
       },
       "triggerType": 1
     },
@@ -123,8 +123,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 1096,
-        "Y": 2120
+        "X": 137,
+        "Y": 265
       },
       "CollisionDisabled": false,
       "Data": {
@@ -213,8 +213,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 1096,
-        "Y": 2120
+        "X": 137,
+        "Y": 265
       },
       "triggerType": 1
     },
@@ -224,8 +224,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 3824,
-        "Y": 2144
+        "X": 478,
+        "Y": 268
       },
       "CollisionDisabled": false,
       "Data": {
@@ -314,8 +314,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 3824,
-        "Y": 2144
+        "X": 478,
+        "Y": 268
       },
       "triggerType": 1
     },
@@ -325,8 +325,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 3824,
-        "Y": 2144
+        "X": 478,
+        "Y": 268
       },
       "CollisionDisabled": false,
       "Data": {
@@ -415,8 +415,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 3824,
-        "Y": 2144
+        "X": 478,
+        "Y": 268
       },
       "triggerType": 1
     },
@@ -426,8 +426,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 1152,
-        "Y": 2120
+        "X": 144,
+        "Y": 265
       },
       "CollisionDisabled": false,
       "Data": {
@@ -516,8 +516,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 1152,
-        "Y": 2120
+        "X": 144,
+        "Y": 265
       },
       "triggerType": 1
     },
@@ -527,8 +527,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 2208,
-        "Y": 4928
+        "X": 276,
+        "Y": 616
       },
       "CollisionDisabled": false,
       "Data": {
@@ -617,8 +617,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 2208,
-        "Y": 4928
+        "X": 276,
+        "Y": 616
       },
       "triggerType": 1
     },
@@ -628,8 +628,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 2240,
-        "Y": 4928
+        "X": 280,
+        "Y": 616
       },
       "CollisionDisabled": false,
       "Data": {
@@ -718,8 +718,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 2240,
-        "Y": 4928
+        "X": 280,
+        "Y": 616
       },
       "triggerType": 1
     },
@@ -729,8 +729,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 2912,
-        "Y": 64
+        "X": 364,
+        "Y": 8
       },
       "CollisionDisabled": false,
       "Data": {
@@ -819,8 +819,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 2912,
-        "Y": 64
+        "X": 364,
+        "Y": 8
       },
       "triggerType": 1
     },
@@ -830,8 +830,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 2944,
-        "Y": 64
+        "X": 368,
+        "Y": 8
       },
       "CollisionDisabled": false,
       "Data": {
@@ -920,8 +920,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 2944,
-        "Y": 64
+        "X": 368,
+        "Y": 8
       },
       "triggerType": 1
     },
@@ -931,8 +931,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 2880,
-        "Y": 64
+        "X": 360,
+        "Y": 8
       },
       "CollisionDisabled": false,
       "Data": {
@@ -1021,8 +1021,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 2880,
-        "Y": 64
+        "X": 360,
+        "Y": 8
       },
       "triggerType": 1
     },
@@ -1032,8 +1032,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 992,
-        "Y": 3520
+        "X": 124,
+        "Y": 440
       },
       "CollisionDisabled": false,
       "Data": {
@@ -1122,8 +1122,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 992,
-        "Y": 3520
+        "X": 124,
+        "Y": 440
       },
       "triggerType": 1
     },
@@ -1133,8 +1133,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 1024,
-        "Y": 3520
+        "X": 128,
+        "Y": 440
       },
       "CollisionDisabled": false,
       "Data": {
@@ -1223,8 +1223,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 1024,
-        "Y": 3520
+        "X": 128,
+        "Y": 440
       },
       "triggerType": 1
     },
@@ -1234,8 +1234,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 1152,
-        "Y": 2176
+        "X": 144,
+        "Y": 272
       },
       "CollisionDisabled": false,
       "Data": {
@@ -1324,8 +1324,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 1152,
-        "Y": 2176
+        "X": 144,
+        "Y": 272
       },
       "triggerType": 1
     },
@@ -1335,8 +1335,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 1184,
-        "Y": 2176
+        "X": 148,
+        "Y": 272
       },
       "CollisionDisabled": false,
       "Data": {
@@ -1425,8 +1425,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 1184,
-        "Y": 2176
+        "X": 148,
+        "Y": 272
       },
       "triggerType": 1
     },
@@ -1436,8 +1436,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 1120,
-        "Y": 2176
+        "X": 140,
+        "Y": 272
       },
       "CollisionDisabled": false,
       "Data": {
@@ -1526,8 +1526,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 1120,
-        "Y": 2176
+        "X": 140,
+        "Y": 272
       },
       "triggerType": 1
     },
@@ -1537,8 +1537,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 2272,
-        "Y": 832
+        "X": 284,
+        "Y": 104
       },
       "CollisionDisabled": false,
       "Data": {
@@ -1627,8 +1627,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 2272,
-        "Y": 832
+        "X": 284,
+        "Y": 104
       },
       "triggerType": 1
     },
@@ -1638,8 +1638,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 2304,
-        "Y": 832
+        "X": 288,
+        "Y": 104
       },
       "CollisionDisabled": false,
       "Data": {
@@ -1728,8 +1728,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 2304,
-        "Y": 832
+        "X": 288,
+        "Y": 104
       },
       "triggerType": 1
     },
@@ -1739,8 +1739,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 3968,
-        "Y": 2304
+        "X": 496,
+        "Y": 288
       },
       "CollisionDisabled": false,
       "Data": {
@@ -1829,8 +1829,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 3968,
-        "Y": 2304
+        "X": 496,
+        "Y": 288
       },
       "triggerType": 1
     },
@@ -1840,8 +1840,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 2320,
-        "Y": 4296
+        "X": 290,
+        "Y": 537
       },
       "CollisionDisabled": true,
       "Data": {
@@ -1930,8 +1930,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 2320,
-        "Y": 4296
+        "X": 290,
+        "Y": 537
       },
       "triggerType": 1
     },
@@ -1941,8 +1941,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 2384,
-        "Y": 4224
+        "X": 298,
+        "Y": 528
       },
       "CollisionDisabled": true,
       "Data": {
@@ -2031,8 +2031,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 2384,
-        "Y": 4224
+        "X": 298,
+        "Y": 528
       },
       "triggerType": 1
     },
@@ -2042,8 +2042,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 1784,
-        "Y": 4952
+        "X": 223,
+        "Y": 619
       },
       "CollisionDisabled": true,
       "Data": {
@@ -2132,8 +2132,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 1784,
-        "Y": 4952
+        "X": 223,
+        "Y": 619
       },
       "triggerType": 1
     },
@@ -2143,8 +2143,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 1888,
-        "Y": 4896
+        "X": 236,
+        "Y": 612
       },
       "CollisionDisabled": true,
       "Data": {
@@ -2233,8 +2233,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 1888,
-        "Y": 4896
+        "X": 236,
+        "Y": 612
       },
       "triggerType": 1
     },
@@ -2244,8 +2244,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 3104,
-        "Y": 3880
+        "X": 388,
+        "Y": 485
       },
       "CollisionDisabled": true,
       "Data": {
@@ -2334,8 +2334,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 3104,
-        "Y": 3880
+        "X": 388,
+        "Y": 485
       },
       "triggerType": 1
     },
@@ -2345,8 +2345,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 3248,
-        "Y": 3864
+        "X": 406,
+        "Y": 483
       },
       "CollisionDisabled": true,
       "Data": {
@@ -2435,8 +2435,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 3248,
-        "Y": 3864
+        "X": 406,
+        "Y": 483
       },
       "triggerType": 1
     },
@@ -2446,8 +2446,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 4400,
-        "Y": 4392
+        "X": 550,
+        "Y": 549
       },
       "CollisionDisabled": true,
       "Data": {
@@ -2536,8 +2536,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 4400,
-        "Y": 4392
+        "X": 550,
+        "Y": 549
       },
       "triggerType": 1
     },
@@ -2547,8 +2547,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 4456,
-        "Y": 4488
+        "X": 557,
+        "Y": 561
       },
       "CollisionDisabled": true,
       "Data": {
@@ -2637,8 +2637,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 4456,
-        "Y": 4488
+        "X": 557,
+        "Y": 561
       },
       "triggerType": 1
     },
@@ -2648,8 +2648,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 4256,
-        "Y": 3912
+        "X": 532,
+        "Y": 489
       },
       "CollisionDisabled": true,
       "Data": {
@@ -2738,8 +2738,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 4256,
-        "Y": 3912
+        "X": 532,
+        "Y": 489
       },
       "triggerType": 1
     },
@@ -2749,8 +2749,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 3472,
-        "Y": 1872
+        "X": 434,
+        "Y": 234
       },
       "CollisionDisabled": true,
       "Data": {
@@ -2839,8 +2839,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 3472,
-        "Y": 1872
+        "X": 434,
+        "Y": 234
       },
       "triggerType": 1
     },
@@ -2850,8 +2850,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 1800,
-        "Y": 2728
+        "X": 225,
+        "Y": 341
       },
       "CollisionDisabled": true,
       "Data": {
@@ -2940,8 +2940,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 1800,
-        "Y": 2728
+        "X": 225,
+        "Y": 341
       },
       "triggerType": 1
     },
@@ -2951,8 +2951,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 2560,
-        "Y": 1480
+        "X": 320,
+        "Y": 185
       },
       "CollisionDisabled": true,
       "Data": {
@@ -3041,8 +3041,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 2560,
-        "Y": 1480
+        "X": 320,
+        "Y": 185
       },
       "triggerType": 1
     },
@@ -3052,8 +3052,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 2496,
-        "Y": 1440
+        "X": 312,
+        "Y": 180
       },
       "CollisionDisabled": true,
       "Data": {
@@ -3142,8 +3142,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 2496,
-        "Y": 1440
+        "X": 312,
+        "Y": 180
       },
       "triggerType": 1
     },
@@ -3153,8 +3153,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 3192,
-        "Y": 936
+        "X": 399,
+        "Y": 117
       },
       "CollisionDisabled": true,
       "Data": {
@@ -3243,8 +3243,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 3192,
-        "Y": 936
+        "X": 399,
+        "Y": 117
       },
       "triggerType": 1
     },
@@ -3254,8 +3254,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 3328,
-        "Y": 912
+        "X": 416,
+        "Y": 114
       },
       "CollisionDisabled": true,
       "Data": {
@@ -3344,8 +3344,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 3328,
-        "Y": 912
+        "X": 416,
+        "Y": 114
       },
       "triggerType": 1
     },
@@ -3355,8 +3355,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 3280,
-        "Y": 1008
+        "X": 410,
+        "Y": 126
       },
       "CollisionDisabled": true,
       "Data": {
@@ -3445,8 +3445,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 3280,
-        "Y": 1008
+        "X": 410,
+        "Y": 126
       },
       "triggerType": 1
     },
@@ -3456,8 +3456,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 3192,
-        "Y": 208
+        "X": 399,
+        "Y": 26
       },
       "CollisionDisabled": true,
       "Data": {
@@ -3546,8 +3546,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 3192,
-        "Y": 208
+        "X": 399,
+        "Y": 26
       },
       "triggerType": 1
     },
@@ -3557,8 +3557,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 1088,
-        "Y": 872
+        "X": 136,
+        "Y": 109
       },
       "CollisionDisabled": true,
       "Data": {
@@ -3647,8 +3647,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 1088,
-        "Y": 872
+        "X": 136,
+        "Y": 109
       },
       "triggerType": 1
     },
@@ -3658,8 +3658,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 1024,
-        "Y": 928
+        "X": 128,
+        "Y": 116
       },
       "CollisionDisabled": true,
       "Data": {
@@ -3748,8 +3748,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 1024,
-        "Y": 928
+        "X": 128,
+        "Y": 116
       },
       "triggerType": 1
     },
@@ -3759,8 +3759,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 1232,
-        "Y": 1040
+        "X": 154,
+        "Y": 130
       },
       "CollisionDisabled": true,
       "Data": {
@@ -3849,8 +3849,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 1232,
-        "Y": 1040
+        "X": 154,
+        "Y": 130
       },
       "triggerType": 1
     },
@@ -3860,8 +3860,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 1584,
-        "Y": 2656
+        "X": 198,
+        "Y": 332
       },
       "CollisionDisabled": true,
       "Data": {
@@ -3950,8 +3950,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 1584,
-        "Y": 2656
+        "X": 198,
+        "Y": 332
       },
       "triggerType": 1
     },
@@ -3961,8 +3961,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 1472,
-        "Y": 2624
+        "X": 184,
+        "Y": 328
       },
       "CollisionDisabled": true,
       "Data": {
@@ -4051,8 +4051,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 1472,
-        "Y": 2624
+        "X": 184,
+        "Y": 328
       },
       "triggerType": 1
     },
@@ -4062,8 +4062,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 1960,
-        "Y": 4648
+        "X": 245,
+        "Y": 581
       },
       "CollisionDisabled": true,
       "Data": {
@@ -4152,8 +4152,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 1960,
-        "Y": 4648
+        "X": 245,
+        "Y": 581
       },
       "triggerType": 1
     },
@@ -4163,8 +4163,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 4280,
-        "Y": 4328
+        "X": 535,
+        "Y": 541
       },
       "CollisionDisabled": true,
       "Data": {
@@ -4253,8 +4253,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 4280,
-        "Y": 4328
+        "X": 535,
+        "Y": 541
       },
       "triggerType": 1
     },
@@ -4264,8 +4264,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 4448,
-        "Y": 4344
+        "X": 556,
+        "Y": 543
       },
       "CollisionDisabled": true,
       "Data": {
@@ -4354,8 +4354,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 4448,
-        "Y": 4344
+        "X": 556,
+        "Y": 543
       },
       "triggerType": 1
     },
@@ -4365,8 +4365,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 4416,
-        "Y": 4480
+        "X": 552,
+        "Y": 560
       },
       "CollisionDisabled": true,
       "Data": {
@@ -4455,8 +4455,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 4416,
-        "Y": 4480
+        "X": 552,
+        "Y": 560
       },
       "triggerType": 1
     },
@@ -4466,8 +4466,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 4376,
-        "Y": 4288
+        "X": 547,
+        "Y": 536
       },
       "CollisionDisabled": true,
       "Data": {
@@ -4556,8 +4556,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 4376,
-        "Y": 4288
+        "X": 547,
+        "Y": 536
       },
       "triggerType": 1
     },
@@ -4567,8 +4567,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 4344,
-        "Y": 4368
+        "X": 543,
+        "Y": 546
       },
       "CollisionDisabled": true,
       "Data": {
@@ -4657,8 +4657,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 4344,
-        "Y": 4368
+        "X": 543,
+        "Y": 546
       },
       "triggerType": 1
     },
@@ -4668,8 +4668,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 3480,
-        "Y": 1496
+        "X": 435,
+        "Y": 187
       },
       "CollisionDisabled": true,
       "Data": {
@@ -4758,8 +4758,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 3480,
-        "Y": 1496
+        "X": 435,
+        "Y": 187
       },
       "triggerType": 1
     },
@@ -4769,8 +4769,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 3680,
-        "Y": 1568
+        "X": 460,
+        "Y": 196
       },
       "CollisionDisabled": true,
       "Data": {
@@ -4859,8 +4859,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 3680,
-        "Y": 1568
+        "X": 460,
+        "Y": 196
       },
       "triggerType": 1
     },
@@ -4870,8 +4870,8 @@
       "Collider": {
         "Height": 16,
         "Width": 16,
-        "X": 3608,
-        "Y": 1296
+        "X": 451,
+        "Y": 162
       },
       "CollisionDisabled": true,
       "Data": {
@@ -4960,8 +4960,8 @@
       "serializationDir": 0,
       "serializationHeight": 0,
       "serializationLoc": {
-        "X": 3608,
-        "Y": 1296
+        "X": 451,
+        "Y": 162
       },
       "triggerType": 1
     }

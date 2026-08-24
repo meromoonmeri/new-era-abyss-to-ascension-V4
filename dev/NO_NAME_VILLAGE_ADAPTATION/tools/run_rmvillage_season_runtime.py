@@ -6,7 +6,7 @@ from pathlib import Path
 HERE=Path(__file__).resolve();REPO=HERE.parents[2]
 for p in (REPO/'PMU_ADAPTATION/src',REPO/'PMU_EXTRACTION/src',REPO/'tools'):sys.path.insert(0,str(p))
 from pmu_adaptation.runtime import build_fixture
-from pmdo_ground.ground_runtime import runtime_env
+from smart_dungeon.ground_runtime import runtime_env
 SEASONS=('spring','autumn','winter')
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def require(v,m):

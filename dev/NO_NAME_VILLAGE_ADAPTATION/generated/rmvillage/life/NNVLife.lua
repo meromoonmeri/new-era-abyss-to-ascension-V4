@@ -14,8 +14,9 @@ Life.SOCIAL={
 }
 local function numbered(prefix,count)local result={} for index=1,count do result[#result+1]=prefix..tostring(index) end return result end
 Life.GROUPS={
- source_birds={names=numbered('NNV_SourceBird_',12),behavior='flying_social',radius=320},
- source_butterflies={names=numbered('NNV_SourceButterfly_',19),behavior='flying_social',radius=240},
+ -- Les 12 oiseaux et 19 papillons issus de la source ont ete RETIRES d'ici:
+ -- ils sont desormais pilotes exclusivement par NNVEcology (module unique).
+ -- Deux boucles ne doivent jamais commander les memes Pokemon.
  flock={names={'NNV_Wild_Fletchling_1','NNV_Wild_Fletchling_2'},behavior='timid',radius=96},
  colony_scatterbug={names={'NNV_Wild_Scatterbug_1','NNV_Wild_Scatterbug_2','NNV_Wild_Scatterbug_3'},behavior='timid',radius=72},
  colony_caterpie={names={'NNV_Wild_Caterpie_1','NNV_Wild_Caterpie_2'},behavior='timid',radius=72},
