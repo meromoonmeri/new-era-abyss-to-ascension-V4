@@ -6637,9 +6637,9 @@
     "game": "PMD_RED",
     "status": {
       "configuration": "validated",
-      "runtime": "missing",
-      "batch_approved": false,
-      "reason": "red_story_05: native PMDO validation not run yet"
+      "runtime": "validated",
+      "batch_approved": true,
+      "reason": "Native PMDO mapgen and complete lapis_cave entrance->floors->canonical-end->return route passed."
     },
     "categories": {
       "floor_parameters": [

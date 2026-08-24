@@ -28,15 +28,15 @@
 
 | Ét. | Segment | Type | Profil | Grille | Cellule | Variantes OK | Rejets | Rooms (min/moy/max) | Halls | Branches | Culs-de-sac | Boucles | Dist. escaliers | Signatures | Traversable |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | blaze_slope | procedural | branching|lattice|looping | 7x4 | 12x8 | 10 | 0 | 12/15.8/22 | 22.1 | 6.7 | 5.2 | 2.6 | 46.7 | 10 | oui |
-| 2 | blaze_slope | procedural | branching|lattice|looping | 6x4 | 11x10 | 10 | 2 | 9/14.0/19 | 24.5 | 7.4 | 4.1 | 4.0 | 54.9 | 10 | oui |
-| 3 | blaze_slope | procedural | branching|lattice|looping | 7x5 | 12x10 | 10 | 3 | 10/14.8/29 | 21.3 | 7.2 | 4.3 | 3.5 | 46.4 | 10 | oui |
-| 4 | blaze_slope | procedural | branching|lattice|looping | 7x4 | 12x9 | 10 | 0 | 12/15.3/24 | 25.1 | 7.1 | 3.2 | 4.0 | 47.3 | 10 | oui |
-| 5 | blaze_slope | procedural | branching|lattice|looping | 7x5 | 9x8 | 10 | 1 | 11/14.6/22 | 21.9 | 6.5 | 4.5 | 2.9 | 44.8 | 10 | oui |
-| 6 | blaze_slope | procedural | branching|lattice|looping | 7x4 | 9x9 | 10 | 0 | 12/16.9/29 | 25.4 | 7.9 | 4.7 | 3.9 | 44.7 | 10 | oui |
-| 7 | blaze_slope | procedural | branching|lattice|looping | 7x4 | 10x10 | 10 | 0 | 11/15.8/28 | 22.9 | 6.0 | 4.1 | 2.9 | 42.6 | 10 | oui |
-| 8 | blaze_slope | procedural | branching|lattice|looping | 6x4 | 10x9 | 10 | 2 | 9/13.7/22 | 23.1 | 6.6 | 3.2 | 3.8 | 45.3 | 10 | oui |
-| 9 | blaze_slope | procedural | branching|lattice|looping | 7x4 | 9x8 | 10 | 0 | 11/16.4/24 | 22.8 | 6.3 | 5.1 | 2.4 | 46.2 | 10 | oui |
-| 10 | blaze_slope | procedural | branching|lattice|looping | 5x5 | 10x10 | 10 | 1 | 12/16.3/22 | 24.1 | 8.0 | 5.2 | 3.6 | 47.7 | 10 | oui |
-| 11 | blaze_slope | procedural | branching|lattice|looping | 7x5 | 12x9 | 10 | 0 | 11/17.3/29 | 25.3 | 8.1 | 5.2 | 3.6 | 48.3 | 10 | oui |
-| 12 | blaze_slope | procedural | branching|lattice|looping | 7x5 | 10x10 | 10 | 0 | 11/15.9/25 | 23.7 | 6.9 | 4.3 | 3.3 | 53.0 | 10 | oui |
+| 1 | blaze_slope | procedural | branching|lattice|looping | 5x5 | 12x9 | 10 | 1 | 11/15.3/20 | 26.7 | 8.3 | 3.9 | 4.8 | 49.3 | 10 | oui |
+| 2 | blaze_slope | procedural | branching|lattice|looping | 5x5 | 9x10 | 10 | 2 | 11/15.0/25 | 21.0 | 5.5 | 4.0 | 2.5 | 41.6 | 10 | oui |
+| 3 | blaze_slope | procedural | branching|lattice|looping | 5x4 | 9x8 | 10 | 2 | 10/15.2/20 | 25.0 | 8.4 | 4.7 | 4.7 | 39.3 | 10 | oui |
+| 4 | blaze_slope | procedural | branching|lattice|looping | 5x5 | 10x10 | 10 | 2 | 8/15.4/22 | 23.5 | 6.6 | 3.7 | 3.3 | 45.3 | 10 | oui |
+| 5 | blaze_slope | procedural | branching|lattice|looping | 5x5 | 11x8 | 10 | 1 | 10/15.3/26 | 22.4 | 5.8 | 3.5 | 2.8 | 44.4 | 10 | oui |
+| 6 | blaze_slope | procedural | branching|lattice|looping | 7x5 | 11x8 | 10 | 5 | 10/14.8/24 | 21.7 | 6.5 | 4.6 | 2.9 | 43.6 | 10 | oui |
+| 7 | blaze_slope | procedural | branching|lattice|looping | 7x4 | 10x10 | 10 | 1 | 12/15.2/19 | 24.0 | 8.2 | 5.3 | 4.0 | 47.4 | 10 | oui |
+| 8 | blaze_slope | procedural | branching|lattice|looping | 5x4 | 11x9 | 10 | 3 | 10/14.7/25 | 26.0 | 7.4 | 3.6 | 4.5 | 43.7 | 10 | oui |
+| 9 | blaze_slope | procedural | branching|lattice|looping | 6x4 | 12x8 | 10 | 2 | 10/16.6/27 | 22.6 | 6.1 | 5.0 | 2.4 | 45.1 | 10 | oui |
+| 10 | blaze_slope | procedural | branching|lattice|looping | 7x5 | 10x9 | 10 | 1 | 9/14.2/18 | 22.7 | 5.7 | 3.8 | 3.3 | 37.7 | 10 | oui |
+| 11 | blaze_slope | procedural | branching|lattice|looping | 5x4 | 10x8 | 10 | 0 | 8/16.2/28 | 23.4 | 6.8 | 4.4 | 3.1 | 52.8 | 10 | oui |
+| 12 | blaze_slope | procedural | branching|lattice|looping | 5x4 | 9x10 | 10 | 1 | 11/14.7/19 | 24.8 | 8.1 | 4.2 | 4.5 | 45.9 | 10 | oui |

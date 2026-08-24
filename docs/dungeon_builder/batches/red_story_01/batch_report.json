@@ -32,7 +32,7 @@
       },
       "artifacts": {
         "definition_sha256": "3410b57f05183b5937f4cd1a11462a7df8694b650cfbbe7acf79a3294aa85563",
-        "zone_sha256": "5e0024637309050fcc7840968597025f678d15e228baba723bdaa9e299386cf3"
+        "zone_sha256": "3e35d465b170c7700a7be614e68a1680fa24868a8058ec71c6ad664d3c090189"
       },
       "route_runtime": {
         "jsonl": "docs/dungeon_builder/batches/red_story_01/runtime/routes/tiny_woods.jsonl",
@@ -75,7 +75,7 @@
       },
       "artifacts": {
         "definition_sha256": "f2408fa9433fa63904c95ffb60c93268837bd98f44218e054df1be3e43f95ebe",
-        "zone_sha256": "b8f0971485702a3953615e5bf897be3d7ad73ce02d86af1bd369be7260730650"
+        "zone_sha256": "e36de1520e37be14acbfdf574e217e75971548a12f47ed7be98f902233adcbc3"
       },
       "route_runtime": {
         "jsonl": "docs/dungeon_builder/batches/red_story_01/runtime/routes/thunderwave_cave.jsonl",

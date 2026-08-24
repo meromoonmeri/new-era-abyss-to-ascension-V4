@@ -46,6 +46,18 @@ local CONFIG={
   lapis_cave={floors=14,entrance='grotte_lazuli_seuil',final='grotte_lazuli_fond'},
   mt_freeze={floors=15,entrance='mont_gele_pied',final='d11p02'},
   mt_blaze={floors=12,entrance='mont_cendre_pied',final='d09p02'},
+  mt_thunder_peak={floors=2,entrance='d06p02',final='d06p03',
+    boss={segment=1,map='mt_thunder_peak_boss',species='zapdos',
+          source_floor=3,source_fixed_room=3,
+          provenance='PMD_RED_ROM/FIXED_ROOM_MT_THUNDER_PEAK_ZAPDOS'}},
+  mt_blaze_peak={floors=2,entrance='d09p02',final='d09p03',
+    boss={segment=1,map='mt_blaze_peak_boss',species='moltres',
+          source_floor=3,source_fixed_room=4,
+          provenance='PMD_RED_ROM/FIXED_ROOM_MT_BLAZE_PEAK_MOLTRES'}},
+  mt_freeze_peak={floors=4,entrance='d11p02',final='d11p03',
+    boss={segment=1,map='mt_freeze_peak_boss',species='glalie',
+          source_floor=5,source_fixed_room=6,
+          provenance='PMD_RED_ROM/FIXED_ROOM_MT_FREEZE_PEAK_NINETALES'}},
 }
 local function esc(v)return tostring(v):gsub('\\','\\\\'):gsub('"','\\"'):gsub('\n',' | '):gsub('\r','')end
 local function emit(v)

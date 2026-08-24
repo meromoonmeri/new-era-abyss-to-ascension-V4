@@ -1,15 +1,21 @@
 -- [dungeon_builder] script de zone canonique généré — ne pas éditer à la main.
---[[ Cime du Mont Grondant (mt_thunder_peak) — chapitre 9.
-     Zone reconstruite par tools/dungeon_builder : 1 segment(s).
-     Règle verrouillée : Ground de cinématique = Ground du combat = Ground final
-     canonique. Aucune arène séparée, aucune téléportation vers un décor inventé.
+--[[ mt_thunder_peak — chapitre PMD Red.
+     Zone reconstruite par tools/dungeon_builder : 2 segment(s).
+       * segment 0 : étages procéduraux (RogueElements natif).
+       * segment 1 : étage boss fixe canonique (LoadGen +
+         MappedRoomStep('mt_thunder_peak_boss')) — contrepartie pixel-exacte du
+         Ground canonique d06p03.
+       * Après clear seg 1, transition vers le Ground canonique d06p03
+         pour la cinématique de fin canonique.
+     Règle verrouillée : Ground de cinématique = Ground du combat (via
+     contrepartie .rsmap) = Ground final canonique. Aucune arène séparée.
      Regénérer avec : python3 tools/dungeon_builder.py wire-scenes --apply ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 
 local mt_thunder_peak = {}
 
-local LAST_SEGMENT = 0
+local LAST_SEGMENT = 1
 
 local function GROUND_IDX(name)
   local ok, idx = pcall(function()
@@ -31,7 +37,11 @@ local function ZONE_GROUND_IDX(zone, name)
   return 0
 end
 
-local RETURN_GROUND = 'mont_grondant_pied'
+-- Return Ground when player fails/escapes. The peak entrance script (the
+-- base dungeon's relay Ground, e.g. d06p02 for mt_thunder_peak) already
+-- came from a canonical Ground; on failure we fall back to the peak's
+-- own entrance so the player is not stranded.
+local RETURN_GROUND = 'd06p03'
 
 function mt_thunder_peak.Init(zone)
   DEBUG.EnableDbgCoro()
@@ -63,11 +73,12 @@ function mt_thunder_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
   end
 
   if segmentID == 0 then
-    -- Ground final canonique : cinématique, combat et fin au même endroit
-    SV.CanonicalDungeons.Pending = 'mt_thunder_peak_seg0'
-    -- d06p03 ne porte aucun marqueur : la scène téléporte
-    -- elle-même le joueur, on entre donc par index.
-    GAME:EnterGroundMap(ZONE_GROUND_IDX(zone, 'd06p03'), 0)
+    -- Segment procédural terminé : on enchaîne sur le segment boss fixe.
+    GAME:EnterZone(zone.ID, 1, 0, 0)
+  elseif segmentID == 1 then
+    -- Boss battu : transition vers le Ground canonique de fin.
+    SV.CanonicalDungeons.Pending = 'mt_thunder_peak_seg1'
+    GAME:EnterZone(zone.ID, -1, ZONE_GROUND_IDX(zone, 'd06p03'), 0)
   else
     GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, GROUND_IDX(RETURN_GROUND), 0, true, true)
   end

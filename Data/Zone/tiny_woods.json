@@ -59,8 +59,8 @@
                       "Value": {
                         "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                         "CellWidth": 11,
-                        "CellHeight": 9,
-                        "CellX": 3,
+                        "CellHeight": 10,
+                        "CellX": 4,
                         "CellY": 3,
                         "CellWall": 1,
                         "Wrap": false
@@ -517,7 +517,7 @@
                       }
                     }
                   ],
-                  "Comment": "young_woods — profile:looping — grid 3x3 cells 11x9 — layout rolled by PMDO ReRandom at runtime"
+                  "Comment": "young_woods — profile:looping — grid 4x3 cells 11x10 — layout rolled by PMDO ReRandom at runtime"
                 },
                 "Rate": 24
               },
@@ -548,7 +548,7 @@
                       },
                       "Value": {
                         "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                        "CellWidth": 10,
+                        "CellWidth": 11,
                         "CellHeight": 9,
                         "CellX": 4,
                         "CellY": 3,
@@ -1001,7 +1001,7 @@
                       }
                     }
                   ],
-                  "Comment": "young_woods — profile:lattice — grid 4x3 cells 10x9 — layout rolled by PMDO ReRandom at runtime"
+                  "Comment": "young_woods — profile:lattice — grid 4x3 cells 11x9 — layout rolled by PMDO ReRandom at runtime"
                 },
                 "Rate": 16
               }
@@ -1039,7 +1039,7 @@
                         "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                         "CellWidth": 12,
                         "CellHeight": 9,
-                        "CellX": 3,
+                        "CellX": 4,
                         "CellY": 3,
                         "CellWall": 1,
                         "Wrap": false
@@ -1496,7 +1496,7 @@
                       }
                     }
                   ],
-                  "Comment": "young_woods — profile:looping — grid 3x3 cells 12x9 — layout rolled by PMDO ReRandom at runtime"
+                  "Comment": "young_woods — profile:looping — grid 4x3 cells 12x9 — layout rolled by PMDO ReRandom at runtime"
                 },
                 "Rate": 24
               },
@@ -1529,7 +1529,7 @@
                         "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                         "CellWidth": 9,
                         "CellHeight": 9,
-                        "CellX": 4,
+                        "CellX": 3,
                         "CellY": 3,
                         "CellWall": 1,
                         "Wrap": false
@@ -1980,7 +1980,7 @@
                       }
                     }
                   ],
-                  "Comment": "young_woods — profile:lattice — grid 4x3 cells 9x9 — layout rolled by PMDO ReRandom at runtime"
+                  "Comment": "young_woods — profile:lattice — grid 3x3 cells 9x9 — layout rolled by PMDO ReRandom at runtime"
                 },
                 "Rate": 16
               }
@@ -2016,9 +2016,9 @@
                       },
                       "Value": {
                         "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                        "CellWidth": 11,
+                        "CellWidth": 12,
                         "CellHeight": 10,
-                        "CellX": 3,
+                        "CellX": 4,
                         "CellY": 3,
                         "CellWall": 1,
                         "Wrap": false
@@ -2475,7 +2475,7 @@
                       }
                     }
                   ],
-                  "Comment": "young_woods — profile:looping — grid 3x3 cells 11x10 — layout rolled by PMDO ReRandom at runtime"
+                  "Comment": "young_woods — profile:looping — grid 4x3 cells 12x10 — layout rolled by PMDO ReRandom at runtime"
                 },
                 "Rate": 24
               },
@@ -2506,9 +2506,9 @@
                       },
                       "Value": {
                         "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                        "CellWidth": 12,
-                        "CellHeight": 8,
-                        "CellX": 4,
+                        "CellWidth": 9,
+                        "CellHeight": 10,
+                        "CellX": 3,
                         "CellY": 3,
                         "CellWall": 1,
                         "Wrap": false
@@ -2959,7 +2959,7 @@
                       }
                     }
                   ],
-                  "Comment": "young_woods — profile:lattice — grid 4x3 cells 12x8 — layout rolled by PMDO ReRandom at runtime"
+                  "Comment": "young_woods — profile:lattice — grid 3x3 cells 9x10 — layout rolled by PMDO ReRandom at runtime"
                 },
                 "Rate": 16
               }

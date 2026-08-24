@@ -5,7 +5,7 @@
 - **Source canonique** : Pokémon Mystery Dungeon: Red Rescue Team — Mt. Thunder (10F). Espèces, niveaux, probabilités, tables d'objets, pièges et boutiques extraits de pret/pmd-red (data/dungeon/MtThunder) via tools/build_canonical_definitions.py ; niveaux renivelés au palier du chapitre 9. Recoupé avec Bulbapedia (page « Mt. Thunder »).  
 - **Étages** : 10 — direction `sommet`  
 - **Zone écrite** : `Data/Zone/mt_thunder.json`  
-- **Gate canonique** : configuration `validated`, runtime `missing`  
+- **Gate canonique** : configuration `validated`, runtime `validated`  
 - **Seed runtime** : fournie et journalisée par PMDO lors du test moteur ; aucune seed de production n'est écrite dans la zone.  
 
 ## Segments
@@ -28,13 +28,13 @@
 
 | Ét. | Segment | Type | Profil | Grille | Cellule | Variantes OK | Rejets | Rooms (min/moy/max) | Halls | Branches | Culs-de-sac | Boucles | Dist. escaliers | Signatures | Traversable |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | thunder_slope | procedural | branching|lattice | 5x5 | 9x10 | 10 | 1 | 13/16.5/21 | 23.0 | 7.5 | 5.3 | 3.7 | 47.0 | 10 | oui |
-| 2 | thunder_slope | procedural | branching|lattice | 5x5 | 9x10 | 10 | 1 | 10/15.7/22 | 20.6 | 6.4 | 5.2 | 2.7 | 44.5 | 10 | oui |
-| 3 | thunder_slope | procedural | branching|lattice | 5x4 | 11x10 | 10 | 0 | 10/14.5/18 | 22.3 | 7.5 | 4.8 | 4.1 | 42.6 | 10 | oui |
-| 4 | thunder_slope | procedural | branching|lattice | 5x5 | 10x8 | 10 | 1 | 9/15.6/21 | 21.6 | 7.7 | 5.2 | 3.4 | 40.9 | 10 | oui |
-| 5 | thunder_slope | procedural | branching|lattice | 5x5 | 9x10 | 10 | 3 | 10/16.1/23 | 22.4 | 7.8 | 5.0 | 3.7 | 39.5 | 10 | oui |
-| 6 | thunder_slope | procedural | branching|lattice | 6x5 | 9x10 | 10 | 3 | 11/15.9/24 | 22.5 | 7.5 | 5.2 | 3.6 | 50.6 | 10 | oui |
-| 7 | thunder_slope | procedural | branching|lattice | 4x3 | 10x10 | 10 | 3 | 5/6.5/8 | 6.8 | 2.0 | 2.7 | 0.7 | 31.0 | 10 | oui |
-| 8 | thunder_slope | procedural | branching|lattice | 5x5 | 10x9 | 10 | 0 | 11/14.7/24 | 20.0 | 6.5 | 5.0 | 3.0 | 43.6 | 10 | oui |
-| 9 | thunder_slope | procedural | branching|lattice | 5x4 | 10x10 | 10 | 2 | 11/15.3/24 | 22.9 | 8.2 | 5.1 | 4.1 | 44.6 | 10 | oui |
-| 10 | thunder_slope | procedural | branching|lattice | 6x5 | 12x9 | 10 | 0 | 11/14.9/20 | 21.2 | 6.9 | 5.7 | 3.2 | 44.2 | 10 | oui |
+| 1 | thunder_slope | procedural | branching|lattice | 5x4 | 12x10 | 10 | 0 | 9/14.7/25 | 20.7 | 6.6 | 4.3 | 3.4 | 43.4 | 10 | oui |
+| 2 | thunder_slope | procedural | branching|lattice | 6x4 | 12x10 | 10 | 0 | 10/15.4/22 | 23.7 | 8.0 | 4.8 | 4.5 | 44.8 | 10 | oui |
+| 3 | thunder_slope | procedural | branching|lattice | 5x5 | 12x8 | 10 | 0 | 10/15.1/21 | 22.3 | 8.3 | 5.5 | 3.9 | 60.0 | 10 | oui |
+| 4 | thunder_slope | procedural | branching|lattice | 6x4 | 9x9 | 10 | 0 | 10/14.3/22 | 21.1 | 7.0 | 4.6 | 3.7 | 45.7 | 10 | oui |
+| 5 | thunder_slope | procedural | branching|lattice | 6x5 | 12x8 | 10 | 2 | 11/14.6/20 | 23.1 | 8.0 | 4.4 | 4.5 | 54.3 | 10 | oui |
+| 6 | thunder_slope | procedural | branching|lattice | 5x5 | 10x9 | 10 | 1 | 11/14.8/19 | 22.9 | 8.0 | 5.3 | 4.0 | 50.4 | 10 | oui |
+| 7 | thunder_slope | procedural | branching|lattice | 3x3 | 12x8 | 10 | 0 | 6/6.7/8 | 7.2 | 2.1 | 2.9 | 0.7 | 31.4 | 10 | oui |
+| 8 | thunder_slope | procedural | branching|lattice | 5x4 | 9x10 | 10 | 0 | 11/16.4/22 | 23.1 | 7.9 | 6.2 | 3.5 | 46.3 | 10 | oui |
+| 9 | thunder_slope | procedural | branching|lattice | 6x5 | 10x8 | 10 | 1 | 11/17.9/25 | 24.3 | 8.7 | 7.0 | 3.5 | 45.5 | 10 | oui |
+| 10 | thunder_slope | procedural | branching|lattice | 5x4 | 10x9 | 10 | 1 | 12/16.1/24 | 23.3 | 8.0 | 4.9 | 4.2 | 50.9 | 10 | oui |

@@ -2710,7 +2710,7 @@
     "mt_blaze_peak": {
       "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
       "ExpPercent": 100,
-      "Level": 24,
+      "Level": 32,
       "LevelCap": false,
       "KeepSkills": false,
       "TeamRestrict": false,
@@ -2720,17 +2720,19 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 3,
+      "CountedFloors": 2,
       "Rogue": 0,
       "Grounds": [
-        "mont_cendre_pied",
+        "d09p02",
         "d09p03"
       ],
       "Maps": [
         [
           0,
-          1,
-          2
+          1
+        ],
+        [
+          0
         ]
       ],
       "Name": {
@@ -2740,7 +2742,7 @@
         }
       },
       "Released": false,
-      "Comment": "Définition canonique générée pour le chapitre 10. Aucun étage pré-calculé : la topologie est produite en jeu par RogueElements.",
+      "Comment": "Mt. Blaze Peak staged canonical candidate from PMD Red ROM tables. Architecture translation to native RogueElements profiles is explicitly INFERRED.",
       "SortOrder": 10
     },
     "mt_freeze_peak": {
@@ -2756,10 +2758,10 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 5,
+      "CountedFloors": 4,
       "Rogue": 0,
       "Grounds": [
-        "mont_gele_pied",
+        "d11p02",
         "d11p03"
       ],
       "Maps": [
@@ -2767,8 +2769,10 @@
           0,
           1,
           2,
-          3,
-          4
+          3
+        ],
+        [
+          0
         ]
       ],
       "Name": {
@@ -2778,7 +2782,7 @@
         }
       },
       "Released": false,
-      "Comment": "Définition canonique générée pour le chapitre 12. Aucun étage pré-calculé : la topologie est produite en jeu par RogueElements. 1 objets canoniques n'existent pas dans le jeu d'objets du mod et sont omis de la table (liste conservée dans `canonical_items_without_pmdo_equivalent`).",
+      "Comment": "Mt. Freeze Peak staged canonical candidate from PMD Red ROM tables. Architecture translation to native RogueElements profiles is explicitly INFERRED.",
       "SortOrder": 12
     },
     "mt_steel": {
@@ -2871,7 +2875,7 @@
     "mt_thunder_peak": {
       "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
       "ExpPercent": 100,
-      "Level": 23,
+      "Level": 25,
       "LevelCap": false,
       "KeepSkills": false,
       "TeamRestrict": false,
@@ -2881,17 +2885,19 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 3,
+      "CountedFloors": 2,
       "Rogue": 0,
       "Grounds": [
-        "mont_grondant_pied",
+        "d06p02",
         "d06p03"
       ],
       "Maps": [
         [
           0,
-          1,
-          2
+          1
+        ],
+        [
+          0
         ]
       ],
       "Name": {
@@ -2901,7 +2907,7 @@
         }
       },
       "Released": false,
-      "Comment": "Définition canonique générée pour le chapitre 9. Aucun étage pré-calculé : la topologie est produite en jeu par RogueElements. 1 objets canoniques n'existent pas dans le jeu d'objets du mod et sont omis de la table (liste conservée dans `canonical_items_without_pmdo_equivalent`).",
+      "Comment": "Mt. Thunder Peak staged canonical candidate from PMD Red ROM tables. Architecture translation to native RogueElements profiles is explicitly INFERRED.",
       "SortOrder": 9
     },
     "silent_chasm": {

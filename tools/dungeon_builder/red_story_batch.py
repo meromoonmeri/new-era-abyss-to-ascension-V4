@@ -222,14 +222,24 @@ def _profiles(stem: str, floor: dict[str, Any]) -> list[dict[str, Any]]:
     return rows
 
 
-def _pokemon(manifest: dict[str, Any], base_level: int) -> list[dict[str, Any]]:
+def _pokemon(manifest: dict[str, Any], base_level: int,
+             skip_floors: set[int] | None = None) -> list[dict[str, Any]]:
+    # `skip_floors` = ROM floor numbers that are fixed_rooms (bosses) —
+    # their Pokemon spawn table belongs to `boss.roster`, not to the
+    # procedural segment. Including them here would put Zapdos / Moltres /
+    # Skarmory in the regular per-floor spawn set and fail the canonical
+    # gate (SUPPLEMENTAL_POKEMON_NOT_SEPARATED).
+    skip = skip_floors or set()
     source_levels = [int(entry["level"])
                      for floor in manifest["floors"] for entry in floor["pokemon"]
-                     if int(entry.get("probability", 0)) > 0]
+                     if int(floor["floor"]) not in skip
+                     and int(entry.get("probability", 0)) > 0]
     canonical_min = min(source_levels, default=1)
     rows = []
     for floor in manifest["floors"]:
         number = int(floor["floor"])
+        if number in skip:
+            continue
         for entry in floor["pokemon"]:
             probability = int(entry.get("probability", 0))
             if probability <= 0:
@@ -244,7 +254,8 @@ def _pokemon(manifest: dict[str, Any], base_level: int) -> list[dict[str, Any]]:
     return rows
 
 
-def _items(manifest: dict[str, Any]) -> tuple[dict[str, Any], list[str], dict[str, list[str]]]:
+def _items(manifest: dict[str, Any],
+           skip_floors: set[int] | None = None) -> tuple[dict[str, Any], list[str], dict[str, list[str]]]:
     """Resolve PMD Red per-floor item tables to PMDO ids.
 
     Returns:
@@ -267,8 +278,15 @@ def _items(manifest: dict[str, Any]) -> tuple[dict[str, Any], list[str], dict[st
     skipped: dict[str, set[str]] = {"NOT_IN_PMDO_0_8_9_BASE": set()}
     per_floor_kept: dict[int, int] = {}
     per_floor_total: dict[int, int] = {}
+    skip = skip_floors or set()
     for floor in manifest["floors"]:
         number = int(floor["floor"])
+        # Skip fixed-boss floors: their item table belongs to the boss.roster
+        # / boss.loot (if any), not to the procedural segment. Including
+        # bosses here would double-count the same table on both the LoadGen
+        # segment and the procedural segment.
+        if number in skip:
+            continue
         table = manifest["tables"]["items"][str(floor["table_ids"]["Items"])]
         for category in table.get("categories", []):
             category_probability = int(category.get("categoryProbability", 0))
@@ -363,7 +381,7 @@ def reconcile(stem: str) -> dict[str, Any]:
             f"has {manifest['floor_count']} floors of which {len(fixed_from_config)} "
             f"are declared fixed (expected procedural floors = {procedural_floor_count})")
     floors = procedural_floor_count
-    items, missing_items, skipped_items = _items(manifest)
+    items, missing_items, skipped_items = _items(manifest, skip_floors=declared_fixed)
     if missing_items:
         raise ValueError(f"{stem}: unmapped canonical items: {', '.join(missing_items)}")
     if skipped_items:
@@ -379,7 +397,7 @@ def reconcile(stem: str) -> dict[str, Any]:
         "floors": [1, floors],
         "biome": raw.get("biome", stem),
         "profiles": [copy.deepcopy(PROFILE_SPECS[name]) for name in config["profiles"]],
-        "pokemon": _pokemon(manifest, int(raw["level"])),
+        "pokemon": _pokemon(manifest, int(raw["level"]), skip_floors=declared_fixed),
         "inherit_pokemon": False,
         "items": items,
         "inherit_items": False,

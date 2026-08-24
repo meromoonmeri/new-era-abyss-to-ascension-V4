@@ -32,7 +32,7 @@
       },
       "artifacts": {
         "definition_sha256": "b8c243d5d6bb4ff996f29a598d27fe37b081d01b20a0dac11d01acc322f2ef89",
-        "zone_sha256": "967849c2798003f20486893293221a2af681dc6c92256c1731567beb7cf8d6f6"
+        "zone_sha256": "29dcbb5166c709b01165c2a5e7ce17642318cf4654fa24b7675554cc5d876808"
       },
       "route_runtime": {
         "jsonl": "docs/dungeon_builder/batches/red_story_02/runtime/routes/silent_chasm.jsonl",
@@ -81,7 +81,7 @@
       },
       "artifacts": {
         "definition_sha256": "e4d2bba1492e3cdd76d4048b60d14d88e8b759464c4186e99a41e850109d414a",
-        "zone_sha256": "385167dbdaff55610ef1e1e90c19f0472c8ea6cb12fe7673aa5c7b9ef80cb77e"
+        "zone_sha256": "e43be6ce95b5385a8b47ba32bd7565708a761cdabab503a0c92ec3b324564475"
       },
       "route_runtime": {
         "jsonl": "docs/dungeon_builder/batches/red_story_02/runtime/routes/great_canyon.jsonl",

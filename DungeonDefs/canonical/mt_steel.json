@@ -556,30 +556,6 @@
             8,
             8
           ]
-        },
-        {
-          "species": "aron",
-          "level": [
-            22,
-            22
-          ],
-          "weight": 6667,
-          "floors": [
-            9,
-            9
-          ]
-        },
-        {
-          "species": "beldum",
-          "level": [
-            21,
-            21
-          ],
-          "weight": 3333,
-          "floors": [
-            9,
-            9
-          ]
         }
       ],
       "inherit_pokemon": false,
@@ -1228,86 +1204,6 @@
               "floors": [
                 8,
                 8
-              ]
-            },
-            {
-              "item": "ammo_gravelerock",
-              "weight": 2190,
-              "floors": [
-                9,
-                9
-              ]
-            },
-            {
-              "item": "berry_oran",
-              "weight": 1192,
-              "floors": [
-                9,
-                9
-              ]
-            },
-            {
-              "item": "berry_pecha",
-              "weight": 341,
-              "floors": [
-                9,
-                9
-              ]
-            },
-            {
-              "item": "berry_cheri",
-              "weight": 341,
-              "floors": [
-                9,
-                9
-              ]
-            },
-            {
-              "item": "seed_blast",
-              "weight": 511,
-              "floors": [
-                9,
-                9
-              ]
-            },
-            {
-              "item": "medicine_max_elixir",
-              "weight": 170,
-              "floors": [
-                9,
-                9
-              ]
-            },
-            {
-              "item": "gummi_white",
-              "weight": 438,
-              "floors": [
-                9,
-                9
-              ]
-            },
-            {
-              "item": "gummi_orange",
-              "weight": 438,
-              "floors": [
-                9,
-                9
-              ]
-            },
-            {
-              "item": "orb_petrify",
-              "weight": 208,
-              "floors": [
-                9,
-                9
-              ]
-            },
-            {
-              "item": "orb_escape",
-              "weight": 417,
-              "floors": [
-                9,
-                9
               ]
             }
           ],

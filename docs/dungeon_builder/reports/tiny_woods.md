@@ -5,13 +5,14 @@
 - **Source canonique** : Pokémon Mystery Dungeon: Red Rescue Team — Tiny Woods (3F). Espèces, niveaux, probabilités, tables d'objets, pièges et boutiques extraits de pret/pmd-red (data/dungeon/TinyWoods) via tools/build_canonical_definitions.py ; niveaux renivelés au palier du chapitre 7. Recoupé avec Bulbapedia (page « Tiny Woods »).  
 - **Étages** : 3 — direction `fond`  
 - **Zone écrite** : `Data/Zone/tiny_woods.json`  
-- **Seed d'auteur (debug)** : `8855158366534059952` (explicite : False)  
+- **Gate canonique** : configuration `validated`, runtime `validated`  
+- **Seed runtime** : fournie et journalisée par PMDO lors du test moteur ; aucune seed de production n'est écrite dans la zone.  
 
 ## Segments
 
 | Segment | Étages | Biome | DTEF | Profils | Pokémon | Shop | M.House | Météo |
 |---|---|---|---|---|---|---|---|---|
-| young_woods | 1-3 | young_woods | `tiny_meadow_floor` | branching, dense, mixed | 4 | oui | oui | — |
+| young_woods | 1-3 | young_woods | `tiny_woods_floor` | looping, lattice | 10 | non | non | — |
 
 ## Scènes fixes
 
@@ -26,6 +27,6 @@
 
 | Ét. | Segment | Type | Profil | Grille | Cellule | Variantes OK | Rejets | Rooms (min/moy/max) | Halls | Branches | Culs-de-sac | Boucles | Dist. escaliers | Signatures | Traversable |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | young_woods | procedural | branching+dense+mixed | 5x4 | 13x8 | 5 | 0 | 7/14.0/24 | 16.8 | 3.4 | 3.4 | 1.2 | 37.4 | 5 | oui |
-| 2 | young_woods | procedural | branching+dense+mixed | 8x5 | 7x6 | 5 | 1 | 12/15.4/23 | 16.8 | 5.0 | 5.4 | 1.4 | 41.2 | 5 | oui |
-| 3 | young_woods | procedural | branching+dense+mixed | 7x4 | 9x6 | 5 | 1 | 11/16.0/25 | 17.4 | 4.8 | 4.2 | 1.6 | 39.4 | 5 | oui |
+| 1 | young_woods | procedural | looping|lattice | 4x3 | 12x8 | 10 | 3 | 6/6.9/9 | 9.2 | 1.6 | 1.9 | 0.9 | 32.6 | 10 | oui |
+| 2 | young_woods | procedural | looping|lattice | 4x3 | 11x8 | 10 | 3 | 5/6.4/9 | 8.8 | 1.8 | 1.6 | 1.2 | 34.2 | 10 | oui |
+| 3 | young_woods | procedural | looping|lattice | 4x3 | 9x8 | 10 | 8 | 6/6.4/8 | 9.1 | 1.7 | 1.8 | 1.0 | 32.4 | 10 | oui |

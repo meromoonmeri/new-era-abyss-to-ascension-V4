@@ -32,7 +32,7 @@
       },
       "artifacts": {
         "definition_sha256": "172c36361926bbedf21c7730c6d88e696687ecfd88211cbf07485a9d5992eca9",
-        "zone_sha256": "5117eabdf3c71c15a35363869af4139f00d8a31b44663e71327a3fb8bcfc2d27"
+        "zone_sha256": "6b9c91bfa2f670aa0a980cfa71c701dee76ae05d80bd241a1f7d1a7e64e2da94"
       },
       "route_runtime": {
         "jsonl": "docs/dungeon_builder/batches/red_story_06/runtime/routes/mt_freeze.jsonl",

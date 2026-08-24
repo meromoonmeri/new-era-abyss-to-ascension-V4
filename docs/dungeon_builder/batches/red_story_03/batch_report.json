@@ -31,8 +31,8 @@
         "seeds_logged": 90
       },
       "artifacts": {
-        "definition_sha256": "fe6f4fafe9eed277d2b3e1c98516092dc0218e30ce048b7aa1ee468a5d99062e",
-        "zone_sha256": "cb22034717b6f6c7a37207525834ae3381eb2a58f300da381b1b294965391e47"
+        "definition_sha256": "20272c97387c563b35afa0583043cca69c19cf8153101ba93b75240e79707a76",
+        "zone_sha256": "eb5273195049ae76bba700e713edf473fc30126ec3b5b2dbaca469868ff45ef3"
       },
       "route_runtime": {
         "jsonl": "docs/dungeon_builder/batches/red_story_03/runtime/routes/mt_steel.jsonl",

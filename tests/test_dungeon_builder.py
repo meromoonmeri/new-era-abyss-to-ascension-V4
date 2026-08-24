@@ -1570,11 +1570,12 @@ class TestEmittedArchitecture(unittest.TestCase):
         self.assertEqual(by_id["meteor_cave"].fixed_floors, 1)
 
     def test_total_floor_count_matches_the_canon(self):
-        # After red_story_03: mt_steel definition's `floors` field now
-        # counts PROCEDURAL floors only (8), because floor 9 is a canonical
-        # PMD Red fixed_room (FIXED_ROOM_MT_STEEL_SKARMORY) attached via
-        # `fixed_segments`. Total procedural floors dropped from 1427 to 1426.
-        # Every ROM-canonical floor is still represented — the boss floor is
-        # a dedicated non-counted LayeredSegment (LoadGen + MappedRoomStep).
+        # `floors` = procedural floor count (fixed_room bosses attached via
+        # fixed_segments are dedicated non-counted LayeredSegments). After
+        # red_story_08/09/10 promoted the three peak dungeons (mt_thunder_peak,
+        # mt_blaze_peak, mt_freeze_peak), each with 1 canonical fixed_room
+        # boss floor moved out of the procedural count, the total dropped
+        # by 3 to 1423. Every ROM-canonical floor is still represented —
+        # the boss floors are the LoadGen + MappedRoomStep segments.
         total = sum(a.floors for a in self.analyses)
-        self.assertEqual(total, 1426)
+        self.assertEqual(total, 1423)

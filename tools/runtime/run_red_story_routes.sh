@@ -62,16 +62,21 @@ grounds=[row['id'] for row in rows if row.get('event')=='ground_init']
 # also have a `boss` map on segment>=1 with a species proof.
 expected_floors={'tiny_woods':3,'thunderwave_cave':5,'silent_chasm':9,
                  'great_canyon':12,'mt_steel':8,'mt_thunder':10,
-                 'lapis_cave':14,'mt_freeze':15,'mt_blaze':12}[zone]
+                 'lapis_cave':14,'mt_freeze':15,'mt_blaze':12,
+                 'mt_thunder_peak':2,'mt_blaze_peak':2,'mt_freeze_peak':4}[zone]
 expected_finals={'tiny_woods':'d01p02','thunderwave_cave':'d02p02',
                  'silent_chasm':'d05p02','great_canyon':'d07p02',
                  'mt_steel':'d03p02','mt_thunder':'d06p02',
                  'lapis_cave':'grotte_lazuli_fond','mt_freeze':'d11p02',
-                 'mt_blaze':'d09p02'}
+                 'mt_blaze':'d09p02','mt_thunder_peak':'d06p03',
+                 'mt_blaze_peak':'d09p03','mt_freeze_peak':'d11p03'}
 expected_final=expected_finals[zone]
 # When a dungeon declares a canonical fixed-boss segment, we ALSO require the
 # validator to have loaded the correct boss species and reported a boss_clear.
-expected_boss={'mt_steel':{'species':'skarmory','map':'mt_steel_boss'}}
+expected_boss={'mt_steel':{'species':'skarmory','map':'mt_steel_boss'},
+               'mt_thunder_peak':{'species':'zapdos','map':'mt_thunder_peak_boss'},
+               'mt_blaze_peak':{'species':'moltres','map':'mt_blaze_peak_boss'},
+               'mt_freeze_peak':{'species':'glalie','map':'mt_freeze_peak_boss'}}
 end=next((row for row in rows if row.get('event')=='end'),None)
 canonical=next((row for row in rows if row.get('event')=='canonical_end'),None)
 summary={'zone':zone,'events':len(rows),'procedural_maps':proc_maps,
