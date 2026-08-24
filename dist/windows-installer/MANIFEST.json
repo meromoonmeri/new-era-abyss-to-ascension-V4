@@ -2,56 +2,66 @@
   "app_name": "New Era: Abyss to Ascension",
   "app_version": "0.5.1",
   "app_publisher": "Minori",
-  "zip_size_bytes": 454104728,
-  "zip_size_mib": 433.07,
-  "zip_sha256": "19ff0fade7a45fa23e30ace16fdb01a495966cc1278bcad205363cbfe95e3428",
-  "part_count": 6,
-  "part_size_bytes": 89128960,
+  "installer_type": "7-Zip SFX (SetupSFX) — real Windows PE installer",
+  "installer_kind": "Native Windows GUI (subsystem=GUI, machine=i386)",
+  "exe_name": "New-Era-Setup.exe",
+  "exe_size_bytes": 382700080,
+  "exe_size_mib": 364.97,
+  "exe_sha256": "51eb223967730d6d48935f8028c6f3f56bdcd337d2936a6881233aa8b7fd2808",
+  "part_count": 5,
+  "part_max_size_bytes": 89128960,
   "parts": [
     {
-      "name": "New-Era.zip.part_001",
+      "name": "New-Era-Setup.exe.part_001",
       "size_bytes": 89128960,
-      "sha256": "93995ff56808b3c57adc4e218a9de5124b2d647ef2be864a38363ba9e7e1b24f"
+      "sha256": "9e25d52594b7b77c5a083dfa1ea76020c975f24441d8c516f93a1da676b08286"
     },
     {
-      "name": "New-Era.zip.part_002",
+      "name": "New-Era-Setup.exe.part_002",
       "size_bytes": 89128960,
-      "sha256": "44703bad63a9584e665785db6e9fffb36d786fd02a2273c3758e31e87de727bb"
+      "sha256": "4e9bede1e34c6e5d1ea64ad59939f41c59eac2beccbe59731ac0fd1a3a3ff2bc"
     },
     {
-      "name": "New-Era.zip.part_003",
+      "name": "New-Era-Setup.exe.part_003",
       "size_bytes": 89128960,
-      "sha256": "4074d4df288b317afd46ff7c7362d06d8de9d7637c8800386762268176322473"
+      "sha256": "e39c102cab8ec479140e7c8036692712a26deb1ffc05c650f6ac33e77eef52de"
     },
     {
-      "name": "New-Era.zip.part_004",
+      "name": "New-Era-Setup.exe.part_004",
       "size_bytes": 89128960,
-      "sha256": "6106affef3c7437d6e4c573bfc2c2461c22163ed6278d9b9b5ec9696891340cb"
+      "sha256": "9c68b0b1e1644b062683fe3228543da2a443ecc50cd7fb9293e121f1836d1e48"
     },
     {
-      "name": "New-Era.zip.part_005",
-      "size_bytes": 89128960,
-      "sha256": "407de27c508621318c1eb212d8db9dd9ad148514c9d78a190a75e7e7f192432a"
-    },
-    {
-      "name": "New-Era.zip.part_006",
-      "size_bytes": 8459928,
-      "sha256": "88c52d0804768c4b5decc156c8b701b4e7521d4711a9816e7822aab3376bd347"
+      "name": "New-Era-Setup.exe.part_005",
+      "size_bytes": 26184240,
+      "sha256": "61338ae52aa7e7fe96af5010670c24034d598cca63f13eb05f423e771e526003"
     }
   ],
-  "installer_files": [
-    "New-Era-Installer.bat",
-    "New-Era-Installer.ps1",
-    "README.md",
-    "MANIFEST.json"
-  ],
   "install_flow": [
-    "Reassemble parts to zip in %TEMP%",
-    "Verify SHA-256 against expected",
-    "Detect PMDO via registry + drive heuristics",
-    "Prompt install dir (default <PMDO>/MODS/New-Era)",
-    "Extract, verify Mod.xml directly at root",
-    "Register uninstall entry in HKCU registry",
-    "Offer Start Menu shortcut"
-  ]
+    "User downloads dist/windows-installer/ from GitHub",
+    "User double-clicks New-Era-Installer.bat",
+    "The bat runs `copy /b` to reassemble parts into New-Era-Setup.exe",
+    "The bat verifies SHA-256 via built-in certutil",
+    "New-Era-Setup.exe is launched: native 7-Zip SFX GUI installer",
+    "Installer shows Extract-To dialog defaulting to PMDO/MODS",
+    "User picks the destination (or accepts the default)",
+    "Progress bar during extraction (~4200 files)",
+    "Completion dialog: 'Lancez PMDO -> Special Episodes -> New Era'"
+  ],
+  "content_summary": {
+    "top_level": "New-Era",
+    "mod_xml": "New-Era/Mod.xml (at root, no double nesting)",
+    "data_entries": 2732,
+    "content_entries": 1476,
+    "won_grounds": 64,
+    "nnv_entries": 15,
+    "total_entries": 4231,
+    "longest_path_chars": 101,
+    "windows_max_path_safe": true
+  },
+  "components_provenance": {
+    "sfx_module_source": "7zSD.sfx from 7-Zip Extra (LGPL, Copyright 1999-2018 Igor Pavlov). Redistribution allowed per LGPL. Bundled via npm package '7zip-standalone' at build time; module SHA-256 preserved.",
+    "config_source": "Generated at build time (config.txt with GUI directives).",
+    "archive_source": "Mod content of the current repo tree, packaged via dev/tools/package_windows.py, compressed with py7zr LZMA2 preset 6."
+  }
 }

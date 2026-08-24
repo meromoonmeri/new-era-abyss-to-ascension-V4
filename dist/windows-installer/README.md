@@ -1,89 +1,89 @@
-# New Era: Abyss to Ascension — installateur Windows
+# New Era: Abyss to Ascension — installateur Windows (vrai `.exe`)
 
-## Installation en 30 secondes
+## Installation en 15 secondes
 
-1. Téléchargez le dossier `dist/windows-installer/` **en entier**
-   (ce README + `New-Era-Installer.bat` + `New-Era-Installer.ps1` +
-   les 6 fichiers `New-Era.zip.part_00X`).
+1. Téléchargez **le dossier `dist/windows-installer/` en entier** depuis
+   GitHub (contient ce README + `New-Era-Installer.bat` +
+   `New-Era-Installer.ps1` + `MANIFEST.json` + les 5 parts).
 2. Double-cliquez sur **`New-Era-Installer.bat`**.
-3. L'installateur détecte PMDO, propose un dossier
-   (`<PMDO>\MODS\New-Era` par défaut), reassemble le zip depuis les
-   6 parts, vérifie son SHA-256, extrait dans le dossier choisi,
-   enregistre un désinstalleur et propose un raccourci menu Démarrer.
-4. Lancez PMDO → **Special Episodes → New Era: Abyss to Ascension**.
+3. Le script reassemble les parts en **`New-Era-Setup.exe`** (365 MiB),
+   vérifie son SHA-256 via `certutil`, puis le lance.
+4. L'installateur `.exe` (vrai binaire Windows PE natif) ouvre sa
+   fenêtre GUI, propose le dossier `PMDO/MODS`, extrait le contenu.
+5. Lancez PMDO → **Special Episodes → New Era: Abyss to Ascension**.
 
-Aucun `.msi` à installer, aucun Inno Setup pré-requis. L'installateur
-n'utilise que PowerShell, présent nativement sur Windows 7 SP1 et
-au-dessus.
+## Ce qu'est vraiment `New-Era-Setup.exe`
+
+- **Vrai fichier `.exe` Windows PE** — pas un `.bat`, pas un `.zip`
+  renommé, pas un raccourci PowerShell. Signature `MZ...PE\0\0`,
+  machine i386, subsystem GUI (fenêtre native).
+- **SHA-256** : `51eb223967730d6d48935f8028c6f3f56bdcd337d2936a6881233aa8b7fd2808`
+- **Taille** : 382 700 080 octets (364.97 MiB)
+- **Type** : installateur self-extracting **7-Zip SFX (SetupSFX)**,
+  utilisé par des milliers d'installeurs Windows dans la nature
+  (dont plusieurs versions officielles de 7-Zip lui-même).
+- **Contient** : le mod complet New Era 0.5.1 (4231 entrées, incluant
+  WoN et NNV), compressé en 7z LZMA2. Longest internal path 101 chars,
+  Windows-safe.
+
+Le module SFX est le fichier `7zSD.sfx` officiel de 7-Zip, redistribué
+sous **LGPL** — chaque `.exe` type fangame construit sur SFX (dizaines
+de projets communautaires) fait exactement la même chose.
+
+## Pourquoi 5 parts et pas un `.exe` direct ?
+
+GitHub avertit au-dessus de 50 MiB par fichier. Un `.exe` de 365 MiB
+serait rejeté avec un warning bloquant. Les 5 parts de 85 MiB max
+respectent la contrainte, sont commitables sans avertissement bloquant,
+et la reassembly + hash-check est **100% automatique** côté utilisateur
+via `New-Era-Installer.bat`.
 
 ## Contenu du dossier
 
-| Fichier | Rôle |
-|---|---|
-| `New-Era-Installer.bat` | Point d'entrée. Double-clic pour lancer. |
-| `New-Era-Installer.ps1` | Installateur PowerShell qui fait le vrai travail. |
-| `New-Era.zip.part_001..006` | Les 6 parts du zip release (85 MiB chacune, sauf la dernière). |
-| `MANIFEST.json` | Facts d'intégrité (SHA-256 total + par part, taille, version). |
-| `README.md` | Ce document. |
-
-Le zip complet fait **433.07 MiB** (`SHA-256`
-`19ff0fade7a45fa23e30ace16fdb01a495966cc1278bcad205363cbfe95e3428`).
-Il contient l'arborescence Halcyon-conforme (`Mod.xml`, `Data/`,
-`Content/`, `Strings/`, `CONVERSION/`, `readme.md`, `patchnotes.txt`,
-`Pokemon changes.txt`, `CREDITS.md`), incluant les extensions
-Waves of Nostalgia et No Name Village.
-
-## Détection automatique de PMDO
-
-L'installateur cherche PMDO dans cet ordre :
-
-1. `<Drive>:\PMDOSetup\PMDO` sur toutes les lettres C..H
-2. `<Drive>:\PMDO`, `<Drive>:\Games\PMDO`, `<Drive>:\Pokemon\PMDO`
-3. `%LOCALAPPDATA%\PMDO`, `%APPDATA%\PMDO`
-4. `Documents\PMDO`, `Bureau\PMDO`
-
-S'il ne trouve rien, il propose `D:\PMDOSetup\PMDO\MODS\New-Era`
-comme dossier par défaut (vous pouvez taper un autre chemin).
+| Fichier | Rôle | Taille |
+|---|---:|---:|
+| `New-Era-Installer.bat` | Point d'entrée double-clic | ~3 KB |
+| `New-Era-Installer.ps1` | Alternative PowerShell (même comportement) | ~2 KB |
+| `New-Era-Setup.exe.part_001..005` | 5 parts du vrai `.exe` (365 MiB) | 375 MB |
+| `MANIFEST.json` | SHA-256 total + par-part, tailles, provenance | 2 KB |
+| `README.md` | Ce document | 3 KB |
 
 ## Vérifications automatiques
 
-- Taille et **SHA-256** du zip reassemblé validés avant extraction ;
-  toute part corrompue provoque un abandon immédiat.
-- Présence de `Mod.xml` **directement dans `New-Era\`** vérifiée
-  après extraction (protection contre le bug historique du double
-  niveau `New-Era\New-Era\`).
-- Refuse d'écraser un dossier `New-Era\` existant sans confirmation
-  (protège une éventuelle personnalisation utilisateur).
+- **Présence de chaque part** vérifiée avant reassembly.
+- **SHA-256 du `.exe` reassemblé** comparé à la valeur attendue
+  ci-dessus via `certutil -hashfile SHA256` (built-in Windows).
+- **Abandon immédiat** en cas de mismatch, avec suppression du `.exe`
+  potentiellement corrompu et message clair à l'utilisateur.
+
+## Alternative : PowerShell
+
+```
+powershell -ExecutionPolicy Bypass -File .\New-Era-Installer.ps1
+```
+
+Options :
+- `-NoLaunch` : reassemble et vérifie sans lancer le `.exe`
+  (utile pour distribuer le `.exe` seul à quelqu'un d'autre).
+- `-OutDir "chemin"` : écrit le `.exe` reassemblé ailleurs que dans
+  ce dossier.
 
 ## Désinstallation
 
-**Panneau de configuration → Programmes → New Era: Abyss to Ascension →
-Désinstaller.**
-
-Alternative en ligne de commande :
-```
-powershell -File .\New-Era-Installer.ps1 -InstallerRoot . -Uninstall
-```
-
-## Mode silencieux
-
-Pour une installation non interactive :
-```
-powershell -File .\New-Era-Installer.ps1 -InstallerRoot . `
-    -InstallDir "D:\PMDOSetup\PMDO\MODS\New-Era" -Silent
-```
+7-Zip SFX est un extracteur, pas un tracker d'installation. La
+désinstallation se fait en supprimant simplement le dossier
+`New-Era` dans `PMDO/MODS/` créé lors de l'installation.
 
 ## Compatibilité
 
-- Windows 7 SP1, 8.1, 10, 11 (32 ou 64 bits)
-- PowerShell 5.1+ (préinstallé sur Windows 10/11 ; installable sur
-  Windows 7 via *Windows Management Framework 5.1*)
-- Aucun composant tiers requis
+- **Windows 7, 8.1, 10, 11** (x86 ou x64)
+- Aucun runtime tiers requis (le `.exe` embarque tout)
+- Le `.bat` d'installation utilise `copy /b` et `certutil`, tous deux
+  natifs Windows depuis 7
 
-## Pourquoi 6 parts et pas un `.exe` unique ?
+## Vérification manuelle (pour les prudents)
 
-Le zip release fait 416+ MiB, au-dessus de la recommandation GitHub
-de 50 MiB par fichier. Le split en parts de 85 MiB permet à Git de
-les héberger sans avertissement bloquant, et la reassembly + hash
-check est faite automatiquement par l'installateur — l'utilisateur
-final n'a rien à faire manuellement.
+```
+certutil -hashfile New-Era-Setup.exe SHA256
+```
+Résultat attendu : `51eb223967730d6d48935f8028c6f3f56bdcd337d2936a6881233aa8b7fd2808`
