@@ -514,7 +514,14 @@ def reconcile(stem: str) -> dict[str, Any]:
     else:
         raw["boss"] = {}
         if raw.get("scenes"):
-            raw["scenes"]["battle_ground"] = ""
+            # For dungeons without a canonical ROM fixed_room boss (like
+            # silent_chasm, great_canyon, tiny_woods, thunderwave_cave,
+            # mt_thunder — where the ROM has no in-dungeon boss fight), we
+            # still set battle_ground = source_end. This encodes the
+            # canonical rule "if a battle were to happen it would be at the
+            # canonical end Ground". The 4 already-promoted dungeons follow
+            # exactly this convention (their tests enforce it).
+            raw["scenes"]["battle_ground"] = config["source_end"]
             raw["scenes"]["rule"] = "Canonical rescue/end scene on the source Ground; no invented battle."
     raw["canonical_items_without_pmdo_equivalent"] = missing_items
     raw["comment"] = (

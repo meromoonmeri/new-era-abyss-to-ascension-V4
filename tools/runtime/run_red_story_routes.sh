@@ -61,10 +61,10 @@ grounds=[row['id'] for row in rows if row.get('event')=='ground_init']
 # canonical fixed_room boss (mt_steel, mt_thunder_peak, mt_blaze_peak, ...)
 # also have a `boss` map on segment>=1 with a species proof.
 expected_floors={'tiny_woods':3,'thunderwave_cave':5,'silent_chasm':9,
-                 'great_canyon':12,'mt_steel':8}[zone]
+                 'great_canyon':12,'mt_steel':8,'mt_thunder':10}[zone]
 expected_finals={'tiny_woods':'d01p02','thunderwave_cave':'d02p02',
                  'silent_chasm':'d05p02','great_canyon':'d07p02',
-                 'mt_steel':'d03p02'}
+                 'mt_steel':'d03p02','mt_thunder':'d06p02'}
 expected_final=expected_finals[zone]
 # When a dungeon declares a canonical fixed-boss segment, we ALSO require the
 # validator to have loaded the correct boss species and reported a boss_clear.

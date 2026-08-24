@@ -41,6 +41,13 @@ end
 
 function d06p02.Enter(map)
   DEBUG.EnableDbgCoro()
+  -- See d05p02.Enter for the SV.CanonicalDungeons marker rationale:
+  -- the marker must be set BEFORE the cinematic runs so any external observer
+  -- (e.g. RedStoryRouteValidator via GroundMapInit) can detect that the
+  -- canonical scene actually played. This Ground is the canonical relay
+  -- between mt_thunder and mt_thunder_peak in PMD Red.
+  SV.CanonicalDungeons = SV.CanonicalDungeons or {}
+  SV.CanonicalDungeons['mt_thunder'] = true
   GAME:FadeIn(20)
   RedCanonScene.Play(SCENE, EVENTS)
   GAME:CutsceneMode(false)

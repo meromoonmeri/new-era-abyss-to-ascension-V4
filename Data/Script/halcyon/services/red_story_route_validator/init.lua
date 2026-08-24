@@ -42,6 +42,7 @@ local CONFIG={
             boss={segment=1,map='mt_steel_boss',species='skarmory',
                   source_floor=9,source_fixed_room=1,
                   provenance='PMD_RED_ROM/FIXED_ROOM_MT_STEEL_SKARMORY'}},
+  mt_thunder={floors=10,entrance='mont_grondant_pied',final='d06p02'},
 }
 local function esc(v)return tostring(v):gsub('\\','\\\\'):gsub('"','\\"'):gsub('\n',' | '):gsub('\r','')end
 local function emit(v)
