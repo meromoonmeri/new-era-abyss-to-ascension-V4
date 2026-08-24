@@ -26,7 +26,11 @@ import json
 from pathlib import Path
 from typing import Any
 
+from converter.aux_sources.pret import load_pret_checkout
+from converter.pmdred.specs import DEFAULT_SPECS
+from converter.pmdred.table_resolver import resolve as resolve_tables
 from converter.rom.inspection import inspect as inspect_rom
+from converter.rom.pointer_scan import iter_pointer_tables
 from converter.rom.rom_file import RomFile
 from converter.stages.context import Context, StageResult, StageStatus
 from converter.version import __version__
@@ -114,6 +118,33 @@ def run(ctx: Context) -> StageResult:
         result.metrics["compression_signatures"] = report.compression_signatures
         result.artefacts.append(str(out / "inspection.json"))
 
+        # --- PMD-Red-specific table resolution -------------------------
+        # We use the local pret/pmd-red checkout (git-ignored) as
+        # documentation only, to know the expected entry counts. If the
+        # checkout is absent, the resolver still runs but with less
+        # information; each unresolved table gets an explicit reason.
+        pret = load_pret_checkout(ctx.pret_checkout) \
+            if ctx.pret_checkout else None
+        # Re-scan tables with a lower min_entries threshold so the
+        # resolver can consider medium-sized tables (some role tables
+        # in PMD Red are smaller than the default 8 cut-off).
+        tables = list(iter_pointer_tables(rom, min_entries=4))
+        resolved = resolve_tables(rom, tables, DEFAULT_SPECS, pret)
+        ctx.write_json(out / "resolved_tables.json", {
+            "pret_checkout_present": pret is not None,
+            "candidates_considered": len(tables),
+            "specs_evaluated": len(DEFAULT_SPECS),
+            "results": [r.to_json() for r in resolved],
+        })
+        result.artefacts.append(str(out / "resolved_tables.json"))
+        result.metrics["tables_resolved"] = sum(
+            1 for r in resolved if r.status == "RESOLVED"
+        )
+        result.metrics["tables_unresolved"] = sum(
+            1 for r in resolved if r.status == "UNRESOLVED"
+        )
+        result.metrics["pret_checkout_present"] = pret is not None
+
         # --- part B: registry-driven raw extraction --------------------
         registry = _load_registry(ctx)
         regions = registry.get("regions", [])
@@ -142,9 +173,13 @@ def run(ctx: Context) -> StageResult:
     result.status = StageStatus.PASS
     result.reason = (
         f"Inspected ROM ({report.pointer_tables_found} pointer tables, "
-        f"{sum(report.compression_signatures.values())} compressed refs). "
+        f"{sum(report.compression_signatures.values())} compressed refs); "
+        f"resolved {result.metrics.get('tables_resolved', 0)}/"
+        f"{len(DEFAULT_SPECS)} PMD Red table roles "
+        f"(pret checkout: "
+        f"{'present' if result.metrics.get('pret_checkout_present') else 'absent'}). "
         f"Registry: {len(regions)} declared regions"
         + (f", {result.metrics.get('regions_extracted', 0)} extracted."
-           if regions else " (registry empty — inspection only).")
+           if regions else " (empty — inspection-only run).")
     )
     return result
