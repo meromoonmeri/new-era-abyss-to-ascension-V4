@@ -50,9 +50,11 @@ _NAME_ALLOWED = frozenset(
     string.ascii_lowercase + string.digits + "_./ -"
 )
 # First-character predicate: names either start with a lower-case letter
-# (bare identifier convention) or a '.' / '/' when the debug string is
-# a path such as "../data/ground/ground_data_d01p02_station.c".
-_NAME_FIRST_ALLOWED = frozenset(string.ascii_lowercase + "./")
+# (bare identifier convention), an underscore (the European ROM uses
+# "__ground_amd_conversion_NNNNN" debug names) or a '.' / '/' when the
+# debug string is a path such as
+# "../data/ground/ground_data_d01p02_station.c".
+_NAME_FIRST_ALLOWED = frozenset(string.ascii_lowercase + "_./")
 
 
 @dataclass(frozen=True)

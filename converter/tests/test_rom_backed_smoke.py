@@ -138,49 +138,46 @@ def test_rom_resolver_finds_at_least_one_role() -> None:
 @rom_required
 @pret_required
 def test_ground_map_table_resolves_and_bma_decodes() -> None:
-    """Full slice for the ground pipeline: pick the resolved
-    ground_map_table, decode the first entry as BMA, verify the
-    header is plausible and the viewport invariants pass or explain."""
+    """Full slice for the ground pipeline on the EUROPEAN ROM layout:
+    locate the pksdir0 Ground archive + map-files table structurally,
+    decode the first grounds' BMAs, verify the headers are plausible
+    and the viewport invariants pass."""
     from converter.decoders.bma import decode as decode_bma
     from converter.ir.ground import Ground_IR
     from converter.ir.provenance import Provenance, Status
     from converter.pmdo.viewport import check_ground_viewport
+    from converter.pmdred.eu_archive import (
+        find_archive,
+        find_map_files_table,
+    )
 
     assert ROM_PATH is not None
     with RomFile.open(ROM_PATH) as rom:
-        tables = list(iter_pointer_tables(rom, min_entries=4))
-        pret = load_pret_checkout(PRET_CHECKOUT)
-        assert pret is not None
-        resolved = resolve_tables(rom, tables, DEFAULT_SPECS, pret)
-
-        gt = next(
-            (r for r in resolved
-             if r.role == "ground_map_table" and r.status == "RESOLVED"),
-            None,
+        archive = find_archive(rom)
+        assert archive is not None, "pksdir0 Ground archive not found"
+        mft = find_map_files_table(rom, archive)
+        assert mft is not None, "EU map-files table not found"
+        assert len(mft.rows) >= 245, (
+            f"map-files table too small: {len(mft.rows)} rows"
         )
-        if gt is None:
-            pytest.skip(
-                "ground_map_table not RESOLVED on this ROM+pret combo. "
-                "Reasons: "
-                + " | ".join(f"{r.role}:{r.reason[:60]}" for r in resolved)
-            )
 
-        # Try a handful of entries and require at least one that yields
-        # a plausible BMA header (real ROMs mix BMAs and other assets in
-        # the same table on rare occasions).
+        by_name = archive.by_name()
         good = 0
-        for entry_off in gt.entries[:8]:
-            max_read = min(128 * 1024, rom.size - entry_off)
+        for row in mft.rows[:8]:
+            res = by_name.get(row.bma or "")
+            if res is None:
+                continue
+            bound = res.next_offset or rom.size
+            max_read = min(128 * 1024, max(bound - res.data_offset, 0))
             if max_read <= 12:
                 continue
-            blob = rom.read(entry_off, max_read)
+            blob = rom.read(res.data_offset, max_read)
             bma, stats = decode_bma(
-                blob, ground_id="rom_smoke",
-                rom_sha256=rom.sha256(), rom_offset=entry_off,
+                blob, ground_id=row.stable_ground_id or "rom_smoke",
+                rom_sha256=rom.sha256(), rom_offset=res.data_offset,
             )
             if bma.provenance and bma.provenance.status == Status.UNKNOWN:
                 continue
-            # Wrap into Ground_IR shell for viewport check.
             w = bma.layers[0].width_chunks * 3 if bma.layers else 0
             h = bma.layers[0].height_chunks * 3 if bma.layers else 0
             g = Ground_IR(
@@ -193,21 +190,17 @@ def test_ground_map_table_resolves_and_bma_decodes() -> None:
             )
             vp = check_ground_viewport(g)
             assert w > 0 and h > 0, (
-                f"BMA at {entry_off:#x} decoded with zero dimensions"
+                f"BMA {row.bma} decoded with zero dimensions"
             )
             good += 1
-            # We want AT LEAST one entry with a valid viewport. Some
-            # small maps (menus, submaps) may legitimately fail the
-            # >=320x240 rule; that's fine as long as we found one that
-            # passes.
             if vp.ok:
-                good += 100        # bonus so the assertion below is easy
+                good += 100
                 break
 
         assert good >= 1, (
-            "no ground_map_table entry decoded to a plausible BMA in "
-            f"the first 8 tries (table offset={gt.offset:#010x}, "
-            f"count={gt.count})"
+            "no map-files row decoded to a plausible BMA in the first "
+            f"8 tries (archive at {archive.base_offset:#010x}, "
+            f"{archive.count} resources)"
         )
 
 

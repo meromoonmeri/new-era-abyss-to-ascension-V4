@@ -118,7 +118,11 @@ def run(ctx: Context) -> StageResult:
     bindings = build_bindings(table)
     by_map_id = bindings_by_map_id(bindings)
 
-    # Per-index: canonical id (dXXpYY) when parsable, else None
+    # Per-index: canonical id (dXXpYY) when parsable, else None.
+    # Priority 1: the stable ground id already derived by
+    # s02_decode_ground from the EU archive's BPL resource name
+    # (row["ground_id"], e.g. "d01p02"). Priority 2: the US-style
+    # debug-name convention from the conversion table.
     ground_index_to_canonical: dict[int, Optional[str]] = {}
     ground_index_to_offset: dict[int, int] = {}
     canonical_resolved = 0
@@ -126,13 +130,17 @@ def run(ctx: Context) -> StageResult:
         if row.get("status") != "DECODED":
             continue
         idx = int(row["index"])
-        b = by_map_id.get(idx)
-        if b is not None:
-            ground_index_to_canonical[idx] = b.canonical_ground_id
-            if b.canonical_ground_id is not None:
-                canonical_resolved += 1
-        else:
-            ground_index_to_canonical[idx] = None
+        canon: Optional[str] = None
+        gid = row.get("ground_id")
+        if gid and not gid.startswith("ground_"):
+            canon = gid
+        if canon is None:
+            b = by_map_id.get(idx)
+            if b is not None:
+                canon = b.canonical_ground_id
+        ground_index_to_canonical[idx] = canon
+        if canon is not None:
+            canonical_resolved += 1
         try:
             ground_index_to_offset[idx] = int(row["rom_offset"], 16)
         except (KeyError, ValueError):

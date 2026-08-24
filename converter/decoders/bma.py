@@ -150,97 +150,82 @@ def _decompress_layer_nrl(
     Sources: public pret/pmd-red decompilation (MIT) plus the SkyTemple
     documentation of the equivalent GBA-era format.
     """
+    # European runtime semantics (validated byte-for-byte against all 201
+    # EU BMA resources by dev/tools/audit_pmdred_eu_rom.py):
+    #   * run length is always (cmd & 0x3F) + 1 — including the zero mode;
+    #   * a row may OVERSHOOT its logical width (the last command can emit
+    #     more pairs than needed); excess values are kept in the 64-wide
+    #     "memory" stride used for the XOR reference but truncated from the
+    #     logical output;
+    #   * on rows > 0 each emitted value is XORed with the value at
+    #     memory[(row-1)*64 + current_column] (fixed 64-chunk stride, NOT
+    #     the logical width).
     total_chunks = width_chunks * height_chunks
-    out: list[int] = []
+    memory: list[int] = []          # 64-wide per-row scratch (runtime layout)
+    logical: list[int] = []         # width_chunks-wide decoded output
     src = offset
     n = len(blob)
 
     for row in range(height_chunks):
-        col = 0
-        row_start = len(out)
-        while col < width_chunks:
+        row_vals: list[int] = []
+        produced = 0
+        while produced < width_chunks:
             if src >= n:
                 raise ValueError(
-                    f"BMA NRL truncated at row={row} col={col} "
+                    f"BMA NRL truncated at row={row} col={produced} "
                     f"src_offset={src:#x}"
                 )
             cmd = blob[src]
             src += 1
+            run = (cmd & 0x3F) + 1
 
-            if cmd >= 0xC0:
-                count_pairs = cmd - 0xBF
-                for _ in range(count_pairs):
-                    if src + 3 > n:
-                        raise ValueError(
-                            f"BMA NRL raw block truncated at src={src:#x}"
-                        )
-                    v = blob[src] | (blob[src + 1] << 8) | (blob[src + 2] << 16)
-                    src += 3
-                    a = v & 0xFFF
-                    b = (v >> 12) & 0xFFF
-                    if row > 0:
-                        # Reference row: previous row, same column pair.
-                        # We compare against out[len(out) - 64] the way
-                        # the original loop does with ptrVal.
-                        ref_a = out[len(out) - 64]
-                        ref_b = out[len(out) - 63]
-                        a ^= ref_a
-                        b ^= ref_b
-                    out.append(a)
-                    out.append(b)
-                col += count_pairs * 2
-
-            elif cmd >= 0x80:
-                count_pairs = cmd - 0x7F
+            pairs: list[tuple[int, int]] = []
+            if cmd < 0x80:
+                pairs = [(0, 0)] * run
+            elif cmd < 0xC0:
                 if src + 3 > n:
                     raise ValueError(
                         f"BMA NRL run block truncated at src={src:#x}"
                     )
                 v = blob[src] | (blob[src + 1] << 8) | (blob[src + 2] << 16)
                 src += 3
-                a0 = v & 0xFFF
-                b0 = (v >> 12) & 0xFFF
-                for _ in range(count_pairs):
-                    a = a0
-                    b = b0
-                    if row > 0:
-                        ref_a = out[len(out) - 64]
-                        ref_b = out[len(out) - 63]
-                        a ^= ref_a
-                        b ^= ref_b
-                    out.append(a)
-                    out.append(b)
-                col += count_pairs * 2
-
+                pairs = [(v & 0xFFF, (v >> 12) & 0xFFF)] * run
             else:
-                count_pairs = cmd + 1
-                for _ in range(count_pairs):
-                    a = 0
-                    b = 0
+                if src + run * 3 > n:
+                    raise ValueError(
+                        f"BMA NRL raw block truncated at src={src:#x}"
+                    )
+                for _ in range(run):
+                    v = blob[src] | (blob[src + 1] << 8) | (blob[src + 2] << 16)
+                    src += 3
+                    pairs.append((v & 0xFFF, (v >> 12) & 0xFFF))
+
+            for pa, pb in pairs:
+                for value in (pa, pb):
                     if row > 0:
-                        ref_a = out[len(out) - 64]
-                        ref_b = out[len(out) - 63]
-                        a ^= ref_a
-                        b ^= ref_b
-                    out.append(a)
-                    out.append(b)
-                col += count_pairs * 2
+                        if len(row_vals) >= 64:
+                            raise ValueError(
+                                f"BMA NRL row {row} exceeds the 64-chunk "
+                                f"runtime stride"
+                            )
+                        value ^= memory[(row - 1) * 64 + len(row_vals)]
+                    row_vals.append(value)
+            produced += run * 2
 
-        # Sanity: we should end exactly at width_chunks columns.
-        if col != width_chunks:
+        if len(row_vals) > 64:
             raise ValueError(
-                f"BMA NRL row {row} overshot: emitted {col} columns, "
-                f"expected {width_chunks}"
+                f"BMA NRL row {row} emitted {len(row_vals)} chunks "
+                f"(> 64 runtime stride)"
             )
-        # `row_start` is kept for debuggability; not consulted further.
-        _ = row_start
+        logical.extend(row_vals[:width_chunks])
+        memory.extend(row_vals + [0] * (64 - len(row_vals)))
 
-    if len(out) != total_chunks:
+    if len(logical) != total_chunks:
         raise ValueError(
-            f"BMA NRL wrong output size: got {len(out)}, "
+            f"BMA NRL wrong output size: got {len(logical)}, "
             f"expected {total_chunks}"
         )
-    return out, src - offset
+    return logical, src - offset
 
 
 # ---------------------------------------------------------------- API
@@ -351,16 +336,73 @@ def decode(
         src += consumed
         stats.layers_decoded += 1
 
-    # -- collision layers (raw byte grids) ------------------------------
+    # European runtime stream order (validated byte-for-byte on all 201
+    # EU BMA resources by dev/tools/audit_pmdred_eu_rom.py):
+    #   background layers, then the OPTIONAL DATA LAYER, then the
+    #   collision layers.
     grid_bytes = header.map_width_tiles * header.map_height_tiles
-    for i in range(max(0, header.has_collision)):
-        if src + grid_bytes > len(blob):
+
+    # -- optional data layer (generic byte-NRL, preserved verbatim) ------
+    unknown_data: Optional[bytes] = None
+    if header.has_data_layer:
+        out = bytearray()
+        ok = True
+        while len(out) < grid_bytes:
+            if src >= len(blob):
+                ok = False
+                break
+            cmd = blob[src]
+            src += 1
+            run = cmd + 1 if cmd < 0x80 else (cmd & 0x3F) + 1
+            if cmd < 0x80:
+                out.extend(b"\0" * run)
+            elif cmd < 0xC0:
+                if src >= len(blob):
+                    ok = False
+                    break
+                out.extend(bytes((blob[src],)) * run)
+                src += 1
+            else:
+                if src + run > len(blob):
+                    ok = False
+                    break
+                out.extend(blob[src : src + run])
+                src += run
+        if ok:
+            unknown_data = bytes(out[:grid_bytes])
+            stats.data_layer_present = True
+        else:
             stats.header_warnings.append(
-                f"collision layer {i} truncated: need {grid_bytes} bytes, "
-                f"have {len(blob) - src}"
+                "data layer truncated: skipping"
+            )
+
+    # -- collision layers (RLE bit-7 runs + vertical XOR delta, EU) ------
+    # Each command byte encodes a run of (cmd & 0x7F) + 1 delta values
+    # equal to bit 7. The decoded value of a cell is its delta XOR the
+    # decoded value of the cell directly above (previous row).
+    for i in range(max(0, header.has_collision)):
+        layer_start = src
+        deltas = bytearray()
+        truncated = False
+        while len(deltas) < grid_bytes:
+            if src >= len(blob):
+                truncated = True
+                break
+            cmd = blob[src]
+            src += 1
+            deltas.extend(bytes((cmd >> 7,)) * ((cmd & 0x7F) + 1))
+        if truncated:
+            stats.header_warnings.append(
+                f"collision layer {i} truncated: produced {len(deltas)} of "
+                f"{grid_bytes} cells"
             )
             break
-        raw = bytes(blob[src : src + grid_bytes])
+        decoded = bytearray(grid_bytes)
+        w_t = header.map_width_tiles
+        for cell, delta in enumerate(deltas[:grid_bytes]):
+            above = decoded[cell - w_t] if cell >= w_t else 0
+            decoded[cell] = delta ^ above
+        raw = bytes(decoded)
         solid = sum(1 for b in raw if b != 0)
         collision_layers.append(CollisionLayer_IR(
             layer_index=i,
@@ -369,25 +411,12 @@ def decode(
             raw=raw,
             solid_cells=solid,
             provenance=_prov(
-                rom_sha256, rom_offset + src, grid_bytes,
+                rom_sha256, rom_offset + layer_start, src - layer_start,
                 "", Status.PORTED,
             ),
         ))
-        src += grid_bytes
         stats.collision_layers_decoded += 1
         stats.solid_cells_per_layer.append(solid)
-
-    # -- optional data layer (preserved verbatim) -----------------------
-    unknown_data: Optional[bytes] = None
-    if header.has_data_layer:
-        if src + grid_bytes <= len(blob):
-            unknown_data = bytes(blob[src : src + grid_bytes])
-            src += grid_bytes
-            stats.data_layer_present = True
-        else:
-            stats.header_warnings.append(
-                "data layer truncated: skipping"
-            )
 
     stats.bytes_consumed = src
 

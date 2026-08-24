@@ -146,8 +146,12 @@ def test_decode_full_synthetic_bma() -> None:
     # We only have 2 chunks per row; a single pair is enough.
     # cmd=0x00 -> 1 pair (2 chunks) of zero -> fills our 2-wide row.
     layer_body = bytes([0x00])
-    # Collision: 6*3 = 18 bytes; make half solid.
-    collision = bytes([0x01] * 9 + [0x00] * 9)
+    # Collision (EU RLE + vertical XOR delta): decoded target is
+    # 9 solid cells then 9 empty on the 6x3 grid, i.e. row0 all solid,
+    # row1 = 3 solid + 3 empty, row2 empty. The delta stream (value =
+    # cell XOR cell-above) is: 6x1, 3x0, 6x1, 3x0. RLE bytes encode
+    # bit7=value, low bits=count-1.
+    collision = bytes([0x80 | 5, 0x02, 0x80 | 5, 0x02])
     blob = header + layer_body + collision
 
     ir, stats = decode(

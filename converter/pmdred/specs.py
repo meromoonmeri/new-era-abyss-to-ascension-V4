@@ -35,9 +35,10 @@ DEFAULT_SPECS: list[TableSpec] = [
     ),
     TableSpec(
         role="cutscene_table",
-        pret_enum_for_count="CutsceneID",
+        pret_enum_for_count="CutsceneKind",
         notes=(
-            "Pointer table whose length matches the CutsceneID enum. "
+            "Pointer table whose length matches the CutsceneKind enum "
+            "(pret names the cutscene enum CutsceneKind, not CutsceneID). "
             "Entries point to scripted-sequence bytecode."
         ),
     ),

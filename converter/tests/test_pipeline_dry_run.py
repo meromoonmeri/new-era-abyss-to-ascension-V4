@@ -32,7 +32,21 @@ def _read_report() -> dict:
     return json.loads(report_path.read_text(encoding="utf-8"))
 
 
+def _rom_present() -> bool:
+    rom_dir = REPO_ROOT / "converter" / "rom_input"
+    if not rom_dir.is_dir():
+        return False
+    return any(p.suffix.lower() == ".gba" for p in rom_dir.iterdir())
+
+
 def test_dry_run_pipeline_is_honest() -> None:
+    import pytest
+    if _rom_present():
+        pytest.skip(
+            "authenticated ROM present in converter/rom_input/: the "
+            "empty-state honesty contract does not apply (stages "
+            "legitimately PASS on real input)"
+        )
     exit_code = main(["--dry-run", "-v"])
     # Honest gaps are not failures. Exit code should not be a hard FAIL.
     assert exit_code in (0,), (

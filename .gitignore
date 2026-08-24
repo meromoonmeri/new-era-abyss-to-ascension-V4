@@ -2,6 +2,7 @@ __pycache__/
 .venv/
 .venv_pxl/
 .runtime-cache/
+.runtime-cache
 .runtime-work/
 
 # ============================================================================
@@ -15,8 +16,11 @@ dev/external/pret_pmd_red/
 dev/external/skytemple_dump/
 dev/external/rom_local/
 converter/rom_input/
+converter/rom_input
 converter/rom_cache/
+converter/rom_cache
 converter/rom_output/
+converter/rom_output
 *.gba
 *.nds
 *.sav

@@ -32,6 +32,7 @@ from converter.decoders.bma import decode as decode_bma
 from converter.ir.ground import BMA_IR, Ground_IR
 from converter.ir.provenance import Provenance, Status
 from converter.pmdo.viewport import check_ground_viewport
+from converter.pmdred.eu_archive import find_archive, find_map_files_table
 from converter.rom.rom_file import RomFile
 from converter.stages.context import Context, StageResult, StageStatus
 
@@ -106,28 +107,6 @@ def run(ctx: Context) -> StageResult:
         )
         return result
 
-    resolved = _read_resolved_tables(ctx)
-    ground_table = None
-    for r in resolved:
-        if r.get("role") == "ground_map_table" and r.get("status") == "RESOLVED":
-            ground_table = r
-            break
-
-    if ground_table is None:
-        result.status = StageStatus.UNIMPLEMENTED
-        result.reason = (
-            "s01 did not RESOLVE a `ground_map_table` role. Without a "
-            "table of ground BMA pointers, s02_decode_ground has nothing "
-            "to iterate. The generic pointer scanner + resolver should "
-            "identify it once the pret GroundMapID enum is loaded; "
-            "verify the pret checkout is present under "
-            "dev/external/pret_pmd_red/."
-        )
-        return result
-
-    table_off = int(ground_table["offset"], 16)
-    entry_count = int(ground_table["count"])
-
     grounds_decoded = 0
     grounds_failed = 0
     grounds_bogus_header = 0
@@ -143,24 +122,53 @@ def run(ctx: Context) -> StageResult:
             result.reason = "ROM hash changed between s01 and s02"
             return result
 
-        for i in range(entry_count):
-            try:
-                entry_offset = rom.pointer_to_offset(
-                    rom.read_u32(table_off + i * 4)
-                )
-            except Exception as exc:  # noqa: BLE001
+        # The European ROM stores all Ground resources in a pksdir0
+        # archive; the 262-row map-files table names each ground's
+        # BPL/BPC/BMA/BPA dependencies. Both are located structurally
+        # (magic signature + pointer/string fingerprints), never by a
+        # hand-fed offset.
+        archive = find_archive(rom)
+        if archive is None:
+            result.status = StageStatus.UNIMPLEMENTED
+            result.reason = (
+                "No pksdir0 Ground archive found in the ROM. This decoder "
+                "supports the European PMD Red layout; the authenticated "
+                "ROM should contain the archive. Aborting honestly."
+            )
+            return result
+
+        mft = find_map_files_table(rom, archive)
+        if mft is None:
+            result.status = StageStatus.UNIMPLEMENTED
+            result.reason = (
+                "pksdir0 archive found but the 7-pointer map-files "
+                "dependency table could not be located structurally."
+            )
+            return result
+
+        by_name = archive.by_name()
+        result.metrics["archive_offset"] = f"{archive.base_offset:#x}"
+        result.metrics["archive_resources"] = archive.count
+        result.metrics["map_files_rows"] = len(mft.rows)
+        entry_count = len(mft.rows)
+
+        for i, row in enumerate(mft.rows):
+            gid = row.stable_ground_id or f"ground_{i:03d}"
+            res = by_name.get(row.bma or "")
+            if res is None:
                 grounds_failed += 1
                 per_ground_reports.append({
-                    "index": i, "status": "SKIP",
-                    "reason": f"pointer resolution failed: {exc!r}",
+                    "index": i, "status": "SKIP", "ground_id": gid,
+                    "reason": f"BMA resource {row.bma!r} not in archive",
                 })
                 continue
-
-            max_read = min(MAX_BMA_BYTES, rom.size - entry_offset)
+            entry_offset = res.data_offset
+            bound = res.next_offset or rom.size
+            max_read = min(max(bound - entry_offset, 0), MAX_BMA_BYTES)
             if max_read <= 12:
                 grounds_failed += 1
                 per_ground_reports.append({
-                    "index": i, "status": "SKIP",
+                    "index": i, "status": "SKIP", "ground_id": gid,
                     "reason": f"entry too small at {entry_offset:#x}",
                 })
                 continue
@@ -168,13 +176,13 @@ def run(ctx: Context) -> StageResult:
             blob = rom.read(entry_offset, max_read)
             try:
                 bma, stats = decode_bma(
-                    blob, ground_id=f"ground_{i:03d}",
+                    blob, ground_id=gid,
                     rom_sha256=rom.sha256(), rom_offset=entry_offset,
                 )
             except Exception as exc:  # noqa: BLE001
                 grounds_failed += 1
                 per_ground_reports.append({
-                    "index": i, "status": "FAIL",
+                    "index": i, "status": "FAIL", "ground_id": gid,
                     "reason": f"BMA decoder crashed: {exc!r}",
                 })
                 continue
@@ -185,7 +193,7 @@ def run(ctx: Context) -> StageResult:
             if bma.provenance and bma.provenance.status == Status.UNKNOWN:
                 grounds_bogus_header += 1
                 per_ground_reports.append({
-                    "index": i, "status": "BOGUS_HEADER",
+                    "index": i, "status": "BOGUS_HEADER", "ground_id": gid,
                     "rom_offset": f"{entry_offset:#x}",
                     "warnings": stats.header_warnings,
                 })
@@ -198,7 +206,7 @@ def run(ctx: Context) -> StageResult:
             width_tiles = bma.layers[0].width_chunks * 3 if bma.layers else 0
             height_tiles = bma.layers[0].height_chunks * 3 if bma.layers else 0
             g = Ground_IR(
-                id=f"ground_{i:03d}",
+                id=gid,
                 rom_map_file_id=f"MAP_{i:03d}",
                 width_tiles=width_tiles,
                 height_tiles=height_tiles,
@@ -261,6 +269,11 @@ def run(ctx: Context) -> StageResult:
             per_ground_reports.append({
                 "index": i,
                 "status": "DECODED",
+                "ground_id": gid,
+                "bma_resource": row.bma,
+                "bpl_resource": row.bpl,
+                "bpc_resource": row.bpc,
+                "bpa_resources": [b for b in row.bpas if b],
                 "rom_offset": f"{entry_offset:#x}",
                 "width_tiles": width_tiles,
                 "height_tiles": height_tiles,
@@ -276,7 +289,7 @@ def run(ctx: Context) -> StageResult:
         "total_collision_layers": total_collision_layers,
         "viewport_ok":          viewport_ok,
         "viewport_fail":        viewport_fail,
-        "per_ground":           per_ground_reports[:200],
+        "per_ground":           per_ground_reports,
     })
     result.artefacts.append(str(out / "_summary.json"))
     result.metrics.update({
