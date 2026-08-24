@@ -44,18 +44,21 @@ def test_dry_run_pipeline_is_honest() -> None:
     by_stage = {s["stage"]: s for s in report["stages"]}
 
     # Stages that MUST refuse a fake PASS in the empty state.
+    # Acceptable honest statuses: SKIPPED (no ROM) or UNIMPLEMENTED
+    # (stub logic). Never PASS on empty input.
+    HONEST_EMPTY = {"SKIPPED", "UNIMPLEMENTED"}
     for content_stage in (
         "s02_decode",
         "s03_normalise",
         "s04_map",
         "s05_emit",
     ):
-        assert by_stage[content_stage]["status"] == "UNIMPLEMENTED", (
-            f"{content_stage} must be UNIMPLEMENTED with no upstream "
-            f"input, not PASS. Got: {by_stage[content_stage]}"
+        assert by_stage[content_stage]["status"] in HONEST_EMPTY, (
+            f"{content_stage} must not PASS with no upstream input. "
+            f"Got: {by_stage[content_stage]}"
         )
         assert by_stage[content_stage]["reason"], (
-            f"{content_stage} must give a reason when UNIMPLEMENTED"
+            f"{content_stage} must give a reason when {by_stage[content_stage]['status']}"
         )
 
     # s00 must be SKIPPED (no ROM) — not PASS, not FAIL.
