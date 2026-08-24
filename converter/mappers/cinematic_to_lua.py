@@ -35,6 +35,12 @@ from converter.ir.cinematic import (
     WaitFlag,
 )
 from converter.ir.provenance import Provenance, Status
+from converter.pmdred.symbolic import (
+    SymbolResolver,
+    resolve_bgm_key,
+    resolve_flag_key,
+    resolve_sfx_key,
+)
 
 
 # ---------------------------------------------------------------- report
@@ -98,15 +104,32 @@ def _map_wait(ev: Wait) -> MappedEvent:
     )
 
 
-def _map_playbgm(ev: PlayBGM) -> MappedEvent:
-    # Track id is kept verbatim; asset resolution happens in a later
-    # pass (a track registry maps ROM track ids to canonical PMDO music
-    # files under Content/Music/).
+def _map_playbgm(ev: PlayBGM, sym: Optional[SymbolResolver] = None) -> MappedEvent:
+    # Attempt to resolve the hex placeholder to a canonical MUS_* name
+    # via the local pret enum. If we succeed, the Lua uses the symbolic
+    # name (matches what New Era's existing ground scripts already do,
+    # e.g. GAME:PlayBGM("MUS_MT_BLAZE", true)); otherwise we keep the
+    # hex form and log the reason.
+    resolved = resolve_bgm_key(ev.track_id, sym) if sym else None
+    if resolved:
+        return MappedEvent(
+            kind=ev.kind, status=Status.PORTED,
+            reason=(
+                f"BGM key {ev.track_id} resolved to MusicID enum member "
+                f"{resolved!r} via local pret checkout"
+            ),
+            lua_lines=[
+                f"-- ROM track id: {ev.track_id} -> {resolved}",
+                f"GAME:PlayBGM(\"{_lua_string(resolved)}\", "
+                f"{'true' if ev.loop else 'false'})",
+            ],
+        )
     return MappedEvent(
         kind=ev.kind, status=Status.PARTIAL,
         reason=(
-            "BGM track id preserved as symbolic key; resolution to a "
-            "concrete Content/Music/ asset happens in a later pass"
+            f"BGM track id {ev.track_id} kept as hex placeholder: "
+            "MusicID enum not available (no local pret checkout) or id "
+            "not declared in that enum"
         ),
         lua_lines=[
             f"-- ROM track id: {ev.track_id}",
@@ -124,10 +147,26 @@ def _map_stopbgm(ev: StopBGM) -> MappedEvent:
     )
 
 
-def _map_playsfx(ev: PlaySFX) -> MappedEvent:
+def _map_playsfx(ev: PlaySFX, sym: Optional[SymbolResolver] = None) -> MappedEvent:
+    resolved = resolve_sfx_key(ev.sfx_id, sym) if sym else None
+    if resolved:
+        return MappedEvent(
+            kind=ev.kind, status=Status.PORTED,
+            reason=(
+                f"SFX key {ev.sfx_id} resolved to SEID enum member "
+                f"{resolved!r} via local pret checkout"
+            ),
+            lua_lines=[
+                f"-- ROM sfx id: {ev.sfx_id} -> {resolved}",
+                f"SOUND:PlayBattleSE(\"{_lua_string(resolved)}\")",
+            ],
+        )
     return MappedEvent(
         kind=ev.kind, status=Status.PARTIAL,
-        reason="SFX id preserved as symbolic key; asset resolution deferred",
+        reason=(
+            f"SFX id {ev.sfx_id} kept as hex placeholder: SEID enum "
+            "unavailable or id not declared in the local pret checkout"
+        ),
         lua_lines=[
             f"-- ROM sfx id: {ev.sfx_id}",
             f"SOUND:PlayBattleSE(\"{_lua_string(ev.sfx_id)}\")",
@@ -135,32 +174,52 @@ def _map_playsfx(ev: PlaySFX) -> MappedEvent:
     )
 
 
-def _map_setflag(ev: SetFlag) -> MappedEvent:
+def _map_setflag(ev: SetFlag, sym: Optional[SymbolResolver] = None) -> MappedEvent:
+    resolved = resolve_flag_key(ev.flag, sym) if sym else None
+    label = resolved or ev.flag
+    status = Status.PORTED if resolved else Status.PARTIAL
+    reason = (
+        f"Flag key {ev.flag} resolved to {resolved!r} via local pret checkout"
+        if resolved
+        else (
+            f"Flag id {ev.flag} kept as hex placeholder: EventFlagID enum "
+            "unavailable or id not declared in the local pret checkout"
+        )
+    )
     return MappedEvent(
-        kind=ev.kind, status=Status.PARTIAL,
-        reason=(
-            "Flag id preserved as symbolic key; symbolic name resolution "
-            "requires the pret event_flag enum"
-        ),
+        kind=ev.kind, status=status, reason=reason,
         lua_lines=[
+            f"-- ROM flag id: {ev.flag}"
+            + (f" -> {resolved}" if resolved else ""),
             f"SV.new_era = SV.new_era or {{}}",
             f"SV.new_era.flags = SV.new_era.flags or {{}}",
-            f"SV.new_era.flags[\"{_lua_string(ev.flag)}\"] = {int(ev.value)}",
+            f"SV.new_era.flags[\"{_lua_string(label)}\"] = {int(ev.value)}",
         ],
     )
 
 
-def _map_waitflag(ev: WaitFlag) -> MappedEvent:
+def _map_waitflag(ev: WaitFlag, sym: Optional[SymbolResolver] = None) -> MappedEvent:
+    resolved = resolve_flag_key(ev.flag, sym) if sym else None
+    label = resolved or ev.flag
+    status = Status.PORTED if resolved else Status.PARTIAL
+    reason = (
+        f"Wait flag {ev.flag} resolved to {resolved!r}; polled every frame"
+        if resolved
+        else (
+            "PMDO has no direct WaitFlag primitive; polling SV flag table "
+            "each frame. Flag id kept as hex placeholder: enum unavailable "
+            "or id not declared."
+        )
+    )
     return MappedEvent(
-        kind=ev.kind, status=Status.PARTIAL,
-        reason=(
-            "PMDO has no direct WaitFlag primitive; we poll the "
-            "user-scoped SV flag table every frame, matching ROM semantics"
-        ),
+        kind=ev.kind, status=status, reason=reason,
         lua_lines=[
+            f"-- ROM flag id: {ev.flag}"
+            + (f" -> {resolved}" if resolved else ""),
             "while true do",
             "  local _flags = (SV.new_era or {}).flags or {}",
-            f"  if _flags[\"{_lua_string(ev.flag)}\"] == {int(ev.value)} then break end",
+            f"  if _flags[\"{_lua_string(label)}\"] == {int(ev.value)} "
+            f"then break end",
             "  GAME:WaitFrames(1)",
             "end",
         ],
@@ -265,7 +324,9 @@ def _map_unknown(ev: UnknownOpcode) -> MappedEvent:
     )
 
 
-# Dispatch by concrete Event_IR subclass.
+# Dispatch by concrete Event_IR subclass. Mappers that accept a
+# SymbolResolver take an optional second argument; the caller
+# (map_cinematic) knows which is which.
 _MAP = {
     Wait:          _map_wait,
     PlayBGM:       _map_playbgm,
@@ -281,6 +342,9 @@ _MAP = {
     UnknownOpcode: _map_unknown,
 }
 
+# Which mapper subclasses accept a SymbolResolver argument.
+_TAKES_SYM = {PlayBGM, PlaySFX, SetFlag, WaitFlag}
+
 
 # ---------------------------------------------------------------- public
 
@@ -290,6 +354,7 @@ def map_cinematic(
     *,
     lua_namespace: str = "halcyon",
     scene_module_name: Optional[str] = None,
+    symbols: Optional[SymbolResolver] = None,
 ) -> MappingResult:
     """Return a MappingResult for a Cinematic_IR.
 
@@ -320,7 +385,10 @@ def map_cinematic(
                 lua_lines=[f"-- UNMAPPED event {type(ev).__name__} {hex_dump}"],
             )
         else:
-            mapped = translator(ev)  # type: ignore[arg-type]
+            if type(ev) in _TAKES_SYM:
+                mapped = translator(ev, symbols)  # type: ignore[arg-type]
+            else:
+                mapped = translator(ev)           # type: ignore[arg-type]
 
         per_event.append(mapped)
         body_lines.append(

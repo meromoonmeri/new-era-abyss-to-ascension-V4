@@ -19,6 +19,7 @@ from typing import Any
 from converter.aux_sources.pret import load_pret_checkout
 from converter.decoders.ssb import decode as decode_ssb
 from converter.mappers.cinematic_to_lua import map_cinematic
+from converter.pmdred.symbolic import SymbolResolver
 from converter.rom.rom_file import RomFile
 from converter.stages.context import Context, StageResult, StageStatus
 
@@ -66,6 +67,24 @@ def run(ctx: Context) -> StageResult:
         return result
 
     pret = load_pret_checkout(ctx.pret_checkout) if ctx.pret_checkout else None
+    symbols = SymbolResolver(pret=pret)
+
+    # Optionally pick up the scene->ground binding produced by s03 so
+    # the generated Lua module carries the real canonical ground id
+    # instead of "unknown".
+    binding_path = (
+        ctx.rom_output_dir / "s03_normalise" / "scene_ground_map.json"
+    )
+    scene_to_ground: dict[int, str] = {}
+    if binding_path.exists():
+        try:
+            data = json.loads(binding_path.read_text(encoding="utf-8"))
+            for row in data.get("per_scene", []):
+                canon = row.get("ground_canonical_id")
+                if canon:
+                    scene_to_ground[int(row["scene_index"])] = canon
+        except Exception:
+            pass
 
     mapped_ok = 0
     partial_count = 0
@@ -83,16 +102,19 @@ def run(ctx: Context) -> StageResult:
             entry_offset = int(scene["rom_offset"], 16)
             max_read = min(4096, rom.size - entry_offset)
             blob = rom.read(entry_offset, max_read)
+            gid = scene_to_ground.get(idx, "unknown")
             cine, _stats = decode_ssb(
                 blob,
                 scene_id=f"cutscene_{idx:03d}",
-                ground_id="unknown",
+                ground_id=gid,
                 rom_sha256=rom.sha256(),
                 rom_offset=entry_offset,
                 pret=pret,
             )
             mapping = map_cinematic(
-                cine, scene_module_name=f"cutscene_{idx:03d}",
+                cine,
+                scene_module_name=f"cutscene_{idx:03d}",
+                symbols=symbols,
             )
 
             # Persist Lua + provenance sidecar (both under rom_output/).
