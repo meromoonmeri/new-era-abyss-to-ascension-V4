@@ -1349,11 +1349,11 @@
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
                     "Min": 85,
-                    "Max": 85
+                    "Max": 100
                   },
                   "BranchRatio": {
                     "Min": 50,
-                    "Max": 50
+                    "Max": 65
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {

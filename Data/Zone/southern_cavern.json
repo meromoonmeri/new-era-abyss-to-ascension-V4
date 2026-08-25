@@ -23445,7 +23445,7 @@
                   },
                   "BranchRatio": {
                     "Min": 65,
-                    "Max": 65
+                    "Max": 80
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {

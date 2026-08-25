@@ -72,7 +72,7 @@
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
                     "Min": 80,
-                    "Max": 80
+                    "Max": 95
                   },
                   "BranchRatio": {
                     "Min": 25,
@@ -705,7 +705,7 @@
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
                     "Min": 80,
-                    "Max": 80
+                    "Max": 95
                   },
                   "BranchRatio": {
                     "Min": 25,
@@ -1322,7 +1322,7 @@
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
                     "Min": 80,
-                    "Max": 80
+                    "Max": 95
                   },
                   "BranchRatio": {
                     "Min": 25,
@@ -1939,7 +1939,7 @@
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
                     "Min": 80,
-                    "Max": 80
+                    "Max": 95
                   },
                   "BranchRatio": {
                     "Min": 25,
@@ -2617,7 +2617,7 @@
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
                     "Min": 80,
-                    "Max": 80
+                    "Max": 95
                   },
                   "BranchRatio": {
                     "Min": 25,
@@ -3444,7 +3444,7 @@
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
                     "Min": 80,
-                    "Max": 80
+                    "Max": 95
                   },
                   "BranchRatio": {
                     "Min": 25,
@@ -4271,7 +4271,7 @@
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
                     "Min": 80,
-                    "Max": 80
+                    "Max": 95
                   },
                   "BranchRatio": {
                     "Min": 25,
@@ -5098,7 +5098,7 @@
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
                     "Min": 80,
-                    "Max": 80
+                    "Max": 95
                   },
                   "BranchRatio": {
                     "Min": 25,

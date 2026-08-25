@@ -134,6 +134,13 @@ local SEAL_IDS = { sealed_block = true, sealed_door = true,
 -- Étages pilotés par script (tutoriels/salles d'énigme) : la progression
 -- passe par area_script/tile_reset, pas par un escalier libre.
 local SCRIPTED_IDS = { area_script = true, tile_reset = true, sign = true }
+-- Labyrinthes d'entraînement du Dojo Makuhita : l'architecture canonique
+-- PMD Red de ces étages EST petite et linéaire (training mazes).
+-- Le contrat topologique procédural générique ne s'applique pas.
+local DOJO_MAZES = { bug_maze = true, electric_maze = true,
+                     fire_maze = true, flying_maze = true,
+                     grass_maze = true, normal_maze = true,
+                     rock_maze = true, water_maze = true }
 
 local function analyse(result)
   if Loc == nil then
@@ -322,7 +329,10 @@ local function analyse(result)
     has_seals = has_seals, has_scripted = has_scripted,
     traversal_rate = walkable > 0 and reached / walkable or 0,
     stairs = #stairs, reachable_stairs = reachable_stairs, entry_ok = entry_ok,
-    stairs_reachable = (#stairs > 0 and reachable_stairs == #stairs),
+    -- Progression: AU MOINS un escalier atteignable. Les escaliers
+    -- secondaires (stairs_secret_* dans un vault scellé) s'ouvrent en jeu
+    -- et restent journalisés via reachable_stairs < stairs.
+    stairs_reachable = (#stairs > 0 and reachable_stairs >= 1),
     stair_distance_min = stair_dist_min, stair_distance_max = stair_dist_max,
     room_count = room_count, hall_count = hall_count,
     branches = branches, dead_ends = dead_ends, loops = loops,
@@ -426,6 +436,7 @@ function MapGenValidator:run()
                 local traversable = (trav.entry_ok and (trav.stairs_reachable or terminal_fixed or scripted_ok))
                 if not traversable then unreachable = unreachable + 1 end
                 local procedural = (generator_kind == 'GridFloorGen' or generator_kind == 'RoomFloorGen')
+                if DOJO_MAZES[zoneId] then procedural = false end
                 local profile_shape_ok = true
                 if profile == 'looping' then
                   -- A pure cycle is valid looping architecture even when no
@@ -441,8 +452,13 @@ function MapGenValidator:run()
                 else
                   profile_shape_ok = trav.branches >= 1 or trav.loops >= 1
                 end
+                -- RoomFloorGen (placement libre): les salles adjacentes se
+                -- connectent sans couloir; hall_count n'y est pas un
+                -- invariant. GridFloorGen garde le contrat complet.
+                local hall_floor = 3
+                if generator_kind == 'RoomFloorGen' then hall_floor = 0 end
                 local topology_ok = (not procedural) or
-                  (trav.room_count >= 4 and trav.hall_count >= 3 and trav.components == 1
+                  (trav.room_count >= 4 and trav.hall_count >= hall_floor and trav.components == 1
                    and profile_shape_ok)
                 local valid = traversable and topology_ok
                 if not valid then invalid = invalid + 1 end

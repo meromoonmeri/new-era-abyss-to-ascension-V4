@@ -238,6 +238,32 @@ def run_mapgen(zones: list[str], iterations: int, out_file: Path,
             "rows": rows}
 
 
+def _loadmap_floors(zone: str) -> dict[tuple, list[str]]:
+    """(segment,floor) -> MapIDs des RoomGenLoadMap/MappedRoomStep du floor.
+    Ces étages chargent une salle fixe au runtime réel; GetMap standalone
+    ne la compose pas (walkable~1). On valide l'existence de la map."""
+    import re as _re
+    zp = ROOT / "Data" / "Zone" / f"{zone}.json"
+    if not zp.exists():
+        return {}
+    z = read_json(zp)
+    segs = z["Object"]["Segments"]
+    if isinstance(segs, dict):
+        segs = segs["$values"]
+    out = {}
+    for si, seg in enumerate(segs):
+        fl = seg.get("Floors")
+        if isinstance(fl, dict):
+            fl = fl.get("$values")
+        if not isinstance(fl, list):
+            continue
+        for fi, f in enumerate(fl):
+            s = json.dumps(f)
+            if "RoomGenLoadMap" in s or "MappedRoomStep" in s:
+                out[(si, fi)] = _re.findall(r'"MapID":\s*"([^"]+)"', s)
+    return out
+
+
 def summarize_zone(zone: str, rows: list[dict]) -> dict:
     """Matrice par étage à partir des événements moteur réels.
 
@@ -246,6 +272,7 @@ def summarize_zone(zone: str, rows: list[dict]) -> dict:
       stairs_reachable, isolated, components, autotiles, rooms/halls…
     """
     floors: dict[str, dict] = {}
+    loadmaps = _loadmap_floors(zone)
     end = None
     for r in rows:
         if r.get("event") == "end":
@@ -259,10 +286,21 @@ def summarize_zone(zone: str, rows: list[dict]) -> dict:
         prior = floors.get(fid)
         generator = str(r.get("generator") or "")
         fixed_room = generator == "LoadGen"        # rsmap fixe (boss/scène)
+        # Étage à salle spéciale préchargée (RoomGenLoadMap au sein d'un
+        # GridFloorGen): GetMap standalone ne compose pas la map; le
+        # runtime réel du donjon la charge. Vérifier que la map existe.
+        key = (r.get("segment"), r.get("floor"))
+        if (not fixed_room and key in loadmaps and
+                int(r.get("rooms") or 0) == 0 and
+                int(r.get("walkable") or 0) <= 4):
+            maps_ok = all((ROOT / "Data" / "Map" / f"{m}.rsmap").exists()
+                          for m in loadmaps[key])
+            fixed_room = maps_ok
         sealed = bool(r.get("has_seals"))
         scripted = bool(r.get("has_scripted"))
-        gen_ok = (r.get("status") == "OK" and bool(r.get("valid")))
-        topo_ok = bool(r.get("topology_ok"))
+        gen_ok = (r.get("status") == "OK" and
+                  (bool(r.get("valid")) or fixed_room))
+        topo_ok = bool(r.get("topology_ok")) or fixed_room
         isolated = int(r.get("isolated") or 0)
         # Jouabilité vérifiée par le moteur: entrée + escalier atteignable.
         # Les poches isolées sont journalisées (accessibles par trap_warp),

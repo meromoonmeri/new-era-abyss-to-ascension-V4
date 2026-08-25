@@ -35259,7 +35259,7 @@
                   },
                   "BranchRatio": {
                     "Min": 65,
-                    "Max": 65
+                    "Max": 80
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -42131,7 +42131,7 @@
                   },
                   "BranchRatio": {
                     "Min": 65,
-                    "Max": 65
+                    "Max": 80
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -44745,7 +44745,7 @@
                   },
                   "BranchRatio": {
                     "Min": 50,
-                    "Max": 50
+                    "Max": 65
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -47591,7 +47591,7 @@
                   },
                   "BranchRatio": {
                     "Min": 65,
-                    "Max": 65
+                    "Max": 80
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -48619,7 +48619,7 @@
                   },
                   "BranchRatio": {
                     "Min": 65,
-                    "Max": 65
+                    "Max": 80
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
