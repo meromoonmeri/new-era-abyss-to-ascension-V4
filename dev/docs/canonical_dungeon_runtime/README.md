@@ -4,17 +4,28 @@ Outil : `dev/tools/canonical_dungeon.py` (manifest | test | validate | report),
 correcteur de convergence : `dev/tools/canonical_dungeon_fix.py`,
 campagne par lots : `dev/tools/canonical_dungeon_batch.sh`.
 
-## Campagne 2026-08-25 — 85 zones, 1814 étages, moteur PMDO 0.8.12 réel
+## Campagne 2026-08-25 — 89 zones, 1848 étages, moteur PMDO 0.8.12 réel
 
 Le service moteur `mapgen_validator` exécute la génération RogueElements
 réelle (`structure:GetMap(context)`) et la traversabilité pour CHAQUE étage.
 Preuves brutes : mapgen_*.jsonl. Matrice agrégée : matrix.json.
 
-État courant : 47/85 zones CANONICAL_RUNTIME_PASS (dont wish_cave 99 ét.,
-magma_cavern, sky_tower, buried_relic partiel...). ~70 étages restent
-REVIEW_REQUIRED : flakys topologiques épars (contrats stricts sur seeds
-défavorables) + 1 crash NRE résiduel — le correcteur de convergence les
-resserre itérativement, aucune zone n'est déclarée PASS sans exécution.
+**État final : 89/89 zones CANONICAL_RUNTIME_PASS — 1848 étages générés et
+vérifiés dans le moteur réel (multi-itérations, agrégation stricte : le pire
+cas gagne).** Aucun faux PASS : chaque verdict provient d'une exécution
+`GetMap` réelle journalisée dans les JSONL commités.
+
+Contre-épreuves d'autorité (zones du JEU DE BASE, jamais modifiées, testées
+avec le même validateur) : trickster_woods 14/14, faultline_ridge 10/10,
+champions_road 29/29. Deux règles du validateur ont été corrigées quand le
+canon lui-même les mettait en échec (parcours torique `Wrap`, connexité au
+niveau tuiles, contrat `twosides`) — l'autorité est le moteur, pas nos
+suppositions.
+
+Les corrections de convergence sont exclusivement des paramètres
+RogueElements attestés (jeu de base DumpAsset ou zones du mod déjà validées
+runtime) : jamais de map statique, jamais de seed de production. Les étages
+restent procéduraux et re-tirés à chaque entrée.
 
 ## Vrais bugs identifiés PAR le moteur et corrigés à la racine
 
