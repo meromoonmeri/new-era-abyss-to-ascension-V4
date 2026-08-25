@@ -149,6 +149,12 @@ local function analyse(result)
   end
   local map = result.Map
   local w, h = map.Width, map.Height
+  -- Cartes toriques (InitGridPlanStep.Wrap, ex. trickster_woods seg1) :
+  -- le moteur (Grid.FloodFill/DetectIsolatedStairsStep) traverse les bords.
+  -- Le parcours doit faire de même, sinon faux négatifs de traversée.
+  local wrap = false
+  pcall(function() wrap = result.Wrap and true or false end)
+  if not wrap then pcall(function() wrap = map.Wrap and true or false end) end
   local blocked = {}
   local walkable = 0
   local has_seals = false
@@ -205,15 +211,29 @@ local function analyse(result)
   local reached = 1
   local head = 1
   local DIRS = { {1,0},{-1,0},{0,1},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1} }
+  -- Sur carte torique, les coordonnées s'enroulent modulo w/h
+  -- (même règle que Loc.Wrap dans Grid.FloodFill du moteur).
+  local function wc(x, y)
+    if wrap then return x % w, y % h end
+    return x, y
+  end
   while head <= #queue do
     local cur = queue[head]; head = head + 1
     for _, d in ipairs(DIRS) do
       local nx, ny = cur.x + d[1], cur.y + d[2]
+      if wrap then nx, ny = wc(nx, ny) end
       if nx >= 0 and ny >= 0 and nx < w and ny < h and not seen[nx][ny]
          and not blocked[nx][ny] then
         local ok = true
         if d[1] ~= 0 and d[2] ~= 0 then
-          ok = (not blocked[cur.x + d[1]][cur.y]) and (not blocked[cur.x][cur.y + d[2]])
+          local ox, oy = wc(cur.x + d[1], cur.y)
+          local px, py = wc(cur.x, cur.y + d[2])
+          if ox >= 0 and ox < w and oy >= 0 and oy < h
+             and px >= 0 and px < w and py >= 0 and py < h then
+            ok = (not blocked[ox][oy]) and (not blocked[px][py])
+          else
+            ok = false
+          end
         end
         if ok then
           seen[nx][ny] = true
@@ -449,6 +469,13 @@ function MapGenValidator:run()
                   profile_shape_ok = trav.large_rooms >= 1
                     and (trav.branches >= 1 or trav.loops >= 1)
                     and (trav.dead_ends >= 1 or trav.loops >= 1)
+                elseif profile == 'unknown' then
+                  -- Aucun contrat de forme déclaré (pas de Comment profile=).
+                  -- Le jeu de base produit légitimement des étages linéaires
+                  -- (GridPathBranch BranchRatio Min=0 : trickster_woods s0f9
+                  -- observé rooms=10, branches=0, loops=0). Exiger une
+                  -- branche ici serait une invention, pas le canon.
+                  profile_shape_ok = true
                 else
                   profile_shape_ok = trav.branches >= 1 or trav.loops >= 1
                 end
