@@ -13820,7 +13820,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.GridPathGrid`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "RoomRatio": 65,
+                  "RoomRatio": 100,
                   "HallRatio": 45,
                   "GenericRooms": {
                     "$type": "RogueElements.SpawnList`1[[RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",

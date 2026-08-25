@@ -4361,8 +4361,8 @@
                   },
                   "HallPercent": 100,
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 30,
+                    "Max": 30
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {

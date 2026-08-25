@@ -306,16 +306,24 @@ def summarize_zone(zone: str, rows: list[dict]) -> dict:
         # Les poches isolées sont journalisées (accessibles par trap_warp),
         # elles ne condamnent pas un étage complétable.
         trav_ok = bool(r.get("traversable")) and bool(r.get("entry_ok"))
+        # Même sémantique que le service moteur (mapgen_validator):
+        # la progression exige AU MOINS UN escalier atteignable. Les
+        # escaliers secondaires (stairs_secret_* dans un vault scellé)
+        # s'ouvrent en jeu et restent journalisés.
         stairs_ok = fixed_room or scripted or (
             int(r.get("stairs") or 0) >= 1 and
-            int(r.get("stairs_reachable") or 0) == int(r.get("stairs") or 0))
+            int(r.get("stairs_reachable") or 0) >= 1)
         autotiles = str(r.get("autotiles") or "")
         # Les rsmap fixes (LoadGen) portent leurs textures directement,
         # sans autotile: l'absence d'autotile y est canonique.
         auto_ok = fixed_room or bool(autotiles.strip())
         rooms = int(r.get("rooms") or 0)
+        # RoomFloorGen (placement libre): les salles adjacentes se
+        # connectent sans couloir — hall_count n'y est pas un invariant
+        # (même sémantique que hall_floor=0 dans mapgen_validator).
         complexity_ok = fixed_room or (
-            rooms >= 2 and int(r.get("halls") or 0) >= 1)
+            rooms >= 2 and (int(r.get("halls") or 0) >= 1 or
+                            generator == "RoomFloorGen"))
         cur = {
             "generation":  "PASS" if gen_ok else "GENERATION_FAILURE",
             "topology":    "PASS" if topo_ok else "GENERATION_FAILURE",

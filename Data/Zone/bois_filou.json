@@ -13027,8 +13027,8 @@
                 "Value": {
                   "$type": "RogueEssence.LevelGen.CombineGridRoomStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
                   "MergeRate": {
-                    "Min": 5,
-                    "Max": 9
+                    "Min": 2,
+                    "Max": 5
                   },
                   "Filters": [
                     {
@@ -13977,8 +13977,8 @@
                 "Value": {
                   "$type": "RogueEssence.LevelGen.CombineGridRoomStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
                   "MergeRate": {
-                    "Min": 5,
-                    "Max": 9
+                    "Min": 2,
+                    "Max": 5
                   },
                   "Filters": [
                     {
@@ -14927,8 +14927,8 @@
                 "Value": {
                   "$type": "RogueEssence.LevelGen.CombineGridRoomStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
                   "MergeRate": {
-                    "Min": 5,
-                    "Max": 9
+                    "Min": 2,
+                    "Max": 5
                   },
                   "Filters": [
                     {
@@ -15877,8 +15877,8 @@
                 "Value": {
                   "$type": "RogueEssence.LevelGen.CombineGridRoomStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
                   "MergeRate": {
-                    "Min": 5,
-                    "Max": 9
+                    "Min": 2,
+                    "Max": 5
                   },
                   "Filters": [
                     {
