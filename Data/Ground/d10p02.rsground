@@ -4,9 +4,9 @@
     "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
     "TexSize": 1,
     "Name": {
-      "DefaultText": "D10P02",
+      "DefaultText": "Frosty Forest Heart",
       "LocalTexts": {
-        "fr": "D10P02"
+        "fr": "Forêt Givrée"
       }
     },
     "Released": false,

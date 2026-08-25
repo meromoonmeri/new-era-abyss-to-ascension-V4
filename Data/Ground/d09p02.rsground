@@ -4,9 +4,9 @@
     "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
     "TexSize": 1,
     "Name": {
-      "DefaultText": "D09P02",
+      "DefaultText": "Mt Blaze Ridge",
       "LocalTexts": {
-        "fr": "D09P02"
+        "fr": "Mt Ardent"
       }
     },
     "Released": false,

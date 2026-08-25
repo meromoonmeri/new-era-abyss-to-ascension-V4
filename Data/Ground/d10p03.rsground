@@ -4,9 +4,9 @@
     "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
     "TexSize": 1,
     "Name": {
-      "DefaultText": "D10P03",
+      "DefaultText": "Frosty Grotto",
       "LocalTexts": {
-        "fr": "D10P03"
+        "fr": "Sous-Bois Givré"
       }
     },
     "Released": false,

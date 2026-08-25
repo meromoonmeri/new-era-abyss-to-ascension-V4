@@ -4,9 +4,9 @@
     "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
     "TexSize": 1,
     "Name": {
-      "DefaultText": "D11P03",
+      "DefaultText": "Mt Freeze Peak",
       "LocalTexts": {
-        "fr": "D11P03"
+        "fr": "Mt Glacial-Pic"
       }
     },
     "Released": false,

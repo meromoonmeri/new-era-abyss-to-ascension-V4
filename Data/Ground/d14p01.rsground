@@ -4,8 +4,10 @@
     "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
     "TexSize": 1,
     "Name": {
-      "DefaultText": "d14p01",
-      "LocalTexts": {}
+      "DefaultText": "Stormy Sea Abyss",
+      "LocalTexts": {
+        "fr": "Mer Houleuse"
+      }
     },
     "Released": false,
     "Comment": "Candidat PMD Rouge EU reconstruit directement depuis la ROM : graphismes CANM, collision et géométrie validés. Non promu : entrées, scripts, musique et chorégraphie restent à fusionner après validation canonique; aucun marqueur central n'est inventé.",

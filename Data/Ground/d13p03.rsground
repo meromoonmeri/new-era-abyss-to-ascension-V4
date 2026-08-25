@@ -4,8 +4,10 @@
     "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
     "TexSize": 1,
     "Name": {
-      "DefaultText": "d13p03",
-      "LocalTexts": {}
+      "DefaultText": "Sky Tower Summit",
+      "LocalTexts": {
+        "fr": "Tour Céleste-Sommet"
+      }
     },
     "Released": false,
     "Comment": "Candidat PMD Rouge EU reconstruit directement depuis la ROM : graphismes CANM, collision et géométrie validés. Non promu : entrées, scripts, musique et chorégraphie restent à fusionner après validation canonique; aucun marqueur central n'est inventé.",
