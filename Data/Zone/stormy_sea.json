@@ -39,7 +39,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -423,7 +423,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -959,7 +959,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -1343,7 +1343,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -1878,7 +1878,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -2414,7 +2414,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -2949,7 +2949,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -3484,7 +3484,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -4020,7 +4020,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -4404,7 +4404,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -4940,7 +4940,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -5324,7 +5324,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -5708,7 +5708,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -7994,7 +7994,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -8529,7 +8529,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -9064,7 +9064,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -9593,7 +9593,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -9977,7 +9977,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -10512,7 +10512,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -11041,7 +11041,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -11576,7 +11576,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -11960,7 +11960,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -12489,7 +12489,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -13024,7 +13024,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -13408,7 +13408,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -13943,7 +13943,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -14327,7 +14327,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -16493,7 +16493,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -17007,7 +17007,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -17391,7 +17391,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -17905,7 +17905,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -18441,7 +18441,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -18955,7 +18955,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -19339,7 +19339,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -19853,7 +19853,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -20367,7 +20367,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -20903,7 +20903,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -21417,7 +21417,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -21931,7 +21931,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Lapis Cave.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -22467,7 +22467,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "Tiny Woods.ogg",
                   "TimeLimit": 2000,
                   "TileSight": 0,
                   "CharSight": 0,

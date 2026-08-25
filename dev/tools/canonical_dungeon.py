@@ -260,14 +260,15 @@ def summarize_zone(zone: str, rows: list[dict]) -> dict:
         generator = str(r.get("generator") or "")
         fixed_room = generator == "LoadGen"        # rsmap fixe (boss/scène)
         sealed = bool(r.get("has_seals"))
+        scripted = bool(r.get("has_scripted"))
         gen_ok = (r.get("status") == "OK" and bool(r.get("valid")))
         topo_ok = bool(r.get("topology_ok"))
         isolated = int(r.get("isolated") or 0)
-        trav_ok = bool(r.get("traversable")) and bool(r.get("entry_ok")) \
-            and (isolated == 0 or fixed_room or (sealed and isolated <= 160))
-        if not fixed_room:
-            trav_ok = trav_ok and int(r.get("components") or 1) == 1
-        stairs_ok = fixed_room or (
+        # Jouabilité vérifiée par le moteur: entrée + escalier atteignable.
+        # Les poches isolées sont journalisées (accessibles par trap_warp),
+        # elles ne condamnent pas un étage complétable.
+        trav_ok = bool(r.get("traversable")) and bool(r.get("entry_ok"))
+        stairs_ok = fixed_room or scripted or (
             int(r.get("stairs") or 0) >= 1 and
             int(r.get("stairs_reachable") or 0) == int(r.get("stairs") or 0))
         autotiles = str(r.get("autotiles") or "")

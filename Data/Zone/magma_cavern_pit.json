@@ -39,7 +39,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "In the Depths of the Pit.ogg",
                   "TimeLimit": 600,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -553,7 +553,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "In the Depths of the Pit.ogg",
                   "TimeLimit": 600,
                   "TileSight": 0,
                   "CharSight": 0,
@@ -1089,7 +1089,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "",
+                  "Music": "In the Depths of the Pit.ogg",
                   "TimeLimit": 600,
                   "TileSight": 0,
                   "CharSight": 0,

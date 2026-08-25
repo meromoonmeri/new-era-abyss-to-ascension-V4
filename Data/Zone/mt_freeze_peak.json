@@ -43,7 +43,7 @@
                       },
                       "Value": {
                         "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                        "Music": "Mt Freeze.ogg",
+                        "Music": "In the Depths of the Pit.ogg",
                         "TimeLimit": 800,
                         "TileSight": 0,
                         "CharSight": 0,
@@ -568,7 +568,7 @@
                       },
                       "Value": {
                         "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                        "Music": "Mt Freeze.ogg",
+                        "Music": "In the Depths of the Pit.ogg",
                         "TimeLimit": 800,
                         "TileSight": 0,
                         "CharSight": 0,
@@ -1091,7 +1091,7 @@
                       },
                       "Value": {
                         "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                        "Music": "Mt Freeze.ogg",
+                        "Music": "Mt Freeze Peak.ogg",
                         "TimeLimit": 800,
                         "TileSight": 0,
                         "CharSight": 0,
@@ -1616,7 +1616,7 @@
                       },
                       "Value": {
                         "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                        "Music": "Mt Freeze.ogg",
+                        "Music": "Mt Freeze Peak.ogg",
                         "TimeLimit": 800,
                         "TileSight": 0,
                         "CharSight": 0,
@@ -2139,7 +2139,7 @@
                       },
                       "Value": {
                         "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                        "Music": "Mt Freeze.ogg",
+                        "Music": "Mt Freeze Peak.ogg",
                         "TimeLimit": 800,
                         "TileSight": 0,
                         "CharSight": 0,
@@ -2664,7 +2664,7 @@
                       },
                       "Value": {
                         "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                        "Music": "Mt Freeze.ogg",
+                        "Music": "Mt Freeze Peak.ogg",
                         "TimeLimit": 800,
                         "TileSight": 0,
                         "CharSight": 0,
@@ -3187,7 +3187,7 @@
                       },
                       "Value": {
                         "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                        "Music": "Mt Freeze.ogg",
+                        "Music": "Mt Freeze Peak.ogg",
                         "TimeLimit": 800,
                         "TileSight": 0,
                         "CharSight": 0,
@@ -3712,7 +3712,7 @@
                       },
                       "Value": {
                         "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                        "Music": "Mt Freeze.ogg",
+                        "Music": "Mt Freeze Peak.ogg",
                         "TimeLimit": 800,
                         "TileSight": 0,
                         "CharSight": 0,

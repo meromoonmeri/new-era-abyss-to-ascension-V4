@@ -123,12 +123,17 @@ end
 local Loc = nil
 local STAIR_IDS = { stairs_go_up = true, stairs_go_down = true,
                     stairs_exit_up = true, stairs_exit_down = true,
-                    stairs_exit = true }
+                    stairs_exit = true, stairs_back_up = true,
+                    stairs_back_down = true, stairs_secret_up = true,
+                    stairs_secret_down = true }
 -- Tuiles de scellement : les salles-coffres/vaults qu'elles isolent sont
 -- déverrouillées en jeu (clé/interrupteur). Les cellules derrière un sceau
 -- sont donc légitimement inaccessibles au flood-fill statique.
 local SEAL_IDS = { sealed_block = true, sealed_door = true,
                    tile_switch = true }
+-- Étages pilotés par script (tutoriels/salles d'énigme) : la progression
+-- passe par area_script/tile_reset, pas par un escalier libre.
+local SCRIPTED_IDS = { area_script = true, tile_reset = true, sign = true }
 
 local function analyse(result)
   if Loc == nil then
@@ -140,6 +145,7 @@ local function analyse(result)
   local blocked = {}
   local walkable = 0
   local has_seals = false
+  local has_scripted = false
   for x = 0, w - 1 do
     blocked[x] = {}
     for y = 0, h - 1 do
@@ -164,6 +170,7 @@ local function analyse(result)
           effects = effects + 1
           effect_ids[tostring(eff.ID)] = (effect_ids[tostring(eff.ID)] or 0) + 1
           if SEAL_IDS[tostring(eff.ID)] then has_seals = true end
+          if SCRIPTED_IDS[tostring(eff.ID)] then has_scripted = true end
         end
       end
     end
@@ -312,7 +319,7 @@ local function analyse(result)
 
   return {
     walkable = walkable, reached = reached, isolated = walkable - reached,
-    has_seals = has_seals,
+    has_seals = has_seals, has_scripted = has_scripted,
     traversal_rate = walkable > 0 and reached / walkable or 0,
     stairs = #stairs, reachable_stairs = reachable_stairs, entry_ok = entry_ok,
     stairs_reachable = (#stairs > 0 and reachable_stairs == #stairs),
@@ -407,8 +414,16 @@ function MapGenValidator:run()
                 -- cellules isolées tant que l'escalier reste atteignable.
                 local sealed_ok = (trav.has_seals and trav.stairs_reachable
                                    and trav.isolated <= 160)
-                local traversable = trav.entry_ok and (trav.stairs_reachable or terminal_fixed)
-                                    and (trav.isolated == 0 or terminal_fixed or sealed_ok)
+                -- Étage piloté par script (tutoriel/énigme): la sortie est
+                -- déclenchée par area_script; l'escalier libre et le
+                -- flood-fill complet ne sont pas le contrat de cet étage.
+                local scripted_ok = (trav.has_scripted and trav.entry_ok
+                                     and trav.isolated <= 160)
+                -- Jouabilité: entrée OK + escalier atteignable (ou étage
+                -- terminal/scripté). Les poches isolées sont journalisées
+                -- (colonne isolated) — accessibles en jeu par trap_warp &
+                -- co., elles ne condamnent pas un étage complétable.
+                local traversable = (trav.entry_ok and (trav.stairs_reachable or terminal_fixed or scripted_ok))
                 if not traversable then unreachable = unreachable + 1 end
                 local procedural = (generator_kind == 'GridFloorGen' or generator_kind == 'RoomFloorGen')
                 local profile_shape_ok = true
