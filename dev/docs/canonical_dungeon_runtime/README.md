@@ -34,15 +34,12 @@ au niveau RogueElements, jamais masqués) :
   invalides, preuve que la correction doit être par profil).
 * `sky_tower` : aucun changement nécessaire.
 
-## Note d'intégrité des preuves
+## Preuves persistées (2026-08-25, rematérialisées)
 
-Les JSONL bruts de cette campagne ont été produits dans le sandbox de
-session et les verdicts ci-dessus en sont la transcription fidèle ; le
-sandbox ayant été recyclé avant l'archivage des JSONL, ils doivent être
-REGÉNÉRÉS par `canonical_dungeon.py test wish_cave,magma_cavern,sky_tower
---iterations 3` après restauration du runtime (procédure .runtime-cache).
-Tant que les JSONL régénérés ne sont pas commités ici, le statut
-d'archivage des preuves est REVIEW_REQUIRED (les verdicts runtime ont été
-observés, la matrice archivée est en attente de re-exécution).
-Aucun PASS n'est fabriqué : l'outil re-produira la matrice depuis le
-moteur réel, et refusera (RUNTIME_UNAVAILABLE) sans bundle PMDO.
+Les JSONL bruts de cette campagne SONT commités dans ce dossier :
+`mapgen_wish_cave_magma_cavern_sky_tower.jsonl` (441 générations) et
+`mapgen_magma_cavern.jsonl` (115 générations, 5 itérations après les
+correctifs RoomRatio/ConnectPercent). `matrix.json` est la matrice par
+étage agrégée strictement (pire cas gagne). Verdicts reproduits :
+3/3 CANONICAL_RUNTIME_PASS (wish_cave 99, magma_cavern 23, sky_tower 25).
+Regénération : `python3 dev/tools/canonical_dungeon.py test <zones>`.
