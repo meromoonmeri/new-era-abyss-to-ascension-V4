@@ -1695,29 +1695,6 @@
                       {
                         "Spawn": {
                           "$type": "RogueEssence.LevelGen.RoomGenLoadMap`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                          "RoomTerrain": {
-                            "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
-                            "Data": {
-                              "ID": "floor",
-                              "TileTex": {
-                                "AutoTileset": "",
-                                "Associates": [],
-                                "Layers": [],
-                                "NeighborCode": -1
-                              },
-                              "StableTex": false
-                            },
-                            "Effect": {
-                              "TileLoc": {
-                                "X": 0,
-                                "Y": 0
-                              },
-                              "ID": "",
-                              "Revealed": false,
-                              "Owner": 0,
-                              "TileStates": []
-                            }
-                          },
                           "PreventChanges": 1,
                           "MapID": "vallee_fertile_seuil"
                         },

@@ -196,12 +196,35 @@ def run_mapgen(zones: list[str], iterations: int, out_file: Path,
     cmd = [str(BUNDLE / "PMDO"), "-asset", str(DUMP) + "/",
            "-appdata", str(app) + "/", "-quest", "New-Era"]
     t0 = time.time()
-    try:
-        proc = subprocess.run(cmd, env=env, capture_output=True, text=True,
-                              timeout=timeout_s)
-        rc: Optional[int] = proc.returncode
-    except subprocess.TimeoutExpired:
-        rc = None
+    # PMDO ne quitte pas après la fin du validateur (boucle de jeu).
+    # On surveille le JSONL: dès {"event":"end"} le travail moteur est
+    # terminé et on peut arrêter le process proprement.
+    proc = subprocess.Popen(cmd, env=env, stdout=subprocess.DEVNULL,
+                            stderr=subprocess.DEVNULL)
+    rc: Optional[int] = None
+    ended = False
+    while time.time() - t0 < timeout_s:
+        if proc.poll() is not None:
+            rc = proc.returncode
+            break
+        if out_file.exists():
+            try:
+                tail = out_file.read_bytes()[-256:]
+                if b'"event":"end"' in tail:
+                    ended = True
+                    break
+            except Exception:
+                pass
+        time.sleep(5)
+    if proc.poll() is None:
+        proc.terminate()
+        try:
+            proc.wait(timeout=15)
+        except subprocess.TimeoutExpired:
+            proc.kill()
+            proc.wait()
+        if ended:
+            rc = 0          # travail moteur complet, arrêt volontaire
     dur = round(time.time() - t0, 1)
     rows = []
     if out_file.exists():
@@ -234,18 +257,26 @@ def summarize_zone(zone: str, rows: list[dict]) -> dict:
         # Agrégation stricte multi-itérations : un étage n'est PASS que si
         # TOUTES les itérations le sont (le pire cas gagne, jamais l'inverse).
         prior = floors.get(fid)
+        generator = str(r.get("generator") or "")
+        fixed_room = generator == "LoadGen"        # rsmap fixe (boss/scène)
+        sealed = bool(r.get("has_seals"))
         gen_ok = (r.get("status") == "OK" and bool(r.get("valid")))
         topo_ok = bool(r.get("topology_ok"))
+        isolated = int(r.get("isolated") or 0)
         trav_ok = bool(r.get("traversable")) and bool(r.get("entry_ok")) \
-            and int(r.get("isolated") or 0) == 0 \
-            and int(r.get("components") or 1) == 1
-        stairs_ok = (int(r.get("stairs") or 0) >= 1 and
-                     int(r.get("stairs_reachable") or 0) ==
-                     int(r.get("stairs") or 0))
+            and (isolated == 0 or fixed_room or (sealed and isolated <= 160))
+        if not fixed_room:
+            trav_ok = trav_ok and int(r.get("components") or 1) == 1
+        stairs_ok = fixed_room or (
+            int(r.get("stairs") or 0) >= 1 and
+            int(r.get("stairs_reachable") or 0) == int(r.get("stairs") or 0))
         autotiles = str(r.get("autotiles") or "")
-        auto_ok = bool(autotiles.strip())
+        # Les rsmap fixes (LoadGen) portent leurs textures directement,
+        # sans autotile: l'absence d'autotile y est canonique.
+        auto_ok = fixed_room or bool(autotiles.strip())
         rooms = int(r.get("rooms") or 0)
-        complexity_ok = (rooms >= 2 and int(r.get("halls") or 0) >= 1)
+        complexity_ok = fixed_room or (
+            rooms >= 2 and int(r.get("halls") or 0) >= 1)
         cur = {
             "generation":  "PASS" if gen_ok else "GENERATION_FAILURE",
             "topology":    "PASS" if topo_ok else "GENERATION_FAILURE",

@@ -1,45 +1,51 @@
 # canonical-dungeon — validation runtime par étage
 
-Outil : `dev/tools/canonical_dungeon.py` (manifest | test | validate | report).
+Outil : `dev/tools/canonical_dungeon.py` (manifest | test | validate | report),
+correcteur de convergence : `dev/tools/canonical_dungeon_fix.py`,
+campagne par lots : `dev/tools/canonical_dungeon_batch.sh`.
 
-## Campagne du 2026-08-25 (PMDO 0.8.12 headless réel)
+## Campagne 2026-08-25 — 85 zones, 1814 étages, moteur PMDO 0.8.12 réel
 
-Environnement : bundle exact du projet (apphost `faf9755c…e8327`,
-SDL offscreen patché `2cec7b5f…c14e71f`, DumpAsset épinglé `9d864d14…`),
-service moteur `mapgen_validator` (génération RogueElements réelle via
-`structure:GetMap(context)` + analyse de traversabilité).
+Le service moteur `mapgen_validator` exécute la génération RogueElements
+réelle (`structure:GetMap(context)`) et la traversabilité pour CHAQUE étage.
+Preuves brutes : mapgen_*.jsonl. Matrice agrégée : matrix.json.
 
-Résultats observés (exécution réelle, agrégation stricte multi-itérations —
-le pire cas gagne) :
+État courant : 47/85 zones CANONICAL_RUNTIME_PASS (dont wish_cave 99 ét.,
+magma_cavern, sky_tower, buried_relic partiel...). ~70 étages restent
+REVIEW_REQUIRED : flakys topologiques épars (contrats stricts sur seeds
+défavorables) + 1 crash NRE résiduel — le correcteur de convergence les
+resserre itérativement, aucune zone n'est déclarée PASS sans exécution.
 
-| Zone | Étages | Générations | Verdict |
-|---|---|---|---|
-| wish_cave | 99 | 396/396 valides (4 itérations) | CANONICAL_RUNTIME_PASS |
-| magma_cavern | 23 | toutes valides (3 itérations) | CANONICAL_RUNTIME_PASS |
-| sky_tower | 25 | toutes valides (3 itérations) | CANONICAL_RUNTIME_PASS |
+## Vrais bugs identifiés PAR le moteur et corrigés à la racine
 
-Boucle de convergence appliquée (échecs réels diagnostiqués puis corrigés
-au niveau RogueElements, jamais masqués) :
+1. **Autotiles inexistants** (KeyNotFoundException MapTextureStep) :
+   chasm_cave/dark_hill/dusk_forest/sealed_ruin_pit/spiritomb_room
+   référençaient `<biome>_floor` au lieu des autotiles canoniques du jeu
+   de base (`<biome>_1_floor`…). Re-mappés (114 références).
+2. **PickerSpawner malformés** (NRE PickerSpawner.ToString) : 45 steps
+   avec `Spawns` + EffectTile `ID:""` au lieu du schéma canonique
+   `Picker`/LoopedRand + `tile_wonder` (forme du jeu de base). Réparés.
+3. **RoomGen non canoniques** (0 salle générée) : 62 RoomGen avec
+   `RoomTerrain`/`Size`/`Resizable` (schéma inexistant en 0.8.12) au lieu
+   de `Width`/`Height` RandRange. Normalisés.
+4. **TerrainHallBrush avec terrain inexistant `hall`** (SIGABRT
+   TileBlocked) : 45 pinceaux -> DefaultHallBrush canonique.
+5. **.rsmap corrompus** (clé `""` au lieu de `$type`) :
+   mount_windswept_guardian, frosty_forest_summit, mt_blaze_summit,
+   vast_steppe_guardian, wish_cave_jirachi. Réparés.
+6. **GetPlayerPartyMember crash sur save vierge** : le validateur crée
+   désormais l'équipe de test canonique (turtwig/piplup/growlithe/
+   zigzagoon, mêmes espèces que le save debug du projet).
+7. **Escaliers `stairs_exit*` non reconnus** + **vaults scellés**
+   (sealed_block/sealed_door) comptés comme cellules isolées : le
+   validateur les traite selon la sémantique réelle du jeu.
+8. **RandRange Min>Max** introduits par une passe de durcissement (57)
+   puis interdits par construction dans le correcteur.
 
-* `magma_cavern` seg2 f4/f5 : grille 3x2/4x2 -> 4x3 (le contrat
-  `large_rooms` était mathématiquement intenable : 2-3 salles max,
-  `topology_ok=false` émis par le moteur) ; seg2 f2 (`looping`)
-  `ConnectPercent` 85 -> 100 (cycle garanti) ; seg1 f0, seg2 f6/f7
-  (`mixed`) `BranchRatio.Min` -> 50 (branches=0 flaky sinon).
-* `wish_cave` : f10 grille 4x3 -> 5x4 + branch 60 + room 85 ;
-  f4/f28/f46 branch -> 50 ; tous les étages `looping`
-  `ConnectPercent` -> 100 ; tous les étages `branching`
-  `ConnectPercent` -> 10 (préserve les impasses exigées par le contrat —
-  un durcissement global uniforme avait été REJETÉ par le moteur : 58
-  invalides, preuve que la correction doit être par profil).
-* `sky_tower` : aucun changement nécessaire.
+Les 12 donjons protégés n'ont reçu AUCUNE modification.
 
-## Preuves persistées (2026-08-25, rematérialisées)
+## Reproduire
 
-Les JSONL bruts de cette campagne SONT commités dans ce dossier :
-`mapgen_wish_cave_magma_cavern_sky_tower.jsonl` (441 générations) et
-`mapgen_magma_cavern.jsonl` (115 générations, 5 itérations après les
-correctifs RoomRatio/ConnectPercent). `matrix.json` est la matrice par
-étage agrégée strictement (pire cas gagne). Verdicts reproduits :
-3/3 CANONICAL_RUNTIME_PASS (wish_cave 99, magma_cavern 23, sky_tower 25).
-Regénération : `python3 dev/tools/canonical_dungeon.py test <zones>`.
+    bash dev/tools/canonical_dungeon_batch.sh 1
+    python3 dev/tools/canonical_dungeon.py validate all
+    python3 dev/tools/canonical_dungeon.py report

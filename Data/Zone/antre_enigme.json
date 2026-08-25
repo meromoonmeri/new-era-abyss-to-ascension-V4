@@ -1326,8 +1326,8 @@
                     "Max": 90
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 50,
+                    "Max": 65
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -1439,7 +1439,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 25,
+                  "ConnectPercent": 100,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -1941,8 +1941,8 @@
                     "Max": 90
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 50,
+                    "Max": 65
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -2054,7 +2054,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 25,
+                  "ConnectPercent": 100,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -2556,8 +2556,8 @@
                     "Max": 90
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 50,
+                    "Max": 65
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -2669,7 +2669,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 25,
+                  "ConnectPercent": 100,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",

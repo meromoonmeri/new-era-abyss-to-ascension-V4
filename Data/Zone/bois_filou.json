@@ -4710,12 +4710,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 80,
-                    "Max": 80
+                    "Min": 85,
+                    "Max": 85
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 35
+                    "Min": 50,
+                    "Max": 50
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -4835,7 +4835,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 100,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -5120,29 +5120,6 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueEssence.LevelGen.RoomGenLoadMap`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "RoomTerrain": {
-                        "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
-                        "Data": {
-                          "ID": "floor",
-                          "TileTex": {
-                            "AutoTileset": "",
-                            "Associates": [],
-                            "Layers": [],
-                            "NeighborCode": -1
-                          },
-                          "StableTex": false
-                        },
-                        "Effect": {
-                          "TileLoc": {
-                            "X": 0,
-                            "Y": 0
-                          },
-                          "ID": "",
-                          "Revealed": false,
-                          "Owner": 0,
-                          "TileStates": []
-                        }
-                      },
                       "PreventChanges": 3,
                       "MapID": "room_fairy_ring"
                     }
@@ -12882,8 +12859,8 @@
                     "Max": 100
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 35
+                    "Min": 50,
+                    "Max": 65
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -13003,7 +12980,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 100,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -13798,8 +13775,8 @@
                     "Max": 100
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 35
+                    "Min": 50,
+                    "Max": 50
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -13919,7 +13896,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 100,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -14714,8 +14691,8 @@
                     "Max": 100
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 35
+                    "Min": 50,
+                    "Max": 65
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -14835,7 +14812,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 100,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -15630,8 +15607,8 @@
                     "Max": 100
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 35
+                    "Min": 50,
+                    "Max": 65
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -15751,7 +15728,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 100,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",

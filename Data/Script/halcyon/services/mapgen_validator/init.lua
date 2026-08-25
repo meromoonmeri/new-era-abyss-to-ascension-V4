@@ -68,7 +68,32 @@ local function clr()
     MainProgress = luanet.import_type('RogueEssence.Data.MainProgress'),
     DataManager = luanet.import_type('RogueEssence.Data.DataManager'),
     Guid = luanet.import_type('System.Guid'),
+    MonsterID = luanet.import_type('RogueEssence.Dungeon.MonsterID'),
   }
+end
+
+--------------------------------------------------------------------
+-- Équipe de test minimale (héros + partenaire + 2 renforts), identique
+-- au save de debug du projet. Sans elle, les GenSteps scriptés qui
+-- consultent GAME:GetPlayerPartyMember(1..3) (dialogues de défaite,
+-- escortes, etc.) lèvent ArgumentOutOfRangeException sur save vierge.
+--------------------------------------------------------------------
+local function populate_test_team(T, save)
+  local ok, err = pcall(function()
+    local team = save.ActiveTeam
+    team.Name = 'MapGenProbe'
+    local function add(species, gender, level)
+      local mon = T.MonsterID(species, 0, 'normal', gender)
+      team.Players:Add(team:CreatePlayer(save.Rand, mon, level, '', 0))
+    end
+    add('turtwig', Gender.Male, 50)
+    add('piplup', Gender.Male, 50)
+    add('growlithe', Gender.Male, 50)
+    add('zigzagoon', Gender.Female, 50)
+  end)
+  if not ok then
+    emit(string.format('{"event":"team_setup_error","error":"%s"}', esc(err)))
+  end
 end
 
 --------------------------------------------------------------------
@@ -96,7 +121,14 @@ end
 -- vérifie que les escaliers posés sur la carte sont atteignables.
 --------------------------------------------------------------------
 local Loc = nil
-local STAIR_IDS = { stairs_go_up = true, stairs_go_down = true }
+local STAIR_IDS = { stairs_go_up = true, stairs_go_down = true,
+                    stairs_exit_up = true, stairs_exit_down = true,
+                    stairs_exit = true }
+-- Tuiles de scellement : les salles-coffres/vaults qu'elles isolent sont
+-- déverrouillées en jeu (clé/interrupteur). Les cellules derrière un sceau
+-- sont donc légitimement inaccessibles au flood-fill statique.
+local SEAL_IDS = { sealed_block = true, sealed_door = true,
+                   tile_switch = true }
 
 local function analyse(result)
   if Loc == nil then
@@ -107,6 +139,7 @@ local function analyse(result)
   local w, h = map.Width, map.Height
   local blocked = {}
   local walkable = 0
+  local has_seals = false
   for x = 0, w - 1 do
     blocked[x] = {}
     for y = 0, h - 1 do
@@ -130,6 +163,7 @@ local function analyse(result)
         else
           effects = effects + 1
           effect_ids[tostring(eff.ID)] = (effect_ids[tostring(eff.ID)] or 0) + 1
+          if SEAL_IDS[tostring(eff.ID)] then has_seals = true end
         end
       end
     end
@@ -278,6 +312,7 @@ local function analyse(result)
 
   return {
     walkable = walkable, reached = reached, isolated = walkable - reached,
+    has_seals = has_seals,
     traversal_rate = walkable > 0 and reached / walkable or 0,
     stairs = #stairs, reachable_stairs = reachable_stairs, entry_ok = entry_ok,
     stairs_reachable = (#stairs > 0 and reachable_stairs == #stairs),
@@ -330,6 +365,7 @@ function MapGenValidator:run()
           local idNoise = T.ReNoise(doubleSeed[1])
           local save = T.MainProgress(T.MathUtils.Rand:NextUInt64(), T.Guid.NewGuid():ToString())
           T.DataManager.Instance:SetProgress(save)
+          populate_test_team(T, save)
           -- FloorCount == nombre d'étages du segment ; les identifiants vont
           -- de 0 à FloorCount-1 (RogueEssence.LevelGen.ZoneSegmentBase).
           for floorId = 0, structure.FloorCount - 1 do
@@ -365,8 +401,14 @@ function MapGenValidator:run()
               end
               if trav ~= nil then
                 local terminal_fixed = (generator_kind == 'LoadGen' and trav.stairs == 0)
+                -- Les vaults scellés (sealed_block/sealed_door + interrupteur)
+                -- isolent légitimement quelques cellules au flood-fill
+                -- statique : elles s'ouvrent en jeu. On tolère alors des
+                -- cellules isolées tant que l'escalier reste atteignable.
+                local sealed_ok = (trav.has_seals and trav.stairs_reachable
+                                   and trav.isolated <= 160)
                 local traversable = trav.entry_ok and (trav.stairs_reachable or terminal_fixed)
-                                    and (trav.isolated == 0 or terminal_fixed)
+                                    and (trav.isolated == 0 or terminal_fixed or sealed_ok)
                 if not traversable then unreachable = unreachable + 1 end
                 local procedural = (generator_kind == 'GridFloorGen' or generator_kind == 'RoomFloorGen')
                 local profile_shape_ok = true

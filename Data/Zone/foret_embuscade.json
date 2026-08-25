@@ -1389,7 +1389,7 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 14,
                   "CellHeight": 14,
-                  "CellX": 3,
+                  "CellX": 4,
                   "CellY": 3,
                   "CellWall": 1,
                   "Wrap": false
@@ -1408,8 +1408,8 @@
                     "Max": 101
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 0
+                    "Min": 50,
+                    "Max": 65
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -2722,7 +2722,7 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 14,
                   "CellHeight": 14,
-                  "CellX": 3,
+                  "CellX": 4,
                   "CellY": 3,
                   "CellWall": 1,
                   "Wrap": false
@@ -2741,8 +2741,8 @@
                     "Max": 101
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 0
+                    "Min": 50,
+                    "Max": 65
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -4055,7 +4055,7 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 14,
                   "CellHeight": 14,
-                  "CellX": 3,
+                  "CellX": 4,
                   "CellY": 3,
                   "CellWall": 1,
                   "Wrap": false
@@ -4074,8 +4074,8 @@
                     "Max": 101
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 0
+                    "Min": 50,
+                    "Max": 65
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -14689,29 +14689,6 @@
                       {
                         "Spawn": {
                           "$type": "RogueEssence.LevelGen.RoomGenLoadMap`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                          "RoomTerrain": {
-                            "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
-                            "Data": {
-                              "ID": "grass",
-                              "TileTex": {
-                                "AutoTileset": "",
-                                "Associates": [],
-                                "Layers": [],
-                                "NeighborCode": -1
-                              },
-                              "StableTex": false
-                            },
-                            "Effect": {
-                              "TileLoc": {
-                                "X": 0,
-                                "Y": 0
-                              },
-                              "ID": "",
-                              "Revealed": false,
-                              "Owner": 0,
-                              "TileStates": []
-                            }
-                          },
                           "PreventChanges": 3,
                           "MapID": "room_ambush_item"
                         },
