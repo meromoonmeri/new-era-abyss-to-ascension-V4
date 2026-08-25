@@ -7347,7 +7347,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.GridPathGrid`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "RoomRatio": 65,
+                  "RoomRatio": 100,
                   "HallRatio": 45,
                   "GenericRooms": {
                     "$type": "RogueElements.SpawnList`1[[RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
@@ -7463,7 +7463,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 20,
+                  "ConnectPercent": 100,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -8796,7 +8796,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.GridPathGrid`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "RoomRatio": 65,
+                  "RoomRatio": 100,
                   "HallRatio": 45,
                   "GenericRooms": {
                     "$type": "RogueElements.SpawnList`1[[RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
@@ -9325,7 +9325,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.GridPathGrid`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "RoomRatio": 65,
+                  "RoomRatio": 100,
                   "HallRatio": 45,
                   "GenericRooms": {
                     "$type": "RogueElements.SpawnList`1[[RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",

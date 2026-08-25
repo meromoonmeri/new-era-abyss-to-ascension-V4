@@ -469,12 +469,18 @@ function MapGenValidator:run()
                   profile_shape_ok = trav.large_rooms >= 1
                     and (trav.branches >= 1 or trav.loops >= 1)
                     and (trav.dead_ends >= 1 or trav.loops >= 1)
-                elseif profile == 'unknown' then
-                  -- Aucun contrat de forme déclaré (pas de Comment profile=).
-                  -- Le jeu de base produit légitimement des étages linéaires
-                  -- (GridPathBranch BranchRatio Min=0 : trickster_woods s0f9
-                  -- observé rooms=10, branches=0, loops=0). Exiger une
-                  -- branche ici serait une invention, pas le canon.
+                elseif profile == 'unknown' or profile == 'twosides' then
+                  -- unknown: aucun contrat de forme déclaré (pas de Comment
+                  -- profile=). Le jeu de base produit légitimement des étages
+                  -- linéaires (GridPathBranch BranchRatio Min=0 :
+                  -- trickster_woods s0f9 observé rooms=10, branches=0,
+                  -- loops=0). Exiger une branche serait une invention.
+                  -- twosides: le contrat de GridPathTwoSides (générateur
+                  -- canonique RogueElements, cf. faultline_ridge du jeu de
+                  -- base) est « deux rives reliées à travers l'axe » ; le
+                  -- nombre de traversées est tiré au sort et UNE traversée
+                  -- (résultat linéaire, branches=0, loops=0) est une forme
+                  -- légitime de ce générateur.
                   profile_shape_ok = true
                 else
                   profile_shape_ok = trav.branches >= 1 or trav.loops >= 1
@@ -484,8 +490,16 @@ function MapGenValidator:run()
                 -- invariant. GridFloorGen garde le contrat complet.
                 local hall_floor = 3
                 if generator_kind == 'RoomFloorGen' then hall_floor = 0 end
+                -- Connexité: l'autorité est le niveau TUILES (BFS moteur),
+                -- pas le graphe de salles. Le jeu de base (faultline_ridge
+                -- s0f6-f9, jamais modifié) produit components=2 au plan de
+                -- salles (RoomGenDefault hors graphe) avec isolated=1/491 au
+                -- sol: exiger components==1 rejetterait le canon lui-même.
+                local tiles_connected = (trav.walkable > 0 and
+                  trav.isolated <= math.max(4, math.floor(trav.walkable * 0.05)))
+                local connected_ok = (trav.components == 1) or tiles_connected
                 local topology_ok = (not procedural) or
-                  (trav.room_count >= 4 and trav.hall_count >= hall_floor and trav.components == 1
+                  (trav.room_count >= 4 and trav.hall_count >= hall_floor and connected_ok
                    and profile_shape_ok)
                 local valid = traversable and topology_ok
                 if not valid then invalid = invalid + 1 end
