@@ -41,6 +41,11 @@ def load_zone(zone: str):
 
 
 def save_zone(p: Path, bom: bool, z: dict) -> None:
+    # Garde-fou CH1-5 : les ressources verrouillées sont immuables.
+    # Toute tentative d'écriture échoue (PermissionError), ne modifie rien.
+    sys.path.insert(0, str(ROOT))
+    from dev.tools.ch1_5_lockfile import assert_unlocked
+    assert_unlocked(p)
     text = json.dumps(z, indent=2, ensure_ascii=False) + "\n"
     p.write_bytes((("\ufeff" if bom else "") + text).encode("utf-8"))
 

@@ -8,6 +8,13 @@ ITER="${1:-1}"
 LOG=/tmp/canonical_all.log
 : > "$LOG"
 
+# Garde-fou CH1-5 : la campagne refuse de démarrer si une ressource
+# verrouillée a été altérée (vérification byte-exacte vs 0f691fa3).
+python3 dev/tools/ch1_5_lockfile.py check > /dev/null || {
+  echo "ABANDON: violation du verrou CH1-5 (dev/tools/ch1_5_lockfile.py check)" | tee -a "$LOG"
+  exit 3
+}
+
 BATCHES=(
   "buried_relic,joyous_tower"
   "purity_forest,silver_trench"

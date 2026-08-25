@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -83421,8 +83421,7 @@
       "sky_eos_p01p01a",
       "sky_eos_p01p02a",
       "sky_eos_t01p03a",
-      "s04p01a",
-      "bois_sombres_oree"
+      "s04p01a"
     ]
   }
 }

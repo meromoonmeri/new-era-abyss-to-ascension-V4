@@ -93,7 +93,7 @@
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
                     "Min": 90,
-                    "Max": 100
+                    "Max": 90
                   },
                   "BranchRatio": {
                     "Min": 0,
@@ -708,7 +708,7 @@
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
                     "Min": 90,
-                    "Max": 100
+                    "Max": 90
                   },
                   "BranchRatio": {
                     "Min": 0,
@@ -1323,11 +1323,11 @@
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
                     "Min": 90,
-                    "Max": 100
+                    "Max": 90
                   },
                   "BranchRatio": {
-                    "Min": 50,
-                    "Max": 65
+                    "Min": 0,
+                    "Max": 25
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -1439,7 +1439,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 100,
+                  "ConnectPercent": 25,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -1938,11 +1938,11 @@
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
                     "Min": 90,
-                    "Max": 100
+                    "Max": 90
                   },
                   "BranchRatio": {
-                    "Min": 50,
-                    "Max": 65
+                    "Min": 0,
+                    "Max": 25
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -2054,7 +2054,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 100,
+                  "ConnectPercent": 25,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -2553,11 +2553,11 @@
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
                     "Min": 90,
-                    "Max": 100
+                    "Max": 90
                   },
                   "BranchRatio": {
-                    "Min": 50,
-                    "Max": 65
+                    "Min": 0,
+                    "Max": 25
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -2669,7 +2669,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 100,
+                  "ConnectPercent": 25,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",

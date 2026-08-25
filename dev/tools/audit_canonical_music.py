@@ -224,6 +224,11 @@ def apply_zone_music(zone: str, floor_tracks: list[str]) -> int:
             set_music(f, track)
             cursor += 1
     if n:
+        # Garde-fou CH1-5 : ressources verrouillées immuables (échec immédiat).
+        import sys as _sys
+        _sys.path.insert(0, str(ROOT))
+        from dev.tools.ch1_5_lockfile import assert_unlocked
+        assert_unlocked(zp)
         text = json.dumps(z, indent=2, ensure_ascii=False) + "\n"
         zp.write_bytes((("\ufeff" if bom else "") + text).encode("utf-8"))
     return n

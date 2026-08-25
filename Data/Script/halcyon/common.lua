@@ -538,35 +538,13 @@ function COMMON.RespawnAllies(reviveAll)
   do
     GROUND:RemoveCharacter("Teammate" .. tostring(i))
   end
-  --Halcyon change: many canonical PMD Red Grounds (entrance-only scenes,
-  --rescue scenes, boss scenes) do not embed TEAMMATE_N spawners in their
-  --.rsground because the party is not meant to be displayed there. Skip
-  --gracefully by pre-checking the Spawners collection on the current ground.
-  --Without this pre-check, ScriptGround.SpawnerSetSpawn throws
-  --System.ArgumentException from C# side which propagates out of the coroutine
-  --before any Lua pcall can catch it, preventing OnGroundMapEnter from firing.
-  local function ground_has_spawner(name)
-    local ok, has = pcall(function()
-      local cur = GAME:GetCurrentGround()
-      if cur == nil or cur.Spawners == nil then return false end
-      for kk = 0, cur.Spawners.Count - 1 do
-        if cur.Spawners[kk].SpawnerName == name then return true end
-      end
-      return false
-    end)
-    return ok and has == true
-  end
-
   local total = 1
   for i,p in ipairs(party) do
     if i ~= (playeridx + 1) and i <= allies + 1  then --Indices in lua tables begin at 1. Only spawn Teammate1 if reviveAll was false
-      local spawner_name = "TEAMMATE_" .. tostring(total)
-      if ground_has_spawner(spawner_name) then
-        GROUND:SpawnerSetSpawn(spawner_name, p)
-        local chara = GROUND:SpawnerDoSpawn(spawner_name)
-        --GROUND:GiveCharIdleChatter(chara)
-        total = total + 1
-      end
+      GROUND:SpawnerSetSpawn("TEAMMATE_" .. tostring(total),p)
+      local chara = GROUND:SpawnerDoSpawn("TEAMMATE_" .. tostring(total))
+      --GROUND:GiveCharIdleChatter(chara)
+      total = total + 1
     end
   end
 
@@ -583,28 +561,11 @@ end
 
 function COMMON.RespawnGuests()
 	local guests = GAME:GetPlayerGuestCount()
-	--Halcyon change: pre-check Spawners collection instead of relying on
-	--Lua pcall, since C# System.ArgumentException from
-	--ScriptGround.SpawnerSetSpawn propagates out of the coroutine.
-	local function ground_has_spawner(name)
-		local ok, has = pcall(function()
-			local cur = GAME:GetCurrentGround()
-			if cur == nil or cur.Spawners == nil then return false end
-			for kk = 0, cur.Spawners.Count - 1 do
-				if cur.Spawners[kk].SpawnerName == name then return true end
-			end
-			return false
-		end)
-		return ok and has == true
-	end
 	for i=1, guests, 1 do
 		GROUND:RemoveCharacter("Guest" .. tostring(i))
 		local g = GAME:GetPlayerGuestMember(i-1)
-		local spawner_name = "GUEST_" .. tostring(i)
-		if ground_has_spawner(spawner_name) then
-			GROUND:SpawnerSetSpawn(spawner_name, g)
-			local chara = GROUND:SpawnerDoSpawn(spawner_name)
-		end
+		GROUND:SpawnerSetSpawn("GUEST_" .. tostring(i), g)
+		local chara = GROUND:SpawnerDoSpawn("GUEST_" .. tostring(i))
 	end
 end
 
