@@ -13,7 +13,7 @@ IFS=$'\n\t'
 ROOT=$(git rev-parse --show-toplevel)
 cd "$ROOT"
 case $(git branch --show-current) in
-  arena/019ff05e-new-era-abyss-to-ascension-v4|arena/019ff57e-new-era-abyss-to-ascension-v4|arena/01a0159e-new-era-abyss-to-ascension-v4) ;;
+  arena/019ff05e-new-era-abyss-to-ascension-v4|arena/019ff57e-new-era-abyss-to-ascension-v4|arena/01a0159e-new-era-abyss-to-ascension-v4|arena/01a0357e-new-era-abyss-to-ascension-v4) ;;
   *)
     echo "ERROR: run on the Agent A reference branch or this Arena continuation branch" >&2
     exit 2
@@ -236,10 +236,10 @@ fi
 verify_file "$ABS_ICD" 9d3b059ac8534ecf3ad2f528d3f81a50b18f1af5336c49bff2ea4a4689d716f7 177
 
 # Apply the tracked SDL adaptation only in the ignored pinned source checkout.
-verify_file tools/patches/pmdo-0.8.12-headless-sdl.patch "$SDL_PATCH_SHA" 3380
-if git -C .runtime-cache/src/SDL apply --check "$ROOT/tools/patches/pmdo-0.8.12-headless-sdl.patch" 2>/dev/null; then
-  git -C .runtime-cache/src/SDL apply "$ROOT/tools/patches/pmdo-0.8.12-headless-sdl.patch"
-elif ! git -C .runtime-cache/src/SDL apply --reverse --check "$ROOT/tools/patches/pmdo-0.8.12-headless-sdl.patch" 2>/dev/null; then
+verify_file dev/tools/patches/pmdo-0.8.12-headless-sdl.patch "$SDL_PATCH_SHA" 3380
+if git -C .runtime-cache/src/SDL apply --check "$ROOT/dev/tools/patches/pmdo-0.8.12-headless-sdl.patch" 2>/dev/null; then
+  git -C .runtime-cache/src/SDL apply "$ROOT/dev/tools/patches/pmdo-0.8.12-headless-sdl.patch"
+elif ! git -C .runtime-cache/src/SDL apply --reverse --check "$ROOT/dev/tools/patches/pmdo-0.8.12-headless-sdl.patch" 2>/dev/null; then
   fail "SDL source is neither pristine nor exactly patched"
 fi
 [[ $(git -C .runtime-cache/src/SDL diff --name-only | tr '\n' ' ') == \
@@ -302,7 +302,7 @@ verify_file "$adapted_sdl" "$SDL_PATCHED_SHA" 2013784
 if [[ ! -e .runtime-cache/test-venv ]]; then
   venv_tmp=.runtime-cache/test-venv.create.$$
   python3 -m venv "$venv_tmp"
-  "$venv_tmp/bin/python" -m pip install --disable-pip-version-check -r tools/requirements-pmdred.txt
+  "$venv_tmp/bin/python" -m pip install --disable-pip-version-check -r dev/tools/requirements-pmdred.txt
   mv -n "$venv_tmp" .runtime-cache/test-venv
 fi
 .runtime-cache/test-venv/bin/python - <<'PY'
@@ -321,14 +321,14 @@ EXTRACTION=.runtime-cache/pmdred-eu-ground
 if [[ ! -e $EXTRACTION ]]; then
   extraction_tmp="${EXTRACTION}.extract.$$"
   report_tmp=.runtime-cache/pmdred-eu-ground-manifest.json.tmp.$$
-  .runtime-cache/test-venv/bin/python tools/audit_pmdred_eu_rom.py \
+  .runtime-cache/test-venv/bin/python dev/tools/audit_pmdred_eu_rom.py \
     .runtime-cache/downloads/pmdred-eu.gba --report "$report_tmp" \
     --extract-dir "$extraction_tmp" --pret-map-bg .runtime-cache/pmd-red-reference/data/map_bg
   python3 - "$report_tmp" <<'PY'
 import json, sys
 from pathlib import Path
 actual = json.loads(Path(sys.argv[1]).read_text())
-expected = json.loads(Path('docs/pmdred_eu/ground_manifest.json').read_text())
+expected = json.loads(Path('dev/docs/pmdred_eu/ground_manifest.json').read_text())
 actual['authority']['source_filename'] = expected['authority']['source_filename']
 actual['extraction']['performed'] = False
 actual['extraction']['resource_count'] = 0
@@ -344,19 +344,19 @@ fi
 verify_tree "$EXTRACTION" .runtime-cache/pmdred-eu-ground.tree-sha256 "$EXTRACTION_TREE_MANIFEST_SHA" 724
 
 PLAN=.runtime-cache/pmdred-eu-reference-plan-v2.json
-copy_create_only docs/pmdred_eu/runtime_reference_plan_v2.json "$PLAN" "$PLAN_SHA"
+copy_create_only dev/docs/pmdred_eu/runtime_reference_plan_v2.json "$PLAN" "$PLAN_SHA"
 
 # Regenerate all 219 candidates into a new destination and audit two complete
 # local source cycles before making the destination visible.
 CANDIDATES=.runtime-cache/pmdred-eu-remaining-regenerated-v201
 if [[ ! -e $CANDIDATES ]]; then
   candidates_tmp="${CANDIDATES}.generate.$$"
-  .runtime-cache/test-venv/bin/python tools/convert_red_all.py \
-    --source-dir "$EXTRACTION" --manifest docs/pmdred_eu/ground_manifest.json \
+  .runtime-cache/test-venv/bin/python dev/tools/convert_red_all.py \
+    --source-dir "$EXTRACTION" --manifest dev/docs/pmdred_eu/ground_manifest.json \
     --conversion-set remaining --apply --output-root "$candidates_tmp" \
     --report "$candidates_tmp/conversion_report.json"
   verify_file "$candidates_tmp/conversion_report.json" "$CANDIDATE_REPORT_SHA"
-  .runtime-cache/test-venv/bin/python tools/audit_pmdred_remaining_candidates.py \
+  .runtime-cache/test-venv/bin/python dev/tools/audit_pmdred_remaining_candidates.py \
     --source-dir "$EXTRACTION" --candidate-root "$candidates_tmp" \
     --output "$candidates_tmp/audit.json"
   verify_file "$candidates_tmp/audit.json" "$CANDIDATE_AUDIT_SHA"
@@ -384,7 +384,7 @@ verify_file "$CANDIDATES/audit.json" "$CANDIDATE_AUDIT_SHA"
 # source variant above; neither output is normalized or accepted implicitly.
 GATE=.runtime-cache/pmdred-eu-runtime-restoration-gate
 if [[ ! -e $GATE ]]; then
-  .runtime-cache/test-venv/bin/python tools/build_pmdred_eu_runtime_fixture.py \
+  .runtime-cache/test-venv/bin/python dev/tools/build_pmdred_eu_runtime_fixture.py \
     --conversion-set remaining --candidate-root "$CANDIDATES" --plan "$PLAN" \
     --ids t01p07 --output "$GATE"
   BUNDLE=$ROOT/.runtime-cache/pmdo-headless-bundle
@@ -425,8 +425,8 @@ status = {
         'index_output_sha256': hashlib.sha256(Path('.runtime-cache/pmdred-eu-runtime-restoration-gate/index.log').read_bytes()).hexdigest()
     },
     'resume': [
-        'bash tools/restore_pmdred_eu_validation_runtime.sh',
-        'python3 tools/update_pmdred_eu_validation_progress.py --check',
+        'bash dev/tools/restore_pmdred_eu_validation_runtime.sh',
+        'python3 dev/tools/update_pmdred_eu_validation_progress.py --check',
         (
             f'cp docs/pmdred_eu/pmdo_validation/t01p07_exhaustive_pass/commands.sh .runtime-cache/{next_ground}-working-recipe.sh'
             if next_ground is not None
