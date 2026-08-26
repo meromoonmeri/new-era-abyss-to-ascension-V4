@@ -2,6 +2,7 @@
 -- Scène canonique PMD Sky EU : SCRIPT/D73P21A/s31a0801.ssb (ROM sha256 1fa39d35…).
 -- Dialogues 5 langues ROM embarqués ; conventions du pilote m01a0204.
 local SkySceneKit = require 'halcyon.skyscenes.kit'
+local SkyProg = require 'halcyon.skyscenes.progression'
 return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
   pcall(function() UI:ResetSpeaker() end)
@@ -12,4 +13,35 @@ return function(hero, partner)
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())
   -- back_SetGround(LEVEL_D73P21A) [neutre/état moteur]
   -- supervision_LoadStation(LEVEL_D73P21A, 'US31') [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  if (SkyProg.cmp(29, 31) >= 0) then -- if ROM: scn($SCENARIO_MAIN) >= [29, 31]
+  -- @label_23 [étiquette de flux ExplorerScript]
+  -- supervision_StationCommon(0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- supervision_StationCommon(9) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- supervision_StationCommon(10) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- supervision_Acting(0) [neutre/état moteur]
+  -- camera_SetMyself() [neutre/état moteur]
+  -- SetPositionInitial [position SSA de départ, déjà posée par le placement de scène]
+  -- SetPositionInitial [position SSA de départ, déjà posée par le placement de scène]
+  -- SetPositionInitial [position SSA de départ, déjà posée par le placement de scène]
+  -- SetAnimation(2) [anim idle native]
+  -- SetAnimation(2) [anim idle native]
+  -- SetAnimation(2) [anim idle native]
+  GAME:FadeIn(30)
+  pcall(function() SOUND:PlayBGM("Sky Peak Forest.ogg", true) end)
+  GAME:WaitFrames(30)
+  if (SkyProg.cmp(29, 19) == 0) then -- if ROM: scn($SCENARIO_MAIN) == [29, 19]
+  pcall(function() UI:ResetSpeaker() end)
+  SkySceneKit.say({english="[player]. Let's head to the\n5th Station Clearing!", french="[player]. Dirigeons-nous\nvers la trouée du 5[F:E] Relais!", german="[player], das nächste\nZiel ist die 5. Zwischenlagerlichtung!", italian="[player], raggiungiamo\nil Bivacco 5!", spanish="Vamos a la Base del Quinto\nPuerto, [player]."})
+  -- message_Close
+  else
+  pcall(function() UI:ResetSpeaker() end)
+  SkySceneKit.say({english=" If we don't hurry, [CS:N]Sneasel[CR] will...", french="Si on ne se dépêche pas,\n[CS:N]Farfuret[CR] va...", german="Wenn wir uns nicht beeilen,\nwird [CS:N]Sniebel[CR]...", italian=" Se non ci sbrighiamo, [CS:N]Sneasel[CR]...", spanish=" Si no nos damos prisa, [CS:N]Sneasel[CR]..."})
+  pcall(function() UI:ResetSpeaker() end)
+  SkySceneKit.say({english="Let's hurry to the\n8th Station Clearing!", french="Hâtons-nous vers la trouée\ndu 8[F:E] Relais!", german="Lasst uns schnell zur\n8. Zwischenlagerlichtung gehen!", italian="Presto, raggiungiamo\nil Bivacco 8!", spanish="¡Vamos deprisa a la Base del\nOctavo Puerto!"})
+  -- message_Close
+  end
+  else
+  -- supervision_Station(3) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- jump @label_23 [saut final de branche vers l'épilogue commun: flux naturel]
+  end
 end

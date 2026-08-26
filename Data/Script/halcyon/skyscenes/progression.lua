@@ -81,4 +81,13 @@ function SkyProgression.state()
   return SV.SkyScenario.main, SV.SkyScenario.sub
 end
 
+-- comparaison d'état scénario (équivalent `scn($SCENARIO_MAIN) >= [M,S]`):
+-- retourne <0 / 0 / >0 selon (état courant) - (M,S)
+function SkyProgression.cmp(m, s)
+  SkyProgression.init()
+  local cur = SV.SkyScenario
+  if cur.main ~= m then return cur.main - m end
+  return (cur.sub or 0) - (s or 0)
+end
+
 return SkyProgression

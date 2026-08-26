@@ -224,6 +224,7 @@ class SceneCompiler:
         self.main_shown = False   # écran main actuellement révélé
         self.used_subscreen = False
         self.routine_actor = None   # cible implicite (def N for actor X)
+        self.used_skyprog = False   # require progression si conditions
 
     def emit(self, s):
         self.lines.append("  " + s)
@@ -259,7 +260,10 @@ class SceneCompiler:
         txt = body
         pos = 0
         stmts = []
-        # découper en instructions de premier niveau (fin = ';' hors {})
+        # découper en instructions de premier niveau : fin = ';' hors {}
+        # OU fermeture d'un bloc if/switch/else (les blocs n'ont pas de
+        # ';' final dans l'ExplorerScript décompilé — corrigé V6, un
+        # `if {...}` en tête de def0 était silencieusement ignoré)
         depth = 0
         start = 0
         while pos < len(txt):
@@ -268,18 +272,74 @@ class SceneCompiler:
                 depth += 1
             elif c == "}":
                 depth -= 1
+                if depth == 0:
+                    # fin d'un bloc de premier niveau : statement complet
+                    # UNIQUEMENT pour les blocs de contrôle if/switch/with
+                    # (les appels comme message_Talk({...}) se terminent
+                    # par `);` — leur `}` interne ne clôt PAS le statement)
+                    head = txt[start:pos].lstrip()
+                    rest = txt[pos + 1:pos + 12].lstrip()
+                    if head.startswith(("if", "switch", "else", "with",
+                                        "forever", "while")) \
+                            and not rest.startswith("else"):
+                        stmts.append(txt[start:pos + 1].strip())
+                        start = pos + 1
             elif c == ";" and depth == 0:
                 stmts.append(txt[start:pos].strip())
                 start = pos + 1
             pos += 1
-        for st in stmts:
-            if not st or st == "end":
-                continue
-            self.compile_stmt(st)
+        tail = txt[start:].strip()
+        if tail:
+            stmts.append(tail)
+        real = [st for st in stmts if st and st != "end"]
+        for i, st in enumerate(real):
+            self.compile_stmt(st, is_last=(i == len(real) - 1))
         return not self.unsupported
 
-    def compile_stmt(self, st):
+    def translate_cond(self, cond):
+        """Condition de progression ROM -> expression Lua sur la SV
+        native (SkyScenario/SkyScenarioBitFlags/SkyTalkBitFlags).
+        None = condition hors périmètre (l'appelant garde le fail-closed).
+        """
+        parts = re.split(r"\s*(\|\||&&)\s*", cond.strip())
+        out = []
+        for p in parts:
+            if p in ("||", "&&"):
+                out.append(" or " if p == "||" else " and ")
+                continue
+            m = re.match(r"scn\(\$SCENARIO_MAIN\)\s*(>=|==|<|>|<=)\s*"
+                         r"\[(\d+),\s*(\d+)\]$", p)
+            if m:
+                op, M, S = m.group(1), int(m.group(2)), int(m.group(3))
+                out.append(f"(SkyProg.cmp({M}, {S}) {op} 0)")
+                continue
+            m = re.match(r"\$SCENARIO_MAIN_BIT_FLAG\[(\d+)\]$", p)
+            if m:
+                out.append(f"((SV.SkyScenarioBitFlags or {{}})"
+                           f"[{int(m.group(1))}] == 1)")
+                continue
+            m = re.match(r"\$SCENARIO_TALK_BIT_FLAG\[(\d+)\]$", p)
+            if m:
+                out.append(f"((SV.SkyTalkBitFlags or {{}})"
+                           f"[{int(m.group(1))}] == 1)")
+                continue
+            return None
+        return "".join(out)
+
+    def compile_stmt(self, st, is_last=False):
         st = st.strip()
+        # `jump @label_N` en DERNIÈRE position d'une branche = saut vers
+        # l'épilogue commun placé après le if/elseif — le flux Lua compilé
+        # y tombe naturellement (sémantique préservée). En position
+        # intermédiaire (early-exit avec code sauté) : fail-closed.
+        mj = re.match(r"jump\s+@label_\d+$", st)
+        if mj:
+            if is_last:
+                self.emit(f"-- {st} [saut final de branche vers "
+                          f"l'épilogue commun: flux naturel]")
+            else:
+                self.unsupported.append(st[:24])
+            return
         # hold : instruction nue (pause 1 frame de l'interpréteur SSB)
         if st == "hold":
             self.emit("GAME:WaitFrames(1) -- hold")
@@ -304,6 +364,60 @@ class SceneCompiler:
         # saut (le flux linéaire du def 0 la traverse naturellement)
         if re.match(r"@label_\d+$", st):
             self.emit(f"-- {st} [étiquette de flux ExplorerScript]")
+            return
+        # if/else de PROGRESSION : conditions sur $SCENARIO_MAIN /
+        # BIT_FLAG / TALK_BIT_FLAG — traduites vers la SV native
+        # (SV.SkyScenario de progression.lua, mêmes états ROM ; les
+        # branches SONT compilées, aucun contenu perdu)
+        mif = re.match(r"if\s*\(\s*(.*?)\s*\)\s*\{", st, re.S)
+        if mif and self.translate_cond(mif.group(1)) is not None:
+            cond_lua = self.translate_cond(mif.group(1))
+            if "SkyProg." in cond_lua:
+                self.used_skyprog = True
+            # découper le corps if { A } [else { B }]
+            depth = 0
+            i = st.find("{", mif.end() - 1)
+            j = i
+            while j < len(st):
+                if st[j] == "{":
+                    depth += 1
+                elif st[j] == "}":
+                    depth -= 1
+                    if depth == 0:
+                        break
+                j += 1
+            body_if = st[i + 1:j]
+            rest = st[j + 1:].strip()
+            body_else = None
+            if rest.startswith("else"):
+                k = rest.find("{")
+                depth = 0
+                l2 = k
+                while l2 < len(rest):
+                    if rest[l2] == "{":
+                        depth += 1
+                    elif rest[l2] == "}":
+                        depth -= 1
+                        if depth == 0:
+                            break
+                    l2 += 1
+                body_else = rest[k + 1:l2]
+            self.emit(f"if {cond_lua} then "
+                      f"-- if ROM: {mif.group(1)[:60]}")
+            self.compile_def0(body_if)
+            if body_else is not None:
+                self.emit("else")
+                self.compile_def0(body_else)
+            self.emit("end")
+            return
+        # écritures de drapeaux TALK (mémoire de conversation NDS)
+        mtb = re.match(
+            r"\$SCENARIO_TALK_BIT_FLAG\[(\d+)\]\s*=\s*(\d+)$", st)
+        if mtb:
+            n, v = int(mtb.group(1)), int(mtb.group(2))
+            self.emit(f"SV.SkyTalkBitFlags = SV.SkyTalkBitFlags or {{}}; "
+                      f"SV.SkyTalkBitFlags[{n}] = {v} -- "
+                      f"$SCENARIO_TALK_BIT_FLAG[{n}] = {v} (ROM)")
             return
         mm_menu = re.match(
             r"switch\s*\(\s*message_Menu\(([A-Z0-9_]+)\)\s*\)\s*\{\s*\}$",
@@ -1070,6 +1184,7 @@ def main():
                 comp.dialogues += rc.dialogues
                 comp.used_subscreen = comp.used_subscreen or \
                     rc.used_subscreen
+                comp.used_skyprog = comp.used_skyprog or rc.used_skyprog
                 routine_fns.append((rnum, rkind, rtarget, rc.lines))
             ok = comp.compile_def0(main_def[3])
             if not ok or not routines_ok:
@@ -1085,6 +1200,9 @@ def main():
             if comp.spawned:
                 comp.emit("SkySceneKit.cleanup_npcs()")
             requires = "local SkySceneKit = require 'halcyon.skyscenes.kit'\n"
+            if comp.used_skyprog:
+                requires += ("local SkyProg = require "
+                             "'halcyon.skyscenes.progression'\n")
             if comp.used_subscreen:
                 comp.emit("SkySubScreen.Hide(10) -- fin de scène: nappe "
                           "sub retirée")

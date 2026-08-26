@@ -2,7 +2,7 @@
  "schema": "sky-dual-screen-verification/1",
  "rule": "DS_CANONICAL_TIMELINE -> SINGLE_SCREEN_RECONSTRUCTION : décors == sub_grounds ROM, fondus == durées ROM, ordre Show/Hide == transitions, nappe .dir présente (contenu jamais jeté)",
  "totals": {
-  "TIMELINE_MATCH": 62,
+  "TIMELINE_MATCH": 70,
   "TIMELINE_MISMATCH": 0
  },
  "scenes": {
@@ -82,6 +82,34 @@
     {
      "from": 30,
      "to": 30,
+     "focus": "NONE"
+    }
+   ],
+   "lua_shows": [
+    {
+     "ground": "v01p03b",
+     "fade": 30,
+     "both": false
+    }
+   ],
+   "lua_hides": [
+    30,
+    10
+   ],
+   "verdict": "TIMELINE_MATCH",
+   "problems": null
+  },
+  "D01P11B/m01a0301.ssb": {
+   "timeline_kind": "DUAL_TIMELINE",
+   "rom_segments": [
+    {
+     "from": 0,
+     "to": 112,
+     "focus": "BOTH_FOCUS"
+    },
+    {
+     "from": 112,
+     "to": 112,
      "focus": "NONE"
     }
    ],
@@ -396,6 +424,44 @@
    ],
    "lua_hides": [
     30,
+    10
+   ],
+   "verdict": "TIMELINE_MATCH",
+   "problems": null
+  },
+  "D28P44A/m26a06e2.ssb": {
+   "timeline_kind": "DUAL_TIMELINE",
+   "rom_segments": [
+    {
+     "from": 0,
+     "to": 1,
+     "focus": "NONE"
+    },
+    {
+     "from": 1,
+     "to": 2,
+     "focus": "BOTTOM_FOCUS"
+    },
+    {
+     "from": 2,
+     "to": 77,
+     "focus": "BOTH_FOCUS"
+    },
+    {
+     "from": 77,
+     "to": 77,
+     "focus": "BOTTOM_FOCUS"
+    }
+   ],
+   "lua_shows": [
+    {
+     "ground": "s04p01a",
+     "fade": 30,
+     "both": false
+    }
+   ],
+   "lua_hides": [
+    60,
     10
    ],
    "verdict": "TIMELINE_MATCH",
@@ -743,6 +809,49 @@
    "verdict": "TIMELINE_MATCH",
    "problems": null
   },
+  "G01P05A/n04a0106.ssb": {
+   "timeline_kind": null,
+   "verdict": "TIMELINE_MATCH",
+   "problems": null
+  },
+  "G01P05A/n04a1002.ssb": {
+   "timeline_kind": "DUAL_TIMELINE",
+   "rom_segments": [
+    {
+     "from": 0,
+     "to": 1,
+     "focus": "NONE"
+    },
+    {
+     "from": 1,
+     "to": 31,
+     "focus": "BOTH_FOCUS"
+    },
+    {
+     "from": 31,
+     "to": 31,
+     "focus": "BOTH_FOCUS"
+    }
+   ],
+   "lua_shows": [
+    {
+     "ground": "v34p01a",
+     "fade": 30,
+     "both": false
+    },
+    {
+     "ground": "v34p01a",
+     "fade": 0,
+     "both": false
+    }
+   ],
+   "lua_hides": [
+    30,
+    10
+   ],
+   "verdict": "TIMELINE_MATCH",
+   "problems": null
+  },
   "G01P07A/m07a0201.ssb": {
    "timeline_kind": "DUAL_TIMELINE",
    "rom_segments": [
@@ -1030,6 +1139,90 @@
    "verdict": "TIMELINE_MATCH",
    "problems": null
   },
+  "H01P99E/m20a0305.ssb": {
+   "timeline_kind": "DUAL_TIMELINE",
+   "rom_segments": [
+    {
+     "from": 0,
+     "to": 75,
+     "focus": "BOTH_FOCUS"
+    },
+    {
+     "from": 75,
+     "to": 75,
+     "focus": "NONE"
+    }
+   ],
+   "lua_shows": [
+    {
+     "ground": "v21p02b",
+     "fade": 30,
+     "both": false
+    }
+   ],
+   "lua_hides": [
+    30,
+    10
+   ],
+   "verdict": "TIMELINE_MATCH",
+   "problems": null
+  },
+  "H01P99E/m20a0307.ssb": {
+   "timeline_kind": "DUAL_TIMELINE",
+   "rom_segments": [
+    {
+     "from": 0,
+     "to": 30,
+     "focus": "BOTH_FOCUS"
+    },
+    {
+     "from": 30,
+     "to": 30,
+     "focus": "NONE"
+    }
+   ],
+   "lua_shows": [
+    {
+     "ground": "v21p02b",
+     "fade": 30,
+     "both": false
+    }
+   ],
+   "lua_hides": [
+    30,
+    10
+   ],
+   "verdict": "TIMELINE_MATCH",
+   "problems": null
+  },
+  "H01P99E/m20a0309.ssb": {
+   "timeline_kind": "DUAL_TIMELINE",
+   "rom_segments": [
+    {
+     "from": 0,
+     "to": 355,
+     "focus": "BOTH_FOCUS"
+    },
+    {
+     "from": 355,
+     "to": 445,
+     "focus": "NONE"
+    }
+   ],
+   "lua_shows": [
+    {
+     "ground": "v21p02b",
+     "fade": 30,
+     "both": false
+    }
+   ],
+   "lua_hides": [
+    60,
+    10
+   ],
+   "verdict": "TIMELINE_MATCH",
+   "problems": null
+  },
   "H01P99E/s21p0203.ssb": {
    "timeline_kind": "DUAL_TIMELINE",
    "rom_segments": [
@@ -1142,17 +1335,17 @@
    "verdict": "TIMELINE_MATCH",
    "problems": null
   },
-  "H02P99A/s03p2004.ssb": {
+  "H02P99A/s20p0107.ssb": {
    "timeline_kind": "DUAL_TIMELINE",
    "rom_segments": [
     {
      "from": 0,
-     "to": 290,
+     "to": 95,
      "focus": "BOTH_FOCUS"
     },
     {
-     "from": 290,
-     "to": 290,
+     "from": 95,
+     "to": 95,
      "focus": "BOTTOM_FOCUS"
     }
    ],
@@ -1164,6 +1357,7 @@
     }
    ],
    "lua_hides": [
+    30,
     10
    ],
    "verdict": "TIMELINE_MATCH",
@@ -1230,6 +1424,34 @@
    "verdict": "TIMELINE_MATCH",
    "problems": null
   },
+  "H02P99A/s20p0305.ssb": {
+   "timeline_kind": "DUAL_TIMELINE",
+   "rom_segments": [
+    {
+     "from": 0,
+     "to": 105,
+     "focus": "BOTH_FOCUS"
+    },
+    {
+     "from": 105,
+     "to": 105,
+     "focus": "BOTTOM_FOCUS"
+    }
+   ],
+   "lua_shows": [
+    {
+     "ground": "v24p08a",
+     "fade": 15,
+     "both": false
+    }
+   ],
+   "lua_hides": [
+    30,
+    10
+   ],
+   "verdict": "TIMELINE_MATCH",
+   "problems": null
+  },
   "H02P99A/s21p0208.ssb": {
    "timeline_kind": "DUAL_TIMELINE",
    "rom_segments": [
@@ -1286,38 +1508,6 @@
    ],
    "lua_hides": [
     30,
-    10
-   ],
-   "verdict": "TIMELINE_MATCH",
-   "problems": null
-  },
-  "H02P99A/s31a3707.ssb": {
-   "timeline_kind": "DUAL_TIMELINE",
-   "rom_segments": [
-    {
-     "from": 0,
-     "to": 240,
-     "focus": "BOTH_FOCUS"
-    },
-    {
-     "from": 240,
-     "to": 360,
-     "focus": "NONE"
-    },
-    {
-     "from": 360,
-     "to": 360,
-     "focus": "BOTH_FOCUS"
-    }
-   ],
-   "lua_shows": [
-    {
-     "ground": "v24p08a",
-     "fade": 30,
-     "both": false
-    }
-   ],
-   "lua_hides": [
     10
    ],
    "verdict": "TIMELINE_MATCH",
@@ -1478,6 +1668,34 @@
    "verdict": "TIMELINE_MATCH",
    "problems": null
   },
+  "P03P02A/m10a0902.ssb": {
+   "timeline_kind": "DUAL_TIMELINE",
+   "rom_segments": [
+    {
+     "from": 0,
+     "to": 515,
+     "focus": "BOTH_FOCUS"
+    },
+    {
+     "from": 515,
+     "to": 515,
+     "focus": "NONE"
+    }
+   ],
+   "lua_shows": [
+    {
+     "ground": "v24p08a",
+     "fade": 30,
+     "both": false
+    }
+   ],
+   "lua_hides": [
+    60,
+    10
+   ],
+   "verdict": "TIMELINE_MATCH",
+   "problems": null
+  },
   "P06P01A/m26a0614.ssb": {
    "timeline_kind": "DUAL_TIMELINE",
    "rom_segments": [
@@ -1597,6 +1815,39 @@
    "verdict": "TIMELINE_MATCH",
    "problems": null
   },
+  "P21P02A/n03a0706.ssb": {
+   "timeline_kind": "DUAL_TIMELINE",
+   "rom_segments": [
+    {
+     "from": 0,
+     "to": 15,
+     "focus": "NONE"
+    },
+    {
+     "from": 15,
+     "to": 769,
+     "focus": "BOTH_FOCUS"
+    },
+    {
+     "from": 769,
+     "to": 829,
+     "focus": "NONE"
+    }
+   ],
+   "lua_shows": [
+    {
+     "ground": "v24p08a",
+     "fade": 30,
+     "both": false
+    }
+   ],
+   "lua_hides": [
+    90,
+    10
+   ],
+   "verdict": "TIMELINE_MATCH",
+   "problems": null
+  },
   "S13P04B/t02a0203.ssb": {
    "timeline_kind": "DUAL_TIMELINE",
    "rom_segments": [
@@ -1643,102 +1894,6 @@
     {
      "ground": "v01p02a",
      "fade": 30,
-     "both": false
-    }
-   ],
-   "lua_hides": [
-    60,
-    10
-   ],
-   "verdict": "TIMELINE_MATCH",
-   "problems": null
-  },
-  "V03P06A/t01p0401.ssb": {
-   "timeline_kind": "DUAL_TIMELINE",
-   "rom_segments": [
-    {
-     "from": 0,
-     "to": 60,
-     "focus": "TOP_FOCUS"
-    },
-    {
-     "from": 60,
-     "to": 105,
-     "focus": "NONE"
-    },
-    {
-     "from": 105,
-     "to": 158,
-     "focus": "TOP_FOCUS"
-    },
-    {
-     "from": 158,
-     "to": 2338,
-     "focus": "BOTH_FOCUS"
-    },
-    {
-     "from": 2338,
-     "to": 2338,
-     "focus": "NONE"
-    }
-   ],
-   "lua_shows": [
-    {
-     "ground": "s05p04a",
-     "fade": 0,
-     "both": false
-    },
-    {
-     "ground": "s05p04a",
-     "fade": 0,
-     "both": false
-    }
-   ],
-   "lua_hides": [
-    60,
-    10
-   ],
-   "verdict": "TIMELINE_MATCH",
-   "problems": null
-  },
-  "V03P08A/t01p0501.ssb": {
-   "timeline_kind": "DUAL_TIMELINE",
-   "rom_segments": [
-    {
-     "from": 0,
-     "to": 60,
-     "focus": "TOP_FOCUS"
-    },
-    {
-     "from": 60,
-     "to": 105,
-     "focus": "NONE"
-    },
-    {
-     "from": 105,
-     "to": 158,
-     "focus": "TOP_FOCUS"
-    },
-    {
-     "from": 158,
-     "to": 2338,
-     "focus": "BOTH_FOCUS"
-    },
-    {
-     "from": 2338,
-     "to": 2338,
-     "focus": "NONE"
-    }
-   ],
-   "lua_shows": [
-    {
-     "ground": "s05p04a",
-     "fade": 0,
-     "both": false
-    },
-    {
-     "ground": "s05p04a",
-     "fade": 0,
      "both": false
     }
    ],
@@ -1940,6 +2095,34 @@
    ],
    "lua_hides": [
     30,
+    10
+   ],
+   "verdict": "TIMELINE_MATCH",
+   "problems": null
+  },
+  "V26P05A/m26a0701.ssb": {
+   "timeline_kind": "DUAL_TIMELINE",
+   "rom_segments": [
+    {
+     "from": 0,
+     "to": 180,
+     "focus": "BOTH_FOCUS"
+    },
+    {
+     "from": 180,
+     "to": 240,
+     "focus": "NONE"
+    }
+   ],
+   "lua_shows": [
+    {
+     "ground": "v26p06a",
+     "fade": 120,
+     "both": false
+    }
+   ],
+   "lua_hides": [
+    180,
     10
    ],
    "verdict": "TIMELINE_MATCH",

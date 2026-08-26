@@ -1,0 +1,30 @@
+-- GÉNÉRÉ par dev/tools/sky_compile_scenes.py — NE PAS ÉDITER À LA MAIN.
+-- Scène canonique PMD Sky EU : SCRIPT/P01P04A/um1306.ssb (ROM sha256 1fa39d35…).
+-- Dialogues 5 langues ROM embarqués ; conventions du pilote m01a0204.
+local SkySceneKit = require 'halcyon.skyscenes.kit'
+local SkyProg = require 'halcyon.skyscenes.progression'
+return function(hero, partner)
+  if (SkyProg.cmp(29, 94) >= 0) then -- if ROM: scn($SCENARIO_MAIN) >= [29, 94]
+  -- @label_0 [étiquette de flux ExplorerScript]
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- SetAnimation(2) [anim idle native]
+  local npc_npc_rediba = SkySceneKit.spawn_npc("ledyba", 400, 264, Direction.UpRight, "NPC_REDIBA")
+  pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_rediba, 4) end)
+  pcall(function() UI:SetSpeaker(npc_npc_rediba) end)
+  SkySceneKit.say({english=" It's superfun! ♪", french=" C'est super marrant! ♪", german=" Es ist ein Riesenspaß! ♪", italian=" È uno spasso! ♪", spanish=" ¡Es supergenial! ♪"})
+  -- message_Close
+  -- @label_131 [étiquette de flux ExplorerScript]
+  -- JumpCommon(CORO_END_TALK) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  else
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- SetAnimation(2) [anim idle native]
+  pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_rediba, 4) end)
+  pcall(function() UI:SetSpeaker(npc_npc_rediba) end)
+  SkySceneKit.say({english=" Good luck!", french=" Bonne chance!", german=" Viel Glück!", italian=" Buona fortuna!", spanish=" ¡Buena suerte!"})
+  -- message_Close
+  -- jump @label_131 [saut final de branche vers l'épilogue commun: flux naturel]
+  end
+  SkySceneKit.cleanup_npcs()
+end

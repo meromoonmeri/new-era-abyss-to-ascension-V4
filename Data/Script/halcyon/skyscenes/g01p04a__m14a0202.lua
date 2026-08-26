@@ -2,6 +2,7 @@
 -- Scène canonique PMD Sky EU : SCRIPT/G01P04A/m14a0202.ssb (ROM sha256 1fa39d35…).
 -- Dialogues 5 langues ROM embarqués ; conventions du pilote m01a0204.
 local SkySceneKit = require 'halcyon.skyscenes.kit'
+local SkyProg = require 'halcyon.skyscenes.progression'
 return function(hero, partner)
   pcall(function() SOUND:PlayBGM("Wigglytuff's Guild.ogg", true) end)
   -- back_SetGround(LEVEL_G01P04A) [neutre/état moteur]
@@ -127,5 +128,15 @@ return function(hero, partner)
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharSetEmote(npc_npc_perappu, "happy", 1) end)
+  if (SkyProg.cmp(15, 1) >= 0) then -- if ROM: scn($SCENARIO_MAIN) >= [15, 1]
+  -- @label_0 [étiquette de flux ExplorerScript]
+  SkySceneKit.say({english="We should search [CS:P]Quicksand\nCave[CR] carefully.", french="Passons la [CS:P]Grotte Sables\nMouvants[CR] au peigne fin.", german="Wir sollten die [CS:P]Treibsandhöhle[CR]\ngründlich durchsuchen.", italian="Esploriamo la [CS:P]Grotta[CR]\n[CS:P]delle Sabbie Mobili[CR] da cima a fondo.", spanish="Busquemos en la [CS:P]Cueva Arenas[CR]\nminuciosamente."}) -- SwitchTalk: branche default (canon générique)
+  pcall(function() GROUND:CharSetEmote(npc_npc_perappu, nil, 0) end) -- EFFECT_NONE
+  -- @label_1 [étiquette de flux ExplorerScript]
+  else
+  SkySceneKit.say({english="We should search [CS:P]Quicksand\nDesert[CR] carefully.", french="Passons le [CS:P]Désert Sables\nMouvants[CR] au peigne fin.", german="Wir sollten die [CS:P]Mahlsandwüste[CR]\ngründlich durchsuchen.", italian="Mi raccomando, questa volta\ndobbiamo ispezionarlo per bene il [CS:P]Deserto delle[CR]\n[CS:P]Sabbie Mobili[CR]. Andiamo su!", spanish="Vamos a escudriñar cada rincón\nde las [CS:P]Arenas Movedizas[CR]."}) -- SwitchTalk: branche default (canon générique)
+  pcall(function() GROUND:CharSetEmote(npc_npc_perappu, nil, 0) end) -- EFFECT_NONE
+  -- jump @label_1 [saut final de branche vers l'épilogue commun: flux naturel]
+  end
   SkySceneKit.cleanup_npcs()
 end

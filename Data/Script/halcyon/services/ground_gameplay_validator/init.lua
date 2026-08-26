@@ -14,7 +14,7 @@ local function emit(s)
  PrintInfo('[GROUND_VALIDATOR] '..s)
  local f=io.open('/tmp/ground_gameplay_validator.jsonl','a');if f then f:write(s..'\n');f:flush();f:close() end
 end
-function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:' or string.sub(self.mode or '',1,9)=='skyscene:' or self.mode=='skyprogress' or self.mode=='skyjourney' or string.sub(self.mode or '',1,9)=='skyresume' or self.mode=='redjourney' or string.sub(self.mode or '',1,9)=='redresume');self.idx=0;self.entered=false;self.busy=false
+function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:' or string.sub(self.mode or '',1,9)=='skyscene:' or self.mode=='skyprogress' or self.mode=='skyjourney' or string.sub(self.mode or '',1,9)=='skyresume' or self.mode=='redjourney' or string.sub(self.mode or '',1,9)=='redresume' or string.sub(self.mode or '',1,7)=='skyhub:');self.idx=0;self.entered=false;self.busy=false
  -- mode 'skyscene:<scene>@<ground>' : rejoue une cinématique canonique Sky
  if string.sub(self.mode or '',1,9)=='skyscene:' then
   local spec=string.sub(self.mode,10)
@@ -22,6 +22,9 @@ function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_G
   self.sky_scene=scene; self.sky_scene_ground=ground
  end
  -- mode 'sky:<ground1,ground2,...>' : pilotes de grounds Sky dans sky_hub_zone
+ if string.sub(self.mode or '',1,7)=='skyhub:' then
+  self.hub_ground=string.sub(self.mode,8)
+ end
  if string.sub(self.mode or '',1,4)=='sky:' then
   self.sky_pilot={}
   for g in string.gmatch(string.sub(self.mode,5),'[^,]+') do self.sky_pilot[#self.sky_pilot+1]=g end
@@ -214,6 +217,18 @@ function V:begin()
   emit('{"event":"end"}')
   return
  end
+ if self.hub_ground then
+  self.idx=-4;SV.RuntimeGroundAudit.Active=false
+  emit('{"event":"skyhub_begin","ground":"'..self.hub_ground..'"}')
+  local zone_grounds={}
+  local zsum=_DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('sky_hub_zone')
+  local gl=zsum.Grounds
+  for gi=0,gl.Count-1 do zone_grounds[gl[gi]]=gi end
+  local gi=zone_grounds[self.hub_ground]
+  if gi==nil then emit('{"event":"skyhub_fail","error":"ground_absent"}');return end
+  GAME:EnterZone('sky_hub_zone',-1,gi,0)
+  return
+ end
  if self.sky_scene then
   self.idx=-3;SV.RuntimeGroundAudit.Active=false
   emit('{"event":"sky_scene_begin","scene":"'..self.sky_scene..'","ground":"'..tostring(self.sky_scene_ground)..'"}')
@@ -381,6 +396,45 @@ function V:OnGroundMapEnter()
       emit('{"event":"'..tag..'","from_ground":"'..tostring(GAME:GetCurrentGround().AssetName)..'"}')
     end,debug.traceback)
     if not ok then emit('{"event":"resume_fail","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}') end
+    emit('{"event":"end"}')
+    self.busy=false;self.task=nil
+  end)
+  return
+ end
+ if self.enabled and self.hub_ground and not self.busy then
+  self.busy=true
+  self.task=TASK:BranchCoroutine(function()
+    GAME:WaitFrames(20)
+    local ok,err=xpcall(function()
+      local npcs=require('halcyon.skyscenes.hubnpc_'..self.hub_ground)
+      local kit=require('halcyon.skyscenes.kit')
+      local spawned=0
+      local chars={}
+      for _,n in ipairs(npcs) do
+        local c=kit.spawn_npc(n.species,n.x,n.y,n.dir,n.name)
+        if c then spawned=spawned+1; chars[#chars+1]={c=c,n=n} end
+      end
+      emit('{"event":"skyhub_npcs","ground":"'..self.hub_ground..'","expected":'..#npcs..',"spawned":'..spawned..'}')
+      -- interactions: jouer le dialogue canonique de chaque NPC qui en a un
+      local hero=nil; pcall(function() hero=CH('PLAYER') end)
+      local talked=0
+      for _,e2 in ipairs(chars) do
+        if e2.n.talk~=nil then
+          -- le héros marche jusqu'au NPC (interaction réelle) puis dialogue
+          pcall(function()
+            local p=e2.c.Position
+            GROUND:MoveToPosition(hero,p.X,p.Y+24,false,2)
+            GROUND:CharTurnToCharAnimated(hero,e2.c,4)
+          end)
+          e2.n.talk(hero,hero)
+          talked=talked+1
+          emit('{"event":"skyhub_talk","npc":"'..e2.n.name..'","verdict":"TALK_PASS"}')
+        end
+      end
+      kit.cleanup_npcs()
+      emit('{"event":"skyhub_end","ground":"'..self.hub_ground..'","npcs":'..spawned..',"talks":'..talked..',"verdict":"HUB_NPC_RUNTIME_PASS"}')
+    end,debug.traceback)
+    if not ok then emit('{"event":"skyhub_fail","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}') end
     emit('{"event":"end"}')
     self.busy=false;self.task=nil
   end)
