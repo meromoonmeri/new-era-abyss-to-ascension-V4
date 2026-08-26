@@ -49,7 +49,12 @@ TSET = {1: "beach_cave", 2: "drenched_bluff", 3: "mt_bristle",
         22: "crystal_cave_1", 23: "crystal_cave_2", 24: "crystal_crossing",
         26: "chasm_cave", 27: "chasm_cave", 28: "dark_hill",
         29: "dark_hill", 30: "sealed_ruin", 31: "sealed_ruin_pit",
-        33: "dusk_forest_1", 34: "dusk_forest_2"}
+        33: "dusk_forest_1", 34: "dusk_forest_2",
+        35: "deep_dusk_forest_1", 36: "deep_dusk_forest_2",
+        37: "treeshroud_forest_1", 38: "treeshroud_forest_2",
+        39: "brine_cave", 40: "lower_brine_cave",
+        42: "hidden_land", 43: "hidden_highland",
+        45: "temporal_tower", 46: "temporal_spire"}
 
 # music_id mappa -> piste canonique. AUTORITÉ : liste musique donjon arm9
 # overlay10 (HardcodedDungeonMusic : mid -> track) × enum music_id
@@ -67,7 +72,11 @@ MUSIC = {1: "Beach Cave.ogg", 2: "Drenched Bluff.ogg", 3: "Mt. Bristle.ogg",
          15: "Quicksand Cave.ogg", 16: "Quicksand Pit.ogg",
          17: "Crystal Cave.ogg", 18: "Crystal Crossing.ogg",
          19: "Chasm Cave.ogg", 20: "Dark Hill.ogg", 21: "Sealed Ruin.ogg",
-         22: "Sealed Ruin Pit.ogg", 23: "Dusk Forest.ogg"}
+         22: "Sealed Ruin Pit.ogg", 23: "Dusk Forest.ogg",
+         24: "Deep Dusk Forest.ogg", 25: "Treeshroud Forest.ogg",
+         26: "Brine Cave.ogg", 27: "Lower Brine Cave.ogg",
+         28: "Hidden Land.ogg", 29: "Hidden Highland.ogg",
+         30: "Temporal Tower.ogg", 31: "Temporal Spire.ogg"}
 
 
 def slug_species(n):

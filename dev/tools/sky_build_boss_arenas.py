@@ -57,6 +57,21 @@ ARENAS = [
     ("underground_lake", "d23", "5", "quicksand_pit",
      "Boss Battle!.ogg", "Underground Lake", "Lac Souterrain",
      [("mesprit", 52, "psychic", "none", "levitate")]),
+    ("crystal_lake", "d26", "6", "crystal_cave_2",
+     "Boss Battle!.ogg", "Crystal Lake", "Lac Cristal",
+     [("grovyle", 44, "grass", "none", "overgrow")]),
+    ("brine_cave_pit", "d37", "8", "brine_cave",
+     "Boss Battle!.ogg", "Brine Cave Pit", "Fosse de la Grotte Saumure",
+     [("omastar", 41, "rock", "water", "shell_armor"),
+      ("kabutops", 40, "rock", "water", "battle_armor")]),
+    ("old_ruins", "d40", "9", "deep_sealed_ruin",
+     "Battle Against Dusknoir.ogg", "Old Ruins", "Vieilles Ruines",
+     [("sableye", 40, "dark", "ghost", "keen_eye"),
+      ("dusknoir", 45, "ghost", "none", "pressure")]),
+    ("temporal_pinnacle", "d43", "10", "temporal_spire",
+     "Dialgas Fight to the Finish.ogg", "Temporal Pinnacle",
+     "Cime Temporelle",
+     [("dialga", 49, "steel", "dragon", "pressure")]),
 ]
 
 MUSIC_FALLBACK_NOTE = (

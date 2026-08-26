@@ -6182,6 +6182,462 @@
       "Released": true,
       "Comment": "PMD Sky EU d23 boss arena",
       "SortOrder": 0
+    },
+    "crystal_lake": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 44,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 1,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Crystal Lake",
+        "LocalTexts": {
+          "fr": "Lac Cristal"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d26 boss arena",
+      "SortOrder": 0
+    },
+    "brine_cave_pit": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 41,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 1,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Brine Cave Pit",
+        "LocalTexts": {
+          "fr": "Fosse de la Grotte Saumure"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d37 boss arena",
+      "SortOrder": 0
+    },
+    "old_ruins": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 45,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 1,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Old Ruins",
+        "LocalTexts": {
+          "fr": "Vieilles Ruines"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d40 boss arena",
+      "SortOrder": 0
+    },
+    "temporal_pinnacle": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 49,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 1,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Temporal Pinnacle",
+        "LocalTexts": {
+          "fr": "Cime Temporelle"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d43 boss arena",
+      "SortOrder": 0
+    },
+    "deep_dusk_forest": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 33,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 12,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Deep Dusk Forest",
+        "LocalTexts": {
+          "fr": "Cœur Forêt Crépuscule"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d33 DUNGEON_DEEP_DUSK_FOREST",
+      "SortOrder": 0
+    },
+    "treeshroud_forest": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 39,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 20,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Treeshroud Forest",
+        "LocalTexts": {
+          "fr": "Forêt Linceul"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d34 DUNGEON_TREESHROUD_FOREST",
+      "SortOrder": 0
+    },
+    "brine_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 38,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 9,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Brine Cave",
+        "LocalTexts": {
+          "fr": "Caverne Saline"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d35 DUNGEON_BRINE_CAVE",
+      "SortOrder": 0
+    },
+    "lower_brine_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 39,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 5,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Lower Brine Cave",
+        "LocalTexts": {
+          "fr": "Caverne Saline - prof."
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d36 DUNGEON_LOWER_BRINE_CAVE",
+      "SortOrder": 0
+    },
+    "hidden_land": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 43,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 15,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Hidden Land",
+        "LocalTexts": {
+          "fr": "Terres Illusoires"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d38 DUNGEON_HIDDEN_LAND",
+      "SortOrder": 0
+    },
+    "hidden_highland": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 44,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 8,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Hidden Highland",
+        "LocalTexts": {
+          "fr": "Hautes-Terres Illusoires"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d39 DUNGEON_HIDDEN_HIGHLAND",
+      "SortOrder": 0
+    },
+    "temporal_tower": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 42,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 13,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Temporal Tower",
+        "LocalTexts": {
+          "fr": "Tour du Temps"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d41 DUNGEON_TEMPORAL_TOWER",
+      "SortOrder": 0
+    },
+    "temporal_spire": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 47,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 10,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Temporal Spire",
+        "LocalTexts": {
+          "fr": "Aiguille du Temps"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d42 DUNGEON_TEMPORAL_SPIRE",
+      "SortOrder": 0
     }
   }
 }

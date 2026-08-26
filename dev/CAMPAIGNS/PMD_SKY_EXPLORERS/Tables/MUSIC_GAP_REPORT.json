@@ -8,13 +8,25 @@
   "Dusk Forest.ogg": [
    "dusk_forest"
   ],
+  "Far Amp Plains.ogg": [
+   "far_amp_plains"
+  ],
   "Cave and Side Path.ogg": [
    "forest_path",
    "rock_path_sky",
    "side_path"
   ],
+  "Lower Brine Cave.ogg": [
+   "lower_brine_cave"
+  ],
+  "Quicksand Pit.ogg": [
+   "quicksand_pit"
+  ],
   "Sealed Ruin Pit.ogg": [
    "sealed_ruin_pit"
+  ],
+  "Temporal Spire.ogg": [
+   "temporal_spire"
   ]
  }
 }

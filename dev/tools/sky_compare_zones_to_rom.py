@@ -46,6 +46,16 @@ ZONE_TO_DUNGEON = {
     "far_amp_plains": "d18", "northern_desert": "d20",
     "quicksand_cave": "d21", "quicksand_pit": "d22",
     "crystal_cave": "d24", "crystal_crossing": "d25",
+    "deep_dusk_forest": "d33", "treeshroud_forest": "d34",
+    "brine_cave": "d35", "lower_brine_cave": "d36",
+    "hidden_land": "d38", "hidden_highland": "d39",
+    "temporal_tower": "d41", "temporal_spire": "d42",
+    # arènes fixes (fixed.bin) — table mappa dormante, vérif ACCEPTED
+    "beach_cave_pit": "d02", "mt_bristle_peak": "d05",
+    "steam_cave_peak": "d16", "amp_clearing": "d19",
+    "underground_lake": "d23", "crystal_lake": "d26",
+    "brine_cave_pit": "d37", "old_ruins": "d40",
+    "temporal_pinnacle": "d43",
 }
 
 TRAP_TO_PMDO = {k: v.get("pmdo_tile")

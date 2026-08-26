@@ -2123,6 +2123,1275 @@
     "status": "PASS"
    },
    "verdict": "EXACT"
+  },
+  "deep_dusk_forest": {
+   "dungeon": "d33",
+   "pret_enum": "DUNGEON_DEEP_DUSK_FOREST",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 2,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 3,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 4,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 5,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 6,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 7,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 8,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 9,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 10,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 11,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 12,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    }
+   ],
+   "floor_count": {
+    "zone": 12,
+    "rom": 12,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "PASS",
+    "notes": [],
+    "zone": [
+     "trap_grimy:500",
+     "trap_summon:500",
+     "trap_warp:500",
+     "trap_gust:500",
+     "trap_spin:500",
+     "trap_slumber:500",
+     "trap_slow:500",
+     "trap_poison:500",
+     "trap_self_destruct:500",
+     "trap_chestnut:500",
+     "trap_pokemon:500",
+     "trap_trip:500"
+    ],
+    "rom": [
+     "CHESTNUT_TRAP",
+     "GRIMY_TRAP",
+     "GUST_TRAP",
+     "POISON_TRAP",
+     "POKEMON_TRAP",
+     "SELFDESTRUCT_TRAP",
+     "SLOW_TRAP",
+     "SLUMBER_TRAP",
+     "SPIN_TRAP",
+     "SUMMON_TRAP",
+     "TRIP_TRAP",
+     "WARP_TRAP",
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 12,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "treeshroud_forest": {
+   "dungeon": "d34",
+   "pret_enum": "DUNGEON_TREESHROUD_FOREST",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 2,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 3,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 4,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 5,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 6,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 7,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 8,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 9,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 10,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 11,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 12,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 13,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 14,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 15,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 16,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 17,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 18,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 19,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 20,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    }
+   ],
+   "floor_count": {
+    "zone": 20,
+    "rom": 20,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "PASS",
+    "notes": [],
+    "zone": [
+     "trap_grimy:526",
+     "trap_summon:527",
+     "trap_warp:526",
+     "trap_gust:526",
+     "trap_spin:527",
+     "trap_slumber:526",
+     "trap_slow:526",
+     "trap_poison:527",
+     "trap_self_destruct:526",
+     "trap_chestnut:526",
+     "trap_pokemon:527",
+     "trap_trip:526"
+    ],
+    "rom": [
+     "CHESTNUT_TRAP",
+     "GRIMY_TRAP",
+     "GUST_TRAP",
+     "POISON_TRAP",
+     "POKEMON_TRAP",
+     "SELFDESTRUCT_TRAP",
+     "SLOW_TRAP",
+     "SLUMBER_TRAP",
+     "SPIN_TRAP",
+     "SUMMON_TRAP",
+     "TRIP_TRAP",
+     "WARP_TRAP",
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 20,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "brine_cave": {
+   "dungeon": "d35",
+   "pret_enum": "DUNGEON_BRINE_CAVE",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 2,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 3,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 4,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 5,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 6,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 7,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 8,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 9,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    }
+   ],
+   "floor_count": {
+    "zone": 9,
+    "rom": 9,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "PASS",
+    "notes": [],
+    "zone": [
+     "trap_grimy:526",
+     "trap_summon:527",
+     "trap_warp:526",
+     "trap_gust:526",
+     "trap_spin:527",
+     "trap_slumber:526",
+     "trap_slow:526",
+     "trap_poison:527",
+     "trap_self_destruct:526",
+     "trap_chestnut:526",
+     "trap_pokemon:527",
+     "trap_trip:526"
+    ],
+    "rom": [
+     "CHESTNUT_TRAP",
+     "GRIMY_TRAP",
+     "GUST_TRAP",
+     "POISON_TRAP",
+     "POKEMON_TRAP",
+     "SELFDESTRUCT_TRAP",
+     "SLOW_TRAP",
+     "SLUMBER_TRAP",
+     "SPIN_TRAP",
+     "SUMMON_TRAP",
+     "TRIP_TRAP",
+     "WARP_TRAP",
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 9,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "lower_brine_cave": {
+   "dungeon": "d36",
+   "pret_enum": "DUNGEON_LOWER_BRINE_CAVE",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 2,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 3,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 4,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 5,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    }
+   ],
+   "floor_count": {
+    "zone": 5,
+    "rom": 5,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "PASS",
+    "notes": [],
+    "zone": [
+     "trap_grimy:526",
+     "trap_summon:527",
+     "trap_warp:526",
+     "trap_gust:526",
+     "trap_spin:527",
+     "trap_slumber:526",
+     "trap_slow:526",
+     "trap_poison:527",
+     "trap_self_destruct:526",
+     "trap_chestnut:526",
+     "trap_pokemon:527",
+     "trap_trip:526"
+    ],
+    "rom": [
+     "CHESTNUT_TRAP",
+     "GRIMY_TRAP",
+     "GUST_TRAP",
+     "POISON_TRAP",
+     "POKEMON_TRAP",
+     "SELFDESTRUCT_TRAP",
+     "SLOW_TRAP",
+     "SLUMBER_TRAP",
+     "SPIN_TRAP",
+     "SUMMON_TRAP",
+     "TRIP_TRAP",
+     "WARP_TRAP",
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 5,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "hidden_land": {
+   "dungeon": "d38",
+   "pret_enum": "DUNGEON_HIDDEN_LAND",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 2,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 3,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 4,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 5,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 6,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 7,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 8,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 9,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 10,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 11,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 12,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 13,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 14,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 15,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    }
+   ],
+   "floor_count": {
+    "zone": 15,
+    "rom": 15,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "PASS",
+    "notes": [],
+    "zone": [
+     "trap_grimy:556",
+     "trap_summon:555",
+     "trap_warp:556",
+     "trap_gust:555",
+     "trap_spin:556",
+     "trap_slumber:555",
+     "trap_slow:556",
+     "trap_poison:555",
+     "trap_self_destruct:556",
+     "trap_pokemon:556"
+    ],
+    "rom": [
+     "GRIMY_TRAP",
+     "GUST_TRAP",
+     "POISON_TRAP",
+     "POKEMON_TRAP",
+     "SELFDESTRUCT_TRAP",
+     "SLOW_TRAP",
+     "SLUMBER_TRAP",
+     "SPIN_TRAP",
+     "SUMMON_TRAP",
+     "WARP_TRAP",
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 15,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "hidden_highland": {
+   "dungeon": "d39",
+   "pret_enum": "DUNGEON_HIDDEN_HIGHLAND",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 2,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 3,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 4,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 5,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 6,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 7,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 8,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    }
+   ],
+   "floor_count": {
+    "zone": 8,
+    "rom": 8,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "PASS",
+    "notes": [],
+    "zone": [
+     "trap_grimy:556",
+     "trap_summon:555",
+     "trap_warp:556",
+     "trap_gust:555",
+     "trap_spin:556",
+     "trap_slumber:555",
+     "trap_slow:556",
+     "trap_poison:555",
+     "trap_self_destruct:556",
+     "trap_pokemon:556"
+    ],
+    "rom": [
+     "GRIMY_TRAP",
+     "GUST_TRAP",
+     "POISON_TRAP",
+     "POKEMON_TRAP",
+     "SELFDESTRUCT_TRAP",
+     "SLOW_TRAP",
+     "SLUMBER_TRAP",
+     "SPIN_TRAP",
+     "SUMMON_TRAP",
+     "WARP_TRAP",
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 8,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "temporal_tower": {
+   "dungeon": "d41",
+   "pret_enum": "DUNGEON_TEMPORAL_TOWER",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 2,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 3,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 4,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 5,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 6,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 7,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 8,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 9,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 10,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 11,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 12,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 13,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    }
+   ],
+   "floor_count": {
+    "zone": 13,
+    "rom": 13,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "PASS",
+    "notes": [],
+    "zone": [
+     "trap_grimy:556",
+     "trap_summon:555",
+     "trap_warp:556",
+     "trap_gust:555",
+     "trap_spin:556",
+     "trap_slumber:555",
+     "trap_poison:556",
+     "trap_self_destruct:555",
+     "trap_pokemon:556"
+    ],
+    "rom": [
+     "GRIMY_TRAP",
+     "GUST_TRAP",
+     "POISON_TRAP",
+     "POKEMON_TRAP",
+     "SELFDESTRUCT_TRAP",
+     "SLUMBER_TRAP",
+     "SPIN_TRAP",
+     "SUMMON_TRAP",
+     "WARP_TRAP",
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 13,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "temporal_spire": {
+   "dungeon": "d42",
+   "pret_enum": "DUNGEON_TEMPORAL_SPIRE",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 2,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 3,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 4,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 5,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 6,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 7,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 8,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 9,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 10,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    }
+   ],
+   "floor_count": {
+    "zone": 10,
+    "rom": 10,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "PASS",
+    "notes": [],
+    "zone": [
+     "trap_grimy:556",
+     "trap_summon:555",
+     "trap_warp:556",
+     "trap_gust:555",
+     "trap_spin:556",
+     "trap_slumber:555",
+     "trap_poison:556",
+     "trap_self_destruct:555",
+     "trap_pokemon:556"
+    ],
+    "rom": [
+     "GRIMY_TRAP",
+     "GUST_TRAP",
+     "POISON_TRAP",
+     "POKEMON_TRAP",
+     "SELFDESTRUCT_TRAP",
+     "SLUMBER_TRAP",
+     "SPIN_TRAP",
+     "SUMMON_TRAP",
+     "WARP_TRAP",
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 10,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "beach_cave_pit": {
+   "dungeon": "d02",
+   "pret_enum": "DUNGEON_BEACH_CAVE_PIT",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "ACCEPTED_FIXED_FLOOR",
+     "spawn_rates": "ACCEPTED_FIXED_FLOOR",
+     "note": "fixed_floor_id=1 — salle fixe (boss), table mappa dormante"
+    }
+   ],
+   "floor_count": {
+    "zone": 1,
+    "rom": 1,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "ACCEPTED_FIXED_FLOOR",
+    "notes": [
+     "donjon 100% salles fixes : la table de pièges mappa est dormante dans la ROM"
+    ],
+    "zone": [],
+    "rom": [
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 1,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "mt_bristle_peak": {
+   "dungeon": "d05",
+   "pret_enum": "DUNGEON_MT_BRISTLE_PEAK",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "ACCEPTED_FIXED_FLOOR",
+     "spawn_rates": "ACCEPTED_FIXED_FLOOR",
+     "note": "fixed_floor_id=2 — salle fixe (boss), table mappa dormante"
+    }
+   ],
+   "floor_count": {
+    "zone": 1,
+    "rom": 1,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "ACCEPTED_FIXED_FLOOR",
+    "notes": [
+     "donjon 100% salles fixes : la table de pièges mappa est dormante dans la ROM"
+    ],
+    "zone": [],
+    "rom": [
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 1,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "steam_cave_peak": {
+   "dungeon": "d16",
+   "pret_enum": "DUNGEON_STEAM_CAVE_PEAK",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "ACCEPTED_FIXED_FLOOR",
+     "spawn_rates": "ACCEPTED_FIXED_FLOOR",
+     "note": "fixed_floor_id=3 — salle fixe (boss), table mappa dormante"
+    }
+   ],
+   "floor_count": {
+    "zone": 1,
+    "rom": 1,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "ACCEPTED_FIXED_FLOOR",
+    "notes": [
+     "donjon 100% salles fixes : la table de pièges mappa est dormante dans la ROM"
+    ],
+    "zone": [],
+    "rom": [
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 1,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "amp_clearing": {
+   "dungeon": "d19",
+   "pret_enum": "DUNGEON_AMP_CLEARING",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "ACCEPTED_FIXED_FLOOR",
+     "spawn_rates": "ACCEPTED_FIXED_FLOOR",
+     "note": "fixed_floor_id=4 — salle fixe (boss), table mappa dormante"
+    }
+   ],
+   "floor_count": {
+    "zone": 1,
+    "rom": 1,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "ACCEPTED_FIXED_FLOOR",
+    "notes": [
+     "donjon 100% salles fixes : la table de pièges mappa est dormante dans la ROM"
+    ],
+    "zone": [],
+    "rom": [
+     "SLUMBER_TRAP",
+     "SUMMON_TRAP",
+     "TRIP_TRAP",
+     "WARP_TRAP",
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 1,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "underground_lake": {
+   "dungeon": "d23",
+   "pret_enum": "DUNGEON_UNDERGROUND_LAKE",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "ACCEPTED_FIXED_FLOOR",
+     "spawn_rates": "ACCEPTED_FIXED_FLOOR",
+     "note": "fixed_floor_id=5 — salle fixe (boss), table mappa dormante"
+    }
+   ],
+   "floor_count": {
+    "zone": 1,
+    "rom": 1,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "ACCEPTED_FIXED_FLOOR",
+    "notes": [
+     "donjon 100% salles fixes : la table de pièges mappa est dormante dans la ROM"
+    ],
+    "zone": [],
+    "rom": [
+     "SLUMBER_TRAP",
+     "SUMMON_TRAP",
+     "TRIP_TRAP",
+     "WARP_TRAP",
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 1,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "crystal_lake": {
+   "dungeon": "d26",
+   "pret_enum": "DUNGEON_CRYSTAL_LAKE",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "ACCEPTED_FIXED_FLOOR",
+     "spawn_rates": "ACCEPTED_FIXED_FLOOR",
+     "note": "fixed_floor_id=6 — salle fixe (boss), table mappa dormante"
+    }
+   ],
+   "floor_count": {
+    "zone": 1,
+    "rom": 1,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "ACCEPTED_FIXED_FLOOR",
+    "notes": [
+     "donjon 100% salles fixes : la table de pièges mappa est dormante dans la ROM"
+    ],
+    "zone": [],
+    "rom": [
+     "GUST_TRAP",
+     "POISON_TRAP",
+     "SLOW_TRAP",
+     "SLUMBER_TRAP",
+     "SPIN_TRAP",
+     "SUMMON_TRAP",
+     "TRIP_TRAP",
+     "WARP_TRAP",
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 1,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "brine_cave_pit": {
+   "dungeon": "d37",
+   "pret_enum": "DUNGEON_BRINE_CAVE_PIT",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "ACCEPTED_FIXED_FLOOR",
+     "spawn_rates": "ACCEPTED_FIXED_FLOOR",
+     "note": "fixed_floor_id=8 — salle fixe (boss), table mappa dormante"
+    }
+   ],
+   "floor_count": {
+    "zone": 1,
+    "rom": 1,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "ACCEPTED_FIXED_FLOOR",
+    "notes": [
+     "donjon 100% salles fixes : la table de pièges mappa est dormante dans la ROM"
+    ],
+    "zone": [],
+    "rom": [
+     "CHESTNUT_TRAP",
+     "GRIMY_TRAP",
+     "GUST_TRAP",
+     "POISON_TRAP",
+     "POKEMON_TRAP",
+     "SELFDESTRUCT_TRAP",
+     "SLOW_TRAP",
+     "SLUMBER_TRAP",
+     "SPIN_TRAP",
+     "SUMMON_TRAP",
+     "TRIP_TRAP",
+     "WARP_TRAP",
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 1,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "old_ruins": {
+   "dungeon": "d40",
+   "pret_enum": "DUNGEON_OLD_RUINS",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "ACCEPTED_FIXED_FLOOR",
+     "spawn_rates": "ACCEPTED_FIXED_FLOOR",
+     "note": "fixed_floor_id=9 — salle fixe (boss), table mappa dormante"
+    }
+   ],
+   "floor_count": {
+    "zone": 1,
+    "rom": 1,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "ACCEPTED_FIXED_FLOOR",
+    "notes": [
+     "donjon 100% salles fixes : la table de pièges mappa est dormante dans la ROM"
+    ],
+    "zone": [],
+    "rom": [
+     "GRIMY_TRAP",
+     "GUST_TRAP",
+     "POISON_TRAP",
+     "POKEMON_TRAP",
+     "SELFDESTRUCT_TRAP",
+     "SLOW_TRAP",
+     "SLUMBER_TRAP",
+     "SPIN_TRAP",
+     "SUMMON_TRAP",
+     "WARP_TRAP",
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 1,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "temporal_pinnacle": {
+   "dungeon": "d43",
+   "pret_enum": "DUNGEON_TEMPORAL_PINNACLE",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "ACCEPTED_FIXED_FLOOR",
+     "spawn_rates": "ACCEPTED_FIXED_FLOOR",
+     "note": "fixed_floor_id=10 — salle fixe (boss), table mappa dormante"
+    }
+   ],
+   "floor_count": {
+    "zone": 1,
+    "rom": 1,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "ACCEPTED_FIXED_FLOOR",
+    "notes": [
+     "donjon 100% salles fixes : la table de pièges mappa est dormante dans la ROM"
+    ],
+    "zone": [],
+    "rom": [
+     "GRIMY_TRAP",
+     "GUST_TRAP",
+     "POISON_TRAP",
+     "POKEMON_TRAP",
+     "SELFDESTRUCT_TRAP",
+     "SLUMBER_TRAP",
+     "SPIN_TRAP",
+     "SUMMON_TRAP",
+     "WARP_TRAP",
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 1,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
   }
  }
 }
