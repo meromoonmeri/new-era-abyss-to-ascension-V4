@@ -120,3 +120,39 @@
 - items : ROM a des tables=True, zone spawn=True → PASS
 - pièges : PASS 
 
+## far_amp_plains (d18 DUNGEON_FAR_AMP_PLAINS) — **EXACT**
+- étages : zone 9 / ROM 9 → PASS
+- espèces/niveaux/proportions : 9 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## northern_desert (d20 DUNGEON_NORTHERN_DESERT) — **EXACT**
+- étages : zone 15 / ROM 15 → PASS
+- espèces/niveaux/proportions : 15 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## quicksand_cave (d21 DUNGEON_QUICKSAND_CAVE) — **EXACT**
+- étages : zone 10 / ROM 10 → PASS
+- espèces/niveaux/proportions : 10 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## quicksand_pit (d22 DUNGEON_QUICKSAND_PIT) — **EXACT**
+- étages : zone 10 / ROM 10 → PASS
+- espèces/niveaux/proportions : 10 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## crystal_cave (d24 DUNGEON_CRYSTAL_CAVE) — **EXACT**
+- étages : zone 11 / ROM 11 → PASS
+- espèces/niveaux/proportions : 11 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## crystal_crossing (d25 DUNGEON_CRYSTAL_CROSSING) — **EXACT**
+- étages : zone 13 / ROM 13 → PASS
+- espèces/niveaux/proportions : 13 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+

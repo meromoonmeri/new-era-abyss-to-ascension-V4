@@ -43,6 +43,9 @@ ZONE_TO_DUNGEON = {
     "side_path": "d09", "mt_horn": "d10", "rock_path_sky": "d11",
     "foggy_forest": "d12", "forest_path": "d13", "steam_cave": "d14",
     "upper_steam_cave": "d15", "amp_plains": "d17",
+    "far_amp_plains": "d18", "northern_desert": "d20",
+    "quicksand_cave": "d21", "quicksand_pit": "d22",
+    "crystal_cave": "d24", "crystal_crossing": "d25",
 }
 
 TRAP_TO_PMDO = {k: v.get("pmdo_tile")
