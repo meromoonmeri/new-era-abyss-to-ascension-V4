@@ -9,6 +9,7 @@
 | cinematic_sequences | 132/254 (52.0%) | **PARTIAL** | MANIFEST.totals.with_cinematic (cif.json ROM) |
 | dialogues_5_langues | 69/133 (51.9%) | **PARTIAL** | Cinematics/DIALOGUES_INDEX.json (69 stations graphe EU exact, 3073 blocs) |
 | canonical_cast | 27/27 (100.0%) | **PASS** | eu_scene_cast.json (gGroundLivesTypeData 0x27BEEC) + preuve runtime 3 scènes |
-| progression_graph | — | **TECHNICAL_REFERENCE** | Docs/PROGRESSION_GRAPH.json |
+| event_chain_rom_decoded | 399/407 (98.0%) | **PASS** | Cinematics/EVENT_SCRIPTS_INDEX.json (gFunctionScriptTable EU @0x08294450, décodage octet par octet) |
+| playable_progression | 121/121 (100.0%) | **PASS** | Docs/PLAYABLE_PROGRESSION.json (EVENT→stations→dialogues) |
 | dungeons_procedural_runtime | 89/89 (100.0%) | **PARTIAL** | dev/docs/canonical_dungeon_runtime/matrix.json (89/89 CANONICAL_RUNTIME_PASS, 1848 étages) |
 | audit_verdict | — | **AUDIT_PASS** | AUDIT.json (8 familles A-H) |

@@ -14,7 +14,8 @@ Dimensions SÉPARÉES (règle §49) : aucun pourcentage global fusionné n'exist
 | cinematic_sequences | 132/254 (52.0%) | **PARTIAL** | MANIFEST.totals.with_cinematic (cif.json ROM) |
 | dialogues_5_langues | 69/133 (51.9%) | **PARTIAL** | Cinematics/DIALOGUES_INDEX.json (69 stations graphe EU exact, 3073 blocs) |
 | canonical_cast | 27/27 (100.0%) | **PASS** | eu_scene_cast.json (gGroundLivesTypeData 0x27BEEC) + preuve runtime 3 scènes |
-| progression_graph | — | **TECHNICAL_REFERENCE** | Docs/PROGRESSION_GRAPH.json |
+| event_chain_rom_decoded | 399/407 (98.0%) | **PASS** | Cinematics/EVENT_SCRIPTS_INDEX.json (gFunctionScriptTable EU @0x08294450, décodage octet par octet) |
+| playable_progression | 121/121 (100.0%) | **PASS** | Docs/PLAYABLE_PROGRESSION.json (EVENT→stations→dialogues) |
 | dungeons_procedural_runtime | 89/89 (100.0%) | **PARTIAL** | dev/docs/canonical_dungeon_runtime/matrix.json (89/89 CANONICAL_RUNTIME_PASS, 1848 étages) |
 | audit_verdict | — | **AUDIT_PASS** | AUDIT.json (8 familles A-H) |
 
@@ -29,6 +30,8 @@ Dimensions SÉPARÉES (règle §49) : aucun pourcentage global fusionné n'exist
 | rom_scripts_ssa | 1884/1884 (100.0%) | **PASS** | idem (placements acteurs/objets/events/triggers) |
 | cinematic_linked_grounds | 336/460 (73.0%) | **PARTIAL** | MANIFEST.totals.with_cinematic (LEVEL_MAP_LINKS level→MAP_BG) |
 | progression_graph | — | **PASS** | Docs/PROGRESSION_GRAPH.json (SSB décompilés ROM) |
+| playable_progression | 244/245 (99.6%) | **PASS** | Docs/PLAYABLE_PROGRESSION.json (état→scène→ground→dialogues) |
+| cinematic_integrability | 2763/3760 (73.5%) | **PARTIAL** | Docs/CINEMATIC_INTEGRABILITY.json (table curatée ssb_coverage, 0 opcode inconnu) |
 | runtime_pmdo_grounds | 0/460 (0.0%) | **NOT_TESTED** | — |
 | gameplay_tables_extraction | 178/180 (98.9%) | **PASS** | Tables/DUNGEON_TABLES_INDEX.json (mappa_s.bin EU : 1795 étages, spawns/pièges/items bruts) |
 | pmdo_mapping_species | 484/484 (100.0%) | **PASS** | Tables/PMDO_MAPPING.json |

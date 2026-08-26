@@ -61,6 +61,24 @@
    "note": "245 états écrits, 97 bit flags, 1219 déclencheurs ; 1 seul état lu-jamais-écrit (0.0 = init sauvegarde)"
   },
   {
+   "dimension": "playable_progression",
+   "covered": 244,
+   "total": 245,
+   "pct": 99.6,
+   "status": "PASS",
+   "source": "Docs/PLAYABLE_PROGRESSION.json (état→scène→ground→dialogues)",
+   "note": "233 états localisés sur un ground ; runtime NOT_TESTED"
+  },
+  {
+   "dimension": "cinematic_integrability",
+   "covered": 2763,
+   "total": 3760,
+   "pct": 73.5,
+   "status": "PARTIAL",
+   "source": "Docs/CINEMATIC_INTEGRABILITY.json (table curatée ssb_coverage, 0 opcode inconnu)",
+   "note": "625 scènes fidélité partielle (double écran NDS), 372 nécessitent une extension moteur ; TOUTES NOT_YET_INTEGRATED au runtime"
+  },
+  {
    "dimension": "runtime_pmdo_grounds",
    "covered": 0,
    "total": 460,

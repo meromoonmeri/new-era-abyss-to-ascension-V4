@@ -81,13 +81,33 @@ def red_matrix():
                     "27/27 scènes à cast décodées ; alt_sectors (49 "
                     "entités) REVIEW_REQUIRED"))
     g = load(c / "Docs" / "PROGRESSION_GRAPH.json")["totals"]
-    dims.append(dim("progression_graph", g["pret_events"], None,
-                    "TECHNICAL_REFERENCE",
-                    "Docs/PROGRESSION_GRAPH.json",
-                    f"{g['pret_scenario_main_states']} états SCENARIO_MAIN "
-                    f"pret + {g['rom_scenario_writes']} écritures décodées "
-                    f"ROM — chaîne EVENT_* non encore décodée octet à octet "
-                    f"dans la ROM EU"))
+    ev_p = c / "Cinematics" / "EVENT_SCRIPTS_INDEX.json"
+    if ev_p.exists():
+        ev = load(ev_p)["totals"]
+        dims.append(dim(
+            "event_chain_rom_decoded", ev["PASS"],
+            ev["PASS"] + ev["PARTIAL"] + ev["EMPTY"],
+            "PASS" if ev["PARTIAL"] == 0 else "PARTIAL",
+            "Cinematics/EVENT_SCRIPTS_INDEX.json (gFunctionScriptTable EU "
+            "@0x08294450, décodage octet par octet)",
+            f"{ev['scenario_main_writes']} écritures SCENARIO_MAIN "
+            f"confirmées 1:1 vs pret ; 8 EMPTY = pointeurs nuls DANS la "
+            f"ROM"))
+    pp_p = c / "Docs" / "PLAYABLE_PROGRESSION.json"
+    if pp_p.exists():
+        pp = load(pp_p)["totals"]
+        dims.append(dim(
+            "playable_progression", pp["read"], pp["states"],
+            "PASS" if pp["read"] == pp["states"] else "PARTIAL",
+            "Docs/PLAYABLE_PROGRESSION.json (EVENT→stations→dialogues)",
+            f"{pp['with_stations']} états avec stations résolues, "
+            f"{pp['with_dialogues']} avec dialogues 5 langues — "
+            f"atteignabilité statique ; runtime NOT_TESTED"))
+    else:
+        dims.append(dim("progression_graph", g["pret_events"], None,
+                        "TECHNICAL_REFERENCE",
+                        "Docs/PROGRESSION_GRAPH.json",
+                        "chaîne EVENT_* non décodée"))
     dims.append(dim("dungeons_procedural_runtime", 89, 89,
                     "PARTIAL",
                     "dev/docs/canonical_dungeon_runtime/matrix.json "
@@ -143,6 +163,30 @@ def sky_matrix():
                     f"{g['bit_flags']} bit flags, "
                     f"{g['scene_triggers']} déclencheurs ; "
                     f"1 seul état lu-jamais-écrit (0.0 = init sauvegarde)"))
+    pp_p = c / "Docs" / "PLAYABLE_PROGRESSION.json"
+    if pp_p.exists():
+        pp = load(pp_p)["totals"]
+        dims.append(dim(
+            "playable_progression", pp["with_dialogues"], pp["states"],
+            "PASS" if pp["with_dialogues"] >= pp["states"] - 1
+            else "PARTIAL",
+            "Docs/PLAYABLE_PROGRESSION.json (état→scène→ground→dialogues)",
+            f"{pp['with_ground']} états localisés sur un ground ; "
+            f"runtime NOT_TESTED"))
+    ci_p = c / "Docs" / "CINEMATIC_INTEGRABILITY.json"
+    if ci_p.exists():
+        ci = load(ci_p)["totals"]
+        adaptable = ci.get("NATIVELY_SUPPORTED", 0) + \
+            ci.get("TECHNICALLY_ADAPTABLE", 0)
+        dims.append(dim(
+            "cinematic_integrability", adaptable, ci["scenes"],
+            "PARTIAL",
+            "Docs/CINEMATIC_INTEGRABILITY.json (table curatée "
+            "ssb_coverage, 0 opcode inconnu)",
+            f"{ci.get('PARTIAL_FIDELITY', 0)} scènes fidélité partielle "
+            f"(double écran NDS), "
+            f"{ci.get('REQUIRES_ENGINE_EXTENSION', 0)} nécessitent une "
+            f"extension moteur ; TOUTES NOT_YET_INTEGRATED au runtime"))
     dims.append(dim("runtime_pmdo_grounds", 0, t["grounds"], "NOT_TESTED",
                     "—", "grounds Sky pas encore chargés dans PMDO réel"))
     ti_p = c / "Tables" / "DUNGEON_TABLES_INDEX.json"
