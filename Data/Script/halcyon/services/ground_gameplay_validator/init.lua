@@ -169,4 +169,10 @@ function V:Subscribe(med)
 end
 function V:UnSubscribe(med)end
 SCRIPT:AddService('GroundGameplayValidator',V:new())
+-- Le validateur de routes histoire Red est opt-in via
+-- PMDO_RED_STORY_ROUTE_VALIDATOR ; main.lua est verrouillé CH1-5, donc le
+-- require vit ici (service voisin, également opt-in, zéro effet en jeu normal).
+if os.getenv('PMDO_RED_STORY_ROUTE_VALIDATOR') then
+  require 'halcyon.services.red_story_route_validator'
+end
 return V

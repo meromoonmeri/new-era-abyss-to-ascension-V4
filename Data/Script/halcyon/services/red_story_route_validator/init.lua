@@ -58,6 +58,32 @@ local CONFIG={
     boss={segment=1,map='mt_freeze_peak_boss',species='glalie',
           source_floor=5,source_fixed_room=6,
           provenance='PMD_RED_ROM/FIXED_ROOM_MT_FREEZE_PEAK_NINETALES'}},
+  -- --- Chaînes PMD Sky EU (donjon procédural -> ZONE d'arène séparée,
+  -- schéma LoadGen/fixed.bin). next_zone remplace le segment boss :
+  -- après le dernier étage procédural, le validateur entre dans la zone
+  -- d'arène et vérifie l'espèce du boss (fixed.bin/arm9 ov29).
+  beach_cave={floors=4,sky=true,next_zone='beach_cave_pit',
+    boss_species='koffing',
+    provenance='PMD_SKY_ROM/fixed.bin ff1 (Team Skull)'},
+  mt_bristle={floors=9,sky=true,next_zone='mt_bristle_peak',
+    boss_species='drowzee',provenance='PMD_SKY_ROM/fixed.bin ff2'},
+  steam_cave={floors=8,sky=true,next_zone=nil},
+  upper_steam_cave={floors=7,sky=true,next_zone='steam_cave_peak',
+    boss_species='groudon',provenance='PMD_SKY_ROM/fixed.bin ff3'},
+  amp_plains_chain={zone='amp_plains',floors=10,sky=true,
+    next_zone='far_amp_plains'},
+  far_amp_plains={floors=9,sky=true,next_zone='amp_clearing',
+    boss_species='manectric',provenance='PMD_SKY_ROM/fixed.bin ff4'},
+  quicksand_pit={floors=10,sky=true,next_zone='underground_lake',
+    boss_species='mesprit',provenance='PMD_SKY_ROM/fixed.bin ff5'},
+  crystal_crossing={floors=13,sky=true,next_zone='crystal_lake',
+    boss_species='grovyle',provenance='PMD_SKY_ROM/fixed.bin ff6'},
+  lower_brine_cave={floors=5,sky=true,next_zone='brine_cave_pit',
+    boss_species='omastar',provenance='PMD_SKY_ROM/fixed.bin ff8'},
+  hidden_highland={floors=8,sky=true,next_zone='old_ruins',
+    boss_species='dusknoir',provenance='PMD_SKY_ROM/fixed.bin ff9'},
+  temporal_spire={floors=10,sky=true,next_zone='temporal_pinnacle',
+    boss_species='dialga',provenance='PMD_SKY_ROM/fixed.bin ff10'},
 }
 local function esc(v)return tostring(v):gsub('\\','\\\\'):gsub('"','\\"'):gsub('\n',' | '):gsub('\r','')end
 local function emit(v)
@@ -123,6 +149,15 @@ function V:OnNewGame()
   SV.CanonicalDungeons=SV.CanonicalDungeons or {}
   SV.CanonicalDungeons[self.zone]=false
   emit('{"event":"begin","zone":"'..self.zone..'","expected_floors":'..self.config.floors..'}')
+  if self.config.sky then
+    -- Chaîne Sky : pas de Ground d'entrée canonique porté ; on entre
+    -- directement dans le donjon (segment 0, étage 0). EnterZone et non
+    -- EnterDungeon : ce dernier yield hors coroutine dans l'événement
+    -- NewGame (limitation NLua documentée dans ground_gameplay_validator).
+    emit('{"event":"sky_chain","next_zone":"'..tostring(self.config.next_zone)..'"}')
+    GAME:EnterZone(self.config.zone or self.zone,0,0,0)
+    return
+  end
   GAME:EnterZone(self.zone,-1,0,0)
 end
 
@@ -164,15 +199,20 @@ function V:inspect_map()
     return
   end
 
-  emit('{"event":"map","zone":"'..self.zone..'","segment":'..seg
+  -- arène Sky (zone LoadGen séparée) : pas d'escaliers attendus, le boss
+  -- est vérifié par OnDungeonFloorEnter (sky_boss_arena).
+  local in_sky_arena = self.config.sky and self.config.next_zone
+    and tostring(_ZONE.CurrentZoneID)==self.config.next_zone
+  emit('{"event":"map","zone":"'..esc(tostring(_ZONE.CurrentZoneID))..'","segment":'..seg
     ..',"floor":'..floor..',"width":'..map.Width..',"height":'..map.Height
     ..',"mobs":'..mobs..',"stairs":'..stairs..',"map_seed":"'..esc(map.Rand.FirstSeed)
     ..'","adventure_seed":"'..esc(_DATA.Save.Rand.FirstSeed)..'"}')
-  if stairs<1 then error('procedural floor has no stairs') end
+  if stairs<1 and not in_sky_arena then error('procedural floor has no stairs') end
 end
 
 function V:OnDungeonMapInit()
-  if not self.enabled or tostring(_ZONE.CurrentZoneID)~=self.zone then return end
+  if not self.enabled then return end
+  do local cz=tostring(_ZONE.CurrentZoneID); local okz=(cz==self.zone) or (self.config.zone and cz==self.config.zone) or (self.config.sky and self.config.next_zone and cz==self.config.next_zone); if not okz then return end end
   local key=tostring(_ZONE.CurrentMapID.Segment)..':'..tostring(_ZONE.CurrentMapID.ID)
   if self.last_map==key then return end
   self.last_map=key
@@ -214,7 +254,8 @@ function V:OnDungeonMapInit()
 end
 
 function V:OnDungeonFloorEnter()
-  if not self.enabled or tostring(_ZONE.CurrentZoneID)~=self.zone then return end
+  if not self.enabled then return end
+  do local cz=tostring(_ZONE.CurrentZoneID); local okz=(cz==self.zone) or (self.config.zone and cz==self.config.zone) or (self.config.sky and self.config.next_zone and cz==self.config.next_zone); if not okz then return end end
   local seg=_ZONE.CurrentMapID.Segment
   local floor=_ZONE.CurrentMapID.ID
   local boss=self.config.boss
@@ -256,6 +297,58 @@ function V:OnDungeonFloorEnter()
       if field==nil then error('GameManager.SceneOutcome reflection field missing') end
       manager:SetFade(true,false)
       field:SetValue(manager,_GAME:EndSegment(RogueEssence.Data.GameProgress.ResultType.Cleared,true))
+      return
+    end
+    -- Chaîne Sky : arène = ZONE séparée (LoadGen). Deux cas :
+    --  * on est dans la zone d'arène (CurrentZoneID==next_zone) : vérifier
+    --    l'espèce du boss et émettre la preuve terminale ;
+    --  * on est au dernier étage du donjon : entrer dans la zone d'arène.
+    if self.config.sky then
+      local curz=tostring(_ZONE.CurrentZoneID)
+      if self.config.next_zone and curz==self.config.next_zone then
+        local map=_ZONE.CurrentMap
+        -- les arènes Sky peuvent contenir PLUSIEURS combattants canoniques
+        -- (Manectric + 8 Electrike, Dusknoir + 6 Sableye) : la preuve est
+        -- que l'espèce ATTENDUE figure parmi les équipes chargées, et le
+        -- roster complet est émis.
+        local species={}
+        local found=false
+        for ti=0,map.MapTeams.Count-1 do
+          local t=map.MapTeams[ti]
+          for pi=0,t.Players.Count-1 do
+            local ok2,sp=pcall(function() return t.Players[pi].BaseForm.Species end)
+            if ok2 and sp then
+              sp=tostring(sp)
+              species[#species+1]=sp
+              if sp==self.config.boss_species then found=true end
+            end
+          end
+        end
+        local pass=(self.config.boss_species==nil or found)
+        emit('{"event":"sky_boss_arena","zone":"'..curz..'","loaded_species":"'..esc(table.concat(species,','))
+          ..'","expected_species":"'..esc(tostring(self.config.boss_species))
+          ..'","provenance":"'..esc(tostring(self.config.provenance))
+          ..'","verdict":"'..(pass and 'BOSS_ARENA_PASS' or 'BOSS_SPECIES_MISMATCH')..'"}')
+        emit('{"event":"end","zone":"'..self.zone..'","canonical_complete":'..tostring(pass)
+          ..',"terminated_by":"sky_boss_arena_reached"}')
+        self.terminated=true
+        pcall(function() RogueEssence.GameManager.Instance:SceneOutcome_Unload() end)
+        return
+      end
+      if floor+1<self.config.floors then
+        emit('{"event":"next_floor","from":'..floor..',"to":'..(floor+1)..'}')
+        GAME:EnterZone(self.config.zone or self.zone,seg,floor+1,0)
+      elseif self.config.next_zone then
+        emit('{"event":"segment_clear","zone":"'..self.zone..'","segment":'..seg
+          ..',"floor":'..floor..',"kind":"procedural"}')
+        emit('{"event":"enter_boss_zone","zone":"'..self.config.next_zone..'"}')
+        GAME:EnterZone(self.config.next_zone,0,0,0)
+      else
+        emit('{"event":"segment_clear","zone":"'..self.zone..'","segment":'..seg
+          ..',"floor":'..floor..',"kind":"procedural"}')
+        emit('{"event":"end","zone":"'..self.zone..'","canonical_complete":true,"terminated_by":"sky_chain_no_boss"}')
+        self.terminated=true
+      end
       return
     end
     if floor+1<self.config.floors then
