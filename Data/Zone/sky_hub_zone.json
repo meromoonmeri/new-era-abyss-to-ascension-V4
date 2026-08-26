@@ -27,7 +27,7 @@
     "Segments": [],
     "GroundMaps": [
       "t01p01a",
-      "t01p02a",
+      "t01p02a_sky",
       "g01p01a",
       "g01p02a",
       "g01p03a",
@@ -116,7 +116,7 @@
       "p19p01a",
       "p19p02a",
       "s01p02a",
-      "t00p01",
+      "t00p01_sky",
       "t00p02",
       "t01p03a",
       "t01p04a",

@@ -6065,7 +6065,9 @@
    "render_error": null,
    "runtime_validated_219": false,
    "music": null,
-   "source_comment": "PMD Sky (NDS) MAP_BG d18p11a/d18p11a/d18p11a -> d18p11a. Rendered pixel-perfect via skytemple-files (bma.to_pil), 1 frame(s), aucun BPA, collision BMA d'origine. Source: pret/pmd-sky files/MAP_BG."
+   "source_comment": "PMD Sky (NDS) MAP_BG d18p11a/d18p11a/d18p11a -> d18p11a. Rendered pixel-perfect via skytemple-files (bma.to_pil), 1 frame(s), aucun BPA, collision BMA d'origine. Source: pret/pmd-sky files/MAP_BG.",
+   "classification_note": "COLLISION D'ID RÉSOLUE: ce fichier est du contenu PMD Sky NDS (source_comment) jamais du contenu Red GBA; entrée conservée pour trace mais NON comptée comme ground Red canonique. Le canon Red GBA homonyme, s'il existe, porte un autre ID.",
+   "is_red_canon": false
   },
   {
    "ground": "d19p01",
@@ -6142,7 +6144,9 @@
    "render_error": null,
    "runtime_validated_219": false,
    "music": null,
-   "source_comment": "PMD Sky (NDS) MAP_BG d19p11a/d19p11a/d19p11a -> d19p11a. Rendered pixel-perfect via skytemple-files (bma.to_pil), 1 frame(s), aucun BPA, collision BMA d'origine. Source: pret/pmd-sky files/MAP_BG."
+   "source_comment": "PMD Sky (NDS) MAP_BG d19p11a/d19p11a/d19p11a -> d19p11a. Rendered pixel-perfect via skytemple-files (bma.to_pil), 1 frame(s), aucun BPA, collision BMA d'origine. Source: pret/pmd-sky files/MAP_BG.",
+   "classification_note": "COLLISION D'ID RÉSOLUE: ce fichier est du contenu PMD Sky NDS (source_comment) jamais du contenu Red GBA; entrée conservée pour trace mais NON comptée comme ground Red canonique. Le canon Red GBA homonyme, s'il existe, porte un autre ID.",
+   "is_red_canon": false
   },
   {
    "ground": "d20p01",
@@ -6221,7 +6225,9 @@
    "render_error": null,
    "runtime_validated_219": false,
    "music": null,
-   "source_comment": "PMD Sky (NDS) MAP_BG d20p11a/d20p11a/d20p11a -> d20p11a. Rendered pixel-perfect via skytemple-files (bma.to_pil), 1 frame(s), aucun BPA, collision BMA d'origine. Source: pret/pmd-sky files/MAP_BG."
+   "source_comment": "PMD Sky (NDS) MAP_BG d20p11a/d20p11a/d20p11a -> d20p11a. Rendered pixel-perfect via skytemple-files (bma.to_pil), 1 frame(s), aucun BPA, collision BMA d'origine. Source: pret/pmd-sky files/MAP_BG.",
+   "classification_note": "COLLISION D'ID RÉSOLUE: ce fichier est du contenu PMD Sky NDS (source_comment) jamais du contenu Red GBA; entrée conservée pour trace mais NON comptée comme ground Red canonique. Le canon Red GBA homonyme, s'il existe, porte un autre ID.",
+   "is_red_canon": false
   },
   {
    "ground": "d21p01",
@@ -6298,7 +6304,9 @@
    "render_error": null,
    "runtime_validated_219": false,
    "music": null,
-   "source_comment": "PMD Sky (NDS) MAP_BG d21p21a/d21p21a/d21p21a -> d21p21a. Rendered pixel-perfect via skytemple-files (bma.to_pil), 1 frame(s), aucun BPA, collision BMA d'origine. Source: pret/pmd-sky files/MAP_BG."
+   "source_comment": "PMD Sky (NDS) MAP_BG d21p21a/d21p21a/d21p21a -> d21p21a. Rendered pixel-perfect via skytemple-files (bma.to_pil), 1 frame(s), aucun BPA, collision BMA d'origine. Source: pret/pmd-sky files/MAP_BG.",
+   "classification_note": "COLLISION D'ID RÉSOLUE: ce fichier est du contenu PMD Sky NDS (source_comment) jamais du contenu Red GBA; entrée conservée pour trace mais NON comptée comme ground Red canonique. Le canon Red GBA homonyme, s'il existe, porte un autre ID.",
+   "is_red_canon": false
   },
   {
    "ground": "d21p41a",
@@ -6315,7 +6323,9 @@
    "render_error": null,
    "runtime_validated_219": false,
    "music": null,
-   "source_comment": "PMD Sky (NDS) MAP_BG d21p41a/d21p41a/d21p41a -> d21p41a. Rendered pixel-perfect via skytemple-files (bma.to_pil), 1 frame(s), aucun BPA, collision BMA d'origine. Source: pret/pmd-sky files/MAP_BG."
+   "source_comment": "PMD Sky (NDS) MAP_BG d21p41a/d21p41a/d21p41a -> d21p41a. Rendered pixel-perfect via skytemple-files (bma.to_pil), 1 frame(s), aucun BPA, collision BMA d'origine. Source: pret/pmd-sky files/MAP_BG.",
+   "classification_note": "COLLISION D'ID RÉSOLUE: ce fichier est du contenu PMD Sky NDS (source_comment) jamais du contenu Red GBA; entrée conservée pour trace mais NON comptée comme ground Red canonique. Le canon Red GBA homonyme, s'il existe, porte un autre ID.",
+   "is_red_canon": false
   },
   {
    "ground": "d22p01",
@@ -6370,7 +6380,9 @@
    "render_error": null,
    "runtime_validated_219": false,
    "music": null,
-   "source_comment": "PMD Sky (NDS) MAP_BG d22p11a/d22p11a/d22p11a -> d22p11a. Rendered pixel-perfect via skytemple-files (bma.to_pil), 1 frame(s), aucun BPA, collision BMA d'origine. Source: pret/pmd-sky files/MAP_BG."
+   "source_comment": "PMD Sky (NDS) MAP_BG d22p11a/d22p11a/d22p11a -> d22p11a. Rendered pixel-perfect via skytemple-files (bma.to_pil), 1 frame(s), aucun BPA, collision BMA d'origine. Source: pret/pmd-sky files/MAP_BG.",
+   "classification_note": "COLLISION D'ID RÉSOLUE: ce fichier est du contenu PMD Sky NDS (source_comment) jamais du contenu Red GBA; entrée conservée pour trace mais NON comptée comme ground Red canonique. Le canon Red GBA homonyme, s'il existe, porte un autre ID.",
+   "is_red_canon": false
   },
   {
    "ground": "d23p01",
@@ -8955,7 +8967,9 @@
     "en": "System screen",
     "fr": "Écran système",
     "context": "Écrans/scènes système multilingues (s02_ger = allemand…)"
-   }
+   },
+   "classification_note": "COLLISION D'ID RÉSOLUE: ce fichier est du contenu PMD Sky NDS (source_comment) jamais du contenu Red GBA; entrée conservée pour trace mais NON comptée comme ground Red canonique. Le canon Red GBA homonyme, s'il existe, porte un autre ID.",
+   "is_red_canon": false
   },
   {
    "ground": "s05",
@@ -9216,7 +9230,9 @@
     "en": "System screen",
     "fr": "Écran système",
     "context": "Écrans/scènes système multilingues (s02_ger = allemand…)"
-   }
+   },
+   "classification_note": "COLLISION D'ID RÉSOLUE: ce fichier est du contenu PMD Sky NDS (source_comment) jamais du contenu Red GBA; entrée conservée pour trace mais NON comptée comme ground Red canonique. Le canon Red GBA homonyme, s'il existe, porte un autre ID.",
+   "is_red_canon": false
   },
   {
    "ground": "t00p01",
@@ -9248,7 +9264,9 @@
     "file": "Cinematics/dialogues/t00p01.json.gz",
     "text_blocks_5lang": 207,
     "dialogue_ops": 208
-   }
+   },
+   "classification_note": "COLLISION D'ID RÉSOLUE: le contenu Red GBA canonique a été restauré depuis 0f691fa3 (il avait été écrasé par le port Sky homonyme). Le contenu Sky vit désormais dans t00p01_sky (convention rock_path/rock_path_sky).",
+   "is_red_canon": true
   },
   {
    "ground": "t01p00",
@@ -9335,7 +9353,9 @@
     "file": "Cinematics/dialogues/t01p02a.json.gz",
     "text_blocks_5lang": 269,
     "dialogue_ops": 280
-   }
+   },
+   "classification_note": "COLLISION D'ID RÉSOLUE: le contenu Red GBA canonique a été restauré depuis 0f691fa3 (il avait été écrasé par le port Sky homonyme). Le contenu Sky vit désormais dans t01p02a_sky (convention rock_path/rock_path_sky).",
+   "is_red_canon": true
   },
   {
    "ground": "t01p02b",

@@ -1,8 +1,8 @@
-{"event":"begin","count":95}
+{"event":"begin","count":96}
 {"event":"ground_entered","ground":"t01p01a","scheduler":"TASK_BRANCH"}
 {"ground":"t01p01a","load":"LOAD_PASS","spawn":{"x":336,"y":248},"move_dirs":[1,1,1,1],"move_deltas":["0,-16","16,0","0,16","-16,0"],"movement_probe":"MOVEMENT_PASS","verdict":"SAFE"}
-{"event":"ground_entered","ground":"t01p02a","scheduler":"TASK_BRANCH"}
-{"ground":"t01p02a","load":"LOAD_PASS","spawn":{"x":272,"y":240},"move_dirs":[1,1,0,0],"move_deltas":["0,-16","16,0","0,0","0,0"],"movement_probe":"MOVEMENT_PASS","verdict":"SAFE"}
+{"event":"ground_entered","ground":"t01p02a_sky","scheduler":"TASK_BRANCH"}
+{"ground":"t01p02a_sky","load":"LOAD_PASS","spawn":{"x":272,"y":240},"move_dirs":[1,1,0,0],"move_deltas":["0,-16","16,0","0,0","0,0"],"movement_probe":"MOVEMENT_PASS","verdict":"SAFE"}
 {"event":"ground_entered","ground":"g01p01a","scheduler":"TASK_BRANCH"}
 {"ground":"g01p01a","load":"LOAD_PASS","spawn":{"x":240,"y":200},"move_dirs":[1,1,1,1],"move_deltas":["0,-16","16,0","0,16","-16,0"],"movement_probe":"MOVEMENT_PASS","verdict":"SAFE"}
 {"event":"ground_entered","ground":"g01p02a","scheduler":"TASK_BRANCH"}
@@ -179,8 +179,8 @@
 {"ground":"p19p02a","load":"LOAD_PASS","spawn":{"x":240,"y":176},"move_dirs":[1,1,1,1],"move_deltas":["0,-16","8,0","0,16","-16,0"],"movement_probe":"MOVEMENT_PASS","verdict":"SAFE"}
 {"event":"ground_entered","ground":"s01p02a","scheduler":"TASK_BRANCH"}
 {"ground":"s01p02a","load":"LOAD_PASS","spawn":{"x":224,"y":224},"move_dirs":[1,1,1,1],"move_deltas":["0,-16","16,0","0,16","-16,0"],"movement_probe":"MOVEMENT_PASS","verdict":"SAFE"}
-{"event":"ground_entered","ground":"t00p01","scheduler":"TASK_BRANCH"}
-{"ground":"t00p01","load":"LOAD_PASS","spawn":{"x":480,"y":360},"move_dirs":[1,1,1,1],"move_deltas":["0,-16","16,0","0,16","-16,0"],"movement_probe":"MOVEMENT_PASS","verdict":"SAFE"}
+{"event":"ground_entered","ground":"t00p01_sky","scheduler":"TASK_BRANCH"}
+{"ground":"t00p01_sky","load":"LOAD_PASS","spawn":{"x":480,"y":360},"move_dirs":[1,1,1,1],"move_deltas":["0,-16","16,0","0,16","-16,0"],"movement_probe":"MOVEMENT_PASS","verdict":"SAFE"}
 {"event":"ground_entered","ground":"t00p02","scheduler":"TASK_BRANCH"}
 {"ground":"t00p02","load":"LOAD_PASS","spawn":{"x":336,"y":248},"move_dirs":[1,1,1,1],"move_deltas":["0,-16","16,0","0,16","-16,0"],"movement_probe":"MOVEMENT_PASS","verdict":"SAFE"}
 {"event":"ground_entered","ground":"t01p03a","scheduler":"TASK_BRANCH"}
@@ -189,4 +189,6 @@
 {"ground":"t01p04a","load":"LOAD_PASS","spawn":{"x":200,"y":176},"move_dirs":[1,1,1,1],"move_deltas":["0,-16","16,0","0,16","-16,0"],"movement_probe":"MOVEMENT_PASS","verdict":"SAFE"}
 {"event":"ground_entered","ground":"waterfall_cave_1","scheduler":"TASK_BRANCH"}
 {"ground":"waterfall_cave_1","load":"LOAD_PASS","spawn":{"x":288,"y":232},"move_dirs":[0,1,1,0],"move_deltas":["0,0","16,0","0,16","0,0"],"movement_probe":"MOVEMENT_PASS","verdict":"SAFE"}
+{"event":"ground_entered","ground":"s13p05a","scheduler":"TASK_BRANCH"}
+{"ground":"s13p05a","load":"LOAD_PASS","spawn":{"x":152,"y":288},"move_dirs":[1,1,1,1],"move_deltas":["0,-16","16,0","0,16","-16,0"],"movement_probe":"MOVEMENT_PASS","verdict":"SAFE"}
 {"event":"end"}
