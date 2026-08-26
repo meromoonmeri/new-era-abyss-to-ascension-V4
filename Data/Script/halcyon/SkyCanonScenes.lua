@@ -96,4 +96,10 @@ function SkyCanonScenes.m01a0204(out)
   GAME:FadeIn(20)
 end
 
+-- pilote background défilant (contrat CLASSIFICATION_PIPELINE.md)
+function SkyCanonScenes.scroll_s13p05a(out)
+  local sp = require('halcyon.skyscenes.scrollpilot')
+  sp.s13p05a_t02a0204()
+end
+
 return SkyCanonScenes

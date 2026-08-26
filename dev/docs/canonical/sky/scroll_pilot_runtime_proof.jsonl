@@ -1,0 +1,7 @@
+{"event":"sky_scene_begin","scene":"scroll_s13p05a","ground":"s13p05a"}
+{"scroll":"begin","cam":[156,480]}
+{"scroll":"mid","cam":[156,380]}
+{"scroll":"end","cam":[156,380]}
+{"scroll":"drift","cam":[215,380]}
+{"scroll":"verdict","moved_up":true,"drifted_x":true,"source":"SCRIPT/S13P05A/t02a0204.ssb","adaptation":"scrolling NDS -> caméra continue PMDO (durée=distance/vitesse ROM)","verdict":"SCROLL_RUNTIME_PASS"}
+{"event":"end"}
