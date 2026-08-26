@@ -6027,6 +6027,161 @@
       "Released": true,
       "Comment": "PMD Sky EU d25 DUNGEON_CRYSTAL_CROSSING",
       "SortOrder": 0
+    },
+    "beach_cave_pit": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 7,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 1,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Beach Cave Pit",
+        "LocalTexts": {
+          "fr": "Basse Fosse Littorale"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d02 boss arena",
+      "SortOrder": 0
+    },
+    "mt_bristle_peak": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 50,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 1,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Mt. Bristle Peak",
+        "LocalTexts": {
+          "fr": "Pic du Mont Aiguillon"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d05 boss arena",
+      "SortOrder": 0
+    },
+    "steam_cave_peak": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 51,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 1,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Steam Cave Peak",
+        "LocalTexts": {
+          "fr": "Sommet de la Grotte Vapeur"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d16 boss arena",
+      "SortOrder": 0
+    },
+    "amp_clearing": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 32,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 1,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Amp Clearing",
+        "LocalTexts": {
+          "fr": "Clairière Élek"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d19 boss arena",
+      "SortOrder": 0
+    },
+    "underground_lake": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 52,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 1,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Underground Lake",
+        "LocalTexts": {
+          "fr": "Lac Souterrain"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d23 boss arena",
+      "SortOrder": 0
     }
   }
 }

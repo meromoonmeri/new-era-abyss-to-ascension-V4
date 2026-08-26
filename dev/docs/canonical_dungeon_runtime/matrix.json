@@ -38750,5 +38750,175 @@
    "non_traversable": 0,
    "invalid": 0
   }
+ },
+ "beach_cave_pit": {
+  "zone": "beach_cave_pit",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": -1,
+    "halls": -1,
+    "branches": -1,
+    "loops": -1,
+    "dead_ends": -1,
+    "width": 14,
+    "height": 15,
+    "autotiles": "beach_cave_floor,beach_cave_wall",
+    "iterations_seen": 1,
+    "error": null
+   }
+  },
+  "floor_count": 1,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 1,
+   "generated": 1,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
+ },
+ "mt_bristle_peak": {
+  "zone": "mt_bristle_peak",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": -1,
+    "halls": -1,
+    "branches": -1,
+    "loops": -1,
+    "dead_ends": -1,
+    "width": 24,
+    "height": 22,
+    "autotiles": "mt_bristle_floor,mt_bristle_wall",
+    "iterations_seen": 1,
+    "error": null
+   }
+  },
+  "floor_count": 1,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 1,
+   "generated": 1,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
+ },
+ "steam_cave_peak": {
+  "zone": "steam_cave_peak",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": -1,
+    "halls": -1,
+    "branches": -1,
+    "loops": -1,
+    "dead_ends": -1,
+    "width": 22,
+    "height": 21,
+    "autotiles": "steam_cave_floor,steam_cave_wall",
+    "iterations_seen": 1,
+    "error": null
+   }
+  },
+  "floor_count": 1,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 1,
+   "generated": 1,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
+ },
+ "amp_clearing": {
+  "zone": "amp_clearing",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": -1,
+    "halls": -1,
+    "branches": -1,
+    "loops": -1,
+    "dead_ends": -1,
+    "width": 18,
+    "height": 32,
+    "autotiles": "amp_plains_floor,amp_plains_wall",
+    "iterations_seen": 1,
+    "error": null
+   }
+  },
+  "floor_count": 1,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 1,
+   "generated": 1,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
+ },
+ "underground_lake": {
+  "zone": "underground_lake",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": -1,
+    "halls": -1,
+    "branches": -1,
+    "loops": -1,
+    "dead_ends": -1,
+    "width": 20,
+    "height": 20,
+    "autotiles": "quicksand_pit_floor,quicksand_pit_wall",
+    "iterations_seen": 1,
+    "error": null
+   }
+  },
+  "floor_count": 1,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 1,
+   "generated": 1,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
  }
 }
