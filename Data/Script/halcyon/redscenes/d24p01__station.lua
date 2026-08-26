@@ -1,10 +1,9 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground d24p01 (dialogues ROM 0x08561250).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground d24p01 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  -- BGM MUS_IN_THE_DEPTHS_OF_THE_PIT: GAP (pas d'ogg extrait ROM vérifié) — aucune piste substituée
   pcall(function() UI:ResetSpeaker() end)
+  -- 0x44 music_id 114: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="Kekeh! We're here at last!", french="Ec, ec! On est enfin arrivés!", german="Kekeh! Endlich sind wir da!", italian="Kekeh! Eccoci qui finalmente!", spanish="¡Je, je! ¡Por fin llegamos!"})
   SkySceneKit.say({english="This is it? This is the deepest floor of the DMurky Cave?", french="C'est ici? C'est le niveau le plus profond de la DGrotte Ténèbres?", german="Das ist es? Das ist die tiefste Ebene der DDüsterhöhle?", italian="È questo il posto? Siamo sul piano più basso della DGrotta Tenebrosa?", spanish="¿Ya estamos? ¿Esto es lo más profundo de la DVieja Cueva?"})
   SkySceneKit.say({english="Oh, look! There's a dais!", french="Oh, regarde! Il y a un piédestal!", german="He, sieh mal! Da ist ein Podest!", italian="To', guarda! C'è una cavità!", spanish="¡Oh, mira! ¡Aquí hay una especie de plataforma!"})
@@ -22,6 +21,7 @@ return function(hero, partner)
   SkySceneKit.say({english="Welcome to the Murky Cave!", french="Bienvenue dans la Grotte Ténèbres!", german="Willkommen in der Düsterhöhle!", italian="Benvenuti alla Grotta Tenebrosa!", spanish="¡Bienvenidos a la Vieja Cueva!"})
   SkySceneKit.say({english="What? What?! Where is that voice coming from?", french="Quoi? Quoi??? D'où vient cette voix?", german="Wie? Was?!? Wo kommt die Stimme her?", italian="Cosa? Cosa?! Da dove proviene quella voce?", spanish="¿Qué? ¿Cómo? ¿Quién? ¿De dónde ha salido esa voz?"})
   SkySceneKit.say({english="Who are you?", french="Qui es-tu?", german="Wer bist du?", italian="Chi sei?", spanish="¿Quién eres?"})
+  pcall(function() SOUND:PlayBGM("Legend of Ninetales", true) end) -- 0x44 music_id 6 (ROM)
   SkySceneKit.say({english="I am the judge of darkness.", french="Je suis le juge des ténèbres.", german="Ich bin der Richter der Schatten.", italian="Sono la voce dell'oscurità.", spanish="Soy el juez de las tinieblas."})
   SkySceneKit.say({english="You have nothing to fear from me. I mean you no harm.", french="Tu n'as rien à craindre de moi. Je ne te veux aucun mal.", german="Fürchtet euch nicht. Niemandem wird ein Leid getan.", italian="Niente paura. Non voglio far male a nessuno.", spanish="No debéis temerme. No voy a haceros daño."})
   SkySceneKit.say({english="Just now, a key was inserted to break a curse.", french="A l'instant, une clé a été insérée pour briser une malédiction.", german="Soeben wurde der Schlüssel eingesetzt, den Fluch zu brechen.", italian="È stato appena inserito uno strumento per spezzare una maledizione.", spanish="Hace un momento se ha usado un blasón para romper una maldición."})

@@ -1,6 +1,5 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground d22p01 (dialogues ROM 0x08559800).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground d22p01 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)

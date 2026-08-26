@@ -1,10 +1,9 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground d06p03 (dialogues ROM 0x084F1CDC).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground d06p03 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  -- BGM MUS_IN_THE_DEPTHS_OF_THE_PIT: GAP (pas d'ogg extrait ROM vérifié) — aucune piste substituée
   pcall(function() UI:ResetSpeaker() end)
+  -- 0x44 music_id 114: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="Gyaoooh!", french="Gyaoooh!", german="Gyaoooh!", italian="Gyaoooh!", spanish="¡Gyaoooh!"})
   SkySceneKit.say({english="Wh-what is going on...", french="Que... que se passe-t-il?", german="Wa-was geschieht hier...", italian="Cosa sta succedendo?", spanish="¿Qué...? ¿Qué ocurre?"})
   SkySceneKit.say({english="Urrggh! Uwoah!", french="Arrggh! Ouh, ha!", german="Arrggh! Uff!", italian="Urrggh! Uwoah!", spanish="¡Urg! ¡Ah!"})

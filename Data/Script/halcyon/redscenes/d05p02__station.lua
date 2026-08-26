@@ -1,10 +1,9 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground d05p02 (dialogues ROM 0x084E827C).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground d05p02 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  -- BGM MUS_IN_THE_DEPTHS_OF_THE_PIT: GAP (pas d'ogg extrait ROM vérifié) — aucune piste substituée
   pcall(function() UI:ResetSpeaker() end)
+  -- 0x44 music_id 114: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="'s friend is supposed to be around here, right?", french="L'ami de est censé se trouver dans le coin, pas vrai?", german="s Freund sollte sich hier irgendwo befinden, nicht wahr?", italian="L'amico di dovrebbe trovarsi da queste parti, giusto?", spanish="El amigo de debe de estar por aquí, ¿no?"})
   SkySceneKit.say({english="Isn't this the place? Where 's friend is supposed to be?", french="C'est ici, n'est-ce pas? Je crois que c'est ici que l'ami de est censé se trouver.", german="Sind wir nicht schon da? Hier soll sich doch s Freund befinden!", italian="Non è questo il luogo dove l'amico di dovrebbe trovarsi?", spanish="¿No es este el sitio donde se supone que está el amigo de ?"})
   SkySceneKit.say({english="Oh, hey!", french="Oh, hé!", german="Oh, hey!", italian="Ehi, tu!", spanish="¡Eh, tú!"})
@@ -21,13 +20,17 @@ return function(hero, partner)
   SkySceneKit.say({english="Get... Get away?!", french="Que... quoi??? Partir?", german="Von... Von hier verschwinden?!?", italian="Fuori... Fuori di qui?!", spanish="¿Cómo?... ¡¿Que salgamos de aquí?!"})
   SkySceneKit.say({english="Wh-what happened?! It's pitch-black! I can't see!", french="Que... que se passe-t-il??? Il fait tout noir! Je ne vois rien!", german="Was ist denn jetzt passiert?!? Es ist stockdunkel! Ich kann gar nichts sehen!", italian="Cosa succede?! È tutto buio! Non vedo!", spanish="¡¿Qué ha pasado?! ¡No veo nada de nada!"})
   SkySceneKit.say({english="Wh-what's going on?! Why did it turn pitch-black?", french="Que... que se passe-t-il??? Pourquoi fait-il tout noir?", german="W-was ist denn jetzt los? Warum ist es plötzlich dunkel geworden?", italian="Cosa succede?! Perché è buio pesto?", spanish="¡¿Qué pasa?! ¿Quién ha apagado la luz?"})
+  SkySceneKit.say({english="Gyaoooooh!", french="Gyaoooooh!", german="Gyaoooooh!", italian="Gyaoooooh!", spanish="¡Gyaoooooh!"})
   SkySceneKit.say({english="It's coming!", french="Il arrive!", german="Da kommt was!", italian="Sta arrivando!", spanish="¡Aquí viene otra vez!..."})
   SkySceneKit.say({english="Move aside, you!", french="Ecarte-toi de mon chemin!", german="Zur Seite, ihr!", italian="Fatevi da parte!", spanish="¡Apartaos!"})
   SkySceneKit.say({english="He dared to disturb my sleep!", french="Celui-là a osé perturber mon sommeil!", german="Er wagte es, meinen Schlaf zu stören!", italian="Costui ha osato disturbare il mio sonno!", spanish="¡Él ha osado perturbar mi sueño!"})
   SkySceneKit.say({english="I have no mercy for meddlers! And that includes you!", french="Je n'ai aucune pitié pour les gêneurs! Et ça vaut aussi pour vous!", german="Bei Eindringlingen kenne ich keine Gnade! Und das schließt euch mit ein!", italian="Non ho pietà per i ficcanaso! E non faccio sconti a nessuno!", spanish="¡No tengo piedad con los entrometidos! ¡Y eso os incluye a vosotros!"})
+  SkySceneKit.say({english="Gyaooooh!", french="Gyaooooh!", german="Gyaooooh!", italian="Gyaooooh!", spanish="¡Gyaooooh!"})
   SkySceneKit.say({english="Shi-'s gone!", french="Ten... a disparu!", german="Teng- ist verschwunden!", italian="Shi- è sparito!", spanish="¡Shi-! ¡Ya no está aquí!"})
+  -- 0x44 music_id 9: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="I am ! The embodiment of lightning!", french="Je suis ! L'incarnation de la foudre!", german="Ich bin ! Die Verkörperung von Blitz und Donner!", italian="Sono ! Traggo la mia forza dai fulmini!", spanish="¡Soy ! ¡La encarnación del rayo!"})
   SkySceneKit.say({english="If you wish to save , then scale DMt. Thunder!", french="Si vous voulez sauver , alors vous devrez escalader le DMt Foudre!", german="Wenn ihr retten wollt, dann erklimmt den DDonnerberg!", italian="Per salvare , dovete scalare il DMonte Tuono!", spanish="¡Si queréis salvar a , escalad el DMonte Trueno!"})
   SkySceneKit.say({english="...", french="...", german="...", italian="...", spanish="..."})
   SkySceneKit.say({english="So that's the legendary monster...", french="C'était donc lui, le monstre légendaire...", german="Das ist also das legendäre Monster...", italian="Quindi questo è il mostro leggendario...", spanish="Así que ese era el monstruo legendario..."})
+  SkySceneKit.say({english="Gyaoooooooh!", french="Gyaoooooooh!", german="Gyaoooooooh!", italian="Gyaoooooooh!", spanish="¡Gyaoooooooh!"})
 end

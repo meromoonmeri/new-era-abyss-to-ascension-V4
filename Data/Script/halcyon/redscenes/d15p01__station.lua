@@ -1,10 +1,9 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground d15p01 (dialogues ROM 0x0854D598).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground d15p01 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  -- BGM MUS_THERES_TROUBLE: GAP (pas d'ogg extrait ROM vérifié) — aucune piste substituée
   pcall(function() UI:ResetSpeaker() end)
+  -- 0x44 music_id 10: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="Gwooooooooooh! ...H-how dare you!", french="Gwooooooooooh! C... comment oses-tu!", german="Gwooooooooooh! ...W-wie kannst du es wagen!", italian="Gwooooooooooh! ... Come osi?!", spanish="¡Arrrg! ¡¿Cómo te atreves?!"})
   SkySceneKit.say({english="How... How did this happen...?", french="Comment... comment est-ce possible?", german="Wie... Wie konnte das geschehen...?", italian="Com... Com'è potuto succedere?", spanish="¿Cómo...? ¿Cómo ha ocurrido esto...?"})
   SkySceneKit.say({english="But regardless, you have won. Let me hear your wish.", french="Mais j'admets ma défaite. Fais-moi connaître ton souhait.", german="Nun denn... Du hast gewonnen. Was wünschst du?", italian="Ad ogni modo hai vinto tu. Sentiamo il tuo sogno.", spanish="Sin embargo, me has vencido. ¿Qué quieres? ¿Qué te ha traído aquí?"})

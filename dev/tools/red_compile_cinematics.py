@@ -90,8 +90,124 @@ def lua_str(s):
     return '"' + (s or '').replace('\\', '\\\\').replace('"', '\\"') + '"'
 
 
+# music_id ROM (op 0x44 arg1) -> ogg : PROUVÉ par les extractions ROM
+# (pmdred_eu_music_extraction*.json, status PASS, mid inclus)
+MUS_ID_MAP = {}
+for _f in ('pmdred_eu_music_extraction.json',
+           'pmdred_eu_music_extraction_wave2.json'):
+    _p = os.path.join(AUDIO_DIR, _f)
+    if os.path.exists(_p):
+        for _r in json.load(open(_p))['results']:
+            if _r.get('status') == 'PASS' and _r.get('output_ogg_name'):
+                _ogg = _r['output_ogg_name'][:-4]
+                if os.path.exists(os.path.join(MUSIC_DIR, _ogg + '.ogg')):
+                    MUS_ID_MAP[_r['music_id']] = _ogg
+
+
+def compile_station_v2(gid, station, out_path):
+    """Compile la SÉQUENCE ORDONNÉE des commands des scripts EU décodés
+    (rapport all_stations) : dialogues (text_block 5 langues) + musique
+    (0x44 music_id prouvé) + waits (0xE7 arg_short frames) dans l'ORDRE
+    ROM exact (adresses croissantes par script). Ops sans équivalent =
+    commentées avec opcode (fail-closed, comptées)."""
+    lines = ['-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 '
+             'séquence ROM) — NE PAS ÉDITER À LA MAIN.',
+             f'-- Station canonique PMD Red EU : ground {gid} — ordre = '
+             f'commands des scripts EU décodés (adresses ROM).',
+             "local SkySceneKit = require 'halcyon.skyscenes.kit'",
+             'return function(hero, partner)',
+             '  pcall(function() UI:ResetSpeaker() end)']
+    n_msgs = 0
+    partial = []
+    # text_block des commands = ADRESSE ; blocs réels dans
+    # station['text_blocks'] (address -> languages 5 langues)
+    blocks = {b['address']: b for b in station.get('text_blocks') or []}
+    for s in station.get('scripts') or []:
+        for cmd in s.get('commands', []):
+            op = cmd['op_hex']
+            tb = cmd.get('text_block')
+            if isinstance(tb, str):
+                tb = blocks.get(tb)
+            if tb and isinstance(tb, dict):
+                langs = tb.get('languages') or {}
+                texts = {k: clean_text(v.get('text'))
+                         for k, v in langs.items() if v.get('text')}
+                if texts:
+                    t = ('{english=' + lua_str(texts.get('en', ''))
+                         + ', french=' + lua_str(texts.get('fr', ''))
+                         + ', german=' + lua_str(texts.get('de', ''))
+                         + ', italian=' + lua_str(texts.get('it', ''))
+                         + ', spanish=' + lua_str(texts.get('es', ''))
+                         + '}')
+                    lines.append(f'  SkySceneKit.say({t})')
+                    n_msgs += 1
+                continue
+            cats = cmd.get('categories') or []
+            if 'music_or_fanfare' in cats and op == '0x44':
+                mid = cmd['arg1']
+                ogg = MUS_ID_MAP.get(mid)
+                if ogg:
+                    lines.append(f'  pcall(function() SOUND:PlayBGM('
+                                 f'{lua_str(ogg)}, true) end) '
+                                 f'-- 0x44 music_id {mid} (ROM)')
+                else:
+                    lines.append(f'  -- 0x44 music_id {mid}: GAP (pas '
+                                 f'd\'ogg extrait ROM vérifié)')
+                    partial.append(f'0x44:mid{mid}')
+                continue
+            if op == '0xE7':
+                # wait n frames (arg_short) — observé jusque 60
+                n = max(1, cmd.get('arg_short') or 1)
+                lines.append(f'  GAME:WaitFrames({min(n, 300)}) -- 0xE7')
+                continue
+            if cats:
+                partial.append(f'{op}:{"/".join(cats)}')
+    lines.append('end')
+    if n_msgs == 0:
+        return None, partial
+    open(out_path, 'w', encoding='utf-8').write('\n'.join(lines) + '\n')
+    return n_msgs, partial
+
+
 def main():
     os.makedirs(OUT_DIR, exist_ok=True)
+    # V2: séquence ROM ordonnée depuis le rapport all_stations (130 PASS)
+    all_p = os.path.join(ROOT, 'converter', 'rom_cache',
+                         'eu_ground_scripts_all_stations.json')
+    if os.path.exists(all_p):
+        rep_all = json.load(open(all_p))
+        cands = {c['asset']: c for c in rep_all['candidates']}
+        report = {'schema': 'red_scene_compiler.v2',
+                  'rule': ('ordre = commands des scripts EU décodés '
+                           '(adresses ROM); texte=text_block 5 langues; '
+                           'musique=0x44 music_id prouvé extractions ROM; '
+                           'waits=0xE7; autres ops par catégorie = '
+                           'PARTIAL comptées'),
+                  'totals': {}, 'scenes': {}}
+        n_comp = n_mute = 0
+        for gid, st in sorted(cands.items()):
+            outp = os.path.join(OUT_DIR, f'{gid}__station.lua')
+            n_msgs, partial = compile_station_v2(gid, st, outp)
+            if n_msgs:
+                n_comp += 1
+                report['scenes'][gid] = {
+                    'status': 'COMPILED', 'messages': n_msgs,
+                    'partial_ops': sorted(set(partial)) or None}
+            else:
+                n_mute += 1
+                report['scenes'][gid] = {
+                    'status': 'NOT_COMPILED_NO_DIALOGUE',
+                    'evidence': '0 text_block dans les commands ROM'}
+        report['totals'] = {'COMPILED': n_comp,
+                            'NOT_COMPILED_NO_DIALOGUE': n_mute,
+                            'stations': len(cands)}
+        os.makedirs(os.path.dirname(REPORT), exist_ok=True)
+        json.dump(report, open(REPORT, 'w', encoding='utf-8'),
+                  ensure_ascii=False, indent=1)
+        print(f"V2: COMPILED={n_comp} MUETTES={n_mute} "
+              f"(sur {len(cands)} stations) ; musiques mid: "
+              f"{len(MUS_ID_MAP)}")
+        return
     grounds = sorted(f[:-8] for f in os.listdir(os.path.join(
         CIN, 'dialogues')) if f.endswith('.json.gz'))
     report = {'schema': 'red_scene_compiler.v1',

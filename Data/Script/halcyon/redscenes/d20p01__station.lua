@@ -1,10 +1,11 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground d20p01 (dialogues ROM 0x08558020).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground d20p01 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  -- BGM MUS_THERES_TROUBLE: GAP (pas d'ogg extrait ROM vérifié) — aucune piste substituée
   pcall(function() UI:ResetSpeaker() end)
+  SkySceneKit.say({english="One day...", french="Un jour...", german="Eines Tages...", italian="Un giorno...", spanish="Un buen día..."})
+  SkySceneKit.say({english="In a small cave in the distant west...", french="... dans une petite grotte loin à l'ouest...", german="In einer kleinen Höhle weit im Westen...", italian="in una piccola grotta nel lontano ovest...", spanish="en una pequeña cueva situada muy lejos, hacia el oeste..."})
+  -- 0x44 music_id 10: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="Hey! Get a move on!", french="Hé! Avance donc!", german="Hey! Beweg dich!", italian="Ehi! Accelera il passo!", spanish="¡Eh! ¡Muévete!"})
   SkySceneKit.say({english="Gasp, gasp... This is rough going...", french="Pfff, ouf... J'en peux plus...", german="Keuch, keuch... Ist das anstrengend...", italian="Gasp, gasp... Sono spompato...", spanish="Uf, uf... No puedo seguir..."})
   SkySceneKit.say({english="Heh! What's with you? You're gonna whine about it now?", french="Hé! Que t'arrive-t-il? Tu vas pas te plaindre, maintenant?", german="He! Was ist mit dir los? Brichst du mir jetzt schon zusammen?", italian="Ehi! Cosa ti succede? Non ti lamenterai mica?", spanish="¡Pero bueno! ¿Qué pasa? ¿Te vas a poner a llorar ahora?"})
@@ -27,6 +28,7 @@ return function(hero, partner)
   SkySceneKit.say({english="...Just now. Did you hear something?", french="A l'instant... Tu n'as pas entendu?", german="...Hast du... Hast du nicht eben etwas gehört?", italian="... Ora... Hai sentito qualcosa?", spanish="Hace un momento... ¿No has oído un ruido?"})
   SkySceneKit.say({english="I thought I heard a voice...", french="J'ai cru entendre une voix...", german="Ich dachte, ich hätte eine Stimme gehört...", italian="Mi sembra di aver sentito una voce...", spanish="Creo que oí una voz..."})
   SkySceneKit.say({english="...No? I don't hear anything.", french="Non... Je n'ai rien entendu.", german="...Nein? Ich höre nichts.", italian="... No... Non ho sentito nulla.", spanish="No... Yo no oigo nada."})
+  -- 0x44 music_id 35: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="............ Is it you...?", french="... ... ... ... Est-ce vous?", german="............ Bist du es...?", italian="... ... ... ... Sei tu...?", spanish="... ¿Quién ha osado...?"})
   SkySceneKit.say({english="......Who...disturbs...my sleep... Is it you?!", french="Qui... perturbez... mon sommeil... Est-ce vous?", german="......Wer... stört... meinen Schlaf... Seid ihr es?!?", italian="... ... Chi... disturba... il mio sonno... Sei tu?!", spanish="¿Quién ha interrumpido... mi sueño? ¡¿Habéis sido... vosotros?!"})
   SkySceneKit.say({english="Wh-who's there?!", french="Qu... qui est là???", german="W-wer ist da?!?", italian="Chi-Chi va là?!", spanish="¡¿Quién está ahí?!"})
@@ -34,9 +36,8 @@ return function(hero, partner)
   SkySceneKit.say({english="Me...?", french="Moi???", german="Ich...?", italian="Io...?", spanish="¿Yo...?"})
   SkySceneKit.say({english="I was... Engineered...", french="J'ai été... créé...", german="Ich wurde... künstlich erschaffen...", italian="Sono... il risultato di esperimenti di genetica...", spanish="Fui... diseñado..."})
   SkySceneKit.say({english="Created only to fight...", french="... dans le seul but de me battre!", german="Erschaffen, um zu kämpfen...", italian="Creato solo per combattere...", spanish="Creado solo para la lucha..."})
+  -- 0x44 music_id 11: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="The most powerful of all Pokémon!", french="Je suis le plus puissant de tous les Pokémon!", german="Das mächtigste aller Pokémon!", italian="Il più potente di tutti i Pokémon!", spanish="¡El más poderoso de todos los Pokémon!"})
   SkySceneKit.say({english="Gwaaaaaaaaaaaah!", french="Ouaaaaaaaaaaaah!", german="Gwaaaaaaaaaaaah!", italian="Gwaaaaaaaaaaaah!", spanish="¡Kiaaaaaaaaaaaa!"})
   SkySceneKit.say({english="Gyaaaaaaaah!", french="Yaaaaaaaah!", german="Gyaaaaaaaah!", italian="Gyaaaaaaaah!", spanish="¡Aaaaaaaaah!"})
-  SkySceneKit.say({english="One day...", french="Un jour...", german="Eines Tages...", italian="Un giorno...", spanish="Un buen día..."})
-  SkySceneKit.say({english="In a small cave in the distant west...", french="... dans une petite grotte loin à l'ouest...", german="In einer kleinen Höhle weit im Westen...", italian="in una piccola grotta nel lontano ovest...", spanish="en una pequeña cueva situada muy lejos, hacia el oeste..."})
 end

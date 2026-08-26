@@ -1,6 +1,5 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground a03p03 (dialogues ROM 0x084B1044).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground a03p03 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
@@ -56,6 +55,7 @@ return function(hero, partner)
   SkySceneKit.say({english="I'll go wherever you go.", french="Je te suivrai n'importe où.", german="Ich gehe, wohin du gehst.", italian="Andrò ovunque tu vada.", spanish="Te seguiré al fin del mundo."})
   SkySceneKit.say({english="I'll go with you, always.", french="Je te suivrai toujours.", german="Ich werde immer bei dir bleiben.", italian="Starò sempre con te!", spanish="Iré siempre contigo."})
   SkySceneKit.say({english="I'll keep going wherever you go.", french="J'irai où tu iras.", german="Ich folge dir, wo immer du auch hingehst.", italian="Ti accompagnerò passo per passo.", spanish="¡Te seguiré hasta el fin del mundo! (Si es que no hemos llegado, claro...)"})
+  GAME:WaitFrames(5) -- 0xE7
   SkySceneKit.say({english="......... Sorry. I shouldn't have said that. It doesn't help scaring you like that.", french="... ... ... Pardon. Je n'aurais pas dû dire ça. Je ne voulais pas t'effrayer.", german="......... Tut mir Leid. Ich hätte das nicht fragen sollen. Ich hätte dir keine Angst machen sollen.", italian="... Scusa. Non avrei dovuto parlare così. Non ha senso spaventarti in quel modo.", spanish="Perdón. No tendría que haber dicho eso, solo sirve para asustarte."})
   SkySceneKit.say({english="We came out here. There's no point wondering about it.", french="On s'en est sortis. Pas la peine de se poser trop de questions.", german="Wir sind hier. Und das ist alles, was zählt.", italian="Abbiamo fatto tanta strada e non c'è motivo di farsi tante domande.", spanish="Ya estamos aquí, es tarde para arrepentirse."})
   SkySceneKit.say({english="Even if we don't know what's ahead... We just have to keep going.", french="Même si on ne sait pas ce qui nous attend plus loin... Il faut juste que l'on continue.", german="Auch wenn wir nicht wissen, was vor uns liegt... Wir müssen weitergehen.", italian="Anche se non sappiamo che cosa ci aspetta... Dobbiamo continuare ad avanzare.", spanish="Aunque no sepamos lo que nos espera más adelante... tendremos que averiguarlo."})

@@ -1,10 +1,9 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground d04p02 (dialogues ROM 0x084DFD1C).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground d04p02 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  -- BGM MUS_IN_THE_DEPTHS_OF_THE_PIT: GAP (pas d'ogg extrait ROM vérifié) — aucune piste substituée
   pcall(function() UI:ResetSpeaker() end)
+  -- 0x44 music_id 114: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="Owowowow... You'll pay for this! Don't you forget it!", french="Ouille, ouille, ouille... Vous me paierez ça! N'oubliez pas!", german="Auauauauau... Das werdet ihr bereuen! Darauf könnt ihr euch verlassen!", italian="Ohhhhh... La pagherete! Promesso!", spanish="Vaya, vaya, vaya... ¡Pagaréis por esto! ¡Que no se os olvide!"})
   SkySceneKit.say({english="Well, those pests are gone. Let's find .", french="Eh bien, ces fléaux sont partis. Allons trouver .", german="Die Nervensägen sind weg. Jetzt müssen wir nur noch finden.", italian="Quelle pesti se ne sono andate. Troviamo .", spanish="Bueno, nos deshicimos de esos matones. Busquemos a ."})
   SkySceneKit.say({english="No one should hold us back now. Let's find .", french="Plus personne ne devrait nous gêner maintenant. Allons retrouver .", german="Niemand wird uns jetzt noch aufhalten. Suchen wir .", italian="Ora nessuno può fermarci. Troviamo .", spanish="Ya nada nos retiene. Busquemos a ."})

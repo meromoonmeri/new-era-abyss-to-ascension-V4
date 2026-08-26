@@ -1,10 +1,19 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground h29p01 (dialogues ROM 0x0848293C).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground h29p01 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  -- BGM MUS_FRIEND_AREA_LEGENDARY_ISLAND: GAP (pas d'ogg extrait ROM vérifié) — aucune piste substituée
   pcall(function() UI:ResetSpeaker() end)
+  GAME:WaitFrames(2) -- 0xE7
+  GAME:WaitFrames(4) -- 0xE7
+  GAME:WaitFrames(4) -- 0xE7
+  GAME:WaitFrames(4) -- 0xE7
+  GAME:WaitFrames(5) -- 0xE7
+  GAME:WaitFrames(8) -- 0xE7
+  GAME:WaitFrames(9) -- 0xE7
+  GAME:WaitFrames(9) -- 0xE7
+  GAME:WaitFrames(9) -- 0xE7
+  -- 0x44 music_id 117: GAP (pas d'ogg extrait ROM vérifié)
+  -- 0x44 music_id 117: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="Fire, ice, and electricity...", french="Feu, glace et électricité...", german="Feuer, Eis und Elektrizität...", italian="Fuoco, ghiaccio ed elettricità...", spanish="Fuego, hielo y electricidad..."})
   SkySceneKit.say({english="When the three powers merge as one...", french="Quand ces trois pouvoirs ne font plus qu'un...", german="Wenn die drei Kräfte miteinander verschmelzen...", italian="Quando i tre poteri si fonderanno in uno solo...", spanish="Cuando los tres poderes se fundan en uno..."})
   SkySceneKit.say({english="The guardian of the sea is said to arise.", french="... on dit que le gardien des mers se réveille.", german="Erhebt sich der Wächter des Meeres.", italian="Si dice che il custode del mare si risveglierà.", spanish="Se dice que el guardián del mar despertará."})

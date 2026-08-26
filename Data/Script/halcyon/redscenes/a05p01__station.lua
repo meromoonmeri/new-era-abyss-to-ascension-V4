@@ -1,10 +1,9 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground a05p01 (dialogues ROM 0x084C976C).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground a05p01 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  -- BGM MUS_CREDITS: GAP (pas d'ogg extrait ROM vérifié) — aucune piste substituée
   pcall(function() UI:ResetSpeaker() end)
+  -- 0x44 music_id 44: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="(..................)", french="(... ... ... ... ... ...)", german="(..................)", italian="(... ... ... ... ... ...)", spanish="(...)"})
   SkySceneKit.say({english="(What is this...?)", french="(Que se passe-t-il?)", german="(Was ist das...?)", italian="(Ma cosa...?)", spanish="(¿Qué es esto?...)"})
   SkySceneKit.say({english="(I'm rising into the sky...)", french="(Je m'élève dans le ciel...)", german="(Ich schwebe Richtung Himmel...)", italian="(Mi sto sollevando verso il cielo...)", spanish="(Estoy elevándome hacia el cielo...)"})
@@ -14,8 +13,10 @@ return function(hero, partner)
   SkySceneKit.say({english="(I wonder where I'm going?)", french="(Je me demande où je me dirige...)", german="(Wo ich wohl hinkomme?)", italian="(Dove starò andando?)", spanish="(¿Adónde me estoy yendo?...)"})
   SkySceneKit.say({english="(......!)", french="(... ...)", german="(......!)", italian="(... ...!)", spanish="(...)"})
   SkySceneKit.say({english="(Voices... I hear voices...)", french="(Des voix... J'entends des voix...)", german="(Stimmen... Ich höre Stimmen...)", italian="(Delle voci... sento delle voci...)", spanish="(¿Y esas voces?... Estoy oyendo voces...)"})
+  -- 0x44 music_id 45: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="I don't want to leave...", french="Je ne veux pas partir...", german="Ich will nicht weg von hier...", italian="Non voglio andarmene...", spanish="No quiero irme..."})
   SkySceneKit.say({english="I want to stay longer...", french="Je veux rester...", german="Ich möchte noch bleiben...", italian="Voglio restare ancora...", spanish="Quiero quedarme un poco más..."})
+  GAME:WaitFrames(3) -- 0xE7
   SkySceneKit.say({english="I don't want to leave...", french="Je ne veux pas partir...", german="Ich will nicht weg von hier...", italian="Non voglio andarmene...", spanish="No quiero irme..."})
   SkySceneKit.say({english="I want to stay longer...", french="Je veux rester...", german="Ich möchte noch bleiben...", italian="Voglio restare ancora...", spanish="Quiero quedarme un poco más aquí..."})
   SkySceneKit.say({english="With my invaluable...", french="... avec mon inestimable...", german="Bei meinem wundervollen...", italian="Un profondissimo legame...", spanish="Con el Pokémon..."})

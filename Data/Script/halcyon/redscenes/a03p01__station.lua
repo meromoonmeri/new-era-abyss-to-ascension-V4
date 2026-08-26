@@ -1,9 +1,7 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground a03p01 (dialogues ROM 0x084A810C).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground a03p01 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  pcall(function() SOUND:PlayBGM("Escape Through the Snow", true) end)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="...Brr... It's cold!", french="Brrr... Il fait froid!", german="...Brrr... Ist das kalt!", italian="... Brr... che freddo!", spanish="¡Qué frío hace!"})
   SkySceneKit.say({english="Hachoo!", french="Atchoum!", german="Hatschiiii!", italian="Eeeeecciù!", spanish="¡Achís!"})
@@ -31,6 +29,7 @@ return function(hero, partner)
   SkySceneKit.say({english="Well, thinking about it isn't going to help. Let's keep moving.", french="Bon, en discuter ne nous avancera pas. Allez, continuons.", german="Nun, sich darüber Gedanken zu machen, bringt uns nicht weiter. Lass uns weitergehen.", italian="Beh, soffermarci a pensare non ci è d'aiuto. Proseguiamo.", spanish="Bueno, ponernos a discurrir ahora tampoco nos va a ayudar. En marcha."})
   SkySceneKit.say({english="I guess thinking about it won't help us. We should keep moving.", french="J'imagine qu'en parler ne nous avancera pas. On devrait continuer.", german="Darüber jetzt weiter nachzudenken, hilft uns nicht. Wir sollten einfach weitergehen.", italian="Credo che non serva a nulla continuare a pensarci. Dobbiamo proseguire.", spanish="Aquí parados no vamos a solucionar nada. Mejor nos movemos."})
   SkySceneKit.say({english="I guess thinking about it won't help us. We should keep moving.", french="En parler ne fera pas avancer les choses. Nous devrions continuer.", german="Ich finde, es hilft uns nicht, jetzt darüber nachzudenken. Gehen wir am besten einfach weiter.", italian="Credo che non serva a nulla continuare a pensarci. Dobbiamo proseguire.", spanish="Aquí sin movernos no vamos a solucionar nada. Mejor nos vamos."})
+  pcall(function() SOUND:PlayBGM("Escape Through the Snow", true) end) -- 0x44 music_id 36 (ROM)
   SkySceneKit.say({english="Wow!", french="Waouh!", german="Wow!", italian="Wow!", spanish="¡Oh!"})
   SkySceneKit.say({english="Oh!", french="Oh!", german="Oh!", italian="Oh!", spanish="¡Oh!"})
   SkySceneKit.say({english="[hero]! Check that out!", french="[hero]! Regarde ça!", german="[hero]! Sieh dir das mal an!", italian="[hero]! Guarda!", spanish="¡[hero]! ¡Mira eso!"})

@@ -1,13 +1,13 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground d07p02 (dialogues ROM 0x084FEE34).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground d07p02 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  -- BGM MUS_IN_THE_DEPTHS_OF_THE_PIT: GAP (pas d'ogg extrait ROM vérifié) — aucune piste substituée
   pcall(function() UI:ResetSpeaker() end)
+  -- 0x44 music_id 114: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="............ What is it? Have you reason to see me?", french="... ... ... ... Qu'est-ce? Quel est l'objet de ta visite?", german="............ Was gibt es? Welchen Grund hast du, mich aufzusuchen?", italian="... ... ... ... Qual buon vento? A cosa devo questa visita?", spanish="... ¿Qué te trae aquí? ¿Por qué vienes a verme?"})
   SkySceneKit.say({english="Hm! This... This is a IClear Wing...", french="Hum! C'est... C'est une IPlume Diaphane...", german="Hm! Das... Das ist eine IKlarfeder...", italian="Hm! Questa... Questa è una IPiuma Bianca...", spanish="¡Mmm! Esto... Esto es una IPluma Blanca..."})
   SkySceneKit.say({english="... I see. About the mirage Pokémon... That is what you wish to know?", french="... Je vois. Des informations sur le Pokémon mirage... C'est ce que tu veux obtenir?", german="... Ich verstehe. Das Illusion-Pokémon... Darüber soll ich erzählen?", italian="... Capisco. Per quanto concerne il Pokémon... Cosa desideri sapere?", spanish="... Ya veo. Ese Pokémon espejismo... ¿Qué quieres saber de él?"})
+  SkySceneKit.say({english="6Kwaaaaah!", french="6Ouaaaaaaaaaaaaaaaaaaaah!", german="6Kwaaaaah!", italian="6Kwaaaaah!", spanish="6¡Kwaaaah!"})
   SkySceneKit.say({english="....... The mirage Pokémon...", french="... ... Le Pokémon mirage...", german="....... Das Illusion-Pokémon...", italian="... ... Il Pokémon miraggio...", spanish="... El Pokémon espejismo..."})
   SkySceneKit.say({english="I know... Little about it...", french="J'en sais... peu sur lui...", german="Ich weiß... Ich weiß nur wenig darüber...", italian="Non sono... Non sono molto informato sul suo conto...", spanish="No sé... No sé gran cosa sobre él..."})
   SkySceneKit.say({english="............", french="... ... ... ...", german="............", italian="... ... ... ...", spanish="..."})
@@ -26,6 +26,7 @@ return function(hero, partner)
   SkySceneKit.say({english="Go. You must go to the DFiery Field.", french="Allez. Tu dois partir pour les DTerres de Feu.", german="Der Weg... Führt zum DFeuerfeld.", italian="Vai. Devi recarti al DCampo Infuocato.", spanish="Id. Debéis ir al DCampo de Fuego."})
   SkySceneKit.say({english="The answers you seek... Perhaps they await you there.", french="Les réponses que tu cherches... Peut-être t'attendent-elles là-bas.", german="Die Antworten, die gesucht werden... Vielleicht warten sie dort auf den Suchenden.", italian="Lì forse potrai trovare le risposte che stai cercando...", spanish="Quizá te estén esperando allí las respuestas que buscas..."})
   SkySceneKit.say({english="Gained access to the DFiery Field!", french="Les DTerres de Feu sont maintenant accessibles!", german="Das DFeuerfeld steht jetzt offen!", italian="Il DCampo Infuocato è ora accessibile!", spanish="¡Tienes acceso al DCampo de Fuego!"})
+  -- 0x44 music_id 114: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="Yes! We finally made it to the top, [hero]!", french="Oui! On a enfin atteint le sommet, [hero]!", german="Jawohl! Wir haben es bis ganz nach oben geschafft, [hero]!", italian="Sì! Finalmente abbiamo raggiunto la cima, [hero]!", spanish="¡Sí! ¡Por fin llegamos a la cima, [hero]!"})
   SkySceneKit.say({english="Yes! We've finally made it to the top, [hero]!", french="Bien! Nous sommes enfin au sommet, [hero]!", german="Ja! Wir haben es bis zum Gipfel geschafft, [hero]!", italian="Sì! Finalmente siamo sulla cima, [hero]!", spanish="¡Sí! ¡Por fin hemos llegado a la cima, [hero]!"})
   SkySceneKit.say({english="Yes! We've finally made it to the top, [hero]!", french="Oui! Nous sommes enfin au sommet, [hero]!", german="Ja! Wir haben endlich den Gipfel erreicht, [hero]!", italian="Sì! Finalmente siamo sulla cima, [hero]!", spanish="¡Sí! ¡Por fin hemos llegado, [hero]!"})
@@ -66,7 +67,9 @@ return function(hero, partner)
   SkySceneKit.say({english="Maybe... Is he just dense?", french="Peut-être... est-il juste lent?", german="Vielleicht... hat er nur eine lange Leitung?", italian="Forse... Forse era solo un po' imbambolato?", spanish="Puede que... Puede que sea de efecto retardado..."})
   SkySceneKit.say({english="He's finally laughing now...", french="Il s'est finalement mis à rigoler...", german="Endlich lacht er...", italian="Finalmente gli ho strappato un sorriso...", spanish="Ahora ha empezado a reírse..."})
   SkySceneKit.say({english="Is he... just dense?", french="Il est peut-être... juste un peu lent?", german="Vielleicht ist er... nicht gerade der Hellste?", italian="Forse... Forse era solo un po' trasognato?", spanish="No será... que es de efecto retardado..."})
+  SkySceneKit.say({english="Kwaaaaaaaaah!", french="Ouaaaaaaaaaaaaaaaaaaaah!", german="Kwaaaaaaaaah!", italian="Kwaaaaaaaaah!", spanish="¡Kwaaaaaaaah!"})
   SkySceneKit.say({english="Yikes!", french="Argh!", german="Aaah!", italian="Uuuhhh!", spanish="¡Ay!"})
+  GAME:WaitFrames(4) -- 0xE7
   SkySceneKit.say({english="Hah? We're gonna attack?", french="Hein? L'attaquer?", german="Was? Wir greifen ihn an?", italian="Ah? Attacchiamo?", spanish="¿Que qué? ¿Que ataquemos?"})
   SkySceneKit.say({english="Huh? We're going to attack?!", french="Hein? L'attaquer???", german="Was? Wir wollen ihn angreifen?!?", italian="Eh? Attacchiamo?!", spanish="¿En serio? ¡¿Le atacamos?!"})
   SkySceneKit.say({english="Uh, no! No way!", french="Euh, non! Pas question!", german="Äh, nein! Auf keinen Fall!", italian="No! No e poi no!", spanish="¡No, no! ¡De ninguna manera!"})
@@ -79,7 +82,9 @@ return function(hero, partner)
   SkySceneKit.say({english="If anything happens to me, you have to help me. I'm counting on you.", french="Si quelque chose m'arrive, tu dois m'aider. Je compte sur toi.", german="Wenn mir irgendetwas passiert, musst du mir helfen! Ich verlasse mich auf dich.", italian="Se mi dovesse succedere qualcosa, prometti di aiutarmi. Ci faccio affidamento!", spanish="Si algo me sucediese, tienes que ayudarme. Cuento contigo."})
   SkySceneKit.say({english="All right. Counting down. Three... Two... One... Now...!", french="Très bien. Décompte. Trois... deux... un... maintenant!", german="Gut. Auf null. Drei... Zwei... Eins... Null...!", italian="Vabbè... conto alla rovescia. Meno 3... meno 2... meno 1... Via...!", spanish="Vale. A la de tres. Uno... Dos... Tres... ¡Ahora!..."})
   SkySceneKit.say({english="OK. Counting down. Three... Two... One... Now...!", french="D'accord. Compte à rebours. Trois... deux... un... allez!", german="Gut. Auf null. Drei... Zwei... Eins... Null...!", italian="OK... conto alla rovescia. Meno 3... meno 2... meno 1... Via...!", spanish="Vale. A la de tres. Uno... Dos... Tres... ¡Ahora!..."})
+  SkySceneKit.say({english="Kwaaaaaaaaah!", french="Ouaaaaaaaaaaaaaaaaaaaah!", german="Kwaaaaaaaaah!", italian="Kwaaaaaaaaah!", spanish="¡Kwaaaaaaaah!"})
   SkySceneKit.say({english="Yikes!", french="Argh!", german="Ahaaaa!", italian="Uuuhhh!", spanish="¡Ay!"})
+  GAME:WaitFrames(4) -- 0xE7
   SkySceneKit.say({english="Witness it...", french="Soyez témoins...", german="Werdet Zeuge...", italian="Contemplate...", spanish="Presenciad..."})
   SkySceneKit.say({english="The sinking of the sun...", french="... du coucher de soleil...", german="Der Kreislauf der Sonne...", italian="Contemplate il calare del sole...", spanish="la puesta de sol..."})
   SkySceneKit.say({english="Indeed.", french="De fait.", german="Fürwahr.", italian="Proprio così.", spanish="Yo..."})

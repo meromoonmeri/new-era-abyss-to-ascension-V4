@@ -1,10 +1,12 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground d12p04 (dialogues ROM 0x0854487C).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground d12p04 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  -- BGM MUS_IN_THE_DEPTHS_OF_THE_PIT: GAP (pas d'ogg extrait ROM vérifié) — aucune piste substituée
   pcall(function() UI:ResetSpeaker() end)
+  -- 0x44 music_id 114: GAP (pas d'ogg extrait ROM vérifié)
+  SkySceneKit.say({english="Having calmed , [hero]'s team left the dungeon...", french="Ayant réussi à calmer , l'équipe de [hero] quitta le donjon...", german="Nachdem beruhigt war, verließ das Team von [hero] den Dungeon...", italian="Dopo aver placato , la squadra di [hero] lascia il dungeon...", spanish="Una vez que calmaron a , el equipo de [hero] dejó la cueva..."})
+  SkySceneKit.say({english="And returned to Pokémon Square together with 's team.", french="... et retourna sur la Place Pokémon, accompagnée de l'équipe d'.", german="Und kehrte mit s Team zum Pokémonplatz zurück.", italian="e fa ritorno in Piazza Pokémon insieme alla squadra di .", spanish="y volvió a la Plaza Pokémon junto al equipo de ."})
+  SkySceneKit.say({english="Grgaaaaaah!", french="Grrraaaaaah!", german="Grgaaaaaah!", italian="Grgaaaaaah!", spanish="¡Grrrrrrrrr!"})
   SkySceneKit.say({english="Look! It's ! and too!", french="Regarde! ... et ! Ils sont là!", german="Sieh mal! Da ist ! Und da sind auch und !", italian="Guarda! È ! Ci sono pure e !", spanish="¡Mira! ¡Es ! ¡Y también y !"})
   SkySceneKit.say({english="Urrgggh!", french="Arrgggh!", german="Arrgggh!", italian="Urrgggh!", spanish="¡Urrg!"})
   SkySceneKit.say({english="Did you do it? ?", french="Et ? Vous l'avez battu?", german="Habt ihr es geschafft? Was ist mit ?", italian="Ce l'avete fatta? E ?", spanish="¿Hiciste tú esto? ¿?"})
@@ -18,6 +20,4 @@ return function(hero, partner)
   SkySceneKit.say({english="It should calm down.", french="Il devrait se calmer.", german="Es sollte sich beruhigen.", italian="Ora dovrebbe calmarsi.", spanish="Debería calmarse."})
   SkySceneKit.say({english="Waah... Another quake!", french="Aaah... Une autre secousse!", german="Waah... Ein weiteres Beben!", italian="Aah... Un'altra scossa!", spanish="Aaah... ¡Otro seísmo!"})
   SkySceneKit.say({english="Out! Quickly!", french="Sortons! Vite!", german="Hinaus! Schnell!", italian="Fuori! Non c'è tempo da perdere!", spanish="¡Vamos afuera! ¡Rápido!"})
-  SkySceneKit.say({english="Having calmed , [hero]'s team left the dungeon...", french="Ayant réussi à calmer , l'équipe de [hero] quitta le donjon...", german="Nachdem beruhigt war, verließ das Team von [hero] den Dungeon...", italian="Dopo aver placato , la squadra di [hero] lascia il dungeon...", spanish="Una vez que calmaron a , el equipo de [hero] dejó la cueva..."})
-  SkySceneKit.say({english="And returned to Pokémon Square together with 's team.", french="... et retourna sur la Place Pokémon, accompagnée de l'équipe d'.", german="Und kehrte mit s Team zum Pokémonplatz zurück.", italian="e fa ritorno in Piazza Pokémon insieme alla squadra di .", spanish="y volvió a la Plaza Pokémon junto al equipo de ."})
 end

@@ -1,10 +1,9 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground d06p01 (dialogues ROM 0x084E9FC8).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground d06p01 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  pcall(function() SOUND:PlayBGM("Mt Thunder", true) end)
   pcall(function() UI:ResetSpeaker() end)
+  pcall(function() SOUND:PlayBGM("Mt Thunder", true) end) -- 0x44 music_id 111 (ROM)
   SkySceneKit.say({english="This must be the foot of DMt. Thunder...", french="Ce doit être le pied du DMt Foudre...", german="Wir sind hier wohl am Fuße vom DDonnerberg...", italian="Ci troviamo ai piedi del DMonte Tuono...", spanish="Esto debe de ser el pie del DMonte Trueno..."})
   SkySceneKit.say({english="I wonder if 's team is already on the way...", french="Je me demande si l'équipe d' est déjà en route...", german="Ich frage mich, ob sich s Team bereits auf den Weg gemacht hat...", italian="Mi chiedo se la squadra di sia già da queste parti...", spanish="Me pregunto si el equipo de ya está de camino..."})
   SkySceneKit.say({english="This is the foot of DMt. Thunder.", french="C'est le pied du DMt Foudre.", german="Wir sind hier am Fuß vom DDonnerberg.", italian="Ci troviamo di fronte al DMonte Tuono.", spanish="Este es el pie del DMonte Trueno."})
@@ -22,6 +21,7 @@ return function(hero, partner)
   SkySceneKit.say({english="I can't be scared now.", french="Je ne peux pas me permettre d'avoir peur.", german="Ich darf jetzt keine Angst haben.", italian="Non posso permettere che la paura abbia la meglio.", spanish="No puedo tener miedo."})
   SkySceneKit.say({english="Our objective is simple. We're rescuing .", french="Notre objectif est simple. On doit sauver .", german="Unser Ziel ist einfach erklärt. Wir werden retten.", italian="Il nostro obiettivo è chiaro. Siamo qui per salvare .", spanish="Nuestro objetivo es simple. Vamos a rescatar a ."})
   SkySceneKit.say({english="[hero], let's try our best!", french="[hero], faisons notre maximum!", german="[hero], versuchen wir unser Bestes!", italian="[hero], impegniamoci a fondo!", spanish="¡[hero], vamos a por todas!"})
+  pcall(function() SOUND:PlayBGM("Mt Thunder", true) end) -- 0x44 music_id 111 (ROM)
   SkySceneKit.say({english="[hero]! This time, we're gonna rescue !", french="[hero]! Cette fois, on va secourir !", german="[hero]! Dieses Mal werden wir retten!", italian="[hero]! Questa volta salveremo !", spanish="¡[hero]! ¡Esta vez lograremos rescatar a !"})
   SkySceneKit.say({english="Let's give it our best!", french="Faisons de notre mieux!", german="Geben wir unser Bestes!", italian="Diamoci da fare!", spanish="¡Vamos a por todas!"})
   SkySceneKit.say({english="[hero]! We'll rescue this time for sure!", french="[hero]! On va sauver , cette fois, c'est sûr!", german="[hero]! Dieses Mal werden wir garantiert retten!", italian="[hero]! Questa volta salveremo ! Non ci sono dubbi!", spanish="¡[hero]! ¡Esta vez sí que vamos a rescatar a !"})

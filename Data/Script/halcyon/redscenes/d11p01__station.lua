@@ -1,10 +1,18 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground d11p01 (dialogues ROM 0x0852CA60).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground d11p01 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  pcall(function() SOUND:PlayBGM("Escape Through the Snow", true) end)
   pcall(function() UI:ResetSpeaker() end)
+  GAME:WaitFrames(2) -- 0xE7
+  GAME:WaitFrames(2) -- 0xE7
+  GAME:WaitFrames(3) -- 0xE7
+  GAME:WaitFrames(7) -- 0xE7
+  GAME:WaitFrames(8) -- 0xE7
+  GAME:WaitFrames(8) -- 0xE7
+  GAME:WaitFrames(8) -- 0xE7
+  GAME:WaitFrames(8) -- 0xE7
+  pcall(function() SOUND:PlayBGM("Escape Through the Snow", true) end) -- 0x44 music_id 36 (ROM)
+  pcall(function() SOUND:PlayBGM("Escape Through the Snow", true) end) -- 0x44 music_id 36 (ROM)
   SkySceneKit.say({english="...OK. So that's what happened...", french="Je vois. Alors, c'est ce qui s'est passé...", german="...So. Das ist also passiert...", italian="... OK. Adesso capisco...", spanish="Vale... Así que eso es lo que pasó..."})
   SkySceneKit.say({english="appeared to you...", french="t'est apparue...", german="ist dir erschienen...", italian="Ti è apparsa ...", spanish="se te apareció..."})
   SkySceneKit.say({english="So that's why you were looking so stunned.", french="Alors, c'est pour ça que tu avais l'air sous le choc.", german="Deshalb hast du so verblüfft ausgesehen.", italian="Ecco perché avevi quella faccia stupita.", spanish="Así que eso era lo que te aturdió..."})
@@ -36,8 +44,10 @@ return function(hero, partner)
   SkySceneKit.say({english="It's only natural that you would be scared of meeting , [hero].", french="C'est tout naturel que tu aies peur de rencontrer , [hero].", german="Es ist doch nur natürlich, dass du vor dem Treffen mit Angst hast, [hero].", italian="[hero], è comprensibile che tu abbia paura di incontrare .", spanish="Es normal que te asuste presentarte ante , [hero]."})
   SkySceneKit.say({english="The heartless human who abandoned ... It may be you...", french="L'humain sans cur qui a abandonné ... Tu penses que ce pourrait être toi...", german="Dieser herzlose Mensch, der im Stich gelassen hat... Du könntest dieser Mensch sein...", italian="L'umano senza pietà che ha abbandonato ... Quella persona potresti essere tu...", spanish="El humano desalmado que abandonó a ... podrías ser tú..."})
   SkySceneKit.say({english="I can understand how you could think that.", french="Je peux comprendre pourquoi tu penses ça.", german="Ich kann schon verstehen, wenn du genau das gerade denkst.", italian="Capisco che tu abbia preso in considerazione quest'eventualità.", spanish="Puedo entender que eso te preocupe."})
+  SkySceneKit.say({english="But that's impossible. You're not that human--I'm sure.", french="Mais c'est impossible. Tu n'es pas cet humain, c'est certain.", german="Aber es ist unmöglich... Du bist nicht dieser Mensch - dessen bin ich mir sicher.", italian="Ma non è possibile. Non sei tu quella persona. Non ho dubbi.", spanish="Pero eso es imposible. No puedo creer ni por un instante que ese ser humano seas tú."})
   SkySceneKit.say({english="How can you say that?", french="Comment le sais-tu?", german="Wie kannst du das sagen?", italian="Come fai a dirlo?", spanish="¿Cómo puedes decir eso?"})
   SkySceneKit.say({english="You believe so much in me?", french="Tu crois tellement en moi?", german="Glaubst du so sehr an mich?", italian="Ti fidi così tanto di me?", spanish="¿Tanto confías en mí?"})
+  SkySceneKit.say({english="But that's impossible. You're not that human--I'm sure.", french="Mais c'est impossible. Tu n'es pas cet humain, j'en suis sûre.", german="Aber das ist unmöglich... Du bist nicht dieser Mensch - das weiß ich genau.", italian="Ma non è possibile. Non sei tu quella persona. Non ho dubbi.", spanish="Pero eso no es posible. No puedes ser ese humano del que hablan."})
   SkySceneKit.say({english="How can you say that?", french="Comment le sais-tu?", german="Wie kannst du das sagen?", italian="Come fai a dirlo?", spanish="¿Cómo puedes decir eso?"})
   SkySceneKit.say({english="You believe so much in me?", french="Tu crois tellement en moi?", german="Glaubst du so sehr an mich?", italian="Ti fidi così tanto di me?", spanish="¿Tanto confías en mí?"})
   SkySceneKit.say({english="Hmm...? Well, there was a time when I had some doubts... But now...", french="Hum... Eh bien, à un moment, j'ai eu des doutes... Mais maintenant...", german="Hmm...? Nun, es gab einen Moment, als ich meine Zweifel hatte, ja... Aber nun...", italian="Hmm...? Ammetto di aver avuto qualche dubbio in passato... Ma ora...", spanish="Mmm... Bueno, hubo un tiempo en el que tuve dudas... Pero ahora..."})
@@ -69,20 +79,26 @@ return function(hero, partner)
   SkySceneKit.say({english="Not yet.", french="Non", german="Noch nicht.", italian="No!", spanish="Aún no"})
   SkySceneKit.say({english="Hmm? Is that so?", french="Hum? Vraiment?", german="Hmm? Wirklich?", italian="Davvero?", spanish="Mmm... ¿De verdad?"})
   SkySceneKit.say({english="OK. Let's go when you're ready.", french="D'accord. On partira quand tout sera prêt.", german="In Ordnung. Wir gehen, wenn du so weit bist.", italian="OK. Ci avventuriamo solo se te la senti.", spanish="Vale. Nos vamos cuando te hayas preparado."})
+  SkySceneKit.say({english="Which way should we go?", french="Quelle direction prend-on?", german="Wohin gehen wir?", italian="Da che parte vuoi andare?", spanish="¿Por dónde vamos?"})
   SkySceneKit.say({english="Mt. Freeze.", french="Mt Glacial", german="Klirrberg", italian="Monte Surgelo", spanish="Monte Escarcha"})
   SkySceneKit.say({english="Snow Path.", french="Passage Neige", german="Schneepfad", italian="Pista Innevata", spanish="Paso Helado"})
+  GAME:WaitFrames(3) -- 0xE7
   SkySceneKit.say({english="All right! Let's roll out!", french="Très bien! Mettons-nous en route!", german="Gut! Gehen wir!", italian="Alla grande! Forza, andiamo!", spanish="¡Vale! ¡Nos vamos!"})
   SkySceneKit.say({english="We want the peak. Let's give it our best!", french="On doit atteindre le sommet. Donnons notre maximum!", german="Der Gipfel erwartet uns!", italian="Mettiamocela tutta per arrivare alla vetta!", spanish="Coronaremos la cima. ¡Vamos a por todas!"})
   SkySceneKit.say({english="OK! Let's go!", french="D'accord! Allons-y!", german="Gut! Auf geht's!", italian="OK! Andiamo!", spanish="¡Vale! ¡Nos vamos!"})
   SkySceneKit.say({english="Let's do our best to reach the peak!", french="Faisons de notre mieux pour atteindre le sommet!", german="Strengen wir uns an und erstürmen den Gipfel!", italian="Facciamo del nostro meglio per arrivare in cima!", spanish="¡Vamos a esforzarnos para llegar a la cima!"})
+  GAME:WaitFrames(8) -- 0xE7
   SkySceneKit.say({english="All right! Let's roll out!", french="Très bien! En route!", german="Gut! Gehen wir!", italian="Perfetto! Forza, andiamo!", spanish="¡Vale! ¡Nos vamos!"})
   SkySceneKit.say({english="OK! Let's go!", french="Bien! Allons-y!", german="Gut! Auf geht's!", italian="OK! Andiamo!", spanish="¡Vale! ¡Partimos!"})
+  GAME:WaitFrames(10) -- 0xE7
+  pcall(function() SOUND:PlayBGM("Escape Through the Snow", true) end) -- 0x44 music_id 36 (ROM)
   SkySceneKit.say({english="Darn... That didn't go well.", french="Mince... Ça ne s'est pas bien passé.", german="Mist... Das ging ja voll daneben.", italian="Ahia... Che batosta...", spanish="Vaya... No nos ha ido bien."})
   SkySceneKit.say({english="Ouch... That turned out badly.", french="Mince... Ça s'est mal passé.", german="Autsch... Das war wohl nichts.", italian="Peccato... Ci è andata male.", spanish="Ay... Esto no ha salido bien."})
   SkySceneKit.say({english="This is one seriously rough neighborhood...", french="Ce n'est pas un endroit des plus accueillants...", german="Also, diese Gegend ist mehr als unfreundlich...", italian="Questo posto è davvero tosto...", spanish="Este sitio es bastante peligroso..."})
   SkySceneKit.say({english="But let's storm our way to the peak, [hero]!", french="Mais filons vers le sommet, [hero]!", german="Aber dennoch... Erstürmen wir den Gipfel, [hero]!", italian="Facciamoci largo fino alla vetta, [hero]!", spanish="¡Pero vamos a luchar hasta llegar a la cima, [hero]!"})
   SkySceneKit.say({english="This is a seriously tough challenge, but...", french="C'est un défi vraiment ardu, mais...", german="Das ist eine wahre Herausforderung, aber...", italian="Questa è una sfida davvero dura...", spanish="Menudo desafío al que nos enfrentamos, pero..."})
   SkySceneKit.say({english="Let's be sure to reach the peak, [hero]!", french="Assurons-nous d'atteindre le sommet, [hero]!", german="Wir müssen den Gipfel unbedingt erreichen, [hero]!", italian="Non possiamo permetterci di mancare la cima, [hero]!", spanish="¡La próxima vez no pararemos hasta llegar a la cima, [hero]!"})
+  pcall(function() SOUND:PlayBGM("Escape Through the Snow", true) end) -- 0x44 music_id 36 (ROM)
   SkySceneKit.say({english="What the...? Isn't this where we started from?!", french="Ça alors! C'est notre point de départ, non???", german="Was...? Von hier sind wir doch aufgebrochen?!?", italian="Cosa...? Ma questo è il punto di partenza!?", spanish="¿Pero qué...? ¡¿No es este el lugar de partida?!"})
   SkySceneKit.say({english="............ I guess that path just loops back to the start.", french="... ... ... ... Je parie que le chemin fait une boucle jusqu'au point de départ.", german="............ Der Weg hat uns wohl im Kreis herumgeführt.", italian="... ... ... ... Quella pista ci ha fatto fare il giro dell'oca.", spanish="... Supongo que esa ruta nos lleva de vuelta al punto de partida."})
   SkySceneKit.say({english="If we want to move on, I think our only choice is DMt. Freeze.", french="Si on veut avancer, on doit choisir le DMt Glacial.", german="Wenn wir weiterkommen wollen, dann müssen wir zum DKlirrberg.", italian="Se vogliamo proseguire, mi sa che dobbiamo andare verso il DMonte Surgelo.", spanish="Si queremos avanzar, creo que debemos ir al DMonte Escarcha."})
@@ -90,10 +106,12 @@ return function(hero, partner)
   SkySceneKit.say({english="............ I guess that path we took just loops back to where it started.", french="... ... ... ... Je crois que le chemin fait une boucle jusqu'à notre point de départ.", german="............ Der Weg hat uns wohl im Kreis herumgeführt.", italian="... ... ... ... Quella pista ci ha portato di nuovo qui.", spanish="... Supongo que la ruta que hemos seguido tan solo nos lleva de vuelta al principio."})
   SkySceneKit.say({english="It looks like we have to get over DMt. Freeze to move on.", french="On dirait qu'on doit aller vers le DMt Glacial pour avancer.", german="Wir müssen wohl den DKlirrberg überwinden, um weiterzukommen.", italian="A quanto pare, se vogliamo proseguire, dobbiamo scegliere il DMonte Surgelo.", spanish="Parece que tendremos que superar el DMonte Escarcha para avanzar."})
   SkySceneKit.say({english="[hero], let's do our best!", french="[hero], faisons notre maximum!", german="[hero], geben wir alles!", italian="[hero], facciamo bella figura!", spanish="¡[hero], vamos a por todas!"})
+  pcall(function() SOUND:PlayBGM("Escape Through the Snow", true) end) -- 0x44 music_id 36 (ROM)
   SkySceneKit.say({english="Urrggh... We couldn't get through...", french="Arrggh... On n'a pas pu passer...", german="Arrggh... Wir haben es nicht geschafft...", italian="Arrggh... Ci è andata male...", spanish="Urg... No pudimos pasar..."})
   SkySceneKit.say({english="Ouch... We couldn't break through...", french="Mince... On n'a pas pu traverser...", german="Autsch... Wir haben versagt...", italian="Ahia... Niente da fare...", spanish="Ay... No pudimos pasar..."})
   SkySceneKit.say({english="This is one harsh place, but let's bear down and get through, [hero]!", french="C'est un endroit dangereux, mais efforçons-nous de le traverser, [hero]!", german="Dieser Ort verlangt einem alles ab. Aber wir müssen durchhalten und weitergehen, [hero]!", italian="Il posto è molto ostile... Ma quando il gioco si fa duro, i duri cominciano a giocare, [hero]!", spanish="¡Este es un reto muy duro, pero debemos apretar los dientes y luchar, [hero]!"})
   SkySceneKit.say({english="This is a harsh place, so let's do our best to get through, [hero]!", french="C'est un passage difficile, alors donnons notre maximum pour le traverser, [hero]!", german="Dieser Ort verlangt alles von uns. Aber wenn wir unser Bestes geben, schaffen wir es, [hero]!", italian="Il posto è molto ostile... Ma rimbocchiamoci le maniche e facciamo vedere chi siamo, [hero]!", spanish="¡No va a ser fácil, por eso debemos esforzarnos para triunfar, [hero]!"})
+  pcall(function() SOUND:PlayBGM("Mt Freeze", true) end) -- 0x44 music_id 115 (ROM)
   SkySceneKit.say({english="You're going to DMt. Freeze?", french="Tu vas au DMt Glacial?", german="Du gehst zum DKlirrberg?", italian="La meta è il DMonte Surgelo?", spanish="¿Vas al DMonte Escarcha?"})
   SkySceneKit.say({english="Don't forget to take me, kekeh!", french="Alors, emmène-moi avec toi, ec, ec, ec!", german="Vergiss nicht, mich mitzunehmen, kekeh!", italian="Vengo anch'io, kekeh!", spanish="¡No olvides llevarme contigo, ueje, je!"})
 end

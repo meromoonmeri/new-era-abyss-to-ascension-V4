@@ -1,18 +1,19 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground a04p01 (dialogues ROM 0x084C568C).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground a04p01 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  -- BGM MUS_WORLD_CALAMITY: GAP (pas d'ogg extrait ROM vérifié) — aucune piste substituée
   pcall(function() UI:ResetSpeaker() end)
+  -- 0x44 music_id 19: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="From the sky! Comes a star!", french="Là-haut dans le ciel! Une météorite!", german="Vom Himmel! Fällt ein Stern!", italian="Dal cielo! Dal cielo giunge un meteorite!", spanish="¡Del cielo! ¡Viene una estrella!"})
   SkySceneKit.say({english="...It is huge... A giant of a star!", french="Elle est énorme... C'est une géante parmi les étoiles!", german="...Er ist riesig... Ein riesiger Stern!", italian="... È immenso... Di dimensioni sconfinate.", spanish="Es enorme... Una estrella enorme..."})
   SkySceneKit.say({english="The star, it falls. It falls straight to us.", french="La météorite, elle tombe. Elle tombe droit sur nous.", german="Der Stern, er fällt. Er fällt direkt auf uns.", italian="Cade, il meteorite. Cade su di noi.", spanish="La estrella está cayendo. Cae sobre nuestras cabezas."})
+  -- 0x44 music_id 19: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="Disasters in nature... There were many...", french="Des catastrophes naturelles... Il y en a eu tellement...", german="Naturkatastrophen... Von ihnen gab es viele...", italian="Le catastrofi naturali sono state numerose...", spanish="Desastres naturales... Grandes calamidades..."})
   SkySceneKit.say({english="The balance of the world, it has been upset...", french="Bouleversé, l'équilibre du monde l'a été...", german="Das Gleichgewicht der Welt wurde ins Ungleichgewicht gebracht...", italian="L'equilibrio del nostro mondo è stato turbato...", spanish="El equilibrio de nuestro mundo se ha roto..."})
   SkySceneKit.say({english="All because of the star. The star that slowly comes closer.", french="Tout cela à cause d'une météorite... Une météorite qui se rapproche lentement.", german="Der Grund ist der Stern. Der Stern, der langsam immer näher kommt.", italian="Tutto a causa del meteorite che lentamente si dirige verso di noi.", spanish="Todo por esa estrella que se acerca poco a poco."})
   SkySceneKit.say({english="...If it keeps coming... It will crash into this world. It shall be terrible.", french="Si elle continue ainsi... elle s'écrasera sur ce monde. Les conséquences seront terribles.", german="Wenn er noch näher kommt... Wird er auf unsere Welt schlagen. Eine schreckliche Aussicht.", italian="... Se non si ferma, si schianterà sul nostro mondo. Sarà spaventoso.", spanish="Si nada la detiene... chocará con nuestro mundo. Será terrible."})
   SkySceneKit.say({english="Something must be done...", french="Il faut faire quelque chose...", german="Etwas muss getan werden...", italian="Bisogna fare qualcosa...", spanish="Hay que hacer algo..."})
+  -- 0x44 music_id 19: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="Ah, good of you to come.", french="Ah, c'est bien que vous soyez là.", german="Ah, gut, dass ihr da seid.", italian="Ah, che piacere vedervi.", spanish="Ah, gracias por venir."})
   SkySceneKit.say({english="Kwaaaaaaaaaah!", french="Ouaaaaaaaaaaaaaaaaaaaah!", german="Kwaaaaaaaaaah!", italian="Kwaaaaaaaaaah!", spanish="¡Kwaaaaaaaaah!"})
   SkySceneKit.say({english="Wh- what's going on? What is doing?", french="Que... que se passe-t-il? Que fait ?", german="Wa- was ist los? Was macht da?", italian="Che... che succede? Cosa sta facendo ?", spanish="¿Qué...? ¿Qué sucede? ¿Qué hace ?"})
@@ -46,12 +47,14 @@ return function(hero, partner)
   SkySceneKit.say({english="That's my wish.", french="La paix est ce qu'il y a de plus important pour moi.", german="Das ist mein Wunsch.", italian="È il mio desiderio.", spanish="Ese es mi deseo."})
   SkySceneKit.say({english="(...Yes... And when that wish comes true...)", french="(Oui... Et quand ce souhait se réalisera...)", german="(...Ja... Und wenn dieser Wunsch erfüllt wird...)", italian="(... Sì... e se questo desiderio si avvera...)", spanish="(Sí... Y cuando ese deseo se haga realidad...)"})
   SkySceneKit.say({english="(Gardevoir said...)", french="(Gardevoir a dit...)", german="(Guardevoir sagte...)", italian="(Gardevoir ha detto che...)", spanish="(Gardevoir dijo...)"})
+  -- 0x44 music_id 19: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="(............)", french="(... ... ... ...)", german="(............)", italian="(... ... ... ...)", spanish="(...)"})
   SkySceneKit.say({english="(This will be my last adventure... With ...)", french="(... que ce sera ma dernière aventure... avec ...)", german="(Das wird mein letztes Abenteuer... mit sein...)", italian="(Questa sarà la mia ultima avventura... con ...)", spanish="(Acabaría mi última aventura con ...)"})
   SkySceneKit.say({english="[hero]! Let's do this right!", french="[hero]! Faisons ce qu'il faut!", german="[hero]! Lass es uns richtig machen!", italian="[hero]! Diamoci da fare!", spanish="¡[hero]! ¡Vamos allá!"})
   SkySceneKit.say({english="[hero]! Let's get this done!", french="[hero]! Allons-y!", german="[hero]! Lass es uns in Angriff nehmen!", italian="[hero]! Non stiamo con le mani in mano! Andiamo!", spanish="¡[hero]! ¡Adelante!"})
   SkySceneKit.say({english="[hero]! Let's get this done!", french="[hero]! Occupons-nous-en!", german="[hero]! Packen wir es an!", italian="[hero]! Non stiamo con le mani in mano! Andiamo!", spanish="¡[hero]! ¡Vamos!"})
   SkySceneKit.say({english="We're counting on you! ! [hero]!", french="Nous comptons sur vous! ! [hero]!", german="Wir zählen auf euch! ! [hero]!", italian="Contiamo su di voi! ! [hero]!", spanish="¡Contamos con vuestra ayuda! ¡! ¡[hero]!"})
+  -- 0x44 music_id 41: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english=".........Hey.", french="Hé...", german=".........Hey.", italian="... ... ... Ehi!", spanish="Eh..."})
   SkySceneKit.say({english="...Hey, can you hear...", french="Hé... tu m'entends?", german="...Hey, hörst du mich...", italian="... Ehi! È tutto a posto...", spanish="Oye, ¿puedes oír...?"})
   SkySceneKit.say({english="Snap out of it!", french="Réveille-toi!", german="Wach auf!", italian="Sveglia!", spanish="¡Vuelve a la tierra!"})
@@ -69,10 +72,13 @@ return function(hero, partner)
   SkySceneKit.say({english="Snivel... I'm so glad you're safe! It's fantastic!", french="Sniff... Ça me soulage que tu n'aies rien! C'est fantastique!", german="Schnüff... Bin ich froh, dass es dir gut geht! Das ist so schön!", italian="Wow... sono felice che siate di nuovo qui senza neppure un graffio! È fantastico!", spanish="¡Me alegro tanto de que estés bien! ¡Menos mal!"})
   SkySceneKit.say({english="Everyone... Thank you. But...", french="Tout le monde... Merci. Mais...", german="Danke... Euch allen danke ich. Aber...", italian="Grazie... grazie a tutti. Ma...", spanish="Gracias... Gracias a todos..."})
   SkySceneKit.say({english="What about the star?! What happened to it?!", french="Et la météorite? Que lui est-il arrivé?", german="Was ist mit dem Stern?!? Was ist mit ihm passiert?!?", italian="Che ne è stato del meteorite?! Dove sarà finito?", spanish="¿Y el meteorito? ¡¿Qué ocurrió al final?!"})
+  SkySceneKit.say({english="Kwaaaaaaaaah!", french="Ouaaaaaaaaaaaaaaaaaaaah!", german="Kwaaaaaaaaah!", italian="Kwaaaaaaaaah!", spanish="¡Kwaaaaaaaaah!"})
   SkySceneKit.say({english="Fear not! The star is no more.", french="N'ayez crainte! La météorite n'est plus.", german="Habt keine Angst! Der Stern - er existiert nicht mehr.", italian="Non temete! Il meteorite non incombe più!", spanish="¡No temáis! La estrella ya no existe."})
   SkySceneKit.say({english="Though it will not be right away... The disasters shall soon be calmed.", french="Même si cela ne se fait pas tout de suite... Les catastrophes s'apaiseront peu à peu.", german="Auch wenn es nicht sofort geschieht... Die Katastrophen werden ihr Ende sehen.", italian="Non accadrà immediatamente... Ma le catastrofi avranno fine.", spanish="Aunque no será de inmediato... Las desgracias remitirán..."})
+  GAME:WaitFrames(13) -- 0xE7
   SkySceneKit.say({english="What about our team member? Where's ?!", french="Et notre partenaire? Où est ?", german="Was ist mit unserem Team-Partner? Wo ist ?!?", italian="Che ne è stato di ?!", spanish="¿Y el otro miembro de nuestro equipo? ¡¿Dónde está ?!"})
   SkySceneKit.say({english="Be calm. is safe.", french="Calme-toi. est en sécurité.", german="Seid ruhigen Herzens. ist nichts geschehen.", italian="Non temere. è al sicuro.", spanish="Tranquilidad. está a salvo."})
+  GAME:WaitFrames(10) -- 0xE7
   SkySceneKit.say({english="What about our team members? Where are and ?!", french="Et nos compagnons? Où sont et ?", german="Was ist mit unseren Team-Partnern? Wo sind und ?!?", italian="Che ne è stato di e ?", spanish="¿Y el resto de nuestro equipo? ¡¿Dónde están y ?!"})
   SkySceneKit.say({english="Be calm. Both are unharmed.", french="Calme-toi. Tout le monde est sain et sauf.", german="Seid ruhigen Herzens. Beiden ist nichts geschehen.", italian="Non temere. Stanno bene.", spanish="Tranquilidad. Están a salvo."})
   SkySceneKit.say({english="Really!", french="Super!", german="Tatsächlich!", italian="Fantastico!", spanish="¡Bien!"})
@@ -82,6 +88,7 @@ return function(hero, partner)
   SkySceneKit.say({english="We've won peace!", french="On a rétabli la paix!", german="Die friedlichen Zeiten sind zurückgekehrt!", italian="Abbiamo riportato la pace!", spanish="¡Podremos vivir en paz!"})
   SkySceneKit.say({english="We did it, [hero]! Everything worked!", french="Nous avons réussi, [hero]! Tout a bien fonctionné!", german="Geschafft, [hero]! Es hat geklappt!!!", italian="Ce l'abbiamo fatta, [hero]! Tutto è andato per il meglio!", spanish="¡Sí, [hero]! ¡Todo ha salido bien!"})
   SkySceneKit.say({english="We've won peace!", french="Nous avons rétabli la paix!", german="Der Frieden ist zurückgekehrt!", italian="Abbiamo riportato la pace!", spanish="¡Podemos vivir en paz!"})
+  -- 0x44 music_id 41: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="Yippee! This is the greatest!", french="Youpi! C'est trop génial!", german="Hurra! Der absolute Wahnsinn!", italian="Urrà! È magnifico!", spanish="¡Yupiii! ¡Somos los mejores!"})
   SkySceneKit.say({english="This calls for a celebration!", french="Il faut fêter ça!", german="Das schreit nach Feierei!", italian="Ehi, qui bisogna festeggiare!", spanish="¡Esto hay que celebrarlo!"})
   SkySceneKit.say({english="Let me shoot my Hydro Pump to kick it off!", french="Laissez-moi tirer un coup de mon Hydrocanon pour lancer la fête!", german="Ich gebe mit meiner Hydropumpe das Startsignal!", italian="Darò inizio ai festeggia- menti con la mia Idropompa!", spanish="¡Voy a darle caña a mis cañones! ¡Viva la fies...!"})
@@ -94,6 +101,7 @@ return function(hero, partner)
   SkySceneKit.say({english="Ahahahahaha!", french="Ah, ah, ah, ah, ah!", german="Ahahahahaha!", italian="Ahahahahah!", spanish="¡Ja, ja, ja, ja, ja!"})
   SkySceneKit.say({english="[hero]...", french="[hero]...", german="[hero]...", italian="[hero]...", spanish="[hero]..."})
   SkySceneKit.say({english="(............ ...)", french="(... ... ... ... ...)", german="(............ ...)", italian="(... ... ... ... ...)", spanish="(... ...)"})
+  -- 0x44 music_id 42: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="We owe everything to you, [hero], and your friends.", french="Nous te devons tout, [hero], ainsi qu'à tes amis.", german="Wir verdanken dir alles, [hero]. Dir und deinen Freunden.", italian="È tutto merito tuo, [hero]. E anche dei tuoi amici.", spanish="Te lo debemos todo a ti y a tus amigos, [hero]."})
   SkySceneKit.say({english="Peace has returned to our world.", french="La paix est revenue sur notre monde.", german="In unserer Welt herrscht wieder Frieden.", italian="La pace regna di nuovo sul nostro mondo.", spanish="La paz reina una vez más."})
   SkySceneKit.say({english="Thank you for everything.", french="Merci pour tout.", german="Vielen Dank für alles.", italian="Grazie di tutto.", spanish="Gracias por todo."})
@@ -141,6 +149,13 @@ return function(hero, partner)
   SkySceneKit.say({english="[hero]!", french="[hero]!", german="[hero]!", italian="[hero]!", spanish="¡[hero]!"})
   SkySceneKit.say({english="[hero]...", french="[hero]...", german="[hero]...", italian="[hero]...", spanish="[hero]..."})
   SkySceneKit.say({english="[hero]!!! Nooooo!!!", french="[hero]!!! Nooooon!!!", german="[hero]!!! Neeeiiiinn!!!", italian="[hero]!!! Nooooo!!!", spanish="¡[hero]! ¡¡¡Nooooo!!!"})
+  GAME:WaitFrames(1) -- 0xE7
+  GAME:WaitFrames(1) -- 0xE7
+  GAME:WaitFrames(2) -- 0xE7
+  GAME:WaitFrames(1) -- 0xE7
+  GAME:WaitFrames(1) -- 0xE7
+  GAME:WaitFrames(1) -- 0xE7
+  GAME:WaitFrames(1) -- 0xE7
   SkySceneKit.say({english="Snivel... [hero]... Why... I don't understand...", french="Sniff... [hero]... Pourquoi... Je ne comprends pas...", german="Schnüff... [hero]... Warum... Ich verstehe das nicht...", italian="Sigh... [hero]... Perché... non capisco...", spanish="No... [hero]... ¿Por qué...? No lo entiendo..."})
   SkySceneKit.say({english="Why? Why was it necessary to leave us...?", french="Pourquoi? Pourquoi nous laisser?", german="Warum? Warum musstest du uns verlassen...?", italian="Perché? Perché hai dovuto lasciarci...?", spanish="¿Por qué? ¿Por qué tienes que irte?..."})
   SkySceneKit.say({english="[hero] saved my life...", french="[hero] m'a sauvé la vie...", german="[hero] hat mir das Leben gerettet...", italian="[hero] mi ha salvato la vita...", spanish="[hero] me salvó la vida..."})

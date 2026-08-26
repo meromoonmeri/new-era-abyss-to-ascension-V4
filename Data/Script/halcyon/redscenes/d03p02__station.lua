@@ -1,10 +1,9 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground d03p02 (dialogues ROM 0x084DCE3C).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground d03p02 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  -- BGM MUS_IN_THE_DEPTHS_OF_THE_PIT: GAP (pas d'ogg extrait ROM vérifié) — aucune piste substituée
   pcall(function() UI:ResetSpeaker() end)
+  -- 0x44 music_id 114: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="Grr... I can't keep up! I'll flee for now!", french="Grrr... Vous m'avez eue! Je m'en vais mais je reviendrai!", german="Grrr... Ich schaffe es nicht! Ich werde mich lieber erstmal zurückziehen!", italian="Grr... non ce la faccio! Me ne vado!", spanish="Grr... ¡No puedo seguir! ¡Me retiraré por el momento!"})
   SkySceneKit.say({english="Hey! We sent packing!", french="Hé! a battu en retraite!", german="Hey! Wir haben verjagt!", italian="Ehi! Abbiamo fatto fuggire !", spanish="¡Eh! ¡Hemos vencido a !"})
   SkySceneKit.say({english="Hey there! We chased off!", french="Ho, hé! Nous avons fait fuir !", german="Hallo, du da! Wir haben verscheucht!", italian="Ehi! Abbiamo scacciato !", spanish="¡Eh! ¡Hemos ahuyentado a !"})

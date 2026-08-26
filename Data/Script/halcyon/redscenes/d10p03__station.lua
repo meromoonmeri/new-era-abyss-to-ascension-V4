@@ -1,10 +1,14 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground d10p03 (dialogues ROM 0x08523FB0).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground d10p03 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  -- BGM MUS_IN_THE_DEPTHS_OF_THE_PIT: GAP (pas d'ogg extrait ROM vérifié) — aucune piste substituée
   pcall(function() UI:ResetSpeaker() end)
+  -- 0x44 music_id 114: GAP (pas d'ogg extrait ROM vérifié)
+  SkySceneKit.say({english="And so...", french="Et c'est ainsi que...", german="Und so...", italian="E così...", spanish="Y así..."})
+  SkySceneKit.say({english="After getting through the Frosty Forest, [hero]'s team...", french="... après avoir traversé la Forêt Givrée, l'équipe de [hero]...", german="Überwand das Team von [hero] den Frostwald und...", italian="dopo aver superato la Foresta Glaciale, la squadra di [hero]...", spanish="tras atravesar el Bosque Helado, el equipo de [hero]..."})
+  SkySceneKit.say({english="Headed further north...", french="... fit route plus au nord...", german="Marschierte weiter in den Norden...", italian="si dirige verso nord...", spanish="se dirigió hacia el norte..."})
+  SkySceneKit.say({english="The more they advanced...", french="Au cours du voyage...", german="Und je weiter sie kamen...", italian="Nel corso del viaggio...", spanish="Cuanto más avanzaban..."})
+  SkySceneKit.say({english="The harsher the conditions became...", french="... les conditions se firent de plus en plus difficiles...", german="Desto unwirtlicher wurde die Gegend...", italian="le condizioni si fanno sempre più impervie...", spanish="más duras se hacían las condiciones..."})
   SkySceneKit.say({english="Please, !", french="S'il te plaît, !", german="Bitte, !", italian="Ti prego, !", spanish="¡Por favor, !"})
   SkySceneKit.say({english="We have to keep moving. We have to get through this.", french="On doit continuer. On doit traverser.", german="Wir müssen weiter. Wir müssen diesen Ort hinter uns lassen.", italian="Per proseguire dobbiamo passare di qui.", spanish="Debemos seguir. Tenemos que aguantar."})
   SkySceneKit.say({english="Please, let us pass!", french="S'il te plaît, laisse-nous passer!", german="Bitte, lass uns passieren!", italian="Ti prego, facci passare!", spanish="¡Por favor, déjanos pasar!"})
@@ -81,9 +85,4 @@ return function(hero, partner)
   SkySceneKit.say({english="Give a nickname to ?", french="Donner un surnom à ?", german="Möchtest du einen Kosenamen geben?", italian="Vuoi dare un soprannome a ?", spanish="¿Quieres darle un mote a ?"})
   SkySceneKit.say({english="*Yes.", french="*Oui", german="*Ja", italian="*Sì", spanish="*Sí"})
   SkySceneKit.say({english="No.", french="Non", german="Nein", italian="No", spanish="No"})
-  SkySceneKit.say({english="And so...", french="Et c'est ainsi que...", german="Und so...", italian="E così...", spanish="Y así..."})
-  SkySceneKit.say({english="After getting through the Frosty Forest, [hero]'s team...", french="... après avoir traversé la Forêt Givrée, l'équipe de [hero]...", german="Überwand das Team von [hero] den Frostwald und...", italian="dopo aver superato la Foresta Glaciale, la squadra di [hero]...", spanish="tras atravesar el Bosque Helado, el equipo de [hero]..."})
-  SkySceneKit.say({english="Headed further north...", french="... fit route plus au nord...", german="Marschierte weiter in den Norden...", italian="si dirige verso nord...", spanish="se dirigió hacia el norte..."})
-  SkySceneKit.say({english="The more they advanced...", french="Au cours du voyage...", german="Und je weiter sie kamen...", italian="Nel corso del viaggio...", spanish="Cuanto más avanzaban..."})
-  SkySceneKit.say({english="The harsher the conditions became...", french="... les conditions se firent de plus en plus difficiles...", german="Desto unwirtlicher wurde die Gegend...", italian="le condizioni si fanno sempre più impervie...", spanish="más duras se hacían las condiciones..."})
 end

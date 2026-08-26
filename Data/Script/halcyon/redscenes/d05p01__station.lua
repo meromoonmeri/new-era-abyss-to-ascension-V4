@@ -1,10 +1,9 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground d05p01 (dialogues ROM 0x084E56B8).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground d05p01 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  pcall(function() SOUND:PlayBGM("Silent Chasm", true) end)
   pcall(function() UI:ResetSpeaker() end)
+  pcall(function() SOUND:PlayBGM("Silent Chasm", true) end) -- 0x44 music_id 113 (ROM)
   SkySceneKit.say({english="Whew, this is some cliff.", french="Waouh, c'est un sacré précipice.", german="Puh, das nenne ich steil!", italian="Alla faccia del dirupo!", spanish="Guau, menudo precipicio."})
   SkySceneKit.say({english="Wow! This cliff is steep!", french="Waouh! Ce précipice est profond!", german="Wow! Das ist aber steil hier!", italian="Wow! Proprio un bel dirupo!", spanish="¡Jolín! ¡Este precipicio sí que es profundo!"})
   SkySceneKit.say({english="So your friend is somewhere deep in this canyon?", french="Alors ton ami est quelque part au fond de ce ravin?", german="Dein Freund befindet sich also hier in dieser Klamm?", italian="Quindi il tuo amico si trova da qualche parte in fondo a questo dirupo?", spanish="¿Y dices que tu amigo está en el fondo de este cañón?"})
@@ -47,6 +46,7 @@ return function(hero, partner)
   SkySceneKit.say({english="Owowow... I guess the cramping settled down...", french="Aïe, aïe, aïe... Je crois que la douleur se calme...", german="Auauau... Ich glaube, die Krämpfe lassen gerade etwas nach...", italian="Ehhhh... Mi è passato tutto...", spanish="Mmmm... Parece que ya me siento mejor..."})
   SkySceneKit.say({english="Owowow... I guess the cramping settled down...", french="Aïe, aïe, aïe... Je crois que la douleur se calme...", german="Auauau... Ich glaube, die Krämpfe lassen gerade etwas nach...", italian="Ehhhh... Mi è passato tutto...", spanish="Mmmm... Creo que el dolor se ha ido..."})
   SkySceneKit.say({english="Hahahahaha...", french="Ha, ha, ha, ha, ha...", german="Hahahahaha...", italian="Ahahahahah...", spanish="Ja, ja, ja, ja, ja..."})
+  GAME:WaitFrames(16) -- 0xE7
   SkySceneKit.say({english="Huh...?", french="Hein???", german="Äh...?", italian="Eh...?", spanish="¿Eh...?"})
   SkySceneKit.say({english="What's wrong with you, [hero]?! Back me up here!", french="On est partenaires! Tu dois comprendre mes allusions plus vite!", german="Was soll das denn, [hero]?!? Du musst mich unterstützen!", italian="Cosa c'è che non va, [hero]?! Devi farmi da spalla!", spanish="¡¿Qué te pasa, [hero]?! ¡Sígueme el rollo!"})
   SkySceneKit.say({english="You're my partner! You have to catch my drift better!", french="Qu'est-ce que tu as, [hero]??? Soutiens-moi un peu, là!", german="Du bist doch mein Partner! Du solltest mich doch eigentlich verstehen...", italian="Siamo una squadra. Dobbiamo capirci al volo!", spanish="¡Formamos un equipo! ¡Será mejor que pilles mis indirectas!"})

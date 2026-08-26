@@ -1,10 +1,9 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground d17p01 (dialogues ROM 0x08550F40).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground d17p01 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  -- BGM MUS_IN_THE_DEPTHS_OF_THE_PIT: GAP (pas d'ogg extrait ROM vérifié) — aucune piste substituée
   pcall(function() UI:ResetSpeaker() end)
+  -- 0x44 music_id 114: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="Gwooooooooooh! ...H-how dare you!", french="Gooooooooooh! C... comment oses-tu!", german="Gwooooooooooh! ...W-welch eine Dreistigkeit!", italian="Gwooooooooooh! ... Come osi?!", spanish="¡Arrrg! ¡¿C-cómo te atreves?!"})
   SkySceneKit.say({english="How... How did this happen...?", french="Comment... comment est-ce arrivé?", german="Wie... Wie ist das möglich...?", italian="Com... Com'è potuto succedere?", spanish="Pero... ¿Cómo ha podido suceder esto...?"})
   SkySceneKit.say({english="But regardless, you have won. Let me hear your wish.", french="Mais j'admets ma défaite. Dis-moi ton souhait.", german="Nun denn. Ich habe verloren. Wie lautet der Wunsch?", italian="Ad ogni modo hai vinto tu. Sentiamo il tuo sogno.", spanish="No obstante, me has vencido. Dime qué deseas."})
@@ -12,6 +11,7 @@ return function(hero, partner)
   SkySceneKit.say({english="............ You... Stand back!", french="... ... ... ... Bien... Recule!", german="............ Aah... Zurück!", italian="... ... ... ... Tu... stai alla larga!", spanish="... Tú... ¡Apártate!"})
   SkySceneKit.say({english="Raikou's thunderbolt electrified the IRed Wing!", french="La foudre de Raikou électrifie la IPlume Vermillon!", german="Raikous Donnerblitz setzt die IRotfeder unter Strom!", italian="Il fulmine di Raikou trasmette energia alla IPiuma Rossa!", spanish="¡El rayo de Raikou ha electrificado la IPluma Roja!"})
   SkySceneKit.say({english="The IRed Wing... transformed into the ISunset Wing!", french="La IPlume Vermillon... se transforme en IPlume Crépuscule!", german="Die IRotfeder... wird zur IAbendgoldfeder!", italian="La IPiuma Rossa... si trasforma nella IPiuma Tramonto!", spanish="¡La IPluma Roja... se ha transformado en la IPluma Dorada!"})
+  -- 0x44 music_id 114: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="Its subtle gradation of yellow to red is a truly beauteous sight!", french="Son subtil dégradé du jaune au rouge est vraiment de toute beauté!", german="Das sanft durchschimmernde Farbenspiel von Rot und Gold ist wunderschön!", italian="La sua gradazione di giallo che tende al rosso è veramente deliziosa!", spanish="¡Sus bellos reflejos recuerdan a los rayos de sol del atardecer!"})
   SkySceneKit.say({english="Go northeast!", french="Pars vers le nord-est!", german="Der Weg führt in nordöstliche Richtung!", italian="Dirigiti verso nord-est!", spanish="¡Dirígete al noreste!"})
   SkySceneKit.say({english="To a place called the DNorthwind Field.", french="Tu atteindras un endroit appelé les DTerres Blizzard.", german="Zu einem Ort, der DNordwindfeld genannt wird.", italian="Vai in un posto chiamato DCampo Tramontana.", spanish="Ve a un lugar conocido como el DCampo Ventoso."})
@@ -21,4 +21,5 @@ return function(hero, partner)
   SkySceneKit.say({english="[hero] received the ISunset Wing.", french="[hero] reçoit la IPlume Crépuscule.", german="[hero] erhält die IAbendgoldfeder.", italian="[hero] riceve la IPiuma Tramonto...", spanish="[hero] ha recibido la IPluma Dorada."})
   SkySceneKit.say({english="And...", french="Et...", german="Und...", italian="In più...", spanish="¡Y además..."})
   SkySceneKit.say({english="Gained access to the DNorthwind Field!", french="... les DTerres Blizzard sont maintenant accessibles!", german="Das DNordwindfeld steht offen!", italian="Il DCampo Tramontana è ora accessibile!", spanish="tiene acceso al DCampo Ventoso!"})
+  GAME:WaitFrames(1) -- 0xE7
 end

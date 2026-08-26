@@ -1,10 +1,9 @@
--- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
--- Station canonique PMD Red EU : ground d09p03 (dialogues ROM 0x08515180).
--- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py (V2 séquence ROM) — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground d09p03 — ordre = commands des scripts EU décodés (adresses ROM).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  -- BGM MUS_IN_THE_DEPTHS_OF_THE_PIT: GAP (pas d'ogg extrait ROM vérifié) — aucune piste substituée
   pcall(function() UI:ResetSpeaker() end)
+  -- 0x44 music_id 114: GAP (pas d'ogg extrait ROM vérifié)
   SkySceneKit.say({english="Urggggh!", french="Arggggh!", german="Arggggh!", italian="Arggggh!", spanish="¡Urg!"})
   SkySceneKit.say({english="I'm not done! I'm not finished yet!", french="Ce n'est pas terminé! Je n'ai pas dit mon dernier mot!", german="Ich bin noch nicht fertig! Ich bin noch lange nicht fertig!", italian="Non ho ancora finito!", spanish="¡No estoy acabado! ¡No me habéis vencido aún!"})
   SkySceneKit.say({english="Wait! Hold it!", french="Attends! Calme-toi!", german="Warte! Hör auf!", italian="Aspetta! Un attimo!", spanish="¡Un momento! ¡Espera!"})
@@ -39,6 +38,7 @@ return function(hero, partner)
   SkySceneKit.say({english="............", french="... ... ... ...", german="............", italian="... ... ... ...", spanish="..."})
   SkySceneKit.say({english="........................", french="... ... ... ... ... ... ... ...", german="........................", italian="... ... ... ... ... ... ... ...", spanish="..."})
   SkySceneKit.say({english="....................................", french="... ... ... ... ... ... ... ... ... ...", german="....................................", italian="... ... ... ... ... ... ... ... ... ...", spanish="..."})
+  SkySceneKit.say({english="Gyaaaaaah!", french="Gyaaaaaah!", german="Gyaaaaaah!", italian="Gyaaaaaah!", spanish="¡Gyaaaaah!"})
   SkySceneKit.say({english="Aiyiyiyi!", french="Aïe, aïe, aïe!", german="Aiaiaiai!", italian="Aihihihi!", spanish="¡Ay, ay, ay!"})
   SkySceneKit.say({english="............ Fine.", french="... ... ... ... Bien.", german="............ Gut.", italian="... ... ... ... Bene.", spanish="... Está bien."})
   SkySceneKit.say({english="I trust that you aren't lying.", french="Je crois que tu dis la vérité.", german="Ich vertraue darauf, dass ihr die Wahrheit sagt.", italian="Credo nella tua buona fede.", spanish="Espero que no me estéis mintiendo."})
@@ -57,6 +57,7 @@ return function(hero, partner)
   SkySceneKit.say({english="...Of course, we can't get to that right away, but...", french="Bien sûr, nous ne pouvons pas faire ça tout de suite, mais...", german="...Sicher können wir der Sache nicht sofort auf den Grund gehen, aber...", italian="... Naturalmente non possiamo iniziare subito...", spanish="Pero claro, no podemos ponernos a ello ahora mismo..."})
   SkySceneKit.say({english="OK. I promise.", french="D'accord. On te le promet.", german="In Ordnung. Wir versprechen es.", italian="OK. Promesso.", spanish="Vale, vale. Lo prometemos."})
   SkySceneKit.say({english="...Of course, that's not possible right now, but...", french="Bien sûr, ce n'est pas possible tout de suite, mais...", german="...Allerdings ist das im Moment nicht möglich...", italian="... Naturalmente non è possibile iniziare subito...", spanish="Por supuesto, ahora mismo no es posible, pero..."})
+  SkySceneKit.say({english="Gyaaaaah!", french="Gyaaaaah!", german="Gyaaaaah!", italian="Gyaaaaah!", spanish="¡Gyaaaaah!"})
   SkySceneKit.say({english="Whoa, whoa, whoa! We'll get to it! Right away!", french="Ouh, là, là! On le fera! Tout de suite!", german="Wow! Wow! Wir werden der Sache auf den Grund gehen! Sofort!", italian="OK! OK! OK! Inizieremo! Adesso!", spanish="¡Ay, ay, ay! ¡Bueno, vale! ¡Lo haremos ahora mismo!"})
   SkySceneKit.say({english="Aiyiyi! We will! We will do it right away!", french="Aïe, aïe, aïe! On le fera! On le fera tout de suite!", german="Jaaaaaaaah! Das werden wir! Auf der Stelle!", italian="Aihihi! Inizieremo immediatamente!", spanish="¡Ay, ay! ¡Claro! ¡Ahora mismo nos ponemos a ello!"})
   SkySceneKit.say({english="Waaah! We will! We'll get on it!", french="Houlà! On le fera! On le fera!", german="Waaah! Wir machen es! Wir machen es!", italian="Aaah! Inizieremo senza esitazioni!", spanish="¡Aaaaah! ¡Sí, sí! ¡Ahora mismo empezamos!"})
@@ -72,11 +73,13 @@ return function(hero, partner)
   SkySceneKit.say({english="............ I will hold you to that promise.", french="... ... ... ... Je veillerai à ce que vous honoriez votre promesse.", german="............ Ich nehme euch beim Wort.", italian="... ... ... ... Le promesse vanno mantenute.", spanish="... Os tomo la palabra."})
   SkySceneKit.say({english="You've made me believe that you will honor that promise.", french="Mais j'ai confiance en vous, vous le ferez...", german="Ich vertraue darauf, dass ihr euer Versprechen halten werdet.", italian="Mi avete dato ragione di credere che terrete fede alla vostra promessa.", spanish="Me habéis convencido de que mantendréis vuestra promesa."})
   SkySceneKit.say({english="If you do not forget... the courage you showed in facing me.", french="... pour peu que vous fassiez preuve du même courage que vous avez montré en m'affrontant.", german="Wenn ihr nicht vergesst... welchen Mut ihr mir gegenüber gezeigt habt.", italian="Non dimenticate... Mi avete affrontato con grande coraggio.", spanish="Si no olvidáis... el valor que habéis mostrado al enfrentaros a mí."})
+  SkySceneKit.say({english="Gyaaaaaaaaaah!", french="Gyaaaaaaaaaah!", german="Gyaaaaaaaaaah!", italian="Gyaaaaaaaaaah!", spanish="¡Gyaaaaaaaaah!"})
   SkySceneKit.say({english="Waaaah! Is...is there anything else?", french="Waouh! Il... il y a autre chose?", german="Waaaah! Gibt... Gibt es noch etwas?", italian="Aaaah! C'è qualcos... qualcos'altro?", spanish="¡Aaaaah! ¿Qui-quieres algo más?"})
   SkySceneKit.say({english="No.", french="Non.", german="Nein.", italian="No.", spanish="No."})
   SkySceneKit.say({english="I was only preparing to take off.", french="Je me préparais juste à m'envoler.", german="Ich wollte nur gerade losfliegen.", italian="Mi stavo preparando a prendere il volo.", spanish="Solo me preparaba para emprender el vuelo."})
   SkySceneKit.say({english="Oh... (Does it need to do that?)", french="Oh... (C'est vraiment utile, ça?)", german="Oh... (Musste das sein?)", italian="Oh... (Farà sempre così?)", spanish="Oh... (¿Y siempre tiene que hacer ese grito?)"})
   SkySceneKit.say({english="Farewell!", french="Adieu!", german="Lebt wohl!", italian="Addio!", spanish="¡Hasta la vista!"})
+  SkySceneKit.say({english="Gyaaaaaaaah!", french="Gyaaaaaaaah!", german="Gyaaaaaaaah!", italian="Gyaaaaaaaah!", spanish="¡Gyaaaaaaaah!"})
   SkySceneKit.say({english="Whew...", french="Pfiou...", german="Puh...", italian="Wow...", spanish="Uf..."})
   SkySceneKit.say({english="Awww, sheesh, that was scary!", french="Ohhh, j'ai eu une peur bleue!", german="Oooh, Junge, das war vielleicht Furcht erregend!", italian="Ahh, mi ha fatto paura!", spanish="¡Guau, qué miedo!"})
   SkySceneKit.say({english="Ewwwwwww, that was scary!", french="Oh, là, là! J'ai eu une de ces peurs!", german="Uuuuh, das war gruselig!", italian="Ohhh, che spavento!", spanish="¡Vaya, pues sí que he pasado miedo!"})
