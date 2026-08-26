@@ -222,8 +222,12 @@ function V:begin()
   local gl=zsum.Grounds
   for gi=0,gl.Count-1 do zone_grounds[gl[gi]]=gi end
   local gi=zone_grounds[self.sky_scene_ground]
-  if gi==nil then emit('{"event":"sky_scene_fail","error":"ground_absent"}');return end
-  GAME:EnterZone('sky_hub_zone',-1,gi,0)
+  if gi~=nil then GAME:EnterZone('sky_hub_zone',-1,gi,0);return end
+  -- ground hors sky_hub_zone (scènes Red compilées): master_zone
+  local mi=self:master_ground_index(self.sky_scene_ground)
+  local msum=_DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('master_zone')
+  if msum.Grounds[mi]==self.sky_scene_ground then GAME:EnterZone('master_zone',-1,mi,0);return end
+  emit('{"event":"sky_scene_fail","error":"ground_absent"}')
   return
  end
  if self.sky_pilot then
@@ -397,9 +401,16 @@ function V:OnGroundMapEnter()
       else
         local ok2,mod=pcall(require,'halcyon.skyscenes.'..self.sky_scene)
         if not ok2 or type(mod)~='function' then
+          -- scènes Red compilées (red_compile_cinematics.py)
+          ok2,mod=pcall(require,'halcyon.redscenes.'..self.sky_scene)
+        end
+        if not ok2 or type(mod)~='function' then
           error('scene inconnue: '..tostring(self.sky_scene)..' ('..tostring(mod)..')')
         end
-        local hero=CH('PLAYER');local partner=CH('Teammate1')
+        local okh,hero=pcall(function() return CH('PLAYER') end)
+        local okp,partner=pcall(function() return CH('Teammate1') end)
+        if not okh then hero=nil end
+        if not okp then partner=nil end
         mod(hero, partner or hero)
         emit('{"scene":"'..self.sky_scene..'","kind":"compiled","verdict":"CINEMATIC_RUNTIME_PASS"}')
       end

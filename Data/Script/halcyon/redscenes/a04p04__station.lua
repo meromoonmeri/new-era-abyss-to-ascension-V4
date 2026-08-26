@@ -1,0 +1,15 @@
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground a04p04 (dialogues ROM 0x084C8768).
+-- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+local SkySceneKit = require 'halcyon.skyscenes.kit'
+return function(hero, partner)
+  pcall(function() UI:ResetSpeaker() end)
+  SkySceneKit.say({english="Yes... The star's explosion swallowed me...", french="Oui... L'explosion de la météorite m'a emporté...", german="Ich weiß... Der Stern explodierte und... riss mich fort...", italian="Già... Esplodendo il meteorite deve avermi inghiottito...", spanish="Sí... La explosión del meteorito me ha dado de lleno."})
+  SkySceneKit.say({english="And I'm now adrift... as a spirit...", french="Et maintenant, je dérive... Je suis un esprit...", german="Und jetzt wandele ich... als Geist zwischen den Welten...", italian="Ed ora sono alla deriva... Sono uno spirito...", spanish="Y ahora estoy a la deriva... como un espíritu..."})
+  SkySceneKit.say({english="Yes... The star's explosion swallowed me...", french="Je me souviens... L'explosion de la météorite m'a emportée...", german="Nein! Ich weiß wieder... Der Stern explodierte und... riss mich fort...", italian="Già... Esplodendo il meteorite deve avermi inghiottito...", spanish="Sí... La explosión del meteorito me ha dado de lleno."})
+  SkySceneKit.say({english="And I'm now adrift... as a spirit...", french="Et maintenant, je dérive... Je suis un esprit...", german="Und jetzt wandele ich... als Geist zwischen den Welten...", italian="Ed ora sono alla deriva... Sono uno spirito...", spanish="Ahora estoy a la deriva... igual que un espíritu..."})
+  SkySceneKit.say({english="(He would drag me into the dark world...)", french="(... qu'il m'entraînait vers le monde des ténèbres...)", german="(Er bringt mich in die Schattenwelt...)", italian="(Ha detto che mi vuole portare nel mondo delle tenebre...)", spanish="(Ha dicho que me va a llevar al mundo de las sombras...)"})
+  SkySceneKit.say({english="(He would drag me into the dark world...)", french="(... qu'il m'entraînait vers le monde des ténèbres...)", german="(Er würde mich in die Schattenwelt bringen...)", italian="(Ha detto che mi vuole portare nel mondo delle tenebre...)", spanish="(Ha dicho que me va a llevar al mundo de las sombras...)"})
+  SkySceneKit.say({english="(Am I going to be abandoned in a world I don't know?)", french="(Va-t-il m'abandonner dans un monde dont je ne sais rien?)", german="(Lässt er mich in einer Welt zurück, die mir fremd ist?)", italian="(Mi abbandonerà in un mondo che non conosco?)", spanish="(¿Acaso piensa abandonarme en un mundo que no conozco?)"})
+  SkySceneKit.say({english="(Am I going to be abandoned in a world I don't know?)", french="(Va-t-il m'abandonner dans un monde dont je ne sais rien?)", german="(Lässt er mich mutterseelenallein in einer dunklen, fremden Welt zurück?)", italian="(Mi abbandonerà in un mondo che non conosco?)", spanish="(¿Es que me va a abandonar en un mundo que no conozco?)"})
+end

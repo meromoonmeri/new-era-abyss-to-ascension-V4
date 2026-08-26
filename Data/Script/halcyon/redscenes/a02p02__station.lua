@@ -1,0 +1,12 @@
+-- GÉNÉRÉ par dev/tools/red_compile_cinematics.py — NE PAS ÉDITER À LA MAIN.
+-- Station canonique PMD Red EU : ground a02p02 (dialogues ROM 0x0849C808).
+-- Ordre = (script, command_index) ROM. Textes 5 langues ROM. Ops cif non ordonnancées: voir rapport.
+local SkySceneKit = require 'halcyon.skyscenes.kit'
+return function(hero, partner)
+  pcall(function() SOUND:PlayBGM("The Escape", true) end)
+  pcall(function() UI:ResetSpeaker() end)
+  SkySceneKit.say({english="Nature's gone savage here too...", french="La nature est devenue folle, ici aussi...", german="Die Natur ist auch hier durcheinander geraten...", italian="Anche qui la natura si sta ribellando...", spanish="Esta zona también ha sido asolada por los desastres naturales..."})
+  SkySceneKit.say({english="The forest fires are still burning out of control...", french="Les feux de forêt restent incontrôlables...", german="Das Feuer im Wald brennt immer noch lichterloh...", italian="Gli incendi nelle foreste sono inarrestabili...", spanish="Los fuegos aún no están controlados..."})
+  SkySceneKit.say({english="The environment is out of control here too...", french="Les éléments se déchaînent, ici aussi...", german="Die Natur ist auch hier außer Kontrolle geraten...", italian="Anche qui l'ambiente si ribella...", spanish="La naturaleza también ha perdido el norte aquí..."})
+  SkySceneKit.say({english="The forest fire is still raging...", french="Le feu de forêt fait encore rage...", german="Das Feuer im Wald wütet noch immer...", italian="Gli incendi nelle foreste sono incontenibili...", spanish="El fuego lo está abrasando todo..."})
+end
