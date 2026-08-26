@@ -256,6 +256,20 @@ class SceneCompiler:
 
     def compile_stmt(self, st):
         st = st.strip()
+        # hold : instruction nue (pause 1 frame de l'interpréteur SSB)
+        if st == "hold":
+            self.emit("GAME:WaitFrames(1) -- hold")
+            return
+        # écritures de drapeaux scénario : $SCENARIO_MAIN_BIT_FLAG[n] = v
+        # -> SV natif (même mécanique que SkyScenario ; relu par les
+        # branches if() de la ROM, conservé pour la progression)
+        mb = re.match(r"\$SCENARIO_MAIN_BIT_FLAG\[(\d+)\]\s*=\s*(\d+)$", st)
+        if mb:
+            n, v = int(mb.group(1)), int(mb.group(2))
+            self.emit(f"SV.SkyScenarioBitFlags = SV.SkyScenarioBitFlags "
+                      f"or {{}}; SV.SkyScenarioBitFlags[{n}] = {v}"
+                      f" -- $SCENARIO_MAIN_BIT_FLAG[{n}] = {v} (ROM)")
+            return
         m = re.match(r"(\w+)(?:<(\w+) (\w+)>)?\s*\((.*)\)$", st, re.S)
         if not m:
             # switch/if imbriqués -> hors périmètre v1
@@ -440,15 +454,38 @@ class SceneCompiler:
                     "message_SetFaceEmpty"):
             self.emit("pcall(function() UI:ResetSpeaker() end)")
         elif op == "MovePositionOffset":
-            mm = re.search(r"<'?\w*'?,?\s*(-?[\d.]+),\s*(-?[\d.]+)>", args)
-            if A and mm:
-                dx = int(float(mm.group(1)) * 8)
-                dy = int(float(mm.group(2)) * 8)
+            # signature ROM: (vitesse px/frame, dx px, dy px) — preuve:
+            # S13P05A SetPositionOffset/scroll pilote (unités px NDS)
+            mm = re.match(
+                r"\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*$", args)
+            if mm and kind == "performer":
+                # performer = caméra (convention V3) : glissement relatif
+                sp = float(mm.group(1)) or 1.0
+                dx, dy = float(mm.group(2)), float(mm.group(3))
+                dur = max(1, int(round(
+                    max(abs(dx), abs(dy)) / max(sp, 0.01))))
+                self.emit(f"pcall(function() local g=GAME:GetCurrentGround()"
+                          f"; GAME:MoveCamera(g.ViewCenter.X+({int(dx)}), "
+                          f"g.ViewCenter.Y+({int(dy)}), {dur}, false) end)"
+                          f" -- MovePositionOffset performer/caméra")
+            elif mm and A:
+                sp = float(mm.group(1))
+                dx, dy = int(float(mm.group(2))), int(float(mm.group(3)))
+                speed = 2 if sp >= 0.6 else 1
                 self.emit(f"do local p={A}.Position; "
                           f"GROUND:MoveToPosition({A}, p.X+({dx}), "
-                          f"p.Y+({dy}), false, 2) end")
+                          f"p.Y+({dy}), false, {speed}) end")
             else:
                 self.unsupported.append(f"MovePositionOffset:{target}")
+        elif op in ("main_EnterDungeon", "main_EnterGround",
+                    "main_SetGround", "main_EnterRescueUser",
+                    "main_EnterTraining"):
+            # transition de fin de scène NDS : dans PMDO le changement de
+            # zone est effectué par le harnais journey/le jeu (EnterZone),
+            # pas par la cinématique elle-même — neutralisé AVEC trace
+            # (même convention que les ops de station V3).
+            self.emit(f"-- {op}({args.strip()[:60]}) [transition de zone "
+                      f"NDS: assurée par le harnais journey/EnterZone PMDO]")
         elif op == "Move2PositionMark":
             mm = re.search(r"Position<'\w*',\s*([\d.]+),\s*([\d.]+)>", args)
             if A and mm:
@@ -459,6 +496,12 @@ class SceneCompiler:
                 self.unsupported.append(f"Move2PositionMark:{target}")
         elif op == "hold":
             self.emit("GAME:WaitFrames(1) -- hold")
+        elif op == "se_FadeOut":
+            # canal SE NDS : les SE portés (SE_TO_PMDO) sont des one-shots
+            # PlayBattleSE déjà terminés — le fondu d'un SE bouclé NDS n'a
+            # pas d'objet ; adaptation documentée du canal SE (V2).
+            self.emit(f"-- se_FadeOut({args.strip()[:40]}) [SE one-shot "
+                      f"PMDO déjà terminé: fondu sans objet, canal SE V2]")
         elif op == "screen_WhiteOut":
             self.emit("GAME:FadeOut(true, 20) -- WhiteOut")
         elif op == "screen_WhiteChange":
