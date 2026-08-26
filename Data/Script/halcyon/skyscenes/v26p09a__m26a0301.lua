@@ -1,0 +1,17 @@
+-- GÉNÉRÉ par dev/tools/sky_compile_scenes.py — NE PAS ÉDITER À LA MAIN.
+-- Scène canonique PMD Sky EU : SCRIPT/V26P09A/m26a0301.ssb (ROM sha256 1fa39d35…).
+-- Dialogues 5 langues ROM embarqués ; conventions du pilote m01a0204.
+local SkySceneKit = require 'halcyon.skyscenes.kit'
+return function(hero, partner)
+  -- back_SetGround(LEVEL_V26P09A) [neutre/état moteur]
+  -- supervision_Acting(0) [neutre/état moteur]
+  -- camera_SetMyself() [neutre/état moteur]
+  -- GAP: BGM BGM_TIME_RESTORED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
+  GAME:FadeIn(60)
+  GAME:WaitFrames(60)
+  pcall(function() UI:ResetSpeaker() end)
+  SkySceneKit.say({english=" Th-this is...", french=" C'est...", german=" D-das ist...", italian=" Q-Questa è...", spanish=" Esto... Esto es..."}) -- SwitchTalk: branche default (canon générique)
+  pcall(function() UI:ResetSpeaker() end)
+  SkySceneKit.say({english="(He must be using telepathy to do so.)", french="(Il doit se servir de la télépathie\npour y arriver.)", german="(Wahrscheinlich setzt es dazu Telepathie ein.)", italian="(Ci sta facendo vedere queste immagini\ncon i suoi poteri telepatici.)", spanish="(Debe de estar usando telepatía.)"}) -- SwitchMonologue: branche default
+  GAME:FadeOut(false, 30)
+end

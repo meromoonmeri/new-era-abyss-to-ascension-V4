@@ -92,10 +92,22 @@ function V:OnGroundMapEnter()
   self.task=TASK:BranchCoroutine(function()
     GAME:WaitFrames(20)
     local ok,err=xpcall(function()
+      -- 1) scènes artisanales (SkyCanonScenes) ; 2) scènes compilées
+      -- (halcyon.skyscenes.<zone>__<scene>, générées par
+      -- sky_compile_scenes.py, signature function(hero, partner))
       local scenes=require('halcyon.SkyCanonScenes')
       local fn=scenes[self.sky_scene]
-      if fn==nil then error('scene inconnue: '..tostring(self.sky_scene)) end
-      fn('/tmp/ground_gameplay_validator.jsonl')
+      if fn~=nil then
+        fn('/tmp/ground_gameplay_validator.jsonl')
+      else
+        local ok2,mod=pcall(require,'halcyon.skyscenes.'..self.sky_scene)
+        if not ok2 or type(mod)~='function' then
+          error('scene inconnue: '..tostring(self.sky_scene)..' ('..tostring(mod)..')')
+        end
+        local hero=CH('PLAYER');local partner=CH('Teammate1')
+        mod(hero, partner or hero)
+        emit('{"scene":"'..self.sky_scene..'","kind":"compiled","verdict":"CINEMATIC_RUNTIME_PASS"}')
+      end
     end,debug.traceback)
     if not ok then emit('{"event":"sky_scene_fail","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}') end
     emit('{"event":"end"}')
