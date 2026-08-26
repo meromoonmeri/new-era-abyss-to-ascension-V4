@@ -9,8 +9,8 @@ return function(hero, partner)
   -- supervision_Acting(0) [neutre/état moteur]
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  -- GAP: se_Play(8967) — table SE NDS→PMDO non mappée v1
-  -- GAP: SetEffect EFFECT_EXCLAMATION_MARK, 3 — VFX NDS→PMDO non mappés v1
+  pcall(function() SOUND:PlayBattleSE("EVT_Emote_Exclaim_Surprised") end)
+  pcall(function() GROUND:CharSetEmote(partner, "exclaim", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
   SkySceneKit.say({english="Th-there's a hatch that leads\nunderground here!", french="Il y a... il y a une échelle qui\nmène sous terre!", german="D-da ist eine Luke, die nach\nunten führt!", italian="Q-Qui c'è una scala che porta di\nsotto!", spanish=" ¡Hay una escalera para bajar!"}) -- SwitchTalk: branche default (canon générique)

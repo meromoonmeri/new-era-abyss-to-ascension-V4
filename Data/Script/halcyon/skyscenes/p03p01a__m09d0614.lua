@@ -15,6 +15,6 @@ return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="[CN]Very well done!\n[CN]Good job, partner!", french="[CN]Très bien joué!\n[CN]Beau travail, partenaire!", german="[CN]Sehr gut gemacht!\n[CN]Gute Arbeit, Partner!", italian="[CN]Ben fatto!\n[CN]Buon lavoro, partner!", spanish="[CN]¡Muy bien hecho!\n[CN]¡Buen trabajo, camarada!"})
   -- message_Close
-  -- GAP: se_Play(5139) — table SE NDS→PMDO non mappée v1
+  -- GAP: se_Play(5139) — id SE NDS sans portage PMDO identifié
   GAME:FadeOut(true, 20) -- WhiteOut
 end

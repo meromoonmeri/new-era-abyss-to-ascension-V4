@@ -16,6 +16,6 @@ return function(hero, partner)
   SkySceneKit.say({english="First...[K] We have to decide which\nTime Gear we should target.", french="D'abord...[K] on doit choisir quel\nRouage du Temps chercher en premier.", german="Als Erstes[K] müssen wir\nentscheiden, welches Zahnrad der Zeit wir\nzuerst ins Visier nehmen.", italian="Prima cosa...[K] Dobbiamo\ndecidere da quale Ingranaggio del Tempo\ncominciare.", spanish="Ahora...[K] habrá que decidir qué\nengranaje vamos a buscar en primer lugar."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   SkySceneKit.say({english=" Let's check the Wonder Map.", french=" Consultons la Carte Miracle.", german="Sehen wir uns mal die\nWunderkarte an.", italian="Controlliamo sulla Mappa delle\nmeraviglie.", spanish=" Miremos el Mapa Mágico."}) -- SwitchTalk: branche default (canon générique)
-  -- GAP: se_Play(6667) — table SE NDS→PMDO non mappée v1
+  -- GAP: se_Play(6667) — id SE NDS sans portage PMDO identifié
   GAME:FadeOut(false, 15)
 end

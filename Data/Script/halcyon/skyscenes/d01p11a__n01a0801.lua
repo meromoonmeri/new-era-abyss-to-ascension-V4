@@ -8,8 +8,8 @@ return function(hero, partner)
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(hero, Direction.Right)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  -- GAP: se_Play(8972) — table SE NDS→PMDO non mappée v1
-  -- GAP: SetEffect EFFECT_SWEAT_DROPS_FROM_BOTH_SIDES_MEDIU — VFX NDS→PMDO non mappés v1
+  pcall(function() SOUND:PlayBattleSE("EVT_Emote_Sweatdrop") end)
+  pcall(function() GROUND:CharSetEmote(hero, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() UI:SetSpeaker(hero) end)

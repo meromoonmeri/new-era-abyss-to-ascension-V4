@@ -9,8 +9,8 @@ return function(hero, partner)
   -- camera_SetMyself() [neutre/état moteur]
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  -- GAP: se_Play(8972) — table SE NDS→PMDO non mappée v1
-  -- GAP: SetEffect EFFECT_SWEAT_DROPS_FROM_BOTH_SIDES_MEDIU — VFX NDS→PMDO non mappés v1
+  pcall(function() SOUND:PlayBattleSE("EVT_Emote_Sweatdrop") end)
+  -- GAP: SetEffect EFFECT_SWEAT_DROPS_FROM_BOTH_SIDES_MEDIUM sur PNJ non résolu (v2 cast SSA)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() UI:ResetSpeaker() end)

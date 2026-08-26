@@ -61,10 +61,7 @@
    "status": "COMPILED",
    "file": "d01p11a__n01a0801.lua",
    "dialogues": 4,
-   "gaps": [
-    "se_Play(8972) — table SE NDS→PMDO non mappée v1",
-    "SetEffect EFFECT_SWEAT_DROPS_FROM_BOTH_SIDES_MEDIU — VFX NDS→PMDO non mappés v1"
-   ]
+   "gaps": null
   },
   "D01P11A/n04a0401.ssb": {
    "status": "PARTIAL_OPS",
@@ -1840,8 +1837,7 @@
    "dialogues": 4,
    "gaps": [
     "BGM BGM_GUILDMASTER_WIGGLYTUFF non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
-    "se_Play(8972) — table SE NDS→PMDO non mappée v1",
-    "SetEffect EFFECT_SWEAT_DROPS_FROM_BOTH_SIDES_MEDIU — VFX NDS→PMDO non mappés v1"
+    "SetEffect EFFECT_SWEAT_DROPS_FROM_BOTH_SIDES_MEDIUM sur PNJ non résolu (v2 cast SSA)"
    ]
   },
   "D31P31A/s01p0901.ssb": {
@@ -2423,9 +2419,6 @@
    "dialogues": 12,
    "gaps": [
     "BGM BGM_TIME_GEAR_REMIX non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
-    "se_Play(8968) — table SE NDS→PMDO non mappée v1",
-    "SetEffect EFFECT_SHOCKED, 3 — VFX NDS→PMDO non mappés v1",
-    "SetEffect EFFECT_SHOCKED, 3 — VFX NDS→PMDO non mappés v1",
     "BGM BGM_HIDDEN_HIGHLAND non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
@@ -2442,16 +2435,15 @@
    "file": "d41p41a__s22p1201.lua",
    "dialogues": 7,
    "gaps": [
-    "se_Play(8198) — table SE NDS→PMDO non mappée v1",
-    "se_Play(8967) — table SE NDS→PMDO non mappée v1",
-    "SetEffect EFFECT_EXCLAMATION_MARK, 3 — VFX NDS→PMDO non mappés v1",
-    "SetEffect EFFECT_EXCLAMATION_MARK, 3 — VFX NDS→PMDO non mappés v1",
-    "SetEffect EFFECT_EXCLAMATION_MARK, 3 — VFX NDS→PMDO non mappés v1",
-    "SetEffect EFFECT_EXCLAMATION_MARK, 3 — VFX NDS→PMDO non mappés v1",
-    "SetEffect EFFECT_EXCLAMATION_MARK, 3 — VFX NDS→PMDO non mappés v1",
-    "SetEffect EFFECT_EXCLAMATION_MARK, 3 — VFX NDS→PMDO non mappés v1",
-    "SetEffect EFFECT_EXCLAMATION_MARK, 3 — VFX NDS→PMDO non mappés v1",
-    "se_Play(6925) — table SE NDS→PMDO non mappée v1"
+    "se_Play(8198) — id SE NDS sans portage PMDO identifié",
+    "SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)",
+    "SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)",
+    "SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)",
+    "SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)",
+    "SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)",
+    "SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)",
+    "SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)",
+    "se_Play(6925) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D42P21A/enter01.ssb": {
@@ -4554,10 +4546,7 @@
    "status": "COMPILED",
    "file": "g01p02a__m02a0106.lua",
    "dialogues": 1,
-   "gaps": [
-    "se_Play(8967) — table SE NDS→PMDO non mappée v1",
-    "SetEffect EFFECT_EXCLAMATION_MARK, 3 — VFX NDS→PMDO non mappés v1"
-   ]
+   "gaps": null
   },
   "G01P03A/enter01.ssb": {
    "status": "PARTIAL_OPS",
@@ -6832,10 +6821,7 @@
    "file": "g01p07c__m04a0302.lua",
    "dialogues": 2,
    "gaps": [
-    "SetEffect EFFECT_ANGRY, 3 — VFX NDS→PMDO non mappés v1",
-    "se_Play(8961) — table SE NDS→PMDO non mappée v1",
-    "SetEffect EFFECT_SWEAT_DROP, 3 — VFX NDS→PMDO non mappés v1",
-    "SetEffect EFFECT_SWEAT_DROP, 3 — VFX NDS→PMDO non mappés v1"
+    "SetEffect EFFECT_ANGRY sur PNJ non résolu (v2 cast SSA)"
    ]
   },
   "G01P07C/m05a0804.ssb": {
@@ -6844,10 +6830,8 @@
    "dialogues": 4,
    "gaps": [
     "BGM BGM_GOODNIGHT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
-    "se_Play(8965) — table SE NDS→PMDO non mappée v1",
-    "SetEffect EFFECT_EXCLAMATION_MARK, 3 — VFX NDS→PMDO non mappés v1",
-    "se_Play(8978) — table SE NDS→PMDO non mappée v1",
-    "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT, 3 — VFX NDS→PMDO non mappés v1"
+    "se_Play(8965) — id SE NDS sans portage PMDO identifié",
+    "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente"
    ]
   },
   "G01P07C/m05a0806.ssb": {
@@ -7167,7 +7151,7 @@
    "dialogues": 3,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
-    "se_Play(6667) — table SE NDS→PMDO non mappée v1"
+    "se_Play(6667) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "H02P99A/s03p0502.ssb": {
@@ -7408,10 +7392,7 @@
    "status": "COMPILED",
    "file": "p01p01a__n01a0401.lua",
    "dialogues": 4,
-   "gaps": [
-    "se_Play(8972) — table SE NDS→PMDO non mappée v1",
-    "SetEffect EFFECT_SWEAT_DROPS_FROM_BOTH_SIDES_MEDIU — VFX NDS→PMDO non mappés v1"
-   ]
+   "gaps": null
   },
   "P01P01A/n01a0710.ssb": {
    "status": "PARTIAL_OPS",
@@ -8306,7 +8287,7 @@
    "file": "p03p01a__m09d0612.lua",
    "dialogues": 3,
    "gaps": [
-    "se_Play(5139) — table SE NDS→PMDO non mappée v1"
+    "se_Play(5139) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "P03P01A/m09d0614.ssb": {
@@ -8314,7 +8295,7 @@
    "file": "p03p01a__m09d0614.lua",
    "dialogues": 4,
    "gaps": [
-    "se_Play(5139) — table SE NDS→PMDO non mappée v1"
+    "se_Play(5139) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "P04P01C/m10a1201.ssb": {
@@ -8850,7 +8831,7 @@
    "file": "s04p01a__s22p0202.lua",
    "dialogues": 2,
    "gaps": [
-    "se_Play(6672) — table SE NDS→PMDO non mappée v1"
+    "se_Play(6672) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "S14P01A/s30a0303.ssb": {
@@ -9779,7 +9760,7 @@
    "file": "t01p02a__m03d0313.lua",
    "dialogues": 1,
    "gaps": [
-    "se_Play(5139) — table SE NDS→PMDO non mappée v1"
+    "se_Play(5139) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "T01P02A/m03d0314.ssb": {

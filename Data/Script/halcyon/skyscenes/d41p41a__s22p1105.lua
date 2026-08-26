@@ -28,9 +28,9 @@ return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="That very accident was caused\nby...[K]none other than myself.", french="Cet accident n'avait rien d'un\nmalencontreux hasard. Il a été provoqué...[K]\npar nul autre que moi!", german="Dieser Unfall wurde von niemand\nanderem als...[K] mir selbst eingefädelt.", italian="Quell'incidente è stato causato\ndal...[K] sottoscritto.", spanish=" Ese accidente...[K] lo provoqué yo."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  -- GAP: se_Play(8968) — table SE NDS→PMDO non mappée v1
-  -- GAP: SetEffect EFFECT_SHOCKED, 3 — VFX NDS→PMDO non mappés v1
-  -- GAP: SetEffect EFFECT_SHOCKED, 3 — VFX NDS→PMDO non mappés v1
+  pcall(function() SOUND:PlayBattleSE("EVT_Emote_Exclaim") end)
+  pcall(function() GROUND:CharSetEmote(hero, "shock", 1) end)
+  pcall(function() GROUND:CharSetEmote(partner, "shock", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
   SkySceneKit.say({english="(What...?)", french="(Quoi...?)", german="(Was?)", italian="(Cosa...?)", spanish="(¿Qué?)"}) -- SwitchMonologue: branche default

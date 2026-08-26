@@ -7,16 +7,16 @@ return function(hero, partner)
   -- back_SetGround(LEVEL_G01P07C) [neutre/état moteur]
   -- supervision_Acting(0) [neutre/état moteur]
   -- camera_SetMyself() [neutre/état moteur]
-  -- GAP: SetEffect EFFECT_ANGRY, 3 — VFX NDS→PMDO non mappés v1
+  -- GAP: SetEffect EFFECT_ANGRY sur PNJ non résolu (v2 cast SSA)
   -- SetAnimation(9) [anim idle native]
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english=" Grrr...", french=" Grrr...", german=" Grrr...", italian=" Grrr...", spanish=" Grrr..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  -- GAP: se_Play(8961) — table SE NDS→PMDO non mappée v1
-  -- GAP: SetEffect EFFECT_SWEAT_DROP, 3 — VFX NDS→PMDO non mappés v1
-  -- GAP: SetEffect EFFECT_SWEAT_DROP, 3 — VFX NDS→PMDO non mappés v1
+  pcall(function() SOUND:PlayBattleSE("EVT_Emote_Confused_2") end)
+  pcall(function() GROUND:CharSetEmote(hero, "sweatdrop", 1) end)
+  pcall(function() GROUND:CharSetEmote(partner, "sweatdrop", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives

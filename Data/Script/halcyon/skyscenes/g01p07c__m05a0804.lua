@@ -13,13 +13,13 @@ return function(hero, partner)
   SkySceneKit.say({english=" Seriously, [hero], thanks!", french="Je te remercie de tout cœur,\n[hero]!", german=" Wirklich, [hero], danke!", italian=" Grazie davvero, [hero]!", spanish="De verdad, [hero].\n¡Muchas gracias!"}) -- SwitchTalk: branche default (canon générique)
   pcall(function() SOUND:FadeOutBGM(120) end)
   GAME:WaitFrames(60)
-  -- GAP: se_Play(8965) — table SE NDS→PMDO non mappée v1
-  -- GAP: SetEffect EFFECT_EXCLAMATION_MARK, 3 — VFX NDS→PMDO non mappés v1
+  -- GAP: se_Play(8965) — id SE NDS sans portage PMDO identifié
+  pcall(function() GROUND:CharSetEmote(partner, "exclaim", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
   SkySceneKit.say({english="They always seem to happen\nwhen you're touching something.", french="On dirait qu'ils se produisent\ntoujours quand tu touches quelque chose.", german="Anscheinend berührst du immer\ngerade irgendetwas, wenn sie kommen.", italian="Mi pare che si siano verificati\nsempre mentre toccavi qualcosa.", spanish="Parece que siempre se producen\ncuando tocas algo."}) -- SwitchTalk: branche default (canon générique)
-  -- GAP: se_Play(8978) — table SE NDS→PMDO non mappée v1
-  -- GAP: SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT, 3 — VFX NDS→PMDO non mappés v1
+  pcall(function() SOUND:PlayBattleSE("EVT_Emote_Complain") end)
+  -- GAP: SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
   SkySceneKit.say({english="(When I heard [CS:N]Azurill[CR]'s scream...)", french="(Quand j'ai entendu crier [CS:N]Azurill[CR]...)", german="(Als ich [CS:N]Azurill[CR] schreien hörte...)", italian="(Quando ho sentito [CS:N]Azurill[CR] gridare...)", spanish="(Cuando escuché el grito de [CS:N]Azurill[CR]...)"}) -- SwitchMonologue: branche default

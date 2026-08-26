@@ -4,7 +4,7 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
-  -- GAP: se_Play(8198) — table SE NDS→PMDO non mappée v1
+  -- GAP: se_Play(8198) — id SE NDS sans portage PMDO identifié
   GAME:FadeOut(true, 20) -- WhiteOut
   -- back_SetGround(LEVEL_D41P41A) [neutre/état moteur]
   -- supervision_Acting(0) [neutre/état moteur]
@@ -12,14 +12,14 @@ return function(hero, partner)
   GAME:WaitFrames(45)
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  -- GAP: se_Play(8967) — table SE NDS→PMDO non mappée v1
-  -- GAP: SetEffect EFFECT_EXCLAMATION_MARK, 3 — VFX NDS→PMDO non mappés v1
-  -- GAP: SetEffect EFFECT_EXCLAMATION_MARK, 3 — VFX NDS→PMDO non mappés v1
-  -- GAP: SetEffect EFFECT_EXCLAMATION_MARK, 3 — VFX NDS→PMDO non mappés v1
-  -- GAP: SetEffect EFFECT_EXCLAMATION_MARK, 3 — VFX NDS→PMDO non mappés v1
-  -- GAP: SetEffect EFFECT_EXCLAMATION_MARK, 3 — VFX NDS→PMDO non mappés v1
-  -- GAP: SetEffect EFFECT_EXCLAMATION_MARK, 3 — VFX NDS→PMDO non mappés v1
-  -- GAP: SetEffect EFFECT_EXCLAMATION_MARK, 3 — VFX NDS→PMDO non mappés v1
+  pcall(function() SOUND:PlayBattleSE("EVT_Emote_Exclaim_Surprised") end)
+  -- GAP: SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)
+  -- GAP: SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)
+  -- GAP: SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)
+  -- GAP: SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)
+  -- GAP: SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)
+  -- GAP: SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)
+  -- GAP: SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() UI:ResetSpeaker() end)
@@ -31,7 +31,7 @@ return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="Because they will try to\ndefeat me.", french=" Pour essayer de me vaincre.", german="Denn sie werden versuchen,\nmich zu besiegen.", italian=" Per cercare di sconfiggermi.", spanish=" Porque querrán derrotarme."})
   -- message_Close
-  -- GAP: se_Play(6925) — table SE NDS→PMDO non mappée v1
+  -- GAP: se_Play(6925) — id SE NDS sans portage PMDO identifié
   GAME:FadeOut(false, 30)
   GAME:WaitFrames(15)
   -- back_SetGround(LEVEL_S04P01A) [neutre/état moteur]

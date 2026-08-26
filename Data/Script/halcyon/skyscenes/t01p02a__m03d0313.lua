@@ -10,6 +10,6 @@ return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="[CN]H-h-h...HELP!", french="[CN]A... A L'AIDE!", german="[CN]H-h-h...HILFE!", italian="[CN]A-A-Aiuto...!", spanish="[CN]¡So... socorro!"})
   -- message_Close
-  -- GAP: se_Play(5139) — table SE NDS→PMDO non mappée v1
+  -- GAP: se_Play(5139) — id SE NDS sans portage PMDO identifié
   GAME:FadeOut(true, 20) -- WhiteOut
 end

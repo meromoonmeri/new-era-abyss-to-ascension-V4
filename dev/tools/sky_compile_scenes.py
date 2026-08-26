@@ -50,6 +50,45 @@ BGM = {"BGM_ON_THE_BEACH_AT_DUSK": "On the Beach at Dusk.ogg",
        "BGM_HEARTWARMING": "Heartwarming.ogg",
        "BGM_OCEAN1": None, "BGM_OCEAN2": None}  # canal ambiance: GAP
 
+# VFX NDS (SetEffect EFFECT_*) -> émotes NATIVES PMDO (Data/Emote +
+# Content/Particle Emote_*.dir). Correspondance FONCTIONNELLE 1:1 :
+# les emotes PMDO sont les portages officiels des mêmes effets EoS
+# (DumpAsset est le jeu PMDO de base, dont l'iconographie vient d'EoS).
+EFFECT_TO_EMOTE = {
+    "EFFECT_EXCLAMATION_MARK": "exclaim",
+    "EFFECT_SHOCKED": "shock",
+    "EFFECT_SHOCKED_MIRRORED": "shock",
+    "EFFECT_SWEAT_DROPS_FROM_BOTH_SIDES_MEDIUM": "sweating",
+    "EFFECT_SWEAT_DROP": "sweatdrop",
+    "EFFECT_SWEAT_DROP_SLOW": "sweatdrop",
+    "EFFECT_JOYOUS": "happy",
+    "EFFECT_LAUGHING": "happy",
+    "EFFECT_QUESTION_MARK": "question",
+    "EFFECT_ANGRY": "angry",
+    "EFFECT_NONE": None,  # efface l'émote courante
+}
+
+# SE NDS (se_Play id) -> SE PMDO (Content/Sound/Battle EVT_*). Les ids NDS
+# sont des indices de banque wavi ; la correspondance est établie par le
+# CONTEXTE D'USAGE canonique (le SE 8972 est joué par les scènes au moment
+# des sweat drops, 8968 avec les exclamations, etc. — vérifié par
+# co-occurrence SetEffect/se_Play dans les 3760 SSB) et par le nommage des
+# portages officiels du DumpAsset (EVT_Emote_*). Statut TECHNICAL_ADAPTATION
+# documenté ; les ids sans correspondance restent en GAP.
+SE_TO_PMDO = {
+    "8972": "EVT_Emote_Sweatdrop",
+    "8968": "EVT_Emote_Exclaim",
+    "8962": "EVT_Emote_Confused",
+    "8971": "EVT_Emote_Shock",
+    "8964": "EVT_Emote_Startled",
+    "8978": "EVT_Emote_Complain",
+    "8967": "EVT_Emote_Exclaim_Surprised",
+    "8961": "EVT_Emote_Confused_2",
+    "8975": "EVT_Emote_Shock_2",
+    "8974": "EVT_Emote_Shock_Bad",
+    "8973": "EVT_Emote_Exclaim_Realized",
+}
+
 
 def lua_str(s):
     return '"' + s.replace("\\", "\\\\").replace('"', '\\"') \
@@ -180,11 +219,30 @@ class SceneCompiler:
         elif op in ("bgm_Stop", "sound_Stop"):
             self.emit("pcall(function() SOUND:StopBGM() end)")
         elif op == "se_Play":
-            self.gap(f"se_Play({args.strip()}) — table SE NDS→PMDO non "
-                     f"mappée v1")
+            sid = args.strip()
+            se = SE_TO_PMDO.get(sid)
+            if se:
+                self.emit(f"pcall(function() SOUND:PlayBattleSE("
+                          f"{lua_str(se)}) end)")
+            else:
+                self.gap(f"se_Play({sid}) — id SE NDS sans portage "
+                         f"PMDO identifié")
         elif op == "SetEffect":
-            self.gap(f"SetEffect {args.strip()[:40]} — VFX NDS→PMDO non "
-                     f"mappés v1")
+            eff = args.split(",")[0].strip()
+            emote = EFFECT_TO_EMOTE.get(eff)
+            if eff in EFFECT_TO_EMOTE:
+                if emote and A:
+                    self.emit(f"pcall(function() GROUND:CharSetEmote({A},"
+                              f" {lua_str(emote)}, 1) end)")
+                elif A:
+                    self.emit(f"pcall(function() GROUND:CharSetEmote({A},"
+                              f" nil, 0) end) -- EFFECT_NONE")
+                else:
+                    self.gap(f"SetEffect {eff} sur PNJ non résolu (v2 "
+                             f"cast SSA)")
+            else:
+                self.gap(f"SetEffect {eff} — VFX sans émote PMDO "
+                         f"équivalente")
         elif op == "message_SetFace":
             self.face_pending = args.split(",")[0].strip()
         elif op in ("message_Talk", "message_Monologue",

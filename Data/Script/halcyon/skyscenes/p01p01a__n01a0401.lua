@@ -11,8 +11,8 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" [CS:K]Kecleon[CR] Market is that way.", french="Le [CS:K]Marché Kecleon[CR] est\nde ce côté.", german="Zum [CS:K]Kecleon-Markt[CR]\ngeht es da lang.", italian="Il [CS:K]Kecleon[CR] Market è\nda quella parte.", spanish=" El [CS:K]Bazar Kecleon[CR] está por allí."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  -- GAP: se_Play(8972) — table SE NDS→PMDO non mappée v1
-  -- GAP: SetEffect EFFECT_SWEAT_DROPS_FROM_BOTH_SIDES_MEDIU — VFX NDS→PMDO non mappés v1
+  pcall(function() SOUND:PlayBattleSE("EVT_Emote_Sweatdrop") end)
+  pcall(function() GROUND:CharSetEmote(hero, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() UI:SetSpeaker(hero) end)
