@@ -54,7 +54,14 @@ TSET = {1: "beach_cave", 2: "drenched_bluff", 3: "mt_bristle",
         37: "treeshroud_forest_1", 38: "treeshroud_forest_2",
         39: "brine_cave", 40: "lower_brine_cave",
         42: "hidden_land", 43: "hidden_highland",
-        45: "temporal_tower", 46: "temporal_spire"}
+        45: "temporal_tower", 46: "temporal_spire",
+        # post-game d44+ : autotiles PMDO base (DumpAsset), noms 1:1
+        48: "mystifying_forest", 49: "rock_aegis_cave",
+        51: "surrounded_sea", 52: "miracle_sea",
+        126: "ice_aegis_cave", 127: "steel_aegis_cave"}
+# tilesets NDS SANS autotile PMDO (base+quest) : 82 crevice_cave,
+# 88 blizzard_island, 180 clearing d45 — REQUIRES_MOD_ASSET, zones non
+# construites tant que l'autotile canonique n'est pas porté.
 
 # music_id mappa -> piste canonique. AUTORITÉ : liste musique donjon arm9
 # overlay10 (HardcodedDungeonMusic : mid -> track) × enum music_id
@@ -76,7 +83,20 @@ MUSIC = {1: "Beach Cave.ogg", 2: "Drenched Bluff.ogg", 3: "Mt. Bristle.ogg",
          24: "Deep Dusk Forest.ogg", 25: "Treeshroud Forest.ogg",
          26: "Brine Cave.ogg", 27: "Lower Brine Cave.ogg",
          28: "Hidden Land.ogg", 29: "Hidden Highland.ogg",
-         30: "Temporal Tower.ogg", 31: "Temporal Spire.ogg"}
+         30: "Temporal Tower.ogg", 31: "Temporal Spire.ogg",
+         # post-game d44+ — PROUVÉ overlay10 HardcodedDungeonMusic:
+         # mid->valeur enum music_id pmdsky-debug, contre-épreuve 9/9 sur
+         # les mids histoire (1→MUSIC_BEACH_CAVE … 31→MUSIC_TEMPORAL_SPIRE)
+         32: "Mystifying Forest.ogg",   # enum 52 MUSIC_MYSTIFYING_FOREST
+         33: "Blizzard Island Rescue Team Medley.ogg",  # enum 53 (ABSENT
+         #    du roster: REQUIRES_MOD_ASSET, silence documenté)
+         34: "Surrounded Sea.ogg",      # enum 54 (ABSENT: REQUIRES_MOD_ASSET)
+         35: "Miracle Sea.ogg",         # enum 60 (ABSENT: REQUIRES_MOD_ASSET)
+         36: "Aegis Cave.ogg",          # enum 56 MUSIC_AEGIS_CAVE
+         52: "Random Dungeon Theme.ogg",  # RANDOM group 0 ROM (sélection
+         #    aléatoire NDS parmi les thèmes génériques — ABSENT du roster:
+         #    REQUIRES_MOD_ASSET, l'aléa n'est PAS simulé par une piste fixe)
+         71: "Star Cave.ogg"}           # enum 142 MUSIC_STAR_CAVE
 
 
 def slug_species(n):
@@ -208,15 +228,39 @@ def main():
                 "SpawnRates": {"nodes": [{"Item": 1, "Range": {
                     "Min": 0, "Max": len(floors_rom)}}]}}} if spawns else {}
         elif ty.startswith("RogueEssence.LevelGen.TileSpawnZoneStep"):
-            rom_traps = decumulate(list(floors_rom[0]["traps"].items()))
-            st["Spawns"] = [{
-                "Spawn": {"TileLoc": {"X": 0, "Y": 0},
-                          "ID": tr_map[tr], "Revealed": True, "Owner": 0,
-                          "TileStates": []},
-                "Rate": w,
-                "Range": {"Min": 0, "Max": len(floors_rom)}}
-                for tr, w in rom_traps
-                if w > 0 and tr_map.get(tr) and tr_map[tr] != "tile_wonder"]
+            # les poids de pièges peuvent varier PAR ÉTAGE dans la ROM
+            # (ex. d50 étages 1-9 vs 10-20) : un groupe de spawns par
+            # signature, avec les plages d'étages EXACTES — jamais
+            # seulement l'étage 1 généralisé.
+            spawns = []
+            tsigs = OrderedDict()
+            for fi, rf in enumerate(floors_rom):
+                sig = json.dumps(rf["traps"], sort_keys=True)
+                tsigs.setdefault(sig, []).append(fi)
+            for sig, fls in tsigs.items():
+                rom_traps = decumulate(
+                    list(floors_rom[fls[0]]["traps"].items()))
+                # plages contiguës d'étages pour cette signature
+                ranges = []
+                start = prev = fls[0]
+                for fi in fls[1:]:
+                    if fi == prev + 1:
+                        prev = fi
+                    else:
+                        ranges.append((start, prev))
+                        start = prev = fi
+                ranges.append((start, prev))
+                for (lo, hi) in ranges:
+                    spawns.extend({
+                        "Spawn": {"TileLoc": {"X": 0, "Y": 0},
+                                  "ID": tr_map[tr], "Revealed": True,
+                                  "Owner": 0, "TileStates": []},
+                        "Rate": w,
+                        "Range": {"Min": lo, "Max": hi + 1}}
+                        for tr, w in rom_traps
+                        if w > 0 and tr_map.get(tr)
+                        and tr_map[tr] != "tile_wonder")
+            st["Spawns"] = spawns
 
     # ---- floors
     new_floors = []

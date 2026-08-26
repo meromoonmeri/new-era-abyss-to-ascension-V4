@@ -179,18 +179,18 @@
   },
   {
    "dimension": "dungeon_zones_vs_rom",
-   "covered": 43,
-   "total": 43,
+   "covered": 55,
+   "total": 55,
    "pct": 100.0,
    "status": "PASS",
    "source": "Tables/ZONE_VS_ROM_COMPARISON.json (comparaison structurelle par étage)",
-   "note": "43 zones construites (histoire d01-d25 + arc futur D27-D32) sur 180 donjons ROM"
+   "note": "55 zones construites (histoire d01-d25 + arc futur D27-D32) sur 180 donjons ROM"
   },
   {
    "dimension": "dungeon_runtime_pmdo",
-   "covered": 43,
+   "covered": 55,
    "total": 180,
-   "pct": 23.9,
+   "pct": 30.6,
    "status": "PARTIAL",
    "source": "dev/docs/canonical_dungeon_runtime/matrix.json + mapgen_*.jsonl (PMDO 0.8.12 réel)",
    "note": "43 zones (histoire d01-d43 complète + arc futur) toutes CANONICAL_RUNTIME_PASS ; le reste des 180 donjons NOT_BUILT"

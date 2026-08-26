@@ -1,0 +1,14 @@
+{"event": "postgame_build", "date": "2026-08-26", "zones": 12, "note": "d44+d50-d60 construits depuis mappa_s.bin (sky_build_zone_from_tables, TSET/MUSIC \u00e9tendus overlay10+enum music_id pmdsky-debug contre-\u00e9preuve 9/9); d45-d49 REQUIRES_MOD_ASSET (tilesets 82/88/180 absents de la base PMDO)"}
+{"event": "postgame_zone", "zone": "mystifying_forest_post", "dungeon": "d44", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "surrounded_sea", "dungeon": "d50", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "miracle_sea", "dungeon": "d51", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "deep_miracle_sea", "dungeon": "d52", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "miracle_seabed", "dungeon": "d53", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "ice_aegis_cave", "dungeon": "d54", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "regice_chamber", "dungeon": "d55", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "rock_aegis_cave", "dungeon": "d56", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "regirock_chamber", "dungeon": "d57", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "steel_aegis_cave", "dungeon": "d58", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "registeel_chamber", "dungeon": "d59", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "aegis_cave_pit", "dungeon": "d60", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "trap_ranges_fix", "zones": ["chasm_cave", "dark_hill", "sealed_ruin", "sealed_ruin_pit", "dusk_forest", "surrounded_sea", "miracle_sea"], "note": "poids de pi\u00e8ges ROM par \u00e9tage (signatures+Range exacts) \u2014 comparateur durci par \u00e9tage, 55/55 EXACT", "runtime": "17/17 CANONICAL_RUNTIME_PASS + GLOBAL_JOURNEY_PASS re-v\u00e9rifi\u00e9"}

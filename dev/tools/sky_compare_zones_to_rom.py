@@ -56,6 +56,13 @@ ZONE_TO_DUNGEON = {
     "underground_lake": "d23", "crystal_lake": "d26",
     "brine_cave_pit": "d37", "old_ruins": "d40",
     "temporal_pinnacle": "d43",
+    # post-game d44+ (tilesets/musiques base PMDO — session 2026-08-26)
+    "mystifying_forest_post": "d44", "surrounded_sea": "d50",
+    "miracle_sea": "d51", "deep_miracle_sea": "d52",
+    "miracle_seabed": "d53", "ice_aegis_cave": "d54",
+    "regice_chamber": "d55", "rock_aegis_cave": "d56",
+    "regirock_chamber": "d57", "steel_aegis_cave": "d58",
+    "registeel_chamber": "d59", "aegis_cave_pit": "d60",
 }
 
 TRAP_TO_PMDO = {k: v.get("pmdo_tile")
@@ -93,9 +100,11 @@ def zone_floor_spawns(floor_json):
     return out
 
 
-def zone_trap_spawns(zone_obj):
+def zone_trap_spawns(zone_obj, floor=None):
     """Parsing STRUCTUREL du TileSpawnZoneStep (les regex sur le JSON
-    sérialisé sont fragiles à l'ordre des clés — bug corrigé)."""
+    sérialisé sont fragiles à l'ordre des clés — bug corrigé).
+    floor=None : tous les spawns ; floor=i : seulement ceux dont le
+    Range couvre l'étage i (les poids ROM varient par étage)."""
     out = []
     for s in zone_obj.get("Segments", []):
         for st in s.get("ZoneSteps", []):
@@ -103,8 +112,14 @@ def zone_trap_spawns(zone_obj):
                     "RogueEssence.LevelGen.TileSpawnZoneStep"):
                 for sp in st.get("Spawns", []):
                     tid = sp.get("Spawn", {}).get("ID")
-                    if tid:
-                        out.append((tid, int(sp.get("Rate", 0))))
+                    if not tid:
+                        continue
+                    if floor is not None:
+                        rg = sp.get("Range", {})
+                        if not (rg.get("Min", 0) <= floor
+                                < rg.get("Max", 1 << 30)):
+                            continue
+                    out.append((tid, int(sp.get("Rate", 0))))
     return out
 
 
@@ -183,18 +198,23 @@ def main():
                     trap_notes.append(
                         f"piège ROM {tr} ({pid}) absent de la zone")
             # proportions exactes des pièges (hors tile_wonder, spawné par
-            # le step par-étage dédié)
+            # le step par-étage dédié) — comparaison PAR ÉTAGE : les poids
+            # ROM varient au fil du donjon (ex. d50 étages 1-9 vs 10-20)
+            # et la zone porte des Range par signature.
             if trap_status == "PASS" and ztraps:
-                rom_ind = [(TRAP_TO_PMDO.get(tr), w) for tr, w in
-                           decumulate(list(
-                               (k, max(v)) for k, v in
-                               rom_traps_all.items()))
-                           if TRAP_TO_PMDO.get(tr) != "tile_wonder"
-                           and w > 0]
-                if not proportions_equal(
-                        sorted(rom_ind), sorted(ztraps)):
-                    trap_status = "FAIL"
-                    trap_notes.append("proportions de pièges ≠ ROM")
+                for fi, fl in enumerate(t["floors"]):
+                    rom_ind = [(TRAP_TO_PMDO.get(tr), w) for tr, w in
+                               decumulate(list(fl["traps"].items()))
+                               if TRAP_TO_PMDO.get(tr) != "tile_wonder"
+                               and w > 0]
+                    zf = zone_trap_spawns(z, floor=fi)
+                    if not zf and fl["layout"].get("fixed_floor_id", 0) > 0:
+                        continue  # étage fixe : table mappa dormante
+                    if not proportions_equal(sorted(rom_ind), sorted(zf)):
+                        trap_status = "FAIL"
+                        trap_notes.append(
+                            f"proportions de pièges ≠ ROM (étage {fi+1})")
+                        break
         entry["traps"] = OrderedDict(status=trap_status, notes=trap_notes,
                                      zone=[f"{i}:{r}" for i, r in ztraps],
                                      rom=sorted(rom_traps_all))

@@ -128,7 +128,7 @@ convertis en fausses maps statiques), **62 DUNGEON_SCREEN** (mapty=10),
 | Preuve | Verdict | Fichier |
 |---|---|---|
 | Journey global NEW SAVE→CH1→…→CH15→**DIALGA** : 14 chapitres, 30 donjons, **313 étages réellement générés**, 10 boss vérifiés, état final 20.0 | `GLOBAL_JOURNEY_PASS` | `sky/global_journey_runtime_proof.jsonl` |
-| 43/43 donjons histoire (d01–d43) générés dans PMDO + structure **EXACT** vs tables ROM | `CANONICAL_RUNTIME_PASS` ×43, `EXACT` ×43 | `canonical_dungeon_runtime/`, `Tables/ZONE_VS_ROM_COMPARISON.json` |
+| 43/43 donjons histoire (d01–d43) + **12 post-game** (d44, d50–d60 : Mystifying Forest, Surrounded Sea, Miracle Sea ×3, Aegis Cave ×7) — **55/55 EXACT** vs tables ROM (comparateur durci PAR ÉTAGE, pièges à plages exactes) | `CANONICAL_RUNTIME_PASS` ×55, `EXACT` ×55 | `canonical_dungeon_runtime/`, `Tables/ZONE_VS_ROM_COMPARISON.json`, `sky/postgame_zones_runtime_proof.jsonl` |
 | 9 chaînes donjon→arène boss (Team Skull→…→Groudon illusion) | `CHAIN_PASS`/`BOSS_ARENA_PASS` ×9 | `sky/story_chains_runtime_proof.jsonl` |
 | 95/95 grounds MAP chargés + marchés en un run | `LOAD_PASS`+`MOVEMENT_PASS` (95 SAFE) | `sky/hub_grounds_runtime_proof.jsonl` |
 | Progression : 14 états ROM franchis, 43 déblocages, monotonie | `PROGRESSION_RUNTIME_PASS` | `sky/progression_runtime_proof.jsonl` |
@@ -210,7 +210,7 @@ items 205/290 (85 REQUIRES_MOD_ITEM) · zones vs ROM 43/43 EXACT · AUDIT_PASS.
 
 | # | GAP | Dimension |
 |---|---|---|
-| 1 | Sky post-game d44+ : zones NOT_BUILT | donjons |
+| 1 | Sky post-game: d44+d50–d60 CONSTRUITS (12 zones, 70 étages, EXACT vs ROM + CANONICAL_RUNTIME_PASS) ; d45–d49 et d61+ restants (tilesets 82/88/180 REQUIRES_MOD_ASSET, épisodes spéciaux) | donjons |
 | 2 | 368 scènes PARTIAL_OPS + 20 multiroutines + 372 REQUIRES_ENGINE_EXTENSION | cinématiques Sky |
 | 3 | 625 scènes double écran NDS (PARTIAL_FIDELITY) non compilées | cinématiques Sky |
 | 4 | Scrolling généralisé : 1 pilote / 213 backgrounds | backgrounds Sky |

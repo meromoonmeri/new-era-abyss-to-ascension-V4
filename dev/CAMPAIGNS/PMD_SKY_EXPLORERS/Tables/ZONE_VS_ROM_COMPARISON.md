@@ -258,3 +258,75 @@
 - items : ROM a des tables=True, zone spawn=True → PASS
 - pièges : ACCEPTED_FIXED_FLOOR donjon 100% salles fixes : la table de pièges mappa est dormante dans la ROM
 
+## mystifying_forest_post (d44 DUNGEON_MYSTIFYING_FOREST) — **EXACT**
+- étages : zone 13 / ROM 13 → PASS
+- espèces/niveaux/proportions : 13 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## surrounded_sea (d50 DUNGEON_SURROUNDED_SEA) — **EXACT**
+- étages : zone 20 / ROM 20 → PASS
+- espèces/niveaux/proportions : 20 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## miracle_sea (d51 DUNGEON_MIRACLE_SEA) — **EXACT**
+- étages : zone 18 / ROM 18 → PASS
+- espèces/niveaux/proportions : 18 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## deep_miracle_sea (d52 DUNGEON_DEEP_MIRACLE_SEA) — **EXACT**
+- étages : zone 4 / ROM 4 → PASS
+- espèces/niveaux/proportions : 4 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## miracle_seabed (d53 DUNGEON_MIRACLE_SEABED) — **EXACT**
+- étages : zone 1 / ROM 1 → PASS
+- espèces/niveaux/proportions : 1 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## ice_aegis_cave (d54 DUNGEON_ICE_AEGIS_CAVE) — **EXACT**
+- étages : zone 3 / ROM 3 → PASS
+- espèces/niveaux/proportions : 3 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## regice_chamber (d55 DUNGEON_REGICE_CHAMBER) — **EXACT**
+- étages : zone 1 / ROM 1 → PASS
+- espèces/niveaux/proportions : 1 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## rock_aegis_cave (d56 DUNGEON_ROCK_AEGIS_CAVE) — **EXACT**
+- étages : zone 3 / ROM 3 → PASS
+- espèces/niveaux/proportions : 3 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## regirock_chamber (d57 DUNGEON_REGIROCK_CHAMBER) — **EXACT**
+- étages : zone 1 / ROM 1 → PASS
+- espèces/niveaux/proportions : 1 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## steel_aegis_cave (d58 DUNGEON_STEEL_AEGIS_CAVE) — **EXACT**
+- étages : zone 4 / ROM 4 → PASS
+- espèces/niveaux/proportions : 4 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## registeel_chamber (d59 DUNGEON_REGISTEEL_CHAMBER) — **EXACT**
+- étages : zone 1 / ROM 1 → PASS
+- espèces/niveaux/proportions : 1 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## aegis_cave_pit (d60 DUNGEON_AEGIS_CAVE_PIT) — **EXACT**
+- étages : zone 5 / ROM 5 → PASS
+- espèces/niveaux/proportions : 5 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
