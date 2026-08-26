@@ -140,12 +140,21 @@
   },
   {
    "dimension": "cinematic_compiled",
-   "covered": 419,
+   "covered": 657,
    "total": 3760,
-   "pct": 11.1,
+   "pct": 17.5,
    "status": "PARTIAL",
    "source": "Docs/SCENE_COMPILER_REPORT.json (compilateur FAIL-CLOSED) + compiled_scenes_runtime_proof.jsonl",
-   "note": "419 scènes 100% traduites émises (dialogues 5 langues ROM, SE/VFX émotes natives, cast SSA PNJ, caméra) ; 44 validées runtime ; PARTIAL_OPS restantes comptées, jamais approximées"
+   "note": "657 scènes 100% traduites émises (dialogues 5 langues ROM, SE/VFX émotes natives, cast SSA PNJ, caméra) ; 44 validées runtime ; PARTIAL_OPS restantes comptées, jamais approximées"
+  },
+  {
+   "dimension": "dual_screen_focus_runtime",
+   "covered": 62,
+   "total": 195,
+   "pct": 31.8,
+   "status": "PARTIAL",
+   "source": "Docs/DUAL_SCREEN_TIMELINES.json + DUAL_SCREEN_VERIFICATION.json + dev/docs/canonical/sky/dual_screen_runtime_proof.jsonl",
+   "note": "195 scènes à timeline double écran ROM ; 62 reconstructions single-screen vérifiées vs timeline (décors, fondus, ordre) ; 62 nappes Sub_* (rendus ROM) ; 8/8 échantillon runtime PASS ; le reste des scènes duales est bloqué par d'autres ops (PARTIAL_OPS/multiroutine), pas par le double écran"
   },
   {
    "dimension": "gameplay_tables_extraction",

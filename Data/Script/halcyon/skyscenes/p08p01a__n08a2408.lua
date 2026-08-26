@@ -5,7 +5,7 @@ local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
   -- GAP: se_Play(8198) — id SE NDS sans portage PMDO identifié
-  GAME:FadeOut(true, 20) -- WhiteOut
+  GAME:FadeOut(true, 30) -- screen_WhiteOut
   -- back_SetGround(LEVEL_P08P01A) [neutre/état moteur]
   -- supervision_Acting(0) [neutre/état moteur]
   -- camera_SetMyself() [neutre/état moteur]

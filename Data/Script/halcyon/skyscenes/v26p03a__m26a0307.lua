@@ -11,6 +11,6 @@ return function(hero, partner)
   GAME:WaitFrames(60)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english=" It survived!", french=" Elle a résisté!", german=" Er hat es überstanden!", italian=" Ha resistito!", spanish=" ¡Sigue aquí!"}) -- SwitchTalk: branche default (canon générique)
-  GAME:FadeOut(true, 20) -- WhiteOut
+  GAME:FadeOut(true, 60) -- screen_WhiteOut
   GAME:WaitFrames(30)
 end

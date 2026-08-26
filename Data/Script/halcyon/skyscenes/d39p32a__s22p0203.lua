@@ -42,6 +42,6 @@ return function(hero, partner)
   -- GAP: SetEffect 351 — VFX sans émote PMDO équivalente
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(20)
-  GAME:FadeOut(true, 20) -- WhiteOut
+  GAME:FadeOut(true, 1) -- screen_WhiteOut
   SkySceneKit.cleanup_npcs()
 end

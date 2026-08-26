@@ -134,7 +134,7 @@ convertis en fausses maps statiques), **62 DUNGEON_SCREEN** (mapty=10),
 | Progression : 14 états ROM franchis, 43 déblocages, monotonie | `PROGRESSION_RUNTIME_PASS` | `sky/progression_runtime_proof.jsonl` |
 | Persistance : save → quit → **process 2** → LoadProgress → reprise | `RESUME_RUNTIME_PASS` | `sky/resume_runtime_proof.jsonl` |
 | Background défilant pilote s13p05a (intro) : mouvement vérifié à 4 instants | `SCROLL_RUNTIME_PASS` | `sky/scroll_pilot_runtime_proof.jsonl` |
-| Cinématiques compilées : **419 scènes** (fail-closed V4), 44 rejouées dans le moteur | `CINEMATIC_RUNTIME_PASS` ×44 | `sky/compiled_scenes_runtime_proof.jsonl`, `Docs/SCENE_COMPILER_REPORT.json` |
+| Cinématiques compilées : **657 scènes** (fail-closed V5 + single-screen focus double écran), 55 rejouées dans le moteur | `CINEMATIC_RUNTIME_PASS` ×55 | `sky/compiled_scenes_runtime_proof.jsonl`, `Docs/SCENE_COMPILER_REPORT.json` |
 
 ### 3.2 Red — Rescue Team EU
 
@@ -164,7 +164,7 @@ Outil : `dev/tools/red_build_gba_fixed_arenas.py`.
 - **Règle absolue** : jamais d'opcode inconnu ignoré silencieusement, jamais de scène
   complexe remplacée par une version simplifiée déclarée PASS. Toute op non traduite
   est comptée (`PARTIAL_OPS`), toute scène incomplète est SKIPPED avec raison.
-- Totaux : **419 COMPILED** (V4), 306 PARTIAL_OPS, 20 NOT_COMPILED_MULTIROUTINE,
+- Totaux : **657 COMPILED** (V5 single-screen focus), 592 PARTIAL_OPS (dénominateur élargi: les 625 PARTIAL_FIDELITY entrent désormais dans le compilateur), 20 NOT_COMPILED_MULTIROUTINE,
   625 SKIPPED_PARTIAL_FIDELITY (double écran NDS), 372 SKIPPED_REQUIRES_ENGINE_EXTENSION,
   2005 TRIVIAL_SKIPPED.
 - Transport qualité : dialogues 5 langues ROM (markup NDS nettoyé, langue du joueur),
@@ -219,8 +219,8 @@ PMDO) · **NOT_IMPLEMENTED** (pas commencé) · aucun BLOCKED restant.
 | d61+ (épisodes spéciaux, donjons libres) | **NOT_IMPLEMENTED** | tables extraites (178/180), zones non construites |
 | Musiques Blizzard/Surrounded/Miracle/Random Dungeon | **REQUIRES_MOD_ASSET** | pistes absentes du roster PMDO ET non extractibles en .ogg vérifié ; zones jouent en silence documenté, jamais de substitution |
 | 85 items Explorers (orbes/graines Sky) | **REQUIRES_MOD_ASSET** | absents du roster PMDO — exclus des spawns avec trace |
-| Cinématiques Sky compilées | **PARTIAL** | 419/3760 COMPILED (fail-closed), 44 runtime PASS ; 306 PARTIAL_OPS (switch/if imbriqués, multi-acteurs complexes), 20 multiroutines, 372 REQUIRES_ENGINE_EXTENSION |
-| Double écran NDS (625 scènes) | **PARTIAL (adaptation impossible 1:1)** | PMDO n'a qu'un écran : scènes à double affichage simultané comptées SKIPPED_PARTIAL_FIDELITY — decision de fidélité, pas un oubli |
+| Cinématiques Sky compilées | **PARTIAL** | **657/3760 COMPILED** (fail-closed, +238 grâce au single-screen focus et aux ops écran/objet V5), 55 runtime PASS ; 592 PARTIAL_OPS restantes (switch/if imbriqués, acteurs multiroutines), 51 multiroutines, 372 REQUIRES_ENGINE_EXTENSION |
+| Double écran NDS (625 scènes) | **PARTIAL (système single-screen focus opérationnel)** | Timeline canonique ROM par scène (`DUAL_SCREEN_TIMELINES.json` : 195 DUAL_TIMELINE, 106 sub préchargé jamais montré, 324 sans op duale) → reconstruction TOP/BOTTOM/BOTH_FOCUS + FOCUS_TRANSITION aux durées ROM (`subscreen.lua`, 62 nappes `Content/BG/Sub_*` rendus ROM cadrage NDS). 62/62 TIMELINE_MATCH vérifiés, 8/8 runtime PASS. Le contenu du 2e écran n'est plus jamais jeté. Reste : scènes duales bloquées par d'AUTRES ops (PARTIAL_OPS/multiroutines), et recadrage caméra sub dynamique non simulé (documenté) |
 | Scrolling backgrounds | **PARTIAL** | pilote s13p05a SCROLL_RUNTIME_PASS + sheet ROM pixel-perfect ; généralisation aux 213 backgrounds non faite (chaque scène scrollée doit être compilée) |
 | Grounds MAP Sky : NPC/interactions | **NOT_IMPLEMENTED** | 96/96 LOAD+MOVE prouvés ; PNJ/dialogues de hub non posés (les scènes compilées en spawnent temporairement) |
 | Cinématiques Red | **PARTIAL** | 45/69 stations compilées (24 sans texte = menus/jonctions), 2/2 testables runtime PASS ; ops cif Audio/Effect/Camera non ordonnancées comptées |

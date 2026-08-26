@@ -12,7 +12,7 @@ return function(hero, partner)
   SkySceneKit.say({english="[CN]Never abandon hope!", french="[CN]Gardez espoir!", german="[CN]Niemals die Hoffnung aufgeben!", italian="[CN]Non bisogna mai disperare!", spanish="[CN]¡Nunca hay que perder la esperanza!"})
   -- message_Close
   -- GAP: se_Play(6672) — id SE NDS sans portage PMDO identifié
-  GAME:FadeOut(true, 20) -- WhiteOut
+  GAME:FadeOut(true, 3) -- screen_WhiteOut
   GAME:WaitFrames(3)
   GAME:FadeIn(3)
   GAME:FadeOut(false, 0)

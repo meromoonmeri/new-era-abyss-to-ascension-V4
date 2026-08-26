@@ -165,6 +165,11 @@ def lua_str(s):
         .replace("\n", "\\n") + '"'
 
 
+def last_int_arg(args, default=0):
+    nums = re.findall(r'-?\d+', args)
+    return int(nums[-1]) if nums else default
+
+
 def parse_dialogue_block(txt, i):
     """Parse un bloc {english=..., french=...} à partir de txt[i:]."""
     depth = 0
@@ -205,6 +210,11 @@ class SceneCompiler:
         # cast SSA : ACTOR_NAME -> (var lua, species, x8, y8, dir)
         self.cast = cast or {}
         self.spawned = set()
+        # double écran NDS -> single-screen focus (subscreen.lua)
+        self.sub_ground = None    # décor chargé par back2_SetGround
+        self.sub_shown = False    # écran sub actuellement révélé
+        self.main_shown = False   # écran main actuellement révélé
+        self.used_subscreen = False
 
     def emit(self, s):
         self.lines.append("  " + s)
@@ -289,19 +299,162 @@ class SceneCompiler:
         elif op == "screen_FadeIn":
             f = args.split(",")
             self.emit(f"GAME:FadeIn({int(f[-1])})")
+            self.main_shown = True
         elif op == "screen_FadeOut":
             f = args.split(",")
             self.emit(f"GAME:FadeOut(false, {int(f[-1])})")
+            self.main_shown = False
         elif op in ("screen_FadeInAll", "screen_FadeOutAll"):
             n = args.split(",")[-1]
             fn = "FadeIn" if "In" in op else "FadeOut"
             arg = n if fn == "FadeIn" else f"false, {n}"
             self.emit(f"GAME:{fn}({arg.strip()})")
-        elif op in ("screen2_FadeIn", "screen2_FadeOut", "back2_SetMode",
-                    "back2_SetGround", "bgm2_PlayFadeIn", "bgm2_Play",
-                    "bgm2_Stop", "bgm2_FadeOut",
-                    "supervision2_SpecialActing"):
-            self.gap(op + " (2e écran/canal NDS fusionné)")
+            self.main_shown = "In" in op
+        elif op in ("screen_FlushIn", "screen_FlushOut",
+                    "screen_FlushChange"):
+            # flush = révélation/occultation rapide de l'écran principal
+            # (même sémantique que Fade, rideau instantané NDS)
+            n = last_int_arg(args, 4)
+            if op == "screen_FlushOut":
+                self.emit(f"GAME:FadeOut(false, {n}) -- {op}")
+                self.main_shown = False
+            else:
+                self.emit(f"GAME:FadeIn({n}) -- {op}")
+                self.main_shown = True
+        # ---- double écran NDS -> single-screen focus (subscreen.lua,
+        # timeline canonique DUAL_SCREEN_TIMELINES.json). Le contenu du
+        # 2e écran est AFFICHÉ quand la ROM le révèle, jamais jeté.
+        elif op == "back2_SetGround":
+            g = re.search(r"LEVEL_([A-Z0-9_]+)", args)
+            if g:
+                self.sub_ground = g.group(1).lower()
+                self.emit(f"-- back2_SetGround({g.group(1)}) [décor sub "
+                          f"chargé: Sub_{self.sub_ground}]")
+            else:
+                self.unsupported.append("back2_SetGround:arg")
+        elif op in ("screen2_FadeChange", "screen2_WhiteChange") \
+                and self.sub_shown:
+            # variation d'alpha du sub DÉJÀ révélé (pulsation lumineuse
+            # NDS) : la nappe reste affichée — trace documentée, pas un
+            # nouveau Show
+            self.emit(f"-- {op}({args.strip()[:24]}) [variation d'alpha "
+                      f"du sub déjà révélé: nappe maintenue - documenté]")
+        elif op in ("screen2_FadeIn", "screen2_FlushIn",
+                    "screen2_FadeChange", "screen2_WhiteChange"):
+            if self.sub_ground is None:
+                # révélation SANS back2_SetGround préalable : le sub
+                # affiche son mode par défaut (wallpaper système NDS,
+                # back2_SetMode sans décor) — aucun contenu narratif à
+                # reproduire sur le canvas unique. Trace documentée.
+                self.emit(f"-- {op}({args.strip()[:16]}) [sub révélé en "
+                          f"mode système NDS (aucun décor chargé): pas de "
+                          f"contenu narratif - documenté]")
+                self.sub_shown = True
+            else:
+                fade = args.split(",")[-1].strip() or "20"
+                both = "true" if self.main_shown else "false"
+                focus = "BOTH_FOCUS" if self.main_shown else "TOP_FOCUS"
+                self.emit(f"SkySubScreen.Show({lua_str(self.sub_ground)}, "
+                          f"{fade}, {both}) -- {op}: {focus} "
+                          f"(timeline ROM)")
+                self.sub_shown = True
+                self.used_subscreen = True
+        elif op in ("screen2_FadeOut", "screen2_FlushOut",
+                    "screen2_WhiteOut"):
+            fade = args.split(",")[-1].strip() or "20"
+            if self.sub_shown:
+                self.emit(f"SkySubScreen.Hide({fade}) -- {op}: retour "
+                          f"BOTTOM_FOCUS (timeline ROM)")
+                self.sub_shown = False
+            else:
+                self.emit(f"-- {op} [sub déjà caché]")
+        elif op == "back2_SetMode":
+            self.emit(f"-- back2_SetMode({args.strip()[:20]}) [mode "
+                      f"d'affichage sub NDS: géré par SubScreen]")
+        elif op in ("bgm2_PlayFadeIn", "bgm2_Play"):
+            # canal musique du 2e écran : la NDS mixe deux musiques ;
+            # PMDO n'a qu'un canal BGM. Adaptation documentée : le canal
+            # sub REMPLACE le principal pendant TOP_FOCUS, sinon ignoré.
+            track = args.split(",")[0].strip()
+            ogg = BGM.get(track)
+            if ogg and self.sub_shown and not self.main_shown:
+                self.emit(f"pcall(function() SOUND:PlayBGM("
+                          f"{lua_str(ogg)}, true) end) -- bgm2 en "
+                          f"TOP_FOCUS (canal unique PMDO)")
+            else:
+                self.emit(f"-- {op}({track}) [canal BGM sub: PMDO n'a "
+                          f"qu'un canal; hors TOP_FOCUS le principal "
+                          f"garde la main - adaptation documentée]")
+        elif op in ("bgm2_Stop", "bgm2_FadeOut"):
+            self.emit(f"-- {op} [canal BGM sub: voir bgm2_Play]")
+        elif op == "supervision2_SpecialActing":
+            self.emit(f"-- supervision2_SpecialActing({args.strip()[:40]})"
+                      f" [acting sub NDS: décor déjà reproduit par "
+                      f"SubScreen, acteurs sub non simulés - trace]")
+        elif op in ("camera2_SetPositionMark", "camera2_MovePositionMark",
+                    "camera2_SetDefault", "camera2_Move2Default",
+                    "camera2_SetEffect"):
+            # caméra du 2e écran : la nappe Sub_ est un cadrage fixe
+            # fenêtre NDS — le recadrage dynamique sub n'est pas simulé
+            # (différence documentée, décor complet conservé au rapport)
+            self.emit(f"-- {op}({args.strip()[:40]}) [caméra sub NDS: "
+                      f"nappe Sub_ cadrée fenêtre NDS, recadrage "
+                      f"dynamique non simulé - documenté]")
+        elif op in ("WaitSubScreen", "WaitScreen2Fade"):
+            self.emit(f"GAME:WaitFrames(2) -- join {op} (fondu sub "
+                      f"déjà séquencé par SubScreen)")
+        elif op == "WaitBgmSignal":
+            # attente d'un point de synchronisation musical NDS (signal
+            # SMD) : approx = join court, la piste PMDO n'émet pas de
+            # signaux (adaptation documentée)
+            self.emit("GAME:WaitFrames(30) -- WaitBgmSignal (signal SMD "
+                      "NDS sans équivalent: join fixe documenté)")
+        elif op in ("back2_SetEffect", "back2_SetBackEffect",
+                    "back2_SetBackScrollSpeed", "back2_SetBackScrollOffset",
+                    "back2_SetWeather", "back2_SetWeatherEffect",
+                    "back2_SetInvisible", "back2_SetSpecialActing",
+                    "bgm2_ChangeVolume", "bgm2_PlayFadeInVolume"):
+            self.emit(f"-- {op}({args.strip()[:40]}) [effet du canal sub "
+                      f"NDS: nappe Sub_ statique, effet non simulé - "
+                      f"documenté]")
+        elif op == "back_SetBackScrollSpeed":
+            # généralisation du pilote scroll s13p05a (SCROLL_RUNTIME_
+            # PASS) : le défilement du fond NDS devient un MOUVEMENT DE
+            # CAMÉRA CONTINU. Vitesses ROM en px/frame ; segment de 120
+            # frames (durée du plan typique, la caméra suit ensuite la
+            # scène). Vitesse (0,0) = arrêt (aucun mouvement émis).
+            mm = re.match(r"\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)", args)
+            if mm:
+                vx, vy = float(mm.group(1)), float(mm.group(2))
+                if vx == 0 and vy == 0:
+                    self.emit("-- back_SetBackScrollSpeed(0,0): arrêt du "
+                              "défilement")
+                else:
+                    dx, dy = int(vx * 120), int(vy * 120)
+                    self.emit(f"pcall(function() local g=GAME:"
+                              f"GetCurrentGround(); GAME:MoveCamera("
+                              f"g.ViewCenter.X+({dx}), "
+                              f"g.ViewCenter.Y+({dy}), 120, false) end) "
+                              f"-- back_SetBackScrollSpeed({vx},{vy}) "
+                              f"px/frame -> caméra continue (pilote "
+                              f"scroll)")
+            else:
+                self.unsupported.append("back_SetBackScrollSpeed:args")
+        elif op == "back_SetBackScrollOffset":
+            mm = re.match(r"\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)", args)
+            if mm:
+                dx, dy = int(float(mm.group(1))), int(float(mm.group(2)))
+                self.emit(f"pcall(function() local g=GAME:"
+                          f"GetCurrentGround(); GAME:MoveCamera("
+                          f"g.ViewCenter.X+({dx}), g.ViewCenter.Y+({dy}),"
+                          f" 1, false) end) -- back_SetBackScrollOffset "
+                          f"px NDS (pilote scroll)")
+            else:
+                self.unsupported.append("back_SetBackScrollOffset:args")
+        elif op == "back_SetBanner2":
+            self.emit(f"-- back_SetBanner2({args.strip()[:30]}) [bannière "
+                      f"2e écran NDS: information dupliquée du menu, hors "
+                      f"canvas unique - documenté]")
         elif op in ("bgm_Play", "bgm_PlayFadeIn"):
             track = args.split(",")[0].strip()
             ogg = BGM.get(track)
@@ -341,7 +494,9 @@ class SceneCompiler:
             else:
                 self.gap(f"SetEffect {eff} — VFX sans émote PMDO "
                          f"équivalente")
-        elif op == "message_SetFace":
+        elif op in ("message_SetFace", "message_SetFaceOnly"):
+            # SetFaceOnly = portrait sans passer la parole (même donnée
+            # speaker, le portrait PMDO suit le speaker du kit)
             self.face_pending = args.split(",")[0].strip()
         elif op in ("message_Talk", "message_Monologue",
                     "message_Explanation", "message_Notice",
@@ -413,12 +568,25 @@ class SceneCompiler:
         elif op in ("Move2PositionOffset", "Slide2PositionOffset",
                     "SlidePositionOffset", "MovePositionOffset2"):
             mm = re.search(r"<'?\w*'?,?\s*(-?[\d.]+),\s*(-?[\d.]+)>", args)
+            flat = re.match(
+                r"\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*$",
+                args)
             if A and mm:
                 dx = int(float(mm.group(1)) * 8)
                 dy = int(float(mm.group(2)) * 8)
                 self.emit(f"do local p={A}.Position; "
                           f"GROUND:MoveToPosition({A}, p.X+({dx}), "
                           f"p.Y+({dy}), false, 2) end")
+            elif A and flat:
+                # signature plate ROM: (vitesse px/frame, dx px, dy px) —
+                # mêmes unités que MovePositionOffset (preuve pilote scroll)
+                sp = float(flat.group(1))
+                dx = int(float(flat.group(2)))
+                dy = int(float(flat.group(3)))
+                speed = 2 if sp >= 0.6 else 1
+                self.emit(f"do local p={A}.Position; "
+                          f"GROUND:MoveToPosition({A}, p.X+({dx}), "
+                          f"p.Y+({dy}), false, {speed}) end -- {op}")
             else:
                 self.unsupported.append(f"{op}:{target}")
         elif op == "SetPositionMark":
@@ -502,10 +670,85 @@ class SceneCompiler:
             # pas d'objet ; adaptation documentée du canal SE (V2).
             self.emit(f"-- se_FadeOut({args.strip()[:40]}) [SE one-shot "
                       f"PMDO déjà terminé: fondu sans objet, canal SE V2]")
-        elif op == "screen_WhiteOut":
-            self.emit("GAME:FadeOut(true, 20) -- WhiteOut")
+        elif op in ("screen_WhiteOut", "screen_WhiteOutAll"):
+            n = last_int_arg(args, 20)
+            self.emit(f"GAME:FadeOut(true, {n}) -- {op}")
+            self.main_shown = False
         elif op == "screen_WhiteChange":
-            self.emit("GAME:FadeIn(20) -- WhiteChange")
+            n = last_int_arg(args, 20)
+            self.emit(f"GAME:FadeIn({n}) -- WhiteChange")
+            self.main_shown = True
+        elif op == "screen_FadeChange":
+            # (mode, durée, alpha_de, alpha_vers) : assombrissement/
+            # éclaircissement PARTIEL de l'écran principal. PMDO n'a pas
+            # d'alpha caméra scriptable : fondu de même durée, sens
+            # déterminé par alpha_vers (documenté).
+            parts = [p.strip() for p in args.split(",")]
+            dur = int(parts[1]) if len(parts) > 1 and \
+                parts[1].lstrip('-').isdigit() else 20
+            to_a = int(parts[3]) if len(parts) > 3 and \
+                parts[3].lstrip('-').isdigit() else 256
+            if to_a >= 192:
+                self.emit(f"GAME:FadeIn({dur}) -- screen_FadeChange vers "
+                          f"alpha {to_a} (éclaircissement, adaptation)")
+            else:
+                self.emit(f"GAME:FadeOut(false, {dur}) -- "
+                          f"screen_FadeChange vers alpha {to_a} "
+                          f"(assombrissement, adaptation)")
+        elif op == "WaitExecuteObject":
+            # join sur la routine d'un OBJET de scène NDS (props animés) :
+            # les routines d'objets ne sont pas simulées — join court,
+            # trace explicite (même convention que WaitExecuteLives)
+            self.emit(f"GAME:WaitFrames(2) -- join WaitExecuteObject("
+                      f"{args.strip()[:30]}) [routine d'objet NDS non "
+                      f"simulée - documenté]")
+        elif op == "back_SetDungeonBanner":
+            # bannière "Donjon - Étage" NDS : équivalent natif PMDO =
+            # titre d'écran (même information au même moment)
+            self.emit(f"pcall(function() UI:WaitShowTitle(GAME:"
+                      f"GetCurrentGround().Name:ToLocal(), 30) end) "
+                      f"-- back_SetDungeonBanner({args.strip()[:16]})")
+        elif op == "camera_SetEffect":
+            # (type, intensité, vitesse) : tremblement/effet caméra NDS.
+            # type 2 = tremblement -> ScreenMover natif ; type 0 = stop.
+            parts = re.findall(r'-?\d+', args)
+            if parts and parts[0] == '0':
+                self.emit("-- camera_SetEffect(0): arrêt d'effet caméra")
+            else:
+                power = int(parts[1]) if len(parts) > 1 else 2
+                self.emit(f"pcall(function() GROUND:MoveScreen("
+                          f"RogueEssence.Content.ScreenMover(0, "
+                          f"{max(1, power * 2)}, 30)) end) "
+                          f"-- camera_SetEffect{tuple(parts)}")
+        elif op == "SlidePositionMark":
+            mm = re.search(r"Position<'\w*',\s*([\d.]+),\s*([\d.]+)>", args)
+            sp = re.match(r"\s*([\d.]+)", args)
+            if A and mm:
+                x = int(float(mm.group(1)) * 8)
+                y = int(float(mm.group(2)) * 8)
+                speed = 2 if (sp and float(sp.group(1)) >= 0.6) else 1
+                self.emit(f"GROUND:MoveToPosition({A}, {x}, {y}, false, "
+                          f"{speed}) -- SlidePositionMark (glissement)")
+            else:
+                self.unsupported.append(f"SlidePositionMark:{target}")
+        elif op == "message_ImitationSound":
+            # onomatopée textuelle NDS (bulle "Bzzt!" etc.) : rendue comme
+            # dialogue court (même contenu, présentation adaptée)
+            langs, _ = parse_dialogue_block(args, args.find("{"))
+            if langs:
+                tbl = ", ".join(f"{k}={lua_str(v)}"
+                                for k, v in langs.items())
+                self.emit(f"SkySceneKit.say({{{tbl}}}) "
+                          f"-- message_ImitationSound (onomatopée)")
+                self.dialogues += 1
+            else:
+                self.emit("-- message_ImitationSound sans texte")
+        elif op == "MoveHeight":
+            # élévation d'un objet de scène NDS (lévitation sprite) :
+            # objets de décor non simulés — trace (les acteurs du cast le
+            # sont via les routines, hors périmètre objet)
+            self.emit(f"-- MoveHeight({args.strip()[:24]}) [élévation "
+                      f"d'objet NDS non simulée - documenté]")
         elif op == "message_SwitchMonologue":
             i = args.rfind("default:")
             j = args.find("case")
@@ -606,7 +849,12 @@ def main():
                 continue
             key = f"{zone}/{name}"
             cls = ci.get(key, {}).get("classification")
-            if cls not in ("NATIVELY_SUPPORTED", "TECHNICALLY_ADAPTABLE"):
+            # PARTIAL_FIDELITY admis depuis le single-screen focus
+            # (subscreen.lua + DUAL_SCREEN_TIMELINES) : le compilateur
+            # reste FAIL-CLOSED op par op — toute op PARTIEL non traduite
+            # classe la scène PARTIAL_OPS, jamais approximée en silence.
+            if cls not in ("NATIVELY_SUPPORTED", "TECHNICALLY_ADAPTABLE",
+                           "PARTIAL_FIDELITY"):
                 counts["SKIPPED_" + str(cls)] += 1
                 continue
             src = s.get("explorerscript") or ""
@@ -660,16 +908,24 @@ def main():
             fn = f"{zone.lower()}__{name[:-4]}"
             if comp.spawned:
                 comp.emit("SkySceneKit.cleanup_npcs()")
+            requires = "local SkySceneKit = require 'halcyon.skyscenes.kit'\n"
+            if comp.used_subscreen:
+                comp.emit("SkySubScreen.Hide(10) -- fin de scène: nappe "
+                          "sub retirée")
+                requires += ("local SkySubScreen = require "
+                             "'halcyon.skyscenes.subscreen'\n")
             body = "\n".join(comp.lines)
-            lua = (HEADER % (zone, name)
-                   + "local SkySceneKit = require 'halcyon.skyscenes.kit'\n"
+            lua = (HEADER % (zone, name) + requires
                    + f"return function(hero, partner)\n{body}\nend\n")
             open(os.path.join(OUT, fn + ".lua"), "w",
                  encoding="utf-8").write(lua)
             emitted.append(fn)
             counts["COMPILED"] += 1
+            if comp.used_subscreen:
+                counts["COMPILED_DUAL_SCREEN"] += 1
             report[key] = {"status": "COMPILED", "file": fn + ".lua",
                            "dialogues": comp.dialogues,
+                           "dual_screen_focus": comp.used_subscreen or None,
                            "gaps": comp.gaps or None}
     # registre
     idx = ["-- GÉNÉRÉ par sky_compile_scenes.py", "return {"]

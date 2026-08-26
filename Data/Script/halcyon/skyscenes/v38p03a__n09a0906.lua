@@ -27,7 +27,7 @@ return function(hero, partner)
   GAME:WaitFrames(2)
   pcall(function() GAME:MoveCamera(404, 116, 1, false) end)
   GAME:WaitFrames(2)
-  GAME:FadeOut(true, 20) -- WhiteOut
+  GAME:FadeOut(true, 2) -- screen_WhiteOut
   GAME:WaitFrames(3)
   GAME:FadeIn(2)
   pcall(function() GAME:MoveCamera(668, 332, 1, false) end)
@@ -106,7 +106,7 @@ return function(hero, partner)
   GAME:WaitFrames(2)
   pcall(function() GAME:MoveCamera(404, 116, 1, false) end)
   GAME:WaitFrames(2)
-  GAME:FadeOut(true, 20) -- WhiteOut
+  GAME:FadeOut(true, 2) -- screen_WhiteOut
   GAME:WaitFrames(3)
   GAME:FadeIn(2)
   pcall(function() GAME:MoveCamera(668, 332, 1, false) end)
@@ -185,7 +185,7 @@ return function(hero, partner)
   GAME:WaitFrames(2)
   pcall(function() GAME:MoveCamera(404, 116, 1, false) end)
   GAME:WaitFrames(2)
-  GAME:FadeOut(true, 20) -- WhiteOut
+  GAME:FadeOut(true, 2) -- screen_WhiteOut
   GAME:WaitFrames(3)
   GAME:FadeIn(2)
   pcall(function() GAME:MoveCamera(668, 332, 1, false) end)

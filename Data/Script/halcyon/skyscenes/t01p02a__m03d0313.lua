@@ -11,5 +11,5 @@ return function(hero, partner)
   SkySceneKit.say({english="[CN]H-h-h...HELP!", french="[CN]A... A L'AIDE!", german="[CN]H-h-h...HILFE!", italian="[CN]A-A-Aiuto...!", spanish="[CN]¡So... socorro!"})
   -- message_Close
   -- GAP: se_Play(5139) — id SE NDS sans portage PMDO identifié
-  GAME:FadeOut(true, 20) -- WhiteOut
+  GAME:FadeOut(true, 5) -- screen_WhiteOut
 end

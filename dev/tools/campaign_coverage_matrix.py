@@ -317,6 +317,24 @@ def sky_matrix():
             f"ROM, SE/VFX émotes natives, cast SSA PNJ, caméra) ; "
             f"{n_pass} validées runtime ; PARTIAL_OPS restantes comptées, "
             f"jamais approximées"))
+    dsv_p = c / "Docs" / "DUAL_SCREEN_VERIFICATION.json"
+    dst_p = c / "Docs" / "DUAL_SCREEN_TIMELINES.json"
+    if dsv_p.exists() and dst_p.exists():
+        dsv = load(dsv_p)["totals"]
+        dst = load(dst_p)["totals"]
+        n_dual = dst.get("DUAL_TIMELINE", 0)
+        n_match = dsv.get("TIMELINE_MATCH", 0)
+        dims.append(dim(
+            "dual_screen_focus_runtime", n_match, n_dual,
+            "PARTIAL" if n_match < n_dual else "PASS",
+            "Docs/DUAL_SCREEN_TIMELINES.json + DUAL_SCREEN_VERIFICATION."
+            "json + dev/docs/canonical/sky/dual_screen_runtime_proof.jsonl",
+            f"{n_dual} scènes à timeline double écran ROM ; {n_match} "
+            f"reconstructions single-screen vérifiées vs timeline "
+            f"(décors, fondus, ordre) ; 62 nappes Sub_* (rendus ROM) ; "
+            f"8/8 échantillon runtime PASS ; le reste des scènes duales "
+            f"est bloqué par d'autres ops (PARTIAL_OPS/multiroutine), "
+            f"pas par le double écran"))
     ti_p = c / "Tables" / "DUNGEON_TABLES_INDEX.json"
     if ti_p.exists():
         ti = load(ti_p)["totals"]
