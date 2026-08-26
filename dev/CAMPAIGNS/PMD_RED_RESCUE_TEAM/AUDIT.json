@@ -1351,19 +1351,7 @@
    "animation_sheet": false,
    "status": "PASS"
   },
-  "d01p02": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
   "d02p01": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
-  "d02p02": {
    "expected": 1,
    "rendered": 1,
    "animation_sheet": false,
@@ -1375,19 +1363,7 @@
    "animation_sheet": false,
    "status": "PASS"
   },
-  "d03p02": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
   "d04p01": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
-  "d04p02": {
    "expected": 1,
    "rendered": 1,
    "animation_sheet": false,
@@ -1399,25 +1375,7 @@
    "animation_sheet": false,
    "status": "PASS"
   },
-  "d05p02": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
   "d06p01": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
-  "d06p02": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
-  "d06p03": {
    "expected": 1,
    "rendered": 1,
    "animation_sheet": false,
@@ -1507,73 +1465,13 @@
    "animation_sheet": false,
    "status": "PASS"
   },
-  "d12p02": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
-  "d12p04": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
   "d13p01": {
    "expected": 8,
    "rendered": 8,
    "animation_sheet": false,
    "status": "PASS"
   },
-  "d13p02": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
-  "d13p03": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
-  "d14p01": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
-  "d15p01": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
-  "d16p01": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
-  "d17p01": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
-  "d18p01": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
   "d18p11a": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
-  "d19p01": {
    "expected": 1,
    "rendered": 1,
    "animation_sheet": false,
@@ -1585,19 +1483,7 @@
    "animation_sheet": false,
    "status": "PASS"
   },
-  "d20p01": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
   "d20p11a": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
-  "d21p01": {
    "expected": 1,
    "rendered": 1,
    "animation_sheet": false,
@@ -1627,12 +1513,6 @@
    "animation_sheet": false,
    "status": "PASS"
   },
-  "d23p01": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
   "d24p01": {
    "expected": 1,
    "rendered": 1,
@@ -1640,12 +1520,6 @@
    "status": "PASS"
   },
   "d24p02": {
-   "expected": 1,
-   "rendered": 1,
-   "animation_sheet": false,
-   "status": "PASS"
-  },
-  "d25p01": {
    "expected": 1,
    "rendered": 1,
    "animation_sheet": false,
