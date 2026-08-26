@@ -113,9 +113,9 @@ MUSIC = {1: "Beach Cave.ogg", 2: "Drenched Bluff.ogg", 3: "Mt. Bristle.ogg",
          34: "Surrounded Sea.ogg",      # enum 54 (ABSENT: REQUIRES_MOD_ASSET)
          35: "Miracle Sea.ogg",         # enum 60 (ABSENT: REQUIRES_MOD_ASSET)
          36: "Aegis Cave.ogg",          # enum 56 MUSIC_AEGIS_CAVE
-         52: "Random Dungeon Theme.ogg",  # RANDOM group 0 ROM (sélection
-         #    aléatoire NDS parmi les thèmes génériques — ABSENT du roster:
-         #    REQUIRES_MOD_ASSET, l'aléa n'est PAS simulé par une piste fixe)
+         52: "Random Dungeon Theme 1.ogg",  # RANDOM group 0 ROM (sélection
+         #    aléatoire NDS parmi les 3 thèmes (extraits ROM bgm0055/45/146);
+         #    PMDO ne tire pas de piste aléatoire par zone: Theme 1 fixé, documenté)
          71: "Star Cave.ogg",           # enum 142 MUSIC_STAR_CAVE
          # d61+ — overlay10 × enum music_id (même contre-épreuve 9/9):
          37: "Concealed Ruins.ogg",     # enum 57 (ABSENT: REQUIRES_MOD_ASSET)
@@ -125,20 +125,20 @@ MUSIC = {1: "Beach Cave.ogg", 2: "Drenched Bluff.ogg", 3: "Mt. Bristle.ogg",
          41: "Kecleon's Shop.ogg",      # track 41 jukebox (ABSENT)
          42: "Dark Crater.ogg",         # enum 62 MUSIC_DARK_CRATER
          43: "Deep Dark Crater.ogg",    # enum 63 MUSIC_DEEP_DARK_CRATER
-         44: "Random Dungeon Theme.ogg",  # enum 999 (aléa NDS, ABSENT)
+         44: "Random Dungeon Theme 1.ogg",  # enum 999 (aléa NDS, ABSENT)
          53: "Far Amp Plains.ogg",      # track 53 jukebox
          # groupes RANDOM NDS (mid 45-51,55,59-70): sélection aléatoire —
          # non simulée par une piste fixe (REQUIRES_MOD_ASSET documenté)
-         45: "Random Dungeon Theme.ogg", 46: "Random Dungeon Theme.ogg",
-         47: "Random Dungeon Theme.ogg", 48: "Random Dungeon Theme.ogg",
-         49: "Random Dungeon Theme.ogg", 50: "Random Dungeon Theme.ogg",
-         51: "Random Dungeon Theme.ogg", 55: "Random Dungeon Theme.ogg",
-         59: "Random Dungeon Theme.ogg", 60: "Random Dungeon Theme.ogg",
-         61: "Random Dungeon Theme.ogg", 62: "Random Dungeon Theme.ogg",
-         63: "Random Dungeon Theme.ogg", 64: "Random Dungeon Theme.ogg",
-         65: "Random Dungeon Theme.ogg", 66: "Random Dungeon Theme.ogg",
-         67: "Random Dungeon Theme.ogg", 68: "Random Dungeon Theme.ogg",
-         69: "Random Dungeon Theme.ogg", 70: "Random Dungeon Theme.ogg"}
+         45: "Random Dungeon Theme 1.ogg", 46: "Random Dungeon Theme 1.ogg",
+         47: "Random Dungeon Theme 1.ogg", 48: "Random Dungeon Theme 1.ogg",
+         49: "Random Dungeon Theme 1.ogg", 50: "Random Dungeon Theme 1.ogg",
+         51: "Random Dungeon Theme 1.ogg", 55: "Random Dungeon Theme 1.ogg",
+         59: "Random Dungeon Theme 1.ogg", 60: "Random Dungeon Theme 1.ogg",
+         61: "Random Dungeon Theme 1.ogg", 62: "Random Dungeon Theme 1.ogg",
+         63: "Random Dungeon Theme 1.ogg", 64: "Random Dungeon Theme 1.ogg",
+         65: "Random Dungeon Theme 1.ogg", 66: "Random Dungeon Theme 1.ogg",
+         67: "Random Dungeon Theme 1.ogg", 68: "Random Dungeon Theme 1.ogg",
+         69: "Random Dungeon Theme 1.ogg", 70: "Random Dungeon Theme 1.ogg"}
 
 
 def slug_species(n):

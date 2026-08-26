@@ -1,32 +1,24 @@
 {
  "schema": "music-gap-report/1",
  "note": "pistes référencées par des zones mais absentes de Content/Music et du DumpAsset — le moteur charge la zone sans musique (silence). Statut REQUIRES_MOD_ASSET: pistes EoS à fournir au mod, PAS de substitution silencieuse. Identités musicales = arm9 overlay10 HardcodedDungeonMusic × enum music_id pmdsky-debug (vérifié 1:1 jukebox EU).",
- "missing": {
-  "Beach Cave.ogg": [
-   "beach_cave"
-  ],
-  "Dusk Forest.ogg": [
-   "dusk_forest"
-  ],
-  "Far Amp Plains.ogg": [
-   "far_amp_plains"
-  ],
-  "Cave and Side Path.ogg": [
-   "forest_path",
-   "rock_path_sky",
-   "side_path"
-  ],
-  "Lower Brine Cave.ogg": [
-   "lower_brine_cave"
-  ],
-  "Quicksand Pit.ogg": [
-   "quicksand_pit"
-  ],
-  "Sealed Ruin Pit.ogg": [
-   "sealed_ruin_pit"
-  ],
-  "Temporal Spire.ogg": [
-   "temporal_spire"
+ "missing": {},
+ "resolved_2026_08_26": {
+  "method": "extraction ROM Sky EU: SOUND/BGM smd/swd -> audioutil ppmdu_2 (MIDI+SF2, boucle x2) -> FluidSynth 44100 -> libvorbis q5 — identités par NOM INTERNE SMD (B_DUN_KAKUSARET=Concealed etc.) croisé enum music_id",
+  "tracks": [
+   "Beach Cave",
+   "Dusk Forest",
+   "Far Amp Plains",
+   "Cave and Side Path",
+   "Lower Brine Cave",
+   "Quicksand Pit",
+   "Sealed Ruin Pit",
+   "Temporal Spire",
+   "Blizzard Island Rescue Team Medley",
+   "Surrounded Sea",
+   "Concealed Ruins",
+   "In the Nightmare",
+   "Miracle Sea",
+   "Random Dungeon Theme 1-3"
   ]
  }
 }
