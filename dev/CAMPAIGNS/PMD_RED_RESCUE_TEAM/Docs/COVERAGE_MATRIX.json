@@ -92,6 +92,15 @@
    "note": "15 zones CH1-5 restaurées ont perdu leurs correctifs de convergence (zones verrouillées, état assumé)"
   },
   {
+   "dimension": "full_journey_runtime",
+   "covered": 13,
+   "total": 13,
+   "pct": 100.0,
+   "status": "PASS",
+   "source": "dev/docs/canonical/red/global_journey_runtime_proof.jsonl (mode redjourney)",
+   "note": "NEW SAVE→13 chapitres→182 étages→6 boss (Skarmory/Zapdos/Moltres/Glalie/Groudon/Rayquaza) SANS GAP — arènes Groudon/Rayquaza décodées de fixedmap.inc GBA octet par octet"
+  },
+  {
    "dimension": "audit_verdict",
    "status": "AUDIT_PASS",
    "source": "AUDIT.json (8 familles A-H)"

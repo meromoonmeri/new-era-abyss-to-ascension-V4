@@ -1,0 +1,253 @@
+# MANIFEST FINAL — PMD Red Rescue Team EU & PMD Explorers of Sky EU dans PMDO
+
+**Date** : 2026-08-26 · **Branche** : `arena/01a0357e-new-era-abyss-to-ascension-v4`
+**Règle d'or** : le canon vient des ROM ; PMDO/RogueEssence fournit le runtime ; les
+outils font le pont. Toute approximation est déclarée `TECHNICAL_ADAPTATION` ou `GAP`,
+jamais canonique. Les couvertures sont par **dimensions séparées** — aucun pourcentage
+global fusionné n'existe.
+
+Render de synthèse : `dev/docs/canonical/renders/SHOWCASE_RED_SKY.png`
+(hub Bourg-Trésor, Guilde, Plage Creuse, panorama défilant de l'intro, 4 arènes boss
+Sky dont DIALGA, Place Pokémon Red, 3 arènes boss Red dont GROUDON/RAYQUAZA décodées
+octet par octet).
+
+---
+
+## 1. Sources canoniques authentifiées
+
+| ROM | Fichier | sha256 |
+|---|---|---|
+| Sky EU (NDS, C2SP) | `Pokemon Mystery Dungeon - Explorers of Sky (Europe) (En,Fr,De,Es,It).nds` | `1fa39d35…c789f170c1` |
+| Red EU (GBA) | `converter/rom_input/pmdred-eu.gba` | `0f9d125d…f604c14cbcd` |
+
+Références de décodage : `pret/pmd-red@bf0092d0` (fixedmap.inc, dungeon_generation*.c,
+pokemon_found.json, learnset_data.json), `pmdsky-debug` (enums music_id, opcodes),
+`skytemple-files` (handlers BPL/BPC/BMA/BPA/SSB/SSA natifs).
+
+Runtime cible : **PMDO 0.8.12** (bundle headless réel, quest `New-Era`,
+sortie JSONL par harnais Lua — jamais de faux PASS : chaque verdict est émis par le
+moteur lui-même pendant une partie réelle).
+
+---
+
+## 2. Chaîne complète (ROM RESOURCE → PMDO RESOURCE → RUNTIME BEHAVIOR)
+
+```
+ROM vérifiée (sha256)
+  → extraction brute (scripts, maps, tables, dialogues, placements)
+  → classification FONCTIONNELLE par preuves ROM (jamais par nom de fichier)
+  → adaptation TECHNIQUE vers PMDO (documentée, fail-closed)
+  → intégration (Data/Zone, Data/Map, Data/Ground, Content/Tile, Data/Script)
+  → validation RUNTIME réelle (harnais Lua dans PMDO headless, JSONL)
+  → JOURNEYS bout-en-bout (NEW SAVE → chapitres → boss final → état de fin)
+  → matrice de couverture + audit + ce manifest
+```
+
+### 2.1 Extraction (établie, preuves commitées)
+
+**Sky** : 3760/3760 SSB décompilés en ExplorerScript+JSON (dialogues 5 langues),
+1884/1884 SSA/SSE/SSS (placements acteurs/objets/triggers), 315/315 LSD,
+180 donjons / 1795 étages de tables mappa_s.bin (178 donjons PASS ; d71 et d173 sont
+des slices vides DANS la ROM, documentés), LEVEL_MAP_LINKS (level→MAP_BG→mapty),
+graphe de progression 245 états / 97 bit flags.
+→ `PMD_SKY_EXPLORERS/Cinematics/`, `Tables/`, `Docs/PROGRESSION_GRAPH.json`.
+
+**Red** : chaîne EVENT_* décodée octet par octet depuis la ROM EU
+(gFunctionScriptTable @0x08294450, 399/407 scripts PASS, 136 états SCENARIO_MAIN 1:1
+avec pret), 69 stations exactes + 3073 blocs de dialogues 5 langues, 133 cif.json de
+cinématiques, progression jouable 121 états.
+→ `PMD_RED_RESCUE_TEAM/Cinematics/`, `Docs/`.
+
+### 2.2 Classification fonctionnelle Sky (460 grounds, preuves ROM)
+
+`Docs/GROUND_CLASSIFICATION.json` — critères : `mapty` (Pmd2ScriptLevelMapType),
+présence enter.sse/.sss/.ssa, collision BMA, xrefs SSB cross-zone. Résultat :
+**95 MAP** (lieux marchables), **213 CINEMATIC_BACKGROUND** (dont défilants — jamais
+convertis en fausses maps statiques), **62 DUNGEON_SCREEN** (mapty=10),
+**26 CINEMATIC_GROUND**, **24 SCRIPTED_SCREEN**, **17 BOSS_ARENA_FIXED** (mapty=11),
+22 REVIEW (dormants ROM), 1 UNREFERENCED. Contrat catégorie→pipeline→test :
+`Docs/CLASSIFICATION_PIPELINE.md`.
+
+### 2.3 Adaptations techniques documentées (jamais déclarées canoniques)
+
+- Boss : `HP=0` → stats natives du moteur aux niveaux ROM exacts (les anciennes
+  arènes à HP=60+4×level restent marquées approximation).
+- Scrolling NDS → caméra continue PMDO (durée = distance/vitesse ROM).
+- SetEffect EFFECT_* → émotes natives PMDO ; se_Play → PlayBattleSE (tables id→asset).
+- 85 items d'Explorers absents du roster PMDO : `REQUIRES_MOD_ITEM` (pas de substitut
+  silencieux) ; 8 musiques `REQUIRES_MOD_ASSET`.
+- Double écran NDS : scènes concernées `SKIPPED_PARTIAL_FIDELITY`, pas simplifiées.
+
+---
+
+## 3. État runtime PROUVÉ (extraits JSONL commités dans `dev/docs/canonical/`)
+
+### 3.1 Sky — Explorers of Sky EU
+
+| Preuve | Verdict | Fichier |
+|---|---|---|
+| Journey global NEW SAVE→CH1→…→CH15→**DIALGA** : 14 chapitres, 30 donjons, **313 étages réellement générés**, 10 boss vérifiés, état final 20.0 | `GLOBAL_JOURNEY_PASS` | `sky/global_journey_runtime_proof.jsonl` |
+| 43/43 donjons histoire (d01–d43) générés dans PMDO + structure **EXACT** vs tables ROM | `CANONICAL_RUNTIME_PASS` ×43, `EXACT` ×43 | `canonical_dungeon_runtime/`, `Tables/ZONE_VS_ROM_COMPARISON.json` |
+| 9 chaînes donjon→arène boss (Team Skull→…→Groudon illusion) | `CHAIN_PASS`/`BOSS_ARENA_PASS` ×9 | `sky/story_chains_runtime_proof.jsonl` |
+| 95/95 grounds MAP chargés + marchés en un run | `LOAD_PASS`+`MOVEMENT_PASS` (95 SAFE) | `sky/hub_grounds_runtime_proof.jsonl` |
+| Progression : 14 états ROM franchis, 43 déblocages, monotonie | `PROGRESSION_RUNTIME_PASS` | `sky/progression_runtime_proof.jsonl` |
+| Persistance : save → quit → **process 2** → LoadProgress → reprise | `RESUME_RUNTIME_PASS` | `sky/resume_runtime_proof.jsonl` |
+| Background défilant pilote s13p05a (intro) : mouvement vérifié à 4 instants | `SCROLL_RUNTIME_PASS` | `sky/scroll_pilot_runtime_proof.jsonl` |
+| Cinématiques compilées : **370 scènes** (fail-closed), 34 rejouées dans le moteur | `CINEMATIC_RUNTIME_PASS` ×34 | `sky/compiled_scenes_runtime_proof.jsonl`, `Docs/SCENE_COMPILER_REPORT.json` |
+
+### 3.2 Red — Rescue Team EU
+
+| Preuve | Verdict | Fichier |
+|---|---|---|
+| Journey global : **13 chapitres, 182 étages, 6 boss SANS GAP** (Skarmory, Zapdos, Moltres, Glalie, **GROUDON L27**, **RAYQUAZA L35**) | `RED_GLOBAL_JOURNEY_PASS` | `red/global_journey_runtime_proof.jsonl` |
+| Route mt_steel : entrée→8 étages→boss Skarmory→sortie | `ROUTE_PASS` | `red/mt_steel_route_runtime_proof.jsonl` |
+| Chaînes magma_cavern_pit→Groudon et sky_tower_summit→Rayquaza | `CHAIN_PASS` ×2 | idem |
+| 89/89 zones donjon (1848 étages) | `CANONICAL_RUNTIME_PASS` | `canonical_dungeon_runtime/matrix.json` |
+
+### 3.3 Arènes GROUDON/RAYQUAZA — méthode (référence)
+
+`fixedmap.inc` GBA décodé octet par octet : table `gUnknown_84A03BC` (index =
+FixedRoomID−1), RLE de `sub_80511F0` reproduit, actions de `PlaceFixedRoomTile`
+(sol/mur/spawn/escalier/entités ≥16), contre-épreuve Skarmory 9×17 == rsmap existant.
+Niveaux ROM : Groudon **L27** (MagmaCavernPit 3F), Rayquaza **L35** (SkyTowerSummit 9F) ;
+movesets learnset_data.json ; HP=0 (stats natives — PAS l'approximation 230/280).
+Outil : `dev/tools/red_build_gba_fixed_arenas.py`.
+
+---
+
+## 4. Compilateur cinématique Sky (fail-closed)
+
+`dev/tools/sky_compile_scenes.py` → `Data/Script/halcyon/skyscenes/` (374 fichiers Lua).
+
+- **Règle absolue** : jamais d'opcode inconnu ignoré silencieusement, jamais de scène
+  complexe remplacée par une version simplifiée déclarée PASS. Toute op non traduite
+  est comptée (`PARTIAL_OPS`), toute scène incomplète est SKIPPED avec raison.
+- Totaux : **370 COMPILED**, 368 PARTIAL_OPS, 20 NOT_COMPILED_MULTIROUTINE,
+  625 SKIPPED_PARTIAL_FIDELITY (double écran NDS), 372 SKIPPED_REQUIRES_ENGINE_EXTENSION,
+  2005 TRIVIAL_SKIPPED.
+- Transport qualité : dialogues 5 langues ROM (markup NDS nettoyé, langue du joueur),
+  déplacements aux positions ROM (tuile×8+offset×4, vitesses walk/slow), caméra
+  (performer→MoveCamera), cast SSA (PNJ spawnés aux positions ROM exactes,
+  entid→espèce via PMDO_MAPPING 525 entrées), SE→PlayBattleSE, VFX→émotes natives,
+  BGM par table enum ROM→jukebox PMDO (56 pistes, 2 GAPs canal ambiance documentés).
+- Kit runtime : `Data/Script/halcyon/skyscenes/kit.lua` (say multilingue, spawn_npc,
+  cleanup, traces JSONL).
+
+---
+
+## 5. Harnais de validation runtime (opt-in, CH1–CH5 intouchés)
+
+`Data/Script/halcyon/services/ground_gameplay_validator/init.lua` — modes par variable
+d'env `PMDO_GROUND_VALIDATOR` :
+`sky:<grounds>` (LOAD+MOVE), `skyscene:<scene>@<ground>`, `skyprogress`, `skyjourney`,
+`redjourney`. `red_story_route_validator` (env dédiée) : routes Red + chaînes
+donjon→boss Sky. Zone conteneur `sky_hub_zone` (95 GroundMaps) — `master_zone.json`
+et `main.lua` verrouillés ne sont jamais modifiés.
+
+**Verrou d'intégrité** : `python3 dev/tools/ch1_5_lockfile.py check` →
+« INTÉGRITÉ OK — référence 0f691fa3 » (37/37 fichiers identiques) exigé avant chaque
+commit. Vérifié à cette session.
+
+---
+
+## 6. Matrice de couverture (dimensions séparées)
+
+Voir `dev/CAMPAIGNS/COVERAGE_MATRIX.md` (regénérée cette session). Points saillants :
+
+**Red** : extraction 254/254 · renders 254/254 · journey global **13/13 PASS** ·
+event chain 399/407 · progression 121/121 · donjons 89/89 · AUDIT_PASS.
+
+**Sky** : extraction 460/460 · SSB 3760/3760 · SSA 1884/1884 · classification 437/460 ·
+grounds MAP runtime **95/95 PASS** · journey global **14/14 PASS** · resume **PASS** ·
+scroll pilote 1/213 · scènes compilées 370/3760 · espèces 484/484 EXACT ·
+items 205/290 (85 REQUIRES_MOD_ITEM) · zones vs ROM 43/43 EXACT · AUDIT_PASS.
+
+---
+
+## 7. GAPs restants (honnêtes, aucun masqué)
+
+| # | GAP | Dimension |
+|---|---|---|
+| 1 | Sky post-game d44+ : zones NOT_BUILT | donjons |
+| 2 | 368 scènes PARTIAL_OPS + 20 multiroutines + 372 REQUIRES_ENGINE_EXTENSION | cinématiques Sky |
+| 3 | 625 scènes double écran NDS (PARTIAL_FIDELITY) non compilées | cinématiques Sky |
+| 4 | Scrolling généralisé : 1 pilote / 213 backgrounds | backgrounds Sky |
+| 5 | NPC/interactions/transitions des 95 grounds MAP non posés (LOAD+MOVE seulement) | grounds Sky |
+| 6 | Red : persistance save/load non testée (modèle Sky prêt) | persistance Red |
+| 7 | Red : compilateur cif→Lua à écrire (dialogues 5 langues extraits) | cinématiques Red |
+| 8 | Red : classifieur formel des grounds (modèle sky_classify_grounds) | classification Red |
+| 9 | Red : 64 stations REVIEW_REQUIRED | dialogues Red |
+| 10 | 85 items + 8 musiques REQUIRES_MOD_* | mapping Sky |
+| 11 | 178 scènes compilées sur grounds non portés (CINEMATIC_GROUND à porter) | cinématiques Sky |
+| 12 | 2 GAPs BGM (canal ambiance OCEAN1/2) | audio Sky |
+
+**Aucune promotion New Era n'est proposée tant que ces GAPs ne sont pas comblés ou
+explicitement acceptés.**
+
+---
+
+## 8. Manuel — reproduire les validations
+
+### 8.1 Restaurer l'environnement (sandbox recyclé)
+
+```bash
+git fetch origin arena/01a0357e-new-era-abyss-to-ascension-v4
+git checkout -B arena/01a0357e-new-era-abyss-to-ascension-v4 FETCH_HEAD
+bash dev/tools/restore_pmdred_eu_validation_runtime.sh   # bundle PMDO 0.8.12 headless
+# ROM Sky (LFS via codeload) :
+mkdir -p .runtime-cache/sky-rom
+curl -sL "https://codeload.github.com/meromoonmeri/BIBLIOTHEQUE/tar.gz/refs/heads/main" \
+  | tar -xz --wildcards --strip-components=1 -C .runtime-cache/sky-rom "*Explorers of Sky*"
+python3 -m venv .runtime-cache/sky-venv
+.runtime-cache/sky-venv/bin/pip install skytemple-files ndspy Pillow
+```
+
+### 8.2 Vérifier l'intégrité CH1–CH5 (obligatoire avant commit)
+
+```bash
+python3 dev/tools/ch1_5_lockfile.py check   # attendu: INTÉGRITÉ OK — référence 0f691fa3
+```
+
+### 8.3 Rejouer un journey complet (preuve moteur réelle)
+
+```bash
+# via canonical_dungeon.pmdo_env() + ensure_quest_appdata(); env:
+#   PMDO_GROUND_VALIDATOR=skyjourney   → Sky NEW SAVE→DIALGA (~5 min)
+#   PMDO_GROUND_VALIDATOR=redjourney   → Red 13 chapitres (~16 s)
+# cmd: PMDO -asset DUMP/ -appdata APP/ -quest New-Era
+# sortie: /tmp/ground_gameplay_validator.jsonl (attendre "event":"end")
+```
+
+### 8.4 Rejouer une cinématique compilée
+
+```bash
+# PMDO_GROUND_VALIDATOR="skyscene:<zone>__<scene>@<ground>"  (ex: n01a0801@t01p01a)
+```
+
+### 8.5 Renders
+
+```bash
+python3 dev/tools/render_ground_png.py --output-dir /tmp/r t01p01a   # ground pixel-perfect
+python3 dev/tools/render_rsmap_autotile.py Data/Map/magma_pit_groudon.rsmap out.png
+python3 dev/tools/campaign_render_showcase.py                        # planche composite
+python3 dev/tools/campaign_coverage_matrix.py                        # matrice à jour
+```
+
+---
+
+## 9. Correctif de cette session (traçé)
+
+`Content/Tile/S13p05a_Base.tile` (sheet du panorama défilant de l'intro) n'avait
+jamais été persisté (sandbox recyclé après le pilote scroll). Reconstruit depuis la
+ROM Sky EU par association clé rsground ↔ image ROM (BMA/BPC/BPL, 224 frames),
+**fail-closed** (0 conflit sur 18756 clés), contre-épreuve **frame 0 PIXEL_PERFECT**
+vs ROM. Outil : `dev/tools/sky_rebuild_s13p05a_sheet.py`.
+
+## 10. Index des artefacts
+
+- Preuves runtime : `dev/docs/canonical/{sky,red}/*.jsonl`
+- Renders : `dev/docs/canonical/renders/` + `dev/CAMPAIGNS/*/Renders/` (460 Sky, 254 Red)
+- Docs Sky : `dev/CAMPAIGNS/PMD_SKY_EXPLORERS/{Docs,Tables,Cinematics}/`
+- Docs Red : `dev/CAMPAIGNS/PMD_RED_RESCUE_TEAM/{Docs,Cinematics}/`
+- Matrice / comparaison : `dev/CAMPAIGNS/{COVERAGE_MATRIX.md,RED_VS_SKY_COMPARISON.md}`
+- Outils : `dev/tools/` (un outil par fonction, pas de doublons *_v2/final)

@@ -107,12 +107,30 @@
   },
   {
    "dimension": "full_journey_runtime",
+   "covered": 14,
+   "total": 14,
+   "pct": 100.0,
+   "status": "PASS",
+   "source": "dev/docs/canonical/sky/global_journey_runtime_proof.jsonl (mode skyjourney global)",
+   "note": "NEW SAVE→CH1→…→CH15→DIALGA : 14 chapitres, 30 donjons, 313 étages réellement générés, 10 boss vérifiés, état final 20.0"
+  },
+  {
+   "dimension": "save_resume_runtime",
    "covered": 1,
-   "total": 15,
-   "pct": 6.7,
+   "total": 1,
+   "pct": 100.0,
+   "status": "PASS",
+   "source": "dev/docs/canonical/sky/resume_runtime_proof.jsonl",
+   "note": "save GroundSave→quit→process 2→LoadProgress→état relu→progression reprise (persistance réelle inter-process)"
+  },
+  {
+   "dimension": "scrolling_background_runtime",
+   "covered": 1,
+   "total": 213,
+   "pct": 0.5,
    "status": "PARTIAL",
-   "source": "dev/docs/canonical/sky/journey_ch1_runtime_proof.jsonl (mode skyjourney)",
-   "note": "chapitre 1 complet: save→état→ground→cinématique→donjon 4 étages→boss→flag→déblocage suivant ; 14 chapitres restants à chaîner"
+   "source": "dev/docs/canonical/sky/scroll_pilot_runtime_proof.jsonl",
+   "note": "pilote s13p05a (panorama intro) : scrolling NDS reproduit par caméra continue PMDO, mouvement vérifié à 4 instants ; sheet S13p05a_Base reconstruite depuis ROM (frame 0 PIXEL_PERFECT) ; généralisation aux 213 backgrounds à faire"
   },
   {
    "dimension": "cinematic_runtime",

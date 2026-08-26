@@ -114,6 +114,19 @@ def red_matrix():
                     "(89/89 CANONICAL_RUNTIME_PASS, 1848 étages)",
                     "15 zones CH1-5 restaurées ont perdu leurs correctifs "
                     "de convergence (zones verrouillées, état assumé)"))
+    rj_p = REPO / "dev" / "docs" / "canonical" / "red" / \
+        "global_journey_runtime_proof.jsonl"
+    if rj_p.exists() and "RED_GLOBAL_JOURNEY_PASS" in rj_p.read_text():
+        dims.append(dim(
+            "full_journey_runtime", 13, 13, "PASS",
+            "dev/docs/canonical/red/global_journey_runtime_proof.jsonl "
+            "(mode redjourney)",
+            "NEW SAVE→13 chapitres→182 étages→6 boss (Skarmory/Zapdos/"
+            "Moltres/Glalie/Groudon/Rayquaza) SANS GAP — arènes Groudon/"
+            "Rayquaza décodées de fixedmap.inc GBA octet par octet"))
+    else:
+        dims.append(dim("full_journey_runtime", 0, 13, "NOT_TESTED", "—",
+                        "journey Red global non prouvé"))
     dims.append(dim("audit_verdict", None, None,
                     aud.get("verdict", "?"),
                     "AUDIT.json (8 familles A-H)"))
@@ -232,9 +245,19 @@ def sky_matrix():
             "14 états ROM franchis, 43 zones débloquées, monotonie "
             "anti-régression + persistance save prouvées ; états "
             "intermédiaires (x.1..x.n) non encore déclencheurs"))
+    gj_p = REPO / "dev" / "docs" / "canonical" / "sky" / \
+        "global_journey_runtime_proof.jsonl"
     j_p = REPO / "dev" / "docs" / "canonical" / "sky" / \
         "journey_ch1_runtime_proof.jsonl"
-    if j_p.exists() and "JOURNEY_RUNTIME_PASS" in j_p.read_text():
+    if gj_p.exists() and "GLOBAL_JOURNEY_PASS" in gj_p.read_text():
+        dims.append(dim(
+            "full_journey_runtime", 14, 14, "PASS",
+            "dev/docs/canonical/sky/global_journey_runtime_proof.jsonl "
+            "(mode skyjourney global)",
+            "NEW SAVE→CH1→…→CH15→DIALGA : 14 chapitres, 30 donjons, "
+            "313 étages réellement générés, 10 boss vérifiés, état final "
+            "20.0"))
+    elif j_p.exists() and "JOURNEY_RUNTIME_PASS" in j_p.read_text():
         dims.append(dim(
             "full_journey_runtime", 1, 15, "PARTIAL",
             "dev/docs/canonical/sky/journey_ch1_runtime_proof.jsonl "
@@ -242,6 +265,24 @@ def sky_matrix():
             "chapitre 1 complet: save→état→ground→cinématique→donjon 4 "
             "étages→boss→flag→déblocage suivant ; 14 chapitres restants "
             "à chaîner"))
+    res_p = REPO / "dev" / "docs" / "canonical" / "sky" / \
+        "resume_runtime_proof.jsonl"
+    if res_p.exists() and "RESUME_RUNTIME_PASS" in res_p.read_text():
+        dims.append(dim(
+            "save_resume_runtime", 1, 1, "PASS",
+            "dev/docs/canonical/sky/resume_runtime_proof.jsonl",
+            "save GroundSave→quit→process 2→LoadProgress→état relu→"
+            "progression reprise (persistance réelle inter-process)"))
+    scr2_p = REPO / "dev" / "docs" / "canonical" / "sky" / \
+        "scroll_pilot_runtime_proof.jsonl"
+    if scr2_p.exists() and "SCROLL_RUNTIME_PASS" in scr2_p.read_text():
+        dims.append(dim(
+            "scrolling_background_runtime", 1, 213, "PARTIAL",
+            "dev/docs/canonical/sky/scroll_pilot_runtime_proof.jsonl",
+            "pilote s13p05a (panorama intro) : scrolling NDS reproduit "
+            "par caméra continue PMDO, mouvement vérifié à 4 instants ; "
+            "sheet S13p05a_Base reconstruite depuis ROM (frame 0 "
+            "PIXEL_PERFECT) ; généralisation aux 213 backgrounds à faire"))
     cin_p = REPO / "dev" / "docs" / "canonical" / "sky" / \
         "cinematic_m01a0204_runtime_proof.jsonl"
     if cin_p.exists():
