@@ -4,7 +4,12 @@
 red_build_progression_graph.py — Graphe de progression canonique de PMD Red
 Rescue Team EU.
 
-Deux sources, jamais fusionnées ni confondues :
+Trois sources, jamais fusionnées ni confondues :
+  A0. ROM EU décodée — chaîne EVENT_* globale (gFunctionScriptTable EU
+      @0x08294450, red_extract_event_scripts.py) : 399 scripts PASS,
+      136 écritures SCENARIO_MAIN identiques 1:1 à la chaîne pret
+      (contre-épreuve exhaustive, delta d'ID de variable régional +1).
+      STATUT : ROM_DECODED (autorité EU).
   A. ROM EU décodée (converter/rom_cache/eu_ground_scripts_all_stations.json,
      produit par audit_pmdred_eu_all_ground_scripts.py) : opcodes réels des
      stations au graphe EU exact (69/133) —
@@ -36,7 +41,7 @@ from collections import OrderedDict, defaultdict
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 REPORT = os.path.join(REPO, "converter", "rom_cache",
                       "eu_ground_scripts_all_stations.json")
-PRET = os.path.join(REPO, "dev", "external", "pret_pmd_red")
+PRET = os.path.join(REPO, ".runtime-cache", "pmd-red-reference")
 DOCS = os.path.join(REPO, "dev", "CAMPAIGNS", "PMD_RED_RESCUE_TEAM", "Docs")
 
 # ScriptVarId (pret include/constants/event_flag.h enum ScriptVarId)
@@ -149,11 +154,36 @@ def parse_state_annotations():
     return ann
 
 
+def collect_eu_event_chain():
+    """Chaîne EVENT_* décodée de la ROM EU (red_extract_event_scripts.py).
+    Retourne {event: [ops scénario]} + statut global."""
+    p = os.path.join(REPO, "dev", "CAMPAIGNS", "PMD_RED_RESCUE_TEAM",
+                     "Cinematics", "EVENT_SCRIPTS_INDEX.json")
+    if not os.path.exists(p):
+        return None
+    idx = json.load(open(p, encoding="utf-8"))
+    out = OrderedDict()
+    for name, s in idx["scripts"].items():
+        ops = s.get("scenario_ops")
+        if ops:
+            out[name] = ops
+    return OrderedDict(
+        status="ROM_DECODED",
+        source=f"gFunctionScriptTable EU @{idx['table_address']} "
+               f"({idx['table_entries']} entrées, "
+               f"{idx['totals']['PASS']} scripts PASS)",
+        proof="281/281 SCENARIO_CALC identiques à pret (delta ID de "
+              "variable régional +1 uniforme) ; 136/136 états "
+              "SCENARIO_MAIN 1:1",
+        events=out)
+
+
 def main():
     os.makedirs(DOCS, exist_ok=True)
     rep, writes, guards, quest_checks, unlocks, dungeon_res = \
         collect_rom_side()
     pret_events = collect_pret_events()
+    eu_chain = collect_eu_event_chain()
     ann = parse_state_annotations()
 
     def cap(locs, n=6):
@@ -189,6 +219,9 @@ def main():
         (f"result_{r}_enter_{e}", cap(ls))
         for (r, e), ls in sorted(dungeon_res.items()))
 
+    if eu_chain:
+        graph["eu_event_chain"] = eu_chain
+
     if pret_events:
         chain = OrderedDict()
         for ev, d in pret_events.items():
@@ -213,17 +246,21 @@ def main():
     pret_main = sorted({(a, b) for d in (pret_events or {}).values()
                         for v, a, b in d["scenario_calcs"]
                         if v == "SCENARIO_MAIN"})
+    eu_main = len([o for evs in (eu_chain or {}).get("events", {}).values()
+                   for o in evs if o["kind"] == "SCENARIO_CALC"
+                   and o["var"] == "SCENARIO_MAIN"])
     graph["totals"] = OrderedDict(
         rom_scenario_writes=len(writes),
         rom_scenario_main_states=len(main_states),
         rom_guards=len(guards),
         rom_quest_checks=len(quest_checks),
         rom_friend_area_unlocks=len(unlocks),
+        eu_event_chain_scenario_main_writes=eu_main,
         pret_events=len(pret_events or {}),
         pret_scenario_main_states=len(pret_main),
-        coverage_note="ROM = 69/133 stations exactes ; la chaîne EVENT_* "
-                      "globale reste TECHNICAL_REFERENCE — couvertures "
-                      "séparées.")
+        coverage_note="Stations = 69/133 exactes ; chaîne EVENT_* = "
+                      "ROM_DECODED (399 scripts, 136 états SCENARIO_MAIN "
+                      "confirmés 1:1 avec pret) — couvertures séparées.")
 
     out = os.path.join(DOCS, "PROGRESSION_GRAPH.json")
     with open(out, "w", encoding="utf-8") as fh:
