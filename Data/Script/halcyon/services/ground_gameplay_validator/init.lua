@@ -14,7 +14,7 @@ local function emit(s)
  PrintInfo('[GROUND_VALIDATOR] '..s)
  local f=io.open('/tmp/ground_gameplay_validator.jsonl','a');if f then f:write(s..'\n');f:flush();f:close() end
 end
-function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:' or string.sub(self.mode or '',1,9)=='skyscene:' or self.mode=='skyprogress' or self.mode=='skyjourney');self.idx=0;self.entered=false;self.busy=false
+function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:' or string.sub(self.mode or '',1,9)=='skyscene:' or self.mode=='skyprogress' or self.mode=='skyjourney' or string.sub(self.mode or '',1,9)=='skyresume');self.idx=0;self.entered=false;self.busy=false
  -- mode 'skyscene:<scene>@<ground>' : rejoue une cinématique canonique Sky
  if string.sub(self.mode or '',1,9)=='skyscene:' then
   local spec=string.sub(self.mode,10)
@@ -45,6 +45,44 @@ function V:begin()
   -- EnterDungeon doit etre appele depuis la coroutine du Ground, pas depuis
   -- l'evenement service NewGame (sinon NLua: yield outside a coroutine).
   GAME:EnterZone('mount_windswept',-1,2,0)
+  return
+ end
+ if self.mode=='skyresume:save' then
+  -- PHASE 1 : progresser jusqu'à CH5 PUIS sauvegarder DEPUIS un ground
+  -- (comme le joueur en ville) — GroundSave yield: coroutine obligatoire.
+  self.idx=-6;SV.RuntimeGroundAudit.Active=false
+  local prog=require('halcyon.skyscenes.progression')
+  prog.reset_for_test()
+  for _,st in ipairs({{1,0},{3,0},{4,0},{5,0},{6,0}}) do prog.set(st[1],st[2]) end
+  local m,s=prog.state()
+  emit('{"event":"resume_state_set","state":"'..m..'.'..s..'","apple_woods":'..tostring(prog.is_unlocked('apple_woods'))..'}')
+  self.resume_save_pending=true
+  local zsum=_DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('sky_hub_zone')
+  local gl=zsum.Grounds
+  local gi=0
+  for k=0,gl.Count-1 do if gl[k]=='t01p01a' then gi=k end end
+  GAME:EnterZone('sky_hub_zone',-1,gi,0)
+  return
+ end
+ if self.mode=='skyresume:load' then
+  -- appelé par OnLoadSavedData après LoadProgress (la SV disque est active)
+  if self.resume_done then return end
+  self.resume_done=true
+  local ok,err=xpcall(function()
+    local prog=require('halcyon.skyscenes.progression')
+    prog.init()
+    local m,s=prog.state()
+    local aw=prog.is_unlocked('apple_woods')
+    local tt=prog.is_unlocked('temporal_tower')
+    local pass=(m==6 and aw and not tt)
+    emit('{"event":"resume_loaded","state":"'..m..'.'..s..'","apple_woods":'..tostring(aw)..',"temporal_tower_should_be_false":'..tostring(tt)..',"verdict":"'..(pass and 'RESUME_RUNTIME_PASS' or 'FAIL')..'"}')
+    if pass then
+      prog.set(8,0)
+      emit('{"event":"resume_continued","steam_cave":'..tostring(prog.is_unlocked('steam_cave'))..'}')
+    end
+  end,debug.traceback)
+  if not ok then emit('{"event":"resume_fail","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}') end
+  emit('{"event":"end"}')
   return
  end
  if self.mode=='skyjourney' then
@@ -153,6 +191,20 @@ function V:OnDungeonFloorEnter()
  emit(ok and msg or ('{"event":"arena_battle_runtime","verdict":"RUNTIME_FAIL","error":"'..tostring(msg):gsub('"','\\"')..'"}'))
 end
 function V:OnGroundMapEnter()
+ if self.enabled and self.resume_save_pending and not self.busy then
+  self.busy=true;self.resume_save_pending=false
+  self.task=TASK:BranchCoroutine(function()
+    GAME:WaitFrames(10)
+    local ok,err=xpcall(function()
+      GAME:GroundSave()
+      emit('{"event":"resume_save_done","from_ground":"'..tostring(GAME:GetCurrentGround().AssetName)..'"}')
+    end,debug.traceback)
+    if not ok then emit('{"event":"resume_fail","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}') end
+    emit('{"event":"end"}')
+    self.busy=false;self.task=nil
+  end)
+  return
+ end
  if self.enabled and self.sky_scene and not self.busy then
   self.busy=true
   self.task=TASK:BranchCoroutine(function()
@@ -231,6 +283,13 @@ end
 function V:Update(gtime) while true do coroutine.yield() end end
 function V:OnInit()
  if self.enabled then
+  if self.mode=='skyresume:load' then
+   -- reprise : charger la sauvegarde DISQUE, pas une nouvelle partie
+   emit('{"event":"bootstrap_load_save"}')
+   self.resume_loading=true
+   RogueEssence.Data.DataManager.Instance:LoadProgress()
+   return
+  end
   emit('{"event":"bootstrap_new_game"}')
   RogueEssence.GameManager.Instance:NewGamePlus(424242)
  end
