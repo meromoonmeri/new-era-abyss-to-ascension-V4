@@ -1,0 +1,40 @@
+﻿{
+  "Version": "0.8.9.0",
+  "Object": {
+    "$type": "RogueEssence.Data.ZoneData, RogueEssence",
+    "Name": {
+      "DefaultText": "Sky Hub Grounds",
+      "LocalTexts": {
+        "fr": "Lieux de vie Sky"
+      }
+    },
+    "Released": true,
+    "Comment": "Zone conteneur des grounds hub de PMD Sky EU (Treasure Town, guilde...) pour chargement runtime — schéma master_zone (GroundMaps), zone SÉPARÉE car master_zone est verrouillée CH1-5.",
+    "NoEXP": false,
+    "ExpPercent": 100,
+    "Level": -1,
+    "LevelCap": false,
+    "KeepSkills": false,
+    "TeamRestrict": false,
+    "TeamSize": -1,
+    "MoneyRestrict": false,
+    "BagRestrict": -1,
+    "KeepTreasure": false,
+    "BagSize": -1,
+    "Persistent": false,
+    "Rescues": 0,
+    "Rogue": 0,
+    "Segments": [],
+    "GroundMaps": [
+      "t01p01a",
+      "t01p02a",
+      "g01p01a",
+      "g01p02a",
+      "g01p03a",
+      "p01p01a",
+      "p01p02a",
+      "d01p11a",
+      "d01p11b"
+    ]
+  }
+}

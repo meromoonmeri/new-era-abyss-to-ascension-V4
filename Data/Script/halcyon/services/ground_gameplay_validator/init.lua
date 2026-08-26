@@ -14,7 +14,13 @@ local function emit(s)
  PrintInfo('[GROUND_VALIDATOR] '..s)
  local f=io.open('/tmp/ground_gameplay_validator.jsonl','a');if f then f:write(s..'\n');f:flush();f:close() end
 end
-function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby');self.idx=0;self.entered=false;self.busy=false end
+function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:');self.idx=0;self.entered=false;self.busy=false
+ -- mode 'sky:<ground1,ground2,...>' : pilotes de grounds Sky dans sky_hub_zone
+ if string.sub(self.mode or '',1,4)=='sky:' then
+  self.sky_pilot={}
+  for g in string.gmatch(string.sub(self.mode,5),'[^,]+') do self.sky_pilot[#self.sky_pilot+1]=g end
+ end
+end
 function V:begin()
  if not self.enabled or self.idx>0 then return end
  SV.RuntimeGroundAudit=SV.RuntimeGroundAudit or {};SV.RuntimeGroundAudit.Active=true
@@ -34,6 +40,21 @@ function V:begin()
   -- l'evenement service NewGame (sinon NLua: yield outside a coroutine).
   GAME:EnterZone('mount_windswept',-1,2,0)
   return
+ end
+ if self.sky_pilot then
+  -- remplace PILOT par les grounds Sky demandés (zone conteneur sky_hub_zone,
+  -- index = position dans GroundMaps de la zone, résolue par nom)
+  local names=self.sky_pilot
+  for i=1,#PILOT do PILOT[i]=nil end
+  local zone_grounds={}
+  local zsum=_DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('sky_hub_zone')
+  local gl=zsum.Grounds
+  for gi=0,gl.Count-1 do zone_grounds[gl[gi]]=gi end
+  for _,nm in ipairs(names) do
+   local gi=zone_grounds[nm]
+   if gi~=nil then PILOT[#PILOT+1]={id=nm,zone='sky_hub_zone',idx=gi}
+   else emit('{"event":"sky_pilot_missing","ground":"'..nm..'"}') end
+  end
  end
  self.idx=1;emit('{"event":"begin","count":'..#PILOT..'}');GAME:EnterZone(PILOT[self.idx].zone,-1,PILOT[self.idx].idx,0)
 end
