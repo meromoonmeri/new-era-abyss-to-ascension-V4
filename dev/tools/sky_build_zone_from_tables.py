@@ -41,12 +41,31 @@ DUMP_AUTOTILE = os.path.join(REPO, ".runtime-cache", "DumpAsset", "Data",
 # Étendu à la demande ; chaque entrée vérifiée présente sur disque.
 TSET = {1: "beach_cave", 2: "drenched_bluff", 3: "mt_bristle",
         4: "waterfall_cave", 5: "apple_woods", 6: "craggy_coast",
+        7: "side_path", 8: "mt_horn", 9: "rock_path_tds",
+        10: "foggy_forest", 11: "forest_path", 12: "steam_cave",
+        14: "amp_plains", 15: "far_amp_plains",
+        17: "northern_desert_1", 18: "northern_desert_2",
+        19: "quicksand_cave", 20: "quicksand_pit",
+        22: "crystal_cave_1", 23: "crystal_cave_2", 24: "crystal_crossing",
         26: "chasm_cave", 27: "chasm_cave", 28: "dark_hill",
         29: "dark_hill", 30: "sealed_ruin", 31: "sealed_ruin_pit",
         33: "dusk_forest_1", 34: "dusk_forest_2"}
 
-# music_id mappa -> nom de piste PMDO (Data/Music du DumpAsset / mod)
+# music_id mappa -> piste canonique. AUTORITÉ : liste musique donjon arm9
+# overlay10 (HardcodedDungeonMusic : mid -> track) × enum music_id
+# pmdsky-debug (track 21 = MUSIC_BEACH_CAVE…), contre-épreuve jukebox EU
+# (Music Tracks, offset -17) — vérifié 1:1 sur mids 1-18.
+# Le fichier .ogg peut être ABSENT du roster PMDO : la zone garde alors le
+# nom canonique et le trou est documenté par MUSIC_GAP_REPORT.json
+# (REQUIRES_MOD_ASSET), jamais substitué en silence.
 MUSIC = {1: "Beach Cave.ogg", 2: "Drenched Bluff.ogg", 3: "Mt. Bristle.ogg",
+         4: "Waterfall Cave.ogg", 5: "Apple Woods.ogg",
+         6: "Craggy Coast.ogg", 7: "Cave and Side Path.ogg",
+         8: "Mt. Horn.ogg", 9: "Foggy Forest.ogg", 10: "Steam Cave.ogg",
+         11: "Upper Steam Cave.ogg", 12: "Amp Plains.ogg",
+         13: "Far Amp Plains.ogg", 14: "Northern Desert.ogg",
+         15: "Quicksand Cave.ogg", 16: "Quicksand Pit.ogg",
+         17: "Crystal Cave.ogg", 18: "Crystal Crossing.ogg",
          19: "Chasm Cave.ogg", 20: "Dark Hill.ogg", 21: "Sealed Ruin.ogg",
          22: "Sealed Ruin Pit.ogg", 23: "Dusk Forest.ogg"}
 

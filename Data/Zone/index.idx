@@ -5280,6 +5280,505 @@
       "Released": true,
       "Comment": "PMD Sky EU d01 DUNGEON_BEACH_CAVE",
       "SortOrder": 0
+    },
+    "drenched_bluff": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 5,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 6,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Drenched Bluff",
+        "LocalTexts": {
+          "fr": "Falaise Trempée"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d03 DUNGEON_DRENCHED_BLUFF",
+      "SortOrder": 0
+    },
+    "mt_bristle": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 9,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 9,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Mt. Bristle",
+        "LocalTexts": {
+          "fr": "Mt Hérissé"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d04 DUNGEON_MT_BRISTLE",
+      "SortOrder": 0
+    },
+    "waterfall_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 12,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 8,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Waterfall Cave",
+        "LocalTexts": {
+          "fr": "Grotte Cascade"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d06 DUNGEON_WATERFALL_CAVE",
+      "SortOrder": 0
+    },
+    "apple_woods": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 15,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 12,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Apple Woods",
+        "LocalTexts": {
+          "fr": "Bois aux Pommes"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d07 DUNGEON_APPLE_WOODS",
+      "SortOrder": 0
+    },
+    "craggy_coast": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 12,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 9,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Craggy Coast",
+        "LocalTexts": {
+          "fr": "Côte Escarpée"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d08 DUNGEON_CRAGGY_COAST",
+      "SortOrder": 0
+    },
+    "side_path": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 11,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 5,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Side Path",
+        "LocalTexts": {
+          "fr": "Chemin Lisière"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d09 DUNGEON_SIDE_PATH",
+      "SortOrder": 0
+    },
+    "mt_horn": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 15,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 14,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Mt. Horn",
+        "LocalTexts": {
+          "fr": "Mt Corne"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d10 DUNGEON_MT_HORN",
+      "SortOrder": 0
+    },
+    "foggy_forest": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 16,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 11,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Foggy Forest",
+        "LocalTexts": {
+          "fr": "Forêt Brumeuse"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d12 DUNGEON_FOGGY_FOREST",
+      "SortOrder": 0
+    },
+    "forest_path": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 15,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 5,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Forest Path",
+        "LocalTexts": {
+          "fr": "Chemin Sylvestre"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d13 DUNGEON_FOREST_PATH",
+      "SortOrder": 0
+    },
+    "steam_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 17,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 8,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Steam Cave",
+        "LocalTexts": {
+          "fr": "Grotte Etuve"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d14 DUNGEON_STEAM_CAVE",
+      "SortOrder": 0
+    },
+    "upper_steam_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 19,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 7,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Upper Steam Cave",
+        "LocalTexts": {
+          "fr": "Grotte Etuve - hauteurs"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d15 DUNGEON_UPPER_STEAM_CAVE",
+      "SortOrder": 0
+    },
+    "amp_plains": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 49,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 10,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Amp Plains",
+        "LocalTexts": {
+          "fr": "Plaines Elek"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d17 DUNGEON_AMP_PLAINS",
+      "SortOrder": 0
+    },
+    "rock_path_sky": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 13,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 5,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Rock Path",
+        "LocalTexts": {
+          "fr": "Chemin Rocheux"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d11 DUNGEON_ROCK_PATH",
+      "SortOrder": 0
     }
   }
 }
