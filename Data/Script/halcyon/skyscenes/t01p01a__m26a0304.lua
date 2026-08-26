@@ -16,10 +16,11 @@ return function(hero, partner)
   -- SetAnimation(4) [anim idle native]
   local npc_npc_heigani = SkySceneKit.spawn_npc("corphish", 328, 224, Direction.UpRight, "NPC_HEIGANI")
   -- SetAnimation(4) [anim idle native]
+  local npc_npc_himeguma = SkySceneKit.spawn_npc("teddiursa", 360, 160, Direction.DownRight, "NPC_HIMEGUMA")
   -- SetAnimation(4) [anim idle native]
   local npc_npc_bippa = SkySceneKit.spawn_npc("bidoof", 520, 200, Direction.Up, "NPC_BIPPA")
   -- SetAnimation(4) [anim idle native]
-  -- GAP: SetEffect EFFECT_LAUGHING sur PNJ non résolu (v2 cast SSA)
+  pcall(function() GROUND:CharSetEmote(npc_npc_himeguma, "happy", 1) end)
   -- CallCommon CORO_FADE_OUT_ALL_BEFORE (fermeture/attente message: géré par say())
   GAME:FadeIn(30)
   GAME:WaitFrames(60)

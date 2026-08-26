@@ -4,9 +4,9 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Argh...[K] We didn't do so well...", french=" Argh...[K] Un échec retentissant...", german="Argh...[K]\nDas war wohl nicht gut genug...", italian=" Argh...[K] Ci è andata male...", spanish=" Ay...[K] No nos ha ido muy bien..."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" We should turn back for now.", french="Nous devrions faire demi-tour\npour l'instant.", german="Wir sollten wohl noch\neinmal von vorne anfangen.", italian=" Meglio tornare sui nostri passi.", spanish="Deberíamos dar media vuelta\npor ahora."})
   -- message_KeyWait
   GAME:FadeOut(false,  60)
@@ -21,9 +21,9 @@ return function(hero, partner)
   GAME:FadeIn(30)
   -- GAP: BGM BGM_TEMPORAL_SPIRE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english="... (Argh![K] Just a little farther to\nthe pinnacle.)", french="... (Argh![K] Encore un petit effort,\nle pinacle n'est plus très loin.)", german="...(Argh![K] Nur ein bisschen\nweiter bis zur Spitze.)", italian="... (Argh![K] Manca poco\nalla vetta.)", spanish="Uf... (¡Ay![K] Solo queda un poco\nmás hasta la cúspide.)"})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english="(Next time, I'll definitely show\nyou I can make it through.)", french="(Hors de question que j'échoue,\nla prochaine fois.)", german="(Das nächste Mal werde ich dir\nbeweisen, dass ich es schaffen kann.)", italian="(La prossima volta gli\ndimostrerò che ce la posso fare... questo\nè poco, ma sicuro.)", spanish="(La próxima vez, ya te\ndemostraré que puedo cruzar este territorio.)"})
   -- message_Close
 end

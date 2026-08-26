@@ -51,9 +51,9 @@ return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="[CS:Y]Grovyle[CR]![K] You can't fail\nthis time!", french="[CS:Y]Massko[CR]![K] Tu n'as pas droit\nà l'échec cette fois-ci!", german="[CS:Y]Reptain[CR]![K]\nDieses Mal darfst du nicht scheitern!", italian="[CS:Y]Grovyle[CR]![K] Questa volta non puoi\nfallire!", spanish="¡[CS:Y]Grovyle[CR]![K] ¡Esta vez no puedes\nfracasar!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english="Humph![K] I should say the\nsame thing!", french="Pfff![K] J'en ai autant\nà ton service!", german="Hmpf![K]\nDasselbe könnte ich dir sagen!", italian=" Bah![K] Pensa per te!", spanish=" Hum...[K] ¡Lo mismo digo!"})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Let's go!", french=" Allons-y!", german=" Auf geht's!", italian=" Andiamo!", spanish=" ¡Vamos!"})
   -- message_Close
   -- SetAnimation(12) [anim idle native]

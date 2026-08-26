@@ -4,9 +4,9 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Argh...[K] That didn't go well...", french="Argh...[K] Ça ne s'est pas\ntrès bien passé...", german=" Argh...[K] Das war wohl nichts...", italian="Argh...[K] Non è andata affatto\nbene...", spanish=" Ay...[K] Esto no ha ido bien."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" I should turn back for now.", french="Je devrais me reposer\npour l'instant.", german=" Ich sollte noch mal beginnen.", italian="È meglio che torni indietro\nper ora.", spanish=" Voy a retroceder de momento."})
   -- message_KeyWait
   GAME:FadeOut(false,  60)
@@ -28,9 +28,9 @@ return function(hero, partner)
   GAME:WaitFrames(30)
   -- ExecuteCommon(CORO_LOOK_AROUND_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" I can't falter now.", french="Ce n'est pas le moment\nde flancher.", german=" Ich darf jetzt nicht zögern.", italian=" Non posso esitare adesso.", spanish=" Ahora no puedo flaquear."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" I can't waste any time.", french=" Pas une seconde à perdre.", german=" Ich habe keine Zeit zu verlieren.", italian=" Non posso perdere tempo.", spanish=" No hay tiempo que perder."})
   -- message_Close
 end

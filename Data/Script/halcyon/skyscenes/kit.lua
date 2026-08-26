@@ -101,4 +101,68 @@ function SkySceneKit.cleanup_npcs()
   spawned_npcs = {}
 end
 
+--------------------------------------------------------------------
+-- MULTIROUTINES NDS (def N for actor X + Lock/Unlock).
+--
+-- Modèle ROM : chaque acteur a sa coroutine ; `Lock(n)` suspend la
+-- routine jusqu'à ce qu'une autre exécute `Unlock(n)` — c'est le
+-- mécanisme de synchronisation des cinématiques multi-acteurs NDS.
+-- Équivalent PMDO : TASK:BranchCoroutine par routine d'acteur (même
+-- moteur de coroutines que le harnais journey, natif RogueEssence),
+-- verrous = table partagée de drapeaux ; lock() boucle en WaitFrames(1)
+-- jusqu'au drapeau — sémantique identique, testée runtime.
+--------------------------------------------------------------------
+local locks = {}
+local running = 0
+
+function SkySceneKit.reset_locks()
+  locks = {}
+  running = 0
+end
+
+function SkySceneKit.unlock(n)
+  locks[n] = true
+end
+
+function SkySceneKit.lock(n)
+  -- suspend la coroutine courante jusqu'à Unlock(n) (30 s de garde-fou
+  -- anti-blocage headless, tracé — jamais silencieux)
+  local waited = 0
+  while not locks[n] and waited < 1800 do
+    GAME:WaitFrames(1)
+    waited = waited + 1
+  end
+  if waited >= 1800 then
+    trace('{"kit":"lock_timeout","lock":' .. tostring(n) .. '}')
+  end
+end
+
+-- lance une routine d'acteur en parallèle (def N for actor X)
+function SkySceneKit.run_routine(fn)
+  running = running + 1
+  TASK:BranchCoroutine(function()
+    local ok, err = pcall(fn)
+    if not ok then
+      trace('{"kit":"routine_error","error":"'
+            .. tostring(err):gsub('"', "'"):sub(1, 120) .. '"}')
+    end
+    running = running - 1
+  end)
+end
+
+-- attend la fin de toutes les routines lancées (fin du def 0)
+function SkySceneKit.join_routines(max_frames)
+  local waited = 0
+  max_frames = max_frames or 3600
+  while running > 0 and waited < max_frames do
+    GAME:WaitFrames(1)
+    waited = waited + 1
+  end
+  if running > 0 then
+    trace('{"kit":"join_timeout","still_running":'
+          .. tostring(running) .. '}')
+    running = 0
+  end
+end
+
 return SkySceneKit

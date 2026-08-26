@@ -4,9 +4,9 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Argh...[K] We didn't do so well...", french=" Argh...[K] Un échec retentissant...", german="Argh...[K]\nDas war wohl nicht gut genug...", italian=" Argh...[K] Ci è andata male...", spanish=" Ay...[K] No nos ha ido muy bien..."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" We should turn back for now.", french="Nous devrions faire demi-tour\npour l'instant.", german="Wir sollten wohl noch\neinmal von vorne anfangen.", italian=" Meglio tornare sui nostri passi.", spanish="Será mejor que retrocedamos\npor ahora."})
   -- message_KeyWait
   GAME:FadeOut(false,  60)
@@ -23,9 +23,9 @@ return function(hero, partner)
   GAME:FadeIn(30)
   -- GAP: BGM BGM_DUSK_FOREST non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english="(Argh![K] I want to go soon.\nI'm getting impatient.)", french="(Argh![K] Partons au plus vite.\nJe suis impatient.)", german="(Argh![K] Ich möchte bald los.\nIch werde langsam unruhig.)", italian="(Argh![K] Che rabbia! Ma non mi\narrendo.)", spanish="(¡Ay![K] Quiero ir cuanto antes.\nMe estoy impacientando.)"})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" (Next time, definitely!)", french="(Ce sera pour la prochaine\nfois!)", german=" (Beim nächsten Mal bestimmt!)", italian="(La prossima volta ce la farò\ndi sicuro!)", spanish="(¡La próxima vez será\nla definitiva!)"})
   -- message_Close
 end

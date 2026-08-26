@@ -4,9 +4,9 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Argh...[K] We didn't do so well...", french=" Argh...[K] Un échec retentissant...", german="Argh...[K]\nWir waren wohl nicht gut genug...", italian=" Argh...[K] Ci è andata male...", spanish=" Ay...[K] No nos ha ido bien..."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" We should turn back for now.", french="Nous devrions faire demi-tour\npour l'instant.", german="Wir sollten besser\nnoch einmal umkehren.", italian=" Meglio tornare sui nostri passi.", spanish=" Retrocedamos por ahora..."})
   -- message_KeyWait
   GAME:FadeOut(false,  60)
@@ -21,9 +21,9 @@ return function(hero, partner)
   GAME:FadeIn(30)
   -- GAP: BGM BGM_DARK_ICE_MOUNTAIN non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english="... (Anyway, there's no solution\nif we can't proceed farther.)", french="... (De toute façon, nous n'avons\npas d'autre solution, il faut continuer.)", german="...(Wenn wir es nicht weiter\nschaffen, werden wir keine Lösung finden.)", italian="... (Non possiamo fare nulla se\nnon riusciamo ad andare avanti.)", spanish="Uf... (Poco más podemos hacer\nde momento si queremos avanzar.)"})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english="(We'll make it through on the\nnext one.)", french="(La prochaine fois sera\nla bonne.)", german="(Beim nächsten Mal werden wir\nes weiter schaffen.)", italian="(La prossima volta dobbiamo\nfarcela.)", spanish="(Ya lo conseguiremos en el\npróximo intento.)"})
   -- message_Close
 end

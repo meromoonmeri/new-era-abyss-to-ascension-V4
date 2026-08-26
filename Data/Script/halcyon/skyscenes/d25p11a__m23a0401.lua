@@ -6,9 +6,11 @@ return function(hero, partner)
   pcall(function() SOUND:PlayBGM("Brine Cave.ogg", true) end)
   -- SetAnimation(2) [anim idle native]
   -- SetAnimation(2) [anim idle native]
+  local npc_npc_perappu = SkySceneKit.spawn_npc("chatot", 256, 192, Direction.Down, "NPC_PERAPPU")
   -- SetAnimation(2) [anim idle native]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
+  SkySceneKit.cleanup_npcs()
 end

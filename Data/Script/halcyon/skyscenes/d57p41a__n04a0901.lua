@@ -25,7 +25,7 @@ return function(hero, partner)
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Shock") end)
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english="I'll apprehend you this time! I'll\nshow you!", french="Cette fois je t'arrêterai!\nTu vas voir!", german="Diesmal verhafte ich dich! Du\nwirst schon sehen!", italian="Questa volta ti catturerò!\nVedrai!", spanish="Esta vez te capturaré. ¡Vas a\nver lo que es bueno!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_goosuto) end)

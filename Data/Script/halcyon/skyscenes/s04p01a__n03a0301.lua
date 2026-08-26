@@ -4,9 +4,9 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Yep...[K] Just like this.", french=" Voui...[K] Comme ça.", german=" Ja...[K] Einfach so.", italian=" Sì...[K] Proprio così.", spanish=" Sí...[K] Así, sin más."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english="I had so much fun today...[K]\nTime to head home. ♪", french="Je me suis amusé comme un fou\naujourd'hui...[K] Il est l'heure de rentrer. ♪", german="Das hat heute so viel Spaß\ngemacht...[K] Zeit, heimzukehren. ♪", italian="Mi sono divertito tanto oggi...[K]\nÈ ora di andare a casa. ♪", spanish="Hoy me lo he pasado bomba...[K]\nPero ahora toca volver a casa. ♪"})
   -- message_KeyWait
   GAME:FadeOut(false,  60)

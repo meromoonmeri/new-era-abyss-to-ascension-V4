@@ -37,10 +37,11 @@ return function(hero, partner)
   SkySceneKit.say({english="We're HAVING a hard TIME\nwith THEM.", french="ILS nous DONNENT du FIL\nà RETORDRE!", german="DIE sind GANZ schön\nANSTRENGEND.", italian="Ce la STIAMO vedendo BRUTTA\ncontro di LORO.", spanish=" Nos lo están poniendo difícil."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Shock_Bad") end)
+  local npc_npc_kimawari = SkySceneKit.spawn_npc("sunflora", 320, 248, Direction.DownLeft, "NPC_KIMAWARI")
   -- ExecuteCommon(CORO_JUMP_HAPPY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_FacePositionOffset(0, -3) [neutre/état moteur]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_kimawari) end)
   SkySceneKit.say({english=" But![K] We won't lose!", french="Mais zut![K]\nOn ne va pas se laisser faire comme ça!", german="Aber![K]\nWir werden nicht verlieren!", italian=" Ma![K] Non perderemo!", spanish=" Pero...[K] ¡No podemos perder!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]

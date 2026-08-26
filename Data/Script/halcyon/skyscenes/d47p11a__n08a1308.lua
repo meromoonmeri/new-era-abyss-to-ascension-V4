@@ -5,9 +5,9 @@ local SkySceneKit = require 'halcyon.skyscenes.kit'
 local SkySubScreen = require 'halcyon.skyscenes.subscreen'
 return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Argh...[K] We didn't do so well...", french="Argh...[K] Ça ne s'est pas\ntrès bien passé...", german="Argh...[K]\nDas war wohl nicht gut genug...", italian=" Argh...[K] Ci è andata male...", spanish=" Ay...[K] No lo hemos hecho bien..."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" We should turn back for now.", french="Nous devrions faire demi-tour\npour l'instant.", german="Wir sollten wohl noch\neinmal von vorne anfangen.", italian=" Meglio tornare sui nostri passi.", spanish=" Vamos a retroceder por ahora."})
   -- message_KeyWait
   GAME:FadeOut(false,  60)
@@ -31,7 +31,7 @@ return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english=" That's it?[K] That's your strength?", french="C'est ainsi?[K] Est-ce là tout\nce que tu peux faire?", german="Ist das schon alles?[K]\nHast du nicht mehr zu bieten?", italian="Tutto qua?[K] Sarebbe questa\nla tua forza?", spanish="¿Eso es todo?[K] ¿Esa es toda\ntu fuerza?"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Humph.[K] Whatever.", french=" Pfff.[K] Qu'importe.", german=" Hmpf.[K] Was soll's...", italian=" Bah.[K] Lasciami stare.", spanish=" ¡Bah![K] Déjame en paz."})
   -- message_Close
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)

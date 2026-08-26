@@ -2,12 +2,12 @@
  "schema": "sky-scene-compiler/1",
  "rule": "FAIL-CLOSED: seules les scènes 100% traduites sont émises ; PARTIAL_OPS/MULTIROUTINE comptées, jamais émises approximées",
  "totals": {
-  "TRIVIAL_SKIPPED": 2088,
-  "COMPILED": 657,
-  "PARTIAL_OPS": 592,
+  "TRIVIAL_SKIPPED": 2089,
+  "COMPILED": 776,
+  "PARTIAL_OPS": 523,
   "SKIPPED_REQUIRES_ENGINE_EXTENSION": 372,
-  "COMPILED_DUAL_SCREEN": 62,
-  "NOT_COMPILED_MULTIROUTINE": 51
+  "COMPILED_DUAL_SCREEN": 73,
+  "COMPILED_MULTIROUTINE": 16
  },
  "scenes": {
   "D00P01/m01a01a.ssb": {
@@ -38,15 +38,15 @@
   "D01P11A/dus04.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_14",
     "with"
    ]
   },
   "D01P11A/dus05.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "@label_3"
-   ]
+   "status": "COMPILED",
+   "file": "d01p11a__dus05.lua",
+   "dialogues": 1,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D01P11A/dus08.ssb": {
    "status": "PARTIAL_OPS",
@@ -75,7 +75,6 @@
     "Move2PositionOffset:OBJECT_V12P01A6_249",
     "Move2PositionOffset:OBJECT_V12P01A7_250",
     "Move2PositionOffset:OBJECT_V12P01A8_251",
-    "bgm_ChangeVolume",
     "message_Mail"
    ]
   },
@@ -111,10 +110,11 @@
    "gaps": null
   },
   "D01P11A/n04a0401.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2Direction:ACTOR_PLAYER_KIMAWARI"
-   ]
+   "status": "COMPILED",
+   "file": "d01p11a__n04a0401.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D01P11A/s03p0901.ssb": {
    "status": "PARTIAL_OPS",
@@ -139,8 +139,7 @@
   "D01P11A/s21p0301.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 80]",
-    "bgm_ChangeVolume"
+    "$SCENARIO_MAIN = scn[29, 80]"
    ]
   },
   "D01P11A/s22p1104.ssb": {
@@ -300,12 +299,18 @@
    ]
   },
   "D01P11B/m26a0615.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "$EVENT_LOCAL = 1",
+    "clear $EVENT_LOCAL",
+    "routine1:forever {\n        SlidePositionOffset"
+   ]
   },
   "D01P11B/m26a0805.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "SetupOutputAttributeAndAnimation"
+   ]
   },
   "D01P11B/s03p2003.ssb": {
    "status": "PARTIAL_OPS",
@@ -366,8 +371,14 @@
    "gaps": null
   },
   "D03P41A/m03a0801.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "$EVENT_LOCAL = 1",
+    "$SCENARIO_MAIN = scn[4, 6]",
+    "Turn2DirectionTurn",
+    "clear $EVENT_LOCAL",
+    "routine1:forever {\n        SlidePositionOffset"
+   ]
   },
   "D03P41A/m03a0901.ssb": {
    "status": "COMPILED",
@@ -546,7 +557,6 @@
     "Turn2Direction:ACTOR_UNIT_NPC1",
     "Turn2Direction:ACTOR_UNIT_NPC2",
     "Turn2DirectionLives:ACTOR_PLAYER",
-    "se_Stop",
     "switch "
    ]
   },
@@ -642,20 +652,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[10, 1]",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "MovePositionOffset:ACTOR_NPC_KIMAWARI",
-    "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_KIMAWARI",
-    "SetPositionMark:0",
-    "SetPositionMark:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_CHIRIIN",
-    "Turn2DirectionLives:ACTOR_NPC_DOGOOMU",
-    "Turn2DirectionLives:ACTOR_NPC_HEIGANI",
-    "Turn2DirectionLives:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
     "dungeon_mode"
    ]
   },
@@ -666,8 +662,14 @@
    ]
   },
   "D08P11A/m09a0401.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "COMPILED",
+   "file": "d08p11a__m09a0401.lua",
+   "dialogues": 7,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(8963) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
+   ]
   },
   "D08P11A/m09a0501.ssb": {
    "status": "COMPILED",
@@ -732,11 +734,15 @@
    "gaps": null
   },
   "D09P11A/m10a0904.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI"
+   "status": "COMPILED",
+   "file": "d09p11a__m10a0904.lua",
+   "dialogues": 12,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_RAIN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(6916) — id SE NDS sans portage PMDO identifié",
+    "se_Play(8965) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6916) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D10P21A/enter01.ssb": {
@@ -883,8 +889,7 @@
   "D10P41A/m10a1101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$COMPULSORY_SAVE_POINT = 9",
-    "SetPositionMark:3"
+    "$COMPULSORY_SAVE_POINT = 9"
    ]
   },
   "D10P41A/m11a0705.ssb": {
@@ -1076,8 +1081,16 @@
    ]
   },
   "D14P12A/m14a0103.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 2
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "routine1:ResetFunctionAttribute",
+    "routine1:SetFunctionAttribute",
+    "routine1:SlideHeight",
+    "routine2:ResetFunctionAttribute",
+    "routine2:SetFunctionAttribute",
+    "routine2:SlideHeight",
+    "switch"
+   ]
   },
   "D15P21A/enter01.ssb": {
    "status": "COMPILED",
@@ -1413,8 +1426,7 @@
   "D18P11A/m17a0701.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[18, 4]",
-    "Turn2Direction:ACTOR_NPC_JUPUTORU"
+    "$SCENARIO_MAIN = scn[18, 4]"
    ]
   },
   "D19P11A/enter03.ssb": {
@@ -1428,7 +1440,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[19, 1]",
-    "MovePositionLives",
     "message_Mail"
    ]
   },
@@ -1614,16 +1625,19 @@
    ]
   },
   "D22P11A/m19a0501.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "COMPILED",
+   "file": "d22p11a__m19a0501.lua",
+   "dialogues": 5,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_DUSK_FOREST non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
+   ]
   },
   "D22P11A/n08a2008.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "MovePositionMark:ACTOR_NPC_YONOWAARU_N8",
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU_N8",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE"
+    "Turn2Direction:ACTOR_NPC_YONOWAARU_N8"
    ]
   },
   "D22P11A/n08a2208.ssb": {
@@ -1638,8 +1652,7 @@
   "D22P11A/n08a2408.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_YONOWAARU_N8",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE"
+    "Turn2Direction:ACTOR_NPC_YONOWAARU_N8"
    ]
   },
   "D23P11A/enter03.ssb": {
@@ -1665,8 +1678,11 @@
    "gaps": null
   },
   "D23P11A/m19b0901.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "$SCENARIO_MAIN = scn[20, 4]",
+    "Turn2Direction:ACTOR_NPC_SEREBII"
+   ]
   },
   "D24P11A/enter03.ssb": {
    "status": "COMPILED",
@@ -1683,10 +1699,11 @@
    "gaps": null
   },
   "D24P11A/m20a0501.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_PLAYER"
-   ]
+   "status": "COMPILED",
+   "file": "d24p11a__m20a0501.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D24P11A/m20a0601.ssb": {
    "status": "COMPILED",
@@ -1726,14 +1743,6 @@
   "D25P11A/m23a0201.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
     "switch"
    ]
   },
@@ -1819,8 +1828,11 @@
    "gaps": null
   },
   "D26P21A/m23a0501.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "$PERFORMANCE_PROGRESS_LIST[25] = 1",
+    "$SCENARIO_MAIN = scn[24, 2]"
+   ]
   },
   "D26P21A/m23a0601.ssb": {
    "status": "COMPILED",
@@ -1867,14 +1879,15 @@
    ]
   },
   "D26P43A/m23a0901.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "SlidePositionOffset:ACTOR_NPC_CHIRIIN",
-    "SlidePositionOffset:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI"
+   "status": "COMPILED",
+   "file": "d26p43a__m23a0901.lua",
+   "dialogues": 59,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(7430) — id SE NDS sans portage PMDO identifié",
+    "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(6916) — id SE NDS sans portage PMDO identifié",
+    "se_Play(7185) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D27P11A/enter01.ssb": {
@@ -1899,8 +1912,11 @@
    "gaps": null
   },
   "D27P11A/m24a0501.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "COMPILED",
+   "file": "d27p11a__m24a0501.lua",
+   "dialogues": 4,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D27P11A/m24a1201.ssb": {
    "status": "COMPILED",
@@ -1961,16 +1977,25 @@
    "gaps": null
   },
   "D28P21A/m24a0701.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "COMPILED",
+   "file": "d28p21a__m24a0701.lua",
+   "dialogues": 4,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D28P21A/m24a0901.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "COMPILED",
+   "file": "d28p21a__m24a0901.lua",
+   "dialogues": 9,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D28P31A/m24a0801.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 3
+   "status": "COMPILED",
+   "file": "d28p31a__m24a0801.lua",
+   "dialogues": 5,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D28P32A/m24a0802.ssb": {
    "status": "PARTIAL_OPS",
@@ -2022,8 +2047,7 @@
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[26, 1]",
     "MovePositionOffset:OBJECT_D28P34A1_74",
-    "Slide2PositionMark",
-    "se_Stop"
+    "Slide2PositionMark"
    ]
   },
   "D28P44A/m25a0201.ssb": {
@@ -2090,9 +2114,13 @@
    ]
   },
   "D28P44A/m26a06e2.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetPositionMark:0"
+   "status": "COMPILED",
+   "file": "d28p44a__m26a06e2.lua",
+   "dialogues": 1,
+   "dual_screen_focus": true,
+   "gaps": [
+    "BGM BGM_MEMORIES_RETURNED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "SetEffect 653 — VFX sans émote PMDO équivalente"
    ]
   },
   "D28P44A/s21p0206.ssb": {
@@ -2250,8 +2278,7 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[26, 6]",
-    "SlidePositionOffset:0",
-    "se_Stop"
+    "SlidePositionOffset:0"
    ]
   },
   "D30P41A/m25a1201.ssb": {
@@ -2329,8 +2356,7 @@
   "D31P31A/s01p0601.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 4]",
-    "MovePositionMark:ACTOR_NPC_HIMEGUMA"
+    "$SCENARIO_MAIN = scn[29, 4]"
    ]
   },
   "D31P31A/s01p0603.ssb": {
@@ -2356,21 +2382,32 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$COMPULSORY_SAVE_POINT = 23",
-    "MovePositionOffset:ACTOR_NPC_CHIRIIN",
-    "MovePositionOffset:ACTOR_NPC_KIMAWARI",
     "switch "
    ]
   },
   "D31P41A/s01p0602.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 2
-  },
-  "D31P41A/s01p0604.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_PUKURIN"
+    "routine1:ResetFunctionAttribute",
+    "routine1:SetFunctionAttribute",
+    "routine1:SlideHeight",
+    "routine2:ResetFunctionAttribute",
+    "routine2:SetFunctionAttribute",
+    "routine2:SlideHeight"
+   ]
+  },
+  "D31P41A/s01p0604.ssb": {
+   "status": "COMPILED",
+   "file": "d31p41a__s01p0604.lua",
+   "dialogues": 13,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_THE_POWER_OF_DARKNESS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(8969) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5136) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D31P41A/s01p0802.ssb": {
@@ -2434,14 +2471,9 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_NPC_MIMIROPPU",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_NPC_MIMIROPPU",
-    "Turn2Direction:ACTOR_PLAYER_APPOINT"
+    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
    ]
   },
   "D32P11A/s04p0301.ssb": {
@@ -2451,14 +2483,9 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_NPC_MIMIROPPU",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_NPC_MIMIROPPU"
+    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
    ]
   },
   "D32P12A/enter10.ssb": {
@@ -2507,18 +2534,12 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[29, 60]",
-    "Move2PositionOffset:ACTOR_NPC_MIMIROPPU",
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_NPC_MIMIROPPU",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
-    "MovePositionOffset:ACTOR_NPC_CHAAREMU",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_PLAYER_APPOINT"
+    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
    ]
   },
   "D32P13A/enter10.ssb": {
@@ -2590,11 +2611,7 @@
     "$SCENARIO_MAIN = scn[29, 66]",
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_NPC_MIMIROPPU",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
-    "Turn2Direction:ACTOR_NPC_MIMIROPPU"
+    "MovePositionMark:ACTOR_ADVENTURE_NPC3"
    ]
   },
   "D32P44A/s04p1701.ssb": {
@@ -2603,13 +2620,9 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_NPC_MIMIROPPU",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_PLAYER_APPOINT"
+    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
    ]
   },
   "D32P44A/s04p1801.ssb": {
@@ -2617,8 +2630,7 @@
    "unsupported_ops": [
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT"
+    "MovePositionMark:ACTOR_ADVENTURE_NPC3"
    ]
   },
   "D34P41A/s03p0201.ssb": {
@@ -2692,11 +2704,9 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "MovePositionOffset:ACTOR_ADVENTURE_NPC1",
     "MovePositionOffset:ACTOR_ADVENTURE_NPC2",
     "MovePositionOffset:ACTOR_ADVENTURE_NPC3",
-    "MovePositionOffset:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
     "Turn2Direction:ACTOR_ADVENTURE_NPC3",
@@ -2707,8 +2717,7 @@
     "Turn2Direction:ACTOR_NPC_FIONE5",
     "Turn2Direction:ACTOR_NPC_FIONE6",
     "Turn2Direction:ACTOR_NPC_FIONE7",
-    "Turn2Direction:ACTOR_NPC_FIONE8",
-    "Turn2Direction:ACTOR_PLAYER_APPOINT"
+    "Turn2Direction:ACTOR_NPC_FIONE8"
    ]
   },
   "D35P41A/s03p1601.ssb": {
@@ -2725,7 +2734,6 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_NPC_FIONE1",
     "Turn2Direction:ACTOR_NPC_FIONE2",
     "Turn2Direction:ACTOR_NPC_FIONE3",
@@ -2795,8 +2803,16 @@
    "gaps": null
   },
   "D38P12A/s21p0601.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 2
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "$SCENARIO_MAIN = scn[29, 81]",
+    "routine1:ResetFunctionAttribute",
+    "routine1:SetFunctionAttribute",
+    "routine1:SlideHeight",
+    "routine2:ResetFunctionAttribute",
+    "routine2:SetFunctionAttribute",
+    "routine2:SlideHeight"
+   ]
   },
   "D38P12A/s21p0701.ssb": {
    "status": "COMPILED",
@@ -2900,8 +2916,7 @@
    "unsupported_ops": [
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT"
+    "MovePositionMark:ACTOR_ADVENTURE_NPC3"
    ]
   },
   "D39P41A/s21p1101.ssb": {
@@ -2956,7 +2971,6 @@
    "unsupported_ops": [
     "MovePositionMark:ACTOR_NPC_KURESERIA",
     "Turn2Direction:ACTOR_NPC_KURESERIA",
-    "bgm_ChangeVolume",
     "switch"
    ]
   },
@@ -3041,16 +3055,18 @@
    "gaps": null
   },
   "D41P41A/hus01.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "@label_0"
-   ]
+   "status": "COMPILED",
+   "file": "d41p41a__hus01.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D41P41A/hus04.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "@label_0"
-   ]
+   "status": "COMPILED",
+   "file": "d41p41a__hus04.lua",
+   "dialogues": 3,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D41P41A/mdebug.ssb": {
    "status": "COMPILED",
@@ -3067,16 +3083,18 @@
    "gaps": null
   },
   "D41P41A/mus03.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "@label_0"
-   ]
+   "status": "COMPILED",
+   "file": "d41p41a__mus03.lua",
+   "dialogues": 1,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D41P41A/mus05.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "@label_0"
-   ]
+   "status": "COMPILED",
+   "file": "d41p41a__mus05.lua",
+   "dialogues": 1,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D41P41A/s22p1101.ssb": {
    "status": "PARTIAL_OPS",
@@ -3144,8 +3162,7 @@
     "SetDirection:ACTOR_NPC_KURESERIA",
     "SetFunctionAttribute",
     "SetPositionOffset",
-    "Turn2Direction:ACTOR_NPC_KURESERIA",
-    "se_Stop"
+    "Turn2Direction:ACTOR_NPC_KURESERIA"
    ]
   },
   "D42P21A/enter02.ssb": {
@@ -3193,16 +3210,18 @@
    "gaps": null
   },
   "D42P21A/enter24.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "@label_0"
-   ]
+   "status": "COMPILED",
+   "file": "d42p21a__enter24.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D42P21A/enter25.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "@label_0"
-   ]
+   "status": "COMPILED",
+   "file": "d42p21a__enter25.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D42P21A/n01a1501.ssb": {
    "status": "PARTIAL_OPS",
@@ -3267,19 +3286,7 @@
     "MovePositionOffset:ACTOR_NPC_KIMAWARI",
     "MovePositionOffset:ACTOR_NPC_PERAPPU",
     "MovePositionOffset:ACTOR_NPC_PUKURIN",
-    "MovePositionOffset:ACTOR_PLAYER_BIPPA",
-    "SetPositionMark:0",
-    "SetPositionMark:ACTOR_NPC_CHIRIIN",
-    "SetPositionMark:ACTOR_NPC_KIMAWARI",
-    "SlidePositionOffset:ACTOR_NPC_CHIRIIN",
-    "SlidePositionOffset:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_CHIRIIN",
-    "Turn2DirectionLives:ACTOR_NPC_HEIGANI",
-    "Turn2DirectionLives:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_PUKURIN",
-    "Turn2DirectionLives:ACTOR_PLAYER_BIPPA"
+    "MovePositionOffset:ACTOR_PLAYER_BIPPA"
    ]
   },
   "D42P41A/n01a1901.ssb": {
@@ -3343,24 +3350,14 @@
   "D43P31A/n02a0901.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_SIDE = scn[42, 0]",
-    "MovePositionMark:ACTOR_PLAYER_PUPURIN",
-    "MovePositionOffset:ACTOR_PLAYER_PUPURIN",
-    "SlidePositionOffset:ACTOR_PLAYER_PUPURIN",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN"
+    "$SCENARIO_SIDE = scn[42, 0]"
    ]
   },
   "D44P31A/n03a0601.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$COMPULSORY_SAVE_POINT_SIDE = 4",
-    "$SCENARIO_SIDE = scn[42, 4]",
-    "MovePositionMark:ACTOR_PLAYER_PUPURIN",
-    "MovePositionOffset:ACTOR_PLAYER_PUPURIN",
-    "SetPositionMark:0",
-    "SetPositionMark:ACTOR_PLAYER_PUPURIN",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN",
-    "Turn2DirectionLives:ACTOR_PLAYER_PUPURIN"
+    "$SCENARIO_SIDE = scn[42, 4]"
    ]
   },
   "D45P21A/enter07.ssb": {
@@ -3375,9 +3372,7 @@
   "D45P21A/n03a1201.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_SIDE = scn[42, 7]",
-    "MovePositionMark:ACTOR_PLAYER_PUPURIN",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN"
+    "$SCENARIO_SIDE = scn[42, 7]"
    ]
   },
   "D45P21A/n03a1401.ssb": {
@@ -3393,14 +3388,8 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[42, 9]",
-    "MovePositionMark:ACTOR_PLAYER_PUPURIN",
-    "SetPositionLives",
     "SetPositionOffset",
-    "Slide2PositionOffset:OBJECT_D45P31A6_548",
-    "SlidePositionOffset:ACTOR_PLAYER_PUPURIN",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN",
-    "Turn2DirectionLives:ACTOR_NPC_AAMARUDO",
-    "Turn2DirectionLives:ACTOR_PLAYER_PUPURIN"
+    "Slide2PositionOffset:OBJECT_D45P31A6_548"
    ]
   },
   "D45P42A/n03a1502.ssb": {
@@ -3414,33 +3403,39 @@
     "se_Play(9474) — id SE NDS sans portage PMDO identifié",
     "se_Play(9738) — id SE NDS sans portage PMDO identifié",
     "se_Play(6930) — id SE NDS sans portage PMDO identifié",
-    "SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)",
-    "SetEffect EFFECT_JOYOUS sur PNJ non résolu (v2 cast SSA)",
-    "SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)",
     "se_Play(5143) — id SE NDS sans portage PMDO identifié",
     "se_Play(5143) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D45P42A/n03a1601.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN",
-    "Turn2DirectionLives:ACTOR_NPC_AAMARUDO",
-    "Turn2DirectionLives:ACTOR_PLAYER_PUPURIN"
+   "status": "COMPILED",
+   "file": "d45p42a__n03a1601.lua",
+   "dialogues": 17,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(9732) — id SE NDS sans portage PMDO identifié",
+    "se_Play(7170) — id SE NDS sans portage PMDO identifié",
+    "se_Play(7939) — id SE NDS sans portage PMDO identifié",
+    "se_Play(9474) — id SE NDS sans portage PMDO identifié",
+    "se_Play(9738) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6930) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D45P42A/n03a1701.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_SIDE = scn[42, 10]",
-    "MovePositionOffset:ACTOR_PLAYER_PUPURIN",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN"
+    "$SCENARIO_SIDE = scn[42, 10]"
    ]
   },
   "D46P11A/n08a0308.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2Direction:ACTOR_PLAYER_FUTURE"
+   "status": "COMPILED",
+   "file": "d46p11a__n08a0308.lua",
+   "dialogues": 7,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_BARREN_VALLEY non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D46P11A/n08a0908.ssb": {
@@ -3464,8 +3459,7 @@
   "D46P21A/n08a0508.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_SIDE = scn[47, 2]",
-    "MovePositionMark:ACTOR_PLAYER_FUTURE"
+    "$SCENARIO_SIDE = scn[47, 2]"
    ]
   },
   "D46P21A/n08a0708.ssb": {
@@ -3479,27 +3473,19 @@
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[47, 3]",
     "MovePositionMark:ACTOR_NPC_YONOWAARU_N8",
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
     "SetDirection:ACTOR_NPC_YONOWAARU_N8",
     "Slide2PositionMark",
     "Slide2PositionOffset:ACTOR_NPC_YONOWAARU_N8",
-    "Slide2PositionOffset:ACTOR_PLAYER_FUTURE",
     "SlidePositionOffset:ACTOR_NPC_YONOWAARU_N8",
-    "SlidePositionOffset:ACTOR_PLAYER_FUTURE",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N8",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE",
-    "Turn2DirectionLives:ACTOR_NPC_YAMIRAMI",
     "Turn2DirectionLives:ACTOR_PLAYER_FUTURE"
    ]
   },
   "D46P31A/n08a1008.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
     "SlidePositionOffset:ACTOR_NPC_YONOWAARU_N8",
-    "SlidePositionOffset:ACTOR_PLAYER_FUTURE",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N8",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE",
     "Turn2DirectionLives:ACTOR_PLAYER_FUTURE"
    ]
   },
@@ -3507,11 +3493,8 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[47, 4]",
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
     "MovePositionOffset:ACTOR_NPC_YONOWAARU_N8",
-    "MovePositionOffset:ACTOR_PLAYER_FUTURE",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N8",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE",
     "Turn2DirectionLives:ACTOR_NPC_YONOWAARU_N8",
     "Turn2DirectionLives:ACTOR_PLAYER_FUTURE",
     "switch"
@@ -3521,9 +3504,7 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "MovePositionMark:ACTOR_NPC_YONOWAARU_N8",
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU_N8",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE"
+    "Turn2Direction:ACTOR_NPC_YONOWAARU_N8"
    ]
   },
   "D47P11A/n08a1308.ssb": {
@@ -3538,8 +3519,7 @@
   "D48P11A/n08a1408.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_YONOWAARU_N8",
-    "MovePositionMark:ACTOR_PLAYER_FUTURE"
+    "MovePositionMark:ACTOR_NPC_YONOWAARU_N8"
    ]
   },
   "D48P11A/n08a1608.ssb": {
@@ -3563,9 +3543,7 @@
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[47, 7]",
     "MovePositionMark:ACTOR_NPC_YONOWAARU_N8",
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU_N8",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE"
+    "Turn2Direction:ACTOR_NPC_YONOWAARU_N8"
    ]
   },
   "D48P21A/n08a1908.ssb": {
@@ -3581,9 +3559,7 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "MovePositionMark:ACTOR_NPC_YONOWAARU_N8",
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU_N8",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE"
+    "Turn2Direction:ACTOR_NPC_YONOWAARU_N8"
    ]
   },
   "D50P11A/n08a2808.ssb": {
@@ -3600,12 +3576,8 @@
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[48, 0]",
     "MovePositionMark:ACTOR_NPC_YONOWAARU_N8",
-    "MovePositionOffset:ACTOR_PLAYER_FUTURE",
     "MovePositionOffset:OBJECT_D51P11A1_419",
-    "SetDirection:ACTOR_PLAYER_FUTURE",
-    "SlidePositionOffset:ACTOR_PLAYER_FUTURE",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N8",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE",
     "Turn2DirectionLives:ACTOR_NPC_YONOWAARU_N8",
     "Turn2DirectionLives:ACTOR_PLAYER_FUTURE"
    ]
@@ -3642,9 +3614,7 @@
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[48, 2]",
     "MovePositionMark:ACTOR_NPC_YONOWAARU_N9",
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE"
+    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9"
    ]
   },
   "D51P21A/n09a0401.ssb": {
@@ -3661,7 +3631,6 @@
    "unsupported_ops": [
     "SetDirection:ACTOR_NPC_YONOWAARU_N9",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N9",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE",
     "Turn2DirectionLives:ACTOR_NPC_YONOWAARU_N9"
    ]
   },
@@ -3669,19 +3638,13 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[48, 4]",
-    "Move2PositionMark:ACTOR_PLAYER_FUTURE",
     "MovePositionMark:ACTOR_NPC_YONOWAARU_N9",
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
     "ResetFunctionAttribute",
     "SetDirection:ACTOR_NPC_YONOWAARU_N9",
-    "SetDirection:ACTOR_PLAYER_FUTURE",
     "SetFunctionAttribute",
-    "SetPositionMark:ACTOR_PLAYER_FUTURE",
     "Slide2PositionMark",
     "SlidePositionOffset:ACTOR_NPC_YONOWAARU_N9",
-    "SlidePositionOffset:ACTOR_PLAYER_FUTURE",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N9",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE",
     "Turn2DirectionLives:ACTOR_NPC_YONOWAARU_N9",
     "se_ChangeVolume",
     "se_PlayVolume"
@@ -3702,10 +3665,8 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$COMPULSORY_SAVE_POINT_SIDE = 1",
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
     "SetDirection:ACTOR_NPC_YONOWAARU_N9",
     "Slide2PositionMark",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE",
     "Turn2DirectionLives:ACTOR_NPC_YONOWAARU_N9"
    ]
   },
@@ -3713,19 +3674,14 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "MovePositionMark:ACTOR_NPC_YONOWAARU_N9",
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
-    "MovePositionOffset:ACTOR_PLAYER_FUTURE",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE"
+    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9"
    ]
   },
   "D52P11A/n09a0907.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "MovePositionOffset:ACTOR_NPC_YONOWAARU_N9",
-    "MovePositionOffset:ACTOR_PLAYER_FUTURE",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE"
+    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9"
    ]
   },
   "D52P11A/n09a1101.ssb": {
@@ -3736,16 +3692,19 @@
    "gaps": null
   },
   "D52P11C/n09a2207.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 2
+   "status": "COMPILED",
+   "file": "d52p11c__n09a2207.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_A_NEW_WORLD non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
+   ]
   },
   "D52P31A/n09a1202.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "MovePositionMark:ACTOR_NPC_YONOWAARU_N9",
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
     "MovePositionOffset:ACTOR_NPC_YONOWAARU_N9",
-    "MovePositionOffset:ACTOR_PLAYER_FUTURE",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N9",
     "Turn2DirectionLives:ACTOR_NPC_YONOWAARU_N9",
     "Turn2DirectionLives:ACTOR_PLAYER_FUTURE"
@@ -3755,8 +3714,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "MovePositionMark:ACTOR_NPC_YONOWAARU_N9",
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
-    "MovePositionOffset:ACTOR_PLAYER_FUTURE",
     "SetupOutputAttributeAndAnimation",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N9",
     "supervision_ActingInvisible"
@@ -3769,15 +3726,38 @@
    ]
   },
   "D52P32A/n09a1207.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "$COMPULSORY_SAVE_POINT_SIDE = 3",
+    "$EVENT_LOCAL = 1",
+    "MovePositionOffset:ACTOR_NPC_SEREBII",
+    "ResetFunctionAttribute",
+    "SetDirection:ACTOR_NPC_SEREBII",
+    "SetDirection:ACTOR_NPC_YONOWAARU_N9",
+    "SetFunctionAttribute",
+    "SetPositionMark:ACTOR_NPC_YONOWAARU_N9",
+    "SetPositionMark:OBJECT_D52P32A2_434",
+    "SetupOutputAttributeAndAnimation",
+    "Slide2PositionLives",
+    "Slide2PositionMark",
+    "Slide2PositionOffset:ACTOR_NPC_SEREBII",
+    "Slide2PositionOffset:ACTOR_NPC_YONOWAARU_N9",
+    "SlidePositionMark:ACTOR_NPC_YONOWAARU_N9",
+    "SlidePositionOffset:ACTOR_NPC_SEREBII",
+    "SlidePositionOffset:ACTOR_NPC_YONOWAARU_N9",
+    "Turn2Direction:ACTOR_NPC_SEREBII",
+    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9",
+    "Turn2DirectionLives:ACTOR_NPC_SEREBII",
+    "Turn2DirectionLives:ACTOR_NPC_YONOWAARU_N9",
+    "clear $EVENT_LOCAL",
+    "routine3:forever {\n        SetAnimation"
+   ]
   },
   "D53P11A/n09a1208.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "Turn2Direction:ACTOR_NPC_SEREBII",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N9",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE",
     "Turn2DirectionLives:ACTOR_NPC_SEREBII",
     "Turn2DirectionLives:ACTOR_NPC_YONOWAARU_N9",
     "Turn2DirectionLives:ACTOR_PLAYER_FUTURE",
@@ -3788,8 +3768,7 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "Turn2Direction:ACTOR_NPC_SEREBII",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE"
+    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9"
    ]
   },
   "D53P11A/n09a2001.ssb": {
@@ -3810,8 +3789,13 @@
    "gaps": null
   },
   "D53P11B/n09a2206.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "COMPILED",
+   "file": "d53p11b__n09a2206.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_A_NEW_WORLD non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
+   ]
   },
   "D53P21A/enter03.ssb": {
    "status": "COMPILED",
@@ -3828,18 +3812,15 @@
     "$SCENARIO_SIDE = scn[48, 7]",
     "MovePositionMark:ACTOR_NPC_SEREBII",
     "MovePositionMark:ACTOR_NPC_YONOWAARU_N9",
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
     "Turn2Direction:ACTOR_NPC_SEREBII",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE"
+    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9"
    ]
   },
   "D53P21A/n09a1701.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "Turn2Direction:ACTOR_NPC_SEREBII",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE"
+    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9"
    ]
   },
   "D53P21A/n09a1901.ssb": {
@@ -3848,8 +3829,7 @@
     "SetDirection:ACTOR_NPC_SEREBII",
     "SetDirection:ACTOR_NPC_YONOWAARU_N9",
     "Turn2Direction:ACTOR_NPC_SEREBII",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE"
+    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9"
    ]
   },
   "D53P21A/n09a2301.ssb": {
@@ -3858,8 +3838,7 @@
     "SetDirection:ACTOR_NPC_SEREBII",
     "SetDirection:ACTOR_NPC_YONOWAARU_N9",
     "Turn2Direction:ACTOR_NPC_SEREBII",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE"
+    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9"
    ]
   },
   "D53P41A/n09a1801.ssb": {
@@ -3868,11 +3847,9 @@
     "$SCENARIO_SIDE = scn[48, 9]",
     "MovePositionOffset:ACTOR_NPC_SEREBII",
     "MovePositionOffset:ACTOR_NPC_YONOWAARU_N9",
-    "MovePositionOffset:ACTOR_PLAYER_FUTURE",
     "SetupOutputAttributeAndAnimation",
     "SlidePositionOffset:ACTOR_NPC_SEREBII",
     "SlidePositionOffset:ACTOR_NPC_YONOWAARU_N9",
-    "SlidePositionOffset:ACTOR_PLAYER_FUTURE",
     "Turn2Direction:ACTOR_NPC_SEREBII",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N9",
     "supervision_ActingInvisible"
@@ -3893,8 +3870,6 @@
     "MovePositionMark:OBJECT_D01P11B2_13",
     "SetDirection:ACTOR_NPC_SEREBII",
     "SetDirection:ACTOR_NPC_YONOWAARU_N9",
-    "SetDirection:ACTOR_PLAYER_FUTURE",
-    "SlidePositionMark:ACTOR_PLAYER_FUTURE",
     "WaitBackEffect",
     "back_SetBackEffect",
     "back_SetEffect"
@@ -3916,22 +3891,17 @@
     "SetPositionOffset",
     "Slide2PositionOffset:ACTOR_NPC_SEREBII",
     "Slide2PositionOffset:ACTOR_NPC_YONOWAARU_N9",
-    "Slide2PositionOffset:ACTOR_PLAYER_FUTURE",
     "Turn2Direction:ACTOR_NPC_SEREBII",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE"
+    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9"
    ]
   },
   "D53P41C/n09a2211.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Move2PositionMark:ACTOR_PLAYER_FUTURE",
     "MovePositionOffset:0",
     "MovePositionOffset:ACTOR_NPC_YONOWAARU_N9",
-    "MovePositionOffset:ACTOR_PLAYER_FUTURE",
     "Turn2Direction:ACTOR_NPC_SEREBII",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE"
+    "Turn2Direction:ACTOR_NPC_YONOWAARU_N9"
    ]
   },
   "D54P11A/enter06.ssb": {
@@ -3942,13 +3912,12 @@
    "gaps": null
   },
   "D54P11A/n06a0401.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
+   "status": "COMPILED",
+   "file": "d54p11a__n06a0401.lua",
+   "dialogues": 9,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_SOUTHERN_JUNGLE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D55P11A/enter05.ssb": {
@@ -3962,64 +3931,47 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "Move2PositionOffset:ACTOR_NPC_NOKUTASU",
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_NPC_MANYUURA",
     "MovePositionMark:ACTOR_NPC_METAMON_OTACHI",
-    "MovePositionMark:ACTOR_PLAYER_CHARMS",
     "MovePositionOffset:ACTOR_NPC_AABOKKU",
     "MovePositionOffset:ACTOR_NPC_BUUBAAN",
-    "MovePositionOffset:ACTOR_NPC_CHAAREMU",
     "MovePositionOffset:ACTOR_NPC_DORAPION",
     "MovePositionOffset:ACTOR_NPC_HERUGAA",
     "MovePositionOffset:ACTOR_NPC_MANYUURA",
     "MovePositionOffset:ACTOR_NPC_METAMON_OTACHI",
     "SetPositionMark:ACTOR_NPC_METAMON_OTACHI",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_NPC_MANYUURA",
-    "Turn2Direction:ACTOR_NPC_METAMON_OTACHI",
-    "Turn2Direction:ACTOR_PLAYER_CHARMS",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_SAANAITO",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
+    "Turn2Direction:ACTOR_NPC_METAMON_OTACHI"
    ]
   },
   "D55P11A/n06a0901.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
-   ]
+   "status": "COMPILED",
+   "file": "d55p11a__n06a0901.lua",
+   "dialogues": 10,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D55P11A/n06a1601.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_SAANAITO",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
-   ]
+   "status": "COMPILED",
+   "file": "d55p11a__n06a1601.lua",
+   "dialogues": 9,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D55P11A/n06a3903.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_CHAAREMU",
     "SetDirection:ACTOR_NPC_METAMON_OTACHI",
-    "SetDirection:ACTOR_PLAYER_CHARMS",
-    "SetPositionMark:0",
-    "SetPositionMark:ACTOR_NPC_CHAAREMU",
     "SetPositionMark:ACTOR_NPC_METAMON_OTACHI",
-    "SetPositionMark:ACTOR_PLAYER_CHARMS",
     "message_Mail"
    ]
   },
   "D55P11A/n06a3908.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 3
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "$EVENT_LOCAL = 1",
+    "routine1:forever {\n        switch ",
+    "routine2:forever {\n        switch ",
+    "routine3:forever {\n        switch "
+   ]
   },
   "D55P21A/enter07.ssb": {
    "status": "COMPILED",
@@ -4033,199 +3985,156 @@
   "D55P21A/n06a1001.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_SIDE = scn[45, 5]",
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_PLAYER_CHARMS",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_SAANAITO",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
+    "$SCENARIO_SIDE = scn[45, 5]"
    ]
   },
   "D55P21A/n06a1201.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
-   ]
+   "status": "COMPILED",
+   "file": "d55p21a__n06a1201.lua",
+   "dialogues": 5,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D55P21A/n06a1401.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_PLAYER_CHARMS",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_SAANAITO",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
-   ]
+   "status": "COMPILED",
+   "file": "d55p21a__n06a1401.lua",
+   "dialogues": 10,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D55P21A/n06a1501.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_SAANAITO"
-   ]
+   "status": "COMPILED",
+   "file": "d55p21a__n06a1501.lua",
+   "dialogues": 5,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D55P41A/n06a1301.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_SIDE = scn[45, 7]",
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_PLAYER_CHARMS",
-    "SlidePositionOffset:ACTOR_NPC_CHAAREMU",
-    "SlidePositionOffset:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_PLAYER_CHARMS",
-    "Turn2DirectionLives:ACTOR_NPC_BOSUGODORA",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_SAANAITO",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
+    "$SCENARIO_SIDE = scn[45, 7]"
    ]
   },
   "D55P41A/n06a1701.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SlidePositionOffset:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU"
+   "status": "COMPILED",
+   "file": "d55p41a__n06a1701.lua",
+   "dialogues": 16,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_TEAM_CHARMS_THEME non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(5127) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5127) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5127) — id SE NDS sans portage PMDO identifié",
+    "se_Play(10249) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D55P41A/n06a1801.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_PLAYER_CHARMS",
-    "Turn2DirectionLives:ACTOR_NPC_SAANAITO"
+   "status": "COMPILED",
+   "file": "d55p41a__n06a1801.lua",
+   "dialogues": 8,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(10250) — id SE NDS sans portage PMDO identifié",
+    "se_Play(7430) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D56P11A/n06a1901.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_PLAYER_CHARMS",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
+   "status": "COMPILED",
+   "file": "d56p11a__n06a1901.lua",
+   "dialogues": 10,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_ILLUSION_STONE_CHAMBER non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(8963) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D56P11A/n06a2201.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
+   "status": "COMPILED",
+   "file": "d56p11a__n06a2201.lua",
+   "dialogues": 5,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_ILLUSION_STONE_CHAMBER non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D56P11A/n06a2301.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SIDE06_ROOM[0] = 1",
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_SAANAITO"
+    "$SIDE06_ROOM[0] = 1"
    ]
   },
   "D56P11A/n06a2401.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_PLAYER_CHARMS",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_SAANAITO",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
+   "status": "COMPILED",
+   "file": "d56p11a__n06a2401.lua",
+   "dialogues": 9,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_ILLUSION_STONE_CHAMBER non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(8963) — id SE NDS sans portage PMDO identifié",
+    "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente"
    ]
   },
   "D56P11A/n06a2501.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SIDE06_ROOM[1] = 1",
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_SAANAITO",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
+    "$SIDE06_ROOM[1] = 1"
    ]
   },
   "D56P11A/n06a2601.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_PLAYER_CHARMS",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_SAANAITO",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
+   "status": "COMPILED",
+   "file": "d56p11a__n06a2601.lua",
+   "dialogues": 9,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_ILLUSION_STONE_CHAMBER non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(8963) — id SE NDS sans portage PMDO identifié",
+    "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_RIGHT — VFX sans émote PMDO équivalente"
    ]
   },
   "D56P11A/n06a2701.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SIDE06_ROOM[1] = 1",
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_PLAYER_CHARMS",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_SAANAITO"
+    "$SIDE06_ROOM[1] = 1"
    ]
   },
   "D56P11A/n06a2702.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SIDE06_ROOM[0] = 1",
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_PLAYER_CHARMS",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_SAANAITO"
+    "$SIDE06_ROOM[0] = 1"
    ]
   },
   "D56P11A/n06a2703.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
-  },
-  "D56P11A/n06a2901.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
+    "$EVENT_LOCAL = 1",
+    "$SCENARIO_SIDE = scn[45, 9]",
+    "MovePositionMark:OBJECT_P03P02A1_128",
+    "SlidePositionMark:OBJECT_P03P02A1_128",
+    "clear $EVENT_LOCAL",
+    "routine1:forever {\n        Turn2Direction"
+   ]
+  },
+  "D56P11A/n06a2901.ssb": {
+   "status": "COMPILED",
+   "file": "d56p11a__n06a2901.lua",
+   "dialogues": 5,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_ILLUSION_STONE_CHAMBER non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D56P11A/n06a3701.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
+   "status": "COMPILED",
+   "file": "d56p11a__n06a3701.lua",
+   "dialogues": 8,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_ILLUSION_STONE_CHAMBER non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D56P12A/n06a2802.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_PLAYER_CHARMS",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_SAANAITO",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS",
     "switch"
    ]
   },
@@ -4241,116 +4150,81 @@
   "D56P21A/n06a3101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_SIDE = scn[45, 11]",
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_PLAYER_CHARMS",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_SAANAITO",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
+    "$SCENARIO_SIDE = scn[45, 11]"
    ]
   },
   "D56P21A/n06a3301.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
+   "status": "COMPILED",
+   "file": "d56p21a__n06a3301.lua",
+   "dialogues": 5,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_DEEP_LIMESTONE_CAVERN non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D56P21A/n06a3502.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_SAANAITO",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
+   "status": "COMPILED",
+   "file": "d56p21a__n06a3502.lua",
+   "dialogues": 12,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_DEEP_LIMESTONE_CAVERN non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D56P21A/n06a3601.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_PLAYER_CHARMS",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_SAANAITO"
+   "status": "COMPILED",
+   "file": "d56p21a__n06a3601.lua",
+   "dialogues": 8,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_DEEP_LIMESTONE_CAVERN non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D56P41A/n06a3401.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[45, 13]",
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_NPC_MANYUURA",
-    "MovePositionMark:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_PLAYER_CHARMS",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS",
     "WaitEndAnimation",
     "message_Mail"
    ]
   },
   "D56P41A/n06a3501.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_MANYUURA",
-    "Turn2Direction:ACTOR_NPC_MANYUURA"
-   ]
+   "status": "COMPILED",
+   "file": "d56p41a__n06a3501.lua",
+   "dialogues": 6,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D56P41A/n06a3801.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_NPC_MANYUURA",
-    "MovePositionMark:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_PLAYER_CHARMS",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
+   "status": "COMPILED",
+   "file": "d56p41a__n06a3801.lua",
+   "dialogues": 24,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_TEAM_CHARMS_THEME non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(5127) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5127) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5127) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5127) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5127) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5127) — id SE NDS sans portage PMDO identifié",
+    "se_Play(10249) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D56P41A/n06a3901.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Move2PositionMark:ACTOR_NPC_CHAAREMU",
-    "Move2PositionMark:ACTOR_NPC_MANYUURA",
-    "Move2PositionMark:ACTOR_PLAYER_CHARMS",
-    "MovePositionMark:ACTOR_PLAYER_CHARMS",
-    "MovePositionOffset:ACTOR_NPC_CHAAREMU",
-    "MovePositionOffset:ACTOR_NPC_MANYUURA",
-    "MovePositionOffset:ACTOR_PLAYER_CHARMS",
     "ResetFunctionAttribute",
-    "SetFunctionAttribute",
-    "SetPositionMark:0",
-    "SlidePositionOffset:ACTOR_NPC_CHAAREMU",
-    "SlidePositionOffset:ACTOR_NPC_MANYUURA",
-    "SlidePositionOffset:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_NPC_MANYUURA",
-    "Turn2Direction:ACTOR_PLAYER_CHARMS",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_MANYUURA",
-    "Turn2DirectionLives:ACTOR_NPC_PUKURIN",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS"
+    "SetFunctionAttribute"
    ]
   },
   "D56P41A/n06a3904.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Move2PositionMark:ACTOR_NPC_CHAAREMU",
-    "Move2PositionMark:ACTOR_NPC_MANYUURA",
-    "Move2PositionMark:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_NPC_MANYUURA",
-    "Turn2Direction:ACTOR_PLAYER_CHARMS"
+   "status": "COMPILED",
+   "file": "d56p41a__n06a3904.lua",
+   "dialogues": 10,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_ILLUSION_STONE_CHAMBER non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D57P21A/enter05.ssb": {
@@ -4365,39 +4239,34 @@
   "D57P21A/n04a1601.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_SIDE = scn[43, 7]",
-    "MovePositionMark:ACTOR_PLAYER_KIMAWARI",
-    "Turn2Direction:ACTOR_PLAYER_KIMAWARI"
+    "$SCENARIO_SIDE = scn[43, 7]"
    ]
   },
   "D57P21A/n04a1801.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_PLAYER_KIMAWARI",
-    "Turn2Direction:ACTOR_PLAYER_KIMAWARI"
-   ]
+   "status": "COMPILED",
+   "file": "d57p21a__n04a1801.lua",
+   "dialogues": 5,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D57P21A/n04a2101.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_PLAYER_KIMAWARI",
-    "Turn2Direction:ACTOR_PLAYER_KIMAWARI"
-   ]
+   "status": "COMPILED",
+   "file": "d57p21a__n04a2101.lua",
+   "dialogues": 7,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D57P21A/n04a2201.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_PLAYER_KIMAWARI",
-    "Turn2Direction:ACTOR_PLAYER_KIMAWARI"
-   ]
+   "status": "COMPILED",
+   "file": "d57p21a__n04a2201.lua",
+   "dialogues": 5,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D57P41A/n04a0801.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[43, 3]",
-    "MovePositionMark:ACTOR_PLAYER_KIMAWARI",
-    "SlidePositionOffset:ACTOR_PLAYER_KIMAWARI",
-    "Turn2Direction:ACTOR_PLAYER_KIMAWARI",
     "WaitBackEffect",
     "back_SetEffect"
    ]
@@ -4416,26 +4285,20 @@
   "D57P41A/n04a1001.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_SIDE = scn[43, 4]",
-    "MovePositionOffset:ACTOR_PLAYER_KIMAWARI",
-    "SlidePositionOffset:ACTOR_PLAYER_KIMAWARI",
-    "Turn2Direction:ACTOR_PLAYER_KIMAWARI",
-    "bgm_ChangeVolume"
+    "$SCENARIO_SIDE = scn[43, 4]"
    ]
   },
   "D57P41A/n04a1003.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "WaitBackEffect",
-    "back_SetEffect",
-    "bgm_ChangeVolume"
+    "back_SetEffect"
    ]
   },
   "D57P42A/n04a1201.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_SIDE = scn[43, 5]",
-    "MovePositionMark:ACTOR_PLAYER_KIMAWARI"
+    "$SCENARIO_SIDE = scn[43, 5]"
    ]
   },
   "D57P42A/n04a1301.ssb": {
@@ -4454,41 +4317,35 @@
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[43, 6]",
     "Move2PositionLives",
-    "Move2PositionMark:ACTOR_PLAYER_KIMAWARI",
     "Move2PositionOffset:OBJECT_D57P42A2_445",
-    "MovePositionMark:ACTOR_PLAYER_KIMAWARI",
-    "SetPositionLives",
-    "SetPositionMark:0",
     "SetPositionMark:OBJECT_D57P42A2_445",
     "SetPositionOffset",
-    "Slide2PositionOffset:ACTOR_PLAYER_KIMAWARI",
-    "SlidePositionOffset:ACTOR_PLAYER_KIMAWARI",
-    "Turn2Direction:ACTOR_PLAYER_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_PLAYER_KIMAWARI",
     "WaitBackEffect",
     "back_SetEffect"
    ]
   },
   "D57P42A/n04a1402.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_PLAYER_KIMAWARI",
-    "SetPositionMark:0"
-   ]
+   "status": "COMPILED",
+   "file": "d57p42a__n04a1402.lua",
+   "dialogues": 6,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D57P42A/n04a1403.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionOffset:ACTOR_PLAYER_KIMAWARI",
-    "Turn2Direction:ACTOR_PLAYER_KIMAWARI",
-    "bgm_ChangeVolume"
+   "status": "COMPILED",
+   "file": "d57p42a__n04a1403.lua",
+   "dialogues": 13,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_HEAVY_WIND2 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(8965) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D57P43A/n04a2001.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[43, 9]",
-    "MovePositionLives",
+    "MovePositionLives:ACTOR_NPC_GOOSUTO",
     "Slide2PositionMark",
     "StopAnimation",
     "WaitBackEffect",
@@ -4509,19 +4366,29 @@
    ]
   },
   "D57P44A/n04a2004.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
-  },
-  "D57P44A/n04a2501.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
-  },
-  "D57P44A/n04a2601.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionOffset:ACTOR_PLAYER_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_DOGOOMU",
-    "Turn2DirectionLives:ACTOR_PLAYER_KIMAWARI"
+    "$EVENT_LOCAL = 1",
+    "MovePositionOffset:ACTOR_NPC_DOGOOMU",
+    "clear $EVENT_LOCAL",
+    "routine1:forever {\n        MovePositionMark"
+   ]
+  },
+  "D57P44A/n04a2501.ssb": {
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "$EVENT_LOCAL = 1",
+    "clear $EVENT_LOCAL",
+    "routine1:forever {\n        MovePositionMark"
+   ]
+  },
+  "D57P44A/n04a2601.ssb": {
+   "status": "COMPILED",
+   "file": "d57p44a__n04a2601.lua",
+   "dialogues": 6,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D65P41A/s12a0401.ssb": {
@@ -4537,11 +4404,9 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_PLAYER_APPOINT"
+    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
    ]
   },
   "D67P41A/s12a0101.ssb": {
@@ -4550,11 +4415,9 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_PLAYER_APPOINT"
+    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
    ]
   },
   "D68P41A/s12a1001.ssb": {
@@ -4563,11 +4426,9 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_PLAYER_APPOINT"
+    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
    ]
   },
   "D69P41A/s12a1301.ssb": {
@@ -4576,11 +4437,9 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_PLAYER_APPOINT"
+    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
    ]
   },
   "D70P41A/s12a1601.ssb": {
@@ -4589,11 +4448,9 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_PLAYER_APPOINT"
+    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
    ]
   },
   "D71P41A/s12a1901.ssb": {
@@ -4602,11 +4459,9 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_PLAYER_APPOINT"
+    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
    ]
   },
   "D73P11A/enter01.ssb": {
@@ -4631,8 +4486,17 @@
    "gaps": null
   },
   "D73P11A/s31a0201.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "$SCENARIO_MAIN = scn[29, 10]",
+    "MovePositionMark:ACTOR_NPC_SHEIMI",
+    "MovePositionOffset:ACTOR_NPC_SHEIMI",
+    "SetDirection:ACTOR_NPC_SHEIMI",
+    "SetPositionMark:ACTOR_NPC_SHEIMI",
+    "Turn2Direction:ACTOR_NPC_SHEIMI",
+    "forever {\n        switch ",
+    "message_SwitchTalk "
+   ]
   },
   "D73P11A/s31a0501.ssb": {
    "status": "COMPILED",
@@ -4684,7 +4548,6 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_NPC_SHEIMI",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
     "Turn2DirectionLives:ACTOR_PLAYER_APPOINT"
@@ -4725,7 +4588,6 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_NPC_SHEIMI",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
     "Turn2DirectionLives:ACTOR_PLAYER_APPOINT"
@@ -4775,7 +4637,6 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_NPC_SHEIMI",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
     "Turn2DirectionLives:ACTOR_PLAYER_APPOINT"
@@ -4816,12 +4677,8 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_NPC_SHEIMI",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_NPC_JIGUZAGUMA",
     "Turn2Direction:ACTOR_NPC_SHEIMI",
-    "Turn2Direction:ACTOR_NPC_TAMATAMA",
-    "Turn2Direction:ACTOR_PLAYER_APPOINT",
     "Turn2DirectionLives:ACTOR_NPC_OKUTAN",
     "Turn2DirectionLives:ACTOR_PLAYER_APPOINT"
    ]
@@ -4868,7 +4725,6 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_NPC_SHEIMI",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "MovePositionOffset:ACTOR_NPC_SHEIMI"
    ]
   },
@@ -4877,7 +4733,6 @@
    "unsupported_ops": [
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_NPC_SHEIMI",
-    "Turn2Direction:ACTOR_PLAYER_APPOINT",
     "Turn2DirectionLives:ACTOR_NPC_MASUKIPPA",
     "Turn2DirectionLives:ACTOR_NPC_MASUKIPPA4",
     "Turn2DirectionLives:ACTOR_NPC_SHEIMI"
@@ -4918,7 +4773,6 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_NPC_SHEIMI",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2"
    ]
@@ -4967,7 +4821,6 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_NPC_SHEIMI",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "MovePositionOffset:0",
     "MovePositionOffset:ACTOR_ADVENTURE_NPC1",
     "MovePositionOffset:ACTOR_ADVENTURE_NPC2",
@@ -4975,8 +4828,7 @@
     "MovePositionOffset:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_NPC_SHEIMI",
-    "Turn2Direction:ACTOR_PLAYER_APPOINT"
+    "Turn2Direction:ACTOR_NPC_SHEIMI"
    ]
   },
   "D73P27A/s31a2601.ssb": {
@@ -4998,9 +4850,7 @@
   "D73P27A/s31a2802.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_DENRYUU",
-    "MovePositionOffset:ACTOR_NPC_DENRYUU",
-    "Turn2Direction:ACTOR_NPC_DENRYUU"
+    "MovePositionOffset:ACTOR_NPC_DENRYUU"
    ]
   },
   "D73P28A/enter08.ssb": {
@@ -5030,22 +4880,16 @@
     "$SCENARIO_MAIN = scn[29, 26]",
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_NPC_DENRYUU",
     "MovePositionMark:ACTOR_NPC_SHEIMI",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_NPC_DENRYUU",
-    "Turn2Direction:ACTOR_NPC_SHEIMI",
-    "Turn2Direction:ACTOR_PLAYER_APPOINT"
+    "Turn2Direction:ACTOR_NPC_SHEIMI"
    ]
   },
   "D73P28A/s31a2803.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionOffset:ACTOR_NPC_DENRYUU",
-    "Turn2Direction:ACTOR_NPC_SHEIMI",
-    "Turn2Direction:ACTOR_PLAYER_APPOINT"
+    "Turn2Direction:ACTOR_NPC_SHEIMI"
    ]
   },
   "D73P28A/s31a3001.ssb": {
@@ -5092,7 +4936,6 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_NPC_SHEIMI",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
     "Turn2DirectionLives:ACTOR_PLAYER_APPOINT"
@@ -5142,11 +4985,9 @@
    "unsupported_ops": [
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_NPC_SHEIMI",
-    "Turn2Direction:ACTOR_PLAYER_APPOINT"
+    "Turn2Direction:ACTOR_NPC_SHEIMI"
    ]
   },
   "D73P31A/s31a3705.ssb": {
@@ -5166,11 +5007,9 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_NPC_SHEIMI",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
     "Turn2Direction:ACTOR_NPC_SHEIMI",
-    "Turn2Direction:ACTOR_PLAYER_APPOINT",
     "back_SetWeather"
    ]
   },
@@ -5188,7 +5027,6 @@
     "SetDirection:ACTOR_NPC_SHEIMI",
     "Slide2PositionOffset:ACTOR_ADVENTURE_NPC1",
     "Slide2PositionOffset:ACTOR_ADVENTURE_NPC2",
-    "Slide2PositionOffset:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_NPC_SHEIMI",
     "Turn2DirectionLives:ACTOR_NPC_KUCHIITO",
     "Turn2DirectionLives:ACTOR_NPC_SHEIMI",
@@ -5274,19 +5112,15 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "MovePositionOffset:ACTOR_ADVENTURE_NPC1",
     "MovePositionOffset:ACTOR_ADVENTURE_NPC2",
     "MovePositionOffset:ACTOR_ADVENTURE_NPC3",
-    "MovePositionOffset:ACTOR_PLAYER_APPOINT",
     "SlidePositionOffset:ACTOR_ADVENTURE_NPC1",
     "SlidePositionOffset:ACTOR_ADVENTURE_NPC2",
     "SlidePositionOffset:ACTOR_ADVENTURE_NPC3",
-    "SlidePositionOffset:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
     "Turn2Direction:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_PLAYER_APPOINT",
     "me_Play"
    ]
   },
@@ -5296,11 +5130,9 @@
     "SlidePositionOffset:ACTOR_ADVENTURE_NPC1",
     "SlidePositionOffset:ACTOR_ADVENTURE_NPC2",
     "SlidePositionOffset:ACTOR_ADVENTURE_NPC3",
-    "SlidePositionOffset:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
     "Turn2Direction:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_PLAYER_APPOINT",
     "me_Play"
    ]
   },
@@ -5386,13 +5218,7 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[22, 1]",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
-    "dungeon_mode",
-    "se_Stop"
+    "dungeon_mode"
    ]
   },
   "G01P01B/m26a0601.ssb": {
@@ -5458,8 +5284,10 @@
    "gaps": null
   },
   "G01P03A/m02a0108.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "Turn2DirectionTurn"
+   ]
   },
   "G01P03A/m02a0302.ssb": {
    "status": "PARTIAL_OPS",
@@ -5490,8 +5318,14 @@
    ]
   },
   "G01P03A/m03a0506.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "$EVENT_LOCAL = 1",
+    "$PERFORMANCE_PROGRESS_LIST[3] = 1",
+    "Turn2DirectionTurn",
+    "clear $EVENT_LOCAL",
+    "routine1:forever {\n        SlidePositionOffset"
+   ]
   },
   "G01P03A/m03a0701.ssb": {
    "status": "COMPILED",
@@ -5520,12 +5354,15 @@
    ]
   },
   "G01P03A/m06a0203.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2DirectionLives:ACTOR_NPC_HEIGANI",
-    "Turn2DirectionLives:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_SUKATANKU"
+   "status": "COMPILED",
+   "file": "g01p03a__m06a0203.lua",
+   "dialogues": 59,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(6417) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6661) — id SE NDS sans portage PMDO identifié",
+    "SetEffect 639 — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)"
    ]
   },
   "G01P03A/m07a0501.ssb": {
@@ -5556,51 +5393,29 @@
   "G01P03A/m13a0101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[14, 1]",
-    "Move2PositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "MovePositionOffset:ACTOR_NPC_KIMAWARI",
-    "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_ZUBATTO",
-    "Turn2DirectionLives:ACTOR_NPC_DAGUTORIO",
-    "Turn2DirectionLives:ACTOR_NPC_HEIGANI",
-    "Turn2DirectionLives:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_NPC_PUKURIN",
-    "Turn2DirectionLives:ACTOR_NPC_YONOWAARU"
+    "$SCENARIO_MAIN = scn[14, 1]"
    ]
   },
   "G01P03A/m13a0303.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_DIGUDA",
     "dungeon_mode"
    ]
   },
   "G01P03A/m13a0501.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_KIMAWARI"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__m13a0501.lua",
+   "dialogues": 7,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/m13a0801.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_BIPPA"
+   "status": "COMPILED",
+   "file": "g01p03a__m13a0801.lua",
+   "dialogues": 32,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P03A/m14a0201.ssb": {
@@ -5618,12 +5433,11 @@
    "gaps": null
   },
   "G01P03A/m15b0701.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetPositionMark:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__m15b0701.lua",
+   "dialogues": 5,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/m22a0303.ssb": {
    "status": "PARTIAL_OPS",
@@ -5641,16 +5455,18 @@
    ]
   },
   "G01P03A/n04a0201.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2Direction:ACTOR_PLAYER_KIMAWARI"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__n04a0201.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/n04a0301.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2Direction:ACTOR_PLAYER_KIMAWARI"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__n04a0301.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/un0401.ssb": {
    "status": "PARTIAL_OPS",
@@ -5661,39 +5477,33 @@
   "G01P03A/un0403.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_1",
     "if "
    ]
   },
   "G01P03A/un0404.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_1",
     "if "
    ]
   },
   "G01P03A/un0406.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_1",
     "if "
    ]
   },
   "G01P03A/un0407.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_1",
     "if "
    ]
   },
   "G01P04A/c00a0101.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Move2PositionMark:ACTOR_NPC_KIMAWARI",
-    "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
-    "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__c00a0101.lua",
+   "dialogues": 3,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04A/c00a0401.ssb": {
    "status": "COMPILED",
@@ -5702,18 +5512,12 @@
    "dual_screen_focus": null,
    "gaps": null
   },
-  "G01P04A/c00a0501.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 3
-  },
   "G01P04A/c00a0801.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Move2PositionMark:ACTOR_NPC_KIMAWARI",
-    "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
-    "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__c00a0801.lua",
+   "dialogues": 3,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04A/c00a1501.ssb": {
    "status": "COMPILED",
@@ -5748,9 +5552,7 @@
   "G01P04A/m00p0201.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$PERFORMANCE_PROGRESS_LIST[31] = 1",
-    "SetPositionLives",
-    "SetPositionMark:0"
+    "$PERFORMANCE_PROGRESS_LIST[31] = 1"
    ]
   },
   "G01P04A/m02a0109.ssb": {
@@ -5763,16 +5565,6 @@
   "G01P04A/m02a0202.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Move2PositionMark:ACTOR_NPC_KIMAWARI",
-    "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_NPC_PUKURIN",
     "back_ChangeGround"
    ]
   },
@@ -5809,23 +5601,22 @@
    "unsupported_ops": [
     "$PERFORMANCE_PROGRESS_LIST[4] = 1",
     "$SCENARIO_MAIN = scn[5, 1]",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
-    "SetPositionMark:0",
-    "Turn2DirectionLives:ACTOR_NPC_DOGOOMU",
     "dungeon_mode"
    ]
   },
   "G01P04A/m04a0104.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_GUREGGURU"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__m04a0104.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04A/m04a0106.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_GUREGGURU"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__m04a0106.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04A/m05a0101.ssb": {
    "status": "PARTIAL_OPS",
@@ -5837,13 +5628,6 @@
   "G01P04A/m05a0104.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Move2PositionMark:ACTOR_NPC_KIMAWARI",
-    "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
-    "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
     "message_Mail"
    ]
   },
@@ -5870,16 +5654,7 @@
   "G01P04A/m06a0101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[7, 1]",
-    "Move2PositionMark:ACTOR_NPC_KIMAWARI",
-    "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
-    "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DOGAASU",
-    "MovePositionMark:ACTOR_NPC_SUKATANKU",
-    "MovePositionMark:ACTOR_NPC_ZUBATTO",
-    "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_KIMAWARI"
+    "$SCENARIO_MAIN = scn[7, 1]"
    ]
   },
   "G01P04A/m06a0301.ssb": {
@@ -5892,9 +5667,7 @@
   "G01P04A/m06a0401.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[7, 4]",
-    "SetPositionMark:0",
-    "Turn2Direction:ACTOR_NPC_PERAPPU"
+    "$SCENARIO_MAIN = scn[7, 4]"
    ]
   },
   "G01P04A/m06a0403.ssb": {
@@ -5908,46 +5681,29 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[7, 6]",
-    "Move2PositionMark:ACTOR_NPC_KIMAWARI",
-    "Move2PositionOffset:3",
-    "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
-    "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_PUKURIN",
-    "bgm_ChangeVolume"
+    "Move2PositionOffset:3"
    ]
   },
   "G01P04A/m07a0301.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[8, 1]",
-    "SetPositionMark:0",
     "dungeon_mode"
    ]
   },
   "G01P04A/m07a1301.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Move2PositionMark:ACTOR_NPC_KIMAWARI",
-    "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
-    "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "MovePositionOffset:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_KIMAWARI"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__m07a1301.lua",
+   "dialogues": 31,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04A/m07a1401.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetPositionMark:0"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__m07a1401.lua",
+   "dialogues": 7,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04A/m08a0401.ssb": {
    "status": "COMPILED",
@@ -5966,35 +5722,19 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$COMPULSORY_SAVE_POINT = 7",
-    "Move2PositionMark:ACTOR_NPC_KIMAWARI",
-    "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
     "dungeon_mode"
    ]
   },
   "G01P04A/m11a0201.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[12, 1]",
-    "SetPositionMark:0",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_DOGOOMU",
-    "Turn2DirectionLives:ACTOR_NPC_HEIGANI",
-    "Turn2DirectionLives:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_PUKURIN"
+    "$SCENARIO_MAIN = scn[12, 1]"
    ]
   },
   "G01P04A/m11a0401.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[12, 3]",
-    "SetPositionMark:0"
+    "$SCENARIO_MAIN = scn[12, 3]"
    ]
   },
   "G01P04A/m11a0502.ssb": {
@@ -6009,8 +5749,7 @@
   "G01P04A/m12a0101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[13, 1]",
-    "SetPositionMark:0"
+    "$SCENARIO_MAIN = scn[13, 1]"
    ]
   },
   "G01P04A/m12a0302.ssb": {
@@ -6028,13 +5767,11 @@
    "gaps": null
   },
   "G01P04A/m13a0901.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Move2PositionMark:ACTOR_NPC_KIMAWARI",
-    "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
-    "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__m13a0901.lua",
+   "dialogues": 10,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04A/m13a0903.ssb": {
    "status": "PARTIAL_OPS",
@@ -6044,130 +5781,105 @@
    ]
   },
   "G01P04A/m14a0202.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Move2PositionMark:ACTOR_NPC_KIMAWARI",
-    "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
-    "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__m14a0202.lua",
+   "dialogues": 8,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04A/m14a0905.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[15, 4]",
-    "Move2PositionMark:ACTOR_NPC_KIMAWARI",
-    "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_PUKURIN",
-    "Turn2DirectionLives:ACTOR_NPC_YONOWAARU",
     "dungeon_mode"
    ]
   },
   "G01P04A/m15b1201.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[17, 0]",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI"
+    "$SCENARIO_MAIN = scn[17, 0]"
    ]
   },
   "G01P04A/m16a0401.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[17, 3]",
-    "Move2PositionMark:ACTOR_NPC_KIMAWARI",
-    "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
-    "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN"
+    "$SCENARIO_MAIN = scn[17, 3]"
    ]
   },
   "G01P04A/m16a0601.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Move2PositionMark:ACTOR_NPC_KIMAWARI",
-    "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI"
+   "status": "COMPILED",
+   "file": "g01p04a__m16a0601.lua",
+   "dialogues": 26,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(7182) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6422) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/m21a0201.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_KIMAWARI"
+   "status": "COMPILED",
+   "file": "g01p04a__m21a0201.lua",
+   "dialogues": 54,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/m21a0203.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_BIPPA",
-    "Turn2DirectionLives:ACTOR_NPC_CHIRIIN",
-    "Turn2DirectionLives:ACTOR_NPC_DOGOOMU",
-    "Turn2DirectionLives:ACTOR_NPC_HEIGANI",
-    "Turn2DirectionLives:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_NPC_PUKURIN",
-    "Turn2DirectionLives:ACTOR_PLAYER_KIMAWARI"
+   "status": "COMPILED",
+   "file": "g01p04a__m21a0203.lua",
+   "dialogues": 113,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_I_SAW_SOMETHING_AGAIN non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(8969) — id SE NDS sans portage PMDO identifié",
+    "se_Play(8969) — id SE NDS sans portage PMDO identifié",
+    "se_Play(8969) — id SE NDS sans portage PMDO identifié",
+    "se_Play(8963) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/m21a0205.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionOffset:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_CHIRIIN"
+   "status": "COMPILED",
+   "file": "g01p04a__m21a0205.lua",
+   "dialogues": 17,
+   "dual_screen_focus": null,
+   "gaps": [
+    "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente",
+    "se_Play(8720) — id SE NDS sans portage PMDO identifié",
+    "se_Play(8720) — id SE NDS sans portage PMDO identifié",
+    "se_Play(8720) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/m21a0410.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[22, 2]",
-    "Move2PositionMark:ACTOR_NPC_KIMAWARI",
-    "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
-    "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_KIMAWARI"
+    "$SCENARIO_MAIN = scn[22, 2]"
    ]
   },
   "G01P04A/m21a0520.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[22, 3]",
-    "Move2PositionMark:ACTOR_NPC_KIMAWARI",
-    "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
-    "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2DirectionLives:ACTOR_NPC_PUKURIN"
+    "$SCENARIO_MAIN = scn[22, 3]"
    ]
   },
   "G01P04A/m21a0701.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_KIMAWARI"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__m21a0701.lua",
+   "dialogues": 12,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04A/m22a0101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[23, 1]",
-    "Move2PositionMark:ACTOR_NPC_KIMAWARI",
-    "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
-    "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN"
+    "$SCENARIO_MAIN = scn[23, 1]"
    ]
   },
   "G01P04A/m22a0201.ssb": {
@@ -6181,36 +5893,25 @@
    ]
   },
   "G01P04A/m22a0204.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Move2PositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_KOOTASU"
+   "status": "COMPILED",
+   "file": "g01p04a__m22a0204.lua",
+   "dialogues": 81,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_I_SAW_SOMETHING_AGAIN non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(8965) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6410) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6422) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6422) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/m23a0101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[24, 1]",
-    "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
     "dungeon_mode",
     "switch ",
-    "worldmap_MoveCamera",
-    "worldmap_SetCamera",
-    "worldmap_SetMark",
-    "worldmap_SetMessagePlace",
-    "worldmap_SetMode"
+    "worldmap_SetMessagePlace"
    ]
   },
   "G01P04A/n01a0104.ssb": {
@@ -6220,57 +5921,53 @@
    ]
   },
   "G01P04A/n01a0504.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 3
+   "status": "COMPILED",
+   "file": "g01p04a__n01a0504.lua",
+   "dialogues": 4,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5123) — id SE NDS sans portage PMDO identifié",
+    "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente",
+    "se_Play(5138) — id SE NDS sans portage PMDO identifié"
+   ]
   },
   "G01P04A/n01a0705.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI"
+   "status": "COMPILED",
+   "file": "g01p04a__n01a0705.lua",
+   "dialogues": 61,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(8965) — id SE NDS sans portage PMDO identifié",
+    "BGM BGM_BEYOND_THE_DREAM non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(8969) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/n01a1301.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__n01a1301.lua",
+   "dialogues": 6,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04A/n01a2601.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__n01a2601.lua",
+   "dialogues": 6,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04A/n01a2901.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__n01a2901.lua",
+   "dialogues": 5,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04A/s01p0101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 1]",
-    "Move2PositionMark:ACTOR_NPC_KIMAWARI",
-    "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
-    "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_DOGOOMU",
-    "Turn2DirectionLives:ACTOR_NPC_HEIGANI",
-    "Turn2DirectionLives:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_NPC_PUKURIN"
+    "$SCENARIO_MAIN = scn[29, 1]"
    ]
   },
   "G01P04A/s01p1004.ssb": {
@@ -6288,10 +5985,11 @@
    "gaps": null
   },
   "G01P04A/s03p0302.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionLives"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__s03p0302.lua",
+   "dialogues": 21,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04A/um0204.ssb": {
    "status": "COMPILED",
@@ -6345,15 +6043,12 @@
   "G01P04A/un0401.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_1",
-    "Turn2Direction:ACTOR_NPC_DOGOOMU",
     "if "
    ]
   },
   "G01P04A/un0402.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_1",
     "if "
    ]
   },
@@ -6365,13 +6060,11 @@
    "gaps": null
   },
   "G01P04C/m24a0103.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04c__m24a0103.lua",
+   "dialogues": 12,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04C/m24a0105.ssb": {
    "status": "COMPILED",
@@ -6413,50 +6106,48 @@
    ]
   },
   "G01P05A/n00p0101.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionLives",
-    "SetDirection:ACTOR_NPC_PUKURIN",
-    "SetPositionLives",
-    "SetPositionMark:ACTOR_NPC_PUKURIN"
+   "status": "COMPILED",
+   "file": "g01p05a__n00p0101.lua",
+   "dialogues": 9,
+   "dual_screen_focus": null,
+   "gaps": [
+    "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P05A/n04a0106.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Move2PositionMark:ACTOR_PLAYER_KIMAWARI",
-    "MovePositionMark:ACTOR_PLAYER_KIMAWARI",
-    "MovePositionOffset:ACTOR_PLAYER_KIMAWARI",
-    "SlidePositionMark:ACTOR_PLAYER_KIMAWARI",
-    "Turn2Direction:ACTOR_PLAYER_KIMAWARI"
+   "status": "COMPILED",
+   "file": "g01p05a__n04a0106.lua",
+   "dialogues": 57,
+   "dual_screen_focus": true,
+   "gaps": [
+    "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente",
+    "se_Play(9985) — id SE NDS sans portage PMDO identifié",
+    "se_Play(8969) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P05A/n04a1002.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_PLAYER_KIMAWARI",
-    "SetPositionMark:ACTOR_PLAYER_KIMAWARI",
-    "Turn2Direction:ACTOR_PLAYER_KIMAWARI"
-   ]
+   "status": "COMPILED",
+   "file": "g01p05a__n04a1002.lua",
+   "dialogues": 7,
+   "dual_screen_focus": true,
+   "gaps": null
   },
   "G01P05A/un0401.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_1",
     "if "
    ]
   },
   "G01P05A/un0402.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_1",
     "if "
    ]
   },
   "G01P05A/un0403.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_1",
     "if "
    ]
   },
@@ -6469,9 +6160,7 @@
   "G01P05C/m07a1001.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "SetPositionMark:3",
-    "Slide2PositionMark",
-    "se_Stop"
+    "Slide2PositionMark"
    ]
   },
   "G01P05C/n02a0105.ssb": {
@@ -6502,20 +6191,86 @@
    ]
   },
   "G01P06B/c00a0601.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "COMPILED",
+   "file": "g01p06b__c00a0601.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente"
+   ]
   },
   "G01P06B/c00a0901.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "COMPILED",
+   "file": "g01p06b__c00a0901.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente"
+   ]
   },
   "G01P06B/m04a0301.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "COMPILED",
+   "file": "g01p06b__m04a0301.lua",
+   "dialogues": 14,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5123) — id SE NDS sans portage PMDO identifié",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "BGM BGM_EATING non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
+   ]
   },
   "G01P06B/m07a0101.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "COMPILED",
+   "file": "g01p06b__m07a0101.lua",
+   "dialogues": 6,
+   "dual_screen_focus": null,
+   "gaps": [
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "BGM BGM_EATING non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
+   ]
   },
   "G01P06B/m07a0901.ssb": {
    "status": "COMPILED",
@@ -6539,12 +6294,57 @@
    ]
   },
   "G01P06B/m08a0101.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "COMPILED",
+   "file": "g01p06b__m08a0101.lua",
+   "dialogues": 24,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5123) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6923) — id SE NDS sans portage PMDO identifié",
+    "BGM BGM_EATING non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente"
+   ]
   },
   "G01P06B/m11a0601.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "COMPILED",
+   "file": "g01p06b__m11a0601.lua",
+   "dialogues": 33,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5123) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6923) — id SE NDS sans portage PMDO identifié",
+    "se_Play(8969) — id SE NDS sans portage PMDO identifié",
+    "se_Play(8963) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6923) — id SE NDS sans portage PMDO identifié",
+    "BGM BGM_EATING non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente"
+   ]
   },
   "G01P07A/enter04.ssb": {
    "status": "COMPILED",
@@ -6598,11 +6398,7 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$REQUEST_CLEAR_COUNT = 0",
-    "$SCENARIO_MAIN = scn[8, 4]",
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI"
+    "$SCENARIO_MAIN = scn[8, 4]"
    ]
   },
   "G01P07A/m11a0101.ssb": {
@@ -6612,34 +6408,27 @@
    ]
   },
   "G01P07A/m15b1101.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "se_Stop"
+   "status": "COMPILED",
+   "file": "g01p07a__m15b1101.lua",
+   "dialogues": 26,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(8963) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5123) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6916) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6414) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6414) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P07A/s20p0501.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 72]",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_BIPPA",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU"
+    "$SCENARIO_MAIN = scn[29, 72]"
    ]
   },
   "G01P07A/s20p0504.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_KOIRU",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_NPC_PUKURIN",
     "dungeon_mode"
    ]
   },
@@ -6651,26 +6440,23 @@
    "gaps": null
   },
   "G01P07A/s20p0901.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_SURIIPU",
-    "Turn2DirectionLives:ACTOR_PLAYER"
-   ]
+   "status": "COMPILED",
+   "file": "g01p07a__s20p0901.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P07A/s20p1001.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_SURIIPU",
-    "Turn2DirectionLives:ACTOR_PLAYER"
-   ]
+   "status": "COMPILED",
+   "file": "g01p07a__s20p1001.lua",
+   "dialogues": 1,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P07A/s21p0101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 78]",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_PUKURIN"
+    "$SCENARIO_MAIN = scn[29, 78]"
    ]
   },
   "G01P07C/c00a0301.ssb": {
@@ -6853,8 +6639,12 @@
    "gaps": null
   },
   "G01P09C/n04a0102.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "$EVENT_LOCAL = 1",
+    "clear $EVENT_LOCAL",
+    "routine1:forever {\n        SetEffect"
+   ]
   },
   "G01P10A/enter09.ssb": {
    "status": "COMPILED",
@@ -6937,11 +6727,18 @@
    "gaps": null
   },
   "H01P99A/m00p0401.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionLives",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetPositionLives"
+   "status": "COMPILED",
+   "file": "h01p99a__m00p0401.lua",
+   "dialogues": 31,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(6675) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6422) — id SE NDS sans portage PMDO identifié",
+    "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(6422) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "H01P99A/m20a0202.ssb": {
@@ -7025,8 +6822,7 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "Move2PositionMark:OBJECT_V21P02A1_288",
-    "back_SetBackEffect",
-    "bgm_ChangeVolume"
+    "back_SetBackEffect"
    ]
   },
   "H01P99D/s21p0201.ssb": {
@@ -7045,22 +6841,27 @@
    ]
   },
   "H01P99E/m20a0305.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "bgm_ChangeVolume"
+   "status": "COMPILED",
+   "file": "h01p99e__m20a0305.lua",
+   "dialogues": 12,
+   "dual_screen_focus": true,
+   "gaps": [
+    "se_Play(6410) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "H01P99E/m20a0307.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "bgm_ChangeVolume"
-   ]
+   "status": "COMPILED",
+   "file": "h01p99e__m20a0307.lua",
+   "dialogues": 1,
+   "dual_screen_focus": true,
+   "gaps": null
   },
   "H01P99E/m20a0309.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "bgm_ChangeVolume"
-   ]
+   "status": "COMPILED",
+   "file": "h01p99e__m20a0309.lua",
+   "dialogues": 11,
+   "dual_screen_focus": true,
+   "gaps": null
   },
   "H01P99E/s21p0202.ssb": {
    "status": "COMPILED",
@@ -7162,7 +6963,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[29, 42]",
-    "bgm_ChangeVolume",
     "switch"
    ]
   },
@@ -7202,10 +7002,7 @@
     "me_Play",
     "message_Mail",
     "worldmap_BlinkMark",
-    "worldmap_SetArrow",
-    "worldmap_SetCamera",
-    "worldmap_SetLevel",
-    "worldmap_SetMode"
+    "worldmap_SetArrow"
    ]
   },
   "H02P99A/s03p1401.ssb": {
@@ -7241,9 +7038,12 @@
    ]
   },
   "H02P99A/s20p0107.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionLives"
+   "status": "COMPILED",
+   "file": "h02p99a__s20p0107.lua",
+   "dialogues": 2,
+   "dual_screen_focus": true,
+   "gaps": [
+    "BGM BGM_DO_YOUR_BEST_AS_ALWAYS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "H02P99A/s20p0204.ssb": {
@@ -7265,9 +7065,13 @@
    ]
   },
   "H02P99A/s20p0305.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionLives"
+   "status": "COMPILED",
+   "file": "h02p99a__s20p0305.lua",
+   "dialogues": 6,
+   "dual_screen_focus": true,
+   "gaps": [
+    "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "BGM BGM_DO_YOUR_BEST_AS_ALWAYS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "H02P99A/s21p0104.ssb": {
@@ -7484,11 +7288,7 @@
    "file": "p01p01a__m00p0301.lua",
    "dialogues": 9,
    "dual_screen_focus": null,
-   "gaps": [
-    "SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)",
-    "SetEffect EFFECT_JOYOUS sur PNJ non résolu (v2 cast SSA)",
-    "SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)"
-   ]
+   "gaps": null
   },
   "P01P01A/m00p0701.ssb": {
    "status": "COMPILED",
@@ -7518,10 +7318,11 @@
    "gaps": null
   },
   "P01P01A/m00p1301.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_CHIRIIN"
-   ]
+   "status": "COMPILED",
+   "file": "p01p01a__m00p1301.lua",
+   "dialogues": 9,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P01P01A/m03a0511.ssb": {
    "status": "PARTIAL_OPS",
@@ -7592,49 +7393,44 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[43, 2]",
-    "MovePositionOffset:ACTOR_PLAYER_KIMAWARI",
     "switch "
    ]
   },
   "P01P01A/n04a0601.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_PLAYER_KIMAWARI",
-    "Turn2Direction:ACTOR_PLAYER_KIMAWARI"
-   ]
+   "status": "COMPILED",
+   "file": "p01p01a__n04a0601.lua",
+   "dialogues": 5,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P01P01A/n04a0701.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionOffset:ACTOR_PLAYER_KIMAWARI",
     "switch "
    ]
   },
   "P01P01A/n04a1101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionOffset:ACTOR_PLAYER_KIMAWARI",
     "switch "
    ]
   },
   "P01P01A/n04a1501.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionOffset:ACTOR_PLAYER_KIMAWARI",
     "switch "
    ]
   },
   "P01P01A/n04a2301.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetDirection:ACTOR_PLAYER_KIMAWARI",
-    "Turn2Direction:ACTOR_PLAYER_KIMAWARI"
-   ]
+   "status": "COMPILED",
+   "file": "p01p01a__n04a2301.lua",
+   "dialogues": 5,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P01P01A/n04a2401.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionOffset:ACTOR_PLAYER_KIMAWARI",
     "switch "
    ]
   },
@@ -7648,8 +7444,7 @@
   "P01P01A/s03p1001.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 48]",
-    "MovePositionLives"
+    "$SCENARIO_MAIN = scn[29, 48]"
    ]
   },
   "P01P01A/s03p1101.ssb": {
@@ -7676,9 +7471,7 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[7, 3]",
-    "MovePositionMark:ACTOR_NPC_SOONANSU",
-    "MovePositionOffset:ACTOR_NPC_SOONANSU",
-    "Turn2Direction:ACTOR_NPC_SOONANSU"
+    "MovePositionOffset:ACTOR_NPC_SOONANSU"
    ]
   },
   "P01P01A/s30a0301.ssb": {
@@ -7767,9 +7560,6 @@
   "P01P04A/s30a0202.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Move2PositionMark:ACTOR_NPC_SOONANSU",
-    "MovePositionMark:ACTOR_NPC_SOONANSU",
-    "Turn2Direction:ACTOR_NPC_SOONANSU",
     "Turn3"
    ]
   },
@@ -7814,18 +7604,24 @@
   "P01P04A/s31a0102.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionOffset:ACTOR_ATTENDANT1",
-    "Turn2Direction:ACTOR_NPC_KAGEBOUZU",
-    "Turn2Direction:ACTOR_NPC_YAMIKARASU",
-    "Turn2DirectionLives:ACTOR_NPC_BARIYAADO"
+    "MovePositionOffset:ACTOR_ATTENDANT1"
    ]
   },
   "P02P01A/m05a0603.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_HIMEGUMA",
-    "Turn2Direction:ACTOR_NPC_HIMEGUMA",
-    "Turn2DirectionLives:ACTOR_NPC_HIMEGUMA"
+   "status": "COMPILED",
+   "file": "p02p01a__m05a0603.lua",
+   "dialogues": 12,
+   "dual_screen_focus": null,
+   "gaps": [
+    "SetEffect EFFECT_STUCK_IN_YELLOW_WATER — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_STUCK_IN_YELLOW_WATER — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_STUCK_IN_YELLOW_WATER — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_STUCK_IN_YELLOW_WATER_DEEP — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_STUCK_IN_YELLOW_WATER_MEDIUM — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_STUCK_IN_YELLOW_WATER_MEDIUM2 — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_STUCK_IN_YELLOW_WATER_DEEP2 — VFX sans émote PMDO équivalente",
+    "se_Play(8963) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6667) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "P02P01A/m21a0601.ssb": {
@@ -7899,14 +7695,18 @@
    ]
   },
   "P03P02A/m10a0902.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "MovePositionOffset:ACTOR_NPC_CHIRIIN",
-    "MovePositionOffset:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_HEIGANI"
+   "status": "COMPILED",
+   "file": "p03p02a__m10a0902.lua",
+   "dialogues": 31,
+   "dual_screen_focus": true,
+   "gaps": [
+    "BGM BGM_RAIN2 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(6916) — id SE NDS sans portage PMDO identifié",
+    "se_Play(8963) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6935) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6935) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6934) — id SE NDS sans portage PMDO identifié",
+    "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_RIGHT — VFX sans émote PMDO équivalente"
    ]
   },
   "P04P01C/m10a1201.ssb": {
@@ -7934,14 +7734,15 @@
    ]
   },
   "P04P01C/m10a1208.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "SlidePositionOffset:ACTOR_NPC_CHIRIIN",
-    "SlidePositionOffset:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI"
+   "status": "COMPILED",
+   "file": "p04p01c__m10a1208.lua",
+   "dialogues": 15,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(6916) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6916) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6931) — id SE NDS sans portage PMDO identifié",
+    "se_Play(8963) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "P04P01C/m10a1210.ssb": {
@@ -7981,12 +7782,9 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "MovePositionMark:ACTOR_NPC_YONOWAARU_N8",
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
     "MovePositionOffset:ACTOR_NPC_YONOWAARU_N8",
-    "MovePositionOffset:ACTOR_PLAYER_FUTURE",
     "SlidePositionOffset:ACTOR_NPC_YONOWAARU_N8",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU_N8",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE"
+    "Turn2Direction:ACTOR_NPC_YONOWAARU_N8"
    ]
   },
   "P05P02A/enter01.ssb": {
@@ -8018,15 +7816,13 @@
     "Move2PositionMark:0",
     "SetPositionOffset",
     "forever {\n        message_SetFace",
-    "message_SwitchMonologue ",
-    "se_Stop"
+    "message_SwitchMonologue "
    ]
   },
   "P05P03A/m26a06d3.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "Move2PositionMark:0",
-    "SetPositionMark:0",
     "SetPositionOffset"
    ]
   },
@@ -8073,7 +7869,6 @@
   "P07P01A/m26a06e6.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "SetPositionMark:0",
     "SetPositionOffset"
    ]
   },
@@ -8098,11 +7893,8 @@
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[47, 10]",
     "MovePositionMark:ACTOR_NPC_YONOWAARU_N8",
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
     "SlidePositionMark:ACTOR_NPC_YONOWAARU_N8",
-    "SlidePositionMark:ACTOR_PLAYER_FUTURE",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N8",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE",
     "Turn2DirectionLives:ACTOR_NPC_YONOWAARU_N8",
     "Turn2DirectionLives:ACTOR_PLAYER_FUTURE"
    ]
@@ -8131,12 +7923,10 @@
   "P08P01A/n08a2608.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
     "MovePositionOffset:ACTOR_NPC_YAMIRAMI4",
     "MovePositionOffset:ACTOR_NPC_YAMIRAMI6",
     "MovePositionOffset:ACTOR_NPC_YONOWAARU_N8",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N8",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE",
     "Turn2DirectionLives:ACTOR_NPC_YONOWAARU_N8",
     "Turn2DirectionLives:ACTOR_PLAYER_FUTURE"
    ]
@@ -8145,13 +7935,9 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "SetDirection:ACTOR_NPC_YONOWAARU_N8",
-    "SetDirection:ACTOR_PLAYER_FUTURE",
     "SetPositionMark:ACTOR_NPC_YONOWAARU_N8",
-    "SetPositionMark:ACTOR_PLAYER_FUTURE",
     "SlidePositionMark:ACTOR_NPC_YONOWAARU_N8",
-    "SlidePositionMark:ACTOR_PLAYER_FUTURE",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU_N8",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE"
+    "Turn2Direction:ACTOR_NPC_YONOWAARU_N8"
    ]
   },
   "P09P01A/m19b1001.ssb": {
@@ -8236,8 +8022,11 @@
    ]
   },
   "P12P01A/m25a0402.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 6
+   "status": "COMPILED",
+   "file": "p12p01a__m25a0402.lua",
+   "dialogues": 3,
+   "dual_screen_focus": true,
+   "gaps": null
   },
   "P12P01A/m26a0503.ssb": {
    "status": "PARTIAL_OPS",
@@ -8310,23 +8099,17 @@
   "P14P01A/s01p1005.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_HIMEGUMA",
-    "MovePositionMark:ACTOR_NPC_RINGUMA2",
-    "MovePositionOffset:ACTOR_NPC_RINGUMA2",
-    "Turn2Direction:ACTOR_NPC_HIMEGUMA",
-    "Turn2Direction:ACTOR_NPC_RINGUMA2",
-    "Turn2DirectionLives:ACTOR_NPC_HIMEGUMA",
-    "Turn2DirectionLives:ACTOR_NPC_RINGUMA",
     "back_ChangeGround",
     "me_Play",
     "message_Mail"
    ]
   },
   "P14P01A/s20p0103.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_RINGUMA2"
-   ]
+   "status": "COMPILED",
+   "file": "p14p01a__s20p0103.lua",
+   "dialogues": 10,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P14P01A/s20p0304.ssb": {
    "status": "COMPILED",
@@ -8343,41 +8126,29 @@
    "gaps": null
   },
   "P15P01A/t02a0301.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionOffset:ACTOR_NPC_BIPPA_SIS",
-    "SetDirection:ACTOR_NPC_BIPPA_SIS",
-    "SetPositionMark:0"
-   ]
+   "status": "COMPILED",
+   "file": "p15p01a__t02a0301.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P16P01A/n02a0202.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Move2PositionMark:ACTOR_NPC_SUBOMII",
-    "Turn2Direction:ACTOR_NPC_SUBOMII",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN"
-   ]
+   "status": "COMPILED",
+   "file": "p16p01a__n02a0202.lua",
+   "dialogues": 8,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P16P01A/n02a0301.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_SIDE = scn[41, 3]",
-    "Move2PositionOffset:ACTOR_NPC_SUBOMII",
-    "MovePositionMark:ACTOR_NPC_SUBOMII",
-    "Slide2PositionOffset:ACTOR_NPC_SUBOMII",
-    "SlidePositionMark:ACTOR_NPC_SUBOMII",
-    "Turn2Direction:ACTOR_NPC_SUBOMII",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN"
+    "$SCENARIO_SIDE = scn[41, 3]"
    ]
   },
   "P16P01A/n02a0501.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[41, 4]",
-    "MovePositionMark:ACTOR_NPC_SUBOMII",
-    "MovePositionMark:ACTOR_PLAYER_PUPURIN",
-    "Turn2Direction:ACTOR_NPC_SUBOMII",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN",
     "dungeon_mode",
     "switch "
    ]
@@ -8385,36 +8156,25 @@
   "P16P01A/n02a0801.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN",
     "switch "
    ]
   },
   "P16P01A/n03a0202.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionMark:ACTOR_PLAYER_PUPURIN",
-    "MovePositionOffset:ACTOR_PLAYER_PUPURIN",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN",
     "switch "
    ]
   },
   "P17P01A/n02a0201.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_SIDE = scn[41, 2]",
-    "MovePositionMark:ACTOR_NPC_SUBOMII",
-    "MovePositionMark:ACTOR_PLAYER_PUPURIN",
-    "MovePositionOffset:ACTOR_PLAYER_PUPURIN"
+    "$SCENARIO_SIDE = scn[41, 2]"
    ]
   },
   "P17P01A/n03a0201.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_SIDE = scn[42, 1]",
-    "MovePositionMark:ACTOR_NPC_SUBOMII",
-    "MovePositionOffset:ACTOR_PLAYER_PUPURIN",
-    "Turn2Direction:ACTOR_NPC_SUBOMII",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN"
+    "$SCENARIO_SIDE = scn[42, 1]"
    ]
   },
   "P17P01A/n03a1002.ssb": {
@@ -8422,8 +8182,7 @@
    "unsupported_ops": [
     "Move2PositionMark:ACTOR_NPC_PUKURIN_MAMA",
     "MovePositionOffset:ACTOR_NPC_PUKURIN_MAMA",
-    "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA",
-    "Turn2Direction:ACTOR_NPC_SUBOMII"
+    "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA"
    ]
   },
   "P17P02A/enter04.ssb": {
@@ -8436,43 +8195,30 @@
   "P17P02A/n02a0306.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionMark:ACTOR_PLAYER_PUPURIN",
-    "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN"
+    "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA"
    ]
   },
   "P17P02A/n02a0401.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionMark:ACTOR_PLAYER_PUPURIN",
-    "MovePositionOffset:ACTOR_PLAYER_PUPURIN",
-    "SetPositionLives",
-    "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA",
-    "Turn2Direction:ACTOR_NPC_PUKURIN_PAPA",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN"
+    "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA"
    ]
   },
   "P17P02A/n02a0701.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionMark:ACTOR_PLAYER_PUPURIN",
-    "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN"
+    "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA"
    ]
   },
   "P17P02A/n02a1003.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionMark:ACTOR_PLAYER_PUPURIN",
-    "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN"
+    "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA"
    ]
   },
   "P17P02A/n03a0702.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Move2PositionMark:ACTOR_PLAYER_PUPURIN",
-    "MovePositionOffset:ACTOR_PLAYER_PUPURIN",
     "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA",
     "back_SetBackEffect",
     "message_Mail"
@@ -8481,9 +8227,7 @@
   "P17P02A/n03a0707.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionMark:ACTOR_PLAYER_PUPURIN",
-    "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN"
+    "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA"
    ]
   },
   "P17P02A/n03a1001.ssb": {
@@ -8516,17 +8260,18 @@
    "gaps": null
   },
   "P19P01A/n02a1001.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Move2PositionMark:ACTOR_PLAYER_PUPURIN",
-    "MovePositionMark:ACTOR_PLAYER_PUPURIN",
-    "MovePositionOffset:ACTOR_PLAYER_PUPURIN",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN"
-   ]
+   "status": "COMPILED",
+   "file": "p19p01a__n02a1001.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P19P01A/n03a0401.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "$SCENARIO_SIDE = scn[42, 2]",
+    "switch"
+   ]
   },
   "P19P01A/n03a0501.ssb": {
    "status": "PARTIAL_OPS",
@@ -8538,8 +8283,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[42, 5]",
-    "MovePositionMark:ACTOR_PLAYER_PUPURIN",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN",
     "switch"
    ]
   },
@@ -8553,22 +8296,18 @@
    ]
   },
   "P19P01A/n03a1801.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetPositionLives",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN",
-    "Turn2DirectionLives:ACTOR_NPC_AAMARUDO",
-    "Turn2DirectionLives:ACTOR_PLAYER_PUPURIN"
-   ]
+   "status": "COMPILED",
+   "file": "p19p01a__n03a1801.lua",
+   "dialogues": 1,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P19P01A/n03a1901.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetPositionLives",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN",
-    "Turn2DirectionLives:ACTOR_NPC_AAMARUDO",
-    "Turn2DirectionLives:ACTOR_PLAYER_PUPURIN"
-   ]
+   "status": "COMPILED",
+   "file": "p19p01a__n03a1901.lua",
+   "dialogues": 1,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P19P02A/enter02.ssb": {
    "status": "COMPILED",
@@ -8578,19 +8317,21 @@
    "gaps": null
   },
   "P20P03A/n03a0705.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Move2PositionMark:ACTOR_PLAYER_PUPURIN",
-    "MovePositionMark:ACTOR_PLAYER_PUPURIN",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN"
+   "status": "COMPILED",
+   "file": "p20p03a__n03a0705.lua",
+   "dialogues": 11,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_BEYOND_THE_DREAM non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "P21P02A/n03a0706.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_PLAYER_PUPURIN",
-    "MovePositionOffset:ACTOR_PLAYER_PUPURIN",
-    "Turn2Direction:ACTOR_PLAYER_PUPURIN"
+   "status": "COMPILED",
+   "file": "p21p02a__n03a0706.lua",
+   "dialogues": 24,
+   "dual_screen_focus": true,
+   "gaps": [
+    "BGM BGM_AT_THE_END_OF_THE_DAY non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "P23P01A/n08a1408.ssb": {
@@ -8598,7 +8339,6 @@
    "unsupported_ops": [
     "MovePositionMark:ACTOR_NPC_YONOWAARU_N8",
     "MovePositionOffset:ACTOR_NPC_YONOWAARU_N8",
-    "MovePositionOffset:ACTOR_PLAYER_FUTURE",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N8"
    ]
   },
@@ -8607,14 +8347,11 @@
    "unsupported_ops": [
     "Move2PositionMark:ACTOR_NPC_YONOWAARU_N8",
     "MovePositionMark:ACTOR_NPC_YONOWAARU_N8",
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
     "MovePositionOffset:0",
     "MovePositionOffset:ACTOR_NPC_YONOWAARU_N8",
-    "MovePositionOffset:ACTOR_PLAYER_FUTURE",
     "SetDirection:ACTOR_NPC_YONOWAARU_N8",
     "SlidePositionOffset:ACTOR_NPC_YAMIRAMI",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N8",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE",
     "Turn2DirectionLives:ACTOR_NPC_YAMIRAMI",
     "Turn2DirectionLives:ACTOR_PLAYER_FUTURE"
    ]
@@ -8623,7 +8360,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "MovePositionMark:ACTOR_NPC_YONOWAARU_N8",
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
     "MovePositionOffset:ACTOR_NPC_YONOWAARU_N8",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N8"
    ]
@@ -8631,28 +8367,34 @@
   "P25P01A/n09a0902.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionMark:ACTOR_PLAYER_FUTURE",
-    "Turn2Direction:ACTOR_PLAYER_FUTURE",
     "Turn2DirectionLives:ACTOR_NPC_YONOWAARU_N9"
    ]
   },
   "P25P01A/n09a1206.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2Direction:ACTOR_PLAYER_FUTURE",
     "Turn2DirectionLives:ACTOR_NPC_YONOWAARU_N9"
    ]
   },
   "P26P01A/n06a0102.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 7
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "Turn3",
+    "WaitEndAnimation",
+    "WaitLockObject",
+    "clear $EVENT_LOCAL",
+    "routine1:forever {\n        switch ",
+    "routine2:forever {\n        switch ",
+    "routine3:forever {\n        switch ",
+    "routine4:forever {\n        switch ",
+    "routine5:forever {\n        switch ",
+    "routine6:forever {\n        WaitRandom",
+    "routine7:forever {\n        WaitRandom"
+   ]
   },
   "P26P01A/t02a0302.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "SetPositionMark:0",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_PLAYER_CHARMS",
     "Turn3",
     "WaitEndAnimation"
    ]
@@ -8662,110 +8404,69 @@
    "unsupported_ops": [
     "SlidePositionOffset:OBJECT_V39P01A1_531",
     "SlidePositionOffset:OBJECT_V39P01A1_532",
-    "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_PLAYER_CHARMS",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_SAANAITO",
-    "Turn2DirectionLives:ACTOR_PLAYER_CHARMS",
     "WaitBackEffect"
    ]
   },
   "P28P01A/n06a3905.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_NPC_MANYUURA",
-    "MovePositionMark:ACTOR_PLAYER_CHARMS",
-    "Turn2DirectionLives:ACTOR_NPC_METAMON"
-   ]
+   "status": "COMPILED",
+   "file": "p28p01a__n06a3905.lua",
+   "dialogues": 4,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P28P01A/n06a3907.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2Direction:ACTOR_PLAYER_CHARMS",
-    "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
-    "Turn2DirectionLives:ACTOR_NPC_MANYUURA"
-   ]
+   "status": "COMPILED",
+   "file": "p28p01a__n06a3907.lua",
+   "dialogues": 14,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "S01P01A/m05a0202.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "worldmap_DeleteArrow",
-    "worldmap_MoveCamera",
-    "worldmap_SetArrow",
-    "worldmap_SetCamera",
-    "worldmap_SetLevel",
-    "worldmap_SetMark",
-    "worldmap_SetMode"
+    "worldmap_SetArrow"
    ]
   },
   "S01P01A/m05a0604.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "worldmap_DeleteArrow",
-    "worldmap_MoveCamera",
-    "worldmap_SetArrow",
-    "worldmap_SetCamera",
-    "worldmap_SetLevel",
-    "worldmap_SetMode"
+    "worldmap_SetArrow"
    ]
   },
   "S01P01A/m08a0502.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "worldmap_DeleteArrow",
-    "worldmap_MoveCamera",
-    "worldmap_SetArrow",
-    "worldmap_SetCamera",
-    "worldmap_SetLevel",
-    "worldmap_SetMark",
-    "worldmap_SetMode"
+    "worldmap_SetArrow"
    ]
   },
   "S01P01A/m08a0602.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "worldmap_DeleteArrow",
-    "worldmap_MoveCamera",
-    "worldmap_SetArrow",
-    "worldmap_SetCamera",
-    "worldmap_SetLevel",
-    "worldmap_SetMark",
-    "worldmap_SetMode"
+    "worldmap_SetArrow"
    ]
   },
   "S01P01A/m08a1002.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "worldmap_DeleteArrow",
-    "worldmap_MoveCamera",
-    "worldmap_SetArrow",
-    "worldmap_SetCamera",
-    "worldmap_SetLevel",
-    "worldmap_SetMark",
-    "worldmap_SetMode"
+    "worldmap_SetArrow"
    ]
   },
   "S01P01A/m13a0302.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "worldmap_SetArrow",
-    "worldmap_SetCamera",
-    "worldmap_SetLevel",
-    "worldmap_SetMark",
-    "worldmap_SetMode"
+    "worldmap_SetArrow"
    ]
   },
   "S01P01A/m20a0311.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "worldmap_DeleteArrow",
-    "worldmap_MoveCamera",
-    "worldmap_SetArrow",
-    "worldmap_SetCamera",
-    "worldmap_SetLevel",
-    "worldmap_SetMark",
-    "worldmap_SetMode"
+    "worldmap_SetArrow"
    ]
   },
   "S01P02A/conquest.ssb": {
@@ -8784,21 +8485,18 @@
   "S01P02A/enter03.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_YOMAWARU",
     "switch"
    ]
   },
   "S01P02A/enter04.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_GARUURA",
     "switch"
    ]
   },
   "S01P02A/enter05.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_CHIRIIN",
     "switch"
    ]
   },
@@ -8832,29 +8530,27 @@
   "S01P03A/enter02.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_YOMAWARU",
     "switch"
    ]
   },
   "S01P03A/enter03.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_GARUURA",
     "switch"
    ]
   },
   "S01P03A/enter04.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_CHIRIIN",
     "switch"
    ]
   },
   "S01P03A/enter07.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_PERIPPAA1"
-   ]
+   "status": "COMPILED",
+   "file": "s01p03a__enter07.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "S01P03A/enter08.ssb": {
    "status": "COMPILED",
@@ -8880,8 +8576,7 @@
   "S02P01A/m00a01a.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$EVENT_LOCAL = 0",
-    "worldmap_SetLevel"
+    "$EVENT_LOCAL = 0"
    ]
   },
   "S02P01A/m05a0704.ssb": {
@@ -8921,15 +8616,22 @@
    ]
   },
   "S04P01A/c00a0701.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetPositionMark:0"
+   "status": "COMPILED",
+   "file": "s04p01a__c00a0701.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5132) — id SE NDS sans portage PMDO identifié",
+    "SetEffect 621 — VFX sans émote PMDO équivalente"
    ]
   },
   "S04P01A/c00a1701.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetPositionMark:0"
+   "status": "COMPILED",
+   "file": "s04p01a__c00a1701.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "SetEffect 635 — VFX sans émote PMDO équivalente"
    ]
   },
   "S04P01A/m01a0101.ssb": {
@@ -9108,10 +8810,8 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "MovePositionMark:ACTOR_NPC_DEMO_PARTNER",
-    "MovePositionOffset:ACTOR_NPC_CHIRIIN",
     "MovePositionOffset:ACTOR_NPC_DEMO_HERO",
     "MovePositionOffset:ACTOR_NPC_DEMO_PARTNER",
-    "MovePositionOffset:ACTOR_NPC_KIMAWARI",
     "Turn2Direction:ACTOR_NPC_DEMO_HERO",
     "Turn2Direction:ACTOR_NPC_DEMO_PARTNER"
    ]
@@ -9133,16 +8833,13 @@
   "S13P09A/t02a0402.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_CHIRIIN",
     "MovePositionMark:ACTOR_NPC_DEMO_HERO",
-    "MovePositionMark:ACTOR_NPC_DEMO_PARTNER",
-    "MovePositionMark:ACTOR_NPC_KIMAWARI"
+    "MovePositionMark:ACTOR_NPC_DEMO_PARTNER"
    ]
   },
   "S14P01A/s30a0303.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_2",
     "forever {\n        Wait"
    ]
   },
@@ -9175,10 +8872,11 @@
    "gaps": null
   },
   "T00P01/enter06.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "@label_11"
-   ]
+   "status": "COMPILED",
+   "file": "t00p01__enter06.lua",
+   "dialogues": 1,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T00P01/enter07.ssb": {
    "status": "COMPILED",
@@ -9188,8 +8886,10 @@
    "gaps": null
   },
   "T00P01/m01a0100.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "routine5:ResetFunctionAttribute"
+   ]
   },
   "T00P01/m01a0101.ssb": {
    "status": "COMPILED",
@@ -9234,10 +8934,11 @@
    "gaps": null
   },
   "T00P01/m01a0116.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "@label_19"
-   ]
+   "status": "COMPILED",
+   "file": "t00p01__m01a0116.lua",
+   "dialogues": 1,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T00P01/m01a0117.ssb": {
    "status": "COMPILED",
@@ -9268,8 +8969,16 @@
    ]
   },
   "T00P01/m01a03a.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 3
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "camera_Move2PositionMark",
+    "routine1:Move3PositionOffset",
+    "routine1:MovePositionOffset:ACTOR_NPC_TEST005",
+    "routine1:Slide3PositionOffset",
+    "routine3:MoveDirection",
+    "routine3:MoveTurn",
+    "routine4:Turn2DirectionLives2"
+   ]
   },
   "T00P01/m01a04a.ssb": {
    "status": "PARTIAL_OPS",
@@ -9284,12 +8993,19 @@
    ]
   },
   "T00P01/m01a06a.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 2
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "routine1:MoveDirection",
+    "routine1:WaitLockSupervision",
+    "routine2:MoveDirection",
+    "with"
+   ]
   },
   "T00P01/m01a0700.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "routine4:jump @label_0"
+   ]
   },
   "T00P01/m01a0704.ssb": {
    "status": "COMPILED",
@@ -9372,14 +9088,18 @@
    ]
   },
   "T00P02/enter03.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "@label_6"
-   ]
+   "status": "COMPILED",
+   "file": "t00p02__enter03.lua",
+   "dialogues": 1,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T00P02/enter04.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 2
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "routine1:TurnDirection",
+    "routine2:TurnDirection"
+   ]
   },
   "T00P02/enter05.ssb": {
    "status": "COMPILED",
@@ -9396,8 +9116,10 @@
    "gaps": null
   },
   "T00P02/m01a01a.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "routine4:MoveDirection"
+   ]
   },
   "T00P02/m01a02a.ssb": {
    "status": "COMPILED",
@@ -9407,8 +9129,10 @@
    "gaps": null
   },
   "T00P02/m01a03a.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 1
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "routine4:MoveSpecial"
+   ]
   },
   "T01P01A/enter04.ssb": {
    "status": "COMPILED",
@@ -9442,9 +9166,7 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$PERFORMANCE_PROGRESS_LIST[10] = 1",
-    "$SCENARIO_BALANCE_FLAG = 7",
-    "MovePositionMark:ACTOR_NPC_RINGUMA2",
-    "Turn2Direction:ACTOR_NPC_RINGUMA2"
+    "$SCENARIO_BALANCE_FLAG = 7"
    ]
   },
   "T01P01A/m03a0107.ssb": {
@@ -9470,15 +9192,16 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[4, 3]",
-    "Move2PositionMark:0",
-    "SetPositionLives"
+    "Move2PositionMark:0"
    ]
   },
   "T01P01A/m03a0403.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionLives",
-    "SetPositionMark:0"
+   "status": "COMPILED",
+   "file": "t01p01a__m03a0403.lua",
+   "dialogues": 12,
+   "dual_screen_focus": null,
+   "gaps": [
+    "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_RIGHT — VFX sans émote PMDO équivalente"
    ]
   },
   "T01P01A/m03d0412.ssb": {
@@ -9498,12 +9221,6 @@
   "T01P01A/m16a0102.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_0",
-    "@label_1",
-    "@label_2",
-    "@label_3",
-    "@label_4",
-    "@label_5",
     "MovePositionOffset:ACTOR_NPC_S_AGUNOMU",
     "MovePositionOffset:ACTOR_NPC_S_BIPPA",
     "MovePositionOffset:ACTOR_NPC_S_CHIRIIN",
@@ -9517,7 +9234,6 @@
     "MovePositionOffset:ACTOR_NPC_S_PUKURIN",
     "MovePositionOffset:ACTOR_NPC_S_YONOWAARU",
     "MovePositionOffset:ACTOR_NPC_S_YUKUSHII",
-    "SetDirection:ACTOR_NPC_HIMEGUMA",
     "SetDirection:ACTOR_NPC_S_AGUNOMU",
     "SetDirection:ACTOR_NPC_S_BIPPA",
     "SetDirection:ACTOR_NPC_S_CHIRIIN",
@@ -9531,8 +9247,6 @@
     "SetDirection:ACTOR_NPC_S_PUKURIN",
     "SetDirection:ACTOR_NPC_S_YONOWAARU",
     "SetDirection:ACTOR_NPC_S_YUKUSHII",
-    "SetPositionMark:0",
-    "SetPositionMark:ACTOR_NPC_HIMEGUMA",
     "SetPositionMark:ACTOR_NPC_S_AGUNOMU",
     "SetPositionMark:ACTOR_NPC_S_BIPPA",
     "SetPositionMark:ACTOR_NPC_S_CHIRIIN",
@@ -9546,7 +9260,6 @@
     "SetPositionMark:ACTOR_NPC_S_PUKURIN",
     "SetPositionMark:ACTOR_NPC_S_YONOWAARU",
     "SetPositionMark:ACTOR_NPC_S_YUKUSHII",
-    "Turn2Direction:ACTOR_NPC_HIMEGUMA",
     "Turn2Direction:ACTOR_NPC_S_AGUNOMU",
     "Turn2Direction:ACTOR_NPC_S_BIPPA",
     "Turn2Direction:ACTOR_NPC_S_CHIRIIN",
@@ -9572,17 +9285,10 @@
   "T01P01A/m16a0104.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_0",
-    "@label_1",
-    "@label_2",
-    "@label_3",
-    "@label_4",
-    "@label_5",
     "Move2PositionOffset:0",
     "MovePositionOffset:ACTOR_NPC_S_HEIGANI",
     "MovePositionOffset:ACTOR_NPC_S_PERAPPU",
     "MovePositionOffset:ACTOR_NPC_S_YUKUSHII",
-    "Turn2Direction:ACTOR_NPC_HIMEGUMA",
     "Turn2Direction:ACTOR_NPC_S_AGUNOMU",
     "Turn2Direction:ACTOR_NPC_S_BIPPA",
     "Turn2Direction:ACTOR_NPC_S_CHIRIIN",
@@ -9608,9 +9314,6 @@
   "T01P01A/m16a0701.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_0",
-    "@label_1",
-    "Move2PositionOffset:ACTOR_NPC_HIMEGUMA",
     "Move2PositionOffset:ACTOR_NPC_S_AGUNOMU",
     "Move2PositionOffset:ACTOR_NPC_S_BIPPA",
     "Move2PositionOffset:ACTOR_NPC_S_CHIRIIN",
@@ -9623,7 +9326,6 @@
     "Move2PositionOffset:ACTOR_NPC_S_PERAPPU",
     "Move2PositionOffset:ACTOR_NPC_S_PUKURIN",
     "Move2PositionOffset:ACTOR_NPC_S_YUKUSHII",
-    "MovePositionMark:ACTOR_NPC_HIMEGUMA",
     "MovePositionMark:ACTOR_NPC_S_AGUNOMU",
     "MovePositionMark:ACTOR_NPC_S_BIPPA",
     "MovePositionMark:ACTOR_NPC_S_CHIRIIN",
@@ -9640,7 +9342,6 @@
     "MovePositionMark:ACTOR_NPC_S_YAMIRAMI2",
     "MovePositionMark:ACTOR_NPC_S_YONOWAARU",
     "MovePositionMark:ACTOR_NPC_S_YUKUSHII",
-    "MovePositionOffset:ACTOR_NPC_HIMEGUMA",
     "MovePositionOffset:ACTOR_NPC_S_AGUNOMU",
     "MovePositionOffset:ACTOR_NPC_S_BIPPA",
     "MovePositionOffset:ACTOR_NPC_S_CHIRIIN",
@@ -9660,7 +9361,6 @@
     "SlidePositionOffset:ACTOR_NPC_S_DOGOOMU",
     "SlidePositionOffset:ACTOR_NPC_S_KIMAWARI",
     "SlidePositionOffset:ACTOR_NPC_S_YONOWAARU",
-    "Turn2Direction:ACTOR_NPC_HIMEGUMA",
     "Turn2Direction:ACTOR_NPC_S_AGUNOMU",
     "Turn2Direction:ACTOR_NPC_S_BIPPA",
     "Turn2Direction:ACTOR_NPC_S_CHIRIIN",
@@ -9701,7 +9401,6 @@
   "T01P01A/m16d0714.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Move2PositionOffset:ACTOR_NPC_HIMEGUMA",
     "Move2PositionOffset:ACTOR_NPC_S_AGUNOMU",
     "Move2PositionOffset:ACTOR_NPC_S_BIPPA",
     "Move2PositionOffset:ACTOR_NPC_S_CHIRIIN",
@@ -9728,36 +9427,26 @@
    "file": "t01p01a__m26a0304.lua",
    "dialogues": 1,
    "dual_screen_focus": null,
-   "gaps": [
-    "SetEffect EFFECT_LAUGHING sur PNJ non résolu (v2 cast SSA)"
-   ]
+   "gaps": null
   },
   "T01P01A/s01p0201.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[29, 2]",
-    "MovePositionMark:ACTOR_NPC_HIMEGUMA",
-    "MovePositionOffset:ACTOR_NPC_HIMEGUMA",
-    "Turn2Direction:ACTOR_NPC_HIMEGUMA",
-    "Turn2DirectionLives:ACTOR_NPC_HIMEGUMA",
-    "Turn2DirectionLives:ACTOR_NPC_RINGUMA",
     "dungeon_mode"
    ]
   },
   "T01P01A/s22p0301.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_CHIRIIN",
     "Turn2Direction:ACTOR_NPC_KURESERIA",
-    "Turn2DirectionLives:ACTOR_NPC_KURESERIA",
-    "Turn2DirectionLives:ACTOR_PLAYER_PARTNER"
+    "Turn2DirectionLives:ACTOR_NPC_KURESERIA"
    ]
   },
   "T01P01A/s22p0303.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "Turn2Direction:ACTOR_NPC_KURESERIA",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
     "Turn2DirectionLives:ACTOR_NPC_KURESERIA",
     "Turn2DirectionLives:ACTOR_NPC_PUKURIN"
    ]
@@ -9765,8 +9454,7 @@
   "T01P01A/s22p0305.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_KURESERIA",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1"
+    "Turn2Direction:ACTOR_NPC_KURESERIA"
    ]
   },
   "T01P01A/um0301.ssb": {
@@ -9793,21 +9481,18 @@
   "T01P01A/un0401.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_1",
     "if "
    ]
   },
   "T01P01A/un0402.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_1",
     "if "
    ]
   },
   "T01P01A/un0403.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_1",
     "if "
    ]
   },
@@ -9855,7 +9540,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "SlidePositionMark:OBJECT_P03P02A1_128",
-    "Turn2Direction:ACTOR_NPC_KAKUREON1",
     "Turn2Direction:ACTOR_NPC_KAKUREON2"
    ]
   },
@@ -9871,7 +9555,6 @@
   "T01P02A/m03d0314.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionLives",
     "Turn2Direction:ACTOR_NPC_KAKUREON2",
     "Turn2DirectionTurn"
    ]
@@ -9881,8 +9564,7 @@
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[12, 4]",
     "Turn2Direction:ACTOR_NPC_KAKUREON2",
-    "Turn2DirectionLives:ACTOR_PLAYER",
-    "bgm_ChangeVolume"
+    "Turn2DirectionLives:ACTOR_PLAYER"
    ]
   },
   "T01P02A/m11d0512.ssb": {
@@ -9931,21 +9613,18 @@
   "T01P02A/un0401.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_1",
     "if "
    ]
   },
   "T01P02A/un0402.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_1",
     "if "
    ]
   },
   "T01P02A/un0403.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_1",
     "if "
    ]
   },
@@ -9988,7 +9667,6 @@
   "V00P02/m01a01a.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "@label_0",
     "back_SetWeather",
     "supervision_ExecuteStation"
    ]
@@ -10274,9 +9952,14 @@
    ]
   },
   "V03P11A/m03a1312.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "se_Stop"
+   "status": "COMPILED",
+   "file": "v03p11a__m03a1312.lua",
+   "dialogues": 1,
+   "dual_screen_focus": null,
+   "gaps": [
+    "SetEffect EFFECT_VERY_HEAVY_RAIN — VFX sans émote PMDO équivalente",
+    "se_Play(6420) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6421) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "V03P11A/s20p0106.ssb": {
@@ -10391,20 +10074,116 @@
    ]
   },
   "V10P03C/m10a1209.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 8
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "MovePositionOffset:OBJECT_V10P01C1_225",
+    "MovePositionOffset:OBJECT_V10P01C1_226",
+    "MovePositionOffset:OBJECT_V10P01C1_228",
+    "MovePositionOffset:OBJECT_V10P01C1_229",
+    "MovePositionOffset:OBJECT_V10P01C2_231",
+    "MovePositionOffset:OBJECT_V10P01C2_232",
+    "MovePositionOffset:OBJECT_V10P01C2_234",
+    "MovePositionOffset:OBJECT_V10P01C2_235",
+    "MovePositionOffset:OBJECT_V10P01C2_236",
+    "MovePositionOffset:OBJECT_V10P01C3_237",
+    "MovePositionOffset:OBJECT_V10P01C3_238",
+    "MovePositionOffset:OBJECT_V10P01C3_240",
+    "MovePositionOffset:OBJECT_V10P01C3_241",
+    "MovePositionOffset:OBJECT_V10P01C3_242"
+   ]
   },
   "V10P03C/m10a1211.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 23
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "routine10:MovePositionMark:OBJECT_V10P01C2_231",
+    "routine10:jump @label_9",
+    "routine11:MovePositionMark:OBJECT_V10P01C2_232",
+    "routine11:jump @label_10",
+    "routine12:MovePositionMark:OBJECT_V10P01C2_233",
+    "routine12:jump @label_11",
+    "routine13:MovePositionMark:OBJECT_V10P01C3_237",
+    "routine13:jump @label_12",
+    "routine14:MovePositionMark:OBJECT_V10P01C3_238",
+    "routine14:jump @label_13",
+    "routine15:MovePositionMark:OBJECT_V10P01C3_239",
+    "routine15:jump @label_14",
+    "routine20:SetPositionOffset",
+    "routine21:SetPositionOffset",
+    "routine22:SetPositionOffset",
+    "routine23:SetPositionOffset",
+    "routine2:MovePositionMark:OBJECT_V10P01C1_229",
+    "routine2:jump @label_1",
+    "routine3:MovePositionMark:OBJECT_V10P01C1_230",
+    "routine3:jump @label_2",
+    "routine4:MovePositionMark:OBJECT_V10P01C2_234",
+    "routine4:jump @label_3",
+    "routine5:MovePositionMark:OBJECT_V10P01C2_235",
+    "routine5:jump @label_4",
+    "routine6:MovePositionMark:OBJECT_V10P01C2_236",
+    "routine6:jump @label_5",
+    "routine7:MovePositionMark:OBJECT_V10P01C3_240",
+    "routine7:jump @label_6",
+    "routine8:MovePositionMark:OBJECT_V10P01C1_226",
+    "routine8:jump @label_7",
+    "routine9:MovePositionMark:OBJECT_V10P01C1_227",
+    "routine9:jump @label_8"
+   ]
   },
   "V10P03C/m26a0613.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 23
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "routine10:MovePositionMark:OBJECT_V10P01C2_231",
+    "routine10:jump @label_9",
+    "routine11:MovePositionMark:OBJECT_V10P01C2_232",
+    "routine11:jump @label_10",
+    "routine12:MovePositionMark:OBJECT_V10P01C2_233",
+    "routine12:jump @label_11",
+    "routine13:MovePositionMark:OBJECT_V10P01C3_237",
+    "routine13:jump @label_12",
+    "routine14:MovePositionMark:OBJECT_V10P01C3_238",
+    "routine14:jump @label_13",
+    "routine15:MovePositionMark:OBJECT_V10P01C3_239",
+    "routine15:jump @label_14",
+    "routine20:SetPositionOffset",
+    "routine21:SetPositionOffset",
+    "routine22:SetPositionOffset",
+    "routine23:SetPositionOffset",
+    "routine2:MovePositionMark:OBJECT_V10P01C1_229",
+    "routine2:jump @label_1",
+    "routine3:MovePositionMark:OBJECT_V10P01C1_230",
+    "routine3:jump @label_2",
+    "routine4:MovePositionMark:OBJECT_V10P01C2_234",
+    "routine4:jump @label_3",
+    "routine5:MovePositionMark:OBJECT_V10P01C2_235",
+    "routine5:jump @label_4",
+    "routine6:MovePositionMark:OBJECT_V10P01C2_236",
+    "routine6:jump @label_5",
+    "routine7:MovePositionMark:OBJECT_V10P01C3_240",
+    "routine7:jump @label_6",
+    "routine8:MovePositionMark:OBJECT_V10P01C1_226",
+    "routine8:jump @label_7",
+    "routine9:MovePositionMark:OBJECT_V10P01C1_227",
+    "routine9:jump @label_8"
+   ]
   },
   "V10P03C/t02a0309.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 8
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "MovePositionOffset:OBJECT_V10P01C1_225",
+    "MovePositionOffset:OBJECT_V10P01C1_226",
+    "MovePositionOffset:OBJECT_V10P01C1_228",
+    "MovePositionOffset:OBJECT_V10P01C1_229",
+    "MovePositionOffset:OBJECT_V10P01C2_231",
+    "MovePositionOffset:OBJECT_V10P01C2_232",
+    "MovePositionOffset:OBJECT_V10P01C2_234",
+    "MovePositionOffset:OBJECT_V10P01C2_235",
+    "MovePositionOffset:OBJECT_V10P01C2_236",
+    "MovePositionOffset:OBJECT_V10P01C3_237",
+    "MovePositionOffset:OBJECT_V10P01C3_238",
+    "MovePositionOffset:OBJECT_V10P01C3_240",
+    "MovePositionOffset:OBJECT_V10P01C3_241",
+    "MovePositionOffset:OBJECT_V10P01C3_242"
+   ]
   },
   "V14P03A/m14a0802.ssb": {
    "status": "COMPILED",
@@ -10630,12 +10409,27 @@
    ]
   },
   "V24P05A/m24a0206.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 5
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "routine2:jump @label_0",
+    "routine3:jump @label_0",
+    "routine4:Slide2PositionOffset:OBJECT_V24P01A3_307",
+    "routine4:jump @label_0",
+    "routine5:Slide2PositionOffset:OBJECT_V24P05A1_319",
+    "routine5:jump @label_0"
+   ]
   },
   "V24P05A/t02a0308.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 5
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "routine2:Slide2PositionOffset:ACTOR_NPC_DEMO_PARTNER",
+    "routine2:jump @label_0",
+    "routine3:jump @label_0",
+    "routine4:Slide2PositionOffset:OBJECT_V24P01A3_307",
+    "routine4:jump @label_0",
+    "routine5:Slide2PositionOffset:OBJECT_V24P05A1_319",
+    "routine5:jump @label_0"
+   ]
   },
   "V24P09A/m24a0201.ssb": {
    "status": "COMPILED",
@@ -10850,12 +10644,35 @@
    ]
   },
   "V38P08A/n09a2213.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 8
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "MovePositionOffset:OBJECT_V38P08A1_501",
+    "MovePositionOffset:OBJECT_V38P08B2_503",
+    "MovePositionOffset:OBJECT_V38P08C1_504",
+    "MovePositionOffset:OBJECT_V38P08C6_509",
+    "MovePositionOffset:OBJECT_V38P08D2_511",
+    "MovePositionOffset:OBJECT_V38P08D3_512",
+    "MovePositionOffset:OBJECT_V38P08D6_515",
+    "routine1:MovePositionOffset:OBJECT_V38P08B1_502",
+    "routine1:SetPositionOffset",
+    "routine2:MovePositionOffset:OBJECT_V38P08C2_505",
+    "routine2:SetPositionOffset",
+    "routine3:MovePositionOffset:OBJECT_V38P08C5_508",
+    "routine3:SetPositionOffset",
+    "routine4:MovePositionOffset:OBJECT_V38P08C3_506",
+    "routine4:SetPositionOffset",
+    "routine5:MovePositionOffset:OBJECT_V38P08C4_507",
+    "routine5:SetPositionOffset"
+   ]
   },
   "V38P10A/n09a2204.ssb": {
-   "status": "NOT_COMPILED_MULTIROUTINE",
-   "actor_routines": 16
+   "status": "PARTIAL_OPS",
+   "unsupported_ops": [
+    "routine10:SlidePositionOffset:OBJECT_V38P08B2_503",
+    "routine14:SlidePositionOffset:OBJECT_V38P08C3_506",
+    "routine16:SlidePositionOffset:OBJECT_V38P08C5_508",
+    "routine2:SlidePositionOffset:OBJECT_V38P10A4_519"
+   ]
   },
   "V38P10A/n09a2209.ssb": {
    "status": "PARTIAL_OPS",

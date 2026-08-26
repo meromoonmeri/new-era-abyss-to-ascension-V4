@@ -9,6 +9,7 @@ return function(hero, partner)
   -- supervision_StationCommon(0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- supervision_StationCommon(99) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- supervision_Acting(0) [neutre/état moteur]
+  local npc_npc_guregguru = SkySceneKit.spawn_npc("croagunk", 360, 256, Direction.UpRight, "NPC_GUREGGURU")
   -- SetPositionInitial [position SSA de départ, déjà posée par le placement de scène]
   -- SetAnimation(2) [anim idle native]
   -- camera_SetMyself() [neutre/état moteur]

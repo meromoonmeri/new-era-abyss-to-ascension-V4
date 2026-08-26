@@ -17,6 +17,7 @@ return function(hero, partner)
   -- SetAnimation(42) [anim idle native]
   local npc_npc_dagutorio = SkySceneKit.spawn_npc("dugtrio", 296, 232, Direction.Up, "NPC_DAGUTORIO")
   -- SetAnimation(42) [anim idle native]
+  local npc_npc_kimawari = SkySceneKit.spawn_npc("sunflora", 248, 232, Direction.Up, "NPC_KIMAWARI")
   -- SetAnimation(42) [anim idle native]
   local npc_npc_heigani = SkySceneKit.spawn_npc("corphish", 296, 184, Direction.Down, "NPC_HEIGANI")
   -- SetAnimation(42) [anim idle native]
@@ -24,6 +25,7 @@ return function(hero, partner)
   -- SetAnimation(42) [anim idle native]
   local npc_npc_guregguru = SkySceneKit.spawn_npc("croagunk", 272, 232, Direction.Up, "NPC_GUREGGURU")
   -- SetAnimation(42) [anim idle native]
+  local npc_npc_chiriin = SkySceneKit.spawn_npc("chimecho", 320, 192, Direction.Down, "NPC_CHIRIIN")
   -- SetAnimation(42) [anim idle native]
   local npc_npc_zubatto = SkySceneKit.spawn_npc("zubat", 216, 232, Direction.Up, "NPC_ZUBATTO")
   -- SetAnimation(43) [anim idle native]

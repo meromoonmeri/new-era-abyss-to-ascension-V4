@@ -10,9 +10,9 @@ return function(hero, partner)
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
   pcall(function() SOUND:FadeOutBGM(120) end)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english="You've been deceiving\nexploration team after exploration team that\nway, until now...", french="Vous avez berné toutes les\néquipes d'exploration, l'une après l'autre,\njusqu'à aujourd'hui...", german="So habt ihr ein Erkundungsteam\nnach dem anderen an der Nase herumgeführt.\nBis jetzt...", italian="Per tutto questo tempo avete\ningannato una squadra d'esplorazione dietro\nl'altra con questo trucco...", spanish="Así habéis ido engañando a\nun equipo explorador tras otro, hasta ahora..."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" That's how you always escaped!", french="C'est pour ça que vous avez\ntoujours pu vous échapper!", german="Und deswegen seid ihr\nbisher immer davongekommen!", italian="Ecco perché riuscivate sempre\na fuggire!", spanish="¡Así es como habéis\nconseguido escapar siempre!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   local npc_npc_goosuto = SkySceneKit.spawn_npc("haunter", 240, 216, Direction.Down, "NPC_GOOSUTO")
@@ -42,7 +42,7 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- ExecuteCommon(CORO_LOOK_AROUND_FAST_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Wha...", french=" Que...", german=" Wa...", italian=" Cos...", spanish=" ¿Qué...?"})
   -- message_Close
   -- GAP: se_Play(5143) — id SE NDS sans portage PMDO identifié

@@ -13,10 +13,11 @@ return function(hero, partner)
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(48), p.Y+(0), false, 2) end
   GAME:FadeIn(30)
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Complain") end)
-  -- GAP: SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)
+  local npc_npc_chiriin = SkySceneKit.spawn_npc("chimecho", 240, 200, Direction.Left, "NPC_CHIRIIN")
+  pcall(function() GROUND:CharSetEmote(npc_npc_chiriin, "exclaim", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_chiriin) end)
   SkySceneKit.say({english=" Oh, [hero]![K] [partner]!", french=" Oh, [hero]![K] [partner]!", german=" Oh, [hero]![K] [partner]!", italian="Oh, [hero]![K]\n[partner]!", spanish="¡[hero]![K]\n¡[partner]!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Startled") end)
@@ -32,22 +33,22 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(15)
   SkySceneKit.say({english=" What's happening?", french=" Quoi de neuf?", german=" Was liegt an?", italian=" Come stai?", spanish=" ¿Qué ocurre?"}) -- SwitchTalk: branche default (canon générique)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_chiriin) end)
   SkySceneKit.say({english=" Oh, [hero]! [partner]!", french=" Oh, [hero]! [partner]!", german=" Oh, [hero]! [partner]!", italian=" Oh, [hero]! [partner]!", spanish="¡[hero]!\n¡[partner]!"})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_chiriin) end)
   SkySceneKit.say({english="Congratulations on graduating\nfrom the guild!", french="Félicitations! Vous avez\nobtenu le diplôme de la Guilde!", german="Herzlichen Glückwunsch zur\nbestandenen Gildenabschlussprüfung!", italian="Congratulazioni per aver\nsuperato l'esame di diploma della Gilda!", spanish="¡Enhorabuena por superar\nel gran reto del [CS:N]Pokégremio de Exploradores[CR]!"})
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_KeyWait
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_chiriin) end)
   SkySceneKit.say({english="Team [team:] now gets to\noperate in association with the guild, right?", french="Alors maintenant, l'Equipe\n[team:] travaille en association avec\nla Guilde, n'est-ce pas?", german="Team [team:] kann jetzt\nin Zusammenarbeit mit der Gilde operieren,\nnicht wahr?", italian="Adesso il Team [team:]\npuò operare in associazione con la Gilda,\nvero?", spanish="El [CS:X]Equipo[CR] [team:] ya puede\ncolaborar con el [CS:N]Pokégremio[CR], ¿verdad?"})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_chiriin) end)
   SkySceneKit.say({english="So your Assembly privileges also\nchange![K] Let the bell ring!", french="Dans ce cas, vous obtenez aussi\nd'autres privilèges pour le Rassemblement![K]\nFaisons sonner la cloche!", german="Also genießt ihr jetzt gewisse\nPrivilegien bei der Nutzung des Treffpunkts![K]\nLäutet die Glocke!", italian="Quindi cambiano anche i vostri\nprivilegi qui al Raduno![K] Che suoni la campana!", spanish="¡Así que vuestros privilegios en\nel registro cambian![K] ¡Que suene la campana!"})
-  -- GAP: SetEffect EFFECT_JOYOUS sur PNJ non résolu (v2 cast SSA)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() GROUND:CharSetEmote(npc_npc_chiriin, "happy", 1) end)
+  pcall(function() UI:SetSpeaker(npc_npc_chiriin) end)
   SkySceneKit.say({english="A new special service is\navailable to you!", french="Vous avez droit à un nouveau\nservice très spécial!", german="Ihr könnt jetzt einen neuen\nSonderservice in Anspruch nehmen!", italian="Un nuovo servizio speciale è a\nvostra disposizione!", spanish="¡Ahora tenéis a vuestra\ndisposición un nuevo servicio especial!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  pcall(function() GROUND:CharSetEmote(npc_npc_chiriin, nil, 0) end) -- EFFECT_NONE
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Confused") end)
   pcall(function() GROUND:CharSetEmote(partner, "question", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
@@ -56,4 +57,5 @@ return function(hero, partner)
   pcall(function() SOUND:FadeOutBGM(60) end)
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(30)
+  SkySceneKit.cleanup_npcs()
 end

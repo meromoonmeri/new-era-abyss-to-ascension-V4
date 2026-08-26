@@ -18,10 +18,10 @@ return function(hero, partner)
   pcall(function() SOUND:PlayBGM("Upper Steam Cave.ogg", true) end)
   GAME:WaitFrames(30)
   GAME:WaitFrames(2) -- join WaitLockLives
-  -- Unlock(5) [neutre/état moteur]
+  SkySceneKit.unlock(5) -- Unlock(5) NDS
   GAME:WaitFrames(15)
-  -- Unlock(7) [neutre/état moteur]
-  -- Lock(3) [neutre/état moteur]
+  SkySceneKit.unlock(7) -- Unlock(7) NDS
+  SkySceneKit.lock(3) -- Lock(3) NDS
   GAME:WaitFrames(15)
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)

@@ -4,9 +4,9 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Argh...[K] We didn't do so well...", french=" Argh...[K] Un échec retentissant...", german="Argh...[K]\nWir waren wohl nicht gut genug...", italian=" Argh...[K] Ci è andata male...", spanish=" Ay...[K] ¡Lo hemos hecho mal!"})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" We should turn back for now.", french="Nous devrions faire demi-tour\npour l'instant.", german="Wir sollten besser\nnoch einmal umkehren.", italian=" Meglio tornare sui nostri passi.", spanish="No queda otra opción que\nretroceder."})
   -- message_KeyWait
   GAME:FadeOut(false,  60)
@@ -92,7 +92,7 @@ return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="Until we disappear, we should do\neverything we can to hold off Master [CS:N]Dialga[CR]...", french="Avant de disparaître, faisons de\nnotre mieux pour retenir Maître [CS:N]Dialga[CR].", german="Bis zu unserem Verschwinden\nsollten wir alles uns Mögliche tun, um\nMeister [CS:N]Dialga[CR] Einhalt zu gebieten!", italian="Prima di sparire, dobbiamo fare\ntutto ciò che è in nostro potere per fermare\nil Maestro [CS:N]Dialga[CR]!", spanish="Hasta que desaparezcamos, hay\nque contener a [CS:N]Dialga[CR]..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Got it.[K] Let's hurry up and go.", french=" Entendu.[K] Dépêchons-nous.", german="Verstanden.[K]\nLasst uns schnell weitergehen.", italian=" Ricevuto.[K] Forza, andiamo.", spanish="Entendido.[K] Démonos prisa\ny sigamos adelante."})
   -- message_Close
   SkySceneKit.cleanup_npcs()

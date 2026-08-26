@@ -27,9 +27,9 @@ return function(hero, partner)
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Shock") end)
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Invincibility...[K]doesn't exist!", french=" L'invincibilité...[K] ça n'existe pas!", german=" Unbesiegbarkeit...[K] gibt es nicht!", italian=" L'invincibilità...[K] non esiste!", spanish=" La invencibilidad...[K] ¡no existe!"})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english="I'm going to apprehend you\nthis time!", french=" Je vais t'attraper cette fois!", german=" Dieses Mal nehme ich dich fest!", italian=" Questa volta ti prenderò!", spanish=" ¡Esta vez pienso arrestarte!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_goosuto) end)

@@ -5,8 +5,10 @@ local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
-  pcall(function() UI:ResetSpeaker() end)
+  local npc_npc_nyorotono = SkySceneKit.spawn_npc("politoed", 360, 240, Direction.Down, "NPC_NYOROTONO")
+  pcall(function() UI:SetSpeaker(npc_npc_nyorotono) end)
   SkySceneKit.say({english="[M:D0] ", french="[M:D0] ", german="[M:D0] ", italian="[M:D0] ", spanish="[M:D0] "})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_nyorotono) end)
   SkySceneKit.say({english="[M:D0] ", french="[M:D0] ", german="[M:D0] ", italian="[M:D0] ", spanish="[M:D0] "})
+  SkySceneKit.cleanup_npcs()
 end

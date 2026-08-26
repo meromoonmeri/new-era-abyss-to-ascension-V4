@@ -29,7 +29,7 @@ return function(hero, partner)
   SkySceneKit.say({english="This time, we'll knock\nthem around!", french="Cette fois-ci, nous leur ferons\nmordre la poussière!", german="Dieses Mal werden wir\nihnen eine Abreibung verpassen!", italian="Questa volta dobbiamo\nsconfiggerli!", spanish="¡Esta vez nos libraremos\nde ellos de una vez por todas!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- message_FacePositionOffset(-2, 0) [neutre/état moteur]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Got it!", french=" C'est parti!", german=" Verstanden!", italian=" Certo!", spanish=" ¡Entendido!"})
   -- message_Close
   pcall(function() SOUND:FadeOutBGM(60) end)

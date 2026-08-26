@@ -134,6 +134,7 @@ return function(hero, partner)
   -- GAP: SetEffect EFFECT_CONFETTI — VFX sans émote PMDO équivalente
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(10)
+  local npc_npc_soonansu = SkySceneKit.spawn_npc("wobbuffet", 376, 152, Direction.Down, "NPC_SOONANSU")
   -- ExecuteCommon(CORO_JUMP_HAPPY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- GAP: SetEffect EFFECT_CONFETTI — VFX sans émote PMDO équivalente
   GAME:WaitFrames(2) -- join WaitEffect

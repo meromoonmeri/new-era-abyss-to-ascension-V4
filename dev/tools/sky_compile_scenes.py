@@ -52,6 +52,14 @@ def _load_entid_map():
 
 ENTID2SPECIES = _load_entid_map()
 
+# table GLOBALE acteurs (ACTOR_GLOBAL_TABLE.json — entid unique ROM +
+# première position SSA par zone) : résout le cast des scènes dont le
+# SSA propre ne place pas l'acteur (chargé par une autre scène de la zone)
+_AGT = json.load(open(os.path.join(CAMP, "Docs",
+                                   "ACTOR_GLOBAL_TABLE.json")))
+GLOBAL_ACTOR_ENTID = _AGT["entid"]
+GLOBAL_ACTOR_ZONEPOS = _AGT["zone_first_pos"]
+
 DIRMAP = {"DIR_DOWN": "Direction.Down", "DIR_DOWNRIGHT": "Direction.DownRight",
           "DIR_RIGHT": "Direction.Right", "DIR_UPRIGHT": "Direction.UpRight",
           "DIR_UP": "Direction.Up", "DIR_UPLEFT": "Direction.UpLeft",
@@ -215,6 +223,7 @@ class SceneCompiler:
         self.sub_shown = False    # écran sub actuellement révélé
         self.main_shown = False   # écran main actuellement révélé
         self.used_subscreen = False
+        self.routine_actor = None   # cible implicite (def N for actor X)
 
     def emit(self, s):
         self.lines.append("  " + s)
@@ -224,8 +233,13 @@ class SceneCompiler:
         self.emit("-- GAP: " + s)
 
     def actor_expr(self, actor):
-        if actor in ("ACTOR_PLAYER", "ACTOR_PLAYER_BIPPA",
-                     "ACTOR_PLAYER_HERO"):
+        if actor.startswith("ACTOR_PLAYER"):
+            # ACTOR_PLAYER + variantes d'épisode (PLAYER_FUTURE = héros de
+            # l'arc du futur, PLAYER_CHARMS/KIMAWARI/PUPURIN = héros
+            # jouable de l'épisode spécial, PLAYER_APPOINT = héros désigné)
+            # : tous jouent le RÔLE du héros dans leur scène — résolus sur
+            # le leader d'équipe courant (canon: c'est le personnage
+            # contrôlé à ce moment du scénario)
             return "hero"
         if actor.startswith("ACTOR_ATTENDANT") or actor == "ACTOR_PARTNER":
             return "partner"
@@ -280,6 +294,45 @@ class SceneCompiler:
                       f"or {{}}; SV.SkyScenarioBitFlags[{n}] = {v}"
                       f" -- $SCENARIO_MAIN_BIT_FLAG[{n}] = {v} (ROM)")
             return
+        # switch à CORPS VIDE sur un menu système NDS :
+        # `switch ( message_Menu(MENU_X) ) { }` — la ROM affiche le menu
+        # moteur (init d'équipe, crédits, sauvegarde) et ne branche sur
+        # AUCUN cas. Équivalents PMDO : menus gérés par le moteur/harnais
+        # (l'init d'équipe est faite au NewGame, la sauvegarde par
+        # GroundSave) — neutralisé avec trace, aucun embranchement perdu.
+        # étiquettes de flux du décompilateur : @label_N seul = point de
+        # saut (le flux linéaire du def 0 la traverse naturellement)
+        if re.match(r"@label_\d+$", st):
+            self.emit(f"-- {st} [étiquette de flux ExplorerScript]")
+            return
+        mm_menu = re.match(
+            r"switch\s*\(\s*message_Menu\(([A-Z0-9_]+)\)\s*\)\s*\{\s*\}$",
+            st, re.S)
+        if mm_menu:
+            self.emit(f"-- switch(message_Menu({mm_menu.group(1)})) "
+                      f"[menu système NDS sans embranchement (corps "
+                      f"vide): équivalent géré par le moteur PMDO]")
+            return
+        # switch($LANGUAGE_TYPE) : la langue est résolue au RUNTIME par le
+        # kit (say choisit la langue du joueur) ; les cases par langue des
+        # crédits déroulent le même contenu par langue. On compile la
+        # PREMIÈRE case comme corps (les autres = mêmes ops, textes par
+        # langue déjà dans les blocs 5 langues) — trace documentée.
+        mm_lang = re.match(
+            r"switch\s*\(\s*\$LANGUAGE_TYPE\s*\)\s*\{(.*)\}$", st, re.S)
+        if mm_lang:
+            body = mm_lang.group(1)
+            first = re.split(r"case\s+\d+\s*:", body)
+            if len(first) > 1:
+                seg = first[1]
+                nxt = re.search(r"case\s+\d+\s*:", seg)
+                if nxt:
+                    seg = seg[:nxt.start()]
+                self.emit("-- switch($LANGUAGE_TYPE): case unique "
+                          "compilée (textes 5 langues résolus par le "
+                          "kit au runtime)")
+                self.compile_def0(seg)
+                return
         m = re.match(r"(\w+)(?:<(\w+) (\w+)>)?\s*\((.*)\)$", st, re.S)
         if not m:
             # switch/if imbriqués -> hors périmètre v1
@@ -287,6 +340,11 @@ class SceneCompiler:
             return
         op, kind, target, args = m.group(1), m.group(2), m.group(3), \
             m.group(4)
+        # cible implicite : dans `def N for actor X`, les ops sans
+        # <actor Y> explicite visent X (sémantique interpréteur SSB)
+        if not target and getattr(self, "routine_actor", None):
+            target = self.routine_actor
+            kind = kind or "actor"
         A = self.actor_expr(target) if target else None
 
         if op == "Wait":
@@ -451,6 +509,73 @@ class SceneCompiler:
                           f"px NDS (pilote scroll)")
             else:
                 self.unsupported.append("back_SetBackScrollOffset:args")
+        elif op == "dungeon_mode":
+            # dungeon_mode(id) : bascule l'ID de donjon courant côté NDS
+            # (préparation d'un main_EnterDungeon). Transition assurée par
+            # le harnais journey (même convention que main_EnterDungeon).
+            self.emit(f"-- dungeon_mode({args.strip()[:8]}) [préparation "
+                      f"d'entrée donjon NDS: transition assurée par le "
+                      f"harnais journey/EnterZone]")
+        elif op == "MovePositionLives":
+            # (vitesse, ACTOR_X) : déplacer la cible/performer VERS un
+            # acteur vivant. performer = caméra (convention V3) -> caméra
+            # vers la position de l'acteur ; acteur -> marche vers cible.
+            tgt_name = args.split(",")[-1].strip()
+            tgt2 = "hero" if tgt_name == "ACTOR_TALK_SUB" \
+                else self.actor_expr(tgt_name)
+            sp = re.match(r"\s*([\d.]+)", args)
+            if kind == "performer" and tgt2:
+                self.emit(f"pcall(function() local p={tgt2}.Position; "
+                          f"GAME:MoveCamera(p.X, p.Y, 60, false) end) "
+                          f"-- MovePositionLives performer/caméra vers "
+                          f"{tgt_name}")
+            elif A and tgt2:
+                speed = 2 if (sp and float(sp.group(1)) >= 0.6) else 1
+                self.emit(f"pcall(function() local p={tgt2}.Position; "
+                          f"GROUND:MoveToPosition({A}, p.X, p.Y, false, "
+                          f"{speed}) end) -- MovePositionLives")
+            else:
+                self.unsupported.append(f"MovePositionLives:{tgt_name}")
+        elif op == "SetPositionLives":
+            # téléporter à la position d'un autre acteur/objet ; les
+            # cibles objets de décor ne sont pas simulées (trace)
+            tgt_name = args.strip()
+            tgt2 = self.actor_expr(tgt_name) \
+                if tgt_name.startswith("ACTOR_") else None
+            if A and tgt2:
+                self.emit(f"pcall(function() local p={tgt2}.Position; "
+                          f"GROUND:TeleportTo({A}, p.X, p.Y, "
+                          f"Direction.Down) end) -- SetPositionLives")
+            else:
+                self.emit(f"-- SetPositionLives({tgt_name[:24]}) [cible "
+                          f"objet/id de décor NDS non simulée - trace]")
+        elif op == "se_Stop":
+            self.emit(f"-- se_Stop({args.strip()[:8]}) [SE one-shot PMDO "
+                      f"déjà terminé: arrêt sans objet, canal SE V2]")
+        elif op == "bgm_ChangeVolume":
+            # (durée, volume/256) : PMDO n'expose pas le volume BGM en
+            # Lua ; volume 0 = silence -> FadeOutBGM(durée) ; retour à
+            # 256 après un 0 -> la piste est relancée par le bgm_Play
+            # suivant de la ROM (trace sinon)
+            parts = re.findall(r'-?\d+', args)
+            dur = int(parts[0]) if parts else 30
+            vol = int(parts[1]) if len(parts) > 1 else 256
+            if vol == 0:
+                self.emit(f"pcall(function() SOUND:FadeOutBGM({dur}) "
+                          f"end) -- bgm_ChangeVolume vers 0 (silence)")
+            else:
+                self.emit(f"-- bgm_ChangeVolume({dur},{vol}) [volume BGM "
+                          f"non scriptable en Lua PMDO: piste maintenue "
+                          f"- documenté]")
+        elif op in ("worldmap_SetMode", "worldmap_SetCamera",
+                    "worldmap_MoveCamera", "worldmap_SetLevel",
+                    "worldmap_SetMark", "worldmap_ChangeLevel"):
+            # carte du monde 2e écran NDS (curseur de progression) :
+            # information d'ambiance sans équivalent canvas unique —
+            # PMDO affiche la progression par ses propres menus
+            self.emit(f"-- {op}({args.strip()[:20]}) [carte du monde 2e "
+                      f"écran NDS: information de progression, gérée par "
+                      f"les menus PMDO - documenté]")
         elif op == "back_SetBanner2":
             self.emit(f"-- back_SetBanner2({args.strip()[:30]}) [bannière "
                       f"2e écran NDS: information dupliquée du menu, hors "
@@ -591,7 +716,14 @@ class SceneCompiler:
                 self.unsupported.append(f"{op}:{target}")
         elif op == "SetPositionMark":
             mm = re.search(r"Position<'\w*',\s*([\d.]+),\s*([\d.]+)>", args)
-            if A and mm:
+            if kind == "performer" and mm:
+                # performer = caméra (convention V3) : placement instantané
+                x = int(float(mm.group(1)) * 8)
+                y = int(float(mm.group(2)) * 8)
+                self.emit(f"pcall(function() GAME:MoveCamera({x}, {y}, 1,"
+                          f" false) end) -- SetPositionMark performer/"
+                          f"caméra")
+            elif A and mm:
                 x = int(float(mm.group(1)) * 8)
                 y = int(float(mm.group(2)) * 8)
                 self.emit(f"GROUND:TeleportTo({A}, {x}, {y}, "
@@ -774,9 +906,18 @@ class SceneCompiler:
             self.emit(f"-- {op}({args.strip()[:60]}) [gestion de station "
                       f"NDS: le chargement/la coroutine commune est "
                       f"assurée par le harnais journey PMDO]")
+        elif op == "Lock":
+            # verrou de synchronisation NDS entre routines d'acteurs :
+            # sémantique reproduite par le kit (drapeaux partagés,
+            # WaitFrames jusqu'à Unlock) — cf. kit.lua multiroutines
+            n = last_int_arg(args, 0)
+            self.emit(f"SkySceneKit.lock({n}) -- Lock({n}) NDS")
+        elif op == "Unlock":
+            n = last_int_arg(args, 0)
+            self.emit(f"SkySceneKit.unlock({n}) -- Unlock({n}) NDS")
         elif op in ("SetOutputAttribute", "ResetOutputAttribute",
                     "ResetHitAttribute", "SetHitAttribute",
-                    "SetMoveRange", "Lock", "Unlock", "Destroy",
+                    "SetMoveRange", "Destroy",
                     "SetBlink", "SetHeight", "camera_SetMyself",
                     "supervision_Acting", "supervision_Suspend",
                     "back_SetGround", "main_SetGround", "lives",
@@ -870,7 +1011,8 @@ def main():
                             continue
                         if nm in seen:
                             continue
-                        sp = ENTID2SPECIES.get(a["entid"])
+                        sp = ENTID2SPECIES.get(a["entid"]) \
+                            or ENTID2SPECIES.get(a["entid"] % 600)
                         if not sp:
                             continue
                         pos = a["pos"]
@@ -880,23 +1022,57 @@ def main():
                         var = "npc_" + re.sub(r"\W", "_", nm.lower())
                         seen[nm] = True
                         cast[nm] = (var, sp, x, y, d)
+            # complément : acteurs référencés par le SSB mais absents du
+            # SSA propre — résolus par la table globale (entid unique ROM
+            # + première position SSA de la ZONE). FAIL-CLOSED : pas de
+            # placement dans la zone = pas d'entrée cast.
+            for mo in re.finditer(r"ACTOR_([A-Z0-9_]+)", src):
+                nm = mo.group(1)
+                if nm in cast or nm.startswith(("PLAYER", "ATTENDANT",
+                                                "TALK_", "UNIT_",
+                                                "ADVENTURE_", "RANDOM_",
+                                                "EVENT_NPC")):
+                    continue
+                entid = GLOBAL_ACTOR_ENTID.get(nm)
+                pos = GLOBAL_ACTOR_ZONEPOS.get(f"{zone}|{nm}")
+                # entid >= 600 = variante genrée NDS (base + 600)
+                sp = (ENTID2SPECIES.get(entid)
+                      or ENTID2SPECIES.get(entid % 600)) if entid else None
+                if not sp or not pos:
+                    continue
+                var = "npc_" + re.sub(r"\W", "_", nm.lower())
+                cast[nm] = (var, sp, pos[0], pos[1],
+                            "Direction." + (pos[2] or "Down"))
             defs = parse_defs(src)
             main_def = next((d for d in defs if d[0] == "0"), None)
             if main_def is None:
                 counts["NO_DEF0"] += 1
                 continue
             other = [d for d in defs if d[0] != "0"]
-            # routines d'acteurs non triviales -> v2
+            # routines d'acteurs non triviales -> compilées en coroutines
+            # parallèles (SkySceneKit.run_routine, sémantique Lock/Unlock
+            # NDS reproduite par le kit)
             nontrivial = [d for d in other if re.search(
                 r"\b(Move|Turn|message_|Slide)", d[3])]
-            if nontrivial:
-                counts["NOT_COMPILED_MULTIROUTINE"] += 1
-                report[key] = {"status": "NOT_COMPILED_MULTIROUTINE",
-                               "actor_routines": len(nontrivial)}
-                continue
             comp = SceneCompiler(zone, name, src, cast)
+            routine_fns = []
+            routines_ok = True
+            for rnum, rkind, rtarget, rbody in nontrivial:
+                rc = SceneCompiler(zone, name, src, cast)
+                rc.spawned = comp.spawned      # partager les spawns
+                rc.routine_actor = rtarget      # cible implicite
+                ok_r = rc.compile_def0(rbody)
+                if not ok_r:
+                    comp.unsupported.extend(
+                        f"routine{rnum}:{u}" for u in rc.unsupported)
+                    routines_ok = False
+                    continue
+                comp.dialogues += rc.dialogues
+                comp.used_subscreen = comp.used_subscreen or \
+                    rc.used_subscreen
+                routine_fns.append((rnum, rkind, rtarget, rc.lines))
             ok = comp.compile_def0(main_def[3])
-            if not ok:
+            if not ok or not routines_ok:
                 counts["PARTIAL_OPS"] += 1
                 report[key] = {"status": "PARTIAL_OPS",
                                "unsupported_ops":
@@ -915,6 +1091,18 @@ def main():
                 requires += ("local SkySubScreen = require "
                              "'halcyon.skyscenes.subscreen'\n")
             body = "\n".join(comp.lines)
+            if routine_fns:
+                # routines d'acteurs NDS -> coroutines parallèles lancées
+                # AVANT le def 0 (comme l'interpréteur SSB), jointes après
+                pre = ["  SkySceneKit.reset_locks()"]
+                for rnum, rkind, rtarget, rlines in routine_fns:
+                    pre.append(f"  SkySceneKit.run_routine(function() "
+                               f"-- def {rnum} for {rkind} {rtarget}")
+                    pre.extend("  " + ln for ln in rlines)
+                    pre.append("  end)")
+                body = "\n".join(pre) + "\n" + body + \
+                    "\n  SkySceneKit.join_routines()"
+                counts["COMPILED_MULTIROUTINE"] += 1
             lua = (HEADER % (zone, name) + requires
                    + f"return function(hero, partner)\n{body}\nend\n")
             open(os.path.join(OUT, fn + ".lua"), "w",

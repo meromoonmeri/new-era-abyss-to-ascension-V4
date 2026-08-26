@@ -12,7 +12,7 @@ return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="But I'm not giving up![K] I'll try\nagain tomorrow!", french="Mais ça veut pas dire que\nj'abandonne![K] Je réessaierai demain!", german="Aber ich gebe nicht auf![K]\nMorgen ist auch noch ein Tag!", italian="Ma non dobbiamo arrenderci![K] Ci\nriproveremo domani!", spanish="¡Pero no pienso rendirme![K]\nMañana vuelvo a intentarlo."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Yeah. ♪", french=" Ouais! ♪", german=" Ja, genau. ♪", italian=" Sì. ♪", spanish=" Eso. ♪"})
   -- message_KeyWait
   GAME:FadeOut(false,  60)

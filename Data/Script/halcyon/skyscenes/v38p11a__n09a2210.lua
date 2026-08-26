@@ -27,9 +27,9 @@ return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english=" Such...[K]such a beautiful scene...", french=" Quel...[K] spectacle magnifique...", german="Was...[K] Was für\nein schöner Anblick!", italian=" Che...[K] Che scena meravigliosa...", spanish=" Qué paisaje...[K] tan hermoso..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" This is [CS:N]Dialga[CR]'s...", french=" C'est...", german=" Das war [CS:N]Dialga[CR]...", italian=" Questo è...", spanish=" [CS:N]Dialga[CR]..."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" This is [CS:N]Dialga[CR]'s power!", french=" ... le pouvoir de [CS:N]Dialga[CR]!", german=" Die Kräfte von [CS:N]Dialga[CR]!", italian=" Questo è il potere di [CS:N]Dialga[CR]!", spanish=" ¡¿[CS:N]Dialga[CR] puede hacer todo esto?!"})
   -- message_Close
   -- GAP: se_Play(11539) — id SE NDS sans portage PMDO identifié

@@ -8,6 +8,7 @@ return function(hero, partner)
   -- supervision_StationCommon(0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- supervision_LoadStation(LEVEL_D27P11A, 'UM25') [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- supervision_Station(8) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  local npc_npc_rapurasu = SkySceneKit.spawn_npc("lapras", 232, 408, Direction.Up, "NPC_RAPURASU")
   -- SetAnimation(2) [anim idle native]
   -- supervision_Acting(0) [neutre/état moteur]
   -- camera_SetMyself() [neutre/état moteur]
@@ -15,4 +16,5 @@ return function(hero, partner)
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
   SkySceneKit.say({english="Let's go when you're ready,\n[hero]!", french="On se met en route quand\ntu veux, [hero]!", german="Lass uns losgehen, wenn du\nbereit bist, [hero]!", italian="Quando tutto è pronto andiamo,\n[hero]!", spanish="¡Seguiremos cuando tú digas,\n[hero]!"}) -- SwitchTalk: branche default (canon générique)
+  SkySceneKit.cleanup_npcs()
 end

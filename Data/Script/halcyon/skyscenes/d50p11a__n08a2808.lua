@@ -4,9 +4,9 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Argh...[K] We didn't do so well...", french=" Argh...[K] Un échec retentissant...", german="Argh...[K]\nDas war wohl nicht gut genug...", italian=" Argh...[K] Ci è andata male...", spanish=" Ay...[K] No nos ha ido bien..."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" We should turn back for now.", french="Nous devrions faire demi-tour\npour l'instant.", german="Wir sollten wohl noch\neinmal von vorne anfangen.", italian=" Meglio tornare sui nostri passi.", spanish=" Deberíamos regresar por ahora."})
   -- message_KeyWait
   GAME:FadeOut(false,  60)
@@ -21,9 +21,9 @@ return function(hero, partner)
   GAME:FadeIn(30)
   -- GAP: BGM BGM_SPACIAL_CLIFFS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english="... (I'd be too impatient to go\nthere now.)", french="... (Mon impatience pourrait\nme jouer des tours.)", german="...(Ich war wohl zu ungeduldig,\ndorthin zu gelangen.)", italian=" ... (Sono stato imprudente.)", spanish="Uf... (No puedo ser tan\nimpaciente.)"})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english="(I should be a bit\nmore cautious.)", french=" (Je devrais être plus prudent.)", german="(Ich sollte etwas\nvorsichtiger sein.)", italian="(Devo cercare di fare più\nattenzione.)", spanish=" (Es mejor que tenga cautela.)"})
   -- message_Close
 end

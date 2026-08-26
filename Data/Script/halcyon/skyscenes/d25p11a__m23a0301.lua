@@ -19,18 +19,21 @@ return function(hero, partner)
   -- camera_SetMyself() [neutre/état moteur]
   local npc_npc_perappu = SkySceneKit.spawn_npc("chatot", 280, 248, Direction.Down, "NPC_PERAPPU")
   -- SetAnimation(2) [anim idle native]
+  local npc_npc_bippa = SkySceneKit.spawn_npc("bidoof", 288, 224, Direction.UpLeft, "NPC_BIPPA")
   -- SetAnimation(2) [anim idle native]
+  local npc_npc_diguda = SkySceneKit.spawn_npc("diglett", 248, 256, Direction.Up, "NPC_DIGUDA")
   -- SetAnimation(2) [anim idle native]
+  local npc_npc_dagutorio = SkySceneKit.spawn_npc("dugtrio", 312, 248, Direction.UpLeft, "NPC_DAGUTORIO")
   -- SetAnimation(2) [anim idle native]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:FadeIn(30)
   pcall(function() SOUND:PlayBGM("Brine Cave.ogg", true) end)
   GAME:WaitFrames(30)
   GAME:WaitFrames(2) -- join WaitLockLives
-  -- Unlock(5) [neutre/état moteur]
+  SkySceneKit.unlock(5) -- Unlock(5) NDS
   GAME:WaitFrames(15)
-  -- Unlock(7) [neutre/état moteur]
-  -- Lock(3) [neutre/état moteur]
+  SkySceneKit.unlock(7) -- Unlock(7) NDS
+  SkySceneKit.lock(3) -- Lock(3) NDS
   GAME:WaitFrames(15)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives

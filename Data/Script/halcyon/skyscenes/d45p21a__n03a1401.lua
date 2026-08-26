@@ -10,7 +10,7 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_aamarudo) end)
   SkySceneKit.say({english=" We should try again.", french=" On devrait refaire une tentative.", german=" Versuchen wir es noch einmal.", italian=" Dobbiamo riprovarci.", spanish=" Deberíamos volver a intentarlo."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Yep. ♪", french=" Voui. ♪", german=" Au ja. ♪", italian=" Sì. ♪", spanish=" Vale. ♪"})
   -- message_KeyWait
   GAME:FadeOut(false,  60)
@@ -31,7 +31,7 @@ return function(hero, partner)
   SkySceneKit.say({english="But we shouldn't give up. Let's\nkeep trying.[K] Come on!", french="Mais nous ne devons pas\nabandonner. Essayons encore.[K] Allons!", german="Aber wir sollten nicht aufgeben.\nLass es uns weiter versuchen.[K] Komm schon!", italian="Ma non dobbiamo arrenderci.\nContinuiamo a provare.[K] Forza!", spanish="Pero no debemos rendirnos, hay\nque seguir intentándolo.[K] ¡A por todas!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- ExecuteCommon(CORO_JUMP_HAPPY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english="Yep. ♪[K] Let's do our best,\nMaster! ♪", french="Voui. ♪[K] Faisons de notre\nmieux, Maître! ♪", german="Jawoll. ♪[K] Lass uns unser\nBestes geben, Meister! ♪", italian="Sì. ♪[K] Facciamo del nostro\nmeglio, maestro! ♪", spanish="Vale. ♪[K] ¡Vamos a por todas,\nmaestro! ♪"})
   -- message_Close
   SkySceneKit.cleanup_npcs()
