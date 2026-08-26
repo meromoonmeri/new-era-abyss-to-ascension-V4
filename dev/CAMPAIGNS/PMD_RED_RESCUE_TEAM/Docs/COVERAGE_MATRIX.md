@@ -1,0 +1,14 @@
+# Matrice de couverture — PMD_RED_RESCUE_TEAM
+
+| Dimension | Couverture | Statut | Source |
+|---|---|---|---|
+| extraction_grounds | 254/254 (100.0%) | **PASS** | MANIFEST.totals.grounds |
+| render_visual | 254/254 (100.0%) | **PASS** | AUDIT.coverage.render_pct |
+| frames_animation | 254/254 (100.0%) | **PASS** | AUDIT.frame_status (période minimale réelle par tuile) |
+| runtime_pmdo | 219/254 (86.2%) | **PARTIAL** | MANIFEST.totals.runtime_validated (campagne 219 : mismatched_pixel_count=0 dans PMDO 0.8.12 réel) |
+| cinematic_sequences | 132/254 (52.0%) | **PARTIAL** | MANIFEST.totals.with_cinematic (cif.json ROM) |
+| dialogues_5_langues | 69/133 (51.9%) | **PARTIAL** | Cinematics/DIALOGUES_INDEX.json (69 stations graphe EU exact, 3073 blocs) |
+| canonical_cast | 27/27 (100.0%) | **PASS** | eu_scene_cast.json (gGroundLivesTypeData 0x27BEEC) + preuve runtime 3 scènes |
+| progression_graph | — | **TECHNICAL_REFERENCE** | Docs/PROGRESSION_GRAPH.json |
+| dungeons_procedural_runtime | 89/89 (100.0%) | **PARTIAL** | dev/docs/canonical_dungeon_runtime/matrix.json (89/89 CANONICAL_RUNTIME_PASS, 1848 étages) |
+| audit_verdict | — | **AUDIT_PASS** | AUDIT.json (8 familles A-H) |

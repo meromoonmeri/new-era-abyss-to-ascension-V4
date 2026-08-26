@@ -1,0 +1,84 @@
+{
+ "schema": "campaign-coverage-matrix/1",
+ "campaign": "PMD_SKY_EXPLORERS",
+ "rule": "couvertures séparées — ne JAMAIS fusionner",
+ "dimensions": [
+  {
+   "dimension": "extraction_grounds",
+   "covered": 460,
+   "total": 460,
+   "pct": 100.0,
+   "status": "PASS",
+   "source": "MANIFEST.totals.grounds",
+   "note": "460 rsground du port (458 MAP_BG NDS, pixel-perfect skytemple-files)"
+  },
+  {
+   "dimension": "render_visual",
+   "covered": 459,
+   "total": 460,
+   "pct": 99.8,
+   "status": "PARTIAL",
+   "source": "AUDIT.coverage.render_pct",
+   "note": "1 ground hérité sans layers (b01p01_beach, ACCEPTED)"
+  },
+  {
+   "dimension": "frames_animation",
+   "covered": 459,
+   "total": 460,
+   "pct": 99.8,
+   "status": "PARTIAL",
+   "source": "AUDIT.frame_status"
+  },
+  {
+   "dimension": "rom_scripts_ssb",
+   "covered": 3760,
+   "total": 3760,
+   "pct": 100.0,
+   "status": "PASS",
+   "source": "Cinematics/ROM_SCRIPTS_INDEX.json (ExplorerScript + dialogues 5 langues)"
+  },
+  {
+   "dimension": "rom_scripts_ssa",
+   "covered": 1884,
+   "total": 1884,
+   "pct": 100.0,
+   "status": "PASS",
+   "source": "idem (placements acteurs/objets/events/triggers)"
+  },
+  {
+   "dimension": "cinematic_linked_grounds",
+   "covered": 336,
+   "total": 460,
+   "pct": 73.0,
+   "status": "PARTIAL",
+   "source": "MANIFEST.totals.with_cinematic (LEVEL_MAP_LINKS level→MAP_BG)",
+   "note": "124 grounds sans zone SCRIPT propre (variantes de MAP_BG non référencées par un level)"
+  },
+  {
+   "dimension": "progression_graph",
+   "status": "PASS",
+   "source": "Docs/PROGRESSION_GRAPH.json (SSB décompilés ROM)",
+   "note": "245 états écrits, 97 bit flags, 1219 déclencheurs ; 1 seul état lu-jamais-écrit (0.0 = init sauvegarde)"
+  },
+  {
+   "dimension": "runtime_pmdo",
+   "covered": 0,
+   "total": 460,
+   "pct": 0.0,
+   "status": "NOT_TESTED",
+   "source": "—",
+   "note": "grounds Sky pas encore chargés dans PMDO réel"
+  },
+  {
+   "dimension": "gameplay_tables",
+   "status": "NOT_TESTED",
+   "source": "—",
+   "note": "spawn/items/traps des donjons Sky non extraits vers PMDO (phase suivante)"
+  },
+  {
+   "dimension": "audit_verdict",
+   "status": "AUDIT_PASS",
+   "source": "AUDIT.json (8 familles A-H)"
+  }
+ ]
+}

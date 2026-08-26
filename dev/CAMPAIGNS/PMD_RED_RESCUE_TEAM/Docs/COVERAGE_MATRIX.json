@@ -1,0 +1,88 @@
+{
+ "schema": "campaign-coverage-matrix/1",
+ "campaign": "PMD_RED_RESCUE_TEAM",
+ "rule": "couvertures séparées — ne JAMAIS fusionner",
+ "dimensions": [
+  {
+   "dimension": "extraction_grounds",
+   "covered": 254,
+   "total": 254,
+   "pct": 100.0,
+   "status": "PASS",
+   "source": "MANIFEST.totals.grounds",
+   "note": "254 grounds canoniques (campagne 219 validée PMDO réel + 21 fins de donjon + variantes)"
+  },
+  {
+   "dimension": "render_visual",
+   "covered": 254,
+   "total": 254,
+   "pct": 100.0,
+   "status": "PASS",
+   "source": "AUDIT.coverage.render_pct"
+  },
+  {
+   "dimension": "frames_animation",
+   "covered": 254,
+   "total": 254,
+   "pct": 100.0,
+   "status": "PASS",
+   "source": "AUDIT.frame_status (période minimale réelle par tuile)"
+  },
+  {
+   "dimension": "runtime_pmdo",
+   "covered": 219,
+   "total": 254,
+   "pct": 86.2,
+   "status": "PARTIAL",
+   "source": "MANIFEST.totals.runtime_validated (campagne 219 : mismatched_pixel_count=0 dans PMDO 0.8.12 réel)",
+   "note": "35 grounds (fins de donjon importées + variantes) restent NOT_TESTED au runtime"
+  },
+  {
+   "dimension": "cinematic_sequences",
+   "covered": 132,
+   "total": 254,
+   "pct": 52.0,
+   "status": "PARTIAL",
+   "source": "MANIFEST.totals.with_cinematic (cif.json ROM)",
+   "note": "couvre les grounds d'histoire ; les arènes/variantes n'ont canoniquement pas de cinématique"
+  },
+  {
+   "dimension": "dialogues_5_langues",
+   "covered": 69,
+   "total": 133,
+   "pct": 51.9,
+   "status": "PARTIAL",
+   "source": "Cinematics/DIALOGUES_INDEX.json (69 stations graphe EU exact, 3073 blocs)",
+   "note": "64 stations REVIEW_REQUIRED (graphe EU non exactement aligné pret)"
+  },
+  {
+   "dimension": "canonical_cast",
+   "covered": 27,
+   "total": 27,
+   "pct": 100.0,
+   "status": "PASS",
+   "source": "eu_scene_cast.json (gGroundLivesTypeData 0x27BEEC) + preuve runtime 3 scènes",
+   "note": "27/27 scènes à cast décodées ; alt_sectors (49 entités) REVIEW_REQUIRED"
+  },
+  {
+   "dimension": "progression_graph",
+   "status": "TECHNICAL_REFERENCE",
+   "source": "Docs/PROGRESSION_GRAPH.json",
+   "note": "121 états SCENARIO_MAIN pret + 6 écritures décodées ROM — chaîne EVENT_* non encore décodée octet à octet dans la ROM EU"
+  },
+  {
+   "dimension": "dungeons_procedural_runtime",
+   "covered": 89,
+   "total": 89,
+   "pct": 100.0,
+   "status": "PARTIAL",
+   "source": "dev/docs/canonical_dungeon_runtime/matrix.json (89/89 CANONICAL_RUNTIME_PASS, 1848 étages)",
+   "note": "15 zones CH1-5 restaurées ont perdu leurs correctifs de convergence (zones verrouillées, état assumé)"
+  },
+  {
+   "dimension": "audit_verdict",
+   "status": "AUDIT_PASS",
+   "source": "AUDIT.json (8 familles A-H)"
+  }
+ ]
+}
