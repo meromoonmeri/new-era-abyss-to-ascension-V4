@@ -145,9 +145,22 @@ def sky_matrix():
                     f"1 seul état lu-jamais-écrit (0.0 = init sauvegarde)"))
     dims.append(dim("runtime_pmdo", 0, t["grounds"], "NOT_TESTED",
                     "—", "grounds Sky pas encore chargés dans PMDO réel"))
-    dims.append(dim("gameplay_tables", 0, None, "NOT_TESTED",
-                    "—", "spawn/items/traps des donjons Sky non extraits "
-                    "vers PMDO (phase suivante)"))
+    ti_p = c / "Tables" / "DUNGEON_TABLES_INDEX.json"
+    if ti_p.exists():
+        ti = load(ti_p)["totals"]
+        dims.append(dim("gameplay_tables_extraction", ti["floors_pass"],
+                        ti["dungeons"], "PASS" if ti["floors_pass"] >= 178
+                        else "PARTIAL",
+                        "Tables/DUNGEON_TABLES_INDEX.json (mappa_s.bin EU : "
+                        f"{ti['floors_extracted']} étages, spawns/pièges/"
+                        "items bruts)",
+                        "2 donjons à slice vide DANS la ROM (d71, d173 "
+                        "dummy — documentés) ; mapping vers PMDO NOT_TESTED"))
+    else:
+        dims.append(dim("gameplay_tables_extraction", 0, None, "NOT_TESTED",
+                        "—", "tables non extraites"))
+    dims.append(dim("gameplay_tables_mapping_pmdo", 0, None, "NOT_TESTED",
+                    "—", "traduction mappa→systèmes PMDO non commencée"))
     dims.append(dim("audit_verdict", None, None,
                     aud.get("verdict", "?"),
                     "AUDIT.json (8 familles A-H)"))

@@ -70,10 +70,19 @@
    "note": "grounds Sky pas encore chargés dans PMDO réel"
   },
   {
-   "dimension": "gameplay_tables",
+   "dimension": "gameplay_tables_extraction",
+   "covered": 178,
+   "total": 180,
+   "pct": 98.9,
+   "status": "PASS",
+   "source": "Tables/DUNGEON_TABLES_INDEX.json (mappa_s.bin EU : 1795 étages, spawns/pièges/items bruts)",
+   "note": "2 donjons à slice vide DANS la ROM (d71, d173 dummy — documentés) ; mapping vers PMDO NOT_TESTED"
+  },
+  {
+   "dimension": "gameplay_tables_mapping_pmdo",
    "status": "NOT_TESTED",
    "source": "—",
-   "note": "spawn/items/traps des donjons Sky non extraits vers PMDO (phase suivante)"
+   "note": "traduction mappa→systèmes PMDO non commencée"
   },
   {
    "dimension": "audit_verdict",

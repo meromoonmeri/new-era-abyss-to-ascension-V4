@@ -10,5 +10,6 @@
 | cinematic_linked_grounds | 336/460 (73.0%) | **PARTIAL** | MANIFEST.totals.with_cinematic (LEVEL_MAP_LINKS level→MAP_BG) |
 | progression_graph | — | **PASS** | Docs/PROGRESSION_GRAPH.json (SSB décompilés ROM) |
 | runtime_pmdo | 0/460 (0.0%) | **NOT_TESTED** | — |
-| gameplay_tables | — | **NOT_TESTED** | — |
+| gameplay_tables_extraction | 178/180 (98.9%) | **PASS** | Tables/DUNGEON_TABLES_INDEX.json (mappa_s.bin EU : 1795 étages, spawns/pièges/items bruts) |
+| gameplay_tables_mapping_pmdo | — | **NOT_TESTED** | — |
 | audit_verdict | — | **AUDIT_PASS** | AUDIT.json (8 familles A-H) |
