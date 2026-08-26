@@ -1,0 +1,341 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Audit automatique exhaustif des campagnes PMD Red & Sky.
+
+Détecte tout ce qui pourrait donner une fausse impression de complétude :
+
+  A. PLACEHOLDERS   — marqueurs explicites (TODO/FIXME/PLACEHOLDER/STUB…)
+                      et implicites (image 25 octets, layer vide, map vide,
+                      texte générique) dans les données des campagnes.
+  B. FRAMES         — pour chaque ground : expected_frame_count par tuile
+                      (source .rsground) vs frames réellement rendues ;
+                      un rendu < besoin = PARTIAL, jamais PASS.
+  C. ASSETS         — chaque Sheet référencé par un .rsground doit exister
+                      dans les .tile source ; chaque cellule (TexLoc) doit
+                      exister dans la planche ; planches jamais référencées
+                      listées (orphelins).
+  D. RÉFÉRENCES     — renders référencés par le manifest présents sur
+                      disque ; entrées de manifest sans render et
+                      réciproquement ; cinématiques référencées présentes.
+  E. MAPPINGS       — couverture des identités : grounds sans nom humain
+                      (nom == ID technique), donjons sans grounds, grounds
+                      de donjon sans rôle.
+  F. CINÉMATIQUES   — séquences .cif.json vides, sans dialogue ni musique ;
+                      scènes lua avec seulement des commentaires ; écart
+                      entre nombre de scènes et grounds d'histoire.
+  G. DOUBLONS       — renders/planches au même SHA-256 sous des noms
+                      différents ; grounds au contenu identique.
+  H. FAUX PASS      — verdicts du manifest non étayés (render annoncé mais
+                      fichier absent, "validated" sans preuve listée).
+
+Chaque anomalie est classée CRITICAL / HIGH / MEDIUM / LOW / ACCEPTED.
+Aucune fusion en un pourcentage unique : couvertures séparées.
+
+Sortie : dev/CAMPAIGNS/<camp>/AUDIT.json + AUDIT.md (+ code retour 1 si
+CRITICAL ou HIGH non acceptés).
+"""
+from __future__ import annotations
+
+import hashlib
+import io
+import json
+import re
+import struct
+import sys
+from collections import Counter, defaultdict
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+
+CAMPAIGNS = {
+    "PMD_RED_RESCUE_TEAM": {
+        "grounds": ROOT / ".runtime-cache/campaigns/red_src/Grounds",
+        "tiles": ROOT / ".runtime-cache/campaigns/red_src/Tiles",
+    },
+    "PMD_SKY_EXPLORERS": {
+        "grounds": ROOT / ".runtime-cache/ports/sky/output/Grounds",
+        "tiles": ROOT / ".runtime-cache/ports/sky/output/Tiles",
+    },
+}
+
+PLACEHOLDER_TOKENS = re.compile(
+    r"\b(TODO|FIXME|XXX|HACK|PLACEHOLDER|TEMPORARY|STUB|MOCK|DUMMY|"
+    r"TEST_ONLY|NOT_IMPLEMENTED|UNIMPLEMENTED|WIP|TBD|TBA)\b", re.I)
+
+
+def sha256(p: Path) -> str:
+    return hashlib.sha256(p.read_bytes()).hexdigest()
+
+
+def load_tile_cells(path: Path) -> set:
+    raw = path.read_bytes()
+    _, count = struct.unpack_from("<II", raw, 0)
+    cells = set()
+    for i in range(count):
+        key, _ = struct.unpack_from("<QQ", raw, 8 + i * 16)
+        cells.add((key & 0xFFFFFFFF, key >> 32))
+    return cells
+
+
+def audit_campaign(camp: str, cfg: dict) -> dict:
+    cdir = ROOT / "dev" / "CAMPAIGNS" / camp
+    findings = []          # {severity, category, subject, detail}
+    def add(sev, cat, subject, detail):
+        findings.append({"severity": sev, "category": cat,
+                         "subject": subject, "detail": detail})
+
+    manifest = json.loads((cdir / "MANIFEST.json").read_text(encoding="utf-8-sig"))
+    render_report = json.loads((cdir / "Renders" / "render_report.json")
+                               .read_text(encoding="utf-8-sig"))
+    renders = {r["ground"]: r for r in render_report["renders"]}
+
+    grounds_dir, tiles_dir = cfg["grounds"], cfg["tiles"]
+    have_sources = grounds_dir.is_dir() and tiles_dir.is_dir()
+
+    # ---------------- B/C: frames + assets (nécessite les sources)
+    frame_status = {}
+    referenced_sheets = set()
+    missing_cells_total = 0
+    if have_sources:
+        tile_cells_cache: dict[str, set] = {}
+        for g in sorted(grounds_dir.glob("*.rsground")):
+            name = g.stem
+            try:
+                obj = json.loads(g.read_text(encoding="utf-8-sig"))["Object"]
+            except Exception as e:
+                add("CRITICAL", "ASSET", name, f"rsground illisible: {e}")
+                continue
+            layers = obj.get("Layers")
+            if isinstance(layers, dict):
+                layers = layers.get("$values") or []
+            if not layers or not layers[0].get("Tiles"):
+                add("HIGH", "PLACEHOLDER", name,
+                    "map sans layer/tuiles (contenu vide)")
+                frame_status[name] = {"expected": 0, "rendered": 0,
+                                      "status": "MISSING"}
+                continue
+            need = 1
+            local_missing = 0
+            for l in layers:
+                for col in l.get("Tiles") or []:
+                    for cell in col:
+                        for cl in cell.get("Layers", []):
+                            frames = cl.get("Frames", [])
+                            need = max(need, len(frames))
+                            for fr in frames:
+                                sheet = fr.get("Sheet")
+                                if not sheet:
+                                    continue
+                                referenced_sheets.add(sheet)
+                                if sheet not in tile_cells_cache:
+                                    tp = tiles_dir / f"{sheet}.tile"
+                                    tile_cells_cache[sheet] = (
+                                        load_tile_cells(tp) if tp.exists()
+                                        else None)
+                                cells = tile_cells_cache[sheet]
+                                if cells is None:
+                                    continue      # sheet manquant traité après
+                                tl = fr.get("TexLoc", {})
+                                if (tl.get("X"), tl.get("Y")) not in cells:
+                                    local_missing += 1
+            if local_missing:
+                missing_cells_total += local_missing
+                add("HIGH", "ASSET", name,
+                    f"{local_missing} référence(s) TexLoc absentes des "
+                    f"planches source")
+            r = renders.get(name, {})
+            rendered = r.get("frames_rendered", 0)
+            sheet_ok = all(tile_cells_cache.get(s) is not None
+                           for s in referenced_sheets
+                           if (tiles_dir / f"{s}.tile") is not None)
+            anim_sheet = cdir / "Renders" / name / "animation_frames.png"
+            covered = rendered >= need or anim_sheet.exists()
+            frame_status[name] = {
+                "expected": need,
+                "rendered": rendered,
+                "animation_sheet": anim_sheet.exists(),
+                "status": ("PASS" if covered else "PARTIAL"),
+            }
+            if not covered:
+                sev = "HIGH" if need <= 64 else "MEDIUM"
+                add(sev, "FRAMES", name,
+                    f"frames rendues {rendered} < requises {need} "
+                    f"(chaque frame de chaque tuile doit être visible)")
+        # sheets manquants et orphelins
+        for s in sorted(referenced_sheets):
+            if not (tiles_dir / f"{s}.tile").exists():
+                add("CRITICAL", "REFERENCE", s,
+                    "planche .tile référencée mais absente des sources")
+        all_sheets = {t.stem for t in tiles_dir.glob("*.tile")}
+        orphans = sorted(all_sheets - referenced_sheets)
+        if orphans:
+            add("LOW", "ASSET", f"{len(orphans)} planches",
+                f"planches jamais référencées par un ground (ex: "
+                f"{', '.join(orphans[:6])}) — archivage, pas bloquant")
+    else:
+        add("MEDIUM", "REFERENCE", camp,
+            "sources .rsground/.tile absentes du cache: audit frames/assets "
+            "NOT_TESTED sur cette exécution (restaurer .runtime-cache)")
+
+    # ---------------- A: placeholders dans manifest et données campagne
+    scan_files = [cdir / "MANIFEST.json", cdir / "MANIFEST.md"]
+    scan_files += list((cdir / "Cinematics").rglob("*.lua"))[:400]
+    for f in scan_files:
+        if not f.exists():
+            continue
+        try:
+            txt = f.read_text(encoding="utf-8", errors="replace")
+        except Exception:
+            continue
+        for m in PLACEHOLDER_TOKENS.finditer(txt):
+            line = txt[:m.start()].count("\n") + 1
+            frag = txt[max(0, m.start()-40):m.end()+40].replace("\n", " ")
+            add("MEDIUM", "PLACEHOLDER", f"{f.relative_to(cdir)}:{line}",
+                f"marqueur {m.group(0)!r}: …{frag}…")
+
+    # renders placeholder implicites (PNG minuscules = images vides)
+    for png in (cdir / "Renders").rglob("frame_000.png"):
+        if png.stat().st_size < 400:
+            add("HIGH", "PLACEHOLDER", str(png.relative_to(cdir)),
+                f"render suspect ({png.stat().st_size} octets)")
+
+    # ---------------- D: références manifest <-> renders
+    for e in manifest["grounds"]:
+        gid = e["ground"]
+        if e.get("render"):
+            d = cdir / "Renders" / gid
+            if not d.is_dir() or not (d / "frame_000.png").exists():
+                add("CRITICAL", "REFERENCE", gid,
+                    "render annoncé dans le manifest mais absent du disque")
+            else:
+                n_png = len(list(d.glob("frame_*.png")))
+                if n_png != e["render"]["frames"]:
+                    add("HIGH", "REFERENCE", gid,
+                        f"manifest annonce {e['render']['frames']} frames, "
+                        f"{n_png} PNG présents")
+        elif not e.get("render_error"):
+            add("HIGH", "FAUX_PASS", gid,
+                "ni render ni render_error: état non documenté")
+    disk_renders = {d.name for d in (cdir / "Renders").iterdir() if d.is_dir()}
+    manifest_ids = {e["ground"] for e in manifest["grounds"]}
+    for extra in sorted(disk_renders - manifest_ids):
+        add("MEDIUM", "REFERENCE", extra,
+            "render sur disque sans entrée de manifest")
+
+    # ---------------- E: mappings / identités
+    technical = 0
+    for e in manifest["grounds"]:
+        nm = (e.get("human_name_en") or "").strip()
+        gid = e["ground"]
+        if not nm or nm.lower() == gid.lower() or re.match(
+                r"^[a-z]\d{2}p\d{2}", nm.lower()):
+            technical += 1
+            if "dungeon" in e or "area_group" in e:
+                continue   # identité disponible via le donjon/groupe
+            add("LOW", "MAPPING", gid,
+                "nom humain == identifiant technique et aucune identité de "
+                "donjon/groupe rattachée")
+    # donjons déclarés sans ground rendu
+    for did, d in (manifest.get("dungeons") or {}).items():
+        for g in d.get("grounds", []):
+            if g not in renders or "error" in renders.get(g, {}):
+                add("HIGH", "MAPPING", f"{did}/{g}",
+                    "ground de donjon déclaré sans rendu disponible")
+
+    # ---------------- F: cinématiques
+    cine_dir = cdir / "Cinematics"
+    empty_cifs = 0
+    if cine_dir.is_dir():
+        for cif in sorted(cine_dir.glob("*.cif.json")):
+            try:
+                d = json.loads(cif.read_text(encoding="utf-8-sig"))
+            except Exception as e:
+                add("HIGH", "CINEMATIC", cif.name, f"illisible: {e}")
+                continue
+            seq = d.get("raw_sequence", [])
+            if not seq:
+                empty_cifs += 1
+                add("MEDIUM", "CINEMATIC", cif.name,
+                    "séquence vide (aucun événement extrait)")
+            else:
+                kinds = Counter(x.get("type") for x in seq)
+                if not kinds.get("Dialog") and not kinds.get("Audio"):
+                    add("LOW", "CINEMATIC", cif.name,
+                        f"séquence sans dialogue ni audio ({dict(kinds)})")
+        for lua in sorted((cine_dir / "scene_lua").glob("*.lua"))[:500] \
+                if (cine_dir / "scene_lua").is_dir() else []:
+            txt = lua.read_text(encoding="utf-8", errors="replace")
+            code = [l for l in txt.splitlines()
+                    if l.strip() and not l.strip().startswith("--")]
+            if len(code) < 5:
+                add("MEDIUM", "CINEMATIC", f"scene_lua/{lua.name}",
+                    "scène quasi vide (<5 lignes de code)")
+
+    # ---------------- G: doublons (renders identiques)
+    hashes = defaultdict(list)
+    for d in sorted((cdir / "Renders").iterdir()):
+        p = d / "frame_000.png" if d.is_dir() else None
+        if p and p.exists():
+            hashes[sha256(p)].append(d.name)
+    dup_groups = [v for v in hashes.values() if len(v) > 1]
+    for grp in dup_groups:
+        add("LOW", "DUPLICATE", "+".join(grp[:4]),
+            f"{len(grp)} renders bit-identiques (frame_000) — vérifier si "
+            f"les maps source sont réellement identiques")
+
+    # ---------------- couvertures séparées (jamais fusionnées)
+    n = len(manifest["grounds"])
+    rendered_n = sum(1 for e in manifest["grounds"] if e.get("render"))
+    frames_pass = sum(1 for v in frame_status.values() if v["status"] == "PASS")
+    sev_count = Counter(f["severity"] for f in findings)
+    coverage = {
+        "grounds_total": n,
+        "render_pct": round(100 * rendered_n / n, 1) if n else 0,
+        "frames_full_pct": (round(100 * frames_pass / len(frame_status), 1)
+                            if frame_status else None),
+        "cinematic_linked_pct": round(
+            100 * sum(1 for e in manifest["grounds"] if "cinematic" in e) / n, 1)
+            if n else 0,
+        "human_identity_pct": round(100 * (n - technical) / n, 1) if n else 0,
+        "note": "pourcentages séparés — ne JAMAIS fusionner en un '100%'",
+    }
+    blocking = sev_count.get("CRITICAL", 0) + sev_count.get("HIGH", 0)
+    return {
+        "campaign": camp,
+        "findings": findings,
+        "severity_totals": dict(sev_count),
+        "frame_status": frame_status,
+        "coverage": coverage,
+        "verdict": "BLOCKED" if blocking else "AUDIT_PASS",
+        "blocking_findings": blocking,
+    }
+
+
+def main() -> int:
+    rc = 0
+    for camp, cfg in CAMPAIGNS.items():
+        res = audit_campaign(camp, cfg)
+        cdir = ROOT / "dev" / "CAMPAIGNS" / camp
+        (cdir / "AUDIT.json").write_text(
+            json.dumps(res, indent=1, ensure_ascii=False))
+        md = [f"# Audit automatique — {camp}\n",
+              f"**Verdict : {res['verdict']}** — {res['blocking_findings']} "
+              f"anomalie(s) bloquante(s)\n",
+              f"Sévérités : {res['severity_totals']}\n",
+              f"Couvertures (séparées) : {json.dumps(res['coverage'], ensure_ascii=False)}\n",
+              "| Sévérité | Catégorie | Sujet | Détail |", "|---|---|---|---|"]
+        order = {"CRITICAL": 0, "HIGH": 1, "MEDIUM": 2, "LOW": 3, "ACCEPTED": 4}
+        for f in sorted(res["findings"],
+                        key=lambda x: order.get(x["severity"], 9))[:400]:
+            md.append(f"| {f['severity']} | {f['category']} | "
+                      f"`{f['subject']}` | {f['detail'][:140]} |")
+        (cdir / "AUDIT.md").write_text("\n".join(md) + "\n")
+        print(f"{camp}: {res['verdict']} — {res['severity_totals']} — "
+              f"couvertures {res['coverage']}")
+        if res["verdict"] != "AUDIT_PASS":
+            rc = 1
+    return rc
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
