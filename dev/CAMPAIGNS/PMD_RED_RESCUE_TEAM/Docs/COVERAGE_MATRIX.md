@@ -13,4 +13,5 @@
 | playable_progression | 121/121 (100.0%) | **PASS** | Docs/PLAYABLE_PROGRESSION.json (EVENT→stations→dialogues) |
 | dungeons_procedural_runtime | 89/89 (100.0%) | **PARTIAL** | dev/docs/canonical_dungeon_runtime/matrix.json (89/89 CANONICAL_RUNTIME_PASS, 1848 étages) |
 | full_journey_runtime | 13/13 (100.0%) | **PASS** | dev/docs/canonical/red/global_journey_runtime_proof.jsonl (mode redjourney) |
+| save_resume_runtime | 1/1 (100.0%) | **PASS** | dev/docs/canonical/red/resume_runtime_proof.jsonl (dev/tools/red_resume_runtime_test.py) |
 | audit_verdict | — | **AUDIT_PASS** | AUDIT.json (8 familles A-H) |

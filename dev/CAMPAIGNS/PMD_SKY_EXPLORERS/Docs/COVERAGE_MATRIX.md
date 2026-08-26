@@ -12,7 +12,7 @@
 | playable_progression | 244/245 (99.6%) | **PASS** | Docs/PLAYABLE_PROGRESSION.json (état→scène→ground→dialogues) |
 | cinematic_integrability | 2763/3760 (73.5%) | **PARTIAL** | Docs/CINEMATIC_INTEGRABILITY.json (table curatée ssb_coverage, 0 opcode inconnu) |
 | ground_classification | 437/460 (95.0%) | **PARTIAL** | Docs/GROUND_CLASSIFICATION.json (mapty×SCRIPT×collision×xrefs SSB — jamais le nom de fichier) |
-| runtime_pmdo_grounds_map | 95/95 (100.0%) | **PASS** | dev/docs/canonical/sky/hub_grounds_runtime_proof.jsonl (sky_hub_zone + mode sky: du ground_gameplay_validator) |
+| runtime_pmdo_grounds_map | 96/95 (101.1%) | **PASS** | dev/docs/canonical/sky/hub_grounds_runtime_proof.jsonl (sky_hub_zone + mode sky: du ground_gameplay_validator) |
 | progression_runtime | 14/14 (100.0%) | **PASS** | dev/docs/canonical/sky/progression_runtime_proof.jsonl (skyscenes/progression.lua, SV natif) |
 | full_journey_runtime | 14/14 (100.0%) | **PASS** | dev/docs/canonical/sky/global_journey_runtime_proof.jsonl (mode skyjourney global) |
 | save_resume_runtime | 1/1 (100.0%) | **PASS** | dev/docs/canonical/sky/resume_runtime_proof.jsonl |

@@ -18,6 +18,7 @@ Dimensions SÉPARÉES (règle §49) : aucun pourcentage global fusionné n'exist
 | playable_progression | 121/121 (100.0%) | **PASS** | Docs/PLAYABLE_PROGRESSION.json (EVENT→stations→dialogues) |
 | dungeons_procedural_runtime | 89/89 (100.0%) | **PARTIAL** | dev/docs/canonical_dungeon_runtime/matrix.json (89/89 CANONICAL_RUNTIME_PASS, 1848 étages) |
 | full_journey_runtime | 13/13 (100.0%) | **PASS** | dev/docs/canonical/red/global_journey_runtime_proof.jsonl (mode redjourney) |
+| save_resume_runtime | 1/1 (100.0%) | **PASS** | dev/docs/canonical/red/resume_runtime_proof.jsonl (dev/tools/red_resume_runtime_test.py) |
 | audit_verdict | — | **AUDIT_PASS** | AUDIT.json (8 familles A-H) |
 
 ## PMD_SKY_EXPLORERS
@@ -34,7 +35,7 @@ Dimensions SÉPARÉES (règle §49) : aucun pourcentage global fusionné n'exist
 | playable_progression | 244/245 (99.6%) | **PASS** | Docs/PLAYABLE_PROGRESSION.json (état→scène→ground→dialogues) |
 | cinematic_integrability | 2763/3760 (73.5%) | **PARTIAL** | Docs/CINEMATIC_INTEGRABILITY.json (table curatée ssb_coverage, 0 opcode inconnu) |
 | ground_classification | 437/460 (95.0%) | **PARTIAL** | Docs/GROUND_CLASSIFICATION.json (mapty×SCRIPT×collision×xrefs SSB — jamais le nom de fichier) |
-| runtime_pmdo_grounds_map | 95/95 (100.0%) | **PASS** | dev/docs/canonical/sky/hub_grounds_runtime_proof.jsonl (sky_hub_zone + mode sky: du ground_gameplay_validator) |
+| runtime_pmdo_grounds_map | 96/95 (101.1%) | **PASS** | dev/docs/canonical/sky/hub_grounds_runtime_proof.jsonl (sky_hub_zone + mode sky: du ground_gameplay_validator) |
 | progression_runtime | 14/14 (100.0%) | **PASS** | dev/docs/canonical/sky/progression_runtime_proof.jsonl (skyscenes/progression.lua, SV natif) |
 | full_journey_runtime | 14/14 (100.0%) | **PASS** | dev/docs/canonical/sky/global_journey_runtime_proof.jsonl (mode skyjourney global) |
 | save_resume_runtime | 1/1 (100.0%) | **PASS** | dev/docs/canonical/sky/resume_runtime_proof.jsonl |

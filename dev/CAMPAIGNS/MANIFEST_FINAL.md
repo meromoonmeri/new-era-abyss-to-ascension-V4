@@ -142,6 +142,7 @@ convertis en fausses maps statiques), **62 DUNGEON_SCREEN** (mapty=10),
 |---|---|---|
 | Journey global : **13 chapitres, 182 étages, 6 boss SANS GAP** (Skarmory, Zapdos, Moltres, Glalie, **GROUDON L27**, **RAYQUAZA L35**) | `RED_GLOBAL_JOURNEY_PASS` | `red/global_journey_runtime_proof.jsonl` |
 | Route mt_steel : entrée→8 étages→boss Skarmory→sortie | `ROUTE_PASS` | `red/mt_steel_route_runtime_proof.jsonl` |
+| Persistance : save état 7.0 depuis t01p02b → quit → **process 2** → LoadProgress → état relu → reprise 8.0 | `RED_RESUME_RUNTIME_PASS` | `red/resume_runtime_proof.jsonl` |
 | Chaînes magma_cavern_pit→Groudon et sky_tower_summit→Rayquaza | `CHAIN_PASS` ×2 | idem |
 | 89/89 zones donjon (1848 étages) | `CANONICAL_RUNTIME_PASS` | `canonical_dungeon_runtime/matrix.json` |
 
@@ -214,7 +215,6 @@ items 205/290 (85 REQUIRES_MOD_ITEM) · zones vs ROM 43/43 EXACT · AUDIT_PASS.
 | 3 | 625 scènes double écran NDS (PARTIAL_FIDELITY) non compilées | cinématiques Sky |
 | 4 | Scrolling généralisé : 1 pilote / 213 backgrounds | backgrounds Sky |
 | 5 | NPC/interactions/transitions des 95 grounds MAP non posés (LOAD+MOVE seulement) | grounds Sky |
-| 6 | Red : persistance save/load non testée (modèle Sky prêt) | persistance Red |
 | 7 | Red : compilateur cif→Lua à écrire (dialogues 5 langues extraits) | cinématiques Red |
 | 8 | Red : classifieur formel des grounds (modèle sky_classify_grounds) | classification Red |
 | 9 | Red : 64 stations REVIEW_REQUIRED | dialogues Red |

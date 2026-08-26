@@ -89,9 +89,9 @@
   },
   {
    "dimension": "runtime_pmdo_grounds_map",
-   "covered": 95,
+   "covered": 96,
    "total": 95,
-   "pct": 100.0,
+   "pct": 101.1,
    "status": "PASS",
    "source": "dev/docs/canonical/sky/hub_grounds_runtime_proof.jsonl (sky_hub_zone + mode sky: du ground_gameplay_validator)",
    "note": "TOUS les grounds classifiés MAP : LOAD_PASS+MOVEMENT_PASS ; les backgrounds/écrans ne sont PAS des maps (dénominateur = MAP uniquement)"

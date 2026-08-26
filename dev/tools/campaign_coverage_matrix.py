@@ -127,6 +127,16 @@ def red_matrix():
     else:
         dims.append(dim("full_journey_runtime", 0, 13, "NOT_TESTED", "—",
                         "journey Red global non prouvé"))
+    rres_p = REPO / "dev" / "docs" / "canonical" / "red" / \
+        "resume_runtime_proof.jsonl"
+    if rres_p.exists() and "RED_RESUME_RUNTIME_PASS" in rres_p.read_text():
+        dims.append(dim(
+            "save_resume_runtime", 1, 1, "PASS",
+            "dev/docs/canonical/red/resume_runtime_proof.jsonl "
+            "(dev/tools/red_resume_runtime_test.py)",
+            "GroundSave état 7.0 depuis t01p02b→quit→process 2→"
+            "LoadProgress→état 7.0 relu (mt_thunder oui, sky_tower non)→"
+            "progression reprise 8.0 (great_canyon)"))
     dims.append(dim("audit_verdict", None, None,
                     aud.get("verdict", "?"),
                     "AUDIT.json (8 familles A-H)"))

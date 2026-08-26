@@ -14,7 +14,7 @@ local function emit(s)
  PrintInfo('[GROUND_VALIDATOR] '..s)
  local f=io.open('/tmp/ground_gameplay_validator.jsonl','a');if f then f:write(s..'\n');f:flush();f:close() end
 end
-function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:' or string.sub(self.mode or '',1,9)=='skyscene:' or self.mode=='skyprogress' or self.mode=='skyjourney' or string.sub(self.mode or '',1,9)=='skyresume' or self.mode=='redjourney');self.idx=0;self.entered=false;self.busy=false
+function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:' or string.sub(self.mode or '',1,9)=='skyscene:' or self.mode=='skyprogress' or self.mode=='skyjourney' or string.sub(self.mode or '',1,9)=='skyresume' or self.mode=='redjourney' or string.sub(self.mode or '',1,9)=='redresume');self.idx=0;self.entered=false;self.busy=false
  -- mode 'skyscene:<scene>@<ground>' : rejoue une cinématique canonique Sky
  if string.sub(self.mode or '',1,9)=='skyscene:' then
   local spec=string.sub(self.mode,10)
@@ -62,6 +62,45 @@ function V:begin()
   local gi=0
   for k=0,gl.Count-1 do if gl[k]=='t01p01a' then gi=k end end
   GAME:EnterZone('sky_hub_zone',-1,gi,0)
+  return
+ end
+ if self.mode=='redresume:save' then
+  -- PHASE 1 (Red) : progresser jusqu'à CH6 (Mt Thunder débloqué) PUIS
+  -- sauvegarder DEPUIS un ground Red canonique (t01p01 Place Pokémon) —
+  -- mêmes mécanismes que skyresume:save (GroundSave natif en coroutine).
+  self.idx=-9;SV.RuntimeGroundAudit.Active=false
+  local prog=require('halcyon.skyscenes.redprogression')
+  prog.reset_for_test()
+  for _,st in ipairs({{2,0},{3,0},{4,0},{5,0},{6,0},{7,0}}) do prog.set(st[1],st[2]) end
+  local m,s=prog.state()
+  emit('{"event":"red_resume_state_set","state":"'..m..'.'..s..'","mt_thunder":'..tostring(prog.is_unlocked('mt_thunder'))..',"sky_tower_should_be_false":'..tostring(prog.is_unlocked('sky_tower'))..'}')
+  self.red_resume_save_pending=true
+  -- t01p02b (Whiscash Pond open, Red GBA canonique, présent dans
+  -- master_zone sans script d'Init New Era — un ground praticable comme
+  -- pour le joueur ; t01p01 porte le script d'intro du mod, hors sujet ici)
+  GAME:EnterZone('master_zone',-1,self:master_ground_index('t01p02b'),0)
+  return
+ end
+ if self.mode=='redresume:load' then
+  -- PHASE 2 (Red) : appelé par OnLoadSavedData après LoadProgress
+  if self.resume_done then return end
+  self.resume_done=true
+  local ok,err=xpcall(function()
+    local prog=require('halcyon.skyscenes.redprogression')
+    prog.init()
+    local m,s=prog.state()
+    local mt=prog.is_unlocked('mt_thunder')
+    local st=prog.is_unlocked('sky_tower')
+    local pass=(m==7 and mt and not st)
+    emit('{"event":"red_resume_loaded","state":"'..m..'.'..s..'","mt_thunder":'..tostring(mt)..',"sky_tower_should_be_false":'..tostring(st)..',"verdict":"'..(pass and 'RED_RESUME_RUNTIME_PASS' or 'FAIL')..'"}')
+    if pass then
+      -- reprise réelle de la progression après reload (CH7 Great Canyon)
+      prog.set(8,0)
+      emit('{"event":"red_resume_continued","great_canyon":'..tostring(prog.is_unlocked('great_canyon'))..'}')
+    end
+  end,debug.traceback)
+  if not ok then emit('{"event":"red_resume_fail","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}') end
+  emit('{"event":"end"}')
   return
  end
  if self.mode=='redjourney' then
@@ -328,13 +367,14 @@ function V:OnDungeonFloorEnter()
  emit(ok and msg or ('{"event":"arena_battle_runtime","verdict":"RUNTIME_FAIL","error":"'..tostring(msg):gsub('"','\\"')..'"}'))
 end
 function V:OnGroundMapEnter()
- if self.enabled and self.resume_save_pending and not self.busy then
-  self.busy=true;self.resume_save_pending=false
+ if self.enabled and (self.resume_save_pending or self.red_resume_save_pending) and not self.busy then
+  local tag=self.red_resume_save_pending and 'red_resume_save_done' or 'resume_save_done'
+  self.busy=true;self.resume_save_pending=false;self.red_resume_save_pending=false
   self.task=TASK:BranchCoroutine(function()
     GAME:WaitFrames(10)
     local ok,err=xpcall(function()
       GAME:GroundSave()
-      emit('{"event":"resume_save_done","from_ground":"'..tostring(GAME:GetCurrentGround().AssetName)..'"}')
+      emit('{"event":"'..tag..'","from_ground":"'..tostring(GAME:GetCurrentGround().AssetName)..'"}')
     end,debug.traceback)
     if not ok then emit('{"event":"resume_fail","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}') end
     emit('{"event":"end"}')
@@ -418,9 +458,15 @@ function V:OnUpdate(gtime)
  end)
 end
 function V:Update(gtime) while true do coroutine.yield() end end
+function V:master_ground_index(name)
+ local zsum=_DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('master_zone')
+ local gl=zsum.Grounds
+ for k=0,gl.Count-1 do if gl[k]==name then return k end end
+ return 0
+end
 function V:OnInit()
  if self.enabled then
-  if self.mode=='skyresume:load' then
+  if self.mode=='skyresume:load' or self.mode=='redresume:load' then
    -- reprise : charger la sauvegarde DISQUE, pas une nouvelle partie
    emit('{"event":"bootstrap_load_save"}')
    self.resume_loading=true

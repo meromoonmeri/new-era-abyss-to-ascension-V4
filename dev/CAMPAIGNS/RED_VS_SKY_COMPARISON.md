@@ -18,11 +18,11 @@ Chaque ligne cite sa preuve. Les GAPs sont montrés, pas moyennés.
 | Progression graphe | 121 états SCENARIO_MAIN (chaîne EVENT_* ROM_DECODED, atteignabilité 121/121) | 245 états, 97 bit flags, atteignabilité prouvée | — |
 | Progression runtime | ordre des chapitres appliqué par le journey | SV.SkyScenario + déblocages, PROGRESSION_RUNTIME_PASS | Red: SV dédiée à porter (modèle progression.lua) |
 | Journey global | RED_GLOBAL_JOURNEY_PASS — 13 chapitres, 182 étages, 6 boss SANS GAP (Groudon/Rayquaza inclus) | GLOBAL_JOURNEY_PASS — 14 chapitres, 313 étages, 10 boss | — |
-| Persistance | non testée officiellement | RESUME_RUNTIME_PASS (save→quit→load→continue) | Red: même test à exécuter |
+| Persistance | RED_RESUME_RUNTIME_PASS (save 7.0 t01p02b→quit→process 2→LoadProgress→reprise 8.0) | RESUME_RUNTIME_PASS (save→quit→load→continue) | — |
 | Post-game | zones construites (ch.6-32 mod) mais pas journey canonique Red | NOT_BUILT (d44+) | les deux |
 
 ## Priorités de convergence (Red → niveau Sky)
 1. ~~Chaîner Magma Cavern→Sky Tower→Rayquaza~~ FAIT (arènes fixedmap.inc décodées, RED_GLOBAL_JOURNEY_PASS sans gap).
-2. Test de persistance Red (mêmes modes save/load).
+2. ~~Test de persistance Red~~ FAIT (redresume:save/load, redprogression.lua, preuve jsonl).
 3. Compilateur cif→Lua Red (dialogues 5 langues déjà extraits).
 4. Classifieur formel des grounds Red (modèle sky_classify_grounds).

@@ -101,6 +101,15 @@
    "note": "NEW SAVE→13 chapitres→182 étages→6 boss (Skarmory/Zapdos/Moltres/Glalie/Groudon/Rayquaza) SANS GAP — arènes Groudon/Rayquaza décodées de fixedmap.inc GBA octet par octet"
   },
   {
+   "dimension": "save_resume_runtime",
+   "covered": 1,
+   "total": 1,
+   "pct": 100.0,
+   "status": "PASS",
+   "source": "dev/docs/canonical/red/resume_runtime_proof.jsonl (dev/tools/red_resume_runtime_test.py)",
+   "note": "GroundSave état 7.0 depuis t01p02b→quit→process 2→LoadProgress→état 7.0 relu (mt_thunder oui, sky_tower non)→progression reprise 8.0 (great_canyon)"
+  },
+  {
    "dimension": "audit_verdict",
    "status": "AUDIT_PASS",
    "source": "AUDIT.json (8 familles A-H)"
