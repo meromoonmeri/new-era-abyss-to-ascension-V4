@@ -14,7 +14,7 @@ local function emit(s)
  PrintInfo('[GROUND_VALIDATOR] '..s)
  local f=io.open('/tmp/ground_gameplay_validator.jsonl','a');if f then f:write(s..'\n');f:flush();f:close() end
 end
-function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:' or string.sub(self.mode or '',1,9)=='skyscene:');self.idx=0;self.entered=false;self.busy=false
+function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:' or string.sub(self.mode or '',1,9)=='skyscene:' or self.mode=='skyprogress');self.idx=0;self.entered=false;self.busy=false
  -- mode 'skyscene:<scene>@<ground>' : rejoue une cinématique canonique Sky
  if string.sub(self.mode or '',1,9)=='skyscene:' then
   local spec=string.sub(self.mode,10)
@@ -45,6 +45,37 @@ function V:begin()
   -- EnterDungeon doit etre appele depuis la coroutine du Ground, pas depuis
   -- l'evenement service NewGame (sinon NLua: yield outside a coroutine).
   GAME:EnterZone('mount_windswept',-1,2,0)
+  return
+ end
+ if self.mode=='skyprogress' then
+  -- Parcours de progression §12 : init SV -> franchir les états canoniques
+  -- dans l'ordre du graphe ROM -> vérifier les déblocages + la monotonie.
+  self.idx=-4;SV.RuntimeGroundAudit.Active=false
+  local ok,err=xpcall(function()
+    local prog=require('halcyon.skyscenes.progression')
+    prog.reset_for_test()
+    local m0,s0=prog.state()
+    emit('{"event":"skyprogress_begin","initial":"'..m0..'.'..s0..'"}')
+    local steps={{1,0},{3,0},{4,0},{5,0},{6,0},{8,0},{10,0},{11,0},{12,0},{13,0},{15,0},{17,0},{18,0},{20,0}}
+    local total_unlocked=0
+    for _,st in ipairs(steps) do
+      local okset,newly=prog.set(st[1],st[2])
+      if not okset then error('set '..st[1]..'.'..st[2]..' refusé') end
+      total_unlocked=total_unlocked+#(newly or {})
+      emit('{"event":"state","main":'..st[1]..',"unlocked_now":'..#(newly or {})..'}')
+    end
+    -- régression: retour arrière interdit
+    local back=prog.set(5,0)
+    if back~=false then error('régression: retour arrière accepté') end
+    -- vérifs finales
+    local must={'beach_cave','steam_cave_peak','temporal_pinnacle','spiritomb_room'}
+    for _,z in ipairs(must) do
+      if not prog.is_unlocked(z) then error('zone non débloquée: '..z) end
+    end
+    emit('{"event":"skyprogress_end","total_unlocked":'..total_unlocked..',"verdict":"PROGRESSION_RUNTIME_PASS"}')
+  end,debug.traceback)
+  if not ok then emit('{"event":"skyprogress_end","verdict":"FAIL","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}') end
+  emit('{"event":"end"}')
   return
  end
  if self.sky_scene then
