@@ -16,7 +16,7 @@
 | progression_runtime | 14/14 (100.0%) | **PASS** | dev/docs/canonical/sky/progression_runtime_proof.jsonl (skyscenes/progression.lua, SV natif) |
 | full_journey_runtime | 1/15 (6.7%) | **PARTIAL** | dev/docs/canonical/sky/journey_ch1_runtime_proof.jsonl (mode skyjourney) |
 | cinematic_runtime | 1/3760 (0.0%) | **PARTIAL** | dev/docs/canonical/sky/cinematic_m01a0204_runtime_proof.jsonl (SkyCanonScenes.lua, mode skyscene:) |
-| cinematic_compiled | 78/3760 (2.1%) | **PARTIAL** | Docs/SCENE_COMPILER_REPORT.json (compilateur FAIL-CLOSED) + compiled_scenes_runtime_proof.jsonl |
+| cinematic_compiled | 370/3760 (9.8%) | **PARTIAL** | Docs/SCENE_COMPILER_REPORT.json (compilateur FAIL-CLOSED) + compiled_scenes_runtime_proof.jsonl |
 | gameplay_tables_extraction | 178/180 (98.9%) | **PASS** | Tables/DUNGEON_TABLES_INDEX.json (mappa_s.bin EU : 1795 étages, spawns/pièges/items bruts) |
 | pmdo_mapping_species | 484/484 (100.0%) | **PASS** | Tables/PMDO_MAPPING.json |
 | pmdo_mapping_items | 205/290 (70.7%) | **PARTIAL** | Tables/PMDO_MAPPING.json |

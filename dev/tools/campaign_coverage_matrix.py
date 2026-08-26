@@ -263,8 +263,9 @@ def sky_matrix():
             "Docs/SCENE_COMPILER_REPORT.json (compilateur FAIL-CLOSED) + "
             "compiled_scenes_runtime_proof.jsonl",
             f"{n_comp} scènes 100% traduites émises (dialogues 5 langues "
-            f"ROM), {n_pass} validées runtime sur grounds hub ; "
-            f"1140 PARTIAL_OPS comptées, jamais approximées"))
+            f"ROM, SE/VFX émotes natives, cast SSA PNJ, caméra) ; "
+            f"{n_pass} validées runtime ; PARTIAL_OPS restantes comptées, "
+            f"jamais approximées"))
     ti_p = c / "Tables" / "DUNGEON_TABLES_INDEX.json"
     if ti_p.exists():
         ti = load(ti_p)["totals"]

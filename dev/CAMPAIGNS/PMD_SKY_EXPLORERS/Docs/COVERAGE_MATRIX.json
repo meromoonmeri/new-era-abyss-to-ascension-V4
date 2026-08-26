@@ -125,12 +125,12 @@
   },
   {
    "dimension": "cinematic_compiled",
-   "covered": 78,
+   "covered": 370,
    "total": 3760,
-   "pct": 2.1,
+   "pct": 9.8,
    "status": "PARTIAL",
    "source": "Docs/SCENE_COMPILER_REPORT.json (compilateur FAIL-CLOSED) + compiled_scenes_runtime_proof.jsonl",
-   "note": "78 scènes 100% traduites émises (dialogues 5 langues ROM), 16 validées runtime sur grounds hub ; 1140 PARTIAL_OPS comptées, jamais approximées"
+   "note": "370 scènes 100% traduites émises (dialogues 5 langues ROM, SE/VFX émotes natives, cast SSA PNJ, caméra) ; 34 validées runtime ; PARTIAL_OPS restantes comptées, jamais approximées"
   },
   {
    "dimension": "gameplay_tables_extraction",
