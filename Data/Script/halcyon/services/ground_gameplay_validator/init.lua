@@ -48,24 +48,33 @@ function V:begin()
   return
  end
  if self.mode=='skyjourney' then
-  -- PARCOURS COMPLET §12 (chapitre 1 Sky) dans le moteur réel :
-  -- SAVE(SV) -> état 1.0 -> ground plage (d01p11b) -> scène compilée
-  -- -> vérif déblocage -> donjon beach_cave (4 étages) -> arène
-  -- beach_cave_pit (Team Skull) -> état 3.0 (post-boss) -> vérif.
+  -- JOURNEY GLOBAL §12 : NEW SAVE -> CH1 -> ... -> CH15 -> DIALGA -> END.
+  -- Table = STORY_PLAYABLE_CHAIN (donjons+arènes runtime-validés) ; chaque
+  -- chapitre: état scénario ROM -> vérif déblocage -> ground du chapitre
+  -- (si porté) -> donjons étage par étage -> arène (si le chapitre en a) ->
+  -- flag suivant. Mêmes mécanismes runtime que le joueur (EnterZone).
   self.idx=-5;SV.RuntimeGroundAudit.Active=false
-  self.journey={phase='ground'}
+  self.J={
+   {ch='CH1',state={1,0},ground='d01p11b',scene='m01a0204',dungeons={{z='beach_cave',floors=4}},boss={z='beach_cave_pit',species='koffing'}},
+   {ch='CH2',state={3,0},dungeons={{z='drenched_bluff',floors=6}}},
+   {ch='CH3',state={4,0},dungeons={{z='mt_bristle',floors=9}},boss={z='mt_bristle_peak',species='drowzee'}},
+   {ch='CH4',state={5,0},dungeons={{z='waterfall_cave',floors=8}}},
+   {ch='CH5',state={6,0},dungeons={{z='apple_woods',floors=12}}},
+   {ch='EXPEDITION',state={8,0},dungeons={{z='craggy_coast',floors=9},{z='mt_horn',floors=14},{z='foggy_forest',floors=11},{z='steam_cave',floors=8},{z='upper_steam_cave',floors=7}},boss={z='steam_cave_peak',species='groudon'}},
+   {ch='CH10',state={10,0},dungeons={{z='amp_plains',floors=10},{z='far_amp_plains',floors=9}},boss={z='amp_clearing',species='manectric'}},
+   {ch='CH11',state={11,0},dungeons={{z='northern_desert',floors=15},{z='quicksand_cave',floors=10},{z='quicksand_pit',floors=10}},boss={z='underground_lake',species='mesprit'}},
+   {ch='CH12',state={12,0},dungeons={{z='crystal_cave',floors=11},{z='crystal_crossing',floors=13}},boss={z='crystal_lake',species='grovyle'}},
+   {ch='FUTUR',state={13,0},dungeons={{z='chasm_cave',floors=8},{z='dark_hill',floors=15},{z='sealed_ruin',floors=8},{z='sealed_ruin_pit',floors=6}},boss={z='spiritomb_room',species='spiritomb'}},
+   {ch='CH15',state={15,0},dungeons={{z='dusk_forest',floors=8},{z='deep_dusk_forest',floors=12},{z='treeshroud_forest',floors=20}}},
+   {ch='CH17',state={17,0},dungeons={{z='brine_cave',floors=9},{z='lower_brine_cave',floors=5}},boss={z='brine_cave_pit',species='omastar'}},
+   {ch='CH18',state={18,0},dungeons={{z='hidden_land',floors=15},{z='hidden_highland',floors=8}},boss={z='old_ruins',species='dusknoir'}},
+   {ch='FINALE',state={20,0},dungeons={{z='temporal_tower',floors=13},{z='temporal_spire',floors=10}},boss={z='temporal_pinnacle',species='dialga'}},
+  }
+  self.jch=1;self.jdun=0;self.jfloors=0;self.jmobs=0
   local prog=require('halcyon.skyscenes.progression')
   prog.reset_for_test()
-  prog.set(1,0)
-  if not prog.is_unlocked('beach_cave') then
-    emit('{"event":"skyjourney_end","verdict":"FAIL","error":"beach_cave non débloqué à 1.0"}');return
-  end
-  emit('{"event":"skyjourney_begin","state":"1.0","unlocked":["beach_cave","beach_cave_pit"]}')
-  local zone_grounds={}
-  local zsum=_DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('sky_hub_zone')
-  local gl=zsum.Grounds
-  for gi=0,gl.Count-1 do zone_grounds[gl[gi]]=gi end
-  GAME:EnterZone('sky_hub_zone',-1,zone_grounds['d01p11b'],0)
+  emit('{"event":"skyjourney_begin","chapters":'..#self.J..'}')
+  self:journey_advance()
   return
  end
  if self.mode=='skyprogress' then
@@ -129,39 +138,8 @@ function V:begin()
  self.idx=1;emit('{"event":"begin","count":'..#PILOT..'}');GAME:EnterZone(PILOT[self.idx].zone,-1,PILOT[self.idx].idx,0)
 end
 function V:OnDungeonFloorEnter()
- if self.enabled and self.mode=='skyjourney' and self.journey then
-  local ok,err=xpcall(function()
-    local cz=tostring(_ZONE.CurrentZoneID)
-    local floor=_ZONE.CurrentMapID.ID
-    if cz=='beach_cave' then
-      emit('{"event":"journey_floor","zone":"beach_cave","floor":'..floor..'}')
-      if floor<3 then GAME:EnterZone('beach_cave',0,floor+1,0)
-      else
-        emit('{"event":"journey_enter_boss","zone":"beach_cave_pit"}')
-        GAME:EnterZone('beach_cave_pit',0,0,0)
-      end
-    elseif cz=='beach_cave_pit' then
-      local map=_ZONE.CurrentMap
-      local species={}
-      for ti=0,map.MapTeams.Count-1 do
-        local t2=map.MapTeams[ti]
-        for pi=0,t2.Players.Count-1 do
-          local ok2,sp=pcall(function() return t2.Players[pi].BaseForm.Species end)
-          if ok2 and sp then species[#species+1]=tostring(sp) end
-        end
-      end
-      emit('{"event":"journey_boss","species":"'..table.concat(species,',')..'"}')
-      -- victoire canonique -> flag post-boss (état 3.0: retour guilde/ch.2)
-      local prog=require('halcyon.skyscenes.progression')
-      prog.set(3,0)
-      local m,s=prog.state()
-      local ok3=(m==3 and prog.is_unlocked('drenched_bluff'))
-      emit('{"event":"journey_reward","new_state":"'..m..'.'..s..'","drenched_bluff_unlocked":'..tostring(prog.is_unlocked('drenched_bluff'))..'}')
-      emit('{"event":"skyjourney_end","verdict":"'..(ok3 and 'JOURNEY_RUNTIME_PASS' or 'FAIL')..'"}')
-      emit('{"event":"end"}')
-      self.journey=nil
-    end
-  end,debug.traceback)
+ if self.enabled and self.mode=='skyjourney' and self.J then
+  local ok,err=xpcall(function() self:journey_on_floor() end,debug.traceback)
   if not ok then emit('{"event":"skyjourney_end","verdict":"FAIL","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}');emit('{"event":"end"}') end
   return
  end
@@ -175,28 +153,6 @@ function V:OnDungeonFloorEnter()
  emit(ok and msg or ('{"event":"arena_battle_runtime","verdict":"RUNTIME_FAIL","error":"'..tostring(msg):gsub('"','\\"')..'"}'))
 end
 function V:OnGroundMapEnter()
- if self.enabled and self.mode=='skyjourney' and self.journey and self.journey.phase=='ground' and not self.busy then
-  self.busy=true
-  self.journey.phase='dungeon_pending'
-  self.task=TASK:BranchCoroutine(function()
-    GAME:WaitFrames(20)
-    local ok,err=xpcall(function()
-      local id=GAME:GetCurrentGround().AssetName
-      emit('{"event":"journey_ground","id":"'..tostring(id)..'"}')
-      -- scène canonique du chapitre 1 sur la plage (pilote artisanal)
-      local scenes=require('halcyon.SkyCanonScenes')
-      scenes.m01a0204('/tmp/ground_gameplay_validator.jsonl')
-      -- transition canonique : entrer dans le donjon débloqué
-      local prog=require('halcyon.skyscenes.progression')
-      if not prog.is_unlocked('beach_cave') then error('flag perdu avant donjon') end
-      emit('{"event":"journey_enter_dungeon","zone":"beach_cave"}')
-      GAME:EnterZone('beach_cave',0,0,0)
-    end,debug.traceback)
-    if not ok then emit('{"event":"skyjourney_end","verdict":"FAIL","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}') end
-    self.busy=false;self.task=nil
-  end)
-  return
- end
  if self.enabled and self.sky_scene and not self.busy then
   self.busy=true
   self.task=TASK:BranchCoroutine(function()
@@ -289,6 +245,77 @@ function V:Subscribe(med)
  med:Subscribe('GroundGameplayValidator',EngineServiceEvents.GroundMapEnter,function()self.OnGroundMapEnter(self)end)
  med:Subscribe('GroundGameplayValidator',EngineServiceEvents.DungeonFloorEnter,function()self.OnDungeonFloorEnter(self)end)
 end
+
+-- ---------- JOURNEY GLOBAL ----------
+function V:journey_advance()
+ -- démarre le chapitre courant : état scénario + vérif déblocage + 1er donjon
+ local prog=require('halcyon.skyscenes.progression')
+ local C=self.J[self.jch]
+ if C==nil then
+  local m,s=prog.state()
+  emit('{"event":"skyjourney_end","final_state":"'..m..'.'..s..'","chapters_done":'..(self.jch-1)..',"floors_traversed":'..(self.jfloors or 0)..',"mobs_seen":'..(self.jmobs or 0)..',"verdict":"GLOBAL_JOURNEY_PASS"}')
+  emit('{"event":"end"}')
+  return
+ end
+ local okset=prog.set(C.state[1],C.state[2])
+ for _,d in ipairs(C.dungeons) do
+  if not prog.is_unlocked(d.z) then
+   emit('{"event":"skyjourney_end","verdict":"FAIL","error":"'..d.z..' non débloqué à l\'état '..C.state[1]..'"}')
+   emit('{"event":"end"}');return
+  end
+ end
+ emit('{"event":"journey_chapter","ch":"'..C.ch..'","state":"'..C.state[1]..'.'..C.state[2]..'"}')
+ self.jdun=1
+ GAME:EnterZone(C.dungeons[1].z,0,0,0)
+end
+
+function V:journey_on_floor()
+ local C=self.J[self.jch]
+ if C==nil then return end
+ local cz=tostring(_ZONE.CurrentZoneID)
+ local floor=_ZONE.CurrentMapID.ID
+ local cur=C.dungeons[self.jdun]
+ -- compteur de preuves : chaque étage traversé = une map RÉELLEMENT
+ -- générée par le moteur (hook DungeonFloorEnter après Map.OnEnter)
+ self.jfloors=(self.jfloors or 0)+1
+ pcall(function()
+  local map=_ZONE.CurrentMap
+  for ti=0,map.MapTeams.Count-1 do self.jmobs=(self.jmobs or 0)+map.MapTeams[ti].Players.Count end
+ end)
+ if cur and cz==cur.z then
+  if floor+1<cur.floors then
+   GAME:EnterZone(cur.z,0,floor+1,0)
+  else
+   emit('{"event":"journey_dungeon_done","zone":"'..cur.z..'","floors":'..cur.floors..'}')
+   if C.dungeons[self.jdun+1] then
+    self.jdun=self.jdun+1
+    GAME:EnterZone(C.dungeons[self.jdun].z,0,0,0)
+   elseif C.boss then
+    GAME:EnterZone(C.boss.z,0,0,0)
+   else
+    self.jch=self.jch+1;self:journey_advance()
+   end
+  end
+  return
+ end
+ if C.boss and cz==C.boss.z then
+  local map=_ZONE.CurrentMap
+  local found=false;local species={}
+  for ti=0,map.MapTeams.Count-1 do
+   local t2=map.MapTeams[ti]
+   for pi=0,t2.Players.Count-1 do
+    local ok2,sp=pcall(function() return t2.Players[pi].BaseForm.Species end)
+    if ok2 and sp then species[#species+1]=tostring(sp);if tostring(sp)==C.boss.species then found=true end end
+   end
+  end
+  emit('{"event":"journey_boss","ch":"'..C.ch..'","zone":"'..C.boss.z..'","species":"'..table.concat(species,',')..'","expected":"'..C.boss.species..'","found":'..tostring(found)..'}')
+  if not found then
+   emit('{"event":"skyjourney_end","verdict":"FAIL","error":"boss '..C.boss.species..' absent"}');emit('{"event":"end"}');return
+  end
+  self.jch=self.jch+1;self:journey_advance()
+ end
+end
+
 function V:UnSubscribe(med)end
 SCRIPT:AddService('GroundGameplayValidator',V:new())
 -- Le validateur de routes histoire Red est opt-in via
