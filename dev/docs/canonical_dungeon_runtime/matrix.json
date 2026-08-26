@@ -40840,5 +40840,73 @@
    "non_traversable": 0,
    "invalid": 0
   }
+ },
+ "magma_pit_groudon": {
+  "zone": "magma_pit_groudon",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": -1,
+    "halls": -1,
+    "branches": -1,
+    "loops": -1,
+    "dead_ends": -1,
+    "width": 11,
+    "height": 11,
+    "autotiles": "magma_cavern_2_floor,magma_cavern_2_wall",
+    "iterations_seen": 1,
+    "error": null
+   }
+  },
+  "floor_count": 1,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 1,
+   "generated": 1,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
+ },
+ "sky_summit_rayquaza": {
+  "zone": "sky_summit_rayquaza",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": -1,
+    "halls": -1,
+    "branches": -1,
+    "loops": -1,
+    "dead_ends": -1,
+    "width": 13,
+    "height": 16,
+    "autotiles": "sky_tower_floor,sky_tower_secondary,sky_tower_wall",
+    "iterations_seen": 1,
+    "error": null
+   }
+  },
+  "floor_count": 1,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 1,
+   "generated": 1,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
  }
 }

@@ -85,8 +85,8 @@ function V:begin()
    {ch='CH9 Mt Blaze (12.x)',dungeons={{z='mt_blaze',floors=12},{z='mt_blaze_peak',floors=2}},boss={seg=1,species='moltres',zone='mt_blaze_peak'}},
    {ch='CH10 Frosty Forest (13.x)',dungeons={{z='frosty_forest',floors=8}}},
    {ch='CH11 Mt Freeze (14.x)',dungeons={{z='mt_freeze',floors=15},{z='mt_freeze_peak',floors=4}},boss={seg=1,species='glalie',zone='mt_freeze_peak'}},
-   {ch='CH12 Magma Cavern (15.x-16.0)',dungeons={{z='magma_cavern',floors=8},{z='magma_cavern',floors=7,seg=1},{z='magma_cavern',floors=8,seg=2},{z='magma_cavern_pit',floors=3}},boss_gap='FIXED_ROOM_MAGMA_CAVERN_PIT_GROUDON: arène fixe GBA (fixedmap.inc RLE) NOT_BUILT — la zone du dépôt est le contenu New Era ch.12 renivelé, pas le boss canonique'},
-   {ch='CH13 Sky Tower (16.x-17.0 FINALE)',dungeons={{z='sky_tower',floors=25},{z='sky_tower_summit',floors=9}},boss_gap='FIXED_ROOM_SKY_TOWER_SUMMIT_RAYQUAZA: arène fixe GBA NOT_BUILT — idem'},
+   {ch='CH12 Magma Cavern (15.x-16.0)',dungeons={{z='magma_cavern',floors=8},{z='magma_cavern',floors=7,seg=1},{z='magma_cavern',floors=8,seg=2},{z='magma_cavern_pit',floors=3}},boss={z='magma_pit_groudon',seg=0,species='groudon'}},
+   {ch='CH13 Sky Tower (16.x-17.0 FINALE)',dungeons={{z='sky_tower',floors=25},{z='sky_tower_summit',floors=9}},boss={z='sky_summit_rayquaza',seg=0,species='rayquaza'}},
   }
   self.rjch=1;self.rjdun=1;self.rjfloors=0
   emit('{"event":"redjourney_begin","chapters":'..#self.RJ..'}')
@@ -215,7 +215,7 @@ function V:OnDungeonFloorEnter()
     self.rjfloors=self.rjfloors+1
     local cur=C.dungeons[self.rjdun]
     -- segment boss (fixed_room rsmap du dépôt)
-    if C.boss and cz==(C.boss.zone or cur.z) and seg==(C.boss.seg or 1) then
+    if C.boss and ((C.boss.z and cz==C.boss.z) or (not C.boss.z and cz==(C.boss.zone or cur.z) and seg==(C.boss.seg or 1))) then
       local map=_ZONE.CurrentMap
       local sp={}
       local found=false
@@ -245,6 +245,12 @@ function V:OnDungeonFloorEnter()
         GAME:EnterZone(cur.z,want_seg,floor+1,0)
       else
         emit('{"event":"red_dungeon_done","zone":"'..cur.z..'","floors":'..cur.floors..'}')
+        -- boss en ZONE séparée (arènes fixedmap.inc/fixed.bin) : y entrer
+        if C.boss and C.boss.z and not C.dungeons[self.rjdun+1] then
+          emit('{"event":"red_enter_boss_zone","zone":"'..C.boss.z..'"}')
+          GAME:EnterZone(C.boss.z,C.boss.seg or 0,0,0)
+          return
+        end
         -- GAP documenté : arène GBA non construite (jamais un faux PASS)
         if C.boss_gap and not C.dungeons[self.rjdun+1] then
           emit('{"event":"red_boss_gap","ch":"'..C.ch..'","gap":"'..C.boss_gap..'"}')
@@ -284,7 +290,7 @@ function V:OnDungeonFloorEnter()
           end
           return
         end
-        if C.boss and (C.boss.zone or cur.z)==cur.z then
+        if C.boss and not C.boss.z and (C.boss.zone or cur.z)==cur.z then
           GAME:EnterZone(cur.z,C.boss.seg or 1,0,0)
         elseif C.dungeons[self.rjdun+1] then
           self.rjdun=self.rjdun+1

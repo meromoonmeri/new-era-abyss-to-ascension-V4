@@ -6762,6 +6762,68 @@
       "Released": true,
       "Comment": "Zone conteneur des grounds hub de PMD Sky EU (Treasure Town, guilde...) pour chargement runtime — schéma master_zone (Gr",
       "SortOrder": 0
+    },
+    "magma_pit_groudon": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 27,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 1,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Magma Cavern Pit - Groudon",
+        "LocalTexts": {
+          "fr": "Fosse de la Caverne Magma — Groudon"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Red EU fixed room 7",
+      "SortOrder": 0
+    },
+    "sky_summit_rayquaza": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 35,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 1,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Sky Tower Summit - Rayquaza",
+        "LocalTexts": {
+          "fr": "Sommet de la Tour Céleste — Rayquaza"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Red EU fixed room 8",
+      "SortOrder": 0
     }
   }
 }

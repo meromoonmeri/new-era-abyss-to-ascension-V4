@@ -84,6 +84,15 @@ local CONFIG={
     boss_species='dusknoir',provenance='PMD_SKY_ROM/fixed.bin ff9'},
   temporal_spire={floors=10,sky=true,next_zone='temporal_pinnacle',
     boss_species='dialga',provenance='PMD_SKY_ROM/fixed.bin ff10'},
+  -- --- Chaînes RED GBA vers arènes fixedmap.inc (mêmes mécanique sky=) ---
+  magma_cavern_pit={floors=3,sky=true,next_zone='magma_pit_groudon',
+    boss_species='groudon',
+    provenance='PMD_RED_ROM/fixedmap.inc fixed room 7 (RLE décodé), '..
+      'niveau 27 pokemon_found MagmaCavernPit 3F'},
+  sky_tower_summit={floors=9,sky=true,next_zone='sky_summit_rayquaza',
+    boss_species='rayquaza',
+    provenance='PMD_RED_ROM/fixedmap.inc fixed room 8, niveau 35 '..
+      'pokemon_found SkyTowerSummit 9F'},
 }
 local function esc(v)return tostring(v):gsub('\\','\\\\'):gsub('"','\\"'):gsub('\n',' | '):gsub('\r','')end
 local function emit(v)
