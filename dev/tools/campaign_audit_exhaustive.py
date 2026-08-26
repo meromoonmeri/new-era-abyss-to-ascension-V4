@@ -90,6 +90,141 @@ def load_tile_cells(path: Path) -> set:
     return cells
 
 
+def _tile_content_hash(path: Path) -> str:
+    """Hash du CONTENU pixel d'une planche .tile (cellules décodées),
+    indépendant du timestamp/de l'ordre de sérialisation du conteneur."""
+    from PIL import Image
+    raw = path.read_bytes()
+    _, count = struct.unpack_from("<II", raw, 0)
+    items = []
+    for i in range(count):
+        key, off = struct.unpack_from("<QQ", raw, 8 + i * 16)
+        ln = struct.unpack_from("<Q", raw, off)[0]
+        img = Image.open(io.BytesIO(raw[off + 8:off + 8 + ln])).convert("RGBA")
+        items.append(((key & 0xFFFFFFFF, key >> 32),
+                      hashlib.sha256(img.tobytes()).hexdigest()))
+    return hashlib.sha256(str(sorted(items)).encode()).hexdigest()
+
+
+def _ground_source(cfg: dict, gid: str):
+    for base in (cfg["grounds"], ROOT / "Data" / "Ground"):
+        for suf in (".rsground", ".rsground.excluded"):
+            p = base / f"{gid}{suf}"
+            if p.exists():
+                return p
+    return None
+
+
+def _find_tile(cfg: dict, sheet: str):
+    for base in (cfg["tiles"], ROOT / "Content" / "Tile"):
+        for cand in (sheet, sheet[:1].upper() + sheet[1:]):
+            p = base / f"{cand}.tile"
+            if p.exists():
+                return p
+    return None
+
+
+_TILE_HASH_CACHE: dict = {}
+_TILE_CELLS_CACHE: dict = {}
+
+
+def _tile_cell_hash(cfg: dict, sheet: str, x, y):
+    """Hash pixel d'une cellule précise d'une planche (None si absent)."""
+    from PIL import Image
+    tp = _find_tile(cfg, sheet)
+    if tp is None:
+        return None
+    key = str(tp)
+    if key not in _TILE_CELLS_CACHE:
+        raw = tp.read_bytes()
+        _, count = struct.unpack_from("<II", raw, 0)
+        cells = {}
+        for i in range(count):
+            k, off = struct.unpack_from("<QQ", raw, 8 + i * 16)
+            ln = struct.unpack_from("<Q", raw, off)[0]
+            img = Image.open(io.BytesIO(raw[off + 8:off + 8 + ln])) \
+                .convert("RGBA")
+            cells[(k & 0xFFFFFFFF, k >> 32)] = hashlib.sha256(
+                img.tobytes()).hexdigest()[:16]
+        _TILE_CELLS_CACHE[key] = cells
+    return _TILE_CELLS_CACHE[key].get((x, y), f"CELL_MISSING:{x},{y}")
+
+
+def _source_duplicate_verdict(cfg: dict, gids: list) -> str:
+    """Contre-épreuve pour renders identiques : IDENTICAL_SOURCE si les
+    Layers sont sémantiquement identiques une fois chaque nom de planche
+    (Sheet) remplacé par le HASH DU CONTENU PIXEL de la planche — deux
+    grounds qui référencent des planches nommées différemment mais aux
+    pixels identiques sont le même visuel canonique."""
+    layer_hashes = set()
+    for gid in gids:
+        gp = _ground_source(cfg, gid)
+        if gp is None:
+            return f"SOURCE_MISSING:{gid}"
+        try:
+            obj = json.loads(gp.read_text(encoding="utf-8-sig"))["Object"]
+        except Exception:
+            return f"SOURCE_UNREADABLE:{gid}"
+        layers = obj.get("Layers")
+        if isinstance(layers, dict):
+            layers = layers.get("$values") or []
+        sheets = set()
+        for l in layers or []:
+            for col in (l.get("Tiles") or []):
+                for cell in col:
+                    for cl in cell.get("Layers", []):
+                        for fr in cl.get("Frames", []):
+                            if fr.get("Sheet"):
+                                sheets.add(fr["Sheet"])
+        norm = json.dumps(layers, sort_keys=True)
+        for s in sorted(sheets, key=len, reverse=True):
+            tp = _find_tile(cfg, s)
+            if tp is None:
+                return f"TILE_MISSING:{s}"
+            key = str(tp)
+            if key not in _TILE_HASH_CACHE:
+                _TILE_HASH_CACHE[key] = _tile_content_hash(tp)
+            norm = norm.replace(f'"{s}"', f'"@{_TILE_HASH_CACHE[key]}@"')
+        layer_hashes.add(hashlib.sha256(norm.encode()).hexdigest())
+    if len(layer_hashes) == 1:
+        return "IDENTICAL_SOURCE"
+    # Cas variante animée : le doublon ne porte que sur frame_000 ; si la
+    # PROJECTION PREMIÈRE FRAME de chaque cellule est identique, le partage
+    # de frame_000 est canonique (ex. Sky d53p41a statique vs d53p41b animé).
+    ff_hashes = set()
+    for gid in gids:
+        gp = _ground_source(cfg, gid)
+        obj = json.loads(gp.read_text(encoding="utf-8-sig"))["Object"]
+        layers = obj.get("Layers")
+        if isinstance(layers, dict):
+            layers = layers.get("$values") or []
+        proj = []
+        for l in layers or []:
+            grid = []
+            for col in (l.get("Tiles") or []):
+                gcol = []
+                for cell in col:
+                    firsts = []
+                    for cl in cell.get("Layers", []):
+                        fr = (cl.get("Frames") or [None])[0]
+                        if fr and fr.get("Sheet"):
+                            h = _tile_cell_hash(
+                                cfg, fr["Sheet"],
+                                fr.get("TexLoc", {}).get("X"),
+                                fr.get("TexLoc", {}).get("Y"))
+                            if h is None:
+                                return f"TILE_MISSING:{fr['Sheet']}"
+                            firsts.append(h)
+                    gcol.append(firsts)
+                grid.append(gcol)
+            proj.append(grid)
+        ff_hashes.add(hashlib.sha256(
+            json.dumps(proj).encode()).hexdigest())
+    if len(ff_hashes) == 1:
+        return "IDENTICAL_FIRST_FRAME"
+    return "DIFFERS"
+
+
 def audit_campaign(camp: str, cfg: dict) -> dict:
     cdir = ROOT / "dev" / "CAMPAIGNS" / camp
     findings = []          # {severity, category, subject, detail}
@@ -370,9 +505,31 @@ def audit_campaign(camp: str, cfg: dict) -> dict:
             hashes[sha256(p)].append(d.name)
     dup_groups = [v for v in hashes.values() if len(v) > 1]
     for grp in dup_groups:
-        add("LOW", "DUPLICATE", "+".join(grp[:4]),
-            f"{len(grp)} renders bit-identiques (frame_000) — vérifier si "
-            f"les maps source sont réellement identiques")
+        # Contre-épreuve SOURCE automatique : les renders identiques sont
+        # canoniques si (1) les Layers des .rsground sont identiques après
+        # normalisation de l'ID propre et (2) le CONTENU pixel des planches
+        # .tile référencées est identique (le conteneur binaire diffère par
+        # timestamp/ordre — comparer les cellules décodées, pas les octets).
+        verdict = _source_duplicate_verdict(cfg, grp)
+        if verdict == "IDENTICAL_SOURCE":
+            add("ACCEPTED", "DUPLICATE", "+".join(grp[:4]),
+                f"{len(grp)} renders bit-identiques — CONFIRMÉ canonique : "
+                f"Layers normalisés ET contenu pixel des planches .tile "
+                f"identiques dans la source (variantes du même lieu)")
+        elif verdict == "IDENTICAL_FIRST_FRAME":
+            add("ACCEPTED", "DUPLICATE", "+".join(grp[:4]),
+                f"{len(grp)} renders frame_000 identiques — CONFIRMÉ "
+                f"canonique : projection première frame identique au niveau "
+                f"pixel ; les sources ne diffèrent que par l'ANIMATION "
+                f"(variante animée du même lieu, frames rendues séparément)")
+        elif verdict == "DIFFERS":
+            add("HIGH", "DUPLICATE", "+".join(grp[:4]),
+                f"{len(grp)} renders bit-identiques alors que les sources "
+                f"diffèrent — rendu suspect à réexaminer")
+        else:
+            add("LOW", "DUPLICATE", "+".join(grp[:4]),
+                f"{len(grp)} renders bit-identiques (frame_000) — source "
+                f"incomplète pour trancher ({verdict})")
 
     # ---------------- couvertures séparées (jamais fusionnées)
     n = len(manifest["grounds"])
