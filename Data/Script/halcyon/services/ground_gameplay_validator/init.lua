@@ -14,7 +14,13 @@ local function emit(s)
  PrintInfo('[GROUND_VALIDATOR] '..s)
  local f=io.open('/tmp/ground_gameplay_validator.jsonl','a');if f then f:write(s..'\n');f:flush();f:close() end
 end
-function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:');self.idx=0;self.entered=false;self.busy=false
+function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:' or string.sub(self.mode or '',1,9)=='skyscene:');self.idx=0;self.entered=false;self.busy=false
+ -- mode 'skyscene:<scene>@<ground>' : rejoue une cinématique canonique Sky
+ if string.sub(self.mode or '',1,9)=='skyscene:' then
+  local spec=string.sub(self.mode,10)
+  local scene, ground = string.match(spec,'([^@]+)@(.+)')
+  self.sky_scene=scene; self.sky_scene_ground=ground
+ end
  -- mode 'sky:<ground1,ground2,...>' : pilotes de grounds Sky dans sky_hub_zone
  if string.sub(self.mode or '',1,4)=='sky:' then
   self.sky_pilot={}
@@ -39,6 +45,18 @@ function V:begin()
   -- EnterDungeon doit etre appele depuis la coroutine du Ground, pas depuis
   -- l'evenement service NewGame (sinon NLua: yield outside a coroutine).
   GAME:EnterZone('mount_windswept',-1,2,0)
+  return
+ end
+ if self.sky_scene then
+  self.idx=-3;SV.RuntimeGroundAudit.Active=false
+  emit('{"event":"sky_scene_begin","scene":"'..self.sky_scene..'","ground":"'..tostring(self.sky_scene_ground)..'"}')
+  local zone_grounds={}
+  local zsum=_DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('sky_hub_zone')
+  local gl=zsum.Grounds
+  for gi=0,gl.Count-1 do zone_grounds[gl[gi]]=gi end
+  local gi=zone_grounds[self.sky_scene_ground]
+  if gi==nil then emit('{"event":"sky_scene_fail","error":"ground_absent"}');return end
+  GAME:EnterZone('sky_hub_zone',-1,gi,0)
   return
  end
  if self.sky_pilot then
@@ -69,6 +87,22 @@ function V:OnDungeonFloorEnter()
  emit(ok and msg or ('{"event":"arena_battle_runtime","verdict":"RUNTIME_FAIL","error":"'..tostring(msg):gsub('"','\\"')..'"}'))
 end
 function V:OnGroundMapEnter()
+ if self.enabled and self.sky_scene and not self.busy then
+  self.busy=true
+  self.task=TASK:BranchCoroutine(function()
+    GAME:WaitFrames(20)
+    local ok,err=xpcall(function()
+      local scenes=require('halcyon.SkyCanonScenes')
+      local fn=scenes[self.sky_scene]
+      if fn==nil then error('scene inconnue: '..tostring(self.sky_scene)) end
+      fn('/tmp/ground_gameplay_validator.jsonl')
+    end,debug.traceback)
+    if not ok then emit('{"event":"sky_scene_fail","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}') end
+    emit('{"event":"end"}')
+    self.busy=false;self.task=nil
+  end)
+  return
+ end
  if not self.enabled or (self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby') or self.busy then return end
  -- GroundMapEnter est synchrone. Le travail qui yield est reporte dans Update.
  self.pending=false;self.busy=true
