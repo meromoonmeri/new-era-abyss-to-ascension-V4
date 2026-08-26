@@ -41,12 +41,12 @@ Dimensions SÉPARÉES (règle §49) : aucun pourcentage global fusionné n'exist
 | save_resume_runtime | 1/1 (100.0%) | **PASS** | dev/docs/canonical/sky/resume_runtime_proof.jsonl |
 | scrolling_background_runtime | 1/213 (0.5%) | **PARTIAL** | dev/docs/canonical/sky/scroll_pilot_runtime_proof.jsonl |
 | cinematic_runtime | 1/3760 (0.0%) | **PARTIAL** | dev/docs/canonical/sky/cinematic_m01a0204_runtime_proof.jsonl (SkyCanonScenes.lua, mode skyscene:) |
-| cinematic_compiled | 657/3760 (17.5%) | **PARTIAL** | Docs/SCENE_COMPILER_REPORT.json (compilateur FAIL-CLOSED) + compiled_scenes_runtime_proof.jsonl |
-| dual_screen_focus_runtime | 62/195 (31.8%) | **PARTIAL** | Docs/DUAL_SCREEN_TIMELINES.json + DUAL_SCREEN_VERIFICATION.json + dev/docs/canonical/sky/dual_screen_runtime_proof.jsonl |
+| cinematic_compiled | 2157/3760 (57.4%) | **PARTIAL** | Docs/SCENE_COMPILER_REPORT.json (compilateur FAIL-CLOSED) + compiled_scenes_runtime_proof.jsonl |
+| dual_screen_focus_runtime | 70/195 (35.9%) | **PARTIAL** | Docs/DUAL_SCREEN_TIMELINES.json + DUAL_SCREEN_VERIFICATION.json + dev/docs/canonical/sky/dual_screen_runtime_proof.jsonl |
 | gameplay_tables_extraction | 178/180 (98.9%) | **PASS** | Tables/DUNGEON_TABLES_INDEX.json (mappa_s.bin EU : 1795 étages, spawns/pièges/items bruts) |
 | pmdo_mapping_species | 484/484 (100.0%) | **PASS** | Tables/PMDO_MAPPING.json |
 | pmdo_mapping_items | 205/290 (70.7%) | **PARTIAL** | Tables/PMDO_MAPPING.json |
-| dungeon_zones_vs_rom | 59/59 (100.0%) | **PASS** | Tables/ZONE_VS_ROM_COMPARISON.json (comparaison structurelle par étage) |
-| dungeon_runtime_pmdo | 59/180 (32.8%) | **PARTIAL** | dev/docs/canonical_dungeon_runtime/matrix.json + mapgen_*.jsonl (PMDO 0.8.12 réel) |
+| dungeon_zones_vs_rom | 86/86 (100.0%) | **PASS** | Tables/ZONE_VS_ROM_COMPARISON.json (comparaison structurelle par étage) |
+| dungeon_runtime_pmdo | 86/180 (47.8%) | **PARTIAL** | dev/docs/canonical_dungeon_runtime/matrix.json + mapgen_*.jsonl (PMDO 0.8.12 réel) |
 | story_chains_end_to_end | 9/9 (100.0%) | **PASS** | dev/docs/canonical/sky/story_chains_runtime_proof.jsonl (red_story_route_validator, chaînes sky) |
 | audit_verdict | — | **AUDIT_PASS** | AUDIT.json (8 familles A-H) |

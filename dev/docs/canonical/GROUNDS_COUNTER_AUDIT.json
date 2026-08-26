@@ -3,7 +3,7 @@
  "method": "indépendant de campaign_audit_grounds_complete: part des manifests ROM (attendu) vers le package (réalisé) ; décodage PNG réel sur échantillon dirigé (guilde/Ninetales/Sunflora/panorama/hub/collisions)",
  "checked": {
   "anim_declared_gt1": 175,
-  "reserve_pairs": 367,
+  "reserve_pairs": 368,
   "deep_sample": {
    "g01p01a": "1477 cellules décodées, 0 défauts",
    "g01p02a": "893 cellules décodées, 0 défauts",
@@ -35,14 +35,14 @@
   {
    "severity": "LOW",
    "category": "RESERVE_DRIFT",
-   "subject": "T01p01_Base.tile",
-   "detail": "contenu package != RESERVE/t01p01_Base.tile (399382 vs 486975 octets) — le package fait foi, RESERVE est un instantané antérieur"
+   "subject": "t01p01_Base.tile",
+   "detail": "contenu package != RESERVE/t01p01_Base.tile (486975 vs 486975 octets) — le package fait foi, RESERVE est un instantané antérieur"
   },
   {
    "severity": "LOW",
    "category": "RESERVE_DRIFT",
-   "subject": "t01p01_Base.tile",
-   "detail": "contenu package != RESERVE/t01p01_Base.tile (486975 vs 486975 octets) — le package fait foi, RESERVE est un instantané antérieur"
+   "subject": "T01p01_Base.tile",
+   "detail": "contenu package != RESERVE/t01p01_Base.tile (399382 vs 486975 octets) — le package fait foi, RESERVE est un instantané antérieur"
   },
   {
    "severity": "LOW",
@@ -1061,14 +1061,14 @@
   {
    "severity": "LOW",
    "category": "RESERVE_DRIFT",
-   "subject": "t00p01_Base.tile",
-   "detail": "contenu package != RESERVE/sky_t00p01_Base.tile (323725 vs 436895 octets) — le package fait foi, RESERVE est un instantané antérieur"
+   "subject": "T00p01_Base.tile",
+   "detail": "contenu package != RESERVE/sky_t00p01_Base.tile (264031 vs 436895 octets) — le package fait foi, RESERVE est un instantané antérieur"
   },
   {
    "severity": "LOW",
    "category": "RESERVE_DRIFT",
-   "subject": "T00p01_Base.tile",
-   "detail": "contenu package != RESERVE/sky_t00p01_Base.tile (264031 vs 436895 octets) — le package fait foi, RESERVE est un instantané antérieur"
+   "subject": "t00p01_Base.tile",
+   "detail": "contenu package != RESERVE/sky_t00p01_Base.tile (323725 vs 436895 octets) — le package fait foi, RESERVE est un instantané antérieur"
   },
   {
    "severity": "LOW",

@@ -2,13 +2,13 @@
  "schema": "grounds_complete_audit.v1",
  "rule": "FAIL-CLOSED: une seule sheet/clé/variante/frame manquante = FAIL du ground. Une ressource en RESERVE uniquement = NOT_PERSISTED = FAIL. Cycle ROM>1 sans tuile multi-frame = ANIMATION APLATIE = FAIL.",
  "totals": {
-  "PASS": 688,
+  "PASS": 690,
   "RED:PASS": 282,
-  "NEW_ERA/OTHER:PASS": 277,
-  "SKY:PASS": 129
+  "NEW_ERA/OTHER:PASS": 278,
+  "SKY:PASS": 130
  },
- "n_grounds": 603,
- "n_maps": 85,
+ "n_grounds": 604,
+ "n_maps": 86,
  "grounds": {
   "a01p01": {
    "kind": "rsground",
@@ -10181,6 +10181,33 @@
    "issues": [],
    "GLOBAL_STATUS": "PASS"
   },
+  "s13p06a": {
+   "kind": "rsground",
+   "campaign": "SKY",
+   "human_name": {
+    "en": "S13P06A",
+    "fr": "S13P06A"
+   },
+   "rom_place_name": [
+    {
+     "level": "S13P06A",
+     "fr": "[M:D1]???",
+     "en": "[M:D1]???"
+    }
+   ],
+   "sheets_used": [
+    "S13p06a_Base"
+   ],
+   "sheets_from_base_pmdo": [],
+   "autotiles_used": [],
+   "max_frames_per_tile": 1,
+   "expected_cycle_rom": 1,
+   "RESOURCE_COMPLETE": "PASS",
+   "ANIMATION_COMPLETE": "PASS",
+   "NAME_MATCH": "PASS",
+   "issues": [],
+   "GLOBAL_STATUS": "PASS"
+  },
   "s21p01a": {
    "kind": "rsground",
    "campaign": "RED",
@@ -13827,6 +13854,33 @@
     "treeshroud_forest_1_wall"
    ],
    "max_frames_per_tile": 1,
+   "expected_cycle_rom": null,
+   "RESOURCE_COMPLETE": "PASS",
+   "ANIMATION_COMPLETE": "PASS",
+   "NAME_MATCH": "PASS",
+   "issues": [],
+   "GLOBAL_STATUS": "PASS"
+  },
+  "mystifying_clearing_d45": {
+   "kind": "rsmap",
+   "campaign": "NEW_ERA/OTHER",
+   "human_name": null,
+   "rom_place_name": null,
+   "sheets_used": [],
+   "sheets_from_base_pmdo": [
+    "MagmaCavern2",
+    "MystifyingForest",
+    "TreeshroudForest1"
+   ],
+   "autotiles_used": [
+    "magma_cavern_2_floor",
+    "magma_cavern_2_secondary",
+    "magma_cavern_2_wall",
+    "mystifying_forest_floor",
+    "mystifying_forest_wall",
+    "treeshroud_forest_1_wall"
+   ],
+   "max_frames_per_tile": 0,
    "expected_cycle_rom": null,
    "RESOURCE_COMPLETE": "PASS",
    "ANIMATION_COMPLETE": "PASS",

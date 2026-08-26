@@ -52810,5 +52810,39 @@
    "non_traversable": 0,
    "invalid": 0
   }
+ },
+ "mystifying_forest_clearing": {
+  "zone": "mystifying_forest_clearing",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": -1,
+    "halls": -1,
+    "branches": -1,
+    "loops": -1,
+    "dead_ends": -1,
+    "width": 18,
+    "height": 16,
+    "autotiles": "magma_cavern_2_floor,magma_cavern_2_wall",
+    "iterations_seen": 1,
+    "error": null
+   }
+  },
+  "floor_count": 1,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 1,
+   "generated": 1,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
  }
 }

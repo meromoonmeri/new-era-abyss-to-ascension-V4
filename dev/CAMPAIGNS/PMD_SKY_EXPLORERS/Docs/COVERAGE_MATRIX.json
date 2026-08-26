@@ -140,21 +140,21 @@
   },
   {
    "dimension": "cinematic_compiled",
-   "covered": 657,
+   "covered": 2157,
    "total": 3760,
-   "pct": 17.5,
+   "pct": 57.4,
    "status": "PARTIAL",
    "source": "Docs/SCENE_COMPILER_REPORT.json (compilateur FAIL-CLOSED) + compiled_scenes_runtime_proof.jsonl",
-   "note": "657 scènes 100% traduites émises (dialogues 5 langues ROM, SE/VFX émotes natives, cast SSA PNJ, caméra) ; 44 validées runtime ; PARTIAL_OPS restantes comptées, jamais approximées"
+   "note": "2157 scènes 100% traduites émises (dialogues 5 langues ROM, SE/VFX émotes natives, cast SSA PNJ, caméra) ; 47 validées runtime ; PARTIAL_OPS restantes comptées, jamais approximées"
   },
   {
    "dimension": "dual_screen_focus_runtime",
-   "covered": 62,
+   "covered": 70,
    "total": 195,
-   "pct": 31.8,
+   "pct": 35.9,
    "status": "PARTIAL",
    "source": "Docs/DUAL_SCREEN_TIMELINES.json + DUAL_SCREEN_VERIFICATION.json + dev/docs/canonical/sky/dual_screen_runtime_proof.jsonl",
-   "note": "195 scènes à timeline double écran ROM ; 62 reconstructions single-screen vérifiées vs timeline (décors, fondus, ordre) ; 62 nappes Sub_* (rendus ROM) ; 8/8 échantillon runtime PASS ; le reste des scènes duales est bloqué par d'autres ops (PARTIAL_OPS/multiroutine), pas par le double écran"
+   "note": "195 scènes à timeline double écran ROM ; 70 reconstructions single-screen vérifiées vs timeline (décors, fondus, ordre) ; 62 nappes Sub_* (rendus ROM) ; 8/8 échantillon runtime PASS ; le reste des scènes duales est bloqué par d'autres ops (PARTIAL_OPS/multiroutine), pas par le double écran"
   },
   {
    "dimension": "gameplay_tables_extraction",
@@ -185,18 +185,18 @@
   },
   {
    "dimension": "dungeon_zones_vs_rom",
-   "covered": 59,
-   "total": 59,
+   "covered": 86,
+   "total": 86,
    "pct": 100.0,
    "status": "PASS",
    "source": "Tables/ZONE_VS_ROM_COMPARISON.json (comparaison structurelle par étage)",
-   "note": "59 zones construites (histoire d01-d25 + arc futur D27-D32) sur 180 donjons ROM"
+   "note": "86 zones construites (histoire d01-d25 + arc futur D27-D32) sur 180 donjons ROM"
   },
   {
    "dimension": "dungeon_runtime_pmdo",
-   "covered": 59,
+   "covered": 86,
    "total": 180,
-   "pct": 32.8,
+   "pct": 47.8,
    "status": "PARTIAL",
    "source": "dev/docs/canonical_dungeon_runtime/matrix.json + mapgen_*.jsonl (PMDO 0.8.12 réel)",
    "note": "43 zones (histoire d01-d43 complète + arc futur) toutes CANONICAL_RUNTIME_PASS ; le reste des 180 donjons NOT_BUILT"

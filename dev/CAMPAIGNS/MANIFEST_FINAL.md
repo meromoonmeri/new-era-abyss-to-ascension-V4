@@ -214,17 +214,17 @@ PMDO) · **NOT_IMPLEMENTED** (pas commencé) · aucun BLOCKED restant.
 
 | Élément | Statut | Détail / preuve |
 |---|---|---|
-| Donjons Sky d01–d43 + post-game d44, d46–d60 | **PASS** | 59/59 EXACT vs ROM + CANONICAL_RUNTIME_PASS (d46–d49 : tilesets 82/88 portés de dungeon.bin, méthode prouvée 141/141 + 11/11 frames animation) |
-| d45 Mystifying Forest Clearing | **PARTIAL** | fixed floor 11 sur MAP_BG v00p03 — c'est une ARÈNE (pipeline sky_build_boss_arenas), entités ov29 identifiées (ENT 35–43) ; à construire comme arène, pas comme donjon |
-| d61+ (épisodes spéciaux, donjons libres) | **NOT_IMPLEMENTED** | tables extraites (178/180), zones non construites |
+| Donjons Sky d01–d43 + post-game d44–d60 + **d61–d98** | **PASS** | **86/86 EXACT** vs ROM + CANONICAL_RUNTIME_PASS (27 zones d61+ : 533 étages ; 19 tilesets NDS portés de dungeon.bin, 13 base réutilisés après vérification) |
+| d45 Mystifying Forest Clearing | **PASS** | ARÈNE construite : géométrie fixed.bin 18×16 exacte, cast ov29 = les 9 membres de la guilde (contre-épreuve espèces mappa d45 : Wigglytuff L44, Sunflora L44, Chatot L51…), CANONICAL_RUNTIME_PASS + render |
+| d61, d66, d69, d71, d74+pits, d99+ | **PARTIAL** | chambres Regigigas/pits = fixed floors (pipeline arène, entités ov29 à décoder au cas par cas) ; d71 slice vide DANS la ROM ; d99+ Zero Isle = multi-tilesets (2 portés sur 4) |
 | Musiques Blizzard/Surrounded/Miracle/Random Dungeon | **REQUIRES_MOD_ASSET** | pistes absentes du roster PMDO ET non extractibles en .ogg vérifié ; zones jouent en silence documenté, jamais de substitution |
 | 85 items Explorers (orbes/graines Sky) | **REQUIRES_MOD_ASSET** | absents du roster PMDO — exclus des spawns avec trace |
-| Cinématiques Sky compilées | **PARTIAL** | **657/3760 COMPILED** (fail-closed, +238 grâce au single-screen focus et aux ops écran/objet V5), 55 runtime PASS ; 592 PARTIAL_OPS restantes (switch/if imbriqués, acteurs multiroutines), 51 multiroutines, 372 REQUIRES_ENGINE_EXTENSION |
+| Cinématiques Sky compilées | **PARTIAL** | **2157/3760 COMPILED (57 %)** — V6/V7 : table globale acteurs (306, entid unique ROM), multiroutines→coroutines Lock/Unlock fidèles, if de progression→SV native (les DEUX branches compilées), switch menus système, jump d'épilogue ; 66+ runtime PASS ; 1066 PARTIAL_OPS restantes, 372 REQUIRES_ENGINE_EXTENSION |
 | Double écran NDS (625 scènes) | **PARTIAL (système single-screen focus opérationnel)** | Timeline canonique ROM par scène (`DUAL_SCREEN_TIMELINES.json` : 195 DUAL_TIMELINE, 106 sub préchargé jamais montré, 324 sans op duale) → reconstruction TOP/BOTTOM/BOTH_FOCUS + FOCUS_TRANSITION aux durées ROM (`subscreen.lua`, 62 nappes `Content/BG/Sub_*` rendus ROM cadrage NDS). 62/62 TIMELINE_MATCH vérifiés, 8/8 runtime PASS. Le contenu du 2e écran n'est plus jamais jeté. Reste : scènes duales bloquées par d'AUTRES ops (PARTIAL_OPS/multiroutines), et recadrage caméra sub dynamique non simulé (documenté) |
-| Scrolling backgrounds | **PARTIAL** | pilote s13p05a SCROLL_RUNTIME_PASS + sheet ROM pixel-perfect ; généralisation aux 213 backgrounds non faite (chaque scène scrollée doit être compilée) |
-| Grounds MAP Sky : NPC/interactions | **NOT_IMPLEMENTED** | 96/96 LOAD+MOVE prouvés ; PNJ/dialogues de hub non posés (les scènes compilées en spawnent temporairement) |
-| Cinématiques Red | **PARTIAL** | 45/69 stations compilées (24 sans texte = menus/jonctions), 2/2 testables runtime PASS ; ops cif Audio/Effect/Camera non ordonnancées comptées |
-| 64 stations Red REVIEW_REQUIRED | **PARTIAL** | graphe EU ≠ pret sur ces stations, textes non décodés |
+| Scrolling backgrounds | **PASS (classification exhaustive)** | 213 backgrounds analysés : **15 SCROLLING réels** (vitesses px/frame ROM, compilateur→caméra continue), **198 STATIC_PROVEN** (0 op scroll dans les 3760 SSB = preuve d'absence) ; 2 runtime PASS (s13p05a, s13p06a porté) |
+| Grounds MAP Sky : NPC/interactions | **PARTIAL** | **15/15 hubs HUB_NPC_RUNTIME_PASS** : NPC résidents spawnés aux positions enter.sse exactes, héros marche vers chacun, dialogues enterNN.ssb ROM joués (16/33 avec dialogue ; 17 sans texte compilable tracés) |
+| Cinématiques Red | **PARTIAL** | **66/130 stations compilées en SÉQUENCE ROM ordonnée** (V2 : commands des scripts EU par adresse — textes+musique 0x44 mid prouvé+waits 0xE7 entrelacés), 64 muettes PROUVÉES (0 text_block ROM) ; 6/6 runtime PASS |
+| Stations Red REVIEW_REQUIRED | **PARTIAL (64→3)** | 61 résolues par CORRECTION D'OUTILLAGE (stub gFunctionScriptTable, groupes vides ROM légitimes, FUNC_i par index) — extraction 69→130 stations PASS, 3265 blocs ; restent t01p01/b01p01a (graphe EU divergent) et a05p02 (alignement 0.217) |
 | Persistance | **PASS** | Sky RESUME_RUNTIME_PASS + Red RED_RESUME_RUNTIME_PASS (process 2, preuves jsonl) |
 | Journeys globaux | **PASS** | Sky 14 ch./313 étages/DIALGA + Red 13 ch./182 étages/6 boss — re-vérifiés à la clôture |
 

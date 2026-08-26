@@ -20812,6 +20812,108 @@
     "en": "Waterfall Cave 1",
     "fr": "Grotte Cascade 1"
    }
+  },
+  {
+   "ground": "s13p01a",
+   "human_name_en": "S13P01A",
+   "human_name_fr": null,
+   "render": {
+    "dir": "Renders/s13p01a/",
+    "width_px": 264,
+    "height_px": 192,
+    "frames": 1,
+    "animation_cycle": 1,
+    "animated_tiles": 0
+   },
+   "render_error": null,
+   "source_comment": "PMD Sky (NDS) MAP_BG s13p01a -> rendu ROM direct (BMA/BPC + BPL propre), décor du 2e écran NDS (Sub_s13p01a.dir) — session dual-screen focus.",
+   "rom_place_name": null,
+   "cinematic": null
+  },
+  {
+   "ground": "s13p01b",
+   "human_name_en": "S13P01B",
+   "human_name_fr": null,
+   "render": {
+    "dir": "Renders/s13p01b/",
+    "width_px": 264,
+    "height_px": 192,
+    "frames": 1,
+    "animation_cycle": 1,
+    "animated_tiles": 0
+   },
+   "render_error": null,
+   "source_comment": "PMD Sky (NDS) MAP_BG s13p01b -> rendu ROM direct (BMA/BPC + BPL variante de palette de s13p01a), décor du 2e écran NDS (Sub_s13p01b.dir) — session dual-screen focus.",
+   "rom_place_name": null,
+   "cinematic": null
+  },
+  {
+   "ground": "s13p01b2",
+   "human_name_en": "S13P01B2",
+   "human_name_fr": null,
+   "render": {
+    "dir": "Renders/s13p01b2/",
+    "width_px": 264,
+    "height_px": 192,
+    "frames": 1,
+    "animation_cycle": 1,
+    "animated_tiles": 0
+   },
+   "render_error": null,
+   "source_comment": "PMD Sky (NDS) MAP_BG s13p01b2 -> rendu ROM direct (BMA/BPC + BPL variante de palette de s13p01a), décor du 2e écran NDS (Sub_s13p01b2.dir) — session dual-screen focus.",
+   "rom_place_name": null,
+   "cinematic": null
+  },
+  {
+   "ground": "s13p01b3",
+   "human_name_en": "S13P01B3",
+   "human_name_fr": null,
+   "render": {
+    "dir": "Renders/s13p01b3/",
+    "width_px": 264,
+    "height_px": 192,
+    "frames": 1,
+    "animation_cycle": 1,
+    "animated_tiles": 0
+   },
+   "render_error": null,
+   "source_comment": "PMD Sky (NDS) MAP_BG s13p01b3 -> rendu ROM direct (BMA/BPC + BPL variante de palette de s13p01a), décor du 2e écran NDS (Sub_s13p01b3.dir) — session dual-screen focus.",
+   "rom_place_name": null,
+   "cinematic": null
+  },
+  {
+   "ground": "s13p01b4",
+   "human_name_en": "S13P01B4",
+   "human_name_fr": null,
+   "render": {
+    "dir": "Renders/s13p01b4/",
+    "width_px": 264,
+    "height_px": 192,
+    "frames": 1,
+    "animation_cycle": 1,
+    "animated_tiles": 0
+   },
+   "render_error": null,
+   "source_comment": "PMD Sky (NDS) MAP_BG s13p01b4 -> rendu ROM direct (BMA/BPC + BPL variante de palette de s13p01a), décor du 2e écran NDS (Sub_s13p01b4.dir) — session dual-screen focus.",
+   "rom_place_name": null,
+   "cinematic": null
+  },
+  {
+   "ground": "s13p01b5",
+   "human_name_en": "S13P01B5",
+   "human_name_fr": null,
+   "render": {
+    "dir": "Renders/s13p01b5/",
+    "width_px": 264,
+    "height_px": 192,
+    "frames": 1,
+    "animation_cycle": 1,
+    "animated_tiles": 0
+   },
+   "render_error": null,
+   "source_comment": "PMD Sky (NDS) MAP_BG s13p01b5 -> rendu ROM direct (BMA/BPC + BPL variante de palette de s13p01a), décor du 2e écran NDS (Sub_s13p01b5.dir) — session dual-screen focus.",
+   "rom_place_name": null,
+   "cinematic": null
   }
  ],
  "human_names_authority": "bloc ROM 'Ground Map Names' EU (base 16256, preuve croisée G01P01A=Wigglytuff's Guild/Guilde de Grodoudou) via Docs/LEVEL_HUMAN_NAMES.json"
