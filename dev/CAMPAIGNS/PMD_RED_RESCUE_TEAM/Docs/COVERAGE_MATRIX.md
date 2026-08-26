@@ -4,7 +4,7 @@
 |---|---|---|---|
 | extraction_grounds | 254/254 (100.0%) | **PASS** | MANIFEST.totals.grounds |
 | render_visual | 254/254 (100.0%) | **PASS** | AUDIT.coverage.render_pct |
-| frames_animation | 233/233 (100.0%) | **PASS** | AUDIT.frame_status (période minimale réelle par tuile) |
+| frames_animation | — | **PASS** | AUDIT.frame_status (période minimale réelle par tuile) |
 | runtime_pmdo | 219/254 (86.2%) | **PARTIAL** | MANIFEST.totals.runtime_validated (campagne 219 : mismatched_pixel_count=0 dans PMDO 0.8.12 réel) |
 | cinematic_sequences | 132/254 (52.0%) | **PARTIAL** | MANIFEST.totals.with_cinematic (cif.json ROM) |
 | dialogues_5_langues | 69/133 (51.9%) | **PARTIAL** | Cinematics/DIALOGUES_INDEX.json (69 stations graphe EU exact, 3073 blocs) |

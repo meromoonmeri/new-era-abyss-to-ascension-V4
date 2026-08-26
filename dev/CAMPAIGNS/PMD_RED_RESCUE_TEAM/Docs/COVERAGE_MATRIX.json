@@ -22,9 +22,6 @@
   },
   {
    "dimension": "frames_animation",
-   "covered": 233,
-   "total": 233,
-   "pct": 100.0,
    "status": "PASS",
    "source": "AUDIT.frame_status (période minimale réelle par tuile)"
   },

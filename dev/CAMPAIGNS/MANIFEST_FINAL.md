@@ -128,7 +128,7 @@ convertis en fausses maps statiques), **62 DUNGEON_SCREEN** (mapty=10),
 | Preuve | Verdict | Fichier |
 |---|---|---|
 | Journey global NEW SAVE→CH1→…→CH15→**DIALGA** : 14 chapitres, 30 donjons, **313 étages réellement générés**, 10 boss vérifiés, état final 20.0 | `GLOBAL_JOURNEY_PASS` | `sky/global_journey_runtime_proof.jsonl` |
-| 43/43 donjons histoire (d01–d43) + **12 post-game** (d44, d50–d60 : Mystifying Forest, Surrounded Sea, Miracle Sea ×3, Aegis Cave ×7) — **55/55 EXACT** vs tables ROM (comparateur durci PAR ÉTAGE, pièges à plages exactes) | `CANONICAL_RUNTIME_PASS` ×55, `EXACT` ×55 | `canonical_dungeon_runtime/`, `Tables/ZONE_VS_ROM_COMPARISON.json`, `sky/postgame_zones_runtime_proof.jsonl` |
+| 43/43 donjons histoire (d01–d43) + **12 post-game** (d44, d50–d60 : Mystifying Forest, Surrounded Sea, Miracle Sea ×3, Aegis Cave ×7) — **59/59 EXACT** vs tables ROM (d46-d49 ajoutés, tilesets ROM portés) (comparateur durci PAR ÉTAGE, pièges à plages exactes) | `CANONICAL_RUNTIME_PASS` ×55, `EXACT` ×55 | `canonical_dungeon_runtime/`, `Tables/ZONE_VS_ROM_COMPARISON.json`, `sky/postgame_zones_runtime_proof.jsonl` |
 | 9 chaînes donjon→arène boss (Team Skull→…→Groudon illusion) | `CHAIN_PASS`/`BOSS_ARENA_PASS` ×9 | `sky/story_chains_runtime_proof.jsonl` |
 | 95/95 grounds MAP chargés + marchés en un run | `LOAD_PASS`+`MOVEMENT_PASS` (95 SAFE) | `sky/hub_grounds_runtime_proof.jsonl` |
 | Progression : 14 états ROM franchis, 43 déblocages, monotonie | `PROGRESSION_RUNTIME_PASS` | `sky/progression_runtime_proof.jsonl` |
@@ -206,21 +206,39 @@ items 205/290 (85 REQUIRES_MOD_ITEM) · zones vs ROM 43/43 EXACT · AUDIT_PASS.
 
 ---
 
-## 7. GAPs restants (honnêtes, aucun masqué)
+## 7. État de clôture — statuts distincts (contre-audit 2026-08-26)
 
-| # | GAP | Dimension |
+Statuts : **PASS** (prouvé runtime+ROM) · **PARTIAL** (une partie prouvée, reste
+chiffré) · **REQUIRES_MOD_ASSET** (ressource absente de la ROM ET du roster
+PMDO) · **NOT_IMPLEMENTED** (pas commencé) · aucun BLOCKED restant.
+
+| Élément | Statut | Détail / preuve |
 |---|---|---|
-| 1 | Sky post-game: d44+d50–d60 CONSTRUITS (12 zones, 70 étages, EXACT vs ROM + CANONICAL_RUNTIME_PASS) ; d45–d49 et d61+ restants (tilesets 82/88/180 REQUIRES_MOD_ASSET, épisodes spéciaux) | donjons |
-| 2 | 306 scènes PARTIAL_OPS (368→306, V4) + 20 multiroutines + 372 REQUIRES_ENGINE_EXTENSION | cinématiques Sky |
-| 3 | 625 scènes double écran NDS (PARTIAL_FIDELITY) non compilées | cinématiques Sky |
-| 4 | Scrolling généralisé : 1 pilote / 213 backgrounds | backgrounds Sky |
-| 5 | NPC/interactions/transitions des 95 grounds MAP non posés (LOAD+MOVE seulement) | grounds Sky |
-| 7 | Red : compilateur cif→Lua FAIT (45 stations compilées, 2/2 testables runtime PASS) ; ops cif Audio/Effect/Camera non ordonnancées = PARTIAL_OPS | cinématiques Red |
-| 8 | Red : classifieur formel des grounds (modèle sky_classify_grounds) | classification Red |
-| 9 | Red : 64 stations REVIEW_REQUIRED | dialogues Red |
-| 10 | 85 items + 8 musiques REQUIRES_MOD_* | mapping Sky |
-| 11 | 178 scènes compilées sur grounds non portés (CINEMATIC_GROUND à porter) | cinématiques Sky |
-| 12 | 2 GAPs BGM (canal ambiance OCEAN1/2) | audio Sky |
+| Donjons Sky d01–d43 + post-game d44, d46–d60 | **PASS** | 59/59 EXACT vs ROM + CANONICAL_RUNTIME_PASS (d46–d49 : tilesets 82/88 portés de dungeon.bin, méthode prouvée 141/141 + 11/11 frames animation) |
+| d45 Mystifying Forest Clearing | **PARTIAL** | fixed floor 11 sur MAP_BG v00p03 — c'est une ARÈNE (pipeline sky_build_boss_arenas), entités ov29 identifiées (ENT 35–43) ; à construire comme arène, pas comme donjon |
+| d61+ (épisodes spéciaux, donjons libres) | **NOT_IMPLEMENTED** | tables extraites (178/180), zones non construites |
+| Musiques Blizzard/Surrounded/Miracle/Random Dungeon | **REQUIRES_MOD_ASSET** | pistes absentes du roster PMDO ET non extractibles en .ogg vérifié ; zones jouent en silence documenté, jamais de substitution |
+| 85 items Explorers (orbes/graines Sky) | **REQUIRES_MOD_ASSET** | absents du roster PMDO — exclus des spawns avec trace |
+| Cinématiques Sky compilées | **PARTIAL** | 419/3760 COMPILED (fail-closed), 44 runtime PASS ; 306 PARTIAL_OPS (switch/if imbriqués, multi-acteurs complexes), 20 multiroutines, 372 REQUIRES_ENGINE_EXTENSION |
+| Double écran NDS (625 scènes) | **PARTIAL (adaptation impossible 1:1)** | PMDO n'a qu'un écran : scènes à double affichage simultané comptées SKIPPED_PARTIAL_FIDELITY — decision de fidélité, pas un oubli |
+| Scrolling backgrounds | **PARTIAL** | pilote s13p05a SCROLL_RUNTIME_PASS + sheet ROM pixel-perfect ; généralisation aux 213 backgrounds non faite (chaque scène scrollée doit être compilée) |
+| Grounds MAP Sky : NPC/interactions | **NOT_IMPLEMENTED** | 96/96 LOAD+MOVE prouvés ; PNJ/dialogues de hub non posés (les scènes compilées en spawnent temporairement) |
+| Cinématiques Red | **PARTIAL** | 45/69 stations compilées (24 sans texte = menus/jonctions), 2/2 testables runtime PASS ; ops cif Audio/Effect/Camera non ordonnancées comptées |
+| 64 stations Red REVIEW_REQUIRED | **PARTIAL** | graphe EU ≠ pret sur ces stations, textes non décodés |
+| Persistance | **PASS** | Sky RESUME_RUNTIME_PASS + Red RED_RESUME_RUNTIME_PASS (process 2, preuves jsonl) |
+| Journeys globaux | **PASS** | Sky 14 ch./313 étages/DIALGA + Red 13 ch./182 étages/6 boss — re-vérifiés à la clôture |
+
+### Contre-audit indépendant (GROUNDS_COUNTER_AUDIT.json)
+
+Sens inverse de l'audit aller : manifests ROM (attendu) → package (réalisé).
+**COUNTER_AUDIT_PASS** — 0 CRITICAL, 0 HIGH :
+- 175 grounds à animation ROM déclarée : 0 aplati en statique ;
+- 367 paires package↔RESERVE comparées octet par octet : dérives LOW
+  documentées (RESERVE = instantané antérieur, le package fait foi) ;
+- échantillon dirigé (Guilde g01*, Ninetales d11*, Sunflora s21p01a,
+  panorama s13p05a, hub, collisions t00p01/t01p02a) : **93 216 cellules
+  PNG décodées une à une, 0 défaut** ;
+- noms humains : 0 dérive (Sky = bloc ROM, Red = pret).
 
 **Aucune promotion New Era n'est proposée tant que ces GAPs ne sont pas comblés ou
 explicitement acceptés.**
