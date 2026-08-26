@@ -55,7 +55,11 @@ for f in ('pmdred_eu_music_extraction.json',
 # opcodes dialogues (décodage EU) : D0/D1 = boîtes de message par variantes,
 # D3 = question (menu oui/non NDS — rendu: dialogue simple, choix non
 # simulé => compté PARTIAL), D9 = message standard.
-MSG_OPS = {'0xD0', '0xD1', '0xD9'}
+# opcodes à texte vérifiés sur les blocs ROM décodés :
+#   D0/D1/D9 = boîtes de message ; D3 = question (menu NDS)
+#   32/33/39 = narration/panneau (préfixe #+) ; 34 = parole PNJ ;
+#   37 = texte d'intro — tous portent des blocs 5 langues réels
+MSG_OPS = {'0xD0', '0xD1', '0xD9', '0x32', '0x33', '0x34', '0x37', '0x39'}
 QUESTION_OPS = {'0xD3'}
 
 
@@ -72,6 +76,7 @@ def clean_text(s):
     s = re.sub(r'~([0-9A-Fa-f]{2})', _unmark, s)
     # #W = pause GBA (wait), #C/#R = contrôles couleur/reset → retirés
     s = s.replace('#W', ' ').replace('#C', '').replace('#R', '')
+    s = s.replace('#+', '')
     # $n0 = héros, $n1.. = interlocuteurs (résolution runtime kit) :
     # $n0 → [hero], autres → retirés (PARTIAL, noms de cast non résolus ici)
     s = s.replace('$n0', '[hero]')

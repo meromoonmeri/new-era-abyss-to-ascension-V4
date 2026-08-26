@@ -5,3 +5,6 @@
 {"event":"sky_scene_begin","scene":"d11p02__station","ground":"d11p02"}
 {"scene":"d11p02__station","kind":"compiled","verdict":"CINEMATIC_RUNTIME_PASS"}
 {"event":"end"}
+{"event":"sky_scene_begin","scene":"t01p05__station","ground":"t01p05"}
+{"scene":"t01p05__station","kind":"compiled","verdict":"CINEMATIC_RUNTIME_PASS"}
+{"event":"end"}

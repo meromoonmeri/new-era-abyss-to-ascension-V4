@@ -41,6 +41,8 @@ EXPECTED_ROM_SHA256 = "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604
 ROM_BASE = 0x08000000
 MAP_SCRIPT_TABLE_OFFSET = 0x0027BAC4
 MAP_SCRIPT_TABLE_ADDRESS = ROM_BASE + MAP_SCRIPT_TABLE_OFFSET
+# gFunctionScriptTable EU (chaîne EVENT_* décodée: 407 ScriptRef de 12 o)
+FUNCTION_TABLE_ADDRESS = 0x08294450
 SCRIPT_COMMAND_SIZE = 24
 SCRIPT_REF_SIZE = 12
 GROUND_HEADER_SIZE = 12
@@ -178,11 +180,28 @@ def build_reference_helper(header: Path, pret_root: Path) -> tuple[Path, str, in
 #define FAKE_FILENAME ((const u8 *)"FAKE_FILENAME")
 #include "global.h"
 #include "data_script.h"
+
+/* stub d'identite : certaines stations referencent
+   &gFunctionScriptTable[SCRIPT_ID] (defini dans un autre objet pret non
+   compile ici). Le helper ne DEREFERENCE jamais ce tableau -- il n'a
+   besoin que d'adresses stables pour l'identite des pointeurs ScriptRef.
+   Une definition locale de meme type suffit (les index restent exacts). */
+const ScriptRef gFunctionScriptTable[NUM_SCRIPT_IDS];
+
 #include "{_c_escape(str(header.resolve()))}"
 
 static const char *command_name(const ScriptCommand *ptr) {{
 {comparisons}
     return ptr == NULL ? "-" : "?";
+}}
+
+/* ScriptRef pointant dans gFunctionScriptTable : identite par INDEX de
+   table (les deux cotes EU/pret comparent FUNC[i], pas une adresse). */
+static int function_table_index(const ScriptRef *ref) {{
+    if (ref >= gFunctionScriptTable &&
+        ref < gFunctionScriptTable + NUM_SCRIPT_IDS)
+        return (int)(ref - gFunctionScriptTable);
+    return -1;
 }}
 
 static void hex8(const void *ptr) {{
@@ -233,9 +252,15 @@ int main(void) {{
             for (uint32_t i = 0; i < sector->nEvents; ++i) {{
                 const ScriptRef *ref = sector->events[i].script;
                 printf("E\\tV\\t%u\\t%u\\t%u\\t", g, s, i); hex8(&sector->events[i]); putchar('\\n');
-                if (ref)
-                    printf("R\\tV\\t%u\\t%u\\t%u\\t%d\\t%d\\t%s\\n", g, s, i,
-                           ref->id, ref->type, command_name(ref->script));
+                if (ref) {{
+                    int fti = function_table_index(ref);
+                    if (fti >= 0)
+                        printf("R\\tV\\t%u\\t%u\\t%u\\t-2\\t-2\\tFUNC_%d\\n",
+                               g, s, i, fti);
+                    else
+                        printf("R\\tV\\t%u\\t%u\\t%u\\t%d\\t%d\\t%s\\n", g, s, i,
+                               ref->id, ref->type, command_name(ref->script));
+                }}
             }}
             if (sector->hasStation) {{
                 const ScriptRef *ref = *sector->station;
@@ -373,7 +398,19 @@ def decode_eu_graph(reader: RomReader, regional_id: int, source_ground_id: int) 
         sector_count, sectors_address = reader.unpack(
             "<II", groups_address + g * GROUP_SIZE, f"map {regional_id} group {g}"
         )
-        require(0 < sector_count < 64, f"map {regional_id} group {g}: implausible sector count")
+        # groupes VIDES légitimes dans la ROM EU (sector_count==0 avec
+        # sectors_address==0 — vérifié octet par octet, ex. map 10 g22,
+        # map 107 g2) : même invariant count/pointer que les entités
+        require(sector_count < 64, f"map {regional_id} group {g}: implausible sector count")
+        require((sector_count == 0) == (sectors_address == 0),
+                f"map {regional_id} group {g}: sector count/pointer disagreement")
+        if sector_count == 0:
+            result["groups"].append({
+                "index": g, "sector_count": 0,
+                "sectors_address": address_hex(sectors_address),
+                "sectors": [],
+            })
+            continue
         result["node_addresses"].add(sectors_address)
         group = {
             "index": g, "sector_count": sector_count,
@@ -428,6 +465,22 @@ def decode_eu_graph(reader: RomReader, regional_id: int, source_ground_id: int) 
                         ref_address = reader.u32(entity_address + 8, f"map {regional_id} event ScriptRef")
                         if ref_address:
                             result["node_addresses"].add(ref_address)
+                            # ScriptRef dans gFunctionScriptTable EU
+                            # (@0x08294450, 407 entrées de 12 octets) :
+                            # identité par INDEX de table, comme le helper
+                            # pret (delta régional EU = 0 sur l'index brut)
+                            if FUNCTION_TABLE_ADDRESS <= ref_address < \
+                                    FUNCTION_TABLE_ADDRESS + 407 * 12 and \
+                                    (ref_address - FUNCTION_TABLE_ADDRESS) % 12 == 0:
+                                fti = (ref_address - FUNCTION_TABLE_ADDRESS) // 12
+                                result["refs"][(category, g, s, i)] = {
+                                    "id": -2, "type": -2,
+                                    "command": f"FUNC_{fti}",
+                                    "address": address_hex(ref_address),
+                                }
+                                result["owners"][(category, g, s, i, 0)] = (
+                                    f"FUNC_{fti}", 0)
+                                continue
                             ref_id, ref_type, _name_ptr, command_address = reader.unpack(
                                 "<hhII", ref_address, f"map {regional_id} event ScriptRef"
                             )
@@ -609,6 +662,12 @@ def audit_candidate(reader: RomReader, source_ref: SourceReference, regional_id:
 
     owner_by_name: dict[str, int] = {}
     for name, address in eu["owners"].values():
+        if name.startswith("FUNC_"):
+            # entrées de gFunctionScriptTable : PARTAGÉES par nature
+            # (plusieurs events d'une même station pointent la même
+            # fonction commune, ex. FUNC_358 GETOUT) — pas des tableaux
+            # de commandes locaux, pas de contrainte d'unicité
+            continue
         require(name not in owner_by_name, f"{source_ref.asset}: command array {name} has duplicate owners")
         owner_by_name[name] = address
     declared_names = set(source_ref.command_names)

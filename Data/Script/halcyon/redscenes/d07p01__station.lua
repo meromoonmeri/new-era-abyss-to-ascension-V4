@@ -5,6 +5,8 @@ local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() SOUND:PlayBGM("Great Canyon", true) end)
   pcall(function() UI:ResetSpeaker() end)
+  SkySceneKit.say({english="This is the DGreat Canyon...", french="C'est le DGrand Ravin...", german="Dies ist die DRiesenschlucht...", italian="Questo è il DCanyon Maestoso...", spanish="Este es el DGran Cañón..."})
+  SkySceneKit.say({english="The peak is called the 5Hill of the Ancients.", french="Son sommet est appelé la 5Colline des Anciens.", german="Der Gipfel wird 5Berg der Vorzeit genannt.", italian="La cima si chiama 5Vetta Ancestrale.", spanish="El pico tiene el nombre de 5Monte Oráculo."})
   SkySceneKit.say({english="said that the 5Hill of the Ancients is on F.", french="a dit que la 5Colline des Anciens est à l'étage .", german="sagte, dass der Zugang zum 5Berg der Vorzeit auf E liegt.", italian="ha detto che la 5Vetta Ancestrale si trova al P. .", spanish="dijo que el 5Monte Oráculo está en el nivel ."})
   SkySceneKit.say({english="That's where we'll find . [hero], let's give it our best!", french="C'est là-bas qu'on trouvera . [hero], faisons de notre mieux!", german="Dort werden wir finden. [hero], lass uns unser Bestes geben!", italian="Lì troveremo . [hero], mettiamoci tutta la nostra grinta!", spanish="Allí encontraremos a . ¡[hero], vamos a por todas!"})
   SkySceneKit.say({english="According to , the 5Hill of the Ancients is on F.", french="Selon , la 5Colline des Anciens est à l'étage .", german="Laut liegt der Zugang zum 5Berg der Vorzeit auf E.", italian="Secondo , la 5Vetta Ancestrale è al P. .", spanish="Según , el 5Monte Oráculo está en el nivel ."})
