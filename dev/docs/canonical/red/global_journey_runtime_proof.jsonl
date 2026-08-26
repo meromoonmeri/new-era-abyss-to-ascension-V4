@@ -1,4 +1,4 @@
-{"event":"redjourney_begin","chapters":11}
+{"event":"redjourney_begin","chapters":13}
 {"event":"red_dungeon_done","zone":"tiny_woods","floors":3}
 {"event":"red_chapter","ch":"CH2 Thunderwave (3.x)"}
 {"event":"red_dungeon_done","zone":"thunderwave_cave","floors":5}
@@ -28,5 +28,15 @@
 {"event":"red_dungeon_done","zone":"mt_freeze","floors":15}
 {"event":"red_dungeon_done","zone":"mt_freeze_peak","floors":4}
 {"event":"red_boss","ch":"CH11 Mt Freeze (14.x)","species":"glalie","expected":"glalie","found":true}
-{"event":"redjourney_end","chapters_done":11,"floors_traversed":120,"verdict":"RED_GLOBAL_JOURNEY_PASS"}
+{"event":"red_chapter","ch":"CH12 Magma Cavern (15.x-16.0)"}
+{"event":"red_dungeon_done","zone":"magma_cavern","floors":8}
+{"event":"red_dungeon_done","zone":"magma_cavern","floors":7}
+{"event":"red_dungeon_done","zone":"magma_cavern","floors":8}
+{"event":"red_dungeon_done","zone":"magma_cavern_pit","floors":3}
+{"event":"red_boss_gap","ch":"CH12 Magma Cavern (15.x-16.0)","gap":"FIXED_ROOM_MAGMA_CAVERN_PIT_GROUDON: arène fixe GBA (fixedmap.inc RLE) NOT_BUILT — la zone du dépôt est le contenu New Era ch.12 renivelé, pas le boss canonique"}
+{"event":"red_chapter","ch":"CH13 Sky Tower (16.x-17.0 FINALE)"}
+{"event":"red_dungeon_done","zone":"sky_tower","floors":25}
+{"event":"red_dungeon_done","zone":"sky_tower_summit","floors":9}
+{"event":"red_boss_gap","ch":"CH13 Sky Tower (16.x-17.0 FINALE)","gap":"FIXED_ROOM_SKY_TOWER_SUMMIT_RAYQUAZA: arène fixe GBA NOT_BUILT — idem"}
+{"event":"redjourney_end","chapters_done":13,"floors_traversed":180,"boss_gaps":2,"verdict":"RED_GLOBAL_JOURNEY_PASS_WITH_GAPS"}
 {"event":"end"}

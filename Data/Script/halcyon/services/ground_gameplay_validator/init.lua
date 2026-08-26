@@ -85,6 +85,8 @@ function V:begin()
    {ch='CH9 Mt Blaze (12.x)',dungeons={{z='mt_blaze',floors=12},{z='mt_blaze_peak',floors=2}},boss={seg=1,species='moltres',zone='mt_blaze_peak'}},
    {ch='CH10 Frosty Forest (13.x)',dungeons={{z='frosty_forest',floors=8}}},
    {ch='CH11 Mt Freeze (14.x)',dungeons={{z='mt_freeze',floors=15},{z='mt_freeze_peak',floors=4}},boss={seg=1,species='glalie',zone='mt_freeze_peak'}},
+   {ch='CH12 Magma Cavern (15.x-16.0)',dungeons={{z='magma_cavern',floors=8},{z='magma_cavern',floors=7,seg=1},{z='magma_cavern',floors=8,seg=2},{z='magma_cavern_pit',floors=3}},boss_gap='FIXED_ROOM_MAGMA_CAVERN_PIT_GROUDON: arène fixe GBA (fixedmap.inc RLE) NOT_BUILT — la zone du dépôt est le contenu New Era ch.12 renivelé, pas le boss canonique'},
+   {ch='CH13 Sky Tower (16.x-17.0 FINALE)',dungeons={{z='sky_tower',floors=25},{z='sky_tower_summit',floors=9}},boss_gap='FIXED_ROOM_SKY_TOWER_SUMMIT_RAYQUAZA: arène fixe GBA NOT_BUILT — idem'},
   }
   self.rjch=1;self.rjdun=1;self.rjfloors=0
   emit('{"event":"redjourney_begin","chapters":'..#self.RJ..'}')
@@ -243,6 +245,45 @@ function V:OnDungeonFloorEnter()
         GAME:EnterZone(cur.z,want_seg,floor+1,0)
       else
         emit('{"event":"red_dungeon_done","zone":"'..cur.z..'","floors":'..cur.floors..'}')
+        -- GAP documenté : arène GBA non construite (jamais un faux PASS)
+        if C.boss_gap and not C.dungeons[self.rjdun+1] then
+          emit('{"event":"red_boss_gap","ch":"'..C.ch..'","gap":"'..C.boss_gap..'"}')
+          self.rjgaps=(self.rjgaps or 0)+1
+          self.rjch=self.rjch+1;self.rjdun=1
+          local N=self.RJ[self.rjch]
+          if N==nil then
+            emit('{"event":"redjourney_end","chapters_done":'..(self.rjch-1)..',"floors_traversed":'..self.rjfloors..',"boss_gaps":'..(self.rjgaps or 0)..',"verdict":"RED_GLOBAL_JOURNEY_PASS_WITH_GAPS"}')
+            emit('{"event":"end"}')
+          else
+            emit('{"event":"red_chapter","ch":"'..N.ch..'"}')
+            GAME:EnterZone(N.dungeons[1].z,N.dungeons[1].seg or 0,0,0)
+          end
+          return
+        end
+        -- boss_inline : boss au dernier étage de cette zone ?
+        if C.boss_inline and C.boss_inline.zone==cur.z and not C.dungeons[self.rjdun+1] then
+          local map=_ZONE.CurrentMap
+          local sp={};local found=false
+          for ti=0,map.MapTeams.Count-1 do
+            local t2=map.MapTeams[ti]
+            for pi=0,t2.Players.Count-1 do
+              local ok2,s2=pcall(function() return t2.Players[pi].BaseForm.Species end)
+              if ok2 and s2 then sp[#sp+1]=tostring(s2);if tostring(s2)==C.boss_inline.species then found=true end end
+            end
+          end
+          emit('{"event":"red_boss","ch":"'..C.ch..'","kind":"inline_last_floor","species":"'..table.concat(sp,',')..'","expected":"'..C.boss_inline.species..'","found":'..tostring(found)..'}')
+          if not found then emit('{"event":"redjourney_end","verdict":"FAIL","error":"boss inline absent"}');emit('{"event":"end"}');return end
+          self.rjch=self.rjch+1;self.rjdun=1
+          local N=self.RJ[self.rjch]
+          if N==nil then
+            emit('{"event":"redjourney_end","chapters_done":'..(self.rjch-1)..',"floors_traversed":'..self.rjfloors..',"verdict":"RED_GLOBAL_JOURNEY_PASS"}')
+            emit('{"event":"end"}')
+          else
+            emit('{"event":"red_chapter","ch":"'..N.ch..'"}')
+            GAME:EnterZone(N.dungeons[1].z,N.dungeons[1].seg or 0,0,0)
+          end
+          return
+        end
         if C.boss and (C.boss.zone or cur.z)==cur.z then
           GAME:EnterZone(cur.z,C.boss.seg or 1,0,0)
         elseif C.dungeons[self.rjdun+1] then
