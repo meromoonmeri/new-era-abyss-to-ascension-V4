@@ -45,3 +45,14 @@
 {"event": "postgame_zone", "zone": "shimmer_hill", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
 {"event": "postgame_zone", "zone": "lost_wilderness", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
 {"event": "postgame_zone", "zone": "midnight_forest", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_boss_arenas", "date": "2026-08-26", "count": 10, "method": "fixed.bin ffNN g\u00e9om\u00e9trie exacte + cast ov29 (entid%600) + niveaux mappa poids 10000", "runtime": "10/10 CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_arena", "zone": "regigigas_chamber_boss", "fixed_floor": "ff17", "boss": "regigigas L45+11 gardiens", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_arena", "zone": "spacial_rift_bottom", "fixed_floor": "ff18", "boss": "palkia L53", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_arena", "zone": "dark_crater_pit", "fixed_floor": "ff19", "boss": "darkrai L53+5 sbires", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_arena", "zone": "giant_volcano_peak", "fixed_floor": "ff20", "boss": "heatran L46", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_arena", "zone": "shimmer_desert_pit", "fixed_floor": "ff21", "boss": "groudon L44", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_arena", "zone": "mt_avalanche_peak", "fixed_floor": "ff22", "boss": "articuno L46", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_arena", "zone": "bottomless_sea_depths", "fixed_floor": "ff23", "boss": "kyogre L51", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_arena", "zone": "world_abyss_pit", "fixed_floor": "ff24", "boss": "giratina L48", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_arena", "zone": "deep_mystery_jungle", "fixed_floor": "ff25", "boss": "mew L48", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_arena", "zone": "sky_stairway_apex", "fixed_floor": "ff26", "boss": "rayquaza L50", "runtime": "CANONICAL_RUNTIME_PASS"}

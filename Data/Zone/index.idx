@@ -8767,6 +8767,296 @@
    "Released": true,
    "Comment": "PMD Red EU fixed room 7",
    "SortOrder": 0
+  },
+  "regigigas_chamber_boss": {
+   "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+   "ExpPercent": 100,
+   "Level": 27,
+   "LevelCap": false,
+   "KeepSkills": false,
+   "TeamRestrict": false,
+   "TeamSize": -1,
+   "MoneyRestrict": false,
+   "BagRestrict": -1,
+   "KeepTreasure": false,
+   "BagSize": -1,
+   "Rescues": 2,
+   "CountedFloors": 1,
+   "Rogue": 0,
+   "Grounds": [],
+   "Maps": [
+    [
+     0
+    ]
+   ],
+   "Name": {
+    "DefaultText": "Regigigas Chamber",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "PMD Red EU fixed room 7",
+   "SortOrder": 0
+  },
+  "spacial_rift_bottom": {
+   "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+   "ExpPercent": 100,
+   "Level": 27,
+   "LevelCap": false,
+   "KeepSkills": false,
+   "TeamRestrict": false,
+   "TeamSize": -1,
+   "MoneyRestrict": false,
+   "BagRestrict": -1,
+   "KeepTreasure": false,
+   "BagSize": -1,
+   "Rescues": 2,
+   "CountedFloors": 1,
+   "Rogue": 0,
+   "Grounds": [],
+   "Maps": [
+    [
+     0
+    ]
+   ],
+   "Name": {
+    "DefaultText": "Spacial Rift Bottom",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "PMD Red EU fixed room 7",
+   "SortOrder": 0
+  },
+  "dark_crater_pit": {
+   "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+   "ExpPercent": 100,
+   "Level": 27,
+   "LevelCap": false,
+   "KeepSkills": false,
+   "TeamRestrict": false,
+   "TeamSize": -1,
+   "MoneyRestrict": false,
+   "BagRestrict": -1,
+   "KeepTreasure": false,
+   "BagSize": -1,
+   "Rescues": 2,
+   "CountedFloors": 1,
+   "Rogue": 0,
+   "Grounds": [],
+   "Maps": [
+    [
+     0
+    ]
+   ],
+   "Name": {
+    "DefaultText": "Dark Crater Pit",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "PMD Red EU fixed room 7",
+   "SortOrder": 0
+  },
+  "giant_volcano_peak": {
+   "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+   "ExpPercent": 100,
+   "Level": 27,
+   "LevelCap": false,
+   "KeepSkills": false,
+   "TeamRestrict": false,
+   "TeamSize": -1,
+   "MoneyRestrict": false,
+   "BagRestrict": -1,
+   "KeepTreasure": false,
+   "BagSize": -1,
+   "Rescues": 2,
+   "CountedFloors": 1,
+   "Rogue": 0,
+   "Grounds": [],
+   "Maps": [
+    [
+     0
+    ]
+   ],
+   "Name": {
+    "DefaultText": "Giant Volcano Peak",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "PMD Red EU fixed room 7",
+   "SortOrder": 0
+  },
+  "shimmer_desert_pit": {
+   "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+   "ExpPercent": 100,
+   "Level": 27,
+   "LevelCap": false,
+   "KeepSkills": false,
+   "TeamRestrict": false,
+   "TeamSize": -1,
+   "MoneyRestrict": false,
+   "BagRestrict": -1,
+   "KeepTreasure": false,
+   "BagSize": -1,
+   "Rescues": 2,
+   "CountedFloors": 1,
+   "Rogue": 0,
+   "Grounds": [],
+   "Maps": [
+    [
+     0
+    ]
+   ],
+   "Name": {
+    "DefaultText": "Shimmer Desert Pit",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "PMD Red EU fixed room 7",
+   "SortOrder": 0
+  },
+  "mt_avalanche_peak": {
+   "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+   "ExpPercent": 100,
+   "Level": 27,
+   "LevelCap": false,
+   "KeepSkills": false,
+   "TeamRestrict": false,
+   "TeamSize": -1,
+   "MoneyRestrict": false,
+   "BagRestrict": -1,
+   "KeepTreasure": false,
+   "BagSize": -1,
+   "Rescues": 2,
+   "CountedFloors": 1,
+   "Rogue": 0,
+   "Grounds": [],
+   "Maps": [
+    [
+     0
+    ]
+   ],
+   "Name": {
+    "DefaultText": "Mt. Avalanche Peak",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "PMD Red EU fixed room 7",
+   "SortOrder": 0
+  },
+  "bottomless_sea_depths": {
+   "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+   "ExpPercent": 100,
+   "Level": 27,
+   "LevelCap": false,
+   "KeepSkills": false,
+   "TeamRestrict": false,
+   "TeamSize": -1,
+   "MoneyRestrict": false,
+   "BagRestrict": -1,
+   "KeepTreasure": false,
+   "BagSize": -1,
+   "Rescues": 2,
+   "CountedFloors": 1,
+   "Rogue": 0,
+   "Grounds": [],
+   "Maps": [
+    [
+     0
+    ]
+   ],
+   "Name": {
+    "DefaultText": "Bottomless Sea Depths",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "PMD Red EU fixed room 7",
+   "SortOrder": 0
+  },
+  "world_abyss_pit": {
+   "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+   "ExpPercent": 100,
+   "Level": 27,
+   "LevelCap": false,
+   "KeepSkills": false,
+   "TeamRestrict": false,
+   "TeamSize": -1,
+   "MoneyRestrict": false,
+   "BagRestrict": -1,
+   "KeepTreasure": false,
+   "BagSize": -1,
+   "Rescues": 2,
+   "CountedFloors": 1,
+   "Rogue": 0,
+   "Grounds": [],
+   "Maps": [
+    [
+     0
+    ]
+   ],
+   "Name": {
+    "DefaultText": "World Abyss Pit",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "PMD Red EU fixed room 7",
+   "SortOrder": 0
+  },
+  "deep_mystery_jungle": {
+   "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+   "ExpPercent": 100,
+   "Level": 27,
+   "LevelCap": false,
+   "KeepSkills": false,
+   "TeamRestrict": false,
+   "TeamSize": -1,
+   "MoneyRestrict": false,
+   "BagRestrict": -1,
+   "KeepTreasure": false,
+   "BagSize": -1,
+   "Rescues": 2,
+   "CountedFloors": 1,
+   "Rogue": 0,
+   "Grounds": [],
+   "Maps": [
+    [
+     0
+    ]
+   ],
+   "Name": {
+    "DefaultText": "Deep Mystery Jungle",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "PMD Red EU fixed room 7",
+   "SortOrder": 0
+  },
+  "sky_stairway_apex": {
+   "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+   "ExpPercent": 100,
+   "Level": 27,
+   "LevelCap": false,
+   "KeepSkills": false,
+   "TeamRestrict": false,
+   "TeamSize": -1,
+   "MoneyRestrict": false,
+   "BagRestrict": -1,
+   "KeepTreasure": false,
+   "BagSize": -1,
+   "Rescues": 2,
+   "CountedFloors": 1,
+   "Rogue": 0,
+   "Grounds": [],
+   "Maps": [
+    [
+     0
+    ]
+   ],
+   "Name": {
+    "DefaultText": "Sky Stairway Apex",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "PMD Red EU fixed room 7",
+   "SortOrder": 0
   }
  }
 }
