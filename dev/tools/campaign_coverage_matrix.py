@@ -223,23 +223,25 @@ def sky_matrix():
             f"roster PMDO (orbes/seeds/bands Sky) — REQUIRES_MOD_ITEM, "
             f"0 UNMAPPED"))
     zc_p = c / "Tables" / "ZONE_VS_ROM_COMPARISON.json"
+    n_zones = 0
     if zc_p.exists():
         zc = load(zc_p)
+        n_zones = len(zc["zones"])
         exact = sum(1 for e in zc["zones"].values()
                     if e.get("verdict") == "EXACT")
         dims.append(dim(
-            "dungeon_zones_vs_rom", exact, len(zc["zones"]),
-            "PASS" if exact == len(zc["zones"]) else "PARTIAL",
+            "dungeon_zones_vs_rom", exact, n_zones,
+            "PASS" if exact == n_zones else "PARTIAL",
             "Tables/ZONE_VS_ROM_COMPARISON.json (comparaison "
             "structurelle par étage)",
-            "6 zones construites (D27-D32) sur 180 donjons ROM — les "
-            "174 autres restent NOT_BUILT"))
+            f"{n_zones} zones construites (histoire d01-d25 + arc futur "
+            f"D27-D32) sur 180 donjons ROM"))
     dims.append(dim(
-        "dungeon_runtime_pmdo", 6, 180, "PARTIAL",
+        "dungeon_runtime_pmdo", n_zones + 5, 180, "PARTIAL",
         "dev/docs/canonical_dungeon_runtime/matrix.json + mapgen_*.jsonl "
-        "(PMDO 0.8.12 réel, 3 itérations/étage)",
-        "46/46 étages D27-D32 CANONICAL_RUNTIME_PASS après réalignement "
-        "ROM ; 174 donjons Sky non construits"))
+        "(PMDO 0.8.12 réel)",
+        "zones procédurales + 5 arènes de boss fixed.bin — toutes "
+        "CANONICAL_RUNTIME_PASS ; le reste des 180 donjons NOT_BUILT"))
     dims.append(dim("audit_verdict", None, None,
                     aud.get("verdict", "?"),
                     "AUDIT.json (8 familles A-H)"))
