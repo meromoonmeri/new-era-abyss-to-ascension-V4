@@ -7258,6 +7258,161 @@
       "Released": true,
       "Comment": "PMD Sky EU d60 DUNGEON_AEGIS_CAVE_PIT",
       "SortOrder": 0
+    },
+    "blizzard_island": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 49,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 20,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Blizzard Island",
+        "LocalTexts": {
+          "fr": "Ile Blizzard"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d46 DUNGEON_BLIZZARD_ISLAND",
+      "SortOrder": 0
+    },
+    "crevice_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 47,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 10,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Crevice Cave",
+        "LocalTexts": {
+          "fr": "Grotte Lézarde"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d47 DUNGEON_CREVICE_CAVE",
+      "SortOrder": 0
+    },
+    "lower_crevice_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 53,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 4,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Lower Crevice Cave",
+        "LocalTexts": {
+          "fr": "Grotte Lézarde - prof."
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d48 DUNGEON_LOWER_CREVICE_CAVE",
+      "SortOrder": 0
+    },
+    "crevice_cave_pit": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 45,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 1,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Crevice Cave Pit",
+        "LocalTexts": {
+          "fr": "Grotte Lézarde - fond"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d49 DUNGEON_CREVICE_CAVE_PIT",
+      "SortOrder": 0
     }
   }
 }

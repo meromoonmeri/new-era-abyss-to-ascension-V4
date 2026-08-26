@@ -330,3 +330,27 @@
 - items : ROM a des tables=True, zone spawn=True → PASS
 - pièges : PASS 
 
+## blizzard_island (d46 DUNGEON_BLIZZARD_ISLAND) — **EXACT**
+- étages : zone 20 / ROM 20 → PASS
+- espèces/niveaux/proportions : 20 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## crevice_cave (d47 DUNGEON_CREVICE_CAVE) — **EXACT**
+- étages : zone 10 / ROM 10 → PASS
+- espèces/niveaux/proportions : 10 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## lower_crevice_cave (d48 DUNGEON_LOWER_CREVICE_CAVE) — **EXACT**
+- étages : zone 4 / ROM 4 → PASS
+- espèces/niveaux/proportions : 4 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## crevice_cave_pit (d49 DUNGEON_CREVICE_CAVE_PIT) — **EXACT**
+- étages : zone 1 / ROM 1 → PASS
+- espèces/niveaux/proportions : 1 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+

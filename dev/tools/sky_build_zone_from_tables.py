@@ -58,10 +58,13 @@ TSET = {1: "beach_cave", 2: "drenched_bluff", 3: "mt_bristle",
         # post-game d44+ : autotiles PMDO base (DumpAsset), noms 1:1
         48: "mystifying_forest", 49: "rock_aegis_cave",
         51: "surrounded_sea", 52: "miracle_sea",
-        126: "ice_aegis_cave", 127: "steel_aegis_cave"}
-# tilesets NDS SANS autotile PMDO (base+quest) : 82 crevice_cave,
-# 88 blizzard_island, 180 clearing d45 — REQUIRES_MOD_ASSET, zones non
-# construites tant que l'autotile canonique n'est pas porté.
+        126: "ice_aegis_cave", 127: "steel_aegis_cave",
+        # portés depuis DUNGEON/dungeon.bin par sky_port_dungeon_tileset.py
+        # (méthode prouvée 141/141 vs autotile officiel ts126, animations
+        # DPLA préservées — session 2026-08-26)
+        82: "crevice_cave", 88: "blizzard_island"}
+# tileset NDS 180 (d45 clearing) = MAP_BG v00p03 + fixed floor 11 :
+# arène fixe, pipeline sky_build_boss_arenas (pas un donjon procédural).
 
 # music_id mappa -> piste canonique. AUTORITÉ : liste musique donjon arm9
 # overlay10 (HardcodedDungeonMusic : mid -> track) × enum music_id
@@ -166,7 +169,8 @@ def main():
             raise SystemExit(f"tileset NDS {ts} non mappé — compléter TSET")
         for suf in ("floor", "wall", "secondary"):
             p = os.path.join(DUMP_AUTOTILE, f"{base}_{suf}.json")
-            if not os.path.exists(p):
+            pq = os.path.join(REPO, "Data", "AutoTile", f"{base}_{suf}.json")
+            if not os.path.exists(p) and not os.path.exists(pq):
                 raise SystemExit(f"auto-tileset absent: {base}_{suf}")
     musics = sorted({f["layout"]["music_id"] for f in floors_rom})
     for mid in musics:

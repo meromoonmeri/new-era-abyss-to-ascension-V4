@@ -63,6 +63,9 @@ ZONE_TO_DUNGEON = {
     "regice_chamber": "d55", "rock_aegis_cave": "d56",
     "regirock_chamber": "d57", "steel_aegis_cave": "d58",
     "registeel_chamber": "d59", "aegis_cave_pit": "d60",
+    # d46-d49: tilesets 82/88 portés depuis dungeon.bin (session clôture)
+    "blizzard_island": "d46", "crevice_cave": "d47",
+    "lower_crevice_cave": "d48", "crevice_cave_pit": "d49",
 }
 
 TRAP_TO_PMDO = {k: v.get("pmdo_tile")
