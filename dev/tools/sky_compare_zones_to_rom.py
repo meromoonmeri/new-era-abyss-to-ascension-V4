@@ -38,6 +38,7 @@ MAPPING = json.load(open(os.path.join(TABLES, "PMDO_MAPPING.json")))
 ZONE_TO_DUNGEON = {
     "chasm_cave": "d27", "dark_hill": "d28", "sealed_ruin": "d29",
     "sealed_ruin_pit": "d30", "spiritomb_room": "d31", "dusk_forest": "d32",
+    "beach_cave": "d01",
 }
 
 TRAP_TO_PMDO = {k: v.get("pmdo_tile")

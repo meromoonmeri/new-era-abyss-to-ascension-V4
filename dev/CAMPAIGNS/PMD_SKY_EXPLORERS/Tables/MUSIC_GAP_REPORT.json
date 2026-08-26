@@ -1,0 +1,15 @@
+{
+ "schema": "music-gap-report/1",
+ "note": "pistes référencées par des zones mais absentes de Content/Music et du DumpAsset — le moteur charge la zone sans musique (silence). Statut REQUIRES_MOD_ASSET: pistes EoS à fournir au mod, PAS de substitution silencieuse.",
+ "missing": {
+  "Beach Cave.ogg": [
+   "beach_cave"
+  ],
+  "Dusk Forest.ogg": [
+   "dusk_forest"
+  ],
+  "Sealed Ruin Pit.ogg": [
+   "sealed_ruin_pit"
+  ]
+ }
+}

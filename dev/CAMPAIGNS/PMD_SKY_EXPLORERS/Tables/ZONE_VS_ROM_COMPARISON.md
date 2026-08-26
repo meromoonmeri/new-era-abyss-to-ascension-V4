@@ -36,3 +36,9 @@
 - items : ROM a des tables=True, zone spawn=True → PASS
 - pièges : PASS 
 
+## beach_cave (d01 DUNGEON_BEACH_CAVE) — **EXACT**
+- étages : zone 4 / ROM 4 → PASS
+- espèces/niveaux/proportions : 4 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+

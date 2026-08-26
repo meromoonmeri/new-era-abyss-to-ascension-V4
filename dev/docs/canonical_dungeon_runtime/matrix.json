@@ -35172,5 +35172,93 @@
    "non_traversable": 0,
    "invalid": 0
   }
+ },
+ "beach_cave": {
+  "zone": "beach_cave",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": 13,
+    "halls": 12,
+    "branches": 3,
+    "loops": 0,
+    "dead_ends": 7,
+    "width": 48,
+    "height": 48,
+    "autotiles": "beach_cave_floor,beach_cave_secondary,beach_cave_wall",
+    "iterations_seen": 3,
+    "error": null
+   },
+   "seg0_floor1": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": 15,
+    "halls": 14,
+    "branches": 3,
+    "loops": 0,
+    "dead_ends": 6,
+    "width": 48,
+    "height": 48,
+    "autotiles": "beach_cave_floor,beach_cave_secondary,beach_cave_wall",
+    "iterations_seen": 3,
+    "error": null
+   },
+   "seg0_floor2": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": 13,
+    "halls": 12,
+    "branches": 4,
+    "loops": 0,
+    "dead_ends": 6,
+    "width": 48,
+    "height": 48,
+    "autotiles": "beach_cave_floor,beach_cave_secondary,beach_cave_wall",
+    "iterations_seen": 3,
+    "error": null
+   },
+   "seg0_floor3": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": 13,
+    "halls": 12,
+    "branches": 3,
+    "loops": 0,
+    "dead_ends": 5,
+    "width": 48,
+    "height": 48,
+    "autotiles": "beach_cave_floor,beach_cave_secondary,beach_cave_wall",
+    "iterations_seen": 3,
+    "error": null
+   }
+  },
+  "floor_count": 4,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 12,
+   "generated": 12,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
  }
 }

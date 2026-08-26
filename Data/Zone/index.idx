@@ -5246,6 +5246,40 @@
       "Released": true,
       "Comment": "Zone hote des duels entre Pokemon sauvages des zones NNV. Tous les segments sont IsRelevant=false : aucun ne compte dans la progression, aucun drapeau d histoire.",
       "SortOrder": 0
+    },
+    "beach_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 2,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 4,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Beach Cave",
+        "LocalTexts": {
+          "fr": "Grotte Littorale"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d01 DUNGEON_BEACH_CAVE",
+      "SortOrder": 0
     }
   }
 }
