@@ -134,12 +134,21 @@
   },
   {
    "dimension": "dungeon_runtime_pmdo",
-   "covered": 48,
+   "covered": 43,
    "total": 180,
-   "pct": 26.7,
+   "pct": 23.9,
    "status": "PARTIAL",
    "source": "dev/docs/canonical_dungeon_runtime/matrix.json + mapgen_*.jsonl (PMDO 0.8.12 réel)",
-   "note": "zones procédurales + 5 arènes de boss fixed.bin — toutes CANONICAL_RUNTIME_PASS ; le reste des 180 donjons NOT_BUILT"
+   "note": "43 zones (histoire d01-d43 complète + arc futur) toutes CANONICAL_RUNTIME_PASS ; le reste des 180 donjons NOT_BUILT"
+  },
+  {
+   "dimension": "story_chains_end_to_end",
+   "covered": 9,
+   "total": 9,
+   "pct": 100.0,
+   "status": "PASS",
+   "source": "dev/docs/canonical/sky/story_chains_runtime_proof.jsonl (red_story_route_validator, chaînes sky)",
+   "note": "donjon procédural étage par étage → zone d'arène → espèce du boss fixed.bin vérifiée dans les MapTeams chargées, moteur réel ; combat piloté par IA non joué (headless)"
   },
   {
    "dimension": "audit_verdict",

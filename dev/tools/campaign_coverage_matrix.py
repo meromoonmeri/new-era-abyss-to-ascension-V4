@@ -261,11 +261,23 @@ def sky_matrix():
             f"{n_zones} zones construites (histoire d01-d25 + arc futur "
             f"D27-D32) sur 180 donjons ROM"))
     dims.append(dim(
-        "dungeon_runtime_pmdo", n_zones + 5, 180, "PARTIAL",
+        "dungeon_runtime_pmdo", n_zones, 180, "PARTIAL",
         "dev/docs/canonical_dungeon_runtime/matrix.json + mapgen_*.jsonl "
         "(PMDO 0.8.12 réel)",
-        "zones procédurales + 5 arènes de boss fixed.bin — toutes "
+        "43 zones (histoire d01-d43 complète + arc futur) toutes "
         "CANONICAL_RUNTIME_PASS ; le reste des 180 donjons NOT_BUILT"))
+    chains_p = REPO / "dev" / "docs" / "canonical" / "sky" / \
+        "story_chains_runtime_proof.jsonl"
+    if chains_p.exists():
+        n_chains = chains_p.read_text().count("BOSS_ARENA_PASS")
+        dims.append(dim(
+            "story_chains_end_to_end", n_chains, 9, "PASS"
+            if n_chains == 9 else "PARTIAL",
+            "dev/docs/canonical/sky/story_chains_runtime_proof.jsonl "
+            "(red_story_route_validator, chaînes sky)",
+            "donjon procédural étage par étage → zone d'arène → espèce du "
+            "boss fixed.bin vérifiée dans les MapTeams chargées, moteur "
+            "réel ; combat piloté par IA non joué (headless)"))
     dims.append(dim("audit_verdict", None, None,
                     aud.get("verdict", "?"),
                     "AUDIT.json (8 familles A-H)"))
