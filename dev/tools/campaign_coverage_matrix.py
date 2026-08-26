@@ -187,8 +187,32 @@ def sky_matrix():
             f"(double écran NDS), "
             f"{ci.get('REQUIRES_ENGINE_EXTENSION', 0)} nécessitent une "
             f"extension moteur ; TOUTES NOT_YET_INTEGRATED au runtime"))
-    dims.append(dim("runtime_pmdo_grounds", 0, t["grounds"], "NOT_TESTED",
-                    "—", "grounds Sky pas encore chargés dans PMDO réel"))
+    hub_p = REPO / "dev" / "docs" / "canonical" / "sky" / \
+        "hub_grounds_runtime_proof.jsonl"
+    if hub_p.exists():
+        n_safe = hub_p.read_text().count('"verdict":"SAFE"')
+        dims.append(dim(
+            "runtime_pmdo_grounds", n_safe, t["grounds"], "PARTIAL",
+            "dev/docs/canonical/sky/hub_grounds_runtime_proof.jsonl "
+            "(sky_hub_zone + mode sky: du ground_gameplay_validator)",
+            f"{n_safe} grounds hub pilotes LOAD_PASS+MOVEMENT_PASS "
+            f"(Treasure Town, guilde, Sharpedo Bluff, plage) ; le reste "
+            f"des 460 NOT_TESTED"))
+    else:
+        dims.append(dim("runtime_pmdo_grounds", 0, t["grounds"],
+                        "NOT_TESTED", "—",
+                        "grounds Sky pas encore chargés dans PMDO réel"))
+    cin_p = REPO / "dev" / "docs" / "canonical" / "sky" / \
+        "cinematic_m01a0204_runtime_proof.jsonl"
+    if cin_p.exists():
+        n_pass = cin_p.read_text().count("CINEMATIC_RUNTIME_PASS")
+        dims.append(dim(
+            "cinematic_runtime", n_pass, 3760, "PARTIAL",
+            "dev/docs/canonical/sky/cinematic_m01a0204_runtime_proof.jsonl "
+            "(SkyCanonScenes.lua, mode skyscene:)",
+            "1 scène pilote rejouée dans le moteur (positions finales == "
+            "ROM, dialogue EU, BGM) ; GAPs canal-2 NDS documentés ; "
+            "3759 scènes restent NOT_YET_INTEGRATED"))
     ti_p = c / "Tables" / "DUNGEON_TABLES_INDEX.json"
     if ti_p.exists():
         ti = load(ti_p)["totals"]

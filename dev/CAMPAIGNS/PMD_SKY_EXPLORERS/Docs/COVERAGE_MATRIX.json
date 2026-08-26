@@ -80,12 +80,21 @@
   },
   {
    "dimension": "runtime_pmdo_grounds",
-   "covered": 0,
+   "covered": 9,
    "total": 460,
+   "pct": 2.0,
+   "status": "PARTIAL",
+   "source": "dev/docs/canonical/sky/hub_grounds_runtime_proof.jsonl (sky_hub_zone + mode sky: du ground_gameplay_validator)",
+   "note": "9 grounds hub pilotes LOAD_PASS+MOVEMENT_PASS (Treasure Town, guilde, Sharpedo Bluff, plage) ; le reste des 460 NOT_TESTED"
+  },
+  {
+   "dimension": "cinematic_runtime",
+   "covered": 1,
+   "total": 3760,
    "pct": 0.0,
-   "status": "NOT_TESTED",
-   "source": "—",
-   "note": "grounds Sky pas encore chargés dans PMDO réel"
+   "status": "PARTIAL",
+   "source": "dev/docs/canonical/sky/cinematic_m01a0204_runtime_proof.jsonl (SkyCanonScenes.lua, mode skyscene:)",
+   "note": "1 scène pilote rejouée dans le moteur (positions finales == ROM, dialogue EU, BGM) ; GAPs canal-2 NDS documentés ; 3759 scènes restent NOT_YET_INTEGRATED"
   },
   {
    "dimension": "gameplay_tables_extraction",
@@ -116,18 +125,18 @@
   },
   {
    "dimension": "dungeon_zones_vs_rom",
-   "covered": 26,
-   "total": 26,
+   "covered": 43,
+   "total": 43,
    "pct": 100.0,
    "status": "PASS",
    "source": "Tables/ZONE_VS_ROM_COMPARISON.json (comparaison structurelle par étage)",
-   "note": "26 zones construites (histoire d01-d25 + arc futur D27-D32) sur 180 donjons ROM"
+   "note": "43 zones construites (histoire d01-d25 + arc futur D27-D32) sur 180 donjons ROM"
   },
   {
    "dimension": "dungeon_runtime_pmdo",
-   "covered": 31,
+   "covered": 48,
    "total": 180,
-   "pct": 17.2,
+   "pct": 26.7,
    "status": "PARTIAL",
    "source": "dev/docs/canonical_dungeon_runtime/matrix.json + mapgen_*.jsonl (PMDO 0.8.12 réel)",
    "note": "zones procédurales + 5 arènes de boss fixed.bin — toutes CANONICAL_RUNTIME_PASS ; le reste des 180 donjons NOT_BUILT"

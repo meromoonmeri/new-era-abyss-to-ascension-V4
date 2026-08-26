@@ -32,10 +32,11 @@ Dimensions SÉPARÉES (règle §49) : aucun pourcentage global fusionné n'exist
 | progression_graph | — | **PASS** | Docs/PROGRESSION_GRAPH.json (SSB décompilés ROM) |
 | playable_progression | 244/245 (99.6%) | **PASS** | Docs/PLAYABLE_PROGRESSION.json (état→scène→ground→dialogues) |
 | cinematic_integrability | 2763/3760 (73.5%) | **PARTIAL** | Docs/CINEMATIC_INTEGRABILITY.json (table curatée ssb_coverage, 0 opcode inconnu) |
-| runtime_pmdo_grounds | 0/460 (0.0%) | **NOT_TESTED** | — |
+| runtime_pmdo_grounds | 9/460 (2.0%) | **PARTIAL** | dev/docs/canonical/sky/hub_grounds_runtime_proof.jsonl (sky_hub_zone + mode sky: du ground_gameplay_validator) |
+| cinematic_runtime | 1/3760 (0.0%) | **PARTIAL** | dev/docs/canonical/sky/cinematic_m01a0204_runtime_proof.jsonl (SkyCanonScenes.lua, mode skyscene:) |
 | gameplay_tables_extraction | 178/180 (98.9%) | **PASS** | Tables/DUNGEON_TABLES_INDEX.json (mappa_s.bin EU : 1795 étages, spawns/pièges/items bruts) |
 | pmdo_mapping_species | 484/484 (100.0%) | **PASS** | Tables/PMDO_MAPPING.json |
 | pmdo_mapping_items | 205/290 (70.7%) | **PARTIAL** | Tables/PMDO_MAPPING.json |
-| dungeon_zones_vs_rom | 26/26 (100.0%) | **PASS** | Tables/ZONE_VS_ROM_COMPARISON.json (comparaison structurelle par étage) |
-| dungeon_runtime_pmdo | 31/180 (17.2%) | **PARTIAL** | dev/docs/canonical_dungeon_runtime/matrix.json + mapgen_*.jsonl (PMDO 0.8.12 réel) |
+| dungeon_zones_vs_rom | 43/43 (100.0%) | **PASS** | Tables/ZONE_VS_ROM_COMPARISON.json (comparaison structurelle par étage) |
+| dungeon_runtime_pmdo | 48/180 (26.7%) | **PARTIAL** | dev/docs/canonical_dungeon_runtime/matrix.json + mapgen_*.jsonl (PMDO 0.8.12 réel) |
 | audit_verdict | — | **AUDIT_PASS** | AUDIT.json (8 familles A-H) |
