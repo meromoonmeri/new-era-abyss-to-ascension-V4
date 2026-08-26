@@ -269,6 +269,7 @@ class SceneCompiler:
             self.emit(f"GAME:WaitFrames({int(args)})")
         elif op in ("WaitExecuteLives", "WaitEffect", "WaitAnimation",
                     "WaitScreenFade", "WaitScreenFadeAll", "WaitLockLives",
+                    "WaitExecutePerformer", "WaitLockPerformer",
                     "WaitSe", "WaitMe", "WaitBgm", "WaitBgm2"):
             self.emit("GAME:WaitFrames(2) -- join " + op)
         elif op == "screen_FadeIn":
@@ -374,6 +375,16 @@ class SceneCompiler:
                 self.emit(f"GROUND:EntTurn({A}, {d})")
             else:
                 self.unsupported.append(f"{op}:{target}")
+        elif op == "MovePositionMark" and kind == "performer":
+            # performer = caméra dans les SSB (camera_SetMyself performer 0)
+            mm = re.search(r"Position<'\w*',\s*([\d.]+),\s*([\d.]+)>", args)
+            if mm:
+                x = int(float(mm.group(1)) * 8)
+                y = int(float(mm.group(2)) * 8)
+                self.emit(f"pcall(function() GAME:MoveCamera({x}, {y}, "
+                          f"60, false) end) -- performer/caméra")
+            else:
+                self.unsupported.append("MovePositionMark:performer")
         elif op == "MovePositionMark":
             mm = re.search(r"Position<'\w*',\s*([\d.]+),\s*([\d.]+)>", args)
             sp = re.match(r"\s*([\d.]+)", args)
@@ -385,7 +396,8 @@ class SceneCompiler:
                           f" false, {speed})")
             else:
                 self.unsupported.append(f"MovePositionMark:{target}")
-        elif op in ("Move2PositionOffset", "Slide2PositionOffset"):
+        elif op in ("Move2PositionOffset", "Slide2PositionOffset",
+                    "SlidePositionOffset", "MovePositionOffset2"):
             mm = re.search(r"<'?\w*'?,?\s*(-?[\d.]+),\s*(-?[\d.]+)>", args)
             if A and mm:
                 dx = int(float(mm.group(1)) * 8)
@@ -405,13 +417,20 @@ class SceneCompiler:
             else:
                 self.unsupported.append(f"SetPositionMark:{target}")
         elif op == "Turn2DirectionLives":
-            # se tourner vers un autre acteur (héros/partenaire seulement v1)
-            tgt2 = self.actor_expr(args.split(",")[-1].strip())
+            # se tourner vers un autre acteur — la cible est le DERNIER
+            # argument ACTOR_* ; résolue par actor_expr (héros/partenaire/
+            # PNJ du cast SSA). ACTOR_TALK_SUB = interlocuteur courant ->
+            # approx: se tourner vers le héros (TECHNICAL_ADAPTATION).
+            tgt_name = args.split(",")[-1].strip()
+            if tgt_name == "ACTOR_TALK_SUB":
+                tgt2 = "hero"
+            else:
+                tgt2 = self.actor_expr(tgt_name)
             if A and tgt2:
                 self.emit(f"pcall(function() GROUND:CharTurnToCharAnimated("
                           f"{A}, {tgt2}, 4) end)")
             else:
-                self.unsupported.append(f"Turn2DirectionLives:{target}")
+                self.unsupported.append(f"Turn2DirectionLives:{tgt_name}")
         elif op == "SetPositionInitial":
             self.emit(f"-- SetPositionInitial [position SSA de départ, "
                       f"déjà posée par le placement de scène]")
@@ -461,6 +480,14 @@ class SceneCompiler:
                       f"-- SwitchMonologue: branche default")
         elif op == "SetAnimation":
             self.emit(f"-- SetAnimation({args.strip()}) [anim idle native]")
+        elif op in ("supervision_Station", "supervision_StationCommon",
+                    "supervision_LoadStation", "supervision_RemoveActing",
+                    "supervision_RemoveCommon", "supervision_Remove",
+                    "ExecuteCommon", "JumpCommon",
+                    "supervision_ExecuteCommon", "CallCommon"):
+            self.emit(f"-- {op}({args.strip()[:60]}) [gestion de station "
+                      f"NDS: le chargement/la coroutine commune est "
+                      f"assurée par le harnais journey PMDO]")
         elif op in ("SetOutputAttribute", "ResetOutputAttribute",
                     "ResetHitAttribute", "SetHitAttribute",
                     "SetMoveRange", "Lock", "Unlock", "Destroy",
