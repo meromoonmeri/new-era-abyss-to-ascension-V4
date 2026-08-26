@@ -14,7 +14,7 @@ local function emit(s)
  PrintInfo('[GROUND_VALIDATOR] '..s)
  local f=io.open('/tmp/ground_gameplay_validator.jsonl','a');if f then f:write(s..'\n');f:flush();f:close() end
 end
-function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:' or string.sub(self.mode or '',1,9)=='skyscene:' or self.mode=='skyprogress');self.idx=0;self.entered=false;self.busy=false
+function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:' or string.sub(self.mode or '',1,9)=='skyscene:' or self.mode=='skyprogress' or self.mode=='skyjourney');self.idx=0;self.entered=false;self.busy=false
  -- mode 'skyscene:<scene>@<ground>' : rejoue une cinématique canonique Sky
  if string.sub(self.mode or '',1,9)=='skyscene:' then
   local spec=string.sub(self.mode,10)
@@ -45,6 +45,27 @@ function V:begin()
   -- EnterDungeon doit etre appele depuis la coroutine du Ground, pas depuis
   -- l'evenement service NewGame (sinon NLua: yield outside a coroutine).
   GAME:EnterZone('mount_windswept',-1,2,0)
+  return
+ end
+ if self.mode=='skyjourney' then
+  -- PARCOURS COMPLET §12 (chapitre 1 Sky) dans le moteur réel :
+  -- SAVE(SV) -> état 1.0 -> ground plage (d01p11b) -> scène compilée
+  -- -> vérif déblocage -> donjon beach_cave (4 étages) -> arène
+  -- beach_cave_pit (Team Skull) -> état 3.0 (post-boss) -> vérif.
+  self.idx=-5;SV.RuntimeGroundAudit.Active=false
+  self.journey={phase='ground'}
+  local prog=require('halcyon.skyscenes.progression')
+  prog.reset_for_test()
+  prog.set(1,0)
+  if not prog.is_unlocked('beach_cave') then
+    emit('{"event":"skyjourney_end","verdict":"FAIL","error":"beach_cave non débloqué à 1.0"}');return
+  end
+  emit('{"event":"skyjourney_begin","state":"1.0","unlocked":["beach_cave","beach_cave_pit"]}')
+  local zone_grounds={}
+  local zsum=_DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('sky_hub_zone')
+  local gl=zsum.Grounds
+  for gi=0,gl.Count-1 do zone_grounds[gl[gi]]=gi end
+  GAME:EnterZone('sky_hub_zone',-1,zone_grounds['d01p11b'],0)
   return
  end
  if self.mode=='skyprogress' then
@@ -108,6 +129,42 @@ function V:begin()
  self.idx=1;emit('{"event":"begin","count":'..#PILOT..'}');GAME:EnterZone(PILOT[self.idx].zone,-1,PILOT[self.idx].idx,0)
 end
 function V:OnDungeonFloorEnter()
+ if self.enabled and self.mode=='skyjourney' and self.journey then
+  local ok,err=xpcall(function()
+    local cz=tostring(_ZONE.CurrentZoneID)
+    local floor=_ZONE.CurrentMapID.ID
+    if cz=='beach_cave' then
+      emit('{"event":"journey_floor","zone":"beach_cave","floor":'..floor..'}')
+      if floor<3 then GAME:EnterZone('beach_cave',0,floor+1,0)
+      else
+        emit('{"event":"journey_enter_boss","zone":"beach_cave_pit"}')
+        GAME:EnterZone('beach_cave_pit',0,0,0)
+      end
+    elseif cz=='beach_cave_pit' then
+      local map=_ZONE.CurrentMap
+      local species={}
+      for ti=0,map.MapTeams.Count-1 do
+        local t2=map.MapTeams[ti]
+        for pi=0,t2.Players.Count-1 do
+          local ok2,sp=pcall(function() return t2.Players[pi].BaseForm.Species end)
+          if ok2 and sp then species[#species+1]=tostring(sp) end
+        end
+      end
+      emit('{"event":"journey_boss","species":"'..table.concat(species,',')..'"}')
+      -- victoire canonique -> flag post-boss (état 3.0: retour guilde/ch.2)
+      local prog=require('halcyon.skyscenes.progression')
+      prog.set(3,0)
+      local m,s=prog.state()
+      local ok3=(m==3 and prog.is_unlocked('drenched_bluff'))
+      emit('{"event":"journey_reward","new_state":"'..m..'.'..s..'","drenched_bluff_unlocked":'..tostring(prog.is_unlocked('drenched_bluff'))..'}')
+      emit('{"event":"skyjourney_end","verdict":"'..(ok3 and 'JOURNEY_RUNTIME_PASS' or 'FAIL')..'"}')
+      emit('{"event":"end"}')
+      self.journey=nil
+    end
+  end,debug.traceback)
+  if not ok then emit('{"event":"skyjourney_end","verdict":"FAIL","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}');emit('{"event":"end"}') end
+  return
+ end
  if not self.enabled or (self.mode~='tornadus_battle' and string.sub(self.mode or '',1,6)~='arena:') then return end
  local ok,msg=pcall(function()
   local map=_ZONE.CurrentMap
@@ -118,6 +175,28 @@ function V:OnDungeonFloorEnter()
  emit(ok and msg or ('{"event":"arena_battle_runtime","verdict":"RUNTIME_FAIL","error":"'..tostring(msg):gsub('"','\\"')..'"}'))
 end
 function V:OnGroundMapEnter()
+ if self.enabled and self.mode=='skyjourney' and self.journey and self.journey.phase=='ground' and not self.busy then
+  self.busy=true
+  self.journey.phase='dungeon_pending'
+  self.task=TASK:BranchCoroutine(function()
+    GAME:WaitFrames(20)
+    local ok,err=xpcall(function()
+      local id=GAME:GetCurrentGround().AssetName
+      emit('{"event":"journey_ground","id":"'..tostring(id)..'"}')
+      -- scène canonique du chapitre 1 sur la plage (pilote artisanal)
+      local scenes=require('halcyon.SkyCanonScenes')
+      scenes.m01a0204('/tmp/ground_gameplay_validator.jsonl')
+      -- transition canonique : entrer dans le donjon débloqué
+      local prog=require('halcyon.skyscenes.progression')
+      if not prog.is_unlocked('beach_cave') then error('flag perdu avant donjon') end
+      emit('{"event":"journey_enter_dungeon","zone":"beach_cave"}')
+      GAME:EnterZone('beach_cave',0,0,0)
+    end,debug.traceback)
+    if not ok then emit('{"event":"skyjourney_end","verdict":"FAIL","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}') end
+    self.busy=false;self.task=nil
+  end)
+  return
+ end
  if self.enabled and self.sky_scene and not self.busy then
   self.busy=true
   self.task=TASK:BranchCoroutine(function()
