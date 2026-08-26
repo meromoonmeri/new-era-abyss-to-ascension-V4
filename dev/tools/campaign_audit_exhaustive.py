@@ -295,6 +295,33 @@ def audit_campaign(camp: str, cfg: dict) -> dict:
                 add("MEDIUM", "CINEMATIC", f"scene_lua/{lua.name}",
                     "scène quasi vide (<5 lignes de code)")
 
+    # ---------------- F2: archives de scripts ROM (Sky : rom_scripts/*.json.gz)
+    idx_p = cine_dir / "ROM_SCRIPTS_INDEX.json"
+    if idx_p.exists():
+        idx = json.loads(idx_p.read_text(encoding="utf-8-sig"))
+        for zone, z in idx.get("zones", {}).items():
+            if not (cine_dir / z["file"]).exists():
+                add("HIGH", "CINEMATIC", zone,
+                    f"archive de scripts ROM manquante: {z['file']}")
+            for name, s in z.get("scripts", {}).items():
+                if s["status"] not in ("PASS",):
+                    sev = "HIGH" if s["status"] in ("FAIL", "MISSING") \
+                        else "MEDIUM"
+                    add(sev, "CINEMATIC", f"{zone}/{name}",
+                        f"script ROM status={s['status']}"
+                        + (f" ({s.get('error','')[:120]})"
+                           if s.get("error") else ""))
+        # cohérence index ↔ manifest : zones liées
+        linked_levels = set()
+        for e in manifest["grounds"]:
+            for s in (e.get("cinematic") or {}).get("levels", []):
+                linked_levels.add(s["level"])
+        unlinked = sorted(set(idx.get("zones", {})) - linked_levels
+                          - {"COMMON"})
+        for z in unlinked:
+            add("MEDIUM", "CINEMATIC", z,
+                "zone SCRIPT de la ROM non liée à un ground du manifest")
+
     # ---------------- G: doublons (renders identiques)
     hashes = defaultdict(list)
     for d in sorted((cdir / "Renders").iterdir()):

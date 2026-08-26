@@ -144,10 +144,46 @@ def human_from_dungeon(gid: str):
     return d
 
 
+def load_cinematic_links():
+    """Liaison ground -> scènes ROM (SCRIPT/<LEVEL>) via LEVEL_MAP_LINKS.json
+    + ROM_SCRIPTS_INDEX.json produits par sky_extract_rom_scripts.py.
+
+    Retourne map_bg_id (minuscule) -> [{level, scripts, ssb, ssa, dialogues}].
+    """
+    cin = CAMP / "Cinematics"
+    links_p = cin / "LEVEL_MAP_LINKS.json"
+    index_p = cin / "ROM_SCRIPTS_INDEX.json"
+    if not (links_p.exists() and index_p.exists()):
+        return {}
+    links = json.loads(links_p.read_text())["levels"]
+    index = json.loads(index_p.read_text())["zones"]
+    out = {}
+    for level, info in links.items():
+        mb = info.get("map_bg")
+        zone = index.get(level)
+        if not mb or not zone:
+            continue
+        scripts = zone["scripts"]
+        kinds = {}
+        for s in scripts.values():
+            kinds[s["kind"]] = kinds.get(s["kind"], 0) + 1
+        out.setdefault(mb, []).append({
+            "level": level,
+            "archive": f"Cinematics/{zone['file']}",
+            "n_scripts": zone["n_files"],
+            "ssb": kinds.get("ssb", 0),
+            "ssa_sse_sss": kinds.get("ssa", 0) + kinds.get("sse", 0)
+                           + kinds.get("sss", 0),
+            "statuses": sorted({s["status"] for s in scripts.values()}),
+        })
+    return out
+
+
 def main() -> int:
     render_report = json.loads((CAMP / "Renders" / "render_report.json")
                                .read_text(encoding="utf-8-sig"))
     renders = {r["ground"]: r for r in render_report["renders"]}
+    cin_links = load_cinematic_links()
 
     # noms rsground (Name EN/FR déjà posés par le port pour les renommés)
     ground_meta = {}
@@ -181,6 +217,35 @@ def main() -> int:
             "render_error": r.get("error"),
             "source_comment": meta.get("comment"),
         }
+        # liaison cinématique : scènes ROM (SSB/SSA) des levels dont le
+        # MAP_BG est ce ground. IDs map_bg dérivés du commentaire source
+        # ("MAP_BG xxx/yyy/zzz -> id") ou du nom du ground lui-même.
+        mb_ids = set()
+        cmt = meta.get("comment") or ""
+        m2 = re.search(r"MAP_BG (\S+) ->", cmt)
+        if m2:
+            mb_ids.update(p.lower() for p in m2.group(1).split("/"))
+        mb_ids.add(gid.lower())
+        # variantes suffixées (ex. ground s11p02c5 = variante du MAP_BG
+        # s11p02c référencé par le level S11P02C) : lier aussi la base.
+        for mb in list(mb_ids):
+            m3 = re.match(r"^([a-z]\d{2}p\d{2}[a-z])\d+$", mb)
+            if m3:
+                mb_ids.add(m3.group(1))
+        scenes = []
+        seen_levels = set()
+        for mb in sorted(mb_ids):
+            for s in cin_links.get(mb, []):
+                if s["level"] not in seen_levels:
+                    seen_levels.add(s["level"])
+                    scenes.append(s)
+        if scenes:
+            e["cinematic"] = {
+                "levels": scenes,
+                "ssb_total": sum(s["ssb"] for s in scenes),
+                "ssa_total": sum(s["ssa_sse_sss"] for s in scenes),
+                "source": "ROM Sky EU SCRIPT/ (sky_extract_rom_scripts.py)",
+            }
         dg = human_from_dungeon(gid)
         if dg:
             en = dg["en"]
@@ -224,12 +289,21 @@ def main() -> int:
                               "(RENOMMAGE_CANONIQUE_REPORT.md). Les deux "
                               "identités sont exposées, aucune n'est "
                               "supprimée.",
+            "cinematics": "ROM Sky EU (C2SP, sha256 1fa39d35…) SCRIPT/ : "
+                          "3760 SSB décompilés ExplorerScript + dialogues "
+                          "5 langues, 1884 SSA/SSE/SSS, 315 LSD — "
+                          "sky_extract_rom_scripts.py, archives "
+                          "Cinematics/rom_scripts/<LEVEL>.json.gz, liaison "
+                          "level→MAP_BG via LEVEL_MAP_LINKS.json.",
         },
         "totals": {
             "grounds": len(entries),
             "rendered": sum(1 for e in entries if e["render"]),
             "with_dungeon_identity": sum(1 for e in entries if "dungeon" in e),
             "with_area_group": sum(1 for e in entries if "area_group" in e),
+            "with_cinematic": sum(1 for e in entries if "cinematic" in e),
+            "rom_ssb_linked": sum(e["cinematic"]["ssb_total"]
+                                  for e in entries if "cinematic" in e),
         },
         "narrative_arcs": NARRATIVE_ARCS,
         "dungeon_name_table": DUNGEON_NAMES,

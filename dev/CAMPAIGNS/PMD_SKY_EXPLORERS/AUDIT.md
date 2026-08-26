@@ -4,7 +4,7 @@
 
 Sévérités : {'ACCEPTED': 2, 'LOW': 26}
 
-Couvertures (séparées) : {"grounds_total": 460, "render_pct": 99.8, "frames_full_pct": 99.8, "cinematic_linked_pct": 0.0, "human_identity_pct": 100.0, "note": "pourcentages séparés — ne JAMAIS fusionner en un '100%'"}
+Couvertures (séparées) : {"grounds_total": 460, "render_pct": 99.8, "frames_full_pct": 99.8, "cinematic_linked_pct": 73.0, "human_identity_pct": 100.0, "note": "pourcentages séparés — ne JAMAIS fusionner en un '100%'"}
 
 | Sévérité | Catégorie | Sujet | Détail |
 |---|---|---|---|

@@ -117,11 +117,43 @@ def ssa_to_dict(ssa):
     return out
 
 
+def build_level_links(rom, config):
+    """Table de liaison canonique level script -> MAP_BG (bg_list.dat).
+
+    Permet de relier chaque zone SCRIPT/<LEVEL>/ au ground de campagne
+    (les rsground du port portent l'ID MAP_BG en minuscules).
+    Sortie : Cinematics/LEVEL_MAP_LINKS.json
+    """
+    from skytemple_files.graphics.bg_list_dat.handler import BgListDatHandler
+    bgl = BgListDatHandler.deserialize(rom.getFileByName("MAP_BG/bg_list.dat"))
+    links = OrderedDict()
+    for lv in config.script_data.level_list:
+        entry = OrderedDict(id=lv.id, mapid=lv.mapid, mapty=lv.mapty,
+                            nameid=lv.nameid, weather=lv.weather)
+        if 0 <= lv.mapid < len(bgl.level):
+            entry["map_bg"] = bgl.level[lv.mapid].bma_name.lower()
+        else:
+            entry["map_bg"] = None
+        links[lv.name] = entry
+    out = OrderedDict()
+    out["schema"] = "sky-level-map-links/1"
+    out["source_rom_sha256"] = ROM_SHA256
+    out["authority"] = ("ppmdu_config level_list (name→mapid) x "
+                        "MAP_BG/bg_list.dat (mapid→bma_name), ROM EU")
+    out["levels"] = links
+    path = os.path.join(os.path.dirname(OUT_DIR), "LEVEL_MAP_LINKS.json")
+    with open(path, "w", encoding="utf-8") as fh:
+        json.dump(out, fh, ensure_ascii=False, indent=1)
+    print(f"LEVEL_MAP_LINKS: {path} ({len(links)} levels)")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--zones", nargs="*", help="Limiter à ces zones (debug)")
     ap.add_argument("--force", action="store_true",
                     help="Réécrire même si le .json.gz existe déjà")
+    ap.add_argument("--links-only", action="store_true",
+                    help="Ne générer que LEVEL_MAP_LINKS.json")
     args = ap.parse_args()
 
     from ndspy.rom import NintendoDSRom
@@ -137,6 +169,10 @@ def main():
     assert bytes(rom.idCode) == b"C2SP", rom.idCode
     config = get_ppmdu_config_for_rom(rom)
     print(f"ROM OK C2SP {config.game_version} {config.game_region}")
+
+    build_level_links(rom, config)
+    if args.links_only:
+        return
 
     all_files = sorted(f for f in walk(rom.filenames) if f.startswith("SCRIPT/"))
     zones = OrderedDict()
