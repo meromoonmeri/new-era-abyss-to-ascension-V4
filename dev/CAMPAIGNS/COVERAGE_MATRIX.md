@@ -29,7 +29,10 @@ Dimensions SÉPARÉES (règle §49) : aucun pourcentage global fusionné n'exist
 | rom_scripts_ssa | 1884/1884 (100.0%) | **PASS** | idem (placements acteurs/objets/events/triggers) |
 | cinematic_linked_grounds | 336/460 (73.0%) | **PARTIAL** | MANIFEST.totals.with_cinematic (LEVEL_MAP_LINKS level→MAP_BG) |
 | progression_graph | — | **PASS** | Docs/PROGRESSION_GRAPH.json (SSB décompilés ROM) |
-| runtime_pmdo | 0/460 (0.0%) | **NOT_TESTED** | — |
+| runtime_pmdo_grounds | 0/460 (0.0%) | **NOT_TESTED** | — |
 | gameplay_tables_extraction | 178/180 (98.9%) | **PASS** | Tables/DUNGEON_TABLES_INDEX.json (mappa_s.bin EU : 1795 étages, spawns/pièges/items bruts) |
-| gameplay_tables_mapping_pmdo | — | **NOT_TESTED** | — |
+| pmdo_mapping_species | 484/484 (100.0%) | **PASS** | Tables/PMDO_MAPPING.json |
+| pmdo_mapping_items | 205/290 (70.7%) | **PARTIAL** | Tables/PMDO_MAPPING.json |
+| dungeon_zones_vs_rom | 6/6 (100.0%) | **PASS** | Tables/ZONE_VS_ROM_COMPARISON.json (comparaison structurelle par étage) |
+| dungeon_runtime_pmdo | 6/180 (3.3%) | **PARTIAL** | dev/docs/canonical_dungeon_runtime/matrix.json + mapgen_*.jsonl (PMDO 0.8.12 réel, 3 itérations/étage) |
 | audit_verdict | — | **AUDIT_PASS** | AUDIT.json (8 familles A-H) |

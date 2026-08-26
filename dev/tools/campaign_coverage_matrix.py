@@ -143,7 +143,7 @@ def sky_matrix():
                     f"{g['bit_flags']} bit flags, "
                     f"{g['scene_triggers']} déclencheurs ; "
                     f"1 seul état lu-jamais-écrit (0.0 = init sauvegarde)"))
-    dims.append(dim("runtime_pmdo", 0, t["grounds"], "NOT_TESTED",
+    dims.append(dim("runtime_pmdo_grounds", 0, t["grounds"], "NOT_TESTED",
                     "—", "grounds Sky pas encore chargés dans PMDO réel"))
     ti_p = c / "Tables" / "DUNGEON_TABLES_INDEX.json"
     if ti_p.exists():
@@ -155,12 +155,47 @@ def sky_matrix():
                         f"{ti['floors_extracted']} étages, spawns/pièges/"
                         "items bruts)",
                         "2 donjons à slice vide DANS la ROM (d71, d173 "
-                        "dummy — documentés) ; mapping vers PMDO NOT_TESTED"))
+                        "dummy — documentés)"))
     else:
         dims.append(dim("gameplay_tables_extraction", 0, None, "NOT_TESTED",
                         "—", "tables non extraites"))
-    dims.append(dim("gameplay_tables_mapping_pmdo", 0, None, "NOT_TESTED",
-                    "—", "traduction mappa→systèmes PMDO non commencée"))
+    map_p = c / "Tables" / "PMDO_MAPPING.json"
+    if map_p.exists():
+        mp = load(map_p)
+        sc = mp["species"]["counts"]
+        ic = mp["items"]["counts"]
+        dims.append(dim(
+            "pmdo_mapping_species", sc["EXACT"],
+            sum(sc.values()) - sc.get("SPECIAL", 0),
+            "PASS" if sc.get("UNMAPPED", 0) == 0 else "PARTIAL",
+            "Tables/PMDO_MAPPING.json",
+            "Decoy = entité moteur SPECIAL documentée"))
+        n_mapped = ic["EXACT"] + ic["RENAMED"] + ic["TM"] + ic["MONEY"]
+        dims.append(dim(
+            "pmdo_mapping_items", n_mapped, sum(ic.values()),
+            "PARTIAL",
+            "Tables/PMDO_MAPPING.json",
+            f"{ic['REQUIRES_MOD_ITEM']} items d'Explorers absents du "
+            f"roster PMDO (orbes/seeds/bands Sky) — REQUIRES_MOD_ITEM, "
+            f"0 UNMAPPED"))
+    zc_p = c / "Tables" / "ZONE_VS_ROM_COMPARISON.json"
+    if zc_p.exists():
+        zc = load(zc_p)
+        exact = sum(1 for e in zc["zones"].values()
+                    if e.get("verdict") == "EXACT")
+        dims.append(dim(
+            "dungeon_zones_vs_rom", exact, len(zc["zones"]),
+            "PASS" if exact == len(zc["zones"]) else "PARTIAL",
+            "Tables/ZONE_VS_ROM_COMPARISON.json (comparaison "
+            "structurelle par étage)",
+            "6 zones construites (D27-D32) sur 180 donjons ROM — les "
+            "174 autres restent NOT_BUILT"))
+    dims.append(dim(
+        "dungeon_runtime_pmdo", 6, 180, "PARTIAL",
+        "dev/docs/canonical_dungeon_runtime/matrix.json + mapgen_*.jsonl "
+        "(PMDO 0.8.12 réel, 3 itérations/étage)",
+        "46/46 étages D27-D32 CANONICAL_RUNTIME_PASS après réalignement "
+        "ROM ; 174 donjons Sky non construits"))
     dims.append(dim("audit_verdict", None, None,
                     aud.get("verdict", "?"),
                     "AUDIT.json (8 familles A-H)"))

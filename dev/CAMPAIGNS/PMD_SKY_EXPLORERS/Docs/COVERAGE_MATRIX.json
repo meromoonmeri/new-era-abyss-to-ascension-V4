@@ -61,7 +61,7 @@
    "note": "245 états écrits, 97 bit flags, 1219 déclencheurs ; 1 seul état lu-jamais-écrit (0.0 = init sauvegarde)"
   },
   {
-   "dimension": "runtime_pmdo",
+   "dimension": "runtime_pmdo_grounds",
    "covered": 0,
    "total": 460,
    "pct": 0.0,
@@ -76,13 +76,43 @@
    "pct": 98.9,
    "status": "PASS",
    "source": "Tables/DUNGEON_TABLES_INDEX.json (mappa_s.bin EU : 1795 étages, spawns/pièges/items bruts)",
-   "note": "2 donjons à slice vide DANS la ROM (d71, d173 dummy — documentés) ; mapping vers PMDO NOT_TESTED"
+   "note": "2 donjons à slice vide DANS la ROM (d71, d173 dummy — documentés)"
   },
   {
-   "dimension": "gameplay_tables_mapping_pmdo",
-   "status": "NOT_TESTED",
-   "source": "—",
-   "note": "traduction mappa→systèmes PMDO non commencée"
+   "dimension": "pmdo_mapping_species",
+   "covered": 484,
+   "total": 484,
+   "pct": 100.0,
+   "status": "PASS",
+   "source": "Tables/PMDO_MAPPING.json",
+   "note": "Decoy = entité moteur SPECIAL documentée"
+  },
+  {
+   "dimension": "pmdo_mapping_items",
+   "covered": 205,
+   "total": 290,
+   "pct": 70.7,
+   "status": "PARTIAL",
+   "source": "Tables/PMDO_MAPPING.json",
+   "note": "85 items d'Explorers absents du roster PMDO (orbes/seeds/bands Sky) — REQUIRES_MOD_ITEM, 0 UNMAPPED"
+  },
+  {
+   "dimension": "dungeon_zones_vs_rom",
+   "covered": 6,
+   "total": 6,
+   "pct": 100.0,
+   "status": "PASS",
+   "source": "Tables/ZONE_VS_ROM_COMPARISON.json (comparaison structurelle par étage)",
+   "note": "6 zones construites (D27-D32) sur 180 donjons ROM — les 174 autres restent NOT_BUILT"
+  },
+  {
+   "dimension": "dungeon_runtime_pmdo",
+   "covered": 6,
+   "total": 180,
+   "pct": 3.3,
+   "status": "PARTIAL",
+   "source": "dev/docs/canonical_dungeon_runtime/matrix.json + mapgen_*.jsonl (PMDO 0.8.12 réel, 3 itérations/étage)",
+   "note": "46/46 étages D27-D32 CANONICAL_RUNTIME_PASS après réalignement ROM ; 174 donjons Sky non construits"
   },
   {
    "dimension": "audit_verdict",
