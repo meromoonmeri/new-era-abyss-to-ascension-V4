@@ -7,9 +7,50 @@ jamais canonique. Les couvertures sont par **dimensions séparées** — aucun p
 global fusionné n'existe.
 
 Render de synthèse : `dev/docs/canonical/renders/SHOWCASE_RED_SKY.png`
-(hub Bourg-Trésor, Guilde, Plage Creuse, panorama défilant de l'intro, 4 arènes boss
-Sky dont DIALGA, Place Pokémon Red, 3 arènes boss Red dont GROUDON/RAYQUAZA décodées
-octet par octet).
+(hub Bourg-Trésor, Guilde de Grodoudou, Plage, panorama défilant de l'intro, 4 arènes
+boss Sky dont DIALGA, Place Pokémon Red, 3 arènes boss Red dont GROUDON/RAYQUAZA
+décodées octet par octet).
+
+---
+
+## 0. Correspondance Nom humain ↔ Ground technique (PROUVÉE, audit 2026-08-26)
+
+**Autorité Sky** : bloc ROM `Ground Map Names` (text_*.str EU, 5 langues), résolu à la
+base d'index 16256 — preuve croisée : G01P01A(nameid 277)=« Wigglytuff's Guild /
+Guilde de Grodoudou », T01P01A(303)=« Treasure Town / Bourg-Trésor »,
+P01P01A(290)=« Crossroads / Croisement ». Table complète :
+`PMD_SKY_EXPLORERS/Docs/LEVEL_HUMAN_NAMES.json` (366 levels nommés, 93 nameid hors
+bloc = pas de nom de lieu). **143 noms ROM appliqués au MANIFEST Sky** (anciens
+libellés conservés dans `previous_human_name`).
+
+**Autorité Red** : pret/pmd-red `ground_map.h` (enum GroundMapID) →
+`ground_map_conversion_table.c` → `map_files_table.c` (fichiers BPL/BPC/BMA/BPA) ;
+45/45 noms de donjons du manifest = pret, 0 divergence.
+
+| Nom humain (FR / EN) | Ground | Campagne | Preuve | Render | Runtime |
+|---|---|---|---|---|---|
+| Bourg-Trésor / Treasure Town | `t01p01a` (+t01p02a_sky) | Sky | nameid 303/304→bloc ROM | ✓ | LOAD+MOVE SAFE |
+| **Guilde de Grodoudou** / Wigglytuff's Guild | **`g01p01a`** (variantes b/c/2) | Sky | nameid 277→bloc ROM | ✓ | LOAD+MOVE SAFE |
+| Croisement / Crossroads | `p01p01a` | Sky | nameid 290 (l'ancien showcase l'étiquetait « Guilde » — **corrigé**) | ✓ | SAFE |
+| Plage / Beach | `d01p11a` | Sky | nameid 196 | ✓ | SAFE |
+| Café Spinda / Spinda's Café | `p01p04a` | Sky | nameid 293 | ✓ | SAFE |
+| Panorama intro (sans nom, `???` ROM) | `s13p05a` | Sky | S13P05A nameid 185=`???` | ✓ | SCROLL_PASS |
+| Place Pokémon / Pokémon Square | `t01p01` | Red | MAP_POKEMON_SQUARE→T01P01+BPA T01P011 (6 frames portées) | ✓ | journey |
+| Base d'équipe / Rescue Team Base | `t00p01` | Red | MAP_SQUARE→T00P01 (**restauré** — était écrasé par le Sky homonyme) | ✓ | LOAD_PASS |
+| Étang Barbicha / Whiscash Pond | `t01p02a` | Red | MAP_WHISCASH_POND→T01P02A+BPA T01P021 (336 frames) (**restauré**) | ✓ | LOAD_PASS |
+| Mont Gel (Ninetales) / Mt. Freeze | `d11p01/p02/p03` | Red | MAP_MT_FREEZE_* (aucun BPA ROM → statique canonique) | ✓ | journey CH? |
+| Ravin Aubaine (ép. Sunflora) / Fortune Ravine | `d45p21a` (non porté) | Sky | nameid→bloc ROM ; DUNGEON_SCREEN post-game | render ROM | NOT_BUILT |
+
+### Collisions d'ID résolues (10 découvertes par l'audit)
+
+`t00p01` et `t01p02a` : les grounds **Red GBA canoniques avaient été écrasés** par les
+ports Sky NDS homonymes (Treasure Town ≠ Whiscash Pond !). Corrigé : contenu Red
+restauré depuis 0f691fa3 (référence verrouillée), contenu Sky déplacé vers
+`t00p01_sky` / `t01p02a_sky` (convention rock_path/rock_path_sky), zone+index mis à
+jour. Les 8 autres IDs (`d18p11a, d19p11a, d20p11a, d21p21a, d21p41a, d22p11a,
+s04p01a, s21p01a`) sont du contenu Sky listé par erreur dans le manifest Red —
+marqués `is_red_canon: false`. Preuves post-correction : 96/96 grounds sky_hub_zone
+SAFE, RED_GLOBAL_JOURNEY_PASS re-vérifié.
 
 ---
 
@@ -242,6 +283,19 @@ jamais été persisté (sandbox recyclé après le pilote scroll). Reconstruit d
 ROM Sky EU par association clé rsground ↔ image ROM (BMA/BPC/BPL, 224 frames),
 **fail-closed** (0 conflit sur 18756 clés), contre-épreuve **frame 0 PIXEL_PERFECT**
 vs ROM. Outil : `dev/tools/sky_rebuild_s13p05a_sheet.py`.
+
+## 9bis. Audit exhaustif des grounds (fail-closed, 2026-08-26)
+
+`dev/tools/campaign_audit_grounds_complete.py` →
+`dev/docs/canonical/GROUNDS_COMPLETE_AUDIT.json/.md` : **688 entrées** (600 rsground
++ 88 rsmap), pour chacune : sheets référencées présentes (nom+casse exacts, quest ou
+base PMDO avec provenance tracée), **chaque clé TexLoc** référencée existe dans la
+planche, autotiles présents avec toutes leurs variantes et frames, détection
+d'animations aplaties (cycle ROM>1 vs frames portées — 193 grounds animés vérifiés,
+0 aplati), détection d'animations 100 % vides, ressource en RESERVE seulement =
+NOT_PERSISTED = FAIL. Résultat après corrections : **688/688 PASS**.
+Note : frames `Sheet:""` au sein d'anims mixtes = frames transparentes délibérées
+(blink), pas des trous — seule une animation entièrement vide est un défaut.
 
 ## 10. Index des artefacts
 
