@@ -193,6 +193,519 @@
    "Released": true,
    "Comment": "",
    "SortOrder": 0
+  },
+  "dark_crater_1_floor": {
+   "Name": {
+    "DefaultText": "Dark Crater 1 Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "dark_crater_1_wall": {
+   "Name": {
+    "DefaultText": "Dark Crater 1 Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "dark_crater_1_secondary": {
+   "Name": {
+    "DefaultText": "Dark Crater 1 Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "dark_crater_2_floor": {
+   "Name": {
+    "DefaultText": "Dark Crater 2 Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "dark_crater_2_wall": {
+   "Name": {
+    "DefaultText": "Dark Crater 2 Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "dark_crater_2_secondary": {
+   "Name": {
+    "DefaultText": "Dark Crater 2 Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "marine_resort_floor": {
+   "Name": {
+    "DefaultText": "Marine Resort Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "marine_resort_wall": {
+   "Name": {
+    "DefaultText": "Marine Resort Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "marine_resort_secondary": {
+   "Name": {
+    "DefaultText": "Marine Resort Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "bottomless_sea_floor": {
+   "Name": {
+    "DefaultText": "Bottomless Sea Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "bottomless_sea_wall": {
+   "Name": {
+    "DefaultText": "Bottomless Sea Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "bottomless_sea_secondary": {
+   "Name": {
+    "DefaultText": "Bottomless Sea Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "shimmer_desert_floor": {
+   "Name": {
+    "DefaultText": "Shimmer Desert Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "shimmer_desert_wall": {
+   "Name": {
+    "DefaultText": "Shimmer Desert Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "shimmer_desert_secondary": {
+   "Name": {
+    "DefaultText": "Shimmer Desert Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "mt_avalanche_floor": {
+   "Name": {
+    "DefaultText": "Mt Avalanche Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "mt_avalanche_wall": {
+   "Name": {
+    "DefaultText": "Mt Avalanche Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "mt_avalanche_secondary": {
+   "Name": {
+    "DefaultText": "Mt Avalanche Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "giant_volcano_floor": {
+   "Name": {
+    "DefaultText": "Giant Volcano Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "giant_volcano_wall": {
+   "Name": {
+    "DefaultText": "Giant Volcano Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "giant_volcano_secondary": {
+   "Name": {
+    "DefaultText": "Giant Volcano Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "world_abyss_1_floor": {
+   "Name": {
+    "DefaultText": "World Abyss 1 Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "world_abyss_1_wall": {
+   "Name": {
+    "DefaultText": "World Abyss 1 Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "world_abyss_1_secondary": {
+   "Name": {
+    "DefaultText": "World Abyss 1 Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "sky_stairway_floor": {
+   "Name": {
+    "DefaultText": "Sky Stairway Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "sky_stairway_wall": {
+   "Name": {
+    "DefaultText": "Sky Stairway Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "sky_stairway_secondary": {
+   "Name": {
+    "DefaultText": "Sky Stairway Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "serenity_river_floor": {
+   "Name": {
+    "DefaultText": "Serenity River Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "serenity_river_wall": {
+   "Name": {
+    "DefaultText": "Serenity River Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "serenity_river_secondary": {
+   "Name": {
+    "DefaultText": "Serenity River Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "landslide_cave_floor": {
+   "Name": {
+    "DefaultText": "Landslide Cave Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "landslide_cave_wall": {
+   "Name": {
+    "DefaultText": "Landslide Cave Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "landslide_cave_secondary": {
+   "Name": {
+    "DefaultText": "Landslide Cave Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "labyrinth_cave_floor": {
+   "Name": {
+    "DefaultText": "Labyrinth Cave Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "labyrinth_cave_wall": {
+   "Name": {
+    "DefaultText": "Labyrinth Cave Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "labyrinth_cave_secondary": {
+   "Name": {
+    "DefaultText": "Labyrinth Cave Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "oran_forest_floor": {
+   "Name": {
+    "DefaultText": "Oran Forest Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "oran_forest_wall": {
+   "Name": {
+    "DefaultText": "Oran Forest Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "oran_forest_secondary": {
+   "Name": {
+    "DefaultText": "Oran Forest Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "lake_afar_floor": {
+   "Name": {
+    "DefaultText": "Lake Afar Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "lake_afar_wall": {
+   "Name": {
+    "DefaultText": "Lake Afar Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "lake_afar_secondary": {
+   "Name": {
+    "DefaultText": "Lake Afar Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "happy_outlook_floor": {
+   "Name": {
+    "DefaultText": "Happy Outlook Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "happy_outlook_wall": {
+   "Name": {
+    "DefaultText": "Happy Outlook Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "happy_outlook_secondary": {
+   "Name": {
+    "DefaultText": "Happy Outlook Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "mt_mistral_floor": {
+   "Name": {
+    "DefaultText": "Mt Mistral Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "mt_mistral_wall": {
+   "Name": {
+    "DefaultText": "Mt Mistral Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "mt_mistral_secondary": {
+   "Name": {
+    "DefaultText": "Mt Mistral Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "shimmer_hill_floor": {
+   "Name": {
+    "DefaultText": "Shimmer Hill Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "shimmer_hill_wall": {
+   "Name": {
+    "DefaultText": "Shimmer Hill Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "shimmer_hill_secondary": {
+   "Name": {
+    "DefaultText": "Shimmer Hill Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "lost_wilderness_floor": {
+   "Name": {
+    "DefaultText": "Lost Wilderness Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "lost_wilderness_wall": {
+   "Name": {
+    "DefaultText": "Lost Wilderness Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "lost_wilderness_secondary": {
+   "Name": {
+    "DefaultText": "Lost Wilderness Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_n1_floor": {
+   "Name": {
+    "DefaultText": "Zero Isle N1 Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_n1_wall": {
+   "Name": {
+    "DefaultText": "Zero Isle N1 Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_n1_secondary": {
+   "Name": {
+    "DefaultText": "Zero Isle N1 Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
   }
  }
 }

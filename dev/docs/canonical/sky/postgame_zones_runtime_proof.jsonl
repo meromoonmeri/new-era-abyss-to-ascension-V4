@@ -17,3 +17,31 @@
 {"event": "postgame_zone", "zone": "lower_crevice_cave", "dungeon": "d48", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "note": "tileset ROM port\u00e9 (dungeon.bin DPL/DPC/DPCI/DMA/DPLA, animations eau pr\u00e9serv\u00e9es)"}
 {"event": "postgame_zone", "zone": "crevice_cave_pit", "dungeon": "d49", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "note": "tileset ROM port\u00e9 (dungeon.bin DPL/DPC/DPCI/DMA/DPLA, animations eau pr\u00e9serv\u00e9es)"}
 {"event": "closure_counter_audit", "date": "2026-08-26", "verdict": "COUNTER_AUDIT_PASS", "details": "175 grounds anim\u00e9s v\u00e9rifi\u00e9s vs manifests ROM (0 aplati), 367 paires RESERVE compar\u00e9es (d\u00e9rives LOW document\u00e9es, package fait foi), 14 grounds \u00e9chantillon d\u00e9cod\u00e9s cellule par cellule (93216 cellules, 0 d\u00e9faut), 59/59 zones EXACT"}
+{"event": "postgame_d61plus", "date": "2026-08-26", "zones": 27, "floors": 533, "note": "19 tilesets port\u00e9s de dungeon.bin (m\u00e9thode prouv\u00e9e 141/141+DPLA), 13 autotiles base r\u00e9utilis\u00e9s apr\u00e8s v\u00e9rification; musiques overlay10\u00d7enum music_id; groupes RANDOM NDS + pistes absentes = REQUIRES_MOD_ASSET sans substitution"}
+{"event": "postgame_zone", "zone": "mt_travail_post", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "the_nightmare", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "spacial_rift", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "deep_spacial_rift", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "dark_crater", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "deep_dark_crater", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "concealed_ruins_post", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "marine_resort", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "bottomless_sea", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "shimmer_desert", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "mt_avalanche", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "giant_volcano", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "world_abyss", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "sky_stairway", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "mystery_jungle", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "serenity_river", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "landslide_cave", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "lush_prairie_post", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "tiny_meadow_post", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "labyrinth_cave", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "oran_forest", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "lake_afar", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "happy_outlook", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "mt_mistral", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "shimmer_hill", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "lost_wilderness", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "postgame_zone", "zone": "midnight_forest", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS"}

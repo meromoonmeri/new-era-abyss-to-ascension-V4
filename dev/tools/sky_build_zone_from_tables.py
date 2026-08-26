@@ -62,7 +62,24 @@ TSET = {1: "beach_cave", 2: "drenched_bluff", 3: "mt_bristle",
         # portés depuis DUNGEON/dungeon.bin par sky_port_dungeon_tileset.py
         # (méthode prouvée 141/141 vs autotile officiel ts126, animations
         # DPLA préservées — session 2026-08-26)
-        82: "crevice_cave", 88: "blizzard_island"}
+        82: "crevice_cave", 88: "blizzard_island",
+        # d61-d99 (session finale): base PMDO quand concordance possible,
+        # sinon portés depuis dungeon.bin (sky_port_dungeon_tileset)
+        53: "mt_travail", 54: "the_nightmare",
+        55: "spacial_rift_1", 56: "spacial_rift_2",
+        57: "dark_crater_1", 58: "dark_crater_2",
+        50: "concealed_ruins", 117: "marine_resort",
+        118: "bottomless_sea", 85: "shimmer_desert",
+        111: "mt_avalanche", 123: "giant_volcano",
+        59: "world_abyss_1", 125: "world_abyss_2",
+        99: "sky_stairway", 61: "mystery_jungle_1",
+        62: "mystery_jungle_2", 96: "serenity_river",
+        103: "landslide_cave", 90: "lush_prairie",
+        65: "tiny_meadow", 102: "labyrinth_cave",
+        105: "oran_forest", 113: "lake_afar",
+        91: "happy_outlook", 119: "mt_mistral",
+        106: "shimmer_hill", 108: "lost_wilderness",
+        124: "zero_isle_n1"}
 # tileset NDS 180 (d45 clearing) = MAP_BG v00p03 + fixed floor 11 :
 # arène fixe, pipeline sky_build_boss_arenas (pas un donjon procédural).
 
@@ -99,7 +116,29 @@ MUSIC = {1: "Beach Cave.ogg", 2: "Drenched Bluff.ogg", 3: "Mt. Bristle.ogg",
          52: "Random Dungeon Theme.ogg",  # RANDOM group 0 ROM (sélection
          #    aléatoire NDS parmi les thèmes génériques — ABSENT du roster:
          #    REQUIRES_MOD_ASSET, l'aléa n'est PAS simulé par une piste fixe)
-         71: "Star Cave.ogg"}           # enum 142 MUSIC_STAR_CAVE
+         71: "Star Cave.ogg",           # enum 142 MUSIC_STAR_CAVE
+         # d61+ — overlay10 × enum music_id (même contre-épreuve 9/9):
+         37: "Concealed Ruins.ogg",     # enum 57 (ABSENT: REQUIRES_MOD_ASSET)
+         38: "Mt. Travail.ogg",         # enum 58 MUSIC_MT_TRAVAIL
+         39: "In the Nightmare.ogg",    # enum 59 (ABSENT: REQUIRES_MOD_ASSET)
+         40: "I Saw Something Again.ogg",  # track 39 jukebox (ABSENT)
+         41: "Kecleon's Shop.ogg",      # track 41 jukebox (ABSENT)
+         42: "Dark Crater.ogg",         # enum 62 MUSIC_DARK_CRATER
+         43: "Deep Dark Crater.ogg",    # enum 63 MUSIC_DEEP_DARK_CRATER
+         44: "Random Dungeon Theme.ogg",  # enum 999 (aléa NDS, ABSENT)
+         53: "Far Amp Plains.ogg",      # track 53 jukebox
+         # groupes RANDOM NDS (mid 45-51,55,59-70): sélection aléatoire —
+         # non simulée par une piste fixe (REQUIRES_MOD_ASSET documenté)
+         45: "Random Dungeon Theme.ogg", 46: "Random Dungeon Theme.ogg",
+         47: "Random Dungeon Theme.ogg", 48: "Random Dungeon Theme.ogg",
+         49: "Random Dungeon Theme.ogg", 50: "Random Dungeon Theme.ogg",
+         51: "Random Dungeon Theme.ogg", 55: "Random Dungeon Theme.ogg",
+         59: "Random Dungeon Theme.ogg", 60: "Random Dungeon Theme.ogg",
+         61: "Random Dungeon Theme.ogg", 62: "Random Dungeon Theme.ogg",
+         63: "Random Dungeon Theme.ogg", 64: "Random Dungeon Theme.ogg",
+         65: "Random Dungeon Theme.ogg", 66: "Random Dungeon Theme.ogg",
+         67: "Random Dungeon Theme.ogg", 68: "Random Dungeon Theme.ogg",
+         69: "Random Dungeon Theme.ogg", 70: "Random Dungeon Theme.ogg"}
 
 
 def slug_species(n):

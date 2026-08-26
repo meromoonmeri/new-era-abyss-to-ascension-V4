@@ -66,6 +66,21 @@ ZONE_TO_DUNGEON = {
     # d46-d49: tilesets 82/88 portés depuis dungeon.bin (session clôture)
     "blizzard_island": "d46", "crevice_cave": "d47",
     "lower_crevice_cave": "d48", "crevice_cave_pit": "d49",
+    # d61-d98 (session finale)
+    "mt_travail_post": "d62", "the_nightmare": "d63",
+    "spacial_rift": "d64", "deep_spacial_rift": "d65",
+    "dark_crater": "d67", "deep_dark_crater": "d68",
+    "concealed_ruins_post": "d70", "marine_resort": "d72",
+    "bottomless_sea": "d73", "shimmer_desert": "d75",
+    "mt_avalanche": "d77", "giant_volcano": "d79",
+    "world_abyss": "d81", "sky_stairway": "d83",
+    "mystery_jungle": "d85", "serenity_river": "d87",
+    "landslide_cave": "d88", "lush_prairie_post": "d89",
+    "tiny_meadow_post": "d90", "labyrinth_cave": "d91",
+    "oran_forest": "d92", "lake_afar": "d93",
+    "happy_outlook": "d94", "mt_mistral": "d95",
+    "shimmer_hill": "d96", "lost_wilderness": "d97",
+    "midnight_forest": "d98",
 }
 
 TRAP_TO_PMDO = {k: v.get("pmdo_tile")
