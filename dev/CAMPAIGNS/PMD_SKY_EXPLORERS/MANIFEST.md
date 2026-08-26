@@ -29,19 +29,19 @@ Cinq épisodes canoniques de la version Ciel : Étincelle d'Éclabousse, Igglybu
 |---|---|---|---|---|
 | `d00p01` | Test Dungeon | — | 1 | 456×456 |
 | `d00p02` | Test Dungeon | — | 1 | 456×456 |
-| `d01p11a` | Beach Cave | Grotte Plage | 6 | 792×384 |
-| `d01p11b` | Beach Cave | Grotte Plage | 6 | 792×384 |
-| `d01p41a` | Beach Cave | Grotte Plage | 6 | 456×480 |
+| `d01p11a` | Beach Cave | Grotte Plage | 64 | 792×384 |
+| `d01p11b` | Beach Cave | Grotte Plage | 64 | 792×384 |
+| `d01p41a` | Beach Cave | Grotte Plage | 64 | 456×480 |
 | `d02p11a` | Beach Cave Pit | — | 1 | 528×408 |
-| `d02p31a` | Beach Cave Pit | — | 6 | 480×384 |
+| `d02p31a` | Beach Cave Pit | — | 60 | 480×384 |
 | `d03p11a` | Drenched Bluff | Falaise Trempée | 1 | 552×480 |
 | `d03p41a` | Drenched Bluff | Falaise Trempée | 1 | 696×648 |
 | `d04p11a` | Mt. Bristle | Mont Aiguillon | 6 | 504×456 |
-| `d04p12a` | Mt. Bristle | Mont Aiguillon | 6 | 408×552 |
-| `d04p31a` | Mt. Bristle | Mont Aiguillon | 6 | 504×432 |
+| `d04p12a` | Mt. Bristle | Mont Aiguillon | 64 | 408×552 |
+| `d04p31a` | Mt. Bristle | Mont Aiguillon | 64 | 504×432 |
 | `d05p11a` | Mt. Bristle Peak | — | 1 | 552×408 |
 | `d05p31a` | Mt. Bristle Peak | — | 1 | 552×552 |
-| `d06p11a` | Waterfall Cave | Grotte Cascade | 6 | 552×432 |
+| `d06p11a` | Waterfall Cave | Grotte Cascade | 64 | 552×432 |
 | `d07p11a` | Apple Woods | Bois aux Pommes | 1 | 552×360 |
 | `d08p11a` | Craggy Coast | Côte Rocheuse | 1 | 600×792 |
 | `d09p11a` | Side Path | — | 1 | 504×504 |
@@ -52,16 +52,16 @@ Cinq épisodes canoniques de la version Ciel : Étincelle d'Éclabousse, Igglybu
 | `d12p41a` | Foggy Forest | Forêt Brumeuse | 1 | 552×504 |
 | `d13p11a` | Forest Path | — | 1 | 456×456 |
 | `d14p11a` | Steam Cave | Grotte Vapeur | 6 | 456×384 |
-| `d14p12a` | Steam Cave | Grotte Vapeur | 6 | 600×408 |
+| `d14p12a` | Steam Cave | Grotte Vapeur | 12 | 600×408 |
 | `d15p21a` | Upper Steam Cave | — | 1 | 456×456 |
-| `d15p41a` | Upper Steam Cave | — | 6 | 600×600 |
-| `d16p11a` | Steam Cave Peak | — | 6 | 600×408 |
-| `d16p31a` | Steam Cave Peak | — | 6 | 600×480 |
-| `d17p11a` | Amp Plains | Plaines Élek | 6 | 600×480 |
-| `d17p31a` | Amp Plains | Plaines Élek | 6 | 360×408 |
-| `d17p32a` | Amp Plains | Plaines Élek | 6 | 408×456 |
-| `d17p33a` | Amp Plains | Plaines Élek | 6 | 456×504 |
-| `d17p34a` | Amp Plains | Plaines Élek | 6 | 696×600 |
+| `d15p41a` | Upper Steam Cave | — | 64 | 600×600 |
+| `d16p11a` | Steam Cave Peak | — | 64 | 600×408 |
+| `d16p31a` | Steam Cave Peak | — | 64 | 600×480 |
+| `d17p11a` | Amp Plains | Plaines Élek | 64 | 600×480 |
+| `d17p31a` | Amp Plains | Plaines Élek | 12 | 360×408 |
+| `d17p32a` | Amp Plains | Plaines Élek | 12 | 408×456 |
+| `d17p33a` | Amp Plains | Plaines Élek | 60 | 456×504 |
+| `d17p34a` | Amp Plains | Plaines Élek | 12 | 696×600 |
 | `d17p45a` | Amp Plains | Plaines Élek | 1 | 696×504 |
 | `d18p11a` | Far Amp Plains | — | 1 | 600×384 |
 | `d19p11a` | Amp Clearing | — | 1 | 768×384 |
@@ -73,7 +73,7 @@ Cinq épisodes canoniques de la version Ciel : Étincelle d'Éclabousse, Igglybu
 | `d24p11a` | Crystal Cave | Grotte Cristal | 1 | 504×432 |
 | `d24p31a` | Crystal Cave | Grotte Cristal | 1 | 504×480 |
 | `d24p31b` | Crystal Cave | Grotte Cristal | 1 | 504×480 |
-| `d25p11a` | Crystal Crossing | Croisée Cristal | 6 | 648×504 |
+| `d25p11a` | Crystal Crossing | Croisée Cristal | 64 | 648×504 |
 | `d26p21a` | Crystal Lake | — | 1 | 456×456 |
 | `d26p31a` | Crystal Lake | — | 3 | 552×744 |
 | `d26p43a` | Crystal Lake | — | 3 | 552×744 |
@@ -85,13 +85,13 @@ Cinq épisodes canoniques de la version Ciel : Étincelle d'Éclabousse, Igglybu
 | `d28p33c` | Dark Hill | Colline Sombre | 1 | 600×432 |
 | `d28p34a` | Dark Hill | Colline Sombre | 1 | 648×528 |
 | `d28p44a` | Dark Hill | Colline Sombre | 1 | 504×528 |
-| `d29p11a` | Sealed Ruin | Ruine Scellée | 6 | 600×552 |
+| `d29p11a` | Sealed Ruin | Ruine Scellée | 64 | 600×552 |
 | `d30p21a` | Deep Sealed Ruin | — | 1 | 456×456 |
-| `d30p32a` | Deep Sealed Ruin | — | 6 | 552×576 |
-| `d30p33a` | Deep Sealed Ruin | — | 6 | 552×576 |
-| `d30p34a` | Deep Sealed Ruin | — | 6 | 552×576 |
-| `d30p41a` | Deep Sealed Ruin | — | 6 | 552×576 |
-| `d30p42a` | Deep Sealed Ruin | — | 6 | 552×576 |
+| `d30p32a` | Deep Sealed Ruin | — | 11 | 552×576 |
+| `d30p33a` | Deep Sealed Ruin | — | 7 | 552×576 |
+| `d30p34a` | Deep Sealed Ruin | — | 7 | 552×576 |
+| `d30p41a` | Deep Sealed Ruin | — | 7 | 552×576 |
+| `d30p42a` | Deep Sealed Ruin | — | 11 | 552×576 |
 | `d31p11a` | Sealed Ruin Pit | — | 1 | 600×504 |
 | `d31p31a` | Sealed Ruin Pit | — | 1 | 456×504 |
 | `d31p41a` | Sealed Ruin Pit | — | 1 | 552×504 |
@@ -108,15 +108,15 @@ Cinq épisodes canoniques de la version Ciel : Étincelle d'Éclabousse, Igglybu
 | `d39p21a` | Hidden Highland | — | 1 | 456×456 |
 | `d39p32a` | Hidden Highland | — | 1 | 480×480 |
 | `d39p41a` | Hidden Highland | — | 1 | 1440×960 |
-| `d40p11a` | Old Ruins | — | 6 | 360×456 |
+| `d40p11a` | Old Ruins | — | 10 | 360×456 |
 | `d41p21a` | Temporal Tower | Tour du Temps | 1 | 456×456 |
-| `d41p41a` | Temporal Tower | Tour du Temps | 6 | 552×576 |
+| `d41p41a` | Temporal Tower | Tour du Temps | 64 | 552×576 |
 | `d42p21a` | Temporal Spire | Flèche du Temps | 1 | 456×456 |
-| `d42p31a` | Temporal Spire | Flèche du Temps | 6 | 1008×504 |
-| `d42p41a` | Temporal Spire | Flèche du Temps | 6 | 504×504 |
-| `d42p42a` | Temporal Spire | Flèche du Temps | 6 | 504×456 |
+| `d42p31a` | Temporal Spire | Flèche du Temps | 64 | 1008×504 |
+| `d42p41a` | Temporal Spire | Flèche du Temps | 64 | 504×504 |
+| `d42p42a` | Temporal Spire | Flèche du Temps | 64 | 504×456 |
 | `d43p31a` | Temporal Pinnacle | — | 1 | 408×432 |
-| `d44p31a` | Mystifying Forest | Forêt Mystère | 6 | 912×552 |
+| `d44p31a` | Mystifying Forest | Forêt Mystère | 64 | 912×552 |
 | `d45p21a` | Mystifying Forest Clearing | — | 1 | 456×456 |
 | `d45p31a` | Mystifying Forest Clearing | — | 1 | 816×408 |
 | `d45p42a` | Mystifying Forest Clearing | — | 1 | 504×504 |
@@ -140,7 +140,7 @@ Cinq épisodes canoniques de la version Ciel : Étincelle d'Éclabousse, Igglybu
 | `d53p11b` | Miracle Seabed | — | 1 | 504×360 |
 | `d53p21a` | Miracle Seabed | — | 1 | 456×456 |
 | `d53p41a` | Miracle Seabed | — | 1 | 504×480 |
-| `d53p41b` | Miracle Seabed | — | 6 | 504×480 |
+| `d53p41b` | Miracle Seabed | — | 64 | 504×480 |
 | `d53p41c` | Miracle Seabed | — | 1 | 504×480 |
 | `d54p11a` | Ice Aegis Cave | — | 1 | 504×432 |
 | `d54p31a` | Ice Aegis Cave | — | 1 | 504×456 |
@@ -149,14 +149,14 @@ Cinq épisodes canoniques de la version Ciel : Étincelle d'Éclabousse, Igglybu
 | `d55p21a` | Regice Chamber | — | 1 | 456×456 |
 | `d55p41a` | Regice Chamber | — | 1 | 504×456 |
 | `d56p11a` | Rock Aegis Cave | — | 1 | 504×408 |
-| `d56p12a` | Rock Aegis Cave | — | 6 | 312×336 |
+| `d56p12a` | Rock Aegis Cave | — | 64 | 312×336 |
 | `d56p21a` | Rock Aegis Cave | — | 1 | 456×456 |
-| `d56p41a` | Rock Aegis Cave | — | 6 | 456×480 |
+| `d56p41a` | Rock Aegis Cave | — | 60 | 456×480 |
 | `d57p21a` | Regirock Chamber | — | 1 | 456×456 |
 | `d57p41a` | Regirock Chamber | — | 1 | 456×456 |
-| `d57p42a` | Regirock Chamber | — | 6 | 456×528 |
-| `d57p43a` | Regirock Chamber | — | 6 | 912×456 |
-| `d57p44a` | Regirock Chamber | — | 6 | 456×456 |
+| `d57p42a` | Regirock Chamber | — | 64 | 456×528 |
+| `d57p43a` | Regirock Chamber | — | 64 | 912×456 |
+| `d57p44a` | Regirock Chamber | — | 64 | 456×456 |
 | `d58p41a` | Steel Aegis Cave | — | 1 | 456×456 |
 | `d59p41a` | Registeel Chamber | — | 1 | 456×456 |
 | `d60p41a` | Aegis Cave Pit | — | 1 | 456×456 |
@@ -179,7 +179,7 @@ Cinq épisodes canoniques de la version Ciel : Étincelle d'Éclabousse, Igglybu
 | `d73p25a` | Bottomless Sea | — | 1 | 456×456 |
 | `d73p26a` | Bottomless Sea | — | 1 | 456×504 |
 | `d73p27a` | Bottomless Sea | — | 1 | 456×456 |
-| `d73p28a` | Bottomless Sea | — | 6 | 456×504 |
+| `d73p28a` | Bottomless Sea | — | 12 | 456×504 |
 | `d73p29a` | Bottomless Sea | — | 1 | 456×456 |
 | `d73p31a` | Bottomless Sea | — | 6 | 504×504 |
 | `d73p41a` | Bottomless Sea | — | 5 | 504×504 |

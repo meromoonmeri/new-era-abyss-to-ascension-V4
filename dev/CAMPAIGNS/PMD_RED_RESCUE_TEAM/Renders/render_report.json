@@ -1,6 +1,6 @@
 {
  "schema": "new-era.campaign-ground-render.v1",
- "max_frames_cap": 6,
+ "max_frames_cap": 64,
  "renders": [
   {
    "ground": "a01p01",
@@ -8,6 +8,9 @@
    "height_px": 384,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -21,6 +24,9 @@
    "height_px": 384,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -34,6 +40,9 @@
    "height_px": 360,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -45,8 +54,11 @@
    "ground": "a02p02",
    "width_px": 264,
    "height_px": 192,
-   "frames_rendered": 6,
+   "frames_rendered": 36,
    "animation_cycle": 36,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 234,
    "animated_tiles": 234,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -60,6 +72,9 @@
    "height_px": 288,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -71,8 +86,11 @@
    "ground": "a02p04",
    "width_px": 264,
    "height_px": 384,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 240,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 531,
    "animated_tiles": 531,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -86,6 +104,9 @@
    "height_px": 288,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -99,6 +120,9 @@
    "height_px": 336,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -112,6 +136,9 @@
    "height_px": 288,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -123,8 +150,11 @@
    "ground": "a04p01",
    "width_px": 312,
    "height_px": 600,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 84,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 153,
    "animated_tiles": 153,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -138,6 +168,9 @@
    "height_px": 216,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -149,8 +182,11 @@
    "ground": "a04p03",
    "width_px": 288,
    "height_px": 432,
-   "frames_rendered": 6,
+   "frames_rendered": 24,
    "animation_cycle": 24,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 630,
    "animated_tiles": 630,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -164,6 +200,9 @@
    "height_px": 240,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -175,14 +214,20 @@
    "ground": "a05p01",
    "width_px": 312,
    "height_px": 240,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
+   "frames_rendered": 64,
+   "animation_cycle": 7980,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 36,
    "animated_tiles": 36,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "a05p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 21,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "a05p02",
@@ -190,6 +235,9 @@
    "height_px": 240,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -203,6 +251,9 @@
    "height_px": 240,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -216,6 +267,9 @@
    "height_px": 240,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -229,6 +283,9 @@
    "height_px": 240,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -242,6 +299,9 @@
    "height_px": 240,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -255,6 +315,9 @@
    "height_px": 240,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -263,172 +326,23 @@
    ]
   },
   {
-   "ground": "abime_tempetes",
-   "width_px": 528,
-   "height_px": 504,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "AbimeTempetes_Base"
-   ]
-  },
-  {
-   "ground": "altere_pond",
-   "width_px": 928,
-   "height_px": 768,
-   "frames_rendered": 6,
-   "animation_cycle": 24,
-   "animated_tiles": 1934,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Altere_Pond_Base",
-    "Altere_Pond_Cliffs",
-    "Altere_Pond_Fringe",
-    "Altere_Pond_Objects",
-    "Altere_Pond_Objects_Over",
-    "Altere_Pond_Objects_Under",
-    "Altere_Pond_River_Animations",
-    "Altere_Pond_Shadows",
-    "Metano_Town_Animation_Tileset"
-   ]
-  },
-  {
-   "ground": "antre_occident",
-   "width_px": 360,
-   "height_px": 336,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "AntreOccident_Base"
-   ]
-  },
-  {
-   "ground": "apricorn_glade",
-   "width_px": 584,
-   "height_px": 552,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Apricorn_Glade_Base",
-    "Apricorn_Glade_Big_Tree",
-    "Apricorn_Glade_Objects",
-    "Apricorn_Glade_Trees"
-   ]
-  },
-  {
-   "ground": "apricorn_grove_entrance",
-   "width_px": 344,
-   "height_px": 304,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Apricorn_Grove_Base",
-    "Apricorn_Grove_Objects"
-   ]
-  },
-  {
-   "ground": "arc_palier_celeste",
-   "width_px": 456,
-   "height_px": 456,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "PalierCeleste_Base"
-   ]
-  },
-  {
-   "ground": "arc_parvis_celeste",
-   "width_px": 408,
-   "height_px": 288,
-   "frames_rendered": 6,
-   "animation_cycle": 56,
-   "animated_tiles": 648,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "ParvisCeleste_Base"
-   ]
-  },
-  {
-   "ground": "arc_tour_ciel_sommet",
-   "width_px": 552,
-   "height_px": 600,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "SkyTowerSummitCanonical_Base"
-   ]
-  },
-  {
-   "ground": "arene_clairiere_secrete",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "arene_hautes_plaines",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "arene_trone_magma",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
    "ground": "b01p00a",
    "width_px": 552,
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b01p00a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b01p01a",
@@ -436,12 +350,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b01p01a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b01p01b",
@@ -449,25 +369,37 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b01p01b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b01p01c",
    "width_px": 552,
    "height_px": 552,
-   "frames_rendered": 6,
+   "frames_rendered": 12,
    "animation_cycle": 12,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 315,
    "animated_tiles": 315,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b01p01c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 12,
+   "apng_rendered_frames": 12
   },
   {
    "ground": "b01p02a",
@@ -475,6 +407,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -488,6 +423,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -501,6 +439,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -514,12 +455,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b02p01a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b02p01b",
@@ -527,25 +474,37 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b02p01b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b02p01c",
    "width_px": 552,
    "height_px": 552,
-   "frames_rendered": 6,
+   "frames_rendered": 12,
    "animation_cycle": 12,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 315,
    "animated_tiles": 315,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b02p01c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 12,
+   "apng_rendered_frames": 12
   },
   {
    "ground": "b02p02a",
@@ -553,6 +512,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -566,6 +528,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -579,6 +544,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -592,12 +560,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b03p01a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b03p01b",
@@ -605,25 +579,37 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b03p01b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b03p01c",
    "width_px": 552,
    "height_px": 552,
-   "frames_rendered": 6,
+   "frames_rendered": 12,
    "animation_cycle": 12,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 315,
    "animated_tiles": 315,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b03p01c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 12,
+   "apng_rendered_frames": 12
   },
   {
    "ground": "b03p02a",
@@ -631,6 +617,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -644,6 +633,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -657,6 +649,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -670,12 +665,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b04p01a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b04p01b",
@@ -683,25 +684,37 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b04p01b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b04p01c",
    "width_px": 552,
    "height_px": 552,
-   "frames_rendered": 6,
+   "frames_rendered": 12,
    "animation_cycle": 12,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 315,
    "animated_tiles": 315,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b04p01c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 12,
+   "apng_rendered_frames": 12
   },
   {
    "ground": "b04p02a",
@@ -709,6 +722,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -722,6 +738,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -735,6 +754,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -746,313 +768,457 @@
    "ground": "b05p01a",
    "width_px": 552,
    "height_px": 552,
-   "frames_rendered": 6,
+   "frames_rendered": 24,
    "animation_cycle": 24,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 405,
    "animated_tiles": 405,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b05p01a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 24,
+   "apng_rendered_frames": 24
   },
   {
    "ground": "b05p01b",
    "width_px": 552,
    "height_px": 552,
-   "frames_rendered": 6,
+   "frames_rendered": 24,
    "animation_cycle": 24,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 387,
    "animated_tiles": 387,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b05p01b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 24,
+   "apng_rendered_frames": 24
   },
   {
    "ground": "b05p01c",
    "width_px": 552,
    "height_px": 552,
-   "frames_rendered": 6,
+   "frames_rendered": 24,
    "animation_cycle": 24,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 387,
    "animated_tiles": 387,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b05p01c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 24,
+   "apng_rendered_frames": 24
   },
   {
    "ground": "b05p02a",
    "width_px": 480,
    "height_px": 480,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 360,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 252,
    "animated_tiles": 252,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b05p02a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "b05p02b",
    "width_px": 480,
    "height_px": 480,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 360,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 252,
    "animated_tiles": 252,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b05p02b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "b05p02c",
    "width_px": 480,
    "height_px": 480,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 360,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 252,
    "animated_tiles": 252,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b05p02c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "b06p01a",
    "width_px": 552,
    "height_px": 552,
-   "frames_rendered": 6,
+   "frames_rendered": 24,
    "animation_cycle": 24,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 405,
    "animated_tiles": 405,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b06p01a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 24,
+   "apng_rendered_frames": 24
   },
   {
    "ground": "b06p01b",
    "width_px": 552,
    "height_px": 552,
-   "frames_rendered": 6,
+   "frames_rendered": 24,
    "animation_cycle": 24,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 387,
    "animated_tiles": 387,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b06p01b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 24,
+   "apng_rendered_frames": 24
   },
   {
    "ground": "b06p01c",
    "width_px": 552,
    "height_px": 552,
-   "frames_rendered": 6,
+   "frames_rendered": 24,
    "animation_cycle": 24,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 387,
    "animated_tiles": 387,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b06p01c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 24,
+   "apng_rendered_frames": 24
   },
   {
    "ground": "b06p02a",
    "width_px": 480,
    "height_px": 480,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 360,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 252,
    "animated_tiles": 252,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b06p02a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "b06p02b",
    "width_px": 480,
    "height_px": 480,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 360,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 252,
    "animated_tiles": 252,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b06p02b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "b06p02c",
    "width_px": 480,
    "height_px": 480,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 360,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 252,
    "animated_tiles": 252,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b06p02c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "b07p01a",
    "width_px": 552,
    "height_px": 552,
-   "frames_rendered": 6,
+   "frames_rendered": 24,
    "animation_cycle": 24,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 405,
    "animated_tiles": 405,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b07p01a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 24,
+   "apng_rendered_frames": 24
   },
   {
    "ground": "b07p01b",
    "width_px": 552,
    "height_px": 552,
-   "frames_rendered": 6,
+   "frames_rendered": 24,
    "animation_cycle": 24,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 387,
    "animated_tiles": 387,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b07p01b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 24,
+   "apng_rendered_frames": 24
   },
   {
    "ground": "b07p01c",
    "width_px": 552,
    "height_px": 552,
-   "frames_rendered": 6,
+   "frames_rendered": 24,
    "animation_cycle": 24,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 387,
    "animated_tiles": 387,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b07p01c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 24,
+   "apng_rendered_frames": 24
   },
   {
    "ground": "b07p02a",
    "width_px": 480,
    "height_px": 480,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 360,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 252,
    "animated_tiles": 252,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b07p02a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "b07p02b",
    "width_px": 480,
    "height_px": 480,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 360,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 252,
    "animated_tiles": 252,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b07p02b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "b07p02c",
    "width_px": 480,
    "height_px": 480,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 360,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 252,
    "animated_tiles": 252,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b07p02c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "b08p01a",
    "width_px": 552,
    "height_px": 552,
-   "frames_rendered": 6,
+   "frames_rendered": 24,
    "animation_cycle": 24,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 405,
    "animated_tiles": 405,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b08p01a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 24,
+   "apng_rendered_frames": 24
   },
   {
    "ground": "b08p01b",
    "width_px": 552,
    "height_px": 552,
-   "frames_rendered": 6,
+   "frames_rendered": 24,
    "animation_cycle": 24,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 387,
    "animated_tiles": 387,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b08p01b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 24,
+   "apng_rendered_frames": 24
   },
   {
    "ground": "b08p01c",
    "width_px": 552,
    "height_px": 552,
-   "frames_rendered": 6,
+   "frames_rendered": 24,
    "animation_cycle": 24,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 387,
    "animated_tiles": 387,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b08p01c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 24,
+   "apng_rendered_frames": 24
   },
   {
    "ground": "b08p02a",
    "width_px": 480,
    "height_px": 480,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 360,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 252,
    "animated_tiles": 252,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b08p02a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "b08p02b",
    "width_px": 480,
    "height_px": 480,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 360,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 252,
    "animated_tiles": 252,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b08p02b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "b08p02c",
    "width_px": 480,
    "height_px": 480,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 360,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 252,
    "animated_tiles": 252,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b08p02c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "b09p01a",
@@ -1060,12 +1226,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 468,
    "animated_tiles": 468,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b09p01a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b09p01b",
@@ -1073,12 +1245,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 450,
    "animated_tiles": 450,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b09p01b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b09p01c",
@@ -1086,25 +1264,37 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 495,
    "animated_tiles": 495,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b09p01c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b09p02a",
    "width_px": 480,
    "height_px": 480,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
+   "frames_rendered": 64,
+   "animation_cycle": 1680,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 72,
    "animated_tiles": 72,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b09p02a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "b09p02b",
@@ -1112,25 +1302,37 @@
    "height_px": 480,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 54,
    "animated_tiles": 54,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b09p02b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b09p02c",
    "width_px": 480,
    "height_px": 480,
-   "frames_rendered": 6,
+   "frames_rendered": 30,
    "animation_cycle": 30,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 108,
    "animated_tiles": 108,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b09p02c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 30,
+   "apng_rendered_frames": 30
   },
   {
    "ground": "b10p01a",
@@ -1138,12 +1340,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 468,
    "animated_tiles": 468,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b10p01a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b10p01b",
@@ -1151,12 +1359,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 450,
    "animated_tiles": 450,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b10p01b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b10p01c",
@@ -1164,25 +1378,37 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 468,
    "animated_tiles": 468,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b10p01c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b10p02a",
    "width_px": 480,
    "height_px": 480,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
+   "frames_rendered": 64,
+   "animation_cycle": 1680,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 72,
    "animated_tiles": 72,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b10p02a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "b10p02b",
@@ -1190,25 +1416,37 @@
    "height_px": 480,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 54,
    "animated_tiles": 54,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b10p02b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b10p02c",
    "width_px": 480,
    "height_px": 480,
-   "frames_rendered": 6,
+   "frames_rendered": 30,
    "animation_cycle": 30,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 108,
    "animated_tiles": 108,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b10p02c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 30,
+   "apng_rendered_frames": 30
   },
   {
    "ground": "b11p01a",
@@ -1216,12 +1454,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 468,
    "animated_tiles": 468,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b11p01a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b11p01b",
@@ -1229,12 +1473,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 450,
    "animated_tiles": 450,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b11p01b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b11p01c",
@@ -1242,25 +1492,37 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 486,
    "animated_tiles": 486,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b11p01c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b11p02a",
    "width_px": 480,
    "height_px": 480,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
+   "frames_rendered": 64,
+   "animation_cycle": 1680,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 72,
    "animated_tiles": 72,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b11p02a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "b11p02b",
@@ -1268,25 +1530,37 @@
    "height_px": 480,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 54,
    "animated_tiles": 54,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b11p02b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b11p02c",
    "width_px": 480,
    "height_px": 480,
-   "frames_rendered": 6,
+   "frames_rendered": 30,
    "animation_cycle": 30,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 108,
    "animated_tiles": 108,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b11p02c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 30,
+   "apng_rendered_frames": 30
   },
   {
    "ground": "b12p01a",
@@ -1294,12 +1568,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b12p01a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b12p01b",
@@ -1307,12 +1587,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b12p01b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b12p01c",
@@ -1320,12 +1606,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b12p01c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b12p02a",
@@ -1333,6 +1625,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -1346,6 +1641,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -1359,6 +1657,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -1372,12 +1673,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b13p01a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b13p01b",
@@ -1385,12 +1692,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b13p01b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b13p01c",
@@ -1398,12 +1711,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b13p01c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b13p02a",
@@ -1411,6 +1730,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -1424,6 +1746,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -1437,6 +1762,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -1450,12 +1778,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b14p01a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b14p01b",
@@ -1463,12 +1797,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b14p01b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b14p01c",
@@ -1476,12 +1816,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b14p01c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b14p02a",
@@ -1489,6 +1835,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -1502,6 +1851,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -1515,6 +1867,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -1528,12 +1883,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b15p01a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b15p01b",
@@ -1541,12 +1902,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b15p01b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b15p01c",
@@ -1554,12 +1921,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b15p01c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b15p02a",
@@ -1567,6 +1940,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -1580,6 +1956,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -1593,6 +1972,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -1606,12 +1988,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b16p01a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b16p01b",
@@ -1619,12 +2007,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b16p01b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b16p01c",
@@ -1632,12 +2026,18 @@
    "height_px": 552,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "b16p01c_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "b16p02a",
@@ -1645,6 +2045,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -1658,6 +2061,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -1671,6 +2077,9 @@
    "height_px": 480,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -1679,402 +2088,14 @@
    ]
   },
   {
-   "ground": "base_camp",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "base_camp_2",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "bois_des_plaintes",
-   "width_px": 360,
-   "height_px": 336,
-   "frames_rendered": 6,
-   "animation_cycle": 60,
-   "animated_tiles": 1890,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "BoisDesPlaintes_Base"
-   ]
-  },
-  {
-   "ground": "bourg_comptoir",
-   "width_px": 672,
-   "height_px": 504,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 494,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "T01p01a_Base"
-   ]
-  },
-  {
-   "ground": "canyon_camp",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "cap_dents_mer",
-   "width_px": 504,
-   "height_px": 384,
-   "frames_rendered": 6,
-   "animation_cycle": 420,
-   "animated_tiles": 776,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "H01p99a_Base"
-   ]
-  },
-  {
-   "ground": "carrefour_assemblee",
-   "width_px": 432,
-   "height_px": 456,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 94,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "P01p03a_Base"
-   ]
-  },
-  {
-   "ground": "carrefour_nord",
-   "width_px": 432,
-   "height_px": 456,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "P01P01A_layer1"
-   ]
-  },
-  {
-   "ground": "carrefour_sud",
-   "width_px": 432,
-   "height_px": 432,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "P01P02A_layer1",
-    "P01P02A_layer2"
-   ]
-  },
-  {
-   "ground": "carriere_magnetique",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "carte_chapitre_v2",
-   "error": "aucune planche disponible",
-   "missing_sheets": []
-  },
-  {
-   "ground": "chambre_agee_o",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "champ_braises",
-   "width_px": 360,
-   "height_px": 360,
-   "frames_rendered": 6,
-   "animation_cycle": 8,
-   "animated_tiles": 327,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "ChampBraises_Base"
-   ]
-  },
-  {
-   "ground": "champ_sacre",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "champ_vent_boreal",
-   "width_px": 360,
-   "height_px": 336,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 1080,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "ChampVentBoreal_Base"
-   ]
-  },
-  {
-   "ground": "cliff_camp",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "cloven_ruin_regice_chamber_sky",
-   "width_px": 504,
-   "height_px": 456,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "D55p41a_Base"
-   ]
-  },
-  {
-   "ground": "cloven_ruin_regigigas_chamber_sky",
-   "width_px": 456,
-   "height_px": 456,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "D61p41a_Base"
-   ]
-  },
-  {
-   "ground": "cloven_ruin_regirock_chamber_sky",
-   "width_px": 456,
-   "height_px": 456,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
-   "animated_tiles": 540,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "D57p44a_Base"
-   ]
-  },
-  {
-   "ground": "cloven_ruin_registeel_chamber_sky",
-   "width_px": 456,
-   "height_px": 456,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "D59p41a_Base"
-   ]
-  },
-  {
-   "ground": "cloven_ruins_entrance",
-   "width_px": 576,
-   "height_px": 408,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "ClovenRuinsEntranceV3"
-   ]
-  },
-  {
-   "ground": "cloven_ruins_midpoint",
-   "width_px": 912,
-   "height_px": 456,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "D32p31a_Base"
-   ]
-  },
-  {
-   "ground": "cloven_ruins_miniboss",
-   "error": "aucune planche disponible",
-   "missing_sheets": []
-  },
-  {
-   "ground": "colline_anciens",
-   "width_px": 240,
-   "height_px": 160,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Colline_Anciens_Base"
-   ]
-  },
-  {
-   "ground": "colline_sans_lumiere",
-   "width_px": 256,
-   "height_px": 128,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Dark Hill Entrance Layer 1",
-    "Dark Hill Entrance Layer 2"
-   ]
-  },
-  {
-   "ground": "couloir_legendes",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "cretes_boreales",
-   "width_px": 504,
-   "height_px": 480,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "CretesBoreales_Base"
-   ]
-  },
-  {
-   "ground": "creux_ombres_scelle",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "crooked_cavern_entrance",
-   "width_px": 320,
-   "height_px": 240,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Crooked_Cavern_Base",
-    "Crooked_Cavern_Objects",
-    "Crooked_Cavern_Shadows"
-   ]
-  },
-  {
-   "ground": "crooked_cavern_midpoint",
-   "width_px": 152,
-   "height_px": 152,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "CaveStop"
-   ]
-  },
-  {
-   "ground": "crooked_den",
-   "width_px": 360,
-   "height_px": 432,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Crooked_Den"
-   ]
-  },
-  {
    "ground": "d01p01",
    "width_px": 432,
    "height_px": 360,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2083,11 +2104,30 @@
    ]
   },
   {
+   "ground": "d01p02",
+   "width_px": 360,
+   "height_px": 336,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d01p02_DirectBase"
+   ]
+  },
+  {
    "ground": "d02p01",
    "width_px": 384,
    "height_px": 312,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2096,11 +2136,30 @@
    ]
   },
   {
+   "ground": "d02p02",
+   "width_px": 360,
+   "height_px": 336,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d02p02_DirectBase"
+   ]
+  },
+  {
    "ground": "d03p01",
    "width_px": 360,
    "height_px": 312,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2109,11 +2168,30 @@
    ]
   },
   {
+   "ground": "d03p02",
+   "width_px": 456,
+   "height_px": 552,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d03p02_DirectBase"
+   ]
+  },
+  {
    "ground": "d04p01",
    "width_px": 456,
    "height_px": 384,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2122,11 +2200,30 @@
    ]
   },
   {
+   "ground": "d04p02",
+   "width_px": 552,
+   "height_px": 576,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d04p02_DirectBase"
+   ]
+  },
+  {
    "ground": "d05p01",
    "width_px": 672,
    "height_px": 240,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2135,11 +2232,30 @@
    ]
   },
   {
+   "ground": "d05p02",
+   "width_px": 360,
+   "height_px": 408,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d05p02_DirectBase"
+   ]
+  },
+  {
    "ground": "d06p01",
    "width_px": 408,
    "height_px": 288,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2148,11 +2264,46 @@
    ]
   },
   {
+   "ground": "d06p02",
+   "width_px": 456,
+   "height_px": 456,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d06p02_DirectBase"
+   ]
+  },
+  {
+   "ground": "d06p03",
+   "width_px": 456,
+   "height_px": 456,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d06p03_DirectBase"
+   ]
+  },
+  {
    "ground": "d07p01",
    "width_px": 456,
    "height_px": 240,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2164,14 +2315,20 @@
    "ground": "d07p02",
    "width_px": 312,
    "height_px": 600,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 84,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 153,
    "animated_tiles": 153,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "d07p02_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "d08p01",
@@ -2179,6 +2336,9 @@
    "height_px": 288,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2192,6 +2352,9 @@
    "height_px": 288,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2205,12 +2368,18 @@
    "height_px": 312,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 558,
    "animated_tiles": 558,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "d09p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "d09p02",
@@ -2218,6 +2387,9 @@
    "height_px": 456,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2231,6 +2403,9 @@
    "height_px": 552,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2244,6 +2419,9 @@
    "height_px": 336,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2257,6 +2435,9 @@
    "height_px": 456,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2270,6 +2451,9 @@
    "height_px": 504,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2281,14 +2465,20 @@
    "ground": "d11p01",
    "width_px": 264,
    "height_px": 288,
-   "frames_rendered": 6,
+   "frames_rendered": 26,
    "animation_cycle": 26,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 387,
    "animated_tiles": 387,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "d11p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 26,
+   "apng_rendered_frames": 26
   },
   {
    "ground": "d11p02",
@@ -2296,6 +2486,9 @@
    "height_px": 456,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2309,6 +2502,9 @@
    "height_px": 504,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2320,26 +2516,182 @@
    "ground": "d12p01",
    "width_px": 408,
    "height_px": 336,
-   "frames_rendered": 6,
+   "frames_rendered": 56,
    "animation_cycle": 56,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 1926,
    "animated_tiles": 1926,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "d12p01_Base"
+   ],
+   "packed_apng": true,
+   "apng_frames": 56,
+   "apng_rendered_frames": 56
+  },
+  {
+   "ground": "d12p02",
+   "width_px": 456,
+   "height_px": 456,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d12p02_DirectBase"
+   ]
+  },
+  {
+   "ground": "d12p04",
+   "width_px": 504,
+   "height_px": 504,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d12p04_DirectBase"
    ]
   },
   {
    "ground": "d13p01",
    "width_px": 408,
    "height_px": 288,
-   "frames_rendered": 6,
+   "frames_rendered": 8,
    "animation_cycle": 8,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 648,
    "animated_tiles": 648,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "d13p01_Base"
+   ],
+   "packed_apng": true,
+   "apng_frames": 7,
+   "apng_rendered_frames": 8
+  },
+  {
+   "ground": "d13p02",
+   "width_px": 456,
+   "height_px": 456,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d13p02_DirectBase"
+   ]
+  },
+  {
+   "ground": "d13p03",
+   "width_px": 552,
+   "height_px": 600,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d13p03_DirectBase"
+   ]
+  },
+  {
+   "ground": "d14p01",
+   "width_px": 528,
+   "height_px": 504,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d14p01_DirectBase"
+   ]
+  },
+  {
+   "ground": "d15p01",
+   "width_px": 552,
+   "height_px": 600,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d15p01_DirectBase"
+   ]
+  },
+  {
+   "ground": "d16p01",
+   "width_px": 360,
+   "height_px": 360,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d16p01_DirectBase"
+   ]
+  },
+  {
+   "ground": "d17p01",
+   "width_px": 384,
+   "height_px": 360,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d17p01_DirectBase"
+   ]
+  },
+  {
+   "ground": "d18p01",
+   "width_px": 360,
+   "height_px": 336,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d18p01_DirectBase"
    ]
   },
   {
@@ -2348,6 +2700,9 @@
    "height_px": 384,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2356,11 +2711,30 @@
    ]
   },
   {
+   "ground": "d19p01",
+   "width_px": 528,
+   "height_px": 504,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d19p01_DirectBase"
+   ]
+  },
+  {
    "ground": "d19p11a",
    "width_px": 768,
    "height_px": 384,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2369,11 +2743,30 @@
    ]
   },
   {
+   "ground": "d20p01",
+   "width_px": 360,
+   "height_px": 336,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d20p01_DirectBase"
+   ]
+  },
+  {
    "ground": "d20p11a",
    "width_px": 600,
    "height_px": 384,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2382,11 +2775,30 @@
    ]
   },
   {
+   "ground": "d21p01",
+   "width_px": 504,
+   "height_px": 480,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d21p01_DirectBase"
+   ]
+  },
+  {
    "ground": "d21p21a",
    "width_px": 456,
    "height_px": 456,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2400,6 +2812,9 @@
    "height_px": 528,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2413,6 +2828,9 @@
    "height_px": 360,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2426,6 +2844,9 @@
    "height_px": 552,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2434,11 +2855,30 @@
    ]
   },
   {
+   "ground": "d23p01",
+   "width_px": 360,
+   "height_px": 336,
+   "frames_rendered": 1,
+   "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
+   "animated_tiles": 0,
+   "missing_cells": 0,
+   "missing_sheets": null,
+   "sheets": [
+    "d23p01_DirectBase"
+   ]
+  },
+  {
    "ground": "d24p01",
    "width_px": 408,
    "height_px": 384,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2452,6 +2892,9 @@
    "height_px": 288,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -2460,602 +2903,19 @@
    ]
   },
   {
-   "ground": "dojo_ossatueur",
-   "width_px": 168,
-   "height_px": 144,
-   "frames_rendered": 4,
-   "animation_cycle": 4,
-   "animated_tiles": 378,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "MarowakDojo",
-    "T01P03A_layer1"
-   ]
-  },
-  {
-   "ground": "ecran_titre_v2",
-   "error": "aucune planche disponible",
-   "missing_sheets": []
-  },
-  {
-   "ground": "escalier_origine",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "final_stop",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "first_core_location",
-   "width_px": 552,
-   "height_px": 504,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "First_Core_Location_Base",
-    "First_Core_Location_Objects",
-    "First_Core_Location_Shadows"
-   ]
-  },
-  {
-   "ground": "fleche_reliques_courroux",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "forest_camp",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "foret_givree_oree",
-   "width_px": 320,
+   "ground": "d25p01",
+   "width_px": 360,
    "height_px": 336,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
-    "ForetGivreeOree_Base"
-   ]
-  },
-  {
-   "ground": "fosse_ardente",
-   "width_px": 504,
-   "height_px": 504,
-   "frames_rendered": 6,
-   "animation_cycle": 8,
-   "animated_tiles": 538,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "FosseArdente_Base"
-   ]
-  },
-  {
-   "ground": "fosse_argentee",
-   "width_px": 552,
-   "height_px": 600,
-   "frames_rendered": 6,
-   "animation_cycle": 24,
-   "animated_tiles": 385,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "FosseArgentee_Base"
-   ]
-  },
-  {
-   "ground": "fosse_volcanique",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "frosty_forest_midpoint",
-   "width_px": 456,
-   "height_px": 456,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "D10p02_Base"
-   ]
-  },
-  {
-   "ground": "genesis_vision",
-   "width_px": 240,
-   "height_px": 320,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Apricorn_Grove_Base"
-   ]
-  },
-  {
-   "ground": "gloomy_forest_entrance",
-   "width_px": 456,
-   "height_px": 384,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "BoisSombresOree_Base"
-   ]
-  },
-  {
-   "ground": "gloomy_forest_midpoint",
-   "width_px": 304,
-   "height_px": 240,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "ForestCamp",
-    "ForestCampFront",
-    "ForestCampSecret",
-    "ForestCampSecretFront"
-   ]
-  },
-  {
-   "ground": "gloomy_forest_miniboss",
-   "error": "aucune planche disponible",
-   "missing_sheets": []
-  },
-  {
-   "ground": "gorge_ardente_coeur",
-   "width_px": 456,
-   "height_px": 456,
-   "frames_rendered": 6,
-   "animation_cycle": 8,
-   "animated_tiles": 640,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "GorgeArdenteCoeur_Base"
-   ]
-  },
-  {
-   "ground": "gorge_ardente_porte",
-   "width_px": 408,
-   "height_px": 336,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "GorgeArdentePorte_Base"
-   ]
-  },
-  {
-   "ground": "grotte_cryptique",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "grotte_echos",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "grotte_lazuli_fond",
-   "width_px": 360,
-   "height_px": 288,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "GrotteLazuliFond_Base"
-   ]
-  },
-  {
-   "ground": "grotte_lazuli_seuil",
-   "width_px": 360,
-   "height_px": 288,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "GrotteLazuliSeuil_Base"
-   ]
-  },
-  {
-   "ground": "grotte_rocheuse",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "gue_poulain_autel",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "guild_bedroom_hallway",
-   "width_px": 480,
-   "height_px": 256,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Guild_Bedroom_Hallway_Floor",
-    "Guild_Bedroom_Hallway_Objects",
-    "Guild_Bedroom_Hallway_Supports",
-    "Guild_Bedroom_Hallway_Walls"
-   ]
-  },
-  {
-   "ground": "guild_bottom_left_bedroom",
-   "width_px": 352,
-   "height_px": 352,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Guild_Bottom_Left_Bedroom_Floor",
-    "Guild_Bottom_Left_Bedroom_Objects",
-    "Guild_Bottom_Left_Bedroom_Objects_Over",
-    "Guild_Bottom_Left_Bedroom_Shadows",
-    "Guild_Bottom_Left_Bedroom_Supports",
-    "Guild_Bottom_Left_Bedroom_Walls"
-   ]
-  },
-  {
-   "ground": "guild_bottom_right_bedroom",
-   "width_px": 352,
-   "height_px": 352,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Guild_Bottom_Right_Bedroom_Floor",
-    "Guild_Bottom_Right_Bedroom_Objects",
-    "Guild_Bottom_Right_Bedroom_Shadows",
-    "Guild_Bottom_Right_Bedroom_Supports",
-    "Guild_Bottom_Right_Bedroom_Walls"
-   ]
-  },
-  {
-   "ground": "guild_dining_room",
-   "width_px": 448,
-   "height_px": 288,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Guild_Dining_Room_Floor",
-    "Guild_Dining_Room_Fringe",
-    "Guild_Dining_Room_Objects",
-    "Guild_Dining_Room_Objects_Over",
-    "Guild_Dining_Room_Shadows",
-    "Guild_Dining_Room_Supports",
-    "Guild_Dining_Room_Walls"
-   ]
-  },
-  {
-   "ground": "guild_first_floor",
-   "width_px": 320,
-   "height_px": 240,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Guild_First_Floor"
-   ]
-  },
-  {
-   "ground": "guild_guildmasters_bedroom",
-   "width_px": 352,
-   "height_px": 352,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Guild_Top_Right_Bedroom_Floor",
-    "Guild_Top_Right_Bedroom_Objects",
-    "Guild_Top_Right_Bedroom_Shadows",
-    "Guild_Top_Right_Bedroom_Supports",
-    "Guild_Top_Right_Bedroom_Walls"
-   ]
-  },
-  {
-   "ground": "guild_guildmasters_room",
-   "width_px": 384,
-   "height_px": 384,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Guild_Guildmasters_Room_Floor",
-    "Guild_Guildmasters_Room_Objects",
-    "Guild_Guildmasters_Room_Objects_Over",
-    "Guild_Guildmasters_Room_Shadows",
-    "Guild_Guildmasters_Room_Supports",
-    "Guild_Guildmasters_Room_Walls"
-   ]
-  },
-  {
-   "ground": "guild_heros_room",
-   "width_px": 352,
-   "height_px": 352,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Guild_Heros_Room_Floor",
-    "Guild_Heros_Room_Objects",
-    "Guild_Heros_Room_Objects_Over",
-    "Guild_Heros_Room_Shadows",
-    "Guild_Heros_Room_Supports",
-    "Guild_Heros_Room_Walls"
-   ]
-  },
-  {
-   "ground": "guild_hut",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "guild_path",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "guild_second_floor",
-   "width_px": 672,
-   "height_px": 448,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Guild_Second_Floor_Floor",
-    "Guild_Second_Floor_Fringe",
-    "Guild_Second_Floor_Objects",
-    "Guild_Second_Floor_Objects_Over",
-    "Guild_Second_Floor_Objects_Under",
-    "Guild_Second_Floor_Shadows",
-    "Guild_Second_Floor_Supports",
-    "Guild_Second_Floor_Walls"
-   ]
-  },
-  {
-   "ground": "guild_storage_hallway",
-   "width_px": 352,
-   "height_px": 384,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Guild_Storage_Hallway_Floor",
-    "Guild_Storage_Hallway_Objects",
-    "Guild_Storage_Hallway_Supports",
-    "Guild_Storage_Hallway_Walls"
-   ]
-  },
-  {
-   "ground": "guild_storage_room",
-   "width_px": 352,
-   "height_px": 352,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Guild_Storage_Room_Floor",
-    "Guild_Storage_Room_Fringe",
-    "Guild_Storage_Room_Objects",
-    "Guild_Storage_Room_Objects_Over",
-    "Guild_Storage_Room_Objects_Under",
-    "Guild_Storage_Room_Shadows",
-    "Guild_Storage_Room_Supports",
-    "Guild_Storage_Room_Walls"
-   ]
-  },
-  {
-   "ground": "guild_third_floor_lobby",
-   "width_px": 800,
-   "height_px": 448,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Guild_Third_Floor_Lobby_Floor",
-    "Guild_Third_Floor_Lobby_Fringe",
-    "Guild_Third_Floor_Lobby_Objects",
-    "Guild_Third_Floor_Lobby_Objects_Over",
-    "Guild_Third_Floor_Lobby_Shadows",
-    "Guild_Third_Floor_Lobby_Supports",
-    "Guild_Third_Floor_Lobby_Walls"
-   ]
-  },
-  {
-   "ground": "guild_top_left_bedroom",
-   "width_px": 352,
-   "height_px": 352,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Guild_Top_Left_Bedroom_Floor",
-    "Guild_Top_Left_Bedroom_Objects",
-    "Guild_Top_Left_Bedroom_Shadows",
-    "Guild_Top_Left_Bedroom_Supports",
-    "Guild_Top_Left_Bedroom_Walls"
-   ]
-  },
-  {
-   "ground": "guild_top_right_bedroom",
-   "width_px": 352,
-   "height_px": 352,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Guild_Top_Right_Bedroom_Floor",
-    "Guild_Top_Right_Bedroom_Objects",
-    "Guild_Top_Right_Bedroom_Shadows",
-    "Guild_Top_Right_Bedroom_Supports",
-    "Guild_Top_Right_Bedroom_Walls"
-   ]
-  },
-  {
-   "ground": "guilde_parvis",
-   "width_px": 480,
-   "height_px": 408,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 42,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "G01p01a_Base"
-   ]
-  },
-  {
-   "ground": "guildmaster_summit",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
+    "d25p01_DirectBase"
    ]
   },
   {
@@ -3064,6 +2924,9 @@
    "height_px": 240,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3077,6 +2940,9 @@
    "height_px": 336,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3090,6 +2956,9 @@
    "height_px": 360,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3103,6 +2972,9 @@
    "height_px": 336,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3116,6 +2988,9 @@
    "height_px": 312,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3127,27 +3002,39 @@
    "ground": "h02p03",
    "width_px": 360,
    "height_px": 336,
-   "frames_rendered": 6,
+   "frames_rendered": 23,
    "animation_cycle": 23,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 360,
    "animated_tiles": 360,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h02p03_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 19,
+   "apng_rendered_frames": 23
   },
   {
    "ground": "h03p01",
    "width_px": 552,
    "height_px": 336,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
+   "frames_rendered": 64,
+   "animation_cycle": 1600,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 522,
    "animated_tiles": 522,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h03p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 61,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "h04p01",
@@ -3155,6 +3042,9 @@
    "height_px": 336,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3168,6 +3058,9 @@
    "height_px": 336,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3179,14 +3072,20 @@
    "ground": "h05p01",
    "width_px": 480,
    "height_px": 336,
-   "frames_rendered": 6,
+   "frames_rendered": 20,
    "animation_cycle": 20,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 126,
    "animated_tiles": 126,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h05p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 19,
+   "apng_rendered_frames": 20
   },
   {
    "ground": "h05p02",
@@ -3194,6 +3093,9 @@
    "height_px": 312,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3205,27 +3107,39 @@
    "ground": "h06p01",
    "width_px": 456,
    "height_px": 336,
-   "frames_rendered": 6,
+   "frames_rendered": 18,
    "animation_cycle": 18,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h06p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 18,
+   "apng_rendered_frames": 18
   },
   {
    "ground": "h06p02",
    "width_px": 480,
    "height_px": 336,
-   "frames_rendered": 6,
+   "frames_rendered": 10,
    "animation_cycle": 10,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 72,
    "animated_tiles": 72,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h06p02_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 10,
+   "apng_rendered_frames": 10
   },
   {
    "ground": "h06p03",
@@ -3233,6 +3147,9 @@
    "height_px": 336,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3246,6 +3163,9 @@
    "height_px": 336,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3257,14 +3177,20 @@
    "ground": "h06p05",
    "width_px": 456,
    "height_px": 336,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 90,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 432,
    "animated_tiles": 432,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h06p05_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "h06p06",
@@ -3272,6 +3198,9 @@
    "height_px": 312,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3283,27 +3212,39 @@
    "ground": "h07p01",
    "width_px": 456,
    "height_px": 312,
-   "frames_rendered": 6,
+   "frames_rendered": 30,
    "animation_cycle": 30,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 90,
    "animated_tiles": 90,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h07p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 28,
+   "apng_rendered_frames": 30
   },
   {
    "ground": "h07p02",
    "width_px": 456,
    "height_px": 312,
-   "frames_rendered": 6,
+   "frames_rendered": 8,
    "animation_cycle": 8,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 126,
    "animated_tiles": 126,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h07p02_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 8,
+   "apng_rendered_frames": 8
   },
   {
    "ground": "h07p03",
@@ -3311,6 +3252,9 @@
    "height_px": 312,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3324,6 +3268,9 @@
    "height_px": 336,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3337,6 +3284,9 @@
    "height_px": 336,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3348,27 +3298,39 @@
    "ground": "h07p06",
    "width_px": 480,
    "height_px": 336,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
+   "frames_rendered": 64,
+   "animation_cycle": 1488,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 360,
    "animated_tiles": 360,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h07p06_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "h07p07",
    "width_px": 480,
    "height_px": 312,
-   "frames_rendered": 6,
+   "frames_rendered": 32,
    "animation_cycle": 32,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 36,
    "animated_tiles": 36,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h07p07_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 32,
+   "apng_rendered_frames": 32
   },
   {
    "ground": "h07p08",
@@ -3376,6 +3338,9 @@
    "height_px": 312,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3387,92 +3352,134 @@
    "ground": "h08p01",
    "width_px": 480,
    "height_px": 336,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
+   "frames_rendered": 64,
+   "animation_cycle": 1848,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 693,
    "animated_tiles": 693,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h08p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "h09p01",
    "width_px": 504,
    "height_px": 336,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 80,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 513,
    "animated_tiles": 513,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h09p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "h09p02",
    "width_px": 480,
    "height_px": 336,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
+   "frames_rendered": 64,
+   "animation_cycle": 2040,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 504,
    "animated_tiles": 504,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h09p02_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "h10p01",
    "width_px": 480,
    "height_px": 336,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 88,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 270,
    "animated_tiles": 270,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h10p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "h10p02",
    "width_px": 456,
    "height_px": 312,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
+   "frames_rendered": 64,
+   "animation_cycle": 5040,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 1287,
    "animated_tiles": 1287,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h10p02_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "h11p01",
    "width_px": 528,
    "height_px": 336,
-   "frames_rendered": 6,
+   "frames_rendered": 12,
    "animation_cycle": 12,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 603,
    "animated_tiles": 603,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h11p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 12,
+   "apng_rendered_frames": 12
   },
   {
    "ground": "h12p01",
    "width_px": 456,
    "height_px": 336,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 72,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 135,
    "animated_tiles": 135,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h12p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "h13p01",
@@ -3480,12 +3487,18 @@
    "height_px": 360,
    "frames_rendered": 4,
    "animation_cycle": 4,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 90,
    "animated_tiles": 90,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h13p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 4,
+   "apng_rendered_frames": 4
   },
   {
    "ground": "h13p02",
@@ -3493,6 +3506,9 @@
    "height_px": 312,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3506,6 +3522,9 @@
    "height_px": 312,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3519,6 +3538,9 @@
    "height_px": 360,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3530,27 +3552,39 @@
    "ground": "h14p01",
    "width_px": 456,
    "height_px": 336,
-   "frames_rendered": 6,
+   "frames_rendered": 13,
    "animation_cycle": 13,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 207,
    "animated_tiles": 207,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h14p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 13,
+   "apng_rendered_frames": 13
   },
   {
    "ground": "h15p01",
    "width_px": 480,
    "height_px": 312,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
+   "frames_rendered": 64,
+   "animation_cycle": 2400,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 342,
    "animated_tiles": 342,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h15p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "h16p01",
@@ -3558,6 +3592,9 @@
    "height_px": 336,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3569,14 +3606,20 @@
    "ground": "h17p01",
    "width_px": 456,
    "height_px": 336,
-   "frames_rendered": 6,
+   "frames_rendered": 27,
    "animation_cycle": 27,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 1071,
    "animated_tiles": 1071,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h17p01_pmdred_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 8,
+   "apng_rendered_frames": 27
   },
   {
    "ground": "h18p01",
@@ -3584,90 +3627,132 @@
    "height_px": 336,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 234,
    "animated_tiles": 234,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h18p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "h19p01",
    "width_px": 456,
    "height_px": 312,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
+   "frames_rendered": 64,
+   "animation_cycle": 211140,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 342,
    "animated_tiles": 342,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h19p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "h20p01",
    "width_px": 456,
    "height_px": 336,
-   "frames_rendered": 6,
+   "frames_rendered": 36,
    "animation_cycle": 36,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 288,
    "animated_tiles": 288,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h20p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 36,
+   "apng_rendered_frames": 36
   },
   {
    "ground": "h21p01",
    "width_px": 480,
    "height_px": 312,
-   "frames_rendered": 6,
+   "frames_rendered": 15,
    "animation_cycle": 15,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 252,
    "animated_tiles": 252,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h21p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 15,
+   "apng_rendered_frames": 15
   },
   {
    "ground": "h21p02",
    "width_px": 480,
    "height_px": 312,
-   "frames_rendered": 6,
+   "frames_rendered": 21,
    "animation_cycle": 21,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 252,
    "animated_tiles": 252,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h21p02_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 21,
+   "apng_rendered_frames": 21
   },
   {
    "ground": "h22p01",
    "width_px": 480,
    "height_px": 312,
-   "frames_rendered": 6,
+   "frames_rendered": 18,
    "animation_cycle": 18,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 108,
    "animated_tiles": 108,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h22p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 18,
+   "apng_rendered_frames": 18
   },
   {
    "ground": "h23p01",
    "width_px": 456,
    "height_px": 312,
-   "frames_rendered": 6,
+   "frames_rendered": 29,
    "animation_cycle": 29,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 90,
    "animated_tiles": 90,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h23p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 29,
+   "apng_rendered_frames": 29
   },
   {
    "ground": "h24p01",
@@ -3675,6 +3760,9 @@
    "height_px": 360,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3686,40 +3774,58 @@
    "ground": "h25p01",
    "width_px": 480,
    "height_px": 288,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
+   "frames_rendered": 64,
+   "animation_cycle": 3360,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 468,
    "animated_tiles": 468,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h25p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 62,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "h26p01",
    "width_px": 480,
    "height_px": 312,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
+   "frames_rendered": 64,
+   "animation_cycle": 3720,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 1134,
    "animated_tiles": 1134,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h26p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "h27p01",
    "width_px": 480,
    "height_px": 312,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 228,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 1089,
    "animated_tiles": 1089,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h27p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "h28p01",
@@ -3727,6 +3833,9 @@
    "height_px": 312,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3740,6 +3849,9 @@
    "height_px": 312,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -3751,896 +3863,96 @@
    "ground": "h29p01",
    "width_px": 480,
    "height_px": 264,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
+   "frames_rendered": 64,
+   "animation_cycle": 720,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 180,
    "animated_tiles": 180,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h29p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "h29p02",
    "width_px": 480,
    "height_px": 336,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
+   "frames_rendered": 64,
+   "animation_cycle": 1260,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 801,
    "animated_tiles": 801,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h29p02_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "h29p03",
    "width_px": 480,
    "height_px": 336,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 168,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 1728,
    "animated_tiles": 1728,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h29p03_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "h29p04",
    "width_px": 480,
    "height_px": 312,
-   "frames_rendered": 6,
+   "frames_rendered": 36,
    "animation_cycle": 36,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 198,
    "animated_tiles": 198,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "h29p04_Base"
-   ]
-  },
-  {
-   "ground": "hero_dream",
-   "error": "aucune planche disponible",
-   "missing_sheets": []
-  },
-  {
-   "ground": "ile_australe",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "ile_close",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "ile_legendaire",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "illuminant_riverbed_entrance",
-   "width_px": 320,
-   "height_px": 240,
-   "frames_rendered": 6,
-   "animation_cycle": 8,
-   "animated_tiles": 395,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Illuminant_Riverbed_Base",
-    "Illuminant_Riverbed_Objects",
-    "Illuminant_Riverbed_Objects_Under",
-    "Illuminant_Riverbed_River_Animations",
-    "Metano_Town_Animation_Tileset"
-   ]
-  },
-  {
-   "ground": "labo_decrepit",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "lac_courage",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "lac_espoir",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "lac_savoir",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "ledian_dojo",
-   "width_px": 408,
-   "height_px": 312,
-   "frames_rendered": 4,
-   "animation_cycle": 4,
-   "animated_tiles": 60,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Ledian_Dojo_Animated",
-    "Ledian_Dojo_Ceiling",
-    "Ledian_Dojo_Floor",
-    "Ledian_Dojo_Objects",
-    "Ledian_Dojo_Objects_Over",
-    "Ledian_Dojo_Objects_Under",
-    "Ledian_Dojo_Shadows"
-   ]
-  },
-  {
-   "ground": "luluby_town_evening",
-   "width_px": 672,
-   "height_px": 576,
-   "frames_rendered": 2,
-   "animation_cycle": 2,
-   "animated_tiles": 46,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "LulubyTownEvening_Base"
-   ]
-  },
-  {
-   "ground": "luluby_town_morning",
-   "width_px": 672,
-   "height_px": 576,
-   "frames_rendered": 2,
-   "animation_cycle": 2,
-   "animated_tiles": 121,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "LulubyTownMorning_Base"
-   ]
-  },
-  {
-   "ground": "luluby_town_night",
-   "width_px": 672,
-   "height_px": 576,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "LulubyTownNight_Base"
-   ]
-  },
-  {
-   "ground": "luminous_spring",
-   "width_px": 200,
-   "height_px": 200,
-   "frames_rendered": 6,
-   "animation_cycle": 39,
-   "animated_tiles": 46,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "LuminousSpring",
-    "LuminousSpringAnim"
-   ]
-  },
-  {
-   "ground": "metano_altere_transition",
-   "width_px": 512,
-   "height_px": 304,
-   "frames_rendered": 4,
-   "animation_cycle": 4,
-   "animated_tiles": 441,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Metano_Altere_Transition_Base",
-    "Metano_Altere_Transition_Objects",
-    "Metano_Altere_Transition_Objects_Over",
-    "Metano_Altere_Transition_Objects_Under",
-    "Metano_Altere_Transition_River_Animations",
-    "Metano_Town_Animation_Tileset"
-   ]
-  },
-  {
-   "ground": "metano_cafe",
-   "width_px": 456,
-   "height_px": 320,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Metano_Town_Cafe_Base",
-    "Metano_Town_Cafe_Objects",
-    "Metano_Town_Cafe_Objects_Fringe",
-    "Metano_Town_Cafe_Objects_Over",
-    "Metano_Town_Cafe_Objects_Under"
-   ]
-  },
-  {
-   "ground": "metano_cave",
-   "width_px": 416,
-   "height_px": 368,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Metano_Town_Cave_Base",
-    "Metano_Town_Cave_Objects"
-   ]
-  },
-  {
-   "ground": "metano_electric_home",
-   "width_px": 344,
-   "height_px": 272,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Metano_Town_Electric_Home_Base",
-    "Metano_Town_Electric_Home_Objects"
-   ]
-  },
-  {
-   "ground": "metano_fire_home",
-   "width_px": 344,
-   "height_px": 272,
-   "frames_rendered": 6,
-   "animation_cycle": 6,
-   "animated_tiles": 99,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Metano_Town_Fire_Home_Animated",
-    "Metano_Town_Fire_Home_Base",
-    "Metano_Town_Fire_Home_Objects"
-   ]
-  },
-  {
-   "ground": "metano_grass_home",
-   "width_px": 368,
-   "height_px": 280,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Metano_Town_Grass_Home_Base",
-    "Metano_Town_Grass_Home_Objects"
-   ]
-  },
-  {
-   "ground": "metano_inn",
-   "width_px": 448,
-   "height_px": 352,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Metano_Inn_Base",
-    "Metano_Inn_Floor_Decor",
-    "Metano_Inn_Objects",
-    "Metano_Inn_Objects_Over",
-    "Metano_Inn_Shadows"
-   ]
-  },
-  {
-   "ground": "metano_normal_home",
-   "width_px": 360,
-   "height_px": 280,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Metano_Town_Normal_Home_Base",
-    "Metano_Town_Normal_Home_Objects"
-   ]
-  },
-  {
-   "ground": "metano_rock_home",
-   "width_px": 352,
-   "height_px": 272,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Metano_Town_Rock_Home_Base",
-    "Metano_Town_Rock_Home_Objects"
-   ]
-  },
-  {
-   "ground": "metano_town",
-   "width_px": 1512,
-   "height_px": 1512,
-   "frames_rendered": 6,
-   "animation_cycle": 36,
-   "animated_tiles": 5840,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Metano_Town_Animated",
-    "Metano_Town_Animated_Under",
-    "Metano_Town_Animation_Tileset",
-    "Metano_Town_Base",
-    "Metano_Town_Cliffs",
-    "Metano_Town_Fringe",
-    "Metano_Town_Objects",
-    "Metano_Town_Objects_Over",
-    "Metano_Town_Objects_Under",
-    "Metano_Town_River_Animation_1",
-    "Metano_Town_River_Animation_2",
-    "Metano_Town_River_Animation_3",
-    "Metano_Town_River_Animation_4",
-    "Metano_Town_River_Sparkles"
-   ]
-  },
-  {
-   "ground": "metano_town_nuit",
-   "width_px": 1512,
-   "height_px": 1512,
-   "frames_rendered": 6,
-   "animation_cycle": 36,
-   "animated_tiles": 5840,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Metano_Town_Animated_Night",
-    "Metano_Town_Animated_Under_Night",
-    "Metano_Town_Animation_Tileset_Night",
-    "Metano_Town_Base_Night",
-    "Metano_Town_Cliffs_Night",
-    "Metano_Town_Fringe_Night",
-    "Metano_Town_Objects_Night",
-    "Metano_Town_Objects_Over_Night",
-    "Metano_Town_Objects_Under_Night",
-    "Metano_Town_River_Animation_1_Night",
-    "Metano_Town_River_Animation_2_Night",
-    "Metano_Town_River_Animation_3_Night",
-    "Metano_Town_River_Animation_4_Night",
-    "Metano_Town_River_Sparkles_Night"
-   ]
-  },
-  {
-   "ground": "metano_water_home",
-   "width_px": 344,
-   "height_px": 272,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 311,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Metano_Town_Water_Home_Base",
-    "Metano_Town_Water_Home_Base_Animated",
-    "Metano_Town_Water_Home_Objects"
-   ]
-  },
-  {
-   "ground": "mont_cendre_pied",
-   "width_px": 360,
-   "height_px": 312,
-   "frames_rendered": 6,
-   "animation_cycle": 6,
-   "animated_tiles": 558,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "MontCendrePied_Base"
-   ]
-  },
-  {
-   "ground": "mont_gele_pied",
-   "width_px": 320,
-   "height_px": 288,
-   "frames_rendered": 6,
-   "animation_cycle": 312,
-   "animated_tiles": 459,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "MontGelePied_Base"
-   ]
-  },
-  {
-   "ground": "mont_lune_vue",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "mount_windswept_entrance",
-   "width_px": 552,
-   "height_px": 504,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Mount_Windswept_Base",
-    "Mount_Windswept_Fringe",
-    "Mount_Windswept_Mountain",
-    "Mount_Windswept_Objects",
-    "Mount_Windswept_Objects_Under",
-    "Mount_Windswept_Shadows"
-   ]
-  },
-  {
-   "ground": "mount_windswept_guardian",
-   "width_px": 360,
-   "height_px": 336,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 1080,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "ChampVentBoreal_Base"
-   ]
-  },
-  {
-   "ground": "mount_windswept_midpoint",
-   "width_px": 1152,
-   "height_px": 624,
-   "frames_rendered": 4,
-   "animation_cycle": 4,
-   "animated_tiles": 60,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "CanyonCamp"
-   ]
-  },
-  {
-   "ground": "mount_windswept_miniboss",
-   "width_px": 384,
-   "height_px": 528,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "MountWindsweptMiniboss_Base",
-    "MountWindsweptMiniboss_Fringe",
-    "MountWindsweptMiniboss_Objects",
-    "MountWindsweptMiniboss_Objects_Under",
-    "MountWindsweptMiniboss_Shadows"
-   ]
-  },
-  {
-   "ground": "mt_blaze_midpoint",
-   "width_px": 456,
-   "height_px": 456,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "D09p02_Base"
-   ]
-  },
-  {
-   "ground": "mt_freeze_midpoint",
-   "width_px": 456,
-   "height_px": 456,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "D11p02_Base"
-   ]
-  },
-  {
-   "ground": "mt_thunder_midpoint",
-   "width_px": 360,
-   "height_px": 408,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "D05p02_Base"
-   ]
-  },
-  {
-   "ground": "nef_prisme_est",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "p05p01a",
-   "width_px": 408,
-   "height_px": 408,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "P05p01a_Base"
-   ]
-  },
-  {
-   "ground": "p05p02a",
-   "width_px": 504,
-   "height_px": 456,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "P05p02a_Base"
-   ]
-  },
-  {
-   "ground": "p05p03a",
-   "width_px": 1368,
-   "height_px": 960,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "P05p03a_Base"
-   ]
-  },
-  {
-   "ground": "p05p04a",
-   "width_px": 504,
-   "height_px": 384,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "P05p04a_Base"
-   ]
-  },
-  {
-   "ground": "p06p01a",
-   "width_px": 600,
-   "height_px": 384,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
-   "animated_tiles": 32,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "P06p01a_Base"
-   ]
-  },
-  {
-   "ground": "p07p01a",
-   "width_px": 360,
-   "height_px": 552,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "P07p01a_Base"
-   ]
-  },
-  {
-   "ground": "p08p01a",
-   "width_px": 552,
-   "height_px": 552,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "P08p01a_Base"
-   ]
-  },
-  {
-   "ground": "p09p01a",
-   "width_px": 600,
-   "height_px": 600,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "P09p01a_Base"
-   ]
-  },
-  {
-   "ground": "palier_celeste",
-   "width_px": 456,
-   "height_px": 456,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "PalierCeleste_Base"
-   ]
-  },
-  {
-   "ground": "parvis_celeste",
-   "width_px": 408,
-   "height_px": 288,
-   "frames_rendered": 6,
-   "animation_cycle": 56,
-   "animated_tiles": 648,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "ParvisCeleste_Base"
-   ]
-  },
-  {
-   "ground": "personality_test",
-   "error": "aucune planche disponible",
-   "missing_sheets": []
-  },
-  {
-   "ground": "plage_lucioles",
-   "width_px": 264,
-   "height_px": 128,
-   "frames_rendered": 6,
-   "animation_cycle": 17,
-   "animated_tiles": 231,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "D01P11A_layer1",
-    "D01P11A_layer2",
-    "beach_animation"
-   ]
-  },
-  {
-   "ground": "plaines_brulees",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "poisonous_forest_entrance",
-   "width_px": 240,
-   "height_px": 320,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 383,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Altere_Pond_Base",
-    "Altere_Pond_Cliffs",
-    "Altere_Pond_Objects",
-    "Altere_Pond_Objects_Under",
-    "Altere_Pond_River_Animations",
-    "Metano_Town_Animation_Tileset"
-   ]
-  },
-  {
-   "ground": "poisonous_forest_miniboss",
-   "width_px": 456,
-   "height_px": 456,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "FA_Peanut_Swamp_RTRB"
-   ]
-  },
-  {
-   "ground": "poisonous_forest_relay",
-   "width_px": 136,
-   "height_px": 144,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "ForestGrove",
-    "ForestGroveTop"
-   ]
-  },
-  {
-   "ground": "porte_plaines_foudre",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "post_office",
-   "width_px": 128,
-   "height_px": 104,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "PostOffice"
-   ]
-  },
-  {
-   "ground": "pre_tonnerre",
-   "width_px": 456,
-   "height_px": 336,
-   "frames_rendered": 6,
-   "animation_cycle": 26,
-   "animated_tiles": 1071,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "h17p01_Base"
-   ]
-  },
-  {
-   "ground": "recif_genereux",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "relic_forest",
-   "width_px": 600,
-   "height_px": 600,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Relic_Forest_Base",
-    "Relic_Forest_Fringe",
-    "Relic_Forest_Objects",
-    "Relic_Forest_Objects_Under"
-   ]
-  },
-  {
-   "ground": "rest_stop",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 36,
+   "apng_rendered_frames": 36
   },
   {
    "ground": "s01",
    "width_px": 480,
    "height_px": 384,
-   "frames_rendered": 6,
+   "frames_rendered": 63,
    "animation_cycle": 63,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 2772,
    "animated_tiles": 2772,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "s01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 63,
+   "apng_rendered_frames": 63
   },
   {
    "ground": "s02",
@@ -4648,6 +3960,9 @@
    "height_px": 432,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -4661,6 +3976,9 @@
    "height_px": 432,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -4674,6 +3992,9 @@
    "height_px": 432,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -4687,6 +4008,9 @@
    "height_px": 432,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -4700,6 +4024,9 @@
    "height_px": 432,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -4711,14 +4038,20 @@
    "ground": "s03",
    "width_px": 288,
    "height_px": 312,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 64,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 1080,
    "animated_tiles": 1080,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "s03_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 23,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "s04",
@@ -4726,6 +4059,9 @@
    "height_px": 640,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -4739,6 +4075,9 @@
    "height_px": 432,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -4752,6 +4091,9 @@
    "height_px": 336,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -4765,6 +4107,9 @@
    "height_px": 336,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -4778,6 +4123,9 @@
    "height_px": 336,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -4791,6 +4139,9 @@
    "height_px": 336,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -4804,6 +4155,9 @@
    "height_px": 336,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -4817,6 +4171,9 @@
    "height_px": 168,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -4830,6 +4187,9 @@
    "height_px": 168,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -4843,6 +4203,9 @@
    "height_px": 168,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -4856,6 +4219,9 @@
    "height_px": 168,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -4869,6 +4235,9 @@
    "height_px": 168,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -4882,6 +4251,9 @@
    "height_px": 192,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -4890,447 +4262,14 @@
    ]
   },
   {
-   "ground": "sanctuaire_voeu",
-   "width_px": 360,
-   "height_px": 336,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "SanctuaireVoeu_Base"
-   ]
-  },
-  {
-   "ground": "searing_crucible",
-   "width_px": 168,
-   "height_px": 168,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Spring_Cave_Pit"
-   ]
-  },
-  {
-   "ground": "searing_tunnel_entrance",
-   "width_px": 584,
-   "height_px": 384,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Searing_Tunnel_Base",
-    "Searing_Tunnel_Fringe",
-    "Searing_Tunnel_Objects",
-    "Searing_Tunnel_Rocks",
-    "Searing_Tunnel_Shadows"
-   ]
-  },
-  {
-   "ground": "searing_tunnel_midpoint",
-   "width_px": 552,
-   "height_px": 432,
-   "frames_rendered": 6,
-   "animation_cycle": 420,
-   "animated_tiles": 262,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "D06p11a_Base"
-   ]
-  },
-  {
-   "ground": "searing_tunnel_miniboss",
-   "width_px": 416,
-   "height_px": 544,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "SearingTunnelMiniboss_Base",
-    "SearingTunnelMiniboss_Fringe",
-    "SearingTunnelMiniboss_Rocks",
-    "SearingTunnelMiniboss_Shadows"
-   ]
-  },
-  {
-   "ground": "sinister_woods_clearing",
-   "width_px": 480,
-   "height_px": 376,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "SinisterWoodsFinalCanonical_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_g01p01b",
-   "width_px": 480,
-   "height_px": 408,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 142,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "G01p01b_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_g01p01c",
-   "width_px": 480,
-   "height_px": 408,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 286,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "G01p01c_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_g01p02a",
-   "width_px": 408,
-   "height_px": 312,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "G01p02a_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_g01p04c",
-   "width_px": 648,
-   "height_px": 432,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "G01p04c_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_g01p05a",
-   "width_px": 408,
-   "height_px": 384,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "G01p05a_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_g01p05c",
-   "width_px": 408,
-   "height_px": 384,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 40,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "G01p05c_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_g01p06a",
-   "width_px": 504,
-   "height_px": 360,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 17,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "G01p06a_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_g01p06b",
-   "width_px": 504,
-   "height_px": 360,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 17,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "G01p06b_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_g01p07a",
-   "width_px": 384,
-   "height_px": 312,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "G01p07a_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_g01p07c",
-   "width_px": 384,
-   "height_px": 312,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
-   "animated_tiles": 1872,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "G01p07c_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_g01p08a",
-   "width_px": 264,
-   "height_px": 360,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "G01p08a_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_g01p09a",
-   "width_px": 432,
-   "height_px": 336,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "G01p09a_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_g01p09c",
-   "width_px": 432,
-   "height_px": 336,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "G01p09c_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_g01p10a",
-   "width_px": 432,
-   "height_px": 336,
-   "frames_rendered": 3,
-   "animation_cycle": 3,
-   "animated_tiles": 6,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "G01p10a_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_g01p10c",
-   "width_px": 432,
-   "height_px": 336,
-   "frames_rendered": 3,
-   "animation_cycle": 3,
-   "animated_tiles": 6,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "G01p10c_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_p01p01a",
-   "width_px": 432,
-   "height_px": 456,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 94,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "P01p01a_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_p01p02a",
-   "width_px": 432,
-   "height_px": 432,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 30,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "P01p02a_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_t00p01",
-   "width_px": 960,
-   "height_px": 720,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 283,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "T00p01_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_t00p02",
-   "width_px": 672,
-   "height_px": 504,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 494,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "T00p02_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_t00p03",
-   "width_px": 552,
-   "height_px": 504,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 251,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "T00p03_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_t00p04a",
-   "width_px": 480,
-   "height_px": 408,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 42,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "T00p04a_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_t01p02a",
-   "width_px": 552,
-   "height_px": 504,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 251,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "T01p02a_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_t01p03a",
-   "width_px": 504,
-   "height_px": 432,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 77,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "T01p03a_Base"
-   ]
-  },
-  {
-   "ground": "sky_eos_t01p04a",
-   "width_px": 408,
-   "height_px": 360,
-   "frames_rendered": 6,
-   "animation_cycle": 12,
-   "animated_tiles": 31,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "T01p04a_Base"
-   ]
-  },
-  {
-   "ground": "sky_wigglytuff_guild_entrance",
-   "width_px": 696,
-   "height_px": 456,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "G01p03a_Base"
-   ]
-  },
-  {
-   "ground": "sky_wigglytuff_guild_main",
-   "width_px": 648,
-   "height_px": 432,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "G01p04a_Base"
-   ]
-  },
-  {
-   "ground": "sommet_aurore",
-   "width_px": 528,
-   "height_px": 504,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "SommetAurore_Base"
-   ]
-  },
-  {
    "ground": "t00p01",
    "width_px": 1152,
    "height_px": 888,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -5344,12 +4283,18 @@
    "height_px": 720,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 738,
    "animated_tiles": 738,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "t01p00_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "t01p01",
@@ -5357,51 +4302,75 @@
    "height_px": 720,
    "frames_rendered": 6,
    "animation_cycle": 6,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 909,
    "animated_tiles": 909,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "t01p01_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 6,
+   "apng_rendered_frames": 6
   },
   {
    "ground": "t01p02a",
    "width_px": 456,
    "height_px": 624,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 336,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 1098,
    "animated_tiles": 1098,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "t01p02a_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "t01p02b",
    "width_px": 456,
    "height_px": 624,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 336,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 1098,
    "animated_tiles": 1098,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "t01p02b_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "t01p03",
    "width_px": 720,
    "height_px": 528,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
+   "frames_rendered": 64,
+   "animation_cycle": 700,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 1260,
    "animated_tiles": 1260,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "t01p03_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "t01p04",
@@ -5409,6 +4378,9 @@
    "height_px": 528,
    "frames_rendered": 1,
    "animation_cycle": 1,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 0,
    "animated_tiles": 0,
    "missing_cells": 0,
    "missing_sheets": null,
@@ -5420,285 +4392,39 @@
    "ground": "t01p05",
    "width_px": 648,
    "height_px": 384,
-   "frames_rendered": 6,
+   "frames_rendered": 64,
    "animation_cycle": 210,
+   "frames_status": "PARTIAL_WITH_FULL_TILE_SHEET",
+   "animation_sheet": true,
+   "distinct_animated_sequences": 540,
    "animated_tiles": 540,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "t01p05_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 64,
+   "apng_rendered_frames": 64
   },
   {
    "ground": "t01p07",
    "width_px": 408,
    "height_px": 384,
-   "frames_rendered": 6,
+   "frames_rendered": 24,
    "animation_cycle": 24,
+   "frames_status": "FULL",
+   "animation_sheet": false,
+   "distinct_animated_sequences": 27,
    "animated_tiles": 27,
    "missing_cells": 0,
    "missing_sheets": null,
    "sheets": [
     "t01p07_Base"
-   ]
-  },
-  {
-   "ground": "terres_tues_porte",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "test_grounds",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "testmap",
-   "width_px": 912,
-   "height_px": 1088,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "TownBase"
-   ]
-  },
-  {
-   "ground": "tour_ciel_sommet",
-   "width_px": 552,
-   "height_px": 600,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "SkyTowerSummitCanonical_Base"
-   ]
-  },
-  {
-   "ground": "treasure_spinda_cafe",
-   "width_px": 696,
-   "height_px": 456,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "P01p04a_Base"
-   ]
-  },
-  {
-   "ground": "v09p04a",
-   "width_px": 312,
-   "height_px": 240,
-   "frames_rendered": 6,
-   "animation_cycle": 6,
-   "animated_tiles": 182,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "V09p04a_Base"
-   ]
-  },
-  {
-   "ground": "v10p03c",
-   "width_px": 312,
-   "height_px": 600,
-   "frames_rendered": 6,
-   "animation_cycle": 512,
-   "animated_tiles": 517,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "V10p03c_Base"
-   ]
-  },
-  {
-   "ground": "v12p01a",
-   "width_px": 1248,
-   "height_px": 240,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "V12p01a_Base"
-   ]
-  },
-  {
-   "ground": "v13p01a",
-   "width_px": 312,
-   "height_px": 240,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "V13p01a_Base"
-   ]
-  },
-  {
-   "ground": "v14p01a",
-   "width_px": 552,
-   "height_px": 240,
-   "frames_rendered": 6,
-   "animation_cycle": 180,
-   "animated_tiles": 57,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "V14p01a_Base"
-   ]
-  },
-  {
-   "ground": "v14p03a",
-   "width_px": 792,
-   "height_px": 240,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "V14p03a_Base"
-   ]
-  },
-  {
-   "ground": "v14p04a",
-   "width_px": 792,
-   "height_px": 240,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "V14p04a_Base"
-   ]
-  },
-  {
-   "ground": "vallon_malsain_fond",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
-  },
-  {
-   "ground": "vallon_perdu",
-   "width_px": 408,
-   "height_px": 360,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "VallonPerdu_Base"
-   ]
-  },
-  {
-   "ground": "vast_steppe_entrance",
-   "width_px": 512,
-   "height_px": 512,
-   "frames_rendered": 4,
-   "animation_cycle": 4,
-   "animated_tiles": 135,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "Vast_Steppe_Base",
-    "Vast_Steppe_Cliifs",
-    "Vast_Steppe_Flower_Animations",
-    "Vast_Steppe_Fringe",
-    "Vast_Steppe_Objects",
-    "Vast_Steppe_Objects_Under"
-   ]
-  },
-  {
-   "ground": "vast_steppe_guardian",
-   "width_px": 368,
-   "height_px": 528,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "VastSteppeGuardian_Base",
-    "VastSteppeGuardian_Fringe",
-    "VastSteppeGuardian_Objects",
-    "VastSteppeGuardian_Objects_Under"
-   ]
-  },
-  {
-   "ground": "vast_steppe_midpoint",
-   "width_px": 264,
-   "height_px": 176,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "CliffCamp"
-   ]
-  },
-  {
-   "ground": "vast_steppe_miniboss",
-   "width_px": 368,
-   "height_px": 528,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "VastSteppeMiniboss_Base",
-    "VastSteppeMiniboss_Fringe",
-    "VastSteppeMiniboss_Objects",
-    "VastSteppeMiniboss_Objects_Under"
-   ]
-  },
-  {
-   "ground": "vigie_stratos",
-   "width_px": 128,
-   "height_px": 96,
-   "frames_rendered": 1,
-   "animation_cycle": 1,
-   "animated_tiles": 0,
-   "missing_cells": 0,
-   "missing_sheets": null,
-   "sheets": [
-    "debug_placeholder_Base"
-   ]
+   ],
+   "packed_apng": true,
+   "apng_frames": 23,
+   "apng_rendered_frames": 24
   }
  ]
 }

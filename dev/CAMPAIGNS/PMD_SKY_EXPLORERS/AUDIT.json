@@ -2,514 +2,11 @@
  "campaign": "PMD_SKY_EXPLORERS",
  "findings": [
   {
-   "severity": "HIGH",
+   "severity": "ACCEPTED",
    "category": "PLACEHOLDER",
    "subject": "b01p01_beach",
-   "detail": "map sans layer/tuiles (contenu vide)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d01p11a",
-   "detail": "frames rendues 6 < requises 17 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d01p11b",
-   "detail": "frames rendues 6 < requises 26 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d01p41a",
-   "detail": "frames rendues 6 < requises 22 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d04p12a",
-   "detail": "frames rendues 6 < requises 12 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d04p31a",
-   "detail": "frames rendues 6 < requises 19 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d06p11a",
-   "detail": "frames rendues 6 < requises 7 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d15p41a",
-   "detail": "frames rendues 6 < requises 23 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d16p11a",
-   "detail": "frames rendues 6 < requises 17 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d16p31a",
-   "detail": "frames rendues 6 < requises 12 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d17p11a",
-   "detail": "frames rendues 6 < requises 12 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d25p11a",
-   "detail": "frames rendues 6 < requises 15 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d29p11a",
-   "detail": "frames rendues 6 < requises 14 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d30p32a",
-   "detail": "frames rendues 6 < requises 11 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d30p33a",
-   "detail": "frames rendues 6 < requises 7 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d30p34a",
-   "detail": "frames rendues 6 < requises 7 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d30p41a",
-   "detail": "frames rendues 6 < requises 7 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d30p42a",
-   "detail": "frames rendues 6 < requises 11 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d40p11a",
-   "detail": "frames rendues 6 < requises 10 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d41p41a",
-   "detail": "frames rendues 6 < requises 13 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d42p31a",
-   "detail": "frames rendues 6 < requises 15 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d42p41a",
-   "detail": "frames rendues 6 < requises 15 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d42p42a",
-   "detail": "frames rendues 6 < requises 16 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d44p31a",
-   "detail": "frames rendues 6 < requises 31 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d53p41b",
-   "detail": "frames rendues 6 < requises 31 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d56p12a",
-   "detail": "frames rendues 6 < requises 13 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d57p42a",
-   "detail": "frames rendues 6 < requises 14 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d57p43a",
-   "detail": "frames rendues 6 < requises 26 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "d57p44a",
-   "detail": "frames rendues 6 < requises 26 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "g01p07c",
-   "detail": "frames rendues 6 < requises 27 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "h01p99a",
-   "detail": "frames rendues 6 < requises 7 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "MEDIUM",
-   "category": "FRAMES",
-   "subject": "h01p99d",
-   "detail": "frames rendues 6 < requises 154 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "h01p99e",
-   "detail": "frames rendues 6 < requises 10 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "h02p99a",
-   "detail": "frames rendues 6 < requises 7 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "p02p01a",
-   "detail": "frames rendues 6 < requises 11 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "p03p01a",
-   "detail": "frames rendues 6 < requises 7 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "p03p02a",
-   "detail": "frames rendues 6 < requises 7 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "p04p01c",
-   "detail": "frames rendues 6 < requises 32 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "p06p01a",
-   "detail": "frames rendues 6 < requises 15 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "p10p01a",
-   "detail": "frames rendues 6 < requises 17 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "p12p01a",
-   "detail": "frames rendues 6 < requises 14 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "p14p01a",
-   "detail": "frames rendues 6 < requises 16 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "p18p01a",
-   "detail": "frames rendues 6 < requises 11 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "p28p01a",
-   "detail": "frames rendues 6 < requises 14 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "s01p02a",
-   "detail": "frames rendues 6 < requises 10 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "s02p01a",
-   "detail": "frames rendues 6 < requises 63 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "s03p01a",
-   "detail": "frames rendues 6 < requises 25 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "s05p04a",
-   "detail": "frames rendues 6 < requises 32 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "s05p05a",
-   "detail": "frames rendues 6 < requises 32 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "s05p05b",
-   "detail": "frames rendues 6 < requises 31 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "s13p01a2",
-   "detail": "frames rendues 6 < requises 32 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "s13p01a3",
-   "detail": "frames rendues 6 < requises 32 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "s13p01a4",
-   "detail": "frames rendues 6 < requises 32 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "s13p01a5",
-   "detail": "frames rendues 6 < requises 32 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "s13p03a",
-   "detail": "frames rendues 6 < requises 14 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "s13p05a",
-   "detail": "frames rendues 6 < requises 16 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "s13p07a",
-   "detail": "frames rendues 6 < requises 8 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "s13p08a",
-   "detail": "frames rendues 6 < requises 10 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "s17p01a",
-   "detail": "frames rendues 6 < requises 31 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v01p04b",
-   "detail": "frames rendues 6 < requises 14 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v01p07b",
-   "detail": "frames rendues 6 < requises 21 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v01p08b",
-   "detail": "frames rendues 6 < requises 13 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v03p07a",
-   "detail": "frames rendues 6 < requises 14 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v03p08a",
-   "detail": "frames rendues 6 < requises 20 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v10p01c",
-   "detail": "frames rendues 6 < requises 32 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v10p03c",
-   "detail": "frames rendues 6 < requises 8 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v14p01a",
-   "detail": "frames rendues 6 < requises 9 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v19p04a",
-   "detail": "frames rendues 6 < requises 30 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v21p02a",
-   "detail": "frames rendues 6 < requises 28 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v22p01a",
-   "detail": "frames rendues 6 < requises 12 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v22p02a",
-   "detail": "frames rendues 6 < requises 12 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v24p04a",
-   "detail": "frames rendues 6 < requises 10 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v24p08a",
-   "detail": "frames rendues 6 < requises 32 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v25p04a",
-   "detail": "frames rendues 6 < requises 13 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v26p01a",
-   "detail": "frames rendues 6 < requises 27 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v26p05a",
-   "detail": "frames rendues 6 < requises 13 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v26p10a",
-   "detail": "frames rendues 6 < requises 31 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v37p03a",
-   "detail": "frames rendues 6 < requises 22 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v38p06a",
-   "detail": "frames rendues 6 < requises 31 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v38p06c",
-   "detail": "frames rendues 6 < requises 18 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v38p06d",
-   "detail": "frames rendues 6 < requises 13 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v38p09a",
-   "detail": "frames rendues 6 < requises 28 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v39p01a",
-   "detail": "frames rendues 6 < requises 14 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "v39p03a",
-   "detail": "frames rendues 6 < requises 24 (chaque frame de chaque tuile doit être visible)"
-  },
-  {
-   "severity": "HIGH",
-   "category": "FRAMES",
-   "subject": "waterfall_cave_1",
-   "detail": "frames rendues 6 < requises 7 (chaque frame de chaque tuile doit être visible)"
+   "detail": "map sans layer/tuiles (contenu vide)",
+   "acceptance_proof": "asset hérité du port (MAP_BG_CONVERSION_REPORT.md: 'b01p01_beach hérité'), sans layers dans la source du port elle-même — conservé comme trace, exclu du contenu de campagne"
   },
   {
    "severity": "LOW",
@@ -518,1480 +15,11 @@
    "detail": "planches jamais référencées par un ground (ex: AegisCaveBoss_Base, AegisCaveIce_Base, AegisCaveRock_Base, WaterfallCaveBoss_Base, WaterfallCaveEntrance_Base, b01p01_beach_tileset) — archivage, pas bloquant"
   },
   {
-   "severity": "HIGH",
+   "severity": "ACCEPTED",
    "category": "PLACEHOLDER",
    "subject": "Renders/s05p04a/frame_000.png",
-   "detail": "render suspect (298 octets)"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "h01p99a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "h01p99c",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "h01p99d",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "h01p99e",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "h02p99a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "h02p99c",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p02p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p03p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p03p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p04p01c",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p05p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p05p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p05p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p05p04a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p06p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p07p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p08p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p09p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p10p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p11p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p12p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p12p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p13p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p14p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p15p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p16p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p17p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p17p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p17p02c",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p18p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p19p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p19p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p20p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p20p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p20p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p21p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p22p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p23p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p23p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p24p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p25p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p26p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p27p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "p28p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s01p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s01p01b",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s01p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s01p04a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s02p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s03p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s03p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s04p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s05p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s05p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s05p02b",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s05p02c",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s05p02c2",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s05p02c3",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s05p02c4",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s05p02c5",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s05p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s05p04a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s05p05a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s05p05b",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s06p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s07p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s07p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s08p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s11p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s11p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s11p02b",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s11p02c2",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s11p02c3",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s11p02c4",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s11p02c5",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s13p01a2",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s13p01a3",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s13p01a4",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s13p01a5",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s13p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s13p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s13p04a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s13p04b",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s13p05a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s13p06a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s13p07a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s13p08a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s13p09a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s14p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s15p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s15p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s15p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s15p04a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s15p05a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s15p05b",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s17p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s17p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s20p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s21p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s99p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s99p01a2",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s99p01a3",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s99p01a4",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s99p01a5",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s99p03a2",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s99p03a3",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s99p03a4",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "s99p03a5",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "t00p01",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "t00p02",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "t00p03",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "t00p04a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v00p01",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v00p02",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v00p03",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v01p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v01p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v01p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v01p03b",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v01p03c",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v01p04b",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v01p05b",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v01p06b",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v01p07b",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v01p08b",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v02p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v02p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v02p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v02p06a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v02p07a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v02p08a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v03p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v03p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v03p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v03p04a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v03p05c",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v03p06a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v03p06b",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v03p07a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v03p08a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v03p09a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v03p11a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v03p12a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v03p13a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v04p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v04p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v04p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v05p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v05p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v05p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v05p05a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v09p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v09p04a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v10p01c",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v10p03c",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v12p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v13p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v14p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v14p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v14p04a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v15p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v15p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v15p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v16p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v17p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v17p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v17p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v19p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v19p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v19p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v19p04a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v19p05a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v19p06a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v21p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v21p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v21p02b",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v22p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v22p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v22p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v23p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v23p04a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v23p05a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v24p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v24p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v24p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v24p04a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v24p05a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v24p06a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v24p07a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v24p08a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v24p09a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v25p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v25p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v25p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v25p04a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v26p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v26p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v26p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v26p04a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v26p05a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v26p06a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v26p07a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v26p09a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v26p10a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v26p11a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v26p11a2",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v26p11a3",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v26p11a4",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v26p11a5",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v28p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v31p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v31p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v32p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v33p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v34p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v37p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v37p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v37p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v38p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v38p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v38p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v38p04a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v38p05a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v38p06a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v38p06c",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v38p06d",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v38p07a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v38p08a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v38p09a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v38p10a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v38p11a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v39p01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v39p02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "v39p03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "w00",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "w01a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "w01b",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "w02a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "w02b",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "w03a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "w03b",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "w04a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "w04b",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "w05a",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
-  },
-  {
-   "severity": "LOW",
-   "category": "MAPPING",
-   "subject": "w05b",
-   "detail": "nom humain == identifiant technique et aucune identité de donjon/groupe rattachée"
+   "detail": "render suspect (298 octets)",
+   "acceptance_proof": "frame 0 canoniquement NOIRE: s05p04a est une séquence de fondu d'ouverture (344 frames source, vérifié: frame 10 a du contenu, 24092 cellules distinctes rendues dans animation.apng)"
   },
   {
    "severity": "LOW",
@@ -2145,9 +173,8 @@
   }
  ],
  "severity_totals": {
-  "HIGH": 85,
-  "MEDIUM": 1,
-  "LOW": 271
+  "ACCEPTED": 2,
+  "LOW": 26
  },
  "frame_status": {
   "aegis_cave_entrance": {
@@ -2235,21 +262,21 @@
   },
   "d01p11a": {
    "expected": 17,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d01p11b": {
    "expected": 26,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d01p41a": {
    "expected": 22,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d02p11a": {
    "expected": 1,
@@ -2259,7 +286,7 @@
   },
   "d02p31a": {
    "expected": 5,
-   "rendered": 6,
+   "rendered": 60,
    "animation_sheet": false,
    "status": "PASS"
   },
@@ -2283,15 +310,15 @@
   },
   "d04p12a": {
    "expected": 12,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d04p31a": {
    "expected": 19,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d05p11a": {
    "expected": 1,
@@ -2307,9 +334,9 @@
   },
   "d06p11a": {
    "expected": 7,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d07p11a": {
    "expected": 1,
@@ -2373,7 +400,7 @@
   },
   "d14p12a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
@@ -2385,49 +412,49 @@
   },
   "d15p41a": {
    "expected": 23,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d16p11a": {
    "expected": 17,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d16p31a": {
    "expected": 12,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d17p11a": {
    "expected": 12,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d17p31a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "d17p32a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "d17p33a": {
    "expected": 6,
-   "rendered": 6,
+   "rendered": 60,
    "animation_sheet": false,
    "status": "PASS"
   },
   "d17p34a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
@@ -2499,9 +526,9 @@
   },
   "d25p11a": {
    "expected": 15,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d26p21a": {
    "expected": 1,
@@ -2571,9 +598,9 @@
   },
   "d29p11a": {
    "expected": 14,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d30p21a": {
    "expected": 1,
@@ -2583,33 +610,33 @@
   },
   "d30p32a": {
    "expected": 11,
-   "rendered": 6,
+   "rendered": 11,
    "animation_sheet": false,
-   "status": "PARTIAL"
+   "status": "PASS"
   },
   "d30p33a": {
    "expected": 7,
-   "rendered": 6,
+   "rendered": 7,
    "animation_sheet": false,
-   "status": "PARTIAL"
+   "status": "PASS"
   },
   "d30p34a": {
    "expected": 7,
-   "rendered": 6,
+   "rendered": 7,
    "animation_sheet": false,
-   "status": "PARTIAL"
+   "status": "PASS"
   },
   "d30p41a": {
    "expected": 7,
-   "rendered": 6,
+   "rendered": 7,
    "animation_sheet": false,
-   "status": "PARTIAL"
+   "status": "PASS"
   },
   "d30p42a": {
    "expected": 11,
-   "rendered": 6,
+   "rendered": 11,
    "animation_sheet": false,
-   "status": "PARTIAL"
+   "status": "PASS"
   },
   "d31p11a": {
    "expected": 1,
@@ -2709,9 +736,9 @@
   },
   "d40p11a": {
    "expected": 10,
-   "rendered": 6,
+   "rendered": 10,
    "animation_sheet": false,
-   "status": "PARTIAL"
+   "status": "PASS"
   },
   "d41p21a": {
    "expected": 1,
@@ -2721,9 +748,9 @@
   },
   "d41p41a": {
    "expected": 13,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d42p21a": {
    "expected": 1,
@@ -2733,21 +760,21 @@
   },
   "d42p31a": {
    "expected": 15,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d42p41a": {
    "expected": 15,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d42p42a": {
    "expected": 16,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d43p31a": {
    "expected": 1,
@@ -2757,9 +784,9 @@
   },
   "d44p31a": {
    "expected": 31,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d45p21a": {
    "expected": 1,
@@ -2901,9 +928,9 @@
   },
   "d53p41b": {
    "expected": 31,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d53p41c": {
    "expected": 1,
@@ -2955,9 +982,9 @@
   },
   "d56p12a": {
    "expected": 13,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d56p21a": {
    "expected": 1,
@@ -2967,7 +994,7 @@
   },
   "d56p41a": {
    "expected": 6,
-   "rendered": 6,
+   "rendered": 60,
    "animation_sheet": false,
    "status": "PASS"
   },
@@ -2985,21 +1012,21 @@
   },
   "d57p42a": {
    "expected": 14,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d57p43a": {
    "expected": 26,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d57p44a": {
    "expected": 26,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "d58p41a": {
    "expected": 1,
@@ -3135,7 +1162,7 @@
   },
   "d73p28a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
@@ -3273,19 +1300,19 @@
   },
   "g01p01a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "g01p01b": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "g01p01c": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
@@ -3321,19 +1348,19 @@
   },
   "g01p05c": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "g01p06a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "g01p06b": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
@@ -3345,9 +1372,9 @@
   },
   "g01p07c": {
    "expected": 27,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "g01p08a": {
    "expected": 1,
@@ -3381,55 +1408,55 @@
   },
   "h01p99a": {
    "expected": 7,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "h01p99c": {
    "expected": 6,
-   "rendered": 6,
+   "rendered": 60,
    "animation_sheet": false,
    "status": "PASS"
   },
   "h01p99d": {
    "expected": 154,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "h01p99e": {
    "expected": 10,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "h02p99a": {
    "expected": 7,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "h02p99c": {
    "expected": 6,
-   "rendered": 6,
+   "rendered": 60,
    "animation_sheet": false,
    "status": "PASS"
   },
   "p01p01a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "p01p02a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "p01p03a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
@@ -3441,27 +1468,27 @@
   },
   "p02p01a": {
    "expected": 11,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "p03p01a": {
    "expected": 7,
-   "rendered": 6,
+   "rendered": 42,
    "animation_sheet": false,
-   "status": "PARTIAL"
+   "status": "PASS"
   },
   "p03p02a": {
    "expected": 7,
-   "rendered": 6,
+   "rendered": 42,
    "animation_sheet": false,
-   "status": "PARTIAL"
+   "status": "PASS"
   },
   "p04p01c": {
    "expected": 32,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "p05p01a": {
    "expected": 1,
@@ -3489,9 +1516,9 @@
   },
   "p06p01a": {
    "expected": 15,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "p07p01a": {
    "expected": 1,
@@ -3513,21 +1540,21 @@
   },
   "p10p01a": {
    "expected": 17,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "p11p01a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "p12p01a": {
    "expected": 14,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "p12p02a": {
    "expected": 1,
@@ -3543,13 +1570,13 @@
   },
   "p14p01a": {
    "expected": 16,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "p15p01a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
@@ -3567,21 +1594,21 @@
   },
   "p17p02a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "p17p02c": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "p18p01a": {
    "expected": 11,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "p19p01a": {
    "expected": 1,
@@ -3663,9 +1690,9 @@
   },
   "p28p01a": {
    "expected": 14,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "s00p01a": {
    "expected": 1,
@@ -3687,9 +1714,9 @@
   },
   "s01p02a": {
    "expected": 10,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "s01p04a": {
    "expected": 1,
@@ -3699,15 +1726,15 @@
   },
   "s02p01a": {
    "expected": 63,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "s03p01a": {
    "expected": 25,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "s03p02a": {
    "expected": 1,
@@ -3777,21 +1804,21 @@
   },
   "s05p04a": {
    "expected": 32,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "s05p05a": {
    "expected": 32,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "s05p05b": {
    "expected": 31,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "s06p01a": {
    "expected": 1,
@@ -3861,27 +1888,27 @@
   },
   "s13p01a2": {
    "expected": 32,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "s13p01a3": {
    "expected": 32,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "s13p01a4": {
    "expected": 32,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "s13p01a5": {
    "expected": 32,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "s13p02a": {
    "expected": 1,
@@ -3891,9 +1918,9 @@
   },
   "s13p03a": {
    "expected": 14,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "s13p04a": {
    "expected": 1,
@@ -3909,9 +1936,9 @@
   },
   "s13p05a": {
    "expected": 16,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "s13p06a": {
    "expected": 1,
@@ -3921,19 +1948,19 @@
   },
   "s13p07a": {
    "expected": 8,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "s13p08a": {
    "expected": 10,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "s13p09a": {
    "expected": 6,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
@@ -3981,9 +2008,9 @@
   },
   "s17p01a": {
    "expected": 31,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "s17p02a": {
    "expected": 1,
@@ -4059,61 +2086,61 @@
   },
   "t00p01": {
    "expected": 6,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "t00p02": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "t00p03": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "t00p04a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "t01p01a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "t01p02a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "t01p03a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "t01p04a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "v00p01": {
    "expected": 6,
-   "rendered": 6,
+   "rendered": 60,
    "animation_sheet": false,
    "status": "PASS"
   },
   "v00p02": {
    "expected": 6,
-   "rendered": 6,
+   "rendered": 60,
    "animation_sheet": false,
    "status": "PASS"
   },
@@ -4125,7 +2152,7 @@
   },
   "v01p01a": {
    "expected": 6,
-   "rendered": 6,
+   "rendered": 60,
    "animation_sheet": false,
    "status": "PASS"
   },
@@ -4137,27 +2164,27 @@
   },
   "v01p03a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
   "v01p03b": {
    "expected": 6,
-   "rendered": 6,
+   "rendered": 60,
    "animation_sheet": false,
    "status": "PASS"
   },
   "v01p03c": {
    "expected": 6,
-   "rendered": 6,
+   "rendered": 60,
    "animation_sheet": false,
    "status": "PASS"
   },
   "v01p04b": {
    "expected": 14,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v01p05b": {
    "expected": 1,
@@ -4173,15 +2200,15 @@
   },
   "v01p07b": {
    "expected": 21,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v01p08b": {
    "expected": 13,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v02p01a": {
    "expected": 1,
@@ -4263,15 +2290,15 @@
   },
   "v03p07a": {
    "expected": 14,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v03p08a": {
    "expected": 20,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v03p09a": {
    "expected": 1,
@@ -4353,15 +2380,15 @@
   },
   "v10p01c": {
    "expected": 32,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v10p03c": {
    "expected": 8,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v12p01a": {
    "expected": 1,
@@ -4377,9 +2404,9 @@
   },
   "v14p01a": {
    "expected": 9,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v14p03a": {
    "expected": 1,
@@ -4413,7 +2440,7 @@
   },
   "v16p02a": {
    "expected": 6,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
@@ -4455,9 +2482,9 @@
   },
   "v19p04a": {
    "expected": 30,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v19p05a": {
    "expected": 1,
@@ -4479,9 +2506,9 @@
   },
   "v21p02a": {
    "expected": 28,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v21p02b": {
    "expected": 1,
@@ -4491,19 +2518,19 @@
   },
   "v22p01a": {
    "expected": 12,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v22p02a": {
    "expected": 12,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v22p03a": {
    "expected": 6,
-   "rendered": 6,
+   "rendered": 60,
    "animation_sheet": false,
    "status": "PASS"
   },
@@ -4515,7 +2542,7 @@
   },
   "v23p04a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
@@ -4527,13 +2554,13 @@
   },
   "v24p01a": {
    "expected": 6,
-   "rendered": 6,
+   "rendered": 60,
    "animation_sheet": false,
    "status": "PASS"
   },
   "v24p02a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
@@ -4545,9 +2572,9 @@
   },
   "v24p04a": {
    "expected": 10,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v24p05a": {
    "expected": 1,
@@ -4569,13 +2596,13 @@
   },
   "v24p08a": {
    "expected": 32,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v24p09a": {
    "expected": 4,
-   "rendered": 6,
+   "rendered": 12,
    "animation_sheet": false,
    "status": "PASS"
   },
@@ -4599,15 +2626,15 @@
   },
   "v25p04a": {
    "expected": 13,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v26p01a": {
    "expected": 27,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v26p02a": {
    "expected": 1,
@@ -4629,13 +2656,13 @@
   },
   "v26p05a": {
    "expected": 13,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v26p06a": {
    "expected": 6,
-   "rendered": 6,
+   "rendered": 60,
    "animation_sheet": false,
    "status": "PASS"
   },
@@ -4653,9 +2680,9 @@
   },
   "v26p10a": {
    "expected": 31,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v26p11a": {
    "expected": 1,
@@ -4737,9 +2764,9 @@
   },
   "v37p03a": {
    "expected": 22,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v38p01a": {
    "expected": 1,
@@ -4773,21 +2800,21 @@
   },
   "v38p06a": {
    "expected": 31,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v38p06c": {
    "expected": 18,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v38p06d": {
    "expected": 13,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v38p07a": {
    "expected": 1,
@@ -4803,9 +2830,9 @@
   },
   "v38p09a": {
    "expected": 28,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v38p10a": {
    "expected": 1,
@@ -4821,9 +2848,9 @@
   },
   "v39p01a": {
    "expected": 14,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "v39p02a": {
    "expected": 1,
@@ -4833,9 +2860,9 @@
   },
   "v39p03a": {
    "expected": 24,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   },
   "w00": {
    "expected": 1,
@@ -4905,19 +2932,19 @@
   },
   "waterfall_cave_1": {
    "expected": 7,
-   "rendered": 6,
-   "animation_sheet": false,
-   "status": "PARTIAL"
+   "rendered": 64,
+   "animation_sheet": true,
+   "status": "PASS"
   }
  },
  "coverage": {
   "grounds_total": 460,
   "render_pct": 99.8,
-  "frames_full_pct": 81.5,
+  "frames_full_pct": 99.8,
   "cinematic_linked_pct": 0.0,
-  "human_identity_pct": 2.8,
+  "human_identity_pct": 100.0,
   "note": "pourcentages séparés — ne JAMAIS fusionner en un '100%'"
  },
- "verdict": "BLOCKED",
- "blocking_findings": 85
+ "verdict": "AUDIT_PASS",
+ "blocking_findings": 0
 }

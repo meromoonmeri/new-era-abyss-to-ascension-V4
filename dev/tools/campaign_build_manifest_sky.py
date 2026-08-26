@@ -59,7 +59,7 @@ FR_NAMES = {
 }
 
 # Groupes de levels (préfixes de la nomenclature script NDS) — identités
-# vérifiées par le graphe monde du port et pmd2scriptdata.
+# vérifiées par le graphe monde du port et pmd2scriptdata (1326 levels).
 PREFIX_GROUPS = {
     "t01": ("Treasure Town", "Bourg-Trésor",
             "Ville principale : boutiques Kecleon, banque Duskull, "
@@ -70,6 +70,32 @@ PREFIX_GROUPS = {
             "Falaise Sharpedo et abords de la plage."),
     "s00": ("System/title scenes", "Scènes système",
             "Écrans système, scènes d'ouverture."),
+}
+
+# Rôles des SÉRIES de levels (nomenclature script NDS, pmd2scriptdata:
+# T=town, G=guild, P=places persos, S=story scenes, V=villages/lieux des
+# épisodes et cinématiques, H=maisons/intérieurs, W=world/spéciaux,
+# M=missions). Identité de série documentée quand le level individuel
+# n'a pas encore de nom propre décodé.
+SERIES_ROLES = {
+    "t": ("Town map", "Carte de ville",
+          "Bourg-Trésor et ses variantes d'état (heure, évènement)."),
+    "g": ("Guild map", "Carte de la guilde",
+          "Intérieurs et extérieurs de la Guilde de Grodoudou."),
+    "p": ("Personal place", "Lieu personnel",
+          "Lieux des personnages: Falaise Sharpedo, chambres, plage…"),
+    "s": ("Story scene map", "Carte de scène du scénario",
+          "Cartes dédiées aux scènes du scénario principal (fondus, "
+          "flashbacks, séquences spéciales — ex. s05p04a fondu 344 frames)."),
+    "v": ("Episode/event village", "Village d'épisode/évènement",
+          "Lieux des Épisodes Spéciaux et cinématiques annexes "
+          "(casts Bidoof, Igglybuff, Sunflora, Team Charm…)."),
+    "h": ("Interior/home", "Intérieur/maison",
+          "Intérieurs génériques et maisons."),
+    "w": ("World/system map", "Carte monde/système",
+          "Cartes spéciales (carte du monde, écrans de transition)."),
+    "m": ("Mission map", "Carte de mission",
+          "Cartes utilisées par les missions générées."),
 }
 
 # Narration globale d'Explorateurs du Ciel (chronologie canonique du jeu)
@@ -172,6 +198,11 @@ def main() -> int:
             if grp:
                 e["area_group"] = {"en": grp[0], "fr": grp[1],
                                    "context": grp[2]}
+            else:
+                sr = SERIES_ROLES.get(gid[:1])
+                if sr and re.match(r"^[tgpsvhwm]\d", gid):
+                    e["series_role"] = {"en": sr[0], "fr": sr[1],
+                                        "context": sr[2]}
         entries.append(e)
 
     manifest = {

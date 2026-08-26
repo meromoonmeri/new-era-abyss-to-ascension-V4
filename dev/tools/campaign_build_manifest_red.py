@@ -40,52 +40,94 @@ PREFIX_ROLES = {
     "s0": "system_screen",
 }
 
-# Donjon (D01-D25) -> nom humain EN/FR + boss + grounds (INVENTAIRE projet,
-# lui-même dérivé du port et de pmd_red_index.json)
+# Donjon (D01-D25) -> nom humain EN/FR + boss + grounds par ID SOURCE GBA.
+# La campagne n'utilise QUE les IDs de la table de conversion de la ROM
+# (dXXpYY) — les noms français (foret_tendre_oree…) sont l'identité du MOD
+# New Era, exposée en alias, jamais mélangée au contenu de campagne.
 DUNGEONS = {
-    "D01": ("Tiny Woods", "Petit Bois", None,
-            ["foret_tendre_oree", "d01p02"]),
+    "D01": ("Tiny Woods", "Petit Bois", None, ["d01p01", "d01p02"]),
     "D02": ("Thunderwave Cave", "Grotte Statique", None,
-            ["grotte_statique_seuil", "d02p02"]),
-    "D03": ("Mt. Steel", "Mont Ferreux", "Skarmory",
-            ["pic_ferreux_pied", "d03p02"]),
+            ["d02p01", "d02p02"]),
+    "D03": ("Mt. Steel", "Mont Ferreux", "Skarmory", ["d03p01", "d03p02"]),
     "D04": ("Sinister Woods", "Bois Sinistres", "Gengar (Team Meanies)",
-            ["bois_sombres_oree", "bois_sombres_fond"]),
+            ["d04p01", "d04p02"]),
     "D05": ("Silent Chasm", "Gouffre Muet", "Zubat/Grimer ambush",
-            ["gouffre_muet_bord", "d05p02"]),
+            ["d05p01", "d05p02"]),
     "D06": ("Mt. Thunder", "Mont Foudre", "Zapdos",
-            ["mont_grondant_pied", "d06p02", "d06p03"]),
-    "D07": ("Great Canyon", "Grand Canyon", None,
-            ["grand_canyon_porte", "d07p02"]),
-    "D08": ("Lapis Cave", "Grotte Lazuli", None,
-            ["grotte_lazuli_seuil", "grotte_lazuli_fond"]),
+            ["d06p01", "d06p02", "d06p03"]),
+    "D07": ("Great Canyon", "Grand Canyon", None, ["d07p01", "d07p02"]),
+    "D08": ("Lapis Cave", "Grotte Lazuli", None, ["d08p01", "d08p02"]),
     "D09": ("Mt. Blaze", "Mont Brasier", "Moltres",
-            ["mont_cendre_pied", "d09p02", "d09p03"]),
+            ["d09p01", "d09p02", "d09p03"]),
     "D10": ("Frosty Forest", "Forêt Givrée", "Articuno",
-            ["foret_givree_oree", "d10p02", "d10p03"]),
+            ["d10p01", "d10p02", "d10p03"]),
     "D11": ("Mt. Freeze", "Mont Gel", "Ninetales (révélation)",
-            ["mont_gele_pied", "d11p02", "d11p03"]),
+            ["d11p01", "d11p02", "d11p03"]),
     "D12": ("Magma Cavern", "Caverne Magma", "Groudon",
-            ["gorge_ardente_porte", "gorge_ardente_coeur", "fosse_ardente"]),
+            ["d12p01", "d12p02", "d12p04"]),
     "D13": ("Sky Tower", "Tour Céleste", "Rayquaza",
-            ["parvis_celeste", "palier_celeste", "tour_ciel_sommet"]),
-    "D14": ("Stormy Sea", "Mer Houleuse", "Kyogre", ["abime_tempetes"]),
-    "D15": ("Silver Trench", "Fosse Argentée", "Lugia", ["fosse_argentee"]),
-    "D16": ("Fiery Field", "Champ Brûlant", "Moltres", ["champ_braises"]),
-    "D17": ("Lightning Field", "Champ Éclair", "Raikou", ["champ_foudre"]),
-    "D18": ("Northwind Field", "Champ Borée", "Articuno",
-            ["champ_vent_boreal"]),
-    "D19": ("Mt. Faraway", "Mont Lointain", "Ho-Oh", ["sommet_aurore"]),
-    "D20": ("Western Cave", "Grotte Occidentale", "Mewtwo",
-            ["antre_occident"]),
+            ["d13p01", "d13p02", "d13p03"]),
+    "D14": ("Stormy Sea", "Mer Houleuse", "Kyogre", ["d14p01"]),
+    "D15": ("Silver Trench", "Fosse Argentée", "Lugia", ["d15p01"]),
+    "D16": ("Fiery Field", "Champ Brûlant", "Moltres", ["d16p01"]),
+    "D17": ("Lightning Field", "Champ Éclair", "Raikou", ["d17p01"]),
+    "D18": ("Northwind Field", "Champ Borée", "Articuno", ["d18p01"]),
+    "D19": ("Mt. Faraway", "Mont Lointain", "Ho-Oh", ["d19p01"]),
+    "D20": ("Western Cave", "Grotte Occidentale", "Mewtwo", ["d20p01"]),
     "D21": ("Northern Range", "Crêtes Boréales", "Latios/Latias",
-            ["cretes_boreales"]),
-    "D22": ("Pitfall Valley", "Vallée Perdue", None, ["vallon_perdu"]),
-    "D23": ("Wish Cave", "Grotte du Vœu", "Jirachi", ["sanctuaire_voeu"]),
-    "D24": ("Murky Cave", "Caverne Trouble", None,
-            ["caverne_trouble_fond", "caverne_trouble_autel"]),
-    "D25": ("Howling Forest", "Bois des Plaintes", "Suicune",
-            ["bois_des_plaintes"]),
+            ["d21p01"]),
+    "D22": ("Pitfall Valley", "Vallée Perdue", None, ["d22p01"]),
+    "D23": ("Wish Cave", "Grotte du Vœu", "Jirachi", ["d23p01"]),
+    "D24": ("Murky Cave", "Caverne Trouble", None, ["d24p01", "d24p02"]),
+    "D25": ("Howling Forest", "Bois des Plaintes", "Suicune", ["d25p01"]),
+}
+
+# Alias : ID source GBA -> nom du Ground homologue dans le MOD New Era
+# (INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md) — traçabilité, pas contenu.
+MOD_ALIASES = {
+    "d01p01": "foret_tendre_oree", "d02p01": "grotte_statique_seuil",
+    "d03p01": "pic_ferreux_pied", "d04p01": "bois_sombres_oree",
+    "d04p02": "bois_sombres_fond/sinister_woods_clearing",
+    "d05p01": "gouffre_muet_bord", "d06p01": "mont_grondant_pied",
+    "d07p01": "grand_canyon_porte", "d08p01": "grotte_lazuli_seuil",
+    "d08p02": "grotte_lazuli_fond", "d09p01": "mont_cendre_pied",
+    "d10p01": "foret_givree_oree", "d11p01": "mont_gele_pied",
+    "d12p01": "gorge_ardente_porte", "d12p02": "gorge_ardente_coeur",
+    "d12p04": "fosse_ardente", "d13p01": "parvis_celeste",
+    "d13p02": "palier_celeste", "d13p03": "tour_ciel_sommet",
+    "d14p01": "abime_tempetes", "d15p01": "fosse_argentee",
+    "d16p01": "champ_braises", "d17p01": "champ_foudre",
+    "d18p01": "champ_vent_boreal", "d19p01": "sommet_aurore",
+    "d20p01": "antre_occident", "d21p01": "cretes_boreales",
+    "d22p01": "vallon_perdu", "d23p01": "sanctuaire_voeu",
+    "d24p01": "caverne_trouble_fond", "d24p02": "caverne_trouble_autel",
+    "d25p01": "bois_des_plaintes",
+}
+
+# Noms humains des cartes non-donjon (MAP_DATABASE.md du port — les 245
+# cartes documentées) + rôles des séries.
+STATION_NAMES = {
+    "t00p01": ("Rescue Team Base", "Base de l'Équipe de Secours"),
+    "t01p01": ("Pokémon Square", "Place Pokémon"),
+    "t01p02a": ("Whiscash Pond", "Étang Barbicha"),
+    "t01p02b": ("Whiscash Pond (event)", "Étang Barbicha (évènement)"),
+    "t01p03": ("Pelipper Post Office (outside)", "Poste Bekipan (extérieur)"),
+    "t01p04": ("Pelipper Post Office (inside)", "Poste Bekipan (intérieur)"),
+    "t01p05": ("Makuhita Dojo (outside)", "Dojo Makuhita (extérieur)"),
+    "t01p07": ("Team Base cinematic", "Base d'équipe (cinématique)"),
+}
+SERIES_ROLES = {
+    "a": ("Story cutscene map", "Carte de cinématique du scénario",
+          "Scènes du scénario principal (aXXpYY: réveil, conseil, "
+          "évènements de la Place, épilogue…)"),
+    "b": ("Legacy boss arena", "Arène de boss (table GBA)",
+          "Arènes de combat de la table de conversion (bXXpYYa/b/c: "
+          "variantes d'éclairage jour/crépuscule/nuit)"),
+    "h": ("Friend Area", "Zone d'Accueil",
+          "58 cartes environnementales de recrutement (Plaines, Jungles, "
+          "Volcans, Fonds Marins…)"),
+    "s": ("System screen", "Écran système",
+          "Écrans/scènes système multilingues (s02_ger = allemand…)"),
 }
 
 # Trame narrative globale (MAP_DATABASE + CINEMATICS_DATABASE + audit projet
@@ -95,37 +137,31 @@ NARRATIVE_ARCS = [
      "Le héros se réveille transformé en Pokémon, rencontre son partenaire "
      "et fonde l'équipe de secours. Premiers sauvetages : Petit Bois "
      "(Chenipan), Grotte Statique, Mont Ferreux (Rondoudou/Airmure).",
-     "grounds": ["t00p01", "t01p01", "foret_tendre_oree", "d01p02",
-                 "grotte_statique_seuil", "d02p02", "pic_ferreux_pied",
-                 "d03p02"]},
+     "grounds": ["t00p01", "t01p01", "d01p01", "d01p02",
+                 "d02p01", "d02p02", "d03p01", "d03p02"]},
     {"arc": "Bois Sinistres & Gouffre Muet", "summary_fr":
      "La Team Meanies (Gengar/Ekans/Medicham) manigance. Sauvetage de "
      "Métamorph aux Bois Sinistres ; Grosdoudou au Gouffre Muet.",
-     "grounds": ["bois_sombres_oree", "bois_sombres_fond",
-                 "gouffre_muet_bord", "d05p02"]},
+     "grounds": ["d04p01", "d04p02", "d05p01", "d05p02"]},
     {"arc": "Mont Foudre & la légende de Feunard", "summary_fr":
      "Traversée du Mont Foudre jusqu'à Zapdos ; Xatu révèle sur la Colline "
      "des Anciens (D07P02) que la chute de l'étoile menace le monde. Le "
      "rêve de Gardevoir introduit la légende de Feunard.",
-     "grounds": ["mont_grondant_pied", "d06p02", "d06p03",
-                 "grand_canyon_porte", "d07p02"]},
+     "grounds": ["d06p01", "d06p02", "d06p03", "d07p01", "d07p02"]},
     {"arc": "Arc Fugitif", "summary_fr":
      "Accusé d'être l'humain maudit de la légende, le héros fuit par la "
      "Grotte Lazuli, le Mont Brasier (Sulfura), la Forêt Givrée (Artikodin, "
      "intervention d'Absol) jusqu'à l'autel du Mont Gel où Feunard révèle "
      "la vérité et innocente le héros.",
-     "grounds": ["grotte_lazuli_seuil", "grotte_lazuli_fond",
-                 "mont_cendre_pied", "d09p02", "d09p03",
-                 "foret_givree_oree", "d10p02", "d10p03",
-                 "mont_gele_pied", "d11p02", "d11p03"]},
+     "grounds": ["d08p01", "d08p02", "d09p01", "d09p02", "d09p03",
+                 "d10p01", "d10p02", "d10p03", "d11p01", "d11p02", "d11p03"]},
     {"arc": "Crise de la Météorite", "summary_fr":
      "Xatu observe la météorite ; panique sur la Place Pokémon. L'équipe "
      "réveille Groudon dans la Caverne Magma puis monte à la Tour Céleste : "
      "Rayquaza détruit la météorite. Adieux du héros (fin du scénario "
      "principal).",
-     "grounds": ["t01p01", "gorge_ardente_porte", "gorge_ardente_coeur",
-                 "fosse_ardente", "parvis_celeste", "palier_celeste",
-                 "tour_ciel_sommet"]},
+     "grounds": ["t01p01", "d12p01", "d12p02", "d12p04",
+                 "d13p01", "d13p02", "d13p03"]},
     {"arc": "Post-game", "summary_fr":
      "Retour du héros ; donjons légendaires : Mer Houleuse (Kyogre), Fosse "
      "Argentée (Lugia), champs élémentaires (Sulfura/Raikou/Artikodin), "
@@ -166,26 +202,6 @@ def main() -> int:
     # casting canonique ROM (27 scènes décodées)
     cast_p = ROOT / "dev" / "docs" / "canonical" / "red" / "scene_cast" / "eu_scene_cast.json"
     cast = load_json(cast_p)["scenes"] if cast_p.exists() else {}
-    # Les grounds du port renommés en français correspondent aux IDs source
-    # dXXpYY du scene_cast (INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md §1/§2).
-    SOURCE_ID_ALIASES = {
-        "bois_sombres_fond": "d04p02",
-        "gorge_ardente_coeur": "d12p02",
-        "fosse_ardente": "d12p04",
-        "palier_celeste": "d13p02",
-        "tour_ciel_sommet": "d13p03",
-        "abime_tempetes": "d14p01",
-        "fosse_argentee": "d15p01",
-        "champ_braises": "d16p01",
-        "champ_foudre": "d17p01",
-        "champ_vent_boreal": "d18p01",
-        "sommet_aurore": "d19p01",
-        "antre_occident": "d20p01",
-        "cretes_boreales": "d21p01",
-        "sanctuaire_voeu": "d23p01",
-        "caverne_trouble_fond": "d24p01",
-        "bois_des_plaintes": "d25p01",
-    }
 
     # nom humain par ground : depuis Name du rsground + inventaire donjons
     ground_names = {}
@@ -215,10 +231,20 @@ def main() -> int:
     entries = []
     for gid in sorted(renders):
         r = renders[gid]
+        nm_en = ground_names.get(gid, {}).get("en", gid)
+        nm_fr = ground_names.get(gid, {}).get("fr")
+        # noms humains des stations documentées + identité de donjon
+        if gid in STATION_NAMES:
+            nm_en, nm_fr = STATION_NAMES[gid]
+        elif (nm_en == gid or nm_en.upper() == gid.upper()):
+            dj = ground_to_dungeon.get(gid)
+            if dj:
+                nm_en = f"{dj['dungeon_en']} ({dj['role']})"
+                nm_fr = f"{dj['dungeon_fr']} ({dj['role']})"
         e = {
             "ground": gid,
-            "human_name_en": ground_names.get(gid, {}).get("en", gid),
-            "human_name_fr": ground_names.get(gid, {}).get("fr"),
+            "human_name_en": nm_en,
+            "human_name_fr": nm_fr,
             "render": (None if "error" in r else {
                 "dir": f"Renders/{gid}/",
                 "width_px": r["width_px"], "height_px": r["height_px"],
@@ -234,12 +260,18 @@ def main() -> int:
         d = ground_to_dungeon.get(gid)
         if d:
             e["dungeon"] = d
+        else:
+            sr = SERIES_ROLES.get(gid[:1])
+            if sr and re.match(r"^[abhs]\d", gid):
+                e["series_role"] = {"en": sr[0], "fr": sr[1],
+                                    "context": sr[2]}
+        if gid in MOD_ALIASES:
+            e["new_era_mod_alias"] = MOD_ALIASES[gid]
         c = cines.get(gid)
         if c:
             e["cinematic"] = c
-        cc = cast.get(gid) or cast.get(SOURCE_ID_ALIASES.get(gid, ""))
+        cc = cast.get(gid)
         if cc:
-            e["source_map_id"] = SOURCE_ID_ALIASES.get(gid, gid)
             ents = [x for x in cc.get("entities", []) if x.get("category") == "live"]
             e["canonical_cast"] = [
                 {"role": x.get("actor_type"), "species": x.get("species"),

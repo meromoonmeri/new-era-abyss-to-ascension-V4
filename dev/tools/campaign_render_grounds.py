@@ -7,17 +7,20 @@ paquet binaire de cellules 8×8 PNG indexées par (x,y)), exactement comme le
 moteur PMDO les blitte : cellule 8 px, aucune transformation, aucun
 resampling.
 
-Frames d'animation : pour chaque ground, le cycle global est rendu — le
-nombre de frames rendues = LCM borné des longueurs de cycles des tuiles
-animées (borné à MAX_FRAMES pour rester exploitable ; la 1re frame est
-toujours exacte, chaque frame k utilise Frames[k % len] par tuile, ce qui
-est la règle du moteur).
+Frames d'animation : le cycle rendu est la PÉRIODE MINIMALE GLOBALE réelle
+du ground (LCM des périodes minimales de chaque séquence de tuile — les
+séquences répétitives sont réduites à leur motif). Si cette période dépasse
+--max-frames, le ground est rendu sur --max-frames et marqué PARTIAL, et
+une planche d'échantillons `animation_frames.png` est produite avec, pour
+CHAQUE tuile animée distincte, TOUTES ses frames (aucune frame source
+n'est perdue : elles sont toutes visibles sur la planche).
 
 Usage:
     campaign_render_grounds.py <grounds_dir> <tiles_dir> <out_dir>
-        [--only a,b,c] [--max-frames N] [--flat-tiles]
+        [--only a,b,c] [--max-frames N]
 
-Sorties: <out>/<ground>/frame_000.png … + <out>/render_report.json
+Sorties: <out>/<ground>/frame_000.png … [+ animation_frames.png]
+         + <out>/render_report.json
 """
 from __future__ import annotations
 
@@ -49,6 +52,15 @@ def load_package(path: Path) -> dict:
 
 def lcm(a: int, b: int) -> int:
     return a * b // math.gcd(a, b)
+
+
+def min_period(seq: list) -> int:
+    """Période minimale d'une séquence (motif répété -> longueur du motif)."""
+    n = len(seq)
+    for p in range(1, n + 1):
+        if n % p == 0 and all(seq[i] == seq[i % p] for i in range(n)):
+            return p
+    return n
 
 
 def render_ground(gpath: Path, tiles_dir: Path, out_dir: Path,
@@ -94,19 +106,28 @@ def render_ground(gpath: Path, tiles_dir: Path, out_dir: Path,
     H = len(layers[0]["Tiles"][0])
 
     # cycle global = LCM des longueurs de frames, borné
+    # Période minimale globale RÉELLE + inventaire des séquences distinctes.
     cycle = 1
     n_anim_tiles = 0
+    distinct_seqs: dict[tuple, int] = {}       # séquence -> période minimale
     for l in layers:
         for col in l.get("Tiles") or []:
             for cell in col:
                 for cl in cell.get("Layers", []):
-                    n = len(cl.get("Frames", []))
-                    if n > 1:
+                    frames = cl.get("Frames", [])
+                    if len(frames) > 1:
                         n_anim_tiles += 1
-                        cycle = lcm(cycle, n)
-                        if cycle > 512:
-                            cycle = 512
+                        key = tuple((fr.get("Sheet"),
+                                     fr.get("TexLoc", {}).get("X"),
+                                     fr.get("TexLoc", {}).get("Y"))
+                                    for fr in frames)
+                        if key not in distinct_seqs:
+                            distinct_seqs[key] = min_period(list(key))
+                        p = distinct_seqs[key]
+                        if cycle <= 100000:
+                            cycle = lcm(cycle, p)
     frames_to_render = min(cycle, max_frames) if n_anim_tiles else 1
+    frames_partial = cycle > max_frames and n_anim_tiles > 0
 
     gdir = out_dir / name
     gdir.mkdir(parents=True, exist_ok=True)
@@ -137,8 +158,36 @@ def render_ground(gpath: Path, tiles_dir: Path, out_dir: Path,
                             continue
                         img.alpha_composite(cellimg, (x * 8, y * 8))
         img.convert("RGB").save(gdir / f"frame_{k:03}.png")
+
+    # Cycle trop long pour un rendu frame-par-frame : produire la planche
+    # exhaustive des séquences de tuiles distinctes (AUCUNE frame perdue).
+    anim_sheet = False
+    if frames_partial and distinct_seqs:
+        seqs = sorted(distinct_seqs, key=len, reverse=True)
+        max_len = max(len(s) for s in seqs)
+        cols = min(max_len, 256)
+        rows_total = sum((len(s) + cols - 1) // cols for s in seqs)
+        sheet_img = Image.new("RGBA", (cols * 9 + 1, rows_total * 9 + 1),
+                              (24, 24, 24, 255))
+        ry = 0
+        for s in seqs:
+            for i, (sheet, X, Y) in enumerate(s):
+                pack = packs.get(sheet)
+                cellimg = pack.get((X, Y)) if pack else None
+                px = (i % cols) * 9 + 1
+                py = (ry + i // cols) * 9 + 1
+                if cellimg is not None:
+                    sheet_img.paste(cellimg, (px, py))
+            ry += (len(s) + cols - 1) // cols
+        sheet_img.convert("RGB").save(gdir / "animation_frames.png")
+        anim_sheet = True
+
     return {"ground": name, "width_px": W * 8, "height_px": H * 8,
             "frames_rendered": frames_to_render, "animation_cycle": cycle,
+            "frames_status": ("FULL" if not frames_partial else
+                              "PARTIAL_WITH_FULL_TILE_SHEET"),
+            "animation_sheet": anim_sheet,
+            "distinct_animated_sequences": len(distinct_seqs),
             "animated_tiles": n_anim_tiles,
             "missing_cells": missing_cells,
             "missing_sheets": missing_sheets or None,
