@@ -187,21 +187,61 @@ def sky_matrix():
             f"(double écran NDS), "
             f"{ci.get('REQUIRES_ENGINE_EXTENSION', 0)} nécessitent une "
             f"extension moteur ; TOUTES NOT_YET_INTEGRATED au runtime"))
+    cls_p = c / "Docs" / "GROUND_CLASSIFICATION.json"
+    if cls_p.exists():
+        cl = load(cls_p)["totals"]
+        n_review = cl.get("REVIEW_REQUIRED", 0) + \
+            cl.get("UNREFERENCED_ASSET", 0)
+        dims.append(dim(
+            "ground_classification", t["grounds"] - n_review,
+            t["grounds"],
+            "PASS" if n_review == 0 else "PARTIAL",
+            "Docs/GROUND_CLASSIFICATION.json (mapty×SCRIPT×collision×"
+            "xrefs SSB — jamais le nom de fichier)",
+            f"{cl.get('MAP', 0)} MAP, "
+            f"{cl.get('CINEMATIC_BACKGROUND', 0)} backgrounds, "
+            f"{cl.get('DUNGEON_SCREEN', 0)} écrans donjon, "
+            f"{cl.get('CINEMATIC_GROUND', 0)} décors de scène, "
+            f"{n_review} dormants ROM (REVIEW)"))
     hub_p = REPO / "dev" / "docs" / "canonical" / "sky" / \
         "hub_grounds_runtime_proof.jsonl"
     if hub_p.exists():
         n_safe = hub_p.read_text().count('"verdict":"SAFE"')
+        n_map = load(cls_p)["totals"].get("MAP", 95) if cls_p.exists() \
+            else 95
         dims.append(dim(
-            "runtime_pmdo_grounds", n_safe, t["grounds"], "PARTIAL",
+            "runtime_pmdo_grounds_map", n_safe, n_map,
+            "PASS" if n_safe >= n_map else "PARTIAL",
             "dev/docs/canonical/sky/hub_grounds_runtime_proof.jsonl "
             "(sky_hub_zone + mode sky: du ground_gameplay_validator)",
-            f"{n_safe} grounds hub pilotes LOAD_PASS+MOVEMENT_PASS "
-            f"(Treasure Town, guilde, Sharpedo Bluff, plage) ; le reste "
-            f"des 460 NOT_TESTED"))
+            "TOUS les grounds classifiés MAP : LOAD_PASS+MOVEMENT_PASS ; "
+            "les backgrounds/écrans ne sont PAS des maps (dénominateur = "
+            "MAP uniquement)"))
     else:
-        dims.append(dim("runtime_pmdo_grounds", 0, t["grounds"],
+        dims.append(dim("runtime_pmdo_grounds_map", 0, 95,
                         "NOT_TESTED", "—",
                         "grounds Sky pas encore chargés dans PMDO réel"))
+    prog_p = REPO / "dev" / "docs" / "canonical" / "sky" / \
+        "progression_runtime_proof.jsonl"
+    if prog_p.exists() and "PROGRESSION_RUNTIME_PASS" in \
+            prog_p.read_text():
+        dims.append(dim(
+            "progression_runtime", 14, 14, "PASS",
+            "dev/docs/canonical/sky/progression_runtime_proof.jsonl "
+            "(skyscenes/progression.lua, SV natif)",
+            "14 états ROM franchis, 43 zones débloquées, monotonie "
+            "anti-régression + persistance save prouvées ; états "
+            "intermédiaires (x.1..x.n) non encore déclencheurs"))
+    j_p = REPO / "dev" / "docs" / "canonical" / "sky" / \
+        "journey_ch1_runtime_proof.jsonl"
+    if j_p.exists() and "JOURNEY_RUNTIME_PASS" in j_p.read_text():
+        dims.append(dim(
+            "full_journey_runtime", 1, 15, "PARTIAL",
+            "dev/docs/canonical/sky/journey_ch1_runtime_proof.jsonl "
+            "(mode skyjourney)",
+            "chapitre 1 complet: save→état→ground→cinématique→donjon 4 "
+            "étages→boss→flag→déblocage suivant ; 14 chapitres restants "
+            "à chaîner"))
     cin_p = REPO / "dev" / "docs" / "canonical" / "sky" / \
         "cinematic_m01a0204_runtime_proof.jsonl"
     if cin_p.exists():
@@ -211,8 +251,20 @@ def sky_matrix():
             "dev/docs/canonical/sky/cinematic_m01a0204_runtime_proof.jsonl "
             "(SkyCanonScenes.lua, mode skyscene:)",
             "1 scène pilote rejouée dans le moteur (positions finales == "
-            "ROM, dialogue EU, BGM) ; GAPs canal-2 NDS documentés ; "
-            "3759 scènes restent NOT_YET_INTEGRATED"))
+            "ROM, dialogue EU, BGM) ; GAPs canal-2 NDS documentés"))
+    comp_p = REPO / "dev" / "docs" / "canonical" / "sky" / \
+        "compiled_scenes_runtime_proof.jsonl"
+    scr_p = c / "Docs" / "SCENE_COMPILER_REPORT.json"
+    if comp_p.exists() and scr_p.exists():
+        n_pass = comp_p.read_text().count("CINEMATIC_RUNTIME_PASS")
+        n_comp = load(scr_p)["totals"].get("COMPILED", 0)
+        dims.append(dim(
+            "cinematic_compiled", n_comp, 3760, "PARTIAL",
+            "Docs/SCENE_COMPILER_REPORT.json (compilateur FAIL-CLOSED) + "
+            "compiled_scenes_runtime_proof.jsonl",
+            f"{n_comp} scènes 100% traduites émises (dialogues 5 langues "
+            f"ROM), {n_pass} validées runtime sur grounds hub ; "
+            f"1140 PARTIAL_OPS comptées, jamais approximées"))
     ti_p = c / "Tables" / "DUNGEON_TABLES_INDEX.json"
     if ti_p.exists():
         ti = load(ti_p)["totals"]

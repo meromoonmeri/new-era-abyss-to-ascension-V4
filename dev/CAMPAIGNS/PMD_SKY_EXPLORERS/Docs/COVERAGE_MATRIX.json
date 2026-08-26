@@ -79,13 +79,40 @@
    "note": "625 scènes fidélité partielle (double écran NDS), 372 nécessitent une extension moteur ; TOUTES NOT_YET_INTEGRATED au runtime"
   },
   {
-   "dimension": "runtime_pmdo_grounds",
-   "covered": 9,
+   "dimension": "ground_classification",
+   "covered": 437,
    "total": 460,
-   "pct": 2.0,
+   "pct": 95.0,
    "status": "PARTIAL",
+   "source": "Docs/GROUND_CLASSIFICATION.json (mapty×SCRIPT×collision×xrefs SSB — jamais le nom de fichier)",
+   "note": "95 MAP, 213 backgrounds, 62 écrans donjon, 26 décors de scène, 23 dormants ROM (REVIEW)"
+  },
+  {
+   "dimension": "runtime_pmdo_grounds_map",
+   "covered": 95,
+   "total": 95,
+   "pct": 100.0,
+   "status": "PASS",
    "source": "dev/docs/canonical/sky/hub_grounds_runtime_proof.jsonl (sky_hub_zone + mode sky: du ground_gameplay_validator)",
-   "note": "9 grounds hub pilotes LOAD_PASS+MOVEMENT_PASS (Treasure Town, guilde, Sharpedo Bluff, plage) ; le reste des 460 NOT_TESTED"
+   "note": "TOUS les grounds classifiés MAP : LOAD_PASS+MOVEMENT_PASS ; les backgrounds/écrans ne sont PAS des maps (dénominateur = MAP uniquement)"
+  },
+  {
+   "dimension": "progression_runtime",
+   "covered": 14,
+   "total": 14,
+   "pct": 100.0,
+   "status": "PASS",
+   "source": "dev/docs/canonical/sky/progression_runtime_proof.jsonl (skyscenes/progression.lua, SV natif)",
+   "note": "14 états ROM franchis, 43 zones débloquées, monotonie anti-régression + persistance save prouvées ; états intermédiaires (x.1..x.n) non encore déclencheurs"
+  },
+  {
+   "dimension": "full_journey_runtime",
+   "covered": 1,
+   "total": 15,
+   "pct": 6.7,
+   "status": "PARTIAL",
+   "source": "dev/docs/canonical/sky/journey_ch1_runtime_proof.jsonl (mode skyjourney)",
+   "note": "chapitre 1 complet: save→état→ground→cinématique→donjon 4 étages→boss→flag→déblocage suivant ; 14 chapitres restants à chaîner"
   },
   {
    "dimension": "cinematic_runtime",
@@ -94,7 +121,16 @@
    "pct": 0.0,
    "status": "PARTIAL",
    "source": "dev/docs/canonical/sky/cinematic_m01a0204_runtime_proof.jsonl (SkyCanonScenes.lua, mode skyscene:)",
-   "note": "1 scène pilote rejouée dans le moteur (positions finales == ROM, dialogue EU, BGM) ; GAPs canal-2 NDS documentés ; 3759 scènes restent NOT_YET_INTEGRATED"
+   "note": "1 scène pilote rejouée dans le moteur (positions finales == ROM, dialogue EU, BGM) ; GAPs canal-2 NDS documentés"
+  },
+  {
+   "dimension": "cinematic_compiled",
+   "covered": 78,
+   "total": 3760,
+   "pct": 2.1,
+   "status": "PARTIAL",
+   "source": "Docs/SCENE_COMPILER_REPORT.json (compilateur FAIL-CLOSED) + compiled_scenes_runtime_proof.jsonl",
+   "note": "78 scènes 100% traduites émises (dialogues 5 langues ROM), 16 validées runtime sur grounds hub ; 1140 PARTIAL_OPS comptées, jamais approximées"
   },
   {
    "dimension": "gameplay_tables_extraction",

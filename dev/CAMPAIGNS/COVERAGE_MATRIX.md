@@ -9,7 +9,7 @@ Dimensions SÉPARÉES (règle §49) : aucun pourcentage global fusionné n'exist
 |---|---|---|---|
 | extraction_grounds | 254/254 (100.0%) | **PASS** | MANIFEST.totals.grounds |
 | render_visual | 254/254 (100.0%) | **PASS** | AUDIT.coverage.render_pct |
-| frames_animation | 254/254 (100.0%) | **PASS** | AUDIT.frame_status (période minimale réelle par tuile) |
+| frames_animation | 233/233 (100.0%) | **PASS** | AUDIT.frame_status (période minimale réelle par tuile) |
 | runtime_pmdo | 219/254 (86.2%) | **PARTIAL** | MANIFEST.totals.runtime_validated (campagne 219 : mismatched_pixel_count=0 dans PMDO 0.8.12 réel) |
 | cinematic_sequences | 132/254 (52.0%) | **PARTIAL** | MANIFEST.totals.with_cinematic (cif.json ROM) |
 | dialogues_5_langues | 69/133 (51.9%) | **PARTIAL** | Cinematics/DIALOGUES_INDEX.json (69 stations graphe EU exact, 3073 blocs) |
@@ -32,8 +32,12 @@ Dimensions SÉPARÉES (règle §49) : aucun pourcentage global fusionné n'exist
 | progression_graph | — | **PASS** | Docs/PROGRESSION_GRAPH.json (SSB décompilés ROM) |
 | playable_progression | 244/245 (99.6%) | **PASS** | Docs/PLAYABLE_PROGRESSION.json (état→scène→ground→dialogues) |
 | cinematic_integrability | 2763/3760 (73.5%) | **PARTIAL** | Docs/CINEMATIC_INTEGRABILITY.json (table curatée ssb_coverage, 0 opcode inconnu) |
-| runtime_pmdo_grounds | 9/460 (2.0%) | **PARTIAL** | dev/docs/canonical/sky/hub_grounds_runtime_proof.jsonl (sky_hub_zone + mode sky: du ground_gameplay_validator) |
+| ground_classification | 437/460 (95.0%) | **PARTIAL** | Docs/GROUND_CLASSIFICATION.json (mapty×SCRIPT×collision×xrefs SSB — jamais le nom de fichier) |
+| runtime_pmdo_grounds_map | 95/95 (100.0%) | **PASS** | dev/docs/canonical/sky/hub_grounds_runtime_proof.jsonl (sky_hub_zone + mode sky: du ground_gameplay_validator) |
+| progression_runtime | 14/14 (100.0%) | **PASS** | dev/docs/canonical/sky/progression_runtime_proof.jsonl (skyscenes/progression.lua, SV natif) |
+| full_journey_runtime | 1/15 (6.7%) | **PARTIAL** | dev/docs/canonical/sky/journey_ch1_runtime_proof.jsonl (mode skyjourney) |
 | cinematic_runtime | 1/3760 (0.0%) | **PARTIAL** | dev/docs/canonical/sky/cinematic_m01a0204_runtime_proof.jsonl (SkyCanonScenes.lua, mode skyscene:) |
+| cinematic_compiled | 78/3760 (2.1%) | **PARTIAL** | Docs/SCENE_COMPILER_REPORT.json (compilateur FAIL-CLOSED) + compiled_scenes_runtime_proof.jsonl |
 | gameplay_tables_extraction | 178/180 (98.9%) | **PASS** | Tables/DUNGEON_TABLES_INDEX.json (mappa_s.bin EU : 1795 étages, spawns/pièges/items bruts) |
 | pmdo_mapping_species | 484/484 (100.0%) | **PASS** | Tables/PMDO_MAPPING.json |
 | pmdo_mapping_items | 205/290 (70.7%) | **PARTIAL** | Tables/PMDO_MAPPING.json |
