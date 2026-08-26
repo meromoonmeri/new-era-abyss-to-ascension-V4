@@ -7,7 +7,7 @@ return function(hero, partner)
   -- supervision_Acting(0) [neutre/état moteur]
   -- camera_SetMyself() [neutre/état moteur]
   GAME:FadeIn(30)
-  -- GAP: BGM BGM_DRENCHED_BLUFF non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
+  pcall(function() SOUND:PlayBGM("Drenched Bluff.ogg", true) end)
   GROUND:MoveToPosition(hero, 276, 156, false, 2)
   GROUND:MoveToPosition(partner, 248, 156, false, 2)
   GAME:WaitFrames(2) -- join WaitExecuteLives

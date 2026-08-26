@@ -3,7 +3,7 @@
 -- Dialogues 5 langues ROM embarqués ; conventions du pilote m01a0204.
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  pcall(function() SOUND:PlayBGM("Wigglytuff Guild.ogg", true) end)
+  pcall(function() SOUND:PlayBGM("Wigglytuff's Guild.ogg", true) end)
   -- SetAnimation(2) [anim idle native]
   -- SetAnimation(2) [anim idle native]
   pcall(function() UI:ResetSpeaker() end)

@@ -11,6 +11,7 @@ return function(hero, partner)
   -- SetOutputAttribute(4) [neutre/état moteur]
   -- SetAnimation(2) [anim idle native]
   -- SetAnimation(2) [anim idle native]
+  local npc_npc_juputoru = SkySceneKit.spawn_npc("grovyle", 208, 176, Direction.UpLeft, "NPC_JUPUTORU")
   -- SetAnimation(2) [anim idle native]
   -- SetAnimation(2) [anim idle native]
   -- camera_SetMyself() [neutre/état moteur]
@@ -45,20 +46,21 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english="It is a gap in time itself...[K]\nIt's the space between parts of a split second.", french="Il s'agit d'une brèche dans\nle cours du temps lui-même...[K] Un espace\nà l'intérieur même d'une fraction de seconde.", german="Es ist eine Spalte in der Zeit\nselbst...[K] Es ist der Abstand zwischen Teilen\neines Sekundenbruchteils.", italian="È una breccia nel tempo\nstesso...[K] È uno spazio tra le parti di\nuna frazione di secondo.", spanish="Se trata de un intervalo en el\nmismísimo tiempo...[K] Imaginaos el espacio\nque separa un segundo y otro."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english="I see.[K] No wonder the place\ncouldn't be found.", french="Je vois.[K] Pas étonnant que\ncet endroit soit introuvable.", german="Ich verstehe.[K] Kein Wunder, dass\nniemand diesen Ort gefunden hat.", italian="Capisco.[K] Non mi stupisco che il\nposto non si possa trovare.", spanish="Ya veo.[K] Siendo así, no me\nextraña que nadie encontrase ese lugar."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english=" A gap in time...", french="Une brèche dans le cours\ndu temps...", german=" Eine Spalte in der Zeit...", italian=" Una breccia nel tempo...", spanish=" Un intervalo temporal..."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english="No one could ever hope to go to\nsuch a place.", french="Atteindre un tel endroit est\nune quête désespérée.", german="Niemand konnte jemals hoffen,\nsolch einen Ort zu finden.", italian="Nessuno potrebbe sperare di\nraggiungere un posto del genere.", spanish="Nadie podría encontrar nunca\nun lugar así."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetAnimation(2) [anim idle native]
   pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english="No.[K] [CS:N]Dialga[CR] left one key for\nentering the [CS:P]Hidden Land[CR].", french="Non.[K] [CS:N]Dialga[CR] a laissé une clé\npour accéder aux [CS:P]Terres Illusoires[CR].", german="Nein.[K] [CS:N]Dialga[CR] ließ einen Schlüssel\nzum [CS:P]Verborgenen Land[CR] zurück.", italian="No.[K] [CS:N]Dialga[CR] ha lasciato una\nchiave per entrare nella [CS:P]Terra Nascosta[CR].", spanish="Bueno...[K] [CS:N]Dialga[CR] dejó una llave\npara poder entrar en la [CS:P]Tierra Oculta[CR]."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english="That's a special fragment with a\nmysterious pattern etched into it.", french="C'est un fragment spécial avec\nun symbole mystérieux gravé dessus.", german="Es ist ein besonderes Fragment,\nin das ein rätselhaftes Muster geätzt wurde.", italian="Si tratta di un frammento\nspeciale con un misterioso disegno inciso\nsulla superficie.", spanish="Hay un fragmento especial con\nun grabado misterioso."})
   -- message_Close
   pcall(function() SOUND:FadeOutBGM(120) end)
   GAME:FadeOut(false, 30)
+  SkySceneKit.cleanup_npcs()
 end

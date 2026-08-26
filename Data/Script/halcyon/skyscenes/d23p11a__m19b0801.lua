@@ -3,13 +3,15 @@
 -- Dialogues 5 langues ROM embarqués ; conventions du pilote m01a0204.
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  -- GAP: BGM BGM_DEEP_DUSK_FOREST non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
+  pcall(function() SOUND:PlayBGM("Deep Dusk Forest.ogg", true) end)
   -- SetAnimation(2) [anim idle native]
   -- SetAnimation(2) [anim idle native]
+  local npc_npc_juputoru = SkySceneKit.spawn_npc("grovyle", 224, 336, Direction.UpLeft, "NPC_JUPUTORU")
   -- SetAnimation(2) [anim idle native]
   -- SetAnimation(2) [anim idle native]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
+  SkySceneKit.cleanup_npcs()
 end

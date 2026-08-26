@@ -3,10 +3,10 @@
  "rule": "FAIL-CLOSED: seules les scènes 100% traduites sont émises ; PARTIAL_OPS/MULTIROUTINE comptées, jamais émises approximées",
  "totals": {
   "TRIVIAL_SKIPPED": 1525,
-  "PARTIAL_OPS": 1140,
+  "PARTIAL_OPS": 1131,
   "SKIPPED_PARTIAL_FIDELITY": 625,
   "SKIPPED_REQUIRES_ENGINE_EXTENSION": 372,
-  "COMPILED": 78,
+  "COMPILED": 87,
   "NOT_COMPILED_MULTIROUTINE": 20
  },
  "scenes": {
@@ -271,18 +271,14 @@
    "status": "COMPILED",
    "file": "d02p11a__m02a0701.lua",
    "dialogues": 2,
-   "gaps": [
-    "BGM BGM_DRENCHED_BLUFF non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "D03P11A/m03a0601.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[4, 5]",
-    "MovePositionMark:ACTOR_NPC_MARIRU",
     "MovePositionOffset:ACTOR_ATTENDANT1",
     "MovePositionOffset:ACTOR_PLAYER",
-    "Turn2Direction:ACTOR_NPC_MARIRU",
     "main_EnterDungeon",
     "switch"
    ]
@@ -331,12 +327,6 @@
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[8, 2]",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_DOGAASU",
-    "MovePositionMark:ACTOR_NPC_SUKATANKU",
-    "MovePositionMark:ACTOR_NPC_ZUBATTO",
-    "Turn2Direction:ACTOR_NPC_DOGAASU",
-    "Turn2Direction:ACTOR_NPC_SUKATANKU",
-    "Turn2Direction:ACTOR_NPC_ZUBATTO",
     "WaitExecutePerformer",
     "hold",
     "main_EnterDungeon",
@@ -347,12 +337,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_DOGAASU",
-    "MovePositionMark:ACTOR_NPC_SUKATANKU",
-    "MovePositionMark:ACTOR_NPC_ZUBATTO",
-    "Turn2Direction:ACTOR_NPC_DOGAASU",
-    "Turn2Direction:ACTOR_NPC_SUKATANKU",
-    "Turn2Direction:ACTOR_NPC_ZUBATTO",
     "WaitExecutePerformer",
     "hold",
     "main_EnterDungeon",
@@ -363,10 +347,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_BIPPA",
     "supervision_StationCommon"
    ]
   },
@@ -375,9 +355,6 @@
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[9, 3]",
     "ExecuteCommon",
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
     "supervision_LoadStation",
     "supervision_Station",
     "supervision_StationCommon"
@@ -386,20 +363,16 @@
   "D06P11A/m08a0801.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_BIPPA",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_BIPPA",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "supervision_LoadStation",
     "supervision_Station",
     "supervision_StationCommon"
    ]
   },
   "D06P11A/m08a0901.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_BIPPA"
-   ]
+   "status": "COMPILED",
+   "file": "d06p11a__m08a0901.lua",
+   "dialogues": 0,
+   "gaps": null
   },
   "D06P11A/um0800.ssb": {
    "status": "PARTIAL_OPS",
@@ -417,10 +390,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[9, 4]",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "dungeon_mode",
     "supervision_StationCommon"
    ]
@@ -429,10 +398,7 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
     "supervision_LoadStation",
     "supervision_Station",
     "supervision_StationCommon"
@@ -443,8 +409,6 @@
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[9, 6]",
     "ExecuteCommon",
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
     "supervision_LoadStation",
     "supervision_Station",
     "supervision_StationCommon"
@@ -453,18 +417,16 @@
   "D07P11A/m08b1201.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_BIPPA",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "supervision_LoadStation",
     "supervision_Station",
     "supervision_StationCommon"
    ]
   },
   "D07P11A/m08b1301.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_BIPPA"
-   ]
+   "status": "COMPILED",
+   "file": "d07p11a__m08b1301.lua",
+   "dialogues": 0,
+   "gaps": null
   },
   "D07P11A/um0800.ssb": {
    "status": "PARTIAL_OPS",
@@ -483,9 +445,6 @@
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[10, 3]",
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "supervision_LoadStation",
     "supervision_Station",
     "supervision_StationCommon"
@@ -529,9 +488,7 @@
    "status": "COMPILED",
    "file": "d09p11a__m10a0201.lua",
    "dialogues": 0,
-   "gaps": [
-    "BGM BGM_STEAM_CAVE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "D09P11A/m10a0401.ssb": {
    "status": "PARTIAL_OPS",
@@ -543,18 +500,9 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DAGUTORIO",
-    "MovePositionMark:ACTOR_NPC_DIGUDA",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
     "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "MovePositionMark:ACTOR_NPC_PERAPPU",
-    "Turn2Direction:ACTOR_NPC_DOGOOMU",
     "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
     "se_FadeOut",
     "supervision_StationCommon"
    ]
@@ -969,8 +917,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_JUPUTORU",
-    "Turn2Direction:ACTOR_NPC_JUPUTORU",
     "supervision_StationCommon"
    ]
   },
@@ -979,7 +925,6 @@
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[18, 3]",
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_JUPUTORU",
     "supervision_StationCommon"
    ]
   },
@@ -987,9 +932,7 @@
    "status": "COMPILED",
    "file": "d18p11a__m17a0601.lua",
    "dialogues": 0,
-   "gaps": [
-    "BGM BGM_CHASM_CAVE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "D18P11A/m17a0701.ssb": {
    "status": "PARTIAL_OPS",
@@ -1049,9 +992,7 @@
    "status": "COMPILED",
    "file": "d20p11a__m18b0601.lua",
    "dialogues": 0,
-   "gaps": [
-    "BGM BGM_SEALED_RUIN non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "D20P11A/m18b0701.ssb": {
    "status": "PARTIAL_OPS",
@@ -1124,8 +1065,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_JUPUTORU",
-    "Turn2DirectionLives:ACTOR_NPC_JUPUTORU",
     "supervision_LoadStation",
     "supervision_Station",
     "supervision_StationCommon"
@@ -1142,7 +1081,6 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_YAMIRAMI",
     "MovePositionOffset:ACTOR_NPC_YAMIRAMI",
     "WaitExecutePerformer",
     "hold",
@@ -1207,9 +1145,7 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[20, 3]",
-    "MovePositionMark:ACTOR_NPC_JUPUTORU",
     "MovePositionMark:ACTOR_NPC_SEREBII",
-    "Turn2Direction:ACTOR_NPC_JUPUTORU",
     "Turn2Direction:ACTOR_NPC_SEREBII",
     "supervision_LoadStation",
     "supervision_Station",
@@ -1220,9 +1156,7 @@
    "status": "COMPILED",
    "file": "d23p11a__m19b0801.lua",
    "dialogues": 0,
-   "gaps": [
-    "BGM BGM_DEEP_DUSK_FOREST non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "D23P11A/m19b0901.ssb": {
    "status": "NOT_COMPILED_MULTIROUTINE",
@@ -1243,8 +1177,6 @@
   "D24P11A/m20a0401.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_JUPUTORU",
-    "Turn2Direction:ACTOR_NPC_JUPUTORU",
     "supervision_LoadStation",
     "supervision_Station",
     "supervision_StationCommon"
@@ -1259,9 +1191,6 @@
   "D24P11A/m20a0601.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_JUPUTORU",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "supervision_LoadStation",
     "supervision_Station",
     "supervision_StationCommon"
@@ -1277,7 +1206,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_JUPUTORU",
     "back_SetDungeonBanner"
    ]
   },
@@ -1285,17 +1213,14 @@
    "status": "COMPILED",
    "file": "d24p31a__m20a0704.lua",
    "dialogues": 2,
-   "gaps": [
-    "BGM BGM_TIME_GEAR_REMIX non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "D24P31A/m20a0706.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "MovePositionOffset:ACTOR_ATTENDANT1",
     "MovePositionOffset:ACTOR_NPC_JUPUTORU",
-    "MovePositionOffset:ACTOR_PLAYER",
-    "Turn2Direction:ACTOR_NPC_JUPUTORU"
+    "MovePositionOffset:ACTOR_PLAYER"
    ]
   },
   "D25P11A/enter03.ssb": {
@@ -1307,8 +1232,6 @@
   "D25P11A/m23a0301.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "supervision_LoadStation",
     "supervision_Station",
     "supervision_StationCommon"
@@ -1326,17 +1249,13 @@
    "status": "COMPILED",
    "file": "d25p11a__m23a0401.lua",
    "dialogues": 0,
-   "gaps": [
-    "BGM BGM_BRINE_CAVE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "D25P11A/m23a0403.ssb": {
    "status": "COMPILED",
    "file": "d25p11a__m23a0403.lua",
    "dialogues": 0,
-   "gaps": [
-    "BGM BGM_BRINE_CAVE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "D25P11A/um2300.ssb": {
    "status": "PARTIAL_OPS",
@@ -1412,8 +1331,6 @@
     "ExecuteCommon",
     "Move2PositionMark:OBJECT_G01P01A1_93",
     "MovePositionMark:0",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "WaitExecutePerformer",
     "back_SetDungeonBanner",
     "supervision_RemoveActing"
@@ -1422,8 +1339,7 @@
   "D26P43A/m23a0703.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "ExecuteCommon",
-    "Turn2Direction:ACTOR_NPC_PERAPPU"
+    "ExecuteCommon"
    ]
   },
   "D26P43A/m23a0901.ssb": {
@@ -1431,16 +1347,8 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DAGUTORIO",
-    "MovePositionMark:ACTOR_NPC_DIGUDA",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
-    "MovePositionMark:ACTOR_NPC_JUPUTORU",
     "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "MovePositionMark:ACTOR_NPC_PUKURIN",
     "MovePositionOffset:0",
     "MovePositionOffset:ACTOR_ATTENDANT1",
     "MovePositionOffset:ACTOR_NPC_JUPUTORU",
@@ -1450,19 +1358,8 @@
     "MovePositionOffset:ACTOR_NPC_PUKURIN",
     "MovePositionOffset:ACTOR_PLAYER",
     "SlidePositionOffset",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
     "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_DAGUTORIO",
-    "Turn2Direction:ACTOR_NPC_DIGUDA",
-    "Turn2Direction:ACTOR_NPC_DOGOOMU",
-    "Turn2Direction:ACTOR_NPC_GUREGGURU",
-    "Turn2Direction:ACTOR_NPC_HEIGANI",
-    "Turn2Direction:ACTOR_NPC_JUPUTORU",
     "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_PUKURIN",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_PUKURIN",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "WaitExecutePerformer"
    ]
   },
@@ -1476,9 +1373,7 @@
    "status": "COMPILED",
    "file": "d27p11a__m24a0401.lua",
    "dialogues": 0,
-   "gaps": [
-    "BGM BGM_HIDDEN_LAND non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "D27P11A/m24a0501.ssb": {
    "status": "NOT_COMPILED_MULTIROUTINE",
@@ -1575,7 +1470,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[25, 4]",
-    "MovePositionMark:ACTOR_NPC_JUPUTORU",
     "Slide2PositionMark"
    ]
   },
@@ -1584,23 +1478,10 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_JUPUTORU",
-    "MovePositionMark:ACTOR_NPC_YAMIRAMI",
-    "MovePositionMark:ACTOR_NPC_YAMIRAMI2",
-    "MovePositionMark:ACTOR_NPC_YAMIRAMI3",
-    "MovePositionMark:ACTOR_NPC_YAMIRAMI4",
-    "MovePositionMark:ACTOR_NPC_YAMIRAMI5",
-    "MovePositionMark:ACTOR_NPC_YAMIRAMI6",
-    "MovePositionMark:ACTOR_NPC_YONOWAARU",
     "MovePositionOffset:ACTOR_ATTENDANT1",
     "MovePositionOffset:ACTOR_PLAYER",
     "Slide2PositionMark",
     "SlidePositionOffset",
-    "Turn2Direction:ACTOR_NPC_JUPUTORU",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_JUPUTORU",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "WaitExecutePerformer"
    ]
   },
@@ -1609,14 +1490,6 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_JUPUTORU",
-    "MovePositionMark:ACTOR_NPC_YAMIRAMI",
-    "MovePositionMark:ACTOR_NPC_YAMIRAMI2",
-    "MovePositionMark:ACTOR_NPC_YAMIRAMI3",
-    "MovePositionMark:ACTOR_NPC_YAMIRAMI4",
-    "MovePositionMark:ACTOR_NPC_YAMIRAMI5",
-    "MovePositionMark:ACTOR_NPC_YAMIRAMI6",
-    "MovePositionMark:ACTOR_NPC_YONOWAARU",
     "MovePositionOffset:ACTOR_NPC_YAMIRAMI",
     "MovePositionOffset:ACTOR_NPC_YAMIRAMI2",
     "Slide2PositionOffset:ACTOR_ATTENDANT1",
@@ -1631,20 +1504,6 @@
     "Slide2PositionOffset:ACTOR_PLAYER",
     "SlidePositionMark",
     "SlidePositionOffset",
-    "Turn2Direction:ACTOR_NPC_JUPUTORU",
-    "Turn2Direction:ACTOR_NPC_YAMIRAMI",
-    "Turn2Direction:ACTOR_NPC_YAMIRAMI2",
-    "Turn2Direction:ACTOR_NPC_YAMIRAMI3",
-    "Turn2Direction:ACTOR_NPC_YAMIRAMI4",
-    "Turn2Direction:ACTOR_NPC_YAMIRAMI5",
-    "Turn2Direction:ACTOR_NPC_YAMIRAMI6",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU",
-    "Turn2DirectionLives:ACTOR_NPC_YAMIRAMI",
-    "Turn2DirectionLives:ACTOR_NPC_YAMIRAMI2",
-    "Turn2DirectionLives:ACTOR_NPC_YAMIRAMI3",
-    "Turn2DirectionLives:ACTOR_NPC_YAMIRAMI4",
-    "Turn2DirectionLives:ACTOR_NPC_YAMIRAMI5",
-    "Turn2DirectionLives:ACTOR_NPC_YAMIRAMI6",
     "hold",
     "main_EnterDungeon"
    ]
@@ -1662,18 +1521,13 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_JUPUTORU",
     "MovePositionOffset:3",
     "MovePositionOffset:ACTOR_ATTENDANT1",
     "MovePositionOffset:ACTOR_NPC_JUPUTORU",
     "MovePositionOffset:ACTOR_PLAYER",
-    "SetDirection:ACTOR_NPC_JUPUTORU",
-    "SetPositionMark:ACTOR_NPC_JUPUTORU",
     "Slide2PositionMark",
     "SlidePositionMark",
     "SlidePositionOffset",
-    "Turn2Direction:ACTOR_NPC_JUPUTORU",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "WaitExecuteObject",
     "screen_WhiteOutAll",
     "supervision_StationCommon"
@@ -1768,7 +1622,6 @@
     "MovePositionOffset:0",
     "MovePositionOffset:ACTOR_PLAYER",
     "SlidePositionOffset",
-    "Turn2Direction:ACTOR_NPC_DIARUGA",
     "WaitExecutePerformer"
    ]
   },
@@ -1777,17 +1630,14 @@
    "unsupported_ops": [
     "$COMPULSORY_SAVE_POINT = 22",
     "ExecuteCommon",
-    "Turn2Direction:ACTOR_NPC_DIARUGA",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "switch "
    ]
   },
   "D30P32A/m26a0803.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_DIARUGA"
-   ]
+   "status": "COMPILED",
+   "file": "d30p32a__m26a0803.lua",
+   "dialogues": 10,
+   "gaps": null
   },
   "D31P11A/enter01.ssb": {
    "status": "PARTIAL_OPS",
@@ -1815,9 +1665,7 @@
    "status": "COMPILED",
    "file": "d31p11a__s01p0501.lua",
    "dialogues": 0,
-   "gaps": [
-    "BGM BGM_MYSTIFYING_FOREST non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "D31P11A/s01p0701.ssb": {
    "status": "PARTIAL_OPS",
@@ -1835,10 +1683,7 @@
    "status": "COMPILED",
    "file": "d31p31a__s01p0603.lua",
    "dialogues": 4,
-   "gaps": [
-    "BGM BGM_GUILDMASTER_WIGGLYTUFF non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
-    "SetEffect EFFECT_SWEAT_DROPS_FROM_BOTH_SIDES_MEDIUM sur PNJ non résolu (v2 cast SSA)"
-   ]
+   "gaps": null
   },
   "D31P31A/s01p0901.ssb": {
    "status": "PARTIAL_OPS",
@@ -1912,14 +1757,12 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC3",
     "MovePositionMark:ACTOR_NPC_CHAAREMU",
     "MovePositionMark:ACTOR_NPC_MIMIROPPU",
-    "MovePositionMark:ACTOR_NPC_SAANAITO",
     "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
     "Turn2Direction:ACTOR_ADVENTURE_NPC3",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
     "Turn2Direction:ACTOR_NPC_MIMIROPPU",
-    "Turn2Direction:ACTOR_NPC_SAANAITO",
     "supervision_RemoveActing",
     "supervision_StationCommon"
    ]
@@ -1983,7 +1826,6 @@
     "MovePositionMark:ACTOR_ADVENTURE_NPC3",
     "MovePositionMark:ACTOR_NPC_CHAAREMU",
     "MovePositionMark:ACTOR_NPC_MIMIROPPU",
-    "MovePositionMark:ACTOR_NPC_SAANAITO",
     "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "MovePositionOffset:0",
     "MovePositionOffset:ACTOR_NPC_CHAAREMU",
@@ -2118,7 +1960,6 @@
     "MovePositionOffset:ACTOR_ATTENDANT1",
     "MovePositionOffset:ACTOR_NPC_SURIIPU",
     "MovePositionOffset:ACTOR_PLAYER",
-    "Turn2Direction:ACTOR_NPC_SURIIPU",
     "WaitExecutePerformer",
     "back_SetDungeonBanner",
     "switch "
@@ -2240,22 +2081,21 @@
     "ExecuteCommon",
     "MovePositionOffset:0",
     "MovePositionOffset:ACTOR_NPC_KURESERIA",
-    "SetDirection:ACTOR_NPC_PARUKIA",
     "SlidePositionMark",
     "SlidePositionOffset",
     "Turn2Direction:ACTOR_NPC_KURESERIA",
-    "Turn2Direction:ACTOR_NPC_PARUKIA",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
     "Turn2DirectionLives:ACTOR_NPC_PARUKIA",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "WaitExecuteObject",
     "camera_SetEffect"
    ]
   },
   "D39P32A/s22p0203.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_PARUKIA"
+   "status": "COMPILED",
+   "file": "d39p32a__s22p0203.lua",
+   "dialogues": 1,
+   "gaps": [
+    "se_Play(8199) — id SE NDS sans portage PMDO identifié",
+    "SetEffect 351 — VFX sans émote PMDO équivalente"
    ]
   },
   "D39P41A/s22p0204.ssb": {
@@ -2268,7 +2108,6 @@
     "MovePositionOffset:ACTOR_NPC_KURESERIA",
     "SlidePositionMark",
     "SlidePositionOffset",
-    "Turn2Direction:ACTOR_NPC_PARUKIA",
     "WaitExecuteObject",
     "message_SetFaceOnly",
     "supervision_RemoveActing"
@@ -2417,18 +2256,13 @@
    "status": "COMPILED",
    "file": "d41p41a__s22p1105.lua",
    "dialogues": 12,
-   "gaps": [
-    "BGM BGM_TIME_GEAR_REMIX non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
-    "BGM BGM_HIDDEN_HIGHLAND non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "D41P41A/s22p1108.ssb": {
    "status": "COMPILED",
    "file": "d41p41a__s22p1108.lua",
    "dialogues": 10,
-   "gaps": [
-    "BGM BGM_HIDDEN_HIGHLAND non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "D41P41A/s22p1201.ssb": {
    "status": "COMPILED",
@@ -2436,13 +2270,6 @@
    "dialogues": 7,
    "gaps": [
     "se_Play(8198) — id SE NDS sans portage PMDO identifié",
-    "SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)",
-    "SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)",
-    "SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)",
-    "SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)",
-    "SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)",
-    "SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)",
-    "SetEffect EFFECT_EXCLAMATION_MARK sur PNJ non résolu (v2 cast SSA)",
     "se_Play(6925) — id SE NDS sans portage PMDO identifié"
    ]
   },
@@ -2516,10 +2343,6 @@
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[40, 4]",
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_YUKIKABURI",
-    "Turn2Direction:ACTOR_NPC_YUKIKABURI",
-    "Turn2DirectionLives:ACTOR_NPC_YUKIKABURI",
-    "Turn2DirectionLives:ACTOR_PLAYER_BIPPA",
     "supervision_StationCommon"
    ]
   },
@@ -2527,7 +2350,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "Turn2Direction:ACTOR_NPC_YUKIKABURI",
     "supervision_StationCommon"
    ]
   },
@@ -2565,13 +2387,9 @@
     "$SCENARIO_SIDE = scn[40, 5]",
     "ExecuteCommon",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_GURAIGAA",
-    "MovePositionMark:ACTOR_NPC_TATSUBEI",
-    "MovePositionMark:ACTOR_NPC_YUKIKABURI",
     "MovePositionOffset:0",
     "ResetFunctionAttribute",
     "SetFunctionAttribute",
-    "SetPositionMark:ACTOR_NPC_YUKIKABURI",
     "SlidePositionOffset",
     "WaitExecutePerformer",
     "back_SetDungeonBanner"
@@ -2596,9 +2414,7 @@
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[42, 7]",
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_AAMARUDO",
     "MovePositionMark:ACTOR_PLAYER_PUPURIN",
-    "Turn2Direction:ACTOR_NPC_AAMARUDO",
     "Turn2Direction:ACTOR_PLAYER_PUPURIN",
     "supervision_StationCommon"
    ]
@@ -2618,7 +2434,6 @@
     "MovePositionMark:0",
     "MovePositionOffset:ACTOR_NPC_AAMARUDO",
     "MovePositionOffset:ACTOR_PLAYER_PUPURIN",
-    "Turn2Direction:ACTOR_NPC_AAMARUDO",
     "Turn2Direction:ACTOR_PLAYER_PUPURIN",
     "WaitExecutePerformer"
    ]
@@ -2761,9 +2576,6 @@
     "ExecuteCommon",
     "MovePositionMark:0",
     "MovePositionMark:ACTOR_NPC_YONOWAARU_N8",
-    "MovePositionMark:ACTOR_NPC_YUKIWARASHI",
-    "MovePositionMark:ACTOR_NPC_YUKIWARASHI2",
-    "MovePositionMark:ACTOR_NPC_YUKIWARASHI3",
     "MovePositionOffset:0",
     "MovePositionOffset:ACTOR_NPC_YUKIWARASHI",
     "MovePositionOffset:ACTOR_NPC_YUKIWARASHI2",
@@ -2773,9 +2585,6 @@
     "SetDirection:ACTOR_PLAYER_FUTURE",
     "SlidePositionOffset",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N8",
-    "Turn2Direction:ACTOR_NPC_YUKIWARASHI",
-    "Turn2Direction:ACTOR_NPC_YUKIWARASHI2",
-    "Turn2Direction:ACTOR_NPC_YUKIWARASHI3",
     "Turn2Direction:ACTOR_PLAYER_FUTURE",
     "Turn2DirectionLives:ACTOR_NPC_YONOWAARU_N8",
     "Turn2DirectionLives:ACTOR_PLAYER_FUTURE",
@@ -2846,19 +2655,9 @@
     "$COMPULSORY_SAVE_POINT_SIDE = 1",
     "$SCENARIO_MAIN_BIT_FLAG[8] = 1",
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_MANMUU",
-    "MovePositionMark:ACTOR_NPC_ONIGOORI",
-    "MovePositionMark:ACTOR_NPC_ONIGOORI2",
-    "MovePositionMark:ACTOR_NPC_ONIGOORI3",
-    "MovePositionMark:ACTOR_NPC_ONIGOORI4",
     "MovePositionMark:ACTOR_PLAYER_FUTURE",
     "SetDirection:ACTOR_NPC_YONOWAARU_N9",
     "Slide2PositionMark",
-    "Turn2Direction:ACTOR_NPC_MANMUU",
-    "Turn2Direction:ACTOR_NPC_ONIGOORI",
-    "Turn2Direction:ACTOR_NPC_ONIGOORI2",
-    "Turn2Direction:ACTOR_NPC_ONIGOORI3",
-    "Turn2Direction:ACTOR_NPC_ONIGOORI4",
     "Turn2Direction:ACTOR_PLAYER_FUTURE",
     "Turn2DirectionLives:ACTOR_PLAYER_FUTURE",
     "supervision_RemoveActing"
@@ -2879,7 +2678,6 @@
     "MovePositionMark:ACTOR_PLAYER_FUTURE",
     "MovePositionOffset:ACTOR_PLAYER_FUTURE",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N9",
-    "Turn2Direction:ACTOR_NPC_YUKIWARASHI",
     "Turn2Direction:ACTOR_PLAYER_FUTURE",
     "WaitExecutePerformer",
     "se_FadeOut",
@@ -2895,7 +2693,6 @@
     "MovePositionOffset:ACTOR_NPC_YUKIWARASHI",
     "MovePositionOffset:ACTOR_PLAYER_FUTURE",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N9",
-    "Turn2Direction:ACTOR_NPC_YUKIWARASHI",
     "Turn2Direction:ACTOR_PLAYER_FUTURE",
     "WaitExecutePerformer",
     "se_FadeOut",
@@ -3024,7 +2821,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_NPC_SAANAITO",
     "SetDirection:ACTOR_PLAYER_CHARMS",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
     "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
@@ -3051,7 +2847,6 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_NPC_SAANAITO",
     "SetDirection:ACTOR_PLAYER_CHARMS",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
     "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
@@ -3064,7 +2859,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_NPC_SAANAITO",
     "SetDirection:ACTOR_PLAYER_CHARMS",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
     "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
@@ -3097,7 +2891,6 @@
     "$SCENARIO_SIDE = scn[45, 5]",
     "ExecuteCommon",
     "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_NPC_SAANAITO",
     "MovePositionMark:ACTOR_PLAYER_CHARMS",
     "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
     "Turn2DirectionLives:ACTOR_NPC_SAANAITO",
@@ -3110,7 +2903,6 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_NPC_SAANAITO",
     "SetDirection:ACTOR_PLAYER_CHARMS",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
     "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
@@ -3123,7 +2915,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_NPC_SAANAITO",
     "SetDirection:ACTOR_PLAYER_CHARMS",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
     "Turn2Direction:ACTOR_PLAYER_CHARMS",
@@ -3138,7 +2929,6 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_NPC_SAANAITO",
     "SetDirection:ACTOR_PLAYER_CHARMS",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
     "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
@@ -3165,10 +2955,8 @@
     "ExecuteCommon",
     "MovePositionMark:0",
     "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_NPC_SAANAITO",
     "MovePositionMark:ACTOR_PLAYER_CHARMS",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_NPC_SAANAITO",
     "Turn2Direction:ACTOR_PLAYER_CHARMS",
     "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
     "Turn2DirectionLives:ACTOR_NPC_SAANAITO",
@@ -3181,7 +2969,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_NPC_SAANAITO",
     "SetDirection:ACTOR_PLAYER_CHARMS",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
     "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
@@ -3196,7 +2983,6 @@
     "$SIDE06_ROOM[0] = 1",
     "ExecuteCommon",
     "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_NPC_SAANAITO",
     "MovePositionMark:ACTOR_PLAYER_CHARMS",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
     "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
@@ -3210,7 +2996,6 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_NPC_SAANAITO",
     "MovePositionMark:ACTOR_PLAYER_CHARMS",
     "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
     "Turn2DirectionLives:ACTOR_NPC_SAANAITO",
@@ -3224,7 +3009,6 @@
     "$SIDE06_ROOM[1] = 1",
     "ExecuteCommon",
     "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_NPC_SAANAITO",
     "MovePositionMark:ACTOR_PLAYER_CHARMS",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
     "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
@@ -3238,7 +3022,6 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_NPC_SAANAITO",
     "MovePositionMark:ACTOR_PLAYER_CHARMS",
     "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
     "Turn2DirectionLives:ACTOR_NPC_SAANAITO",
@@ -3252,10 +3035,8 @@
     "$SIDE06_ROOM[1] = 1",
     "ExecuteCommon",
     "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_NPC_SAANAITO",
     "MovePositionMark:ACTOR_PLAYER_CHARMS",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_NPC_SAANAITO",
     "Turn2Direction:ACTOR_PLAYER_CHARMS",
     "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
     "Turn2DirectionLives:ACTOR_NPC_SAANAITO",
@@ -3269,10 +3050,8 @@
     "$SIDE06_ROOM[0] = 1",
     "ExecuteCommon",
     "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_NPC_SAANAITO",
     "MovePositionMark:ACTOR_PLAYER_CHARMS",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_NPC_SAANAITO",
     "Turn2Direction:ACTOR_PLAYER_CHARMS",
     "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
     "Turn2DirectionLives:ACTOR_NPC_SAANAITO",
@@ -3284,7 +3063,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_NPC_SAANAITO",
     "SetDirection:ACTOR_PLAYER_CHARMS",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
     "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
@@ -3298,7 +3076,6 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_NPC_SAANAITO",
     "SetDirection:ACTOR_PLAYER_CHARMS",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
     "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
@@ -3313,9 +3090,7 @@
     "ExecuteCommon",
     "MovePositionMark:0",
     "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_NPC_SAANAITO",
     "MovePositionMark:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_SAANAITO",
     "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
     "Turn2DirectionLives:ACTOR_NPC_SAANAITO",
     "Turn2DirectionLives:ACTOR_PLAYER_CHARMS",
@@ -3343,7 +3118,6 @@
     "$SCENARIO_SIDE = scn[45, 11]",
     "ExecuteCommon",
     "MovePositionMark:ACTOR_NPC_CHAAREMU",
-    "MovePositionMark:ACTOR_NPC_SAANAITO",
     "MovePositionMark:ACTOR_PLAYER_CHARMS",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
     "Turn2Direction:ACTOR_PLAYER_CHARMS",
@@ -3358,7 +3132,6 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_NPC_SAANAITO",
     "SetDirection:ACTOR_PLAYER_CHARMS",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
     "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
@@ -3371,7 +3144,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_NPC_SAANAITO",
     "SetDirection:ACTOR_PLAYER_CHARMS",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
     "Turn2DirectionLives:ACTOR_NPC_CHAAREMU",
@@ -3385,7 +3157,6 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "SetDirection:ACTOR_NPC_CHAAREMU",
-    "SetDirection:ACTOR_NPC_SAANAITO",
     "SetDirection:ACTOR_PLAYER_CHARMS",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
     "Turn2Direction:ACTOR_PLAYER_CHARMS",
@@ -3398,20 +3169,11 @@
   "D56P41A/n06a3904.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Move2PositionMark:ACTOR_NPC_AABOKKU",
     "Move2PositionMark:ACTOR_NPC_CHAAREMU",
-    "Move2PositionMark:ACTOR_NPC_DORAPION",
     "Move2PositionMark:ACTOR_NPC_MANYUURA",
-    "Move2PositionMark:ACTOR_NPC_METAMON",
-    "Move2PositionMark:ACTOR_NPC_PUKURIN",
-    "Move2PositionMark:ACTOR_NPC_SAANAITO",
     "Move2PositionMark:ACTOR_PLAYER_CHARMS",
-    "Turn2Direction:ACTOR_NPC_AABOKKU",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_NPC_DORAPION",
     "Turn2Direction:ACTOR_NPC_MANYUURA",
-    "Turn2Direction:ACTOR_NPC_METAMON",
-    "Turn2Direction:ACTOR_NPC_SAANAITO",
     "Turn2Direction:ACTOR_PLAYER_CHARMS"
    ]
   },
@@ -3661,14 +3423,10 @@
     "MovePositionMark:0",
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_NPC_KINOGASSA",
     "MovePositionMark:ACTOR_NPC_SHEIMI",
     "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_NPC_GOORIKII",
-    "Turn2Direction:ACTOR_NPC_KINOGASSA",
-    "Turn2Direction:ACTOR_NPC_KUCHIITO",
     "Turn2DirectionLives:ACTOR_NPC_SHEIMI",
     "WaitExecutePerformer",
     "supervision_LoadStation",
@@ -3773,27 +3531,15 @@
     "ExecuteCommon",
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_NPC_GOORIKII",
-    "MovePositionMark:ACTOR_NPC_KINOGASSA",
-    "MovePositionMark:ACTOR_NPC_KUCHIITO",
-    "MovePositionMark:ACTOR_NPC_OKUTAN",
     "MovePositionMark:ACTOR_NPC_SHEIMI",
     "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "MovePositionOffset:ACTOR_NPC_KINOGASSA",
     "MovePositionOffset:ACTOR_NPC_KUCHIITO",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_NPC_GOORIKII",
     "Turn2Direction:ACTOR_NPC_JIGUZAGUMA",
-    "Turn2Direction:ACTOR_NPC_KINOGASSA",
-    "Turn2Direction:ACTOR_NPC_KUCHIITO",
-    "Turn2Direction:ACTOR_NPC_OKUTAN",
     "Turn2Direction:ACTOR_NPC_SHEIMI",
     "Turn2Direction:ACTOR_NPC_TAMATAMA",
     "Turn2Direction:ACTOR_PLAYER_APPOINT",
-    "Turn2DirectionLives:ACTOR_NPC_GOORIKII",
-    "Turn2DirectionLives:ACTOR_NPC_KINOGASSA",
-    "Turn2DirectionLives:ACTOR_NPC_KUCHIITO",
-    "Turn2DirectionLives:ACTOR_NPC_OKUTAN",
     "Turn2DirectionLives:ACTOR_NPC_SHEIMI",
     "supervision_LoadStation",
     "supervision_Station",
@@ -3923,16 +3669,10 @@
     "$SCENARIO_MAIN = scn[29, 22]",
     "MovePositionMark:ACTOR_ADVENTURE_NPC1",
     "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_NPC_GOORIKII",
-    "MovePositionMark:ACTOR_NPC_KINOGASSA",
-    "MovePositionMark:ACTOR_NPC_KUCHIITO",
     "MovePositionMark:ACTOR_NPC_SHEIMI",
     "MovePositionMark:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_NPC_GOORIKII",
-    "Turn2Direction:ACTOR_NPC_KINOGASSA",
-    "Turn2Direction:ACTOR_NPC_KUCHIITO",
     "supervision_LoadStation",
     "supervision_Station",
     "supervision_StationCommon"
@@ -4037,9 +3777,6 @@
     "MovePositionOffset:ACTOR_PLAYER_APPOINT",
     "Turn2Direction:ACTOR_ADVENTURE_NPC1",
     "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_NPC_GOORIKII",
-    "Turn2Direction:ACTOR_NPC_KINOGASSA",
-    "Turn2Direction:ACTOR_NPC_KUCHIITO",
     "Turn2Direction:ACTOR_NPC_SHEIMI",
     "Turn2Direction:ACTOR_PLAYER_APPOINT",
     "WaitExecutePerformer",
@@ -4572,9 +4309,7 @@
     "ExecuteCommon",
     "Move2PositionOffset:ACTOR_NPC_PERAPPU",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_PERAPPU",
     "SlidePositionOffset",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
     "WaitExecutePerformer",
     "dungeon_mode",
     "if ",
@@ -4585,19 +4320,9 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
-    "Move2PositionMark:ACTOR_NPC_PERAPPU",
     "Move2PositionOffset:ACTOR_ATTENDANT1",
     "Move2PositionOffset:ACTOR_PLAYER",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
-    "MovePositionMark:ACTOR_NPC_PERAPPU",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_BIPPA",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "WaitExecutePerformer",
     "camera2_SetPositionMark",
     "supervision_LoadStation",
@@ -4605,10 +4330,10 @@
    ]
   },
   "G01P03A/m03a0501.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_ATTENDANT1"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__m03a0501.lua",
+   "dialogues": 1,
+   "gaps": null
   },
   "G01P03A/m03a0701.ssb": {
    "status": "COMPILED",
@@ -4622,14 +4347,8 @@
     "$REQUEST_CLEAR_COUNT = 0",
     "$SCENARIO_MAIN = scn[7, 2]",
     "ExecuteCommon",
-    "Move2PositionMark:ACTOR_NPC_DOGAASU",
-    "Move2PositionMark:ACTOR_NPC_ZUBATTO",
     "MovePositionMark:0",
     "MovePositionOffset:0",
-    "Turn2Direction:ACTOR_NPC_DOGAASU",
-    "Turn2Direction:ACTOR_NPC_ZUBATTO",
-    "Turn2DirectionLives:ACTOR_NPC_DOGAASU",
-    "Turn2DirectionLives:ACTOR_NPC_ZUBATTO",
     "WaitExecutePerformer"
    ]
   },
@@ -4643,9 +4362,7 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "MovePositionOffset:ACTOR_NPC_PERAPPU",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU"
+    "MovePositionOffset:ACTOR_NPC_PERAPPU"
    ]
   },
   "G01P03A/m12a0301.ssb": {
@@ -4659,44 +4376,18 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
     "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "MovePositionMark:ACTOR_NPC_YONOWAARU",
     "MovePositionOffset:ACTOR_NPC_PERAPPU",
     "MovePositionOffset:ACTOR_NPC_PUKURIN",
     "MovePositionOffset:ACTOR_NPC_YONOWAARU",
-    "SetDirection:ACTOR_NPC_BIPPA",
     "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetDirection:ACTOR_NPC_DIGUDA",
-    "SetDirection:ACTOR_NPC_DOGOOMU",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
-    "SetDirection:ACTOR_NPC_HEIGANI",
     "SetDirection:ACTOR_NPC_KIMAWARI",
     "SlidePositionOffset",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
     "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_DAGUTORIO",
-    "Turn2Direction:ACTOR_NPC_DIGUDA",
-    "Turn2Direction:ACTOR_NPC_DOGOOMU",
-    "Turn2Direction:ACTOR_NPC_GUREGGURU",
-    "Turn2Direction:ACTOR_NPC_HEIGANI",
     "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2Direction:ACTOR_NPC_PUKURIN",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU",
-    "Turn2DirectionLives:ACTOR_NPC_BIPPA",
     "Turn2DirectionLives:ACTOR_NPC_CHIRIIN",
-    "Turn2DirectionLives:ACTOR_NPC_DAGUTORIO",
-    "Turn2DirectionLives:ACTOR_NPC_GUREGGURU",
-    "Turn2DirectionLives:ACTOR_NPC_HEIGANI",
     "Turn2DirectionLives:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_NPC_PUKURIN",
     "WaitExecutePerformer",
     "dungeon_mode",
     "supervision_LoadStation",
@@ -4720,12 +4411,8 @@
   "G01P03A/m15b0701.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_BIPPA",
     "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_DOGOOMU",
-    "SetPositionMark:ACTOR_NPC_BIPPA",
     "SetPositionMark:ACTOR_NPC_CHIRIIN",
-    "SetPositionMark:ACTOR_NPC_DOGOOMU",
     "Turn2Direction:ACTOR_NPC_CHIRIIN",
     "supervision_LoadStation",
     "supervision_RemoveActing",
@@ -4995,31 +4682,20 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN_BIT_FLAG[1] = 0",
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
     "Move2PositionMark:ACTOR_NPC_KIMAWARI",
     "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
     "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DOGAASU",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
-    "MovePositionMark:ACTOR_NPC_PUKURIN",
-    "MovePositionMark:ACTOR_NPC_SUKATANKU",
-    "MovePositionMark:ACTOR_NPC_ZUBATTO",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetDirection:ACTOR_NPC_DIGUDA",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
     "supervision_RemoveActing",
     "supervision_StationCommon"
    ]
   },
   "G01P04A/c00a1501.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_PLAYER"
+   "status": "COMPILED",
+   "file": "g01p04a__c00a1501.lua",
+   "dialogues": 5,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/enter02.ssb": {
@@ -5054,23 +4730,17 @@
     "$PERFORMANCE_PROGRESS_LIST[31] = 1",
     "MovePositionOffset:ACTOR_ATTENDANT1",
     "MovePositionOffset:ACTOR_PLAYER",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
     "SetPositionLives",
-    "SetPositionMark:0",
-    "Turn2Direction:ACTOR_NPC_GUREGGURU",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_PLAYER"
+    "SetPositionMark:0"
    ]
   },
   "G01P04A/m03a0105.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
     "MovePositionMark:0",
     "MovePositionOffset:ACTOR_ATTENDANT1",
     "MovePositionOffset:ACTOR_PLAYER",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
     "WaitExecutePerformer",
     "supervision_LoadStation",
     "supervision_Station",
@@ -5102,36 +4772,15 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
     "Move2PositionMark:ACTOR_NPC_KIMAWARI",
     "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
     "MovePositionLives",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
-    "MovePositionMark:ACTOR_NPC_PUKURIN",
-    "SetDirection:ACTOR_NPC_BIPPA",
     "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetDirection:ACTOR_NPC_DIGUDA",
-    "SetDirection:ACTOR_NPC_DOGOOMU",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
-    "SetDirection:ACTOR_NPC_HEIGANI",
     "SetDirection:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_NPC_BIPPA",
     "Turn2DirectionLives:ACTOR_NPC_CHIRIIN",
-    "Turn2DirectionLives:ACTOR_NPC_DAGUTORIO",
-    "Turn2DirectionLives:ACTOR_NPC_DIGUDA",
-    "Turn2DirectionLives:ACTOR_NPC_DOGOOMU",
-    "Turn2DirectionLives:ACTOR_NPC_GUREGGURU",
-    "Turn2DirectionLives:ACTOR_NPC_HEIGANI",
     "Turn2DirectionLives:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "message_Mail",
     "supervision_RemoveActing"
    ]
@@ -5147,28 +4796,15 @@
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[7, 1]",
     "ExecuteCommon",
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
     "Move2PositionMark:ACTOR_NPC_KIMAWARI",
     "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
     "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
     "MovePositionMark:ACTOR_NPC_DOGAASU",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
-    "MovePositionMark:ACTOR_NPC_PUKURIN",
     "MovePositionMark:ACTOR_NPC_SUKATANKU",
     "MovePositionMark:ACTOR_NPC_ZUBATTO",
-    "SetDirection:ACTOR_NPC_BIPPA",
     "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetDirection:ACTOR_NPC_DIGUDA",
-    "SetDirection:ACTOR_NPC_DOGOOMU",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
-    "SetDirection:ACTOR_NPC_HEIGANI",
     "SetDirection:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
     "supervision_LoadStation",
     "supervision_RemoveActing",
     "supervision_Station"
@@ -5177,8 +4813,6 @@
   "G01P04A/m06a0301.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
     "supervision_LoadStation",
     "supervision_Station",
     "supervision_StationCommon"
@@ -5189,58 +4823,22 @@
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[7, 6]",
     "ExecuteCommon",
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
     "Move2PositionMark:ACTOR_NPC_KIMAWARI",
     "Move2PositionOffset:3",
     "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
     "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DOGAASU",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
     "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "MovePositionMark:ACTOR_NPC_PUKURIN",
-    "MovePositionMark:ACTOR_NPC_SUKATANKU",
-    "MovePositionMark:ACTOR_NPC_ZUBATTO",
     "MovePositionOffset:ACTOR_NPC_DOGAASU",
     "MovePositionOffset:ACTOR_NPC_PUKURIN",
     "MovePositionOffset:ACTOR_NPC_ZUBATTO",
-    "SetDirection:ACTOR_NPC_BIPPA",
     "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetDirection:ACTOR_NPC_DIGUDA",
-    "SetDirection:ACTOR_NPC_DOGOOMU",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
-    "SetDirection:ACTOR_NPC_HEIGANI",
     "SetDirection:ACTOR_NPC_KIMAWARI",
     "SlidePositionMark",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
     "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_DAGUTORIO",
-    "Turn2Direction:ACTOR_NPC_DIGUDA",
-    "Turn2Direction:ACTOR_NPC_DOGAASU",
-    "Turn2Direction:ACTOR_NPC_DOGOOMU",
-    "Turn2Direction:ACTOR_NPC_GUREGGURU",
-    "Turn2Direction:ACTOR_NPC_HEIGANI",
     "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2Direction:ACTOR_NPC_PUKURIN",
-    "Turn2Direction:ACTOR_NPC_SUKATANKU",
-    "Turn2Direction:ACTOR_NPC_ZUBATTO",
-    "Turn2DirectionLives:ACTOR_NPC_BIPPA",
     "Turn2DirectionLives:ACTOR_NPC_CHIRIIN",
-    "Turn2DirectionLives:ACTOR_NPC_DAGUTORIO",
-    "Turn2DirectionLives:ACTOR_NPC_DIGUDA",
-    "Turn2DirectionLives:ACTOR_NPC_DOGAASU",
-    "Turn2DirectionLives:ACTOR_NPC_DOGOOMU",
-    "Turn2DirectionLives:ACTOR_NPC_GUREGGURU",
-    "Turn2DirectionLives:ACTOR_NPC_HEIGANI",
     "Turn2DirectionLives:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_SUKATANKU",
-    "Turn2DirectionLives:ACTOR_NPC_ZUBATTO",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "WaitExecutePerformer",
     "bgm_ChangeVolume",
     "camera_SetEffect",
@@ -5257,8 +4855,6 @@
     "ExecuteCommon",
     "MovePositionMark:0",
     "SetPositionMark:0",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
     "WaitExecutePerformer",
     "dungeon_mode",
     "hold",
@@ -5270,36 +4866,17 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
     "Move2PositionMark:ACTOR_NPC_KIMAWARI",
     "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
     "MovePositionLives",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DOGAASU",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
     "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "MovePositionMark:ACTOR_NPC_PERAPPU",
-    "MovePositionMark:ACTOR_NPC_PUKURIN",
-    "MovePositionMark:ACTOR_NPC_SUKATANKU",
-    "MovePositionMark:ACTOR_NPC_ZUBATTO",
     "MovePositionOffset:ACTOR_ATTENDANT1",
     "MovePositionOffset:ACTOR_NPC_CHIRIIN",
     "MovePositionOffset:ACTOR_PLAYER",
-    "SetDirection:ACTOR_NPC_BIPPA",
     "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetDirection:ACTOR_NPC_DIGUDA",
-    "SetDirection:ACTOR_NPC_DOGOOMU",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
-    "SetDirection:ACTOR_NPC_HEIGANI",
     "SetDirection:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
     "WaitExecutePerformer",
     "supervision_RemoveActing"
    ]
@@ -5309,8 +4886,6 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "SetPositionMark:0",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
     "supervision_StationCommon"
    ]
   },
@@ -5326,8 +4901,6 @@
     "$SCENARIO_MAIN = scn[12, 1]",
     "ExecuteCommon",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_PERAPPU",
-    "MovePositionMark:ACTOR_NPC_YONOWAARU",
     "MovePositionOffset:0",
     "MovePositionOffset:ACTOR_ATTENDANT1",
     "MovePositionOffset:ACTOR_NPC_BIPPA",
@@ -5335,33 +4908,13 @@
     "MovePositionOffset:ACTOR_NPC_PUKURIN",
     "MovePositionOffset:ACTOR_NPC_YONOWAARU",
     "MovePositionOffset:ACTOR_PLAYER",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetDirection:ACTOR_NPC_DIGUDA",
-    "SetDirection:ACTOR_NPC_DOGOOMU",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
-    "SetDirection:ACTOR_NPC_PERAPPU",
     "SetPositionMark:0",
-    "SetPositionMark:ACTOR_NPC_DOGOOMU",
-    "SetPositionMark:ACTOR_NPC_PERAPPU",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
-    "Turn2Direction:ACTOR_NPC_DOGOOMU",
-    "Turn2Direction:ACTOR_NPC_GUREGGURU",
-    "Turn2Direction:ACTOR_NPC_HEIGANI",
     "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2Direction:ACTOR_NPC_PUKURIN",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU",
     "Turn2DirectionLives:ACTOR_ATTENDANT1",
     "Turn2DirectionLives:ACTOR_NPC_BIPPA",
     "Turn2DirectionLives:ACTOR_NPC_CHIRIIN",
-    "Turn2DirectionLives:ACTOR_NPC_DAGUTORIO",
-    "Turn2DirectionLives:ACTOR_NPC_DIGUDA",
     "Turn2DirectionLives:ACTOR_NPC_DOGOOMU",
-    "Turn2DirectionLives:ACTOR_NPC_GUREGGURU",
     "Turn2DirectionLives:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_NPC_PUKURIN",
-    "Turn2DirectionLives:ACTOR_NPC_YONOWAARU",
     "Turn2DirectionLives:ACTOR_PLAYER",
     "WaitExecutePerformer",
     "se_FadeOut",
@@ -5376,17 +4929,13 @@
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[12, 3]",
     "MovePositionOffset:ACTOR_NPC_PERAPPU",
-    "SetPositionMark:0",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_PLAYER"
+    "SetPositionMark:0"
    ]
   },
   "G01P04A/m11a0502.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
     "supervision_LoadStation",
     "supervision_Station",
     "supervision_StationCommon"
@@ -5398,8 +4947,6 @@
     "$SCENARIO_MAIN = scn[13, 1]",
     "MovePositionMark:0",
     "SetPositionMark:0",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
     "WaitExecutePerformer",
     "supervision_StationCommon"
    ]
@@ -5419,22 +4966,10 @@
   "G01P04A/m13a0901.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
     "Move2PositionMark:ACTOR_NPC_KIMAWARI",
     "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
     "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
-    "MovePositionMark:ACTOR_NPC_PUKURIN",
-    "MovePositionMark:ACTOR_NPC_YONOWAARU",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetDirection:ACTOR_NPC_DIGUDA",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU",
     "supervision_RemoveActing"
    ]
   },
@@ -5451,23 +4986,10 @@
   "G01P04A/m14a0202.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
     "Move2PositionMark:ACTOR_NPC_KIMAWARI",
     "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
     "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
-    "MovePositionMark:ACTOR_NPC_PERAPPU",
-    "MovePositionMark:ACTOR_NPC_PUKURIN",
-    "MovePositionMark:ACTOR_NPC_YONOWAARU",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetDirection:ACTOR_NPC_DIGUDA",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU",
     "supervision_LoadStation",
     "supervision_RemoveActing",
     "supervision_Station",
@@ -5479,55 +5001,21 @@
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[15, 4]",
     "ExecuteCommon",
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
     "Move2PositionMark:ACTOR_NPC_KIMAWARI",
     "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
     "Move2PositionOffset:ACTOR_NPC_PERAPPU",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
-    "MovePositionMark:ACTOR_NPC_PERAPPU",
-    "MovePositionMark:ACTOR_NPC_YONOWAARU",
     "MovePositionOffset:ACTOR_NPC_BIPPA",
     "MovePositionOffset:ACTOR_NPC_PERAPPU",
     "MovePositionOffset:ACTOR_NPC_YONOWAARU",
-    "SetDirection:ACTOR_NPC_BIPPA",
     "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetDirection:ACTOR_NPC_DIGUDA",
-    "SetDirection:ACTOR_NPC_DOGOOMU",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
-    "SetDirection:ACTOR_NPC_HEIGANI",
     "SetDirection:ACTOR_NPC_KIMAWARI",
-    "SetDirection:ACTOR_NPC_PERAPPU",
-    "SetDirection:ACTOR_NPC_PUKURIN",
-    "SetPositionMark:ACTOR_NPC_PERAPPU",
-    "SetPositionMark:ACTOR_NPC_PUKURIN",
     "SlidePositionOffset",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
     "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_DAGUTORIO",
-    "Turn2Direction:ACTOR_NPC_DIGUDA",
-    "Turn2Direction:ACTOR_NPC_DOGOOMU",
-    "Turn2Direction:ACTOR_NPC_GUREGGURU",
-    "Turn2Direction:ACTOR_NPC_HEIGANI",
     "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2Direction:ACTOR_NPC_PUKURIN",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_BIPPA",
     "Turn2DirectionLives:ACTOR_NPC_CHIRIIN",
-    "Turn2DirectionLives:ACTOR_NPC_DAGUTORIO",
-    "Turn2DirectionLives:ACTOR_NPC_DIGUDA",
-    "Turn2DirectionLives:ACTOR_NPC_DOGOOMU",
-    "Turn2DirectionLives:ACTOR_NPC_GUREGGURU",
-    "Turn2DirectionLives:ACTOR_NPC_HEIGANI",
     "Turn2DirectionLives:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "dungeon_mode",
     "supervision_LoadStation",
     "supervision_Station"
@@ -5539,16 +5027,8 @@
     "$SCENARIO_MAIN = scn[17, 0]",
     "ExecuteCommon",
     "MovePositionMark:0",
-    "Turn2Direction:ACTOR_NPC_AGUNOMU",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
     "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_DAGUTORIO",
-    "Turn2Direction:ACTOR_NPC_DIGUDA",
-    "Turn2Direction:ACTOR_NPC_DOGOOMU",
-    "Turn2Direction:ACTOR_NPC_GUREGGURU",
-    "Turn2Direction:ACTOR_NPC_HEIGANI",
     "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_PUKURIN",
     "WaitExecutePerformer"
    ]
   },
@@ -5557,24 +5037,10 @@
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[17, 3]",
     "ExecuteCommon",
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
     "Move2PositionMark:ACTOR_NPC_KIMAWARI",
     "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
     "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
-    "MovePositionMark:ACTOR_NPC_PUKURIN",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetDirection:ACTOR_NPC_DIGUDA",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
-    "SetDirection:ACTOR_NPC_HEIGANI",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_NPC_HEIGANI",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "supervision_LoadStation",
     "supervision_RemoveActing",
     "supervision_Station"
@@ -5584,30 +5050,17 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
     "Move2PositionMark:ACTOR_NPC_KIMAWARI",
     "Move2PositionOffset:ACTOR_NPC_DOGOOMU",
     "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
     "MovePositionMark:0",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
     "MovePositionOffset:ACTOR_ATTENDANT1",
     "MovePositionOffset:ACTOR_NPC_PERAPPU",
     "MovePositionOffset:ACTOR_NPC_PUKURIN",
     "MovePositionOffset:ACTOR_PLAYER",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
     "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_DAGUTORIO",
-    "Turn2Direction:ACTOR_NPC_DIGUDA",
-    "Turn2Direction:ACTOR_NPC_DOGOOMU",
-    "Turn2Direction:ACTOR_NPC_GUREGGURU",
-    "Turn2Direction:ACTOR_NPC_HEIGANI",
     "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2Direction:ACTOR_NPC_PUKURIN",
     "WaitExecutePerformer"
    ]
   },
@@ -5615,9 +5068,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
     "Turn2DirectionLives:ACTOR_NPC_CHIRIIN",
     "Turn2DirectionLives:ACTOR_NPC_DAGUTORIO",
     "Turn2DirectionLives:ACTOR_NPC_DIGUDA",
@@ -5633,28 +5083,13 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_PUKURIN",
     "MovePositionOffset:ACTOR_NPC_HEIGANI",
     "MovePositionOffset:ACTOR_NPC_PUKURIN",
-    "SetDirection:ACTOR_NPC_BIPPA",
     "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetDirection:ACTOR_NPC_DIGUDA",
-    "SetDirection:ACTOR_NPC_DOGOOMU",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
-    "SetDirection:ACTOR_NPC_HEIGANI",
     "SetDirection:ACTOR_NPC_KIMAWARI",
     "SlidePositionOffset",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
     "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_DAGUTORIO",
-    "Turn2Direction:ACTOR_NPC_DIGUDA",
-    "Turn2Direction:ACTOR_NPC_DOGOOMU",
-    "Turn2Direction:ACTOR_NPC_GUREGGURU",
-    "Turn2Direction:ACTOR_NPC_HEIGANI",
     "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2Direction:ACTOR_NPC_PUKURIN",
     "Turn2DirectionLives:ACTOR_ATTENDANT1",
     "Turn2DirectionLives:ACTOR_NPC_BIPPA",
     "Turn2DirectionLives:ACTOR_NPC_CHIRIIN",
@@ -5674,23 +5109,11 @@
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[22, 2]",
     "ExecuteCommon",
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
     "Move2PositionMark:ACTOR_NPC_KIMAWARI",
     "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
     "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
-    "MovePositionMark:ACTOR_NPC_PUKURIN",
-    "SetDirection:ACTOR_NPC_BIPPA",
     "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetDirection:ACTOR_NPC_DIGUDA",
-    "SetDirection:ACTOR_NPC_DOGOOMU",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
-    "SetDirection:ACTOR_NPC_HEIGANI",
     "SetDirection:ACTOR_NPC_KIMAWARI",
     "supervision_LoadStation",
     "supervision_RemoveActing",
@@ -5702,39 +5125,15 @@
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[22, 3]",
     "ExecuteCommon",
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
     "Move2PositionMark:ACTOR_NPC_KIMAWARI",
     "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
     "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
-    "MovePositionMark:ACTOR_NPC_PUKURIN",
-    "SetDirection:ACTOR_NPC_BIPPA",
     "SetDirection:ACTOR_NPC_CHIRIIN",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetDirection:ACTOR_NPC_DIGUDA",
-    "SetDirection:ACTOR_NPC_DOGOOMU",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
-    "SetDirection:ACTOR_NPC_HEIGANI",
     "SetDirection:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
     "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_DAGUTORIO",
-    "Turn2Direction:ACTOR_NPC_DOGOOMU",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_BIPPA",
     "Turn2DirectionLives:ACTOR_NPC_CHIRIIN",
-    "Turn2DirectionLives:ACTOR_NPC_DAGUTORIO",
-    "Turn2DirectionLives:ACTOR_NPC_DIGUDA",
-    "Turn2DirectionLives:ACTOR_NPC_DOGOOMU",
-    "Turn2DirectionLives:ACTOR_NPC_GUREGGURU",
-    "Turn2DirectionLives:ACTOR_NPC_HEIGANI",
     "Turn2DirectionLives:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "supervision_LoadStation",
     "supervision_RemoveActing",
     "supervision_Station"
@@ -5744,28 +5143,17 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[23, 1]",
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
     "Move2PositionMark:ACTOR_NPC_KIMAWARI",
     "Move2PositionOffset:ACTOR_NPC_KIMAWARI",
     "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
-    "MovePositionMark:ACTOR_NPC_PUKURIN",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetDirection:ACTOR_NPC_DIGUDA",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
     "supervision_RemoveActing"
    ]
   },
   "G01P04A/m22a0201.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "ExecuteCommon",
-    "Turn2Direction:ACTOR_NPC_KOOTASU"
+    "ExecuteCommon"
    ]
   },
   "G01P04A/n01a0705.ssb": {
@@ -5774,19 +5162,8 @@
     "ExecuteCommon",
     "MovePositionMark:0",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
     "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "MovePositionMark:ACTOR_NPC_PUKURIN",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetDirection:ACTOR_NPC_DIGUDA",
-    "SetDirection:ACTOR_NPC_DOGOOMU",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
-    "SetPositionMark:ACTOR_NPC_DOGOOMU",
-    "SetPositionMark:ACTOR_NPC_GUREGGURU",
     "SlidePositionOffset",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
     "WaitExecutePerformer",
     "supervision_RemoveActing"
    ]
@@ -5797,14 +5174,7 @@
     "ExecuteCommon",
     "MovePositionLives",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
     "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "MovePositionMark:ACTOR_NPC_PUKURIN",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetDirection:ACTOR_NPC_DIGUDA",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
     "supervision_LoadStation",
     "supervision_RemoveActing",
     "supervision_Station",
@@ -5817,14 +5187,7 @@
     "ExecuteCommon",
     "MovePositionLives",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
     "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "MovePositionMark:ACTOR_NPC_PUKURIN",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetDirection:ACTOR_NPC_DIGUDA",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
     "supervision_LoadStation",
     "supervision_RemoveActing",
     "supervision_Station",
@@ -5837,14 +5200,7 @@
     "ExecuteCommon",
     "MovePositionLives",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
     "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "MovePositionMark:ACTOR_NPC_PUKURIN",
-    "SetDirection:ACTOR_NPC_DAGUTORIO",
-    "SetDirection:ACTOR_NPC_DIGUDA",
-    "SetDirection:ACTOR_NPC_GUREGGURU",
     "supervision_LoadStation",
     "supervision_RemoveActing",
     "supervision_Station",
@@ -5852,19 +5208,16 @@
    ]
   },
   "G01P04A/s01p1201.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_PLAYER"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__s01p1201.lua",
+   "dialogues": 7,
+   "gaps": null
   },
   "G01P04A/s03p0302.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
     "MovePositionLives",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
     "WaitExecutePerformer",
     "supervision_LoadStation",
     "supervision_Station",
@@ -6135,39 +5488,22 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
     "MovePositionMark:ACTOR_NPC_CHIRIIN",
-    "MovePositionMark:ACTOR_NPC_DAGUTORIO",
-    "MovePositionMark:ACTOR_NPC_DIGUDA",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
-    "MovePositionMark:ACTOR_NPC_GUREGGURU",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
     "MovePositionMark:ACTOR_NPC_KIMAWARI",
-    "MovePositionMark:ACTOR_NPC_PUKURIN",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
     "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_DAGUTORIO",
-    "Turn2Direction:ACTOR_NPC_DIGUDA",
-    "Turn2Direction:ACTOR_NPC_DOGOOMU",
-    "Turn2Direction:ACTOR_NPC_GUREGGURU",
-    "Turn2Direction:ACTOR_NPC_HEIGANI",
-    "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_PUKURIN"
+    "Turn2Direction:ACTOR_NPC_KIMAWARI"
    ]
   },
   "G01P04C/m24a0105.ssb": {
    "status": "COMPILED",
    "file": "g01p04c__m24a0105.lua",
    "dialogues": 9,
-   "gaps": [
-    "BGM BGM_GOODNIGHT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "G01P04C/m24a0107.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "ExecuteCommon",
-    "Turn2Direction:ACTOR_NPC_PUKURIN"
+    "ExecuteCommon"
    ]
   },
   "G01P04C/m24a0109.ssb": {
@@ -6189,7 +5525,6 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_PERAPPU",
     "MovePositionOffset:ACTOR_NPC_PERAPPU",
     "WaitExecutePerformer",
     "back_ChangeGround"
@@ -6218,7 +5553,6 @@
     "MovePositionOffset:0",
     "MovePositionOffset:ACTOR_PLAYER_KIMAWARI",
     "SlidePositionMark",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
     "Turn2Direction:ACTOR_PLAYER_KIMAWARI",
     "camera2_SetPositionMark"
    ]
@@ -6652,29 +5986,10 @@
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[29, 72]",
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
-    "MovePositionMark:ACTOR_NPC_HEIGANI",
-    "MovePositionMark:ACTOR_NPC_KOIRU",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
     "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_DOGOOMU",
-    "Turn2Direction:ACTOR_NPC_HEIGANI",
     "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_KOIRU",
-    "Turn2Direction:ACTOR_NPC_MARIRU",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2Direction:ACTOR_NPC_PUKURIN",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_BIPPA",
     "Turn2DirectionLives:ACTOR_NPC_CHIRIIN",
-    "Turn2DirectionLives:ACTOR_NPC_DOGOOMU",
-    "Turn2DirectionLives:ACTOR_NPC_HEIGANI",
-    "Turn2DirectionLives:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_KOIRU",
-    "Turn2DirectionLives:ACTOR_NPC_MARIRU",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_NPC_PUKURIN",
-    "Turn2DirectionLives:ACTOR_PLAYER"
+    "Turn2DirectionLives:ACTOR_NPC_KIMAWARI"
    ]
   },
   "G01P07A/s20p0504.ssb": {
@@ -6682,24 +5997,10 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "MovePositionOffset:ACTOR_NPC_PUKURIN",
-    "SetDirection:ACTOR_NPC_KOIRU",
-    "SetDirection:ACTOR_NPC_MARIRU",
-    "SetDirection:ACTOR_NPC_PERAPPU",
-    "SetDirection:ACTOR_NPC_PUKURIN",
-    "SetPositionMark:ACTOR_NPC_KOIRU",
-    "SetPositionMark:ACTOR_NPC_PERAPPU",
-    "SetPositionMark:ACTOR_NPC_PUKURIN",
-    "Turn2Direction:ACTOR_NPC_DOGOOMU",
-    "Turn2Direction:ACTOR_NPC_HEIGANI",
     "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_KOIRU",
-    "Turn2Direction:ACTOR_NPC_MARIRU",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2Direction:ACTOR_NPC_PUKURIN",
     "Turn2DirectionLives:ACTOR_ATTENDANT1",
     "Turn2DirectionLives:ACTOR_NPC_BIPPA",
     "Turn2DirectionLives:ACTOR_NPC_CHIRIIN",
-    "Turn2DirectionLives:ACTOR_NPC_DOGOOMU",
     "Turn2DirectionLives:ACTOR_NPC_HEIGANI",
     "Turn2DirectionLives:ACTOR_NPC_KIMAWARI",
     "Turn2DirectionLives:ACTOR_NPC_KOIRU",
@@ -6718,9 +6019,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "Turn2Direction:ACTOR_NPC_MARIRU",
-    "Turn2Direction:ACTOR_NPC_SURIIPU",
-    "Turn2DirectionLives:ACTOR_NPC_MARIRU",
     "supervision_LoadStation",
     "supervision_Station",
     "supervision_StationCommon"
@@ -6732,22 +6030,10 @@
     "$SCENARIO_MAIN = scn[29, 78]",
     "ExecuteCommon",
     "MovePositionOffset:ACTOR_NPC_PUKURIN",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
     "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_DOGOOMU",
-    "Turn2Direction:ACTOR_NPC_HEIGANI",
     "Turn2Direction:ACTOR_NPC_KIMAWARI",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2Direction:ACTOR_NPC_PUKURIN",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_BIPPA",
     "Turn2DirectionLives:ACTOR_NPC_CHIRIIN",
-    "Turn2DirectionLives:ACTOR_NPC_DOGOOMU",
-    "Turn2DirectionLives:ACTOR_NPC_HEIGANI",
-    "Turn2DirectionLives:ACTOR_NPC_KIMAWARI",
-    "Turn2DirectionLives:ACTOR_NPC_MARIRU",
-    "Turn2DirectionLives:ACTOR_NPC_PUKURIN",
-    "Turn2DirectionLives:ACTOR_NPC_SURIIPU"
+    "Turn2DirectionLives:ACTOR_NPC_KIMAWARI"
    ]
   },
   "G01P07A/un0100.ssb": {
@@ -6811,25 +6097,24 @@
    ]
   },
   "G01P07C/m02a0601.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_PERAPPU"
+   "status": "COMPILED",
+   "file": "g01p07c__m02a0601.lua",
+   "dialogues": 3,
+   "gaps": [
+    "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente"
    ]
   },
   "G01P07C/m04a0302.ssb": {
    "status": "COMPILED",
    "file": "g01p07c__m04a0302.lua",
    "dialogues": 2,
-   "gaps": [
-    "SetEffect EFFECT_ANGRY sur PNJ non résolu (v2 cast SSA)"
-   ]
+   "gaps": null
   },
   "G01P07C/m05a0804.ssb": {
    "status": "COMPILED",
    "file": "g01p07c__m05a0804.lua",
    "dialogues": 4,
    "gaps": [
-    "BGM BGM_GOODNIGHT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
     "se_Play(8965) — id SE NDS sans portage PMDO identifié",
     "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente"
    ]
@@ -6928,15 +6213,13 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "MovePositionOffset:ACTOR_NPC_MANAFI",
-    "Turn2Direction:ACTOR_NPC_MANAFI",
-    "Turn2Direction:ACTOR_NPC_PERAPPU"
+    "Turn2Direction:ACTOR_NPC_MANAFI"
    ]
   },
   "H01P99A/s20p0401.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
     "MovePositionOffset:ACTOR_ATTENDANT1",
     "MovePositionOffset:ACTOR_NPC_BIPPA",
     "MovePositionOffset:ACTOR_PLAYER"
@@ -7167,12 +6450,7 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_PERAPPU",
     "MovePositionOffset:ACTOR_NPC_PERAPPU",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_PERAPPU",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "WaitSubScreen",
     "dungeon_mode",
     "me_Play",
@@ -7193,7 +6471,6 @@
     "ExecuteCommon",
     "MovePositionOffset:ACTOR_ATTENDANT1",
     "SlidePositionOffset",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
     "supervision_StationCommon"
    ]
   },
@@ -7274,9 +6551,7 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_JUPUTORU",
-    "MovePositionOffset:ACTOR_NPC_JUPUTORU",
-    "Turn2Direction:ACTOR_NPC_JUPUTORU"
+    "MovePositionOffset:ACTOR_NPC_JUPUTORU"
    ]
   },
   "H02P99C/s20p0102.ssb": {
@@ -7363,8 +6638,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
     "WaitExecutePerformer"
    ]
   },
@@ -7398,7 +6671,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_YUKIKABURI",
     "SlidePositionOffset",
     "dungeon_mode"
    ]
@@ -7408,7 +6680,6 @@
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[40, 3]",
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_YUKIKABURI",
     "MovePositionOffset:ACTOR_NPC_YUKIKABURI",
     "MovePositionOffset:ACTOR_PLAYER_BIPPA",
     "SlidePositionOffset",
@@ -7419,7 +6690,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_YUKIKABURI",
     "MovePositionOffset:ACTOR_NPC_YUKIKABURI",
     "MovePositionOffset:ACTOR_PLAYER_BIPPA",
     "switch "
@@ -7469,7 +6739,6 @@
     "$SCENARIO_MAIN = scn[29, 48]",
     "ExecuteCommon",
     "MovePositionLives",
-    "MovePositionMark:ACTOR_NPC_PERAPPU",
     "MovePositionOffset:ACTOR_NPC_PERAPPU",
     "WaitExecutePerformer",
     "supervision_StationCommon"
@@ -7502,10 +6771,8 @@
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[7, 3]",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_SOONANO",
     "MovePositionMark:ACTOR_NPC_SOONANSU",
     "MovePositionOffset:ACTOR_NPC_SOONANSU",
-    "Turn2Direction:ACTOR_NPC_SOONANO",
     "Turn2Direction:ACTOR_NPC_SOONANSU",
     "supervision_StationCommon"
    ]
@@ -7516,10 +6783,6 @@
     "$SCENARIO_MAIN = scn[8, 5]",
     "$SUB30_PROJECTP[0] = 1",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_BARIYAADO",
-    "MovePositionMark:ACTOR_NPC_OKUTAN",
-    "Turn2Direction:ACTOR_NPC_BARIYAADO",
-    "Turn2Direction:ACTOR_NPC_OKUTAN",
     "WaitExecutePerformer",
     "supervision_StationCommon"
    ]
@@ -7529,10 +6792,6 @@
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[29, 8]",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_BARIYAADO",
-    "MovePositionMark:ACTOR_NPC_OKUTAN",
-    "Turn2Direction:ACTOR_NPC_BARIYAADO",
-    "Turn2Direction:ACTOR_NPC_OKUTAN",
     "WaitExecutePerformer",
     "supervision_StationCommon"
    ]
@@ -7769,9 +7028,7 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN_BIT_FLAG[92] = 1",
-    "Move2PositionMark:ACTOR_NPC_KURABU",
     "MovePositionOffset:ACTOR_NPC_KURABU",
-    "SetDirection:ACTOR_NPC_KURABU",
     "supervision_RemoveActing"
    ]
   },
@@ -7807,17 +7064,9 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "Move2PositionMark:ACTOR_NPC_SOONANO",
     "Move2PositionMark:ACTOR_NPC_SOONANSU",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_PATCHIIRU",
-    "MovePositionMark:ACTOR_NPC_SOONANO",
     "MovePositionMark:ACTOR_NPC_SOONANSU",
-    "Turn2Direction:ACTOR_NPC_BARIYAADO",
-    "Turn2Direction:ACTOR_NPC_HERAKUROSU",
-    "Turn2Direction:ACTOR_NPC_OKUTAN",
-    "Turn2Direction:ACTOR_NPC_PATCHIIRU",
-    "Turn2Direction:ACTOR_NPC_SOONANO",
     "Turn2Direction:ACTOR_NPC_SOONANSU",
     "Turn3",
     "WaitExecutePerformer",
@@ -7832,23 +7081,7 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_REDIBA",
-    "MovePositionMark:ACTOR_NPC_SANDOPAN",
-    "MovePositionMark:ACTOR_NPC_SUTORAIKU",
-    "MovePositionMark:ACTOR_NPC_TOGEPII",
-    "MovePositionMark:ACTOR_NPC_ZANGUUSU",
     "MovePositionOffset:ACTOR_NPC_JIGUZAGUMA",
-    "Turn2Direction:ACTOR_NPC_BARIYAADO",
-    "Turn2Direction:ACTOR_NPC_HERAKUROSU",
-    "Turn2Direction:ACTOR_NPC_JIGUZAGUMA",
-    "Turn2Direction:ACTOR_NPC_NYOROTONO",
-    "Turn2Direction:ACTOR_NPC_OKUTAN",
-    "Turn2Direction:ACTOR_NPC_PACHIRISU",
-    "Turn2Direction:ACTOR_NPC_REDIBA",
-    "Turn2Direction:ACTOR_NPC_SANDOPAN",
-    "Turn2Direction:ACTOR_NPC_SUTORAIKU",
-    "Turn2Direction:ACTOR_NPC_TOGEPII",
-    "Turn2Direction:ACTOR_NPC_ZANGUUSU",
     "WaitExecutePerformer",
     "se_FadeOut"
    ]
@@ -7858,17 +7091,6 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "MovePositionOffset:0",
-    "Turn2Direction:ACTOR_NPC_BARIYAADO",
-    "Turn2Direction:ACTOR_NPC_HERAKUROSU",
-    "Turn2Direction:ACTOR_NPC_JIGUZAGUMA",
-    "Turn2Direction:ACTOR_NPC_NYOROTONO",
-    "Turn2Direction:ACTOR_NPC_OKUTAN",
-    "Turn2Direction:ACTOR_NPC_PACHIRISU",
-    "Turn2Direction:ACTOR_NPC_REDIBA",
-    "Turn2Direction:ACTOR_NPC_SANDOPAN",
-    "Turn2Direction:ACTOR_NPC_SUTORAIKU",
-    "Turn2Direction:ACTOR_NPC_TOGEPII",
-    "Turn2Direction:ACTOR_NPC_ZANGUUSU",
     "WaitExecutePerformer",
     "se_FadeOut",
     "supervision_LoadStation",
@@ -7888,39 +7110,12 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_SANDOPAN",
-    "MovePositionMark:ACTOR_NPC_SUTORAIKU",
-    "MovePositionMark:ACTOR_NPC_ZANGUUSU",
     "MovePositionOffset:ACTOR_ATTENDANT1",
     "MovePositionOffset:ACTOR_NPC_JIGUZAGUMA",
-    "Turn2Direction:ACTOR_NPC_BARIYAADO",
-    "Turn2Direction:ACTOR_NPC_HERAKUROSU",
-    "Turn2Direction:ACTOR_NPC_JIGUZAGUMA",
     "Turn2Direction:ACTOR_NPC_KAGEBOUZU",
-    "Turn2Direction:ACTOR_NPC_NYOROTONO",
-    "Turn2Direction:ACTOR_NPC_NYUURA",
-    "Turn2Direction:ACTOR_NPC_OKUTAN",
-    "Turn2Direction:ACTOR_NPC_PACHIRISU",
-    "Turn2Direction:ACTOR_NPC_REDIBA",
-    "Turn2Direction:ACTOR_NPC_SANDOPAN",
-    "Turn2Direction:ACTOR_NPC_SUTORAIKU",
-    "Turn2Direction:ACTOR_NPC_TOGEPII",
     "Turn2Direction:ACTOR_NPC_YAMIKARASU",
-    "Turn2Direction:ACTOR_NPC_ZANGUUSU",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_BARIYAADO",
-    "Turn2DirectionLives:ACTOR_NPC_HERAKUROSU",
-    "Turn2DirectionLives:ACTOR_NPC_JIGUZAGUMA",
     "Turn2DirectionLives:ACTOR_NPC_KAGEBOUZU",
-    "Turn2DirectionLives:ACTOR_NPC_NYOROTONO",
-    "Turn2DirectionLives:ACTOR_NPC_NYUURA",
-    "Turn2DirectionLives:ACTOR_NPC_OKUTAN",
-    "Turn2DirectionLives:ACTOR_NPC_PACHIRISU",
-    "Turn2DirectionLives:ACTOR_NPC_REDIBA",
-    "Turn2DirectionLives:ACTOR_NPC_SANDOPAN",
-    "Turn2DirectionLives:ACTOR_NPC_TOGEPII",
     "Turn2DirectionLives:ACTOR_NPC_YAMIKARASU",
-    "Turn2DirectionLives:ACTOR_NPC_ZANGUUSU",
     "se_FadeOut"
    ]
   },
@@ -8110,11 +7305,8 @@
     "ExecuteCommon",
     "MovePositionMark:0",
     "MovePositionMark:ACTOR_NPC_HIMEGUMA",
-    "MovePositionMark:ACTOR_NPC_KOOTASU",
     "MovePositionOffset:ACTOR_NPC_KOOTASU",
     "Turn2Direction:ACTOR_NPC_HIMEGUMA",
-    "Turn2Direction:ACTOR_NPC_KOOTASU",
-    "Turn2Direction:ACTOR_NPC_MANKII",
     "Turn2DirectionLives:ACTOR_ATTENDANT1",
     "Turn2DirectionLives:ACTOR_PLAYER",
     "WaitExecutePerformer"
@@ -8302,9 +7494,7 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_YUKUSHII",
     "MovePositionOffset:0",
-    "Turn2Direction:ACTOR_NPC_YUKUSHII",
     "supervision_StationCommon"
    ]
   },
@@ -8312,7 +7502,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "Turn2Direction:ACTOR_NPC_YUKUSHII",
     "supervision_StationCommon"
    ]
   },
@@ -8326,9 +7515,7 @@
    "status": "COMPILED",
    "file": "p04p01c__m11a0706.lua",
    "dialogues": 7,
-   "gaps": [
-    "BGM BGM_TIME_GEAR_REMIX non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "P05P02A/enter01.ssb": {
    "status": "PARTIAL_OPS",
@@ -8348,17 +7535,14 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_JUPUTORU",
     "MovePositionOffset:ACTOR_ATTENDANT1",
     "MovePositionOffset:ACTOR_NPC_JUPUTORU",
     "MovePositionOffset:ACTOR_NPC_SEREBII",
     "MovePositionOffset:ACTOR_PLAYER",
-    "Turn2Direction:ACTOR_NPC_JUPUTORU",
     "Turn2Direction:ACTOR_NPC_SEREBII",
     "Turn2DirectionLives:ACTOR_ATTENDANT1",
     "Turn2DirectionLives:ACTOR_NPC_JUPUTORU",
     "Turn2DirectionLives:ACTOR_NPC_SEREBII",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "back_SetDungeonBanner",
     "message_SetFaceOnly"
    ]
@@ -8383,16 +7567,10 @@
     "MovePositionOffset:ACTOR_NPC_YAMIRAMI5",
     "MovePositionOffset:ACTOR_NPC_YAMIRAMI6",
     "MovePositionOffset:ACTOR_NPC_YONOWAARU_N8",
-    "SetDirection:ACTOR_NPC_YAMIRAMI4",
-    "SetDirection:ACTOR_NPC_YAMIRAMI5",
-    "SetDirection:ACTOR_NPC_YAMIRAMI6",
     "Slide2PositionOffset:ACTOR_NPC_YAMIRAMI4",
     "Slide2PositionOffset:ACTOR_NPC_YAMIRAMI5",
     "Slide2PositionOffset:ACTOR_NPC_YAMIRAMI6",
     "SlidePositionOffset",
-    "Turn2Direction:ACTOR_NPC_YAMIRAMI4",
-    "Turn2Direction:ACTOR_NPC_YAMIRAMI5",
-    "Turn2Direction:ACTOR_NPC_YAMIRAMI6",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N8",
     "Turn2Direction:ACTOR_PLAYER_FUTURE",
     "Turn2DirectionLives:ACTOR_NPC_YONOWAARU_N8",
@@ -8403,20 +7581,8 @@
   "P08P01A/t02a0303.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "SetDirection:ACTOR_NPC_YAMIRAMI",
-    "SetDirection:ACTOR_NPC_YAMIRAMI2",
-    "SetDirection:ACTOR_NPC_YAMIRAMI3",
-    "SetDirection:ACTOR_NPC_YAMIRAMI4",
-    "SetDirection:ACTOR_NPC_YAMIRAMI5",
-    "SetDirection:ACTOR_NPC_YAMIRAMI6",
     "SetDirection:ACTOR_NPC_YONOWAARU_N8",
     "SetDirection:ACTOR_PLAYER_FUTURE",
-    "SetPositionMark:ACTOR_NPC_YAMIRAMI",
-    "SetPositionMark:ACTOR_NPC_YAMIRAMI2",
-    "SetPositionMark:ACTOR_NPC_YAMIRAMI3",
-    "SetPositionMark:ACTOR_NPC_YAMIRAMI4",
-    "SetPositionMark:ACTOR_NPC_YAMIRAMI5",
-    "SetPositionMark:ACTOR_NPC_YAMIRAMI6",
     "SetPositionMark:ACTOR_NPC_YONOWAARU_N8",
     "SetPositionMark:ACTOR_PLAYER_FUTURE",
     "SlidePositionMark",
@@ -8427,25 +7593,20 @@
   "P10P01A/m22a1004.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[24, 0]",
-    "MovePositionMark:ACTOR_NPC_RAPURASU"
+    "$SCENARIO_MAIN = scn[24, 0]"
    ]
   },
   "P11P01A/m23a1001.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_JUPUTORU",
-    "Turn2Direction:ACTOR_NPC_JUPUTORU"
+    "MovePositionMark:0"
    ]
   },
   "P11P01A/m23a1008.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "Move2PositionMark:ACTOR_NPC_RAPURASU",
-    "Turn2Direction:ACTOR_NPC_JUPUTORU",
     "switch "
    ]
   },
@@ -8470,7 +7631,6 @@
     "MovePositionOffset:ACTOR_NPC_BIPPA_BRO",
     "MovePositionOffset:ACTOR_NPC_BIPPA_SIS",
     "MovePositionOffset:ACTOR_PLAYER_BIPPA",
-    "SetDirection:ACTOR_NPC_BIPPA_BRO",
     "SetDirection:ACTOR_NPC_BIPPA_SIS",
     "SetPositionMark:0"
    ]
@@ -8493,7 +7653,6 @@
    "unsupported_ops": [
     "MovePositionMark:ACTOR_PLAYER_PUPURIN",
     "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA",
-    "Turn2Direction:ACTOR_NPC_PUKURIN_PAPA",
     "Turn2Direction:ACTOR_PLAYER_PUPURIN",
     "supervision_LoadStation",
     "supervision_Station"
@@ -8517,7 +7676,6 @@
    "unsupported_ops": [
     "MovePositionMark:ACTOR_PLAYER_PUPURIN",
     "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA",
-    "Turn2Direction:ACTOR_NPC_PUKURIN_PAPA",
     "Turn2Direction:ACTOR_PLAYER_PUPURIN",
     "supervision_LoadStation",
     "supervision_Station"
@@ -8528,7 +7686,6 @@
    "unsupported_ops": [
     "MovePositionMark:ACTOR_PLAYER_PUPURIN",
     "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA",
-    "Turn2Direction:ACTOR_NPC_PUKURIN_PAPA",
     "Turn2Direction:ACTOR_PLAYER_PUPURIN",
     "supervision_LoadStation",
     "supervision_Station"
@@ -8540,7 +7697,6 @@
     "Move2PositionMark:ACTOR_PLAYER_PUPURIN",
     "MovePositionOffset:ACTOR_PLAYER_PUPURIN",
     "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA",
-    "Turn2Direction:ACTOR_NPC_PUKURIN_PAPA",
     "back_SetBackEffect",
     "message_Mail"
    ]
@@ -8550,7 +7706,6 @@
    "unsupported_ops": [
     "MovePositionMark:ACTOR_PLAYER_PUPURIN",
     "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA",
-    "Turn2Direction:ACTOR_NPC_PUKURIN_PAPA",
     "Turn2Direction:ACTOR_PLAYER_PUPURIN",
     "supervision_LoadStation",
     "supervision_Station"
@@ -8561,9 +7716,7 @@
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[42, 6]",
     "MovePositionMark:ACTOR_NPC_PUKURIN_MAMA",
-    "MovePositionMark:ACTOR_NPC_PUKURIN_PAPA",
-    "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA",
-    "Turn2Direction:ACTOR_NPC_PUKURIN_PAPA"
+    "Turn2Direction:ACTOR_NPC_PUKURIN_MAMA"
    ]
   },
   "P17P02A/un0200.ssb": {
@@ -8581,12 +7734,9 @@
   "P19P01A/n02a1001.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Move2PositionMark:ACTOR_NPC_AAMARUDO",
     "Move2PositionMark:ACTOR_PLAYER_PUPURIN",
-    "MovePositionMark:ACTOR_NPC_AAMARUDO",
     "MovePositionMark:ACTOR_PLAYER_PUPURIN",
     "MovePositionOffset:ACTOR_PLAYER_PUPURIN",
-    "Turn2Direction:ACTOR_NPC_AAMARUDO",
     "Turn2Direction:ACTOR_PLAYER_PUPURIN",
     "message_SetFaceOnly",
     "supervision_StationCommon"
@@ -8641,7 +7791,6 @@
     "ExecuteCommon",
     "Move2PositionMark:ACTOR_PLAYER_PUPURIN",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_AAMARUDO",
     "MovePositionMark:ACTOR_PLAYER_PUPURIN",
     "Turn2Direction:ACTOR_PLAYER_PUPURIN",
     "WaitExecutePerformer"
@@ -8652,14 +7801,12 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_YAMIRAMI",
     "MovePositionMark:ACTOR_NPC_YONOWAARU_N8",
     "MovePositionOffset:0",
     "MovePositionOffset:ACTOR_NPC_YAMIRAMI",
     "MovePositionOffset:ACTOR_NPC_YONOWAARU_N8",
     "MovePositionOffset:ACTOR_PLAYER_FUTURE",
     "SlidePositionOffset",
-    "Turn2Direction:ACTOR_NPC_YAMIRAMI",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N8",
     "WaitExecutePerformer"
    ]
@@ -8674,8 +7821,6 @@
     "MovePositionOffset:ACTOR_NPC_PORIGON",
     "MovePositionOffset:ACTOR_NPC_PORIGON2",
     "MovePositionOffset:ACTOR_NPC_YONOWAARU_N8",
-    "Turn2Direction:ACTOR_NPC_PORIGON",
-    "Turn2Direction:ACTOR_NPC_PORIGON2",
     "Turn2Direction:ACTOR_NPC_YONOWAARU_N8",
     "WaitExecuteObject",
     "WaitExecutePerformer",
@@ -8696,10 +7841,8 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "SetPositionMark:0",
-    "SetPositionMark:ACTOR_NPC_GOROON",
     "SlidePositionOffset",
     "Turn2Direction:ACTOR_NPC_CHAAREMU",
-    "Turn2Direction:ACTOR_NPC_SAANAITO",
     "Turn2Direction:ACTOR_PLAYER_CHARMS",
     "Turn3",
     "WaitEndAnimation",
@@ -9184,9 +8327,7 @@
     "$SCENARIO_BALANCE_FLAG = 7",
     "ExecuteCommon",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_RINGUMA",
     "MovePositionMark:ACTOR_NPC_RINGUMA2",
-    "Turn2Direction:ACTOR_NPC_RINGUMA",
     "Turn2Direction:ACTOR_NPC_RINGUMA2",
     "WaitExecutePerformer",
     "supervision_LoadStation",
@@ -9199,9 +8340,7 @@
    "unsupported_ops": [
     "Move2PositionMark:0",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
     "MovePositionOffset:0",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
     "WaitExecutePerformer",
     "supervision_LoadStation",
     "supervision_Station",
@@ -9211,7 +8350,6 @@
   "T01P01A/m03a0109.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Move2PositionMark:ACTOR_NPC_BIPPA",
     "MovePositionOffset:ACTOR_NPC_BIPPA",
     "Turn2DirectionTurn",
     "supervision_LoadStation",
@@ -9261,11 +8399,6 @@
     "MovePositionOffset:ACTOR_NPC_S_YUKUSHII",
     "MovePositionOffset:ACTOR_PLAYER",
     "SetDirection:ACTOR_NPC_HIMEGUMA",
-    "SetDirection:ACTOR_NPC_JIBAKOIRU",
-    "SetDirection:ACTOR_NPC_KOIRU",
-    "SetDirection:ACTOR_NPC_OOSUBAME",
-    "SetDirection:ACTOR_NPC_POPPO",
-    "SetDirection:ACTOR_NPC_RINGUMA",
     "SetDirection:ACTOR_NPC_S_AGUNOMU",
     "SetDirection:ACTOR_NPC_S_BIPPA",
     "SetDirection:ACTOR_NPC_S_CHIRIIN",
@@ -9279,14 +8412,8 @@
     "SetDirection:ACTOR_NPC_S_PUKURIN",
     "SetDirection:ACTOR_NPC_S_YONOWAARU",
     "SetDirection:ACTOR_NPC_S_YUKUSHII",
-    "SetDirection:ACTOR_NPC_TANEBOO",
-    "SetDirection:ACTOR_NPC_YARUKIMONO",
     "SetPositionMark:0",
     "SetPositionMark:ACTOR_NPC_HIMEGUMA",
-    "SetPositionMark:ACTOR_NPC_JIBAKOIRU",
-    "SetPositionMark:ACTOR_NPC_OOSUBAME",
-    "SetPositionMark:ACTOR_NPC_POPPO",
-    "SetPositionMark:ACTOR_NPC_RINGUMA",
     "SetPositionMark:ACTOR_NPC_S_AGUNOMU",
     "SetPositionMark:ACTOR_NPC_S_BIPPA",
     "SetPositionMark:ACTOR_NPC_S_CHIRIIN",
@@ -9300,14 +8427,7 @@
     "SetPositionMark:ACTOR_NPC_S_PUKURIN",
     "SetPositionMark:ACTOR_NPC_S_YONOWAARU",
     "SetPositionMark:ACTOR_NPC_S_YUKUSHII",
-    "SetPositionMark:ACTOR_NPC_TANEBOO",
-    "SetPositionMark:ACTOR_NPC_YARUKIMONO",
     "Turn2Direction:ACTOR_NPC_HIMEGUMA",
-    "Turn2Direction:ACTOR_NPC_JIBAKOIRU",
-    "Turn2Direction:ACTOR_NPC_KOIRU",
-    "Turn2Direction:ACTOR_NPC_OOSUBAME",
-    "Turn2Direction:ACTOR_NPC_POPPO",
-    "Turn2Direction:ACTOR_NPC_RINGUMA",
     "Turn2Direction:ACTOR_NPC_S_AGUNOMU",
     "Turn2Direction:ACTOR_NPC_S_BIPPA",
     "Turn2Direction:ACTOR_NPC_S_CHIRIIN",
@@ -9321,8 +8441,6 @@
     "Turn2Direction:ACTOR_NPC_S_PUKURIN",
     "Turn2Direction:ACTOR_NPC_S_YONOWAARU",
     "Turn2Direction:ACTOR_NPC_S_YUKUSHII",
-    "Turn2Direction:ACTOR_NPC_TANEBOO",
-    "Turn2Direction:ACTOR_NPC_YARUKIMONO",
     "WaitExecutePerformer",
     "call @label_0",
     "call @label_1",
@@ -9351,11 +8469,6 @@
     "MovePositionOffset:ACTOR_NPC_S_PERAPPU",
     "MovePositionOffset:ACTOR_NPC_S_YUKUSHII",
     "Turn2Direction:ACTOR_NPC_HIMEGUMA",
-    "Turn2Direction:ACTOR_NPC_JIBAKOIRU",
-    "Turn2Direction:ACTOR_NPC_KOIRU",
-    "Turn2Direction:ACTOR_NPC_OOSUBAME",
-    "Turn2Direction:ACTOR_NPC_POPPO",
-    "Turn2Direction:ACTOR_NPC_RINGUMA",
     "Turn2Direction:ACTOR_NPC_S_AGUNOMU",
     "Turn2Direction:ACTOR_NPC_S_BIPPA",
     "Turn2Direction:ACTOR_NPC_S_CHIRIIN",
@@ -9369,8 +8482,6 @@
     "Turn2Direction:ACTOR_NPC_S_PUKURIN",
     "Turn2Direction:ACTOR_NPC_S_YONOWAARU",
     "Turn2Direction:ACTOR_NPC_S_YUKUSHII",
-    "Turn2Direction:ACTOR_NPC_TANEBOO",
-    "Turn2Direction:ACTOR_NPC_YARUKIMONO",
     "WaitExecutePerformer",
     "call @label_0",
     "call @label_1",
@@ -9404,11 +8515,9 @@
     "Move2PositionOffset:ACTOR_PLAYER",
     "MovePositionMark:0",
     "MovePositionMark:ACTOR_NPC_HIMEGUMA",
-    "MovePositionMark:ACTOR_NPC_RINGUMA",
     "MovePositionOffset:ACTOR_NPC_HIMEGUMA",
     "MovePositionOffset:ACTOR_NPC_RINGUMA",
     "Turn2Direction:ACTOR_NPC_HIMEGUMA",
-    "Turn2Direction:ACTOR_NPC_RINGUMA",
     "Turn2DirectionLives:ACTOR_NPC_HIMEGUMA",
     "Turn2DirectionLives:ACTOR_NPC_RINGUMA",
     "dungeon_mode",
@@ -9421,19 +8530,10 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_MARIRU",
-    "MovePositionMark:ACTOR_NPC_RURIRI",
     "MovePositionOffset:ACTOR_ATTENDANT1",
     "MovePositionOffset:ACTOR_PLAYER",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
     "Turn2Direction:ACTOR_NPC_CHIRIIN",
-    "Turn2Direction:ACTOR_NPC_DOGOOMU",
-    "Turn2Direction:ACTOR_NPC_HEIGANI",
     "Turn2Direction:ACTOR_NPC_KURESERIA",
-    "Turn2Direction:ACTOR_NPC_MARIRU",
-    "Turn2Direction:ACTOR_NPC_PERAPPU",
-    "Turn2Direction:ACTOR_NPC_PUKURIN",
-    "Turn2Direction:ACTOR_NPC_RURIRI",
     "Turn2DirectionLives:ACTOR_ATTENDANT1",
     "Turn2DirectionLives:ACTOR_NPC_BIPPA",
     "Turn2DirectionLives:ACTOR_NPC_CHIRIIN",
@@ -9453,13 +8553,9 @@
     "ExecuteCommon",
     "MovePositionOffset:ACTOR_NPC_PUKURIN",
     "SlidePositionOffset",
-    "Turn2Direction:ACTOR_NPC_DOGOOMU",
     "Turn2Direction:ACTOR_NPC_KURESERIA",
-    "Turn2Direction:ACTOR_NPC_RURIRI",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
     "Turn2DirectionLives:ACTOR_NPC_BIPPA",
     "Turn2DirectionLives:ACTOR_NPC_CHIRIIN",
-    "Turn2DirectionLives:ACTOR_NPC_DOGOOMU",
     "Turn2DirectionLives:ACTOR_NPC_HEIGANI",
     "Turn2DirectionLives:ACTOR_NPC_KIMAWARI",
     "Turn2DirectionLives:ACTOR_NPC_KURESERIA",
@@ -9767,17 +8863,10 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "Move2PositionMark:ACTOR_NPC_MARIRU",
-    "Move2PositionMark:ACTOR_NPC_RURIRI",
     "MovePositionLives",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_MARIRU",
-    "MovePositionMark:ACTOR_NPC_RURIRI",
     "SlidePositionOffset",
-    "Turn2Direction:ACTOR_NPC_KAKUREON1",
     "Turn2Direction:ACTOR_NPC_KAKUREON2",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_RURIRI",
     "Turn2DirectionTurn",
     "WaitExecutePerformer",
     "supervision_LoadStation",
@@ -9791,26 +8880,12 @@
     "$SCENARIO_MAIN = scn[12, 4]",
     "ExecuteCommon",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_MARIRU",
-    "MovePositionMark:ACTOR_NPC_RURIRI",
     "MovePositionOffset:ACTOR_ATTENDANT1",
     "MovePositionOffset:ACTOR_NPC_DOGAASU",
     "MovePositionOffset:ACTOR_NPC_ZUBATTO",
     "MovePositionOffset:ACTOR_PLAYER",
-    "Turn2Direction:ACTOR_NPC_KAKUREON1",
     "Turn2Direction:ACTOR_NPC_KAKUREON2",
-    "Turn2Direction:ACTOR_NPC_MARIRU",
-    "Turn2Direction:ACTOR_NPC_RURIRI",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_DOGAASU",
-    "Turn2DirectionLives:ACTOR_NPC_KAKUREON1",
     "Turn2DirectionLives:ACTOR_NPC_KAKUREON2",
-    "Turn2DirectionLives:ACTOR_NPC_MARIRU",
-    "Turn2DirectionLives:ACTOR_NPC_RURIRI",
-    "Turn2DirectionLives:ACTOR_NPC_YONOWAARU",
-    "Turn2DirectionLives:ACTOR_NPC_ZUBATTO",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "WaitExecutePerformer",
     "bgm_ChangeVolume"
    ]
@@ -9819,16 +8894,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_MARIRU",
-    "MovePositionMark:ACTOR_NPC_RURIRI",
-    "Turn2Direction:ACTOR_NPC_MARIRU",
-    "Turn2Direction:ACTOR_NPC_RURIRI",
-    "Turn2Direction:ACTOR_NPC_YONOWAARU",
-    "Turn2DirectionLives:ACTOR_ATTENDANT1",
-    "Turn2DirectionLives:ACTOR_NPC_MARIRU",
-    "Turn2DirectionLives:ACTOR_NPC_RURIRI",
-    "Turn2DirectionLives:ACTOR_NPC_YONOWAARU",
-    "Turn2DirectionLives:ACTOR_PLAYER",
     "supervision_StationCommon"
    ]
   },
@@ -10102,10 +9167,8 @@
     "$SCENARIO_MAIN_BIT_FLAG[12] = 1",
     "ExecuteCommon",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_GARAGARA",
     "MovePositionOffset:ACTOR_ATTENDANT1",
     "MovePositionOffset:ACTOR_PLAYER",
-    "Turn2Direction:ACTOR_NPC_GARAGARA",
     "supervision_StationCommon"
    ]
   },
@@ -10114,7 +9177,6 @@
    "unsupported_ops": [
     "ExecuteCommon",
     "SlidePositionOffset",
-    "Turn2Direction:ACTOR_NPC_GARAGARA",
     "back_ChangeGround",
     "supervision_StationCommon"
    ]
@@ -10129,11 +9191,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "ExecuteCommon",
-    "MovePositionMark:ACTOR_NPC_DAGUTORIO",
-    "Turn2Direction:ACTOR_NPC_KEMUSSO",
-    "Turn2Direction:ACTOR_NPC_OOSUBAME",
-    "Turn2DirectionLives:ACTOR_NPC_KEMUSSO",
-    "Turn2DirectionLives:ACTOR_NPC_OOSUBAME",
     "WaitExecuteObject"
    ]
   },
@@ -10141,39 +9198,31 @@
    "status": "COMPILED",
    "file": "v03p06a__m03a1305.lua",
    "dialogues": 1,
-   "gaps": [
-    "BGM BGM_TIME_GEAR_REMIX non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "V03P07A/m03a1306.ssb": {
    "status": "COMPILED",
    "file": "v03p07a__m03a1306.lua",
    "dialogues": 1,
-   "gaps": [
-    "BGM BGM_TIME_GEAR_REMIX non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "V03P07A/m08a0202.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_JUPUTORU"
-   ]
+   "status": "COMPILED",
+   "file": "v03p07a__m08a0202.lua",
+   "dialogues": 1,
+   "gaps": null
   },
   "V03P08A/m03a1307.ssb": {
    "status": "COMPILED",
    "file": "v03p08a__m03a1307.lua",
    "dialogues": 1,
-   "gaps": [
-    "BGM BGM_TIME_GEAR_REMIX non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "V03P12A/m08a0203.ssb": {
    "status": "COMPILED",
    "file": "v03p12a__m08a0203.lua",
    "dialogues": 1,
-   "gaps": [
-    "BGM BGM_TIME_GEAR_REMIX non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "V03P12A/m11a0707.ssb": {
    "status": "PARTIAL_OPS",
@@ -10186,15 +9235,8 @@
    "unsupported_ops": [
     "Move2PositionMark:0",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
-    "MovePositionMark:ACTOR_NPC_DIGUDA",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
     "MovePositionOffset:0",
-    "SetPositionMark:ACTOR_NPC_BIPPA",
     "SlidePositionMark",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
-    "Turn2Direction:ACTOR_NPC_DIGUDA",
-    "Turn2Direction:ACTOR_NPC_DOGOOMU",
     "WaitExecutePerformer"
    ]
   },
@@ -10204,13 +9246,8 @@
     "ExecuteCommon",
     "Move2PositionMark:0",
     "MovePositionMark:0",
-    "MovePositionMark:ACTOR_NPC_BIPPA",
-    "MovePositionMark:ACTOR_NPC_DOGOOMU",
     "MovePositionOffset:0",
-    "SetPositionMark:ACTOR_NPC_BIPPA",
     "SlidePositionMark",
-    "Turn2Direction:ACTOR_NPC_BIPPA",
-    "Turn2Direction:ACTOR_NPC_DOGOOMU",
     "WaitExecutePerformer"
    ]
   },
@@ -10218,33 +9255,25 @@
    "status": "COMPILED",
    "file": "v05p01a__m05a0102.lua",
    "dialogues": 1,
-   "gaps": [
-    "BGM BGM_TIME_GEAR_REMIX non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "V05P01A/m20a0702.ssb": {
    "status": "COMPILED",
    "file": "v05p01a__m20a0702.lua",
    "dialogues": 0,
-   "gaps": [
-    "BGM BGM_TIME_GEAR_REMIX non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "V05P02A/m05a0103.ssb": {
    "status": "COMPILED",
    "file": "v05p02a__m05a0103.lua",
    "dialogues": 2,
-   "gaps": [
-    "BGM BGM_TIME_GEAR_REMIX non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "V05P02A/m20a0703.ssb": {
    "status": "COMPILED",
    "file": "v05p02a__m20a0703.lua",
    "dialogues": 0,
-   "gaps": [
-    "BGM BGM_TIME_GEAR_REMIX non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "V10P01C/m10a1202.ssb": {
    "status": "PARTIAL_OPS",
@@ -10320,57 +9349,43 @@
    "status": "COMPILED",
    "file": "v26p01a__s22p1107.lua",
    "dialogues": 2,
-   "gaps": [
-    "BGM BGM_HIDDEN_HIGHLAND non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "V26P02A/m26a0306.ssb": {
    "status": "COMPILED",
    "file": "v26p02a__m26a0306.lua",
    "dialogues": 0,
-   "gaps": [
-    "BGM BGM_TIME_RESTORED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "V26P02A/m26a0801.ssb": {
    "status": "COMPILED",
    "file": "v26p02a__m26a0801.lua",
    "dialogues": 0,
-   "gaps": [
-    "BGM BGM_TIME_RESTORED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "V26P03A/m26a0307.ssb": {
    "status": "COMPILED",
    "file": "v26p03a__m26a0307.lua",
    "dialogues": 1,
-   "gaps": [
-    "BGM BGM_TIME_RESTORED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "V26P03A/m26a0802.ssb": {
    "status": "COMPILED",
    "file": "v26p03a__m26a0802.lua",
    "dialogues": 0,
-   "gaps": [
-    "BGM BGM_TIME_RESTORED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "V26P03A/s22p1106.ssb": {
    "status": "COMPILED",
    "file": "v26p03a__s22p1106.lua",
    "dialogues": 1,
-   "gaps": [
-    "BGM BGM_HIDDEN_HIGHLAND non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "V26P09A/m26a0301.ssb": {
    "status": "COMPILED",
    "file": "v26p09a__m26a0301.lua",
    "dialogues": 2,
-   "gaps": [
-    "BGM BGM_TIME_RESTORED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
-   ]
+   "gaps": null
   },
   "V26P10A/m26a0302.ssb": {
    "status": "PARTIAL_OPS",

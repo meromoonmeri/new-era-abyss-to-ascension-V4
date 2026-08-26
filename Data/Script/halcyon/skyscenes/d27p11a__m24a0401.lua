@@ -3,7 +3,7 @@
 -- Dialogues 5 langues ROM embarqués ; conventions du pilote m01a0204.
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  -- GAP: BGM BGM_HIDDEN_LAND non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
+  pcall(function() SOUND:PlayBGM("Hidden Land.ogg", true) end)
   -- SetAnimation(2) [anim idle native]
   -- SetAnimation(2) [anim idle native]
   -- SetAnimation(2) [anim idle native]

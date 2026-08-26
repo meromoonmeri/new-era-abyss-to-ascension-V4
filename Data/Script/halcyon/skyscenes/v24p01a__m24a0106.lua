@@ -11,6 +11,7 @@ return function(hero, partner)
   -- SetOutputAttribute(4) [neutre/état moteur]
   -- SetAnimation(2) [anim idle native]
   -- SetAnimation(2) [anim idle native]
+  local npc_npc_juputoru = SkySceneKit.spawn_npc("grovyle", 208, 176, Direction.UpLeft, "NPC_JUPUTORU")
   -- SetAnimation(2) [anim idle native]
   -- SetAnimation(1) [anim idle native]
   -- camera_SetMyself() [neutre/état moteur]
@@ -38,4 +39,5 @@ return function(hero, partner)
   -- message_Close
   pcall(function() SOUND:FadeOutBGM(120) end)
   GAME:FadeOut(false, 30)
+  SkySceneKit.cleanup_npcs()
 end

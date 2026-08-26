@@ -7,11 +7,12 @@ return function(hero, partner)
   -- back_SetGround(LEVEL_G01P07C) [neutre/état moteur]
   -- supervision_Acting(0) [neutre/état moteur]
   -- camera_SetMyself() [neutre/état moteur]
-  -- GAP: SetEffect EFFECT_ANGRY sur PNJ non résolu (v2 cast SSA)
+  local npc_npc_dogoomu = SkySceneKit.spawn_npc("loudred", 80, 184, Direction.Right, "NPC_DOGOOMU")
+  pcall(function() GROUND:CharSetEmote(npc_npc_dogoomu, "angry", 1) end)
   -- SetAnimation(9) [anim idle native]
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_dogoomu) end)
   SkySceneKit.say({english=" Grrr...", french=" Grrr...", german=" Grrr...", italian=" Grrr...", spanish=" Grrr..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Confused_2") end)
@@ -24,4 +25,5 @@ return function(hero, partner)
   SkySceneKit.say({english="Yes, you have the right to be\nangry with us, but...", french="Oui, tu as le droit d'être en\ncolère contre nous, mais bon...", german="Ja, du hast das Recht, wütend\nauf uns zu sein, aber...", italian="Insomma, posso capire che tu\nsia arrabbiato con noi, ma...", spanish="Comprendo que estés\nenfadado, pero..."}) -- SwitchTalk: branche default (canon générique)
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(60)
+  SkySceneKit.cleanup_npcs()
 end

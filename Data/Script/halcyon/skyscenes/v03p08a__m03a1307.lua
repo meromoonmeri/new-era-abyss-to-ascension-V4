@@ -3,7 +3,7 @@
 -- Dialogues 5 langues ROM embarqués ; conventions du pilote m01a0204.
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  -- GAP: BGM BGM_TIME_GEAR_REMIX non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
+  pcall(function() SOUND:PlayBGM("Time Gear Remix.ogg", true) end)
   -- back_SetGround(LEVEL_V03P08A) [neutre/état moteur]
   -- supervision_Acting(0) [neutre/état moteur]
   pcall(function() GAME:MoveCamera(156, 148, 1, false) end)

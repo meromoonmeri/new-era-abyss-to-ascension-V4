@@ -3,7 +3,7 @@
 -- Dialogues 5 langues ROM embarqués ; conventions du pilote m01a0204.
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  -- GAP: BGM BGM_SEALED_RUIN non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
+  pcall(function() SOUND:PlayBGM("Sealed Ruin.ogg", true) end)
   -- SetAnimation(2) [anim idle native]
   -- SetAnimation(2) [anim idle native]
   GAME:WaitFrames(2) -- join WaitExecuteLives

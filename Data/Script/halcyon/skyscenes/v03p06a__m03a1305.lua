@@ -9,7 +9,7 @@ return function(hero, partner)
   -- SetAnimation(3) [anim idle native]
   -- SetAnimation(3) [anim idle native]
   GAME:FadeIn(30)
-  -- GAP: BGM BGM_TIME_GEAR_REMIX non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
+  pcall(function() SOUND:PlayBGM("Time Gear Remix.ogg", true) end)
   GAME:WaitFrames(30)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english=" Like in a forest...", french="Ils peuvent se trouver par\nexemple dans une forêt...", german=" Zum Beispiel in einem Wald...", italian=" Ad esempio in una foresta...", spanish="Como por ejemplo en lo más\nprofundo de un bosque..."}) -- SwitchTalk: branche default (canon générique)

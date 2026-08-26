@@ -8,7 +8,7 @@ return function(hero, partner)
   -- supervision_Acting(0) [neutre/état moteur]
   -- camera_SetMyself() [neutre/état moteur]
   GAME:FadeIn(30)
-  -- GAP: BGM BGM_TIME_GEAR_REMIX non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
+  pcall(function() SOUND:PlayBGM("Time Gear Remix.ogg", true) end)
   GAME:WaitFrames(180)
   GAME:FadeOut(false, 30)
 end

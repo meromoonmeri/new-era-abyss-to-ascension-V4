@@ -38,16 +38,86 @@ CAMP = os.path.join(REPO, "dev", "CAMPAIGNS", "PMD_SKY_EXPLORERS")
 RS = os.path.join(CAMP, "Cinematics", "rom_scripts")
 OUT = os.path.join(REPO, "Data", "Script", "halcyon", "skyscenes")
 
+# entid (md_index) -> espèce PMDO (dérivé de PMDO_MAPPING, 525 entrées)
+def _load_entid_map():
+    m = json.load(open(os.path.join(CAMP, "Tables", "PMDO_MAPPING.json")))
+    out = {}
+    for en, e in m["species"]["entries"].items():
+        sp = e.get("pmdo_species")
+        if sp:
+            for mi in e["md_indexes"]:
+                out[mi] = sp
+                out[mi % 600] = sp
+    return out
+
+ENTID2SPECIES = _load_entid_map()
+
 DIRMAP = {"DIR_DOWN": "Direction.Down", "DIR_DOWNRIGHT": "Direction.DownRight",
           "DIR_RIGHT": "Direction.Right", "DIR_UPRIGHT": "Direction.UpRight",
           "DIR_UP": "Direction.Up", "DIR_UPLEFT": "Direction.UpLeft",
           "DIR_LEFT": "Direction.Left", "DIR_DOWNLEFT": "Direction.DownLeft"}
 
-# BGM canoniques -> fichiers PMDO présents (mapping arm9 ov10 déjà vérifié)
-BGM = {"BGM_ON_THE_BEACH_AT_DUSK": "On the Beach at Dusk.ogg",
-       "BGM_TREASURE_TOWN": "Treasure Town.ogg",
-       "BGM_WIGGLYTUFFS_GUILD": "Wigglytuff Guild.ogg",
+# BGM canoniques -> fichiers PMDO présents. AUTORITÉ : enum music_id
+# pmdsky-debug (204 pistes) -> titre jukebox -> fichier .ogg vérifié
+# PRÉSENT dans Content/Music ou DumpAsset (56 correspondances). Les
+# pistes absentes du roster restent GAP (REQUIRES_MOD_ASSET), jamais
+# substituées.
+BGM = {"BGM_AEGIS_CAVE": "Aegis Cave.ogg",
+       "BGM_AMP_PLAINS": "Amp Plains.ogg",
+       "BGM_APPLE_WOODS": "Apple Woods.ogg",
+       "BGM_BATTLE_AGAINST_DUSKNOIR": "Battle Against Dusknoir.ogg",
+       "BGM_BOSS_BATTLE": "Boss Battle.ogg",
+       "BGM_BOULDER_QUARRY": "Boulder Quarry.ogg",
+       "BGM_BRINE_CAVE": "Brine Cave.ogg",
+       "BGM_CHASM_CAVE": "Chasm Cave.ogg",
+       "BGM_CRAGGY_COAST": "Craggy Coast.ogg",
+       "BGM_CRYSTAL_CAVE": "Crystal Cave.ogg",
+       "BGM_CRYSTAL_CROSSING": "Crystal Crossing.ogg",
+       "BGM_DARK_CRATER": "Dark Crater.ogg",
+       "BGM_DARK_HILL": "Dark Hill.ogg",
+       "BGM_DEEP_DARK_CRATER": "Deep Dark Crater.ogg",
+       "BGM_DEEP_DUSK_FOREST": "Deep Dusk Forest.ogg",
+       "BGM_DRENCHED_BLUFF": "Drenched Bluff.ogg",
+       "BGM_FOGGY_FOREST": "Foggy Forest.ogg",
+       "BGM_GOODNIGHT": "Goodnight.ogg",
+       "BGM_GROWING_ANXIETY": "Growing Anxiety.ogg",
+       "BGM_GUILDMASTER_WIGGLYTUFF": "Guildmaster Wigglytuff.ogg",
        "BGM_HEARTWARMING": "Heartwarming.ogg",
+       "BGM_HIDDEN_HIGHLAND": "Hidden Highland.ogg",
+       "BGM_HIDDEN_LAND": "Hidden Land.ogg",
+       "BGM_ICICLE_FOREST": "Icicle Forest.ogg",
+       "BGM_LOWER_SPRING_CAVE": "Lower Spring Cave.ogg",
+       "BGM_MAROWAK_DOJO": "Marowak Dojo.ogg",
+       "BGM_MONSTER_HOUSE": "Monster House.ogg",
+       "BGM_MT_BRISTLE": "Mt. Bristle.ogg",
+       "BGM_MT_HORN": "Mt. Horn.ogg",
+       "BGM_MT_TRAVAIL": "Mt. Travail.ogg",
+       "BGM_MYSTIFYING_FOREST": "Mystifying Forest.ogg",
+       "BGM_NORTHERN_DESERT": "Northern Desert.ogg",
+       "BGM_OUTLAW": "Outlaw.ogg",
+       "BGM_QUICKSAND_CAVE": "Quicksand Cave.ogg",
+       "BGM_RISING_FEAR": "Rising Fear.ogg",
+       "BGM_SEALED_RUIN": "Sealed Ruin.ogg",
+       "BGM_SKY_PEAK_CAVE": "Sky Peak Cave.ogg",
+       "BGM_SKY_PEAK_COAST": "Sky Peak Coast.ogg",
+       "BGM_SKY_PEAK_FOREST": "Sky Peak Forest.ogg",
+       "BGM_SKY_PEAK_PRAIRIE": "Sky Peak Prairie.ogg",
+       "BGM_SPRING_CAVE": "Spring Cave.ogg",
+       "BGM_SPRING_CAVE_DEPTHS": "Spring Cave Depths.ogg",
+       "BGM_STAR_CAVE": "Star Cave.ogg",
+       "BGM_STEAM_CAVE": "Steam Cave.ogg",
+       "BGM_SYMPATHY": "Sympathy.ogg",
+       "BGM_TEAM_SKULL": "Team Skull.ogg",
+       "BGM_TEMPORAL_TOWER": "Temporal Tower.ogg",
+       "BGM_TIME_GEAR_REMIX": "Time Gear Remix.ogg",
+       "BGM_TIME_RESTORED": "Time Restored.ogg",
+       "BGM_TOP_MENU_THEME": "Top Menu Theme.ogg",
+       "BGM_TREASURE_TOWN": "Treasure Town.ogg",
+       "BGM_TREESHROUD_FOREST": "Treeshroud Forest.ogg",
+       "BGM_UPPER_STEAM_CAVE": "Upper Steam Cave.ogg",
+       "BGM_WATERFALL_CAVE": "Waterfall Cave.ogg",
+       "BGM_WIGGLYTUFFS_GUILD": "Wigglytuff's Guild.ogg",
+       "BGM_WIGGLYTUFFS_GUILD_REMIX": "Wigglytuff's Guild Remix.ogg",
        "BGM_OCEAN1": None, "BGM_OCEAN2": None}  # canal ambiance: GAP
 
 # VFX NDS (SetEffect EFFECT_*) -> émotes NATIVES PMDO (Data/Emote +
@@ -125,13 +195,16 @@ def parse_dialogue_block(txt, i):
 
 
 class SceneCompiler:
-    def __init__(self, zone, name, src):
+    def __init__(self, zone, name, src, cast=None):
         self.zone, self.name, self.src = zone, name, src
         self.lines = []
         self.gaps = []
         self.unsupported = []
         self.dialogues = 0
         self.face_pending = None
+        # cast SSA : ACTOR_NAME -> (var lua, species, x8, y8, dir)
+        self.cast = cast or {}
+        self.spawned = set()
 
     def emit(self, s):
         self.lines.append("  " + s)
@@ -146,7 +219,17 @@ class SceneCompiler:
             return "hero"
         if actor.startswith("ACTOR_ATTENDANT") or actor == "ACTOR_PARTNER":
             return "partner"
-        return None  # PNJ nommé: nécessite cast SSA -> multiroutine v2
+        # PNJ nommé résolu par le cast SSA de la scène (v2)
+        key = actor.replace("ACTOR_", "")
+        if key in self.cast:
+            var, species, x, y, d = self.cast[key]
+            if key not in self.spawned:
+                self.spawned.add(key)
+                self.emit(f"local {var} = SkySceneKit.spawn_npc("
+                          f"{lua_str(species)}, {x}, {y}, {d}, "
+                          f"{lua_str(key)})")
+            return var
+        return None
 
     def compile_def0(self, body):
         txt = body
@@ -457,6 +540,28 @@ def main():
                 counts["SKIPPED_" + str(cls)] += 1
                 continue
             src = s.get("explorerscript") or ""
+            # cast SSA de la même scène (m01a0204.ssb -> m01a0204.ssa)
+            cast = {}
+            ssa = z["scripts"].get(name[:-4] + ".ssa")
+            if ssa and ssa.get("ssa"):
+                seen = {}
+                for layer in ssa["ssa"]["layers"]:
+                    for a in layer.get("actors", []):
+                        nm = a["actor_name"]
+                        if nm.startswith(("PLAYER", "ATTENDANT")):
+                            continue
+                        if nm in seen:
+                            continue
+                        sp = ENTID2SPECIES.get(a["entid"])
+                        if not sp:
+                            continue
+                        pos = a["pos"]
+                        x = pos["x_relative"] * 8 + pos.get("x_offset", 0) * 4
+                        y = pos["y_relative"] * 8 + pos.get("y_offset", 0) * 4
+                        d = "Direction." + (pos.get("direction") or "Down")
+                        var = "npc_" + re.sub(r"\W", "_", nm.lower())
+                        seen[nm] = True
+                        cast[nm] = (var, sp, x, y, d)
             defs = parse_defs(src)
             main_def = next((d for d in defs if d[0] == "0"), None)
             if main_def is None:
@@ -471,7 +576,7 @@ def main():
                 report[key] = {"status": "NOT_COMPILED_MULTIROUTINE",
                                "actor_routines": len(nontrivial)}
                 continue
-            comp = SceneCompiler(zone, name, src)
+            comp = SceneCompiler(zone, name, src, cast)
             ok = comp.compile_def0(main_def[3])
             if not ok:
                 counts["PARTIAL_OPS"] += 1
@@ -483,6 +588,8 @@ def main():
                 counts["TRIVIAL_SKIPPED"] += 1
                 continue
             fn = f"{zone.lower()}__{name[:-4]}"
+            if comp.spawned:
+                comp.emit("SkySceneKit.cleanup_npcs()")
             body = "\n".join(comp.lines)
             lua = (HEADER % (zone, name)
                    + "local SkySceneKit = require 'halcyon.skyscenes.kit'\n"

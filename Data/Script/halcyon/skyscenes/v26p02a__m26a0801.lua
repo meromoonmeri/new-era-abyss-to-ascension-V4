@@ -8,7 +8,7 @@ return function(hero, partner)
   -- supervision_Acting(0) [neutre/état moteur]
   -- camera_SetMyself() [neutre/état moteur]
   GAME:FadeIn(120)
-  -- GAP: BGM BGM_TIME_RESTORED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
+  pcall(function() SOUND:PlayBGM("Time Restored.ogg", true) end)
   GAME:WaitFrames(210)
   GAME:FadeOut(false, 60)
 end

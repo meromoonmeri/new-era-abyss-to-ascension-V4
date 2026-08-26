@@ -5,9 +5,11 @@ local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   -- SetAnimation(2) [anim idle native]
   -- SetAnimation(2) [anim idle native]
+  local npc_npc_juputoru = SkySceneKit.spawn_npc("grovyle", 280, 232, Direction.Down, "NPC_JUPUTORU")
   -- SetAnimation(2) [anim idle native]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
+  SkySceneKit.cleanup_npcs()
 end

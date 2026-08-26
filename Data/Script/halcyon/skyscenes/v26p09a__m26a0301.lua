@@ -6,7 +6,7 @@ return function(hero, partner)
   -- back_SetGround(LEVEL_V26P09A) [neutre/état moteur]
   -- supervision_Acting(0) [neutre/état moteur]
   -- camera_SetMyself() [neutre/état moteur]
-  -- GAP: BGM BGM_TIME_RESTORED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
+  pcall(function() SOUND:PlayBGM("Time Restored.ogg", true) end)
   GAME:FadeIn(60)
   GAME:WaitFrames(60)
   pcall(function() UI:ResetSpeaker() end)

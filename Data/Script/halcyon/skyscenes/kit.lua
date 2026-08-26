@@ -72,4 +72,33 @@ function SkySceneKit.say(t)
   trace('{"kit":"say_done"}')
 end
 
+-- PNJ temporaires des scènes compilées (cast SSA ROM : espèce via
+-- PMDO_MAPPING entid→species, position tuile*8+off*4, direction SSA).
+-- Même mécanique native que LulubyTown.spawn (GroundChar+AddTempChar).
+local spawned_npcs = {}
+
+function SkySceneKit.spawn_npc(species, x, y, dir, name)
+  local c
+  local ok = pcall(function()
+    c = RogueEssence.Ground.GroundChar(
+      RogueEssence.Dungeon.MonsterID(species, 0, 'normal', Gender.Unknown),
+      RogueElements.Loc(x, y), dir, name, name)
+    c:ReloadEvents()
+    GAME:GetCurrentGround():AddTempChar(c)
+  end)
+  if ok and c then
+    spawned_npcs[#spawned_npcs + 1] = c
+    return c
+  end
+  trace('{"kit":"spawn_npc_fail","species":"' .. tostring(species) .. '"}')
+  return CH('PLAYER') -- fallback loggé, jamais silencieux
+end
+
+function SkySceneKit.cleanup_npcs()
+  for _, c in ipairs(spawned_npcs) do
+    pcall(function() GAME:GetCurrentGround():RemoveTempChar(c) end)
+  end
+  spawned_npcs = {}
+end
+
 return SkySceneKit
