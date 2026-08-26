@@ -357,7 +357,11 @@ def audit_campaign(camp: str, cfg: dict) -> dict:
     for e in manifest["grounds"]:
         gid = e["ground"]
         if e.get("render"):
-            d = cdir / "Renders" / gid
+            # le manifest désigne le dossier par render.dir (IDs renommés
+            # pour collision — ex. t00p01_sky -> Renders/t00p01/ — gardent
+            # leur dossier d'origine, documenté par id_note)
+            rdir = (e["render"].get("dir") or f"Renders/{gid}/").strip("/")
+            d = cdir / rdir
             if not d.is_dir() or not (d / "frame_000.png").exists():
                 add("CRITICAL", "REFERENCE", gid,
                     "render annoncé dans le manifest mais absent du disque")
@@ -377,6 +381,11 @@ def audit_campaign(camp: str, cfg: dict) -> dict:
                 "ni render ni render_error: état non documenté")
     disk_renders = {d.name for d in (cdir / "Renders").iterdir() if d.is_dir()}
     manifest_ids = {e["ground"] for e in manifest["grounds"]}
+    # dossiers référencés via render.dir (IDs renommés: le dossier reste)
+    for e in manifest["grounds"]:
+        rd = (e.get("render") or {}).get("dir")
+        if rd:
+            manifest_ids.add(rd.strip("/").split("/")[-1])
     for extra in sorted(disk_renders - manifest_ids):
         add("MEDIUM", "REFERENCE", extra,
             "render sur disque sans entrée de manifest")

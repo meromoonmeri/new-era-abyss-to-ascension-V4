@@ -134,7 +134,7 @@ convertis en fausses maps statiques), **62 DUNGEON_SCREEN** (mapty=10),
 | Progression : 14 états ROM franchis, 43 déblocages, monotonie | `PROGRESSION_RUNTIME_PASS` | `sky/progression_runtime_proof.jsonl` |
 | Persistance : save → quit → **process 2** → LoadProgress → reprise | `RESUME_RUNTIME_PASS` | `sky/resume_runtime_proof.jsonl` |
 | Background défilant pilote s13p05a (intro) : mouvement vérifié à 4 instants | `SCROLL_RUNTIME_PASS` | `sky/scroll_pilot_runtime_proof.jsonl` |
-| Cinématiques compilées : **370 scènes** (fail-closed), 34 rejouées dans le moteur | `CINEMATIC_RUNTIME_PASS` ×34 | `sky/compiled_scenes_runtime_proof.jsonl`, `Docs/SCENE_COMPILER_REPORT.json` |
+| Cinématiques compilées : **419 scènes** (fail-closed V4), 44 rejouées dans le moteur | `CINEMATIC_RUNTIME_PASS` ×44 | `sky/compiled_scenes_runtime_proof.jsonl`, `Docs/SCENE_COMPILER_REPORT.json` |
 
 ### 3.2 Red — Rescue Team EU
 
@@ -164,7 +164,7 @@ Outil : `dev/tools/red_build_gba_fixed_arenas.py`.
 - **Règle absolue** : jamais d'opcode inconnu ignoré silencieusement, jamais de scène
   complexe remplacée par une version simplifiée déclarée PASS. Toute op non traduite
   est comptée (`PARTIAL_OPS`), toute scène incomplète est SKIPPED avec raison.
-- Totaux : **370 COMPILED**, 368 PARTIAL_OPS, 20 NOT_COMPILED_MULTIROUTINE,
+- Totaux : **419 COMPILED** (V4), 306 PARTIAL_OPS, 20 NOT_COMPILED_MULTIROUTINE,
   625 SKIPPED_PARTIAL_FIDELITY (double écran NDS), 372 SKIPPED_REQUIRES_ENGINE_EXTENSION,
   2005 TRIVIAL_SKIPPED.
 - Transport qualité : dialogues 5 langues ROM (markup NDS nettoyé, langue du joueur),
@@ -211,11 +211,11 @@ items 205/290 (85 REQUIRES_MOD_ITEM) · zones vs ROM 43/43 EXACT · AUDIT_PASS.
 | # | GAP | Dimension |
 |---|---|---|
 | 1 | Sky post-game: d44+d50–d60 CONSTRUITS (12 zones, 70 étages, EXACT vs ROM + CANONICAL_RUNTIME_PASS) ; d45–d49 et d61+ restants (tilesets 82/88/180 REQUIRES_MOD_ASSET, épisodes spéciaux) | donjons |
-| 2 | 368 scènes PARTIAL_OPS + 20 multiroutines + 372 REQUIRES_ENGINE_EXTENSION | cinématiques Sky |
+| 2 | 306 scènes PARTIAL_OPS (368→306, V4) + 20 multiroutines + 372 REQUIRES_ENGINE_EXTENSION | cinématiques Sky |
 | 3 | 625 scènes double écran NDS (PARTIAL_FIDELITY) non compilées | cinématiques Sky |
 | 4 | Scrolling généralisé : 1 pilote / 213 backgrounds | backgrounds Sky |
 | 5 | NPC/interactions/transitions des 95 grounds MAP non posés (LOAD+MOVE seulement) | grounds Sky |
-| 7 | Red : compilateur cif→Lua à écrire (dialogues 5 langues extraits) | cinématiques Red |
+| 7 | Red : compilateur cif→Lua FAIT (45 stations compilées, 2/2 testables runtime PASS) ; ops cif Audio/Effect/Camera non ordonnancées = PARTIAL_OPS | cinématiques Red |
 | 8 | Red : classifieur formel des grounds (modèle sky_classify_grounds) | classification Red |
 | 9 | Red : 64 stations REVIEW_REQUIRED | dialogues Red |
 | 10 | 85 items + 8 musiques REQUIRES_MOD_* | mapping Sky |

@@ -2,13 +2,13 @@
 
 **Verdict : AUDIT_PASS** — 0 anomalie(s) bloquante(s)
 
-Sévérités : {'LOW': 74, 'ACCEPTED': 32}
+Sévérités : {'MEDIUM': 1, 'LOW': 73, 'ACCEPTED': 32}
 
-Couvertures (séparées) : {"grounds_total": 254, "render_pct": 100.0, "frames_full_pct": 100.0, "cinematic_linked_pct": 52.0, "human_identity_pct": 97.2, "note": "pourcentages séparés — ne JAMAIS fusionner en un '100%'"}
+Couvertures (séparées) : {"grounds_total": 254, "render_pct": 100.0, "frames_full_pct": null, "cinematic_linked_pct": 52.0, "human_identity_pct": 97.2, "note": "pourcentages séparés — ne JAMAIS fusionner en un '100%'"}
 
 | Sévérité | Catégorie | Sujet | Détail |
 |---|---|---|---|
-| LOW | ASSET | `719 planches` | planches jamais référencées par un ground (ex: A02p01_Base, A02p02_Base, A02p03_Base, A02p04_Base, A04p01_Base, A05p03_Base) — archivage, pa |
+| MEDIUM | REFERENCE | `PMD_RED_RESCUE_TEAM` | sources .rsground/.tile absentes du cache: audit frames/assets NOT_TESTED sur cette exécution (restaurer .runtime-cache) |
 | LOW | MAPPING | `d18p11a` | nom humain == identifiant technique et aucune identité de donjon/groupe/série rattachée |
 | LOW | MAPPING | `d19p11a` | nom humain == identifiant technique et aucune identité de donjon/groupe/série rattachée |
 | LOW | MAPPING | `d20p11a` | nom humain == identifiant technique et aucune identité de donjon/groupe/série rattachée |
