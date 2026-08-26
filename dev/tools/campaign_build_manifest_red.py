@@ -199,6 +199,11 @@ def main() -> int:
             "music_tracks": sorted(set(tracks)),
         }
 
+    # dialogues canoniques 5 langues (ROM EU, red_extract_dialogue_texts.py)
+    dlg_idx_p = CAMP / "Cinematics" / "DIALOGUES_INDEX.json"
+    dialogues = (load_json(dlg_idx_p).get("stations", {})
+                 if dlg_idx_p.exists() else {})
+
     # casting canonique ROM (27 scènes décodées)
     cast_p = ROOT / "dev" / "docs" / "canonical" / "red" / "scene_cast" / "eu_scene_cast.json"
     cast = load_json(cast_p)["scenes"] if cast_p.exists() else {}
@@ -270,6 +275,15 @@ def main() -> int:
         c = cines.get(gid)
         if c:
             e["cinematic"] = c
+        dl = dialogues.get(gid)
+        if dl:
+            e["dialogues"] = {
+                "status": dl["status"],
+                "file": (f"Cinematics/{dl['file']}" if dl.get("file")
+                         else None),
+                "text_blocks_5lang": dl.get("text_blocks"),
+                "dialogue_ops": dl.get("dialogue_ops"),
+            }
         cc = cast.get(gid)
         if cc:
             ents = [x for x in cc.get("entities", []) if x.get("category") == "live"]
@@ -292,6 +306,13 @@ def main() -> int:
             "cast": "dev/docs/canonical/red/scene_cast/eu_scene_cast.json "
                     "(gMapScriptTable EU + gGroundLivesTypeData 0x27BEEC)",
             "naming": "rsground Name + INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+            "dialogues": "ROM Red EU (audit_pmdred_eu_all_ground_scripts.py "
+                         "--all-stations) : 69 stations au graphe EU exact, "
+                         "3073 blocs de texte 5 langues (en/fr/de/es/it), "
+                         "adresses ROM + raw_hex préservés — "
+                         "Cinematics/dialogues/<asset>.json.gz. Les 64 "
+                         "stations restantes sont REVIEW_REQUIRED "
+                         "(graphe EU non exactement aligné pret).",
         },
         "totals": {
             "grounds": len(entries),
@@ -299,6 +320,12 @@ def main() -> int:
             "runtime_validated": sum(1 for e in entries if e["runtime_validated_219"]),
             "with_cinematic": sum(1 for e in entries if "cinematic" in e),
             "with_canonical_cast": sum(1 for e in entries if "canonical_cast" in e),
+            "with_dialogues_5lang": sum(
+                1 for e in entries
+                if e.get("dialogues", {}).get("status") == "PASS"),
+            "dialogues_review_required": sum(
+                1 for e in entries
+                if e.get("dialogues", {}).get("status") == "REVIEW_REQUIRED"),
         },
         "narrative_arcs": NARRATIVE_ARCS,
         "dungeons": {k: {"en": v[0], "fr": v[1], "boss": v[2], "grounds": v[3]}

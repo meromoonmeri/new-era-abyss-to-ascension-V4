@@ -6,14 +6,17 @@
   "rom": "PMD Red EU sha256 0f9d125d…cbcd",
   "cinematics": "PMDRed_PMDO_Framework/Data/Cinematics/*.cif.json (séquences extraites de la ROM)",
   "cast": "dev/docs/canonical/red/scene_cast/eu_scene_cast.json (gMapScriptTable EU + gGroundLivesTypeData 0x27BEEC)",
-  "naming": "rsground Name + INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md"
+  "naming": "rsground Name + INVENTAIRE_GROUNDS_DONJONS_PMD_RED.md",
+  "dialogues": "ROM Red EU (audit_pmdred_eu_all_ground_scripts.py --all-stations) : 69 stations au graphe EU exact, 3073 blocs de texte 5 langues (en/fr/de/es/it), adresses ROM + raw_hex préservés — Cinematics/dialogues/<asset>.json.gz. Les 64 stations restantes sont REVIEW_REQUIRED (graphe EU non exactement aligné pret)."
  },
  "totals": {
   "grounds": 254,
   "rendered": 254,
   "runtime_validated": 219,
   "with_cinematic": 132,
-  "with_canonical_cast": 27
+  "with_canonical_cast": 27,
+  "with_dialogues_5lang": 69,
+  "dialogues_review_required": 64
  },
  "narrative_arcs": [
   {
@@ -354,6 +357,12 @@
      "MUS_BENEVOLENT_SPIRIT",
      "MUS_DREAM"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/a01p01.json.gz",
+    "text_blocks_5lang": 197,
+    "dialogue_ops": 218
    }
   },
   {
@@ -383,6 +392,12 @@
     "animations": 4,
     "audio_events": 2,
     "music_tracks": []
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/a01p02.json.gz",
+    "text_blocks_5lang": 95,
+    "dialogue_ops": 103
    }
   },
   {
@@ -414,6 +429,12 @@
     "music_tracks": [
      "MUS_THE_ESCAPE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/a02p01.json.gz",
+    "text_blocks_5lang": 5,
+    "dialogue_ops": 5
    }
   },
   {
@@ -445,6 +466,12 @@
     "music_tracks": [
      "MUS_THE_ESCAPE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/a02p02.json.gz",
+    "text_blocks_5lang": 7,
+    "dialogue_ops": 7
    }
   },
   {
@@ -476,6 +503,12 @@
     "music_tracks": [
      "MUS_THE_MOUNTAIN_OF_FIRE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/a02p03.json.gz",
+    "text_blocks_5lang": 16,
+    "dialogue_ops": 16
    }
   },
   {
@@ -507,6 +540,12 @@
     "music_tracks": [
      "MUS_THE_ESCAPE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/a02p04.json.gz",
+    "text_blocks_5lang": 92,
+    "dialogue_ops": 92
    }
   },
   {
@@ -538,6 +577,12 @@
     "music_tracks": [
      "MUS_ESCAPE_THROUGH_THE_SNOW"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/a03p01.json.gz",
+    "text_blocks_5lang": 30,
+    "dialogue_ops": 31
    }
   },
   {
@@ -569,6 +614,12 @@
     "music_tracks": [
      "MUS_ESCAPE_THROUGH_THE_SNOW"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/a03p02.json.gz",
+    "text_blocks_5lang": 2,
+    "dialogue_ops": 2
    }
   },
   {
@@ -598,6 +649,12 @@
     "animations": 21,
     "audio_events": 2,
     "music_tracks": []
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/a03p03.json.gz",
+    "text_blocks_5lang": 113,
+    "dialogue_ops": 114
    }
   },
   {
@@ -631,6 +688,12 @@
      "MUS_FAREWELL",
      "MUS_WORLD_CALAMITY"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/a04p01.json.gz",
+    "text_blocks_5lang": 163,
+    "dialogue_ops": 169
    }
   },
   {
@@ -662,6 +725,12 @@
     "music_tracks": [
      "MUS_SKY_TOWER"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/a04p02.json.gz",
+    "text_blocks_5lang": 1,
+    "dialogue_ops": 1
    }
   },
   {
@@ -694,6 +763,12 @@
      "MUS_RAYQUAZAS_DOMAIN",
      "MUS_WORLD_CALAMITY"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/a04p03.json.gz",
+    "text_blocks_5lang": 0,
+    "dialogue_ops": 0
    }
   },
   {
@@ -723,6 +798,12 @@
     "animations": 5,
     "audio_events": 1,
     "music_tracks": []
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/a04p04.json.gz",
+    "text_blocks_5lang": 32,
+    "dialogue_ops": 34
    }
   },
   {
@@ -755,6 +836,12 @@
      "MUS_CREDITS",
      "MUS_TIME_OF_REUNION"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/a05p01.json.gz",
+    "text_blocks_5lang": 14,
+    "dialogue_ops": 15
    }
   },
   {
@@ -784,6 +871,12 @@
     "animations": 0,
     "audio_events": 1,
     "music_tracks": []
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -813,6 +906,12 @@
     "animations": 0,
     "audio_events": 0,
     "music_tracks": []
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/a05p03.json.gz",
+    "text_blocks_5lang": 9,
+    "dialogue_ops": 9
    }
   },
   {
@@ -961,6 +1060,12 @@
      "MUS_THERES_TROUBLE",
      "MUS_THE_ESCAPE"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -1036,6 +1141,12 @@
     "music_tracks": [
      "MUS_RESCUE_TEAM_BASE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/b01p02a.json.gz",
+    "text_blocks_5lang": 240,
+    "dialogue_ops": 268
    }
   },
   {
@@ -3095,6 +3206,12 @@
      "MUS_A_SUCCESSFUL_RESCUE",
      "MUS_THERES_TROUBLE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d01p01.json.gz",
+    "text_blocks_5lang": 109,
+    "dialogue_ops": 109
    }
   },
   {
@@ -3128,6 +3245,12 @@
     "music_tracks": [
      "MUS_IN_THE_DEPTHS_OF_THE_PIT"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d01p02.json.gz",
+    "text_blocks_5lang": 8,
+    "dialogue_ops": 8
    },
    "canonical_cast": [
     {
@@ -3192,6 +3315,12 @@
      "MUS_A_SUCCESSFUL_RESCUE",
      "MUS_THUNDERWAVE_CAVE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d02p01.json.gz",
+    "text_blocks_5lang": 10,
+    "dialogue_ops": 11
    }
   },
   {
@@ -3225,6 +3354,12 @@
     "music_tracks": [
      "MUS_IN_THE_DEPTHS_OF_THE_PIT"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d02p02.json.gz",
+    "text_blocks_5lang": 2,
+    "dialogue_ops": 2
    },
    "canonical_cast": [
     {
@@ -3297,6 +3432,12 @@
     "music_tracks": [
      "MUS_MT_STEEL"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d03p01.json.gz",
+    "text_blocks_5lang": 15,
+    "dialogue_ops": 16
    }
   },
   {
@@ -3330,6 +3471,12 @@
     "music_tracks": [
      "MUS_IN_THE_DEPTHS_OF_THE_PIT"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d03p02.json.gz",
+    "text_blocks_5lang": 22,
+    "dialogue_ops": 22
    },
    "canonical_cast": [
     {
@@ -3420,6 +3567,12 @@
     "music_tracks": [
      "MUS_SINISTER_WOODS"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d04p01.json.gz",
+    "text_blocks_5lang": 18,
+    "dialogue_ops": 18
    }
   },
   {
@@ -3454,6 +3607,12 @@
     "music_tracks": [
      "MUS_IN_THE_DEPTHS_OF_THE_PIT"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d04p02.json.gz",
+    "text_blocks_5lang": 11,
+    "dialogue_ops": 11
    },
    "canonical_cast": [
     {
@@ -3580,6 +3739,12 @@
     "music_tracks": [
      "MUS_SILENT_CHASM"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d05p01.json.gz",
+    "text_blocks_5lang": 69,
+    "dialogue_ops": 69
    }
   },
   {
@@ -3614,6 +3779,12 @@
      "MUS_IN_THE_DEPTHS_OF_THE_PIT",
      "MUS_RISING_FEAR"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d05p02.json.gz",
+    "text_blocks_5lang": 28,
+    "dialogue_ops": 28
    },
    "canonical_cast": [
     {
@@ -3713,6 +3884,12 @@
     "music_tracks": [
      "MUS_MT_THUNDER"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -3746,6 +3923,12 @@
     "music_tracks": [
      "MUS_MT_THUNDER"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d06p02.json.gz",
+    "text_blocks_5lang": 9,
+    "dialogue_ops": 11
    },
    "canonical_cast": [
     {
@@ -3863,6 +4046,12 @@
      "MUS_IN_THE_DEPTHS_OF_THE_PIT"
     ]
    },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d06p03.json.gz",
+    "text_blocks_5lang": 65,
+    "dialogue_ops": 67
+   },
    "canonical_cast": [
     {
      "role": "player",
@@ -3979,6 +4168,12 @@
     "music_tracks": [
      "MUS_GREAT_CANYON"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d07p01.json.gz",
+    "text_blocks_5lang": 14,
+    "dialogue_ops": 14
    }
   },
   {
@@ -4012,6 +4207,12 @@
     "music_tracks": [
      "MUS_IN_THE_DEPTHS_OF_THE_PIT"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -4047,6 +4248,12 @@
      "MUS_LAPIS_CAVE",
      "MUS_THE_ESCAPE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d08p01.json.gz",
+    "text_blocks_5lang": 61,
+    "dialogue_ops": 61
    }
   },
   {
@@ -4081,6 +4288,12 @@
     "music_tracks": [
      "MUS_THERES_TROUBLE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d08p02.json.gz",
+    "text_blocks_5lang": 11,
+    "dialogue_ops": 11
    }
   },
   {
@@ -4115,6 +4328,12 @@
     "music_tracks": [
      "MUS_MT_BLAZE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d09p01.json.gz",
+    "text_blocks_5lang": 69,
+    "dialogue_ops": 72
    }
   },
   {
@@ -4148,6 +4367,12 @@
     "music_tracks": [
      "MUS_MT_BLAZE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d09p02.json.gz",
+    "text_blocks_5lang": 10,
+    "dialogue_ops": 14
    },
    "canonical_cast": [
     {
@@ -4265,6 +4490,12 @@
      "MUS_IN_THE_DEPTHS_OF_THE_PIT"
     ]
    },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d09p03.json.gz",
+    "text_blocks_5lang": 85,
+    "dialogue_ops": 86
+   },
    "canonical_cast": [
     {
      "role": "player",
@@ -4327,6 +4558,12 @@
     "music_tracks": [
      "MUS_ESCAPE_THROUGH_THE_SNOW"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d10p01.json.gz",
+    "text_blocks_5lang": 56,
+    "dialogue_ops": 56
    }
   },
   {
@@ -4360,6 +4597,12 @@
     "music_tracks": [
      "MUS_FROSTY_FOREST"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d10p02.json.gz",
+    "text_blocks_5lang": 19,
+    "dialogue_ops": 23
    },
    "canonical_cast": [
     {
@@ -4495,6 +4738,12 @@
      "MUS_IN_THE_DEPTHS_OF_THE_PIT"
     ]
    },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d10p03.json.gz",
+    "text_blocks_5lang": 79,
+    "dialogue_ops": 81
+   },
    "canonical_cast": [
     {
      "role": "player",
@@ -4567,6 +4816,12 @@
      "MUS_ESCAPE_THROUGH_THE_SNOW",
      "MUS_MT_FREEZE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d11p01.json.gz",
+    "text_blocks_5lang": 90,
+    "dialogue_ops": 94
    }
   },
   {
@@ -4600,6 +4855,12 @@
     "music_tracks": [
      "MUS_MT_FREEZE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d11p02.json.gz",
+    "text_blocks_5lang": 11,
+    "dialogue_ops": 15
    },
    "canonical_cast": [
     {
@@ -4718,6 +4979,12 @@
      "MUS_THERES_TROUBLE",
      "MUS_THE_ESCAPE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d11p03.json.gz",
+    "text_blocks_5lang": 171,
+    "dialogue_ops": 171
    },
    "canonical_cast": [
     {
@@ -4898,6 +5165,12 @@
     "music_tracks": [
      "MUS_MAGMA_CAVERN"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -4932,6 +5205,12 @@
     "music_tracks": [
      "MUS_MAGMA_CAVERN"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d12p02.json.gz",
+    "text_blocks_5lang": 8,
+    "dialogue_ops": 10
    },
    "canonical_cast": [
     {
@@ -5050,6 +5329,12 @@
      "MUS_IN_THE_DEPTHS_OF_THE_PIT"
     ]
    },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d12p04.json.gz",
+    "text_blocks_5lang": 16,
+    "dialogue_ops": 16
+   },
    "canonical_cast": [
     {
      "role": "player",
@@ -5157,6 +5442,12 @@
     "music_tracks": [
      "MUS_SKY_TOWER"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -5191,6 +5482,12 @@
     "music_tracks": [
      "MUS_SKY_TOWER"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d13p02.json.gz",
+    "text_blocks_5lang": 9,
+    "dialogue_ops": 11
    },
    "canonical_cast": [
     {
@@ -5308,6 +5605,12 @@
     "music_tracks": [
      "MUS_RAYQUAZAS_DOMAIN"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d13p03.json.gz",
+    "text_blocks_5lang": 31,
+    "dialogue_ops": 31
    },
    "canonical_cast": [
     {
@@ -5480,6 +5783,12 @@
      "MUS_THERES_TROUBLE"
     ]
    },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d14p01.json.gz",
+    "text_blocks_5lang": 0,
+    "dialogue_ops": 0
+   },
    "canonical_cast": [
     {
      "role": "player",
@@ -5533,6 +5842,12 @@
     "music_tracks": [
      "MUS_THERES_TROUBLE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d15p01.json.gz",
+    "text_blocks_5lang": 16,
+    "dialogue_ops": 16
    },
    "canonical_cast": [
     {
@@ -5588,6 +5903,12 @@
      "MUS_IN_THE_DEPTHS_OF_THE_PIT"
     ]
    },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d16p01.json.gz",
+    "text_blocks_5lang": 15,
+    "dialogue_ops": 15
+   },
    "canonical_cast": [
     {
      "role": "player",
@@ -5642,6 +5963,12 @@
      "MUS_IN_THE_DEPTHS_OF_THE_PIT"
     ]
    },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d17p01.json.gz",
+    "text_blocks_5lang": 16,
+    "dialogue_ops": 16
+   },
    "canonical_cast": [
     {
      "role": "player",
@@ -5695,6 +6022,12 @@
     "music_tracks": [
      "MUS_IN_THE_DEPTHS_OF_THE_PIT"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d18p01.json.gz",
+    "text_blocks_5lang": 19,
+    "dialogue_ops": 19
    },
    "canonical_cast": [
     {
@@ -5766,6 +6099,12 @@
     "music_tracks": [
      "MUS_THERES_TROUBLE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d19p01.json.gz",
+    "text_blocks_5lang": 19,
+    "dialogue_ops": 19
    },
    "canonical_cast": [
     {
@@ -5840,6 +6179,12 @@
      "MUS_THERES_TROUBLE"
     ]
    },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d20p01.json.gz",
+    "text_blocks_5lang": 34,
+    "dialogue_ops": 34
+   },
    "canonical_cast": [
     {
      "role": "fixed_species",
@@ -5910,6 +6255,12 @@
     "music_tracks": [
      "MUS_IN_THE_DEPTHS_OF_THE_PIT"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d21p01.json.gz",
+    "text_blocks_5lang": 4,
+    "dialogue_ops": 4
    },
    "canonical_cast": [
     {
@@ -5996,6 +6347,12 @@
     "animations": 3,
     "audio_events": 1,
     "music_tracks": []
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d22p01.json.gz",
+    "text_blocks_5lang": 5,
+    "dialogue_ops": 5
    }
   },
   {
@@ -6047,6 +6404,12 @@
     "music_tracks": [
      "MUS_IN_THE_DEPTHS_OF_THE_PIT"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d23p01.json.gz",
+    "text_blocks_5lang": 2,
+    "dialogue_ops": 2
    },
    "canonical_cast": [
     {
@@ -6111,6 +6474,12 @@
      "MUS_IN_THE_DEPTHS_OF_THE_PIT",
      "MUS_LEGEND_OF_NINETALES"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d24p01.json.gz",
+    "text_blocks_5lang": 80,
+    "dialogue_ops": 80
    }
   },
   {
@@ -6145,6 +6514,12 @@
     "music_tracks": [
      "MUS_STORMY_SEA"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d24p02.json.gz",
+    "text_blocks_5lang": 2,
+    "dialogue_ops": 2
    }
   },
   {
@@ -6179,6 +6554,12 @@
     "music_tracks": [
      "MUS_IN_THE_DEPTHS_OF_THE_PIT"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/d25p01.json.gz",
+    "text_blocks_5lang": 2,
+    "dialogue_ops": 2
    },
    "canonical_cast": [
     {
@@ -6239,6 +6620,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_OCEANIC"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6270,6 +6657,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_OCEANIC"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6301,6 +6694,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_OCEANIC"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6332,6 +6731,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_OCEANIC"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6363,6 +6768,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_DEEPSEA_CURRENT"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6394,6 +6805,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_SEAFLOOR_CAVE"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6425,6 +6842,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_POND"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6456,6 +6879,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_STEPPE"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6487,6 +6916,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_FIELD"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6518,6 +6953,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_FOREST"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6549,6 +6990,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_RAINBOW_PEAK"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6580,6 +7027,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_FIELD"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6611,6 +7064,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_FIELD"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6642,6 +7101,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_STEPPE"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6673,6 +7138,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_STEPPE"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6704,6 +7175,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_FIELD"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6735,6 +7212,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_FIELD"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6766,6 +7249,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_FOREST"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6797,6 +7286,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_FOREST"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6828,6 +7323,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_FOREST"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6859,6 +7360,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_FOREST"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6890,6 +7397,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_FOREST"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6921,6 +7434,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_HEALING_FOREST"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6952,6 +7471,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_FOREST"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -6983,6 +7508,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_FOREST"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7014,6 +7545,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_POND"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7045,6 +7582,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_POND"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7076,6 +7619,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_POND"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7107,6 +7656,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_OCEANIC"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7138,6 +7693,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_POND"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7169,6 +7730,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_SWAMP"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7200,6 +7767,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_SWAMP"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7231,6 +7804,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_CAVES"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7262,6 +7841,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_CRYPTIC_CAVE"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7293,6 +7878,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_CAVES"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7324,6 +7915,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_CAVES"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7355,6 +7952,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_WILDS"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7386,6 +7989,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_LAB"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7417,6 +8026,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_WILDS"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7448,6 +8063,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_WILDS"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7479,6 +8100,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_LAB"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7510,6 +8137,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_CAVES"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7541,6 +8174,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_WILDS"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7572,6 +8211,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_CAVES"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7603,6 +8248,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_CAVES"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7634,6 +8285,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_CAVES"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7665,6 +8322,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_SWAMP"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7696,6 +8359,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_OCEANIC"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7727,6 +8396,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_OCEANIC"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7758,6 +8433,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_VOLCANIC_PIT"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7789,6 +8470,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_STRATOS_LOOKOUT"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7820,6 +8507,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_WILDS"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7851,6 +8544,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_WILDS"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7882,6 +8581,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_LEGENDARY_ISLAND"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7913,6 +8618,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_SOUTHERN_ISLAND"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7944,6 +8655,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_ENCLOSED_ISLAND"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -7975,6 +8692,12 @@
     "music_tracks": [
      "MUS_FRIEND_AREA_FINAL_ISLAND"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -8006,6 +8729,12 @@
     "music_tracks": [
      "MUS_WELCOME_TO_THE_WORLD_OF_POKEMON"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/s01.json.gz",
+    "text_blocks_5lang": 6,
+    "dialogue_ops": 6
    }
   },
   {
@@ -8038,6 +8767,12 @@
      "MUS_OPENING_TITLE",
      "MUS_TITLE_SCREEN"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/s02.json.gz",
+    "text_blocks_5lang": 0,
+    "dialogue_ops": 0
    }
   },
   {
@@ -8157,6 +8892,12 @@
     "music_tracks": [
      "MUS_INTRO"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/s03.json.gz",
+    "text_blocks_5lang": 0,
+    "dialogue_ops": 0
    }
   },
   {
@@ -8186,6 +8927,12 @@
     "animations": 0,
     "audio_events": 0,
     "music_tracks": []
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/s04.json.gz",
+    "text_blocks_5lang": 0,
+    "dialogue_ops": 0
    }
   },
   {
@@ -8237,6 +8984,12 @@
     "animations": 0,
     "audio_events": 0,
     "music_tracks": []
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/s05.json.gz",
+    "text_blocks_5lang": 0,
+    "dialogue_ops": 0
    }
   },
   {
@@ -8347,6 +9100,12 @@
     "en": "System screen",
     "fr": "Écran système",
     "context": "Écrans/scènes système multilingues (s02_ger = allemand…)"
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/s06.json.gz",
+    "text_blocks_5lang": 0,
+    "dialogue_ops": 0
    }
   },
   {
@@ -8483,6 +9242,12 @@
     "music_tracks": [
      "MUS_POKEMON_SQUARE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/t00p01.json.gz",
+    "text_blocks_5lang": 207,
+    "dialogue_ops": 208
    }
   },
   {
@@ -8530,6 +9295,12 @@
      "MUS_THERES_TROUBLE",
      "MUS_WORLD_CALAMITY"
     ]
+   },
+   "dialogues": {
+    "status": "REVIEW_REQUIRED",
+    "file": null,
+    "text_blocks_5lang": null,
+    "dialogue_ops": null
    }
   },
   {
@@ -8558,6 +9329,12 @@
      "MUS_FILE_SELECT",
      "MUS_LEGEND_OF_NINETALES"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/t01p02a.json.gz",
+    "text_blocks_5lang": 269,
+    "dialogue_ops": 280
    }
   },
   {
@@ -8603,6 +9380,12 @@
      "MUS_INTRO",
      "MUS_POKEMON_SQUARE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/t01p03.json.gz",
+    "text_blocks_5lang": 242,
+    "dialogue_ops": 270
    }
   },
   {
@@ -8630,6 +9413,12 @@
      "MUS_INTRO",
      "MUS_POKEMON_SQUARE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/t01p04.json.gz",
+    "text_blocks_5lang": 10,
+    "dialogue_ops": 10
    }
   },
   {
@@ -8656,6 +9445,12 @@
     "music_tracks": [
      "MUS_POKEMON_SQUARE"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/t01p05.json.gz",
+    "text_blocks_5lang": 3,
+    "dialogue_ops": 3
    }
   },
   {
@@ -8682,6 +9477,12 @@
     "music_tracks": [
      "MUS_FILE_SELECT"
     ]
+   },
+   "dialogues": {
+    "status": "PASS",
+    "file": "Cinematics/dialogues/t01p07.json.gz",
+    "text_blocks_5lang": 0,
+    "dialogue_ops": 0
    }
   }
  ]

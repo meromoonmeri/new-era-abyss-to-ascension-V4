@@ -295,6 +295,46 @@ def audit_campaign(camp: str, cfg: dict) -> dict:
                 add("MEDIUM", "CINEMATIC", f"scene_lua/{lua.name}",
                     "scène quasi vide (<5 lignes de code)")
 
+    # ---------------- F1b: dialogues canoniques Red (dialogues/*.json.gz)
+    dlg_idx_p = cine_dir / "DIALOGUES_INDEX.json"
+    if dlg_idx_p.exists():
+        dlg_idx = json.loads(dlg_idx_p.read_text(encoding="utf-8-sig"))
+        for st, s in dlg_idx.get("stations", {}).items():
+            if s["status"] == "PASS":
+                if not s.get("file") or not (cine_dir / s["file"]).exists():
+                    add("HIGH", "CINEMATIC", st,
+                        f"dialogues PASS mais archive absente: {s.get('file')}")
+                elif not s.get("text_blocks"):
+                    # 0 bloc n'est une anomalie QUE si la séquence cif de la
+                    # même scène contient des boîtes de dialogue (contre-
+                    # épreuve ROM indépendante) ; sinon c'est canonique.
+                    cif_p = cine_dir / f"{st}.cif.json"
+                    cif_dialogs = 0
+                    if cif_p.exists():
+                        try:
+                            cd = json.loads(
+                                cif_p.read_text(encoding="utf-8-sig"))
+                            cif_dialogs = sum(
+                                1 for x in cd.get("raw_sequence", [])
+                                if x.get("type") == "Dialog")
+                        except Exception:
+                            pass
+                    if cif_dialogs:
+                        add("HIGH", "CINEMATIC", st,
+                            f"0 bloc de texte extrait alors que le cif "
+                            f"compte {cif_dialogs} boîtes de dialogue")
+                    else:
+                        add("ACCEPTED", "CINEMATIC", st,
+                            "0 bloc de texte — canonique (le cif de la ROM "
+                            "compte aussi 0 dialogue pour cette station)")
+            elif s["status"] == "REVIEW_REQUIRED":
+                add("LOW", "CINEMATIC", st,
+                    "dialogues REVIEW_REQUIRED (graphe EU non exact — "
+                    "documenté, pas un PASS)")
+            else:
+                add("MEDIUM", "CINEMATIC", st,
+                    f"dialogues status inattendu: {s['status']}")
+
     # ---------------- F2: archives de scripts ROM (Sky : rom_scripts/*.json.gz)
     idx_p = cine_dir / "ROM_SCRIPTS_INDEX.json"
     if idx_p.exists():

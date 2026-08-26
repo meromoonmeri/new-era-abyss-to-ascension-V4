@@ -62,6 +62,438 @@
    "detail": "séquence sans dialogue ni audio ({'Camera': 1})"
   },
   {
+   "severity": "ACCEPTED",
+   "category": "CINEMATIC",
+   "subject": "a04p03",
+   "detail": "0 bloc de texte — canonique (le cif de la ROM compte aussi 0 dialogue pour cette station)"
+  },
+  {
+   "severity": "ACCEPTED",
+   "category": "CINEMATIC",
+   "subject": "d14p01",
+   "detail": "0 bloc de texte — canonique (le cif de la ROM compte aussi 0 dialogue pour cette station)"
+  },
+  {
+   "severity": "ACCEPTED",
+   "category": "CINEMATIC",
+   "subject": "s02",
+   "detail": "0 bloc de texte — canonique (le cif de la ROM compte aussi 0 dialogue pour cette station)"
+  },
+  {
+   "severity": "ACCEPTED",
+   "category": "CINEMATIC",
+   "subject": "s03",
+   "detail": "0 bloc de texte — canonique (le cif de la ROM compte aussi 0 dialogue pour cette station)"
+  },
+  {
+   "severity": "ACCEPTED",
+   "category": "CINEMATIC",
+   "subject": "s04",
+   "detail": "0 bloc de texte — canonique (le cif de la ROM compte aussi 0 dialogue pour cette station)"
+  },
+  {
+   "severity": "ACCEPTED",
+   "category": "CINEMATIC",
+   "subject": "s05",
+   "detail": "0 bloc de texte — canonique (le cif de la ROM compte aussi 0 dialogue pour cette station)"
+  },
+  {
+   "severity": "ACCEPTED",
+   "category": "CINEMATIC",
+   "subject": "s06",
+   "detail": "0 bloc de texte — canonique (le cif de la ROM compte aussi 0 dialogue pour cette station)"
+  },
+  {
+   "severity": "ACCEPTED",
+   "category": "CINEMATIC",
+   "subject": "t01p07",
+   "detail": "0 bloc de texte — canonique (le cif de la ROM compte aussi 0 dialogue pour cette station)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "t01p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "b01p01a",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h01p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h01p02",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h01p03",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h02p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h02p02",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h02p03",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h03p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h04p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h04p02",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h05p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h05p02",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h06p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h06p02",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h06p03",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h06p04",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h06p05",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h06p06",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h07p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h07p02",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h07p03",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h07p04",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h07p05",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h07p06",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h07p07",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h07p08",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h08p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h09p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h09p02",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h10p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h10p02",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h11p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h12p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h13p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h13p02",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h13p03",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h13p04",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h14p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h15p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h16p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h17p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h18p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h19p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h20p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h21p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h21p02",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h22p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h23p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h24p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h25p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h26p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h27p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h28p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h28p02",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h29p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h29p02",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h29p03",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "h29p04",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "a05p02",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "d06p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "d07p02",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "d12p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
+   "severity": "LOW",
+   "category": "CINEMATIC",
+   "subject": "d13p01",
+   "detail": "dialogues REVIEW_REQUIRED (graphe EU non exact — documenté, pas un PASS)"
+  },
+  {
    "severity": "LOW",
    "category": "DUPLICATE",
    "subject": "a02p03+d08p02",
@@ -207,7 +639,8 @@
   }
  ],
  "severity_totals": {
-  "LOW": 34
+  "LOW": 98,
+  "ACCEPTED": 8
  },
  "frame_status": {
   "a01p01": {
