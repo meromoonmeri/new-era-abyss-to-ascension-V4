@@ -14,7 +14,7 @@ local function emit(s)
  PrintInfo('[GROUND_VALIDATOR] '..s)
  local f=io.open('/tmp/ground_gameplay_validator.jsonl','a');if f then f:write(s..'\n');f:flush();f:close() end
 end
-function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:' or string.sub(self.mode or '',1,9)=='skyscene:' or self.mode=='skyprogress' or self.mode=='skyjourney' or string.sub(self.mode or '',1,9)=='skyresume');self.idx=0;self.entered=false;self.busy=false
+function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:' or string.sub(self.mode or '',1,9)=='skyscene:' or self.mode=='skyprogress' or self.mode=='skyjourney' or string.sub(self.mode or '',1,9)=='skyresume' or self.mode=='redjourney');self.idx=0;self.entered=false;self.busy=false
  -- mode 'skyscene:<scene>@<ground>' : rejoue une cinématique canonique Sky
  if string.sub(self.mode or '',1,9)=='skyscene:' then
   local spec=string.sub(self.mode,10)
@@ -62,6 +62,33 @@ function V:begin()
   local gi=0
   for k=0,gl.Count-1 do if gl[k]=='t01p01a' then gi=k end end
   GAME:EnterZone('sky_hub_zone',-1,gi,0)
+  return
+ end
+ if self.mode=='redjourney' then
+  -- JOURNEY GLOBAL RED §12 : chaîne des routes histoire dans l'ordre
+  -- SCENARIO_MAIN pret (annotations event_flag.h), donjons+boss du dépôt
+  -- déjà runtime-validés. Chaque route: entrée canonique -> étages
+  -- procéduraux -> (boss fixed_room) -> Ground final. Réutilise le
+  -- red_story_route_validator zone par zone n'est pas possible en un run;
+  -- ici on chaîne EnterZone comme le journey Sky, avec le même compteur
+  -- de preuve (étages réellement générés).
+  self.idx=-8;SV.RuntimeGroundAudit.Active=false
+  self.RJ={
+   {ch='CH1 Tiny Woods (2.x)',dungeons={{z='tiny_woods',floors=3}},boss=nil},
+   {ch='CH2 Thunderwave (3.x)',dungeons={{z='thunderwave_cave',floors=5}}},
+   {ch='CH3 Mt Steel (4.x)',dungeons={{z='mt_steel',floors=8}},boss={seg=1,species='skarmory'}},
+   {ch='CH4 Sinister Woods (5.x)',dungeons={{z='gloomy_forest',floors=6},{z='gloomy_forest',floors=6,seg=1}}},
+   {ch='CH5 Silent Chasm (6.x)',dungeons={{z='silent_chasm',floors=9}}},
+   {ch='CH6 Mt Thunder (7.x)',dungeons={{z='mt_thunder',floors=10},{z='mt_thunder_peak',floors=2}},boss={seg=1,species='zapdos',zone='mt_thunder_peak'}},
+   {ch='CH7 Great Canyon (8.x)',dungeons={{z='great_canyon',floors=12}}},
+   {ch='CH8 Lapis Cave (11.x)',dungeons={{z='lapis_cave',floors=14}}},
+   {ch='CH9 Mt Blaze (12.x)',dungeons={{z='mt_blaze',floors=12},{z='mt_blaze_peak',floors=2}},boss={seg=1,species='moltres',zone='mt_blaze_peak'}},
+   {ch='CH10 Frosty Forest (13.x)',dungeons={{z='frosty_forest',floors=8}}},
+   {ch='CH11 Mt Freeze (14.x)',dungeons={{z='mt_freeze',floors=15},{z='mt_freeze_peak',floors=4}},boss={seg=1,species='glalie',zone='mt_freeze_peak'}},
+  }
+  self.rjch=1;self.rjdun=1;self.rjfloors=0
+  emit('{"event":"redjourney_begin","chapters":'..#self.RJ..'}')
+  GAME:EnterZone(self.RJ[1].dungeons[1].z,0,0,0)
   return
  end
  if self.mode=='skyresume:load' then
@@ -176,6 +203,69 @@ function V:begin()
  self.idx=1;emit('{"event":"begin","count":'..#PILOT..'}');GAME:EnterZone(PILOT[self.idx].zone,-1,PILOT[self.idx].idx,0)
 end
 function V:OnDungeonFloorEnter()
+ if self.enabled and self.mode=='redjourney' and self.RJ then
+  local ok,err=xpcall(function()
+    local C=self.RJ[self.rjch]
+    if C==nil then return end
+    local cz=tostring(_ZONE.CurrentZoneID)
+    local seg=_ZONE.CurrentMapID.Segment
+    local floor=_ZONE.CurrentMapID.ID
+    self.rjfloors=self.rjfloors+1
+    local cur=C.dungeons[self.rjdun]
+    -- segment boss (fixed_room rsmap du dépôt)
+    if C.boss and cz==(C.boss.zone or cur.z) and seg==(C.boss.seg or 1) then
+      local map=_ZONE.CurrentMap
+      local sp={}
+      local found=false
+      for ti=0,map.MapTeams.Count-1 do
+        local t2=map.MapTeams[ti]
+        for pi=0,t2.Players.Count-1 do
+          local ok2,s2=pcall(function() return t2.Players[pi].BaseForm.Species end)
+          if ok2 and s2 then sp[#sp+1]=tostring(s2);if tostring(s2)==C.boss.species then found=true end end
+        end
+      end
+      emit('{"event":"red_boss","ch":"'..C.ch..'","species":"'..table.concat(sp,',')..'","expected":"'..C.boss.species..'","found":'..tostring(found)..'}')
+      if not found then emit('{"event":"redjourney_end","verdict":"FAIL","error":"boss absent"}');emit('{"event":"end"}');return end
+      self.rjch=self.rjch+1;self.rjdun=1
+      local N=self.RJ[self.rjch]
+      if N==nil then
+        emit('{"event":"redjourney_end","chapters_done":'..(self.rjch-1)..',"floors_traversed":'..self.rjfloors..',"verdict":"RED_GLOBAL_JOURNEY_PASS"}')
+        emit('{"event":"end"}')
+      else
+        emit('{"event":"red_chapter","ch":"'..N.ch..'"}')
+        GAME:EnterZone(N.dungeons[1].z,0,0,0)
+      end
+      return
+    end
+    local want_seg=(cur and cur.seg) or 0
+    if cur and cz==cur.z and seg==want_seg then
+      if floor+1<cur.floors then
+        GAME:EnterZone(cur.z,want_seg,floor+1,0)
+      else
+        emit('{"event":"red_dungeon_done","zone":"'..cur.z..'","floors":'..cur.floors..'}')
+        if C.boss and (C.boss.zone or cur.z)==cur.z then
+          GAME:EnterZone(cur.z,C.boss.seg or 1,0,0)
+        elseif C.dungeons[self.rjdun+1] then
+          self.rjdun=self.rjdun+1
+          local nx=C.dungeons[self.rjdun]
+          GAME:EnterZone(nx.z,nx.seg or 0,0,0)
+        else
+          self.rjch=self.rjch+1;self.rjdun=1
+          local N=self.RJ[self.rjch]
+          if N==nil then
+            emit('{"event":"redjourney_end","chapters_done":'..(self.rjch-1)..',"floors_traversed":'..self.rjfloors..',"verdict":"RED_GLOBAL_JOURNEY_PASS"}')
+            emit('{"event":"end"}')
+          else
+            emit('{"event":"red_chapter","ch":"'..N.ch..'"}')
+            GAME:EnterZone(N.dungeons[1].z,0,0,0)
+          end
+        end
+      end
+    end
+  end,debug.traceback)
+  if not ok then emit('{"event":"redjourney_end","verdict":"FAIL","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}');emit('{"event":"end"}') end
+  return
+ end
  if self.enabled and self.mode=='skyjourney' and self.J then
   local ok,err=xpcall(function() self:journey_on_floor() end,debug.traceback)
   if not ok then emit('{"event":"skyjourney_end","verdict":"FAIL","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}');emit('{"event":"end"}') end

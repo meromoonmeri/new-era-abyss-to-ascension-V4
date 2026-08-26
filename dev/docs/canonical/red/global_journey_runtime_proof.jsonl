@@ -1,0 +1,32 @@
+{"event":"redjourney_begin","chapters":11}
+{"event":"red_dungeon_done","zone":"tiny_woods","floors":3}
+{"event":"red_chapter","ch":"CH2 Thunderwave (3.x)"}
+{"event":"red_dungeon_done","zone":"thunderwave_cave","floors":5}
+{"event":"red_chapter","ch":"CH3 Mt Steel (4.x)"}
+{"event":"red_dungeon_done","zone":"mt_steel","floors":8}
+{"event":"red_boss","ch":"CH3 Mt Steel (4.x)","species":"skarmory","expected":"skarmory","found":true}
+{"event":"red_chapter","ch":"CH4 Sinister Woods (5.x)"}
+{"event":"red_dungeon_done","zone":"gloomy_forest","floors":6}
+{"event":"red_dungeon_done","zone":"gloomy_forest","floors":6}
+{"event":"red_chapter","ch":"CH5 Silent Chasm (6.x)"}
+{"event":"red_dungeon_done","zone":"silent_chasm","floors":9}
+{"event":"red_chapter","ch":"CH6 Mt Thunder (7.x)"}
+{"event":"red_dungeon_done","zone":"mt_thunder","floors":10}
+{"event":"red_dungeon_done","zone":"mt_thunder_peak","floors":2}
+{"event":"red_boss","ch":"CH6 Mt Thunder (7.x)","species":"zapdos","expected":"zapdos","found":true}
+{"event":"red_chapter","ch":"CH7 Great Canyon (8.x)"}
+{"event":"red_dungeon_done","zone":"great_canyon","floors":12}
+{"event":"red_chapter","ch":"CH8 Lapis Cave (11.x)"}
+{"event":"red_dungeon_done","zone":"lapis_cave","floors":14}
+{"event":"red_chapter","ch":"CH9 Mt Blaze (12.x)"}
+{"event":"red_dungeon_done","zone":"mt_blaze","floors":12}
+{"event":"red_dungeon_done","zone":"mt_blaze_peak","floors":2}
+{"event":"red_boss","ch":"CH9 Mt Blaze (12.x)","species":"moltres","expected":"moltres","found":true}
+{"event":"red_chapter","ch":"CH10 Frosty Forest (13.x)"}
+{"event":"red_dungeon_done","zone":"frosty_forest","floors":8}
+{"event":"red_chapter","ch":"CH11 Mt Freeze (14.x)"}
+{"event":"red_dungeon_done","zone":"mt_freeze","floors":15}
+{"event":"red_dungeon_done","zone":"mt_freeze_peak","floors":4}
+{"event":"red_boss","ch":"CH11 Mt Freeze (14.x)","species":"glalie","expected":"glalie","found":true}
+{"event":"redjourney_end","chapters_done":11,"floors_traversed":120,"verdict":"RED_GLOBAL_JOURNEY_PASS"}
+{"event":"end"}
