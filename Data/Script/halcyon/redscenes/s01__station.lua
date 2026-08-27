@@ -9,5 +9,5 @@ return function(hero, partner)
   SkySceneKit.say({english="I want you to answer them sincerely.", french="Je veux que vous y répondiez avec sincérité.", german="Ich möchte, dass du alle Fragen ehrlich beantwortest.", italian="Cerca di rispondere con sincerità.", spanish="Quiero que respondas con sinceridad."})
   SkySceneKit.say({english="Are you ready?", french="On peut commencer?", german="Bist du bereit?", italian="Possiamo cominciare?", spanish="¿Podemos empezar?..."})
   SkySceneKit.say({english="OK... Let the interview begin!", french="D'accord... Commençons l'entretien!", german="Gut... Fangen wir an!", italian="OK... Diamo inizio all'intervista!", spanish="Vale. ¡Que empiece la entrevista!"})
-  -- 0x44 music_id 12: GAP (pas d'ogg extrait ROM vérifié)
+  pcall(function() SOUND:PlayBGM("Welcome to the World of Pokemon.ogg", true) end) -- 0x44 music_id 12 (ROM)
 end

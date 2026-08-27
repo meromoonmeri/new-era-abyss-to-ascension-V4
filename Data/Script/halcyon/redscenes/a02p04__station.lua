@@ -3,7 +3,7 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
-  pcall(function() SOUND:PlayBGM("The Escape", true) end) -- 0x44 music_id 24 (ROM)
+  pcall(function() SOUND:PlayBGM("The Escape.ogg", true) end) -- 0x44 music_id 24 (ROM)
   SkySceneKit.say({english="And so, [hero]'s harrowing journey continued.", french="Et ainsi, [hero] et son acolyte poursuivirent leur pénible voyage.", german="Und so setzte das Team von [hero] die aufreibende und gefahrvolle Reise fort.", italian="E così, l'avventuroso viaggio di [hero] e della sua squadra prosegue.", spanish="Y así continuó la peligrosa aventura de [hero]."})
   SkySceneKit.say({english="Seeking refuge in even harsher places...", french="Cherchant refuge même dans les endroits les plus austères...", german="Auf der Suche nach einem sicheren Versteck erreichten sie immer...", italian="Cercano rifugio in luoghi impraticabili...", spanish="Buscando refugio en lugares cada vez más inhóspitos..."})
   SkySceneKit.say({english="They fled north.", french="... toujours plus au nord...", german="Unwirtlichere Orte und gelangten stetig weiter in den Norden.", italian="Si dirigono verso nord.", spanish="Huyeron hacia el norte."})

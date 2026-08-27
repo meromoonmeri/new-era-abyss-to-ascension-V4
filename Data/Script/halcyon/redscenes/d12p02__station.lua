@@ -10,14 +10,14 @@ return function(hero, partner)
   GAME:WaitFrames(6) -- 0xE7
   GAME:WaitFrames(6) -- 0xE7
   GAME:WaitFrames(6) -- 0xE7
-  -- 0x44 music_id 108: GAP (pas d'ogg extrait ROM vérifié)
+  pcall(function() SOUND:PlayBGM("Magma Cavern (Rescue Team).ogg", true) end) -- 0x44 music_id 108 (ROM)
   SkySceneKit.say({english="Keep going?", french="Continuer?", german="Weitergehen?", italian="Vuoi proseguire?", spanish="¿Quieres continuar?"})
   SkySceneKit.say({english="Yes.", french="Oui", german="Ja", italian="Sì", spanish="Sí"})
   SkySceneKit.say({english="*No.", french="*Non", german="*Nein", italian="*No", spanish="*No"})
   SkySceneKit.say({english="Return to the rescue team base?", french="Retourner à la base de l'équipe de secours?", german="Zurück zur Retterteam-Basis?", italian="Vuoi tornare alla base della Squadra di Soccorso?", spanish="¿Quieres volver a la base del equipo de rescate?"})
   SkySceneKit.say({english="Yes.", french="Oui", german="Ja", italian="Sì", spanish="Sí"})
   SkySceneKit.say({english="*No.", french="*Non", german="*Nein", italian="*No", spanish="*No"})
-  -- 0x44 music_id 108: GAP (pas d'ogg extrait ROM vérifié)
+  pcall(function() SOUND:PlayBGM("Magma Cavern (Rescue Team).ogg", true) end) -- 0x44 music_id 108 (ROM)
   SkySceneKit.say({english="Hmm... Well, that didn't go well.", french="Hum... Eh bien, ça s'est mal passé.", german="Hmm... Das war ein Schuss in den Ofen.", italian="Hmm... Ci andata storta.", spanish="Mmm... Bueno, no nos ha ido muy bien."})
   SkySceneKit.say({english="Hmm... That didn't work out...", french="Hum... Ça n'a pas marché...", german="Hmm... Es hat nicht geklappt...", italian="Hmm... Poteva andarci meglio...", spanish="Mmm... Hemos fallado..."})
   SkySceneKit.say({english="But we didn't have far to go! Let's give it our best!", french="Mais on était pas loin du but! Faisons de notre mieux!", german="Wir waren schon kurz vor dem Ziel! Strengen wir uns noch mehr an!", italian="Ma per un soffio non ce la facevamo! Facciamo del nostro meglio!", spanish="¡Pero nos hemos quedado cerca! ¡Vamos a por todas!"})

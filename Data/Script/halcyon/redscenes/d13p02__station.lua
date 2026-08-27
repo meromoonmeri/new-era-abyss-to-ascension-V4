@@ -10,14 +10,14 @@ return function(hero, partner)
   GAME:WaitFrames(6) -- 0xE7
   GAME:WaitFrames(6) -- 0xE7
   GAME:WaitFrames(6) -- 0xE7
-  -- 0x44 music_id 22: GAP (pas d'ogg extrait ROM vérifié)
+  pcall(function() SOUND:PlayBGM("Sky Tower (Rescue Team).ogg", true) end) -- 0x44 music_id 22 (ROM)
   SkySceneKit.say({english="Keep going?", french="Continuer?", german="Weitergehen?", italian="Vuoi proseguire?", spanish="¿Quieres continuar?"})
   SkySceneKit.say({english="Yes.", french="Oui", german="Ja", italian="Sì", spanish="Sí"})
   SkySceneKit.say({english="*No.", french="*Non", german="*Nein", italian="*No", spanish="*No"})
   SkySceneKit.say({english="Return to the rescue team base?", french="Retourner à la base de l'équipe de secours?", german="Zurück zur Retterteam-Basis?", italian="Vuoi tornare alla base della Squadra di Soccorso?", spanish="¿Quieres volver a la base del equipo de rescatadores?"})
   SkySceneKit.say({english="Yes.", french="Oui", german="Ja", italian="Sì", spanish="Sí"})
   SkySceneKit.say({english="*No.", french="*Non", german="*Nein", italian="*No", spanish="*No"})
-  -- 0x44 music_id 22: GAP (pas d'ogg extrait ROM vérifié)
+  pcall(function() SOUND:PlayBGM("Sky Tower (Rescue Team).ogg", true) end) -- 0x44 music_id 22 (ROM)
   SkySceneKit.say({english="Hmm... Well, that didn't go well.", french="Hum... Eh bien, ça s'est mal passé.", german="Hmm... Na, das hat nicht geklappt.", italian="Hmm... Ci è andata storta.", spanish="Mmm... Vaya, no nos ha ido muy bien."})
   SkySceneKit.say({english="Hmm... That didn't work out...", french="Hum... Ça s'est mal passé...", german="Hmm... Das lief schief...", italian="Hmm... Poteva andarci meglio...", spanish="Mmm... No nos ha salido como queríamos..."})
   SkySceneKit.say({english="But we didn't have far to go! Let's give it our best!", french="Mais il ne manquait pas grand-chose! Faisons de notre mieux!", german="Aber wir hätten nicht mehr weit gehen müssen! Geben wir unser Bestes!", italian="Ma per un soffio non ce la facevamo! Facciamo del nostro meglio!", spanish="¡Pero nos faltaba poco! ¡Debemos esforzarnos más!"})

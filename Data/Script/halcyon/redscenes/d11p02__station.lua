@@ -11,7 +11,7 @@ return function(hero, partner)
   GAME:WaitFrames(7) -- 0xE7
   GAME:WaitFrames(7) -- 0xE7
   GAME:WaitFrames(7) -- 0xE7
-  pcall(function() SOUND:PlayBGM("Mt Freeze", true) end) -- 0x44 music_id 115 (ROM)
+  pcall(function() SOUND:PlayBGM("Mt Freeze.ogg", true) end) -- 0x44 music_id 115 (ROM)
   SkySceneKit.say({english="Keep going?", french="Continuer?", german="Weitergehen?", italian="Vuoi proseguire?", spanish="¿Quieres continuar?"})
   SkySceneKit.say({english="Yes.", french="Oui", german="Ja", italian="Sì", spanish="Sí"})
   SkySceneKit.say({english="*No.", french="*Non", german="*Nein", italian="*No", spanish="*No"})
@@ -22,7 +22,7 @@ return function(hero, partner)
   SkySceneKit.say({english="Yes.", french="Oui", german="Ja", italian="Sì", spanish="Sí"})
   SkySceneKit.say({english="*No.", french="*Non", german="*Nein", italian="*No", spanish="*No"})
   GAME:WaitFrames(1) -- 0xE7
-  pcall(function() SOUND:PlayBGM("Mt Freeze", true) end) -- 0x44 music_id 115 (ROM)
+  pcall(function() SOUND:PlayBGM("Mt Freeze.ogg", true) end) -- 0x44 music_id 115 (ROM)
   SkySceneKit.say({english="Hmm... Well, that didn't go well.", french="Hum... Eh bien, ça s'est mal passé.", german="Hmm... Das lief nicht gerade gut.", italian="Hmm... Niente da fare.", spanish="Mmm... Vaya, no nos ha ido muy bien."})
   SkySceneKit.say({english="Hmm... That didn't work out...", french="Hum... Ça n'a pas marché...", german="Hmm... Das war ein Fehlschlag...", italian="Hmm... Qualcosa non ha funzionato...", spanish="Mmm... No nos ha salido bien..."})
   SkySceneKit.say({english="But we didn't have far to go!", french="Mais on y était presque!", german="Dabei waren wir schon fast am Ziel!", italian="Ma c'eravamo quasi!", spanish="¡Pero hemos estado cerca!"})

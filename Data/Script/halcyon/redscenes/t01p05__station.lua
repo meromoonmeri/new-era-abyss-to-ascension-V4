@@ -7,14 +7,14 @@ return function(hero, partner)
   GAME:WaitFrames(1) -- 0xE7
   GAME:WaitFrames(6) -- 0xE7
   GAME:WaitFrames(6) -- 0xE7
-  -- 0x44 music_id 7: GAP (pas d'ogg extrait ROM vérifié)
+  pcall(function() SOUND:PlayBGM("Pokemon Square.ogg", true) end) -- 0x44 music_id 7 (ROM)
   GAME:WaitFrames(1) -- 0xE7
   SkySceneKit.say({english="There appears to be no one inside.", french="Il n'y a personne à l'intérieur.", german="Es ist niemand da.", italian="Sembra non esserci nessuno.", spanish="Parece que no hay nadie."})
   SkySceneKit.say({english="............! There is a notice posted in the back.", french="... ... ... ... ... ... ... ... ... ... ... ... Il y a un mot accroché sur la porte.", german="............! Da ist eine Notiz angebracht.", italian="... ... ... ...! C'è un cartello.", spanish="¡Anda!... Hay una nota colgada aquí."})
   SkySceneKit.say({english="Under Construction - Keep Out - Makuhita Dojo -", french="En construction - Ne pas entrer - Dojo Makuhita -", german="Im Umbau - Zutritt verboten - Makuhita-Dojo -", italian="Lavori in corso - Non avvicinarsi - Dojo Makuhita -", spanish="Estamos en obras. No pasar. - Dojo Makuhita -"})
-  -- 0x44 music_id 7: GAP (pas d'ogg extrait ROM vérifié)
+  pcall(function() SOUND:PlayBGM("Pokemon Square.ogg", true) end) -- 0x44 music_id 7 (ROM)
   GAME:WaitFrames(5) -- 0xE7
-  -- 0x44 music_id 7: GAP (pas d'ogg extrait ROM vérifié)
-  -- 0x44 music_id 7: GAP (pas d'ogg extrait ROM vérifié)
-  -- 0x44 music_id 7: GAP (pas d'ogg extrait ROM vérifié)
+  pcall(function() SOUND:PlayBGM("Pokemon Square.ogg", true) end) -- 0x44 music_id 7 (ROM)
+  pcall(function() SOUND:PlayBGM("Pokemon Square.ogg", true) end) -- 0x44 music_id 7 (ROM)
+  pcall(function() SOUND:PlayBGM("Pokemon Square.ogg", true) end) -- 0x44 music_id 7 (ROM)
 end

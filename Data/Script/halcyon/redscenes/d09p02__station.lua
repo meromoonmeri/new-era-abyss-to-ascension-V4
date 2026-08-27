@@ -11,7 +11,7 @@ return function(hero, partner)
   GAME:WaitFrames(7) -- 0xE7
   GAME:WaitFrames(7) -- 0xE7
   GAME:WaitFrames(7) -- 0xE7
-  pcall(function() SOUND:PlayBGM("Mt Blaze", true) end) -- 0x44 music_id 25 (ROM)
+  pcall(function() SOUND:PlayBGM("Mt Blaze.ogg", true) end) -- 0x44 music_id 25 (ROM)
   SkySceneKit.say({english="Keep going?", french="Continuer?", german="Weitergehen?", italian="Vuoi proseguire?", spanish="¿Quieres continuar?"})
   SkySceneKit.say({english="Yes.", french="Oui", german="Ja", italian="Sì", spanish="Sí"})
   SkySceneKit.say({english="*No.", french="*Non", german="*Nein", italian="*No", spanish="*No"})
@@ -21,7 +21,7 @@ return function(hero, partner)
   SkySceneKit.say({english="Return to the entrance?", french="Retourner à l'entrée?", german="Zurück zum Eingang?", italian="Vuoi tornare all'ingresso?", spanish="¿Quieres volver a la entrada?"})
   SkySceneKit.say({english="Yes.", french="Oui", german="Ja", italian="Sì", spanish="Sí"})
   SkySceneKit.say({english="*No.", french="*Non", german="*Nein", italian="*No", spanish="*No"})
-  pcall(function() SOUND:PlayBGM("Mt Blaze", true) end) -- 0x44 music_id 25 (ROM)
+  pcall(function() SOUND:PlayBGM("Mt Blaze.ogg", true) end) -- 0x44 music_id 25 (ROM)
   SkySceneKit.say({english="Hmm... Well, that didn't go well.", french="Hum... Eh bien, ça ne s'est pas bien passé.", german="Hmm... Das ging daneben.", italian="Hmm... Ci è andata storta.", spanish="Mmm... Vaya, no nos ha ido muy bien."})
   SkySceneKit.say({english="Hmm... That didn't work out...", french="Hum... Ça n'a pas marché...", german="Hmm... Das ist schief gelaufen.", italian="Hmm... Poteva andarci meglio...", spanish="Mmm... Esto no nos ha salido bien..."})
   SkySceneKit.say({english="But we almost made it. Let's give it our best again!", french="Mais on a failli réussir. Faisons encore de notre mieux!", german="Aber wir hätten es fast geschafft. Lass es uns noch einmal versuchen!", italian="Non ce l'abbiamo fatta per un soffio. Riproviamoci!", spanish="Pero casi lo logramos. ¡Vamos a intentarlo de nuevo!"})

@@ -10,7 +10,7 @@ return function(hero, partner)
   GAME:WaitFrames(7) -- 0xE7
   GAME:WaitFrames(7) -- 0xE7
   GAME:WaitFrames(7) -- 0xE7
-  -- 0x44 music_id 7: GAP (pas d'ogg extrait ROM vérifié)
+  pcall(function() SOUND:PlayBGM("Pokemon Square.ogg", true) end) -- 0x44 music_id 7 (ROM)
   SkySceneKit.say({english="I'm the event test Pokémon! Motions will differ from the real thing!", french="I'm the event test Pokémon! Motions will differ from the real thing!", german="Ich bin das Event-Test-Pokémon! Abläufe sind hier anders als in der echten Version!", italian="I'm the event test Pokémon! Motions will differ from the real thing!", spanish="I'm the event test Pokémon! Motions will differ from the real thing!"})
   SkySceneKit.say({english="Main 0A`4B Demo", french="Main 0A`4B Demo", german="Haupt 0A`4B Demo", italian="Main 0A`4B Demo", spanish="Main 0A`4B Demo"})
   SkySceneKit.say({english="Main 5A`7B", french="Main 5A`7B", german="Haupt 5A`7B", italian="Main 5A`7B", spanish="Main 5A`7B"})

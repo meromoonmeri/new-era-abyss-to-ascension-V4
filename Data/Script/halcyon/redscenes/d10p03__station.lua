@@ -3,7 +3,7 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
-  -- 0x44 music_id 114: GAP (pas d'ogg extrait ROM vérifié)
+  pcall(function() SOUND:PlayBGM("In the Depths of the Pit (Rescue Team).ogg", true) end) -- 0x44 music_id 114 (ROM)
   SkySceneKit.say({english="And so...", french="Et c'est ainsi que...", german="Und so...", italian="E così...", spanish="Y así..."})
   SkySceneKit.say({english="After getting through the Frosty Forest, [hero]'s team...", french="... après avoir traversé la Forêt Givrée, l'équipe de [hero]...", german="Überwand das Team von [hero] den Frostwald und...", italian="dopo aver superato la Foresta Glaciale, la squadra di [hero]...", spanish="tras atravesar el Bosque Helado, el equipo de [hero]..."})
   SkySceneKit.say({english="Headed further north...", french="... fit route plus au nord...", german="Marschierte weiter in den Norden...", italian="si dirige verso nord...", spanish="se dirigió hacia el norte..."})

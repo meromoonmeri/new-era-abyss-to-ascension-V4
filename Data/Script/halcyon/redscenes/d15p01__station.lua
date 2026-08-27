@@ -3,7 +3,7 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
-  -- 0x44 music_id 10: GAP (pas d'ogg extrait ROM vérifié)
+  pcall(function() SOUND:PlayBGM("Theres Trouble.ogg", true) end) -- 0x44 music_id 10 (ROM)
   SkySceneKit.say({english="Gwooooooooooh! ...H-how dare you!", french="Gwooooooooooh! C... comment oses-tu!", german="Gwooooooooooh! ...W-wie kannst du es wagen!", italian="Gwooooooooooh! ... Come osi?!", spanish="¡Arrrg! ¡¿Cómo te atreves?!"})
   SkySceneKit.say({english="How... How did this happen...?", french="Comment... comment est-ce possible?", german="Wie... Wie konnte das geschehen...?", italian="Com... Com'è potuto succedere?", spanish="¿Cómo...? ¿Cómo ha ocurrido esto...?"})
   SkySceneKit.say({english="But regardless, you have won. Let me hear your wish.", french="Mais j'admets ma défaite. Fais-moi connaître ton souhait.", german="Nun denn... Du hast gewonnen. Was wünschst du?", italian="Ad ogni modo hai vinto tu. Sentiamo il tuo sogno.", spanish="Sin embargo, me has vencido. ¿Qué quieres? ¿Qué te ha traído aquí?"})

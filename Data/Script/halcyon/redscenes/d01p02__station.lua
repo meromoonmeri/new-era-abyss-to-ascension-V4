@@ -3,7 +3,7 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
-  -- 0x44 music_id 114: GAP (pas d'ogg extrait ROM vérifié)
+  pcall(function() SOUND:PlayBGM("In the Depths of the Pit (Rescue Team).ogg", true) end) -- 0x44 music_id 114 (ROM)
   SkySceneKit.say({english="Waaaaah...", french="Ouiiiiiiin...", german="Waaaaah...", italian="Uuuuuè...", spanish="Buaaaaa..."})
   SkySceneKit.say({english="Mommy... Where are you...? Sniffle...", french="Maman... Où es-tu? Sniff...", german="Mami... Wo bist du...? Schnüff...", italian="Mamma... dove sei? Sigh...", spanish="Mamá... ¿Dónde estás?... Snif..."})
   SkySceneKit.say({english="We came to rescue you.", french="On est là pour te sauver.", german="Wir sind hier, um dich zu retten.", italian="Siamo qui per salvarti.", spanish="Hemos venido a rescatarte."})

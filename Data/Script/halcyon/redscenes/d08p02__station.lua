@@ -3,7 +3,7 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
-  -- 0x44 music_id 10: GAP (pas d'ogg extrait ROM vérifié)
+  pcall(function() SOUND:PlayBGM("Theres Trouble.ogg", true) end) -- 0x44 music_id 10 (ROM)
   SkySceneKit.say({english="Stop right there! Don't let them get away!", french="Arrêtez-vous! Ne les laissez pas s'enfuir!", german="Stehen bleiben! Lasst sie nicht entwischen!", italian="Ehi, voi due, fermatevi! Non devono fuggire!", spanish="¡No os mováis! ¡Que no escapen!"})
   SkySceneKit.say({english="Sure. Like we're really going to wait because they said so.", french="Ouais. Comme si on allait les attendre parce qu'ils nous l'ont demandé!", german="Oh, aber sicher doch! Als ob wir auf sie warten würden, nur weil sie es so wollen!", italian="Poveri illusi! Credono che ci fermeremo per ubbidire ai loro ordini?!", spanish="Qué listo. Cree que diciendo eso vamos a quedarnos aquí esperando."})
   SkySceneKit.say({english="They expect us to stop and wait for them?", french="Ils espèrent qu'on va s'arrêter pour les attendre?", german="Sie erwarten wirklich, dass wir anhalten und auf sie warten?!?", italian="Cosa vogliono? Dobbiamo fermarci per aspettarli?! È ridicolo!", spanish="¿En serio creen que porque nos lo han pedido nos vamos a parar? ¡Ja!"})

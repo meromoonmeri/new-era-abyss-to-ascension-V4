@@ -42,7 +42,8 @@ MUSIC_DIR = os.path.join(ROOT, 'Content', 'Music')
 # table STRICTE MUS_ -> ogg : uniquement les extractions ROM PASS
 MUS_MAP = {}
 for f in ('pmdred_eu_music_extraction.json',
-          'pmdred_eu_music_extraction_wave2.json'):
+          'pmdred_eu_music_extraction_wave2.json',
+           'pmdred_eu_music_extraction_wave3.json'):
     p = os.path.join(AUDIO_DIR, f)
     if not os.path.exists(p):
         continue
@@ -94,7 +95,8 @@ def lua_str(s):
 # (pmdred_eu_music_extraction*.json, status PASS, mid inclus)
 MUS_ID_MAP = {}
 for _f in ('pmdred_eu_music_extraction.json',
-           'pmdred_eu_music_extraction_wave2.json'):
+           'pmdred_eu_music_extraction_wave2.json',
+           'pmdred_eu_music_extraction_wave3.json'):
     _p = os.path.join(AUDIO_DIR, _f)
     if os.path.exists(_p):
         for _r in json.load(open(_p))['results']:
@@ -148,7 +150,7 @@ def compile_station_v2(gid, station, out_path):
                 ogg = MUS_ID_MAP.get(mid)
                 if ogg:
                     lines.append(f'  pcall(function() SOUND:PlayBGM('
-                                 f'{lua_str(ogg)}, true) end) '
+                                 f"{lua_str(ogg + '.ogg')}, true) end) "
                                  f'-- 0x44 music_id {mid} (ROM)')
                 else:
                     lines.append(f'  -- 0x44 music_id {mid}: GAP (pas '
@@ -251,7 +253,7 @@ def main():
                 tr = first_sw.get('track')
                 if tr in MUS_MAP:
                     lines.append('  pcall(function() SOUND:PlayBGM('
-                                 + lua_str(MUS_MAP[tr])
+                                 + lua_str(MUS_MAP[tr] + '.ogg')
                                  + ', true) end)')
                     bgm_note = f'{tr} -> {MUS_MAP[tr]}.ogg (extraction ROM)'
                 else:

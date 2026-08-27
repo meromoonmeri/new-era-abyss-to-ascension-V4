@@ -3,7 +3,7 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
-  -- 0x44 music_id 10: GAP (pas d'ogg extrait ROM vérifié)
+  pcall(function() SOUND:PlayBGM("Theres Trouble.ogg", true) end) -- 0x44 music_id 10 (ROM)
   SkySceneKit.say({english="Gwoooooooh!", french="Roooooooh!", german="Gwoooooooh!", italian="Gwoooooooh!", spanish="¡Arrrg!"})
   SkySceneKit.say({english="I have lost...", french="J'ai perdu...", german="Ich habe verloren...", italian="Ho perso...", spanish="Me has vencido..."})
   SkySceneKit.say({english="I admit it. You are strong.", french="Je dois l'admettre. Tu as beaucoup de force.", german="Ich gebe es zu. Ich bin nicht stark genug.", italian="Devo ammettere che sei forte.", spanish="Lo admito. Eres fuerte."})

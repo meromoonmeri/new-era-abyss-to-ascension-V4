@@ -3,7 +3,7 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
-  -- 0x44 music_id 114: GAP (pas d'ogg extrait ROM vérifié)
+  pcall(function() SOUND:PlayBGM("In the Depths of the Pit (Rescue Team).ogg", true) end) -- 0x44 music_id 114 (ROM)
   SkySceneKit.say({english="Having calmed , [hero]'s team left the dungeon...", french="Ayant réussi à calmer , l'équipe de [hero] quitta le donjon...", german="Nachdem beruhigt war, verließ das Team von [hero] den Dungeon...", italian="Dopo aver placato , la squadra di [hero] lascia il dungeon...", spanish="Una vez que calmaron a , el equipo de [hero] dejó la cueva..."})
   SkySceneKit.say({english="And returned to Pokémon Square together with 's team.", french="... et retourna sur la Place Pokémon, accompagnée de l'équipe d'.", german="Und kehrte mit s Team zum Pokémonplatz zurück.", italian="e fa ritorno in Piazza Pokémon insieme alla squadra di .", spanish="y volvió a la Plaza Pokémon junto al equipo de ."})
   SkySceneKit.say({english="Grgaaaaaah!", french="Grrraaaaaah!", german="Grgaaaaaah!", italian="Grgaaaaaah!", spanish="¡Grrrrrrrrr!"})

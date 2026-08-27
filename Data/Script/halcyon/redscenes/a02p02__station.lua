@@ -3,7 +3,7 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
-  pcall(function() SOUND:PlayBGM("The Escape", true) end) -- 0x44 music_id 24 (ROM)
+  pcall(function() SOUND:PlayBGM("The Escape.ogg", true) end) -- 0x44 music_id 24 (ROM)
   SkySceneKit.say({english="Across fields of fire...", french="Traversant des plaines en feu...", german="Und höllisch heiße Feuerebenen...", italian="Attraverso distese infuocate...", spanish="Y atravesando campos de fuego..."})
   SkySceneKit.say({english="But throughout it all, [hero]'s team kept their heads held high.", french="Mais tout au long de ces épreuves, l'équipe de [hero] garda la tête haute.", german="Doch trotz aller Gefahren hielt sich das Team von [hero] wacker und aufrecht.", italian="La squadra di [hero] affronta ogni avversità a testa alta.", spanish="Pero, a pesar de todo, el equipo de [hero] mantuvo la cabeza alta."})
   SkySceneKit.say({english="Without a complaint, they marched on.", french="Le voyage se poursuivit sans aucune plainte, de plus en plus loin.", german="Unverzagt und tapfer marschierten sie weiter.", italian="E continua il proprio cammino senza esitazioni.", spanish="Sin pausa, sin descanso, continuaron su camino."})

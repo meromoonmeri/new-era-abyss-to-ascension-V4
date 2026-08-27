@@ -12,8 +12,6 @@
    "messages": 218,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid4",
-    "0x44:mid5",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0x53:movement_animation_or_camera",
@@ -72,7 +70,6 @@
    "messages": 16,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid38",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0x54:movement_animation_or_camera",
@@ -153,9 +150,6 @@
    "messages": 169,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid19",
-    "0x44:mid41",
-    "0x44:mid42",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0x49:music_or_fanfare",
@@ -183,7 +177,6 @@
    "messages": 1,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid22",
     "0x47:music_or_fanfare",
     "0x89:movement_animation_or_camera",
     "0xE9:terminal",
@@ -218,8 +211,6 @@
    "messages": 15,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid44",
-    "0x44:mid45",
     "0x47:music_or_fanfare",
     "0xE9:terminal",
     "0xEF:terminal",
@@ -242,7 +233,6 @@
    "messages": 268,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid1",
     "0x45:music_or_fanfare",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
@@ -275,8 +265,6 @@
    "messages": 109,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid10",
-    "0x44:mid103",
     "0x45:music_or_fanfare",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
@@ -296,7 +284,6 @@
    "messages": 8,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid114",
     "0x47:music_or_fanfare",
     "0x54:movement_animation_or_camera",
     "0x56:movement_animation_or_camera",
@@ -311,7 +298,6 @@
    "messages": 11,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid103",
     "0x47:music_or_fanfare",
     "0x52:movement_animation_or_camera",
     "0x53:movement_animation_or_camera",
@@ -331,7 +317,6 @@
    "messages": 2,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid114",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0x54:movement_animation_or_camera",
@@ -365,7 +350,6 @@
    "messages": 22,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid114",
     "0x47:music_or_fanfare",
     "0x52:movement_animation_or_camera",
     "0x53:movement_animation_or_camera",
@@ -403,7 +387,6 @@
    "messages": 11,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid114",
     "0x47:music_or_fanfare",
     "0x53:movement_animation_or_camera",
     "0x54:movement_animation_or_camera",
@@ -437,8 +420,6 @@
    "messages": 28,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid114",
-    "0x44:mid9",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0x53:movement_animation_or_camera",
@@ -486,7 +467,6 @@
    "messages": 67,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid114",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0x53:movement_animation_or_camera",
@@ -523,7 +503,6 @@
    "messages": 132,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid114",
     "0x45:music_or_fanfare",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
@@ -566,7 +545,6 @@
    "messages": 11,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid10",
     "0x47:music_or_fanfare",
     "0x52:movement_animation_or_camera",
     "0x53:movement_animation_or_camera",
@@ -619,7 +597,6 @@
    "messages": 86,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid114",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0x53:movement_animation_or_camera",
@@ -674,7 +651,6 @@
    "messages": 81,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid114",
     "0x45:music_or_fanfare",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
@@ -731,7 +707,6 @@
    "messages": 171,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid10",
     "0x45:music_or_fanfare",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
@@ -762,7 +737,6 @@
    "messages": 14,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid108",
     "0x54:movement_animation_or_camera",
     "0x6B:movement_animation_or_camera",
     "0xE9:terminal",
@@ -775,7 +749,6 @@
    "messages": 10,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid108",
     "0x48:music_or_fanfare",
     "0x52:movement_animation_or_camera",
     "0x54:movement_animation_or_camera",
@@ -791,7 +764,6 @@
    "messages": 16,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid114",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0x53:movement_animation_or_camera",
@@ -811,7 +783,6 @@
    "messages": 17,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid22",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0x52:movement_animation_or_camera",
@@ -831,7 +802,6 @@
    "messages": 11,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid22",
     "0x48:music_or_fanfare",
     "0x52:movement_animation_or_camera",
     "0x54:movement_animation_or_camera",
@@ -869,7 +839,6 @@
    "messages": 16,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid10",
     "0x47:music_or_fanfare",
     "0x49:music_or_fanfare",
     "0x54:movement_animation_or_camera",
@@ -883,7 +852,6 @@
    "messages": 15,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid114",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0x49:music_or_fanfare",
@@ -902,7 +870,6 @@
    "messages": 16,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid114",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0x49:music_or_fanfare",
@@ -921,7 +888,6 @@
    "messages": 19,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid114",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0x49:music_or_fanfare",
@@ -940,7 +906,6 @@
    "messages": 19,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid10",
     "0x47:music_or_fanfare",
     "0x54:movement_animation_or_camera",
     "0xE9:terminal",
@@ -953,9 +918,6 @@
    "messages": 34,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid10",
-    "0x44:mid11",
-    "0x44:mid35",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0x53:movement_animation_or_camera",
@@ -976,7 +938,6 @@
    "messages": 4,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid114",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0x54:movement_animation_or_camera",
@@ -1009,7 +970,6 @@
    "messages": 2,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid114",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0x54:movement_animation_or_camera",
@@ -1024,7 +984,6 @@
    "messages": 80,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid114",
     "0x45:music_or_fanfare",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
@@ -1059,7 +1018,6 @@
    "messages": 2,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid114",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0x54:movement_animation_or_camera",
@@ -1286,7 +1244,6 @@
    "messages": 14,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid117",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0x49:music_or_fanfare",
@@ -1325,7 +1282,6 @@
    "messages": 6,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid12",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0xE9:terminal",
@@ -1357,7 +1313,6 @@
    "messages": 208,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid7",
     "0x52:movement_animation_or_camera",
     "0x53:movement_animation_or_camera",
     "0x54:movement_animation_or_camera",
@@ -1375,8 +1330,6 @@
    "messages": 280,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid41",
-    "0x44:mid8",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0x49:music_or_fanfare",
@@ -1408,9 +1361,6 @@
    "messages": 270,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid40",
-    "0x44:mid41",
-    "0x44:mid7",
     "0x47:music_or_fanfare",
     "0x48:music_or_fanfare",
     "0x49:music_or_fanfare",
@@ -1447,8 +1397,6 @@
    "messages": 10,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid40",
-    "0x44:mid7",
     "0x48:music_or_fanfare",
     "0x52:movement_animation_or_camera",
     "0x53:movement_animation_or_camera",
@@ -1469,7 +1417,6 @@
    "messages": 3,
    "partial_ops": [
     "0x08:map_transition",
-    "0x44:mid7",
     "0x48:music_or_fanfare",
     "0x52:movement_animation_or_camera",
     "0x53:movement_animation_or_camera",

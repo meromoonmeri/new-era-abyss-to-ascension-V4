@@ -3,7 +3,7 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
-  -- 0x44 music_id 114: GAP (pas d'ogg extrait ROM vérifié)
+  pcall(function() SOUND:PlayBGM("In the Depths of the Pit (Rescue Team).ogg", true) end) -- 0x44 music_id 114 (ROM)
   SkySceneKit.say({english="Urggggh!", french="Arggggh!", german="Arggggh!", italian="Arggggh!", spanish="¡Urg!"})
   SkySceneKit.say({english="I'm not done! I'm not finished yet!", french="Ce n'est pas terminé! Je n'ai pas dit mon dernier mot!", german="Ich bin noch nicht fertig! Ich bin noch lange nicht fertig!", italian="Non ho ancora finito!", spanish="¡No estoy acabado! ¡No me habéis vencido aún!"})
   SkySceneKit.say({english="Wait! Hold it!", french="Attends! Calme-toi!", german="Warte! Hör auf!", italian="Aspetta! Un attimo!", spanish="¡Un momento! ¡Espera!"})

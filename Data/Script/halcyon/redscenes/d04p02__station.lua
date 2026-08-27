@@ -3,7 +3,7 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
-  -- 0x44 music_id 114: GAP (pas d'ogg extrait ROM vérifié)
+  pcall(function() SOUND:PlayBGM("In the Depths of the Pit (Rescue Team).ogg", true) end) -- 0x44 music_id 114 (ROM)
   SkySceneKit.say({english="Owowowow... You'll pay for this! Don't you forget it!", french="Ouille, ouille, ouille... Vous me paierez ça! N'oubliez pas!", german="Auauauauau... Das werdet ihr bereuen! Darauf könnt ihr euch verlassen!", italian="Ohhhhh... La pagherete! Promesso!", spanish="Vaya, vaya, vaya... ¡Pagaréis por esto! ¡Que no se os olvide!"})
   SkySceneKit.say({english="Well, those pests are gone. Let's find .", french="Eh bien, ces fléaux sont partis. Allons trouver .", german="Die Nervensägen sind weg. Jetzt müssen wir nur noch finden.", italian="Quelle pesti se ne sono andate. Troviamo .", spanish="Bueno, nos deshicimos de esos matones. Busquemos a ."})
   SkySceneKit.say({english="No one should hold us back now. Let's find .", french="Plus personne ne devrait nous gêner maintenant. Allons retrouver .", german="Niemand wird uns jetzt noch aufhalten. Suchen wir .", italian="Ora nessuno può fermarci. Troviamo .", spanish="Ya nada nos retiene. Busquemos a ."})

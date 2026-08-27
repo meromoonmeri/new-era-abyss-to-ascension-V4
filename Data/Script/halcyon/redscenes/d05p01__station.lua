@@ -3,7 +3,7 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() UI:ResetSpeaker() end)
-  pcall(function() SOUND:PlayBGM("Silent Chasm", true) end) -- 0x44 music_id 113 (ROM)
+  pcall(function() SOUND:PlayBGM("Silent Chasm.ogg", true) end) -- 0x44 music_id 113 (ROM)
   SkySceneKit.say({english="Whew, this is some cliff.", french="Waouh, c'est un sacré précipice.", german="Puh, das nenne ich steil!", italian="Alla faccia del dirupo!", spanish="Guau, menudo precipicio."})
   SkySceneKit.say({english="Wow! This cliff is steep!", french="Waouh! Ce précipice est profond!", german="Wow! Das ist aber steil hier!", italian="Wow! Proprio un bel dirupo!", spanish="¡Jolín! ¡Este precipicio sí que es profundo!"})
   SkySceneKit.say({english="So your friend is somewhere deep in this canyon?", french="Alors ton ami est quelque part au fond de ce ravin?", german="Dein Freund befindet sich also hier in dieser Klamm?", italian="Quindi il tuo amico si trova da qualche parte in fondo a questo dirupo?", spanish="¿Y dices que tu amigo está en el fondo de este cañón?"})
