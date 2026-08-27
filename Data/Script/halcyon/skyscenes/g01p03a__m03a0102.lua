@@ -233,12 +233,12 @@ return function(hero, partner)
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(partner, Direction.UpLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
+  local npc_npc_bippa = SkySceneKit.spawn_npc("bidoof", 368, 184, Direction.Down, "NPC_BIPPA")
+  pcall(function() UI:SetSpeaker(npc_npc_bippa) end) -- message_SetActor(ACTOR_NPC_BIPPA)
+  pcall(function() UI:SetSpeaker(npc_npc_bippa) end)
   SkySceneKit.say({english=" Yup yup!", french=" Ouaip! Me v'là, pour sûr!", german=" Jawollja!", italian=" Già, già!", spanish=" ¡Sí, señor!"})
   -- message_Close
   -- supervision_Acting(4) [neutre/état moteur]
-  local npc_npc_bippa = SkySceneKit.spawn_npc("bidoof", 368, 184, Direction.Down, "NPC_BIPPA")
   -- SetOutputAttribute(8) [neutre/état moteur]
   GAME:WaitFrames(20)
   GROUND:MoveToPosition(npc_npc_bippa, 364, 212, false, 2)

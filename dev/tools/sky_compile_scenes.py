@@ -276,8 +276,13 @@ class SceneCompiler:
         # résolus sur le duo courant (même règle que PLAYER_*)
         if actor in ("ACTOR_NPC_DEMO_HERO", "ACTOR_NPC_HERO_FIRST"):
             return "hero"
-        if actor in ("ACTOR_NPC_DEMO_PARTNER", "ACTOR_NPC_PARTNER_FIRST"):
+        if actor in ("ACTOR_NPC_DEMO_PARTNER", "ACTOR_NPC_PARTNER_FIRST",
+                     "ACTOR_NPC_PARTNER"):
+            # NPC_PARTNER: LivesEntityTable type 5 entid 0 = partenaire
+            # courant (même résolution runtime que ATTENDANT)
             return "partner"
+        if actor == "ACTOR_NPC_HERO":
+            return "hero"
         # slots d'équipe dynamiques NDS (LivesEntityTable type 3,
         # entid 0 = résolu à l'exécution par l'équipe courante) ->
         # kit.team_member(n) : n-ième membre au-delà du duo ; nil si
@@ -1392,6 +1397,24 @@ class SceneCompiler:
             tbl = ", ".join(f"{k}={lua_str(v)}" for k, v in langs.items())
             if spk:
                 self.emit(f"pcall(function() UI:SetSpeaker({spk}) end)")
+            elif self.face_pending:
+                # locuteur SANS placement SSA dans la zone (spawn moteur
+                # ou hors champ) : ATTRIBUTION PRÉSERVÉE par identité
+                # d'espèce ROM (nom + portrait natif SetSpeaker complet)
+                key = self.face_pending.replace("ACTOR_", "")
+                entid = GLOBAL_ACTOR_ENTID.get(key)
+                sp = (ENTID2SPECIES.get(entid)
+                      or ENTID2SPECIES.get((entid or 0) % 600)) \
+                    if entid else None
+                if sp:
+                    disp = sp.replace("_", " ").title()
+                    self.emit(f"pcall(function() UI:SetSpeaker("
+                              f"{lua_str(disp)}, true, {lua_str(sp)}, 0,"
+                              f" '', RogueEssence.Data.Gender.Unknown) "
+                              f"end) -- locuteur {key} (espèce ROM, "
+                              f"sans placement zone)")
+                else:
+                    self.emit("pcall(function() UI:ResetSpeaker() end)")
             else:
                 self.emit("pcall(function() UI:ResetSpeaker() end)")
             self.emit(f"SkySceneKit.say({{{tbl}}})")
@@ -1513,8 +1536,37 @@ class SceneCompiler:
                       f"déjà posée par le placement de scène]")
         elif op in ("message_CloseEnforce",):
             self.emit("-- message_CloseEnforce")
-        elif op in ("message_SetActor", "message_EmptyActor",
-                    "message_SetFaceEmpty"):
+        elif op == "message_SetActor":
+            # définit le LOCUTEUR des prochains dialogues (voix d'un
+            # personnage, présent ou hors champ). Attribution canonique
+            # préservée : speaker = acteur résolu (spawn si placé), ou
+            # nom d'espèce affiché si l'acteur n'a pas de placement
+            # (voix hors champ ROM).
+            tgt = args.strip()
+            a2 = self.actor_expr(tgt) if tgt.startswith("ACTOR_") else None
+            if a2:
+                self.emit(f"pcall(function() UI:SetSpeaker({a2}) end) "
+                          f"-- message_SetActor({tgt})")
+                self.face_pending = tgt
+            else:
+                key = tgt.replace("ACTOR_", "")
+                entid = GLOBAL_ACTOR_ENTID.get(key)
+                sp = (ENTID2SPECIES.get(entid)
+                      or ENTID2SPECIES.get((entid or 0) % 600)) \
+                    if entid else None
+                if sp:
+                    # signature native PMDO (event_battle.lua):
+                    # SetSpeaker(name, sound, species, form, skin, gender)
+                    disp = sp.replace("_", " ").title()
+                    self.emit(f"pcall(function() UI:SetSpeaker("
+                              f"{lua_str(disp)}, true, {lua_str(sp)}, 0, "
+                              f"'', RogueEssence.Data.Gender.Unknown) "
+                              f"end) -- message_SetActor({tgt}) voix "
+                              f"hors champ (espèce ROM)")
+                else:
+                    self.emit(f"pcall(function() UI:ResetSpeaker() end) "
+                              f"-- message_SetActor({tgt}) sans identité")
+        elif op in ("message_EmptyActor", "message_SetFaceEmpty"):
             self.emit("pcall(function() UI:ResetSpeaker() end)")
         elif op == "MovePositionOffset":
             # signature ROM: (vitesse px/frame, dx px, dy px) — preuve:

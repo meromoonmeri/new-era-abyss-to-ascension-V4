@@ -37,7 +37,7 @@ return function(hero, partner)
   GROUND:EntTurn(npc_npc_serebii, Direction.UpRight)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(10)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" That was close...", french=" Ce n'est pas passé loin...", german=" Das war knapp...", italian=" C'è mancato poco...", spanish=" Casi lo conseguimos..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- GAP: se_Play(11534) — id SE NDS sans portage PMDO identifié
@@ -72,7 +72,7 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_serebii) end)
   SkySceneKit.say({english="We're also...[K]\nAt last disappearing...", french=" Nous aussi...[K] nous disparaissons.", german="Jetzt...[K]\nJetzt verschwinden wir also auch...", italian="Anche noi alla fine...[K]\nstiamo scomparendo...", spanish=" Y estamos...[K] desapareciendo..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="We don't have any time.[K]\nLet's hurry to the pinnacle.", french=" Le temps presse.[K] Au pinacle!", german="Wir haben keine Zeit.[K]\nLasst uns zur Spitze eilen.", italian="Non c'è più tempo.[K]\nDobbiamo raggiungere la vetta, presto!", spanish="No nos queda tiempo.[K]\nSubamos a la cúspide."})
   -- message_Close
   SkySceneKit.cleanup_npcs()

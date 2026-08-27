@@ -13,7 +13,7 @@ return function(hero, partner)
   GAME:WaitFrames(1) -- with(...){hold} NDS
   GAME:WaitFrames(1) -- with(...){hold} NDS
   GAME:FadeIn(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english="Acting Test under way...", french="Acting Test under way...", german="Acting Test under way...", italian="Acting Test under way...", spanish="Acting Test under way..."})
   -- message_Close
   -- supervision_ExecuteStationCommon(LEVEL_T00P01, 1) [exécution de station sans cible littérale: harnais journey]

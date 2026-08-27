@@ -15,7 +15,7 @@ return function(hero, partner)
   GAME:FadeIn(30) -- screen_FadeChange vers alpha 192 (éclaircissement, adaptation)
   GAME:WaitFrames(30)
   GAME:WaitFrames(60)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Hey, [hero].", french=" Hé, [hero].", german=" Hey, [hero].", italian=" Ehi, [hero].", spanish=" Oye, [hero]."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
@@ -64,7 +64,7 @@ return function(hero, partner)
   -- back_SetBackEffect(3) [état de lecture des palettes animées NDS: autotiles PMDO animés en boucle - documenté]
   GAME:WaitFrames(60)
   -- back_SetBackEffect(1) [état de lecture des palettes animées NDS: autotiles PMDO animés en boucle - documenté]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" It's just the feeling that I get.", french=" C'est juste une impression.", german=" Ich habe nur so ein Gefühl.", italian=" È solo una sensazione.", spanish=" Esa es la sensación que tengo."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
@@ -125,7 +125,7 @@ return function(hero, partner)
   SkySceneKit.say({english="(How does it relate to anything else?)", french="(Quel est le rapport avec tout ça?)", german="(Wie passt das alles zusammen?)", italian="(Cosa c'entra il sogno con tutto il resto?)", spanish="(¿Qué relación tiene con todo lo demás?)"})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="I don't know what you were like\nas a human, [hero]...", french="Je ne sais pas comment tu étais\nen tant qu'être humain, [hero]...", german="Ich weiß zwar nicht, wie du als\nMensch so warst, [hero]...", italian="Non ho idea di come fossi quando\nnon eri ancora un Pokémon, [hero]...", spanish="No te conocí como ser humano,\n[hero]..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
@@ -167,7 +167,7 @@ return function(hero, partner)
   SkySceneKit.say({english="(That the growing number of bad Pokémon has\nbeen caused by time going out of whack.)", french="(Le nombre de méchants Pokémon augmente\nà cause de la perturbation du temps.)", german="(Dass die wachsende Anzahl bösartiger\nPokémon daher kommt, dass die Zeit\ndurcheinandergeraten ist.)", italian="(Che l'aumento del numero di Pokémon\ncattivi è causato dal tempo che non è più\nsotto controllo.)", spanish="(Que por culpa de los problemas con el tiempo\nahora hay más Pokémon malvados.)"})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" You know...", french=" Tu sais...", german=" Weißt du...", italian=" Sai...", spanish=" ¿Sabes?"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
@@ -206,7 +206,7 @@ return function(hero, partner)
   SkySceneKit.say({english="(Huh?[K] Time Gears?)", french="(Hein?[K] Les Rouages du Temps?)", german="(Äh?[K] Zahnräder der Zeit?)", italian="(Eh?[K] Ingranaggi del Tempo?)", spanish="(¿Cómo?[K] ¿Los Engranajes del Tiempo?)"})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="They say Time Gears are hidden\nin secret places around the world.", french="On raconte que les\nRouages du Temps sont cachés dans des lieux\nsecrets dans le monde entier.", german="Es heißt, dass an geheimen\nOrten auf der ganzen Welt Zahnräder der Zeit\nversteckt sind.", italian="Si dice che gli Ingranaggi del\nTempo siano nascosti in luoghi segreti\nsparsi per il mondo.", spanish="Dicen que los Engranajes del\nTiempo están escondidos en lugares secretos."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

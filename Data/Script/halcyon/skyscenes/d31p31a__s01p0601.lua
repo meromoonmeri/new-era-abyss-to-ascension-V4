@@ -44,8 +44,9 @@ return function(hero, partner)
   SkySceneKit.say({english="[CS:P]Luminous Spring[CR] must be\ncoming up.", french="La [CS:P]Source Lumineuse[CR] ne doit\nplus être très loin.", german="Die [CS:P]Glitzerquelle[CR] muss hier\ngleich sein.", italian="La [CS:P]Sorgente Luccichio[CR] deve\nessere poco più avanti.", spanish="El [CS:P]Manantial Luminoso[CR] no debe\nquedar muy lejos."})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:SetSpeaker(partner) end)
+  local npc_npc_himeguma = SkySceneKit.spawn_npc("teddiursa", 216, 440, Direction.Up, "NPC_HIMEGUMA")
+  pcall(function() UI:SetSpeaker(npc_npc_himeguma) end) -- message_SetActor(ACTOR_NPC_HIMEGUMA)
+  pcall(function() UI:SetSpeaker(npc_npc_himeguma) end)
   SkySceneKit.say({english=" Oh! [partner]! [hero]!", french=" Oh! [partner]! [hero]!", german=" Oh! [partner]! [hero]!", italian=" Oh! [partner]! [hero]!", spanish="¡Oh! ¡[partner]!\n¡[hero]!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Complain") end)
@@ -59,7 +60,6 @@ return function(hero, partner)
   pcall(function() GAME:MoveCamera(228, 340, 60, false) end) -- performer/caméra
   -- supervision_Acting(1) [neutre/état moteur]
   GAME:WaitFrames(1)
-  local npc_npc_himeguma = SkySceneKit.spawn_npc("teddiursa", 216, 440, Direction.Up, "NPC_HIMEGUMA")
   GROUND:MoveToPosition(npc_npc_himeguma, 212, 348, false, 2)
   local npc_npc_ringuma = SkySceneKit.spawn_npc("ursaring", 248, 456, Direction.Up, "NPC_RINGUMA")
   GROUND:MoveToPosition(npc_npc_ringuma, 244, 348, false, 2)
@@ -204,7 +204,7 @@ return function(hero, partner)
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(0), p.Y+(8), false, 2) end -- SlidePositionOffset
   GAME:FadeOut(false, 5)
   -- GAP: se_Play(7938) — id SE NDS sans portage PMDO identifié
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Waaaaah!", french=" Ouaaah!", german=" Aaaaaah!", italian=" Aaaaaah!", spanish=" ¡Aaah!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

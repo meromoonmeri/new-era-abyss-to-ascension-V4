@@ -252,13 +252,15 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" What's wrong, sentry [CS:N]Diglett[CR]?", french="Qu'est-ce qui t'arrive, garde\n[CS:N]Taupiqueur[CR]?", german=" Was ist los, Wachposten [CS:N]Digda[CR]?", italian=" Cosa c'è, sentinella [CS:N]Diglett[CR]?", spanish=" ¿Qué pasa, centinela [CS:N]Diglett[CR]?"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:SetSpeaker(hero) end)
+  local npc_npc_diguda = SkySceneKit.spawn_npc("diglett", 200, 168, Direction.Down, "NPC_DIGUDA")
+  pcall(function() UI:SetSpeaker(npc_npc_diguda) end) -- message_SetActor(ACTOR_NPC_DIGUDA)
+  pcall(function() UI:SetSpeaker(npc_npc_diguda) end)
   SkySceneKit.say({english=" Umm... Er...", french=" Hmm... euh...", german=" Ähmmm... Äh...", italian=" Uhm... Ehm...", spanish=" Hum... Esto..."})
   -- message_Close
   pcall(function() SOUND:FadeOutBGM(60) end)
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   GAME:FadeOut(false, 30)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]
+  SkySceneKit.cleanup_npcs()
   SkySubScreen.Hide(10) -- fin de scène: nappe sub retirée
 end

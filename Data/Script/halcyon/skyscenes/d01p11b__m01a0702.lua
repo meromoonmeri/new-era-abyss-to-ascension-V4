@@ -348,7 +348,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="(I don't know what an exploration team is...)", french="(Je ne sais même pas ce qu'est une équipe\nd'exploration...)", german="(Ich weiß nicht einmal, was ein\nErkundungsteam ist...)", italian="(Non so neanche cosa sia una squadra\nd'esplorazione...)", spanish="(Ni siquiera sé lo que es un equipo\nexplorador...)"})
   end
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end) -- message_SetActor(ACTOR_PLAYER)
   if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(What should I do?[K] Should I join this Pokémon\nand form an exploration team?)", french="(Que faire?[K] Dois-je rejoindre ce Pokémon\net former une équipe d'exploration avec lui?)", german="(Was soll ich tun?[K] Soll ich mit diesem\nPokémon ein Erkundungsteam gründen?)", italian="(Cosa devo fare?[K] Devo unirmi a questo\nPokémon e formare una squadra\nd'esplorazione?)", spanish="(¿Qué hago?[K] ¿Debería formar un equipo\nexplorador con este Pokémon?)"})
   else

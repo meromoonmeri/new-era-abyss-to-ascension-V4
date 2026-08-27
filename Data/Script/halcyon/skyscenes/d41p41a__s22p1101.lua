@@ -60,8 +60,9 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GROUND:EntTurn(partner, Direction.Up)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:SetSpeaker(partner) end)
+  local npc_npc_daakurai = SkySceneKit.spawn_npc("darkrai", 280, 152, Direction.Down, "NPC_DAAKURAI")
+  pcall(function() UI:SetSpeaker(npc_npc_daakurai) end) -- message_SetActor(ACTOR_NPC_DAAKURAI)
+  pcall(function() UI:SetSpeaker(npc_npc_daakurai) end)
   SkySceneKit.say({english=" You've kept me waiting.", french=" Ha! Je vous attendais.", german=" Ihr habt mich warten lassen.", italian=" Mi avete fatto aspettare.", spanish=" Me habéis hecho esperar."})
   -- message_Close
   GAME:FadeIn(5) -- screen_FadeChange vers alpha 256 (éclaircissement, adaptation)
@@ -85,7 +86,6 @@ return function(hero, partner)
   SkySceneKit.say({english=" [CS:N]Darkrai[CR]!", french=" [CS:N]Darkrai[CR]!", german=" [CS:N]Darkrai[CR]!", italian=" [CS:N]Darkrai[CR]!", spanish=" ¡[CS:N]Darkrai[CR]!"})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  local npc_npc_daakurai = SkySceneKit.spawn_npc("darkrai", 280, 152, Direction.Down, "NPC_DAAKURAI")
   pcall(function() UI:SetSpeaker(npc_npc_daakurai) end)
   SkySceneKit.say({english="Good of you to come,\n[partner] and [hero].", french="C'est très aimable à vous\nd'avoir accepté ce rendez-vous, [partner]\net [hero].", german="Wie nett von euch, dass ihr\nkommt, [partner] und [hero].", italian="Gentile da parte vostra venire\nqui, [partner] e [hero].", spanish="Me alegro de que hayáis venido,\n[partner] y [hero]."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())

@@ -16,9 +16,9 @@ return function(hero, partner)
   GAME:FadeIn(30)
   -- switch(message_Menu(36)) [menu système NDS sans embranchement (corps vide): équivalent géré par le moteur PMDO]
   GAME:WaitFrames(10)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Pelipper", true, "pelipper", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_PERIPPAA2 (espèce ROM, sans placement zone)
   SkySceneKit.say({english="Oh, yes.[K] Don't forget to send an\n[CS:E]A-OK Mail[CR] to the friend you rescued!", french="Ah, oui![K] N'oubliez pas d'envoyer\nune [CS:E]Lettre O.K.[CR] à la personne que vous avez\nsecourue!", german="Oh ja.[K] Vergiss nicht, dem von\ndir befreiten Freund einen [CS:E]Okay-Brief[CR]\nzu senden!", italian="Oh, sì.[K] Non dimenticarti di\ninviare l'[CS:E]E-mail di OK[CR] a chi hai soccorso.", spanish="Ah, por cierto...[K] No os olvidéis\nde enviar una [CS:E]carta de misión cumplida[CR] al\namigo que hayas rescatado."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Pelipper", true, "pelipper", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_PERIPPAA2 (espèce ROM, sans placement zone)
   SkySceneKit.say({english="You can send your [CS:E]A-OK Mail[CR]\nfrom within Friend Rescue on the Top Menu.", french="Vous pouvez envoyer votre\n[CS:E]Lettre O.K.[CR] en sélectionnant Sauvetage Ami\nà partir du menu principal.", german="Du kannst deinen [CS:E]Okay-Brief[CR]\nüber FREUNDRETTUNG im Hauptmenü senden.", italian="Puoi inviare l'[CS:E]E-mail di OK[CR]\nscegliendo Pronto Intervento nel menu\nprincipale.", spanish="Se puede enviar desde el menú\nque aparece al seleccionar la opción Rescate\nde amigos en el menú principal."})
   -- message_Close
   SkySceneKit.unlock(3) -- Unlock(3) NDS

@@ -62,7 +62,7 @@ return function(hero, partner)
   GAME:WaitFrames(1)
   -- MoveHeight(2, 0) [élévation d'objet NDS non simulée - documenté]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_mikaruge) end) -- message_SetActor(ACTOR_NPC_MIKARUGE)
   pcall(function() UI:SetSpeaker(npc_npc_mikaruge) end)
   SkySceneKit.say({english=" Eeep!", french=" Hiiii!", german=" Ieep!", italian=" Eeeh!", spanish=" ¡No!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
@@ -85,7 +85,7 @@ return function(hero, partner)
   GAME:WaitFrames(1)
   -- MoveHeight(2, 0) [élévation d'objet NDS non simulée - documenté]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_mikaruge) end) -- message_SetActor(ACTOR_NPC_MIKARUGE)
   pcall(function() UI:SetSpeaker(npc_npc_mikaruge) end)
   SkySceneKit.say({english=" Eeep!", french=" Hiiii!", german=" Ieep!", italian=" Eeeh!", spanish=" ¡Aaaah!"})
   pcall(function() UI:SetSpeaker(npc_npc_mikaruge) end)

@@ -229,10 +229,10 @@ return function(hero, partner)
   SkySceneKit.say({english=" [CS:N]D-Darkrai[CR] vanished?!", french=" [CS:N]D-Darkrai[CR] a disparu?!", german=" [CS:N]D-Darkrai[CR] ist verschwunden?!?", italian=" [CS:N]D-Darkrai[CR] è scomparso?!", spanish=" [CS:N]Darkrai[CR]... ¿Se ha esfumado?"})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:SetSpeaker(partner) end)
+  pcall(function() UI:SetSpeaker(npc_npc_daakurai) end) -- message_SetActor(ACTOR_NPC_DAAKURAI)
+  pcall(function() UI:SetSpeaker(npc_npc_daakurai) end)
   SkySceneKit.say({english=" You cannot catch me, [CS:N]Cresselia[CR]...", french="Tu ne peux m'attraper,\n[CS:N]Cresselia[CR].", german="Du fängst mich nicht,\n[CS:N]Cresselia[CR]...", italian=" Non puoi prendermi, [CS:N]Cresselia[CR].", spanish="[CS:N]Cresselia[CR], nunca lograrás\natraparme..."})
-  pcall(function() UI:SetSpeaker(partner) end)
+  pcall(function() UI:SetSpeaker(npc_npc_daakurai) end)
   SkySceneKit.say({english=" ...Not ever.", french=" Jamais tu ne le pourras.", german=" Niemals.", italian=" Non ci riuscirai mai.", spanish=" Nunca."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- ExecuteCommon(CORO_LOOK_AROUND_LEFT_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
@@ -240,7 +240,7 @@ return function(hero, partner)
   -- ExecuteCommon(CORO_LOOK_AROUND_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(7)
   -- ExecuteCommon(CORO_LOOK_AROUND_DOWN_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
-  pcall(function() UI:SetSpeaker(partner) end)
+  pcall(function() UI:SetSpeaker(npc_npc_daakurai) end)
   SkySceneKit.say({english="You two...[K] I shall be waiting in\nthe [CS:P]Dark Crater[CR].", french="Vous deux...[K] je vous attendrai\nau [CS:P]Cratère Obscur[CR].", german="Ihr zwei.[K] Ich werde im\n[CS:P]Dunkelkrater[CR] warten.", italian="Voi due...[K] Vi aspetto al [CS:P]Cratere[CR]\n[CS:P]Oscuro[CR].", spanish="Pareja...[K] Os estaré esperando en\nel [CS:P]Cráter Oscuro[CR]."})
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())

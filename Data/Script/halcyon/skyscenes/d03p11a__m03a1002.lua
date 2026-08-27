@@ -72,14 +72,14 @@ return function(hero, partner)
   -- Destroy() [neutre/état moteur]
   -- Destroy() [neutre/état moteur]
   -- supervision_Acting(1) [neutre/état moteur]
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:SetSpeaker(npc_npc_suriipu) end)
+  local npc_npc_mariru = SkySceneKit.spawn_npc("marill", 280, 336, Direction.Up, "NPC_MARIRU")
+  pcall(function() UI:SetSpeaker(npc_npc_mariru) end) -- message_SetActor(ACTOR_NPC_MARIRU)
+  pcall(function() UI:SetSpeaker(npc_npc_mariru) end)
   SkySceneKit.say({english=" [CS:N]Azurill[CR]!", french=" [CS:N]Azurill[CR]!", german=" [CS:N]Azurill[CR]!", italian=" [CS:N]Azurill[CR]!", spanish=" ¡[CS:N]Azurill[CR]!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Complain") end)
   pcall(function() GROUND:CharSetEmote(npc_npc_ruriri, "exclaim", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
-  local npc_npc_mariru = SkySceneKit.spawn_npc("marill", 280, 336, Direction.Up, "NPC_MARIRU")
   pcall(function() GROUND:CharTurnToCharAnimated(npc_npc_ruriri, npc_npc_mariru, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, npc_npc_mariru, 4) end)

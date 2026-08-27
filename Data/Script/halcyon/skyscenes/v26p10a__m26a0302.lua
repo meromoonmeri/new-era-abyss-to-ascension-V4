@@ -13,7 +13,7 @@ return function(hero, partner)
   -- SetAnimation(17) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteObject(OBJECT_V26P10A1_351) [routine d'objet NDS non simulée - documenté]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="This place...[K] It's [CS:P]Treeshroud\nForest[CR].", french="Cet endroit...[K] c'est la [CS:P]Forêt\nLinceul[CR].", german="Dieser Ort...[K] Es ist das\n[CS:P]Schemengehölz[CR].", italian="Questo posto...[K] è la [CS:P]Foresta[CR]\n[CS:P]Arcana[CR].", spanish="Este lugar...[K] es el [CS:P]Bosque[CR]\n[CS:P]Enraizado[CR]."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

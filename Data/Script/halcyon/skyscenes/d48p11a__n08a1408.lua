@@ -20,7 +20,7 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(2) -- join WaitExecutePerformer
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="We're here.[K] This is the entrance\nto [CS:P]Temporal Tower[CR].", french="Nous y voilà.[K] L'entrée de la\n[CS:P]Tour du Temps[CR].", german="Da sind wir.[K] Dies ist der Eingang\nzum [CS:P]Zeitturm[CR].", italian="Eccoci qui.[K] Questo è l'ingresso\ndella [CS:P]Torre del Tempo[CR].", spanish="Aquí estamos.[K] Esta es la entrada\nde la [CS:P]Torre del Tiempo[CR]."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(hero) end)

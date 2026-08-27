@@ -134,15 +134,15 @@ return function(hero, partner)
   SkySceneKit.say({english=" [CS:N]Wigglytuff[CR]![K] And [CS:N]Grovyle[CR] too!", french="[CS:N]Grodoudou[CR]![K] Et [CS:N]Massko[CR] est là\naussi!", german=" [CS:N]Knuddeluff[CR]![K] Und auch [CS:N]Reptain[CR]!", italian=" [CS:N]Wigglytuff[CR]![K] E anche [CS:N]Grovyle[CR]!", spanish=" ¡[CS:N]Wigglytuff[CR]![K] ¡Y [CS:N]Grovyle[CR]!"})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:SetSpeaker(partner) end)
+  local npc_npc_dogoomu = SkySceneKit.spawn_npc("loudred", 296, 352, Direction.Up, "NPC_DOGOOMU")
+  pcall(function() UI:SetSpeaker(npc_npc_dogoomu) end) -- message_SetActor(ACTOR_NPC_DOGOOMU)
+  pcall(function() UI:SetSpeaker(npc_npc_dogoomu) end)
   SkySceneKit.say({english=" Guildmaster!", french=" Maître!", german=" Gildenmeister!", italian=" Capitano!", spanish=" ¡Gran Bluff!"})
   -- message_Close
   -- GAP: se_Play(6916) — id SE NDS sans portage PMDO identifié
   -- supervision_Acting(2) [neutre/état moteur]
   GAME:WaitFrames(1)
   pcall(function() GAME:MoveCamera(276, 252, 60, false) end) -- performer/caméra
-  local npc_npc_dogoomu = SkySceneKit.spawn_npc("loudred", 296, 352, Direction.Up, "NPC_DOGOOMU")
   GROUND:MoveToPosition(npc_npc_dogoomu, 292, 244, false, 2)
   local npc_npc_heigani = SkySceneKit.spawn_npc("corphish", 328, 400, Direction.Up, "NPC_HEIGANI")
   GROUND:MoveToPosition(npc_npc_heigani, 324, 252, false, 2)

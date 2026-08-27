@@ -90,7 +90,7 @@ return function(hero, partner)
   GAME:FadeIn(60) -- screen_FadeChange vers alpha 192 (éclaircissement, adaptation)
   -- SetAnimation(62) [anim idle native]
   GAME:WaitFrames(60)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end) -- message_SetActor(ACTOR_PLAYER)
   if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(...)", french="(...)", german="(...)", italian="(...)", spanish="(...)"})
   else
@@ -183,7 +183,7 @@ return function(hero, partner)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]
   GAME:WaitFrames(60)
   -- message_ResetActor() [neutre/état moteur]
-  pcall(function() UI:SetSpeaker(partner) end)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" There it is! Another Time Gear!", french=" Le voilà! Un autre Rouage du Temps!", german=" Da ist es! Ein weiteres Zahnrad der Zeit!", italian=" Eccolo! Un altro Ingranaggio del Tempo!", spanish=" ¡Ahí está! ¡Otro Engranaje del Tiempo!"})
   -- message_Close
   SkySubScreen.Hide(10) -- fin de scène: nappe sub retirée

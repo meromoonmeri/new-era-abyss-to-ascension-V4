@@ -43,7 +43,7 @@ return function(hero, partner)
   GAME:WaitFrames(15)
   -- back_SetGround(LEVEL_S04P01A) [neutre/état moteur]
   GAME:FadeIn(0)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_daakurai) end) -- message_SetActor(ACTOR_NPC_DAAKURAI)
   pcall(function() UI:SetSpeaker(npc_npc_daakurai) end)
   SkySceneKit.say({english="However...[K] That will end in their\nelimination, not mine.", french="Mais...[K] ce sont ces trois-là\nqui mordront la poussière, et pas moi.", german="Das Ergebnis allerdings...[K] Das\nErgebnis wird darin bestehen, dass ich sie alle\naus dem Weg räumen werde!", italian="Tuttavia...[K] Quando torneranno\nsarò io a eliminarli, non viceversa.", spanish=" Pero...[K] no seré yo el derrotado."})
   pcall(function() UI:SetSpeaker(npc_npc_daakurai) end)

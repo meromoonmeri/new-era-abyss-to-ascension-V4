@@ -14,7 +14,7 @@ return function(hero, partner)
   -- SetAnimation(76) [anim idle native]
   GAME:FadeIn(15) -- screen_FadeChange vers alpha 192 (éclaircissement, adaptation)
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="But...what happens if a region\nloses its Time Gear?", french="Mais... que se passerait-il si\nune région perdait son Rouage du Temps?", german="Aber was, wenn eine Region ihr\nZahnrad der Zeit verliert?", italian="Cosa succede se un Ingranaggio\ndel Tempo sparisce?", spanish="Pero... ¿Qué pasaría si una\nregión perdiera su Engranaje del Tiempo?"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

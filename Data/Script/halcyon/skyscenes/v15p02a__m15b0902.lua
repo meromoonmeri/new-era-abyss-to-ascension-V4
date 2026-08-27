@@ -12,7 +12,7 @@ return function(hero, partner)
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
   -- message_SetWaitMode(100, 60) [neutre/état moteur]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Incredible!", french=" Incroyable!", german=" Unglaublich!", italian=" È fantastico!", spanish=" ¡Increíble!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

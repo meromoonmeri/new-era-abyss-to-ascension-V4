@@ -49,7 +49,7 @@ return function(hero, partner)
   SkySceneKit.say({english="Want to try reaching here as\nour first objective?", french="Rejoindre cet endroit, c'est\nnotre premier objectif, d'accord?", german="Wollen wir uns als erstes Ziel\nsetzen, dort hinzugelangen?", italian="Volete provare ad arrivare qui,\ncome primo obiettivo?", spanish="Debemos empezar\ntratando de llegar hasta aquí."})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Bidoof", true, "bidoof", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_BIPPA (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" Yup yup! I agree with that.", french=" Ouaip! J'suis d'accord.", german=" Jawollja! Ich bin einverstanden.", italian=" Sì, sì! Sono d'accordo.", spanish="¡Sí, señor! Estoy plenamente\nde acuerdo."})
   -- message_Close
   -- GAP: se_Play(6667) — id SE NDS sans portage PMDO identifié

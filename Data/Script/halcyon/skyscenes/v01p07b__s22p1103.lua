@@ -13,7 +13,7 @@ return function(hero, partner)
   -- GAP: SetEffect EFFECT_VERY_HEAVY_RAIN — VFX sans émote PMDO équivalente
   pcall(function() SOUND:PlayBGM("Time Gear Remix.ogg", true) end)
   GAME:FadeIn(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Darkrai", true, "darkrai", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_DAAKURAI) voix hors champ (espèce ROM)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="Yes. You and [CS:N]Grovyle[CR] had an\naccident while traveling through time.", french="Oui. Vous avez eu un accident\nen voyageant dans le temps.", german="Ja. Du und [CS:N]Reptain[CR] hattet einen\nUnfall, als ihr durch die Zeit gereist seid.", italian="Sì. Tu e [CS:N]Grovyle[CR] avete avuto\nun incidente mentre viaggiavate nel tempo.", spanish="Sí. Tú y [CS:N]Grovyle[CR] tuvisteis\nun accidente viajando en el tiempo."})
   pcall(function() UI:ResetSpeaker() end)

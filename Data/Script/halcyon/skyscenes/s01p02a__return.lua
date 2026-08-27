@@ -34,11 +34,11 @@ return function(hero, partner)
   -- supervision_ExecuteStationCommon(LEVEL_S01P02A, 1) [exécution de station sans cible littérale: harnais journey]
   GAME:WaitFrames(1) -- hold
   elseif true then -- default
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Pelipper", true, "pelipper", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_PERIPPAA2 (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" Oh! Welcome back!", french=" Oh! Vous revoilà!", german=" Oh! Willkommen zurück!", italian=" Oh! Che bello rivederti!", spanish=" ¡Hola de nuevo!"})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Pelipper", true, "pelipper", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_PERIPPAA2 (espèce ROM, sans placement zone)
   SkySceneKit.say({english="Now, how about that rescue you\nattempted?[K] Oh, you've abandoned that attempt?", french="Alors cette tentative de\nsauvetage?[K] Ah bon, vous avez abandonné?", german="Nun, wie sieht es mit dem\nRettungsversuch aus, den du unternommen\nhast?[K] Oh, du hast ihn abgebrochen?", italian="Ehi, com'è andato il tentativo\ndi soccorso?[K] Oh, hai rinunciato?", spanish="¿Qué pasó con el intento de\nrescate?[K] ¿Abandonasteis?"})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Pelipper", true, "pelipper", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_PERIPPAA2 (espèce ROM, sans placement zone)
   SkySceneKit.say({english="But you're not out of chances\nyet! There's no need to give up!", french="Mais vous n'avez pas encore\nutilisé toutes vos chances! Rien ne vous oblige\nà laisser tomber!", german="Aber du hast noch weitere\nVersuche übrig! Kein Grund aufzugeben!", italian="Ma non è ancora detta l'ultima\nparola! Non mollare proprio adesso!", spanish="¡Aún tenéis oportunidades!\n¡No os rindáis!"})
   -- message_Close
   -- jump @label_1 [saut final de branche vers l'épilogue commun: flux naturel]

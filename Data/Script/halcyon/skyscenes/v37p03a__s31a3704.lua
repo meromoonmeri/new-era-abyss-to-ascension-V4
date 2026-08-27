@@ -17,7 +17,7 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteObject(OBJECT_V37P03A1_405) [routine d'objet NDS non simulée - documenté]
   -- Destroy() [neutre/état moteur]
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Breloom", true, "breloom", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_KINOGASSA) voix hors champ (espèce ROM)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="Wow!\nA-amazing!", french="Waouh!\nIn... incroyable!", german="Wow!\nU-unglaublich!", italian="Wow!\nM-Magnifico!", spanish=" ¡Córcholis! Es... increíble..."})
   -- message_Close

@@ -19,7 +19,7 @@ return function(hero, partner)
   GAME:WaitFrames(15)
   -- SetAnimation(2) [anim idle native]
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Spinda", true, "spinda", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_PATCHIIRU) voix hors champ (espèce ROM)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="Right now at the Recycle Shop,\nyou trade several items in exchange for one of\nthe shop's items.", french="A l'heure actuelle, à la Bourse\nd'Echange, vous échangez plusieurs objets\ncontre un autre du magasin.", german="Zurzeit tauscht ihr im\nWiederverwertungsladen einige eurer\nItems gegen eines der Items des Ladens.", italian="Finora al Centro Riciclo\nsi consegnavano vari strumenti per\nottenerne uno del negozio.", spanish="Ahora, en el Reciclaje Explorador\nse intercambian varios objetos por uno de los\nde la tienda."})
   pcall(function() UI:ResetSpeaker() end)
@@ -40,7 +40,7 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteObject(OBJECT_S14P01A2_400) [routine d'objet NDS non simulée - documenté]
   GAME:WaitFrames(15)
   -- SetAnimation(2) [anim idle native]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Spinda", true, "spinda", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_PATCHIIRU) voix hors champ (espèce ROM)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="You might be wondering how\nProject P fits into all this...", french="... vous vous demandez\npeut-être quel est le rapport...", german="Da fragt ihr euch sicher, wie\ndas Projekt P dort hineinpasst.", italian="Vi starete chiedendo cosa c'entra\nil Progetto P in tutto questo...", spanish="Seguramente os preguntéis cómo\nencaja el Proyecto P en todo esto..."})
   pcall(function() UI:ResetSpeaker() end)
@@ -68,7 +68,7 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteObject(OBJECT_S14P01A3_401) [routine d'objet NDS non simulée - documenté]
   GAME:WaitFrames(15)
   -- SetAnimation(2) [anim idle native]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Spinda", true, "spinda", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_PATCHIIRU) voix hors champ (espèce ROM)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="We'll find dazzling treasures\nand new exploration areas! (Probably...)", french="Nous découvrirons de nouveaux\ntrésors étincelants et de nouvelles régions\ninexplorées! (Je l'espère...)", german="Wir werden schillernde Schätze\nund neue Erkundungsgebiete finden!\n(Vielleicht...)", italian="Scopriremo tesori sfavillanti\ne nuovi luoghi da visitare! (Forse...)", spanish="¡Encontraremos tesoros\ndeslumbrantes y nuevas zonas por explorar!\n(Se supone...)"})
   pcall(function() UI:ResetSpeaker() end)
@@ -78,7 +78,7 @@ return function(hero, partner)
   -- GAP: se_Play(11027) — id SE NDS sans portage PMDO identifié
   -- SetAnimation(3) [anim idle native]
   GAME:WaitFrames(15)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Spinda", true, "spinda", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_PATCHIIRU) voix hors champ (espèce ROM)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="You'll get a special deal at the\nRecycle Shop!", french="... vous pourrez profiter\nd'avantages spéciaux à la Bourse d'Echange!", german="Und zwar dadurch, dass sich\neure Konditionen im Wiederverwertungsladen\nverbessern!", italian="... otterrete qualcosa di speciale\nal Centro Riciclo!", spanish="¡Tendréis una oferta especial en\nel Reciclaje Explorador!"})
   pcall(function() UI:ResetSpeaker() end)
@@ -91,7 +91,7 @@ return function(hero, partner)
   if __choice == 1 then
   -- break_loop [contrôle de boucle forever NDS: une itération compilée]
   else -- default/annulation
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Spinda", true, "spinda", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_PATCHIIRU) voix hors champ (espèce ROM)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="OK, I'll explain again from the\nbeginning.", french="Ah, très bien, dans ce cas, je\nvais reprendre depuis le début...", german="Okay, ich werde es noch einmal\nvon Anfang an erklären.", italian=" Ok, ve lo spiego un'altra volta.", spanish="Bueno, pues lo vuelvo a explicar\ndesde el principio."})
   -- message_Close

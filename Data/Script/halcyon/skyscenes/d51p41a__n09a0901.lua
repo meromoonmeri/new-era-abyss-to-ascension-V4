@@ -118,12 +118,12 @@ return function(hero, partner)
   GROUND:EntTurn(npc_npc_yonowaaru_n9, Direction.Down)
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" Gah!", french=" Argh!", german=" Gah!", italian=" Gah!", spanish=" ¡Ay!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(hero, npc_npc_yonowaaru_n9, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="Oof...[K] I think I was injured\nby that chunk of ice...", french="Ouille...[K] J'ai été touché par\nce bloc de glace.", german="Uff...[K] Ich glaube, ich wurde von\ndem Eisbrocken verletzt...", italian="Oooh...[K] Temo che quel pezzo\ndi ghiaccio mi abbia ferito più gravemente\ndi quel che pensassi...", spanish="Ay...[K] Creo que aquel trozo de hielo\nme ha herido..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(hero) end)

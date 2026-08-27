@@ -11,7 +11,7 @@ return function(hero, partner)
   -- SetAnimation(3) [anim idle native]
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="I've even heard that there is\na hidden altar inside a volcano.", french="J'ai même entendu dire qu'il y\navait un autel caché à l'intérieur d'un volcan.", german="Ich habe sogar von einem\ngeheimen Altar in einem Vulkan gehört.", italian="Ho persino sentito dire che c'è\nun altare nascosto all'interno di un vulcano.", spanish="Incluso he oído decir que hasta\ndentro de un volcán."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

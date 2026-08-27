@@ -10,11 +10,11 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitSubScreen (fondu sub déjà séquencé par SubScreen)
   -- worldmap_SetCamera(192) [carte du monde 2e écran NDS: information de progression, gérée par les menus PMDO - documenté]
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Torkoal", true, "torkoal", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_KOOTASU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" There.[K] We are here.", french=" Voilà.[K] Nous sommes ici.", german=" Da.[K] Hier sind wir.", italian=" Ecco.[K] Siamo qui.", spanish=" ¿Veis?[K] Estamos aquí."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- worldmap_SetArrow(192) [flèche carte du monde: UI moteur NDS - équivalent géré par le menu voyage PMDO]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Torkoal", true, "torkoal", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_KOOTASU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" This is the Hot Spring's location.", french="C'est ici que se trouve la Source\nChaude.", german=" Hier liegt die Heiße Quelle.", italian="La Sorgente Termale si trova\nqui.", spanish=" Aquí es donde está la Terma."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1

@@ -21,12 +21,13 @@ return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
   -- GAP: se_Play(5123) — id SE NDS sans portage PMDO identifié
   GAME:WaitFrames(2) -- join WaitSe
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:ResetSpeaker() end)
+  local npc_npc_perappu = SkySceneKit.spawn_npc("chatot", 344, 208, Direction.Left, "NPC_PERAPPU")
+  pcall(function() UI:SetSpeaker(npc_npc_perappu) end) -- message_SetActor(ACTOR_NPC_PERAPPU)
+  pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english=" OK, everyone![K] Dinnertime! ♪", french="A table, tout le monde![K]\nC'est l'heure du dîner! ♪", german=" Okay, Leute![K] Essenszeit! ♪", italian=" Ok, gente![K] È ora di cena! ♪", spanish=" ¡Muy bien![K] ¡Todos a cenar! ♪"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english="[CS:N]Everyone[CR]: HOORAY!", french="[CS:N]Tous[CR]: HOURRA!", german="[CS:N]Alle[CR]: HURRA!", italian="[CS:N]Tutti[CR]: URRÀ!", spanish="[CS:N]Todos[CR]: ¡HURRA!"})
   -- message_Close
   -- back_SetGround(LEVEL_G01P06B) [neutre/état moteur]
@@ -34,7 +35,6 @@ return function(hero, partner)
   GAME:WaitFrames(1)
   -- camera_SetMyself() [neutre/état moteur]
   pcall(function() GAME:MoveCamera(192, 212, 60, false) end) -- performer/caméra
-  local npc_npc_perappu = SkySceneKit.spawn_npc("chatot", 344, 208, Direction.Left, "NPC_PERAPPU")
   -- SetAnimation(43) [anim idle native]
   local npc_npc_diguda = SkySceneKit.spawn_npc("diglett", 320, 232, Direction.Up, "NPC_DIGUDA")
   -- SetAnimation(42) [anim idle native]

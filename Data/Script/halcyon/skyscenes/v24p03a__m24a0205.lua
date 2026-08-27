@@ -14,7 +14,7 @@ return function(hero, partner)
   GAME:WaitFrames(30)
   pcall(function() local g=GAME:GetCurrentGround(); GAME:MoveCamera(g.ViewCenter.X+(-2400), g.ViewCenter.Y+(0), 120, false) end) -- back_SetBackScrollSpeed(-20.0,0.0) px/frame -> caméra continue (pilote scroll)
   GAME:WaitFrames(100)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Lapras", true, "lapras", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_RAPURASU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" OK![K] Here we go!", french=" Allez![K] C'est parti!", german=" Okay![K] Los geht's!", italian=" Ok![K] Andiamo!", spanish=" ¡De acuerdo![K] ¡Allá vamos!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- GAP: se_Play(8463) — id SE NDS sans portage PMDO identifié

@@ -13,7 +13,7 @@ return function(hero, partner)
   GAME:WaitFrames(1) -- with(...){hold} NDS
   GAME:WaitFrames(1) -- with(...){hold} NDS
   GAME:FadeIn(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english="Acting Test under way...", french="Acting Test under way...", german="Acting Test under way...", italian="Acting Test under way...", spanish="Acting Test under way..."})
   -- message_Close
   SkySceneKit.play_scene("t00p01__m01a0700", "t00p01__m01a07", hero, partner) -- supervision_ExecuteStation(LEVEL_T00P01, 'M01A07', 0) [chaînage scène ROM]

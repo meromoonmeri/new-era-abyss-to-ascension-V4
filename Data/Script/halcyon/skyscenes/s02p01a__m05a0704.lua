@@ -15,7 +15,7 @@ return function(hero, partner)
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end) -- message_SetActor(ACTOR_PLAYER)
   if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(That shape...)", french="(Cette silhouette...)", german="(Diese Form...)", italian="(Quella forma...)", spanish="(Esa forma...)"})
   else
@@ -26,7 +26,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="(I've seen that shape before...)", french="(... je l'ai déjà vue...)", german="(Ich habe diese Form schon einmal gesehen.)", italian="(Ho già visto quella forma...)", spanish="(Yo he visto esa silueta antes...)"})
   end
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end) -- message_SetActor(ACTOR_PLAYER)
   if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(That shape...[K] There's no mistaking it!)", french="(Cette silhouette...[K] Il n'y a pas d'erreur\npossible!)", german="(Diese Form...[K] Sie ist unverwechselbar!)", italian="(Quella forma...[K] È impossibile sbagliarsi!)", spanish="(Esa silueta...[K] ¡Es inconfundible!)"})
   else
@@ -42,7 +42,7 @@ return function(hero, partner)
   GAME:FadeIn(0) -- screen_FlushIn
   GROUND:EntTurn(npc_npc_pukurin, Direction.Right)
   GAME:WaitFrames(2) -- join WaitSe
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end) -- message_SetActor(ACTOR_PLAYER)
   if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(That was...[K][CS:N]Wigglytuff[CR]!)", french="(C'était... [K][CS:N]Grodoudou[CR]!)", german="(Das war...[K] [CS:N]Knuddeluff[CR]!)", italian="(Quello era...[K] [CS:N]Wigglytuff[CR]!)", spanish="(Se trataba de...[K] ¡[CS:N]Wigglytuff[CR]!)"})
   else

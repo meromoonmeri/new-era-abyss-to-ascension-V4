@@ -48,7 +48,7 @@ return function(hero, partner)
   -- SetAnimation(4) [anim idle native]
   -- SetAnimation(4) [anim idle native]
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="[CS:Y]Grovyle[CR]![K] You can't fail\nthis time!", french="[CS:Y]Massko[CR]![K] Tu n'as pas droit\nà l'échec cette fois-ci!", german="[CS:Y]Reptain[CR]![K]\nDieses Mal darfst du nicht scheitern!", italian="[CS:Y]Grovyle[CR]![K] Questa volta non puoi\nfallire!", spanish="¡[CS:Y]Grovyle[CR]![K] ¡Esta vez no puedes\nfracasar!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(hero) end)

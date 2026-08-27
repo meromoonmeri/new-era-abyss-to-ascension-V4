@@ -31,7 +31,7 @@ return function(hero, partner)
   local npc_npc_yonowaaru_n8 = SkySceneKit.spawn_npc("dusknoir", 232, 264, Direction.Up, "NPC_YONOWAARU_N8")
   pcall(function() GROUND:CharTurnToCharAnimated(npc_npc_yonowaaru_n8, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="Alas![K] If not held back by these\ninjuries from fighting you, I could thrash\nthese [CS:N]Sableye[CR]!", french="Oui![K] Si tu ne m'avais pas blessé\nauparavant, je ne ferais qu'une bouchée de\nces [CS:N]Ténéfix[CR]!", german="Leider![K] Ohne diese Verletzungen\naus unserem Kampf könnte ich diese [CS:N]Zobiris[CR]\nohne Probleme zerschmettern!", italian="Ahimè![K] Se non fossi ancora\ndebole per le ferite subite lottando contro\ndi te, mi sbarazzerei subito di questi [CS:N]Sableye[CR]!", spanish="¡Qué pena![K] Si no me hubieras\nhecho tanto daño en nuestra pelea, ¡ahora\nacabaría con estos [CS:N]Sableye[CR] sin problemas!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   do local p=npc_npc_yamirami.Position; GROUND:MoveToPosition(npc_npc_yamirami, p.X+(8), p.Y+(8), false, 1) end -- Move2PositionOffset

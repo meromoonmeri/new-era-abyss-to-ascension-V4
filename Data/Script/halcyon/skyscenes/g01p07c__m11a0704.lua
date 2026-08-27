@@ -70,7 +70,7 @@ return function(hero, partner)
   GAME:FadeOut(false, 60)
   -- back_SetGround(LEVEL_S04P01A) [neutre/état moteur]
   GAME:WaitFrames(2) -- join WaitBgm
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Uxie", true, "uxie", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_YUKUSHII) voix hors champ (espèce ROM)
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english=" Hmm...", french=" Hum...", german=" Hmm...", italian=" Mmm...", spanish=" Hum."})
   pcall(function() UI:SetSpeaker(partner) end)

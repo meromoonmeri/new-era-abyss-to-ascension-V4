@@ -11,7 +11,7 @@ return function(hero, partner)
   -- SetAnimation(3) [anim idle native]
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Or at a lake in an underground\ncavern...", french="... ou au milieu d'un lac\ndans une grotte souterraine...", german="Oder bei einem See in einer\nunterirdischen Höhle...", italian="... o in un lago di una caverna\nsotterranea...", spanish="O en el lago de una caverna\nsubterránea..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

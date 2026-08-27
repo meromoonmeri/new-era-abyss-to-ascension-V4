@@ -17,8 +17,8 @@ return function(hero, partner)
   GAME:FadeIn(30)
   GROUND:EntTurn(npc_npc_chiriin, Direction.UpLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_chiriin) end) -- message_SetActor(ACTOR_NPC_CHIRIIN)
+  pcall(function() UI:SetSpeaker(npc_npc_chiriin) end)
   SkySceneKit.say({english="Oh! [hero]! And\n[partner] too!", french="Oh! [hero]! Et\ntoi aussi, [partner]!", german="Oh! [hero]! Und\n[partner] ist auch da!", italian="Oh! [hero]! E anche\n[partner]!", spanish="¡[hero]! ¡[partner]!\n¡Venid aquí!"})
   -- message_Close
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Startled") end)

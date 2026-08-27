@@ -9,8 +9,8 @@ return function(hero, partner)
   -- SetAnimation(2) [anim idle native]
   GROUND:EntTurn(npc_npc_guregguru, Direction.DownRight)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_guregguru) end) -- message_SetActor(ACTOR_NPC_GUREGGURU)
+  pcall(function() UI:SetSpeaker(npc_npc_guregguru) end)
   SkySceneKit.say({english="Meh-heh-heh! Hey, you two\nover there...", french="Mwé hé hé... Hé, vous deux,\nvenez par ici...", german=" Mehehe! Hey, ihr zwei...", italian=" Eh eh eh! Ehi, voi due...", spanish=" ¡Je, je, je! ¡Eh! Venid, venid..."})
   -- message_Close
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Complain") end)

@@ -11,7 +11,7 @@ return function(hero, partner)
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
   -- message_SetWaitMode(180, 90) [neutre/état moteur]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_YONOWAARU) voix hors champ (espèce ROM)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="No winds blow...[K] The day never\ncomes...", french="Le vent ne souffle plus...[K]\nPas plus que le jour ne se lève...", german="Nun, es weht kein Wind...[K] und es\nwird nie wieder Tag...", italian="Il vento non soffia più...[K] Il\ngiorno non arriva mai...", spanish="El viento no soplaría...[K]\nEl sol jamás saldría..."})
   -- message_KeyWait

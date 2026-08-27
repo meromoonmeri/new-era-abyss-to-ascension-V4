@@ -9,7 +9,7 @@ return function(hero, partner)
   -- camera_SetMyself() [neutre/état moteur]
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Darkrai", true, "darkrai", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_DAAKURAI) voix hors champ (espèce ROM)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="I set my sights on [CS:N]Dialga[CR]'s\n[CS:P]Temporal Tower[CR] because of its tie to time...", french="J'ai commencé par jeter mon\ndévolu sur la [CS:P]Tour du Temps[CR] de [CS:N]Dialga[CR],\ncar elle est étroitement liée au temps...", german="Deshalb habe ich ein Auge auf\nden [CS:P]Zeitturm[CR] von [CS:N]Dialga[CR] geworfen. Wegen\nseiner Bedeutung für die Zeit...", italian="Come obiettivo avevo scelto la\n[CS:P]Torre del Tempo[CR] di [CS:N]Dialga[CR] a causa\ndel suo legame con il tempo.", spanish="Primero, centré mis esfuerzos\nen la [CS:P]Torre del Tiempo[CR] de [CS:N]Dialga[CR] por su\nvínculo con el tiempo..."})
   -- message_Close

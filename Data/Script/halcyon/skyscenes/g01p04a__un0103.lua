@@ -24,8 +24,9 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_dogoomu) end)
   SkySceneKit.say({english="Let me know right away if\nANYONE sketchy comes along!", french="Si jamais tu vois QUI QUE CE\nSOIT de louche, préviens-moi ILLICO!", german="Lass es mich sofort wissen,\nwenn IRGENDJEMAND Komisches hier\nvorbeikommt!", italian="Fammi sapere immediatamente\nse arriva QUALCUNO che non riconosci!", spanish="Mantenme informado si pasa por\naquí alguien con aspecto sospechoso."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:SetSpeaker(npc_npc_dogoomu) end)
+  local npc_npc_diguda = SkySceneKit.spawn_npc("diglett", 456, 272, Direction.Up, "NPC_DIGUDA")
+  pcall(function() UI:SetSpeaker(npc_npc_diguda) end) -- message_SetActor(ACTOR_NPC_DIGUDA)
+  pcall(function() UI:SetSpeaker(npc_npc_diguda) end)
   SkySceneKit.say({english=" Yes! Will do!", french=" Oui! Promis!", german=" Ja! Wird gemacht!", italian=" Sì! Certo!", spanish=" ¡Sí, señor! ¡A la orden!"})
   -- message_Close
   -- jump @label_3 [saut final de branche vers l'épilogue commun: flux naturel]
@@ -41,7 +42,6 @@ return function(hero, partner)
   else
   -- SetAnimation(2) [anim idle native]
   -- SetAnimation(2) [anim idle native]
-  local npc_npc_diguda = SkySceneKit.spawn_npc("diglett", 456, 272, Direction.Up, "NPC_DIGUDA")
   -- SetAnimation(2) [anim idle native]
   pcall(function() UI:SetSpeaker(npc_npc_dogoomu) end)
   SkySceneKit.say({english="All right![K] Time to buck up and\nWORK HARD!", french="Allez![K] Maintenant, c'est l'heure\nde se mettre au boulot, et FISSA!\nHOP HOP HOP!", german="Zeit, uns zusammenzureißen\nund[K] HART ZU ARBEITEN!", italian="Va bene![K] È ora di spicciarsi e\ndi LAVORARE DURO!", spanish=" ¡Muy bien![K] ¡Hora de trabajar!"})

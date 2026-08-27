@@ -2,8 +2,8 @@
  "schema": "sky-scene-compiler/1",
  "rule": "FAIL-CLOSED: seules les scènes 100% traduites sont émises ; PARTIAL_OPS/MULTIROUTINE comptées, jamais émises approximées",
  "totals": {
-  "COMPILED": 3405,
-  "PARTIAL_OPS": 189,
+  "COMPILED": 3407,
+  "PARTIAL_OPS": 187,
   "TRIVIAL_SKIPPED": 165,
   "COMPILED_DUAL_SCREEN": 138,
   "COMPILED_MULTIROUTINE": 31,
@@ -23765,10 +23765,11 @@
    ]
   },
   "T00P01/m01a0102.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_HERO"
-   ]
+   "status": "COMPILED",
+   "file": "t00p01__m01a0102.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T00P01/m01a0103.ssb": {
    "status": "COMPILED",
@@ -23883,10 +23884,11 @@
    "gaps": null
   },
   "T00P01/m01a0704.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_HERO"
-   ]
+   "status": "COMPILED",
+   "file": "t00p01__m01a0704.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T00P01/m01a0705.ssb": {
    "status": "COMPILED",

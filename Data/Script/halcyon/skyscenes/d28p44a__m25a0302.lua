@@ -242,7 +242,7 @@ return function(hero, partner)
   SkySceneKit.say({english="(Time Gears!)", french="(Les Rouages du Temps!)", german="(Zahnräder der Zeit!)", italian="(Gli Ingranaggi del Tempo!)", spanish="(¡Los Engranajes del Tiempo!)"})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="All right, team![K] The Rainbow\nStoneship's set to go!", french="C'est bon, vous autres![K]\nLe Vaisseau Arc-en-Ciel est prêt à partir!", german="Alles klar, Team![K]\nDas Regenbogen-Steinschiff ist abfahrbereit!", italian="Va bene, squadra![K] Il Vascello\nArcobaleno è pronto a partire!", spanish="¡Muy bien, equipo![K]\n¡La Barca Arcoiris está lista para partir!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

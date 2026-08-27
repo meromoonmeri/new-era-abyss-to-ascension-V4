@@ -15,7 +15,7 @@ return function(hero, partner)
   -- bgm2_ChangeVolume(30, 190) [effet du canal sub NDS: nappe Sub_ statique, effet non simulé - documenté]
   GAME:FadeIn(15)
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="I don't really know the answer\nto that question.", french="Je n'ai pas de réponse à cette\nquestion.", german="Ich weiß keine sichere Antwort\nauf diese Frage.", italian="Non conosco proprio la\nrisposta a questa domanda.", spanish=" No tengo ni idea."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

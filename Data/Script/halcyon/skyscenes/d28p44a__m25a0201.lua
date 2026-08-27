@@ -125,8 +125,8 @@ return function(hero, partner)
   GAME:WaitFrames(45)
   -- ExecuteCommon(CORO_JUMP_SURPRISE_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- SetOutputAttribute(2) [neutre/état moteur]
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:SetSpeaker(npc_npc_yamirami5) end)
+  pcall(function() UI:SetSpeaker(npc_npc_yamirami4) end) -- message_SetActor(ACTOR_NPC_YAMIRAMI4)
+  pcall(function() UI:SetSpeaker(npc_npc_yamirami4) end)
   SkySceneKit.say({english=" Wheeeeh!", french=" Wheeeeh!", german=" Wähähäh!", italian=" Eeeeeeh!", spanish=" ¡Jeeee, jeeee!"})
   -- GAP: se_Play(7430) — id SE NDS sans portage PMDO identifié
   GROUND:MoveToPosition(npc_npc_yamirami, 252, 148, false, 2)

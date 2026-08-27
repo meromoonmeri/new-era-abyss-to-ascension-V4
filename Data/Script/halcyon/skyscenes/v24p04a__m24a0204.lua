@@ -31,9 +31,9 @@ return function(hero, partner)
   SkySceneKit.say({english=" [CS:N]Lapras[CR]! Wh-what is that?!", french=" [CS:N]Lokhlass[CR]! Qu'est-ce que c'est?!", german=" [CS:N]Lapras[CR]! W-was ist das?!?", italian=" [CS:N]Lapras[CR]! C-Che cos'è quello?!", spanish=" ¡[CS:N]Lapras[CR]! ¡¿Qué es eso?!"})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Lapras", true, "lapras", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_RAPURASU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" The edge of the gap in time.", french=" C'est la brèche temporelle.", german=" Der Rand der Spalte in der Zeit.", italian="Il confine della breccia del\ntempo.", spanish="Esos son los límites del\nintervalo temporal."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Lapras", true, "lapras", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_RAPURASU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="That is the portal through which\nwe will go to the [CS:P]Hidden Land[CR].", french="Le passage que nous allons\nfranchir pour atteindre les [CS:P]Terres Illusoires[CR].", german="Das ist das Portal, durch das\nwir zum [CS:P]Verborgenen Land[CR] gelangen.", italian="Attraverso questo portale\nraggiungeremo la [CS:P]Terra Nascosta[CR].", spanish="Ese es el portal por el que\naccederemos a la [CS:P]Tierra Oculta[CR]."})
   -- message_Close
   GAME:FadeOut(false,  30)

@@ -23,8 +23,8 @@ return function(hero, partner)
   pcall(function() SOUND:FadeOutBGM(10) end)
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Shock") end)
   pcall(function() GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 4, 30)) end) -- camera_SetEffect('2', '2', '3', '0')
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_dogoomu) end) -- message_SetActor(ACTOR_NPC_DOGOOMU)
+  pcall(function() UI:SetSpeaker(npc_npc_dogoomu) end)
   SkySceneKit.say({english=" HEY, YOU TWO!", french=" HEP LA, VOUS DEUX!", german=" HEY, IHR ZWEI!", italian=" EHI, VOI DUE!", spanish=" ¡EH! ¡VENID AQUÍ!"})
   -- ExecuteCommon(CORO_JUMP_SURPRISE_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- ExecuteCommon(CORO_JUMP_SURPRISE_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]

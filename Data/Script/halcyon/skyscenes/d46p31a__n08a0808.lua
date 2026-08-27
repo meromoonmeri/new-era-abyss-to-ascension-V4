@@ -26,7 +26,7 @@ return function(hero, partner)
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Exclaim_Surprised") end)
   pcall(function() GROUND:CharSetEmote(hero, "exclaim", 1) end)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_YONOWAARU) voix hors champ (espèce ROM)
   pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" [CS:Y]Grovyle[CR]!", french=" [CS:Y]Massko[CR]!", german=" [CS:Y]Reptain[CR]!", italian=" [CS:Y]Grovyle[CR]!", spanish=" ¡[CS:Y]Grovyle[CR]!"})
   -- GAP: BGM BGM_PLANETS_PARALYSIS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
@@ -42,7 +42,7 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english="Do you seriously intend to fight?\nIn the condition you're in?", french="Tu veux vraiment te battre?\nMalgré ton état?", german="Möchtest du wirklich kämpfen?\nIn deiner Verfassung?", italian="Hai davvero intenzione\ndi lottare nelle condizioni in cui ti trovi?", spanish="¿De verdad quieres luchar?\nSi no tienes fuerzas ni para andar..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" Ah.[K] You're injured too.", french=" Ah.[K] Toi aussi, tu es blessé.", german="Immerhin bist du\nauch angeschlagen.", italian=" Ah![K] Anche tu sei ferito.", spanish="Bueno...[K] Tú tampoco estás\nmuy bien que digamos."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- supervision_Acting(1) [neutre/état moteur]
@@ -92,14 +92,14 @@ return function(hero, partner)
   GROUND:EntTurn(npc_npc_yamirami3, Direction.DownLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" Ha hah hah ha...[K] Ha heh heh heh!", french=" Ha ha ha...[K] Ho ho ho!", german=" Hahahaha...[K] Hahehehe!", italian=" Ah ah ah ah...[K] Eh eh eh eh!", spanish=" Ja, ja, ja...[K] ¡Jua, jua, jua, jua!"})
   -- SetAnimation(39) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- SetAnimation(2) [anim idle native]
   -- message_KeyWait
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="[CS:Y]Grovyle[CR]![K] I regret to inform you\nthat the situation has changed!", french="[CS:Y]Massko[CR]![K] J'ai le regret\nde t'informer que la situation a changé!", german="[CS:Y]Reptain[CR]![K] Es tut mir leid, dir\nmitteilen zu müssen, dass sich die Situation\ngrundlegend geändert hat!", italian="[CS:Y]Grovyle[CR]![K] Mi spiace informarti\nche la situazione è cambiata!", spanish="[CS:Y]Grovyle[CR]...[K] lamento informarte\nde que han cambiado las tornas."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(npc_npc_yonowaaru_n8, Direction.UpLeft)
@@ -108,9 +108,9 @@ return function(hero, partner)
   GAME:WaitFrames(45)
   GROUND:EntTurn(npc_npc_yonowaaru_n8, Direction.Up)
   GAME:WaitFrames(15)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="[CS:N]Sableye[CR]! Your arrival is\nadmirably timed!", french="[CS:N]Ténéfix[CR]! Vous arrivez\nà point nommé!", german="[CS:N]Zobiris[CR]! Ihr seid wirklich im\nrichtigen Augenblick hier angekommen!", italian="[CS:N]Sableye[CR]! Non potevate arrivare\nin un momento migliore!", spanish="¡[CS:N]Sableye[CR]! ¡Vuestra llegada\nno podría ser más oportuna!"})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="Be so good as to\nknock out [CS:Y]Grovyle[CR]!", french="Veuillez régler son compte à\n[CS:Y]Massko[CR]!", german="Seid doch bitte so gut,\n[CS:Y]Reptain[CR] auszuschalten!", italian="Forza, date il colpo di grazia\na [CS:Y]Grovyle[CR]!", spanish="¡Hacedme el favor de darle\nsu merecido a [CS:Y]Grovyle[CR]!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetAnimation(17) [anim idle native]
@@ -119,7 +119,7 @@ return function(hero, partner)
   -- SetAnimation(17) [anim idle native]
   -- SetAnimation(17) [anim idle native]
   pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="[CS:N]Sableye[CR]: Wheh-heh-heh!", french="[CS:N]Ténéfix[CR]: Whé hé hé!", german="[CS:N]Zobiris[CR]: Wähähähäh!", italian="[CS:N]Sableye[CR]: Meh-eh-eh!", spanish="[CS:N]Sableye[CR]: ¡Je, je, je!"})
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -209,7 +209,7 @@ return function(hero, partner)
   GROUND:EntTurn(npc_npc_yamirami2, Direction.UpRight)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_FacePositionOffset(-2, -5) [neutre/état moteur]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="Wh...[K] What do you think\nyou are doing?!", french=" Que...[K] que crois-tu faire ainsi?!", german=" W-[K]was soll das?!?", italian="Che...[K] Che cosa vi salta\nin mente?!", spanish="Pero...[K] ¡¿qué os pensáis que\nestáis haciendo?!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- GAP: se_Play(10499) — id SE NDS sans portage PMDO identifié
@@ -235,7 +235,7 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharSetEmote(npc_npc_yonowaaru_n8, "shock", 1) end)
   -- message_FacePositionOffset(0, -4) [neutre/état moteur]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="Gah! [K]Wh-what is the\nmeaning of this?!", french=" Argh! [K]Que signifie cela?", german="Gah![K]\nW-was soll das bedeuten?!?", italian="Gah![K] C-Cosa significa tutto\nquesto?!", spanish="¡Pero bueno![K] ¿Qué...?\n¿A qué viene todo esto?"})
   -- message_KeyWait
   GROUND:EntTurn(npc_npc_yonowaaru_n8, Direction.Right)
@@ -244,7 +244,7 @@ return function(hero, partner)
   -- SetAnimation(2) [anim idle native]
   GROUND:EntTurn(npc_npc_yonowaaru_n8, Direction.DownRight)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="Why...[K] What do you mean by\nsuddenly attacking me?!", french="Pourquoi...[K] pourquoi vous\nen prendre à moi de la sorte?!", german="Warum...[K] Was denkt ihr euch\ndabei, mich plötzlich anzugreifen?!?", italian="Perché...[K] mi avete\nimprovvisamente attaccato?!", spanish="¿Por qué...?[K] ¿Qué pensáis\nlograr atacándome a mí?"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetAnimation(4) [anim idle native]
@@ -256,7 +256,7 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Exclaim_Realized") end)
   pcall(function() GROUND:CharSetEmote(npc_npc_yonowaaru_n8, "shock", 1) end)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" What?!", french=" Quoi?!", german=" Was?!?", italian=" Cosa?!", spanish=" ¡¿Qué?!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(hero) end)
@@ -264,7 +264,7 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english="These guys...[K]\nI'm not the only one they're aiming at anymore!", french="Ces sbires...[K]\nCe n'est plus à moi seul qu'ils s'en prennent!", german="Diese Biester...[K]\nSie sind nicht mehr nur auf mich aus!", italian="Questi tizi...[K] Non sono più il loro\nunico obiettivo!", spanish=" Ahora...[K] ¡Ya no soy su único objetivo!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" What are you saying?!", french=" Qu'entends-tu par là?!", german=" Was sagst du da?!?", italian=" Ma cosa stai dicendo?!", spanish=" ¡¿Pero qué dices?!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   do local p=npc_npc_yamirami.Position; GROUND:MoveToPosition(npc_npc_yamirami, p.X+(8), p.Y+(8), false, 1) end -- Move2PositionOffset
@@ -283,7 +283,7 @@ return function(hero, partner)
   do local p=npc_npc_yamirami2.Position; GROUND:MoveToPosition(npc_npc_yamirami2, p.X+(8), p.Y+(-8), false, 1) end -- Move2PositionOffset
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- SetAnimation(2) [anim idle native]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" Why...[K] Why me...", french=" Pourquoi...[K] pourquoi moi...", german=" Warum...[K] Warum ich...", italian=" Perché...[K] Perché io...", spanish="¿Y por qué...?[K] ¿Por qué iban\na atacarme a mí?"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(hero) end)

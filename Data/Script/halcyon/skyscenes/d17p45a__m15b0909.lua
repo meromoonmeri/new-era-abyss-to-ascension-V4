@@ -38,7 +38,7 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english="Even if it means eliminating you,\n[CS:N]Azelf[CR]!", french="Même si je dois t'éliminer,\n[CS:N]Créfadet[CR]!", german="Selbst wenn ich dich dazu aus\ndem Weg räumen muss, [CS:N]Tobutz[CR]!", italian=" Mettitelo bene in testa, [CS:N]Azelf[CR]!", spanish="¡Aunque eso suponga tener que\neliminarte, [CS:N]Azelf[CR]!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Hold it!", french=" Halte!", german=" Halt!", italian=" Basta!", spanish=" ¡Alto!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

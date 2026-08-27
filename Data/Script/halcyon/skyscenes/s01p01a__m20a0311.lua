@@ -29,7 +29,7 @@ return function(hero, partner)
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- worldmap_DeleteArrow [flèche carte moteur NDS]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Grovyle", true, "grovyle", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_JUPUTORU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="How about [CS:P]Treeshroud Forest[CR]?[K]\nThat was where I got my first Time Gear the\nlast time.", french="Et pourquoi pas la [CS:P]Forêt\nLinceul[CR]?[K] C'est là que j'ai déniché mon\npremier Rouage du Temps, la dernière fois.", german="Wie wäre es mit dem\n[CS:P]Schemengehölz[CR]?[K] Dort habe ich damals mein\nerstes Zahnrad der Zeit bekommen.", italian="E che ne pensi della [CS:P]Foresta[CR]\n[CS:P]Arcana[CR]?[K] È il posto in cui l'altra volta\nho preso il mio primo Ingranaggio del Tempo.", spanish="¿Qué tal el [CS:P]Bosque Enraizado[CR]?[K]\nAllí fue donde conseguí el primer\nEngranaje del Tiempo la otra vez."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
@@ -40,16 +40,16 @@ return function(hero, partner)
   SkySceneKit.say({english=" Where is that?", french=" C'est où?", german=" Wo liegt das?", italian=" Dove si trova?", spanish=" ¿Dónde está eso?"})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Grovyle", true, "grovyle", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_JUPUTORU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" Here.", french=" Là.", german=" Hier.", italian=" Qua.", spanish=" Aquí."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- worldmap_MoveCamera(35) [carte du monde 2e écran NDS: information de progression, gérée par les menus PMDO - documenté]
   GAME:WaitFrames(2) -- join WaitSubScreen (fondu sub déjà séquencé par SubScreen)
   -- worldmap_SetMark(35) [carte du monde 2e écran NDS: information de progression, gérée par les menus PMDO - documenté]
   -- worldmap_SetArrow(35) [flèche carte du monde: UI moteur NDS - équivalent géré par le menu voyage PMDO]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Grovyle", true, "grovyle", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_JUPUTORU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="It is a little far from here,\nbut...", french=" C'est un peu loin, mais...", german="Es ist etwas weit von hier,\naber...", italian=" È un po' lontana da qui, ma...", spanish=" Está un poco lejos, pero..."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Grovyle", true, "grovyle", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_JUPUTORU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="There is no one like [CS:N]Uxie[CR]\nguarding that Time Gear.", french="On ne risque pas de tomber sur\nquelqu'un comme [CS:N]Créhelf[CR], personne ne surveille\nce Rouage du Temps-là.", german="Dort passt niemand wie [CS:N]Selfe[CR]\nauf das Zahnrad der Zeit auf.", italian="Non c'è nessuno come [CS:N]Uxie[CR]\na fare la guardia a quell'Ingranaggio del Tempo.", spanish="Allí no hay nadie como [CS:N]Uxie[CR]\ncustodiando ese Engranaje del Tiempo."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
@@ -74,7 +74,7 @@ return function(hero, partner)
   SkySceneKit.say({english="But that won't be a problem\nhere, right?", french="Mais là-bas, ce ne sera pas\nle cas, n'est-ce pas?", german="Aber hier hätten wir damit keine\nProbleme, oder?", italian="Ma là non dovremmo avere\nproblemi, vero?", spanish="Y si vamos allí no tendríamos\nque preocuparnos por eso, ¿verdad?"})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Grovyle", true, "grovyle", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_JUPUTORU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" Exactly.", french=" Exact.", german=" Genau.", italian=" Esattamente.", spanish=" Exacto."})
   -- message_Close
   -- GAP: se_Play(6667) — id SE NDS sans portage PMDO identifié

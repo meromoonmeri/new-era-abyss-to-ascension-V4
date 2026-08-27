@@ -15,7 +15,7 @@ return function(hero, partner)
   GROUND:MoveToPosition(npc_npc_dagutorio, 176, 140, false, 2)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Bidoof", true, "bidoof", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_BIPPA) voix hors champ (espèce ROM)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english=" Updating data is [CS:N]Dugtrio[CR]'s duty.", french="La mise à jour des tableaux, ça\nfait partie du travail de [CS:N]Triopikeur[CR].", german="Die Aktualisierung der Daten ist\ndie Aufgabe von [CS:N]Digdri[CR].", italian="Aggiornare i dati è compito di\n[CS:N]Dugtrio[CR].", spanish="[CS:N]Dugtrio[CR] se encarga de mantener\nlas listas al día."})
   pcall(function() UI:ResetSpeaker() end)

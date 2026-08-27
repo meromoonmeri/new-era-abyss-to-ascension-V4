@@ -130,7 +130,7 @@ return function(hero, partner)
   SkySceneKit.say({english="(I may find some answers if [CS:P]Fogbound Lake[CR]\ncan be found...)", french="(Peut-être que je trouverai des réponses au\n[CS:P]Lac des Brumes[CR]...)", german="(Vielleicht erhalte ich ein paar Antworten,\nwenn wir den [CS:P]Nebelsee[CR] finden.)", italian="(... potrei ottenere delle risposte se riusciamo\na trovare il [CS:P]Lago Foschia[CR]...)", spanish="(Tal vez encuentre alguna respuesta\nsi doy con el [CS:P]Lago Velado[CR]...)"})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Huh? What is this?", french=" Hein? Qu'est-ce que c'est?", german=" Huch? Was ist das?", italian=" Eh? E questa cos'è?", spanish=" ¿Eh? ¿Qué es esto?"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

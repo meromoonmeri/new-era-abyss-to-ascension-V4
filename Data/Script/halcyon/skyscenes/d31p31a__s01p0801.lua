@@ -66,7 +66,7 @@ return function(hero, partner)
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(0), p.Y+(8), false, 2) end -- SlidePositionOffset
   GAME:FadeOut(false, 5)
   -- GAP: se_Play(7938) — id SE NDS sans portage PMDO identifié
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Waaaah!", french=" Ouaaah!", german=" Uaaaah!", italian=" Aaaaah!", spanish=" ¡Aaaah!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

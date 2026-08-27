@@ -14,14 +14,14 @@ return function(hero, partner)
   GROUND:TeleportTo(hero, 404, 192, Direction.Down)
   GAME:WaitFrames(30)
   GAME:FadeIn(30)
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:ResetSpeaker() end)
+  local npc_npc_yukikaburi = SkySceneKit.spawn_npc("snover", 216, 304, Direction.Up, "NPC_YUKIKABURI")
+  pcall(function() UI:SetSpeaker(npc_npc_yukikaburi) end) -- message_SetActor(ACTOR_NPC_YUKIKABURI)
+  pcall(function() UI:SetSpeaker(npc_npc_yukikaburi) end)
   SkySceneKit.say({english=" [CS:Y]Bidoof[CR]!", french=" [CS:Y]Keunotor[CR]!", german=" [CS:Y]Bidiza[CR]!", italian=" [CS:Y]Bidoof[CR]!", spanish=" ¡[CS:Y]Bidoof[CR]!"})
   -- message_Close
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Complain") end)
   pcall(function() GROUND:CharSetEmote(hero, "exclaim", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
-  local npc_npc_yukikaburi = SkySceneKit.spawn_npc("snover", 216, 304, Direction.Up, "NPC_YUKIKABURI")
   GROUND:MoveToPosition(npc_npc_yukikaburi, 220, 264, false, 2)
   GROUND:EntTurn(hero, Direction.DownLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives

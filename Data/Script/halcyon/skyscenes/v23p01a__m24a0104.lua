@@ -21,7 +21,7 @@ return function(hero, partner)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]
   -- back_SetGround(LEVEL_S04P01A) [neutre/état moteur]
   GAME:FadeIn(0)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Chatot", true, "chatot", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_PERAPPU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" Guildmaster! Watch out!", french=" Maître! Attention!", german=" Gildenmeister! Pass auf!", italian=" Capitano! Stia attento!", spanish=" ¡Gran Bluff! ¡Cuidado!"})
   -- message_Close
   -- GAP: se_Play(5143) — id SE NDS sans portage PMDO identifié

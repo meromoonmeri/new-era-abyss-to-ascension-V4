@@ -34,7 +34,7 @@ return function(hero, partner)
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetAnimation(2) [anim idle native]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Lapras", true, "lapras", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_RAPURASU) voix hors champ (espèce ROM)
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english="Yes.[K] I didn't intend to reveal\nmyself at all...", french="C'est bien ça.[K] Au début,\nje n'avais pas du tout prévu de me montrer...", german="Ja.[K] Ich hatte überhaupt nicht\nvorgehabt, mich zu erkennen zu geben.", italian="Sì.[K] Non avevo nessuna\nintenzione di mostrarmi...", spanish="Así es.[K] No pensaba dejarme\nver..."})
   pcall(function() UI:SetSpeaker(partner) end)
@@ -54,7 +54,7 @@ return function(hero, partner)
   SkySceneKit.say({english=" A promise?", french=" Un pacte?", german=" Ein Versprechen?", italian=" Un patto?", spanish=" ¿Una promesa?"})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Lapras", true, "lapras", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_RAPURASU) voix hors champ (espèce ROM)
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english=" Yes.", french=" Oui.", german=" Ja.", italian=" Sì.", spanish=" Sí."})
   -- message_Close

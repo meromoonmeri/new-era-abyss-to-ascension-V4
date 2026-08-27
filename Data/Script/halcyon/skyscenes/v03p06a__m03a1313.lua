@@ -30,7 +30,7 @@ return function(hero, partner)
   GAME:FadeIn(2)
   GAME:FadeIn(0) -- screen_FadeChange vers alpha 192 (éclaircissement, adaptation)
   GAME:WaitFrames(60)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="But my guess is that if a Time\nGear is removed from a region...", french="Mais j'imagine que si une\nrégion n'a plus son Rouage du Temps...", german="Aber ich vermute, wenn ein\nZahnrad der Zeit aus einer Region\nentfernt wird...", italian="Ma penso che se un Ingranaggio\ndel Tempo venisse rimosso...", spanish="Pero supongo que si se quitase\nel Engranaje del Tiempo de una región..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

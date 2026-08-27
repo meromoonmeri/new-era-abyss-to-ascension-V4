@@ -42,9 +42,9 @@ return function(hero, partner)
   SkySceneKit.say({english="That would mean...[K]that it's\nliving, right?", french="Eh bien...[K] que je n'aurai\npas vraiment disparu, n'est-ce pas?", german="Das würde doch bedeuten,[K]\ndass Taten Bestand haben, nicht wahr?!?", italian="È questo...[K] che conta davvero,\nno?", spanish="Eso sería...[K] como una forma de vivir,\n¿no te parece?"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GAME:WaitFrames(60)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="... (Even if I disappear...[K]\nI still live on...)", french="... (Même si l'on disparaît...[K]\nnotre existence se poursuit...)", german="...(Auch wenn ich verschwinde...[K]\nIch wäre immer noch hier...)", italian="... (Anche se scompaio...[K]\nil mio ricordo vivrà...)", spanish="Ah... (Tras desaparecer...[K]\npuedo seguir viviendo...)"})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" (My spirit is...[K]alive!)", french="(Notre mémoire reste...[K]\nvivante!)", german="(Meine Taten...[K]\nwürden für sich sprechen!)", italian="(La mia essenza...[K] sarà sempre\npresente!)", spanish=" (Mi recuerdo puede...[K] ¡vivir!)"})
   -- message_Close
   GAME:FadeOut(true, 60) -- screen_WhiteOut

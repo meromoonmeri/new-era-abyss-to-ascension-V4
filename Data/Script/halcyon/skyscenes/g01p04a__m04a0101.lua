@@ -27,8 +27,9 @@ return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Shock") end)
   pcall(function() GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 4, 30)) end) -- camera_SetEffect('2', '2', '3', '0')
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:ResetSpeaker() end)
+  local npc_npc_dogoomu = SkySceneKit.spawn_npc("loudred", 288, 272, Direction.Right, "NPC_DOGOOMU")
+  pcall(function() UI:SetSpeaker(npc_npc_dogoomu) end) -- message_SetActor(ACTOR_NPC_DOGOOMU)
+  pcall(function() UI:SetSpeaker(npc_npc_dogoomu) end)
   SkySceneKit.say({english=" HEY, you two!", french=" HEP LA, vous deux!", german=" HEY, ihr zwei!", italian=" EHI, voi due!", spanish=" ¡EH! ¡PAREJA!"})
   -- ExecuteCommon(CORO_JUMP_SURPRISE_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- ExecuteCommon(CORO_JUMP_SURPRISE_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
@@ -37,7 +38,6 @@ return function(hero, partner)
   -- camera_SetEffect(0): arrêt d'effet caméra
   GAME:WaitFrames(2) -- join WaitSe
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  local npc_npc_dogoomu = SkySceneKit.spawn_npc("loudred", 288, 272, Direction.Right, "NPC_DOGOOMU")
   pcall(function() GROUND:CharTurnToCharAnimated(npc_npc_perappu, npc_npc_dogoomu, 4) end)
   GROUND:EntTurn(hero, Direction.Left)
   GROUND:EntTurn(partner, Direction.Left)

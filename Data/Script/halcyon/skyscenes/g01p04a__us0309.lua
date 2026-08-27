@@ -439,8 +439,8 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_dogoomu) end)
   SkySceneKit.say({english="Let me know right away if\nANYONE sketchy comes along!", french="Si jamais tu vois QUI QUE CE\nSOIT de louche, préviens-moi ILLICO!", german="Lass es mich sofort wissen,\nwenn IRGENDJEMAND Komisches hier\nvorbeikommt!", italian="Fammi sapere immediatamente\nse arriva qualcuno che non riconosci!", spanish="Mantenme informado si pasa por\naquí alguien con aspecto sospechoso."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:SetSpeaker(npc_npc_dogoomu) end)
+  pcall(function() UI:SetSpeaker(npc_npc_diguda) end) -- message_SetActor(ACTOR_NPC_DIGUDA)
+  pcall(function() UI:SetSpeaker(npc_npc_diguda) end)
   SkySceneKit.say({english=" Yes! Will do!", french=" Oui! Promis!", german=" Ja! Wird gemacht!", italian=" Sì! Certo!", spanish=" ¡Sí, señor! ¡A la orden!"})
   -- message_Close
   -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]

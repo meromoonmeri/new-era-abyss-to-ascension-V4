@@ -23,8 +23,8 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Startled") end)
   pcall(function() GROUND:CharSetEmote(npc_npc_goosuto, "exclaim", 1) end)
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end) -- message_SetActor(ACTOR_PLAYER_KIMAWARI)
+  pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Wait! [CS:N]Haunter[CR]!", french=" Attends! [CS:N]Spectrum[CR]!", german=" Warte! [CS:N]Alpollo[CR]!", italian=" Aspetta! [CS:N]Haunter[CR]!", spanish=" ¡Alto ahí, [CS:N]Haunter[CR]!"})
   -- message_Close
   GROUND:EntTurn(npc_npc_goosuto, Direction.Down)

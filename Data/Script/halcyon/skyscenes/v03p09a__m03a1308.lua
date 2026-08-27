@@ -12,7 +12,7 @@ return function(hero, partner)
   -- CallCommon CORO_FADE_OUT_ALL_BEFORE (fermeture/attente message: géré par say())
   GAME:FadeIn(60)
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" At the center of such places...", french=" Au cœur de ces lieux...", german=" Im Zentrum solcher Orte...", italian=" Al centro di luoghi del genere...", spanish=" En el centro de esos lugares..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

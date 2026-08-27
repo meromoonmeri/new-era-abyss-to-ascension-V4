@@ -36,7 +36,7 @@ return function(hero, partner)
   -- SetAnimation(17) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(10)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_parukia) end) -- message_SetActor(ACTOR_NPC_PARUKIA)
   pcall(function() UI:SetSpeaker(npc_npc_parukia) end)
   SkySceneKit.say({english=" GRRR-OOOOOOOO!", french=" GRRR-OOOOOOOO!", german=" GRRR-OOOOOOOO!", italian=" GRRR-OOOOOOOO!", spanish=" ¡GRRR!"})
   GAME:WaitFrames(2) -- join WaitExecuteLives

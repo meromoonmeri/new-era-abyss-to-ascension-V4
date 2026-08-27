@@ -9,7 +9,7 @@ return function(hero, partner)
   -- camera_SetMyself() [neutre/état moteur]
   GAME:FadeIn(30)
   GAME:WaitFrames(60)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Chatot", true, "chatot", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_PERAPPU) voix hors champ (espèce ROM)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="Dewdrops on leaves won't fall...\nThey just hang there, suspended.", french="Les gouttes de rosée ne tombent\nplus des feuilles... Elles y restent suspendues.", german="Tautropfen fallen nicht von\nihren Blättern, sondern bleiben einfach wie\nschwerelos hängen.", italian="Le gocce di rugiada non cadono\ndalle foglie... Rimangono lì, sospese.", spanish="El rocío ya no cae de las hojas.\nSe queda ahí quieto, suspendido en el aire."})
   pcall(function() UI:ResetSpeaker() end)

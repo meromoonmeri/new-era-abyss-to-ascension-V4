@@ -19,7 +19,7 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecutePerformer
   -- back_SetBackScrollSpeed(0,0): arrêt du défilement
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="This is...[K]our world?[K]\nIn the future?", french="C'est...[K] notre monde?[K]\nDans le futur?", german="Ist das...[K] unsere Welt?[K]\nIn der Zukunft?", italian="Questo è...[K] il nostro mondo?[K]\nNel futuro?", spanish="Este es...[K] ¿nuestro mundo?[K]\n¿Así es en el futuro?"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

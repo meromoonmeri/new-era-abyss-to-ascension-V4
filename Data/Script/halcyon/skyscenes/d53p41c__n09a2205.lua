@@ -54,7 +54,7 @@ return function(hero, partner)
   do local p=npc_npc_yonowaaru_n9.Position; GROUND:MoveToPosition(npc_npc_yonowaaru_n9, p.X+(-1), p.Y+(0), false, 2) end -- SlidePositionOffset
   GAME:WaitFrames(3)
   do local p=npc_npc_yonowaaru_n9.Position; GROUND:MoveToPosition(npc_npc_yonowaaru_n9, p.X+(1), p.Y+(0), false, 2) end -- SlidePositionOffset
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" Ooogh...", french=" Argh...", german=" Uuuuff...", italian=" Uuurgh...", spanish=" Oooh..."})
   -- message_Close
   GROUND:EntTurn(npc_npc_yonowaaru_n9, Direction.Right)
@@ -72,9 +72,9 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(npc_npc_yonowaaru_n9, "exclaim", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" ...[K]W-we're...[K]still here...", french=" ...[K] Nous sommes...[K] toujours là...", german="...[K]W-wir sind...[K]\nWir sind immer noch hier...", italian=" ...[K] S-Siamo...[K] ancora qui...", spanish=" Aún...[K] estamos...[K] aquí..."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="I...[K]I didn't disappear![K]\nWh-why?!", french="Je...[K] je n'ai pas disparu![K]\nComment se fait-il...?!", german="Ich...[K] Ich bin nicht\nverschwunden![K] W-warum?!?", italian="N-[K]Non sono scomparso![K]\nP-Perché?!", spanish="Yo...[K] ¡no he desaparecido![K]\n¡¿Por qué?!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetAnimation(27) [anim idle native]

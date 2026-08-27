@@ -27,7 +27,7 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GAME:MoveCamera(228, 220, 60, false) end) -- performer/caméra
   GAME:WaitFrames(2) -- join WaitExecutePerformer
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_bippa) end) -- message_SetActor(ACTOR_NPC_BIPPA)
   pcall(function() UI:SetSpeaker(npc_npc_bippa) end)
   SkySceneKit.say({english=" Here, we have [CS:N]Croagunk[CR]...", french=" Lui, c'est [CS:N]Cradopaud[CR]...", german=" Hier haben wir [CS:N]Glibunkel[CR]...", italian=" Qui c'è [CS:N]Croagunk[CR]...", spanish=" Aquí tenemos a [CS:N]Croagunk[CR]."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())

@@ -3,8 +3,9 @@
 -- Dialogues 5 langues ROM embarqués ; conventions du pilote m01a0204.
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:ResetSpeaker() end)
+  local npc_npc_juputoru = SkySceneKit.spawn_npc("grovyle", 160, 240, Direction.Right, "NPC_JUPUTORU")
+  pcall(function() UI:SetSpeaker(npc_npc_juputoru) end) -- message_SetActor(ACTOR_NPC_JUPUTORU)
+  pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english="I've gone quite deep.[K] There's not\nmuch farther now.", french="Ça fait un bon moment que\nj'avance.[K] Le fond ne doit plus être loin.", german="Ich bin schon ziemlich weit.[K]\nJetzt bin ich bald da.", italian="Ho fatto un bel po' di strada.[K]\nNon dovrebbe mancare molto ormai.", spanish="Llevo mucho camino andado.[K]\nNo puede quedar mucho ya."})
   -- message_Close
   -- back_SetGround(LEVEL_D21P41A) [neutre/état moteur]
@@ -12,7 +13,6 @@ return function(hero, partner)
   -- camera_SetMyself() [neutre/état moteur]
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  local npc_npc_juputoru = SkySceneKit.spawn_npc("grovyle", 160, 240, Direction.Right, "NPC_JUPUTORU")
   GROUND:MoveToPosition(npc_npc_juputoru, 288, 236, false, 2)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(15)

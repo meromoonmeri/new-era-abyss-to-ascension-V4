@@ -25,7 +25,7 @@ return function(hero, partner)
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetAnimation(2) [anim idle native]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Lapras", true, "lapras", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_RAPURASU) voix hors champ (espèce ROM)
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english=" Yes?", french=" Oui?", german=" Ja?", italian=" Sì?", spanish=" ¿Sí?"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
@@ -37,7 +37,7 @@ return function(hero, partner)
   SkySceneKit.say({english="You've been swimming a long\ntime. Are you doing OK?", french="Ça fait un moment que tu nages.\nÇa va aller?", german="Du schwimmst schon seit einiger\nZeit. Geht es dir gut?", italian="Stai nuotando da tanto tempo.\nSei stanco?", spanish="Llevas mucho tiempo nadando.\n¿Cómo vas?"})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Lapras", true, "lapras", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_RAPURASU) voix hors champ (espèce ROM)
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english=" I'm fine, [partner].", french=" Tout va bien, [partner].", german=" Ja, kein Problem, [partner].", italian=" Sto bene, [partner].", spanish=" No te preocupes, [partner]."})
   pcall(function() UI:SetSpeaker(partner) end)
@@ -55,7 +55,7 @@ return function(hero, partner)
   SkySceneKit.say({english=" What?", french=" Quoi?", german=" Wo?", italian=" Cosa?", spanish=" ¿Qué?"})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Lapras", true, "lapras", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_RAPURASU) voix hors champ (espèce ROM)
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english="On the far horizon. Do you see\nwhere the sea looks a little different?", french="Là-bas, à l'horizon! Vous voyez\nl'endroit où la mer semble un peu différente?", german="Am fernen Horizont. Seht ihr?\nDa, wo das Meer ein bisschen anders aussieht?", italian="All'orizzonte. Vedete dove il\nmare sembra un po' diverso?", spanish="En el horizonte, allí delante.\n¿Veis ese lugar donde el mar parece\ncambiar ligeramente?"})
   -- message_Close

@@ -80,7 +80,7 @@ return function(hero, partner)
   -- SetAnimation(76) [anim idle native]
   GAME:WaitFrames(50)
   GAME:FadeIn(60) -- screen_FadeChange vers alpha 192 (éclaircissement, adaptation)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Let's keep at it tomorrow.", french=" Nous ferons mieux demain.", german=" Morgen geht es weiter.", italian="Continuiamo a fare del nostro\nmeglio, domani.", spanish=" Mañana más."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

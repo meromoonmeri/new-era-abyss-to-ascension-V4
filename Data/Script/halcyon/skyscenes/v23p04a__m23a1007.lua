@@ -23,7 +23,7 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitAnimation
   -- supervision_RemoveActing(1) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(120)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Grovyle", true, "grovyle", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_JUPUTORU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" What...[K] What was that?", french=" Que...[K] qu'est-ce que c'était?", german=" Was...[K] Was war das?", italian=" Cosa...[K] Cos'è stato?", spanish=" ¿Pero qué...?[K] ¿Qué ha sido eso?"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1

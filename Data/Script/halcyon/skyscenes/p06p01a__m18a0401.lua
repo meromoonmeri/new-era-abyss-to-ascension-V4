@@ -299,7 +299,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Oh?", french=" Hein?", german=" Hey?", italian=" Oh?", spanish=" ¿Eh?"})
   end
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" What's up, [hero]?", french="Qu'est-ce qui se passe,\n[hero]?", german=" Was ist los, [hero]?", italian=" Cosa c'è, [hero]?", spanish=" ¿Qué pasa, [hero]?"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
@@ -355,7 +355,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Pardon?[K] We're going to first\nfind [CS:N]Grovyle[CR]?", french="Hein?[K] On retrouve d'abord\n[CS:N]Massko[CR]?", german="Wie?[K] Wir müssen\nerst [CS:N]Reptain[CR] finden?", italian="Eh?[K] Prima andiamo a cercare\n[CS:N]Grovyle[CR]?", spanish="¿Qué?[K] ¿Que vamos a buscar\nprimero a [CS:N]Grovyle[CR]?"})
   end
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="So we find [CS:N]Grovyle[CR]...[K]\nThen what?", french="Et ensuite quand on l'aura\nretrouvé...[K] on fera quoi?", german="Also suchen wir [CS:N]Reptain[CR]...[K]\nUnd dann?", italian="Allora cerchiamo [CS:N]Grovyle[CR]...[K]\nE poi cosa facciamo?", spanish="Supongamos que encontramos a\n[CS:N]Grovyle[CR]...[K] ¿Y luego qué?"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
@@ -377,7 +377,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Pardon?![K] You want to go after\n[CS:N]Grovyle[CR]?", french="Quoi?![K] Tu veux qu'on se lance\nsur les traces de [CS:N]Massko[CR]?", german="Wie?!?[K] Du willst [CS:N]Reptain[CR]\nsuchen?", italian="Cosa?![K] Vuoi andare a cercare\n[CS:N]Grovyle[CR]?", spanish="¡¿Qué?![K] ¿Quieres encontrar a\n[CS:N]Grovyle[CR]?"})
   end
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Wh-why?!", french=" Mais pour quoi faire?!", german=" W-warum?!?", italian=" P-Perché?!", spanish=" ¡¿Para qué?!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
@@ -463,7 +463,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" What about you, [hero]?", french="Qu'est-ce que tu en penses,\n[hero]?", german=" Was ist mit dir, [hero]?", italian=" E tu, [hero]?", spanish=" ¿Tú qué opinas, [hero]?"})
   end
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Do you trust [CS:N]Grovyle[CR],\n[hero]?", french="Tu as confiance en [CS:N]Massko[CR],\n[hero]?", german="Vertraust du [CS:N]Reptain[CR],\n[hero]?", italian="Tu credi a [CS:N]Grovyle[CR],\n[hero]?", spanish="¿Confías en [CS:N]Grovyle[CR],\n[hero]?"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

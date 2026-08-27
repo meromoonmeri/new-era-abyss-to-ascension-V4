@@ -15,7 +15,7 @@ return function(hero, partner)
   -- screen2_FadeIn(0, 60) [sub révélé en mode système NDS (aucun décor chargé): pas de contenu narratif - documenté]
   GAME:FadeIn(60)
   GAME:WaitFrames(2) -- join WaitExecutePerformer
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Breloom", true, "breloom", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_KINOGASSA) voix hors champ (espèce ROM)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english=" W-wow...", french=" O-ouah...", german=" B-boah...", italian=" W-Wow...", spanish=" Jo... qué fuerte..."})
   -- message_Close

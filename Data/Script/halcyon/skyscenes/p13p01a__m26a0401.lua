@@ -187,7 +187,7 @@ return function(hero, partner)
   SkySceneKit.say({english="(My time with [partner]...[K]ends now.)", french="(Mon association avec [partner]...[K] touche\nà sa fin.)", german="(Meine Zeit mit [partner]...[K] endet hier.)", italian="(Il tempo a mia disposizione per stare con\n[partner]...[K] sta per finire.)", spanish="(Mis aventuras con [partner]...[K] terminan\naquí.)"})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Hey![K] [hero].", french=" Eh![K] [hero].", german=" Hey![K] [hero].", italian=" Ehi![K] [hero].", spanish=" ¡Eh![K] [hero]."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

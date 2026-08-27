@@ -9,7 +9,7 @@ return function(hero, partner)
   pcall(function() SOUND:PlayBGM("Time Restored.ogg", true) end)
   GAME:FadeIn(60)
   GAME:WaitFrames(60)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Th-this is...", french=" C'est...", german=" D-das ist...", italian=" Q-Questa è...", spanish=" Esto... Esto es..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
@@ -18,7 +18,7 @@ return function(hero, partner)
   SkySceneKit.say({english=" Th-this is...", french=" C'est...", german=" D-das ist...", italian=" Q-Questa è...", spanish=" Esto... Esto es..."})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(hero) end) -- message_SetActor(ACTOR_PLAYER)
   if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="([CS:N]Dialga[CR] must be showing this to us...)", french="(Ça doit être [CS:N]Dialga[CR] qui nous fait voir ça...)", german="([CS:N]Dialga[CR] zeigt uns das wohl gerade...)", italian="([CS:N]Dialga[CR] ci sta facendo vedere...)", spanish="([CS:N]Dialga[CR] debe de estar mostrándonos esto...)"})
   else

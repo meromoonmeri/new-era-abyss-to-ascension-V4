@@ -31,7 +31,7 @@ return function(hero, partner)
   SkySceneKit.say({english=" The base camp is there.", french=" Le camp de base est là.", german=" Dort ist das Basislager.", italian=" Il Campo Base è lì.", spanish=" El campamento base está aquí."})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Bidoof", true, "bidoof", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_BIPPA (espèce ROM, sans placement zone)
   SkySceneKit.say({english="I reckon we've gotten ourselves\na lot closer.", french=" On s'est pas mal rapprochés.", german="Ich würde sagen, wir sind schon\nziemlich weit gekommen.", italian="Penso che ci siamo avvicinati\nmolto.", spanish="Sin duda, ahora estamos\nmucho más cerca."})
   -- message_Close
   -- GAP: se_Play(6667) — id SE NDS sans portage PMDO identifié

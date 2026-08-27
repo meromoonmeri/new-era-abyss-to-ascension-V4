@@ -177,7 +177,7 @@ return function(hero, partner)
   -- SetAnimation(11) [anim idle native]
   do local p=hero.Position; GROUND:MoveToPosition(hero, p.X+(32), p.Y+(0), false, 2) end -- SlidePositionOffset
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(32), p.Y+(0), false, 2) end -- SlidePositionOffset
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Waaaaaah!", french=" Ouaaah!", german=" Uaaaaaah!", italian=" Waaaaaah!", spanish=" ¡Aaaaaah!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
@@ -206,7 +206,7 @@ return function(hero, partner)
   -- SetAnimation(19) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(10)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_parukia) end) -- message_SetActor(ACTOR_NPC_PARUKIA)
   pcall(function() UI:SetSpeaker(npc_npc_parukia) end)
   SkySceneKit.say({english=" GRRR-OOOOOO!", french=" GRRR-OOOOOO!", german=" GRRR-OOOOOO!", italian=" GRRR-OOOOOO!", spanish=" ¡GRRR!"})
   GAME:WaitFrames(2) -- join WaitExecuteLives

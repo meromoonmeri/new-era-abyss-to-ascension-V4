@@ -9,7 +9,7 @@ return function(hero, partner)
   -- camera_SetMyself() [neutre/état moteur]
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Darkrai", true, "darkrai", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_DAAKURAI) voix hors champ (espèce ROM)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english=" I sabotaged [CS:P]Temporal Tower[CR].", french="C'est moi qui ai saboté la [CS:P]Tour\ndu Temps[CR].", german=" Ich habe den [CS:P]Zeitturm[CR] sabotiert.", italian=" L'ho sabotata.", spanish=" Así que la saboteé."})
   pcall(function() UI:ResetSpeaker() end)

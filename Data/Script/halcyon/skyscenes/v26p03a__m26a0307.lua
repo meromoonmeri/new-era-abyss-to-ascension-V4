@@ -9,7 +9,7 @@ return function(hero, partner)
   -- camera_SetMyself() [neutre/état moteur]
   GAME:FadeIn(30)
   GAME:WaitFrames(60)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="It's [CS:P]Temporal Tower[CR].[K] It looks\npretty beaten up...", french="Et voilà la [CS:P]Tour du Temps[CR].[K]\nElle est en très mauvais état...", german="Das ist der [CS:P]Zeitturm[CR].[K] Er sieht\nganz schön ramponiert aus...", italian="La [CS:P]Torre del Tempo[CR]...[K]\nè piuttosto malconcia...", spanish="La [CS:P]Torre del Tiempo[CR]...[K] se ve\nmuy dañada."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

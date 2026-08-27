@@ -10,7 +10,7 @@ return function(hero, partner)
   pcall(function() GAME:MoveCamera(128, 92, 60, false) end) -- performer/caméra
   GAME:FadeIn(60)
   GAME:WaitFrames(2) -- join WaitExecutePerformer
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Mr Mime", true, "mr_mime", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_BARIYAADO) voix hors champ (espèce ROM)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="It's a really tall mountain to\nthe east.", french="C'est une très haute montagne,\nà l'est.", german="So heißt ein wirklich hoher Berg\nim Osten.", italian="È una montagna altissima che\nsi trova a est di qui.", spanish="Es una montaña altísima que se\nencuentra al este."})
   pcall(function() UI:ResetSpeaker() end)

@@ -23,9 +23,9 @@ return function(hero, partner)
   SkySceneKit.say({english=" GOGIGIGIGI!", french=" GOGNIGNIGNIGNI!", german=" GOGIGIGIGI!", italian=" GOGIGIGIGI!", spanish=" ¡GOGUIGUIGUÍ!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- message_FacePositionOffset(1, 0) [neutre/état moteur]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="If we don't take care of\nthese guys, we won't be able to proceed!", french="Il faut nous débarrasser d'eux\nsi nous voulons avancer.", german="Wenn wir uns jetzt nicht um sie\nkümmern, kommen wir nicht weiter!", italian="Se non ci sbarazziamo di questi\ntizi, non faremo molta strada!", spanish="¡Si no nos ocupamos de estos\nPokémon, no podremos seguir adelante!"})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="This time, we'll knock\nthem around!", french="Cette fois-ci, nous leur ferons\nmordre la poussière!", german="Dieses Mal werden wir\nihnen eine Abreibung verpassen!", italian="Questa volta dobbiamo\nsconfiggerli!", spanish="¡Esta vez nos libraremos\nde ellos de una vez por todas!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- message_FacePositionOffset(-2, 0) [neutre/état moteur]
@@ -47,7 +47,7 @@ return function(hero, partner)
   -- SetAnimation(2) [anim idle native]
   GAME:WaitFrames(10)
   -- message_FacePositionOffset(1, 0) [neutre/état moteur]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" Here they come!", french=" Ils arrivent!", german=" Es geht los!", italian=" Eccoli che arrivano!", spanish=" ¡Ahí vienen!"})
   -- message_Close
   -- GAP: se_Play(5143) — id SE NDS sans portage PMDO identifié

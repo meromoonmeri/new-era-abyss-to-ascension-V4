@@ -161,8 +161,9 @@ return function(hero, partner)
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:FadeOutBGM(120) end)
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:SetSpeaker(partner) end)
+  local npc_npc_mariru = SkySceneKit.spawn_npc("marill", 160, 232, Direction.Right, "NPC_MARIRU")
+  pcall(function() UI:SetSpeaker(npc_npc_mariru) end) -- message_SetActor(ACTOR_NPC_MARIRU)
+  pcall(function() UI:SetSpeaker(npc_npc_mariru) end)
   SkySceneKit.say({english=" [CS:N]Azurill[CR], hurry!", french=" [CS:N]Azurill[CR], grouille-toi!", german=" [CS:N]Azurill[CR], beeil dich!", italian=" [CS:N]Azurill[CR], sbrigati!", spanish=" ¡[CS:N]Azurill[CR], rápido!"})
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Startled") end)
   -- GAP: SetEffect EFFECT_TWO_ARROWS_AT_SIDE_RIGHT — VFX sans émote PMDO équivalente
@@ -171,13 +172,12 @@ return function(hero, partner)
   -- GAP: SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente
   -- GAP: SetEffect EFFECT_TWO_ARROWS_AT_SIDE_RIGHT — VFX sans émote PMDO équivalente
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
-  pcall(function() UI:SetSpeaker(partner) end)
+  local npc_npc_ruriri = SkySceneKit.spawn_npc("azurill", 120, 232, Direction.Right, "NPC_RURIRI")
+  pcall(function() UI:SetSpeaker(npc_npc_ruriri) end) -- message_SetActor(ACTOR_NPC_RURIRI)
+  pcall(function() UI:SetSpeaker(npc_npc_ruriri) end)
   SkySceneKit.say({english=" Wait for me!", french=" Attends-moi!", german=" Warte auf mich!", italian=" Aspettami fratellone!", spanish=" ¡Espérame!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  local npc_npc_mariru = SkySceneKit.spawn_npc("marill", 160, 232, Direction.Right, "NPC_MARIRU")
   GROUND:MoveToPosition(npc_npc_mariru, 352, 228, false, 2)
-  local npc_npc_ruriri = SkySceneKit.spawn_npc("azurill", 120, 232, Direction.Right, "NPC_RURIRI")
   GROUND:MoveToPosition(npc_npc_ruriri, 324, 228, false, 2)
   pcall(function() GROUND:CharSetEmote(npc_npc_kakureon1, "exclaim", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect

@@ -61,7 +61,7 @@ return function(hero, partner)
   SkySceneKit.say({english=" Oooh...[K]it seems so mystical!", french="Une aura mystérieuse\ns'en dégage!", german=" Uuuh![K] Es wirkt so mysteriös!", italian=" Sembra...[K] così misterioso!", spanish=" ¡Oooh![K] ¡Parece tan misterioso!"})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Uxie", true, "uxie", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YUKUSHII (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" That is...[K]a Time Gear.", french=" Ceci est...[K] un Rouage du Temps.", german="Das ist...[K] Das ist ein Zahnrad\nder Zeit.", italian="Quello...[K] è un Ingranaggio del\nTempo.", spanish=" Es...[K] un Engranaje del Tiempo."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
@@ -72,11 +72,11 @@ return function(hero, partner)
   SkySceneKit.say({english="What?![K] Really and truly?![K]\nThat's a Time Gear?!", french="Hein?! Vraiment?![K] Un Rouage\ndu Temps?!", german="Was?!?[K] Wirklich und\nwahrhaftig?!?[K] Das ist ein Zahnrad der Zeit?!?", italian="Cosa?[K] Un Ingranaggio\ndel Tempo?", spanish="¡¿Qué?![K] ¡¿De verdad?![K]\n¡¿Un Engranaje del Tiempo?!"})
   end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Uxie", true, "uxie", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YUKUSHII (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" Yes.", french=" Oui.", german=" Ja.", italian=" È così.", spanish=" En efecto."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Uxie", true, "uxie", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YUKUSHII (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" I guard the Time Gear.", french="Pour ma part, ma mission ici\nconsiste à protéger ce Rouage du Temps.", german="Ich bewache das Zahnrad der\nZeit.", italian="Sono il custode dell'Ingranaggio\ndel Tempo.", spanish=" Yo custodio el Engranaje del Tiempo."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Uxie", true, "uxie", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YUKUSHII (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" It's the sole reason I'm here.", french="C'est la seule et unique raison\nde ma présence ici.", german="Das ist der einzige Grund,\naus dem ich hier bin.", italian="Questa è la ragione della mia\npresenza qui.", spanish="Es la única razón por la que\nestoy aquí."})
   -- message_Close
   GAME:FadeOut(false,  60)

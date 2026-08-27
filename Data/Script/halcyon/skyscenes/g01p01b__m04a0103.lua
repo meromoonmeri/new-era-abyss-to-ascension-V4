@@ -18,7 +18,7 @@ return function(hero, partner)
   GAME:FadeIn(30)
   -- GAP: se_Play(8966) — id SE NDS sans portage PMDO identifié
   GAME:WaitFrames(2) -- join WaitSe
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(partner) end) -- message_SetActor(ACTOR_ATTENDANT1)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Oh, now I remember! There was\nthat weird hole in front of the gate...", french="Ah oui, je me rappelle! Il y\navait ce trou bizarre devant l'entrée...", german="Oh, ich weiß es wieder! Da war\ndieses seltsame Loch vor dem Eingang.", italian="Oh, adesso mi ricordo! C'era\nquello strano buco di fronte all'ingresso...", spanish="¡Ah, ya lo recuerdo! Aquel\nagujero tan raro que hay frente a la puerta."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2

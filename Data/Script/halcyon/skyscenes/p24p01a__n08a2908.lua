@@ -41,7 +41,7 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- message_FacePositionOffset(-1, 0) [neutre/état moteur]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" It's been a while.", french=" Cela faisait bien longtemps.", german=" Es ist eine Weile her.", italian=" Ne è passato di tempo.", spanish=" Cuánto tiempo..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   do local p=npc_npc_yonowaaru_n8.Position; GROUND:MoveToPosition(npc_npc_yonowaaru_n8, p.X+(0), p.Y+(8), false, 1) end
@@ -49,9 +49,9 @@ return function(hero, partner)
   GROUND:EntTurn(npc_npc_yonowaaru_n8, Direction.Down)
   GAME:WaitFrames(15)
   -- message_FacePositionOffset(0, -4) [neutre/état moteur]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english=" The reason I've come here...", french=" La raison de ma présence ici...", german="Weshalb ich\nhierhergekommen bin...", italian=" Il motivo per cui sono qui...", spanish=" La razón por la que he venido..."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="I bet you can guess at what I\nam going to request?", french="... vous la connaissez, n'est-ce\npas? Vous savez ce que je m'apprête\nà vous demander.", german="Ich nehme an, ihr könnt euch\ndenken, was ich von euch möchte?", italian="Credo che sappiate già cosa ho\nintenzione di chiedervi...", spanish="Bueno, supongo que ya\nsupondréis lo que voy a pediros."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(npc_npc_porigon, Direction.Left)
@@ -76,7 +76,7 @@ return function(hero, partner)
   do local p=npc_npc_yonowaaru_n8.Position; GROUND:MoveToPosition(npc_npc_yonowaaru_n8, p.X+(0), p.Y+(8), false, 1) end
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_FacePositionOffset(0, -3) [neutre/état moteur]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Dusknoir", true, "dusknoir", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_YONOWAARU (espèce ROM, sans placement zone)
   SkySceneKit.say({english="Are you saying you won't listen\nto me?!", french="Quelle impudence! Oseriez-vous\ndésobéir?", german="Ihr wollt mir also tatsächlich\nden Gehorsam verweigern?!?", italian="Avete forse intenzione\ndi disobbedirmi?!", spanish="¡¿Me estás diciendo que no vais\na hacerme caso?!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Exclaim") end)

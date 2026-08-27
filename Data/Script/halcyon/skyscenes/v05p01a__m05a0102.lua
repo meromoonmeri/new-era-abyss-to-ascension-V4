@@ -10,7 +10,7 @@ return function(hero, partner)
   GAME:FadeIn(30)
   pcall(function() SOUND:PlayBGM("Time Gear Remix.ogg", true) end)
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker("Chatot", true, "chatot", 0, '', RogueEssence.Data.Gender.Unknown) end) -- message_SetActor(ACTOR_NPC_PERAPPU) voix hors champ (espèce ROM)
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="Time has come to a standstill in\n[CS:P]Treeshroud Forest[CR]...[K] The wind has stopped...\nThe clouds are motionless...", french="Le temps s'est arrêté dans la\n[CS:P]Forêt Linceul[CR]...[K] Le vent ne souffle plus...\nLes nuages sont devenus immobiles...", german="Die Zeit im [CS:P]Schemengehölz[CR]\nbefindet sich im Stillstand...[K] Der Wind hat auf-\ngehört zu wehen, die Wolken sind erstarrt...", italian="Il tempo si è fermato nella\n[CS:P]Foresta Arcana[CR]...[K] Il vento non soffia più...\nLe nuvole sono immobili...", spanish="El tiempo no parece fluir en el\n[CS:P]Bosque Enraizado[CR].[K] El viento no sopla.\nLas nubes no se mueven..."})
   -- message_Close
