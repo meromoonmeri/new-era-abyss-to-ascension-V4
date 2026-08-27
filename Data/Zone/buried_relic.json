@@ -62125,6 +62125,29 @@
                     }
                   }
                 }
+              },
+              {
+                "Key": {
+                  "str": [
+                    1,
+                    2
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.MobSpawnSettingsStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "Priority": {
+                    "str": [
+                      15
+                    ]
+                  },
+                  "Respawn": {
+                    "$type": "PMDC.Dungeon.RespawnFromEligibleEvent, PMDC",
+                    "MaxFoes": 5,
+                    "RespawnTime": 80
+                  },
+                  "MaxFoes": 0,
+                  "RespawnTime": 0
+                }
               }
             ],
             "Comment": "Salle fixe canonique du boss, chargée en étage par LoadGen + MappedRoomStep : le combat reste dans le donjon."
