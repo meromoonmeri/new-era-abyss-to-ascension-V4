@@ -4,15 +4,14 @@
  "rule": "ADAPTABILITÉ mesurée, PAS intégration : toutes les scènes restent NOT_YET_INTEGRATED au runtime",
  "totals": {
   "scenes": 3760,
-  "REQUIRES_ENGINE_EXTENSION": 372,
-  "TECHNICALLY_ADAPTABLE": 2718,
-  "PARTIAL_FIDELITY": 625,
+  "PARTIAL_FIDELITY": 819,
+  "TECHNICALLY_ADAPTABLE": 2896,
   "NATIVELY_SUPPORTED": 45
  },
  "top_unknown_opcodes": {},
  "scenes": {
   "COMMON/unionall.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 578,
    "ops_distinct": 65,
@@ -47,7 +46,7 @@
    "unknown_ops": null
   },
   "D01P11A/dus03.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 558,
    "ops_distinct": 27,
@@ -89,14 +88,14 @@
    "unknown_ops": null
   },
   "D01P11A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 40,
    "ops_distinct": 17,
    "unknown_ops": null
   },
   "D01P11A/enter11.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 38,
    "ops_distinct": 10,
@@ -152,7 +151,7 @@
    "unknown_ops": null
   },
   "D01P11A/m20a0101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 125,
    "ops_distinct": 21,
@@ -817,7 +816,7 @@
    "unknown_ops": null
   },
   "D01P41A/m01a0601.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 25,
    "ops_distinct": 10,
@@ -873,7 +872,7 @@
    "unknown_ops": null
   },
   "D02P31A/m02a0901.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 25,
    "ops_distinct": 10,
@@ -894,7 +893,7 @@
    "unknown_ops": null
   },
   "D03P11A/m03a1002.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 100,
    "ops_distinct": 24,
@@ -936,7 +935,7 @@
    "unknown_ops": null
   },
   "D03P41A/m03a1101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 25,
    "ops_distinct": 10,
@@ -1062,7 +1061,7 @@
    "unknown_ops": null
   },
   "D04P31A/m05a0601.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 73,
    "ops_distinct": 15,
@@ -1090,7 +1089,7 @@
    "unknown_ops": null
   },
   "D04P31A/m05d0616.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 60,
    "ops_distinct": 21,
@@ -1132,7 +1131,7 @@
    "unknown_ops": null
   },
   "D05P31A/m99a0103.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 25,
    "ops_distinct": 10,
@@ -1146,7 +1145,7 @@
    "unknown_ops": null
   },
   "D06P11A/enter05.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -1216,7 +1215,7 @@
    "unknown_ops": null
   },
   "D07P11A/enter05.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -1293,7 +1292,7 @@
    "unknown_ops": null
   },
   "D08P11A/enter05.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -1307,7 +1306,7 @@
    "unknown_ops": null
   },
   "D08P11A/m09a0201.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 44,
    "ops_distinct": 14,
@@ -1405,7 +1404,7 @@
    "unknown_ops": null
   },
   "D09P11A/enter06.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -1468,7 +1467,7 @@
    "unknown_ops": null
   },
   "D10P21A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -1517,7 +1516,7 @@
    "unknown_ops": null
   },
   "D10P21A/m10a0601.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 16,
    "ops_distinct": 11,
@@ -1608,14 +1607,14 @@
    "unknown_ops": null
   },
   "D10P41A/m99a0105.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 23,
    "ops_distinct": 16,
    "unknown_ops": null
   },
   "D10P41A/m99a0106.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 25,
    "ops_distinct": 10,
@@ -1664,7 +1663,7 @@
    "unknown_ops": null
   },
   "D12P21A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -1706,7 +1705,7 @@
    "unknown_ops": null
   },
   "D12P21A/m12a0501.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 14,
    "ops_distinct": 10,
@@ -1755,7 +1754,7 @@
    "unknown_ops": null
   },
   "D12P41A/m99a0107.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 25,
    "ops_distinct": 10,
@@ -1790,7 +1789,7 @@
    "unknown_ops": null
   },
   "D14P11A/m13a0701.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 63,
    "ops_distinct": 25,
@@ -1874,7 +1873,7 @@
    "unknown_ops": null
   },
   "D15P21A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -1923,7 +1922,7 @@
    "unknown_ops": null
   },
   "D15P21A/m14a0501.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 13,
    "ops_distinct": 9,
@@ -1958,7 +1957,7 @@
    "unknown_ops": null
   },
   "D15P41A/m14a0804.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 48,
    "ops_distinct": 26,
@@ -1979,14 +1978,14 @@
    "unknown_ops": null
   },
   "D15P41A/m99a0109.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 42,
    "ops_distinct": 20,
    "unknown_ops": null
   },
   "D15P41A/m99a0110.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 25,
    "ops_distinct": 10,
@@ -2049,7 +2048,7 @@
    "unknown_ops": null
   },
   "D16P31A/enter08.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -2231,7 +2230,7 @@
    "unknown_ops": null
   },
   "D17P45A/m15b1001.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 94,
    "ops_distinct": 26,
@@ -2245,14 +2244,14 @@
    "unknown_ops": null
   },
   "D17P45A/m99a0112.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 27,
    "ops_distinct": 17,
    "unknown_ops": null
   },
   "D17P45A/m99a0113.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 25,
    "ops_distinct": 10,
@@ -2273,7 +2272,7 @@
    "unknown_ops": null
   },
   "D18P11A/enter06.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -2322,7 +2321,7 @@
    "unknown_ops": null
   },
   "D19P11A/enter06.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -2371,7 +2370,7 @@
    "unknown_ops": null
   },
   "D20P11A/enter06.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -2420,7 +2419,7 @@
    "unknown_ops": null
   },
   "D21P21A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -2462,7 +2461,7 @@
    "unknown_ops": null
   },
   "D21P21A/m18b0801.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 10,
    "ops_distinct": 7,
@@ -2532,7 +2531,7 @@
    "unknown_ops": null
   },
   "D22P11A/enter06.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -2581,7 +2580,7 @@
    "unknown_ops": null
   },
   "D22P11A/n08a2108.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 12,
    "ops_distinct": 9,
@@ -2651,7 +2650,7 @@
    "unknown_ops": null
   },
   "D23P11A/enter06.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -2728,7 +2727,7 @@
    "unknown_ops": null
   },
   "D24P11A/enter06.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -2805,7 +2804,7 @@
    "unknown_ops": null
   },
   "D24P31A/m99a0114.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 25,
    "ops_distinct": 10,
@@ -2826,7 +2825,7 @@
    "unknown_ops": null
   },
   "D25P11A/enter06.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -2945,7 +2944,7 @@
    "unknown_ops": null
   },
   "D26P21A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -2987,7 +2986,7 @@
    "unknown_ops": null
   },
   "D26P21A/m23a0402.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 14,
    "ops_distinct": 9,
@@ -3064,7 +3063,7 @@
    "unknown_ops": null
   },
   "D26P43A/m99a0115.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 25,
    "ops_distinct": 10,
@@ -3085,7 +3084,7 @@
    "unknown_ops": null
   },
   "D27P11A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -3190,7 +3189,7 @@
    "unknown_ops": null
   },
   "D28P21A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -3232,7 +3231,7 @@
    "unknown_ops": null
   },
   "D28P21A/m24a0601.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 13,
    "ops_distinct": 10,
@@ -3323,7 +3322,7 @@
    "unknown_ops": null
   },
   "D28P33A/m25a0301.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 38,
    "ops_distinct": 17,
@@ -3449,14 +3448,14 @@
    "unknown_ops": null
   },
   "D29P11A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
    "unknown_ops": null
   },
   "D29P11A/enter03.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -3505,7 +3504,7 @@
    "unknown_ops": null
   },
   "D30P21A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -3554,7 +3553,7 @@
    "unknown_ops": null
   },
   "D30P21A/m25a0901.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 7,
@@ -3645,14 +3644,14 @@
    "unknown_ops": null
   },
   "D30P41A/m99a0117.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 34,
    "ops_distinct": 19,
    "unknown_ops": null
   },
   "D30P41A/m99a0118.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 26,
    "ops_distinct": 14,
@@ -3673,14 +3672,14 @@
    "unknown_ops": null
   },
   "D31P11A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
    "unknown_ops": null
   },
   "D31P11A/enter03.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -3722,7 +3721,7 @@
    "unknown_ops": null
   },
   "D31P31A/m99a0119.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 25,
    "ops_distinct": 14,
@@ -3785,14 +3784,14 @@
    "unknown_ops": null
   },
   "D32P11A/enter01.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 60,
    "ops_distinct": 8,
    "unknown_ops": null
   },
   "D32P11A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 15,
    "ops_distinct": 11,
@@ -3862,7 +3861,7 @@
    "unknown_ops": null
   },
   "D32P11A/s04p0401.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 4,
    "ops_distinct": 3,
@@ -3876,14 +3875,14 @@
    "unknown_ops": null
   },
   "D32P12A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 60,
    "ops_distinct": 8,
    "unknown_ops": null
   },
   "D32P12A/enter03.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 14,
    "ops_distinct": 11,
@@ -3946,14 +3945,14 @@
    "unknown_ops": null
   },
   "D32P12A/s04p0801.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 61,
    "ops_distinct": 18,
    "unknown_ops": null
   },
   "D32P12A/s04p0901.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 24,
    "ops_distinct": 12,
@@ -3967,14 +3966,14 @@
    "unknown_ops": null
   },
   "D32P13A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 60,
    "ops_distinct": 8,
    "unknown_ops": null
   },
   "D32P13A/enter03.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 14,
    "ops_distinct": 11,
@@ -4030,14 +4029,14 @@
    "unknown_ops": null
   },
   "D32P13A/s04p1201.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 62,
    "ops_distinct": 17,
    "unknown_ops": null
   },
   "D32P14A/s04p1902.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 90,
    "ops_distinct": 33,
@@ -4051,14 +4050,14 @@
    "unknown_ops": null
   },
   "D32P31A/s04p0601.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 39,
    "ops_distinct": 17,
    "unknown_ops": null
   },
   "D32P31A/s04p2201.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 32,
    "ops_distinct": 16,
@@ -4072,14 +4071,14 @@
    "unknown_ops": null
   },
   "D32P32A/s04p1101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 40,
    "ops_distinct": 18,
    "unknown_ops": null
   },
   "D32P32A/s04p2301.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 32,
    "ops_distinct": 16,
@@ -4093,21 +4092,21 @@
    "unknown_ops": null
   },
   "D32P33A/s04p1401.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 47,
    "ops_distinct": 18,
    "unknown_ops": null
   },
   "D32P33A/s04p1501.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 39,
    "ops_distinct": 17,
    "unknown_ops": null
   },
   "D32P33A/s04p2401.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 32,
    "ops_distinct": 16,
@@ -4135,21 +4134,21 @@
    "unknown_ops": null
   },
   "D32P44A/s04p1901.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 98,
    "ops_distinct": 24,
    "unknown_ops": null
   },
   "D32P44A/s04p2001.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 36,
    "ops_distinct": 21,
    "unknown_ops": null
   },
   "D32P44A/s04p2101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 29,
    "ops_distinct": 15,
@@ -4170,7 +4169,7 @@
    "unknown_ops": null
   },
   "D35P21A/enter01.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 60,
    "ops_distinct": 8,
@@ -4184,7 +4183,7 @@
    "unknown_ops": null
   },
   "D35P21A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -4240,21 +4239,21 @@
    "unknown_ops": null
   },
   "D35P41A/s03p1701.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 61,
    "ops_distinct": 22,
    "unknown_ops": null
   },
   "D35P41A/s03p1801.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 51,
    "ops_distinct": 23,
    "unknown_ops": null
   },
   "D35P41A/s03p1901.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 26,
    "ops_distinct": 14,
@@ -4268,7 +4267,7 @@
    "unknown_ops": null
   },
   "D36P41A/m99a0120.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 25,
    "ops_distinct": 14,
@@ -4331,7 +4330,7 @@
    "unknown_ops": null
   },
   "D38P12A/enter06.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -4387,7 +4386,7 @@
    "unknown_ops": null
   },
   "D39P21A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -4429,7 +4428,7 @@
    "unknown_ops": null
   },
   "D39P21A/s21p0901.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 7,
@@ -4485,14 +4484,14 @@
    "unknown_ops": null
   },
   "D39P41A/m99a0122.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 20,
    "ops_distinct": 14,
    "unknown_ops": null
   },
   "D39P41A/m99a0123.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 25,
    "ops_distinct": 14,
@@ -4576,7 +4575,7 @@
    "unknown_ops": null
   },
   "D41P21A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -4618,7 +4617,7 @@
    "unknown_ops": null
   },
   "D41P21A/s22p0901.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 9,
    "ops_distinct": 6,
@@ -4702,7 +4701,7 @@
    "unknown_ops": null
   },
   "D41P41A/m99a0124.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 25,
    "ops_distinct": 14,
@@ -4814,7 +4813,7 @@
    "unknown_ops": null
   },
   "D42P21A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -4877,7 +4876,7 @@
    "unknown_ops": null
   },
   "D42P21A/n01a1601.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 10,
    "ops_distinct": 7,
@@ -4954,7 +4953,7 @@
    "unknown_ops": null
   },
   "D42P42A/m99a0141.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 25,
    "ops_distinct": 14,
@@ -4975,7 +4974,7 @@
    "unknown_ops": null
   },
   "D42P42A/n01a3101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 93,
    "ops_distinct": 21,
@@ -5010,7 +5009,7 @@
    "unknown_ops": null
   },
   "D45P21A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -5045,7 +5044,7 @@
    "unknown_ops": null
   },
   "D45P21A/n03a1301.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 10,
    "ops_distinct": 8,
@@ -5101,14 +5100,14 @@
    "unknown_ops": null
   },
   "D46P11A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
    "unknown_ops": null
   },
   "D46P11A/n08a0208.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 202,
    "ops_distinct": 21,
@@ -5122,7 +5121,7 @@
    "unknown_ops": null
   },
   "D46P11A/n08a0408.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -5136,7 +5135,7 @@
    "unknown_ops": null
   },
   "D46P11A/n09a1204.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 33,
    "ops_distinct": 15,
@@ -5157,7 +5156,7 @@
    "unknown_ops": null
   },
   "D46P21A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -5178,7 +5177,7 @@
    "unknown_ops": null
   },
   "D46P21A/n08a0608.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 10,
    "ops_distinct": 7,
@@ -5227,7 +5226,7 @@
    "unknown_ops": null
   },
   "D47P11A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -5248,7 +5247,7 @@
    "unknown_ops": null
   },
   "D47P11A/n08a1208.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -5276,7 +5275,7 @@
    "unknown_ops": null
   },
   "D48P11A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -5297,7 +5296,7 @@
    "unknown_ops": null
   },
   "D48P11A/n08a1508.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 12,
    "ops_distinct": 9,
@@ -5325,7 +5324,7 @@
    "unknown_ops": null
   },
   "D48P21A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -5360,7 +5359,7 @@
    "unknown_ops": null
   },
   "D48P21A/n08a1808.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -5388,7 +5387,7 @@
    "unknown_ops": null
   },
   "D50P11A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -5409,7 +5408,7 @@
    "unknown_ops": null
   },
   "D50P11A/n08a2708.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -5437,14 +5436,14 @@
    "unknown_ops": null
   },
   "D51P11A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
    "unknown_ops": null
   },
   "D51P11A/enter03.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -5465,7 +5464,7 @@
    "unknown_ops": null
   },
   "D51P11A/n08a3008.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -5500,7 +5499,7 @@
    "unknown_ops": null
   },
   "D51P21A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -5535,7 +5534,7 @@
    "unknown_ops": null
   },
   "D51P21A/n09a0301.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 10,
    "ops_distinct": 8,
@@ -5591,7 +5590,7 @@
    "unknown_ops": null
   },
   "D52P11A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -5619,7 +5618,7 @@
    "unknown_ops": null
   },
   "D52P11A/n09a1001.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 9,
@@ -5689,7 +5688,7 @@
    "unknown_ops": null
   },
   "D53P11A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -5745,7 +5744,7 @@
    "unknown_ops": null
   },
   "D53P11A/n09a1301.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 9,
@@ -5794,7 +5793,7 @@
    "unknown_ops": null
   },
   "D53P21A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -5843,7 +5842,7 @@
    "unknown_ops": null
   },
   "D53P21A/n09a1601.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 10,
    "ops_distinct": 8,
@@ -5934,7 +5933,7 @@
    "unknown_ops": null
   },
   "D54P11A/enter05.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -5955,14 +5954,14 @@
    "unknown_ops": null
   },
   "D54P11A/n06a0201.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 75,
    "ops_distinct": 18,
    "unknown_ops": null
   },
   "D54P11A/n06a0301.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -5976,21 +5975,21 @@
    "unknown_ops": null
   },
   "D54P11A/n06a3902.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 38,
    "ops_distinct": 17,
    "unknown_ops": null
   },
   "D54P31A/n06a0501.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 52,
    "ops_distinct": 15,
    "unknown_ops": null
   },
   "D54P32A/n06a0502.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 168,
    "ops_distinct": 22,
@@ -6025,7 +6024,7 @@
    "unknown_ops": null
   },
   "D55P11A/enter06.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -6046,7 +6045,7 @@
    "unknown_ops": null
   },
   "D55P11A/n06a0801.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -6095,7 +6094,7 @@
    "unknown_ops": null
   },
   "D55P21A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -6130,7 +6129,7 @@
    "unknown_ops": null
   },
   "D55P21A/n06a1101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 10,
    "ops_distinct": 7,
@@ -6200,7 +6199,7 @@
    "unknown_ops": null
   },
   "D56P11A/enter05.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -6235,14 +6234,14 @@
    "unknown_ops": null
   },
   "D56P11A/n06a2001.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 12,
    "ops_distinct": 9,
    "unknown_ops": null
   },
   "D56P11A/n06a2101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 12,
    "ops_distinct": 9,
@@ -6305,7 +6304,7 @@
    "unknown_ops": null
   },
   "D56P11A/n06a2801.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 46,
    "ops_distinct": 16,
@@ -6319,7 +6318,7 @@
    "unknown_ops": null
   },
   "D56P11A/n06a3001.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 38,
    "ops_distinct": 13,
@@ -6354,7 +6353,7 @@
    "unknown_ops": null
   },
   "D56P21A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -6389,7 +6388,7 @@
    "unknown_ops": null
   },
   "D56P21A/n06a3201.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 10,
    "ops_distinct": 7,
@@ -6466,7 +6465,7 @@
    "unknown_ops": null
   },
   "D57P21A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -6487,7 +6486,7 @@
    "unknown_ops": null
   },
   "D57P21A/n04a1701.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 26,
    "ops_distinct": 16,
@@ -6501,7 +6500,7 @@
    "unknown_ops": null
   },
   "D57P21A/n04a1901.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 9,
    "ops_distinct": 6,
@@ -6550,7 +6549,7 @@
    "unknown_ops": null
   },
   "D57P41A/n04a2002.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 38,
    "ops_distinct": 14,
@@ -6627,7 +6626,7 @@
    "unknown_ops": null
   },
   "D63P41A/m99a0142.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 46,
    "ops_distinct": 25,
@@ -6641,14 +6640,14 @@
    "unknown_ops": null
   },
   "D65P41A/s12a0501.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 72,
    "ops_distinct": 24,
    "unknown_ops": null
   },
   "D65P41A/s12a0601.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 42,
    "ops_distinct": 21,
@@ -6662,14 +6661,14 @@
    "unknown_ops": null
   },
   "D66P41A/s12a0801.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 71,
    "ops_distinct": 24,
    "unknown_ops": null
   },
   "D66P41A/s12a0901.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 42,
    "ops_distinct": 21,
@@ -6683,14 +6682,14 @@
    "unknown_ops": null
   },
   "D67P41A/s12a0201.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 72,
    "ops_distinct": 24,
    "unknown_ops": null
   },
   "D67P41A/s12a0301.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 42,
    "ops_distinct": 21,
@@ -6704,14 +6703,14 @@
    "unknown_ops": null
   },
   "D68P41A/s12a1101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 71,
    "ops_distinct": 24,
    "unknown_ops": null
   },
   "D68P41A/s12a1201.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 42,
    "ops_distinct": 21,
@@ -6725,14 +6724,14 @@
    "unknown_ops": null
   },
   "D69P41A/s12a1401.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 71,
    "ops_distinct": 24,
    "unknown_ops": null
   },
   "D69P41A/s12a1501.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 42,
    "ops_distinct": 21,
@@ -6746,14 +6745,14 @@
    "unknown_ops": null
   },
   "D70P41A/s12a1701.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 71,
    "ops_distinct": 24,
    "unknown_ops": null
   },
   "D70P41A/s12a1801.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 42,
    "ops_distinct": 21,
@@ -6767,14 +6766,14 @@
    "unknown_ops": null
   },
   "D71P41A/s12a2001.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 71,
    "ops_distinct": 24,
    "unknown_ops": null
   },
   "D71P41A/s12a2101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 42,
    "ops_distinct": 21,
@@ -6795,14 +6794,14 @@
    "unknown_ops": null
   },
   "D73P11A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
    "unknown_ops": null
   },
   "D73P11A/enter13.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -6816,7 +6815,7 @@
    "unknown_ops": null
   },
   "D73P11A/enter21.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 44,
    "ops_distinct": 15,
@@ -6837,14 +6836,14 @@
    "unknown_ops": null
   },
   "D73P11A/s31a0301.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 9,
    "ops_distinct": 7,
    "unknown_ops": null
   },
   "D73P11A/s31a0401.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 24,
    "ops_distinct": 13,
@@ -6879,7 +6878,7 @@
    "unknown_ops": null
   },
   "D73P11A/us0202.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 37,
    "ops_distinct": 13,
@@ -6963,7 +6962,7 @@
    "unknown_ops": null
   },
   "D73P11A/us0301.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 37,
    "ops_distinct": 13,
@@ -7040,7 +7039,7 @@
    "unknown_ops": null
   },
   "D73P11A/us0402.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 37,
    "ops_distinct": 13,
@@ -7103,7 +7102,7 @@
    "unknown_ops": null
   },
   "D73P11A/us2001.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 37,
    "ops_distinct": 13,
@@ -7152,7 +7151,7 @@
    "unknown_ops": null
   },
   "D73P11A/us2101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 37,
    "ops_distinct": 13,
@@ -7201,7 +7200,7 @@
    "unknown_ops": null
   },
   "D73P11A/us2201.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 37,
    "ops_distinct": 13,
@@ -7250,7 +7249,7 @@
    "unknown_ops": null
   },
   "D73P11A/us2301.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 37,
    "ops_distinct": 13,
@@ -7320,14 +7319,14 @@
    "unknown_ops": null
   },
   "D73P11A/us3104.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 78,
    "ops_distinct": 15,
    "unknown_ops": null
   },
   "D73P11A/us3105.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 44,
    "ops_distinct": 15,
@@ -7341,7 +7340,7 @@
    "unknown_ops": null
   },
   "D73P11A/us3107.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 37,
    "ops_distinct": 13,
@@ -7460,7 +7459,7 @@
    "unknown_ops": null
   },
   "D73P21A/enter01.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 60,
    "ops_distinct": 8,
@@ -7474,7 +7473,7 @@
    "unknown_ops": null
   },
   "D73P21A/enter06.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -7502,21 +7501,21 @@
    "unknown_ops": null
   },
   "D73P21A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 16,
    "ops_distinct": 7,
    "unknown_ops": null
   },
   "D73P21A/enter13.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 37,
    "ops_distinct": 13,
    "unknown_ops": null
   },
   "D73P21A/enter14.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 32,
    "ops_distinct": 11,
@@ -7530,7 +7529,7 @@
    "unknown_ops": null
   },
   "D73P21A/s31a0701.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 10,
    "ops_distinct": 8,
@@ -7544,7 +7543,7 @@
    "unknown_ops": null
   },
   "D73P21A/s32a0401.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 23,
    "ops_distinct": 13,
@@ -7614,7 +7613,7 @@
    "unknown_ops": null
   },
   "D73P21A/us3109.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 78,
    "ops_distinct": 15,
@@ -7628,21 +7627,21 @@
    "unknown_ops": null
   },
   "D73P22A/enter01.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 60,
    "ops_distinct": 8,
    "unknown_ops": null
   },
   "D73P22A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
    "unknown_ops": null
   },
   "D73P22A/enter06.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -7670,7 +7669,7 @@
    "unknown_ops": null
   },
   "D73P22A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 44,
    "ops_distinct": 15,
@@ -7684,7 +7683,7 @@
    "unknown_ops": null
   },
   "D73P22A/enter29.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 44,
    "ops_distinct": 15,
@@ -7698,7 +7697,7 @@
    "unknown_ops": null
   },
   "D73P22A/s31a1001.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 10,
    "ops_distinct": 8,
@@ -7719,7 +7718,7 @@
    "unknown_ops": null
   },
   "D73P22A/us3101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 78,
    "ops_distinct": 15,
@@ -7768,7 +7767,7 @@
    "unknown_ops": null
   },
   "D73P23A/enter01.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 60,
    "ops_distinct": 8,
@@ -7782,7 +7781,7 @@
    "unknown_ops": null
   },
   "D73P23A/enter06.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -7810,21 +7809,21 @@
    "unknown_ops": null
   },
   "D73P23A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 16,
    "ops_distinct": 7,
    "unknown_ops": null
   },
   "D73P23A/enter13.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 37,
    "ops_distinct": 13,
    "unknown_ops": null
   },
   "D73P23A/enter14.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 32,
    "ops_distinct": 11,
@@ -7838,7 +7837,7 @@
    "unknown_ops": null
   },
   "D73P23A/s31a1301.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 10,
    "ops_distinct": 8,
@@ -7859,7 +7858,7 @@
    "unknown_ops": null
   },
   "D73P23A/us3101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 78,
    "ops_distinct": 15,
@@ -7901,7 +7900,7 @@
    "unknown_ops": null
   },
   "D73P23A/us3107.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -7922,21 +7921,21 @@
    "unknown_ops": null
   },
   "D73P24A/enter01.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 60,
    "ops_distinct": 8,
    "unknown_ops": null
   },
   "D73P24A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
    "unknown_ops": null
   },
   "D73P24A/enter03.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -7964,7 +7963,7 @@
    "unknown_ops": null
   },
   "D73P24A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 44,
    "ops_distinct": 15,
@@ -7978,7 +7977,7 @@
    "unknown_ops": null
   },
   "D73P24A/enter26.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 44,
    "ops_distinct": 15,
@@ -7992,7 +7991,7 @@
    "unknown_ops": null
   },
   "D73P24A/s31a1601.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 10,
    "ops_distinct": 8,
@@ -8069,7 +8068,7 @@
    "unknown_ops": null
   },
   "D73P24A/us3101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 78,
    "ops_distinct": 15,
@@ -8090,7 +8089,7 @@
    "unknown_ops": null
   },
   "D73P24A/us3104.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -8104,14 +8103,14 @@
    "unknown_ops": null
   },
   "D73P25A/enter01.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 60,
    "ops_distinct": 8,
    "unknown_ops": null
   },
   "D73P25A/enter05.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -8139,21 +8138,21 @@
    "unknown_ops": null
   },
   "D73P25A/enter10.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 16,
    "ops_distinct": 7,
    "unknown_ops": null
   },
   "D73P25A/enter11.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 37,
    "ops_distinct": 13,
    "unknown_ops": null
   },
   "D73P25A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 32,
    "ops_distinct": 11,
@@ -8181,7 +8180,7 @@
    "unknown_ops": null
   },
   "D73P25A/s31a3801.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 10,
    "ops_distinct": 8,
@@ -8202,7 +8201,7 @@
    "unknown_ops": null
   },
   "D73P25A/us3101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 78,
    "ops_distinct": 15,
@@ -8237,21 +8236,21 @@
    "unknown_ops": null
   },
   "D73P26A/enter01.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 60,
    "ops_distinct": 8,
    "unknown_ops": null
   },
   "D73P26A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
    "unknown_ops": null
   },
   "D73P26A/enter03.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -8279,7 +8278,7 @@
    "unknown_ops": null
   },
   "D73P26A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 44,
    "ops_distinct": 15,
@@ -8293,7 +8292,7 @@
    "unknown_ops": null
   },
   "D73P26A/enter19.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 44,
    "ops_distinct": 15,
@@ -8307,7 +8306,7 @@
    "unknown_ops": null
   },
   "D73P26A/s31a2201.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 10,
    "ops_distinct": 8,
@@ -8377,7 +8376,7 @@
    "unknown_ops": null
   },
   "D73P26A/us3101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 78,
    "ops_distinct": 15,
@@ -8440,7 +8439,7 @@
    "unknown_ops": null
   },
   "D73P27A/enter01.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 60,
    "ops_distinct": 8,
@@ -8454,7 +8453,7 @@
    "unknown_ops": null
   },
   "D73P27A/enter06.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -8482,21 +8481,21 @@
    "unknown_ops": null
   },
   "D73P27A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 16,
    "ops_distinct": 7,
    "unknown_ops": null
   },
   "D73P27A/enter13.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 37,
    "ops_distinct": 13,
    "unknown_ops": null
   },
   "D73P27A/enter14.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 32,
    "ops_distinct": 11,
@@ -8517,7 +8516,7 @@
    "unknown_ops": null
   },
   "D73P27A/s31a2501.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 10,
    "ops_distinct": 8,
@@ -8552,7 +8551,7 @@
    "unknown_ops": null
   },
   "D73P27A/us3101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 78,
    "ops_distinct": 15,
@@ -8615,21 +8614,21 @@
    "unknown_ops": null
   },
   "D73P28A/enter01.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 60,
    "ops_distinct": 8,
    "unknown_ops": null
   },
   "D73P28A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
    "unknown_ops": null
   },
   "D73P28A/enter06.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -8657,7 +8656,7 @@
    "unknown_ops": null
   },
   "D73P28A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 33,
    "ops_distinct": 9,
@@ -8678,7 +8677,7 @@
    "unknown_ops": null
   },
   "D73P28A/s31a2901.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 10,
    "ops_distinct": 8,
@@ -8692,7 +8691,7 @@
    "unknown_ops": null
   },
   "D73P28A/s32a0101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 35,
    "ops_distinct": 14,
@@ -8706,7 +8705,7 @@
    "unknown_ops": null
   },
   "D73P28A/us3101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 78,
    "ops_distinct": 15,
@@ -8748,7 +8747,7 @@
    "unknown_ops": null
   },
   "D73P29A/enter01.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 60,
    "ops_distinct": 8,
@@ -8762,7 +8761,7 @@
    "unknown_ops": null
   },
   "D73P29A/enter06.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -8811,7 +8810,7 @@
    "unknown_ops": null
   },
   "D73P29A/s31a3201.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 10,
    "ops_distinct": 8,
@@ -8839,7 +8838,7 @@
    "unknown_ops": null
   },
   "D73P29A/us3101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 78,
    "ops_distinct": 15,
@@ -8853,14 +8852,14 @@
    "unknown_ops": null
   },
   "D73P31A/enter03.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
    "unknown_ops": null
   },
   "D73P31A/enter04.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 9,
@@ -8888,14 +8887,14 @@
    "unknown_ops": null
   },
   "D73P31A/enter09.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 78,
    "ops_distinct": 15,
    "unknown_ops": null
   },
   "D73P31A/enter10.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 37,
    "ops_distinct": 13,
@@ -8923,7 +8922,7 @@
    "unknown_ops": null
   },
   "D73P31A/s32a0301.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 13,
    "ops_distinct": 10,
@@ -8951,7 +8950,7 @@
    "unknown_ops": null
   },
   "D73P31A/us0203.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -8993,7 +8992,7 @@
    "unknown_ops": null
   },
   "D73P31A/us0303.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -9035,7 +9034,7 @@
    "unknown_ops": null
   },
   "D73P31A/us0403.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -9112,7 +9111,7 @@
    "unknown_ops": null
   },
   "D73P31A/us3104.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -9175,7 +9174,7 @@
    "unknown_ops": null
   },
   "D79P11A/enter03.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -9203,21 +9202,21 @@
    "unknown_ops": null
   },
   "D79P11A/s02p0201.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 39,
    "ops_distinct": 27,
    "unknown_ops": null
   },
   "D79P11A/s02p0301.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 13,
    "ops_distinct": 10,
    "unknown_ops": null
   },
   "D79P11A/s02p0401.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 9,
@@ -9231,7 +9230,7 @@
    "unknown_ops": null
   },
   "D79P21A/enter01.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 60,
    "ops_distinct": 8,
@@ -9245,7 +9244,7 @@
    "unknown_ops": null
   },
   "D79P21A/enter12.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -9308,14 +9307,14 @@
    "unknown_ops": null
   },
   "D79P41A/s02p1001.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 25,
    "ops_distinct": 14,
    "unknown_ops": null
   },
   "D80P41A/m99a0129.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 48,
    "ops_distinct": 23,
@@ -9420,14 +9419,14 @@
    "unknown_ops": null
   },
   "G01P01A/m12a0102.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 116,
    "ops_distinct": 23,
    "unknown_ops": null
   },
   "G01P01A/m26a0505.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 79,
    "ops_distinct": 21,
@@ -9441,14 +9440,14 @@
    "unknown_ops": null
   },
   "G01P01A/n01a0708.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 68,
    "ops_distinct": 17,
    "unknown_ops": null
   },
   "G01P01A/n04a0105.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 97,
    "ops_distinct": 26,
@@ -9784,14 +9783,14 @@
    "unknown_ops": null
   },
   "G01P03A/enter13.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 34,
    "ops_distinct": 6,
    "unknown_ops": null
   },
   "G01P03A/m00p0101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 60,
    "ops_distinct": 19,
@@ -9826,7 +9825,7 @@
    "unknown_ops": null
   },
   "G01P03A/m02a1001.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 106,
    "ops_distinct": 22,
@@ -9868,7 +9867,7 @@
    "unknown_ops": null
   },
   "G01P03A/m03a1201.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 76,
    "ops_distinct": 23,
@@ -9924,7 +9923,7 @@
    "unknown_ops": null
   },
   "G01P03A/m13a0301.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 29,
    "ops_distinct": 14,
@@ -10015,7 +10014,7 @@
    "unknown_ops": null
   },
   "G01P03A/n04a2603.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 107,
    "ops_distinct": 20,
@@ -11912,7 +11911,7 @@
    "unknown_ops": null
   },
   "G01P04A/c00a1701.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 281,
    "ops_distinct": 27,
@@ -12045,7 +12044,7 @@
    "unknown_ops": null
   },
   "G01P04A/m04a0201.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 205,
    "ops_distinct": 27,
@@ -12066,7 +12065,7 @@
    "unknown_ops": null
   },
   "G01P04A/m05a0203.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 62,
    "ops_distinct": 25,
@@ -12143,7 +12142,7 @@
    "unknown_ops": null
   },
   "G01P04A/m08a0301.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 301,
    "ops_distinct": 25,
@@ -12234,14 +12233,14 @@
    "unknown_ops": null
   },
   "G01P04A/m14a0901.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 206,
    "ops_distinct": 24,
    "unknown_ops": null
   },
   "G01P04A/m14a0903.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 52,
    "ops_distinct": 17,
@@ -12262,7 +12261,7 @@
    "unknown_ops": null
   },
   "G01P04A/m16a0105.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 58,
    "ops_distinct": 22,
@@ -12374,7 +12373,7 @@
    "unknown_ops": null
   },
   "G01P04A/n01a0106.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 78,
    "ops_distinct": 17,
@@ -12395,7 +12394,7 @@
    "unknown_ops": null
   },
   "G01P04A/n01a0709.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 68,
    "ops_distinct": 17,
@@ -12423,14 +12422,14 @@
    "unknown_ops": null
   },
   "G01P04A/n01a3102.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 17,
    "ops_distinct": 7,
    "unknown_ops": null
   },
   "G01P04A/n04a0107.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 24,
    "ops_distinct": 13,
@@ -12451,7 +12450,7 @@
    "unknown_ops": null
   },
   "G01P04A/s01p1101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 89,
    "ops_distinct": 21,
@@ -12465,7 +12464,7 @@
    "unknown_ops": null
   },
   "G01P04A/s03p0101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 41,
    "ops_distinct": 23,
@@ -12486,14 +12485,14 @@
    "unknown_ops": null
   },
   "G01P04A/s03p0501.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 77,
    "ops_distinct": 19,
    "unknown_ops": null
   },
   "G01P04A/s04p0101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 287,
    "ops_distinct": 38,
@@ -13732,7 +13731,7 @@
    "unknown_ops": null
   },
   "G01P05A/m02a0110.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 253,
    "ops_distinct": 23,
@@ -13753,7 +13752,7 @@
    "unknown_ops": null
   },
   "G01P05A/n04a0104.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 26,
    "ops_distinct": 11,
@@ -14327,7 +14326,7 @@
    "unknown_ops": null
   },
   "G01P05C/m02a0603.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 56,
    "ops_distinct": 21,
@@ -14740,7 +14739,7 @@
    "unknown_ops": null
   },
   "G01P06B/n01a0601.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 28,
    "ops_distinct": 18,
@@ -15272,14 +15271,14 @@
    "unknown_ops": null
   },
   "G01P09A/enter04.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 108,
    "ops_distinct": 9,
    "unknown_ops": null
   },
   "G01P09A/enter05.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 144,
    "ops_distinct": 9,
@@ -15300,7 +15299,7 @@
    "unknown_ops": null
   },
   "G01P09C/n04a2605.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 99,
    "ops_distinct": 19,
@@ -15321,7 +15320,7 @@
    "unknown_ops": null
   },
   "G01P10A/enter04.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 137,
    "ops_distinct": 9,
@@ -16049,21 +16048,21 @@
    "unknown_ops": null
   },
   "H02P99A/m22a0602.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 50,
    "ops_distinct": 17,
    "unknown_ops": null
   },
   "H02P99A/m22a0701.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 27,
    "ops_distinct": 6,
    "unknown_ops": null
   },
   "H02P99A/s01p1103.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 44,
    "ops_distinct": 17,
@@ -16098,7 +16097,7 @@
    "unknown_ops": null
   },
   "H02P99A/s03p0701.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 66,
    "ops_distinct": 19,
@@ -16203,7 +16202,7 @@
    "unknown_ops": null
   },
   "H02P99A/s23p0103.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 65,
    "ops_distinct": 20,
@@ -16455,7 +16454,7 @@
    "unknown_ops": null
   },
   "P01P01A/enter04.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 11,
@@ -16504,14 +16503,14 @@
    "unknown_ops": null
   },
   "P01P01A/enter40.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 7,
    "ops_distinct": 7,
    "unknown_ops": null
   },
   "P01P01A/enter41.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 5,
    "ops_distinct": 3,
@@ -16693,14 +16692,14 @@
    "unknown_ops": null
   },
   "P01P01A/s02p0101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 41,
    "ops_distinct": 21,
    "unknown_ops": null
   },
   "P01P01A/s02p0702.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 110,
    "ops_distinct": 22,
@@ -16784,7 +16783,7 @@
    "unknown_ops": null
   },
   "P01P01A/um0305.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 110,
    "ops_distinct": 12,
@@ -17246,7 +17245,7 @@
    "unknown_ops": null
   },
   "P01P04A/enter06.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 110,
    "ops_distinct": 12,
@@ -17281,7 +17280,7 @@
    "unknown_ops": null
   },
   "P01P04A/enter11.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 218,
    "ops_distinct": 12,
@@ -17316,14 +17315,14 @@
    "unknown_ops": null
   },
   "P01P04A/s30a0501.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 85,
    "ops_distinct": 21,
    "unknown_ops": null
   },
   "P01P04A/s30a0601.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 75,
    "ops_distinct": 21,
@@ -17344,7 +17343,7 @@
    "unknown_ops": null
   },
   "P01P04A/s31a0104.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 155,
    "ops_distinct": 31,
@@ -17400,7 +17399,7 @@
    "unknown_ops": null
   },
   "P01P04A/um0607.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -17435,7 +17434,7 @@
    "unknown_ops": null
   },
   "P01P04A/um0703.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -17491,7 +17490,7 @@
    "unknown_ops": null
   },
   "P01P04A/um0711.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -17561,7 +17560,7 @@
    "unknown_ops": null
   },
   "P01P04A/um0721.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -17596,7 +17595,7 @@
    "unknown_ops": null
   },
   "P01P04A/um0727.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 110,
    "ops_distinct": 12,
@@ -17624,7 +17623,7 @@
    "unknown_ops": null
   },
   "P01P04A/um0803.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -17673,7 +17672,7 @@
    "unknown_ops": null
   },
   "P01P04A/um1102.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -17722,7 +17721,7 @@
    "unknown_ops": null
   },
   "P01P04A/um1202.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -17771,7 +17770,7 @@
    "unknown_ops": null
   },
   "P01P04A/um1303.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -17820,7 +17819,7 @@
    "unknown_ops": null
   },
   "P01P04A/um1403.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -17862,7 +17861,7 @@
    "unknown_ops": null
   },
   "P01P04A/um1409.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -17911,7 +17910,7 @@
    "unknown_ops": null
   },
   "P01P04A/um1503.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -17960,7 +17959,7 @@
    "unknown_ops": null
   },
   "P01P04A/um1603.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -18030,7 +18029,7 @@
    "unknown_ops": null
   },
   "P01P04A/um2104.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -18072,7 +18071,7 @@
    "unknown_ops": null
   },
   "P01P04A/um2204.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -18114,7 +18113,7 @@
    "unknown_ops": null
   },
   "P01P04A/um2304.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -18149,7 +18148,7 @@
    "unknown_ops": null
   },
   "P01P04A/um2403.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -18177,7 +18176,7 @@
    "unknown_ops": null
   },
   "P01P04A/um2503.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -18212,7 +18211,7 @@
    "unknown_ops": null
   },
   "P01P04A/us0103.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -18380,7 +18379,7 @@
    "unknown_ops": null
   },
   "P01P04A/us2003.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -18450,7 +18449,7 @@
    "unknown_ops": null
   },
   "P01P04A/us2103.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -18492,7 +18491,7 @@
    "unknown_ops": null
   },
   "P01P04A/us2203.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -18534,7 +18533,7 @@
    "unknown_ops": null
   },
   "P01P04A/us2303.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -18611,7 +18610,7 @@
    "unknown_ops": null
   },
   "P01P04A/us3108.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 81,
    "ops_distinct": 12,
@@ -18632,7 +18631,7 @@
    "unknown_ops": null
   },
   "P01P04A/us3111.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 110,
    "ops_distinct": 12,
@@ -18709,7 +18708,7 @@
    "unknown_ops": null
   },
   "P02P01A/enter05.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 185,
    "ops_distinct": 12,
@@ -19710,14 +19709,14 @@
    "unknown_ops": null
   },
   "P03P01A/m09a0601.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 118,
    "ops_distinct": 24,
    "unknown_ops": null
   },
   "P03P01A/m09a0605.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 84,
    "ops_distinct": 21,
@@ -19836,7 +19835,7 @@
    "unknown_ops": null
   },
   "P04P01C/m10a1213.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 84,
    "ops_distinct": 26,
@@ -19899,7 +19898,7 @@
    "unknown_ops": null
   },
   "P05P02A/m17a0201.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 7,
    "ops_distinct": 5,
@@ -20228,7 +20227,7 @@
    "unknown_ops": null
   },
   "P14P01A/s01p1001.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 77,
    "ops_distinct": 20,
@@ -20242,7 +20241,7 @@
    "unknown_ops": null
   },
   "P14P01A/s01p1003.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 98,
    "ops_distinct": 22,
@@ -20270,7 +20269,7 @@
    "unknown_ops": null
   },
   "P15P01A/n01a0103.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 31,
    "ops_distinct": 14,
@@ -20298,7 +20297,7 @@
    "unknown_ops": null
   },
   "P16P01A/n02a0107.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 73,
    "ops_distinct": 25,
@@ -20368,7 +20367,7 @@
    "unknown_ops": null
   },
   "P17P01A/n02a0108.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 17,
    "ops_distinct": 15,
@@ -20417,7 +20416,7 @@
    "unknown_ops": null
   },
   "P17P02A/n02a0109.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 68,
    "ops_distinct": 16,
@@ -20452,7 +20451,7 @@
    "unknown_ops": null
   },
   "P17P02A/n03a0101.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 8,
    "ops_distinct": 5,
@@ -20515,7 +20514,7 @@
    "unknown_ops": null
   },
   "P18P01A/n02a0304.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 103,
    "ops_distinct": 23,
@@ -20550,7 +20549,7 @@
    "unknown_ops": null
   },
   "P19P01A/enter07.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 8,
@@ -20620,28 +20619,28 @@
    "unknown_ops": null
   },
   "P19P02A/n02a1002.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 156,
    "ops_distinct": 22,
    "unknown_ops": null
   },
   "P19P02A/n03a0703.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 36,
    "ops_distinct": 15,
    "unknown_ops": null
   },
   "P20P01A/n03a0701.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 153,
    "ops_distinct": 24,
    "unknown_ops": null
   },
   "P20P02A/n03a0704.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 54,
    "ops_distinct": 18,
@@ -20662,7 +20661,7 @@
    "unknown_ops": null
   },
   "P22P01A/n03a1702.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 308,
    "ops_distinct": 31,
@@ -20739,7 +20738,7 @@
    "unknown_ops": null
   },
   "S00P01A/dopen.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 499,
    "ops_distinct": 18,
@@ -20879,14 +20878,14 @@
    "unknown_ops": null
   },
   "S01P02A/enter01.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 10,
    "unknown_ops": null
   },
   "S01P02A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 99,
    "ops_distinct": 13,
@@ -20956,7 +20955,7 @@
    "unknown_ops": null
   },
   "S01P03A/enter01.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 11,
    "ops_distinct": 10,
@@ -21733,7 +21732,7 @@
    "unknown_ops": null
   },
   "T01P01A/enter03.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 23,
    "ops_distinct": 15,
@@ -21901,7 +21900,7 @@
    "unknown_ops": null
   },
   "T01P01A/m26a0506.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 31,
    "ops_distinct": 15,
@@ -21936,7 +21935,7 @@
    "unknown_ops": null
   },
   "T01P01A/s22p1501.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 82,
    "ops_distinct": 16,
@@ -23721,7 +23720,7 @@
    "unknown_ops": null
   },
   "T01P02A/m03a0301.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 132,
    "ops_distinct": 19,
@@ -23763,7 +23762,7 @@
    "unknown_ops": null
   },
   "T01P02A/m12a0601.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 60,
    "ops_distinct": 18,
@@ -23826,28 +23825,28 @@
    "unknown_ops": null
   },
   "T01P02A/n01a0501.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 130,
    "ops_distinct": 16,
    "unknown_ops": null
   },
   "T01P02A/n01a0503.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 109,
    "ops_distinct": 19,
    "unknown_ops": null
   },
   "T01P02A/n01a0702.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 33,
    "ops_distinct": 16,
    "unknown_ops": null
   },
   "T01P02A/n01a1902.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 36,
    "ops_distinct": 18,
@@ -25401,7 +25400,7 @@
    "unknown_ops": null
   },
   "T01P03A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 28,
    "ops_distinct": 8,
@@ -25422,7 +25421,7 @@
    "unknown_ops": null
   },
   "T01P03A/enter08.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 34,
    "ops_distinct": 13,
@@ -25443,7 +25442,7 @@
    "unknown_ops": null
   },
   "T01P03A/m00p0901.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 64,
    "ops_distinct": 23,
@@ -25457,14 +25456,14 @@
    "unknown_ops": null
   },
   "T01P04A/enter01.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 14,
    "ops_distinct": 7,
    "unknown_ops": null
   },
   "T01P04A/enter02.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 23,
    "ops_distinct": 15,
@@ -25618,7 +25617,7 @@
    "unknown_ops": null
   },
   "V03P05C/n02a0303.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "TECHNICALLY_ADAPTABLE",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 19,
    "ops_distinct": 11,
@@ -25646,7 +25645,7 @@
    "unknown_ops": null
   },
   "V03P06A/m20a0707.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 84,
    "ops_distinct": 20,
@@ -26087,7 +26086,7 @@
    "unknown_ops": null
   },
   "V24P06A/m24a0207.ssb": {
-   "classification": "REQUIRES_ENGINE_EXTENSION",
+   "classification": "PARTIAL_FIDELITY",
    "runtime_status": "NOT_YET_INTEGRATED",
    "ops_total": 25,
    "ops_distinct": 18,

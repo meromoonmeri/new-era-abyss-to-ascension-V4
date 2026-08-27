@@ -4,9 +4,8 @@ Classification par la table curatée d'idiomes PMDO (ssb_coverage.py). **Aucune 
 
 | Classe | Scènes |
 |---|---|
-| TECHNICALLY_ADAPTABLE | 2718 |
-| PARTIAL_FIDELITY | 625 |
-| REQUIRES_ENGINE_EXTENSION | 372 |
+| TECHNICALLY_ADAPTABLE | 2896 |
+| PARTIAL_FIDELITY | 819 |
 | NATIVELY_SUPPORTED | 45 |
 
 ## Opcodes hors table curatée (à curer ensuite)

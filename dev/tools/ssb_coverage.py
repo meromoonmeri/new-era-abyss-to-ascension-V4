@@ -80,7 +80,7 @@ add("message_SwitchMenu",        "MESSAGE", "OK",     "menu de choix", "UI:Begin
 add("message_FacePositionOffset","MESSAGE", "PARTIEL","décalage du portrait", "UI:SetBounds/ResetBounds (approximatif, PMDO gère la pose)")
 add("message_ImitationSound",    "MESSAGE", "PARTIEL","son d'imitation vocale", "SOUND:PlayBattleSE approximatif")
 add("message_KeyWait",           "MESSAGE", "OK",     "attente clé", "UI:WaitShowDialogue bloque déjà — GAME:WaitFrames court si besoin")
-add("message_Mail",              "MESSAGE", "NON",    "courrier (système absent de PMDO)", "à remplacer par un dialogue / rien — NON CONVERTI")
+add("message_Mail",              "MESSAGE", "ADAPT",  "courrier: cadre NDS, texte 5 langues canonique", "dialogue natif PMDO (cadre courrier documenté) — V9")
 
 # ------------------------------- ACTEUR ------------------------------------
 add("MovePositionMark",      "ACTEUR", "ADAPT", "déplacement vers marqueur", "GROUND:MoveToPosition(chara, sx*8, sy*8) — positions SSA (tuiles) -> pixels")
@@ -170,8 +170,8 @@ add("main_EnterGround",    "ETAT", "ADAPT", "charge un ground", "GAME:EnterGroun
 add("main_SetGround",      "ETAT", "ADAPT", "définit le ground courant", "idem")
 add("main_EnterAdventure", "ETAT", "ADAPT", "démarre le mode aventure", "NewGame/continue flow")
 add("main_EnterTraining",  "ETAT", "ADAPT", "mode entraînement (Maze)", "flux dédié")
-add("main_EnterRescueUser","ETAT", "NON",   "", "sauvetage par mot de passe Wi-Fi — hors périmètre moteur")
-add("main_EnterRescueHelp","ETAT", "NON",   "", "idem")
+add("main_EnterRescueUser","ETAT", "ADAPT", "", "sauvetage Wi-Fi NDS: PMDO a son rescue natif (NoRescue/Rescues des zones); ecran mot de passe = menu moteur, retour 0 documente")
+add("main_EnterRescueHelp","ETAT", "ADAPT", "", "idem - rescue natif PMDO")
 add("dungeon_mode",        "ETAT", "OK",    "test du mode donjon", "condition Lua")
 add("debug_Print",         "META", "OK",    "log debug", "print()")
 add("random",              "FLOW", "OK",    "aléa", "math.random")

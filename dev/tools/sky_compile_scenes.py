@@ -493,6 +493,13 @@ class SceneCompiler:
                     f"[{lua_str(m.group(1))}] or 0)",
                     f"message_Menu({m.group(1)}): menu moteur NDS "
                     f"(retour par défaut 0, branches préservées)")
+        # écran de sauvetage Wi-Fi NDS (mot de passe) : PMDO possède son
+        # propre système de rescue natif (Rescues des zones) — l'écran
+        # NDS retourne 0 (fermeture) par défaut, branches préservées.
+        m = re.match(r"main_EnterRescue(?:User|Help)\(\s*-?\d+\s*\)$", s)
+        if m:
+            return ("0", f"{s}: écran rescue Wi-Fi NDS (rescue natif "
+                         f"PMDO; retour 0 fermeture, branches préservées)")
         if s == "sector()":
             # sector() = index de secteur d'acting du superviseur NDS ;
             # dans PMDO le validateur/kit joue la scène en secteur 1
