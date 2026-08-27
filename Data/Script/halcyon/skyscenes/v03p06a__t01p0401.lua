@@ -48,5 +48,33 @@ return function(hero, partner)
   -- camera2_SetPositionMark(Position<'m12', 49.5, 85.5>) [caméra sub NDS: nappe Sub_ cadrée fenêtre NDS, recadrage dynamique non simulé - documenté]
   GAME:WaitFrames(2)
   -- camera2_SetPositionMark(Position<'m13', 82.5, 85.5>) [caméra sub NDS: nappe Sub_ cadrée fenêtre NDS, recadrage dynamique non simulé - documenté]
+  if true --[[BranchVariation: ROM Sky EU]] then -- if ROM: variation
+  -- @label_0 [étiquette de flux ExplorerScript]
+  -- supervision_Acting(10) [neutre/état moteur]
+  -- @label_1 [étiquette de flux ExplorerScript]
+  GAME:WaitFrames(30)
+  -- SetOutputAttribute(2) [neutre/état moteur]
+  -- SetOutputAttribute(2) [neutre/état moteur]
+  -- SetAnimation(3) [anim idle native]
+  -- SetAnimation(3) [anim idle native]
+  GAME:WaitFrames(1)
+  GAME:FadeIn(30)
+  GAME:WaitFrames(60)
+  -- GAP: SetEffect 659 — VFX sans émote PMDO équivalente
+  GAME:WaitFrames(2) -- join WaitEffect
+  GAME:WaitFrames(110)
+  -- supervision_Acting(1) [neutre/état moteur]
+  GAME:WaitFrames(10)
+  -- supervision_Acting(2) [neutre/état moteur]
+  -- SetAnimation(2) [anim idle native]
+  SV.SkyVars = SV.SkyVars or {}
+  SV.SkyVars.EVENT_LOCAL = 1 -- $EVENT_LOCAL = 1 (ROM)
+  -- switch(ProcessSpecial(22, 1, 0)) [procédé/menu moteur NDS, corps vide: aucun embranchement canonique — équivalent moteur PMDO]
+  GAME:WaitFrames(2000)
+  SkySubScreen.Hide(60) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
+  GAME:FadeOut(false, 60)
+  else
+  -- jump @label_1 [saut final de branche vers l'épilogue commun: flux naturel]
+  end
   SkySubScreen.Hide(10) -- fin de scène: nappe sub retirée
 end

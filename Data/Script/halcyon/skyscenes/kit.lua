@@ -116,6 +116,15 @@ function SkySceneKit.team_member(n)
   return ch
 end
 
+-- Décalage immédiat en pixels depuis la position courante
+-- (SetPositionOffset NDS) : téléport relatif natif.
+function SkySceneKit.offset_pos(ch, dx, dy)
+  pcall(function()
+    local p = ch.Position
+    GROUND:TeleportTo(ch, p.X + dx, p.Y + dy, ch.CharDir)
+  end)
+end
+
 -- Rotation sur soi (Turn2DirectionTurn NDS) : EntTurn sur les 8
 -- directions successives, sens ROM (2=antihoraire sinon horaire),
 -- `turns` quarts de tour complets, tempo speed frames par pas.

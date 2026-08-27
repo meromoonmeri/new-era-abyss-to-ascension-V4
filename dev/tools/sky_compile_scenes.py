@@ -693,6 +693,28 @@ class SceneCompiler:
                       f"SV.SkyTalkBitFlags[{n}] = {v} -- "
                       f"$SCENARIO_TALK_BIT_FLAG[{n}] = {v} (ROM)")
             return
+        # affectations de GameVar génériques ($EVENT_LOCAL = 1,
+        # $SUB30_SPOT_DISCOVER[0] = 1…) et `clear $VAR` : SV.SkyVars —
+        # relues par les if/switch compilés (mêmes valeurs ROM)
+        mgv = re.match(r"\$([A-Z][A-Z0-9_]*)(?:\[(\d+)\])?\s*=\s*"
+                       r"(-?\d+)$", st)
+        if mgv:
+            name, idx, val = mgv.group(1), mgv.group(2), int(mgv.group(3))
+            if name not in ("SCENARIO_MAIN", "SCENARIO_SIDE"):
+                self.emit("SV.SkyVars = SV.SkyVars or {}")
+                if idx is not None:
+                    self.emit(f"SV.SkyVars.{name} = SV.SkyVars.{name} "
+                              f"or {{}}; SV.SkyVars.{name}[{int(idx)}] = "
+                              f"{val} -- ${name}[{idx}] = {val} (ROM)")
+                else:
+                    self.emit(f"SV.SkyVars.{name} = {val} "
+                              f"-- ${name} = {val} (ROM)")
+                return
+        mclr = re.match(r"clear\s+\$([A-Z][A-Z0-9_]*)$", st)
+        if mclr:
+            self.emit(f"if SV.SkyVars then SV.SkyVars.{mclr.group(1)} = 0 "
+                      f"end -- clear ${mclr.group(1)} (ROM)")
+            return
         mm_menu = re.match(
             r"switch\s*\(\s*message_Menu\(([A-Z0-9_]+)\)\s*\)\s*\{\s*\}$",
             st, re.S)
@@ -1326,8 +1348,27 @@ class SceneCompiler:
                 x = int(float(mm.group(1)) * 8)
                 y = int(float(mm.group(2)) * 8)
                 self.emit(f"GROUND:MoveToPosition({A}, {x}, {y}, false, 2)")
+            elif kind == "object" and mm:
+                # OBJET de décor NDS (props SSA) : déplacement d'objet non
+                # scripté par le kit — l'objet n'est pas spawné (les props
+                # sont dans le décor rendu) : trace documentée, aucun
+                # dialogue/acteur perdu.
+                self.emit(f"-- Move2PositionMark<object {target}> "
+                          f"[prop décor NDS, géré par le rendu du ground]")
             else:
                 self.unsupported.append(f"Move2PositionMark:{target}")
+        elif op in ("Slide2PositionMark",) and kind == "object":
+            self.emit(f"-- Slide2PositionMark<object {target}> "
+                      f"[prop décor NDS, géré par le rendu du ground]")
+        elif op == "SetPositionOffset":
+            # décalage immédiat en pixels (dx, dy) depuis la position
+            # courante — TeleportTo relatif via kit
+            f = [x.strip() for x in args.split(",")]
+            if A and len(f) == 2:
+                self.emit(f"SkySceneKit.offset_pos({A}, {int(float(f[0]))},"
+                          f" {int(float(f[1]))})")
+            else:
+                self.unsupported.append("SetPositionOffset")
         elif op == "hold":
             self.emit("GAME:WaitFrames(1) -- hold")
         elif op == "se_FadeOut":
