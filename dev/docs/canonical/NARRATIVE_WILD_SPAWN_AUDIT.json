@@ -1,0 +1,27 @@
+{
+ "schema": "narrative-wild-spawn-audit/1",
+ "rule": "Toute espèce légendaire/narrative trouvée dans une table de spawn sauvage doit être prouvée par la table ROM correspondante (mappa_s.bin Sky / pokemon_found pret Red) avec poids>0, sinon FAIL.",
+ "verdict": "PASS 44/44 — tous les cas signalés sont canoniques ROM",
+ "sky_proofs": {
+  "amp_plains": "d17 Zapdos étage 7 L49 poids 244 (mappa)",
+  "lower_crevice_cave": "d48 Darkrai étage 2 L53 poids 10000",
+  "miracle_sea": "d51 Darkrai étage 3 L53 poids 10000",
+  "happy_outlook": "d94 Latias étage 19 L43 poids 6981",
+  "giant_volcano": "d79 Moltres étage 10 L44 poids 4060",
+  "mt_mistral": "d95 Ho-Oh étage 19 L43 poids 3942",
+  "midnight_forest": "d98 Latios étage 24 L44 poids 10000",
+  "deep_spacial_rift": "d65 Latios étage 5 L44 poids 5568",
+  "mt_travail_post": "Darkrai post-game (même famille de preuves mappa)"
+ },
+ "red_proofs": {
+  "buried_relic": "pret BuriedRelic pokemon_found: MEW x17 tables, REGI x3 (étages des Regi/Mew canoniques)",
+  "fiery_field": "ENTEI présent table pret",
+  "frosty_grotto": "ARTICUNO présent table pret",
+  "lightning_field": "RAIKOU présent table pret",
+  "magma_cavern_pit": "GROUDON L27 prob 5000 table MagmaCavernPit_2F pret",
+  "mt_faraway": "HO_OH présent table pret"
+ },
+ "locked_zones_excluded": [
+  "grotte_echoue (phione — zone CH1-5 verrouillée, contenu Halcyon d'origine)"
+ ]
+}
