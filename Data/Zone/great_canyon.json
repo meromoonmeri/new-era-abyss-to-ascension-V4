@@ -12615,9 +12615,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Great Canyon",
+              "DefaultText": "Great Canyon\\n{0}F",
               "LocalTexts": {
-                "fr": "Grand Canyon"
+                "fr": "Grand Canyon\\n{0}F"
               }
             }
           },

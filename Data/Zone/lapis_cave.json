@@ -22059,9 +22059,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Lapis Cave",
+              "DefaultText": "Lapis Cave\\nB{0}F",
               "LocalTexts": {
-                "fr": "Grotte Lazuli"
+                "fr": "Grotte Lazuli\\n{0}SS"
               }
             }
           },

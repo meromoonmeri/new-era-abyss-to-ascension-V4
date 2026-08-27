@@ -4473,9 +4473,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Frosty Forest",
+              "DefaultText": "Frosty Forest\\n{0}F",
               "LocalTexts": {
-                "fr": "Forêt Givrée"
+                "fr": "Forêt Givrée\\n{0}F"
               }
             }
           },

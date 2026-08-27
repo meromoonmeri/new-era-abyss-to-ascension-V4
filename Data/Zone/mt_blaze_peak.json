@@ -2147,9 +2147,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Mt. Blaze Peak",
+              "DefaultText": "Mt. Blaze Peak\\n{0}F",
               "LocalTexts": {
-                "fr": "Cime du Mont Cendré"
+                "fr": "Cime du Mont Cendré\\n{0}F"
               }
             }
           },

@@ -9095,9 +9095,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Fiery Field",
+              "DefaultText": "Fiery Field\\n{0}F",
               "LocalTexts": {
-                "fr": "Plaine Ardent"
+                "fr": "Plaine Ardent\\n{0}F"
               }
             }
           },
@@ -19007,9 +19007,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Fiery Field",
+              "DefaultText": "Fiery Field\\n{0}F",
               "LocalTexts": {
-                "fr": "Plaine Ardent"
+                "fr": "Plaine Ardent\\n{0}F"
               }
             }
           },

@@ -9167,9 +9167,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Lightning Field",
+              "DefaultText": "Lightning Field\\n{0}F",
               "LocalTexts": {
-                "fr": "Champ de Foudre"
+                "fr": "Champ de Foudre\\n{0}F"
               }
             }
           },
@@ -19103,9 +19103,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Lightning Field",
+              "DefaultText": "Lightning Field\\n{0}F",
               "LocalTexts": {
-                "fr": "Champ de Foudre"
+                "fr": "Champ de Foudre\\n{0}F"
               }
             }
           },

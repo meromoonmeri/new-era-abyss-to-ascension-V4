@@ -9474,9 +9474,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Silent Chasm",
+              "DefaultText": "Silent Chasm\\nB{0}F",
               "LocalTexts": {
-                "fr": "Gouffre Muet"
+                "fr": "Gouffre Muet\\n{0}SS"
               }
             }
           },

@@ -10531,9 +10531,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Mt. Thunder",
+              "DefaultText": "Mt. Thunder\\n{0}F",
               "LocalTexts": {
-                "fr": "Mont Grondant"
+                "fr": "Mont Grondant\\n{0}F"
               }
             }
           },

@@ -4904,9 +4904,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Darknight Relic",
+              "DefaultText": "Darknight Relic\\nB{0}F",
               "LocalTexts": {
-                "fr": "Relique de la Nuit"
+                "fr": "Relique de la Nuit\\n{0}SS"
               }
             }
           },
@@ -10359,9 +10359,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Darknight Relic",
+              "DefaultText": "Darknight Relic\\nB{0}F",
               "LocalTexts": {
-                "fr": "Relique de la Nuit"
+                "fr": "Relique de la Nuit\\n{0}SS"
               }
             }
           },

@@ -6053,9 +6053,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Desert Region",
+              "DefaultText": "Desert Region\\n{0}F",
               "LocalTexts": {
-                "fr": "Région Désertique"
+                "fr": "Région Désertique\\n{0}F"
               }
             }
           },
@@ -12598,9 +12598,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Desert Region",
+              "DefaultText": "Desert Region\\n{0}F",
               "LocalTexts": {
-                "fr": "Région Désertique"
+                "fr": "Région Désertique\\n{0}F"
               }
             }
           },

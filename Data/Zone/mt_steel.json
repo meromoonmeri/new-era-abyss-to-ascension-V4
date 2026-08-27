@@ -8435,9 +8435,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Mt. Steel",
+              "DefaultText": "Mt. Steel\\n{0}F",
               "LocalTexts": {
-                "fr": "Pic Ferreux"
+                "fr": "Pic Ferreux\\n{0}F"
               }
             }
           },

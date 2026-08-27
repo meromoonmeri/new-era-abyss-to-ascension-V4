@@ -4273,9 +4273,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Oddity Cave",
+              "DefaultText": "Oddity Cave\\nB{0}F",
               "LocalTexts": {
-                "fr": "Caverne Étrange"
+                "fr": "Caverne Étrange\\n{0}SS"
               }
             }
           },
@@ -10055,9 +10055,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Oddity Cave",
+              "DefaultText": "Oddity Cave\\nB{0}F",
               "LocalTexts": {
-                "fr": "Caverne Étrange"
+                "fr": "Caverne Étrange\\n{0}SS"
               }
             }
           },

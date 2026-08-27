@@ -6891,9 +6891,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Pitfall Valley",
+              "DefaultText": "Pitfall Valley\\nB{0}F",
               "LocalTexts": {
-                "fr": "Vallon Perdu"
+                "fr": "Vallon Perdu\\n{0}SS"
               }
             }
           },
@@ -16081,9 +16081,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Pitfall Valley",
+              "DefaultText": "Pitfall Valley\\nB{0}F",
               "LocalTexts": {
-                "fr": "Vallon Perdu"
+                "fr": "Vallon Perdu\\n{0}SS"
               }
             }
           },

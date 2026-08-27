@@ -18915,9 +18915,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Mt. Blaze",
+              "DefaultText": "Mt. Blaze\\n{0}F",
               "LocalTexts": {
-                "fr": "Mont Cendré"
+                "fr": "Mont Cendré\\n{0}F"
               }
             }
           },

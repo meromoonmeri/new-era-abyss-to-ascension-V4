@@ -13373,9 +13373,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Purity Forest",
+              "DefaultText": "Purity Forest\\n{0}F",
               "LocalTexts": {
-                "fr": "Forêt de la Pureté"
+                "fr": "Forêt de la Pureté\\n{0}F"
               }
             }
           },
@@ -29459,9 +29459,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Purity Forest",
+              "DefaultText": "Purity Forest\\n{0}F",
               "LocalTexts": {
-                "fr": "Forêt de la Pureté"
+                "fr": "Forêt de la Pureté\\n{0}F"
               }
             }
           },
@@ -46023,9 +46023,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Purity Forest",
+              "DefaultText": "Purity Forest\\n{0}F",
               "LocalTexts": {
-                "fr": "Forêt de la Pureté"
+                "fr": "Forêt de la Pureté\\n{0}F"
               }
             }
           },
@@ -63117,9 +63117,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Purity Forest",
+              "DefaultText": "Purity Forest\\n{0}F",
               "LocalTexts": {
-                "fr": "Forêt de la Pureté"
+                "fr": "Forêt de la Pureté\\n{0}F"
               }
             }
           },

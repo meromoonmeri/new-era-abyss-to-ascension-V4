@@ -10083,9 +10083,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Sinister Woods",
+              "DefaultText": "Sinister Woods\\nB{0}F",
               "LocalTexts": {
-                "fr": "Bois Sinistre"
+                "fr": "Bois Sinistre\\n{0}SS"
               }
             }
           },
@@ -20730,9 +20730,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Sinister Woods",
+              "DefaultText": "Sinister Woods\\nB{0}F",
               "LocalTexts": {
-                "fr": "Bois Sinistre"
+                "fr": "Bois Sinistre\\n{0}SS"
               }
             }
           },

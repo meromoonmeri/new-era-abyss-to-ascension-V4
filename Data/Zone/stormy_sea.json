@@ -7243,9 +7243,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Stormy Sea",
+              "DefaultText": "Stormy Sea\\nB{0}F",
               "LocalTexts": {
-                "fr": "Mer Orageuse"
+                "fr": "Mer Orageuse\\n{0}SS"
               }
             }
           },
@@ -16775,9 +16775,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Stormy Sea",
+              "DefaultText": "Stormy Sea\\nB{0}F",
               "LocalTexts": {
-                "fr": "Mer Orageuse"
+                "fr": "Mer Orageuse\\n{0}SS"
               }
             }
           },
@@ -26033,9 +26033,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Stormy Sea",
+              "DefaultText": "Stormy Sea\\nB{0}F",
               "LocalTexts": {
-                "fr": "Mer Orageuse"
+                "fr": "Mer Orageuse\\n{0}SS"
               }
             }
           },

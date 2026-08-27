@@ -5484,9 +5484,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Sky Tower Summit",
+              "DefaultText": "Sky Tower Summit\\n{0}F",
               "LocalTexts": {
-                "fr": "Sommet de la Tour Céleste"
+                "fr": "Sommet de la Tour Céleste\\n{0}F"
               }
             }
           },

@@ -4577,9 +4577,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Magma Cavern",
+              "DefaultText": "Magma Cavern\\nB{0}F",
               "LocalTexts": {
-                "fr": "Gorge Ardente"
+                "fr": "Gorge Ardente\\n{0}SS"
               }
             }
           },
@@ -9991,9 +9991,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Magma Cavern",
+              "DefaultText": "Magma Cavern\\nB{0}F",
               "LocalTexts": {
-                "fr": "Gorge Ardente"
+                "fr": "Gorge Ardente\\n{0}SS"
               }
             }
           },
@@ -15866,9 +15866,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Magma Cavern",
+              "DefaultText": "Magma Cavern\\nB{0}F",
               "LocalTexts": {
-                "fr": "Gorge Ardente"
+                "fr": "Gorge Ardente\\n{0}SS"
               }
             }
           },

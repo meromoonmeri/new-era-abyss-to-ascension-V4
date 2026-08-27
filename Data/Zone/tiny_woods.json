@@ -2988,9 +2988,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Tiny Woods",
+              "DefaultText": "Tiny Woods\\nB{0}F",
               "LocalTexts": {
-                "fr": "Forêt Tendre"
+                "fr": "Forêt Tendre\\n{0}SS"
               }
             }
           },

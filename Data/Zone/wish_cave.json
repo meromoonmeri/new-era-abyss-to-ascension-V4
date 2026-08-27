@@ -26587,9 +26587,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Wish Cave",
+              "DefaultText": "Wish Cave\\nB{0}F",
               "LocalTexts": {
-                "fr": "Grotte du Vœu"
+                "fr": "Grotte du Vœu\\n{0}SS"
               }
             }
           },
@@ -55677,9 +55677,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Wish Cave",
+              "DefaultText": "Wish Cave\\nB{0}F",
               "LocalTexts": {
-                "fr": "Grotte du Vœu"
+                "fr": "Grotte du Vœu\\n{0}SS"
               }
             }
           },

@@ -17198,9 +17198,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Silver Trench",
+              "DefaultText": "Silver Trench\\nB{0}F",
               "LocalTexts": {
-                "fr": "Fosse d'Argent"
+                "fr": "Fosse d'Argent\\n{0}SS"
               }
             }
           },
@@ -38418,9 +38418,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Silver Trench",
+              "DefaultText": "Silver Trench\\nB{0}F",
               "LocalTexts": {
-                "fr": "Fosse d'Argent"
+                "fr": "Fosse d'Argent\\n{0}SS"
               }
             }
           },
@@ -59094,9 +59094,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Silver Trench",
+              "DefaultText": "Silver Trench\\nB{0}F",
               "LocalTexts": {
-                "fr": "Fosse d'Argent"
+                "fr": "Fosse d'Argent\\n{0}SS"
               }
             }
           },

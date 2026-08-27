@@ -8163,9 +8163,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Fantasy Strait",
+              "DefaultText": "Fantasy Strait\\nB{0}F",
               "LocalTexts": {
-                "fr": "Détroit Fantastique"
+                "fr": "Détroit Fantastique\\n{0}SS"
               }
             }
           },
@@ -18075,9 +18075,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Fantasy Strait",
+              "DefaultText": "Fantasy Strait\\nB{0}F",
               "LocalTexts": {
-                "fr": "Détroit Fantastique"
+                "fr": "Détroit Fantastique\\n{0}SS"
               }
             }
           },

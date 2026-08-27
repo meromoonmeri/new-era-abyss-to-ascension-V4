@@ -8315,9 +8315,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Grand Sea",
+              "DefaultText": "Grand Sea\\nB{0}F",
               "LocalTexts": {
-                "fr": "Grande Mer"
+                "fr": "Grande Mer\\n{0}SS"
               }
             }
           },
@@ -17980,9 +17980,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Grand Sea",
+              "DefaultText": "Grand Sea\\nB{0}F",
               "LocalTexts": {
-                "fr": "Grande Mer"
+                "fr": "Grande Mer\\n{0}SS"
               }
             }
           },

@@ -8673,9 +8673,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Southern Cavern",
+              "DefaultText": "Southern Cavern\\nB{0}F",
               "LocalTexts": {
-                "fr": "Caverne Méridionale"
+                "fr": "Caverne Méridionale\\n{0}SS"
               }
             }
           },
@@ -19352,9 +19352,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Southern Cavern",
+              "DefaultText": "Southern Cavern\\nB{0}F",
               "LocalTexts": {
-                "fr": "Caverne Méridionale"
+                "fr": "Caverne Méridionale\\n{0}SS"
               }
             }
           },
@@ -30602,9 +30602,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Southern Cavern",
+              "DefaultText": "Southern Cavern\\nB{0}F",
               "LocalTexts": {
-                "fr": "Caverne Méridionale"
+                "fr": "Caverne Méridionale\\n{0}SS"
               }
             }
           },

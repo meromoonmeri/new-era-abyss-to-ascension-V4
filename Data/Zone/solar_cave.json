@@ -5389,9 +5389,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Solar Cave",
+              "DefaultText": "Solar Cave\\nB{0}F",
               "LocalTexts": {
-                "fr": "Grotte Solaire"
+                "fr": "Grotte Solaire\\n{0}SS"
               }
             }
           },
@@ -12554,9 +12554,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Solar Cave",
+              "DefaultText": "Solar Cave\\nB{0}F",
               "LocalTexts": {
-                "fr": "Grotte Solaire"
+                "fr": "Grotte Solaire\\n{0}SS"
               }
             }
           },

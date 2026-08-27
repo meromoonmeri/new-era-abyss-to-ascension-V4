@@ -5410,9 +5410,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Marvelous Sea",
+              "DefaultText": "Marvelous Sea\\nB{0}F",
               "LocalTexts": {
-                "fr": "Mer Merveilleuse"
+                "fr": "Mer Merveilleuse\\n{0}SS"
               }
             }
           },
@@ -12968,9 +12968,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Marvelous Sea",
+              "DefaultText": "Marvelous Sea\\nB{0}F",
               "LocalTexts": {
-                "fr": "Mer Merveilleuse"
+                "fr": "Mer Merveilleuse\\n{0}SS"
               }
             }
           },

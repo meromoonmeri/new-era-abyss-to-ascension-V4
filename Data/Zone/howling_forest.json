@@ -4425,9 +4425,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Howling Forest",
+              "DefaultText": "Howling Forest\\n{0}F",
               "LocalTexts": {
-                "fr": "Forêt des Hurlements"
+                "fr": "Forêt des Hurlements\\n{0}F"
               }
             }
           },
@@ -9656,9 +9656,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Howling Forest",
+              "DefaultText": "Howling Forest\\n{0}F",
               "LocalTexts": {
-                "fr": "Forêt des Hurlements"
+                "fr": "Forêt des Hurlements\\n{0}F"
               }
             }
           },

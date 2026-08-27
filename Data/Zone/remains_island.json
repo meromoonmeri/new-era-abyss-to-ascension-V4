@@ -6109,9 +6109,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Remains Island",
+              "DefaultText": "Remains Island\\nB{0}F",
               "LocalTexts": {
-                "fr": "Île des Vestiges"
+                "fr": "Île des Vestiges\\n{0}SS"
               }
             }
           },
@@ -13761,9 +13761,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Remains Island",
+              "DefaultText": "Remains Island\\nB{0}F",
               "LocalTexts": {
-                "fr": "Île des Vestiges"
+                "fr": "Île des Vestiges\\n{0}SS"
               }
             }
           },

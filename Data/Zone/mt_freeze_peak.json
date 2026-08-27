@@ -4243,9 +4243,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Mt. Freeze Peak",
+              "DefaultText": "Mt. Freeze Peak\\n{0}F",
               "LocalTexts": {
-                "fr": "Cime du Mont Gelé"
+                "fr": "Cime du Mont Gelé\\n{0}F"
               }
             }
           },

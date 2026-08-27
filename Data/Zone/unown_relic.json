@@ -3684,9 +3684,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Unown Relic",
+              "DefaultText": "Unown Relic\\nB{0}F",
               "LocalTexts": {
-                "fr": "Relique des Zarbi"
+                "fr": "Relique des Zarbi\\n{0}SS"
               }
             }
           },
@@ -8557,9 +8557,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Unown Relic",
+              "DefaultText": "Unown Relic\\nB{0}F",
               "LocalTexts": {
-                "fr": "Relique des Zarbi"
+                "fr": "Relique des Zarbi\\n{0}SS"
               }
             }
           },

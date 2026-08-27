@@ -5005,9 +5005,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Meteor Cave",
+              "DefaultText": "Meteor Cave\\nB{0}F",
               "LocalTexts": {
-                "fr": "Grotte de la Météorite"
+                "fr": "Grotte de la Météorite\\n{0}SS"
               }
             }
           },
@@ -10715,9 +10715,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Meteor Cave",
+              "DefaultText": "Meteor Cave\\nB{0}F",
               "LocalTexts": {
-                "fr": "Grotte de la Météorite"
+                "fr": "Grotte de la Météorite\\n{0}SS"
               }
             }
           },

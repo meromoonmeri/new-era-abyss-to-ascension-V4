@@ -2915,9 +2915,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Uproar Forest",
+              "DefaultText": "Uproar Forest\\nB{0}F",
               "LocalTexts": {
-                "fr": "Forêt du Tumulte"
+                "fr": "Forêt du Tumulte\\n{0}SS"
               }
             }
           },
@@ -6427,9 +6427,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Uproar Forest",
+              "DefaultText": "Uproar Forest\\nB{0}F",
               "LocalTexts": {
-                "fr": "Forêt du Tumulte"
+                "fr": "Forêt du Tumulte\\n{0}SS"
               }
             }
           },

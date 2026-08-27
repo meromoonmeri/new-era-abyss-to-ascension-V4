@@ -18324,9 +18324,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Joyous Tower",
+              "DefaultText": "Joyous Tower\\n{0}F",
               "LocalTexts": {
-                "fr": "Tour Joyeuse"
+                "fr": "Tour Joyeuse\\n{0}F"
               }
             }
           },
@@ -39986,9 +39986,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Joyous Tower",
+              "DefaultText": "Joyous Tower\\n{0}F",
               "LocalTexts": {
-                "fr": "Tour Joyeuse"
+                "fr": "Tour Joyeuse\\n{0}F"
               }
             }
           },
@@ -62874,9 +62874,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Joyous Tower",
+              "DefaultText": "Joyous Tower\\n{0}F",
               "LocalTexts": {
-                "fr": "Tour Joyeuse"
+                "fr": "Tour Joyeuse\\n{0}F"
               }
             }
           },

@@ -13218,9 +13218,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Far-Off Sea",
+              "DefaultText": "Far-Off Sea\\nB{0}F",
               "LocalTexts": {
-                "fr": "Mer Lointaine"
+                "fr": "Mer Lointaine\\n{0}SS"
               }
             }
           },
@@ -29240,9 +29240,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Far-Off Sea",
+              "DefaultText": "Far-Off Sea\\nB{0}F",
               "LocalTexts": {
-                "fr": "Mer Lointaine"
+                "fr": "Mer Lointaine\\n{0}SS"
               }
             }
           },
@@ -45450,9 +45450,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Far-Off Sea",
+              "DefaultText": "Far-Off Sea\\nB{0}F",
               "LocalTexts": {
-                "fr": "Mer Lointaine"
+                "fr": "Mer Lointaine\\n{0}SS"
               }
             }
           },

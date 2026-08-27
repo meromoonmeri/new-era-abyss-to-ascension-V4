@@ -7351,9 +7351,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Mt. Faraway",
+              "DefaultText": "Mt. Faraway\\n{0}F",
               "LocalTexts": {
-                "fr": "Mont Lointain"
+                "fr": "Mont Lointain\\n{0}F"
               }
             }
           },
@@ -16266,9 +16266,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Mt. Faraway",
+              "DefaultText": "Mt. Faraway\\n{0}F",
               "LocalTexts": {
-                "fr": "Mont Lointain"
+                "fr": "Mont Lointain\\n{0}F"
               }
             }
           },
@@ -25207,9 +25207,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Mt. Faraway",
+              "DefaultText": "Mt. Faraway\\n{0}F",
               "LocalTexts": {
-                "fr": "Mont Lointain"
+                "fr": "Mont Lointain\\n{0}F"
               }
             }
           },

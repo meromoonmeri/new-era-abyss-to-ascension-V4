@@ -2611,9 +2611,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Frosty Grotto",
+              "DefaultText": "Frosty Grotto\\n{0}F",
               "LocalTexts": {
-                "fr": "Grotte Givrée"
+                "fr": "Grotte Givrée\\n{0}F"
               }
             }
           },

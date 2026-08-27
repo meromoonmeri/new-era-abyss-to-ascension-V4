@@ -5179,9 +5179,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Murky Cave",
+              "DefaultText": "Murky Cave\\nB{0}F",
               "LocalTexts": {
-                "fr": "Caverne Trouble"
+                "fr": "Caverne Trouble\\n{0}SS"
               }
             }
           },
@@ -11264,9 +11264,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Murky Cave",
+              "DefaultText": "Murky Cave\\nB{0}F",
               "LocalTexts": {
-                "fr": "Caverne Trouble"
+                "fr": "Caverne Trouble\\n{0}SS"
               }
             }
           },

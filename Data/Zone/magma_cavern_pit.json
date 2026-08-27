@@ -1650,9 +1650,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Magma Cavern Pit",
+              "DefaultText": "Magma Cavern Pit\\nB{0}F",
               "LocalTexts": {
-                "fr": "Fond de la Gorge Ardente"
+                "fr": "Fond de la Gorge Ardente\\n{0}SS"
               }
             }
           },

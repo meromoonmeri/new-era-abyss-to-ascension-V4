@@ -2453,9 +2453,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Snow Path",
+              "DefaultText": "Snow Path\\nB{0}F",
               "LocalTexts": {
-                "fr": "Sentier Neigeux"
+                "fr": "Sentier Neigeux\\n{0}SS"
               }
             }
           },

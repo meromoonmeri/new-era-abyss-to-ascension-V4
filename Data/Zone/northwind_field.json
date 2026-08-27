@@ -9065,9 +9065,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Northwind Field",
+              "DefaultText": "Northwind Field\\n{0}F",
               "LocalTexts": {
-                "fr": "Champ du Vent du Nord"
+                "fr": "Champ du Vent du Nord\\n{0}F"
               }
             }
           },
@@ -18496,9 +18496,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Northwind Field",
+              "DefaultText": "Northwind Field\\n{0}F",
               "LocalTexts": {
-                "fr": "Champ du Vent du Nord"
+                "fr": "Champ du Vent du Nord\\n{0}F"
               }
             }
           },

@@ -5091,9 +5091,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Thunderwave Cave",
+              "DefaultText": "Thunderwave Cave\\nB{0}F",
               "LocalTexts": {
-                "fr": "Grotte Statique"
+                "fr": "Grotte Statique\\n{0}SS"
               }
             }
           },

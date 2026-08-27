@@ -2325,9 +2325,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Rock Path",
+              "DefaultText": "Rock Path\\nB{0}F",
               "LocalTexts": {
-                "fr": "Sentier Rocheux"
+                "fr": "Sentier Rocheux\\n{0}SS"
               }
             }
           },

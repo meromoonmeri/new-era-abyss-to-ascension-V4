@@ -20022,9 +20022,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Buried Relic",
+              "DefaultText": "Buried Relic\\nB{0}F",
               "LocalTexts": {
-                "fr": "Relique Enfouie"
+                "fr": "Relique Enfouie\\n{0}SS"
               }
             }
           },
@@ -41034,9 +41034,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Buried Relic",
+              "DefaultText": "Buried Relic\\nB{0}F",
               "LocalTexts": {
-                "fr": "Relique Enfouie"
+                "fr": "Relique Enfouie\\n{0}SS"
               }
             }
           },
@@ -62152,9 +62152,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Buried Relic",
+              "DefaultText": "Buried Relic\\nB{0}F",
               "LocalTexts": {
-                "fr": "Relique Enfouie"
+                "fr": "Relique Enfouie\\n{0}SS"
               }
             }
           },

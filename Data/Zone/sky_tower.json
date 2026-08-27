@@ -13312,9 +13312,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Sky Tower",
+              "DefaultText": "Sky Tower\\n{0}F",
               "LocalTexts": {
-                "fr": "Tour Céleste"
+                "fr": "Tour Céleste\\n{0}F"
               }
             }
           },

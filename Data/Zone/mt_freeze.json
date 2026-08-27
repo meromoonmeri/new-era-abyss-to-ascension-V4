@@ -23631,9 +23631,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Mt. Freeze",
+              "DefaultText": "Mt. Freeze\\n{0}F",
               "LocalTexts": {
-                "fr": "Mont Gelé"
+                "fr": "Mont Gelé\\n{0}F"
               }
             }
           },

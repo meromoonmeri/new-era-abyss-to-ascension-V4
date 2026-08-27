@@ -5408,9 +5408,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Waterfall Pond",
+              "DefaultText": "Waterfall Pond\\nB{0}F",
               "LocalTexts": {
-                "fr": "Étang de la Cascade"
+                "fr": "Étang de la Cascade\\n{0}SS"
               }
             }
           },
@@ -12305,9 +12305,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Waterfall Pond",
+              "DefaultText": "Waterfall Pond\\nB{0}F",
               "LocalTexts": {
-                "fr": "Étang de la Cascade"
+                "fr": "Étang de la Cascade\\n{0}SS"
               }
             }
           },

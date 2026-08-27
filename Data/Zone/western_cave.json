@@ -18551,9 +18551,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Western Cave",
+              "DefaultText": "Western Cave\\nB{0}F",
               "LocalTexts": {
-                "fr": "Grotte Occidentale"
+                "fr": "Grotte Occidentale\\n{0}SS"
               }
             }
           },
@@ -39017,9 +39017,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Western Cave",
+              "DefaultText": "Western Cave\\nB{0}F",
               "LocalTexts": {
-                "fr": "Grotte Occidentale"
+                "fr": "Grotte Occidentale\\n{0}SS"
               }
             }
           },
@@ -59508,9 +59508,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Western Cave",
+              "DefaultText": "Western Cave\\nB{0}F",
               "LocalTexts": {
-                "fr": "Grotte Occidentale"
+                "fr": "Grotte Occidentale\\n{0}SS"
               }
             }
           },

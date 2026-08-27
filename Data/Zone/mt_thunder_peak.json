@@ -2011,9 +2011,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Mt. Thunder Peak",
+              "DefaultText": "Mt. Thunder Peak\\n{0}F",
               "LocalTexts": {
-                "fr": "Cime du Mont Grondant"
+                "fr": "Cime du Mont Grondant\\n{0}F"
               }
             }
           },

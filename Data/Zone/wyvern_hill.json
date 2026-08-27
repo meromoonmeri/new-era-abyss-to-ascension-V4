@@ -8703,9 +8703,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Wyvern Hill",
+              "DefaultText": "Wyvern Hill\\n{0}F",
               "LocalTexts": {
-                "fr": "Colline aux Drakes"
+                "fr": "Colline aux Drakes\\n{0}F"
               }
             }
           },
@@ -18331,9 +18331,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Wyvern Hill",
+              "DefaultText": "Wyvern Hill\\n{0}F",
               "LocalTexts": {
-                "fr": "Colline aux Drakes"
+                "fr": "Colline aux Drakes\\n{0}F"
               }
             }
           },

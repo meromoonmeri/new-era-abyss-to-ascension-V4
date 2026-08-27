@@ -7027,9 +7027,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Northern Range",
+              "DefaultText": "Northern Range\\n{0}F",
               "LocalTexts": {
-                "fr": "Chaîne Nordique"
+                "fr": "Chaîne Nordique\\n{0}F"
               }
             }
           },
@@ -15516,9 +15516,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Northern Range",
+              "DefaultText": "Northern Range\\n{0}F",
               "LocalTexts": {
-                "fr": "Chaîne Nordique"
+                "fr": "Chaîne Nordique\\n{0}F"
               }
             }
           },
