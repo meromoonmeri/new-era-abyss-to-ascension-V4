@@ -2,11 +2,11 @@
  "schema": "sky-scene-compiler/1",
  "rule": "FAIL-CLOSED: seules les scènes 100% traduites sont émises ; PARTIAL_OPS/MULTIROUTINE comptées, jamais émises approximées",
  "totals": {
-  "COMPILED": 2495,
-  "PARTIAL_OPS": 728,
+  "COMPILED": 2517,
+  "PARTIAL_OPS": 706,
   "SKIPPED_REQUIRES_ENGINE_EXTENSION": 372,
   "TRIVIAL_SKIPPED": 165,
-  "COMPILED_DUAL_SCREEN": 84,
+  "COMPILED_DUAL_SCREEN": 86,
   "COMPILED_MULTIROUTINE": 7
  },
  "scenes": {
@@ -1012,19 +1012,11 @@
    "unsupported_ops": [
     "$COMPULSORY_SAVE_POINT = 4",
     "$SCENARIO_MAIN = scn[8, 3]",
-    "MovePositionMark:ACTOR_UNIT_NPC1",
-    "MovePositionMark:ACTOR_UNIT_NPC2",
-    "MovePositionOffset:ACTOR_UNIT_NPC2",
     "MovePositionOffset:OBJECT_P03P02A1_128",
     "MovePositionOffset:OBJECT_P03P02A1_129",
     "MovePositionOffset:OBJECT_P03P02A1_130",
     "MovePositionOffset:OBJECT_P03P02A1_131",
-    "MovePositionOffset:OBJECT_P03P02A1_132",
-    "SlidePositionOffset:ACTOR_UNIT_NPC1",
-    "SlidePositionOffset:ACTOR_UNIT_NPC2",
-    "Turn2Direction:ACTOR_UNIT_NPC1",
-    "Turn2Direction:ACTOR_UNIT_NPC2",
-    "Turn2DirectionLives:ACTOR_PLAYER"
+    "MovePositionOffset:OBJECT_P03P02A1_132"
    ]
   },
   "D06P11A/enter00.ssb": {
@@ -1495,13 +1487,17 @@
    ]
   },
   "D10P41A/m99a0104.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionMark:ACTOR_UNIT_NPC1",
-    "MovePositionMark:ACTOR_UNIT_NPC2"
+   "status": "COMPILED",
+   "file": "d10p41a__m99a0104.lua",
+   "dialogues": 7,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D11P11A/enter00.ssb": {
@@ -1607,15 +1603,7 @@
   "D12P41A/m12a0801.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[13, 4]",
-    "MovePositionMark:ACTOR_UNIT_NPC1",
-    "MovePositionMark:ACTOR_UNIT_NPC2",
-    "MovePositionOffset:ACTOR_UNIT_NPC1",
-    "MovePositionOffset:ACTOR_UNIT_NPC2",
-    "SlidePositionOffset:ACTOR_UNIT_NPC1",
-    "SlidePositionOffset:ACTOR_UNIT_NPC2",
-    "Turn2Direction:ACTOR_UNIT_NPC1",
-    "Turn2Direction:ACTOR_UNIT_NPC2"
+    "$SCENARIO_MAIN = scn[13, 4]"
    ]
   },
   "D12P41A/m12a0901.ssb": {
@@ -1632,11 +1620,7 @@
   "D12P41A/m12a1001.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$COMPULSORY_SAVE_POINT = 10",
-    "MovePositionMark:ACTOR_UNIT_NPC1",
-    "MovePositionMark:ACTOR_UNIT_NPC2",
-    "Turn2Direction:ACTOR_UNIT_NPC1",
-    "Turn2Direction:ACTOR_UNIT_NPC2"
+    "$COMPULSORY_SAVE_POINT = 10"
    ]
   },
   "D13P11A/enter00.ssb": {
@@ -1809,9 +1793,7 @@
   "D15P41A/m14a0601.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[15, 3]",
-    "MovePositionMark:ACTOR_UNIT_NPC1",
-    "MovePositionMark:ACTOR_UNIT_NPC2"
+    "$SCENARIO_MAIN = scn[15, 3]"
    ]
   },
   "D15P41A/m14a0701.ssb": {
@@ -1826,10 +1808,21 @@
    ]
   },
   "D15P41A/m14a0801.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2Direction:ACTOR_UNIT_NPC1",
-    "Turn2Direction:ACTOR_UNIT_NPC2"
+   "status": "COMPILED",
+   "file": "d15p41a__m14a0801.lua",
+   "dialogues": 66,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(7172) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5121) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5121) — id SE NDS sans portage PMDO identifié",
+    "se_Play(7173) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5125) — id SE NDS sans portage PMDO identifié",
+    "BGM BGM_EARTHQUAKE3 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D15P41A/m14d0812.ssb": {
@@ -1840,13 +1833,17 @@
    "gaps": null
   },
   "D15P41A/m99a0108.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionMark:ACTOR_UNIT_NPC1",
-    "MovePositionMark:ACTOR_UNIT_NPC2"
+   "status": "COMPILED",
+   "file": "d15p41a__m99a0108.lua",
+   "dialogues": 7,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D16P11A/enter00.ssb": {
@@ -1926,9 +1923,7 @@
   "D16P31A/m15a0401.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[16, 2]",
-    "MovePositionMark:ACTOR_UNIT_NPC1",
-    "MovePositionMark:ACTOR_UNIT_NPC2"
+    "$SCENARIO_MAIN = scn[16, 2]"
    ]
   },
   "D16P31A/m15a0403.ssb": {
@@ -1943,9 +1938,7 @@
   "D16P31A/m15a0405.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "SetPositionMark:OBJECT_D16P31A8_55",
-    "Turn2Direction:ACTOR_UNIT_NPC1",
-    "Turn2Direction:ACTOR_UNIT_NPC2"
+    "SetPositionMark:OBJECT_D16P31A8_55"
    ]
   },
   "D16P31A/m15a0501.ssb": {
@@ -1960,8 +1953,6 @@
   "D16P31A/m15a0601.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionOffset:ACTOR_UNIT_NPC1",
-    "MovePositionOffset:ACTOR_UNIT_NPC2",
     "SetFunctionAttribute"
    ]
   },
@@ -1979,9 +1970,7 @@
    "unsupported_ops": [
     "$CRYSTAL_COLOR_01 = 1",
     "$CRYSTAL_COLOR_02 = 3",
-    "$CRYSTAL_COLOR_03 = 0",
-    "Turn2Direction:ACTOR_UNIT_NPC1",
-    "Turn2Direction:ACTOR_UNIT_NPC2"
+    "$CRYSTAL_COLOR_03 = 0"
    ]
   },
   "D17P11A/enter00.ssb": {
@@ -1994,10 +1983,6 @@
   "D17P11A/m15b0603.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Move2PositionMark:ACTOR_UNIT_NPC1",
-    "Move2PositionMark:ACTOR_UNIT_NPC2",
-    "MovePositionMark:ACTOR_UNIT_NPC1",
-    "MovePositionMark:ACTOR_UNIT_NPC2",
     "dungeon_mode"
    ]
   },
@@ -2025,13 +2010,11 @@
    "gaps": null
   },
   "D17P31A/m15b0901.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_UNIT_NPC1",
-    "MovePositionMark:ACTOR_UNIT_NPC2",
-    "Turn2Direction:ACTOR_UNIT_NPC1",
-    "Turn2Direction:ACTOR_UNIT_NPC2"
-   ]
+   "status": "COMPILED",
+   "file": "d17p31a__m15b0901.lua",
+   "dialogues": 6,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D17P32A/enter00.ssb": {
    "status": "COMPILED",
@@ -2041,19 +2024,19 @@
    "gaps": null
   },
   "D17P32A/m15b0903.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_UNIT_NPC1",
-    "MovePositionMark:ACTOR_UNIT_NPC2",
-    "Turn2Direction:ACTOR_UNIT_NPC1",
-    "Turn2Direction:ACTOR_UNIT_NPC2"
-   ]
+   "status": "COMPILED",
+   "file": "d17p32a__m15b0903.lua",
+   "dialogues": 7,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D17P32A/m15b0905.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionOffset:ACTOR_UNIT_NPC1",
-    "MovePositionOffset:ACTOR_UNIT_NPC2"
+   "status": "COMPILED",
+   "file": "d17p32a__m15b0905.lua",
+   "dialogues": 15,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_OH_NO non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D17P33A/enter00.ssb": {
@@ -2064,11 +2047,11 @@
    "gaps": null
   },
   "D17P33A/m15b0907.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_UNIT_NPC1",
-    "MovePositionMark:ACTOR_UNIT_NPC2"
-   ]
+   "status": "COMPILED",
+   "file": "d17p33a__m15b0907.lua",
+   "dialogues": 3,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D17P34A/enter00.ssb": {
    "status": "COMPILED",
@@ -2105,20 +2088,28 @@
    "gaps": null
   },
   "D17P45A/m15b0909.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_UNIT_NPC1",
-    "MovePositionMark:ACTOR_UNIT_NPC2"
+   "status": "COMPILED",
+   "file": "d17p45a__m15b0909.lua",
+   "dialogues": 24,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5124) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D17P45A/m99a0111.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionMark:ACTOR_UNIT_NPC1",
-    "MovePositionMark:ACTOR_UNIT_NPC2"
+   "status": "COMPILED",
+   "file": "d17p45a__m99a0111.lua",
+   "dialogues": 7,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D18P11A/enter00.ssb": {
@@ -3654,25 +3645,13 @@
   "D32P11A/s04p0201.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 57]",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
+    "$SCENARIO_MAIN = scn[29, 57]"
    ]
   },
   "D32P11A/s04p0301.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 58]",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
+    "$SCENARIO_MAIN = scn[29, 58]"
    ]
   },
   "D32P12A/enter00.ssb": {
@@ -3729,13 +3708,7 @@
   "D32P12A/s04p0701.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 60]",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
+    "$SCENARIO_MAIN = scn[29, 60]"
    ]
   },
   "D32P13A/enter00.ssb": {
@@ -3792,56 +3765,53 @@
   "D32P31A/s04p0501.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 59]",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3"
+    "$SCENARIO_MAIN = scn[29, 59]"
    ]
   },
   "D32P32A/s04p1001.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 62]",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3"
+    "$SCENARIO_MAIN = scn[29, 62]"
    ]
   },
   "D32P33A/s04p1301.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 64]",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3"
+    "$SCENARIO_MAIN = scn[29, 64]"
    ]
   },
   "D32P44A/s04p1601.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 66]",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3"
+    "$SCENARIO_MAIN = scn[29, 66]"
    ]
   },
   "D32P44A/s04p1701.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
+   "status": "COMPILED",
+   "file": "d32p44a__s04p1701.lua",
+   "dialogues": 6,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_LOWER_BRINE_CAVE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(6925) — id SE NDS sans portage PMDO identifié",
+    "se_Play(7952) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5136) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D32P44A/s04p1801.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3"
+   "status": "COMPILED",
+   "file": "d32p44a__s04p1801.lua",
+   "dialogues": 3,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_LOWER_BRINE_CAVE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(6925) — id SE NDS sans portage PMDO identifié",
+    "se_Play(7952) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5136) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D34P41A/s03p0201.ssb": {
@@ -3903,24 +3873,19 @@
   "D35P41A/s03p1501.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 51]",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionOffset:ACTOR_ADVENTURE_NPC1",
-    "MovePositionOffset:ACTOR_ADVENTURE_NPC2",
-    "MovePositionOffset:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
+    "$SCENARIO_MAIN = scn[29, 51]"
    ]
   },
   "D35P41A/s03p1601.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3"
+   "status": "COMPILED",
+   "file": "d35p41a__s03p1601.lua",
+   "dialogues": 3,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(6930) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5136) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D36P11A/s20p0601.ssb": {
@@ -4136,11 +4101,16 @@
    ]
   },
   "D39P41A/m99a0121.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3"
+   "status": "COMPILED",
+   "file": "d39p41a__m99a0121.lua",
+   "dialogues": 7,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D39P41A/s21p1101.ssb": {
@@ -6021,69 +5991,93 @@
    ]
   },
   "D66P41A/s12a0701.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
+   "status": "COMPILED",
+   "file": "d66p41a__s12a0701.lua",
+   "dialogues": 7,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5125) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D67P41A/s12a0101.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
+   "status": "COMPILED",
+   "file": "d67p41a__s12a0101.lua",
+   "dialogues": 7,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5125) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D68P41A/s12a1001.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
+   "status": "COMPILED",
+   "file": "d68p41a__s12a1001.lua",
+   "dialogues": 7,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5125) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D69P41A/s12a1301.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
+   "status": "COMPILED",
+   "file": "d69p41a__s12a1301.lua",
+   "dialogues": 7,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5125) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D70P41A/s12a1601.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
+   "status": "COMPILED",
+   "file": "d70p41a__s12a1601.lua",
+   "dialogues": 7,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5125) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D71P41A/s12a1901.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3"
+   "status": "COMPILED",
+   "file": "d71p41a__s12a1901.lua",
+   "dialogues": 7,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5125) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D73P11A/enter00.ssb": {
@@ -6686,11 +6680,7 @@
   "D73P21A/s31a0601.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 12]",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2"
+    "$SCENARIO_MAIN = scn[29, 12]"
    ]
   },
   "D73P21A/s31a0801.ssb": {
@@ -6800,11 +6790,7 @@
   "D73P22A/s31a0901.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 14]",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2"
+    "$SCENARIO_MAIN = scn[29, 14]"
    ]
   },
   "D73P22A/s31a1101.ssb": {
@@ -6895,11 +6881,7 @@
   "D73P23A/s31a1201.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 16]",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2"
+    "$SCENARIO_MAIN = scn[29, 16]"
    ]
   },
   "D73P23A/s31a1401.ssb": {
@@ -6995,10 +6977,7 @@
   "D73P24A/s31a1501.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 18]",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1"
+    "$SCENARIO_MAIN = scn[29, 18]"
    ]
   },
   "D73P24A/s31a1701.ssb": {
@@ -7121,17 +7100,19 @@
   "D73P25A/s31a1901.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 20]",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2"
+    "$SCENARIO_MAIN = scn[29, 20]"
    ]
   },
   "D73P25A/s31a2001.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2DirectionLives:ACTOR_NPC_MASUKIPPA4",
-    "Turn2DirectionLives:ACTOR_NPC_SHEIMI"
+   "status": "COMPILED",
+   "file": "d73p25a__s31a2001.lua",
+   "dialogues": 29,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(11010) — id SE NDS sans portage PMDO identifié",
+    "se_Play(8969) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D73P25A/s31a3901.ssb": {
@@ -7205,11 +7186,7 @@
   "D73P26A/s31a2101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 22]",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2"
+    "$SCENARIO_MAIN = scn[29, 22]"
    ]
   },
   "D73P26A/s31a2301.ssb": {
@@ -7372,15 +7349,9 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[29, 24]",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
     "MovePositionOffset:0",
-    "MovePositionOffset:ACTOR_ADVENTURE_NPC1",
-    "MovePositionOffset:ACTOR_ADVENTURE_NPC2",
     "MovePositionOffset:ACTOR_NPC_SHEIMI",
-    "MovePositionOffset:ACTOR_PLAYER_APPOINT",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2"
+    "MovePositionOffset:ACTOR_PLAYER_APPOINT"
    ]
   },
   "D73P27A/s31a2601.ssb": {
@@ -7492,11 +7463,7 @@
   "D73P28A/s31a2801.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 26]",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2"
+    "$SCENARIO_MAIN = scn[29, 26]"
    ]
   },
   "D73P28A/s31a2803.ssb": {
@@ -7604,11 +7571,7 @@
   "D73P29A/s31a3101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 28]",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2"
+    "$SCENARIO_MAIN = scn[29, 28]"
    ]
   },
   "D73P29A/s31a3301.ssb": {
@@ -7670,19 +7633,21 @@
    ]
   },
   "D73P31A/s31a3703.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2"
-   ]
+   "status": "COMPILED",
+   "file": "d73p31a__s31a3703.lua",
+   "dialogues": 9,
+   "dual_screen_focus": true,
+   "gaps": null
   },
   "D73P31A/s31a3705.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2DirectionLives:ACTOR_NPC_SHEIMI"
+   "status": "COMPILED",
+   "file": "d73p31a__s31a3705.lua",
+   "dialogues": 32,
+   "dual_screen_focus": true,
+   "gaps": [
+    "se_Play(8969) — id SE NDS sans portage PMDO identifié",
+    "se_Play(11018) — id SE NDS sans portage PMDO identifié",
+    "se_Play(8969) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D73P31A/us0201.ssb": {
@@ -7843,10 +7808,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[29, 30]",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2",
     "back_SetWeather"
    ]
   },
@@ -7861,9 +7822,6 @@
    "unsupported_ops": [
     "$REQUEST_CLEAR_COUNT = 0",
     "$SCENARIO_MAIN = scn[29, 31]",
-    "Slide2PositionOffset:ACTOR_ADVENTURE_NPC1",
-    "Slide2PositionOffset:ACTOR_ADVENTURE_NPC2",
-    "Turn2DirectionLives:ACTOR_NPC_SHEIMI",
     "back_SetEffect",
     "back_SetWeather"
    ]
@@ -7952,30 +7910,12 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[29, 37]",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC1",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC2",
-    "MovePositionMark:ACTOR_ADVENTURE_NPC3",
-    "MovePositionOffset:ACTOR_ADVENTURE_NPC1",
-    "MovePositionOffset:ACTOR_ADVENTURE_NPC2",
-    "MovePositionOffset:ACTOR_ADVENTURE_NPC3",
-    "SlidePositionOffset:ACTOR_ADVENTURE_NPC1",
-    "SlidePositionOffset:ACTOR_ADVENTURE_NPC2",
-    "SlidePositionOffset:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3",
     "me_Play"
    ]
   },
   "D79P41A/s02p0601.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "SlidePositionOffset:ACTOR_ADVENTURE_NPC1",
-    "SlidePositionOffset:ACTOR_ADVENTURE_NPC2",
-    "SlidePositionOffset:ACTOR_ADVENTURE_NPC3",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC1",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC2",
-    "Turn2Direction:ACTOR_ADVENTURE_NPC3",
     "me_Play"
    ]
   },

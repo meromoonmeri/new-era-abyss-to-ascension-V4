@@ -244,6 +244,16 @@ class SceneCompiler:
         self.used_skyprog = False   # require progression si conditions
 
     def emit(self, s):
+        # slots d'équipe dynamiques : la ROM no-op silencieusement si le
+        # slot n'est pas peuplé -> garde nil équivalent (une seule
+        # occurrence par ligne générée par le compilateur)
+        if "SkySceneKit.team_member(" in s and not s.lstrip().startswith("--"):
+            m = re.search(r"SkySceneKit\.team_member\(\d\)", s)
+            if m and not s.lstrip().startswith("do local"):
+                expr = m.group(0)
+                body = s.replace(expr, "__slot")
+                s = (f"do local __slot = {expr}; "
+                     f"if __slot then {body.strip()} end end")
         self.lines.append("  " + s)
 
     def gap(self, s):
@@ -261,6 +271,13 @@ class SceneCompiler:
             return "hero"
         if actor.startswith("ACTOR_ATTENDANT") or actor == "ACTOR_PARTNER":
             return "partner"
+        # slots d'équipe dynamiques NDS (LivesEntityTable type 3,
+        # entid 0 = résolu à l'exécution par l'équipe courante) ->
+        # kit.team_member(n) : n-ième membre au-delà du duo ; nil si
+        # absent (no-op fidèle ROM, les émissions passent par pcall)
+        mslot = re.match(r"ACTOR_(?:ADVENTURE|UNIT)_NPC(\d)$", actor)
+        if mslot:
+            return f"SkySceneKit.team_member({int(mslot.group(1))})"
         # PNJ nommé résolu par le cast SSA de la scène (v2)
         key = actor.replace("ACTOR_", "")
         if key in self.cast:

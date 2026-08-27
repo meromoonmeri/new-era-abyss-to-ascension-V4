@@ -99,6 +99,23 @@ function SkySceneKit.ask(choices)
   return result
 end
 
+-- Slots d'équipe dynamiques NDS (ADVENTURE_NPC1-3, UNIT_NPC1-2 :
+-- LivesEntityTable type 3, entid 0 = résolu à l'EXÉCUTION par l'équipe
+-- courante). Équivalent PMDO exact : n-ième membre de l'équipe au-delà
+-- du duo héros/partenaire ; nil si l'équipe n'en a pas (la ROM ne
+-- l'affiche pas non plus dans ce cas — no-op fidèle).
+function SkySceneKit.team_member(n)
+  local ch = nil
+  pcall(function()
+    local team = _DATA.Save.ActiveTeam.Players
+    local idx = 1 + n  -- 0=héros, 1=partenaire, 2+=slots dynamiques
+    if idx < team.Count then
+      ch = GAME:GetCurrentGround():LookupGroundChar(team[idx].Name)
+    end
+  end)
+  return ch
+end
+
 -- Rotation sur soi (Turn2DirectionTurn NDS) : EntTurn sur les 8
 -- directions successives, sens ROM (2=antihoraire sinon horaire),
 -- `turns` quarts de tour complets, tempo speed frames par pas.
