@@ -1,0 +1,1568 @@
+{
+ "schema": "dungeon-matrix-audit/1",
+ "totals": {
+  "PASS": 260
+ },
+ "zones": {
+  "aegis_cave_pit": {
+   "status": "PASS",
+   "name": "Aegis Cave Pit",
+   "dungeon": "d60",
+   "issues": []
+  },
+  "amp_clearing": {
+   "status": "PASS",
+   "name": "Amp Clearing",
+   "dungeon": "d19",
+   "issues": []
+  },
+  "amp_plains": {
+   "status": "PASS",
+   "name": "Amp Plains",
+   "dungeon": "d17",
+   "issues": []
+  },
+  "antre_enigme": {
+   "status": "PASS",
+   "name": "Enigma Den",
+   "dungeon": null,
+   "issues": []
+  },
+  "apple_woods": {
+   "status": "PASS",
+   "name": "Apple Woods",
+   "dungeon": "d07",
+   "issues": []
+  },
+  "apricorn_grove": {
+   "status": "PASS",
+   "name": "Apricorn Grove",
+   "dungeon": null,
+   "issues": []
+  },
+  "armaldos_shelter": {
+   "status": "PASS",
+   "name": "Armaldo's Shelter",
+   "dungeon": "d176",
+   "issues": []
+  },
+  "barren_valley": {
+   "status": "PASS",
+   "name": "Barren Valley",
+   "dungeon": "d133",
+   "issues": []
+  },
+  "barren_valley_clearing": {
+   "status": "PASS",
+   "name": "Barren Valley Clearing",
+   "dungeon": null,
+   "issues": []
+  },
+  "beach_cave": {
+   "status": "PASS",
+   "name": "Beach Cave",
+   "dungeon": "d01",
+   "issues": []
+  },
+  "beach_cave_pit": {
+   "status": "PASS",
+   "name": "Beach Cave Pit",
+   "dungeon": "d02",
+   "issues": []
+  },
+  "beginner_lesson": {
+   "status": "PASS",
+   "name": "Beginner Lesson",
+   "dungeon": null,
+   "issues": []
+  },
+  "black_swamp": {
+   "status": "PASS",
+   "name": "Black Swamp",
+   "dungeon": null,
+   "issues": []
+  },
+  "blizzard_island": {
+   "status": "PASS",
+   "name": "Blizzard Island",
+   "dungeon": "d46",
+   "issues": []
+  },
+  "bois_filou": {
+   "status": "PASS",
+   "name": "Trickster Woods",
+   "dungeon": null,
+   "issues": []
+  },
+  "bois_ronces": {
+   "status": "PASS",
+   "name": "Bramble Woods",
+   "dungeon": null,
+   "issues": []
+  },
+  "bosquet_voile": {
+   "status": "PASS",
+   "name": "Veiled Grove",
+   "dungeon": null,
+   "issues": []
+  },
+  "bottomless_sea": {
+   "status": "PASS",
+   "name": "Bottomless Sea",
+   "dungeon": "d73",
+   "issues": []
+  },
+  "bottomless_sea_depths": {
+   "status": "PASS",
+   "name": "Bottomless Sea Depths",
+   "dungeon": null,
+   "issues": []
+  },
+  "boulder_quarry": {
+   "status": "PASS",
+   "name": "Boulder Quarry",
+   "dungeon": "d150",
+   "issues": []
+  },
+  "boulder_quarry_clearing": {
+   "status": "PASS",
+   "name": "Boulder Quarry Clearing",
+   "dungeon": null,
+   "issues": []
+  },
+  "brine_cave": {
+   "status": "PASS",
+   "name": "Brine Cave",
+   "dungeon": "d35",
+   "issues": []
+  },
+  "brine_cave_pit": {
+   "status": "PASS",
+   "name": "Brine Cave Pit",
+   "dungeon": "d37",
+   "issues": []
+  },
+  "bug_maze": {
+   "status": "PASS",
+   "name": "Bug Maze",
+   "dungeon": null,
+   "issues": []
+  },
+  "buried_relic": {
+   "status": "PASS",
+   "name": "Buried Relic",
+   "dungeon": null,
+   "issues": []
+  },
+  "carriere_cuivre": {
+   "status": "PASS",
+   "name": "Copper Quarry",
+   "dungeon": null,
+   "issues": []
+  },
+  "challenge_river": {
+   "status": "PASS",
+   "name": "[M:D1]Dummy",
+   "dungeon": "d167",
+   "issues": []
+  },
+  "chasm_cave": {
+   "status": "PASS",
+   "name": "Chasm Cave",
+   "dungeon": "d27",
+   "issues": []
+  },
+  "cloven_ruins": {
+   "status": "PASS",
+   "name": "Cloven Ruin",
+   "dungeon": null,
+   "issues": []
+  },
+  "concealed_ruins_post": {
+   "status": "PASS",
+   "name": "Concealed Ruins",
+   "dungeon": "d70",
+   "issues": []
+  },
+  "craggy_coast": {
+   "status": "PASS",
+   "name": "Craggy Coast",
+   "dungeon": "d08",
+   "issues": []
+  },
+  "crevice_cave": {
+   "status": "PASS",
+   "name": "Crevice Cave",
+   "dungeon": "d47",
+   "issues": []
+  },
+  "crevice_cave_pit": {
+   "status": "PASS",
+   "name": "Crevice Cave Pit",
+   "dungeon": "d49",
+   "issues": []
+  },
+  "crooked_cavern": {
+   "status": "PASS",
+   "name": "Crooked Cavern",
+   "dungeon": null,
+   "issues": []
+  },
+  "crystal_cave": {
+   "status": "PASS",
+   "name": "Crystal Cave",
+   "dungeon": "d24",
+   "issues": []
+  },
+  "crystal_crossing": {
+   "status": "PASS",
+   "name": "Crystal Crossing",
+   "dungeon": "d25",
+   "issues": []
+  },
+  "crystal_lake": {
+   "status": "PASS",
+   "name": "Shining Lake",
+   "dungeon": "d26",
+   "issues": []
+  },
+  "dark_crater": {
+   "status": "PASS",
+   "name": "Dark Crater",
+   "dungeon": "d67",
+   "issues": []
+  },
+  "dark_crater_pit": {
+   "status": "PASS",
+   "name": "Dark Crater Pit",
+   "dungeon": null,
+   "issues": []
+  },
+  "dark_hill": {
+   "status": "PASS",
+   "name": "Dark Hill",
+   "dungeon": "d28",
+   "issues": []
+  },
+  "dark_ice_mountain": {
+   "status": "PASS",
+   "name": "Dark Ice Mountain",
+   "dungeon": "d142",
+   "issues": []
+  },
+  "dark_ice_mountain_peak": {
+   "status": "PASS",
+   "name": "Dark Ice Mountain Peak",
+   "dungeon": "d143",
+   "issues": []
+  },
+  "dark_ice_mountain_pinnacle": {
+   "status": "PASS",
+   "name": "Dark Ice Mountain Pinnacle",
+   "dungeon": null,
+   "issues": []
+  },
+  "dark_wasteland": {
+   "status": "PASS",
+   "name": "Dark Wasteland",
+   "dungeon": "d136",
+   "issues": []
+  },
+  "darknight_relic": {
+   "status": "PASS",
+   "name": "Darknight Relic",
+   "dungeon": null,
+   "issues": []
+  },
+  "deep_barren_valley": {
+   "status": "PASS",
+   "name": "Deep Barren Valley",
+   "dungeon": "d134",
+   "issues": []
+  },
+  "deep_boulder_quarry": {
+   "status": "PASS",
+   "name": "Deep Boulder Quarry",
+   "dungeon": "d151",
+   "issues": []
+  },
+  "deep_dark_crater": {
+   "status": "PASS",
+   "name": "Deep Dark Crater",
+   "dungeon": "d68",
+   "issues": []
+  },
+  "deep_dusk_forest": {
+   "status": "PASS",
+   "name": "Deep Dusk Forest",
+   "dungeon": "d33",
+   "issues": []
+  },
+  "deep_limestone_cavern": {
+   "status": "PASS",
+   "name": "Deep Limestone Cavern",
+   "dungeon": "d156",
+   "issues": []
+  },
+  "deep_miracle_sea": {
+   "status": "PASS",
+   "name": "Deep Miracle Sea",
+   "dungeon": "d52",
+   "issues": []
+  },
+  "deep_mystery_jungle": {
+   "status": "PASS",
+   "name": "Deep Mystery Jungle",
+   "dungeon": null,
+   "issues": []
+  },
+  "deep_spacial_rift": {
+   "status": "PASS",
+   "name": "Deep Spacial Rift",
+   "dungeon": "d65",
+   "issues": []
+  },
+  "deep_star_cave_dungeon": {
+   "status": "PASS",
+   "name": "Deep Star Cave",
+   "dungeon": "d124",
+   "issues": []
+  },
+  "deep_star_cave_team_rogue": {
+   "status": "PASS",
+   "name": "Deep Star Cave",
+   "dungeon": null,
+   "issues": []
+  },
+  "desert_region": {
+   "status": "PASS",
+   "name": "Desert Region",
+   "dungeon": null,
+   "issues": []
+  },
+  "destiny_tower": {
+   "status": "PASS",
+   "name": "Destiny Tower",
+   "dungeon": "d104",
+   "issues": []
+  },
+  "drenched_bluff": {
+   "status": "PASS",
+   "name": "Drenched Bluff",
+   "dungeon": "d03",
+   "issues": []
+  },
+  "dusk_forest": {
+   "status": "PASS",
+   "name": "Dusk Forest",
+   "dungeon": "d32",
+   "issues": []
+  },
+  "dusk_forest_se5": {
+   "status": "PASS",
+   "name": "Dusk Forest",
+   "dungeon": "d139",
+   "issues": []
+  },
+  "eastern_cave": {
+   "status": "PASS",
+   "name": "Eastern Cave",
+   "dungeon": "d129",
+   "issues": []
+  },
+  "eighth_station_pass": {
+   "status": "PASS",
+   "name": "8th Station Pass",
+   "dungeon": "d118",
+   "issues": []
+  },
+  "electric_maze": {
+   "status": "PASS",
+   "name": "Electric Maze",
+   "dungeon": null,
+   "issues": []
+  },
+  "fantasy_strait": {
+   "status": "PASS",
+   "name": "Fantasy Strait",
+   "dungeon": null,
+   "issues": []
+  },
+  "far_amp_plains": {
+   "status": "PASS",
+   "name": "Far Amp Plains",
+   "dungeon": "d18",
+   "issues": []
+  },
+  "far_off_sea": {
+   "status": "PASS",
+   "name": "Far-Off Sea",
+   "dungeon": null,
+   "issues": []
+  },
+  "fiery_field": {
+   "status": "PASS",
+   "name": "Fiery Field",
+   "dungeon": null,
+   "issues": []
+  },
+  "fifth_station_clearing": {
+   "status": "PASS",
+   "name": "5th Station Clearing",
+   "dungeon": "d121",
+   "issues": []
+  },
+  "fifth_station_pass": {
+   "status": "PASS",
+   "name": "5th Station Pass",
+   "dungeon": "d115",
+   "issues": []
+  },
+  "fire_maze": {
+   "status": "PASS",
+   "name": "Fire Maze",
+   "dungeon": null,
+   "issues": []
+  },
+  "first_station_pass": {
+   "status": "PASS",
+   "name": "1st Station Pass",
+   "dungeon": "d111",
+   "issues": []
+  },
+  "flying_maze": {
+   "status": "PASS",
+   "name": "Flying Maze",
+   "dungeon": null,
+   "issues": []
+  },
+  "foggy_forest": {
+   "status": "PASS",
+   "name": "Foggy Forest",
+   "dungeon": "d12",
+   "issues": []
+  },
+  "forest_path": {
+   "status": "PASS",
+   "name": "Forest Path",
+   "dungeon": "d13",
+   "issues": []
+  },
+  "foret_embuscade": {
+   "status": "PASS",
+   "name": "Ambush Forest",
+   "dungeon": null,
+   "issues": []
+  },
+  "fortune_ravine": {
+   "status": "PASS",
+   "name": "Fortune Ravine",
+   "dungeon": "d130",
+   "issues": []
+  },
+  "fortune_ravine_depths": {
+   "status": "PASS",
+   "name": "Fortune Ravine Depths",
+   "dungeon": "d131",
+   "issues": []
+  },
+  "fortune_ravine_pit": {
+   "status": "PASS",
+   "name": "Fortune Ravine Pit",
+   "dungeon": null,
+   "issues": []
+  },
+  "fourth_station_pass": {
+   "status": "PASS",
+   "name": "4th Station Pass",
+   "dungeon": "d114",
+   "issues": []
+  },
+  "frosty_forest": {
+   "status": "PASS",
+   "name": "Frosty Forest",
+   "dungeon": null,
+   "issues": []
+  },
+  "frosty_grotto": {
+   "status": "PASS",
+   "name": "Frosty Grotto",
+   "dungeon": null,
+   "issues": []
+  },
+  "giant_volcano": {
+   "status": "PASS",
+   "name": "Giant Volcano",
+   "dungeon": "d79",
+   "issues": []
+  },
+  "giant_volcano_peak": {
+   "status": "PASS",
+   "name": "Giant Volcano Peak",
+   "dungeon": null,
+   "issues": []
+  },
+  "gloomy_forest": {
+   "status": "PASS",
+   "name": "Sinister Woods",
+   "dungeon": null,
+   "issues": []
+  },
+  "grand_sea": {
+   "status": "PASS",
+   "name": "Grand Sea",
+   "dungeon": null,
+   "issues": []
+  },
+  "grass_maze": {
+   "status": "PASS",
+   "name": "Grass Maze",
+   "dungeon": null,
+   "issues": []
+  },
+  "great_canyon": {
+   "status": "PASS",
+   "name": "Great Canyon",
+   "dungeon": null,
+   "issues": []
+  },
+  "grotte_echoue": {
+   "status": "PASS",
+   "name": "Castaway Cave",
+   "dungeon": null,
+   "issues": []
+  },
+  "grotte_mystere": {
+   "status": "PASS",
+   "name": "Mystery Cave",
+   "dungeon": null,
+   "issues": []
+  },
+  "grotte_repos": {
+   "status": "PASS",
+   "name": "Cave of Solace",
+   "dungeon": null,
+   "issues": []
+  },
+  "guiding_sea": {
+   "status": "PASS",
+   "name": "[M:D1]Dummy",
+   "dungeon": "d169",
+   "issues": []
+  },
+  "halles_royales": {
+   "status": "PASS",
+   "name": "Royal Halls",
+   "dungeon": null,
+   "issues": []
+  },
+  "happy_outlook": {
+   "status": "PASS",
+   "name": "Happy Outlook",
+   "dungeon": "d94",
+   "issues": []
+  },
+  "hidden_highland": {
+   "status": "PASS",
+   "name": "Hidden Highland",
+   "dungeon": "d39",
+   "issues": []
+  },
+  "hidden_land": {
+   "status": "PASS",
+   "name": "Hidden Land",
+   "dungeon": "d38",
+   "issues": []
+  },
+  "hidden_shopkeeper_village": {
+   "status": "PASS",
+   "name": "[M:D1]Dummy",
+   "dungeon": "d170",
+   "issues": []
+  },
+  "hot_spring_dungeon": {
+   "status": "PASS",
+   "name": "Hot Spring",
+   "dungeon": "d178",
+   "issues": []
+  },
+  "howling_forest": {
+   "status": "PASS",
+   "name": "Howling Forest",
+   "dungeon": null,
+   "issues": []
+  },
+  "ice_aegis_cave": {
+   "status": "PASS",
+   "name": "Ice Aegis Cave",
+   "dungeon": "d54",
+   "issues": []
+  },
+  "icicle_forest": {
+   "status": "PASS",
+   "name": "Icicle Forest",
+   "dungeon": "d145",
+   "issues": []
+  },
+  "illuminant_riverbed": {
+   "status": "PASS",
+   "name": "Illuminant Riverbed",
+   "dungeon": null,
+   "issues": []
+  },
+  "inferno_cave": {
+   "status": "PASS",
+   "name": "Inferno Cave",
+   "dungeon": "d110",
+   "issues": []
+  },
+  "jardin_secret": {
+   "status": "PASS",
+   "name": "Secret Garden",
+   "dungeon": null,
+   "issues": []
+  },
+  "joyous_tower": {
+   "status": "PASS",
+   "name": "Joyous Tower",
+   "dungeon": null,
+   "issues": []
+  },
+  "labyrinth_cave": {
+   "status": "PASS",
+   "name": "Labyrinth Cave",
+   "dungeon": "d91",
+   "issues": []
+  },
+  "lake_afar": {
+   "status": "PASS",
+   "name": "Lake Afar",
+   "dungeon": "d93",
+   "issues": []
+  },
+  "landslide_cave": {
+   "status": "PASS",
+   "name": "Landslide Cave",
+   "dungeon": "d88",
+   "issues": []
+  },
+  "lapis_cave": {
+   "status": "PASS",
+   "name": "Lapis Cave",
+   "dungeon": null,
+   "issues": []
+  },
+  "left_cave_path": {
+   "status": "PASS",
+   "name": "Left Cave Path",
+   "dungeon": "d154",
+   "issues": []
+  },
+  "lightning_field": {
+   "status": "PASS",
+   "name": "Lightning Field",
+   "dungeon": null,
+   "issues": []
+  },
+  "limestone_cavern": {
+   "status": "PASS",
+   "name": "Limestone Cavern",
+   "dungeon": "d155",
+   "issues": []
+  },
+  "limestone_cavern_depths": {
+   "status": "PASS",
+   "name": "Limestone Cavern Depths",
+   "dungeon": null,
+   "issues": []
+  },
+  "little_plains": {
+   "status": "PASS",
+   "name": "[M:D1]Dummy",
+   "dungeon": "d165",
+   "issues": []
+  },
+  "lost_wilderness": {
+   "status": "PASS",
+   "name": "Lost Wilderness",
+   "dungeon": "d97",
+   "issues": []
+  },
+  "lower_brine_cave": {
+   "status": "PASS",
+   "name": "Lower Brine Cave",
+   "dungeon": "d36",
+   "issues": []
+  },
+  "lower_crevice_cave": {
+   "status": "PASS",
+   "name": "Lower Crevice Cave",
+   "dungeon": "d48",
+   "issues": []
+  },
+  "lower_spring_cave": {
+   "status": "PASS",
+   "name": "Lower Spring Cave",
+   "dungeon": "d162",
+   "issues": []
+  },
+  "luminous_spring_dungeon": {
+   "status": "PASS",
+   "name": "Luminous Spring",
+   "dungeon": "d177",
+   "issues": []
+  },
+  "lush_prairie_post": {
+   "status": "PASS",
+   "name": "Lush Prairie",
+   "dungeon": "d89",
+   "issues": []
+  },
+  "magma_cavern": {
+   "status": "PASS",
+   "name": "Magma Cavern",
+   "dungeon": null,
+   "issues": []
+  },
+  "magma_cavern_pit": {
+   "status": "PASS",
+   "name": "Magma Cavern Pit",
+   "dungeon": null,
+   "issues": []
+  },
+  "magma_pit_groudon": {
+   "status": "PASS",
+   "name": "Magma Cavern Pit - Groudon",
+   "dungeon": null,
+   "issues": []
+  },
+  "marine_resort": {
+   "status": "PASS",
+   "name": "Marine Resort",
+   "dungeon": "d72",
+   "issues": []
+  },
+  "marvelous_sea": {
+   "status": "PASS",
+   "name": "Marvelous Sea",
+   "dungeon": null,
+   "issues": []
+  },
+  "master_zone": {
+   "status": "PASS",
+   "name": "Debug",
+   "dungeon": null,
+   "issues": []
+  },
+  "meteor_cave": {
+   "status": "PASS",
+   "name": "Meteor Cave",
+   "dungeon": null,
+   "issues": []
+  },
+  "middle_spring_cave": {
+   "status": "PASS",
+   "name": "Middle Spring Cave",
+   "dungeon": null,
+   "issues": []
+  },
+  "midnight_forest": {
+   "status": "PASS",
+   "name": "Midnight Forest",
+   "dungeon": "d98",
+   "issues": []
+  },
+  "miracle_sea": {
+   "status": "PASS",
+   "name": "Miracle Sea",
+   "dungeon": "d51",
+   "issues": []
+  },
+  "miracle_seabed": {
+   "status": "PASS",
+   "name": "Miracle Seabed",
+   "dungeon": "d53",
+   "issues": []
+  },
+  "mount_windswept": {
+   "status": "PASS",
+   "name": "Mt. Windswept",
+   "dungeon": null,
+   "issues": []
+  },
+  "mt_avalanche": {
+   "status": "PASS",
+   "name": "Mt. Avalanche",
+   "dungeon": "d77",
+   "issues": []
+  },
+  "mt_avalanche_peak": {
+   "status": "PASS",
+   "name": "Mt. Avalanche Peak",
+   "dungeon": null,
+   "issues": []
+  },
+  "mt_blaze": {
+   "status": "PASS",
+   "name": "Mt. Blaze",
+   "dungeon": null,
+   "issues": []
+  },
+  "mt_blaze_peak": {
+   "status": "PASS",
+   "name": "Mt. Blaze Peak",
+   "dungeon": null,
+   "issues": []
+  },
+  "mt_bristle": {
+   "status": "PASS",
+   "name": "Mt. Bristle",
+   "dungeon": "d04",
+   "issues": []
+  },
+  "mt_bristle_peak": {
+   "status": "PASS",
+   "name": "Mt. Bristle Peak",
+   "dungeon": "d05",
+   "issues": []
+  },
+  "mt_clear": {
+   "status": "PASS",
+   "name": "[M:D1]Dummy",
+   "dungeon": "d166",
+   "issues": []
+  },
+  "mt_faraway": {
+   "status": "PASS",
+   "name": "Mt. Faraway",
+   "dungeon": null,
+   "issues": []
+  },
+  "mt_freeze": {
+   "status": "PASS",
+   "name": "Mt. Freeze",
+   "dungeon": null,
+   "issues": []
+  },
+  "mt_freeze_peak": {
+   "status": "PASS",
+   "name": "Mt. Freeze Peak",
+   "dungeon": null,
+   "issues": []
+  },
+  "mt_horn": {
+   "status": "PASS",
+   "name": "Mt. Horn",
+   "dungeon": "d10",
+   "issues": []
+  },
+  "mt_mistral": {
+   "status": "PASS",
+   "name": "Mt. Mistral",
+   "dungeon": "d95",
+   "issues": []
+  },
+  "mt_steel": {
+   "status": "PASS",
+   "name": "Mt. Steel",
+   "dungeon": null,
+   "issues": []
+  },
+  "mt_thunder": {
+   "status": "PASS",
+   "name": "Mt. Thunder",
+   "dungeon": null,
+   "issues": []
+  },
+  "mt_thunder_peak": {
+   "status": "PASS",
+   "name": "Mt. Thunder Peak",
+   "dungeon": null,
+   "issues": []
+  },
+  "mt_travail_post": {
+   "status": "PASS",
+   "name": "Mt. Travail",
+   "dungeon": "d62",
+   "issues": []
+  },
+  "murky_cave": {
+   "status": "PASS",
+   "name": "Murky Cave",
+   "dungeon": null,
+   "issues": []
+  },
+  "murky_forest": {
+   "status": "PASS",
+   "name": "Murky Forest",
+   "dungeon": "d128",
+   "issues": []
+  },
+  "mystery_jungle": {
+   "status": "PASS",
+   "name": "Mystery Jungle",
+   "dungeon": "d85",
+   "issues": []
+  },
+  "mystifying_forest_clearing": {
+   "status": "PASS",
+   "name": "Mystifying Forest Clearing",
+   "dungeon": null,
+   "issues": []
+  },
+  "mystifying_forest_post": {
+   "status": "PASS",
+   "name": "Mystifying Forest",
+   "dungeon": "d44",
+   "issues": []
+  },
+  "ninth_station_pass": {
+   "status": "PASS",
+   "name": "9th Station Pass",
+   "dungeon": "d119",
+   "issues": []
+  },
+  "nnv_wild": {
+   "status": "PASS",
+   "name": "Wild Encounters",
+   "dungeon": null,
+   "issues": []
+  },
+  "normal_maze": {
+   "status": "PASS",
+   "name": "Normal Maze",
+   "dungeon": null,
+   "issues": []
+  },
+  "northern_desert": {
+   "status": "PASS",
+   "name": "Northern Desert",
+   "dungeon": "d20",
+   "issues": []
+  },
+  "northern_range": {
+   "status": "PASS",
+   "name": "Northern Range",
+   "dungeon": null,
+   "issues": []
+  },
+  "northwind_field": {
+   "status": "PASS",
+   "name": "Northwind Field",
+   "dungeon": null,
+   "issues": []
+  },
+  "oblivion_forest": {
+   "status": "PASS",
+   "name": "Oblivion Forest",
+   "dungeon": "d107",
+   "issues": []
+  },
+  "oddity_cave": {
+   "status": "PASS",
+   "name": "Oddity Cave",
+   "dungeon": null,
+   "issues": []
+  },
+  "old_ruins": {
+   "status": "PASS",
+   "name": "Old Ruins",
+   "dungeon": "d40",
+   "issues": []
+  },
+  "oran_forest": {
+   "status": "PASS",
+   "name": "Oran Forest",
+   "dungeon": "d92",
+   "issues": []
+  },
+  "passage_temps": {
+   "status": "PASS",
+   "name": "Passage of Time",
+   "dungeon": null,
+   "issues": []
+  },
+  "petit_tunnel": {
+   "status": "PASS",
+   "name": "Tiny Tunnel",
+   "dungeon": null,
+   "issues": []
+  },
+  "pitfall_valley": {
+   "status": "PASS",
+   "name": "Pitfall Valley",
+   "dungeon": null,
+   "issues": []
+  },
+  "purity_forest": {
+   "status": "PASS",
+   "name": "Purity Forest",
+   "dungeon": null,
+   "issues": []
+  },
+  "quicksand_cave": {
+   "status": "PASS",
+   "name": "Quicksand Cave",
+   "dungeon": "d21",
+   "issues": []
+  },
+  "quicksand_pit": {
+   "status": "PASS",
+   "name": "Quicksand Pit",
+   "dungeon": "d22",
+   "issues": []
+  },
+  "regice_chamber": {
+   "status": "PASS",
+   "name": "Regice Chamber",
+   "dungeon": "d55",
+   "issues": []
+  },
+  "regigigas_chamber_boss": {
+   "status": "PASS",
+   "name": "Regigigas Chamber",
+   "dungeon": null,
+   "issues": []
+  },
+  "regirock_chamber": {
+   "status": "PASS",
+   "name": "Regirock Chamber",
+   "dungeon": "d57",
+   "issues": []
+  },
+  "registeel_chamber": {
+   "status": "PASS",
+   "name": "Registeel Chamber",
+   "dungeon": "d59",
+   "issues": []
+  },
+  "relic_forest": {
+   "status": "PASS",
+   "name": "Relic Forest",
+   "dungeon": null,
+   "issues": []
+  },
+  "remains_island": {
+   "status": "PASS",
+   "name": "Remains Island",
+   "dungeon": null,
+   "issues": []
+  },
+  "rescue_dungeon": {
+   "status": "PASS",
+   "name": "Rescue",
+   "dungeon": "d179",
+   "issues": []
+  },
+  "right_cave_path": {
+   "status": "PASS",
+   "name": "Right Cave Path",
+   "dungeon": "d153",
+   "issues": []
+  },
+  "rock_aegis_cave": {
+   "status": "PASS",
+   "name": "Rock Aegis Cave",
+   "dungeon": "d56",
+   "issues": []
+  },
+  "rock_maze": {
+   "status": "PASS",
+   "name": "Rock Maze",
+   "dungeon": null,
+   "issues": []
+  },
+  "rock_path": {
+   "status": "PASS",
+   "name": "Rock Path",
+   "dungeon": null,
+   "issues": []
+  },
+  "rock_path_sky": {
+   "status": "PASS",
+   "name": "Rock Path",
+   "dungeon": "d11",
+   "issues": []
+  },
+  "sealed_ruin": {
+   "status": "PASS",
+   "name": "Sealed Ruin",
+   "dungeon": "d29",
+   "issues": []
+  },
+  "sealed_ruin_pit": {
+   "status": "PASS",
+   "name": "Deep Sealed Ruin",
+   "dungeon": "d30",
+   "issues": []
+  },
+  "searing_tunnel": {
+   "status": "PASS",
+   "name": "Searing Tunnel",
+   "dungeon": null,
+   "issues": []
+  },
+  "second_station_pass": {
+   "status": "PASS",
+   "name": "2nd Station Pass",
+   "dungeon": "d112",
+   "issues": []
+  },
+  "serenity_river": {
+   "status": "PASS",
+   "name": "Serenity River",
+   "dungeon": "d87",
+   "issues": []
+  },
+  "seventh_station_pass": {
+   "status": "PASS",
+   "name": "7th Station Pass",
+   "dungeon": "d117",
+   "issues": []
+  },
+  "shaymin_village": {
+   "status": "PASS",
+   "name": "Shaymin Village",
+   "dungeon": "d175",
+   "issues": []
+  },
+  "shimmer_desert": {
+   "status": "PASS",
+   "name": "Shimmer Desert",
+   "dungeon": "d75",
+   "issues": []
+  },
+  "shimmer_desert_pit": {
+   "status": "PASS",
+   "name": "Shimmer Desert Pit",
+   "dungeon": null,
+   "issues": []
+  },
+  "shimmer_hill": {
+   "status": "PASS",
+   "name": "Shimmer Hill",
+   "dungeon": "d96",
+   "issues": []
+  },
+  "side_path": {
+   "status": "PASS",
+   "name": "Side Path",
+   "dungeon": "d09",
+   "issues": []
+  },
+  "silent_chasm": {
+   "status": "PASS",
+   "name": "Silent Chasm",
+   "dungeon": null,
+   "issues": []
+  },
+  "silver_trench": {
+   "status": "PASS",
+   "name": "Silver Trench",
+   "dungeon": null,
+   "issues": []
+  },
+  "sixth_station_pass": {
+   "status": "PASS",
+   "name": "6th Station Pass",
+   "dungeon": "d116",
+   "issues": []
+  },
+  "sky_hub_zone": {
+   "status": "PASS",
+   "name": "Sky Hub Grounds",
+   "dungeon": null,
+   "issues": []
+  },
+  "sky_peak_summit": {
+   "status": "PASS",
+   "name": "Sky Peak Summit",
+   "dungeon": null,
+   "issues": []
+  },
+  "sky_peak_summit_pass": {
+   "status": "PASS",
+   "name": "Sky Peak Summit Pass",
+   "dungeon": "d120",
+   "issues": []
+  },
+  "sky_stairway": {
+   "status": "PASS",
+   "name": "Sky Stairway",
+   "dungeon": "d83",
+   "issues": []
+  },
+  "sky_stairway_apex": {
+   "status": "PASS",
+   "name": "Sky Stairway Apex",
+   "dungeon": null,
+   "issues": []
+  },
+  "sky_summit_rayquaza": {
+   "status": "PASS",
+   "name": "Sky Tower Summit - Rayquaza",
+   "dungeon": null,
+   "issues": []
+  },
+  "sky_tower": {
+   "status": "PASS",
+   "name": "Sky Tower",
+   "dungeon": null,
+   "issues": []
+  },
+  "sky_tower_summit": {
+   "status": "PASS",
+   "name": "Sky Tower Summit",
+   "dungeon": null,
+   "issues": []
+  },
+  "snow_path": {
+   "status": "PASS",
+   "name": "Snow Path",
+   "dungeon": null,
+   "issues": []
+  },
+  "solar_cave": {
+   "status": "PASS",
+   "name": "Solar Cave",
+   "dungeon": null,
+   "issues": []
+  },
+  "southeastern_islands": {
+   "status": "PASS",
+   "name": "Southeastern Islands",
+   "dungeon": "d109",
+   "issues": []
+  },
+  "southern_cavern": {
+   "status": "PASS",
+   "name": "Southern Cavern",
+   "dungeon": null,
+   "issues": []
+  },
+  "southern_jungle": {
+   "status": "PASS",
+   "name": "Southern Jungle",
+   "dungeon": "d149",
+   "issues": []
+  },
+  "spacial_cliffs": {
+   "status": "PASS",
+   "name": "Spacial Cliffs",
+   "dungeon": "d141",
+   "issues": []
+  },
+  "spacial_rift": {
+   "status": "PASS",
+   "name": "Spacial Rift",
+   "dungeon": "d64",
+   "issues": []
+  },
+  "spacial_rift_bottom": {
+   "status": "PASS",
+   "name": "Spacial Rift Bottom",
+   "dungeon": null,
+   "issues": []
+  },
+  "spiritomb_room": {
+   "status": "PASS",
+   "name": "Sealed Ruin Pit",
+   "dungeon": "d31",
+   "issues": []
+  },
+  "spring_cave": {
+   "status": "PASS",
+   "name": "Spring Cave",
+   "dungeon": "d158",
+   "issues": []
+  },
+  "spring_cave_depths": {
+   "status": "PASS",
+   "name": "Spring Cave Depths",
+   "dungeon": "d163",
+   "issues": []
+  },
+  "spring_cave_pit": {
+   "status": "PASS",
+   "name": "Spring Cave Pit",
+   "dungeon": null,
+   "issues": []
+  },
+  "star_cave": {
+   "status": "PASS",
+   "name": "Star Cave",
+   "dungeon": "d174",
+   "issues": []
+  },
+  "star_cave_depths": {
+   "status": "PASS",
+   "name": "Star Cave Depths",
+   "dungeon": "d126",
+   "issues": []
+  },
+  "star_cave_pit": {
+   "status": "PASS",
+   "name": "Star Cave Pit",
+   "dungeon": null,
+   "issues": []
+  },
+  "star_cave_se1": {
+   "status": "PASS",
+   "name": "Star Cave",
+   "dungeon": "d123",
+   "issues": []
+  },
+  "steam_cave": {
+   "status": "PASS",
+   "name": "Steam Cave",
+   "dungeon": "d14",
+   "issues": []
+  },
+  "steam_cave_peak": {
+   "status": "PASS",
+   "name": "Steam Cave Peak",
+   "dungeon": "d16",
+   "issues": []
+  },
+  "steel_aegis_cave": {
+   "status": "PASS",
+   "name": "Steel Aegis Cave",
+   "dungeon": "d58",
+   "issues": []
+  },
+  "stormy_sea": {
+   "status": "PASS",
+   "name": "Stormy Sea",
+   "dungeon": null,
+   "issues": []
+  },
+  "surrounded_sea": {
+   "status": "PASS",
+   "name": "Surrounded Sea",
+   "dungeon": "d50",
+   "issues": []
+  },
+  "temporal_pinnacle": {
+   "status": "PASS",
+   "name": "Temporal Pinnacle",
+   "dungeon": "d43",
+   "issues": []
+  },
+  "temporal_spire": {
+   "status": "PASS",
+   "name": "Temporal Spire",
+   "dungeon": "d42",
+   "issues": []
+  },
+  "temporal_spire_se5": {
+   "status": "PASS",
+   "name": "Temporal Spire",
+   "dungeon": "d138",
+   "issues": []
+  },
+  "temporal_tower": {
+   "status": "PASS",
+   "name": "Temporal Tower",
+   "dungeon": "d41",
+   "issues": []
+  },
+  "temporal_tower_se5": {
+   "status": "PASS",
+   "name": "Temporal Tower",
+   "dungeon": "d137",
+   "issues": []
+  },
+  "the_nightmare": {
+   "status": "PASS",
+   "name": "The Nightmare",
+   "dungeon": "d63",
+   "issues": []
+  },
+  "third_station_pass": {
+   "status": "PASS",
+   "name": "3rd Station Pass",
+   "dungeon": "d113",
+   "issues": []
+  },
+  "thunderwave_cave": {
+   "status": "PASS",
+   "name": "Thunderwave Cave",
+   "dungeon": null,
+   "issues": []
+  },
+  "tiny_meadow_post": {
+   "status": "PASS",
+   "name": "Tiny Meadow",
+   "dungeon": "d90",
+   "issues": []
+  },
+  "tiny_woods": {
+   "status": "PASS",
+   "name": "Tiny Woods",
+   "dungeon": null,
+   "issues": []
+  },
+  "treacherous_waters": {
+   "status": "PASS",
+   "name": "Treacherous Waters",
+   "dungeon": "d108",
+   "issues": []
+  },
+  "treeshroud_forest": {
+   "status": "PASS",
+   "name": "Treeshroud Forest",
+   "dungeon": "d34",
+   "issues": []
+  },
+  "trial_forest": {
+   "status": "PASS",
+   "name": "[M:D1]Dummy",
+   "dungeon": "d168",
+   "issues": []
+  },
+  "underground_lake": {
+   "status": "PASS",
+   "name": "Underground Lake",
+   "dungeon": "d23",
+   "issues": []
+  },
+  "unown_relic": {
+   "status": "PASS",
+   "name": "Unown Relic",
+   "dungeon": null,
+   "issues": []
+  },
+  "upper_spring_cave": {
+   "status": "PASS",
+   "name": "Upper Spring Cave",
+   "dungeon": "d160",
+   "issues": []
+  },
+  "upper_spring_cave_haunter": {
+   "status": "PASS",
+   "name": "Upper Spring Cave",
+   "dungeon": null,
+   "issues": []
+  },
+  "upper_steam_cave": {
+   "status": "PASS",
+   "name": "Upper Steam Cave",
+   "dungeon": "d15",
+   "issues": []
+  },
+  "uproar_forest": {
+   "status": "PASS",
+   "name": "Uproar Forest",
+   "dungeon": null,
+   "issues": []
+  },
+  "vallee_fertile": {
+   "status": "PASS",
+   "name": "Fertile Valley",
+   "dungeon": null,
+   "issues": []
+  },
+  "vast_ice_mountain": {
+   "status": "PASS",
+   "name": "Vast Ice Mountain",
+   "dungeon": "d146",
+   "issues": []
+  },
+  "vast_ice_mountain_peak": {
+   "status": "PASS",
+   "name": "Vast Ice Mountain Peak",
+   "dungeon": "d147",
+   "issues": []
+  },
+  "vast_ice_mountain_pinnacle": {
+   "status": "PASS",
+   "name": "Vast Ice Mountain Pinnacle",
+   "dungeon": null,
+   "issues": []
+  },
+  "vast_steppe": {
+   "status": "PASS",
+   "name": "Vast Steppe",
+   "dungeon": null,
+   "issues": []
+  },
+  "water_maze": {
+   "status": "PASS",
+   "name": "Water Maze",
+   "dungeon": null,
+   "issues": []
+  },
+  "waterfall_cave": {
+   "status": "PASS",
+   "name": "Waterfall Cave",
+   "dungeon": "d06",
+   "issues": []
+  },
+  "waterfall_pond": {
+   "status": "PASS",
+   "name": "Waterfall Pond",
+   "dungeon": null,
+   "issues": []
+  },
+  "western_cave": {
+   "status": "PASS",
+   "name": "Western Cave",
+   "dungeon": null,
+   "issues": []
+  },
+  "wish_cave": {
+   "status": "PASS",
+   "name": "Wish Cave",
+   "dungeon": null,
+   "issues": []
+  },
+  "world_abyss": {
+   "status": "PASS",
+   "name": "World Abyss",
+   "dungeon": "d81",
+   "issues": []
+  },
+  "world_abyss_pit": {
+   "status": "PASS",
+   "name": "World Abyss Pit",
+   "dungeon": null,
+   "issues": []
+  },
+  "wyvern_hill": {
+   "status": "PASS",
+   "name": "Wyvern Hill",
+   "dungeon": null,
+   "issues": []
+  },
+  "zero_isle_center": {
+   "status": "PASS",
+   "name": "Zero Isle Center",
+   "dungeon": "d103",
+   "issues": []
+  },
+  "zero_isle_east": {
+   "status": "PASS",
+   "name": "Zero Isle East",
+   "dungeon": "d100",
+   "issues": []
+  },
+  "zero_isle_north": {
+   "status": "PASS",
+   "name": "Zero Isle North",
+   "dungeon": "d99",
+   "issues": []
+  },
+  "zero_isle_south": {
+   "status": "PASS",
+   "name": "Zero Isle South",
+   "dungeon": "d102",
+   "issues": []
+  },
+  "zero_isle_west": {
+   "status": "PASS",
+   "name": "Zero Isle West",
+   "dungeon": "d101",
+   "issues": []
+  }
+ }
+}

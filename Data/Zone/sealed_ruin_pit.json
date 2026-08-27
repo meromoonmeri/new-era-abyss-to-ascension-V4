@@ -3,9 +3,9 @@
  "Object": {
   "$type": "RogueEssence.Data.ZoneData, RogueEssence",
   "Name": {
-   "DefaultText": "Sealed Ruin Pit",
+   "DefaultText": "Deep Sealed Ruin",
    "LocalTexts": {
-    "fr": "Sealed Ruin Pit"
+    "fr": "Ruine Scellée - prof."
    }
   },
   "Released": true,

@@ -2302,9 +2302,9 @@
     ]
    ],
    "Name": {
-    "DefaultText": "Sealed Ruin Pit",
+    "DefaultText": "Deep Sealed Ruin",
     "LocalTexts": {
-     "fr": "Sealed Ruin Pit"
+     "fr": "Ruine Scellée - prof."
     }
    },
    "Released": true,
@@ -2369,9 +2369,9 @@
     ]
    ],
    "Name": {
-    "DefaultText": "Spiritomb Room",
+    "DefaultText": "Sealed Ruin Pit",
     "LocalTexts": {
-     "fr": "Spiritomb Room"
+     "fr": "Ruine Scellée - fond"
     }
    },
    "Released": true,
@@ -6205,7 +6205,7 @@
     ]
    ],
    "Name": {
-    "DefaultText": "Crystal Lake",
+    "DefaultText": "Shining Lake",
     "LocalTexts": {
      "fr": "Lac Cristal"
     }
