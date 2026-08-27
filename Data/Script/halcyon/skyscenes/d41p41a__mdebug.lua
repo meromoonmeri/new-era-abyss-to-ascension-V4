@@ -342,31 +342,31 @@ return function(hero, partner)
   -- GAP: SetEffect 244 — VFX sans émote PMDO équivalente
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecutePerformer
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   -- GAP: se_Play(5129) — id SE NDS sans portage PMDO identifié
   pcall(function() GAME:MoveCamera(336, 180, 1, false) end) -- SetPositionMark performer/caméra
   -- GAP: SetEffect 244 — VFX sans émote PMDO équivalente
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecutePerformer
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   -- GAP: se_Play(5128) — id SE NDS sans portage PMDO identifié
   pcall(function() GAME:MoveCamera(336, 180, 1, false) end) -- SetPositionMark performer/caméra
   -- GAP: SetEffect 244 — VFX sans émote PMDO équivalente
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecutePerformer
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   -- GAP: se_Play(5129) — id SE NDS sans portage PMDO identifié
   pcall(function() GAME:MoveCamera(232, 180, 1, false) end) -- SetPositionMark performer/caméra
   -- GAP: SetEffect 244 — VFX sans émote PMDO équivalente
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecutePerformer
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   -- GAP: se_Play(5128) — id SE NDS sans portage PMDO identifié
   pcall(function() GAME:MoveCamera(320, 140, 1, false) end) -- SetPositionMark performer/caméra
   -- GAP: SetEffect 244 — VFX sans émote PMDO équivalente
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecutePerformer
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   pcall(function() UI:SetSpeaker(npc_npc_heigani) end)
   SkySceneKit.say({english="[M:D0] ", french="[M:D0] ", german="[M:D0] ", italian="[M:D0] ", spanish="[M:D0] "})
   GAME:WaitFrames(30)
@@ -377,19 +377,19 @@ return function(hero, partner)
   -- GAP: SetEffect 244 — VFX sans émote PMDO équivalente
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecutePerformer
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   -- GAP: se_Play(5128) — id SE NDS sans portage PMDO identifié
   pcall(function() GAME:MoveCamera(336, 180, 1, false) end) -- SetPositionMark performer/caméra
   -- GAP: SetEffect 244 — VFX sans émote PMDO équivalente
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecutePerformer
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   -- GAP: se_Play(5129) — id SE NDS sans portage PMDO identifié
   pcall(function() GAME:MoveCamera(232, 180, 1, false) end) -- SetPositionMark performer/caméra
   -- GAP: SetEffect 244 — VFX sans émote PMDO équivalente
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecutePerformer
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() UI:SetSpeaker(npc_npc_heigani) end)

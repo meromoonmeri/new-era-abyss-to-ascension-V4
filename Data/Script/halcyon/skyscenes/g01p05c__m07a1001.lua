@@ -226,12 +226,12 @@ return function(hero, partner)
   -- GAP: SetEffect 244 — VFX sans émote PMDO équivalente
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecutePerformer
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   pcall(function() GAME:MoveCamera(280, 244, 1, false) end) -- SetPositionMark performer/caméra
   -- GAP: SetEffect 244 — VFX sans émote PMDO équivalente
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecutePerformer
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   -- message_CloseEnforce
   -- GAP: SetEffect 438 — VFX sans émote PMDO équivalente
   -- GAP: SetEffect 438 — VFX sans émote PMDO équivalente
@@ -242,17 +242,17 @@ return function(hero, partner)
   -- GAP: SetEffect 244 — VFX sans émote PMDO équivalente
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecutePerformer
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   pcall(function() GAME:MoveCamera(140, 236, 1, false) end) -- SetPositionMark performer/caméra
   -- GAP: SetEffect 244 — VFX sans émote PMDO équivalente
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecutePerformer
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   pcall(function() GAME:MoveCamera(244, 192, 1, false) end) -- SetPositionMark performer/caméra
   -- GAP: SetEffect 244 — VFX sans émote PMDO équivalente
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecutePerformer
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   -- message_CloseEnforce
   GAME:FadeOut(false, 5)
   -- se_Stop(6665) [SE one-shot PMDO déjà terminé: arrêt sans objet, canal SE V2]

@@ -33,7 +33,7 @@ return function(hero, partner)
   -- SetAnimation(4) [anim idle native]
   GAME:WaitFrames(80)
   GAME:FadeOut(false, 0) -- screen_FlushOut
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   GAME:WaitFrames(30)
   -- message_ResetActor() [neutre/état moteur]
   pcall(function() UI:ResetSpeaker() end)
@@ -118,7 +118,7 @@ return function(hero, partner)
   GAME:WaitFrames(60)
   pcall(function() SOUND:FadeOutBGM(180) end)
   GAME:FadeOut(false, 60)
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   GAME:WaitFrames(2) -- join WaitBgm
   GAME:WaitFrames(30)
   SkySceneKit.cleanup_npcs()

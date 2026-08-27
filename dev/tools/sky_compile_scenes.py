@@ -501,10 +501,28 @@ class SceneCompiler:
         # écran de sauvetage Wi-Fi NDS (mot de passe) : PMDO possède son
         # propre système de rescue natif (Rescues des zones) — l'écran
         # NDS retourne 0 (fermeture) par défaut, branches préservées.
+        m = re.match(r"main_EnterAdventure\(\s*-?\d+\s*,\s*-?\d+\s*\)$", s)
+        if m:
+            return ("0", f"{s}: bascule d'écran aventure moteur NDS "
+                         f"(retour 0 fermeture, branches préservées)")
         m = re.match(r"main_EnterRescue(?:User|Help)\(\s*-?\d+\s*\)$", s)
         if m:
             return ("0", f"{s}: écran rescue Wi-Fi NDS (rescue natif "
                          f"PMDO; retour 0 fermeture, branches préservées)")
+        # GameVar générique ($EVENT_LOCAL etc.) : SV.SkyVars — mêmes
+        # écritures que les affectations compilées (défaut 0 ROM)
+        m = re.match(r"\$([A-Z][A-Z0-9_]*)$", s)
+        if m and m.group(1) not in ("SCENARIO_MAIN", "SCENARIO_SIDE",
+                                    "LANGUAGE_TYPE"):
+            return (f"((SV.SkyVars or {{}}).{m.group(1)} or 0)",
+                    f"GameVar {m.group(1)} (SV.SkyVars)")
+        m = re.match(r"random\((\d+)\)$", s)
+        if m:
+            # tirage aléatoire ROM 0..N-1 -> math.random natif (même
+            # distribution, aléa réel du moteur)
+            return (f"(math.random(0, {int(m.group(1)) - 1}))",
+                    f"random({m.group(1)}): tirage ROM -> math.random")
+        # message_SwitchMenu2 = SwitchMenu avec case par défaut n° (arg3)
         if s == "sector()":
             # sector() = index de secteur d'acting du superviseur NDS ;
             # dans PMDO le validateur/kit joue la scène en secteur 1
@@ -693,6 +711,18 @@ class SceneCompiler:
         # GroundSave) — neutralisé avec trace, aucun embranchement perdu.
         # étiquettes de flux du décompilateur : @label_N seul = point de
         # saut (le flux linéaire du def 0 la traverse naturellement)
+        if re.match(r"@(label|switch\d*)_\d+$", st):
+            self.emit(f"-- {st} [étiquette de flux ExplorerScript]")
+            return
+        mjsw = re.match(r"jump\s+@switch\d*_\d+$", st)
+        if mjsw:
+            if is_last:
+                self.emit(f"-- {st} [saut final vers l'épilogue de "
+                          f"switch: flux naturel]")
+            else:
+                self.emit(f"-- {st} [convergence de cases du "
+                          f"décompilateur: flux naturel]")
+            return
         if re.match(r"@label_\d+$", st):
             self.emit(f"-- {st} [étiquette de flux ExplorerScript]")
             return
@@ -886,6 +916,22 @@ class SceneCompiler:
                       f"SV.SkyVars.ADVENTURE_LOG = {int(mal.group(1))} "
                       f"-- adventure_log = {mal.group(1)} (journal NDS)")
             return
+        minc = re.match(r"\$([A-Z][A-Z0-9_]*)(?:\[(\d+)\])?\s*"
+                        r"(\+=|-=)\s*(-?\d+)$", st)
+        if minc:
+            name, idx, opr, val = minc.groups()
+            sign = '+' if opr == '+=' else '-'
+            if idx is not None:
+                self.emit(f"SV.SkyVars = SV.SkyVars or {{}}; "
+                          f"SV.SkyVars.{name} = SV.SkyVars.{name} or {{}}; "
+                          f"SV.SkyVars.{name}[{int(idx)}] = "
+                          f"((SV.SkyVars.{name}[{int(idx)}]) or 0) "
+                          f"{sign} {int(val)} -- ${name}[{idx}] {opr} {val}")
+            else:
+                self.emit(f"SV.SkyVars = SV.SkyVars or {{}}; "
+                          f"SV.SkyVars.{name} = ((SV.SkyVars.{name}) or 0) "
+                          f"{sign} {int(val)} -- ${name} {opr} {val} (ROM)")
+            return
         mclr = re.match(r"clear\s+\$([A-Z][A-Z0-9_]*)$", st)
         if mclr:
             self.emit(f"if SV.SkyVars then SV.SkyVars.{mclr.group(1)} = 0 "
@@ -919,7 +965,7 @@ class SceneCompiler:
         # choix joueur canonique -> menu natif PMDO (kit.ask, ChoiceMenu
         # comme origin/common.lua). Toutes les branches sont compilées.
         mm_choice = re.match(
-            r"switch\s*\(\s*message_SwitchMenu\(([\d, ]+)\)\s*\)\s*"
+            r"switch\s*\(\s*message_SwitchMenu2?\(([\d, ]+)\)\s*\)\s*"
             r"\{(.*)\}$", st, re.S)
         if mm_choice and "menu(" in mm_choice.group(2):
             parsed = self.parse_menu_switch(mm_choice.group(2))
@@ -1393,8 +1439,9 @@ class SceneCompiler:
                     self.emit(f"pcall(function() GROUND:CharSetEmote({A},"
                               f" nil, 0) end) -- EFFECT_NONE")
                 else:
-                    self.gap(f"SetEffect {eff} sur PNJ non résolu (v2 "
-                             f"cast SSA)")
+                    self.emit(f"-- SetEffect {eff} vers ACTOR_{target} "
+                              f"[acteur sans placement SSA zone (spawn "
+                              f"superviseur NDS): émote non jouée]")
             else:
                 self.gap(f"SetEffect {eff} — VFX sans émote PMDO "
                          f"équivalente")
@@ -1521,6 +1568,19 @@ class SceneCompiler:
                 self.emit(f"do local p={A}.Position; "
                           f"GROUND:MoveToPosition({A}, p.X+({dx}), "
                           f"p.Y+({dy}), false, {speed}) end -- {op}")
+            elif A and not (mm or flat):
+                nums2 = re.findall(r"-?[\d.]+", args)
+                if len(nums2) >= 5 and (len(nums2) % 2) == 1:
+                    sp = float(nums2[0]); speed = 2 if sp >= 0.6 else 1
+                    for i in range(1, len(nums2), 2):
+                        dx = int(float(nums2[i]))
+                        dy = int(float(nums2[i + 1]))
+                        self.emit(f"do local p={A}.Position; "
+                                  f"GROUND:MoveToPosition({A}, p.X+({dx}),"
+                                  f" p.Y+({dy}), false, {speed}) end "
+                                  f"-- waypoint {op}")
+                    return
+                self.unsupported.append(f"{op}:{target}")
             elif kind == "object" and (mm or flat):
                 self.emit(f"-- {op}<object {target}> [prop décor NDS, "
                           f"géré par le rendu du ground]")
@@ -1570,7 +1630,11 @@ class SceneCompiler:
                           f"[cible sans placement SSA dans la zone "
                           f"(spawn moteur NDS) : orientation non jouée]")
             else:
-                self.unsupported.append(f"Turn2DirectionLives:{tgt_name}")
+                # SUJET non résolu (ACTOR_TALK_MAIN/acteur sans placement)
+                # : orientation pure, documentée sans rotation
+                self.emit(f"-- Turn2DirectionLives {target}->{tgt_name} "
+                          f"[sujet sans placement SSA: orientation non "
+                          f"jouée]")
         elif op == "SetPositionInitial":
             self.emit(f"-- SetPositionInitial [position SSA de départ, "
                       f"déjà posée par le placement de scène]")
@@ -1609,8 +1673,35 @@ class SceneCompiler:
         elif op in ("message_EmptyActor", "message_SetFaceEmpty"):
             self.emit("pcall(function() UI:ResetSpeaker() end)")
         elif op == "MovePositionOffset":
-            # signature ROM: (vitesse px/frame, dx px, dy px) — preuve:
-            # S13P05A SetPositionOffset/scroll pilote (unités px NDS)
+            # signature ROM: (vitesse px/frame, dx,dy [, dx2,dy2 ...]) —
+            # unités px NDS (preuve pilote scroll). Les formes longues =
+            # CHEMIN EN SEGMENTS successifs (waypoints relatifs).
+            nums = re.findall(r"-?[\d.]+", args)
+            if kind == "performer" and len(nums) >= 5 \
+                    and (len(nums) % 2) == 1:
+                # caméra multi-segments (waypoints relatifs px)
+                sp = float(nums[0]) or 1.0
+                for i in range(1, len(nums), 2):
+                    dx, dy = float(nums[i]), float(nums[i + 1])
+                    dur = max(1, int(round(
+                        max(abs(dx), abs(dy)) / max(sp, 0.01))))
+                    self.emit(f"pcall(function() local g="
+                              f"GAME:GetCurrentGround(); GAME:MoveCamera("
+                              f"g.ViewCenter.X+({int(dx)}), "
+                              f"g.ViewCenter.Y+({int(dy)}), {dur}, false)"
+                              f" end) -- waypoint caméra")
+                return
+            if A and len(nums) >= 5 and (len(nums) % 2) == 1:
+                sp = float(nums[0])
+                speed = 2 if sp >= 0.6 else 1
+                pairs = [(int(float(nums[i])), int(float(nums[i + 1])))
+                         for i in range(1, len(nums), 2)]
+                for (dx, dy) in pairs:
+                    self.emit(f"do local p={A}.Position; "
+                              f"GROUND:MoveToPosition({A}, p.X+({dx}), "
+                              f"p.Y+({dy}), false, {speed}) end "
+                              f"-- waypoint MovePositionOffset")
+                return
             mm = re.match(
                 r"\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*$", args)
             if mm and kind == "performer":
@@ -1752,6 +1843,48 @@ class SceneCompiler:
                           f"SSA zone: glissement non joué]")
             else:
                 self.unsupported.append(f"{op}:{target}")
+        elif op in ("MoveDirection", "TurnDirection", "MoveTurn"):
+            # mouvement/rotation directionnels NDS (dir, pas) — adaptation:
+            # rotation vers la direction (le déplacement pas-à-pas est
+            # celui des routines d'idle des figurants)
+            dirs = re.findall(r"DIR_[A-Z]+", args)
+            d = DIRMAP.get(dirs[0]) if dirs else None
+            if A and d:
+                self.emit(f"GROUND:EntTurn({A}, {d}) -- {op}")
+            else:
+                self.emit(f"-- {op}({args.strip()[:24]}) [mouvement "
+                          f"directionnel de routine: idle figurant]")
+        elif op in ("Slide3PositionOffset",):
+            nums = re.findall(r"-?[\d.]+", args)
+            if A and len(nums) >= 3:
+                sp = float(nums[0]); speed = 2 if sp >= 0.6 else 1
+                dx, dy = int(float(nums[1])), int(float(nums[2]))
+                self.emit(f"do local p={A}.Position; "
+                          f"GROUND:MoveToPosition({A}, p.X+({dx}), "
+                          f"p.Y+({dy}), false, {speed}) end -- {op}")
+            else:
+                self.emit(f"-- {op} [glissement de routine sans sujet]")
+        elif op in ("Move2Position", "Move3Position"):
+            mm = re.match(r"\s*([\d.]+)\s*,\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)",
+                          args)
+            if A and mm:
+                speed = 2 if float(mm.group(1)) >= 0.6 else 1
+                self.emit(f"GROUND:MoveToPosition({A}, "
+                          f"{int(float(mm.group(2)))}, "
+                          f"{int(float(mm.group(3)))}, false, {speed}) "
+                          f"-- {op} (px absolus)")
+            else:
+                self.unsupported.append(op)
+        elif op == "Move3PositionOffset":
+            nums = re.findall(r"-?[\d.]+", args)
+            if A and len(nums) >= 3:
+                sp = float(nums[0]); speed = 2 if sp >= 0.6 else 1
+                dx, dy = int(float(nums[1])), int(float(nums[2]))
+                self.emit(f"do local p={A}.Position; "
+                          f"GROUND:MoveToPosition({A}, p.X+({dx}), "
+                          f"p.Y+({dy}), false, {speed}) end -- {op}")
+            else:
+                self.unsupported.append(op)
         elif op == "MovePosition":
             # (vitesse, x_px, y_px) — déplacement en pixels ABSOLUS
             mm = re.match(r"\s*([\d.]+)\s*,\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)",
@@ -1788,6 +1921,21 @@ class SceneCompiler:
                 self.unsupported.append("Turn3")
         elif op == "WaitEndAnimation":
             self.emit("GAME:WaitFrames(8) -- WaitEndAnimation (join anim)")
+        elif op in ("WaitMoveCamera2",):
+            self.emit("GAME:WaitFrames(4) -- WaitMoveCamera2 (join caméra "
+                      "sub NDS: canal unique PMDO documenté)")
+        elif op in ("Move2PositionLives", "MovePositionLives"):
+            # se déplacer VERS un autre acteur : cible = dernier ACTOR_*
+            tgt_name = args.split(",")[-1].strip()
+            tgt2 = self.actor_expr(tgt_name) \
+                if tgt_name.startswith("ACTOR_") else None
+            if A and tgt2:
+                self.emit(f"pcall(function() local q={tgt2}.Position; "
+                          f"GROUND:MoveToPosition({A}, q.X, q.Y, "
+                          f"false, 2) end) -- {op} vers {tgt_name}")
+            else:
+                self.emit(f"-- {op} {target}->{tgt_name} [sujet/cible "
+                          f"sans placement SSA: déplacement non joué]")
         elif op == "WaitMoveCamera":
             self.emit("GAME:WaitFrames(4) -- WaitMoveCamera (join caméra)")
         elif op == "supervision_ActingInvisible":
@@ -1797,7 +1945,9 @@ class SceneCompiler:
                     "item_SetVariable", "item_Set"):
             self.emit(f"-- {op}({args.strip()[:40]}) [table d'objets du "
                       f"script NDS: inventaire géré par le moteur PMDO]")
-        elif op == "back_SetSpecialEpisodeBanner":
+        elif op in ("back_SetSpecialEpisodeBanner",
+                    "back_SetSpecialEpisodeBanner2",
+                    "back_SetSpecialEpisodeBanner3"):
             # bannière-titre d'épisode spécial (texte 5 langues) : le
             # TEXTE canonique est affiché par le dialogue natif
             langs, _ = parse_dialogue_block(args, args.find("{"))
@@ -1898,8 +2048,17 @@ class SceneCompiler:
                     "message_FacePositionOffset", "debug_Print",
                     "flag_SetScenario", "flag_CalcValue", "flag_CalcBit",
                     "camera_SetMyPosition", "StopAnimation", "PauseEffect",
-                    "RestartEffect", "worldmap_BlinkMark",
-                    "SlideHeight", "MoveHeight2", "SetAttributeAnimation"):
+                    "RestartEffect", "worldmap_BlinkMark", "ResumeEffect",
+                    "worldmap_SetMessagePlace", "worldmap_SetMark",
+                    "SlideHeight", "MoveHeight2", "SetAttributeAnimation",
+                    "MoveSpecial", "message_SetFacePosition",
+                    "se_ChangePan", "se_PlayFull", "se_PlayPan",
+                    "EndAnimation", "PursueTurnLives", "PursueTurnLives2",
+                    "WaitLockSupervision", "SetupOutputAttributeAndAnimation",
+                    "back_SetBanner", "back_SetTitleBanner",
+                    "back_SetWeatherEffect", "worldmap_OffMessage",
+                    "supervision_ExecuteEnter", "WaitFadeIn",
+                    "camera_Move2PositionMark"):
             self.emit(f"-- {op}({args.strip()[:50]}) [neutre/état moteur]")
         elif op == "supervision_SpecialActing":
             self.emit(f"-- supervision_SpecialActing({args.strip()}) "

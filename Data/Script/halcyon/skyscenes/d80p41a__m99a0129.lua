@@ -37,7 +37,7 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecutePerformer
   -- supervision_Acting(3) [neutre/état moteur]
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   GAME:WaitFrames(30)
   GAME:WaitFrames(2) -- join WaitSe
   GROUND:MoveToPosition(hero, 332, 236, false, 2)

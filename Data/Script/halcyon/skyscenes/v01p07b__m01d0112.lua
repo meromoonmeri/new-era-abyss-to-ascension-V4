@@ -16,5 +16,5 @@ return function(hero, partner)
   GAME:WaitFrames(90)
   GAME:WaitFrames(150)
   GAME:FadeOut(false, 30)
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
 end

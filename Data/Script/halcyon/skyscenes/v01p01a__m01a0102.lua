@@ -42,8 +42,8 @@ return function(hero, partner)
   SkySubScreen.Hide(60) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   GAME:FadeOut(false, 60)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_10 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   GAME:WaitFrames(180)
   SkySubScreen.Hide(10) -- fin de scène: nappe sub retirée
 end

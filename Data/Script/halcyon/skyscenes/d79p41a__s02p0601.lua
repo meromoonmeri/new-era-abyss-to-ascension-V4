@@ -32,7 +32,7 @@ return function(hero, partner)
   -- ExecuteCommon(CORO_LOOK_AROUND_DOWN_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(7)
   -- ExecuteCommon(CORO_LOOK_AROUND_RIGHT_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   GAME:WaitFrames(30)
   -- message_ResetActor() [neutre/état moteur]
   pcall(function() UI:ResetSpeaker() end)
@@ -44,7 +44,7 @@ return function(hero, partner)
   GAME:FadeOut(true, 30) -- screen_WhiteOutAll
   -- supervision_Acting(1) [neutre/état moteur]
   GAME:WaitFrames(45)
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
   GROUND:EntTurn(hero, Direction.Up)
@@ -77,6 +77,6 @@ return function(hero, partner)
   GAME:WaitFrames(30)
   GAME:FadeOut(true, 30) -- screen_WhiteOutAll
   GAME:WaitFrames(30)
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   SkySceneKit.cleanup_npcs()
 end

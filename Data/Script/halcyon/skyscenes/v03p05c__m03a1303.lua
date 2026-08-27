@@ -23,5 +23,5 @@ return function(hero, partner)
   pcall(function() SOUND:FadeOutBGM(120) end)
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(2) -- join WaitBgm
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
 end

@@ -46,7 +46,7 @@ return function(hero, partner)
   GAME:WaitFrames(5)
   -- GAP: se_Play(7690) — id SE NDS sans portage PMDO identifié
   GAME:FadeOut(true, 5) -- screen_WhiteOutAll
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   GAME:FadeOut(true, 0) -- screen_WhiteOut
   GAME:FadeIn(0)
   if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4

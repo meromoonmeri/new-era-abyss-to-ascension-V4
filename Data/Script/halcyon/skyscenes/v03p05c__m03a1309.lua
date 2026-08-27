@@ -17,5 +17,5 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteObject(OBJECT_V01P07B1_207) [routine d'objet NDS non simulée - documenté]
   GAME:WaitFrames(60)
   GAME:FadeOut(false, 15)
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
 end

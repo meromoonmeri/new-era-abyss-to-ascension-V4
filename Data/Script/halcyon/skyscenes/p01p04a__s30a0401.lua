@@ -37,10 +37,10 @@ return function(hero, partner)
   -- GAP: SetEffect EFFECT_CONFETTI — VFX sans émote PMDO équivalente
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(60)
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_4 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
+  -- SetEffect EFFECT_NONE vers ACTOR_5 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
+  -- SetEffect EFFECT_NONE vers ACTOR_6 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
+  -- SetEffect EFFECT_NONE vers ACTOR_7 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   -- se_FadeOut(7944, 30) [SE one-shot PMDO déjà terminé: fondu sans objet, canal SE V2]
   GAME:WaitFrames(30)
   pcall(function() UI:SetSpeaker(npc_npc_soonano) end)

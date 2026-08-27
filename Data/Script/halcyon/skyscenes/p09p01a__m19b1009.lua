@@ -161,7 +161,7 @@ return function(hero, partner)
   -- Destroy() [neutre/état moteur]
   -- supervision_RemoveActing(1) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- Destroy() [neutre/état moteur]
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   -- GAP: SetEffect 651 — VFX sans émote PMDO équivalente
   -- GAP: se_Play(7439) — id SE NDS sans portage PMDO identifié
   GAME:WaitFrames(80)

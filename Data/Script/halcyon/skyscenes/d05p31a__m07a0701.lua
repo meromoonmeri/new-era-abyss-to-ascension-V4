@@ -610,7 +610,7 @@ return function(hero, partner)
   -- message_CloseEnforce
   -- supervision_RemoveActing(1) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- SetAnimation(24) [anim idle native]
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   -- supervision_RemoveActing(3) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- se_FadeOut(6913, 90) [SE one-shot PMDO déjà terminé: fondu sans objet, canal SE V2]
   GAME:WaitFrames(90)

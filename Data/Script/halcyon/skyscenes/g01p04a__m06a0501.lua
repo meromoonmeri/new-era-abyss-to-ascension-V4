@@ -122,7 +122,7 @@ return function(hero, partner)
   -- message_Close
   -- se_FadeOut(6661, 30) [SE one-shot PMDO déjà terminé: fondu sans objet, canal SE V2]
   GROUND:EntTurn(npc_npc_bippa, Direction.UpLeft)
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   GAME:WaitFrames(30)
   pcall(function() SOUND:PlayBGM("Team Skull.ogg", true) end)
   -- supervision_Acting(1) [neutre/état moteur]

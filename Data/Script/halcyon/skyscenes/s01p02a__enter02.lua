@@ -1,0 +1,271 @@
+-- GÉNÉRÉ par dev/tools/sky_compile_scenes.py — NE PAS ÉDITER À LA MAIN.
+-- Scène canonique PMD Sky EU : SCRIPT/S01P02A/enter02.ssb (ROM sha256 1fa39d35…).
+-- Dialogues 5 langues ROM embarqués ; conventions du pilote m01a0204.
+local SkySceneKit = require 'halcyon.skyscenes.kit'
+return function(hero, partner)
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- SetAnimation(2) [anim idle native]
+  local npc_npc_perippaa1 = SkySceneKit.spawn_npc("pelipper", 240, 120, Direction.Down, "NPC_PERIPPAA1")
+  pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_perippaa1, 4) end)
+  if ((SV.SkyTalkBitFlags or {})[119] == 1) then -- if ROM: $SCENARIO_TALK_BIT_FLAG[119]
+  -- @label_0 [étiquette de flux ExplorerScript]
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Hello! Would you like to go on a\nrescue?", french="Salut! Vous voulez partir en\nmission de sauvetage?", german="Hallo! Möchtest du dich auf eine\nRettungsmission begeben?", italian="Ciao! Vuoi fare un tentativo di\nPronto Intervento?", spanish="¡Hola! ¿Queréis iniciar un\nrescate?"})
+  do local __choice = SkySceneKit.ask({{english="Yes", french="Oui", german="Ja", italian="Sì", spanish="Sí"}, {english="No", french="Non", german="Nein", italian="No", spanish="No"}}) -- message_SwitchMenu(0, 1) ROM
+  if __choice == 1 then
+  -- @label_1 [étiquette de flux ExplorerScript]
+  do local __sw = ((SV.SkyProcResults or {})["PROCESS_SPECIAL_GET_S_O_S_MAIL_COUNT"] or 0) -- switch(ProcessSpecial(PROCESS_SPECIAL_GET_S_O_S_MAIL_COUN) [ProcessSpecial(PROCESS_SPECIAL_GET_S_O_S_MAIL_COUNT): retour du procédé arm9 (SV harnais, défaut 0 état vierge)]
+  if __sw <= 0 then
+  -- @label_3 [étiquette de flux ExplorerScript]
+  GAME:WaitFrames(2) -- join WaitSubScreen (fondu sub déjà séquencé par SubScreen)
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Hmm...[K] You haven't got an\n[CS:E]SOS Mail[CR].", french="Hmmm...[K] Vous n'avez pas de\n[CS:E]Lettre S.O.S.[CR]", german="Nanu?[K] Du verfügst ja über gar\nkeinen [CS:E]SOS-Brief[CR].", italian="Eh, no...[K] Non hai ricevuto\nnessun [CS:E]SOS[CR].", spanish="Hum...[K] No tenéis ninguna\n[CS:E]carta de SOS[CR]."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="You may accept [CS:E]SOS Mail[CR] on the\nTop Menu.", french="Pour accepter une [CS:E]Lettre S.O.S.[CR],\nutilisez le menu principal.", german="Einen [CS:E]SOS-Brief[CR] kannst du im\nHauptmenü entgegennehmen.", italian="Puoi accettare un [CS:E]SOS[CR] dal\nmenu principale.", spanish="Antes de iniciar un rescate, hay\nque aceptar una [CS:E]carta de SOS[CR] en el menú\nprincipal."})
+  -- JumpCommon(CORO_END_TALK) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  elseif true then -- default
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Please choose an [CS:E]SOS Mail[CR].\nThat will be the rescue you will undertake.", french="Veuillez choisir une [CS:E]Lettre\nS.O.S.[CR] pour partir à la rescousse\nde l'expéditeur.", german="Bitte wähle einen [CS:E]SOS-Brief[CR],\num die Rettung zu bestimmen, die du antreten\nmöchtest.", italian="Per intraprendere una missione\ndi soccorso, devi scegliere un [CS:E]SOS[CR].", spanish="Escoged la [CS:E]carta de SOS[CR] cuyo\nrescate queréis realizar."})
+  -- message_Close
+  do local __sw = ((SV.SkyMenuResults or {})["MENU_S_O_S_MAIL_PICKER"] or 0) -- switch(message_Menu(MENU_S_O_S_MAIL_PICKER)) [message_Menu(MENU_S_O_S_MAIL_PICKER): menu moteur NDS (retour par défaut 0, branches préservées)]
+  if __sw == 0 then
+  -- @switch4_134 [étiquette de flux ExplorerScript]
+  -- @label_4 [étiquette de flux ExplorerScript]
+  GAME:WaitFrames(2) -- join WaitSubScreen (fondu sub déjà séquencé par SubScreen)
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Very good! I'll show you to the\nrescue site right away!", french="Parfait! Je vous conduis au site\nde sauvetage immédiatement!", german="Sehr gut! Ich werde euch sofort\nden Rettungsort zeigen!", italian="Molto bene! Ti porto subito al\nluogo in cui tenterai di soccorrere il tuo\namico.", spanish="¡Muy bien! ¡Os llevaré ahora\nmismo al lugar del rescate!"})
+  -- message_Close
+  pcall(function() SOUND:FadeOutBGM(60) end)
+  -- bgm2_FadeOut [canal BGM sub: voir bgm2_Play]
+  -- switch(message_Menu(MENU_DUNGEON_INITIALIZE_TEAM)) [menu système NDS sans embranchement (corps vide): équivalent géré par le moteur PMDO]
+  SV.SkyScenarioBitFlags = SV.SkyScenarioBitFlags or {}; SV.SkyScenarioBitFlags[40] = 1 -- $SCENARIO_MAIN_BIT_FLAG[40] = 1 (ROM)
+  do local __sw = 0 -- switch(main_EnterRescueUser(30)) [main_EnterRescueUser(30): écran rescue Wi-Fi NDS (rescue natif PMDO; retour 0 fermeture, branches préservées)]
+  if __sw == 0 then
+  -- @label_2 [étiquette de flux ExplorerScript]
+  GAME:WaitFrames(2) -- join WaitSubScreen (fondu sub déjà séquencé par SubScreen)
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="I see...[K] If you would like to go\non a rescue, please do tell me.", french="Je vois...[K] Si vous voulez partir\nen mission de sauvetage, faites-le-moi savoir.", german="Verstehe.[K] Wenn du dich auf eine\nRettung begeben möchtest, lass es mich bitte\nwissen.", italian="Capisco...[K] Fammi sapere quando\nvuoi provare una missione di soccorso.", spanish="Entendido...[K] Si queréis iniciar un\nrescate avisadme."})
+  -- JumpCommon(CORO_END_TALK) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  elseif true then -- default
+  pcall(function() SOUND:FadeOutBGM(30) end)
+  GAME:WaitFrames(1) -- hold
+  end
+  end
+  elseif __sw == 1 then
+  -- jump @label_2 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif __sw == 2 then
+  -- jump @label_3 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif __sw == 3 then
+  GAME:WaitFrames(2) -- join WaitSubScreen (fondu sub déjà séquencé par SubScreen)
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Hmm...[K] Where is this dungeon\nthat's described on this [CS:E]SOS Mail[CR]?", french="Hmmm...[K] Où se trouve le\ndonjon décrit dans cette [CS:E]Lettre S.O.S.[CR]?", german="Nanu?[K] Wo soll dieser Dungeon\nsein, der in diesem [CS:E]SOS-Brief[CR] beschrieben\nwird?", italian="Eh, no...[K] Dov'è il dungeon\ndi cui si parla in questo [CS:E]SOS[CR]?", spanish="Hum...[K] ¿Dónde está el territorio\ndescrito en esta [CS:E]carta de SOS[CR]?"})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="I can't send you to a dungeon if\nyou don't know its location.", french="Je ne peux pas vous envoyer\ndans un donjon si vous ne savez pas\noù il se trouve.", german="Ich kann dich nicht in einen\nDungeon schicken, dessen Lage dir nicht bekannt\nist.", italian="Non posso mandarti in un\ndungeon se non sai dove si trova.", spanish="No puedo llevaros a un territorio\nsi no sabéis dónde está."})
+  -- @label_19 [étiquette de flux ExplorerScript]
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Would you like to go on a\ndifferent rescue?", french="Vous voulez effectuer une autre\nmission de sauvetage?", german="Möchtest du dich auf eine andere\nRettungsmission begeben?", italian="Vuoi provare una missione di\nPronto Intervento diversa?", spanish="¿Queréis iniciar un rescate\ndiferente?"})
+  do local __choice = SkySceneKit.ask({{english="Yes", french="Oui", german="Ja", italian="Sì", spanish="Sí"}, {english="No", french="Non", german="Nein", italian="No", spanish="No"}}) -- message_SwitchMenu(0, 1) ROM
+  if __choice == 2 then
+  -- jump @label_2 [saut final de branche vers l'épilogue commun: flux naturel]
+  else -- default/annulation
+  -- jump @label_1 [saut final de branche vers l'épilogue commun: flux naturel]
+  end
+  end
+  elseif __sw == 5 then
+  GAME:WaitFrames(2) -- join WaitSubScreen (fondu sub déjà séquencé par SubScreen)
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Hmm...[K] I'm sorry, but you're not\nqualified to respond to this [CS:E]SOS Mail[CR].", french="Hmmm...[K] Désolé, mais vous\nn'avez pas les qualifications requises pour\nrépondre à cette [CS:E]Lettre S.O.S.[CR]", german="Nanu?[K] Es tut mir leid, aber\ndu bist nicht berechtigt, auf diesen [CS:E]SOS-Brief[CR]\nzu antworten.", italian="Eh, no...[K] Mi spiace, ma non hai i\nrequisiti necessari per accettare questo [CS:E]SOS[CR].", spanish="Hum...[K] Lo lamento, pero me temo\nque no podéis responder a esta [CS:E]carta de SOS[CR]."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="You may not go on this rescue\nuntil you have completed your own exploration\nof this dungeon.", french="Vous ne pourrez effectuer ce\nsauvetage qu'après avoir exploré ce donjon\npour votre propre compte.", german="Du kannst dich nicht auf diese\nRettung begeben, solange du die Erkundung\ndieses Dungeon nicht selbst abgeschlossen hast.", italian="Potrai tentare questa missione\ndi soccorso soltanto quando avrai completato\nl'esplorazione di questo dungeon.", spanish="No podéis iniciar este rescate\nhasta que no hayáis finalizado vuestra\nexploración de este territorio."})
+  -- jump @label_19 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif __sw == 4 then
+  GAME:WaitFrames(2) -- join WaitSubScreen (fondu sub déjà séquencé par SubScreen)
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Hmm...[K] I'm sorry, but you're not\nqualified to respond to this [CS:E]SOS Mail[CR].", french="Hmmm...[K] Désolé, mais vous\nn'avez pas les qualifications requises pour\nrépondre à cette [CS:E]Lettre S.O.S.[CR]", german="Nanu?[K] Es tut mir leid, aber\ndu bist nicht berechtigt, auf diesen [CS:E]SOS-Brief[CR]\nzu antworten.", italian="Eh, no...[K] Mi spiace, ma non hai i\nrequisiti necessari per accettare questo [CS:E]SOS[CR].", spanish="Hum...[K] Lo siento, pero no podéis\nresponder a esta [CS:E]carta de SOS[CR]."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="You may only go on a rescue\nhere up to the floor you have reached before.", french="Vous ne pouvez effectuer un\nsauvetage dans ce donjon qu'aux étages\nque vous avez explorés au préalable.", german="Du kannst dich hier nur auf eine\nRettung bis zu der von dir zuvor erreichten\nEbene begeben.", italian="Puoi soccorrere solo amici che\nsi trovano su un piano del dungeon che\nhai già esplorato prima.", spanish="Solo podéis acudir a rescates\nque tengan lugar en pisos que ya habéis\nvisitado."})
+  -- jump @label_19 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif __sw == 20 then
+  GAME:WaitFrames(2) -- join WaitSubScreen (fondu sub déjà séquencé par SubScreen)
+  do local __sw = ((SV.SkyProcResults or {})["PROCESS_SPECIAL_IS_TEAM_SETUP_HERO_AND_PARTNER_ONLY"] or 0) -- switch(ProcessSpecial(PROCESS_SPECIAL_IS_TEAM_SETUP_HERO_) [ProcessSpecial(PROCESS_SPECIAL_IS_TEAM_SETUP_HERO_AND_PARTNER_ONLY): retour du procédé arm9 (SV harnais, défaut 0 état vierge)]
+  if __sw == 1 then
+  -- jump @label_4 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif true then -- default
+  do local __sw = ((SV.SkyProcResults or {})["PROCESS_SPECIAL_IS_TEAM_SETUP_PARTNER_AND_HERO_ONLY"] or 0) -- switch(ProcessSpecial(PROCESS_SPECIAL_IS_TEAM_SETUP_PARTN) [ProcessSpecial(PROCESS_SPECIAL_IS_TEAM_SETUP_PARTNER_AND_HERO_ONLY): retour du procédé arm9 (SV harnais, défaut 0 état vierge)]
+  if __sw == 1 then
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="For going to the [CS:P]Hidden Land[CR],\n[hero] will be made the team leader.\nIs that OK?", french="Quand vous irez dans les\n[CS:P]Terres Illusoires[CR], ce sera [hero] le\nmeneur. Ça vous convient?", german="Für die Reise in das\n[CS:P]Verborgene Land[CR] wird [hero] zum\nAnführer des Teams ernannt. Ist das okay?", italian="Per andare alla [CS:P]Terra Nascosta[CR],\n[hero] sarà il leader della squadra,\nva bene?", spanish="Para ir a la [CS:P]Tierra Oculta[CR],\n[hero] deberá liderar el grupo. ¿Os\nparece bien?"})
+  -- @label_23 [étiquette de flux ExplorerScript]
+  do local __choice = SkySceneKit.ask({{english="Yes", french="Oui", german="Ja", italian="Sì", spanish="Sí"}, {english="No", french="Non", german="Nein", italian="No", spanish="No"}}) -- message_SwitchMenu(0, 2) ROM
+  if __choice == 2 then
+  -- jump @label_2 [saut final de branche vers l'épilogue commun: flux naturel]
+  else -- default/annulation
+  -- switch(ProcessSpecial(PROCESS_SPECIAL_SET_TEAM_SETUP_HERO_AND_PARTNER_ONLY, 0) [procédé/menu moteur NDS, corps vide: aucun embranchement canonique — équivalent moteur PMDO]
+  -- jump @label_4 [saut final de branche vers l'épilogue commun: flux naturel]
+  end
+  end
+  elseif true then -- default
+  -- @label_22 [étiquette de flux ExplorerScript]
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="For going to the [CS:P]Hidden Land[CR],\nyour team must consist of only [hero]\nand [partner]. Is that OK?", french="Pour aller dans les [CS:P]Terres\nIllusoires[CR], votre équipe ne doit comprendre que\n[hero] et [partner]. C'est d'accord?", german="Auf der Reise in das\n[CS:P]Verborgene Land[CR] darf euer Team nur aus\n[hero] und [partner] bestehen. Okay?", italian="Per andare alla [CS:P]Terra Nascosta[CR],\nla squadra sarà composta solo da\n[hero] e [partner], va bene?", spanish="Para ir a la [CS:P]Tierra Oculta[CR], tu\nequipo solo puede estar formado por\n[hero] y [partner]. ¿Os parece bien?"})
+  -- jump @label_23 [saut final de branche vers l'épilogue commun: flux naturel]
+  end
+  end
+  end
+  end
+  elseif __sw == 21 then
+  GAME:WaitFrames(2) -- join WaitSubScreen (fondu sub déjà séquencé par SubScreen)
+  do local __sw = ((SV.SkyProcResults or {})["PROCESS_SPECIAL_IS_TEAM_SETUP_HERO_AND_PARTNER_ONLY"] or 0) -- switch(ProcessSpecial(PROCESS_SPECIAL_IS_TEAM_SETUP_HERO_) [ProcessSpecial(PROCESS_SPECIAL_IS_TEAM_SETUP_HERO_AND_PARTNER_ONLY): retour du procédé arm9 (SV harnais, défaut 0 état vierge)]
+  if __sw == 1 then
+  -- jump @label_4 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif true then -- default
+  do local __sw = ((SV.SkyProcResults or {})["PROCESS_SPECIAL_IS_TEAM_SETUP_PARTNER_AND_HERO_ONLY"] or 0) -- switch(ProcessSpecial(PROCESS_SPECIAL_IS_TEAM_SETUP_PARTN) [ProcessSpecial(PROCESS_SPECIAL_IS_TEAM_SETUP_PARTNER_AND_HERO_ONLY): retour du procédé arm9 (SV harnais, défaut 0 état vierge)]
+  if __sw == 1 then
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="For going to [CS:P]Temporal Tower[CR],\n[hero] will be made the team leader.\nIs that OK?", french="Pour aller à la [CS:P]Tour du Temps[CR],\nce sera [hero] le meneur.\nC'est d'accord?", german="Für die Reise zum [CS:P]Zeitturm[CR] wird\n[hero] zum Anführer des Teams\nernannt. Ist das okay?", italian="Per andare alla [CS:P]Torre del Tempo[CR],\n[hero] sarà il leader, va bene?", spanish="Para ir a la [CS:P]Torre del Tiempo[CR],\n[hero] debe convertirse en líder\ndel grupo. ¿Os parece bien?"})
+  -- jump @label_23 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif true then -- default
+  -- @label_25 [étiquette de flux ExplorerScript]
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="For going to [CS:P]Temporal Tower[CR],\nyour team must consist of only [hero]\nand [partner]. Is that OK?", french="Pour aller à la [CS:P]Tour du Temps[CR],\nvotre équipe ne doit comprendre que\n[hero] et [partner]. C'est d'accord?", german="Auf der Reise zum [CS:P]Zeitturm[CR]\ndarf euer Team nur aus [hero] und\n[partner] bestehen. Ist das okay?", italian="Per andare alla [CS:P]Torre del Tempo[CR],\nla squadra sarà composta solo da\n[hero] e [partner], va bene?", spanish="Para ir a la [CS:P]Torre del Tiempo[CR], el\nequipo solo puede estar formado por\n[hero] y [partner]. ¿Os parece bien?"})
+  -- jump @label_23 [saut final de branche vers l'épilogue commun: flux naturel]
+  end
+  end
+  end
+  end
+  elseif __sw == 22 then
+  -- jump @switch4_134 [saut final vers l'épilogue de switch: flux naturel]
+  elseif __sw == 23 then
+  GAME:WaitFrames(2) -- join WaitSubScreen (fondu sub déjà séquencé par SubScreen)
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="There is a restriction placed on\n[CS:P]Zero Isle North[CR].", french="L'[CS:P]Ile Zéro Nord[CR] est soumise à\nrestrictions.", german="Auf der [CS:P]Null-Insel Nord[CR] gibt es\neine Einschränkung.", italian="Sull'[CS:P]Isola Zero Nord[CR] c'è una\nlimitazione.", spanish="Hay una restricción sobre la\n[CS:P]Isla Cero Norte[CR]."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="In [CS:P]Zero Isle North[CR], you will not\nearn Experience Points from the Pokémon you\ndefeat. Is that OK?", french="Sur l'[CS:P]Ile Zéro Nord[CR], vous ne\ngagnerez pas de points Exp. en battant vos\nennemis. C'est d'accord?", german="Auf der [CS:P]Null-Insel Nord[CR]\nbekommst du keine Erfahrungspunkte durch das\nBesiegen von Pokémon. Ist das okay?", italian="Sull'[CS:P]Isola Zero Nord[CR], non\nsi ottengono Punti Esperienza dai Pokémon che\nmandate KO. Va bene?", spanish="En la [CS:P]Isla Cero Norte[CR] no se\nobtienen Puntos de Experiencia al derrotar\nPokémon. ¿Os parece bien?"})
+  -- @label_26 [étiquette de flux ExplorerScript]
+  do local __choice = SkySceneKit.ask({{english="Yes", french="Oui", german="Ja", italian="Sì", spanish="Sí"}, {english="No", french="Non", german="Nein", italian="No", spanish="No"}}) -- message_SwitchMenu(0, 2) ROM
+  if __choice == 1 then
+  -- jump @label_4 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif __choice == 2 then
+  -- jump @label_2 [saut final de branche vers l'épilogue commun: flux naturel]
+  else -- default/annulation
+  -- jump @label_23 [saut final de branche vers l'épilogue commun: flux naturel]
+  end
+  end
+  elseif __sw == 24 then
+  GAME:WaitFrames(2) -- join WaitSubScreen (fondu sub déjà séquencé par SubScreen)
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="There are certain restrictions\non going to [CS:P]Zero Isle East[CR].", french="En allant sur l'[CS:P]Ile Zéro Est[CR],\nvous devez vous soumettre à certaines\nrestrictions.", german="Das Betreten der [CS:P]Null-Insel Ost[CR]\nbringt verschiedene Einschränkungen mit sich.", italian="Sull'[CS:P]Isola Zero Est[CR] ci sono\nalcune limitazioni.", spanish="Hay ciertas restricciones para\nir a la [CS:P]Isla Cero Este[CR]."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Items in your Treasure Bag\nfrom the 17th slot and beyond will be lost.[K]\nAnd all team members will be put at Level 1.", french="Vous ne pouvez conserver que\nles 16 premiers objets de votre Sac à Trésor.\nLe niveau des membres de l'équipe tombe à 1.", german="Items in deinem Schatzbeutel\ngehen vom 17. Platz abwärts verloren.[K] Deine\nTeam-Mitglieder werden auf Level 1 gesetzt.", italian="Gli strumenti nella Sacca dei\ntesori dal 17° in poi andranno persi.[K]\nE tutti i membri della squadra saranno al L. 1.", spanish="Solo se pueden llevar los 17\nprimeros objetos de la Bolsa.[K] Y todos los\nmiembros del equipo volverán al Nivel 1."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Oh, about the level reduction to\nLevel 1... It's only temporary.", french="Ah, au fait... la baisse de niveau\nn'est que temporaire.", german="Oh, was die Levelreduzierung\nauf Level 1 anbelangt... Das ist nur\nvorübergehend.", italian="Ah, la riduzione al L. 1 è\nsoltanto temporanea!", spanish="Ah, pero no hay que preocuparse\npor esa reducción de nivel... solo es temporal."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="When you exit the dungeon, all\nteam members will be returned to their\noriginal levels. No need for worry!", french="Au sortir du donjon, les membres\nde l'équipe retrouveront leur niveau\nde départ! Pas d'inquiétude à avoir!", german="Wenn du den Dungeon verlässt,\nwerden deine Team-Mitglieder auf ihre\nUrsprungslevel zurückgesetzt, keine Sorge!", italian="Uscendo dal dungeon, tutti i\nmembri della squadra torneranno al livello che\navevano raggiunto. Non ti preoccupare!", spanish="Cuando salgáis del territorio,\ntodos los miembros del equipo recuperarán\nsu nivel original. ¡Al final no es para tanto!"})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Those are the restrictions for\nthis dungeon.[K] Would you like to go there for\na rescue?", french="Voilà pour les restrictions\nrelatives à ce donjon.[K] Vous voulez y aller en\nmission de sauvetage?", german="Das sind die Einschränkungen für\ndiesen Dungeon.[K] Möchtest du dich für eine\nRettung dorthin begeben?", italian="Queste sono le limitazioni per\nil dungeon...[K] Vuoi andarci per affrontare\nuna missione di Pronto Intervento?", spanish="Esas son las restricciones del\nterritorio.[K] ¿Queréis realizar el rescate?"})
+  -- jump @label_26 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif __sw == 25 then
+  GAME:WaitFrames(2) -- join WaitSubScreen (fondu sub déjà séquencé par SubScreen)
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="There are certain restrictions\non going to [CS:P]Zero Isle West[CR].", french="En allant sur l'[CS:P]Ile Zéro Ouest[CR],\nvous devez vous soumettre à certaines\nrestrictions.", german="Das Betreten der\n[CS:P]Null-Insel West[CR] bringt verschiedene\nEinschränkungen mit sich.", italian="Ci sono alcune limitazioni\nsull'[CS:P]Isola Zero Ovest[CR].", spanish="Hay ciertas restricciones para\nir a la [CS:P]Isla Cero Oeste[CR]."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="All items in your Treasure Bag\nwill be lost.[K] All team members will also be\ndropped to Level 1.", french="Tous les objets de votre Sac à\nTrésor seront perdus.[K] Et le niveau des\nmembres de l'équipe tombera à 1.", german="Du verlierst alle Items in deinem\nSchatzbeutel.[K] Deine Team-Mitglieder werden\nferner auf Level 1 zurückgesetzt.", italian="Perderete tutti gli strumenti che\navete nella Sacca dei tesori.[K] In più, i membri\ndella squadra torneranno al L. 1.", spanish="Todos los objetos de la Bolsa\nse perderán.[K] Y todos los miembros del\nequipo pasarán a tener Nivel 1."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Oh, about the level reduction to\nLevel 1... It's only temporary.", french="Ah, au fait... la baisse de niveau\nn'est que temporaire.", german="Oh, was die Levelreduzierung\nauf Level 1 anbelangt... Das ist nur\nvorübergehend.", italian="Ah, la riduzione al L. 1 è\nsoltanto temporanea!", spanish="Ah, pero no hay que preocuparse\npor esa reducción de nivel... solo es temporal."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="When you exit the dungeon, all\nteam members will be returned to their\noriginal levels. No need for worry!", french="Au sortir du donjon, les\nmembres de l'équipe retrouveront leur niveau\nde départ! Pas d'inquiétude à avoir!", german="Wenn du den Dungeon verlässt,\nwerden deine Team-Mitglieder auf ihre\nUrsprungslevel zurückgesetzt, keine Sorge!", italian="Uscendo dal dungeon, tutti i\nmembri della squadra torneranno al livello che\navevano raggiunto. Non ti preoccupare!", spanish="Cuando salgáis del territorio,\ntodos los miembros del equipo recuperarán\nsu nivel original. ¡Al final no es para tanto!"})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Those are the restrictions for\nthis dungeon.[K] Would you like to go there for\na rescue?", french="Voilà pour les restrictions\nrelatives à ce donjon.[K] Vous voulez y aller en\nmission de sauvetage?", german="Das sind die Einschränkungen für\ndiesen Dungeon.[K] Möchtest du dich für eine\nRettung dorthin begeben?", italian="Queste sono le limitazioni per\nil dungeon...[K] Vuoi andarci per affrontare\nuna missione di Pronto Intervento?", spanish="Esas son las restricciones del\nterritorio.[K] ¿Queréis realizar el rescate?"})
+  -- jump @label_26 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif __sw == 26 then
+  GAME:WaitFrames(2) -- join WaitSubScreen (fondu sub déjà séquencé par SubScreen)
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="There are certain restrictions\non going to [CS:P]Zero Isle South[CR].", french="En allant sur l'[CS:P]Ile Zéro Sud[CR],\nvous devez vous soumettre à certaines\nrestrictions.", german="Das Betreten der\n[CS:P]Null-Insel Süd[CR] bringt verschiedene\nEinschränkungen mit sich.", italian="Ci sono alcune limitazioni\nsull'[CS:P]Isola Zero Sud[CR].", spanish="Hay ciertas restricciones para\nir a la [CS:P]Isla Cero Sur[CR]."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="All your money and the items in\nyour Treasure Bag will be lost.", french="Tout votre argent et tous les\nobjets de votre Sac à Trésor seront perdus.", german="All dein Geld sowie all deine\nItems in deinem Schatzbeutel gehen verloren.", italian="Tutti i soldi e gli strumenti\nnella Sacca dei tesori andranno persi.", spanish="Se perderá todo el dinero y\ntodos los objetos que llevéis en la Bolsa."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Only the leader may enter the\ndungeon. Furthermore, the leader's level will\nbe dropped to Level 1. Is that OK?", french="Seul le meneur pourra entrer\ndans le donjon, et son niveau tombera à 1.", german="Nur der Anführer kann den\nDungeon betreten. Des Weiteren wird sein\nLevel auf Level 1 zurückgesetzt.", italian="Solo il leader ha accesso al\ndungeon. Inoltre, tornerà al L. 1.", spanish="Solo el líder del equipo puede\nentrar en el territorio, y su nivel bajará a\nNivel 1."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Oh, about the level reduction to\nLevel 1... It's only temporary.", french="Ah, au fait... la baisse de niveau\nn'est que temporaire.", german="Oh, was die Levelreduzierung\nauf Level 1 anbelangt... Das ist nur\nvorübergehend.", italian="Ah, però la riduzione al L. 1 è\nsoltanto temporanea!", spanish="Ah, pero no hay que preocuparse\npor esa reducción de nivel... solo es temporal."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="When you exit the dungeon, your\nlevel will be returned to the original level.\nNo need for worry!", french="Au sortir du donjon, vous\nretrouverez votre niveau de départ.\nPas d'inquiétude à avoir!", german="Wenn du den Dungeon verlässt,\nwird dein Level auf seinen ursprünglichen\nWert zurückgesetzt, keine Sorge!", italian="Quando uscirai dal dungeon,\nritornerai al livello che avevi raggiunto in\nprecedenza. Non ti preoccupare!", spanish="Al salir del territorio, recobrará\nsu nivel original. ¡No hay de qué preocuparse!"})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Those are the restrictions for\nthis dungeon.[K] Would you like to go there for\na rescue?", french="Voilà pour les restrictions\nrelatives à ce donjon.[K] Vous voulez y aller en\nmission de sauvetage?", german="Das sind die Einschränkungen für\ndiesen Dungeon.[K] Möchtest du dich für eine\nRettung dorthin begeben?", italian="Queste sono le limitazioni per\nil dungeon...[K] Vuoi andarci per affrontare\nuna missione di Pronto Intervento?", spanish="Esas son las restricciones del\nterritorio.[K] ¿Queréis realizar el rescate?"})
+  -- jump @label_26 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif __sw == 27 or __sw == 28 or __sw == 29 or __sw == 30 or __sw == 31 or __sw == 32 or __sw == 33 then
+  GAME:WaitFrames(2) -- join WaitSubScreen (fondu sub déjà séquencé par SubScreen)
+  -- @label_16 [étiquette de flux ExplorerScript]
+  GAME:WaitFrames(2) -- join WaitSubScreen (fondu sub déjà séquencé par SubScreen)
+  if true --[[BranchDebug: retail EU]] then -- if ROM: not debug
+  -- @label_20 [étiquette de flux ExplorerScript]
+  GAME:WaitFrames(2) -- join WaitSubScreen (fondu sub déjà séquencé par SubScreen)
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Hmm...[K] You may not go to this\ndungeon.", french="Hmmm...[K] Vous ne pouvez pas\nvous rendre dans ce donjon.", german="Nanu?[K] Du kannst diesen Dungeon\nnicht betreten.", italian="Eh, no...[K] Non puoi andare in\nquesto dungeon.", spanish="Hum...[K] No podéis ir a este\nterritorio."})
+  -- jump @label_19 [saut final de branche vers l'épilogue commun: flux naturel]
+  else
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="[CS:W]Dungeon Settings Error 1\nRestrictions have been applied to dungeons\nother than Zero Isle.[CR]", french="[CS:W]Paramètres donjon - erreur 1\nDes restrictions ont été appliquées à tous\nles donjons, sauf à l'Ile Zéro.[CR]", german="[CS:W]Dungeon-Einstellungsfehler 1\nAllen Dungeons mit Ausnahme der Null-Insel\nwurden Einschränkungen auferlegt.[CR]", italian="[CS:W]Impostazioni Dungeon Errore 1\nLe limitazioni sono state applicate ai dungeon\ndiversi dall'Isola Zero.[CR]", spanish="[CS:W]Error 1 de configuración de territorio\nHay más restricciones en otros territorios\nademás de en la Isla Cero.[CR]"})
+  -- jump @label_19 [saut final de branche vers l'épilogue commun: flux naturel]
+  end
+  elseif __sw == 18 then
+  -- jump @label_16 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif __sw == 19 then
+  GAME:WaitFrames(2) -- join WaitSubScreen (fondu sub déjà séquencé par SubScreen)
+  if true --[[BranchDebug: retail EU]] then -- if ROM: not debug
+  -- jump @label_20 [saut final de branche vers l'épilogue commun: flux naturel]
+  else
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="[CS:W]Dungeon Settings Error 2\nRestrictions have been applied to dungeons\nother than Zero Isle.[CR]", french="[CS:W]Paramètres donjon - erreur 2\nDes restrictions ont été appliquées à tous\nles donjons, sauf à l'Ile Zéro.[CR]", german="[CS:W]Dungeon-Einstellungsfehler 2\nAllen Dungeons mit Ausnahme der Null-Insel\nwurden Einschränkungen auferlegt.[CR]", italian="[CS:W]Impostazioni Dungeon Errore 2\nLe limitazioni sono state applicate ai dungeon\ndiversi dall'Isola Zero.[CR]", spanish="[CS:W]Error 2 de configuración de territorio\nHay más restricciones en otros territorios\nademás de en la Isla Cero.[CR]"})
+  -- jump @label_19 [saut final de branche vers l'épilogue commun: flux naturel]
+  end
+  elseif __sw == 6 then
+  GAME:WaitFrames(2) -- join WaitSubScreen (fondu sub déjà séquencé par SubScreen)
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Hmm...[K] I'm sorry, but you've\nfailed too often on this rescue. You may no\nlonger respond to this [CS:E]SOS Mail[CR].", french="Hmmm...[K] Vous avez trop\nsouvent échoué au cours de ce sauvetage. Vous\nne pouvez plus répondre à cette [CS:E]Lettre S.O.S.[CR]", german="Nanu?[K] Tut mir leid. Du wurdest\nzu oft bei dieser Rettung besiegt. Du kannst\nauf diesen [CS:E]SOS-Brief[CR] nicht mehr antworten.", italian="Eh, no...[K] Mi spiace, ma hai\nfallito troppe volte questa missione. Per\nquesto [CS:E]SOS[CR], non c'è più nulla da fare.", spanish="Hum...[K] Lo siento, pero habéis\nfracasado demasiadas veces en este rescate.\nNo podéis responder a esta [CS:E]carta de SOS[CR]."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="I'm sorry to say it, but please\ninform your friend that you failed the rescue.", french="Quel dommage! Veuillez informer\nvotre ami que la mission de sauvetage s'est\nsoldée par un échec.", german="Ich bin traurig, das zu sagen,\naber bitte informiere deinen Freund, dass du\nbei der Rettung erfolglos geblieben bist.", italian="Peccato, ma devi informare il\ntuo amico che il tentativo di soccorso non è\nandato a buon fine.", spanish="Siento decirlo, pero tendréis que\ninformar a vuestro amigo de que no habéis\nlogrado rescatarlo."})
+  -- jump @label_19 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif true then -- default
+  -- jump @label_2 [saut final de branche vers l'épilogue commun: flux naturel]
+  end
+  end
+  end
+  end
+  elseif __choice == 2 then
+  -- jump @label_2 [saut final de branche vers l'épilogue commun: flux naturel]
+  else -- default/annulation
+  -- jump @label_19 [saut final de branche vers l'épilogue commun: flux naturel]
+  end
+  end
+  else
+  SV.SkyTalkBitFlags = SV.SkyTalkBitFlags or {}; SV.SkyTalkBitFlags[119] = 1 -- $SCENARIO_TALK_BIT_FLAG[119] = 1 (ROM)
+  SV.SkyScenarioBitFlags = SV.SkyScenarioBitFlags or {}; SV.SkyScenarioBitFlags[40] = 1 -- $SCENARIO_MAIN_BIT_FLAG[40] = 1 (ROM)
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Greetings![K] Welcome to [CS:P]Pelipper\nIsland[CR].", french="Bonjour![K] Bienvenue sur l'[CS:P]Ile\nBekipan[CR].", german="Grüße![K] Willkommen auf der\n[CS:P]Pelipper-Insel[CR].", italian="Buongiorno![K] Ti do il benvenuto\nall'[CS:P]Isola Pelipper[CR].", spanish="¡Saludos![K] Os doy la bienvenida\na la [CS:P]Isla Pelipper[CR]."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="We [CS:K]Pelipper[CR] will help all your\nrescue efforts.", french="Nous, les [CS:K]Bekipan[CR], nous vous\naiderons dans toutes vos tentatives de\nsauvetage.", german="Wir [CS:K]Pelipper[CR] werden dich bei all\ndeinen Rettungsaktionen unterstützen.", italian="Noi [CS:K]Pelipper[CR] ti saremo d'aiuto\nper le missioni di Pronto Intervento.", spanish="Los [CS:K]Pelipper[CR] os ayudaremos\nen cualquier intento de rescate."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="If you would like to rescue a\nfriend, please return with his or her [CS:E]SOS Mail[CR].", french="Si vous souhaitez secourir un\nami, revenez avec sa [CS:E]Lettre S.O.S.[CR]", german="Falls du einen Freund befreien\nmöchtest, kehre bitte mit ihrem oder seinem\n[CS:E]SOS-Brief[CR] zurück.", italian="Se vuoi salvare un amico,\ndevi avere ricevuto il suo [CS:E]SOS[CR].", spanish="Si queréis rescatar a algún\namigo, venid con su [CS:E]carta de SOS[CR]."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="If you succeed with a rescue,\nwe can provide you with a reward. We hope\nyou do your best.", french="En cas de sauvetage réussi, nous\nvous donnerons certainement une récompense.\nFaites de votre mieux.", german="Falls du bei einer Rettung Erfolg\nhast, können wir dich mit einer Vergütung\nbelohnen. Wir hoffen, du gibst dein Bestes.", italian="Se la missione di Pronto\nIntervento va a buon fine, riceverai una\nricompensa. Fai del tuo meglio.", spanish="Si el rescate tiene éxito,\npodremos daros una recompensa.\nEsperamos que lo hagáis muy bien."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Oh, yes...[K] You can't recruit new\nmembers to your team while on a rescue.", french="Ah, oui...[K] Vous ne serez pas\nen mesure de recruter de nouveaux\ncoéquipiers pendant une mission de sauvetage.", german="Oh ja.[K] Du kannst keine weiteren\nneuen Team-Mitglieder rekrutieren, während\ndu auf einer Rettungsmission bist.", italian="Ah, già...[K] Durante una missione\ndi soccorso non puoi reclutare nuovi membri\nper la squadra.", spanish="Ah, sí...[K] Recordad que durante\nlos rescates no podéis reclutar nuevos\nmiembros."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Also, if your team is defeated on\na rescue, you can't call for your own rescue.", french="Et si votre équipe est vaincue\npendant un sauvetage, il vous sera impossible\nde demander de l'aide à votre tour.", german="Ferner kannst du nicht selbst\nHilfe anfordern, wenn dein Team während\neiner Rettungsmission besiegt wird.", italian="Inoltre, se la tua squadra\nviene sconfitta durante un soccorso, non\npotrai ricevere aiuto a tua volta.", spanish="Y también que si vuestro equipo\nes derrotado no podréis pedir a nadie que\nos rescate."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Items and money you obtain\nduring a rescue must be put in storage if you\nwant to take them out in Treasure Town.", french="Déposez l'argent et stockez les\nobjets obtenus en cours de sauvetage pour\npouvoir les récupérer à Bourg-Trésor.", german="Während Rettungen erworbene\nItems und Geld müssen zum Transfer nach\nSchatzstadt im Speicher abgelegt werden.", italian="Strumenti e soldi ottenuti in una\nmissione di soccorso devono essere depositati\nse vuoi riaverli a Borgo Tesoro.", spanish="Almacenad los objetos y el dinero\nque obtengáis en los rescates si queréis\ndisponer de ellos en Aldea Tesoro."})
+  pcall(function() UI:SetSpeaker(npc_npc_perippaa1) end)
+  SkySceneKit.say({english="Would you like to go on a rescue\nright away?", french="Souhaitez-vous partir en mission\nde sauvetage immédiatement?", german="Möchtest du dich sofort auf eine\nRettungsmission begeben?", italian="Vuoi provare una missione di\nPronto Intervento adesso?", spanish=" ¿Queréis rescatar a alguien?"})
+  do local __choice = SkySceneKit.ask({{english="Yes", french="Oui", german="Ja", italian="Sì", spanish="Sí"}, {english="No", french="Non", german="Nein", italian="No", spanish="No"}}) -- message_SwitchMenu(0, 1) ROM
+  if __choice == 1 then
+  -- jump @label_1 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif __choice == 2 then
+  -- jump @label_2 [saut final de branche vers l'épilogue commun: flux naturel]
+  else -- default/annulation
+  -- jump @label_0 [saut final de branche vers l'épilogue commun: flux naturel]
+  end
+  end
+  end
+  SkySceneKit.cleanup_npcs()
+end

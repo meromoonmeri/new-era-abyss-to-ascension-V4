@@ -435,7 +435,7 @@ return function(hero, partner)
   GAME:WaitFrames(45)
   pcall(function() GAME:MoveCamera(304, 252, 60, false) end) -- performer/caméra
   GAME:WaitFrames(2) -- join WaitExecutePerformer
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   GAME:WaitFrames(30)
   do local p=npc_npc_sukatanku.Position; GROUND:MoveToPosition(npc_npc_sukatanku, p.X+(0), p.Y+(12), false, 1) end
   GROUND:EntTurn(partner, Direction.Right)

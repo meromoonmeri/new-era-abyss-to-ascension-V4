@@ -176,7 +176,7 @@ return function(hero, partner)
   -- GAP: se_Play(7449) — id SE NDS sans portage PMDO identifié
   -- screen2_WhiteChange(0, 5, 256, 64) [variation d'alpha du sub déjà révélé: nappe maintenue - documenté]
   GAME:FadeIn(64) -- WhiteChange
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   -- ExecuteCommon(CORO_JUMP_SURPRISE_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Waaah!", french=" Ouaaah!", german=" Uaaah!", italian=" Aaaah!", spanish=" ¡Aaaah!"})

@@ -57,7 +57,7 @@ return function(hero, partner)
   end
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecutePerformer
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   -- SetAnimation(18) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(10)
@@ -71,7 +71,7 @@ return function(hero, partner)
   -- message_CloseEnforce
   -- GAP: se_Play(6927) — id SE NDS sans portage PMDO identifié
   GAME:FadeOut(true, 5) -- screen_WhiteOut
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   -- SetAnimation(2) [anim idle native]
   GAME:WaitFrames(45)
   -- GAP: se_Play(7180) — id SE NDS sans portage PMDO identifié

@@ -47,7 +47,7 @@ return function(hero, partner)
   -- supervision_Acting(1) [neutre/état moteur]
   -- SetOutputAttribute(4) [neutre/état moteur]
   -- SetOutputAttribute(4) [neutre/état moteur]
-  -- GAP: SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)
+  -- SetEffect EFFECT_NONE vers ACTOR_3 [acteur sans placement SSA zone (spawn superviseur NDS): émote non jouée]
   GAME:WaitFrames(10)
   -- MovePositionMark OBJECT_D63P41A2_566 [cible sans placement SSA zone: mouvement non joué]
   GAME:WaitFrames(2) -- join WaitExecuteObject(OBJECT_D63P41A2_566) [routine d'objet NDS non simulée - documenté]
