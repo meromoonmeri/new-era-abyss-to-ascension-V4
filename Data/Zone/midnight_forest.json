@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -1927,7 +1927,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 1,
                   "CharSight": 1,
@@ -2841,7 +2841,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 1,
                   "CharSight": 1,
@@ -3755,7 +3755,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 1,
                   "CharSight": 1,
@@ -4669,7 +4669,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 1,
                   "CharSight": 1,
@@ -5583,7 +5583,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 1,
                   "CharSight": 1,
@@ -6497,7 +6497,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -7411,7 +7411,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -8325,7 +8325,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -9239,7 +9239,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -10153,7 +10153,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -11105,7 +11105,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -12057,7 +12057,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -13009,7 +13009,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -13961,7 +13961,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -14913,7 +14913,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -15865,7 +15865,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -16817,7 +16817,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -17769,7 +17769,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -18721,7 +18721,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -19673,7 +19673,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -20625,7 +20625,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -21539,7 +21539,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -22073,7 +22073,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -22607,7 +22607,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Random Dungeon Theme 1.ogg",
+                  "Music": "Foggy Forest.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -23179,7 +23179,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Star Cave.ogg",
+                  "Music": "Deep Star Cave.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 1,
                   "CharSight": 1,

@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -2582,7 +2582,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Kecleon's Shop.ogg",
+                  "Music": "Sealed Ruin.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -3534,7 +3534,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Kecleon's Shop.ogg",
+                  "Music": "Sealed Ruin.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -4486,7 +4486,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Kecleon's Shop.ogg",
+                  "Music": "Sealed Ruin.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -5438,7 +5438,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Kecleon's Shop.ogg",
+                  "Music": "Sealed Ruin.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -6390,7 +6390,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Kecleon's Shop.ogg",
+                  "Music": "Sealed Ruin.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -7190,7 +7190,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Kecleon's Shop.ogg",
+                  "Music": "Sealed Ruin.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -8104,7 +8104,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Kecleon's Shop.ogg",
+                  "Music": "Sealed Ruin.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -9018,7 +9018,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Kecleon's Shop.ogg",
+                  "Music": "Sealed Ruin.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -9932,7 +9932,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Kecleon's Shop.ogg",
+                  "Music": "Sealed Ruin.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 0,
                   "CharSight": 1,

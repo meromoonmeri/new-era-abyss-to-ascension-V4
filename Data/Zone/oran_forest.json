@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -155,7 +155,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Far Amp Plains.ogg",
+                  "Music": "Blizzard Island Rescue Team Medley.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 1,
                   "CharSight": 1,
@@ -842,7 +842,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Far Amp Plains.ogg",
+                  "Music": "Blizzard Island Rescue Team Medley.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 1,
                   "CharSight": 1,
@@ -1529,7 +1529,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Far Amp Plains.ogg",
+                  "Music": "Blizzard Island Rescue Team Medley.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 1,
                   "CharSight": 1,
@@ -2216,7 +2216,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Far Amp Plains.ogg",
+                  "Music": "Blizzard Island Rescue Team Medley.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 1,
                   "CharSight": 1,
@@ -2903,7 +2903,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                  "Music": "Star Cave.ogg",
+                  "Music": "Deep Star Cave.ogg",
                   "TimeLimit": 1200,
                   "TileSight": 1,
                   "CharSight": 1,

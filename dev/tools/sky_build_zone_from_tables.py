@@ -48,7 +48,10 @@ TSET = {1: "beach_cave", 2: "drenched_bluff", 3: "mt_bristle",
         19: "quicksand_cave", 20: "quicksand_pit",
         22: "crystal_cave_1", 23: "crystal_cave_2", 24: "crystal_crossing",
         26: "chasm_cave", 27: "chasm_cave", 28: "dark_hill",
-        29: "dark_hill", 30: "sealed_ruin", 31: "sealed_ruin_pit",
+        29: "dark_hill", 30: "sealed_ruin",
+        # 31 = tileset des étages ROM de d30 Deep Sealed Ruin (mappa) ->
+        # autotile base PMDO homonyme
+        31: "deep_sealed_ruin",
         33: "dusk_forest_1", 34: "dusk_forest_2",
         35: "deep_dusk_forest_1", 36: "deep_dusk_forest_2",
         37: "treeshroud_forest_1", 38: "treeshroud_forest_2",
@@ -83,62 +86,27 @@ TSET = {1: "beach_cave", 2: "drenched_bluff", 3: "mt_bristle",
 # tileset NDS 180 (d45 clearing) = MAP_BG v00p03 + fixed floor 11 :
 # arène fixe, pipeline sky_build_boss_arenas (pas un donjon procédural).
 
-# music_id mappa -> piste canonique. AUTORITÉ : liste musique donjon arm9
-# overlay10 (HardcodedDungeonMusic : mid -> track) × enum music_id
-# pmdsky-debug (track 21 = MUSIC_BEACH_CAVE…), contre-épreuve jukebox EU
-# (Music Tracks, offset -17) — vérifié 1:1 sur mids 1-18.
-# Le fichier .ogg peut être ABSENT du roster PMDO : la zone garde alors le
-# nom canonique et le trou est documenté par MUSIC_GAP_REPORT.json
-# (REQUIRES_MOD_ASSET), jamais substitué en silence.
-MUSIC = {1: "Beach Cave.ogg", 2: "Drenched Bluff.ogg", 3: "Mt. Bristle.ogg",
-         4: "Waterfall Cave.ogg", 5: "Apple Woods.ogg",
-         6: "Craggy Coast.ogg", 7: "Cave and Side Path.ogg",
-         8: "Mt. Horn.ogg", 9: "Foggy Forest.ogg", 10: "Steam Cave.ogg",
-         11: "Upper Steam Cave.ogg", 12: "Amp Plains.ogg",
-         13: "Far Amp Plains.ogg", 14: "Northern Desert.ogg",
-         15: "Quicksand Cave.ogg", 16: "Quicksand Pit.ogg",
-         17: "Crystal Cave.ogg", 18: "Crystal Crossing.ogg",
-         19: "Chasm Cave.ogg", 20: "Dark Hill.ogg", 21: "Sealed Ruin.ogg",
-         22: "Sealed Ruin Pit.ogg", 23: "Dusk Forest.ogg",
-         24: "Deep Dusk Forest.ogg", 25: "Treeshroud Forest.ogg",
-         26: "Brine Cave.ogg", 27: "Lower Brine Cave.ogg",
-         28: "Hidden Land.ogg", 29: "Hidden Highland.ogg",
-         30: "Temporal Tower.ogg", 31: "Temporal Spire.ogg",
-         # post-game d44+ — PROUVÉ overlay10 HardcodedDungeonMusic:
-         # mid->valeur enum music_id pmdsky-debug, contre-épreuve 9/9 sur
-         # les mids histoire (1→MUSIC_BEACH_CAVE … 31→MUSIC_TEMPORAL_SPIRE)
-         32: "Mystifying Forest.ogg",   # enum 52 MUSIC_MYSTIFYING_FOREST
-         33: "Blizzard Island Rescue Team Medley.ogg",  # enum 53 (ABSENT
-         #    du roster: REQUIRES_MOD_ASSET, silence documenté)
-         34: "Surrounded Sea.ogg",      # enum 54 (ABSENT: REQUIRES_MOD_ASSET)
-         35: "Miracle Sea.ogg",         # enum 60 (ABSENT: REQUIRES_MOD_ASSET)
-         36: "Aegis Cave.ogg",          # enum 56 MUSIC_AEGIS_CAVE
-         52: "Random Dungeon Theme 1.ogg",  # RANDOM group 0 ROM (sélection
-         #    aléatoire NDS parmi les 3 thèmes (extraits ROM bgm0055/45/146);
-         #    PMDO ne tire pas de piste aléatoire par zone: Theme 1 fixé, documenté)
-         71: "Star Cave.ogg",           # enum 142 MUSIC_STAR_CAVE
-         # d61+ — overlay10 × enum music_id (même contre-épreuve 9/9):
-         37: "Concealed Ruins.ogg",     # enum 57 (ABSENT: REQUIRES_MOD_ASSET)
-         38: "Mt. Travail.ogg",         # enum 58 MUSIC_MT_TRAVAIL
-         39: "In the Nightmare.ogg",    # enum 59 (ABSENT: REQUIRES_MOD_ASSET)
-         40: "I Saw Something Again.ogg",  # track 39 jukebox (ABSENT)
-         41: "Kecleon's Shop.ogg",      # track 41 jukebox (ABSENT)
-         42: "Dark Crater.ogg",         # enum 62 MUSIC_DARK_CRATER
-         43: "Deep Dark Crater.ogg",    # enum 63 MUSIC_DEEP_DARK_CRATER
-         44: "Random Dungeon Theme 1.ogg",  # enum 999 (aléa NDS, ABSENT)
-         53: "Far Amp Plains.ogg",      # track 53 jukebox
-         # groupes RANDOM NDS (mid 45-51,55,59-70): sélection aléatoire —
-         # non simulée par une piste fixe (REQUIRES_MOD_ASSET documenté)
-         45: "Random Dungeon Theme 1.ogg", 46: "Random Dungeon Theme 1.ogg",
-         47: "Random Dungeon Theme 1.ogg", 48: "Random Dungeon Theme 1.ogg",
-         49: "Random Dungeon Theme 1.ogg", 50: "Random Dungeon Theme 1.ogg",
-         51: "Random Dungeon Theme 1.ogg", 55: "Random Dungeon Theme 1.ogg",
-         59: "Random Dungeon Theme 1.ogg", 60: "Random Dungeon Theme 1.ogg",
-         61: "Random Dungeon Theme 1.ogg", 62: "Random Dungeon Theme 1.ogg",
-         63: "Random Dungeon Theme 1.ogg", 64: "Random Dungeon Theme 1.ogg",
-         65: "Random Dungeon Theme 1.ogg", 66: "Random Dungeon Theme 1.ogg",
-         67: "Random Dungeon Theme 1.ogg", 68: "Random Dungeon Theme 1.ogg",
-         69: "Random Dungeon Theme 1.ogg", 70: "Random Dungeon Theme 1.ogg"}
+# music_id mappa (mid) -> piste canonique. AUTORITÉ : MUSIC_MID_MAP.json
+# (overlay10 EU MUSIC_ID_TABLE + RANDOM_MUSIC_ID_TABLE × BackgroundMusicIDs
+# skytemple, contre-épreuves usage ROM d123/d124/d128/d130/d133/d136 —
+# outil dev/tools/sky_music_mid_map.py). Les groupes RANDOM (0x8000|g)
+# comptent 4 pistes canoniques ; la ROM en tire une aléatoirement par
+# visite — PMDO fixe une musique par étage : on prend la PREMIÈRE piste
+# du groupe ROM (ordre de la table), adaptation technique documentée,
+# aucune substitution hors du groupe canonique.
+def _load_music_mid_map():
+    p = os.path.join(TABLES, "MUSIC_MID_MAP.json")
+    mm = json.load(open(p))["mids"]
+    out = {}
+    for mid, e in mm.items():
+        if "random_group" in e:
+            out[int(mid)] = e["tracks"][0]["ogg"]
+        elif e.get("ogg"):
+            out[int(mid)] = e["ogg"]
+    return out
+
+
+MUSIC = _load_music_mid_map()
 
 
 def slug_species(n):
