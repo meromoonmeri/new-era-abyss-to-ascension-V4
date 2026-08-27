@@ -206,6 +206,22 @@ items 205/290 (85 REQUIRES_MOD_ITEM) · zones vs ROM 43/43 EXACT · AUDIT_PASS.
 
 ---
 
+## 7quater. ÉTAT FINAL V9.6 (session 2026-08-28 — ÉPUISEMENT DES PARTIAL)
+
+Cette section REMPLACE les compteurs du §7ter (conservé en historique).
+
+| Élément | Statut | Détail / preuve |
+|---|---|---|
+| Cinématiques Sky compilées | **PASS 99,9 %** | **3588 COMPILED + 169 dual + 60 multi** ; PARTIAL **1066 → 3** (-99,7 %) : V9.4-V9.6 = waypoints multi-segments acteur/caméra (chemins px ROM), random(N)→math.random, $LANGUAGE_TYPE→kit.lang_id (TOUTES les branches par langue, contenu localisé), scn[1] sous-état, SwitchMenu2, labels @switchN_M, MoveDirection routines, adventure_log→SV, écrans moteur EnterTraining/Adventure/Rescue |
+| 3 PARTIAL FINAUX (documentés) | **PROUVÉ ROM** | T00P01/enter04 (debug room «Select Prepared Job Type» — jump inter-branches sans goto Lua PMDO), P01P04A/s30a0601 (loterie, menu imbriqué non parsable v1), S02P01A/m00a01a (init système du titre) — aucun n'est une scène narrative de progression |
+| Matrice DOUBLE-ÉCRAN | **194/195 PASS** | classification ROM par écran (139 dialogue, 92 mouvement, 161 paysages TOP), 159 REQUIRES_VIEW_SWITCH dont **158 implémentés** (SkySubScreen.Show/Hide aux instants timeline ROM + fades + timing), 28 SUB_ENGINE_MODE_ONLY prouvés SSB (fades screen2 mode système sans décor), HERO/PARTNER/CAST **194/194** ; runtime m12a1201 : double paysage TOP montré/caché aux instants ROM |
+| CAST | **3588/3588 PASS** | émotes/orientations vers acteurs hors champ documentées (spawn superviseur NDS) |
+| Non-régression V9.6 | **PASS** | GLOBAL_JOURNEY_PASS Sky reconfirmé APRÈS recompilation (14 ch/313 ét./13 scènes/DIALGA) ; RED_GLOBAL_JOURNEY_PASS reconfirmé (13 ch/13 scènes/182 ét./RAYQUAZA) ; RED_RESUME_RUNTIME_PASS ; 149/149 zones EXACT ; 0 musique manquante ; lockfile CH1-5 intact |
+
+Preuves : `Docs/DUAL_SCREEN_MATRIX.json`, `compiled_scenes_runtime_proof.jsonl` (V9.4→non_regression_v9_6).
+
+---
+
 ## 7ter. État de clôture ACTUALISÉ (session 2026-08-27 — FINALISATION)
 
 Cette section REMPLACE les compteurs du §7 ci-dessous (conservé comme
