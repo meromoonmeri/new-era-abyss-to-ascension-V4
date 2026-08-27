@@ -85,6 +85,30 @@ ZONE_TO_DUNGEON = {
     "zero_isle_north": "d99", "zero_isle_east": "d100",
     "zero_isle_west": "d101", "zero_isle_south": "d102",
     "zero_isle_center": "d103", "destiny_tower": "d104",
+    # d107-d158 : Sky Peak + donjons cachés + épisodes spéciaux
+    # (session 2026-08-27) — d105/d106 = '[M:D1]Dummy' ROM, non construits
+    "oblivion_forest": "d107", "treacherous_waters": "d108",
+    "southeastern_islands": "d109", "inferno_cave": "d110",
+    "first_station_pass": "d111", "second_station_pass": "d112",
+    "third_station_pass": "d113", "fourth_station_pass": "d114",
+    "fifth_station_pass": "d115", "sixth_station_pass": "d116",
+    "seventh_station_pass": "d117", "eighth_station_pass": "d118",
+    "ninth_station_pass": "d119", "sky_peak_summit_pass": "d120",
+    "fifth_station_clearing": "d121",
+    "star_cave_se1": "d123", "deep_star_cave_dungeon": "d124",
+    "star_cave_depths": "d126", "murky_forest": "d128",
+    "eastern_cave": "d129", "fortune_ravine": "d130",
+    "fortune_ravine_depths": "d131", "barren_valley": "d133",
+    "deep_barren_valley": "d134", "dark_wasteland": "d136",
+    "temporal_tower_se5": "d137", "temporal_spire_se5": "d138",
+    "dusk_forest_se5": "d139", "spacial_cliffs": "d141",
+    "dark_ice_mountain": "d142", "dark_ice_mountain_peak": "d143",
+    "icicle_forest": "d145", "vast_ice_mountain": "d146",
+    "vast_ice_mountain_peak": "d147", "southern_jungle": "d149",
+    "boulder_quarry": "d150", "deep_boulder_quarry": "d151",
+    "right_cave_path": "d153", "left_cave_path": "d154",
+    "limestone_cavern": "d155", "deep_limestone_cavern": "d156",
+    "spring_cave": "d158",
 }
 
 TRAP_TO_PMDO = {k: v.get("pmdo_tile")

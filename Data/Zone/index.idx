@@ -9640,6 +9640,1577 @@
       "Released": true,
       "Comment": "PMD Sky EU d104 DUNGEON_DESTINY_TOWER",
       "SortOrder": 0
+    },
+    "oblivion_forest": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 60,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 15,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Oblivion Forest",
+        "LocalTexts": {
+          "fr": "Forêt de l'Oubli"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d107 DUNGEON_OBLIVION_FOREST",
+      "SortOrder": 0
+    },
+    "treacherous_waters": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 64,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 20,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Treacherous Waters",
+        "LocalTexts": {
+          "fr": "Mer Perfide"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d108 DUNGEON_TREACHEROUS_WATERS",
+      "SortOrder": 0
+    },
+    "southeastern_islands": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 66,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 25,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Southeastern Islands",
+        "LocalTexts": {
+          "fr": "Iles du Sud-Est"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d109 DUNGEON_SOUTHEASTERN_ISLANDS",
+      "SortOrder": 0
+    },
+    "inferno_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 69,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 30,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Inferno Cave",
+        "LocalTexts": {
+          "fr": "Caverne Brasier"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d110 DUNGEON_INFERNO_CAVE",
+      "SortOrder": 0
+    },
+    "first_station_pass": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 42,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 3,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "Name": {
+        "DefaultText": "1st Station Pass",
+        "LocalTexts": {
+          "fr": "1[F:ER] Relais - col"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d111 DUNGEON_1ST_STATION_PASS",
+      "SortOrder": 0
+    },
+    "second_station_pass": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 43,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 3,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "Name": {
+        "DefaultText": "2nd Station Pass",
+        "LocalTexts": {
+          "fr": "2[F:E] Relais - col"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d112 DUNGEON_2ND_STATION_PASS",
+      "SortOrder": 0
+    },
+    "third_station_pass": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 43,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 3,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "Name": {
+        "DefaultText": "3rd Station Pass",
+        "LocalTexts": {
+          "fr": "3[F:E] Relais - col"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d113 DUNGEON_3RD_STATION_PASS",
+      "SortOrder": 0
+    },
+    "fourth_station_pass": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 44,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 3,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "Name": {
+        "DefaultText": "4th Station Pass",
+        "LocalTexts": {
+          "fr": "4[F:E] Relais - col"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d114 DUNGEON_4TH_STATION_PASS",
+      "SortOrder": 0
+    },
+    "fifth_station_pass": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 44,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 4,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "Name": {
+        "DefaultText": "5th Station Pass",
+        "LocalTexts": {
+          "fr": "5[F:E] Relais - col"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d115 DUNGEON_5TH_STATION_PASS",
+      "SortOrder": 0
+    },
+    "sixth_station_pass": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 44,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 4,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "Name": {
+        "DefaultText": "6th Station Pass",
+        "LocalTexts": {
+          "fr": "6[F:E] Relais - col"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d116 DUNGEON_6TH_STATION_PASS",
+      "SortOrder": 0
+    },
+    "seventh_station_pass": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 43,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 4,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "Name": {
+        "DefaultText": "7th Station Pass",
+        "LocalTexts": {
+          "fr": "7[F:E] Relais - col"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d117 DUNGEON_7TH_STATION_PASS",
+      "SortOrder": 0
+    },
+    "eighth_station_pass": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 45,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 4,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "Name": {
+        "DefaultText": "8th Station Pass",
+        "LocalTexts": {
+          "fr": "8[F:E] Relais - col"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d118 DUNGEON_8TH_STATION_PASS",
+      "SortOrder": 0
+    },
+    "ninth_station_pass": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 46,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 5,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "9th Station Pass",
+        "LocalTexts": {
+          "fr": "9[F:E] Relais - col"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d119 DUNGEON_9TH_STATION_PASS",
+      "SortOrder": 0
+    },
+    "sky_peak_summit_pass": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 46,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 5,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Sky Peak Summit Pass",
+        "LocalTexts": {
+          "fr": "Sommet Pic Céleste - col"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d120 DUNGEON_SKY_PEAK_SUMMIT_PASS",
+      "SortOrder": 0
+    },
+    "fifth_station_clearing": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 46,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 1,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "5th Station Clearing",
+        "LocalTexts": {
+          "fr": "5[F:E] Relais - trouée"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d121 DUNGEON_5TH_STATION_CLEARING",
+      "SortOrder": 0
+    },
+    "star_cave_se1": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 11,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 7,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Star Cave",
+        "LocalTexts": {
+          "fr": "Caverne Etoile"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d123 DUNGEON_STAR_CAVE_SE1",
+      "SortOrder": 0
+    },
+    "deep_star_cave_dungeon": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 12,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 4,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Deep Star Cave",
+        "LocalTexts": {
+          "fr": "Caverne Etoile - prof."
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d124 DUNGEON_DEEP_STAR_CAVE",
+      "SortOrder": 0
+    },
+    "star_cave_depths": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 12,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 4,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Star Cave Depths",
+        "LocalTexts": {
+          "fr": "Caverne Etoile - entr."
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d126 DUNGEON_STAR_CAVE_DEPTHS",
+      "SortOrder": 0
+    },
+    "murky_forest": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 16,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 7,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Murky Forest",
+        "LocalTexts": {
+          "fr": "Forêt Glauque"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d128 DUNGEON_MURKY_FOREST",
+      "SortOrder": 0
+    },
+    "eastern_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 25,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 10,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Eastern Cave",
+        "LocalTexts": {
+          "fr": "Caverne de l'Est"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d129 DUNGEON_EASTERN_CAVE",
+      "SortOrder": 0
+    },
+    "fortune_ravine": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 16,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 8,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Fortune Ravine",
+        "LocalTexts": {
+          "fr": "Ravin Aubaine"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d130 DUNGEON_FORTUNE_RAVINE",
+      "SortOrder": 0
+    },
+    "fortune_ravine_depths": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 17,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 6,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Fortune Ravine Depths",
+        "LocalTexts": {
+          "fr": "Ravin Aubaine - entr."
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d131 DUNGEON_FORTUNE_RAVINE_DEPTHS",
+      "SortOrder": 0
+    },
+    "barren_valley": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 33,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 5,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Barren Valley",
+        "LocalTexts": {
+          "fr": "Vallée Stérile"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d133 DUNGEON_BARREN_VALLEY",
+      "SortOrder": 0
+    },
+    "deep_barren_valley": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 34,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 5,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Deep Barren Valley",
+        "LocalTexts": {
+          "fr": "Vallée Stérile - prof."
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d134 DUNGEON_DEEP_BARREN_VALLEY",
+      "SortOrder": 0
+    },
+    "dark_wasteland": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 44,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 4,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Dark Wasteland",
+        "LocalTexts": {
+          "fr": "Désert Noir"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d136 DUNGEON_DARK_WASTELAND",
+      "SortOrder": 0
+    },
+    "temporal_tower_se5": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 39,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 10,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Temporal Tower",
+        "LocalTexts": {
+          "fr": "Tour du Temps"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d137 DUNGEON_TEMPORAL_TOWER_SE5",
+      "SortOrder": 0
+    },
+    "temporal_spire_se5": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 45,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 10,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Temporal Spire",
+        "LocalTexts": {
+          "fr": "Aiguille du Temps"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d138 DUNGEON_TEMPORAL_SPIRE_SE5",
+      "SortOrder": 0
+    },
+    "dusk_forest_se5": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 45,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 7,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Dusk Forest",
+        "LocalTexts": {
+          "fr": "Forêt Crépuscule"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d139 DUNGEON_DUSK_FOREST_SE5",
+      "SortOrder": 0
+    },
+    "spacial_cliffs": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 46,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 10,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Spacial Cliffs",
+        "LocalTexts": {
+          "fr": "Falaises Spatiales"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d141 DUNGEON_SPACIAL_CLIFFS",
+      "SortOrder": 0
+    },
+    "dark_ice_mountain": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 41,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 10,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Dark Ice Mountain",
+        "LocalTexts": {
+          "fr": "Montagne Sombre Gel"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d142 DUNGEON_DARK_ICE_MOUNTAIN",
+      "SortOrder": 0
+    },
+    "dark_ice_mountain_peak": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 41,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 4,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Dark Ice Mountain Peak",
+        "LocalTexts": {
+          "fr": "Mont. Sombre Gel - pic"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d143 DUNGEON_DARK_ICE_MOUNTAIN_PEAK",
+      "SortOrder": 0
+    },
+    "icicle_forest": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 41,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 10,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Icicle Forest",
+        "LocalTexts": {
+          "fr": "Forêt Glaçon"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d145 DUNGEON_ICICLE_FOREST",
+      "SortOrder": 0
+    },
+    "vast_ice_mountain": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 46,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 9,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Vast Ice Mountain",
+        "LocalTexts": {
+          "fr": "Montagne Glacier"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d146 DUNGEON_VAST_ICE_MOUNTAIN",
+      "SortOrder": 0
+    },
+    "vast_ice_mountain_peak": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 46,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 8,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Vast Ice Mountain Peak",
+        "LocalTexts": {
+          "fr": "Montagne Glacier - pic"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d147 DUNGEON_VAST_ICE_MOUNTAIN_PEAK",
+      "SortOrder": 0
+    },
+    "southern_jungle": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 37,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 10,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Southern Jungle",
+        "LocalTexts": {
+          "fr": "Jungle Méridionale"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d149 DUNGEON_SOUTHERN_JUNGLE",
+      "SortOrder": 0
+    },
+    "boulder_quarry": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 30,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 5,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Boulder Quarry",
+        "LocalTexts": {
+          "fr": "Carrière Rocher"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d150 DUNGEON_BOULDER_QUARRY",
+      "SortOrder": 0
+    },
+    "deep_boulder_quarry": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 35,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 5,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Deep Boulder Quarry",
+        "LocalTexts": {
+          "fr": "Carrière Rocher - prof."
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d151 DUNGEON_DEEP_BOULDER_QUARRY",
+      "SortOrder": 0
+    },
+    "right_cave_path": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 30,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 5,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Right Cave Path",
+        "LocalTexts": {
+          "fr": "Caverne - partie droite"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d153 DUNGEON_RIGHT_CAVE_PATH",
+      "SortOrder": 0
+    },
+    "left_cave_path": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 30,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 5,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Left Cave Path",
+        "LocalTexts": {
+          "fr": "Caverne - partie gauche"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d154 DUNGEON_LEFT_CAVE_PATH",
+      "SortOrder": 0
+    },
+    "limestone_cavern": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 43,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 5,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Limestone Cavern",
+        "LocalTexts": {
+          "fr": "Caverne Calcaire"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d155 DUNGEON_LIMESTONE_CAVERN",
+      "SortOrder": 0
+    },
+    "deep_limestone_cavern": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 38,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 5,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Deep Limestone Cavern",
+        "LocalTexts": {
+          "fr": "Caverne Calcaire - prof."
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d156 DUNGEON_DEEP_LIMESTONE_CAVERN",
+      "SortOrder": 0
+    },
+    "spring_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 23,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 4,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Spring Cave",
+        "LocalTexts": {
+          "fr": "Caverne Source"
+        }
+      },
+      "Released": true,
+      "Comment": "PMD Sky EU d158 DUNGEON_SPRING_CAVE",
+      "SortOrder": 0
     }
   }
 }

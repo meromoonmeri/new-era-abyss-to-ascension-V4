@@ -552,3 +552,255 @@
 - items : ROM a des tables=True, zone spawn=True → PASS
 - pièges : PASS 
 
+## oblivion_forest (d107 DUNGEON_OBLIVION_FOREST) — **EXACT**
+- étages : zone 15 / ROM 15 → PASS
+- espèces/niveaux/proportions : 15 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## treacherous_waters (d108 DUNGEON_TREACHEROUS_WATERS) — **EXACT**
+- étages : zone 20 / ROM 20 → PASS
+- espèces/niveaux/proportions : 20 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## southeastern_islands (d109 DUNGEON_SOUTHEASTERN_ISLANDS) — **EXACT**
+- étages : zone 25 / ROM 25 → PASS
+- espèces/niveaux/proportions : 25 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## inferno_cave (d110 DUNGEON_INFERNO_CAVE) — **EXACT**
+- étages : zone 30 / ROM 30 → PASS
+- espèces/niveaux/proportions : 30 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## first_station_pass (d111 DUNGEON_1ST_STATION_PASS) — **EXACT**
+- étages : zone 3 / ROM 3 → PASS
+- espèces/niveaux/proportions : 3 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## second_station_pass (d112 DUNGEON_2ND_STATION_PASS) — **EXACT**
+- étages : zone 3 / ROM 3 → PASS
+- espèces/niveaux/proportions : 3 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## third_station_pass (d113 DUNGEON_3RD_STATION_PASS) — **EXACT**
+- étages : zone 3 / ROM 3 → PASS
+- espèces/niveaux/proportions : 3 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## fourth_station_pass (d114 DUNGEON_4TH_STATION_PASS) — **EXACT**
+- étages : zone 3 / ROM 3 → PASS
+- espèces/niveaux/proportions : 3 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## fifth_station_pass (d115 DUNGEON_5TH_STATION_PASS) — **EXACT**
+- étages : zone 4 / ROM 4 → PASS
+- espèces/niveaux/proportions : 4 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## sixth_station_pass (d116 DUNGEON_6TH_STATION_PASS) — **EXACT**
+- étages : zone 4 / ROM 4 → PASS
+- espèces/niveaux/proportions : 4 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## seventh_station_pass (d117 DUNGEON_7TH_STATION_PASS) — **EXACT**
+- étages : zone 4 / ROM 4 → PASS
+- espèces/niveaux/proportions : 4 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## eighth_station_pass (d118 DUNGEON_8TH_STATION_PASS) — **EXACT**
+- étages : zone 4 / ROM 4 → PASS
+- espèces/niveaux/proportions : 4 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## ninth_station_pass (d119 DUNGEON_9TH_STATION_PASS) — **EXACT**
+- étages : zone 5 / ROM 5 → PASS
+- espèces/niveaux/proportions : 5 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## sky_peak_summit_pass (d120 DUNGEON_SKY_PEAK_SUMMIT_PASS) — **EXACT**
+- étages : zone 5 / ROM 5 → PASS
+- espèces/niveaux/proportions : 5 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## fifth_station_clearing (d121 DUNGEON_5TH_STATION_CLEARING) — **EXACT**
+- étages : zone 1 / ROM 1 → PASS
+- espèces/niveaux/proportions : 1 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## star_cave_se1 (d123 DUNGEON_STAR_CAVE_SE1) — **EXACT**
+- étages : zone 7 / ROM 7 → PASS
+- espèces/niveaux/proportions : 7 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## deep_star_cave_dungeon (d124 DUNGEON_DEEP_STAR_CAVE) — **EXACT**
+- étages : zone 4 / ROM 4 → PASS
+- espèces/niveaux/proportions : 4 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## star_cave_depths (d126 DUNGEON_STAR_CAVE_DEPTHS) — **EXACT**
+- étages : zone 4 / ROM 4 → PASS
+- espèces/niveaux/proportions : 4 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## murky_forest (d128 DUNGEON_MURKY_FOREST) — **EXACT**
+- étages : zone 7 / ROM 7 → PASS
+- espèces/niveaux/proportions : 7 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## eastern_cave (d129 DUNGEON_EASTERN_CAVE) — **EXACT**
+- étages : zone 10 / ROM 10 → PASS
+- espèces/niveaux/proportions : 10 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## fortune_ravine (d130 DUNGEON_FORTUNE_RAVINE) — **EXACT**
+- étages : zone 8 / ROM 8 → PASS
+- espèces/niveaux/proportions : 8 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## fortune_ravine_depths (d131 DUNGEON_FORTUNE_RAVINE_DEPTHS) — **EXACT**
+- étages : zone 6 / ROM 6 → PASS
+- espèces/niveaux/proportions : 6 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## barren_valley (d133 DUNGEON_BARREN_VALLEY) — **EXACT**
+- étages : zone 5 / ROM 5 → PASS
+- espèces/niveaux/proportions : 5 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## deep_barren_valley (d134 DUNGEON_DEEP_BARREN_VALLEY) — **EXACT**
+- étages : zone 5 / ROM 5 → PASS
+- espèces/niveaux/proportions : 5 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## dark_wasteland (d136 DUNGEON_DARK_WASTELAND) — **EXACT**
+- étages : zone 4 / ROM 4 → PASS
+- espèces/niveaux/proportions : 4 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## temporal_tower_se5 (d137 DUNGEON_TEMPORAL_TOWER_SE5) — **EXACT**
+- étages : zone 10 / ROM 10 → PASS
+- espèces/niveaux/proportions : 10 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## temporal_spire_se5 (d138 DUNGEON_TEMPORAL_SPIRE_SE5) — **EXACT**
+- étages : zone 10 / ROM 10 → PASS
+- espèces/niveaux/proportions : 10 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## dusk_forest_se5 (d139 DUNGEON_DUSK_FOREST_SE5) — **EXACT**
+- étages : zone 7 / ROM 7 → PASS
+- espèces/niveaux/proportions : 7 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## spacial_cliffs (d141 DUNGEON_SPACIAL_CLIFFS) — **EXACT**
+- étages : zone 10 / ROM 10 → PASS
+- espèces/niveaux/proportions : 10 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## dark_ice_mountain (d142 DUNGEON_DARK_ICE_MOUNTAIN) — **EXACT**
+- étages : zone 10 / ROM 10 → PASS
+- espèces/niveaux/proportions : 10 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## dark_ice_mountain_peak (d143 DUNGEON_DARK_ICE_MOUNTAIN_PEAK) — **EXACT**
+- étages : zone 4 / ROM 4 → PASS
+- espèces/niveaux/proportions : 4 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## icicle_forest (d145 DUNGEON_ICICLE_FOREST) — **EXACT**
+- étages : zone 10 / ROM 10 → PASS
+- espèces/niveaux/proportions : 10 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## vast_ice_mountain (d146 DUNGEON_VAST_ICE_MOUNTAIN) — **EXACT**
+- étages : zone 9 / ROM 9 → PASS
+- espèces/niveaux/proportions : 9 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## vast_ice_mountain_peak (d147 DUNGEON_VAST_ICE_MOUNTAIN_PEAK) — **EXACT**
+- étages : zone 8 / ROM 8 → PASS
+- espèces/niveaux/proportions : 8 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## southern_jungle (d149 DUNGEON_SOUTHERN_JUNGLE) — **EXACT**
+- étages : zone 10 / ROM 10 → PASS
+- espèces/niveaux/proportions : 10 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## boulder_quarry (d150 DUNGEON_BOULDER_QUARRY) — **EXACT**
+- étages : zone 5 / ROM 5 → PASS
+- espèces/niveaux/proportions : 5 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## deep_boulder_quarry (d151 DUNGEON_DEEP_BOULDER_QUARRY) — **EXACT**
+- étages : zone 5 / ROM 5 → PASS
+- espèces/niveaux/proportions : 5 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## right_cave_path (d153 DUNGEON_RIGHT_CAVE_PATH) — **EXACT**
+- étages : zone 5 / ROM 5 → PASS
+- espèces/niveaux/proportions : 5 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## left_cave_path (d154 DUNGEON_LEFT_CAVE_PATH) — **EXACT**
+- étages : zone 5 / ROM 5 → PASS
+- espèces/niveaux/proportions : 5 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## limestone_cavern (d155 DUNGEON_LIMESTONE_CAVERN) — **EXACT**
+- étages : zone 5 / ROM 5 → PASS
+- espèces/niveaux/proportions : 5 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## deep_limestone_cavern (d156 DUNGEON_DEEP_LIMESTONE_CAVERN) — **EXACT**
+- étages : zone 5 / ROM 5 → PASS
+- espèces/niveaux/proportions : 5 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## spring_cave (d158 DUNGEON_SPRING_CAVE) — **EXACT**
+- étages : zone 4 / ROM 4 → PASS
+- espèces/niveaux/proportions : 4 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+

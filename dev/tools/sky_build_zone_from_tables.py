@@ -90,7 +90,23 @@ TSET = {1: "beach_cave", 2: "drenched_bluff", 3: "mt_bristle",
         67: "destiny_tower_1",
         76: "zero_isle_c1", 83: "zero_isle_c2", 97: "zero_isle_c3",
         109: "zero_isle_c4", 112: "zero_isle_c5", 114: "zero_isle_c6",
-        115: "zero_isle_c7", 116: "zero_isle_c8"}
+        115: "zero_isle_c7", 116: "zero_isle_c8",
+        # d105-d159 (Sky Peak + épisodes spéciaux, session 2026-08-27) :
+        # portés depuis dungeon.bin (même méthode)
+        0: "test_dungeon_ts", 32: "sky_peak_summit_pass_ts",
+        44: "southern_jungle_ts", 66: "third_station_pass_ts",
+        75: "southeastern_islands_ts", 80: "deep_star_cave_ts",
+        84: "oblivion_forest_ts", 94: "ninth_station_pass_ts",
+        104: "fortune_ravine_ts", 110: "inferno_cave_ts",
+        122: "left_cave_path_ts", 128: "murky_forest_ts",
+        129: "deep_boulder_quarry_ts", 130: "limestone_cavern_ts",
+        131: "deep_limestone_cavern_ts", 132: "barren_valley_ts",
+        133: "dark_wasteland_ts", 134: "temporal_tower_se5_ts",
+        135: "temporal_spire_se5_ts", 136: "spacial_cliffs_ts",
+        137: "dark_ice_mountain_ts", 138: "dark_ice_mountain_peak_ts",
+        139: "icicle_forest_ts", 140: "vast_ice_mountain_ts",
+        141: "vast_ice_mountain_peak_ts", 142: "fourth_station_pass_ts",
+        143: "seventh_station_pass_ts"}
 # tileset NDS 180 (d45 clearing) = MAP_BG v00p03 + fixed floor 11 :
 # arène fixe, pipeline sky_build_boss_arenas (pas un donjon procédural).
 

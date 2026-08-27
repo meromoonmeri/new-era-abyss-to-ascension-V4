@@ -1057,6 +1057,735 @@
    "Released": true,
    "Comment": "",
    "SortOrder": 0
+  },
+  "test_dungeon_ts_floor": {
+   "Name": {
+    "DefaultText": "Test Dungeon Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "test_dungeon_ts_wall": {
+   "Name": {
+    "DefaultText": "Test Dungeon Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "test_dungeon_ts_secondary": {
+   "Name": {
+    "DefaultText": "Test Dungeon Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "sky_peak_summit_pass_ts_floor": {
+   "Name": {
+    "DefaultText": "Sky Peak Summit Pass Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "sky_peak_summit_pass_ts_wall": {
+   "Name": {
+    "DefaultText": "Sky Peak Summit Pass Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "sky_peak_summit_pass_ts_secondary": {
+   "Name": {
+    "DefaultText": "Sky Peak Summit Pass Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "southern_jungle_ts_floor": {
+   "Name": {
+    "DefaultText": "Southern Jungle Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "southern_jungle_ts_wall": {
+   "Name": {
+    "DefaultText": "Southern Jungle Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "southern_jungle_ts_secondary": {
+   "Name": {
+    "DefaultText": "Southern Jungle Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "third_station_pass_ts_floor": {
+   "Name": {
+    "DefaultText": "Third Station Pass Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "third_station_pass_ts_wall": {
+   "Name": {
+    "DefaultText": "Third Station Pass Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "third_station_pass_ts_secondary": {
+   "Name": {
+    "DefaultText": "Third Station Pass Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "southeastern_islands_ts_floor": {
+   "Name": {
+    "DefaultText": "Southeastern Islands Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "southeastern_islands_ts_wall": {
+   "Name": {
+    "DefaultText": "Southeastern Islands Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "southeastern_islands_ts_secondary": {
+   "Name": {
+    "DefaultText": "Southeastern Islands Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "deep_star_cave_ts_floor": {
+   "Name": {
+    "DefaultText": "Deep Star Cave Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "deep_star_cave_ts_wall": {
+   "Name": {
+    "DefaultText": "Deep Star Cave Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "deep_star_cave_ts_secondary": {
+   "Name": {
+    "DefaultText": "Deep Star Cave Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "oblivion_forest_ts_floor": {
+   "Name": {
+    "DefaultText": "Oblivion Forest Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "oblivion_forest_ts_wall": {
+   "Name": {
+    "DefaultText": "Oblivion Forest Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "oblivion_forest_ts_secondary": {
+   "Name": {
+    "DefaultText": "Oblivion Forest Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "ninth_station_pass_ts_floor": {
+   "Name": {
+    "DefaultText": "Ninth Station Pass Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "ninth_station_pass_ts_wall": {
+   "Name": {
+    "DefaultText": "Ninth Station Pass Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "ninth_station_pass_ts_secondary": {
+   "Name": {
+    "DefaultText": "Ninth Station Pass Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "fortune_ravine_ts_floor": {
+   "Name": {
+    "DefaultText": "Fortune Ravine Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "fortune_ravine_ts_wall": {
+   "Name": {
+    "DefaultText": "Fortune Ravine Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "fortune_ravine_ts_secondary": {
+   "Name": {
+    "DefaultText": "Fortune Ravine Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "inferno_cave_ts_floor": {
+   "Name": {
+    "DefaultText": "Inferno Cave Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "inferno_cave_ts_wall": {
+   "Name": {
+    "DefaultText": "Inferno Cave Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "inferno_cave_ts_secondary": {
+   "Name": {
+    "DefaultText": "Inferno Cave Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "left_cave_path_ts_floor": {
+   "Name": {
+    "DefaultText": "Left Cave Path Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "left_cave_path_ts_wall": {
+   "Name": {
+    "DefaultText": "Left Cave Path Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "left_cave_path_ts_secondary": {
+   "Name": {
+    "DefaultText": "Left Cave Path Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "murky_forest_ts_floor": {
+   "Name": {
+    "DefaultText": "Murky Forest Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "murky_forest_ts_wall": {
+   "Name": {
+    "DefaultText": "Murky Forest Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "murky_forest_ts_secondary": {
+   "Name": {
+    "DefaultText": "Murky Forest Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "deep_boulder_quarry_ts_floor": {
+   "Name": {
+    "DefaultText": "Deep Boulder Quarry Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "deep_boulder_quarry_ts_wall": {
+   "Name": {
+    "DefaultText": "Deep Boulder Quarry Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "deep_boulder_quarry_ts_secondary": {
+   "Name": {
+    "DefaultText": "Deep Boulder Quarry Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "limestone_cavern_ts_floor": {
+   "Name": {
+    "DefaultText": "Limestone Cavern Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "limestone_cavern_ts_wall": {
+   "Name": {
+    "DefaultText": "Limestone Cavern Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "limestone_cavern_ts_secondary": {
+   "Name": {
+    "DefaultText": "Limestone Cavern Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "deep_limestone_cavern_ts_floor": {
+   "Name": {
+    "DefaultText": "Deep Limestone Cavern Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "deep_limestone_cavern_ts_wall": {
+   "Name": {
+    "DefaultText": "Deep Limestone Cavern Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "deep_limestone_cavern_ts_secondary": {
+   "Name": {
+    "DefaultText": "Deep Limestone Cavern Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "barren_valley_ts_floor": {
+   "Name": {
+    "DefaultText": "Barren Valley Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "barren_valley_ts_wall": {
+   "Name": {
+    "DefaultText": "Barren Valley Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "barren_valley_ts_secondary": {
+   "Name": {
+    "DefaultText": "Barren Valley Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "dark_wasteland_ts_floor": {
+   "Name": {
+    "DefaultText": "Dark Wasteland Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "dark_wasteland_ts_wall": {
+   "Name": {
+    "DefaultText": "Dark Wasteland Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "dark_wasteland_ts_secondary": {
+   "Name": {
+    "DefaultText": "Dark Wasteland Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "temporal_tower_se5_ts_floor": {
+   "Name": {
+    "DefaultText": "Temporal Tower Se5 Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "temporal_tower_se5_ts_wall": {
+   "Name": {
+    "DefaultText": "Temporal Tower Se5 Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "temporal_tower_se5_ts_secondary": {
+   "Name": {
+    "DefaultText": "Temporal Tower Se5 Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "temporal_spire_se5_ts_floor": {
+   "Name": {
+    "DefaultText": "Temporal Spire Se5 Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "temporal_spire_se5_ts_wall": {
+   "Name": {
+    "DefaultText": "Temporal Spire Se5 Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "temporal_spire_se5_ts_secondary": {
+   "Name": {
+    "DefaultText": "Temporal Spire Se5 Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "spacial_cliffs_ts_floor": {
+   "Name": {
+    "DefaultText": "Spacial Cliffs Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "spacial_cliffs_ts_wall": {
+   "Name": {
+    "DefaultText": "Spacial Cliffs Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "spacial_cliffs_ts_secondary": {
+   "Name": {
+    "DefaultText": "Spacial Cliffs Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "dark_ice_mountain_ts_floor": {
+   "Name": {
+    "DefaultText": "Dark Ice Mountain Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "dark_ice_mountain_ts_wall": {
+   "Name": {
+    "DefaultText": "Dark Ice Mountain Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "dark_ice_mountain_ts_secondary": {
+   "Name": {
+    "DefaultText": "Dark Ice Mountain Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "dark_ice_mountain_peak_ts_floor": {
+   "Name": {
+    "DefaultText": "Dark Ice Mountain Peak Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "dark_ice_mountain_peak_ts_wall": {
+   "Name": {
+    "DefaultText": "Dark Ice Mountain Peak Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "dark_ice_mountain_peak_ts_secondary": {
+   "Name": {
+    "DefaultText": "Dark Ice Mountain Peak Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "icicle_forest_ts_floor": {
+   "Name": {
+    "DefaultText": "Icicle Forest Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "icicle_forest_ts_wall": {
+   "Name": {
+    "DefaultText": "Icicle Forest Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "icicle_forest_ts_secondary": {
+   "Name": {
+    "DefaultText": "Icicle Forest Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "vast_ice_mountain_ts_floor": {
+   "Name": {
+    "DefaultText": "Vast Ice Mountain Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "vast_ice_mountain_ts_wall": {
+   "Name": {
+    "DefaultText": "Vast Ice Mountain Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "vast_ice_mountain_ts_secondary": {
+   "Name": {
+    "DefaultText": "Vast Ice Mountain Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "vast_ice_mountain_peak_ts_floor": {
+   "Name": {
+    "DefaultText": "Vast Ice Mountain Peak Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "vast_ice_mountain_peak_ts_wall": {
+   "Name": {
+    "DefaultText": "Vast Ice Mountain Peak Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "vast_ice_mountain_peak_ts_secondary": {
+   "Name": {
+    "DefaultText": "Vast Ice Mountain Peak Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "fourth_station_pass_ts_floor": {
+   "Name": {
+    "DefaultText": "Fourth Station Pass Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "fourth_station_pass_ts_wall": {
+   "Name": {
+    "DefaultText": "Fourth Station Pass Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "fourth_station_pass_ts_secondary": {
+   "Name": {
+    "DefaultText": "Fourth Station Pass Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "seventh_station_pass_ts_floor": {
+   "Name": {
+    "DefaultText": "Seventh Station Pass Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "seventh_station_pass_ts_wall": {
+   "Name": {
+    "DefaultText": "Seventh Station Pass Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "seventh_station_pass_ts_secondary": {
+   "Name": {
+    "DefaultText": "Seventh Station Pass Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
   }
  }
 }
