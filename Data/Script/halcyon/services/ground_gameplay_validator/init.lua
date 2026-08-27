@@ -115,24 +115,27 @@ function V:begin()
   -- ici on chaîne EnterZone comme le journey Sky, avec le même compteur
   -- de preuve (étages réellement générés).
   self.idx=-8;SV.RuntimeGroundAudit.Active=false
+  -- scènes = stations cinématiques V2 (redscenes, séquence ROM EU) des
+  -- grounds dNNp01 (entrée de donjon), jouées dans master_zone AVANT
+  -- les étages — EVENT→DIALOGUE→GROUND→DUNGEON→BOSS bout-en-bout.
   self.RJ={
-   {ch='CH1 Tiny Woods (2.x)',dungeons={{z='tiny_woods',floors=3}},boss=nil},
-   {ch='CH2 Thunderwave (3.x)',dungeons={{z='thunderwave_cave',floors=5}}},
-   {ch='CH3 Mt Steel (4.x)',dungeons={{z='mt_steel',floors=8}},boss={seg=1,species='skarmory'}},
-   {ch='CH4 Sinister Woods (5.x)',dungeons={{z='gloomy_forest',floors=6},{z='gloomy_forest',floors=6,seg=1}}},
-   {ch='CH5 Silent Chasm (6.x)',dungeons={{z='silent_chasm',floors=9}}},
-   {ch='CH6 Mt Thunder (7.x)',dungeons={{z='mt_thunder',floors=10},{z='mt_thunder_peak',floors=2}},boss={seg=1,species='zapdos',zone='mt_thunder_peak'}},
-   {ch='CH7 Great Canyon (8.x)',dungeons={{z='great_canyon',floors=12}}},
-   {ch='CH8 Lapis Cave (11.x)',dungeons={{z='lapis_cave',floors=14}}},
-   {ch='CH9 Mt Blaze (12.x)',dungeons={{z='mt_blaze',floors=12},{z='mt_blaze_peak',floors=2}},boss={seg=1,species='moltres',zone='mt_blaze_peak'}},
-   {ch='CH10 Frosty Forest (13.x)',dungeons={{z='frosty_forest',floors=8}}},
-   {ch='CH11 Mt Freeze (14.x)',dungeons={{z='mt_freeze',floors=15},{z='mt_freeze_peak',floors=4}},boss={seg=1,species='glalie',zone='mt_freeze_peak'}},
-   {ch='CH12 Magma Cavern (15.x-16.0)',dungeons={{z='magma_cavern',floors=8},{z='magma_cavern',floors=7,seg=1},{z='magma_cavern',floors=8,seg=2},{z='magma_cavern_pit',floors=3}},boss={z='magma_pit_groudon',seg=0,species='groudon'}},
-   {ch='CH13 Sky Tower (16.x-17.0 FINALE)',dungeons={{z='sky_tower',floors=25},{z='sky_tower_summit',floors=9}},boss={z='sky_summit_rayquaza',seg=0,species='rayquaza'}},
+   {ch='CH1 Tiny Woods (2.x)',sceneground='d01p01',scenemod='d01p01__station',dungeons={{z='tiny_woods',floors=3}},boss=nil},
+   {ch='CH2 Thunderwave (3.x)',sceneground='d02p01',scenemod='d02p01__station',dungeons={{z='thunderwave_cave',floors=5}}},
+   {ch='CH3 Mt Steel (4.x)',sceneground='d03p01',scenemod='d03p01__station',dungeons={{z='mt_steel',floors=8}},boss={seg=1,species='skarmory'}},
+   {ch='CH4 Sinister Woods (5.x)',sceneground='d04p01',scenemod='d04p01__station',dungeons={{z='gloomy_forest',floors=6},{z='gloomy_forest',floors=6,seg=1}}},
+   {ch='CH5 Silent Chasm (6.x)',sceneground='d05p01',scenemod='d05p01__station',dungeons={{z='silent_chasm',floors=9}}},
+   {ch='CH6 Mt Thunder (7.x)',sceneground='d06p01',scenemod='d06p01__station',dungeons={{z='mt_thunder',floors=10},{z='mt_thunder_peak',floors=2}},boss={seg=1,species='zapdos',zone='mt_thunder_peak'}},
+   {ch='CH7 Great Canyon (8.x)',sceneground='d07p01',scenemod='d07p01__station',dungeons={{z='great_canyon',floors=12}}},
+   {ch='CH8 Lapis Cave (11.x)',sceneground='d08p01',scenemod='d08p01__station',dungeons={{z='lapis_cave',floors=14}}},
+   {ch='CH9 Mt Blaze (12.x)',sceneground='d09p01',scenemod='d09p01__station',dungeons={{z='mt_blaze',floors=12},{z='mt_blaze_peak',floors=2}},boss={seg=1,species='moltres',zone='mt_blaze_peak'}},
+   {ch='CH10 Frosty Forest (13.x)',sceneground='d10p01',scenemod='d10p01__station',dungeons={{z='frosty_forest',floors=8}}},
+   {ch='CH11 Mt Freeze (14.x)',sceneground='d11p01',scenemod='d11p01__station',dungeons={{z='mt_freeze',floors=15},{z='mt_freeze_peak',floors=4}},boss={seg=1,species='glalie',zone='mt_freeze_peak'}},
+   {ch='CH12 Magma Cavern (15.x-16.0)',sceneground='d15p01',scenemod='d15p01__station',dungeons={{z='magma_cavern',floors=8},{z='magma_cavern',floors=7,seg=1},{z='magma_cavern',floors=8,seg=2},{z='magma_cavern_pit',floors=3}},boss={z='magma_pit_groudon',seg=0,species='groudon'}},
+   {ch='CH13 Sky Tower (16.x-17.0 FINALE)',sceneground='d16p01',scenemod='d16p01__station',dungeons={{z='sky_tower',floors=25},{z='sky_tower_summit',floors=9}},boss={z='sky_summit_rayquaza',seg=0,species='rayquaza'}},
   }
   self.rjch=1;self.rjdun=1;self.rjfloors=0
   emit('{"event":"redjourney_begin","chapters":'..#self.RJ..'}')
-  GAME:EnterZone(self.RJ[1].dungeons[1].z,0,0,0)
+  self:red_journey_start_chapter()
   return
  end
  if self.mode=='skyresume:load' then
@@ -296,7 +299,7 @@ function V:OnDungeonFloorEnter()
         emit('{"event":"end"}')
       else
         emit('{"event":"red_chapter","ch":"'..N.ch..'"}')
-        GAME:EnterZone(N.dungeons[1].z,0,0,0)
+        self:red_journey_start_chapter()
       end
       return
     end
@@ -323,7 +326,7 @@ function V:OnDungeonFloorEnter()
             emit('{"event":"end"}')
           else
             emit('{"event":"red_chapter","ch":"'..N.ch..'"}')
-            GAME:EnterZone(N.dungeons[1].z,N.dungeons[1].seg or 0,0,0)
+            self:red_journey_start_chapter()
           end
           return
         end
@@ -347,7 +350,7 @@ function V:OnDungeonFloorEnter()
             emit('{"event":"end"}')
           else
             emit('{"event":"red_chapter","ch":"'..N.ch..'"}')
-            GAME:EnterZone(N.dungeons[1].z,N.dungeons[1].seg or 0,0,0)
+            self:red_journey_start_chapter()
           end
           return
         end
@@ -365,7 +368,7 @@ function V:OnDungeonFloorEnter()
             emit('{"event":"end"}')
           else
             emit('{"event":"red_chapter","ch":"'..N.ch..'"}')
-            GAME:EnterZone(N.dungeons[1].z,0,0,0)
+            self:red_journey_start_chapter()
           end
         end
       end
@@ -392,6 +395,10 @@ function V:OnGroundMapEnter()
  -- phase scène du journey global : jouer la cinématique du chapitre
  if self.enabled and self.jscene and not self.busy then
   self:journey_play_scene()
+  return
+ end
+ if self.enabled and self.rjscene and not self.busy then
+  self:red_journey_play_scene()
   return
  end
  if self.enabled and (self.resume_save_pending or self.red_resume_save_pending) and not self.busy then
@@ -562,6 +569,56 @@ function V:Subscribe(med)
 end
 
 -- ---------- JOURNEY GLOBAL ----------
+function V:red_journey_start_chapter()
+ -- chapitre Red : scène cinématique V2 (station ROM EU) dans master_zone
+ -- PUIS donjons. Même mécanique jscene que le journey Sky.
+ local C=self.RJ[self.rjch]
+ if C==nil then return end
+ if C.scenemod and C.sceneground and not C._scene_done then
+  -- grounds Red résolus dans master_zone PUIS sky_hub_zone (d15p01/
+  -- d16p01: master_zone est verrouillé CH1-5, extension via hub)
+  for _,zid in ipairs({'master_zone','sky_hub_zone'}) do
+   local ok,msum=pcall(function() return _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get(zid) end)
+   if ok and msum then
+    local gl=msum.Grounds
+    for gi=0,gl.Count-1 do
+     if gl[gi]==C.sceneground then
+      self.rjscene=C.scenemod
+      C._scene_done=true
+      GAME:EnterZone(zid,-1,gi,0)
+      return
+     end
+    end
+   end
+  end
+  emit('{"event":"red_scene_skip","ch":"'..C.ch..'","reason":"ground_absent"}')
+ end
+ GAME:EnterZone(C.dungeons[1].z,C.dungeons[1].seg or 0,0,0)
+end
+
+function V:red_journey_play_scene()
+ local C=self.RJ[self.rjch]
+ local mod=self.rjscene
+ self.rjscene=nil
+ self.task=TASK:BranchCoroutine(function()
+  GAME:WaitFrames(20)
+  local ok,err=xpcall(function()
+    local ok2,fn=pcall(require,'halcyon.redscenes.'..mod)
+    if not ok2 or type(fn)~='function' then error('module absent: '..tostring(mod)) end
+    local okh,hero=pcall(function() return CH('PLAYER') end)
+    local okp,partner=pcall(function() return CH('Teammate1') end)
+    if not okh then hero=nil end
+    if not okp then partner=nil end
+    fn(hero, partner or hero)
+    emit('{"event":"red_scene","ch":"'..C.ch..'","module":"'..mod..'","verdict":"SCENE_PASS"}')
+  end,debug.traceback)
+  if not ok then
+   emit('{"event":"red_scene","ch":"'..C.ch..'","module":"'..tostring(mod)..'","verdict":"SCENE_FAIL","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}')
+  end
+  GAME:EnterZone(C.dungeons[1].z,C.dungeons[1].seg or 0,0,0)
+ end)
+end
+
 function V:journey_advance()
  -- démarre le chapitre courant : état scénario + vérif déblocage + 1er donjon
  local prog=require('halcyon.skyscenes.progression')
