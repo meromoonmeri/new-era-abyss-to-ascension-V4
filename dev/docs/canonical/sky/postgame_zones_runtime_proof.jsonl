@@ -56,3 +56,10 @@
 {"event": "postgame_arena", "zone": "world_abyss_pit", "fixed_floor": "ff24", "boss": "giratina L48", "runtime": "CANONICAL_RUNTIME_PASS"}
 {"event": "postgame_arena", "zone": "deep_mystery_jungle", "fixed_floor": "ff25", "boss": "mew L48", "runtime": "CANONICAL_RUNTIME_PASS"}
 {"event": "postgame_arena", "zone": "sky_stairway_apex", "fixed_floor": "ff26", "boss": "rayquaza L50", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "zero_isle_build", "date": "2026-08-27", "zones": 6, "note": "d99-d104 construits depuis mappa_s.bin (sky_build_zone_from_tables + MUSIC_MID_MAP prouvée); 13 tilesets NDS portés depuis dungeon.bin (63,64,16,25,67,76,83,97,109,112,114,115,116 -> zero_isle_e1/e2/s1/s2, destiny_tower_1, zero_isle_c1-c8, méthode sky_port_dungeon_tileset 141/141), identités multi-tilesets par étage préservées (ROM)"}
+{"event": "postgame_zone", "zone": "zero_isle_north", "dungeon": "d99", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 75}
+{"event": "postgame_zone", "zone": "zero_isle_east", "dungeon": "d100", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 40}
+{"event": "postgame_zone", "zone": "zero_isle_west", "dungeon": "d101", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 40}
+{"event": "postgame_zone", "zone": "zero_isle_south", "dungeon": "d102", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 99}
+{"event": "postgame_zone", "zone": "zero_isle_center", "dungeon": "d103", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 50}
+{"event": "postgame_zone", "zone": "destiny_tower", "dungeon": "d104", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 99}

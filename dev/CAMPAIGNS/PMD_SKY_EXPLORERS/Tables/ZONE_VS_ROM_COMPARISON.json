@@ -9472,6 +9472,3184 @@
     "status": "PASS"
    },
    "verdict": "EXACT"
+  },
+  "zero_isle_north": {
+   "dungeon": "d99",
+   "pret_enum": "DUNGEON_ZERO_ISLE_NORTH",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 2,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 3,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 4,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 5,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 6,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 7,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 8,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 9,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 10,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 11,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 12,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 13,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 14,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 15,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 16,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 17,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 18,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 19,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 20,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 21,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 22,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 23,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 24,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 25,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 26,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 27,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 28,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 29,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 30,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 31,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 32,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 33,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 34,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 35,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 36,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 37,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 38,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 39,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 40,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 41,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 42,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 43,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 44,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 45,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 46,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 47,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 48,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 49,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 50,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 51,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 52,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 53,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 54,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 55,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 56,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 57,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 58,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 59,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 60,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 61,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 62,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 63,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 64,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 65,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 66,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 67,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 68,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 69,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 70,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 71,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 72,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 73,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 74,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 75,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    }
+   ],
+   "floor_count": {
+    "zone": 75,
+    "rom": 75,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "PASS",
+    "notes": [],
+    "zone": [
+     "trap_mud:1579",
+     "trap_sticky:1579",
+     "trap_grimy:1579",
+     "trap_summon:526",
+     "trap_seal:2105",
+     "trap_pp_leech:2106",
+     "trap_trip:526"
+    ],
+    "rom": [
+     "GRIMY_TRAP",
+     "MUD_TRAP",
+     "PP_ZERO_TRAP",
+     "SEAL_TRAP",
+     "STICKY_TRAP",
+     "SUMMON_TRAP",
+     "TRIP_TRAP"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 75,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "zero_isle_east": {
+   "dungeon": "d100",
+   "pret_enum": "DUNGEON_ZERO_ISLE_EAST",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 2,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 3,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 4,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 5,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 6,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 7,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 8,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 9,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 10,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 11,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 12,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 13,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 14,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 15,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 16,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 17,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 18,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 19,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 20,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 21,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 22,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 23,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 24,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 25,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 26,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 27,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 28,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 29,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 30,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 31,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 32,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 33,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 34,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 35,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 36,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 37,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 38,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 39,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 40,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    }
+   ],
+   "floor_count": {
+    "zone": 40,
+    "rom": 40,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "PASS",
+    "notes": [],
+    "zone": [
+     "trap_mud:296",
+     "trap_sticky:296",
+     "trap_grimy:591",
+     "trap_summon:592",
+     "trap_warp:592",
+     "trap_gust:296",
+     "trap_spin:532",
+     "trap_slumber:296",
+     "trap_slow:473",
+     "trap_seal:296",
+     "trap_self_destruct:178",
+     "trap_explosion:237",
+     "trap_pp_leech:591",
+     "trap_chestnut:592",
+     "trap_pokemon:592",
+     "trap_trip:296",
+     "trap_mud:279",
+     "trap_sticky:280",
+     "trap_grimy:558",
+     "trap_summon:559",
+     "trap_warp:559",
+     "trap_gust:279",
+     "trap_spin:503",
+     "trap_slumber:279",
+     "trap_slow:447",
+     "trap_seal:279",
+     "trap_poison:559",
+     "trap_self_destruct:168",
+     "trap_explosion:223",
+     "trap_pp_leech:559",
+     "trap_chestnut:558",
+     "trap_pokemon:559",
+     "trap_trip:279",
+     "trap_mud:276",
+     "trap_sticky:1105",
+     "trap_grimy:553",
+     "trap_summon:552",
+     "trap_warp:553",
+     "trap_gust:276",
+     "trap_spin:497",
+     "trap_slumber:276",
+     "trap_slow:553",
+     "trap_seal:276",
+     "trap_poison:553",
+     "trap_self_destruct:165",
+     "trap_explosion:221",
+     "trap_pp_leech:553",
+     "trap_chestnut:552",
+     "trap_pokemon:553",
+     "trap_trip:276",
+     "trap_mud:284",
+     "trap_sticky:1136",
+     "trap_grimy:569",
+     "trap_summon:568",
+     "trap_warp:284",
+     "trap_gust:284",
+     "trap_spin:511",
+     "trap_slumber:284",
+     "trap_slow:569",
+     "trap_seal:284",
+     "trap_poison:568",
+     "trap_self_destruct:170",
+     "trap_explosion:228",
+     "trap_pp_leech:568",
+     "trap_chestnut:568",
+     "trap_pokemon:568",
+     "trap_trip:284",
+     "trap_mud:552",
+     "trap_sticky:1105",
+     "trap_grimy:553",
+     "trap_summon:552",
+     "trap_warp:277",
+     "trap_gust:276",
+     "trap_spin:497",
+     "trap_slumber:276",
+     "trap_slow:553",
+     "trap_seal:276",
+     "trap_poison:553",
+     "trap_self_destruct:165",
+     "trap_explosion:221",
+     "trap_pp_leech:553",
+     "trap_chestnut:552",
+     "trap_pokemon:553",
+     "trap_trip:276",
+     "trap_mud:585",
+     "trap_sticky:1169",
+     "trap_grimy:585",
+     "trap_summon:585",
+     "trap_warp:292",
+     "trap_gust:293",
+     "trap_spin:526",
+     "trap_slumber:292",
+     "trap_slow:585",
+     "trap_seal:293",
+     "trap_poison:584",
+     "trap_self_destruct:176",
+     "trap_explosion:234",
+     "trap_pp_leech:585",
+     "trap_chestnut:584",
+     "trap_pokemon:585",
+     "trap_trip:292",
+     "trap_mud:1613",
+     "trap_sticky:1075",
+     "trap_grimy:538",
+     "trap_summon:537",
+     "trap_warp:269",
+     "trap_gust:269",
+     "trap_spin:484",
+     "trap_slumber:269",
+     "trap_slow:537",
+     "trap_seal:807",
+     "trap_poison:537",
+     "trap_self_destruct:162",
+     "trap_explosion:215",
+     "trap_pp_leech:537",
+     "trap_chestnut:538",
+     "trap_pokemon:537",
+     "trap_trip:269",
+     "trap_mud:1754",
+     "trap_sticky:293",
+     "trap_grimy:585",
+     "trap_summon:584",
+     "trap_warp:293",
+     "trap_gust:292",
+     "trap_spin:526",
+     "trap_slumber:293",
+     "trap_slow:585",
+     "trap_seal:877",
+     "trap_poison:585",
+     "trap_self_destruct:175",
+     "trap_explosion:234",
+     "trap_pp_leech:585",
+     "trap_chestnut:585",
+     "trap_pokemon:585",
+     "trap_trip:292",
+     "trap_mud:1818",
+     "trap_sticky:303",
+     "trap_grimy:364",
+     "trap_summon:606",
+     "trap_warp:303",
+     "trap_gust:303",
+     "trap_spin:545",
+     "trap_slumber:485",
+     "trap_slow:606",
+     "trap_seal:1212",
+     "trap_poison:607",
+     "trap_self_destruct:181",
+     "trap_explosion:243",
+     "trap_pp_leech:606",
+     "trap_pokemon:606",
+     "trap_trip:303"
+    ],
+    "rom": [
+     "CHESTNUT_TRAP",
+     "EXPLOSION_TRAP",
+     "GRIMY_TRAP",
+     "GUST_TRAP",
+     "MUD_TRAP",
+     "POISON_TRAP",
+     "POKEMON_TRAP",
+     "PP_ZERO_TRAP",
+     "SEAL_TRAP",
+     "SELFDESTRUCT_TRAP",
+     "SLOW_TRAP",
+     "SLUMBER_TRAP",
+     "SPIN_TRAP",
+     "STICKY_TRAP",
+     "SUMMON_TRAP",
+     "TRIP_TRAP",
+     "WARP_TRAP",
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 40,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "zero_isle_west": {
+   "dungeon": "d101",
+   "pret_enum": "DUNGEON_ZERO_ISLE_WEST",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 2,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 3,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 4,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 5,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 6,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 7,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 8,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 9,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 10,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 11,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 12,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 13,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 14,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 15,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 16,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 17,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 18,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 19,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 20,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 21,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 22,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 23,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 24,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 25,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 26,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 27,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 28,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 29,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 30,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 31,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 32,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 33,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 34,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 35,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 36,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 37,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 38,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 39,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 40,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    }
+   ],
+   "floor_count": {
+    "zone": 40,
+    "rom": 40,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "PASS",
+    "notes": [],
+    "zone": [
+     "trap_mud:296",
+     "trap_sticky:296",
+     "trap_grimy:591",
+     "trap_summon:592",
+     "trap_warp:592",
+     "trap_gust:296",
+     "trap_spin:532",
+     "trap_slumber:296",
+     "trap_slow:473",
+     "trap_seal:296",
+     "trap_self_destruct:178",
+     "trap_explosion:237",
+     "trap_pp_leech:591",
+     "trap_chestnut:592",
+     "trap_pokemon:592",
+     "trap_trip:296",
+     "trap_mud:279",
+     "trap_sticky:280",
+     "trap_grimy:558",
+     "trap_summon:559",
+     "trap_warp:559",
+     "trap_gust:279",
+     "trap_spin:503",
+     "trap_slumber:279",
+     "trap_slow:447",
+     "trap_seal:279",
+     "trap_poison:559",
+     "trap_self_destruct:168",
+     "trap_explosion:223",
+     "trap_pp_leech:559",
+     "trap_chestnut:558",
+     "trap_pokemon:559",
+     "trap_trip:279",
+     "trap_mud:276",
+     "trap_sticky:1105",
+     "trap_grimy:553",
+     "trap_summon:552",
+     "trap_warp:553",
+     "trap_gust:276",
+     "trap_spin:497",
+     "trap_slumber:276",
+     "trap_slow:553",
+     "trap_seal:276",
+     "trap_poison:553",
+     "trap_self_destruct:165",
+     "trap_explosion:221",
+     "trap_pp_leech:553",
+     "trap_chestnut:552",
+     "trap_pokemon:553",
+     "trap_trip:276",
+     "trap_mud:284",
+     "trap_sticky:1136",
+     "trap_grimy:569",
+     "trap_summon:568",
+     "trap_warp:284",
+     "trap_gust:284",
+     "trap_spin:511",
+     "trap_slumber:284",
+     "trap_slow:569",
+     "trap_seal:284",
+     "trap_poison:568",
+     "trap_self_destruct:170",
+     "trap_explosion:228",
+     "trap_pp_leech:568",
+     "trap_chestnut:568",
+     "trap_pokemon:568",
+     "trap_trip:284",
+     "trap_mud:552",
+     "trap_sticky:1105",
+     "trap_grimy:553",
+     "trap_summon:552",
+     "trap_warp:277",
+     "trap_gust:276",
+     "trap_spin:497",
+     "trap_slumber:276",
+     "trap_slow:553",
+     "trap_seal:276",
+     "trap_poison:553",
+     "trap_self_destruct:165",
+     "trap_explosion:221",
+     "trap_pp_leech:553",
+     "trap_chestnut:552",
+     "trap_pokemon:553",
+     "trap_trip:276",
+     "trap_mud:585",
+     "trap_sticky:1169",
+     "trap_grimy:585",
+     "trap_summon:585",
+     "trap_warp:292",
+     "trap_gust:293",
+     "trap_spin:526",
+     "trap_slumber:292",
+     "trap_slow:585",
+     "trap_seal:293",
+     "trap_poison:584",
+     "trap_self_destruct:176",
+     "trap_explosion:234",
+     "trap_pp_leech:585",
+     "trap_chestnut:584",
+     "trap_pokemon:585",
+     "trap_trip:292",
+     "trap_mud:1613",
+     "trap_sticky:1075",
+     "trap_grimy:538",
+     "trap_summon:537",
+     "trap_warp:269",
+     "trap_gust:269",
+     "trap_spin:484",
+     "trap_slumber:269",
+     "trap_slow:537",
+     "trap_seal:807",
+     "trap_poison:537",
+     "trap_self_destruct:162",
+     "trap_explosion:215",
+     "trap_pp_leech:537",
+     "trap_chestnut:538",
+     "trap_pokemon:537",
+     "trap_trip:269",
+     "trap_mud:1754",
+     "trap_sticky:293",
+     "trap_grimy:585",
+     "trap_summon:584",
+     "trap_warp:293",
+     "trap_gust:292",
+     "trap_spin:526",
+     "trap_slumber:293",
+     "trap_slow:585",
+     "trap_seal:877",
+     "trap_poison:585",
+     "trap_self_destruct:175",
+     "trap_explosion:234",
+     "trap_pp_leech:585",
+     "trap_chestnut:585",
+     "trap_pokemon:585",
+     "trap_trip:292",
+     "trap_mud:1818",
+     "trap_sticky:303",
+     "trap_grimy:364",
+     "trap_summon:606",
+     "trap_warp:303",
+     "trap_gust:303",
+     "trap_spin:545",
+     "trap_slumber:485",
+     "trap_slow:606",
+     "trap_seal:1212",
+     "trap_poison:607",
+     "trap_self_destruct:181",
+     "trap_explosion:243",
+     "trap_pp_leech:606",
+     "trap_pokemon:606",
+     "trap_trip:303"
+    ],
+    "rom": [
+     "CHESTNUT_TRAP",
+     "EXPLOSION_TRAP",
+     "GRIMY_TRAP",
+     "GUST_TRAP",
+     "MUD_TRAP",
+     "POISON_TRAP",
+     "POKEMON_TRAP",
+     "PP_ZERO_TRAP",
+     "SEAL_TRAP",
+     "SELFDESTRUCT_TRAP",
+     "SLOW_TRAP",
+     "SLUMBER_TRAP",
+     "SPIN_TRAP",
+     "STICKY_TRAP",
+     "SUMMON_TRAP",
+     "TRIP_TRAP",
+     "WARP_TRAP",
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 40,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "zero_isle_south": {
+   "dungeon": "d102",
+   "pret_enum": "DUNGEON_ZERO_ISLE_SOUTH",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 2,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 3,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 4,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 5,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 6,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 7,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 8,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 9,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 10,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 11,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 12,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 13,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 14,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 15,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 16,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 17,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 18,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 19,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 20,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 21,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 22,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 23,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 24,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 25,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 26,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 27,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 28,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 29,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 30,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 31,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 32,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 33,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 34,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 35,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 36,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 37,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 38,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 39,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 40,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 41,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 42,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 43,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 44,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 45,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 46,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 47,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 48,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 49,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 50,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 51,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 52,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 53,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 54,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 55,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 56,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 57,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 58,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 59,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 60,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 61,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 62,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 63,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 64,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 65,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 66,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 67,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 68,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 69,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 70,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 71,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 72,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 73,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 74,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 75,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 76,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 77,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 78,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 79,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 80,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 81,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 82,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 83,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 84,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 85,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 86,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 87,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 88,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 89,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 90,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 91,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 92,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 93,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 94,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 95,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 96,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 97,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 98,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 99,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    }
+   ],
+   "floor_count": {
+    "zone": 99,
+    "rom": 99,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "PASS",
+    "notes": [],
+    "zone": [
+     "trap_mud:296",
+     "trap_sticky:296",
+     "trap_grimy:591",
+     "trap_summon:592",
+     "trap_warp:592",
+     "trap_gust:296",
+     "trap_spin:532",
+     "trap_slumber:296",
+     "trap_slow:473",
+     "trap_seal:296",
+     "trap_self_destruct:178",
+     "trap_explosion:237",
+     "trap_pp_leech:591",
+     "trap_chestnut:592",
+     "trap_pokemon:592",
+     "trap_trip:296",
+     "trap_mud:279",
+     "trap_sticky:280",
+     "trap_grimy:558",
+     "trap_summon:559",
+     "trap_warp:559",
+     "trap_gust:279",
+     "trap_spin:503",
+     "trap_slumber:279",
+     "trap_slow:447",
+     "trap_seal:279",
+     "trap_poison:559",
+     "trap_self_destruct:168",
+     "trap_explosion:223",
+     "trap_pp_leech:559",
+     "trap_chestnut:558",
+     "trap_pokemon:559",
+     "trap_trip:279",
+     "trap_mud:276",
+     "trap_sticky:1105",
+     "trap_grimy:553",
+     "trap_summon:552",
+     "trap_warp:553",
+     "trap_gust:276",
+     "trap_spin:497",
+     "trap_slumber:276",
+     "trap_slow:553",
+     "trap_seal:276",
+     "trap_poison:553",
+     "trap_self_destruct:165",
+     "trap_explosion:221",
+     "trap_pp_leech:553",
+     "trap_chestnut:552",
+     "trap_pokemon:553",
+     "trap_trip:276",
+     "trap_mud:284",
+     "trap_sticky:1136",
+     "trap_grimy:569",
+     "trap_summon:568",
+     "trap_warp:284",
+     "trap_gust:284",
+     "trap_spin:511",
+     "trap_slumber:284",
+     "trap_slow:569",
+     "trap_seal:284",
+     "trap_poison:568",
+     "trap_self_destruct:170",
+     "trap_explosion:228",
+     "trap_pp_leech:568",
+     "trap_chestnut:568",
+     "trap_pokemon:568",
+     "trap_trip:284",
+     "trap_mud:552",
+     "trap_sticky:1105",
+     "trap_grimy:553",
+     "trap_summon:552",
+     "trap_warp:277",
+     "trap_gust:276",
+     "trap_spin:497",
+     "trap_slumber:276",
+     "trap_slow:553",
+     "trap_seal:276",
+     "trap_poison:553",
+     "trap_self_destruct:165",
+     "trap_explosion:221",
+     "trap_pp_leech:553",
+     "trap_chestnut:552",
+     "trap_pokemon:553",
+     "trap_trip:276",
+     "trap_mud:585",
+     "trap_sticky:1169",
+     "trap_grimy:585",
+     "trap_summon:585",
+     "trap_warp:292",
+     "trap_gust:293",
+     "trap_spin:526",
+     "trap_slumber:292",
+     "trap_slow:585",
+     "trap_seal:293",
+     "trap_poison:584",
+     "trap_self_destruct:176",
+     "trap_explosion:234",
+     "trap_pp_leech:585",
+     "trap_chestnut:584",
+     "trap_pokemon:585",
+     "trap_trip:292",
+     "trap_mud:1613",
+     "trap_sticky:1075",
+     "trap_grimy:538",
+     "trap_summon:537",
+     "trap_warp:269",
+     "trap_gust:269",
+     "trap_spin:484",
+     "trap_slumber:269",
+     "trap_slow:537",
+     "trap_seal:807",
+     "trap_poison:537",
+     "trap_self_destruct:162",
+     "trap_explosion:215",
+     "trap_pp_leech:537",
+     "trap_chestnut:538",
+     "trap_pokemon:537",
+     "trap_trip:269",
+     "trap_mud:1754",
+     "trap_sticky:293",
+     "trap_grimy:585",
+     "trap_summon:584",
+     "trap_warp:293",
+     "trap_gust:292",
+     "trap_spin:526",
+     "trap_slumber:293",
+     "trap_slow:585",
+     "trap_seal:877",
+     "trap_poison:585",
+     "trap_self_destruct:175",
+     "trap_explosion:234",
+     "trap_pp_leech:585",
+     "trap_chestnut:585",
+     "trap_pokemon:585",
+     "trap_trip:292",
+     "trap_mud:1818",
+     "trap_sticky:303",
+     "trap_grimy:364",
+     "trap_summon:606",
+     "trap_warp:303",
+     "trap_gust:303",
+     "trap_spin:545",
+     "trap_slumber:485",
+     "trap_slow:606",
+     "trap_seal:1212",
+     "trap_poison:607",
+     "trap_self_destruct:181",
+     "trap_explosion:243",
+     "trap_pp_leech:606",
+     "trap_pokemon:606",
+     "trap_trip:303",
+     "trap_mud:2105",
+     "trap_sticky:1053",
+     "trap_grimy:316",
+     "trap_summon:526",
+     "trap_warp:263",
+     "trap_spin:474",
+     "trap_slumber:421",
+     "trap_slow:526",
+     "trap_seal:1053",
+     "trap_poison:526",
+     "trap_self_destruct:158",
+     "trap_explosion:211",
+     "trap_pp_leech:526",
+     "trap_pokemon:527",
+     "trap_trip:526",
+     "trap_mud:2128",
+     "trap_sticky:1063",
+     "trap_grimy:320",
+     "trap_summon:532",
+     "trap_warp:266",
+     "trap_spin:478",
+     "trap_slumber:426",
+     "trap_slow:425",
+     "trap_seal:1064",
+     "trap_poison:532",
+     "trap_self_destruct:160",
+     "trap_explosion:212",
+     "trap_pp_leech:532",
+     "trap_pokemon:532",
+     "trap_trip:532",
+     "trap_mud:2454",
+     "trap_sticky:1227",
+     "trap_grimy:368",
+     "trap_summon:491",
+     "trap_spin:307",
+     "trap_slumber:490",
+     "trap_slow:369",
+     "trap_seal:920",
+     "trap_poison:307",
+     "trap_explosion:613",
+     "trap_pp_leech:1227",
+     "trap_pokemon:307",
+     "trap_mud:3101",
+     "trap_sticky:775",
+     "trap_grimy:465",
+     "trap_summon:543",
+     "trap_spin:387",
+     "trap_slumber:620",
+     "trap_slow:466",
+     "trap_seal:1550",
+     "trap_poison:388",
+     "trap_explosion:775",
+     "trap_pp_leech:930",
+     "trap_mud:3252",
+     "trap_sticky:813",
+     "trap_summon:569",
+     "trap_spin:407",
+     "trap_slumber:650",
+     "trap_slow:488",
+     "trap_seal:1626",
+     "trap_poison:406",
+     "trap_explosion:813",
+     "trap_pp_leech:976",
+     "trap_mud:3252",
+     "trap_sticky:813",
+     "trap_summon:569",
+     "trap_spin:407",
+     "trap_slumber:650",
+     "trap_slow:488",
+     "trap_seal:1626",
+     "trap_poison:406",
+     "trap_explosion:813",
+     "trap_pp_leech:976",
+     "trap_mud:3226",
+     "trap_sticky:806",
+     "trap_summon:565",
+     "trap_spin:403",
+     "trap_slumber:645",
+     "trap_slow:484",
+     "trap_seal:1613",
+     "trap_poison:403",
+     "trap_explosion:807",
+     "trap_pp_leech:1048",
+     "trap_mud:3175",
+     "trap_sticky:793",
+     "trap_summon:556",
+     "trap_spin:397",
+     "trap_slumber:635",
+     "trap_slow:476",
+     "trap_seal:1587",
+     "trap_poison:397",
+     "trap_explosion:794",
+     "trap_pp_leech:1190",
+     "trap_mud:3306",
+     "trap_sticky:826",
+     "trap_summon:579",
+     "trap_spin:413",
+     "trap_slumber:661",
+     "trap_slow:496",
+     "trap_seal:1653",
+     "trap_poison:413",
+     "trap_explosion:827",
+     "trap_pp_leech:826",
+     "trap_mud:3200",
+     "trap_sticky:800",
+     "trap_summon:560",
+     "trap_spin:400",
+     "trap_slumber:640",
+     "trap_slow:800",
+     "trap_seal:1600",
+     "trap_poison:400",
+     "trap_explosion:800",
+     "trap_pp_leech:800"
+    ],
+    "rom": [
+     "CHESTNUT_TRAP",
+     "EXPLOSION_TRAP",
+     "GRIMY_TRAP",
+     "GUST_TRAP",
+     "MUD_TRAP",
+     "POISON_TRAP",
+     "POKEMON_TRAP",
+     "PP_ZERO_TRAP",
+     "SEAL_TRAP",
+     "SELFDESTRUCT_TRAP",
+     "SLOW_TRAP",
+     "SLUMBER_TRAP",
+     "SPIN_TRAP",
+     "STICKY_TRAP",
+     "SUMMON_TRAP",
+     "TRIP_TRAP",
+     "WARP_TRAP",
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 99,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "zero_isle_center": {
+   "dungeon": "d103",
+   "pret_enum": "DUNGEON_ZERO_ISLE_CENTER",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 2,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 3,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 4,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 5,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 6,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 7,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 8,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 9,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 10,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 11,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 12,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 13,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 14,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 15,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 16,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 17,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 18,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 19,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 20,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 21,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 22,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 23,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 24,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 25,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 26,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 27,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 28,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 29,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 30,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 31,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 32,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 33,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 34,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 35,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 36,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 37,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 38,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 39,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 40,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 41,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 42,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 43,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 44,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 45,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 46,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 47,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 48,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 49,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 50,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    }
+   ],
+   "floor_count": {
+    "zone": 50,
+    "rom": 50,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "PASS",
+    "notes": [],
+    "zone": [
+     "trap_mud:204",
+     "trap_sticky:204",
+     "trap_grimy:408",
+     "trap_summon:408",
+     "trap_warp:205",
+     "trap_gust:204",
+     "trap_spin:204",
+     "trap_slumber:204",
+     "trap_slow:204",
+     "trap_seal:1224",
+     "trap_self_destruct:204",
+     "trap_explosion:205",
+     "trap_pp_leech:1224",
+     "trap_trigger:3674",
+     "trap_grudge:1224"
+    ],
+    "rom": [
+     "EXPLOSION_TRAP",
+     "GRIMY_TRAP",
+     "GRUDGE_TRAP",
+     "GUST_TRAP",
+     "MUD_TRAP",
+     "PP_ZERO_TRAP",
+     "RANDOM_TRAP",
+     "SEAL_TRAP",
+     "SELFDESTRUCT_TRAP",
+     "SLOW_TRAP",
+     "SLUMBER_TRAP",
+     "SPIN_TRAP",
+     "STICKY_TRAP",
+     "SUMMON_TRAP",
+     "WARP_TRAP"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 50,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
+  },
+  "destiny_tower": {
+   "dungeon": "d104",
+   "pret_enum": "DUNGEON_DESTINY_TOWER",
+   "floors": [
+    {
+     "floor": 1,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 2,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 3,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 4,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 5,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 6,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 7,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 8,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 9,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 10,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 11,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 12,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 13,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 14,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 15,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 16,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 17,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 18,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 19,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 20,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 21,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 22,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 23,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 24,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 25,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 26,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 27,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 28,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 29,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 30,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 31,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 32,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 33,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 34,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 35,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 36,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 37,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 38,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 39,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 40,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 41,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 42,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 43,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 44,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 45,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 46,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 47,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 48,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 49,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 50,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 51,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 52,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 53,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 54,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 55,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 56,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 57,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 58,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 59,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 60,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 61,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 62,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 63,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 64,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 65,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 66,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 67,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 68,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 69,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 70,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 71,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 72,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 73,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 74,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 75,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 76,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 77,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 78,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 79,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 80,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 81,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 82,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 83,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 84,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 85,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 86,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 87,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 88,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 89,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 90,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 91,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 92,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 93,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 94,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 95,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 96,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 97,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 98,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    },
+    {
+     "floor": 99,
+     "species_levels": "PASS",
+     "spawn_rates": "PASS"
+    }
+   ],
+   "floor_count": {
+    "zone": 99,
+    "rom": 99,
+    "status": "PASS"
+   },
+   "traps": {
+    "status": "PASS",
+    "notes": [],
+    "zone": [
+     "trap_mud:239",
+     "trap_sticky:239",
+     "trap_grimy:479",
+     "trap_summon:478",
+     "trap_warp:479",
+     "trap_gust:239",
+     "trap_spin:431",
+     "trap_slumber:239",
+     "trap_slow:383",
+     "trap_seal:239",
+     "trap_self_destruct:144",
+     "trap_explosion:191",
+     "trap_pp_leech:478",
+     "trap_chestnut:479",
+     "trap_pokemon:479",
+     "trap_trip:239",
+     "trap_trigger:1914",
+     "trap_mud:228",
+     "trap_sticky:229",
+     "trap_grimy:456",
+     "trap_summon:457",
+     "trap_warp:456",
+     "trap_gust:229",
+     "trap_spin:411",
+     "trap_slumber:228",
+     "trap_slow:365",
+     "trap_seal:229",
+     "trap_poison:456",
+     "trap_self_destruct:137",
+     "trap_explosion:183",
+     "trap_pp_leech:457",
+     "trap_chestnut:456",
+     "trap_pokemon:456",
+     "trap_trip:229",
+     "trap_trigger:1826",
+     "trap_mud:226",
+     "trap_sticky:905",
+     "trap_grimy:453",
+     "trap_summon:452",
+     "trap_warp:453",
+     "trap_gust:226",
+     "trap_spin:407",
+     "trap_slumber:226",
+     "trap_slow:453",
+     "trap_seal:226",
+     "trap_poison:453",
+     "trap_self_destruct:135",
+     "trap_explosion:181",
+     "trap_pp_leech:453",
+     "trap_chestnut:452",
+     "trap_pokemon:453",
+     "trap_trip:226",
+     "trap_trigger:1810",
+     "trap_mud:226",
+     "trap_sticky:905",
+     "trap_grimy:453",
+     "trap_summon:452",
+     "trap_warp:226",
+     "trap_gust:227",
+     "trap_spin:407",
+     "trap_slumber:226",
+     "trap_slow:453",
+     "trap_seal:226",
+     "trap_poison:452",
+     "trap_self_destruct:136",
+     "trap_explosion:181",
+     "trap_pp_leech:453",
+     "trap_chestnut:452",
+     "trap_pokemon:453",
+     "trap_trip:226",
+     "trap_trigger:1810",
+     "trap_grudge:226",
+     "trap_mud:442",
+     "trap_sticky:885",
+     "trap_grimy:443",
+     "trap_summon:442",
+     "trap_warp:222",
+     "trap_gust:221",
+     "trap_spin:398",
+     "trap_slumber:221",
+     "trap_slow:443",
+     "trap_seal:221",
+     "trap_poison:443",
+     "trap_self_destruct:132",
+     "trap_explosion:177",
+     "trap_pp_leech:443",
+     "trap_chestnut:442",
+     "trap_pokemon:443",
+     "trap_trip:221",
+     "trap_trigger:1770",
+     "trap_grudge:221",
+     "trap_mud:452",
+     "trap_sticky:905",
+     "trap_grimy:453",
+     "trap_summon:452",
+     "trap_warp:227",
+     "trap_gust:226",
+     "trap_spin:407",
+     "trap_slumber:226",
+     "trap_slow:453",
+     "trap_seal:226",
+     "trap_poison:453",
+     "trap_self_destruct:135",
+     "trap_explosion:181",
+     "trap_pp_leech:453",
+     "trap_chestnut:452",
+     "trap_pokemon:452",
+     "trap_trip:227",
+     "trap_trigger:1810",
+     "trap_grudge:452",
+     "trap_mud:1271",
+     "trap_sticky:848",
+     "trap_grimy:423",
+     "trap_summon:424",
+     "trap_warp:212",
+     "trap_gust:212",
+     "trap_spin:381",
+     "trap_slumber:212",
+     "trap_slow:424",
+     "trap_seal:635",
+     "trap_poison:424",
+     "trap_self_destruct:127",
+     "trap_explosion:170",
+     "trap_pp_leech:423",
+     "trap_chestnut:424",
+     "trap_pokemon:423",
+     "trap_trip:212",
+     "trap_trigger:1695",
+     "trap_grudge:424",
+     "trap_mud:1357",
+     "trap_sticky:227",
+     "trap_grimy:452",
+     "trap_summon:453",
+     "trap_warp:226",
+     "trap_gust:226",
+     "trap_spin:407",
+     "trap_slumber:227",
+     "trap_slow:452",
+     "trap_seal:679",
+     "trap_poison:452",
+     "trap_self_destruct:136",
+     "trap_explosion:181",
+     "trap_pp_leech:453",
+     "trap_chestnut:452",
+     "trap_pokemon:452",
+     "trap_trip:227",
+     "trap_trigger:1810",
+     "trap_grudge:452",
+     "trap_mud:1395",
+     "trap_sticky:233",
+     "trap_grimy:279",
+     "trap_summon:465",
+     "trap_warp:233",
+     "trap_gust:232",
+     "trap_spin:419",
+     "trap_slumber:372",
+     "trap_slow:465",
+     "trap_seal:930",
+     "trap_poison:465",
+     "trap_self_destruct:140",
+     "trap_explosion:186",
+     "trap_pp_leech:465",
+     "trap_pokemon:465",
+     "trap_trip:232",
+     "trap_trigger:1861",
+     "trap_grudge:465",
+     "trap_mud:1633",
+     "trap_sticky:816",
+     "trap_grimy:245",
+     "trap_summon:408",
+     "trap_warp:204",
+     "trap_spin:367",
+     "trap_slumber:327",
+     "trap_slow:408",
+     "trap_seal:816",
+     "trap_poison:409",
+     "trap_self_destruct:122",
+     "trap_explosion:163",
+     "trap_pp_leech:409",
+     "trap_pokemon:408",
+     "trap_trip:408",
+     "trap_trigger:1633",
+     "trap_grudge:612",
+     "trap_mud:1646",
+     "trap_sticky:823",
+     "trap_grimy:247",
+     "trap_summon:412",
+     "trap_warp:205",
+     "trap_spin:371",
+     "trap_slumber:329",
+     "trap_slow:329",
+     "trap_seal:823",
+     "trap_poison:412",
+     "trap_self_destruct:123",
+     "trap_explosion:165",
+     "trap_pp_leech:411",
+     "trap_pokemon:411",
+     "trap_trip:412",
+     "trap_trigger:1646",
+     "trap_grudge:617",
+     "trap_mud:1835",
+     "trap_sticky:917",
+     "trap_grimy:276",
+     "trap_summon:366",
+     "trap_spin:230",
+     "trap_slumber:367",
+     "trap_slow:275",
+     "trap_seal:688",
+     "trap_poison:229",
+     "trap_explosion:459",
+     "trap_pp_leech:918",
+     "trap_pokemon:229",
+     "trap_trigger:1835",
+     "trap_grudge:688",
+     "trap_mud:2174",
+     "trap_sticky:543",
+     "trap_grimy:326",
+     "trap_summon:381",
+     "trap_spin:272",
+     "trap_slumber:434",
+     "trap_slow:327",
+     "trap_seal:1086",
+     "trap_poison:272",
+     "trap_explosion:544",
+     "trap_pp_leech:652",
+     "trap_trigger:2174",
+     "trap_grudge:815",
+     "trap_mud:2186",
+     "trap_sticky:546",
+     "trap_summon:383",
+     "trap_spin:273",
+     "trap_slumber:437",
+     "trap_slow:328",
+     "trap_seal:1093",
+     "trap_poison:273",
+     "trap_explosion:547",
+     "trap_pp_leech:655",
+     "trap_trigger:2186",
+     "trap_grudge:1093",
+     "trap_mud:2186",
+     "trap_sticky:546",
+     "trap_summon:383",
+     "trap_spin:273",
+     "trap_slumber:437",
+     "trap_slow:328",
+     "trap_seal:1093",
+     "trap_poison:273",
+     "trap_explosion:547",
+     "trap_pp_leech:655",
+     "trap_trigger:2186",
+     "trap_grudge:1093",
+     "trap_mud:2174",
+     "trap_sticky:543",
+     "trap_summon:381",
+     "trap_spin:272",
+     "trap_slumber:434",
+     "trap_slow:326",
+     "trap_seal:1087",
+     "trap_poison:272",
+     "trap_explosion:544",
+     "trap_pp_leech:706",
+     "trap_trigger:2174",
+     "trap_grudge:1087",
+     "trap_mud:2151",
+     "trap_sticky:537",
+     "trap_summon:377",
+     "trap_spin:268",
+     "trap_slumber:430",
+     "trap_slow:323",
+     "trap_seal:1075",
+     "trap_poison:269",
+     "trap_explosion:538",
+     "trap_pp_leech:806",
+     "trap_trigger:2151",
+     "trap_grudge:1075",
+     "trap_mud:2210",
+     "trap_sticky:552",
+     "trap_summon:387",
+     "trap_spin:276",
+     "trap_slumber:442",
+     "trap_slow:332",
+     "trap_seal:1105",
+     "trap_poison:276",
+     "trap_explosion:553",
+     "trap_pp_leech:552",
+     "trap_trigger:2210",
+     "trap_grudge:1105",
+     "trap_mud:2162",
+     "trap_sticky:541",
+     "trap_summon:378",
+     "trap_spin:270",
+     "trap_slumber:433",
+     "trap_slow:540",
+     "trap_seal:1081",
+     "trap_poison:271",
+     "trap_explosion:540",
+     "trap_pp_leech:541",
+     "trap_trigger:2162",
+     "trap_grudge:1081"
+    ],
+    "rom": [
+     "CHESTNUT_TRAP",
+     "EXPLOSION_TRAP",
+     "GRIMY_TRAP",
+     "GRUDGE_TRAP",
+     "GUST_TRAP",
+     "MUD_TRAP",
+     "POISON_TRAP",
+     "POKEMON_TRAP",
+     "PP_ZERO_TRAP",
+     "RANDOM_TRAP",
+     "SEAL_TRAP",
+     "SELFDESTRUCT_TRAP",
+     "SLOW_TRAP",
+     "SLUMBER_TRAP",
+     "SPIN_TRAP",
+     "STICKY_TRAP",
+     "SUMMON_TRAP",
+     "TRIP_TRAP",
+     "WARP_TRAP",
+     "WONDER_TILE"
+    ]
+   },
+   "items": {
+    "rom_has_floor_items": true,
+    "zone_spawns_items": true,
+    "status": "PASS"
+   },
+   "floors_species_rates": {
+    "floors_pass": 99,
+    "floors_fail": 0,
+    "status": "PASS"
+   },
+   "verdict": "EXACT"
   }
  }
 }

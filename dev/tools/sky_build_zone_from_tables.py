@@ -82,7 +82,15 @@ TSET = {1: "beach_cave", 2: "drenched_bluff", 3: "mt_bristle",
         105: "oran_forest", 113: "lake_afar",
         91: "happy_outlook", 119: "mt_mistral",
         106: "shimmer_hill", 108: "lost_wilderness",
-        124: "zero_isle_n1"}
+        124: "zero_isle_n1",
+        # Zero Isle / Destiny Tower (session 2026-08-27) : portés depuis
+        # DUNGEON/dungeon.bin (sky_port_dungeon_tileset, méthode 141/141)
+        63: "zero_isle_e1", 64: "zero_isle_e2",
+        16: "zero_isle_s1", 25: "zero_isle_s2",
+        67: "destiny_tower_1",
+        76: "zero_isle_c1", 83: "zero_isle_c2", 97: "zero_isle_c3",
+        109: "zero_isle_c4", 112: "zero_isle_c5", 114: "zero_isle_c6",
+        115: "zero_isle_c7", 116: "zero_isle_c8"}
 # tileset NDS 180 (d45 clearing) = MAP_BG v00p03 + fixed floor 11 :
 # arène fixe, pipeline sky_build_boss_arenas (pas un donjon procédural).
 

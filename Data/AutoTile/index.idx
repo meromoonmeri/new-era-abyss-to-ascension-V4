@@ -706,6 +706,357 @@
    "Released": true,
    "Comment": "",
    "SortOrder": 0
+  },
+  "zero_isle_e1_floor": {
+   "Name": {
+    "DefaultText": "Zero Isle E1 Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_e1_wall": {
+   "Name": {
+    "DefaultText": "Zero Isle E1 Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_e1_secondary": {
+   "Name": {
+    "DefaultText": "Zero Isle E1 Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_e2_floor": {
+   "Name": {
+    "DefaultText": "Zero Isle E2 Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_e2_wall": {
+   "Name": {
+    "DefaultText": "Zero Isle E2 Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_e2_secondary": {
+   "Name": {
+    "DefaultText": "Zero Isle E2 Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_s1_floor": {
+   "Name": {
+    "DefaultText": "Zero Isle S1 Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_s1_wall": {
+   "Name": {
+    "DefaultText": "Zero Isle S1 Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_s1_secondary": {
+   "Name": {
+    "DefaultText": "Zero Isle S1 Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_s2_floor": {
+   "Name": {
+    "DefaultText": "Zero Isle S2 Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_s2_wall": {
+   "Name": {
+    "DefaultText": "Zero Isle S2 Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_s2_secondary": {
+   "Name": {
+    "DefaultText": "Zero Isle S2 Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "destiny_tower_1_floor": {
+   "Name": {
+    "DefaultText": "Destiny Tower 1 Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "destiny_tower_1_wall": {
+   "Name": {
+    "DefaultText": "Destiny Tower 1 Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "destiny_tower_1_secondary": {
+   "Name": {
+    "DefaultText": "Destiny Tower 1 Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c1_floor": {
+   "Name": {
+    "DefaultText": "Zero Isle C1 Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c1_wall": {
+   "Name": {
+    "DefaultText": "Zero Isle C1 Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c1_secondary": {
+   "Name": {
+    "DefaultText": "Zero Isle C1 Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c2_floor": {
+   "Name": {
+    "DefaultText": "Zero Isle C2 Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c2_wall": {
+   "Name": {
+    "DefaultText": "Zero Isle C2 Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c2_secondary": {
+   "Name": {
+    "DefaultText": "Zero Isle C2 Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c3_floor": {
+   "Name": {
+    "DefaultText": "Zero Isle C3 Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c3_wall": {
+   "Name": {
+    "DefaultText": "Zero Isle C3 Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c3_secondary": {
+   "Name": {
+    "DefaultText": "Zero Isle C3 Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c4_floor": {
+   "Name": {
+    "DefaultText": "Zero Isle C4 Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c4_wall": {
+   "Name": {
+    "DefaultText": "Zero Isle C4 Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c4_secondary": {
+   "Name": {
+    "DefaultText": "Zero Isle C4 Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c5_floor": {
+   "Name": {
+    "DefaultText": "Zero Isle C5 Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c5_wall": {
+   "Name": {
+    "DefaultText": "Zero Isle C5 Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c5_secondary": {
+   "Name": {
+    "DefaultText": "Zero Isle C5 Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c6_floor": {
+   "Name": {
+    "DefaultText": "Zero Isle C6 Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c6_wall": {
+   "Name": {
+    "DefaultText": "Zero Isle C6 Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c6_secondary": {
+   "Name": {
+    "DefaultText": "Zero Isle C6 Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c7_floor": {
+   "Name": {
+    "DefaultText": "Zero Isle C7 Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c7_wall": {
+   "Name": {
+    "DefaultText": "Zero Isle C7 Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c7_secondary": {
+   "Name": {
+    "DefaultText": "Zero Isle C7 Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c8_floor": {
+   "Name": {
+    "DefaultText": "Zero Isle C8 Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c8_wall": {
+   "Name": {
+    "DefaultText": "Zero Isle C8 Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "zero_isle_c8_secondary": {
+   "Name": {
+    "DefaultText": "Zero Isle C8 Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
   }
  }
 }

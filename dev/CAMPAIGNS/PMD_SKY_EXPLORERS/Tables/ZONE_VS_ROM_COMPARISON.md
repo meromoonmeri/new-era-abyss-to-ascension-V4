@@ -516,3 +516,39 @@
 - items : ROM a des tables=True, zone spawn=True → PASS
 - pièges : PASS 
 
+## zero_isle_north (d99 DUNGEON_ZERO_ISLE_NORTH) — **EXACT**
+- étages : zone 75 / ROM 75 → PASS
+- espèces/niveaux/proportions : 75 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## zero_isle_east (d100 DUNGEON_ZERO_ISLE_EAST) — **EXACT**
+- étages : zone 40 / ROM 40 → PASS
+- espèces/niveaux/proportions : 40 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## zero_isle_west (d101 DUNGEON_ZERO_ISLE_WEST) — **EXACT**
+- étages : zone 40 / ROM 40 → PASS
+- espèces/niveaux/proportions : 40 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## zero_isle_south (d102 DUNGEON_ZERO_ISLE_SOUTH) — **EXACT**
+- étages : zone 99 / ROM 99 → PASS
+- espèces/niveaux/proportions : 99 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## zero_isle_center (d103 DUNGEON_ZERO_ISLE_CENTER) — **EXACT**
+- étages : zone 50 / ROM 50 → PASS
+- espèces/niveaux/proportions : 50 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## destiny_tower (d104 DUNGEON_DESTINY_TOWER) — **EXACT**
+- étages : zone 99 / ROM 99 → PASS
+- espèces/niveaux/proportions : 99 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+

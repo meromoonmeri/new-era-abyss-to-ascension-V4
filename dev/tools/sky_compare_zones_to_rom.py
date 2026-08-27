@@ -81,6 +81,10 @@ ZONE_TO_DUNGEON = {
     "happy_outlook": "d94", "mt_mistral": "d95",
     "shimmer_hill": "d96", "lost_wilderness": "d97",
     "midnight_forest": "d98",
+    # Zero Isle / Destiny Tower (session 2026-08-27)
+    "zero_isle_north": "d99", "zero_isle_east": "d100",
+    "zero_isle_west": "d101", "zero_isle_south": "d102",
+    "zero_isle_center": "d103", "destiny_tower": "d104",
 }
 
 TRAP_TO_PMDO = {k: v.get("pmdo_tile")
