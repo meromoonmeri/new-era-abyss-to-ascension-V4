@@ -465,6 +465,12 @@ class SceneCompiler:
             self.used_skyprog = True
             return ("(SV.SkyScenarioSide and SV.SkyScenarioSide.main or 0)",
                     "scn($SCENARIO_SIDE)[0]: épisode spécial courant")
+        m = re.match(r"dungeon_mode\((\d+)\)$", s)
+        if m:
+            n = int(m.group(1))
+            return (f"((SV.SkyDungeonMode or {{}})[{n}] or 0)",
+                    f"dungeon_mode({n}): état de déblocage ROM "
+                    f"(0=CLOSED 1=OPEN 2=REQUEST 3=OPEN_AND_REQUEST)")
         if s == "sector()":
             # sector() = index de secteur d'acting du superviseur NDS ;
             # dans PMDO le validateur/kit joue la scène en secteur 1
@@ -764,6 +770,20 @@ class SceneCompiler:
                     self.emit(f"SV.SkyVars.{name} = {val} "
                               f"-- ${name} = {val} (ROM)")
                 return
+        # dungeon_mode(N) = DMODE_X : état de DÉBLOCAGE canonique du
+        # donjon N (progression ROM: CLOSED/OPEN/REQUEST/OPEN_AND_REQUEST)
+        # -> SV native SkyDungeonMode[N] (relue par les switch compilés,
+        # même sémantique GameVar DUNGEON_ENTER_MODE).
+        mdm = re.match(r"dungeon_mode\((\d+)\)\s*=\s*DMODE_(\w+)$", st)
+        if mdm:
+            n, mode = int(mdm.group(1)), mdm.group(2)
+            val = {"CLOSED": 0, "OPEN": 1, "REQUEST": 2,
+                   "OPEN_AND_REQUEST": 3}.get(mode)
+            if val is not None:
+                self.emit(f"SV.SkyDungeonMode = SV.SkyDungeonMode or {{}}; "
+                          f"SV.SkyDungeonMode[{n}] = {val} "
+                          f"-- dungeon_mode({n}) = DMODE_{mode} (ROM)")
+                return
         mclr = re.match(r"clear\s+\$([A-Z][A-Z0-9_]*)$", st)
         if mclr:
             self.emit(f"if SV.SkyVars then SV.SkyVars.{mclr.group(1)} = 0 "
@@ -888,7 +908,12 @@ class SceneCompiler:
                         default_body = body
                         continue
                     conds = []
+                    SYM = {"DMODE_CLOSED": 0, "DMODE_OPEN": 1,
+                           "DMODE_REQUEST": 2, "DMODE_OPEN_AND_REQUEST": 3}
                     for lab in labels:
+                        if lab in SYM:
+                            conds.append(f"__sw == {SYM[lab]}")
+                            continue
                         mo = re.match(r"(==|<=|>=|<|>)?\s*(-?\d+)$", lab)
                         if not mo:
                             conds = None
@@ -1212,6 +1237,40 @@ class SceneCompiler:
             self.emit(f"pcall(function() SOUND:FadeOutBGM({int(n)}) end)")
         elif op in ("bgm_Stop", "sound_Stop"):
             self.emit("pcall(function() SOUND:StopBGM() end)")
+        elif op in ("me_Play", "me_PlayVolume"):
+            # ME = jingle court NDS (wiki SkyTemple List_of_Sound_Effects
+            # §ME, identités par nom interne SMD) -> Fanfare PMDO native
+            # équivalente. 10/11 = vent qui se lève (SE ambiant, one-shot
+            # documenté).
+            ME2FANFARE = {0: "Fanfare/NewArea", 1: "Fanfare/LevelUp",
+                          2: "Fanfare/RankUp", 3: "Fanfare/LeaveTeam",
+                          4: "Fanfare/Item", 5: "Fanfare/JoinTeam",
+                          6: "Fanfare/NewArea", 7: "Fanfare/Note",
+                          8: "Fanfare/Promotion", 9: "Fanfare/Treasure"}
+            nums = re.findall(r"-?\d+", args)
+            mid_ = int(nums[0]) if nums else -1
+            fx = ME2FANFARE.get(mid_)
+            if fx:
+                self.emit(f"pcall(function() SOUND:PlayFanfare("
+                          f"{lua_str(fx)}) end) -- me_Play({mid_}) "
+                          f"[jingle ME NDS -> fanfare PMDO]")
+            else:
+                self.emit(f"-- me_Play({args.strip()[:12]}) [ME vent/"
+                          f"ambiance NDS sans fanfare équivalente - "
+                          f"documenté]")
+        elif op in ("me_Stop", "WaitMeStop"):
+            self.emit(f"-- {op} [fin de jingle: les fanfares PMDO sont "
+                      f"des one-shots]")
+        elif op == "worldmap_DeleteArrow":
+            self.emit("-- worldmap_DeleteArrow [flèche carte moteur NDS]")
+        elif op == "back_ChangeGround":
+            # rechargement du décor du ground courant (même LEVEL_) :
+            # le ground PMDO est déjà chargé par le validateur/harnais
+            self.emit(f"-- back_ChangeGround({args.strip()[:24]}) "
+                      f"[décor déjà chargé par EnterZone PMDO]")
+        elif op == "SetupOutputAttributeAndAnimation" and kind == "object":
+            self.emit(f"-- SetupOutputAttributeAndAnimation<object "
+                      f"{target}> [prop décor NDS, rendu du ground]")
         elif op == "se_Play":
             sid = args.strip()
             se = SE_TO_PMDO.get(sid)

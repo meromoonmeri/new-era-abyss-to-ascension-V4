@@ -2,12 +2,12 @@
  "schema": "sky-scene-compiler/1",
  "rule": "FAIL-CLOSED: seules les scènes 100% traduites sont émises ; PARTIAL_OPS/MULTIROUTINE comptées, jamais émises approximées",
  "totals": {
-  "COMPILED": 2611,
-  "PARTIAL_OPS": 612,
+  "COMPILED": 2636,
+  "PARTIAL_OPS": 587,
   "SKIPPED_REQUIRES_ENGINE_EXTENSION": 372,
   "TRIVIAL_SKIPPED": 165,
-  "COMPILED_DUAL_SCREEN": 95,
-  "COMPILED_MULTIROUTINE": 9
+  "COMPILED_DUAL_SCREEN": 98,
+  "COMPILED_MULTIROUTINE": 10
  },
  "scenes": {
   "D00P01/m01a01a.ssb": {
@@ -677,9 +677,12 @@
    ]
   },
   "D01P11B/m26a0805.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "SetupOutputAttributeAndAnimation"
+   "status": "COMPILED",
+   "file": "d01p11b__m26a0805.lua",
+   "dialogues": 0,
+   "dual_screen_focus": true,
+   "gaps": [
+    "BGM BGM_EPILOGUE_THEME non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D01P11B/s03p2003.ssb": {
@@ -1079,8 +1082,7 @@
   "D07P11A/m08a1001.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[9, 4]",
-    "dungeon_mode"
+    "$SCENARIO_MAIN = scn[9, 4]"
    ]
   },
   "D07P11A/m08a1003.ssb": {
@@ -1148,8 +1150,7 @@
   "D08P11A/m09a0101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[10, 1]",
-    "dungeon_mode"
+    "$SCENARIO_MAIN = scn[10, 1]"
    ]
   },
   "D08P11A/m09a0301.ssb": {
@@ -1255,8 +1256,7 @@
   "D09P11A/m10a0101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[11, 1]",
-    "dungeon_mode"
+    "$SCENARIO_MAIN = scn[11, 1]"
    ]
   },
   "D09P11A/m10a0201.ssb": {
@@ -2008,10 +2008,11 @@
    "gaps": null
   },
   "D17P11A/m15b0603.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "dungeon_mode"
-   ]
+   "status": "COMPILED",
+   "file": "d17p11a__m15b0603.lua",
+   "dialogues": 24,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D17P11A/m15b0801.ssb": {
    "status": "COMPILED",
@@ -3985,9 +3986,21 @@
    ]
   },
   "D38P11A/s21p0502.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "dungeon_mode"
+   "status": "COMPILED",
+   "file": "d38p11a__s21p0502.lua",
+   "dialogues": 26,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(8201) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5128) — id SE NDS sans portage PMDO identifié",
+    "BGM BGM_SEALED_RUIN_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6421) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6930) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6421) — id SE NDS sans portage PMDO identifié",
+    "se_Play(8200) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D38P12A/enter00.ssb": {
@@ -5169,7 +5182,6 @@
   "D52P32A/n09a1203.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "SetupOutputAttributeAndAnimation",
     "supervision_ActingInvisible"
    ]
   },
@@ -5189,7 +5201,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "SetPositionMark:OBJECT_D52P32A2_434",
-    "SetupOutputAttributeAndAnimation",
     "Slide2PositionLives",
     "Slide2PositionMark",
     "routine3:forever {\n        SetAnimation"
@@ -5375,14 +5386,12 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_SIDE = scn[48, 9]",
-    "SetupOutputAttributeAndAnimation",
     "supervision_ActingInvisible"
    ]
   },
   "D53P41A/n09a2101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "SetupOutputAttributeAndAnimation",
     "supervision_ActingInvisible"
    ]
   },
@@ -7984,20 +7993,35 @@
   "D79P41A/s02p0501.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 37]",
-    "me_Play"
+    "$SCENARIO_MAIN = scn[29, 37]"
    ]
   },
   "D79P41A/s02p0601.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "me_Play"
+   "status": "COMPILED",
+   "file": "d79p41a__s02p0601.lua",
+   "dialogues": 3,
+   "dual_screen_focus": null,
+   "gaps": [
+    "SetEffect 647 — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)",
+    "SetEffect 648 — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)",
+    "SetEffect 648 — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)"
    ]
   },
   "D79P41A/s02p0701.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "me_Play"
+   "status": "COMPILED",
+   "file": "d79p41a__s02p0701.lua",
+   "dialogues": 7,
+   "dual_screen_focus": null,
+   "gaps": [
+    "SetEffect 648 — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)",
+    "se_Play(7956) — id SE NDS sans portage PMDO identifié",
+    "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente",
+    "se_Play(8963) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P01A/enter00.ssb": {
@@ -8240,8 +8264,7 @@
   "G01P01B/m21a0101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[22, 1]",
-    "dungeon_mode"
+    "$SCENARIO_MAIN = scn[22, 1]"
    ]
   },
   "G01P01B/m26a0601.ssb": {
@@ -8292,7 +8315,6 @@
     "$SCENARIO_SIDE = scn[42, 7]",
     "$SCENARIO_SIDE = scn[42, 8]",
     "$SCENARIO_SIDE = scn[42, 9]",
-    "dungeon_mode",
     "supervision_ExecuteActing"
    ]
   },
@@ -8402,7 +8424,6 @@
   "G01P03A/m02a0302.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "dungeon_mode",
     "message_Mail"
    ]
   },
@@ -8507,9 +8528,13 @@
    ]
   },
   "G01P03A/m13a0303.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "dungeon_mode"
+   "status": "COMPILED",
+   "file": "g01p03a__m13a0303.lua",
+   "dialogues": 17,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P03A/m13a0501.ssb": {
@@ -10493,9 +10518,13 @@
    "gaps": null
   },
   "G01P04A/m02a0202.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "back_ChangeGround"
+   "status": "COMPILED",
+   "file": "g01p04a__m02a0202.lua",
+   "dialogues": 22,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(8711) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/m02a0301.ssb": {
@@ -10529,8 +10558,7 @@
   "G01P04A/m04a0101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[5, 1]",
-    "dungeon_mode"
+    "$SCENARIO_MAIN = scn[5, 1]"
    ]
   },
   "G01P04A/m04a0104.ssb": {
@@ -10614,8 +10642,7 @@
   "G01P04A/m07a0301.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[8, 1]",
-    "dungeon_mode"
+    "$SCENARIO_MAIN = scn[8, 1]"
    ]
   },
   "G01P04A/m07a1301.ssb": {
@@ -10649,9 +10676,12 @@
    ]
   },
   "G01P04A/m08a0503.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "dungeon_mode"
+   "status": "COMPILED",
+   "file": "g01p04a__m08a0503.lua",
+   "dialogues": 29,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/m11a0201.ssb": {
@@ -10705,8 +10735,7 @@
   "G01P04A/m13a0903.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[14, 6]",
-    "dungeon_mode"
+    "$SCENARIO_MAIN = scn[14, 6]"
    ]
   },
   "G01P04A/m14a0202.ssb": {
@@ -10719,8 +10748,7 @@
   "G01P04A/m14a0905.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[15, 4]",
-    "dungeon_mode"
+    "$SCENARIO_MAIN = scn[15, 4]"
    ]
   },
   "G01P04A/m15b1201.ssb": {
@@ -10838,7 +10866,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[24, 1]",
-    "dungeon_mode",
     "worldmap_SetMessagePlace"
    ]
   },
@@ -10852,7 +10879,6 @@
     "$SCENARIO_SIDE = scn[40, 6]",
     "$SCENARIO_SIDE = scn[40, 7]",
     "$SCENARIO_SIDE = scn[40, 8]",
-    "dungeon_mode",
     "message_Mail"
    ]
   },
@@ -12299,9 +12325,12 @@
    "gaps": null
   },
   "G01P04C/n02a0104.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "back_ChangeGround"
+   "status": "COMPILED",
+   "file": "g01p04c__n02a0104.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(8711) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P05A/enter00.ssb": {
@@ -13350,9 +13379,13 @@
    ]
   },
   "G01P07A/s20p0504.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "dungeon_mode"
+   "status": "COMPILED",
+   "file": "g01p07a__s20p0504.lua",
+   "dialogues": 66,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_I_SAW_SOMETHING_AGAIN non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P07A/s20p0801.ssb": {
@@ -13525,10 +13558,11 @@
    "gaps": null
   },
   "G01P07C/m02a0113.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "me_Play"
-   ]
+   "status": "COMPILED",
+   "file": "g01p07c__m02a0113.lua",
+   "dialogues": 60,
+   "dual_screen_focus": true,
+   "gaps": null
   },
   "G01P07C/m02a0601.ssb": {
    "status": "COMPILED",
@@ -13666,8 +13700,7 @@
   "G01P07C/m16a0502.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[17, 4]",
-    "dungeon_mode"
+    "$SCENARIO_MAIN = scn[17, 4]"
    ]
   },
   "G01P07C/m21a0302.ssb": {
@@ -14457,9 +14490,12 @@
    ]
   },
   "H02P99A/m20a0312.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "dungeon_mode"
+   "status": "COMPILED",
+   "file": "h02p99a__m20a0312.lua",
+   "dialogues": 6,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "H02P99A/m20a0801.ssb": {
@@ -14511,8 +14547,6 @@
   "H02P99A/s03p1302.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "dungeon_mode",
-    "me_Play",
     "message_Mail",
     "worldmap_BlinkMark"
    ]
@@ -14548,8 +14582,7 @@
   "H02P99A/s11p0101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 98]",
-    "dungeon_mode"
+    "$SCENARIO_MAIN = scn[29, 98]"
    ]
   },
   "H02P99A/s20p0107.ssb": {
@@ -14615,9 +14648,13 @@
    ]
   },
   "H02P99A/s31a3707.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "me_Play"
+   "status": "COMPILED",
+   "file": "h02p99a__s31a3707.lua",
+   "dialogues": 36,
+   "dual_screen_focus": true,
+   "gaps": [
+    "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "BGM BGM_DO_YOUR_BEST_AS_ALWAYS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "H02P99A/um2200.ssb": {
@@ -14985,9 +15022,12 @@
    ]
   },
   "P01P01A/m03a0511.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "dungeon_mode"
+   "status": "COMPILED",
+   "file": "p01p01a__m03a0511.lua",
+   "dialogues": 17,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_OH_NO non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "P01P01A/m16a0101.ssb": {
@@ -15024,9 +15064,12 @@
    "gaps": null
   },
   "P01P01A/n01a0710.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "dungeon_mode"
+   "status": "COMPILED",
+   "file": "p01p01a__n01a0710.lua",
+   "dialogues": 13,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(8963) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "P01P01A/n01a0901.ssb": {
@@ -16788,9 +16831,19 @@
    ]
   },
   "P02P01A/m21a0601.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "dungeon_mode"
+   "status": "COMPILED",
+   "file": "p02p01a__m21a0601.lua",
+   "dialogues": 64,
+   "dual_screen_focus": null,
+   "gaps": [
+    "SetEffect EFFECT_STUCK_IN_YELLOW_WATER_MEDIUM2 — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_STUCK_IN_YELLOW_WATER_DEEP2 — VFX sans émote PMDO équivalente",
+    "BGM BGM_I_SAW_SOMETHING_AGAIN non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(8963) — id SE NDS sans portage PMDO identifié",
+    "se_Play(8965) — id SE NDS sans portage PMDO identifié",
+    "BGM BGM_I_SAW_SOMETHING_AGAIN non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(8963) — id SE NDS sans portage PMDO identifié",
+    "se_Play(8969) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "P02P01A/um0600.ssb": {
@@ -17893,9 +17946,19 @@
    ]
   },
   "P05P02A/m17a0301.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "back_ChangeGround"
+   "status": "COMPILED",
+   "file": "p05p02a__m17a0301.lua",
+   "dialogues": 81,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_IN_THE_FUTURE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(7187) — id SE NDS sans portage PMDO identifié",
+    "se_Play(7188) — id SE NDS sans portage PMDO identifié",
+    "BGM BGM_OH_NO non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(7189) — id SE NDS sans portage PMDO identifié",
+    "se_Play(7187) — id SE NDS sans portage PMDO identifié",
+    "se_Play(7187) — id SE NDS sans portage PMDO identifié",
+    "se_Play(7189) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "P05P03A/enter00.ssb": {
@@ -18278,8 +18341,6 @@
   "P14P01A/s01p1005.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "back_ChangeGround",
-    "me_Play",
     "message_Mail"
    ]
   },
@@ -18333,8 +18394,7 @@
   "P16P01A/n02a0501.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_SIDE = scn[41, 4]",
-    "dungeon_mode"
+    "$SCENARIO_SIDE = scn[41, 4]"
    ]
   },
   "P16P01A/n02a0801.ssb": {
@@ -18735,33 +18795,48 @@
    ]
   },
   "S01P01A/m05a0202.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "worldmap_DeleteArrow"
+   "status": "COMPILED",
+   "file": "s01p01a__m05a0202.lua",
+   "dialogues": 6,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(6667) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "S01P01A/m05a0604.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "worldmap_DeleteArrow"
+   "status": "COMPILED",
+   "file": "s01p01a__m05a0604.lua",
+   "dialogues": 14,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(6667) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "S01P01A/m08a0502.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "worldmap_DeleteArrow"
+   "status": "COMPILED",
+   "file": "s01p01a__m08a0502.lua",
+   "dialogues": 7,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(6667) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "S01P01A/m08a0602.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "worldmap_DeleteArrow"
+   "status": "COMPILED",
+   "file": "s01p01a__m08a0602.lua",
+   "dialogues": 13,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(6667) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "S01P01A/m08a1002.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "worldmap_DeleteArrow"
+   "status": "COMPILED",
+   "file": "s01p01a__m08a1002.lua",
+   "dialogues": 7,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(6667) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "S01P01A/m13a0302.ssb": {
@@ -18774,9 +18849,13 @@
    ]
   },
   "S01P01A/m20a0311.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "worldmap_DeleteArrow"
+   "status": "COMPILED",
+   "file": "s01p01a__m20a0311.lua",
+   "dialogues": 23,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(6667) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "S01P02A/conquest.ssb": {
@@ -19225,13 +19304,14 @@
   "T00P01/enter03.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "dungeon_mode",
     "switch "
    ]
   },
   "T00P01/enter04.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
+    "case DMODE_OPEN_AND_REQUEST:\n           ",
+    "jump @label_3",
     "switch "
    ]
   },
@@ -19273,7 +19353,6 @@
     "adventure_log = 1004",
     "adventure_log = 2",
     "adventure_log = 3",
-    "dungeon_mode",
     "item_Set",
     "item_SetTableData",
     "supervision_ExecuteActing",
@@ -19319,9 +19398,7 @@
   "T00P01/m01a0116.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "dungeon_mode",
     "forever {\n                Wait",
-    "me_Play",
     "se_ChangePan",
     "se_ChangeVolume",
     "se_PlayFull",
@@ -19504,7 +19581,6 @@
   "T00P02/enter03.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "back_ChangeGround",
     "item_Set",
     "supervision_ExecuteActing",
     "supervision_ExecuteEnter",
@@ -19757,8 +19833,7 @@
   "T01P01A/s01p0201.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 2]",
-    "dungeon_mode"
+    "$SCENARIO_MAIN = scn[29, 2]"
    ]
   },
   "T01P01A/s22p0301.ssb": {
@@ -23081,10 +23156,11 @@
    "gaps": null
   },
   "T01P03A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "back_ChangeGround"
-   ]
+   "status": "COMPILED",
+   "file": "t01p03a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T01P03A/enter01.ssb": {
    "status": "COMPILED",
@@ -23115,10 +23191,11 @@
    "gaps": null
   },
   "T01P03A/m00p0602.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "back_ChangeGround"
-   ]
+   "status": "COMPILED",
+   "file": "t01p03a__m00p0602.lua",
+   "dialogues": 20,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T01P04A/enter00.ssb": {
    "status": "COMPILED",
@@ -23183,10 +23260,8 @@
   "V00P02/m01a06a.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "dungeon_mode",
     "supervision_ExecuteStation",
     "worldmap_BlinkMark",
-    "worldmap_DeleteArrow",
     "worldmap_OffMessage",
     "worldmap_SetMessagePlace"
    ]
@@ -24014,8 +24089,7 @@
   "V26P11A/m26a0806.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[29, 0]",
-    "dungeon_mode"
+    "$SCENARIO_MAIN = scn[29, 0]"
    ]
   },
   "V32P01A/n01a0102.ssb": {
@@ -24149,7 +24223,6 @@
   "V38P10A/n09a2209.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "SetupOutputAttributeAndAnimation",
     "SlidePositionOffset:OBJECT_V38P10B1_525",
     "SlidePositionOffset:OBJECT_V38P10B2_526",
     "SlidePositionOffset:OBJECT_V38P10B3_527",
