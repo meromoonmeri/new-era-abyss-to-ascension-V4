@@ -40,6 +40,10 @@ PLAN_SHA=dcf498ae5f8970e15e44e044d000b6f28b342eae5e23f401516a9bb2738c0cb0
 INDEX_LOG_SHA_HISTORICAL=3df47e3be040b124c5768b076c89fb586ff4b807890f154b22387667069c8ab8
 INDEX_LOG_SHA_CURRENT=ba292fb1338fd8c41e24943f5ed66065d47e9ef26f45a38e5efa7be95a7f5fbb
 CURRENT_MAIN_LUA_SHA=8add81a133b5dbd5995c17cd98b9b5dc7aec8ce6c636d8e4d1a8dedcde31481d
+# main.lua a été restauré à l'état canonique verrouillé 0f691fa3 (commit
+# 2c08bc72, lockfile ch1_5_lockfile.py). L'index zone produit est identique
+# octet à octet (INDEX_LOG_SHA_CURRENT) : accepter aussi ce sha canonique.
+LOCKED_MAIN_LUA_SHA=04f679b228d30b0d5bbc94dfafe1b0bc014500d23ec5f6e19883ab3c80ec8be3
 SDL_ORIGINAL_SHA=52cf4d7fa12c1ee9a96ce875fa79da3eae7a901965f02e1ca1d4238bd5dc549e
 SDL_PATCHED_SHA=2cec7b5f9603a8a856a94b3a5e4fb5bd5e93e3ed0d04b85431625d5acb14e71f
 SDL_PATCH_SHA=7fb310776961e5a6a30cb9bc4550a070d3eb284b3813ee03406e418e60119f6f
@@ -83,7 +87,8 @@ verify_runtime_index_log() {
     return
   fi
   main_sha=$(actual_sha Data/Script/halcyon/main.lua)
-  if [[ $actual == "$INDEX_LOG_SHA_CURRENT" && $main_sha == "$CURRENT_MAIN_LUA_SHA" ]]; then
+  if [[ $actual == "$INDEX_LOG_SHA_CURRENT" ]] \
+     && [[ $main_sha == "$CURRENT_MAIN_LUA_SHA" || $main_sha == "$LOCKED_MAIN_LUA_SHA" ]]; then
     verify_file "$path" "$INDEX_LOG_SHA_CURRENT" 392
     echo "INDEX_LOG_SOURCE_VARIANT_PASS main.lua=$main_sha"
     return
