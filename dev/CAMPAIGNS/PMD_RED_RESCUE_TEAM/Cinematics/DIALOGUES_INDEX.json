@@ -921,19 +921,25 @@
    "unreferenced_blocks": 0
   },
   "t01p01": {
-   "file": null,
-   "status": "REVIEW_REQUIRED",
-   "error": "t01p01: EU/source typed graph mismatch: ['group count', 'g6 sector count', 'g6s0 lives', 'g6s0 effects', 'g7 sector count', 'g7s0 lives', 'g8 sector count', 'g8s0 lives', 'g9s0 lives', 'g9s1 lives', 'g9s1 has_station', 'g10 sector count', 'g10s0 lives', 'g10s0 effects', 'g10s1 lives', 'g10s1 has_sta"
+   "file": "dialogues/t01p01.json.gz",
+   "status": "PASS_EU_AUTHORITATIVE",
+   "text_blocks": 526,
+   "dialogue_ops": 561,
+   "note": "graphe EU complet décodé (groupes régionaux EU inclus); alignement pret non exigé — ROM EU autorité; mismatches pret documentés: 1133"
   },
   "b01p01a": {
-   "file": null,
-   "status": "REVIEW_REQUIRED",
-   "error": "b01p01a: EU/source typed graph mismatch: ['group count', 'g17 sector count', 'g18 sector count', 'g18s0 lives', 'g18s0 effects', 'g19 sector count', 'g19s0 lives', 'g19s0 objects', 'g19s0 events', 'g20 sector count', 'g20s0 lives', 'g21 sector count', 'g21s0 lives', 'g22 sector count', 'g23 sector c"
+   "file": "dialogues/b01p01a.json.gz",
+   "status": "PASS_EU_AUTHORITATIVE",
+   "text_blocks": 730,
+   "dialogue_ops": 775,
+   "note": "graphe EU complet décodé (groupes régionaux EU inclus); alignement pret non exigé — ROM EU autorité; mismatches pret documentés: 880"
   },
   "a05p02": {
-   "file": null,
-   "status": "REVIEW_REQUIRED",
-   "error": "a05p02: implausibly low EU/pret semantic alignment 0.217"
+   "file": "dialogues/a05p02.json.gz",
+   "status": "PASS_EU_AUTHORITATIVE",
+   "text_blocks": 5,
+   "dialogue_ops": 5,
+   "note": "graphe EU complet décodé (groupes régionaux EU inclus); alignement pret non exigé — ROM EU autorité; mismatches pret documentés: 0"
   }
  },
  "totals": {

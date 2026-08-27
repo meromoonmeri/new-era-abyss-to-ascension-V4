@@ -64,8 +64,23 @@ function SkySceneKit.say(t)
   local headless = os.getenv('PMDO_GROUND_VALIDATOR') ~= nil
   trace('{"kit":"say_begin","len":' .. #txt .. '}')
   if headless then
-    local frames = math.max(90, math.min(300, #txt * 2))
-    pcall(function() UI:WaitShowTimedDialogue(txt, frames) end)
+    -- harnais de test : durée d'affichage réduite. Les textes de 3+
+    -- lignes PAGINENT dans la boîte de dialogue et attendent une touche
+    -- même en mode timed (blocage headless) -> pages de 2 lignes max,
+    -- texte INTÉGRALEMENT affiché (le jeu réel utilise WaitShowDialogue).
+    -- pages ~70 caractères max (2 lignes affichées, le wrapping moteur
+    -- pagine au-delà et attend une touche même en mode timed)
+    local pages = {}
+    local cur = ''
+    for w in txt:gmatch('%S+') do
+      if #cur + #w + 1 > 70 then pages[#pages + 1] = cur; cur = w
+      else cur = (cur == '' and w) or (cur .. ' ' .. w) end
+    end
+    if cur ~= '' then pages[#pages + 1] = cur end
+    for _, page in ipairs(pages) do
+      local frames = math.max(20, math.min(50, #page))
+      pcall(function() UI:WaitShowTimedDialogue(page, frames) end)
+    end
   else
     pcall(function() UI:WaitShowDialogue(txt) end)
   end

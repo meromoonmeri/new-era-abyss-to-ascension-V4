@@ -163,21 +163,24 @@ function V:begin()
   -- (si porté) -> donjons étage par étage -> arène (si le chapitre en a) ->
   -- flag suivant. Mêmes mécanismes runtime que le joueur (EnterZone).
   self.idx=-5;SV.RuntimeGroundAudit.Active=false
+  -- scènes d'ouverture par chapitre = cinématiques canoniques mNNa01xx
+  -- COMPILÉES (sky_compile_scenes V9), jouées dans leur ground ROM du
+  -- hub avant les donjons du chapitre (CAST/dialogues réels).
   self.J={
    {ch='CH1',state={1,0},ground='d01p11b',scene='m01a0204',dungeons={{z='beach_cave',floors=4}},boss={z='beach_cave_pit',species='koffing'}},
-   {ch='CH2',state={3,0},dungeons={{z='drenched_bluff',floors=6}}},
-   {ch='CH3',state={4,0},dungeons={{z='mt_bristle',floors=9}},boss={z='mt_bristle_peak',species='drowzee'}},
-   {ch='CH4',state={5,0},dungeons={{z='waterfall_cave',floors=8}}},
-   {ch='CH5',state={6,0},dungeons={{z='apple_woods',floors=12}}},
-   {ch='EXPEDITION',state={8,0},dungeons={{z='craggy_coast',floors=9},{z='mt_horn',floors=14},{z='foggy_forest',floors=11},{z='steam_cave',floors=8},{z='upper_steam_cave',floors=7}},boss={z='steam_cave_peak',species='groudon'}},
-   {ch='CH10',state={10,0},dungeons={{z='amp_plains',floors=10},{z='far_amp_plains',floors=9}},boss={z='amp_clearing',species='manectric'}},
-   {ch='CH11',state={11,0},dungeons={{z='northern_desert',floors=15},{z='quicksand_cave',floors=10},{z='quicksand_pit',floors=10}},boss={z='underground_lake',species='mesprit'}},
-   {ch='CH12',state={12,0},dungeons={{z='crystal_cave',floors=11},{z='crystal_crossing',floors=13}},boss={z='crystal_lake',species='grovyle'}},
-   {ch='FUTUR',state={13,0},dungeons={{z='chasm_cave',floors=8},{z='dark_hill',floors=15},{z='sealed_ruin',floors=8},{z='sealed_ruin_pit',floors=6}},boss={z='spiritomb_room',species='spiritomb'}},
-   {ch='CH15',state={15,0},dungeons={{z='dusk_forest',floors=8},{z='deep_dusk_forest',floors=12},{z='treeshroud_forest',floors=20}}},
-   {ch='CH17',state={17,0},dungeons={{z='brine_cave',floors=9},{z='lower_brine_cave',floors=5}},boss={z='brine_cave_pit',species='omastar'}},
-   {ch='CH18',state={18,0},dungeons={{z='hidden_land',floors=15},{z='hidden_highland',floors=8}},boss={z='old_ruins',species='dusknoir'}},
-   {ch='FINALE',state={20,0},dungeons={{z='temporal_tower',floors=13},{z='temporal_spire',floors=10}},boss={z='temporal_pinnacle',species='dialga'}},
+   {ch='CH2',state={3,0},sceneground='g01p01b',scenemod='g01p01b__m02a0101',dungeons={{z='drenched_bluff',floors=6}}},
+   {ch='CH3',state={4,0},sceneground='g01p03a',scenemod='g01p03a__m03a0102',dungeons={{z='mt_bristle',floors=9}},boss={z='mt_bristle_peak',species='drowzee'}},
+   {ch='CH4',state={5,0},sceneground='g01p04a',scenemod='g01p04a__m04a0101',dungeons={{z='waterfall_cave',floors=8}}},
+   {ch='CH5',state={6,0},sceneground='g01p04a',scenemod='g01p04a__m05a0101',dungeons={{z='apple_woods',floors=12}}},
+   {ch='EXPEDITION',state={8,0},sceneground='g01p06b',scenemod='g01p06b__m08a0101',dungeons={{z='craggy_coast',floors=9},{z='mt_horn',floors=14},{z='foggy_forest',floors=11},{z='steam_cave',floors=8},{z='upper_steam_cave',floors=7}},boss={z='steam_cave_peak',species='groudon'}},
+   {ch='CH10',state={10,0},sceneground='d09p11a',scenemod='d09p11a__m10a0101',dungeons={{z='amp_plains',floors=10},{z='far_amp_plains',floors=9}},boss={z='amp_clearing',species='manectric'}},
+   {ch='CH11',state={11,0},sceneground='g01p07a',scenemod='g01p07a__m11a0101',dungeons={{z='northern_desert',floors=15},{z='quicksand_cave',floors=10},{z='quicksand_pit',floors=10}},boss={z='underground_lake',species='mesprit'}},
+   {ch='CH12',state={12,0},sceneground='g01p04a',scenemod='g01p04a__m12a0101',dungeons={{z='crystal_cave',floors=11},{z='crystal_crossing',floors=13}},boss={z='crystal_lake',species='grovyle'}},
+   {ch='FUTUR',state={13,0},sceneground='g01p03a',scenemod='g01p03a__m13a0101',dungeons={{z='chasm_cave',floors=8},{z='dark_hill',floors=15},{z='sealed_ruin',floors=8},{z='sealed_ruin_pit',floors=6}},boss={z='spiritomb_room',species='spiritomb'}},
+   {ch='CH15',state={15,0},sceneground='d16p11a',scenemod='d16p11a__m15a0101',dungeons={{z='dusk_forest',floors=8},{z='deep_dusk_forest',floors=12},{z='treeshroud_forest',floors=20}}},
+   {ch='CH17',state={17,0},sceneground='p05p02a',scenemod='p05p02a__m17a0104',dungeons={{z='brine_cave',floors=9},{z='lower_brine_cave',floors=5}},boss={z='brine_cave_pit',species='omastar'}},
+   {ch='CH18',state={18,0},sceneground='d19p11a',scenemod='d19p11a__m18a0101',dungeons={{z='hidden_land',floors=15},{z='hidden_highland',floors=8}},boss={z='old_ruins',species='dusknoir'}},
+   {ch='FINALE',state={20,0},sceneground='d01p11a',scenemod='d01p11a__m20a0101',dungeons={{z='temporal_tower',floors=13},{z='temporal_spire',floors=10}},boss={z='temporal_pinnacle',species='dialga'}},
   }
   self.jch=1;self.jdun=0;self.jfloors=0;self.jmobs=0
   local prog=require('halcyon.skyscenes.progression')
@@ -386,6 +389,11 @@ function V:OnDungeonFloorEnter()
  emit(ok and msg or ('{"event":"arena_battle_runtime","verdict":"RUNTIME_FAIL","error":"'..tostring(msg):gsub('"','\\"')..'"}'))
 end
 function V:OnGroundMapEnter()
+ -- phase scène du journey global : jouer la cinématique du chapitre
+ if self.enabled and self.jscene and not self.busy then
+  self:journey_play_scene()
+  return
+ end
  if self.enabled and (self.resume_save_pending or self.red_resume_save_pending) and not self.busy then
   local tag=self.red_resume_save_pending and 'red_resume_save_done' or 'resume_save_done'
   self.busy=true;self.resume_save_pending=false;self.red_resume_save_pending=false
@@ -572,8 +580,52 @@ function V:journey_advance()
   end
  end
  emit('{"event":"journey_chapter","ch":"'..C.ch..'","state":"'..C.state[1]..'.'..C.state[2]..'"}')
+ -- phase SCÈNE : la cinématique d'ouverture du chapitre (compilée ROM)
+ -- est jouée dans son ground du hub AVANT les donjons — persistance des
+ -- SV/flags posés par la scène vérifiée par la suite du parcours.
+ if C.scenemod and C.sceneground and not C._scene_done then
+  local zg={}
+  local ok,zsum=pcall(function() return _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('sky_hub_zone') end)
+  if ok and zsum then
+   local gl=zsum.Grounds
+   for gi=0,gl.Count-1 do zg[gl[gi]]=gi end
+   local gi=zg[C.sceneground]
+   if gi~=nil then
+    self.jscene=C.scenemod
+    C._scene_done=true
+    GAME:EnterZone('sky_hub_zone',-1,gi,0)
+    return
+   end
+  end
+  emit('{"event":"journey_scene_skip","ch":"'..C.ch..'","reason":"ground_absent"}')
+ end
  self.jdun=1
  GAME:EnterZone(C.dungeons[1].z,0,0,0)
+end
+
+function V:journey_play_scene()
+ -- exécuté à l'arrivée dans le ground de scène du chapitre (hub)
+ local C=self.J[self.jch]
+ local mod=self.jscene
+ self.jscene=nil
+ self.task=TASK:BranchCoroutine(function()
+  GAME:WaitFrames(20)
+  local ok,err=xpcall(function()
+    local ok2,fn=pcall(require,'halcyon.skyscenes.'..mod)
+    if not ok2 or type(fn)~='function' then error('module absent: '..tostring(mod)) end
+    local okh,hero=pcall(function() return CH('PLAYER') end)
+    local okp,partner=pcall(function() return CH('Teammate1') end)
+    if not okh then hero=nil end
+    if not okp then partner=nil end
+    fn(hero, partner or hero)
+    emit('{"event":"journey_scene","ch":"'..C.ch..'","module":"'..mod..'","verdict":"SCENE_PASS"}')
+  end,debug.traceback)
+  if not ok then
+   emit('{"event":"journey_scene","ch":"'..C.ch..'","module":"'..tostring(mod)..'","verdict":"SCENE_FAIL","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}')
+  end
+  self.jdun=1
+  GAME:EnterZone(C.dungeons[1].z,0,0,0)
+ end)
 end
 
 function V:journey_on_floor()
