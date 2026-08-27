@@ -2,12 +2,12 @@
  "schema": "sky-scene-compiler/1",
  "rule": "FAIL-CLOSED: seules les scènes 100% traduites sont émises ; PARTIAL_OPS/MULTIROUTINE comptées, jamais émises approximées",
  "totals": {
-  "COMPILED": 2559,
-  "PARTIAL_OPS": 664,
+  "COMPILED": 2574,
+  "PARTIAL_OPS": 649,
   "SKIPPED_REQUIRES_ENGINE_EXTENSION": 372,
   "TRIVIAL_SKIPPED": 165,
-  "COMPILED_DUAL_SCREEN": 89,
-  "COMPILED_MULTIROUTINE": 7
+  "COMPILED_DUAL_SCREEN": 91,
+  "COMPILED_MULTIROUTINE": 9
  },
  "scenes": {
   "D00P01/m01a01a.ssb": {
@@ -625,9 +625,6 @@
     "MovePositionMark:OBJECT_V22P01A1_289",
     "MovePositionMark:OBJECT_V22P02A1_290",
     "MovePositionMark:OBJECT_V22P02A2_294",
-    "MovePositionOffset:OBJECT_V22P01A1_289",
-    "MovePositionOffset:OBJECT_V22P02A1_290",
-    "MovePositionOffset:OBJECT_V22P02A2_294",
     "SetPositionMark:OBJECT_V22P01A1_289"
    ]
   },
@@ -1010,12 +1007,7 @@
   "D05P31A/m07a0701.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[8, 3]",
-    "MovePositionOffset:OBJECT_P03P02A1_128",
-    "MovePositionOffset:OBJECT_P03P02A1_129",
-    "MovePositionOffset:OBJECT_P03P02A1_130",
-    "MovePositionOffset:OBJECT_P03P02A1_131",
-    "MovePositionOffset:OBJECT_P03P02A1_132"
+    "$SCENARIO_MAIN = scn[8, 3]"
    ]
   },
   "D06P11A/enter00.ssb": {
@@ -2727,7 +2719,6 @@
   "D25P11A/um2304.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
@@ -2749,7 +2740,6 @@
   "D25P11A/um2307.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
@@ -3127,7 +3117,6 @@
   "D28P33A/m25a0401.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionOffset:OBJECT_D28P33A3_68",
     "Slide2PositionMark"
    ]
   },
@@ -3155,19 +3144,7 @@
     "$SCENARIO_SIDE = scn[48, 6]",
     "$SCENARIO_SIDE = scn[48, 7]",
     "$SCENARIO_SIDE = scn[48, 8]",
-    "$SCENARIO_SIDE = scn[48, 9]",
-    "MovePositionMark:ACTOR_NPC_HERO_FIRST",
-    "MovePositionMark:ACTOR_NPC_PARTNER_FIRST",
-    "MovePositionOffset:ACTOR_NPC_HERO_FIRST",
-    "MovePositionOffset:ACTOR_NPC_PARTNER_FIRST",
-    "SetDirection:ACTOR_NPC_HERO_FIRST",
-    "SetDirection:ACTOR_NPC_PARTNER_FIRST",
-    "SetPositionMark:ACTOR_NPC_HERO_FIRST",
-    "SetPositionMark:ACTOR_NPC_PARTNER_FIRST",
-    "Turn2Direction:ACTOR_NPC_HERO_FIRST",
-    "Turn2Direction:ACTOR_NPC_PARTNER_FIRST",
-    "Turn2DirectionLives:ACTOR_NPC_HERO_FIRST",
-    "Turn2DirectionLives:ACTOR_NPC_JUPUTORU"
+    "$SCENARIO_SIDE = scn[48, 9]"
    ]
   },
   "D28P44A/enter00.ssb": {
@@ -3206,7 +3183,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[26, 1]",
-    "MovePositionOffset:OBJECT_D28P34A1_74",
     "Slide2PositionMark"
    ]
   },
@@ -5003,8 +4979,7 @@
   "D51P11A/n08a2908.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_SIDE = scn[48, 0]",
-    "MovePositionOffset:OBJECT_D51P11A1_419"
+    "$SCENARIO_SIDE = scn[48, 0]"
    ]
   },
   "D51P11A/n09a0101.ssb": {
@@ -7222,10 +7197,11 @@
    "gaps": null
   },
   "D73P25A/us3104.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_FUWARAIDO"
-   ]
+   "status": "COMPILED",
+   "file": "d73p25a__us3104.lua",
+   "dialogues": 18,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D73P26A/enter00.ssb": {
    "status": "PARTIAL_OPS",
@@ -7478,10 +7454,11 @@
    "gaps": null
   },
   "D73P27A/us3104.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_FUWARAIDO"
-   ]
+   "status": "COMPILED",
+   "file": "d73p27a__us3104.lua",
+   "dialogues": 18,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D73P27A/us3105.ssb": {
    "status": "COMPILED",
@@ -7586,10 +7563,11 @@
    "gaps": null
   },
   "D73P28A/us3104.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_FUWARAIDO"
-   ]
+   "status": "COMPILED",
+   "file": "d73p28a__us3104.lua",
+   "dialogues": 18,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D73P28A/us3105.ssb": {
    "status": "COMPILED",
@@ -10851,13 +10829,6 @@
     "$SCENARIO_SIDE = scn[40, 6]",
     "$SCENARIO_SIDE = scn[40, 7]",
     "$SCENARIO_SIDE = scn[40, 8]",
-    "MovePositionLives:ACTOR_NPC_HERO_FIRST",
-    "SetDirection:ACTOR_NPC_HERO_FIRST",
-    "SetDirection:ACTOR_NPC_PARTNER_FIRST",
-    "Turn2Direction:ACTOR_NPC_HERO_FIRST",
-    "Turn2Direction:ACTOR_NPC_PARTNER_FIRST",
-    "Turn2DirectionLives:ACTOR_NPC_HERO_FIRST",
-    "Turn2DirectionLives:ACTOR_NPC_PARTNER_FIRST",
     "dungeon_mode",
     "message_Mail"
    ]
@@ -13962,7 +13933,6 @@
   "H01P99A/um0301.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
@@ -13976,7 +13946,6 @@
   "H01P99A/um0401.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
@@ -13990,7 +13959,6 @@
   "H01P99A/um0501.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
@@ -14004,14 +13972,12 @@
   "H01P99A/um0601.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
   "H01P99A/um0602.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
@@ -14034,14 +14000,12 @@
   "H01P99A/um0702.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
   "H01P99A/um0703.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
@@ -14055,7 +14019,6 @@
   "H01P99A/um0801.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
@@ -14069,14 +14032,12 @@
   "H01P99A/um1101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
   "H01P99A/um1102.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
@@ -14090,14 +14051,12 @@
   "H01P99A/um1201.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
   "H01P99A/um1202.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
@@ -14111,7 +14070,6 @@
   "H01P99A/um1301.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
@@ -14139,14 +14097,12 @@
   "H01P99A/um1601.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
   "H01P99A/um1602.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
@@ -14181,7 +14137,6 @@
   "H01P99A/um2401.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
@@ -14195,7 +14150,6 @@
   "H01P99A/um2501.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
@@ -14237,14 +14191,12 @@
   "H01P99A/us0101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
   "H01P99A/us0102.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_ERUREIDO",
     "message_Mail"
    ]
   },
@@ -14350,8 +14302,6 @@
   "H01P99D/t01p0303.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2Direction:ACTOR_NPC_DEMO_HERO",
-    "Turn2Direction:ACTOR_NPC_DEMO_PARTNER",
     "back_SetBackEffect"
    ]
   },
@@ -15252,9 +15202,12 @@
    "gaps": null
   },
   "P01P01A/um0801.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_DAGUTORIO"
+   "status": "COMPILED",
+   "file": "p01p01a__um0801.lua",
+   "dialogues": 54,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(6422) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "P01P01A/um1100.ssb": {
@@ -16825,10 +16778,11 @@
    "gaps": null
   },
   "P02P01A/um0603.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_EREKIBURU"
-   ]
+   "status": "COMPILED",
+   "file": "p02p01a__um0603.lua",
+   "dialogues": 103,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P02P01A/um0604.ssb": {
    "status": "PARTIAL_OPS",
@@ -18193,10 +18147,12 @@
    ]
   },
   "P12P01A/m26a0503.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionOffset:OBJECT_V26P04A1_339",
-    "MovePositionOffset:OBJECT_V26P04A2_342"
+   "status": "COMPILED",
+   "file": "p12p01a__m26a0503.lua",
+   "dialogues": 19,
+   "dual_screen_focus": true,
+   "gaps": [
+    "BGM BGM_A_WISH_FOR_PEACE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "P12P02A/enter00.ssb": {
@@ -19133,14 +19089,7 @@
   "S05P03A/t01p0201.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Move2PositionMark:0",
-    "Move2PositionMark:ACTOR_NPC_DEMO_HERO",
-    "Move2PositionMark:ACTOR_NPC_DEMO_PARTNER",
-    "MovePositionMark:ACTOR_NPC_DEMO_HERO",
-    "MovePositionMark:ACTOR_NPC_DEMO_PARTNER",
-    "Turn2Direction:ACTOR_NPC_DEMO_HERO",
-    "Turn2Direction:ACTOR_NPC_DEMO_PARTNER",
-    "Turn2DirectionLives:ACTOR_NPC_DEMO_HERO"
+    "Move2PositionMark:0"
    ]
   },
   "S08P01A/quiz01.ssb": {
@@ -19192,35 +19141,27 @@
    ]
   },
   "S13P06A/t02a0401.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_DEMO_PARTNER",
-    "MovePositionOffset:ACTOR_NPC_DEMO_HERO",
-    "MovePositionOffset:ACTOR_NPC_DEMO_PARTNER",
-    "Turn2Direction:ACTOR_NPC_DEMO_HERO",
-    "Turn2Direction:ACTOR_NPC_DEMO_PARTNER"
-   ]
+   "status": "COMPILED",
+   "file": "s13p06a__t02a0401.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "S13P08A/t02a0311.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Move2PositionMark:ACTOR_NPC_DEMO_HERO",
-    "Move2PositionMark:ACTOR_NPC_DEMO_PARTNER",
-    "Move2PositionOffset:ACTOR_NPC_DEMO_PARTNER",
-    "MovePositionMark:ACTOR_NPC_DEMO_HERO",
-    "MovePositionMark:ACTOR_NPC_DEMO_PARTNER",
-    "SetPositionMark:ACTOR_NPC_DEMO_HERO",
-    "SetPositionMark:ACTOR_NPC_DEMO_PARTNER",
-    "SetPositionOffset",
-    "Turn2Direction:ACTOR_NPC_DEMO_PARTNER"
+   "status": "COMPILED",
+   "file": "s13p08a__t02a0311.lua",
+   "dialogues": 0,
+   "dual_screen_focus": true,
+   "gaps": [
+    "SetEffect 652 — VFX sans émote PMDO équivalente"
    ]
   },
   "S13P09A/t02a0402.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionMark:ACTOR_NPC_DEMO_HERO",
-    "MovePositionMark:ACTOR_NPC_DEMO_PARTNER"
-   ]
+   "status": "COMPILED",
+   "file": "s13p09a__t02a0402.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "S14P01A/s30a0303.ssb": {
    "status": "PARTIAL_OPS",
@@ -22288,9 +22229,12 @@
    "gaps": null
   },
   "T01P02A/um2101.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionLives:ACTOR_NPC_DAGUTORIO"
+   "status": "COMPILED",
+   "file": "t01p02a__um2101.lua",
+   "dialogues": 54,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(6422) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "T01P02A/um2102.ssb": {
@@ -23593,47 +23537,29 @@
    "gaps": null
   },
   "V10P01C/m10a1202.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionOffset:OBJECT_V10P01C1_225",
-    "MovePositionOffset:OBJECT_V10P01C1_226",
-    "MovePositionOffset:OBJECT_V10P01C1_227",
-    "MovePositionOffset:OBJECT_V10P01C2_231",
-    "MovePositionOffset:OBJECT_V10P01C2_233",
-    "MovePositionOffset:OBJECT_V10P01C3_238",
-    "MovePositionOffset:OBJECT_V10P01C3_239"
+   "status": "COMPILED",
+   "file": "v10p01c__m10a1202.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_TIME_GEAR non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "V10P01C/m10a1207.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionOffset:OBJECT_V10P01C1_225",
-    "MovePositionOffset:OBJECT_V10P01C1_226",
-    "MovePositionOffset:OBJECT_V10P01C2_231",
-    "MovePositionOffset:OBJECT_V10P01C2_232",
-    "MovePositionOffset:OBJECT_V10P01C2_233",
-    "MovePositionOffset:OBJECT_V10P01C3_237",
-    "MovePositionOffset:OBJECT_V10P01C3_238"
+   "status": "COMPILED",
+   "file": "v10p01c__m10a1207.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_TIME_GEAR non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "V10P03C/m10a1209.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionOffset:OBJECT_V10P01C1_225",
-    "MovePositionOffset:OBJECT_V10P01C1_226",
-    "MovePositionOffset:OBJECT_V10P01C1_228",
-    "MovePositionOffset:OBJECT_V10P01C1_229",
-    "MovePositionOffset:OBJECT_V10P01C2_231",
-    "MovePositionOffset:OBJECT_V10P01C2_232",
-    "MovePositionOffset:OBJECT_V10P01C2_234",
-    "MovePositionOffset:OBJECT_V10P01C2_235",
-    "MovePositionOffset:OBJECT_V10P01C2_236",
-    "MovePositionOffset:OBJECT_V10P01C3_237",
-    "MovePositionOffset:OBJECT_V10P01C3_238",
-    "MovePositionOffset:OBJECT_V10P01C3_240",
-    "MovePositionOffset:OBJECT_V10P01C3_241",
-    "MovePositionOffset:OBJECT_V10P01C3_242"
-   ]
+   "status": "COMPILED",
+   "file": "v10p03c__m10a1209.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "V10P03C/m10a1211.ssb": {
    "status": "PARTIAL_OPS",
@@ -23692,23 +23618,11 @@
    ]
   },
   "V10P03C/t02a0309.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionOffset:OBJECT_V10P01C1_225",
-    "MovePositionOffset:OBJECT_V10P01C1_226",
-    "MovePositionOffset:OBJECT_V10P01C1_228",
-    "MovePositionOffset:OBJECT_V10P01C1_229",
-    "MovePositionOffset:OBJECT_V10P01C2_231",
-    "MovePositionOffset:OBJECT_V10P01C2_232",
-    "MovePositionOffset:OBJECT_V10P01C2_234",
-    "MovePositionOffset:OBJECT_V10P01C2_235",
-    "MovePositionOffset:OBJECT_V10P01C2_236",
-    "MovePositionOffset:OBJECT_V10P01C3_237",
-    "MovePositionOffset:OBJECT_V10P01C3_238",
-    "MovePositionOffset:OBJECT_V10P01C3_240",
-    "MovePositionOffset:OBJECT_V10P01C3_241",
-    "MovePositionOffset:OBJECT_V10P01C3_242"
-   ]
+   "status": "COMPILED",
+   "file": "v10p03c__t02a0309.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "V14P03A/m14a0802.ssb": {
    "status": "COMPILED",
@@ -23850,8 +23764,7 @@
   "V22P03A/m22a1003.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionMark:OBJECT_V22P03A2_296",
-    "MovePositionOffset:OBJECT_V22P03A2_296"
+    "MovePositionMark:OBJECT_V22P03A2_296"
    ]
   },
   "V23P01A/m23a0704.ssb": {
@@ -23942,7 +23855,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "routine1:forever {\n        Slide2PositionOffset",
-    "routine2:Slide2PositionOffset:ACTOR_NPC_DEMO_PARTNER",
     "routine4:Slide2PositionOffset:OBJECT_V24P01A3_307",
     "routine5:Slide2PositionOffset:OBJECT_V24P05A1_319"
    ]
@@ -24158,33 +24070,15 @@
    ]
   },
   "V38P07A/n09a2203.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "MovePositionOffset:OBJECT_V38P07A1_488",
-    "MovePositionOffset:OBJECT_V38P07B1_489",
-    "MovePositionOffset:OBJECT_V38P07C1_490",
-    "MovePositionOffset:OBJECT_V38P07C2_491",
-    "MovePositionOffset:OBJECT_V38P07C3_492",
-    "MovePositionOffset:OBJECT_V38P07C4_493",
-    "MovePositionOffset:OBJECT_V38P07C5_494",
-    "MovePositionOffset:OBJECT_V38P07D1_495",
-    "MovePositionOffset:OBJECT_V38P07D2_496",
-    "MovePositionOffset:OBJECT_V38P07D3_497",
-    "MovePositionOffset:OBJECT_V38P07D4_498",
-    "MovePositionOffset:OBJECT_V38P07D5_499",
-    "MovePositionOffset:OBJECT_V38P07D6_500"
-   ]
+   "status": "COMPILED",
+   "file": "v38p07a__n09a2203.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "V38P08A/n09a2213.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "MovePositionOffset:OBJECT_V38P08A1_501",
-    "MovePositionOffset:OBJECT_V38P08B2_503",
-    "MovePositionOffset:OBJECT_V38P08C1_504",
-    "MovePositionOffset:OBJECT_V38P08C6_509",
-    "MovePositionOffset:OBJECT_V38P08D2_511",
-    "MovePositionOffset:OBJECT_V38P08D3_512",
-    "MovePositionOffset:OBJECT_V38P08D6_515",
     "routine1:MovePositionOffset:OBJECT_V38P08B1_502",
     "routine1:SetPositionOffset",
     "routine2:MovePositionOffset:OBJECT_V38P08C2_505",

@@ -256,3 +256,5 @@
 {"event": "scene_runtime", "scene": "d10p41a__m99a0104", "family": "team_member slots dynamiques", "verdict": "CINEMATIC_RUNTIME_PASS"}
 {"event": "compiler_v8_4", "date": "2026-08-27", "compiled": 2559, "partial_ops": 664, "note": "V8.4: affectations GameVar generiques ($EVENT_LOCAL=1, $SUB30_*[n]=v) + clear $VAR -> SV.SkyVars (relues par les if/switch compiles); SetPositionOffset -> kit.offset_pos (teleport relatif pixels); Move2/Slide2PositionMark<object> = props decor NDS (rendu du ground, trace documentee)"}
 {"event": "scene_runtime", "scene": "g01p05a__m26a06e3", "family": "offset_pos + GameVar", "verdict": "CINEMATIC_RUNTIME_PASS"}
+{"event": "compiler_v8_5", "date": "2026-08-27", "compiled": 2574, "partial_ops": 649, "note": "V8.5: acteurs demo NDS (NPC_DEMO_HERO/PARTNER, NPC_HERO/PARTNER_FIRST, LivesEntityTable type 5 entid 0) -> duo courant (meme regle que PLAYER_*); Turn2DirectionLives vers cible sans placement SSA (spawn moteur shop/hub) = orientation non jouee documentee; MovePositionOffset<object> props decor"}
+{"event": "scene_runtime", "scene": "d73p28a__us3104", "family": "orientation cible absente", "verdict": "CINEMATIC_RUNTIME_PASS"}

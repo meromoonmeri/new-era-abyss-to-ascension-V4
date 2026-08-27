@@ -271,6 +271,13 @@ class SceneCompiler:
             return "hero"
         if actor.startswith("ACTOR_ATTENDANT") or actor == "ACTOR_PARTNER":
             return "partner"
+        # acteurs de DÉMO NDS (intro / première partie) : LivesEntityTable
+        # type 5 entid 0 — jouent le rôle du héros/partenaire de la démo,
+        # résolus sur le duo courant (même règle que PLAYER_*)
+        if actor in ("ACTOR_NPC_DEMO_HERO", "ACTOR_NPC_HERO_FIRST"):
+            return "hero"
+        if actor in ("ACTOR_NPC_DEMO_PARTNER", "ACTOR_NPC_PARTNER_FIRST"):
+            return "partner"
         # slots d'équipe dynamiques NDS (LivesEntityTable type 3,
         # entid 0 = résolu à l'exécution par l'équipe courante) ->
         # kit.team_member(n) : n-ième membre au-delà du duo ; nil si
@@ -1299,6 +1306,14 @@ class SceneCompiler:
             if A and tgt2:
                 self.emit(f"pcall(function() GROUND:CharTurnToCharAnimated("
                           f"{A}, {tgt2}, 4) end)")
+            elif A:
+                # cible sans placement SSA dans la zone (PNJ spawné
+                # dynamiquement par le moteur shop/hub NDS) : op
+                # d'ORIENTATION pure — aucune ligne de dialogue ni
+                # action, trace documentée sans rotation.
+                self.emit(f"-- Turn2DirectionLives vers {tgt_name} "
+                          f"[cible sans placement SSA dans la zone "
+                          f"(spawn moteur NDS) : orientation non jouée]")
             else:
                 self.unsupported.append(f"Turn2DirectionLives:{tgt_name}")
         elif op == "SetPositionInitial":
@@ -1331,6 +1346,9 @@ class SceneCompiler:
                 self.emit(f"do local p={A}.Position; "
                           f"GROUND:MoveToPosition({A}, p.X+({dx}), "
                           f"p.Y+({dy}), false, {speed}) end")
+            elif mm and kind == "object":
+                self.emit(f"-- MovePositionOffset<object {target}> "
+                          f"[prop décor NDS, géré par le rendu du ground]")
             else:
                 self.unsupported.append(f"MovePositionOffset:{target}")
         elif op in ("main_EnterDungeon", "main_EnterGround",
