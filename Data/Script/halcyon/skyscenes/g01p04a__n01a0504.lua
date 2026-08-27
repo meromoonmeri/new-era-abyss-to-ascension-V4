@@ -11,6 +11,12 @@ return function(hero, partner)
     GROUND:EntTurn(npc_npc_guregguru, Direction.DownLeft)
     SkySceneKit.lock(6) -- Lock(6) NDS
     -- @label_0 [étiquette de flux ExplorerScript]
+    -- forever{...} NDS: une itération compilée (ré-affichage du menu = annulation, documenté)
+    -- SetAnimation(17) [anim idle native]
+    GAME:WaitFrames(2) -- join WaitAnimation
+    -- SetAnimation(2) [anim idle native]
+    -- continue [contrôle de boucle forever NDS: une itération compilée]
+    -- may be redundant
   end)
   SkySceneKit.run_routine(function() -- def 2 for actor ACTOR_NPC_DOGOOMU
     local npc_npc_dogoomu = SkySceneKit.spawn_npc("loudred", 240, 288, Direction.Right, "NPC_DOGOOMU")
@@ -21,6 +27,12 @@ return function(hero, partner)
     SkySceneKit.lock(8) -- Lock(8) NDS
     pcall(function() GROUND:CharSetEmote(npc_npc_dogoomu, "happy", 1) end)
     -- @label_1 [étiquette de flux ExplorerScript]
+    -- forever{...} NDS: une itération compilée (ré-affichage du menu = annulation, documenté)
+    -- SetAnimation(19) [anim idle native]
+    GAME:WaitFrames(2) -- join WaitAnimation
+    -- SetAnimation(2) [anim idle native]
+    -- continue [contrôle de boucle forever NDS: une itération compilée]
+    -- may be redundant
   end)
   SkySceneKit.run_routine(function() -- def 3 for actor ACTOR_PLAYER_BIPPA
     -- SetAnimation(2) [anim idle native]
@@ -29,6 +41,19 @@ return function(hero, partner)
     GROUND:EntTurn(hero, Direction.Left)
     SkySceneKit.lock(10) -- Lock(10) NDS
     -- @label_2 [étiquette de flux ExplorerScript]
+    -- forever{...} NDS: une itération compilée (ré-affichage du menu = annulation, documenté)
+    -- SetAnimation(3) [anim idle native]
+    -- MoveHeight(2, 10) [élévation d'objet NDS non simulée - documenté]
+    GAME:WaitFrames(1)
+    -- MoveHeight(2, 0) [élévation d'objet NDS non simulée - documenté]
+    GAME:WaitFrames(2)
+    -- MoveHeight(2, 10) [élévation d'objet NDS non simulée - documenté]
+    GAME:WaitFrames(1)
+    -- MoveHeight(2, 0) [élévation d'objet NDS non simulée - documenté]
+    GAME:WaitFrames(15)
+    -- SetAnimation(2) [anim idle native]
+    -- continue [contrôle de boucle forever NDS: une itération compilée]
+    -- may be redundant
   end)
   pcall(function() SOUND:StopBGM() end)
   -- GAP: se_Play(5123) — id SE NDS sans portage PMDO identifié

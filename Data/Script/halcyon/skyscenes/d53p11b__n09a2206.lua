@@ -8,6 +8,17 @@ return function(hero, partner)
     local npc_npc_yamirami4 = SkySceneKit.spawn_npc("sableye", 296, 160, Direction.Up, "NPC_YAMIRAMI4")
     -- SetAnimation(2) [anim idle native]
     -- @label_3 [étiquette de flux ExplorerScript]
+    -- forever{...} NDS: une itération compilée (ré-affichage du menu = annulation, documenté)
+    GAME:WaitFrames(math.random(45, 60))
+    GROUND:EntTurn(npc_npc_yamirami4, Direction.DownLeft)
+    pcall(function() GROUND:CharSetEmote(npc_npc_yamirami4, "happy", 1) end)
+    -- CallCommon CORO_JUMP_ANGRY_FUNC (fermeture/attente message: géré par say())
+    GAME:WaitFrames(math.random(30, 40))
+    pcall(function() GROUND:CharSetEmote(npc_npc_yamirami4, nil, 0) end) -- EFFECT_NONE
+    GAME:WaitFrames(10)
+    GROUND:EntTurn(npc_npc_yamirami4, Direction.Up)
+    -- continue [contrôle de boucle forever NDS: une itération compilée]
+    -- may be redundant
   end)
   -- GAP: BGM BGM_A_NEW_WORLD non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
   -- back_SetGround(LEVEL_D53P11B) [neutre/état moteur]

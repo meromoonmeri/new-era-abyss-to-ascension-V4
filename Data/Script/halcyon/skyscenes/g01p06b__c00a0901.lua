@@ -10,6 +10,13 @@ return function(hero, partner)
     -- GAP: SetEffect EFFECT_APPLE_ON_HEAD — VFX sans émote PMDO équivalente
     SkySceneKit.lock(5) -- Lock(5) NDS
     -- @label_3 [étiquette de flux ExplorerScript]
+    -- forever{...} NDS: une itération compilée (ré-affichage du menu = annulation, documenté)
+    GROUND:EntTurn(npc_npc_pukurin, Direction.Up)
+    GAME:WaitFrames(20)
+    GROUND:EntTurn(npc_npc_pukurin, Direction.Down)
+    GAME:WaitFrames(20)
+    -- continue [contrôle de boucle forever NDS: une itération compilée]
+    -- may be redundant
   end)
   pcall(function() SOUND:StopBGM() end)
   -- back_SetGround(LEVEL_G01P06B) [neutre/état moteur]
@@ -57,6 +64,32 @@ return function(hero, partner)
   -- GAP: SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente
   -- GAP: SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente
   -- GAP: SetEffect EFFECT_EATING_SLOW — VFX sans émote PMDO équivalente
+  do local __sw = 1 -- switch(sector()) [sector(): acting principal (kit PMDO)]
+  if __sw == 1 then
+  -- @label_0 [étiquette de flux ExplorerScript]
+  -- Destroy() [neutre/état moteur]
+  -- @label_2 [étiquette de flux ExplorerScript]
+  -- SetAnimation(20) [anim idle native]
+  -- GAP: BGM BGM_EATING non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
+  GAME:FadeIn(30)
+  SkySceneKit.say({english="Crunch-munch! Chew-chew! Snuffle-slurp!\nCrunch-munch! Chew-chew! Snuffle-slurp!", french="Cronch cronch! Miam miam! Slurp slurp!\nCronch cronch! Miam miam! Slurp slurp!", german="Stopf-schling! Schmatz! Schlabber-schlürf!\nStopf-schling! Schmatz! Schlabber-schlürf!", italian="Gnam-gnam! Ingurg-ingurg! Slurp-slurp!\nGnam-gnam! Crunch-crunch! Slurp-slurp!", spanish="¡Ñam, ñam! ¡Glup, glup! ¡Ñem, ñem!\n¡Ñam, ñam! ¡Glup, glup! ¡Ñem, ñem!"}) -- message_ImitationSound (onomatopée)
+  SkySceneKit.say({english="Crunch-munch! Chew-chew! Snuffle-slurp!\nCrunch-munch! Chew-chew! Snuffle-slurp!", french="Cronch cronch! Miam miam! Slurp slurp!\nCronch cronch! Miam miam! Slurp slurp!", german="Stopf-schling! Schmatz! Schlabber-schlürf!\nStopf-schling! Schmatz! Schlabber-schlürf!", italian="Gnam-gnam! Ingurg-ingurg! Slurp-slurp!\nGnam-gnam! Crunch-crunch! Slurp-slurp!", spanish="¡Ñam, ñam! ¡Glup, glup! ¡Ñem, ñem!\n¡Ñam, ñam! ¡Glup, glup! ¡Ñem, ñem!"}) -- message_ImitationSound (onomatopée)
+  SkySceneKit.say({english="Crunch-munch! Chew-chew! Snuffle-slurp!\nCrunch-munch! Chew-chew! Snuffle-slurp!", french="Cronch cronch! Miam miam! Slurp slurp!\nCronch cronch! Miam miam! Slurp slurp!", german="Stopf-schling! Schmatz! Schlabber-schlürf!\nStopf-schling! Schmatz! Schlabber-schlürf!", italian="Gnam-gnam! Ingurg-ingurg! Slurp-slurp!\nGnam-gnam! Crunch-crunch! Slurp-slurp!", spanish="¡Ñam, ñam! ¡Glup, glup! ¡Ñem, ñem!\n¡Ñam, ñam! ¡Glup, glup! ¡Ñem, ñem!"}) -- message_ImitationSound (onomatopée)
+  SkySceneKit.say({english="Crunch-munch! Chew-chew! Snuffle-slurp!\nCrunch-munch! Chew-chew! Snuffle-slurp!", french="Cronch cronch! Miam miam! Slurp slurp!\nCronch cronch! Miam miam! Slurp slurp!", german="Stopf-schling! Schmatz! Schlabber-schlürf!\nStopf-schling! Schmatz! Schlabber-schlürf!", italian="Gnam-gnam! Ingurg-ingurg! Slurp-slurp!\nGnam-gnam! Crunch-crunch! Slurp-slurp!", spanish="¡Ñam, ñam! ¡Glup, glup! ¡Ñem, ñem!\n¡Ñam, ñam! ¡Glup, glup! ¡Ñem, ñem!"}) -- message_ImitationSound (onomatopée)
+  SkySceneKit.say({english="Crunch-munch! Chew-chew! Snuffle-slurp!\nCrunch-munch! Chew-chew! Snuffle-slurp!", french="Cronch cronch! Miam miam! Slurp slurp!\nCronch cronch! Miam miam! Slurp slurp!", german="Stopf-schling! Schmatz! Schlabber-schlürf!\nStopf-schling! Schmatz! Schlabber-schlürf!", italian="Gnam-gnam! Ingurg-ingurg! Slurp-slurp!\nGnam-gnam! Crunch-crunch! Slurp-slurp!", spanish="¡Ñam, ñam! ¡Glup, glup! ¡Ñem, ñem!\n¡Ñam, ñam! ¡Glup, glup! ¡Ñem, ñem!"}) -- message_ImitationSound (onomatopée)
+  SkySceneKit.say({english="Crunch-munch! Chew-chew! Snuffle-slurp!\nCrunch-munch! Chew-chew! Snuffle-slurp!", french="Cronch cronch! Miam miam! Slurp slurp!\nCronch cronch! Miam miam! Slurp slurp!", german="Stopf-schling! Schmatz! Schlabber-schlürf!\nStopf-schling! Schmatz! Schlabber-schlürf!", italian="Gnam-gnam! Ingurg-ingurg! Slurp-slurp!\nGnam-gnam! Crunch-crunch! Slurp-slurp!", spanish="¡Ñam, ñam! ¡Glup, glup! ¡Ñem, ñem!\n¡Ñam, ñam! ¡Glup, glup! ¡Ñem, ñem!"}) -- message_ImitationSound (onomatopée)
+  -- message_CloseEnforce
+  pcall(function() SOUND:FadeOutBGM(60) end)
+  GAME:FadeOut(false, 30)
+  GAME:WaitFrames(2) -- join WaitBgm
+  GAME:WaitFrames(30)
+  elseif true then -- default
+  -- @label_1 [étiquette de flux ExplorerScript]
+  GAME:WaitFrames(2) -- join WaitLockLives
+  SkySceneKit.unlock(5) -- Unlock(5) NDS
+  -- jump @label_2 [saut final de branche vers l'épilogue commun: flux naturel]
+  end
+  end
   SkySceneKit.cleanup_npcs()
   SkySceneKit.join_routines()
 end

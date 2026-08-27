@@ -784,6 +784,52 @@ class SceneCompiler:
                           f"SV.SkyDungeonMode[{n}] = {val} "
                           f"-- dungeon_mode({n}) = DMODE_{mode} (ROM)")
                 return
+        # écriture de PROGRESSION : $SCENARIO_MAIN = scn[M,S] ->
+        # SkyProg.set natif (déblocages canoniques du graphe appliqués)
+        msc = re.match(r"\$SCENARIO_MAIN\s*=\s*scn\[(\d+),\s*(\d+)\]$", st)
+        if msc:
+            self.used_skyprog = True
+            self.emit(f"SkyProg.set({int(msc.group(1))}, "
+                      f"{int(msc.group(2))}) -- $SCENARIO_MAIN = "
+                      f"scn[{msc.group(1)},{msc.group(2)}] (ROM)")
+            return
+        msc2 = re.match(r"\$SCENARIO_SIDE\s*=\s*scn\[(\d+),\s*(\d+)\]$", st)
+        if msc2:
+            self.emit(f"SV.SkyScenarioSide = {{main={int(msc2.group(1))}, "
+                      f"sub={int(msc2.group(2))}}} -- $SCENARIO_SIDE = "
+                      f"scn[{msc2.group(1)},{msc2.group(2)}] (ROM)")
+            return
+        # commentaires du décompilateur explorerscript (`// ...`)
+        if st.startswith("//"):
+            self.emit("-- " + st[2:].strip())
+            return
+        # break_loop / continue : contrôle de la boucle forever NDS —
+        # une itération étant compilée, break_loop = fin naturelle du
+        # bloc, continue = ré-itération (annulation, documentée)
+        if st in ("break_loop", "continue"):
+            self.emit(f"-- {st} [contrôle de boucle forever NDS: une "
+                      f"itération compilée]")
+            return
+        # forever { ... } : boucle infinie NDS — sortie uniquement par
+        # end/jump/transition interne. Deux usages ROM : (a) boucle de
+        # MENU re-affichable (switch message_SwitchMenu) ; (b) boucle
+        # d'attente/animation. Adaptation : UNE itération compilée (le
+        # choix/le flux mène à la sortie ; la ré-itération du menu NDS
+        # est le comportement d'annulation, documenté). Fail-closed sur
+        # le corps : toute op non traduite reclasse la scène.
+        mfor = re.match(r"forever\s*\{(.*)\}$", st, re.S)
+        if mfor:
+            self.emit("-- forever{...} NDS: une itération compilée "
+                      "(ré-affichage du menu = annulation, documenté)")
+            self.compile_def0(mfor.group(1))
+            return
+        # with (actor X) { hold; } : pause d'une frame de l'interpréteur
+        # sur le contexte de l'acteur (seule forme observée ROM, 28 occ.)
+        mwith = re.match(r"with\s*\(\s*(?:actor|object|performer)\s+\w+\s*\)"
+                         r"\s*\{\s*hold\s*;\s*\}$", st, re.S)
+        if mwith:
+            self.emit("GAME:WaitFrames(1) -- with(...){hold} NDS")
+            return
         mclr = re.match(r"clear\s+\$([A-Z][A-Z0-9_]*)$", st)
         if mclr:
             self.emit(f"if SV.SkyVars then SV.SkyVars.{mclr.group(1)} = 0 "
@@ -1302,7 +1348,11 @@ class SceneCompiler:
             self.face_pending = args.split(",")[0].strip()
         elif op in ("message_Talk", "message_Monologue",
                     "message_Explanation", "message_Notice",
-                    "message_Narration"):
+                    "message_Narration", "message_Mail"):
+            # message_Mail = même contenu texte 5 langues dans le CADRE
+            # « courrier » NDS (fenêtre à en-tête) : le texte canonique
+            # est affiché par le dialogue natif PMDO — différence de
+            # cadre documentée (adaptation technique d'affichage).
             langs, _ = parse_dialogue_block(args, args.find("{"))
             if not langs:
                 self.unsupported.append(op + ":no_text")

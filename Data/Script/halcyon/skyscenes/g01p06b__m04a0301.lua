@@ -10,6 +10,13 @@ return function(hero, partner)
     -- GAP: SetEffect EFFECT_APPLE_ON_HEAD — VFX sans émote PMDO équivalente
     SkySceneKit.lock(5) -- Lock(5) NDS
     -- @label_0 [étiquette de flux ExplorerScript]
+    -- forever{...} NDS: une itération compilée (ré-affichage du menu = annulation, documenté)
+    GROUND:EntTurn(npc_npc_pukurin, Direction.Up)
+    GAME:WaitFrames(20)
+    GROUND:EntTurn(npc_npc_pukurin, Direction.Down)
+    GAME:WaitFrames(20)
+    -- continue [contrôle de boucle forever NDS: une itération compilée]
+    -- may be redundant
   end)
   pcall(function() SOUND:StopBGM() end)
   -- GAP: se_Play(5123) — id SE NDS sans portage PMDO identifié
@@ -72,7 +79,14 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_dogoomu) end)
   SkySceneKit.say({english=" Uggggh...", french=" Aaaarf...", german=" Uggggh...", italian=" Uggggh...", spanish=" Aaayy..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" So hungry...", french=" Je... meurs de faim...", german=" So hungrig...", italian=" Sono... affamata...", spanish=" ¡Qué hambre!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" I'm...starving...", french=" Je... meurs de faim...", german=" Ich habe... Hunger...", italian=" Sto... morendo di fame...", spanish=" ¡Qué hambre!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" So very...hungry...", french=" Je... meurs de faim...", german=" Ich habe... so Hunger...", italian=" Non ci vedo dalla fame...", spanish=" ¡Me muero de hambre!"})
+  else
+  SkySceneKit.say({english=" So hungry...", french=" Je... meurs de faim...", german=" So hungrig...", italian=" Sono... affamata...", spanish=" ¡Qué hambre!"})
+  end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharSetEmote(npc_npc_dogoomu, nil, 0) end) -- EFFECT_NONE
   GROUND:EntTurn(npc_npc_dogoomu, Direction.Left)
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -94,7 +108,14 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Please don't glare at me...", french="C'est bon, arrête de me\nregarder comme ça!", german=" Bitte sieh mich nicht so an.", italian=" Dai, smettila di guardarmi così!", spanish=" ¡No me mires de esa forma!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Come on, quit giving me the eye!", french="C'est bon, arrête de me\nregarder comme ça!", german="Komm schon, sieh mich nicht so\nan!", italian=" Dai, non guardarmi così!", spanish=" ¡No me mires con esa cara!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Don't glare at me like that...", french="C'est bon, arrête de me\nregarder comme ça!", german=" Sieh mich nicht so an.", italian="Dai, smettila di guardarmi\nin quel modo!", spanish=" ¡No me mires así!"})
+  else
+  SkySceneKit.say({english=" Please don't glare at me...", french="C'est bon, arrête de me\nregarder comme ça!", german=" Bitte sieh mich nicht so an.", italian=" Dai, smettila di guardarmi così!", spanish=" ¡No me mires de esa forma!"})
+  end
+  -- message_Close
   GAME:FadeOut(false, 30)
   GAME:WaitFrames(30)
   -- back_SetGround(LEVEL_S04P01A) [neutre/état moteur]

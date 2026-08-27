@@ -10,6 +10,13 @@ return function(hero, partner)
     -- GAP: SetEffect EFFECT_APPLE_ON_HEAD — VFX sans émote PMDO équivalente
     SkySceneKit.lock(5) -- Lock(5) NDS
     -- @label_0 [étiquette de flux ExplorerScript]
+    -- forever{...} NDS: une itération compilée (ré-affichage du menu = annulation, documenté)
+    GROUND:EntTurn(npc_npc_pukurin, Direction.Up)
+    GAME:WaitFrames(20)
+    GROUND:EntTurn(npc_npc_pukurin, Direction.Down)
+    GAME:WaitFrames(20)
+    -- continue [contrôle de boucle forever NDS: une itération compilée]
+    -- may be redundant
   end)
   pcall(function() SOUND:StopBGM() end)
   -- back_SetGround(LEVEL_G01P06B) [neutre/état moteur]
