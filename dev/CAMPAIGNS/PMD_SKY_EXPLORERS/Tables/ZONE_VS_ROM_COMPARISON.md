@@ -804,3 +804,93 @@
 - items : ROM a des tables=True, zone spawn=True → PASS
 - pièges : PASS 
 
+## upper_spring_cave (d160 DUNGEON_UPPER_SPRING_CAVE) — **EXACT**
+- étages : zone 4 / ROM 4 → PASS
+- espèces/niveaux/proportions : 4 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## lower_spring_cave (d162 DUNGEON_LOWER_SPRING_CAVE) — **EXACT**
+- étages : zone 4 / ROM 4 → PASS
+- espèces/niveaux/proportions : 4 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## spring_cave_depths (d163 DUNGEON_SPRING_CAVE_DEPTHS) — **EXACT**
+- étages : zone 4 / ROM 4 → PASS
+- espèces/niveaux/proportions : 4 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## little_plains (d165 DUNGEON_LITTLE_PLAINS) — **EXACT**
+- étages : zone 5 / ROM 5 → PASS
+- espèces/niveaux/proportions : 5 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## mt_clear (d166 DUNGEON_MT_CLEAR) — **EXACT**
+- étages : zone 6 / ROM 6 → PASS
+- espèces/niveaux/proportions : 6 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## challenge_river (d167 DUNGEON_CHALLENGE_RIVER) — **EXACT**
+- étages : zone 7 / ROM 7 → PASS
+- espèces/niveaux/proportions : 7 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## trial_forest (d168 DUNGEON_TRIAL_FOREST) — **EXACT**
+- étages : zone 6 / ROM 6 → PASS
+- espèces/niveaux/proportions : 6 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## guiding_sea (d169 DUNGEON_GUIDING_SEA) — **EXACT**
+- étages : zone 5 / ROM 5 → PASS
+- espèces/niveaux/proportions : 5 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## hidden_shopkeeper_village (d170 DUNGEON_HIDDEN_SHOPKEEPER_VILLAGE) — **EXACT**
+- étages : zone 5 / ROM 5 → PASS
+- espèces/niveaux/proportions : 5 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## star_cave (d174 DUNGEON_STAR_CAVE) — **EXACT**
+- étages : zone 16 / ROM 16 → PASS
+- espèces/niveaux/proportions : 16 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## shaymin_village (d175 DUNGEON_SHAYMIN_VILLAGE) — **EXACT**
+- étages : zone 3 / ROM 3 → PASS
+- espèces/niveaux/proportions : 3 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## armaldos_shelter (d176 DUNGEON_ARMALDOS_SHELTER) — **EXACT**
+- étages : zone 3 / ROM 3 → PASS
+- espèces/niveaux/proportions : 3 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## luminous_spring_dungeon (d177 DUNGEON_LUMINOUS_SPRING) — **EXACT**
+- étages : zone 3 / ROM 3 → PASS
+- espèces/niveaux/proportions : 3 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## hot_spring_dungeon (d178 DUNGEON_HOT_SPRING) — **EXACT**
+- étages : zone 6 / ROM 6 → PASS
+- espèces/niveaux/proportions : 6 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+
+## rescue_dungeon (d179 DUNGEON_RESCUE) — **EXACT**
+- étages : zone 1 / ROM 1 → PASS
+- espèces/niveaux/proportions : 1 PASS / 0 FAIL
+- items : ROM a des tables=True, zone spawn=True → PASS
+- pièges : PASS 
+

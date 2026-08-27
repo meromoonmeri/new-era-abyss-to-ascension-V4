@@ -1786,6 +1786,60 @@
    "Released": true,
    "Comment": "",
    "SortOrder": 0
+  },
+  "little_plains_ts_floor": {
+   "Name": {
+    "DefaultText": "Little Plains Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "little_plains_ts_wall": {
+   "Name": {
+    "DefaultText": "Little Plains Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "little_plains_ts_secondary": {
+   "Name": {
+    "DefaultText": "Little Plains Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "shopkeeper_village_ts_floor": {
+   "Name": {
+    "DefaultText": "Shopkeeper Village Ts Floor",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "shopkeeper_village_ts_wall": {
+   "Name": {
+    "DefaultText": "Shopkeeper Village Ts Wall",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
+  },
+  "shopkeeper_village_ts_secondary": {
+   "Name": {
+    "DefaultText": "Shopkeeper Village Ts Secondary",
+    "LocalTexts": {}
+   },
+   "Released": true,
+   "Comment": "",
+   "SortOrder": 0
   }
  }
 }

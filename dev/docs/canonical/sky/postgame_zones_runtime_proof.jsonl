@@ -119,3 +119,21 @@
 {"event": "boss_arena", "zone": "limestone_cavern_depths", "dungeon": "d157", "fixed_floor": 38, "cast": "weavile L33, arbok L26, drapion L29", "runtime": "CANONICAL_RUNTIME_PASS"}
 {"event": "boss_arena", "zone": "upper_spring_cave_haunter", "dungeon": "d159", "fixed_floor": 39, "cast": "haunter L25", "runtime": "CANONICAL_RUNTIME_PASS"}
 {"event": "arena_music_fix", "date": "2026-08-27", "note": "10 arenas ff17-ff26 musiques realignees ROM (mid donjon parent): spacial_rift_bottom Sealed Ruin, giant_volcano_peak Dark Crater, shimmer_desert_pit Northern Desert, mt_avalanche_peak Blizzard Medley, bottomless_sea_depths Lower Brine Cave, world_abyss_pit Chasm Cave, deep_mystery_jungle Concealed Ruins, sky_stairway_apex Crystal Cave, dark_crater_pit mid 999 silence ROM (musique posee par scene boss)", "retest": "dark_crater_pit+sky_stairway_apex+regigigas_chamber_boss PASS"}
+{"event": "final_dungeons_build", "date": "2026-08-27", "zones": 17, "note": "d160-d179: Spring Cave x5 (SE2 suite), evenements Wonder Mail S (Little Plains/Mt Clear/Challenge River/Trial Forest/Guiding Sea/Hidden Shopkeeper Village \u2014 noms EU text_e.str 1253-1258), Star Cave post-game 16 et., epilogue Shaymin Village/Armaldo/Luminous/Hot Spring/Rescue; 2 tilesets portes (78 little_plains_ts, 89 shopkeeper_village_ts); mid 0 = silence ROM (Music vide legal). COUVERTURE DONJONS SKY TOTALE: tous les d00-d179 non-Dummy ont une zone jouable (d105/d106/d171/d172/d173 = [M:D1]Dummy ROM prouve)"}
+{"event": "postgame_zone", "zone": "upper_spring_cave", "dungeon": "d160", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 4}
+{"event": "postgame_zone", "zone": "lower_spring_cave", "dungeon": "d162", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 4}
+{"event": "postgame_zone", "zone": "spring_cave_depths", "dungeon": "d163", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 4}
+{"event": "postgame_zone", "zone": "little_plains", "dungeon": "d165", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 5}
+{"event": "postgame_zone", "zone": "mt_clear", "dungeon": "d166", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 6}
+{"event": "postgame_zone", "zone": "challenge_river", "dungeon": "d167", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 7}
+{"event": "postgame_zone", "zone": "trial_forest", "dungeon": "d168", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 6}
+{"event": "postgame_zone", "zone": "guiding_sea", "dungeon": "d169", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 5}
+{"event": "postgame_zone", "zone": "hidden_shopkeeper_village", "dungeon": "d170", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 5}
+{"event": "postgame_zone", "zone": "star_cave", "dungeon": "d174", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 16}
+{"event": "postgame_zone", "zone": "shaymin_village", "dungeon": "d175", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 3}
+{"event": "postgame_zone", "zone": "armaldos_shelter", "dungeon": "d176", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 3}
+{"event": "postgame_zone", "zone": "luminous_spring_dungeon", "dungeon": "d177", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 3}
+{"event": "postgame_zone", "zone": "hot_spring_dungeon", "dungeon": "d178", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 6}
+{"event": "postgame_zone", "zone": "rescue_dungeon", "dungeon": "d179", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 1}
+{"event": "boss_arena", "zone": "middle_spring_cave", "dungeon": "d161", "fixed_floor": 40, "cast": "haunter L27", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "boss_arena", "zone": "spring_cave_pit", "dungeon": "d164", "fixed_floor": 41, "cast": "3x haunter L29", "runtime": "CANONICAL_RUNTIME_PASS"}

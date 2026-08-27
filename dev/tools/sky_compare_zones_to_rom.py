@@ -109,6 +109,15 @@ ZONE_TO_DUNGEON = {
     "right_cave_path": "d153", "left_cave_path": "d154",
     "limestone_cavern": "d155", "deep_limestone_cavern": "d156",
     "spring_cave": "d158",
+    # d160-d179 : Spring Cave suite, événements Wonder Mail S, épilogue
+    "upper_spring_cave": "d160", "lower_spring_cave": "d162",
+    "spring_cave_depths": "d163", "little_plains": "d165",
+    "mt_clear": "d166", "challenge_river": "d167",
+    "trial_forest": "d168", "guiding_sea": "d169",
+    "hidden_shopkeeper_village": "d170", "star_cave": "d174",
+    "shaymin_village": "d175", "armaldos_shelter": "d176",
+    "luminous_spring_dungeon": "d177", "hot_spring_dungeon": "d178",
+    "rescue_dungeon": "d179",
 }
 
 TRAP_TO_PMDO = {k: v.get("pmdo_tile")

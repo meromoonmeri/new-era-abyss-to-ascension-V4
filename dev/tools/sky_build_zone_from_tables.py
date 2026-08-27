@@ -106,7 +106,9 @@ TSET = {1: "beach_cave", 2: "drenched_bluff", 3: "mt_bristle",
         137: "dark_ice_mountain_ts", 138: "dark_ice_mountain_peak_ts",
         139: "icicle_forest_ts", 140: "vast_ice_mountain_ts",
         141: "vast_ice_mountain_peak_ts", 142: "fourth_station_pass_ts",
-        143: "seventh_station_pass_ts"}
+        143: "seventh_station_pass_ts",
+        # d160-d179 (Spring Cave, événements Wonder Mail S, épilogue)
+        78: "little_plains_ts", 89: "shopkeeper_village_ts"}
 # tileset NDS 180 (d45 clearing) = MAP_BG v00p03 + fixed floor 11 :
 # arène fixe, pipeline sky_build_boss_arenas (pas un donjon procédural).
 
@@ -125,6 +127,10 @@ def _load_music_mid_map():
     for mid, e in mm.items():
         if "random_group" in e:
             out[int(mid)] = e["tracks"][0]["ogg"]
+        elif e.get("name") == "NONE":
+            # mid 0/999 = silence ROM (Music vide, légal PMDO — 53
+            # exemples DumpAsset)
+            out[int(mid)] = ""
         elif e.get("ogg"):
             out[int(mid)] = e["ogg"]
     return out

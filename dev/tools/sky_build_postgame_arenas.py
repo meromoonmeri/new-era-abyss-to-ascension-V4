@@ -113,6 +113,13 @@ ARENAS = [
     ('upper_spring_cave_haunter', 39, 'Upper Spring Cave',
      'Grotte Source Supérieure (Haunter)', 'waterfall_cave',
      'Spring Cave.ogg', [('haunter', 25)]),
+    ('middle_spring_cave', 40, 'Middle Spring Cave',
+     'Grotte Source Médiane', 'side_path',
+     'Lower Spring Cave.ogg', [('haunter', 27)]),
+    ('spring_cave_pit', 41, 'Spring Cave Pit',
+     'Puits de la Grotte Source', 'steam_cave',
+     'Spring Cave Depths.ogg',
+     [('haunter', 29), ('haunter', 29), ('haunter', 29)]),
 ]
 
 
