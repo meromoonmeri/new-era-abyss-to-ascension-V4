@@ -152,6 +152,26 @@ function SkySceneKit.offset_pos(ch, dx, dy)
   end)
 end
 
+-- Se tourner vers une position en pixels (Turn2DirectionMark NDS) :
+-- direction 8 voies calculée vers le point.
+function SkySceneKit.turn_to_pos(ch, x, y)
+  pcall(function()
+    local p = ch.Position
+    local dx, dy = x - p.X, y - p.Y
+    local dir
+    if math.abs(dx) > 2 * math.abs(dy) then
+      dir = dx > 0 and Direction.Right or Direction.Left
+    elseif math.abs(dy) > 2 * math.abs(dx) then
+      dir = dy > 0 and Direction.Down or Direction.Up
+    elseif dx > 0 then
+      dir = dy > 0 and Direction.DownRight or Direction.UpRight
+    else
+      dir = dy > 0 and Direction.DownLeft or Direction.UpLeft
+    end
+    GROUND:EntTurn(ch, dir)
+  end)
+end
+
 -- Rotation sur soi (Turn2DirectionTurn NDS) : EntTurn sur les 8
 -- directions successives, sens ROM (2=antihoraire sinon horaire),
 -- `turns` quarts de tour complets, tempo speed frames par pas.

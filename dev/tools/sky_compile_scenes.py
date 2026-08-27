@@ -471,6 +471,28 @@ class SceneCompiler:
             return (f"((SV.SkyDungeonMode or {{}})[{n}] or 0)",
                     f"dungeon_mode({n}): état de déblocage ROM "
                     f"(0=CLOSED 1=OPEN 2=REQUEST 3=OPEN_AND_REQUEST)")
+        # switch(ProcessSpecial(ID, a, b)) AVEC cases : le retour du
+        # procédé arm9 (SPECIAL_PROC_* pmdsky-debug) choisit la branche.
+        # Requêtes d'état moteur (jobs aléatoires, comptage d'items,
+        # setup équipe...) -> SV.SkyProcResults[ID] tenu par le harnais
+        # (défaut 0 = état vierge ROM au NewGame). TOUTES les branches
+        # restent compilées : le contenu de chaque case est préservé.
+        m = re.match(r"ProcessSpecial\(\s*([A-Z0-9_]+|\d+)\s*,\s*(-?\d+)\s*,"
+                     r"\s*(-?\d+)\s*\)$", s)
+        if m:
+            pid = m.group(1)
+            return (f"((SV.SkyProcResults or {{}})[{lua_str(pid)}] or 0)",
+                    f"ProcessSpecial({pid}): retour du procédé arm9 "
+                    f"(SV harnais, défaut 0 état vierge)")
+        # switch(message_Menu(MENU_X)) AVEC cases : menus moteur NDS à
+        # retour (résultats de mission, écrans systèmes). Retour 0 =
+        # fermeture/défaut ROM — branches préservées.
+        m = re.match(r"message_Menu\(\s*([A-Z0-9_]+)\s*\)$", s)
+        if m:
+            return (f"((SV.SkyMenuResults or {{}})"
+                    f"[{lua_str(m.group(1))}] or 0)",
+                    f"message_Menu({m.group(1)}): menu moteur NDS "
+                    f"(retour par défaut 0, branches préservées)")
         if s == "sector()":
             # sector() = index de secteur d'acting du superviseur NDS ;
             # dans PMDO le validateur/kit joue la scène en secteur 1
@@ -1608,7 +1630,7 @@ class SceneCompiler:
                           f"RogueEssence.Content.ScreenMover(0, "
                           f"{max(1, power * 2)}, 30)) end) "
                           f"-- camera_SetEffect{tuple(parts)}")
-        elif op == "SlidePositionMark":
+        elif op in ("SlidePositionMark", "Slide2PositionMark"):
             mm = re.search(r"Position<'\w*',\s*([\d.]+),\s*([\d.]+)>", args)
             sp = re.match(r"\s*([\d.]+)", args)
             if A and mm:
@@ -1616,9 +1638,68 @@ class SceneCompiler:
                 y = int(float(mm.group(2)) * 8)
                 speed = 2 if (sp and float(sp.group(1)) >= 0.6) else 1
                 self.emit(f"GROUND:MoveToPosition({A}, {x}, {y}, false, "
-                          f"{speed}) -- SlidePositionMark (glissement)")
+                          f"{speed}) -- {op} (glissement)")
             else:
-                self.unsupported.append(f"SlidePositionMark:{target}")
+                self.unsupported.append(f"{op}:{target}")
+        elif op == "MovePosition":
+            # (vitesse, x_px, y_px) — déplacement en pixels ABSOLUS
+            mm = re.match(r"\s*([\d.]+)\s*,\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)",
+                          args)
+            if A and mm:
+                speed = 2 if float(mm.group(1)) >= 0.6 else 1
+                self.emit(f"GROUND:MoveToPosition({A}, "
+                          f"{int(float(mm.group(2)))}, "
+                          f"{int(float(mm.group(3)))}, false, {speed})")
+            else:
+                self.unsupported.append(f"MovePosition:{target}")
+        elif op == "Turn2DirectionMark":
+            # se tourner vers une POSITION (vitesse, delai, Position<>) :
+            # kit.turn_to_pos (direction calculée vers le point)
+            mm = re.search(r"Position<'\w*',\s*([\d.]+),\s*([\d.]+)>", args)
+            if A and mm:
+                x = int(float(mm.group(1)) * 8)
+                y = int(float(mm.group(2)) * 8)
+                self.emit(f"SkySceneKit.turn_to_pos({A}, {x}, {y}) "
+                          f"-- Turn2DirectionMark")
+            else:
+                self.unsupported.append("Turn2DirectionMark")
+        elif op == "Turn3":
+            # rotation partielle NDS (vitesse, sens, pas, delai) : même
+            # adaptation que Turn2DirectionTurn avec moins de pas
+            f = [x.strip() for x in args.split(",")]
+            if A and len(f) >= 3:
+                self.emit(f"SkySceneKit.spin({A}, {f[0]}, {f[1]}, 1) "
+                          f"-- Turn3 (rotation partielle)")
+            else:
+                self.unsupported.append("Turn3")
+        elif op == "WaitEndAnimation":
+            self.emit("GAME:WaitFrames(8) -- WaitEndAnimation (join anim)")
+        elif op == "WaitMoveCamera":
+            self.emit("GAME:WaitFrames(4) -- WaitMoveCamera (join caméra)")
+        elif op == "supervision_ActingInvisible":
+            self.emit(f"-- supervision_ActingInvisible({args.strip()[:8]}) "
+                      f"[acting caché superviseur NDS]")
+        elif op in ("item_SetTableData", "item_GetVariable",
+                    "item_SetVariable", "item_Set"):
+            self.emit(f"-- {op}({args.strip()[:40]}) [table d'objets du "
+                      f"script NDS: inventaire géré par le moteur PMDO]")
+        elif op == "back_SetSpecialEpisodeBanner":
+            # bannière-titre d'épisode spécial (texte 5 langues) : le
+            # TEXTE canonique est affiché par le dialogue natif
+            langs, _ = parse_dialogue_block(args, args.find("{"))
+            if langs:
+                self.dialogues += 1
+                tbl = ", ".join(f"{k}={lua_str(v)}"
+                                for k, v in langs.items())
+                self.emit(f"pcall(function() UI:ResetSpeaker() end)")
+                self.emit(f"SkySceneKit.say({{{tbl}}}) "
+                          f"-- bannière d'épisode spécial (titre ROM)")
+            else:
+                self.emit(f"-- back_SetSpecialEpisodeBanner "
+                          f"[bannière sans texte]")
+        elif op in ("se_ChangeVolume", "se_FadeVolume", "se_Stop"):
+            self.emit(f"-- {op}({args.strip()[:20]}) [canal SE NDS: "
+                      f"one-shots PMDO, volume non scriptable]")
         elif op == "message_ImitationSound":
             # onomatopée textuelle NDS (bulle "Bzzt!" etc.) : rendue comme
             # dialogue court (même contenu, présentation adaptée)
