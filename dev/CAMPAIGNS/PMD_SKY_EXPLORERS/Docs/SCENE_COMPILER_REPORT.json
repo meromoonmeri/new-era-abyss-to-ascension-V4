@@ -2,31 +2,34 @@
  "schema": "sky-scene-compiler/1",
  "rule": "FAIL-CLOSED: seules les scènes 100% traduites sont émises ; PARTIAL_OPS/MULTIROUTINE comptées, jamais émises approximées",
  "totals": {
-  "COMPILED": 2636,
-  "PARTIAL_OPS": 587,
+  "COMPILED": 2737,
+  "PARTIAL_OPS": 486,
   "SKIPPED_REQUIRES_ENGINE_EXTENSION": 372,
   "TRIVIAL_SKIPPED": 165,
-  "COMPILED_DUAL_SCREEN": 98,
+  "COMPILED_DUAL_SCREEN": 100,
   "COMPILED_MULTIROUTINE": 10
  },
  "scenes": {
   "D00P01/m01a01a.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStation"
-   ]
+   "status": "COMPILED",
+   "file": "d00p01__m01a01a.lua",
+   "dialogues": 1,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D00P02/m01a01a.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStation"
-   ]
+   "status": "COMPILED",
+   "file": "d00p02__m01a01a.lua",
+   "dialogues": 1,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D01P11A/adebug.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStation"
-   ]
+   "status": "COMPILED",
+   "file": "d01p11a__adebug.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D01P11A/dus00.ssb": {
    "status": "COMPILED",
@@ -61,7 +64,6 @@
   "D01P11A/enter00.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "supervision_ExecuteStationSub",
     "switch "
    ]
   },
@@ -1013,10 +1015,11 @@
    ]
   },
   "D06P11A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "d06p11a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D06P11A/m08a0601.ssb": {
    "status": "COMPILED",
@@ -1068,16 +1071,18 @@
    "gaps": null
   },
   "D06P11A/um0802.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "d06p11a__um0802.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D07P11A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "d07p11a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D07P11A/m08a1001.ssb": {
    "status": "PARTIAL_OPS",
@@ -1130,22 +1135,25 @@
    "gaps": null
   },
   "D07P11A/um0802.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "d07p11a__um0802.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D07P11A/um0803.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "d07p11a__um0803.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D08P11A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "d08p11a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D08P11A/m09a0101.ssb": {
    "status": "PARTIAL_OPS",
@@ -1293,10 +1301,11 @@
    "gaps": null
   },
   "D10P21A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "d10p21a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D10P21A/enter01.ssb": {
    "status": "COMPILED",
@@ -2384,9 +2393,12 @@
    ]
   },
   "D22P11A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
+   "status": "COMPILED",
+   "file": "d22p11a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_DUSK_FOREST non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D22P11A/enter03.ssb": {
@@ -2494,10 +2506,11 @@
    "gaps": null
   },
   "D23P11A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "d23p11a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D23P11A/enter03.ssb": {
    "status": "COMPILED",
@@ -2561,10 +2574,11 @@
    "gaps": null
   },
   "D24P11A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "d24p11a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D24P11A/enter03.ssb": {
    "status": "COMPILED",
@@ -2643,10 +2657,11 @@
    "gaps": null
   },
   "D25P11A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "d25p11a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D25P11A/enter03.ssb": {
    "status": "COMPILED",
@@ -2722,10 +2737,11 @@
    ]
   },
   "D25P11A/um2303.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "d25p11a__um2303.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D25P11A/um2304.ssb": {
    "status": "PARTIAL_OPS",
@@ -2743,10 +2759,11 @@
    ]
   },
   "D25P11A/um2306.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "d25p11a__um2306.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D25P11A/um2307.ssb": {
    "status": "PARTIAL_OPS",
@@ -2755,9 +2772,12 @@
    ]
   },
   "D26P21A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
+   "status": "COMPILED",
+   "file": "d26p21a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_LOWER_BRINE_CAVE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D26P21A/enter01.ssb": {
@@ -2901,10 +2921,11 @@
    ]
   },
   "D27P11A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "d27p11a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D27P11A/enter01.ssb": {
    "status": "COMPILED",
@@ -2987,10 +3008,11 @@
    ]
   },
   "D28P21A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "d28p21a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D28P21A/enter01.ssb": {
    "status": "COMPILED",
@@ -3527,10 +3549,11 @@
    ]
   },
   "D31P11A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "d31p11a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D31P11A/enter01.ssb": {
    "status": "COMPILED",
@@ -4045,10 +4068,11 @@
    ]
   },
   "D39P21A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "d39p21a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D39P21A/enter01.ssb": {
    "status": "COMPILED",
@@ -4250,10 +4274,11 @@
    "gaps": null
   },
   "D41P21A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "d41p21a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D41P21A/enter01.ssb": {
    "status": "COMPILED",
@@ -4348,8 +4373,7 @@
    "unsupported_ops": [
     "MovePosition",
     "SlidePositionOffset:0",
-    "forever {\n                message_EmptyA",
-    "supervision_ExecuteStationCommon"
+    "forever {\n                message_EmptyA"
    ]
   },
   "D41P41A/hus01.ssb": {
@@ -4369,8 +4393,7 @@
   "D41P41A/mdebug.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "forever {\n                message_EmptyA",
-    "supervision_ExecuteStationCommon"
+    "forever {\n                message_EmptyA"
    ]
   },
   "D41P41A/mus01.ssb": {
@@ -6159,9 +6182,12 @@
    ]
   },
   "D73P11A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
+   "status": "COMPILED",
+   "file": "d73p11a__enter00.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_SHAYMIN_VILLAGE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D73P11A/enter01.ssb": {
@@ -6172,9 +6198,12 @@
    "gaps": null
   },
   "D73P11A/enter17.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
+   "status": "COMPILED",
+   "file": "d73p11a__enter17.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5123) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D73P11A/enter22.ssb": {
@@ -6719,10 +6748,11 @@
    "gaps": null
   },
   "D73P21A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "d73p21a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D73P21A/enter02.ssb": {
    "status": "COMPILED",
@@ -6831,10 +6861,11 @@
    "gaps": null
   },
   "D73P22A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "d73p22a__enter00.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D73P22A/enter08.ssb": {
    "status": "COMPILED",
@@ -6920,10 +6951,11 @@
    "gaps": null
   },
   "D73P23A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "d73p23a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D73P23A/enter02.ssb": {
    "status": "COMPILED",
@@ -7018,10 +7050,11 @@
    "gaps": null
   },
   "D73P24A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "d73p24a__enter00.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D73P24A/enter08.ssb": {
    "status": "COMPILED",
@@ -7142,10 +7175,11 @@
    "gaps": null
   },
   "D73P25A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "d73p25a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D73P25A/enter07.ssb": {
    "status": "COMPILED",
@@ -7169,10 +7203,11 @@
    "gaps": null
   },
   "D73P25A/enter13.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "d73p25a__enter13.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D73P25A/s31a1901.ssb": {
    "status": "PARTIAL_OPS",
@@ -7228,9 +7263,12 @@
    "gaps": null
   },
   "D73P26A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
+   "status": "COMPILED",
+   "file": "d73p26a__enter00.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_SKY_PEAK_SNOWFIELD non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D73P26A/enter08.ssb": {
@@ -7382,9 +7420,12 @@
    "gaps": null
   },
   "D73P27A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
+   "status": "COMPILED",
+   "file": "d73p27a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_SKY_PEAK_SNOWFIELD non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D73P27A/enter02.ssb": {
@@ -7418,9 +7459,12 @@
    "gaps": null
   },
   "D73P27A/enter15.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
+   "status": "COMPILED",
+   "file": "d73p27a__enter15.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_SKY_PEAK_SNOWFIELD non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D73P27A/s31a2401.ssb": {
@@ -7513,9 +7557,12 @@
    "gaps": null
   },
   "D73P28A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
+   "status": "COMPILED",
+   "file": "d73p28a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_FIRE_CRACKLING4 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D73P28A/enter08.ssb": {
@@ -7601,9 +7648,12 @@
    "gaps": null
   },
   "D73P29A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
+   "status": "COMPILED",
+   "file": "d73p29a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_SKY_PEAK_FINAL_PASS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D73P29A/enter02.ssb": {
@@ -7643,9 +7693,12 @@
    ]
   },
   "D73P29A/enter13.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
+   "status": "COMPILED",
+   "file": "d73p29a__enter13.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_SKY_PEAK_FINAL_PASS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D73P29A/s31a3101.ssb": {
@@ -8025,10 +8078,11 @@
    ]
   },
   "G01P01A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "g01p01a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P01A/enter02.ssb": {
    "status": "PARTIAL_OPS",
@@ -8314,8 +8368,7 @@
     "$SCENARIO_SIDE = scn[42, 6]",
     "$SCENARIO_SIDE = scn[42, 7]",
     "$SCENARIO_SIDE = scn[42, 8]",
-    "$SCENARIO_SIDE = scn[42, 9]",
-    "supervision_ExecuteActing"
+    "$SCENARIO_SIDE = scn[42, 9]"
    ]
   },
   "G01P01C/n04a0101.ssb": {
@@ -8382,10 +8435,11 @@
    "gaps": null
   },
   "G01P03A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/enter02.ssb": {
    "status": "COMPILED",
@@ -8428,10 +8482,11 @@
    ]
   },
   "G01P03A/m02a0501.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__m02a0501.lua",
+   "dialogues": 10,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/m03a0102.ssb": {
    "status": "COMPILED",
@@ -8631,10 +8686,11 @@
    "gaps": null
   },
   "G01P03A/um0304.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__um0304.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/um0305.ssb": {
    "status": "COMPILED",
@@ -8665,10 +8721,11 @@
    "gaps": null
   },
   "G01P03A/um0310.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__um0310.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/um0312.ssb": {
    "status": "COMPILED",
@@ -8734,10 +8791,11 @@
    "gaps": null
   },
   "G01P03A/um0322.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__um0322.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/um0400.ssb": {
    "status": "COMPILED",
@@ -8796,10 +8854,11 @@
    "gaps": null
   },
   "G01P03A/um0501.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__um0501.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/um0502.ssb": {
    "status": "COMPILED",
@@ -8851,10 +8910,11 @@
    "gaps": null
   },
   "G01P03A/um0601.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__um0601.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/um0602.ssb": {
    "status": "COMPILED",
@@ -8920,10 +8980,11 @@
    "gaps": null
   },
   "G01P03A/um0611.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__um0611.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/um0700.ssb": {
    "status": "COMPILED",
@@ -8961,10 +9022,11 @@
    "gaps": null
   },
   "G01P03A/um0706.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__um0706.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/um0800.ssb": {
    "status": "COMPILED",
@@ -9149,10 +9211,11 @@
    "gaps": null
   },
   "G01P03A/um1204.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__um1204.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/um1206.ssb": {
    "status": "COMPILED",
@@ -9176,10 +9239,11 @@
    "gaps": null
   },
   "G01P03A/um1209.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__um1209.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/um1300.ssb": {
    "status": "COMPILED",
@@ -9463,10 +9527,11 @@
    "gaps": null
   },
   "G01P03A/um1510.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__um1510.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/um1600.ssb": {
    "status": "COMPILED",
@@ -9644,10 +9709,11 @@
    "gaps": null
   },
   "G01P03A/um2401.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__um2401.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/um2402.ssb": {
    "status": "COMPILED",
@@ -9699,10 +9765,11 @@
    "gaps": null
   },
   "G01P03A/um2501.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__um2501.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/um2502.ssb": {
    "status": "COMPILED",
@@ -9920,10 +9987,11 @@
    "gaps": null
   },
   "G01P03A/us0102.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__us0102.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/us0104.ssb": {
    "status": "COMPILED",
@@ -10017,10 +10085,11 @@
    "gaps": null
   },
   "G01P03A/us0205.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__us0205.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/us0206.ssb": {
    "status": "COMPILED",
@@ -10051,10 +10120,11 @@
    "gaps": null
   },
   "G01P03A/us0301.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__us0301.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/us0302.ssb": {
    "status": "COMPILED",
@@ -10092,10 +10162,11 @@
    "gaps": null
   },
   "G01P03A/us0308.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__us0308.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/us0309.ssb": {
    "status": "COMPILED",
@@ -10273,10 +10344,11 @@
    "gaps": null
   },
   "G01P03A/us2202.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p03a__us2202.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P03A/us2203.ssb": {
    "status": "COMPILED",
@@ -10419,10 +10491,11 @@
    "gaps": null
   },
   "G01P04A/c00a0101.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationCommon"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__c00a0101.lua",
+   "dialogues": 3,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04A/c00a0401.ssb": {
    "status": "COMPILED",
@@ -10440,10 +10513,11 @@
    ]
   },
   "G01P04A/c00a0801.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationCommon"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__c00a0801.lua",
+   "dialogues": 3,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04A/c00a1501.ssb": {
    "status": "COMPILED",
@@ -10462,10 +10536,11 @@
    "gaps": null
   },
   "G01P04A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04A/enter01.ssb": {
    "status": "COMPILED",
@@ -12013,10 +12088,11 @@
    "gaps": null
   },
   "G01P04A/us0406.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__us0406.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04A/us0407.ssb": {
    "status": "COMPILED",
@@ -12080,10 +12156,11 @@
    "gaps": null
   },
   "G01P04A/us2004.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__us2004.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04A/us2005.ssb": {
    "status": "COMPILED",
@@ -12111,10 +12188,11 @@
    "gaps": null
   },
   "G01P04A/us2008.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p04a__us2008.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P04A/us2009.ssb": {
    "status": "COMPILED",
@@ -12334,10 +12412,11 @@
    ]
   },
   "G01P05A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "g01p05a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P05A/enter01.ssb": {
    "status": "COMPILED",
@@ -12927,10 +13006,11 @@
    "gaps": null
   },
   "G01P06A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "g01p06a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P06A/enter01.ssb": {
    "status": "COMPILED",
@@ -13017,10 +13097,11 @@
    "gaps": null
   },
   "G01P06A/um0701.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "g01p06a__um0701.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P06A/um0702.ssb": {
    "status": "COMPILED",
@@ -13276,16 +13357,18 @@
    ]
   },
   "G01P07A/c00a0201.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationCommon"
-   ]
+   "status": "COMPILED",
+   "file": "g01p07a__c00a0201.lua",
+   "dialogues": 5,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P07A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "g01p07a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P07A/enter01.ssb": {
    "status": "PARTIAL_OPS",
@@ -13866,9 +13949,12 @@
    ]
   },
   "H01P99A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
+   "status": "COMPILED",
+   "file": "h01p99a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "H01P99A/enter01.ssb": {
@@ -14451,9 +14537,13 @@
    ]
   },
   "H02P99A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
+   "status": "COMPILED",
+   "file": "h02p99a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_DO_YOUR_BEST_AS_ALWAYS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "H02P99A/enter04.ssb": {
@@ -14905,10 +14995,11 @@
    ]
   },
   "P01P01A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "p01p01a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P01P01A/enter01.ssb": {
    "status": "COMPILED",
@@ -14967,9 +15058,12 @@
    "gaps": null
   },
   "P01P01A/enter27.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
+   "status": "COMPILED",
+   "file": "p01p01a__enter27.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5123) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "P01P01A/enter42.ssb": {
@@ -15227,10 +15321,11 @@
    "gaps": null
   },
   "P01P01A/um0401.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "p01p01a__um0401.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P01P01A/um0402.ssb": {
    "status": "COMPILED",
@@ -15319,10 +15414,11 @@
    "gaps": null
   },
   "P01P01A/um1302.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "p01p01a__um1302.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P01P01A/um1400.ssb": {
    "status": "COMPILED",
@@ -15611,9 +15707,12 @@
    "gaps": null
   },
   "P01P04A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
+   "status": "COMPILED",
+   "file": "p01p04a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_SPINDAS_CAFE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "P01P04A/enter01.ssb": {
@@ -16786,10 +16885,11 @@
    "gaps": null
   },
   "P02P01A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "p02p01a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P02P01A/m05a0603.ssb": {
    "status": "COMPILED",
@@ -18373,10 +18473,11 @@
    "gaps": null
   },
   "P16P01A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "p16p01a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P16P01A/n02a0202.ssb": {
    "status": "COMPILED",
@@ -18471,10 +18572,11 @@
    ]
   },
   "P17P02A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "p17p02a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P17P02A/enter03.ssb": {
    "status": "COMPILED",
@@ -18859,9 +18961,12 @@
    ]
   },
   "S01P02A/conquest.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationCommon"
+   "status": "COMPILED",
+   "file": "s01p02a__conquest.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_PELIPPER_ISLAND non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "S01P02A/dead.ssb": {
@@ -18873,8 +18978,7 @@
   "S01P02A/enter00.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "WaitMoveCamera",
-    "supervision_ExecuteActing"
+    "WaitMoveCamera"
    ]
   },
   "S01P02A/enter03.ssb": {
@@ -18908,8 +19012,7 @@
   "S01P02A/first.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "WaitMoveCamera",
-    "supervision_ExecuteStationCommon"
+    "WaitMoveCamera"
    ]
   },
   "S01P02A/return.ssb": {
@@ -18919,22 +19022,27 @@
    ]
   },
   "S01P03A/conquest.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationCommon"
+   "status": "COMPILED",
+   "file": "s01p03a__conquest.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_PELIPPER_ISLAND non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "S01P03A/dead.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationCommon"
+   "status": "COMPILED",
+   "file": "s01p03a__dead.lua",
+   "dialogues": 3,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_PELIPPER_ISLAND non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "S01P03A/enter00.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "WaitMoveCamera",
-    "supervision_ExecuteActing"
+    "WaitMoveCamera"
    ]
   },
   "S01P03A/enter02.ssb": {
@@ -18974,14 +19082,16 @@
   "S01P03A/first.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "WaitMoveCamera",
-    "supervision_ExecuteStationCommon"
+    "WaitMoveCamera"
    ]
   },
   "S01P03A/return.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationCommon"
+   "status": "COMPILED",
+   "file": "s01p03a__return.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_PELIPPER_ISLAND non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "S02P01A/m00a01a.ssb": {
@@ -19297,8 +19407,7 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "@switch2_30",
-    "jump @switch2_30",
-    "supervision_ExecuteStationSub"
+    "jump @switch2_30"
    ]
   },
   "T00P01/enter03.ssb": {
@@ -19355,15 +19464,13 @@
     "adventure_log = 3",
     "item_Set",
     "item_SetTableData",
-    "supervision_ExecuteActing",
     "switch "
    ]
   },
   "T00P01/m01a0102.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "forever {\n                switch ",
-    "supervision_ExecuteActing"
+    "forever {\n                switch "
    ]
   },
   "T00P01/m01a0103.ssb": {
@@ -19404,8 +19511,6 @@
     "se_PlayFull",
     "se_PlayPan",
     "se_PlayVolume",
-    "supervision_ExecuteActing",
-    "supervision_ExecuteStation",
     "switch "
    ]
   },
@@ -19426,7 +19531,6 @@
   "T00P01/m01a01a.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "supervision_ExecuteStation",
     "with "
    ]
   },
@@ -19487,8 +19591,7 @@
   "T00P01/m01a0704.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "forever {\n                switch ",
-    "supervision_ExecuteActing"
+    "forever {\n                switch "
    ]
   },
   "T00P01/m01a0705.ssb": {
@@ -19535,14 +19638,12 @@
   "T00P01/m01a07a.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "supervision_ExecuteStation",
     "with "
    ]
   },
   "T00P01/m01a08a.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "supervision_ExecuteStationCommon",
     "with "
    ]
   },
@@ -19582,7 +19683,6 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "item_Set",
-    "supervision_ExecuteActing",
     "supervision_ExecuteEnter",
     "switch "
    ]
@@ -19635,10 +19735,11 @@
    "gaps": null
   },
   "T01P01A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "t01p01a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T01P01A/enter01.ssb": {
    "status": "PARTIAL_OPS",
@@ -20175,10 +20276,11 @@
    "gaps": null
   },
   "T01P01A/um0806.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "t01p01a__um0806.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T01P01A/um1100.ssb": {
    "status": "COMPILED",
@@ -20216,10 +20318,11 @@
    "gaps": null
   },
   "T01P01A/um1106.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "t01p01a__um1106.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T01P01A/um1108.ssb": {
    "status": "COMPILED",
@@ -20334,10 +20437,11 @@
    "gaps": null
   },
   "T01P01A/um1306.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "t01p01a__um1306.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T01P01A/um1308.ssb": {
    "status": "COMPILED",
@@ -20529,10 +20633,11 @@
    "gaps": null
   },
   "T01P01A/um1605.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "t01p01a__um1605.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T01P01A/um1607.ssb": {
    "status": "COMPILED",
@@ -20570,10 +20675,11 @@
    "gaps": null
   },
   "T01P01A/um2101.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "t01p01a__um2101.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T01P01A/um2102.ssb": {
    "status": "COMPILED",
@@ -21401,10 +21507,11 @@
    "gaps": null
   },
   "T01P01A/us2209.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "t01p01a__us2209.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T01P01A/us2210.ssb": {
    "status": "COMPILED",
@@ -21526,10 +21633,11 @@
    "gaps": null
   },
   "T01P02A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStationSub"
-   ]
+   "status": "COMPILED",
+   "file": "t01p02a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T01P02A/enter01.ssb": {
    "status": "COMPILED",
@@ -22450,10 +22558,11 @@
    "gaps": null
   },
   "T01P02A/um2207.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "t01p02a__um2207.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T01P02A/um2209.ssb": {
    "status": "COMPILED",
@@ -22701,10 +22810,11 @@
    "gaps": null
   },
   "T01P02A/us0108.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "t01p02a__us0108.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T01P02A/us0110.ssb": {
    "status": "COMPILED",
@@ -22728,10 +22838,11 @@
    "gaps": null
   },
   "T01P02A/us0201.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "t01p02a__us0201.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T01P02A/us0202.ssb": {
    "status": "COMPILED",
@@ -22860,10 +22971,11 @@
    "gaps": null
   },
   "T01P02A/us0405.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "t01p02a__us0405.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T01P02A/us0407.ssb": {
    "status": "COMPILED",
@@ -22901,10 +23013,11 @@
    "gaps": null
   },
   "T01P02A/us2002.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "t01p02a__us2002.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T01P02A/us2003.ssb": {
    "status": "COMPILED",
@@ -22998,10 +23111,11 @@
    "gaps": null
   },
   "T01P02A/us2102.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "t01p02a__us2102.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T01P02A/us2200.ssb": {
    "status": "COMPILED",
@@ -23102,10 +23216,11 @@
    "gaps": null
   },
   "T01P02A/us2305.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "t01p02a__us2305.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T01P02A/us2307.ssb": {
    "status": "COMPILED",
@@ -23129,10 +23244,11 @@
    "gaps": null
   },
   "T01P02A/us3101.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteActing"
-   ]
+   "status": "COMPILED",
+   "file": "t01p02a__us3101.lua",
+   "dialogues": 82,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T01P02A/us3102.ssb": {
    "status": "COMPILED",
@@ -23210,22 +23326,21 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "PauseEffect",
-    "ResumeEffect",
-    "supervision_ExecuteStation"
+    "ResumeEffect"
    ]
   },
   "V00P01/m01a02a.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Slide2PositionMark",
-    "supervision_ExecuteStation"
+    "Slide2PositionMark"
    ]
   },
   "V00P02/m01a01a.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStation"
-   ]
+   "status": "COMPILED",
+   "file": "v00p02__m01a01a.lua",
+   "dialogues": 2,
+   "dual_screen_focus": true,
+   "gaps": null
   },
   "V00P02/m01a02a.ssb": {
    "status": "PARTIAL_OPS",
@@ -23234,43 +23349,43 @@
     "back_SetSpecialEpisodeBanner",
     "back_SetSpecialEpisodeBanner2",
     "back_SetSpecialEpisodeBanner3",
-    "back_SetTitleBanner",
-    "supervision_ExecuteStation"
+    "back_SetTitleBanner"
    ]
   },
   "V00P02/m01a03a.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStation"
-   ]
+   "status": "COMPILED",
+   "file": "v00p02__m01a03a.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "V00P02/m01a04a.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "back_SetWeatherEffect",
-    "supervision_ExecuteStation"
+    "back_SetWeatherEffect"
    ]
   },
   "V00P02/m01a05a.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStation"
-   ]
+   "status": "COMPILED",
+   "file": "v00p02__m01a05a.lua",
+   "dialogues": 0,
+   "dual_screen_focus": true,
+   "gaps": null
   },
   "V00P02/m01a06a.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "supervision_ExecuteStation",
     "worldmap_BlinkMark",
     "worldmap_OffMessage",
     "worldmap_SetMessagePlace"
    ]
   },
   "V00P03/m01a01a.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "supervision_ExecuteStation"
-   ]
+   "status": "COMPILED",
+   "file": "v00p03__m01a01a.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "V01P01A/m01a0102.ssb": {
    "status": "COMPILED",

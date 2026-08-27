@@ -126,5 +126,16 @@ return function(hero, partner)
   GROUND:MoveToPosition(npc_npc_bippa, 324, 132, false, 2)
   -- supervision_RemoveActing(1) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
+  do local __sw = 1 -- switch(sector()) [sector(): acting principal (kit PMDO)]
+  if __sw == 1 then
+  -- @label_0 [étiquette de flux ExplorerScript]
+  GAME:FadeOut(false, 30)
+  elseif __sw == 2 then
+  elseif true then -- default
+  -- CallCommon CORO_EVENT_END_MAPIN (fermeture/attente message: géré par say())
+  -- main_SetGround(LEVEL_G01P04A) [transition de zone NDS: assurée par le harnais journey/EnterZone PMDO]
+  -- supervision_ExecuteStationCommon(LEVEL_G01P04A, 1) [exécution de station sans cible littérale: harnais journey]
+  end
+  end
   SkySceneKit.cleanup_npcs()
 end

@@ -1604,6 +1604,27 @@ class SceneCompiler:
                       f"-- SwitchMonologue: branche default")
         elif op == "SetAnimation":
             self.emit(f"-- SetAnimation({args.strip()}) [anim idle native]")
+        elif op in ("supervision_ExecuteStationSub",
+                    "supervision_ExecuteStation",
+                    "supervision_ExecuteActing",
+                    "supervision_ExecuteStationCommon"):
+            # exécute la scène SSB nommée du level (convention PROUVÉE
+            # 463 occurrences: 'UN01',n -> un01<nn>.ssb ; préfixe long
+            # 'M03A0501',0 -> m03a0501.ssb). CHAÎNAGE RÉEL vers le module
+            # compilé s'il existe (kit.play_scene, pcall) — sinon trace.
+            mex = re.match(r"\s*LEVEL_(\w+)\s*,\s*'(\w+)'\s*,\s*(\d+)", args)
+            if mex:
+                lvl, pref, idx = (mex.group(1).lower(),
+                                  mex.group(2).lower(), int(mex.group(3)))
+                cand1 = f"{lvl}__{pref}{idx:02d}"
+                cand2 = f"{lvl}__{pref}"
+                self.emit(f"SkySceneKit.play_scene({lua_str(cand1)}, "
+                          f"{lua_str(cand2)}, hero, partner) "
+                          f"-- {op}(LEVEL_{mex.group(1)}, "
+                          f"'{mex.group(2)}', {idx}) [chaînage scène ROM]")
+            else:
+                self.emit(f"-- {op}({args.strip()[:50]}) [exécution de "
+                          f"station sans cible littérale: harnais journey]")
         elif op in ("supervision_Station", "supervision_StationCommon",
                     "supervision_LoadStation", "supervision_RemoveActing",
                     "supervision_RemoveCommon", "supervision_Remove",

@@ -116,6 +116,33 @@ function SkySceneKit.team_member(n)
   return ch
 end
 
+-- Chaînage de scène ROM (supervision_ExecuteStationSub/Acting NDS) :
+-- joue le module compilé de la scène cible s'il existe (2 candidats de
+-- nom, convention préfixe+index / préfixe long). Garde anti-récursion
+-- (profondeur 3 = imbrication max observée ROM). Absent = trace (scène
+-- de la variante non compilée, jamais silencieux).
+local play_depth = 0
+function SkySceneKit.play_scene(cand1, cand2, hero, partner)
+  if play_depth >= 3 then
+    trace('{"kit":"play_scene_skip","reason":"depth"}')
+    return
+  end
+  for _, name in ipairs({ cand1, cand2 }) do
+    local ok, fn = pcall(require, 'halcyon.skyscenes.' .. name)
+    if ok and type(fn) == 'function' then
+      trace('{"kit":"play_scene","target":"' .. name .. '"}')
+      play_depth = play_depth + 1
+      local ok2, err = pcall(fn, hero, partner)
+      play_depth = play_depth - 1
+      if not ok2 then
+        trace('{"kit":"play_scene_error","target":"' .. name .. '"}')
+      end
+      return
+    end
+  end
+  trace('{"kit":"play_scene_absent","c1":"' .. tostring(cand1) .. '"}')
+end
+
 -- Décalage immédiat en pixels depuis la position courante
 -- (SetPositionOffset NDS) : téléport relatif natif.
 function SkySceneKit.offset_pos(ch, dx, dy)
