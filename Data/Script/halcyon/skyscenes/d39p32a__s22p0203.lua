@@ -6,6 +6,7 @@ return function(hero, partner)
   -- back_SetGround(LEVEL_D39P32A) [neutre/état moteur]
   -- supervision_Acting(0) [neutre/état moteur]
   -- camera_SetMyself() [neutre/état moteur]
+  local npc_npc_kureseria = SkySceneKit.spawn_npc("cresselia", 248, 264, Direction.Down, "NPC_KURESERIA")
   -- SetAnimation(12) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives

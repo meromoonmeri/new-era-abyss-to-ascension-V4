@@ -33,6 +33,7 @@ return function(hero, partner)
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- supervision_Acting(1) [neutre/état moteur]
   -- GAP: se_Play(9224) — id SE NDS sans portage PMDO identifié
+  local npc_npc_jiraachi = SkySceneKit.spawn_npc("jirachi", 256, 224, Direction.Down, "NPC_JIRAACHI")
   -- SetAnimation(25) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -40,7 +41,7 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitSe
   -- GAP: BGM BGM_BEYOND_THE_DREAM non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_jiraachi) end)
   SkySceneKit.say({english="I'm [CS:N]Jirachi[CR].[K]\nWho are you? Zzzz... Snorf...", french="Je suis [CS:N]Jirachi[CR].[K]\nQui es-tu? Zzzz... ron...", german="Ich bin [CS:N]Jirachi[CR].[K]\nWer bist du? Zzzzzz... Schnrmpf...", italian="Io sono [CS:N]Jirachi[CR].[K]\nE tu chi sei? Zzz... Ronf...", spanish="Soy [CS:N]Jirachi[CR].[K]\n¿Tú quién eres? Zzzz... Groonf..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Sweatdrop") end)
@@ -50,9 +51,9 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english="I'm [CS:Y]Bidoof[CR].[K] (That's what I've\nbeen telling you since the beginning...)", french="J'suis [CS:Y]Keunotor[CR].[K] (Il est bouché,\nma parole, j'arrête pas d'lui dire...)", german="Ich bin [CS:Y]Bidiza[CR].[K]\n(Merk dir das endlich mal...)", italian="Mi chiamo [CS:Y]Bidoof[CR].[K] (È dall'inizio\nche mi chiede sempre la stessa cosa...)", spanish="Soy [CS:Y]Bidoof[CR].[K] (Me da que tiene\nun ligero problema de memoria...)"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_jiraachi) end)
   SkySceneKit.say({english="Hmmm...[K] I'm still so sleeeepy...\nYaaaaawn...", french="Mmmh...[K] Encore siiiiii fatigué...\nOuuuuaaaah...", german="Hmmmmmmm...[K] Immer noch so\nmüüüüüüde... Gäääääähn...", italian="Mmmh...[K] Ho ancora tanto\nsooonnooo... Yaaaaaawn...", spanish="Hum...[K] Sigo teniendo sueñooo...\nAaaaahm..."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_jiraachi) end)
   SkySceneKit.say({english="I tend to act strangely when I\nsleep and cause trouble all around me, so I\napologize again... Zzzz... Snorf...", french="J'ai tendance à faire de drôles\nde choses dans mon sommeil et ça peut faire\ndes dégâts, alors, encore désolé... Zzz... ron...", german="Ich neige dazu, mich im Schlaf\nsonderbar zu benehmen und ganz schön was\nanzurichten. Entschuldige... Zzzz... Schnrmpf...", italian="Quando dormo mi capita di\nagire in maniera strana e combinare dei guai,\nquindi ti chiedo di nuovo scusa... Zzzz... Ronf...", spanish="Suelo actuar de forma extraña y\ndar problemas cuando duermo, pero no lo hago\naposta, lo siento... Zzzz... Groonf..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Confused_2") end)
@@ -65,7 +66,7 @@ return function(hero, partner)
   SkySceneKit.say({english="... (He isn't really\nasleep, is he...? Sniff...)", french="... (Mais y dort pas pour\nde vrai, si...? Snif...)", german="...(Schläft es überhaupt\nwirklich? Schnief...)", italian="(Ma sta davvero dormendo o fa\nsolo finta...? Sniff...)", spanish="Jo... (A ver si me la está dando\ncon queso con eso de que duerme... Snif...)"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:FadeOutBGM(60) end)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_jiraachi) end)
   SkySceneKit.say({english=" Ready...? Zzzz... Snorf...", french=" Prêt...? Zzzz... ron...", german=" Bereit? Zzzz... Schnrmpf...", italian=" Sei pronto...? Zzzz... Ronf...", spanish=" ¿Estás listo...? Zzzz... Groonf..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- GAP: se_Play(5143) — id SE NDS sans portage PMDO identifié
@@ -83,4 +84,5 @@ return function(hero, partner)
   -- main_EnterDungeon(127, 30) [transition de zone NDS: assurée par le harnais journey/EnterZone PMDO]
   -- main_EnterDungeon(-1, 30) [transition de zone NDS: assurée par le harnais journey/EnterZone PMDO]
   GAME:WaitFrames(1) -- hold
+  SkySceneKit.cleanup_npcs()
 end

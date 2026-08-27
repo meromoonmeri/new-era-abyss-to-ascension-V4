@@ -10,6 +10,7 @@ return function(hero, partner)
   -- supervision_Station(17) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- supervision_Acting(0) [neutre/état moteur]
   -- camera_SetMyself() [neutre/état moteur]
+  local npc_npc_manafi = SkySceneKit.spawn_npc("manaphy", 496, 248, Direction.DownLeft, "NPC_MANAFI")
   -- SetAnimation(4) [anim idle native]
   GAME:FadeIn(30)
   pcall(function() SOUND:PlayBGM("Wigglytuff's Guild Remix.ogg", true) end)
@@ -44,7 +45,7 @@ return function(hero, partner)
   SkySceneKit.say({english="Wow.[K] So this little cutie's a\nreally rare Pokémon.", french="Oh.[K] Alors ce petit gars est\nun Pokémon très rare.", german="Wow.[K] Also ist dieses kleine\nKerlchen ein echt seltenes Pokémon.", italian="Wow.[K] Quindi questo piccolino\nè un Pokémon davvero raro.", spanish="Vaya.[K] Así que es un Pokémon\nmuy raro."}) -- SwitchTalk: branche default (canon générique)
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_manafi) end)
   SkySceneKit.say({english=" Rare-rare! ♪", french=" Rar-rar! ♪", german=" Selten-selten! ♪", italian=" Raro-raro! ♪", spanish=" ¡Raro, raro! ♪"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(npc_npc_perappu, Direction.Down)
@@ -58,7 +59,7 @@ return function(hero, partner)
   SkySceneKit.say({english=" What?[K] What should we do?", french=" Hum![K] Que faire?", german=" Was?[K] Was sollten wir tun?", italian=" Eh?[K] Cosa dovremmo fare?", spanish=" ¿Qué?[K] ¿Qué deberíamos hacer?"}) -- SwitchTalk: branche default (canon générique)
   SkySceneKit.say({english="Well, come to think of it...[K]\nWhat to do?[K] We hadn't thought about that yet.", french="Oui, c'est vrai, ça...[K] Qu'est-ce\nqu'on peut bien en faire?[K] On n'y a pas encore\nréfléchi.", german="Hm, jetzt, wo du das sagst...[K]\nWas ist zu tun?[K] Darüber haben wir uns noch\nnicht den Kopf zerbrochen.", italian="Beh, a pensarci...[K] Cosa\nfacciamo?[K] Non ci abbiamo ancora riflettuto.", spanish="Bueno, ahora que lo dices...[K]\n¿Qué hacemos?[K] No habíamos pensado nada."}) -- SwitchTalk: branche default (canon générique)
   -- SetAnimation(42) [anim idle native]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_manafi) end)
   SkySceneKit.say({english=" Weh...[K] Weh...[K] Waaaah!", french=" Ouin...[K] Ouin...[K] Ouiiiiiiiiiiiiiiin!", german=" He...[K] He...[K] Huaaaaaah!", italian=" Weh...[K] Weh...[K] Waaaah!", spanish=" Snif...[K] snif...[K] ¡Buaaaa!"})
   pcall(function() SOUND:StopBGM() end)
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Exclaim") end)

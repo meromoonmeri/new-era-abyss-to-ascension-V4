@@ -48,6 +48,23 @@ def _load_entid_map():
             for mi in e["md_indexes"]:
                 out[mi] = sp
                 out[mi % 600] = sp
+    # complément PROUVÉ ROM (session 2026-08-27) : md_index -> natdex
+    # (monster.md national_pokedex_number, entrées NPC spéciales natdex=0
+    # résolues par leur champ entid -> md de base, METAMON_OTACHI par
+    # sprite_index=Sentret) puis natdex -> slug PMDO (IndexNum des
+    # Data/Monster du DumpAsset). Couvre les légendaires événements
+    # (Shaymin 534, Cresselia 530, Manaphy 532, Dusknoir NPC 577…).
+    try:
+        md2nat = json.load(open(os.path.join(
+            CAMP, "Tables", "MD_INDEX_TO_NATDEX.json")))
+        nat2sp = json.load(open(os.path.join(
+            CAMP, "Tables", "NATDEX_TO_PMDO.json")))
+        for mi, nat in md2nat.items():
+            sp = nat2sp.get(str(nat))
+            if sp and int(mi) not in out:
+                out[int(mi)] = sp
+    except FileNotFoundError:
+        pass
     return out
 
 ENTID2SPECIES = _load_entid_map()
@@ -1491,6 +1508,14 @@ def main():
                     continue
                 entid = GLOBAL_ACTOR_ENTID.get(nm)
                 pos = GLOBAL_ACTOR_ZONEPOS.get(f"{zone}|{nm}")
+                if not pos:
+                    # variante de zone NDS (T01P02A = Treasure Town des
+                    # épisodes spéciaux, même carte que T01P01A ; suffixe
+                    # PxxA partagé) : position de l'acteur dans la zone
+                    # de BASE — même identité ROM, placement prouvé SSA.
+                    base = zone[:3] + "P01A"
+                    if base != zone:
+                        pos = GLOBAL_ACTOR_ZONEPOS.get(f"{base}|{nm}")
                 # entid >= 600 = variante genrée NDS (base + 600)
                 sp = (ENTID2SPECIES.get(entid)
                       or ENTID2SPECIES.get(entid % 600)) if entid else None

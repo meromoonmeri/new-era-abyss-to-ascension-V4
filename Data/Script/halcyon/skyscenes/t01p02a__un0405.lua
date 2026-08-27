@@ -13,11 +13,13 @@ return function(hero, partner)
   -- JumpCommon(CORO_END_TALK) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   else
   SV.SkyTalkBitFlags = SV.SkyTalkBitFlags or {}; SV.SkyTalkBitFlags[137] = 1 -- $SCENARIO_TALK_BIT_FLAG[137] = 1 (ROM)
-  pcall(function() UI:ResetSpeaker() end)
+  local npc_npc_kakureon2 = SkySceneKit.spawn_npc("kecleon", 352, 168, Direction.Down, "NPC_KAKUREON2")
+  pcall(function() UI:SetSpeaker(npc_npc_kakureon2) end)
   SkySceneKit.say({english=" Ah! Hello, [CS:Y]Sunflora[CR]! ♪", french=" Ah! Salut, [CS:Y]Héliatronc[CR]! ♪", german=" Ah! Hallo, [CS:Y]Sonnflora[CR]! ♪", italian=" Ah! Ciao, [CS:Y]Sunflora[CR]! ♪", spanish=" ¡Anda, hola, [CS:Y]Sunflora[CR]! ♪"})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_kakureon2) end)
   SkySceneKit.say({english=" Oh? [K]Is it a new job?", french=" Oh? [K]C'est une nouvelle mission?", german=" Oh?[K] Ein neuer Job?", italian=" Oh? [K]Hai una nuova missione?", spanish=" ¿Eh?[K] ¿Tiene una nueva misión?"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- jump @label_0 [saut final de branche vers l'épilogue commun: flux naturel]
   end
+  SkySceneKit.cleanup_npcs()
 end

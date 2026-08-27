@@ -8,6 +8,7 @@ return function(hero, partner)
   -- supervision_StationCommon(0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- supervision_Acting(0) [neutre/état moteur]
   -- camera_SetMyself() [neutre/état moteur]
+  local npc_npc_manafi = SkySceneKit.spawn_npc("manaphy", 312, 184, Direction.Down, "NPC_MANAFI")
   -- SetAnimation(46) [anim idle native]
   -- GAP: BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
   GAME:FadeIn(30)
@@ -38,14 +39,14 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- SetAnimation(2) [anim idle native]
   GAME:WaitFrames(60)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_manafi) end)
   SkySceneKit.say({english=" ...[K]Urf...", french=" ...[K] Arf...", german=" ...[K]Uff...", italian=" ...[K] Uff...", spanish=" Glup...[K] Uf..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetAnimation(27) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(60)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_manafi) end)
   SkySceneKit.say({english="...[K]Thanks...[K] [hero]...[K]\n[partner]...", french="... [K]Merci...[K] [hero]...[K]\n[partner]...", german="...[K]Danke...[K] [hero]...[K]\n[partner]...", italian="...[K] Grazie...[K] [hero]...[K]\n[partner]...", spanish="Gracias...[K] Gracias...[K]\n[hero]...[K] [partner]..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- GAP: BGM BGM_AT_THE_END_OF_THE_DAY non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)

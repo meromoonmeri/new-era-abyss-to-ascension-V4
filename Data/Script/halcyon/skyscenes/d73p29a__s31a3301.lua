@@ -5,7 +5,8 @@ local SkySceneKit = require 'halcyon.skyscenes.kit'
 local SkyProg = require 'halcyon.skyscenes.progression'
 return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
-  pcall(function() UI:ResetSpeaker() end)
+  local npc_npc_sheimi = SkySceneKit.spawn_npc("shaymin", 232, 264, Direction.Down, "NPC_SHEIMI")
+  pcall(function() UI:SetSpeaker(npc_npc_sheimi) end)
   SkySceneKit.say({english="Oogh...\nIt's hard to make progress...", french="Ouille...\nPas facile...", german="Uff...\nEs ist hart, vorwärts zu kommen...", italian="Orgh...\nÈ difficile fare progressi...", spanish="Uf...\nCuesta mucho avanzar..."})
   -- message_KeyWait
   GAME:FadeOut(false,  60)
@@ -29,18 +30,19 @@ return function(hero, partner)
   GAME:WaitFrames(30)
   if (SkyProg.cmp(29, 30) == 0) then -- if ROM: scn($SCENARIO_MAIN) == [29, 30]
   -- @label_0 [étiquette de flux ExplorerScript]
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_sheimi) end)
   SkySceneKit.say({english="Usually, [CS:N]Grimer[CR] and [CS:N]Muk[CR] should\nbe living farther down the mountain, I think...", french="Normalement, les [CS:N]Tadmorv[CR] et\nles [CS:N]Grotadmorv[CR] habitent plus bas sur la\nmontagne, je crois...", german="Gewöhnlich wohnen [CS:N]Sleima[CR] und\n[CS:N]Sleimok[CR] weiter unten am Berg...", italian="Di solito i [CS:N]Grimer[CR] e i [CS:N]Muk[CR] vivono\nnelle profondità della montagna, almeno credo...", spanish="Creo que los [CS:N]Grimer[CR] y [CS:N]Muk[CR]\nviven en la parte inferior de la montaña..."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_sheimi) end)
   SkySceneKit.say({english="We need to do something about\nthe summit, no matter what!", french="Il faut qu'on fasse quelque chose\nau sujet du sommet, peu importe quoi!", german="Wir müssen etwas mit dem\nGipfel machen, was auch immer es sein mag!", italian="Dobbiamo raggiungere la cima\na qualsiasi costo!", spanish="Tenemos que llegar a la cima\nsea como sea."})
   -- message_Close
   else
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_sheimi) end)
   SkySceneKit.say({english="Yeah...\nLooks like it might be too difficult...", french="C'est un peu\ndécourageant...", german="Hmmm...\nDie Sache könnte zu happig sein...", italian="Eh sì...\nSembra che sarà molto difficile...", spanish="La verdad es que...\ntal vez sea demasiado difícil..."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_sheimi) end)
   SkySceneKit.say({english="But it will be amazing to reach\nthe summit after such hard work!", french="Mais alors, quelle satisfaction\nquand nous atteindrons le sommet\naprès tant d'efforts!", german="Aber denkt daran, wie es sein\nwird, nach einem solchen Kraftakt den Gipfel\nzu erreichen!", italian="Ma sarà ancora più emozionante\nraggiungere la cima dopo aver faticato tanto!", spanish="¡Pero será aún más gratificante\nllegar a la cima tras un arduo trabajo!"})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_sheimi) end)
   SkySceneKit.say({english="We can't give up!\nLet's do our best!", french="On ne peut pas abandonner ici!\nCourage!", german="Wir dürfen nicht aufgeben!\nLasst uns unser Bestes geben!", italian="Non possiamo arrenderci!\nMettiamocela tutta!", spanish="¡No podemos rendirnos!\n¡Vamos a por todas!"})
   -- message_Close
   end
+  SkySceneKit.cleanup_npcs()
 end

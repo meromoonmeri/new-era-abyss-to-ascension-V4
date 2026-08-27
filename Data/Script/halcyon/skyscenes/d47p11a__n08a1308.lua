@@ -20,6 +20,7 @@ return function(hero, partner)
   -- supervision_Acting(0) [neutre/état moteur]
   -- camera2_SetPositionMark(Position<'m0', 21.5, 17>) [caméra sub NDS: nappe Sub_ cadrée fenêtre NDS, recadrage dynamique non simulé - documenté]
   -- camera_SetMyself() [neutre/état moteur]
+  local npc_npc_yonowaaru_n8 = SkySceneKit.spawn_npc("dusknoir", 232, 144, Direction.Down, "NPC_YONOWAARU_N8")
   -- SetPositionInitial [position SSA de départ, déjà posée par le placement de scène]
   -- SetAnimation(2) [anim idle native]
   SkySubScreen.Show("v17p01a", 30, false) -- screen2_FadeIn: TOP_FOCUS (timeline ROM)
@@ -36,5 +37,6 @@ return function(hero, partner)
   -- message_Close
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]
+  SkySceneKit.cleanup_npcs()
   SkySubScreen.Hide(10) -- fin de scène: nappe sub retirée
 end

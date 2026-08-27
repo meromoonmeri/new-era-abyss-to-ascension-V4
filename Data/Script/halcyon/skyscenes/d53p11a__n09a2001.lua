@@ -24,7 +24,9 @@ return function(hero, partner)
   -- supervision_RemoveActing(3) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- supervision_RemoveActing(4) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- camera_SetMyself() [neutre/état moteur]
+  local npc_npc_yonowaaru_n9 = SkySceneKit.spawn_npc("dusknoir", 288, 200, Direction.UpRight, "NPC_YONOWAARU_N9")
   -- SetPositionInitial [position SSA de départ, déjà posée par le placement de scène]
+  local npc_npc_serebii = SkySceneKit.spawn_npc("celebi", 304, 168, Direction.DownRight, "NPC_SEREBII")
   -- SetPositionInitial [position SSA de départ, déjà posée par le placement de scène]
   local npc_npc_yamirami = SkySceneKit.spawn_npc("sableye", 280, 144, Direction.Down, "NPC_YAMIRAMI")
   -- SetPositionInitial [position SSA de départ, déjà posée par le placement de scène]

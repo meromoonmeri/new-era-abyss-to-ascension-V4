@@ -4,7 +4,8 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
-  pcall(function() UI:ResetSpeaker() end)
+  local npc_npc_sheimi = SkySceneKit.spawn_npc("shaymin", 232, 264, Direction.Down, "NPC_SHEIMI")
+  pcall(function() UI:SetSpeaker(npc_npc_sheimi) end)
   SkySceneKit.say({english="Oogh...\nIt's hard to make progress...", french="Ouille...\nPas facile...", german="Uff...\nEs ist hart, vorwärts zu kommen...", italian="Orgh...\nÈ difficile fare progressi...", spanish="Uf...\nCuesta mucho avanzar..."})
   -- message_KeyWait
   GAME:FadeOut(false,  60)
@@ -28,7 +29,8 @@ return function(hero, partner)
   GAME:FadeIn(30)
   pcall(function() SOUND:PlayBGM("Sky Peak Prairie.ogg", true) end)
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_sheimi) end)
   SkySceneKit.say({english="[player]. Let's head to the\n5th Station Clearing!", french="[player]. Dirigeons-nous\nvers la trouée du 5[F:E] Relais!", german="[player], das nächste\nZiel ist die 5. Zwischenlagerlichtung!", italian="[player], raggiungiamo\nil Bivacco 5!", spanish="Vamos a la Base del Quinto\nPuerto, [player]."})
   -- message_Close
+  SkySceneKit.cleanup_npcs()
 end

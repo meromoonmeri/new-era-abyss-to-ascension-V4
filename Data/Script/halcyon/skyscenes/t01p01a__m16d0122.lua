@@ -14,7 +14,8 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_yonowaaru) end)
   SkySceneKit.say({english="It was nothing less than...[K]\ncausing the planet's paralysis.", french="Rien moins que...[K]\nprovoquer la Paralysie de la Planète.", german="Keinen geringeren Plan[K]\nals die Lähmung des Planeten!", italian="Il suo scopo consiste...[K]\nnientemeno che nella totale paralisi del\nmondo.", spanish="Pues nada más y nada menos...[K]\nque causar la parálisis del planeta."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  -- GAP: SetEffect EFFECT_QUESTION_MARK sur PNJ non résolu (v2 cast SSA)
+  local npc_npc_s_perappu = SkySceneKit.spawn_npc("chatot", 376, 216, Direction.Up, "NPC_S_PERAPPU")
+  pcall(function() GROUND:CharSetEmote(npc_npc_s_perappu, "question", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_FacePositionOffset(1, 0) [neutre/état moteur]

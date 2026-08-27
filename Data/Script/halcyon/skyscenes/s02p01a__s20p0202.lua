@@ -15,6 +15,7 @@ return function(hero, partner)
   GAME:WaitFrames(60)
   -- GAP: se_Play(6922) — id SE NDS sans portage PMDO identifié
   -- supervision_Acting(1) [neutre/état moteur]
+  local npc_npc_kureseria = SkySceneKit.spawn_npc("cresselia", 184, 104, Direction.Down, "NPC_KURESERIA")
   -- SetAnimation(22) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -28,13 +29,13 @@ return function(hero, partner)
   SkySceneKit.say({english=" I am [CS:N]Cresselia[CR].", french=" ... Je m'appelle [CS:N]Cresselia[CR].", german=" Ich bin [CS:N]Cresselia[CR].", italian=" Sono [CS:N]Cresselia[CR].", spanish=" Soy [CS:N]Cresselia[CR]."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   SkySceneKit.say({english="[CS:N]C-Cresselia[CR]...?!", french="[CS:N]C-Cresselia[CR]...?!", german="[CS:N]C-Cresselia[CR]?!?", italian="[CS:N]C-Cresselia[CR]...?!", spanish="¡¿[CS:N]Cresselia[CR]?!"}) -- SwitchMonologue: branche default
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_kureseria) end)
   SkySceneKit.say({english=" Your...[K]your very existence is...", french=" Ta...[K] ta simple existence...", german=" Deine...[K] bloße Existenz...", italian=" La tua...[K] La tua esistenza sta...", spanish=" Tu...[K] Tu mera existencia..."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_kureseria) end)
   SkySceneKit.say({english=" pushing the world toward ruin.", french="... va mener le monde à sa\nperte.", german=" Sie treibt die Welt in den Ruin.", italian="... spingendo il mondo verso il\nbaratro.", spanish=" Está acabando con el mundo."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   SkySceneKit.say({english="The world...[K]to ruin?[K] How am I doing that?!", french="Le monde...[K] à sa perte?[K] Comment ça?!", german="Die Welt...[K] in den Ruin?[K]\nWie sollte ich das tun?", italian="Il mondo...[K] verso il baratro?[K]\nCom'è possibile?!", spanish="Acabando...[K] ¿con el mundo?[K] ¡¿Pero por qué?!"}) -- SwitchMonologue: branche default
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_kureseria) end)
   SkySceneKit.say({english=" Because you are in this world.", french="Simplement parce que tu es\ndans ce monde.", german=" Indem du in dieser Welt bist.", italian="Dipende dal fatto che\ntu ti trovi in questo mondo.", spanish="Porque estás aquí, en este\nmundo."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:FadeOutBGM(10) end)
@@ -43,9 +44,9 @@ return function(hero, partner)
   GAME:WaitFrames(2)
   GAME:FadeIn(5)
   GAME:WaitFrames(10)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_kureseria) end)
   SkySceneKit.say({english=" Because you...[K]exist here...", french=" Parce que...[K] tu existes ici...", german=" Weil du hier...[K] existierst...", italian="A causa del fatto che...[K]\nesisti qui...", spanish=" Porque...[K] existes..."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_kureseria) end)
   SkySceneKit.say({english=" If you remain...", french=" Si tu restes...", german=" Bleibst du bestehen...", italian=" Se rimani...", spanish=" Si te quedas..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- GAP: se_Play(5127) — id SE NDS sans portage PMDO identifié
@@ -53,7 +54,7 @@ return function(hero, partner)
   GAME:WaitFrames(2)
   GAME:FadeIn(5)
   GAME:WaitFrames(10)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_kureseria) end)
   SkySceneKit.say({english=" The world will be destroyed!", french=" ... le monde sera détruit!", german=" So wird die Welt zerstört!", italian="Se rimani, il mondo verrà\ndistrutto!", spanish=" El mundo será destruido."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- GAP: se_Play(5143) — id SE NDS sans portage PMDO identifié
@@ -71,4 +72,5 @@ return function(hero, partner)
   -- message_CloseEnforce
   GAME:FadeOut(true, 0) -- screen_WhiteOut
   GAME:FadeIn(0)
+  SkySceneKit.cleanup_npcs()
 end

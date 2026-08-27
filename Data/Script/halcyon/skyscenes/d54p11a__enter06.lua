@@ -5,11 +5,12 @@ local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
-  pcall(function() UI:ResetSpeaker() end)
+  local npc_npc_metamon_kireihana = SkySceneKit.spawn_npc("bellossom", 256, 200, Direction.Down, "NPC_METAMON_KIREIHANA")
+  pcall(function() UI:SetSpeaker(npc_npc_metamon_kireihana) end)
   SkySceneKit.say({english="Well...[K] If you're set on going,\nI won't stop you...", french="Hé bien...[K] Si tu es décidée,\nje ne vais pas t'en empêcher...", german="Nun...[K] Du scheinst dir ja sicher\nzu sein. Und ich werde dich nicht aufhalten...", italian="Beh...[K] Non sarò certo io\na fermarvi, ma...", spanish="Bueno...[K] Pareces tan segura que\nno seré yo quien te detenga..."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_metamon_kireihana) end)
   SkySceneKit.say({english="But don't you think it might be\nbetter to leave it alone?", french="... mais tu ne penses pas qu'il\nserait préférable de laisser tomber?", german="Aber glaubst du nicht, dass es\nbesser wäre, es gut sein zu lassen?", italian="... non credi che sarebbe meglio\nlasciar perdere?", spanish="Pero ¿no crees que sería mejor\nque os olvidarais del tema?"})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_metamon_kireihana) end)
   SkySceneKit.say({english="It's useless to spend\ntime looking for something that's not there.", french="Inutile de perdre du temps\nà chercher quelque chose qui n'est pas là.", german="Es ist reine Zeitverschwendung,\nnach etwas Ausschau zu halten, was nicht\nda ist.", italian="Non ha senso sprecare tempo per\ncercare qualcosa che non c'è.", spanish="Es una pérdida de tiempo\nbuscar algo que no existe."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(hero) end)
@@ -22,4 +23,5 @@ return function(hero, partner)
   SkySceneKit.say({english=" So don't worry. [M:H8]", french=" Alors ne t'inquiète pas. [M:H8]", german="Mach dir keine\nSorgen. [M:H8]", italian=" Quindi non preoccuparti. [M:H8]", spanish=" Así que no te preocupes. [M:H8]"})
   -- message_Close
   -- JumpCommon(CORO_END_TALK) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  SkySceneKit.cleanup_npcs()
 end

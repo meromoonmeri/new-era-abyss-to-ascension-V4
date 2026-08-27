@@ -30,7 +30,8 @@ return function(hero, partner)
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Exclaim_Surprised") end)
   pcall(function() GROUND:CharSetEmote(partner, "shock", 1) end)
   pcall(function() GROUND:CharSetEmote(hero, "shock", 1) end)
-  -- GAP: SetEffect EFFECT_SHOCKED sur PNJ non résolu (v2 cast SSA)
+  local npc_npc_kureseria = SkySceneKit.spawn_npc("cresselia", 296, 224, Direction.Up, "NPC_KURESERIA")
+  pcall(function() GROUND:CharSetEmote(npc_npc_kureseria, "shock", 1) end)
   -- ExecuteCommon(CORO_LOOK_AROUND_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(12)
   -- ExecuteCommon(CORO_LOOK_AROUND_LEFT_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
@@ -57,7 +58,7 @@ return function(hero, partner)
   SkySceneKit.say({english=" into a realm of darkness!", french=" ... un royaume de l'ombre!", german=" In ein Reich der Dunkelheit!", italian="Il mondo sarà il regno\ndell'oscurità!", spanish=" ¡En un reino de oscuridad!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   SkySceneKit.say({english=" H-here they come!", french=" Ils... ils arrivent!", german=" H-hier kommen sie!", italian=" E-Ecco che arrivano!", spanish=" ¡Aquí vienen!"}) -- SwitchTalk: branche default (canon générique)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_kureseria) end)
   SkySceneKit.say({english=" Be careful!", french=" Prudence!", german=" Seid vorsichtig!", italian=" Attenzione!", spanish=" ¡Cuidado!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- message_FacePositionOffset(0, -2) [neutre/état moteur]

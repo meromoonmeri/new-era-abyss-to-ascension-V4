@@ -16,6 +16,7 @@ return function(hero, partner)
   -- supervision_StationCommon(0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- supervision_Acting(0) [neutre/état moteur]
   -- camera_SetMyself() [neutre/état moteur]
+  local npc_npc_yonowaaru_n8 = SkySceneKit.spawn_npc("dusknoir", 320, 288, Direction.Up, "NPC_YONOWAARU_N8")
   -- SetPositionInitial [position SSA de départ, déjà posée par le placement de scène]
   -- SetAnimation(2) [anim idle native]
   GAME:FadeIn(30)
@@ -34,4 +35,5 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english="(To the place where [CS:N]Dialga[CR] is...[K]\nthe pinnacle of [CS:P]Temporal Tower[CR]!)", french="(... jusqu'au repaire de [CS:N]Dialga[CR]...[K]\nLe pinacle de la [CS:P]Tour du Temps[CR]!)", german="(Mein Ziel ist der Aufenthaltsort\nvon [CS:N]Dialga[CR],[K] die Spitze des [CS:P]Zeitturms[CR]!)", italian="(... e raggiungere il luogo dove\nsi trova [CS:N]Dialga[CR]...[K] La vetta della [CS:P]Torre[CR]\n[CS:P]del Tempo[CR]!)", spanish="(Seguir hacia el lugar donde está\n[CS:N]Dialga[CR]...[K] ¡La cima de la [CS:P]Torre del Tiempo[CR]!)"})
   -- message_Close
+  SkySceneKit.cleanup_npcs()
 end

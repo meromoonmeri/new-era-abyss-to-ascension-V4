@@ -4,7 +4,8 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
-  pcall(function() UI:ResetSpeaker() end)
+  local npc_npc_sheimi = SkySceneKit.spawn_npc("shaymin", 232, 216, Direction.Down, "NPC_SHEIMI")
+  pcall(function() UI:SetSpeaker(npc_npc_sheimi) end)
   SkySceneKit.say({english="Oogh...\nIt's hard to make progress...", french="Ouille...\nPas facile...", german="Uff...\nEs ist hart, vorwärts zu kommen...", italian="Orgh...\nÈ difficile fare progressi...", spanish="Uf...\nCuesta mucho avanzar..."})
   -- message_KeyWait
   GAME:FadeOut(false,  60)
@@ -27,9 +28,10 @@ return function(hero, partner)
   GAME:FadeIn(30)
   -- GAP: BGM BGM_SKY_PEAK_SNOWFIELD non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_sheimi) end)
   SkySceneKit.say({english=" If we don't hurry, [CS:N]Sneasel[CR] will...", french="Si on ne se dépêche pas,\n[CS:N]Farfuret[CR] va...", german="Wenn wir uns nicht beeilen,\nwird [CS:N]Sniebel[CR]...", italian=" Se non ci sbrighiamo, [CS:N]Sneasel[CR]...", spanish=" Si no nos damos prisa, [CS:N]Sneasel[CR]..."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_sheimi) end)
   SkySceneKit.say({english="Let's hurry to the\n8th Station Clearing!", french="Hâtons-nous vers la trouée\ndu 8[F:E] Relais!", german="Wir müssen schnell zur\n8. Zwischenlagerlichtung gehen!", italian="Presto, raggiungiamo\nil Bivacco 8!", spanish="¡Vamos deprisa a la Base del\nOctavo Puerto!"})
   -- message_Close
+  SkySceneKit.cleanup_npcs()
 end

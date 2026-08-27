@@ -16,6 +16,7 @@ return function(hero, partner)
   -- supervision_StationCommon(0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- supervision_Acting(0) [neutre/état moteur]
   -- camera_SetMyself() [neutre/état moteur]
+  local npc_npc_yonowaaru_n8 = SkySceneKit.spawn_npc("dusknoir", 248, 288, Direction.Left, "NPC_YONOWAARU_N8")
   -- SetPositionInitial [position SSA de départ, déjà posée par le placement de scène]
   -- SetAnimation(2) [anim idle native]
   GAME:FadeIn(30)
@@ -26,4 +27,5 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english="(Next time, I'll definitely show\nyou I can make it through.)", french="(Hors de question que j'échoue,\nla prochaine fois.)", german="(Das nächste Mal werde ich dir\nbeweisen, dass ich es schaffen kann.)", italian="(La prossima volta gli\ndimostrerò che ce la posso fare... questo\nè poco, ma sicuro.)", spanish="(La próxima vez, ya te\ndemostraré que puedo cruzar este territorio.)"})
   -- message_Close
+  SkySceneKit.cleanup_npcs()
 end

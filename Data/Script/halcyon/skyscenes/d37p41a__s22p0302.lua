@@ -10,15 +10,17 @@ return function(hero, partner)
   GAME:FadeOut(false, 0) -- screen_FlushOut
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  pcall(function() UI:ResetSpeaker() end)
+  local npc_npc_kureseria = SkySceneKit.spawn_npc("cresselia", 232, 216, Direction.Down, "NPC_KURESERIA")
+  pcall(function() UI:SetSpeaker(npc_npc_kureseria) end)
   SkySceneKit.say({english="I cannot fathom how you've\ncome here, but...", french="J'ignore comment vous avez\nréussi à arriver ici mais...", german="Ich kann mir nicht erklären, wie\nihr hierhergekommen seid, aber...", italian="Non capisco come abbiate fatto\nad arrivare qui.", spanish="No logro entender cómo\nhabéis llegado hasta aquí, pero..."})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_kureseria) end)
   SkySceneKit.say({english="I find your visit ever so\nconvenient!", french="Je trouve que votre visite\ntombe à point nommé!", german="Ich finde euren Besuch äußerst\npraktisch!", italian="Però la vostra visita capita\nal momento giusto!", spanish="¡Vuestra visita es de lo más\noportuna!"})
-  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() UI:SetSpeaker(npc_npc_kureseria) end)
   SkySceneKit.say({english=" I've longed to meet both of you!", french="Cela fait longtemps que je\nsouhaite vous rencontrer!", german="Ich wollte euch beide schon\nlange mal treffen!", italian="È da tempo che\nvolevo incontrarvi!", spanish=" ¡Estaba deseando encontraros!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="(In other words, it was still in a dream.)", french="(Autrement dit, c'était quand même dans\nun rêve.)", german="(Mit anderen Worten, ich war dennoch in\neinem Traum.)", italian="(In altre parole, mi trovavo\ncomunque in un sogno.)", spanish="(En otras palabras, que también era un sueño.)"}) -- SwitchMonologue: branche default
   GAME:FadeOut(false, 30)
   GAME:FadeIn(0) -- screen_FlushIn
+  SkySceneKit.cleanup_npcs()
 end

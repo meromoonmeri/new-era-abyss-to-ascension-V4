@@ -16,6 +16,7 @@ return function(hero, partner)
   -- supervision_StationCommon(0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- supervision_Acting(0) [neutre/état moteur]
   -- camera_SetMyself() [neutre/état moteur]
+  local npc_npc_yonowaaru_n9 = SkySceneKit.spawn_npc("dusknoir", 280, 272, Direction.Right, "NPC_YONOWAARU_N9")
   -- SetPositionInitial [position SSA de départ, déjà posée par le placement de scène]
   -- SetAnimation(2) [anim idle native]
   GAME:FadeIn(30)
@@ -26,4 +27,5 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Once we're prepared, let's go!", french=" Préparons-nous et allons-y!", german="Lass uns aufbrechen, sobald\nwir vorbereitet sind!", italian=" Quando siamo pronti, andiamo!", spanish="En cuanto estemos preparados,\n¡sigamos adelante!"})
   -- message_Close
+  SkySceneKit.cleanup_npcs()
 end
