@@ -45,9 +45,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Spiritomb Room\\nB{0}F",
+              "DefaultText": "Temporal Pinnacle\\n{0}F",
               "LocalTexts": {
-                "fr": "Spiritomb Room\\n{0}SS"
+                "fr": "Cime Temporelle\\n{0}F"
               }
             },
             "Priority": {

@@ -45,9 +45,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Spiritomb Room\\nB{0}F",
+              "DefaultText": "Magma Cavern Pit - Groudon\\nB{0}F",
               "LocalTexts": {
-                "fr": "Spiritomb Room\\n{0}SS"
+                "fr": "Fosse de la Caverne Magma — Groudon\\n{0}SS"
               }
             },
             "Priority": {

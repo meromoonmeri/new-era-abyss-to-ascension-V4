@@ -45,9 +45,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Spiritomb Room\\nB{0}F",
+              "DefaultText": "Beach Cave Pit\\nB{0}F",
               "LocalTexts": {
-                "fr": "Spiritomb Room\\n{0}SS"
+                "fr": "Basse Fosse Littorale\\n{0}SS"
               }
             },
             "Priority": {

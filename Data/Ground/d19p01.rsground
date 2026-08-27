@@ -116751,7 +116751,7 @@
     ],
     "AssetName": "d19p01",
     "Music": "",
-    "EdgeView": 0,
+    "EdgeView": 1,
     "NoSwitching": false,
     "ViewCenter": null,
     "ViewOffset": {
@@ -116774,7 +116774,22 @@
         "MapChars": [],
         "GroundObjects": [],
         "Spawners": [],
-        "Markers": []
+        "Markers": [
+          {
+            "EntName": "Main_Entrance_Marker",
+            "Direction": 4,
+            "EntEnabled": true,
+            "EntOrder": 0,
+            "InteractOrder": 0,
+            "triggerType": 0,
+            "Collider": {
+              "X": 264,
+              "Y": 248,
+              "Width": 16,
+              "Height": 16
+            }
+          }
+        ]
       }
     ]
   }

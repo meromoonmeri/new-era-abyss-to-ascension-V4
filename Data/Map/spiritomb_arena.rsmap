@@ -345,7 +345,7 @@
       }
     },
     "BlankBG": {
-      "AutoTileset": "",
+      "AutoTileset": "sealed_ruin_wall",
       "Associates": [],
       "Layers": [],
       "NeighborCode": -1

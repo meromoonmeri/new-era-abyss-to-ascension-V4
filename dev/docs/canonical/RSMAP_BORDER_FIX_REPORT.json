@@ -1,0 +1,620 @@
+{
+ "amp_clearing_arena": {
+  "BlankBG": [
+   "",
+   "amp_plains_wall"
+  ]
+ },
+ "barren_valley_clearing_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "sky_peak_summit_pass_ts_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "sky_peak_summit_pass_ts_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "sky_peak_summit_pass_ts_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "sky_peak_summit_pass_ts_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "sky_peak_summit_pass_ts_secondary"
+  ]
+ },
+ "beach_cave_pit_arena": {
+  "BlankBG": [
+   "",
+   "beach_cave_wall"
+  ]
+ },
+ "black_swamp_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "dark_wasteland_ts_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "dark_wasteland_ts_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "dark_wasteland_ts_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "dark_wasteland_ts_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "dark_wasteland_ts_secondary"
+  ]
+ },
+ "bottomless_sea_depths_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "bottomless_sea_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "bottomless_sea_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "bottomless_sea_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "bottomless_sea_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "bottomless_sea_secondary"
+  ]
+ },
+ "boulder_quarry_clearing_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "deep_boulder_quarry_ts_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "deep_boulder_quarry_ts_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "deep_boulder_quarry_ts_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "deep_boulder_quarry_ts_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "deep_boulder_quarry_ts_secondary"
+  ]
+ },
+ "brine_cave_pit_arena": {
+  "BlankBG": [
+   "",
+   "brine_cave_wall"
+  ]
+ },
+ "cloven_ruins_regice": {
+  "BlankBG": [
+   "concealed_ruins_wall",
+   "crystal_cave_1_wall"
+  ]
+ },
+ "cloven_ruins_regirock": {
+  "BlankBG": [
+   "concealed_ruins_wall",
+   "rock_maze_wall"
+  ]
+ },
+ "cloven_ruins_registeel": {
+  "BlankBG": [
+   "concealed_ruins_wall",
+   "steel_aegis_cave_wall"
+  ]
+ },
+ "crystal_lake_arena": {
+  "BlankBG": [
+   "",
+   "crystal_cave_2_wall"
+  ]
+ },
+ "dark_crater_pit_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "dark_crater_2_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "dark_crater_2_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "dark_crater_2_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "dark_crater_2_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "dark_crater_2_secondary"
+  ]
+ },
+ "dark_ice_mountain_pinnacle_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "dark_ice_mountain_peak_ts_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "dark_ice_mountain_peak_ts_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "dark_ice_mountain_peak_ts_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "dark_ice_mountain_peak_ts_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "dark_ice_mountain_peak_ts_secondary"
+  ]
+ },
+ "deep_mystery_jungle_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "mystery_jungle_1_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "mystery_jungle_1_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "mystery_jungle_1_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "mystery_jungle_1_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "mystery_jungle_1_secondary"
+  ]
+ },
+ "deep_star_cave_team_rogue_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "deep_star_cave_ts_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "deep_star_cave_ts_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "deep_star_cave_ts_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "deep_star_cave_ts_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "deep_star_cave_ts_secondary"
+  ]
+ },
+ "fortune_ravine_pit_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "ice_aegis_cave_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "ice_aegis_cave_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "ice_aegis_cave_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "ice_aegis_cave_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "ice_aegis_cave_secondary"
+  ]
+ },
+ "giant_volcano_peak_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "giant_volcano_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "giant_volcano_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "giant_volcano_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "giant_volcano_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "giant_volcano_secondary"
+  ]
+ },
+ "limestone_cavern_depths_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "deep_limestone_cavern_ts_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "deep_limestone_cavern_ts_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "deep_limestone_cavern_ts_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "deep_limestone_cavern_ts_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "deep_limestone_cavern_ts_secondary"
+  ]
+ },
+ "magma_pit_groudon": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "magma_cavern_2_wall"
+  ]
+ },
+ "middle_spring_cave_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "side_path_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "side_path_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "side_path_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "side_path_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "side_path_secondary"
+  ]
+ },
+ "mt_avalanche_peak_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "mt_avalanche_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "mt_avalanche_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "mt_avalanche_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "mt_avalanche_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "mt_avalanche_secondary"
+  ]
+ },
+ "mt_bristle_peak_arena": {
+  "BlankBG": [
+   "",
+   "mt_bristle_wall"
+  ]
+ },
+ "mystifying_clearing_d45": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "mystifying_forest_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "mystifying_forest_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "mystifying_forest_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "mystifying_forest_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "mystifying_forest_secondary"
+  ]
+ },
+ "old_ruins_arena": {
+  "BlankBG": [
+   "",
+   "deep_sealed_ruin_wall"
+  ]
+ },
+ "regigigas_chamber_boss_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "rock_aegis_cave_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "rock_aegis_cave_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "rock_aegis_cave_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "rock_aegis_cave_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "rock_aegis_cave_secondary"
+  ]
+ },
+ "shimmer_desert_pit_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "shimmer_desert_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "shimmer_desert_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "shimmer_desert_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "shimmer_desert_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "shimmer_desert_secondary"
+  ]
+ },
+ "sky_peak_summit_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "sky_peak_summit_pass_ts_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "sky_peak_summit_pass_ts_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "sky_peak_summit_pass_ts_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "sky_peak_summit_pass_ts_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "sky_peak_summit_pass_ts_secondary"
+  ]
+ },
+ "sky_stairway_apex_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "sky_stairway_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "sky_stairway_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "sky_stairway_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "sky_stairway_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "sky_stairway_secondary"
+  ]
+ },
+ "sky_summit_rayquaza": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "sky_tower_wall"
+  ]
+ },
+ "spacial_rift_bottom_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "spacial_rift_2_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "spacial_rift_2_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "spacial_rift_2_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "spacial_rift_2_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "spacial_rift_2_secondary"
+  ]
+ },
+ "spiritomb_arena": {
+  "BlankBG": [
+   "",
+   "sealed_ruin_wall"
+  ]
+ },
+ "spring_cave_pit_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "steam_cave_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "steam_cave_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "steam_cave_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "steam_cave_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "steam_cave_secondary"
+  ]
+ },
+ "star_cave_pit_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "deep_star_cave_ts_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "deep_star_cave_ts_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "deep_star_cave_ts_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "deep_star_cave_ts_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "deep_star_cave_ts_secondary"
+  ]
+ },
+ "steam_cave_peak_arena": {
+  "BlankBG": [
+   "",
+   "steam_cave_wall"
+  ]
+ },
+ "temporal_pinnacle_arena": {
+  "BlankBG": [
+   "",
+   "temporal_spire_wall"
+  ]
+ },
+ "underground_lake_arena": {
+  "BlankBG": [
+   "",
+   "quicksand_pit_wall"
+  ]
+ },
+ "upper_spring_cave_haunter_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "waterfall_cave_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "waterfall_cave_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "waterfall_cave_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "waterfall_cave_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "waterfall_cave_secondary"
+  ]
+ },
+ "vast_ice_mountain_pinnacle_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "vast_ice_mountain_peak_ts_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "vast_ice_mountain_peak_ts_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "vast_ice_mountain_peak_ts_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "vast_ice_mountain_peak_ts_secondary"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "vast_ice_mountain_peak_ts_secondary"
+  ]
+ },
+ "world_abyss_pit_map": {
+  "BlankBG": [
+   "treeshroud_forest_1_wall",
+   "world_abyss_1_wall"
+  ],
+  "TextureMap.wall": [
+   "magma_cavern_2_wall",
+   "world_abyss_1_wall"
+  ],
+  "TextureMap.unbreakable": [
+   "magma_cavern_2_wall",
+   "world_abyss_1_wall"
+  ],
+  "TextureMap.floor": [
+   "magma_cavern_2_floor",
+   "world_abyss_1_floor"
+  ],
+  "TextureMap.water": [
+   "magma_cavern_2_secondary",
+   "world_abyss_1_secondary"
+  ]
+ }
+}

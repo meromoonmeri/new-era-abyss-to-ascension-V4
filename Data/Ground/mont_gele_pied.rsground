@@ -101058,7 +101058,7 @@
     ],
     "AssetName": "mont_gele_pied",
     "Music": "Summit.ogg",
-    "EdgeView": 0,
+    "EdgeView": 1,
     "NoSwitching": false,
     "ViewCenter": null,
     "ViewOffset": {

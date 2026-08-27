@@ -45,9 +45,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Spiritomb Room\\nB{0}F",
+              "DefaultText": "Brine Cave Pit\\nB{0}F",
               "LocalTexts": {
-                "fr": "Spiritomb Room\\n{0}SS"
+                "fr": "Fosse de la Grotte Saumure\\n{0}SS"
               }
             },
             "Priority": {

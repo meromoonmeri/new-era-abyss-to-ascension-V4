@@ -45,9 +45,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Spiritomb Room\\nB{0}F",
+              "DefaultText": "Steam Cave Peak\\n{0}F",
               "LocalTexts": {
-                "fr": "Spiritomb Room\\n{0}SS"
+                "fr": "Sommet de la Grotte Vapeur\\n{0}F"
               }
             },
             "Priority": {

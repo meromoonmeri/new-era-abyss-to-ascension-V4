@@ -72950,7 +72950,7 @@
     ],
     "AssetName": "metano_water_home",
     "Music": "Treasure Town.ogg",
-    "EdgeView": 0,
+    "EdgeView": 1,
     "NoSwitching": false,
     "ViewCenter": null,
     "ViewOffset": {

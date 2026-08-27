@@ -45,9 +45,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Dusk Forest\\nB{0}F",
+              "DefaultText": "Deep Boulder Quarry\\nB{0}F",
               "LocalTexts": {
-                "fr": "Dusk Forest\\n{0}SS"
+                "fr": "Carrière Rocher - prof.\\n{0}SS"
               }
             },
             "Priority": {
@@ -739,7 +739,7 @@
                   "RoomComponents": [
                     {
                       "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                      "Connection": 32
+                      "Connection": 1
                     }
                   ],
                   "GenericHalls": {
@@ -990,7 +990,11 @@
                   "IncludeHalls": false,
                   "Filters": [],
                   "Spawn": {
-                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements"
+                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                    "Amount": {
+                      "Min": 4,
+                      "Max": 8
+                    }
                   }
                 }
               },
@@ -1009,6 +1013,10 @@
                     "Amount": {
                       "Min": 1,
                       "Max": 3
+                    },
+                    "DivAmount": {
+                      "Min": 2,
+                      "Max": 4
                     }
                   }
                 }
@@ -1026,7 +1034,11 @@
                   "IncludeHalls": false,
                   "Filters": [],
                   "Spawn": {
-                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements"
+                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements",
+                    "Amount": {
+                      "Min": 4,
+                      "Max": 7
+                    }
                   },
                   "MaxToSpawn": {
                     "Min": 1,
@@ -1054,7 +1066,7 @@
                     "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
                     "Amount": {
                       "Min": 2,
-                      "Max": 5
+                      "Max": 4
                     }
                   },
                   "Ally": false,
@@ -1387,7 +1399,7 @@
                   "RoomComponents": [
                     {
                       "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                      "Connection": 32
+                      "Connection": 1
                     }
                   ],
                   "GenericHalls": {
@@ -1638,7 +1650,11 @@
                   "IncludeHalls": false,
                   "Filters": [],
                   "Spawn": {
-                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements"
+                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                    "Amount": {
+                      "Min": 4,
+                      "Max": 8
+                    }
                   }
                 }
               },
@@ -1657,6 +1673,10 @@
                     "Amount": {
                       "Min": 1,
                       "Max": 3
+                    },
+                    "DivAmount": {
+                      "Min": 2,
+                      "Max": 4
                     }
                   }
                 }
@@ -1674,7 +1694,11 @@
                   "IncludeHalls": false,
                   "Filters": [],
                   "Spawn": {
-                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements"
+                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements",
+                    "Amount": {
+                      "Min": 4,
+                      "Max": 7
+                    }
                   },
                   "MaxToSpawn": {
                     "Min": 1,
@@ -1702,7 +1726,7 @@
                     "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
                     "Amount": {
                       "Min": 2,
-                      "Max": 5
+                      "Max": 4
                     }
                   },
                   "Ally": false,
@@ -2035,7 +2059,7 @@
                   "RoomComponents": [
                     {
                       "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                      "Connection": 32
+                      "Connection": 1
                     }
                   ],
                   "GenericHalls": {
@@ -2286,7 +2310,11 @@
                   "IncludeHalls": false,
                   "Filters": [],
                   "Spawn": {
-                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements"
+                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                    "Amount": {
+                      "Min": 4,
+                      "Max": 8
+                    }
                   }
                 }
               },
@@ -2305,6 +2333,10 @@
                     "Amount": {
                       "Min": 1,
                       "Max": 3
+                    },
+                    "DivAmount": {
+                      "Min": 2,
+                      "Max": 4
                     }
                   }
                 }
@@ -2322,7 +2354,11 @@
                   "IncludeHalls": false,
                   "Filters": [],
                   "Spawn": {
-                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements"
+                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements",
+                    "Amount": {
+                      "Min": 4,
+                      "Max": 7
+                    }
                   },
                   "MaxToSpawn": {
                     "Min": 1,
@@ -2350,7 +2386,7 @@
                     "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
                     "Amount": {
                       "Min": 2,
-                      "Max": 5
+                      "Max": 4
                     }
                   },
                   "Ally": false,
@@ -2721,7 +2757,7 @@
                   "RoomComponents": [
                     {
                       "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                      "Connection": 32
+                      "Connection": 1
                     }
                   ],
                   "GenericHalls": {
@@ -2972,7 +3008,11 @@
                   "IncludeHalls": false,
                   "Filters": [],
                   "Spawn": {
-                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements"
+                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                    "Amount": {
+                      "Min": 4,
+                      "Max": 8
+                    }
                   }
                 }
               },
@@ -2991,6 +3031,10 @@
                     "Amount": {
                       "Min": 1,
                       "Max": 3
+                    },
+                    "DivAmount": {
+                      "Min": 2,
+                      "Max": 4
                     }
                   }
                 }
@@ -3008,7 +3052,11 @@
                   "IncludeHalls": false,
                   "Filters": [],
                   "Spawn": {
-                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements"
+                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements",
+                    "Amount": {
+                      "Min": 4,
+                      "Max": 7
+                    }
                   },
                   "MaxToSpawn": {
                     "Min": 1,
@@ -3036,7 +3084,7 @@
                     "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
                     "Amount": {
                       "Min": 2,
-                      "Max": 5
+                      "Max": 4
                     }
                   },
                   "Ally": false,
@@ -3407,7 +3455,7 @@
                   "RoomComponents": [
                     {
                       "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                      "Connection": 32
+                      "Connection": 1
                     }
                   ],
                   "GenericHalls": {
@@ -3658,7 +3706,11 @@
                   "IncludeHalls": false,
                   "Filters": [],
                   "Spawn": {
-                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements"
+                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                    "Amount": {
+                      "Min": 4,
+                      "Max": 8
+                    }
                   }
                 }
               },
@@ -3677,6 +3729,10 @@
                     "Amount": {
                       "Min": 1,
                       "Max": 3
+                    },
+                    "DivAmount": {
+                      "Min": 2,
+                      "Max": 4
                     }
                   }
                 }
@@ -3694,7 +3750,11 @@
                   "IncludeHalls": false,
                   "Filters": [],
                   "Spawn": {
-                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements"
+                    "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements",
+                    "Amount": {
+                      "Min": 4,
+                      "Max": 7
+                    }
                   },
                   "MaxToSpawn": {
                     "Min": 1,
@@ -3722,7 +3782,7 @@
                     "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
                     "Amount": {
                       "Min": 2,
-                      "Max": 5
+                      "Max": 4
                     }
                   },
                   "Ally": false,

@@ -5501,7 +5501,7 @@
     ],
     "AssetName": "champ_sacre",
     "Music": "",
-    "EdgeView": 0,
+    "EdgeView": 1,
     "NoSwitching": false,
     "ViewCenter": null,
     "ViewOffset": {
@@ -5524,7 +5524,22 @@
         "MapChars": [],
         "GroundObjects": [],
         "Spawners": [],
-        "Markers": []
+        "Markers": [
+          {
+            "EntName": "Main_Entrance_Marker",
+            "Direction": 4,
+            "EntEnabled": true,
+            "EntOrder": 0,
+            "InteractOrder": 0,
+            "triggerType": 0,
+            "Collider": {
+              "X": 64,
+              "Y": 48,
+              "Width": 16,
+              "Height": 16
+            }
+          }
+        ]
       }
     ]
   }

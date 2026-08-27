@@ -158354,7 +158354,7 @@
     ],
     "AssetName": "bourg_comptoir",
     "Music": "Treasure Town.ogg",
-    "EdgeView": 0,
+    "EdgeView": 1,
     "NoSwitching": false,
     "ViewCenter": null,
     "ViewOffset": {

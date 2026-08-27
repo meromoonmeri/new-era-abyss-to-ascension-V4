@@ -50091,7 +50091,7 @@
     ],
     "AssetName": "s04p01a",
     "Music": "",
-    "EdgeView": 0,
+    "EdgeView": 1,
     "NoSwitching": false,
     "ViewCenter": null,
     "ViewOffset": {

@@ -1,0 +1,1428 @@
+{
+ "changed": {
+  "aegis_cave_pit": {
+   "conn": 5,
+   "mob": 0,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "amp_clearing": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "amp_plains": {
+   "conn": 10,
+   "mob": 7,
+   "item": 10,
+   "trap": 10,
+   "money": 10,
+   "name": 1
+  },
+  "apple_woods": {
+   "conn": 12,
+   "mob": 5,
+   "item": 12,
+   "trap": 12,
+   "money": 12,
+   "name": 1
+  },
+  "armaldos_shelter": {
+   "conn": 3,
+   "mob": 2,
+   "item": 3,
+   "trap": 3,
+   "money": 3,
+   "name": 1
+  },
+  "barren_valley": {
+   "conn": 5,
+   "mob": 5,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "barren_valley_clearing": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "beach_cave": {
+   "conn": 4,
+   "mob": 4,
+   "item": 4,
+   "trap": 4,
+   "money": 4,
+   "name": 1
+  },
+  "beach_cave_pit": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "black_swamp": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "blizzard_island": {
+   "conn": 20,
+   "mob": 20,
+   "item": 20,
+   "trap": 20,
+   "money": 20,
+   "name": 1
+  },
+  "bottomless_sea": {
+   "conn": 49,
+   "mob": 46,
+   "item": 49,
+   "trap": 49,
+   "money": 49,
+   "name": 1
+  },
+  "bottomless_sea_depths": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "boulder_quarry": {
+   "conn": 5,
+   "mob": 5,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "boulder_quarry_clearing": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "brine_cave": {
+   "conn": 9,
+   "mob": 6,
+   "item": 9,
+   "trap": 9,
+   "money": 9,
+   "name": 1
+  },
+  "brine_cave_pit": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "challenge_river": {
+   "conn": 7,
+   "mob": 7,
+   "item": 7,
+   "trap": 7,
+   "money": 7,
+   "name": 1
+  },
+  "chasm_cave": {
+   "conn": 8,
+   "mob": 8,
+   "item": 8,
+   "trap": 8,
+   "money": 8,
+   "name": 0
+  },
+  "concealed_ruins_post": {
+   "conn": 30,
+   "mob": 27,
+   "item": 30,
+   "trap": 30,
+   "money": 30,
+   "name": 1
+  },
+  "craggy_coast": {
+   "conn": 9,
+   "mob": 9,
+   "item": 9,
+   "trap": 9,
+   "money": 9,
+   "name": 1
+  },
+  "crevice_cave": {
+   "conn": 10,
+   "mob": 9,
+   "item": 10,
+   "trap": 10,
+   "money": 10,
+   "name": 1
+  },
+  "crevice_cave_pit": {
+   "conn": 1,
+   "mob": 1,
+   "item": 1,
+   "trap": 1,
+   "money": 1,
+   "name": 1
+  },
+  "crystal_cave": {
+   "conn": 11,
+   "mob": 6,
+   "item": 11,
+   "trap": 11,
+   "money": 11,
+   "name": 1
+  },
+  "crystal_crossing": {
+   "conn": 13,
+   "mob": 8,
+   "item": 13,
+   "trap": 13,
+   "money": 13,
+   "name": 1
+  },
+  "crystal_lake": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "dark_crater": {
+   "conn": 15,
+   "mob": 0,
+   "item": 15,
+   "trap": 15,
+   "money": 15,
+   "name": 1
+  },
+  "dark_crater_pit": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "dark_hill": {
+   "conn": 15,
+   "mob": 15,
+   "item": 15,
+   "trap": 15,
+   "money": 15,
+   "name": 0
+  },
+  "dark_ice_mountain": {
+   "conn": 10,
+   "mob": 10,
+   "item": 10,
+   "trap": 10,
+   "money": 10,
+   "name": 1
+  },
+  "dark_ice_mountain_peak": {
+   "conn": 4,
+   "mob": 4,
+   "item": 4,
+   "trap": 4,
+   "money": 4,
+   "name": 1
+  },
+  "dark_ice_mountain_pinnacle": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "dark_wasteland": {
+   "conn": 4,
+   "mob": 4,
+   "item": 4,
+   "trap": 4,
+   "money": 4,
+   "name": 1
+  },
+  "deep_barren_valley": {
+   "conn": 5,
+   "mob": 5,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "deep_boulder_quarry": {
+   "conn": 5,
+   "mob": 5,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "deep_dark_crater": {
+   "conn": 14,
+   "mob": 0,
+   "item": 14,
+   "trap": 14,
+   "money": 14,
+   "name": 1
+  },
+  "deep_dusk_forest": {
+   "conn": 12,
+   "mob": 5,
+   "item": 12,
+   "trap": 12,
+   "money": 12,
+   "name": 1
+  },
+  "deep_limestone_cavern": {
+   "conn": 5,
+   "mob": 5,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "deep_miracle_sea": {
+   "conn": 4,
+   "mob": 4,
+   "item": 4,
+   "trap": 4,
+   "money": 4,
+   "name": 1
+  },
+  "deep_mystery_jungle": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "deep_spacial_rift": {
+   "conn": 9,
+   "mob": 9,
+   "item": 9,
+   "trap": 9,
+   "money": 9,
+   "name": 1
+  },
+  "deep_star_cave_dungeon": {
+   "conn": 4,
+   "mob": 4,
+   "item": 4,
+   "trap": 4,
+   "money": 4,
+   "name": 1
+  },
+  "deep_star_cave_team_rogue": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "destiny_tower": {
+   "conn": 99,
+   "mob": 53,
+   "item": 99,
+   "trap": 99,
+   "money": 99,
+   "name": 1
+  },
+  "drenched_bluff": {
+   "conn": 6,
+   "mob": 4,
+   "item": 6,
+   "trap": 6,
+   "money": 6,
+   "name": 1
+  },
+  "dusk_forest": {
+   "conn": 8,
+   "mob": 8,
+   "item": 8,
+   "trap": 8,
+   "money": 8,
+   "name": 0
+  },
+  "dusk_forest_se5": {
+   "conn": 7,
+   "mob": 7,
+   "item": 7,
+   "trap": 7,
+   "money": 7,
+   "name": 0
+  },
+  "eastern_cave": {
+   "conn": 10,
+   "mob": 10,
+   "item": 10,
+   "trap": 10,
+   "money": 10,
+   "name": 1
+  },
+  "eighth_station_pass": {
+   "conn": 4,
+   "mob": 4,
+   "item": 4,
+   "trap": 4,
+   "money": 4,
+   "name": 1
+  },
+  "far_amp_plains": {
+   "conn": 9,
+   "mob": 0,
+   "item": 9,
+   "trap": 9,
+   "money": 9,
+   "name": 1
+  },
+  "fifth_station_clearing": {
+   "conn": 1,
+   "mob": 1,
+   "item": 1,
+   "trap": 1,
+   "money": 1,
+   "name": 1
+  },
+  "fifth_station_pass": {
+   "conn": 4,
+   "mob": 4,
+   "item": 4,
+   "trap": 4,
+   "money": 4,
+   "name": 1
+  },
+  "first_station_pass": {
+   "conn": 3,
+   "mob": 3,
+   "item": 3,
+   "trap": 3,
+   "money": 3,
+   "name": 1
+  },
+  "foggy_forest": {
+   "conn": 11,
+   "mob": 5,
+   "item": 11,
+   "trap": 11,
+   "money": 11,
+   "name": 1
+  },
+  "forest_path": {
+   "conn": 5,
+   "mob": 5,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "fortune_ravine": {
+   "conn": 8,
+   "mob": 8,
+   "item": 8,
+   "trap": 8,
+   "money": 8,
+   "name": 1
+  },
+  "fortune_ravine_depths": {
+   "conn": 6,
+   "mob": 6,
+   "item": 6,
+   "trap": 6,
+   "money": 6,
+   "name": 1
+  },
+  "fortune_ravine_pit": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "fourth_station_pass": {
+   "conn": 3,
+   "mob": 3,
+   "item": 3,
+   "trap": 3,
+   "money": 3,
+   "name": 1
+  },
+  "giant_volcano": {
+   "conn": 19,
+   "mob": 12,
+   "item": 19,
+   "trap": 19,
+   "money": 19,
+   "name": 1
+  },
+  "giant_volcano_peak": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "guiding_sea": {
+   "conn": 5,
+   "mob": 5,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "happy_outlook": {
+   "conn": 20,
+   "mob": 17,
+   "item": 20,
+   "trap": 20,
+   "money": 20,
+   "name": 1
+  },
+  "hidden_highland": {
+   "conn": 8,
+   "mob": 0,
+   "item": 8,
+   "trap": 8,
+   "money": 8,
+   "name": 1
+  },
+  "hidden_land": {
+   "conn": 15,
+   "mob": 4,
+   "item": 15,
+   "trap": 15,
+   "money": 15,
+   "name": 1
+  },
+  "hidden_shopkeeper_village": {
+   "conn": 5,
+   "mob": 5,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "hot_spring_dungeon": {
+   "conn": 6,
+   "mob": 0,
+   "item": 6,
+   "trap": 6,
+   "money": 6,
+   "name": 1
+  },
+  "ice_aegis_cave": {
+   "conn": 3,
+   "mob": 0,
+   "item": 3,
+   "trap": 3,
+   "money": 3,
+   "name": 1
+  },
+  "icicle_forest": {
+   "conn": 10,
+   "mob": 10,
+   "item": 10,
+   "trap": 10,
+   "money": 10,
+   "name": 1
+  },
+  "inferno_cave": {
+   "conn": 30,
+   "mob": 29,
+   "item": 30,
+   "trap": 30,
+   "money": 30,
+   "name": 1
+  },
+  "labyrinth_cave": {
+   "conn": 10,
+   "mob": 10,
+   "item": 10,
+   "trap": 10,
+   "money": 10,
+   "name": 1
+  },
+  "lake_afar": {
+   "conn": 25,
+   "mob": 22,
+   "item": 25,
+   "trap": 25,
+   "money": 25,
+   "name": 1
+  },
+  "landslide_cave": {
+   "conn": 13,
+   "mob": 13,
+   "item": 13,
+   "trap": 13,
+   "money": 13,
+   "name": 1
+  },
+  "left_cave_path": {
+   "conn": 5,
+   "mob": 5,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "limestone_cavern": {
+   "conn": 5,
+   "mob": 5,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "limestone_cavern_depths": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "little_plains": {
+   "conn": 5,
+   "mob": 5,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "lost_wilderness": {
+   "conn": 18,
+   "mob": 18,
+   "item": 18,
+   "trap": 18,
+   "money": 18,
+   "name": 1
+  },
+  "lower_brine_cave": {
+   "conn": 5,
+   "mob": 0,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "lower_crevice_cave": {
+   "conn": 4,
+   "mob": 4,
+   "item": 4,
+   "trap": 4,
+   "money": 4,
+   "name": 1
+  },
+  "lower_spring_cave": {
+   "conn": 4,
+   "mob": 0,
+   "item": 4,
+   "trap": 4,
+   "money": 4,
+   "name": 1
+  },
+  "luminous_spring_dungeon": {
+   "conn": 3,
+   "mob": 0,
+   "item": 3,
+   "trap": 3,
+   "money": 3,
+   "name": 1
+  },
+  "lush_prairie_post": {
+   "conn": 6,
+   "mob": 6,
+   "item": 6,
+   "trap": 6,
+   "money": 6,
+   "name": 1
+  },
+  "magma_pit_groudon": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "marine_resort": {
+   "conn": 19,
+   "mob": 6,
+   "item": 19,
+   "trap": 19,
+   "money": 19,
+   "name": 1
+  },
+  "middle_spring_cave": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "midnight_forest": {
+   "conn": 25,
+   "mob": 20,
+   "item": 25,
+   "trap": 25,
+   "money": 25,
+   "name": 1
+  },
+  "miracle_sea": {
+   "conn": 18,
+   "mob": 12,
+   "item": 18,
+   "trap": 18,
+   "money": 18,
+   "name": 1
+  },
+  "miracle_seabed": {
+   "conn": 1,
+   "mob": 1,
+   "item": 1,
+   "trap": 1,
+   "money": 1,
+   "name": 1
+  },
+  "mt_avalanche": {
+   "conn": 19,
+   "mob": 16,
+   "item": 19,
+   "trap": 19,
+   "money": 19,
+   "name": 1
+  },
+  "mt_avalanche_peak": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "mt_bristle": {
+   "conn": 9,
+   "mob": 5,
+   "item": 9,
+   "trap": 9,
+   "money": 9,
+   "name": 1
+  },
+  "mt_bristle_peak": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "mt_clear": {
+   "conn": 6,
+   "mob": 6,
+   "item": 6,
+   "trap": 6,
+   "money": 6,
+   "name": 1
+  },
+  "mt_horn": {
+   "conn": 14,
+   "mob": 5,
+   "item": 14,
+   "trap": 14,
+   "money": 14,
+   "name": 1
+  },
+  "mt_mistral": {
+   "conn": 20,
+   "mob": 16,
+   "item": 20,
+   "trap": 20,
+   "money": 20,
+   "name": 1
+  },
+  "mt_travail_post": {
+   "conn": 19,
+   "mob": 16,
+   "item": 19,
+   "trap": 19,
+   "money": 19,
+   "name": 1
+  },
+  "murky_forest": {
+   "conn": 7,
+   "mob": 7,
+   "item": 7,
+   "trap": 7,
+   "money": 7,
+   "name": 1
+  },
+  "mystery_jungle": {
+   "conn": 29,
+   "mob": 26,
+   "item": 29,
+   "trap": 29,
+   "money": 29,
+   "name": 1
+  },
+  "mystifying_forest_clearing": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "mystifying_forest_post": {
+   "conn": 13,
+   "mob": 12,
+   "item": 13,
+   "trap": 13,
+   "money": 13,
+   "name": 1
+  },
+  "ninth_station_pass": {
+   "conn": 5,
+   "mob": 5,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "nnv_wild": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 6
+  },
+  "northern_desert": {
+   "conn": 15,
+   "mob": 6,
+   "item": 15,
+   "trap": 15,
+   "money": 15,
+   "name": 1
+  },
+  "oblivion_forest": {
+   "conn": 15,
+   "mob": 14,
+   "item": 15,
+   "trap": 15,
+   "money": 15,
+   "name": 1
+  },
+  "old_ruins": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "oran_forest": {
+   "conn": 5,
+   "mob": 5,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "passage_temps": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 3
+  },
+  "quicksand_cave": {
+   "conn": 10,
+   "mob": 4,
+   "item": 10,
+   "trap": 10,
+   "money": 10,
+   "name": 1
+  },
+  "quicksand_pit": {
+   "conn": 10,
+   "mob": 0,
+   "item": 10,
+   "trap": 10,
+   "money": 10,
+   "name": 1
+  },
+  "regice_chamber": {
+   "conn": 1,
+   "mob": 0,
+   "item": 1,
+   "trap": 1,
+   "money": 1,
+   "name": 1
+  },
+  "regigigas_chamber_boss": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "regirock_chamber": {
+   "conn": 1,
+   "mob": 0,
+   "item": 1,
+   "trap": 1,
+   "money": 1,
+   "name": 1
+  },
+  "registeel_chamber": {
+   "conn": 1,
+   "mob": 0,
+   "item": 1,
+   "trap": 1,
+   "money": 1,
+   "name": 1
+  },
+  "rescue_dungeon": {
+   "conn": 1,
+   "mob": 1,
+   "item": 1,
+   "trap": 1,
+   "money": 1,
+   "name": 1
+  },
+  "right_cave_path": {
+   "conn": 5,
+   "mob": 5,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "rock_aegis_cave": {
+   "conn": 3,
+   "mob": 0,
+   "item": 3,
+   "trap": 3,
+   "money": 3,
+   "name": 1
+  },
+  "rock_path_sky": {
+   "conn": 5,
+   "mob": 5,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "sealed_ruin": {
+   "conn": 8,
+   "mob": 8,
+   "item": 8,
+   "trap": 8,
+   "money": 8,
+   "name": 0
+  },
+  "sealed_ruin_pit": {
+   "conn": 6,
+   "mob": 6,
+   "item": 6,
+   "trap": 6,
+   "money": 6,
+   "name": 1
+  },
+  "second_station_pass": {
+   "conn": 3,
+   "mob": 3,
+   "item": 3,
+   "trap": 3,
+   "money": 3,
+   "name": 1
+  },
+  "serenity_river": {
+   "conn": 8,
+   "mob": 8,
+   "item": 8,
+   "trap": 8,
+   "money": 8,
+   "name": 1
+  },
+  "seventh_station_pass": {
+   "conn": 4,
+   "mob": 4,
+   "item": 4,
+   "trap": 4,
+   "money": 4,
+   "name": 1
+  },
+  "shaymin_village": {
+   "conn": 3,
+   "mob": 3,
+   "item": 3,
+   "trap": 3,
+   "money": 3,
+   "name": 1
+  },
+  "shimmer_desert": {
+   "conn": 9,
+   "mob": 5,
+   "item": 9,
+   "trap": 9,
+   "money": 9,
+   "name": 1
+  },
+  "shimmer_desert_pit": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "shimmer_hill": {
+   "conn": 18,
+   "mob": 11,
+   "item": 18,
+   "trap": 18,
+   "money": 18,
+   "name": 1
+  },
+  "side_path": {
+   "conn": 5,
+   "mob": 5,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "sixth_station_pass": {
+   "conn": 4,
+   "mob": 4,
+   "item": 4,
+   "trap": 4,
+   "money": 4,
+   "name": 1
+  },
+  "sky_peak_summit": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "sky_peak_summit_pass": {
+   "conn": 5,
+   "mob": 5,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "sky_stairway": {
+   "conn": 49,
+   "mob": 3,
+   "item": 49,
+   "trap": 49,
+   "money": 49,
+   "name": 1
+  },
+  "sky_stairway_apex": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "sky_summit_rayquaza": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "southeastern_islands": {
+   "conn": 25,
+   "mob": 24,
+   "item": 25,
+   "trap": 25,
+   "money": 25,
+   "name": 1
+  },
+  "southern_jungle": {
+   "conn": 10,
+   "mob": 10,
+   "item": 10,
+   "trap": 10,
+   "money": 10,
+   "name": 1
+  },
+  "spacial_cliffs": {
+   "conn": 10,
+   "mob": 10,
+   "item": 10,
+   "trap": 10,
+   "money": 10,
+   "name": 1
+  },
+  "spacial_rift": {
+   "conn": 15,
+   "mob": 15,
+   "item": 15,
+   "trap": 15,
+   "money": 15,
+   "name": 1
+  },
+  "spacial_rift_bottom": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "spiritomb_room": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "spring_cave": {
+   "conn": 4,
+   "mob": 3,
+   "item": 4,
+   "trap": 4,
+   "money": 4,
+   "name": 1
+  },
+  "spring_cave_depths": {
+   "conn": 4,
+   "mob": 0,
+   "item": 4,
+   "trap": 4,
+   "money": 4,
+   "name": 1
+  },
+  "spring_cave_pit": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "star_cave": {
+   "conn": 16,
+   "mob": 16,
+   "item": 16,
+   "trap": 16,
+   "money": 16,
+   "name": 1
+  },
+  "star_cave_depths": {
+   "conn": 4,
+   "mob": 4,
+   "item": 4,
+   "trap": 4,
+   "money": 4,
+   "name": 1
+  },
+  "star_cave_pit": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "star_cave_se1": {
+   "conn": 7,
+   "mob": 7,
+   "item": 7,
+   "trap": 7,
+   "money": 7,
+   "name": 1
+  },
+  "steam_cave": {
+   "conn": 8,
+   "mob": 8,
+   "item": 8,
+   "trap": 8,
+   "money": 8,
+   "name": 1
+  },
+  "steam_cave_peak": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "steel_aegis_cave": {
+   "conn": 4,
+   "mob": 0,
+   "item": 4,
+   "trap": 4,
+   "money": 4,
+   "name": 1
+  },
+  "surrounded_sea": {
+   "conn": 20,
+   "mob": 20,
+   "item": 20,
+   "trap": 20,
+   "money": 20,
+   "name": 1
+  },
+  "temporal_pinnacle": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "temporal_spire": {
+   "conn": 10,
+   "mob": 0,
+   "item": 10,
+   "trap": 10,
+   "money": 10,
+   "name": 1
+  },
+  "temporal_spire_se5": {
+   "conn": 10,
+   "mob": 0,
+   "item": 10,
+   "trap": 10,
+   "money": 10,
+   "name": 1
+  },
+  "temporal_tower": {
+   "conn": 13,
+   "mob": 5,
+   "item": 13,
+   "trap": 13,
+   "money": 13,
+   "name": 1
+  },
+  "temporal_tower_se5": {
+   "conn": 10,
+   "mob": 5,
+   "item": 10,
+   "trap": 10,
+   "money": 10,
+   "name": 1
+  },
+  "the_nightmare": {
+   "conn": 17,
+   "mob": 13,
+   "item": 17,
+   "trap": 17,
+   "money": 17,
+   "name": 1
+  },
+  "third_station_pass": {
+   "conn": 3,
+   "mob": 3,
+   "item": 3,
+   "trap": 3,
+   "money": 3,
+   "name": 1
+  },
+  "tiny_meadow_post": {
+   "conn": 5,
+   "mob": 5,
+   "item": 5,
+   "trap": 5,
+   "money": 5,
+   "name": 1
+  },
+  "treacherous_waters": {
+   "conn": 20,
+   "mob": 19,
+   "item": 20,
+   "trap": 20,
+   "money": 20,
+   "name": 1
+  },
+  "treeshroud_forest": {
+   "conn": 20,
+   "mob": 7,
+   "item": 20,
+   "trap": 20,
+   "money": 20,
+   "name": 1
+  },
+  "trial_forest": {
+   "conn": 6,
+   "mob": 6,
+   "item": 6,
+   "trap": 6,
+   "money": 6,
+   "name": 1
+  },
+  "underground_lake": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "upper_spring_cave": {
+   "conn": 4,
+   "mob": 0,
+   "item": 4,
+   "trap": 4,
+   "money": 4,
+   "name": 1
+  },
+  "upper_spring_cave_haunter": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "upper_steam_cave": {
+   "conn": 7,
+   "mob": 2,
+   "item": 7,
+   "trap": 7,
+   "money": 7,
+   "name": 1
+  },
+  "vast_ice_mountain": {
+   "conn": 9,
+   "mob": 9,
+   "item": 9,
+   "trap": 9,
+   "money": 9,
+   "name": 1
+  },
+  "vast_ice_mountain_peak": {
+   "conn": 8,
+   "mob": 8,
+   "item": 8,
+   "trap": 8,
+   "money": 8,
+   "name": 1
+  },
+  "vast_ice_mountain_pinnacle": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "waterfall_cave": {
+   "conn": 8,
+   "mob": 5,
+   "item": 8,
+   "trap": 8,
+   "money": 8,
+   "name": 1
+  },
+  "world_abyss": {
+   "conn": 29,
+   "mob": 27,
+   "item": 29,
+   "trap": 29,
+   "money": 29,
+   "name": 1
+  },
+  "world_abyss_pit": {
+   "conn": 0,
+   "mob": 0,
+   "item": 0,
+   "trap": 0,
+   "money": 0,
+   "name": 1
+  },
+  "zero_isle_center": {
+   "conn": 50,
+   "mob": 50,
+   "item": 50,
+   "trap": 50,
+   "money": 50,
+   "name": 1
+  },
+  "zero_isle_east": {
+   "conn": 40,
+   "mob": 40,
+   "item": 40,
+   "trap": 40,
+   "money": 40,
+   "name": 1
+  },
+  "zero_isle_north": {
+   "conn": 75,
+   "mob": 75,
+   "item": 75,
+   "trap": 75,
+   "money": 75,
+   "name": 1
+  },
+  "zero_isle_south": {
+   "conn": 99,
+   "mob": 69,
+   "item": 99,
+   "trap": 99,
+   "money": 99,
+   "name": 1
+  },
+  "zero_isle_west": {
+   "conn": 40,
+   "mob": 10,
+   "item": 40,
+   "trap": 40,
+   "money": 40,
+   "name": 1
+  }
+ },
+ "totals": {
+  "conn": 1733,
+  "mob": 1269,
+  "item": 1733,
+  "trap": 1733,
+  "money": 1733,
+  "name": 179
+ }
+}

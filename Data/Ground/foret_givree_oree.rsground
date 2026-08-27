@@ -39003,7 +39003,7 @@
     ],
     "AssetName": "foret_givree_oree",
     "Music": "Snow Camp.ogg",
-    "EdgeView": 0,
+    "EdgeView": 1,
     "NoSwitching": false,
     "ViewCenter": null,
     "ViewOffset": {

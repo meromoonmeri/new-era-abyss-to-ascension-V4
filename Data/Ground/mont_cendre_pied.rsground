@@ -68913,7 +68913,7 @@
     ],
     "AssetName": "mont_cendre_pied",
     "Music": "Deep Dark Crater.ogg",
-    "EdgeView": 0,
+    "EdgeView": 1,
     "NoSwitching": false,
     "ViewCenter": null,
     "ViewOffset": {

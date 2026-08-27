@@ -45,9 +45,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Spiritomb Room\\nB{0}F",
+              "DefaultText": "Sky Tower Summit - Rayquaza\\nB{0}F",
               "LocalTexts": {
-                "fr": "Spiritomb Room\\n{0}SS"
+                "fr": "Sommet de la Tour Céleste — Rayquaza\\n{0}SS"
               }
             },
             "Priority": {
