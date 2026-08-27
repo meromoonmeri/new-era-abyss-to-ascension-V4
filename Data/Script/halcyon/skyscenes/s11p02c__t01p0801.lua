@@ -5,7 +5,8 @@ local SkySceneKit = require 'halcyon.skyscenes.kit'
 local SkyProg = require 'halcyon.skyscenes.progression'
 return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
-  -- switch($LANGUAGE_TYPE): case unique compilée (textes 5 langues résolus par le kit au runtime)
+  do local __sw = SkySceneKit.lang_id() -- switch($LANGUAGE_TYPE) [$LANGUAGE_TYPE: langue du joueur (contenu localisé)]
+  if __sw == 2 then
   -- @label_0 [étiquette de flux ExplorerScript]
   -- back_SetGround(LEVEL_S11P02C2) [neutre/état moteur]
   -- @label_4 [étiquette de flux ExplorerScript]
@@ -31,4 +32,18 @@ return function(hero, partner)
   GAME:WaitFrames(60)
   SkyProg.set(3, 0) -- $SCENARIO_MAIN = scn[3,0] (ROM)
   -- CallCommon CORO_HANYOU_SAVE_FUNC (fermeture/attente message: géré par say())
+  elseif __sw == 3 then
+  -- back_SetGround(LEVEL_S11P02C3) [neutre/état moteur]
+  -- jump @label_4 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif __sw == 4 then
+  -- back_SetGround(LEVEL_S11P02C4) [neutre/état moteur]
+  -- jump @label_4 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif __sw == 5 then
+  -- back_SetGround(LEVEL_S11P02C5) [neutre/état moteur]
+  -- jump @label_4 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif true then -- default
+  -- back_SetGround(LEVEL_S11P02C) [neutre/état moteur]
+  -- jump @label_4 [saut final de branche vers l'épilogue commun: flux naturel]
+  end
+  end
 end

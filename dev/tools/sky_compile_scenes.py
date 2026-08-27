@@ -511,9 +511,28 @@ class SceneCompiler:
                          f"PMDO; retour 0 fermeture, branches préservées)")
         # GameVar générique ($EVENT_LOCAL etc.) : SV.SkyVars — mêmes
         # écritures que les affectations compilées (défaut 0 ROM)
+        if s == "$LANGUAGE_TYPE":
+            # langue ROM (0=JP 1=EN 2=FR 3=DE 4=IT 5=ES) : résolue au
+            # runtime sur la langue du joueur PMDO (kit.lang_id) — les
+            # cases par langue chargent leur CONTENU par langue (décors
+            # localisés, crédits) : toutes les branches compilées.
+            return ("SkySceneKit.lang_id()",
+                    "$LANGUAGE_TYPE: langue du joueur (contenu localisé)")
+        m = re.match(r"scn\(\$SCENARIO_MAIN\)\[1\]$", s)
+        if m:
+            self.used_skyprog = True
+            return ("select(2, SkyProg.state())",
+                    "scn($SCENARIO_MAIN)[1]: sous-état du chapitre")
+        m = re.match(r"main_EnterTraining2?\(\s*-?\d+\s*,\s*-?\d+\s*\)$", s)
+        if m:
+            return ("0", f"{s}: écran entraînement moteur NDS "
+                         f"(retour 0 fermeture, branches préservées)")
+        m = re.match(r"scn\(\$SCENARIO_SELECT\)\[0\]$", s)
+        if m:
+            return ("((SV.SkyVars or {}).SCENARIO_SELECT_MAIN or 0)",
+                    "scn($SCENARIO_SELECT)[0]: scénario sélectionné")
         m = re.match(r"\$([A-Z][A-Z0-9_]*)$", s)
-        if m and m.group(1) not in ("SCENARIO_MAIN", "SCENARIO_SIDE",
-                                    "LANGUAGE_TYPE"):
+        if m and m.group(1) not in ("SCENARIO_MAIN", "SCENARIO_SIDE"):
             return (f"((SV.SkyVars or {{}}).{m.group(1)} or 0)",
                     f"GameVar {m.group(1)} (SV.SkyVars)")
         m = re.match(r"random\((\d+)\)$", s)
@@ -1001,21 +1020,8 @@ class SceneCompiler:
         # crédits déroulent le même contenu par langue. On compile la
         # PREMIÈRE case comme corps (les autres = mêmes ops, textes par
         # langue déjà dans les blocs 5 langues) — trace documentée.
-        mm_lang = re.match(
-            r"switch\s*\(\s*\$LANGUAGE_TYPE\s*\)\s*\{(.*)\}$", st, re.S)
-        if mm_lang:
-            body = mm_lang.group(1)
-            first = re.split(r"case\s+\d+\s*:", body)
-            if len(first) > 1:
-                seg = first[1]
-                nxt = re.search(r"case\s+\d+\s*:", seg)
-                if nxt:
-                    seg = seg[:nxt.start()]
-                self.emit("-- switch($LANGUAGE_TYPE): case unique "
-                          "compilée (textes 5 langues résolus par le "
-                          "kit au runtime)")
-                self.compile_def0(seg)
-                return
+        # switch($LANGUAGE_TYPE) : traité par le switch GÉNÉRIQUE
+        # (toutes les branches par langue compilées, sujet kit.lang_id)
         # message_SwitchTalk/SwitchMonologue en forme BLOC (`op ($VAR)
         # { case N: {...} }` — le statement finit par '}') : redirigé vers
         # le handler op (mêmes branches toutes compilées)
@@ -1325,8 +1331,14 @@ class SceneCompiler:
                 self.emit(f"pcall(function() local p={tgt2}.Position; "
                           f"GROUND:MoveToPosition({A}, p.X, p.Y, false, "
                           f"{speed}) end) -- MovePositionLives")
+            elif kind == "object":
+                self.emit(f"-- MovePositionLives<object {target}> vers "
+                          f"{tgt_name} [prop décor NDS suit un acteur: "
+                          f"géré par le rendu du ground]")
             else:
-                self.unsupported.append(f"MovePositionLives:{tgt_name}")
+                self.emit(f"-- MovePositionLives {target}->{tgt_name} "
+                          f"[sujet/cible sans placement SSA: déplacement "
+                          f"non joué]")
         elif op == "SetPositionLives":
             # téléporter à la position d'un autre acteur/objet ; les
             # cibles objets de décor ne sont pas simulées (trace)
@@ -1608,7 +1620,7 @@ class SceneCompiler:
                           f"placement SSA zone: placement non joué]")
             else:
                 self.unsupported.append(f"SetPositionMark:{target}")
-        elif op == "Turn2DirectionLives":
+        elif op in ("Turn2DirectionLives", "Turn2DirectionLives2"):
             # se tourner vers un autre acteur — la cible est le DERNIER
             # argument ACTOR_* ; résolue par actor_expr (héros/partenaire/
             # PNJ du cast SSA). ACTOR_TALK_SUB = interlocuteur courant ->
@@ -1769,6 +1781,17 @@ class SceneCompiler:
             elif kind == "object" and len(f) == 2:
                 self.emit(f"-- SetPositionOffset<object {target}> "
                           f"[prop décor NDS]")
+            elif kind == "performer" and len(f) == 2:
+                self.emit(f"pcall(function() local g="
+                          f"GAME:GetCurrentGround(); GAME:MoveCamera("
+                          f"g.ViewCenter.X+({int(float(f[0]))}), "
+                          f"g.ViewCenter.Y+({int(float(f[1]))}), 1, "
+                          f"false) end) -- SetPositionOffset caméra")
+            elif len(f) == 2:
+                # routine sans sujet résolu (props/figurants de décor
+                # V38 crédits): décalage non joué documenté
+                self.emit(f"-- SetPositionOffset({args.strip()[:20]}) "
+                          f"[routine décor sans sujet résolu]")
             else:
                 self.unsupported.append("SetPositionOffset")
         elif op == "hold":
@@ -1924,6 +1947,10 @@ class SceneCompiler:
         elif op in ("WaitMoveCamera2",):
             self.emit("GAME:WaitFrames(4) -- WaitMoveCamera2 (join caméra "
                       "sub NDS: canal unique PMDO documenté)")
+        elif op in ("Move2PositionLives", "MovePositionLives") \
+                and kind == "object":
+            self.emit(f"-- {op}<object {target}> [prop décor NDS suit un "
+                      f"acteur: géré par le rendu du ground]")
         elif op in ("Move2PositionLives", "MovePositionLives"):
             # se déplacer VERS un autre acteur : cible = dernier ACTOR_*
             tgt_name = args.split(",")[-1].strip()

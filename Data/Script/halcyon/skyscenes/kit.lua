@@ -87,6 +87,19 @@ function SkySceneKit.say(t)
   trace('{"kit":"say_done"}')
 end
 
+-- Langue du joueur -> id de langue ROM ($LANGUAGE_TYPE NDS:
+-- 0=JP 1=EN 2=FR 3=DE 4=IT 5=ES). Les switch par langue chargent leur
+-- contenu localisé (décors/crédits) — branche de la langue du joueur.
+function SkySceneKit.lang_id()
+  local m = { en = 1, fr = 2, de = 3, it = 4, es = 5, ja = 0 }
+  local code = 'en'
+  pcall(function()
+    code = tostring(RogueEssence.DiagManager.Instance.CurSettings.Language)
+  end)
+  code = (code or 'en'):lower():sub(1, 2)
+  return m[code] or 1
+end
+
 -- Choix ROM message_SwitchMenu : menu natif PMDO (UI:BeginChoiceMenu /
 -- ChoiceMenuYesNo comme origin/common.lua). Les libellés viennent des
 -- blocs menu({...}) 5 langues ROM (pick_lang). Retourne l'INDEX 1-based

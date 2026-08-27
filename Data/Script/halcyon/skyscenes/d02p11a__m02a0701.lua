@@ -2,6 +2,7 @@
 -- Scène canonique PMD Sky EU : SCRIPT/D02P11A/m02a0701.ssb (ROM sha256 1fa39d35…).
 -- Dialogues 5 langues ROM embarqués ; conventions du pilote m01a0204.
 local SkySceneKit = require 'halcyon.skyscenes.kit'
+local SkyProg = require 'halcyon.skyscenes.progression'
 return function(hero, partner)
   -- back_SetGround(LEVEL_D02P11A) [neutre/état moteur]
   -- supervision_Acting(0) [neutre/état moteur]
@@ -12,14 +13,44 @@ return function(hero, partner)
   GROUND:MoveToPosition(partner, 248, 156, false, 2)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(45)
-  SkySceneKit.say({english="[CS:N]Spoink[CR]'s pearl should be down on\nthe B7F level.", french="La perle de [CS:N]Spoink[CR] devrait être\nà l'étage E. -7.", german="Die Perle von [CS:N]Spoink[CR] sollte auf\nEbene U7 liegen.", italian="La perla di [CS:N]Spoink[CR] dovrebbe\ntrovarsi al P. -7.", spanish="La perla de [CS:N]Spoink[CR]\ntiene que estar en el piso -7."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="[CS:N]Spoink[CR]'s pearl should be down on\nthe B7F level.", french="La perle de [CS:N]Spoink[CR] devrait être\nà l'étage E. -7.", german="Die Perle von [CS:N]Spoink[CR] sollte auf\nEbene U7 liegen.", italian="La perla di [CS:N]Spoink[CR] dovrebbe\ntrovarsi al P. -7.", spanish="La perla de [CS:N]Spoink[CR]\ntiene que estar en el piso -7."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="[CS:N]Spoink[CR]'s pearl should be down on\nthe B7F level.", french="La perle de [CS:N]Spoink[CR] devrait être\nà l'étage E. -7.", german="Die Perle von [CS:N]Spoink[CR] sollte auf\nEbene U7 liegen.", italian="La perla di [CS:N]Spoink[CR] dovrebbe\ntrovarsi al P. -7.", spanish="La perla de [CS:N]Spoink[CR]\ntiene que estar en el piso -7."})
+  else
+  SkySceneKit.say({english="[CS:N]Spoink[CR]'s pearl should be down on\nthe B7F level.", french="La perle de [CS:N]Spoink[CR] devrait être\nà l'étage E. -7.", german="Die Perle von [CS:N]Spoink[CR] sollte auf\nEbene U7 liegen.", italian="La perla di [CS:N]Spoink[CR] dovrebbe\ntrovarsi al P. -7.", spanish="La perla de [CS:N]Spoink[CR]\ntiene que estar en el piso -7."})
+  end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
-  SkySceneKit.say({english="Let's hang in there and finish\nthe job this time, [hero]!", french="Viens! Cette fois, il faut qu'on\ns'accroche! Allons accomplir notre mission,\n[hero]!", german="Geben wir uns Mühe und\nerledigen den Job diesmal, [hero]!", italian="Forza! Questa volta dobbiamo\nfarcela, [hero]!", spanish="¡Esta vez tenemos que\ncompletar la misión, [hero]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Come on! This time, let's get\nthis job done, [hero]!", french="Viens! Cette fois, il faut qu'on\ns'accroche! Allons accomplir notre mission,\n[hero]!", german="Komm schon! Diesmal\nbekommen wir diesen Job hin, [hero]!", italian="Forza! Questa volta dobbiamo\nfarcela, [hero]!", spanish="¡Vamos! ¡Esta vez vamos\na hacerlo bien, [hero]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="OK, let's hang in and finish the\njob this time, [hero]!", french="Viens! Cette fois, il faut qu'on\ns'accroche! Allons accomplir notre mission,\n[hero]!", german="Okay, bemühen wir uns und\nerledigen den Job diesmal, [hero]!", italian="Forza! Questa volta dobbiamo\nfarcela, [hero]!", spanish="¡Adelante! ¡Esta vez vamos\na llegar hasta el final, [hero]!"})
+  else
+  SkySceneKit.say({english="Let's hang in there and finish\nthe job this time, [hero]!", french="Viens! Cette fois, il faut qu'on\ns'accroche! Allons accomplir notre mission,\n[hero]!", german="Geben wir uns Mühe und\nerledigen den Job diesmal, [hero]!", italian="Forza! Questa volta dobbiamo\nfarcela, [hero]!", spanish="¡Esta vez tenemos que\ncompletar la misión, [hero]!"})
+  end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:MoveToPosition(hero, 264, 92, false, 2)
   GAME:WaitFrames(20)
   GROUND:MoveToPosition(partner, 264, 92, false, 2)
   GAME:WaitFrames(20)
   GAME:FadeOut(false, 30)
+  do local __sw = select(2, SkyProg.state()) -- switch(scn($SCENARIO_MAIN)[1]) [scn($SCENARIO_MAIN)[1]: sous-état du chapitre]
+  if __sw == 3 then
+  -- @label_0 [étiquette de flux ExplorerScript]
+  SkyProg.set(3, 4) -- $SCENARIO_MAIN = scn[3,4] (ROM)
+  -- @label_2 [étiquette de flux ExplorerScript]
+  -- main_EnterDungeon(3, 0) [transition de zone NDS: assurée par le harnais journey/EnterZone PMDO]
+  -- switch(message_Menu(MENU_DUNGEON_INITIALIZE_TEAM)) [menu système NDS sans embranchement (corps vide): équivalent géré par le moteur PMDO]
+  -- main_EnterDungeon(-1, 0) [transition de zone NDS: assurée par le harnais journey/EnterZone PMDO]
+  GAME:WaitFrames(1) -- hold
+  elseif __sw == 4 then
+  SkyProg.set(3, 5) -- $SCENARIO_MAIN = scn[3,5] (ROM)
+  -- jump @label_2 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif true then -- default
+  -- jump @label_2 [saut final de branche vers l'épilogue commun: flux naturel]
+  end
+  end
 end

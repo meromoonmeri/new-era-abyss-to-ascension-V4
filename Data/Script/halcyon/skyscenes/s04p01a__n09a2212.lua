@@ -36,7 +36,8 @@ return function(hero, partner)
   -- supervision_RemoveActing(0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(60)
   GAME:WaitFrames(2) -- join WaitBgm
-  -- switch($LANGUAGE_TYPE): case unique compilée (textes 5 langues résolus par le kit au runtime)
+  do local __sw = SkySceneKit.lang_id() -- switch($LANGUAGE_TYPE) [$LANGUAGE_TYPE: langue du joueur (contenu localisé)]
+  if __sw == 2 then
   -- @label_0 [étiquette de flux ExplorerScript]
   -- back_SetGround(LEVEL_V26P11A2) [neutre/état moteur]
   -- @label_4 [étiquette de flux ExplorerScript]
@@ -58,5 +59,19 @@ return function(hero, partner)
   SV.SkyVars = SV.SkyVars or {}; SV.SkyVars.ADVENTURE_LOG = 1004 -- adventure_log = 1004 (journal NDS)
   -- switch(message_Menu(MENU_SAVE_MENU)) [menu système NDS sans embranchement (corps vide): équivalent géré par le moteur PMDO]
   -- switch(ProcessSpecial(24, 0, 0)) [procédé/menu moteur NDS, corps vide: aucun embranchement canonique — équivalent moteur PMDO]
+  elseif __sw == 3 then
+  -- back_SetGround(LEVEL_V26P11A3) [neutre/état moteur]
+  -- jump @label_4 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif __sw == 4 then
+  -- back_SetGround(LEVEL_V26P11A4) [neutre/état moteur]
+  -- jump @label_4 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif __sw == 5 then
+  -- back_SetGround(LEVEL_V26P11A5) [neutre/état moteur]
+  -- jump @label_4 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif true then -- default
+  -- back_SetGround(LEVEL_V26P11A) [neutre/état moteur]
+  -- jump @label_4 [saut final de branche vers l'épilogue commun: flux naturel]
+  end
+  end
   SkySubScreen.Hide(10) -- fin de scène: nappe sub retirée
 end

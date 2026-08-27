@@ -4,7 +4,8 @@
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 local SkyProg = require 'halcyon.skyscenes.progression'
 return function(hero, partner)
-  -- switch($LANGUAGE_TYPE): case unique compilée (textes 5 langues résolus par le kit au runtime)
+  do local __sw = SkySceneKit.lang_id() -- switch($LANGUAGE_TYPE) [$LANGUAGE_TYPE: langue du joueur (contenu localisé)]
+  if __sw == 2 then
   -- @label_0 [étiquette de flux ExplorerScript]
   -- back_SetGround(LEVEL_V26P11A2) [neutre/état moteur]
   -- @label_4 [étiquette de flux ExplorerScript]
@@ -44,4 +45,18 @@ return function(hero, partner)
   SV.SkyVars.GROUND_PLACE = 307 -- $GROUND_PLACE = 307 (ROM)
   -- switch(message_Menu(MENU_SAVE_MENU)) [menu système NDS sans embranchement (corps vide): équivalent géré par le moteur PMDO]
   -- switch(ProcessSpecial(24, 0, 0)) [procédé/menu moteur NDS, corps vide: aucun embranchement canonique — équivalent moteur PMDO]
+  elseif __sw == 3 then
+  -- back_SetGround(LEVEL_V26P11A3) [neutre/état moteur]
+  -- jump @label_4 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif __sw == 4 then
+  -- back_SetGround(LEVEL_V26P11A4) [neutre/état moteur]
+  -- jump @label_4 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif __sw == 5 then
+  -- back_SetGround(LEVEL_V26P11A5) [neutre/état moteur]
+  -- jump @label_4 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif true then -- default
+  -- back_SetGround(LEVEL_V26P11A) [neutre/état moteur]
+  -- jump @label_4 [saut final de branche vers l'épilogue commun: flux naturel]
+  end
+  end
 end

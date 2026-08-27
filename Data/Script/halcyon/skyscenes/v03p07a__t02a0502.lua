@@ -1,11 +1,9 @@
 -- GÉNÉRÉ par dev/tools/sky_compile_scenes.py — NE PAS ÉDITER À LA MAIN.
--- Scène canonique PMD Sky EU : SCRIPT/V03P07A/t02a0501.ssb (ROM sha256 1fa39d35…).
+-- Scène canonique PMD Sky EU : SCRIPT/V03P07A/t02a0502.ssb (ROM sha256 1fa39d35…).
 -- Dialogues 5 langues ROM embarqués ; conventions du pilote m01a0204.
 local SkySceneKit = require 'halcyon.skyscenes.kit'
 local SkySubScreen = require 'halcyon.skyscenes.subscreen'
 return function(hero, partner)
-  -- screen2_WhiteOut [sub déjà caché]
-  GAME:FadeOut(true, 0) -- screen_WhiteOut
   -- back_SetGround(LEVEL_V03P07A) [neutre/état moteur]
   -- supervision_Acting(0) [neutre/état moteur]
   do local __sw = SkySceneKit.lang_id() -- switch($LANGUAGE_TYPE) [$LANGUAGE_TYPE: langue du joueur (contenu localisé)]
@@ -19,48 +17,36 @@ return function(hero, partner)
   -- back2_SetMode(4) [mode d'affichage sub NDS: géré par SubScreen]
   do local __sw = SkySceneKit.lang_id() -- switch($LANGUAGE_TYPE) [$LANGUAGE_TYPE: langue du joueur (contenu localisé)]
   if __sw == 2 then
-  -- back2_SetGround(S13P01A2) [décor sub chargé: Sub_s13p01a2]
+  -- back2_SetGround(S13P01B2) [décor sub chargé: Sub_s13p01b2]
   -- @label_9 [étiquette de flux ExplorerScript]
   -- camera2_SetPositionMark(Position<'m0', 16, 13.5>) [caméra sub NDS: nappe Sub_ cadrée fenêtre NDS, recadrage dynamique non simulé - documenté]
-  GAME:WaitFrames(30) -- WaitBgmSignal (signal SMD NDS sans équivalent: join fixe documenté)
-  -- back2_SetBackEffect(3) [effet du canal sub NDS: nappe Sub_ statique, effet non simulé - documenté]
-  SkySubScreen.Show("s13p01a2", 15, false) -- screen2_FadeIn: TOP_FOCUS (timeline ROM)
-  GAME:FadeIn(15)
-  GAME:WaitFrames(40)
-  -- supervision_Acting(8) [neutre/état moteur]
   if true --[[BranchVariation: ROM Sky EU]] then -- if ROM: variation
   do local __sw = SkySceneKit.lang_id() -- switch($LANGUAGE_TYPE) [$LANGUAGE_TYPE: langue du joueur (contenu localisé)]
   if __sw == 2 then
   -- supervision_Acting(22) [neutre/état moteur]
   -- @label_21 [étiquette de flux ExplorerScript]
-  GAME:WaitFrames(60)
+  -- back2_SetBackEffect(3) [effet du canal sub NDS: nappe Sub_ statique, effet non simulé - documenté]
+  SkySubScreen.Show("s13p01b2", 0, false) -- screen2_FadeIn: TOP_FOCUS (timeline ROM)
+  GAME:FadeIn(0)
   do local __sw = SkySceneKit.lang_id() -- switch($LANGUAGE_TYPE) [$LANGUAGE_TYPE: langue du joueur (contenu localisé)]
   if __sw == 2 then
-  -- supervision_Acting(12) [neutre/état moteur]
   -- SetAnimation(2) [anim idle native]
   -- @label_15 [étiquette de flux ExplorerScript]
-  SV.SkyVars = SV.SkyVars or {}
-  SV.SkyVars.EVENT_LOCAL = 1 -- $EVENT_LOCAL = 1 (ROM)
-  -- switch(ProcessSpecial(22, 1, 0)) [procédé/menu moteur NDS, corps vide: aucun embranchement canonique — équivalent moteur PMDO]
   GAME:WaitFrames(2000)
   pcall(function() SOUND:FadeOutBGM(60) end)
   SkySubScreen.Hide(60) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   GAME:FadeOut(false, 60)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]
   elseif __sw == 3 then
-  -- supervision_Acting(13) [neutre/état moteur]
   -- SetAnimation(2) [anim idle native]
   -- jump @label_15 [saut final de branche vers l'épilogue commun: flux naturel]
   elseif __sw == 4 then
-  -- supervision_Acting(14) [neutre/état moteur]
   -- SetAnimation(2) [anim idle native]
   -- jump @label_15 [saut final de branche vers l'épilogue commun: flux naturel]
   elseif __sw == 5 then
-  -- supervision_Acting(15) [neutre/état moteur]
   -- SetAnimation(2) [anim idle native]
   -- jump @label_15 [saut final de branche vers l'épilogue commun: flux naturel]
   elseif true then -- default
-  -- supervision_Acting(11) [neutre/état moteur]
   -- SetAnimation(2) [anim idle native]
   -- jump @label_15 [saut final de branche vers l'épilogue commun: flux naturel]
   end
@@ -83,16 +69,16 @@ return function(hero, partner)
   -- jump @label_21 [saut final de branche vers l'épilogue commun: flux naturel]
   end
   elseif __sw == 3 then
-  -- back2_SetGround(S13P01A3) [décor sub chargé: Sub_s13p01a3]
+  -- back2_SetGround(S13P01B3) [décor sub chargé: Sub_s13p01b3]
   -- jump @label_9 [saut final de branche vers l'épilogue commun: flux naturel]
   elseif __sw == 4 then
-  -- back2_SetGround(S13P01A4) [décor sub chargé: Sub_s13p01a4]
+  -- back2_SetGround(S13P01B4) [décor sub chargé: Sub_s13p01b4]
   -- jump @label_9 [saut final de branche vers l'épilogue commun: flux naturel]
   elseif __sw == 5 then
-  -- back2_SetGround(S13P01A5) [décor sub chargé: Sub_s13p01a5]
+  -- back2_SetGround(S13P01B5) [décor sub chargé: Sub_s13p01b5]
   -- jump @label_9 [saut final de branche vers l'épilogue commun: flux naturel]
   elseif true then -- default
-  -- back2_SetGround(S13P01A) [décor sub chargé: Sub_s13p01a]
+  -- back2_SetGround(S13P01B) [décor sub chargé: Sub_s13p01b]
   -- jump @label_9 [saut final de branche vers l'épilogue commun: flux naturel]
   end
   end

@@ -274,8 +274,8 @@ return function(hero, partner)
   GAME:WaitFrames(4)
   -- supervision_Acting(7) [neutre/état moteur]
   -- SetOutputAttribute(2) [neutre/état moteur]
-  -- Move2PositionLives OBJECT_D57P42A2_445->ACTOR_PLAYER_KIMAWARI [sujet/cible sans placement SSA: déplacement non joué]
-  -- Move2PositionLives OBJECT_D57P42A2_446->ACTOR_PLAYER_KIMAWARI [sujet/cible sans placement SSA: déplacement non joué]
+  -- Move2PositionLives<object OBJECT_D57P42A2_445> [prop décor NDS suit un acteur: géré par le rendu du ground]
+  -- Move2PositionLives<object OBJECT_D57P42A2_446> [prop décor NDS suit un acteur: géré par le rendu du ground]
   -- SetAnimation(1) [anim idle native]
   -- SetAnimation(1) [anim idle native]
   GAME:WaitFrames(2) -- join WaitExecuteObject(OBJECT_D57P42A2_445) [routine d'objet NDS non simulée - documenté]
