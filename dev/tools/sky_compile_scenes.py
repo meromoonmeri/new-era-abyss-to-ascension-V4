@@ -1053,6 +1053,46 @@ class SceneCompiler:
             self.emit(f"-- {op}({args.strip()[:40]}) [effet du canal sub "
                       f"NDS: nappe Sub_ statique, effet non simulé - "
                       f"documenté]")
+        elif op == "back_SetBackEffect":
+            # contrôle des PALETTES ANIMÉES du décor NDS (wiki SkyTemple
+            # 0x2: loop/once/freeze/resume). Les autotiles portés
+            # embarquent leurs frames DPLA jouées en boucle par PMDO —
+            # l'état de lecture n'est pas scriptable : trace fidèle
+            # (aucun contenu narratif, décor animé déjà rendu).
+            self.emit(f"-- back_SetBackEffect({args.strip()[:16]}) "
+                      f"[état de lecture des palettes animées NDS: "
+                      f"autotiles PMDO animés en boucle - documenté]")
+        elif op == "back_SetEffect":
+            # transition entre COUCHES du map background sur N frames
+            # (wiki SkyTemple 0x7: fades layer1/layer2). PMDO rend les
+            # couches du ground sans bascule scriptable : le TIMING
+            # scénique est préservé (attente durée ROM), transition
+            # documentée.
+            mm = re.match(r"\s*(-?\d+)\s*,\s*(-?\d+)", args)
+            dur = int(mm.group(2)) if mm else 0
+            if dur > 0:
+                self.emit(f"GAME:WaitFrames({min(dur, 300)}) "
+                          f"-- back_SetEffect({args.strip()[:16]}) "
+                          f"[transition couches décor NDS: durée ROM "
+                          f"préservée, bascule documentée]")
+            else:
+                self.emit(f"-- back_SetEffect({args.strip()[:16]}) "
+                          f"[transition couches décor NDS immédiate]")
+        elif op == "WaitBackEffect":
+            self.emit("GAME:WaitFrames(2) -- WaitBackEffect (join)")
+        elif op == "back_SetWeather":
+            # météo visuelle du ground NDS (pluie/neige/brume…) — le
+            # ground PMDO n'a pas de couche météo scriptable : trace
+            # documentée (aucun contenu narratif).
+            self.emit(f"-- back_SetWeather({args.strip()[:12]}) "
+                      f"[météo visuelle ground NDS - documenté]")
+        elif op == "worldmap_SetArrow":
+            self.emit(f"-- worldmap_SetArrow({args.strip()[:12]}) "
+                      f"[flèche carte du monde: UI moteur NDS - "
+                      f"équivalent géré par le menu voyage PMDO]")
+        elif op in ("SetFunctionAttribute", "ResetFunctionAttribute"):
+            self.emit(f"-- {op}({args.strip()[:12]}) [attribut interne "
+                      f"de l'interpréteur SSB NDS - sans objet PMDO]")
         elif op == "back_SetBackScrollSpeed":
             # généralisation du pilote scroll s13p05a (SCROLL_RUNTIME_
             # PASS) : le défilement du fond NDS devient un MOUVEMENT DE
