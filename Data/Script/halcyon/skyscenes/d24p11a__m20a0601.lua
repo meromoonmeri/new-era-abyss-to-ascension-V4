@@ -13,6 +13,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Ugh! That ended badly.", french=" Argh! Ça s'est mal fini!", german=" Uff! Das endete schlimm.", italian=" Uff! È andata male.", spanish=" ¡No lo hemos logrado esta vez!"})
   end
+  -- message_KeyWait
   GAME:FadeOut(false,  60)
   -- message_CloseEnforce
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())
@@ -45,13 +46,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" Ugh...we were careless.", french="Argh... on aurait dû être plus\nprudents.", german="Uff... Wir waren zu\nunvorsichtig.", italian="Oh... Non abbiamo fatto\nabbastanza attenzione.", spanish=" Ay... Nos hemos descuidado."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Ugh...we were caught being\ncareless.", french="Argh... on aurait dû être plus\nprudents.", german="Uff... Wir sind auf dem falschen\nFuß erwischt worden.", italian="Oh... Non abbiamo fatto\nabbastanza attenzione.", spanish="Ay... Nos han cogido\ndesprevenidos."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="Ugh...we should have been\nmore careful.", french="Argh... on aurait dû faire preuve\nde plus de prudence.", german="Uff... Wir hätten vorsichtiger\nsein sollen.", italian="Oh... Avremmo dovuto fare più\nattenzione.", spanish="Ay... Tendríamos que haber\ntenido más cuidado."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" This is pretty rough going...", french=" C'est plus dur que je le croyais...", german="Das ist eine ziemlich raue\nGangart hier...", italian=" È piuttosto difficile...", spanish=" Es una ruta complicada..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" This isn't quite so easy...", french=" C'est plus dur que je le croyais...", german=" Das ist nicht ganz so einfach...", italian=" Non è molto facile...", spanish=" Esto no es tan fácil..."})
   else
   SkySceneKit.say({english=" It's harder than I thought...", french=" C'est plus dur que je le croyais...", german="Das ist schwerer, als ich\ndachte...", italian="È più difficile di quel che\npensassi...", spanish="Es más difícil de lo que me\nesperaba..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_juputoru, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, npc_npc_juputoru, 4) end)
@@ -73,6 +78,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Ugh! We'd better hurry then.", french="Argh! On ferait mieux de\nse dépêcher alors.", german="Uff! Dann beeilen wir uns\nbesser.", italian="Oh! Dobbiamo cercare di fare\npiù in fretta.", spanish="¡Entonces tendremos que ir más\nrápido!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
@@ -83,5 +89,6 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="When you're ready, let's go back\ninto the forest, [hero].", french="On repart dans la forêt quand\ntu veux, [hero].", german="Wenn du bereit bist, dann lass\nuns wieder in den Wald gehen, [hero].", italian="Quando è tutto pronto, torniamo\nnella foresta, [hero].", spanish="Cuando estés a punto, tenemos\nque seguir internándonos en el bosque,\n[hero]."})
   end
+  -- message_Close
   SkySceneKit.cleanup_npcs()
 end

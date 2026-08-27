@@ -64,6 +64,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Urf...", french=" Arf...", german=" Urf...", italian=" Urf...", spanish=" Ay..."})
   end
+  -- message_Close
   pcall(function() SOUND:FadeOutBGM(60) end)
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(30)

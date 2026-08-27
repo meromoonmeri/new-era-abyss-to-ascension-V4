@@ -29,6 +29,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Ugh, we blew it...", french=" Argh, on a échoué...", german=" Uff, wir haben es vermasselt...", italian=" Ugh, non ce l'abbiamo fatta...", spanish=" Vaya, hemos metido la pata."})
   end
+  -- message_KeyWait
   GAME:FadeOut(false,  60)
   -- message_CloseEnforce
   -- back_SetGround(LEVEL_D08P11A) [neutre/état moteur]
@@ -57,6 +58,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" ...Huh?!", french=" ... Hein?!", german=" ...Wie?!?", italian=" ... Eh?!", spanish=" ¡¿Eh?!"})
   end
+  SkySceneKit.lock(3) -- Lock(3) NDS
   -- message_Close
   SkySceneKit.unlock(5) -- Unlock(5) NDS
   GAME:WaitFrames(15)
@@ -74,6 +76,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Wh-where is this?", french=" Mais... où sommes-nous?", german=" W-wo sind wir?", italian=" D-Dove siamo?", spanish=" ¿Do... dónde estamos?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english="This is the base camp. It\nappears that your exploration has suffered\na setback.", french="Voici le camp de base. On dirait\nque votre exploration n'a pas été de tout\nrepos.", german="Dies ist das Basislager.\nOffenbar läuft eure Erkundung nicht allzu gut.", italian="Questo è il Campo Base. Sembra\nche la vostra esplorazione abbia subito una\nbattuta d'arresto.", spanish="Este es el campamento base.\nParece que vuestra exploración ha sufrido\nun contratiempo."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
@@ -99,6 +102,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Eep! Let's get going,\n[hero].", french=" Argh! En route, [hero].", german=" Urks! Gehen wir, [hero].", italian="Urk! Andiamo,\n[hero].", spanish=" ¡Ay! Vamos, [hero]."})
   end
+  -- message_Close
   SkySceneKit.cleanup_npcs()
   SkySceneKit.join_routines()
 end

@@ -38,6 +38,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Please, no! You're wrong!\nWe came only to...", french="Non, tu te trompes! On est là\npour...", german="Bitte, nein! Du irrst dich!\nWir sind nur hier, um...", italian=" Un momento! Noi siamo qui per...", spanish="¡No, te equivocas!\n¡Tan solo veníamos a...!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_raiboruto) end)
   SkySceneKit.say({english=" Save your lies!", french=" Epargnez-moi vos mensonges!", german=" Spart euch eure Lügen!", italian=" Silenzio!", spanish="¡Podéis ahorraros vuestras\nmentiras!"})
   pcall(function() UI:SetSpeaker(npc_npc_raiboruto) end)

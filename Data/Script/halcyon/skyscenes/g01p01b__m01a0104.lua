@@ -22,6 +22,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Hmm...", french=" Hmm...", german=" Hmm...", italian=" Mmm...", spanish=" Uf..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(24), p.Y+(0), false, 2) end
   GAME:WaitFrames(2) -- join WaitExecuteLives
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(-48), p.Y+(0), false, 2) end
@@ -37,13 +38,17 @@ return function(hero, partner)
   SkySceneKit.say({english="No.[K] I refuse to be paralyzed\nby this any longer!", french="Non.[K] Je ne veux plus me laisser\nparalyser par tout ça!", german="Nein.[K] Ich will nicht länger\nzur Untätigkeit verdammt sein!", italian="No.[K] Non posso continuare a\nrestarmene così. Devo fare qualcosa.", spanish="No.[K] ¡No debo dejar que esto me\nvuelva a asustar!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="No.[K] I refuse to be paralyzed\nby this any longer!", french="Non.[K] Je ne veux plus me laisser\nparalyser par tout ça!", german="Nein.[K] Ich will nicht länger\nzur Untätigkeit verdammt sein!", italian="No.[K] Non posso continuare a\nrestarmene così. Devo fare qualcosa.", spanish="No.[K] ¡No puedo permitir que esto\nsiga paralizándome!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="No.[K] I refuse to be paralyzed\nby this any longer!", french="Non.[K] Je ne veux plus me laisser\nparalyser par tout ça!", german="Nein.[K] Ich will nicht länger\nzur Untätigkeit verdammt sein!", italian="No.[K] Non posso continuare a\nrestarmene così. Devo fare qualcosa.", spanish=" No.[K] ¡Estoy harta de tener miedo!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="No more wimping out. I have to\nbe brave today.", french="Je ne veux plus avoir peur.\nAujourd'hui, c'est décidé, je vais être\ncourageux!", german="Keine Ausreden mehr. Heute\nnehme ich meinen Mut zusammen.", italian="Basta fare il fifone. Oggi devo\navere coraggio.", spanish="Ya está bien de acobardarse.\nHoy tengo que ser valiente."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="This is it. I have to steel my\ncourage today.", french="Je ne veux plus avoir peur.\nAujourd'hui, c'est décidé, je vais être\ncourageux!", german="Es ist so weit. Heute muss ich\nall meinen Mut aufbringen.", italian="È il momento. Oggi devo essere\ncoraggioso.", spanish="Ya está bien. Hoy voy a ser\nvaliente."})
   else
   SkySceneKit.say({english="This is it. Today I'm going to\nbe brave.", french="Je ne veux plus avoir peur.\nAujourd'hui, c'est décidé, je vais être\ncourageuse!", german="Es ist so weit. Heute nehme ich\nmeinen Mut zusammen.", italian="È il momento. Oggi devo essere\ncoraggiosa.", spanish="Ya está bien. Hoy voy a ser\nvaliente."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(0), p.Y+(-24), false, 2) end
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(30)
@@ -71,6 +76,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Waah!", french=" Aaah!", german=" Waah!", italian=" Aaah!", spanish=" ¡Aaah!"})
   end
+  GAME:WaitFrames(2) -- join WaitExecuteLives
   -- SetAnimation(2) [anim idle native]
   -- message_Close
   -- GAP: se_Play(8963) — id SE NDS sans portage PMDO identifié
@@ -97,6 +103,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" That shocked me!", french=" C'est trop stressant!", german=" Bin ich erschrocken!", italian=" Che spavento!", spanish=" ¡Qué susto me he llevado!"})
   end
+  -- message_Close
   GAME:WaitFrames(30)
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Confused_2") end)
   pcall(function() GROUND:CharSetEmote(partner, "sweatdrop", 1) end)
@@ -108,19 +115,24 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Whew...", french=" Euh...", german=" Puh...", italian=" Fiuu...", spanish=" Ay..."})
   end
+  GAME:WaitFrames(2) -- join WaitExecuteLives
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GAME:WaitFrames(15)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="...[K]I can't...[K] I can't push myself\nto go in after all.", french="...[K] Je n'y arrive pas...\nFinalement, je n'arrive pas à trouver\nle courage d'entrer...", german="...[K]Ich...[K] Ich kann mich doch\nnicht überwinden, reinzugehen.", italian="...[K] Non riesco...[K] Non riesco a\ntrovare il coraggio di entrare.", spanish="No...[K] No puedo...[K] No soy capaz\nde entrar."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="...[K]I can't...[K] I can't work up the\ncourage to go in, after all...", french="...[K] Je n'y arrive pas...\nFinalement, je n'arrive pas à trouver\nle courage d'entrer...", german="...[K]Ich...[K] Ich bin einfach zu feige,\num hineinzugehen...", italian="...[K] Non riesco...[K] Non riesco a\ntrovare il coraggio di entrare.", spanish="No...[K] No puedo...[K] No soy capaz\nde entrar."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="...[K]I can't...[K] I can't bring myself\nto go in.", french="...[K] Je n'y arrive pas...\nFinalement, je n'arrive pas à trouver\nle courage d'entrer...", german="...[K]Ich...[K] Ich traue mich einfach\nnicht...", italian="...[K] Non riesco...[K] Non riesco a\ntrovare il coraggio di entrare.", spanish="No...[K] No puedo...[K] No soy capaz\nde entrar."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="I said to myself that this is the\nday, but...", french="Je me disais qu'aujourd'hui,\nce serait le grand jour, mais...", german="Ich habe mir eingeredet, heute\nsei es so weit, aber...", italian="Mi ero ripromesso che oggi ce\nl'avrei fatta...", spanish="Me dije que hoy lo conseguiría,\npero..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="I told myself that this is the\nday, but...", french="Je me disais qu'aujourd'hui,\nce serait le grand jour, mais...", german="Ich habe mir eingeredet, heute\nsei es so weit, aber...", italian="Pensavo che oggi ce l'avrei\nfatta, ma...", spanish="Creía que hoy lo conseguiría,\npero..."})
   else
   SkySceneKit.say({english="I vowed that I would do it\ntoday, but...", french="Je me disais qu'aujourd'hui,\nce serait le grand jour, mais...", german="Ich habe mir fest vorgenommen,\nes heute zu tun, aber...", italian="Mi ero ripromessa che oggi ci\nsarei riuscita, ma...", spanish="Pensaba que hoy lo conseguiría,\npero..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(0), p.Y+(-8), false, 1) end
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- GAP: se_Play(6410) — id SE NDS sans portage PMDO identifié
@@ -143,6 +155,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="I thought that holding on to my\npersonal treasure would inspire me...", french="Je pensais que mon cher trésor\nm'aiderait à franchir le pas...", german="Ich dachte, es würde mir helfen,\nmeinen Schatz mitzunehmen...", italian="Pensavo che avere con me il mio\ntesoro personale mi avrebbe aiutata, ma...", spanish="Creía que llevar mi talismán\npodría inspirarme."})
   end
+  -- message_Close
   SkySubScreen.Hide(15) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   -- back2_SetGround(V02P01A) [décor sub chargé: Sub_v02p01a]
   SkySubScreen.Show("v02p01a", 15, true) -- screen2_FadeIn: BOTH_FOCUS (timeline ROM)
@@ -163,17 +176,24 @@ return function(hero, partner)
   SkySceneKit.say({english=" But I just can't do it.", french=" Pfff... Il n'y a rien à faire.", german=" Aber ich kann es einfach nicht.", italian=" ... proprio non ce la faccio.", spanish="Pero es demasiado para mí.\nNo puedo hacerlo."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Sigh...I just can't do it.", french=" Pfff... Il n'y a rien à faire.", german="Seufz... Ich kann es einfach\nnicht tun.", italian=" ... proprio non ce la faccio.", spanish=" Pero no puedo hacerlo."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Sigh...I just can't do it.", french=" Pfff... Il n'y a rien à faire.", german="Seufz... Ich kann es einfach\nnicht tun.", italian=" ... proprio non ce la faccio.", spanish=" Pero es inútil. No puedo hacerlo."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" I'm such a coward...", french=" Je ne suis qu'un poltron...", german=" Ich bin ein solcher Feigling...", italian=" Sono un tale codardo...", spanish=" Soy un cobardica."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" I'm such a coward...", french=" Je ne suis qu'un poltron...", german=" Ich bin ein solcher Feigling...", italian=" Sono un tale codardo...", spanish=" Soy un cobardica."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" I'm such a coward...", french=" Je ne suis qu'une poltronne...", german=" Ich bin ein solcher Feigling...", italian=" Sono una tale fifona...", spanish=" Soy una cobardica."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" This is so discouraging...", french=" C'est vraiment décourageant...", german=" Das ist ja so entmutigend...", italian=" È così scoraggiante...", spanish=" Esto me desmoraliza."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" This is so discouraging...", french=" C'est vraiment décourageant...", german=" Das ist ja so entmutigend...", italian=" È così scoraggiante...", spanish=" ¡Qué desastre!"})
   else
   SkySceneKit.say({english=" This is so discouraging...", french=" C'est vraiment décourageant...", german=" Das ist ja so entmutigend...", italian=" È così scoraggiante...", spanish=" No sé qué voy a hacer..."})
   end
+  -- message_Close
   GROUND:EntTurn(partner, Direction.Down)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(20)

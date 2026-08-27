@@ -27,6 +27,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Say, [hero].", french=" Dis, [hero].", german=" Sag mal, [hero].", italian=" Senti, [hero].", spanish=" Dime, [hero]."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
@@ -36,6 +37,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Today, they didn't want us to do\nany jobs from the Job Bulletin Board.", french="Aujourd'hui, nous ne devons pas\nnous occuper des missions du Tableau des\nMissions.", german="Sie wollten nicht, dass wir heute\nirgendwelche Jobs vom Job-Infobrett\nerledigen.", italian="Oggi ci hanno chiesto di non\noccuparci della Bacheca delle missioni.", spanish="Nos han dicho que hoy dejemos\nde lado las misiones del Tablón de Anuncios."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(partner, Direction.Right)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
@@ -45,6 +47,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="We're supposed to check the\njobs on the Outlaw Notice Board, right?", french="Nous devons consulter les\nmissions affichées sur les Avis de\nRecherche, non?", german="Wir sollen uns die Jobs auf dem\nGanoven-Infobrett ansehen, richtig?", italian="Dobbiamo controllare le missioni\nnella Bacheca dei ricercati, giusto?", spanish="¿No teníamos que mirar las\nmisiones del Tablón \"Se Busca\"?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
@@ -54,6 +57,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="If we're ready to go do the job,\nwe have to tell [CS:N]Bidoof[CR] by the Outlaw\nNotice Board.", french="Les préparatifs de mission\nterminés, il faudra aller prévenir [CS:N]Keunotor[CR].\nIl nous attend devant les Avis de Recherche.", german="Wenn wir bereit sind, den Job\nin Angriff zu nehmen, sollten wir es [CS:N]Bidiza[CR]\nbeim Ganoven-Infobrett wissen lassen.", italian="Quando decidiamo di partire,\ndobbiamo dirlo a [CS:N]Bidoof[CR] vicino alla Bacheca dei\nricercati.", spanish="Teníamos que hablar con [CS:N]Bidoof[CR],\ncerca del Tablón \"Se Busca\", tras reunir el\ncoraje para realizar la misión."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- JumpCommon(CORO_END_TALK) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   else
   -- switch(message_Menu(MENU_JOB_BOARD)) [menu système NDS sans embranchement (corps vide): équivalent géré par le moteur PMDO]

@@ -20,19 +20,33 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Hm? What's wrong,\n[hero]?", french=" Quoi? Qu'y a-t-il, [hero]?", german="Hm? Stimmt was nicht,\n[hero]?", italian="Eh? Cosa c'è che non va,\n[hero]?", spanish=" ¿Qué te ocurre, [hero]?"})
   end
-  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(...)", french="(...)", german="(...)", italian="(...)", spanish="(...)"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  else
+  SkySceneKit.say({english="(...)", french="(...)", german="(...)", italian="(...)", spanish="(...)"})
+  end
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(What's this weird sensation?)", french="(Quelle est cette sensation étrange?)", german="(Was ist das für ein seltsames Gefühl?)", italian="(Cos'è questa strana sensazione?)", spanish="(¿Qué es esa sensación tan rara?)"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  else
+  SkySceneKit.say({english="(What's this weird sensation?)", french="(Quelle est cette sensation étrange?)", german="(Was ist das für ein seltsames Gefühl?)", italian="(Cos'è questa strana sensazione?)", spanish="(¿Qué es esa sensación tan rara?)"})
+  end
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(I don't know why I'm feeling this way...)", french="(Je ne sais pas pourquoi je ressens ça...)", german="(Ich weiß nicht, woher es kommt...)", italian="(Non so perché mi sento così...)", spanish="(No sé por qué me siento así.)"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  else
+  SkySceneKit.say({english="(I don't know why I'm feeling this way...)", french="(Je ne sais pas pourquoi je ressens ça...)", german="(Ich weiß nicht, woher es kommt...)", italian="(Non so perché mi sento così...)", spanish="(No sé por qué me siento así.)"})
+  end
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(I...)", french="(Je...)", german="(Ich...)", italian="(Io...)", spanish="(Yo...)"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  else
+  SkySceneKit.say({english="(I...)", french="(Je...)", german="(Ich...)", italian="(Io...)", spanish="(Yo...)"})
+  end
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(Wait a second! I know this place!)", french="(C'est ça! Je connais cet endroit!)", german="(Moment mal! Ich kenne diesen Ort!)", italian="(Un secondo! Questo posto lo conosco!)", spanish="(¡Un momento! ¡Yo conozco este sitio!)"})
   else
   SkySceneKit.say({english="(Wait a second! I know this place!)", french="(C'est ça! Je connais cet endroit!)", german="(Moment mal! Ich kenne diesen Ort!)", italian="(Un secondo! Questo posto lo conosco!)", spanish="(¡Un momento! ¡Yo conozco este sitio!)"})
   end
+  -- message_Close
   GAME:FadeOut(false,  30)
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())
   GAME:FadeIn(0) -- screen_FlushIn

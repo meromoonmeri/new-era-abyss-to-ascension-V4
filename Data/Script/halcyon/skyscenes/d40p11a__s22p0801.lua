@@ -31,6 +31,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" This time, we'll get it done!", french=" Cette fois-ci, on doit réussir!", german=" Diesmal erledigen wir die Sache!", italian=" Questa volta dobbiamo farcela!", spanish=" ¡Esta vez lo conseguiremos!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetAnimation(71) [anim idle native]
   -- SetAnimation(71) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation

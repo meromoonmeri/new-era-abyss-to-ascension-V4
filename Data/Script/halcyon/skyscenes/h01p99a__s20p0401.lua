@@ -36,6 +36,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="What's the matter, [CS:N]Bidoof[CR]?[K]\nWhat's the big hurry?", french="Qu'est-ce qu'il y a, [CS:N]Keunotor[CR]?[K]\nPourquoi tu es si pressé?", german="Was liegt an, [CS:N]Bidiza[CR]?[K] Warum\ndie große Eile?", italian="Cosa succede, [CS:N]Bidoof[CR]?[K] Come\nmai tanta fretta?", spanish="¿Qué pasa, [CS:N]Bidoof[CR]?[K] ¿A qué\ntanta prisa?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Shock_2") end)
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -56,6 +57,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Pardon?[K] [CS:N]Azurill[CR] is in trouble?!", french=" Hein?[K] [CS:N]Azurill[CR] a des ennuis?!", german="Bitte?[K] [CS:N]Azurill[CR] ist in\nSchwierigkeiten?!?", italian=" Eh?[K] [CS:N]Azurill[CR] è nei guai?!", spanish=" ¿Cómo?[K] ¿[CS:N]Azurill[CR] en apuros?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_bippa) end)
   SkySceneKit.say({english="They brought the little feller to\nthe guild!", french="Le p'tit gars, il a été ramené\nà la Guilde!", german="Sie haben das kleine Kerlchen in\ndie Gilde gebracht!", italian=" Lo hanno portato alla Gilda!", spanish=" ¡Lo han llevado al [CS:N]Pokégremio[CR]!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
@@ -69,6 +71,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Let's hurry, [hero]!", french=" Dépêchons-nous, [hero]!", german=" Beeilen wir uns, [hero]!", italian="Dobbiamo sbrigarci,\n[hero]!", spanish=" ¡Deprisa, [hero]!"})
   end
+  -- message_Close
   do local p=hero.Position; GROUND:MoveToPosition(hero, p.X+(120), p.Y+(0), false, 2) end
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(120), p.Y+(0), false, 2) end
   do local p=npc_npc_bippa.Position; GROUND:MoveToPosition(npc_npc_bippa, p.X+(120), p.Y+(0), false, 2) end

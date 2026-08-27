@@ -10,13 +10,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" Ugh...we blew that attempt.", french=" Argh... on a échoué.", german=" Ugh... Das war ein Reinfall.", italian=" Ugh... Che buco nell'acqua...", spanish="Ay... Esta vez no lo hemos\nconseguido."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Ugh...that ended badly.", french=" Argh... on a échoué.", german=" Ugh... Das ging schlecht aus.", italian="Ohi ohi... Non è andata troppo\nbene...", spanish="Ay... Esta vez no lo hemos\nconseguido."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Ugh...that wasn't so good.", french=" Argh... on a échoué.", german=" Ugh... Das war kein Erfolg.", italian="Ohi ohi... Non è andata troppo\nbene...", spanish="Ay... Esta vez no lo hemos\nconseguido."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="It's tougher than I thought...[K]\nLet's go home for today.", french="C'est plus dur que je pensais...[K]\nRentrons chez nous pour aujourd'hui.", german="Es ist schwerer, als ich\ndachte...[K] Gehen wir für heute nach Hause.", italian="È più dura di quello che\npensassi...[K] Per oggi è meglio lasciar stare.", spanish="Es más difícil de lo que creía.[K]\nVolvamos al [CS:N]Pokégremio[CR] por hoy."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="This is much harder than I\nexpected...[K] Let's call it a day.", french="C'est plus dur que je pensais...[K]\nRentrons chez nous pour aujourd'hui.", german="Das ist viel schwerer, als ich\nerwartet habe...[K] Lassen wir es für heute sein.", italian="È più dura di quello che\npensassi...[K] Per oggi è meglio andare a casa.", spanish="Es más difícil de lo que\nesperaba.[K] Volvamos al [CS:N]Pokégremio[CR] por hoy."})
   else
   SkySceneKit.say({english="This won't be easy...[K] Let's call it\na day.", french="C'est plus dur que je pensais...[K]\nRentrons chez nous pour aujourd'hui.", german="Das wird nicht leicht werden...[K]\nLassen wir es für heute gut sein.", italian="È più dura di quello che\npensassi...[K] Per oggi è meglio andare a casa.", spanish="Esto no va a ser fácil.[K]\nVolvamos al [CS:N]Pokégremio[CR] por hoy."})
   end
+  -- message_KeyWait
   GAME:FadeOut(false,  60)
   -- message_CloseEnforce
   GAME:WaitFrames(60)
@@ -37,6 +41,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Oh my gosh! Did everybody fail\nand end up back here?", french="Hein?! Est-ce que tout le monde\na échoué pour se retrouver ici?", german="Meine Güte! Haben alle versagt\nund sind wieder hier?", italian="Cosa? Sono stati tutti battuti\ncome noi?", spanish="¿Qué? ¿Han podido con todos\nnosotros y estamos de vuelta?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Sweatdrop") end)
   local npc_npc_dogoomu = SkySceneKit.spawn_npc("loudred", 336, 224, Direction.Down, "NPC_DOGOOMU")
   pcall(function() GROUND:CharSetEmote(npc_npc_dogoomu, "sweating", 1) end)

@@ -55,6 +55,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" No, sorry. Not yet...", french=" Malheureusement, pas encore...", german=" Nein, tut uns leid. Noch nicht...", italian=" No, purtroppo non ancora...", spanish=" No, todavía no..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
@@ -65,6 +66,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="We have to find the [CS:N]Phione[CR], no\nmatter what, [hero]! It's the only way\nwe can save [CS:N]Manaphy[CR]!", french="Nous devons trouver les [CS:N]Phione[CR]\ncoûte que coûte, [hero]! C'est le seul\nmoyen de sauver [CS:N]Manaphy[CR]!", german="Wir müssen um jeden Preis die\n[CS:N]Phione[CR] finden, [hero]! Es ist der\neinzige Weg, wie wir [CS:N]Manaphy[CR] retten können!", italian="Dobbiamo a tutti i costi trovare\ni [CS:N]Phione[CR], [hero]! È l'unico modo per\nsalvare [CS:N]Manaphy[CR]!", spanish="¡Hay que encontrar a las hadas\n[CS:N]Phione[CR] como sea, [hero]! ¡Es la única\nforma de salvar a [CS:N]Manaphy[CR]!"})
   end
+  -- message_Close
   -- SetAnimation(71) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives

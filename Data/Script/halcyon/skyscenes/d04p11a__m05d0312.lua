@@ -19,11 +19,12 @@ return function(hero, partner)
   GROUND:MoveToPosition(hero, 268, 236, false, 2) -- SlidePositionMark (glissement)
   pcall(function() GROUND:CharSetEmote(partner, "shock", 1) end)
   GROUND:EntTurn(partner, Direction.Right)
-  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(Waaah!)", french="(Aaah!)", german="(Waaah!)", italian="(Aaaah!)", spanish="(¡Ayyy!)"})
   else
   SkySceneKit.say({english="(Waaah!)", french="(Aaah!)", german="(Waaah!)", italian="(Aaaah!)", spanish="(¡Ayyy!)"})
   end
+  GROUND:EntTurn(hero, Direction.Left)
   -- SetAnimation(68) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives

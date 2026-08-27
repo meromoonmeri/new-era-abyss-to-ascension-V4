@@ -41,6 +41,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Hmm... We got maybe a little\ncareless.", french="Hmm... On aurait dû être plus\nprudents...", german="Hmm... Vielleicht waren wir\netwas zu leichtsinnig.", italian="Forse siamo stati troppo\nspericolati.", spanish="Hum. Supongo que nos hemos\nconfiado más de la cuenta."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(hero, npc_npc_bippa, 4) end)
   GROUND:EntTurn(partner, Direction.DownLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -58,5 +59,6 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Yup![K] Let's get it done!", french=" Oui![K] Finissons-en!", german=" Ja![K] Wir schaffen das!", italian=" Sì![K] Dobbiamo farcela!", spanish=" ¡Sí![K] ¡Adelante!"})
   end
+  -- message_Close
   SkySceneKit.cleanup_npcs()
 end

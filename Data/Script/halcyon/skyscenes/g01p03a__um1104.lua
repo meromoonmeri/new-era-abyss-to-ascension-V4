@@ -60,6 +60,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" [CS:P]Zero Isle[CR]?", french=" L'[CS:P]Ile Zéro[CR]?", german=" Die [CS:P]Null-Insel[CR]?", italian=" L'[CS:P]Isola Zero[CR]?", spanish=" ¿La [CS:P]Isla Cero[CR]?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Confused") end)
   pcall(function() GROUND:CharSetEmote(partner, "question", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
@@ -71,6 +72,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" No. Should I?", french="Non, jamais entendu parler.\nPourquoi?", german="Nein. Sollte ich diesen Ort\nkennen?", italian=" No. Dovrei conoscerla?", spanish=" No. ¿Debería?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_manyuura) end)
   SkySceneKit.say({english="Hmmm...[K] So that's the case?[K]\nFine. Be that way.", french="Hmmm...[K] Dans ce cas...[K] Bien.\nD'accord.", german="Hmm...[K] So ist das also, wie?[K]\nGut, dann eben nicht.", italian="Mmm...[K] Se le cose stanno\ncosì...", spanish="Hum...[K] ¿Seguro?[K]\nEn fin, si tú lo dices..."})
   -- message_Close

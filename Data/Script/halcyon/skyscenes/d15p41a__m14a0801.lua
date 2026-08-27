@@ -26,13 +26,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" Listen!", french="Tu veux bien m'écouter deux\nsecondes?", german=" Hör zu!", italian=" Ascoltaci una buona volta!", spanish=" ¡Escúchanos!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Will you please listen?!", french="Tu veux bien m'écouter deux\nsecondes?", german=" Hör uns doch zu!", italian=" Ti prego, ascoltaci!", spanish=" ¡¿Quieres escucharnos?!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Please, listen!", french="Tu veux bien m'écouter deux\nsecondes?", german=" Hör uns bitte zu!", italian=" Ti prego, ascoltaci!", spanish=" ¡Escúchanos, por favor!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="We keep telling you! We didn't\ncome here to steal your Time Gear!", french="On n'arrête pas de te répéter\nqu'on n'a pas l'intention de te le voler,\nton Rouage du Temps!", german="Wie oft denn noch?!? Wir sind\nnicht hier, um dein Zahnrad der Zeit zu\nstehlen!", italian="Come te lo dobbiamo dire che\nnon siamo venuti per rubare l'Ingranaggio\ndel Tempo!", spanish="¡Ya te lo he dicho! ¡No hemos\nvenido a robar el Engranaje del Tiempo!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="We didn't come here to steal\nyour Time Gear! Really!", french="On n'arrête pas de te répéter\nqu'on n'a pas l'intention de te le voler,\nton Rouage du Temps!", german="Wir sind nicht hier, um dein\nZahnrad der Zeit zu stehlen! Wirklich!", italian="Devi crederci! Non siamo qui per\nrubare l'Ingranaggio del Tempo!", spanish="¡No hemos venido a robar\nel Engranaje del Tiempo! ¡En serio!"})
   else
   SkySceneKit.say({english="We didn't come to steal your\nTime Gear! Really!", french="On n'arrête pas de te répéter\nqu'on n'a pas l'intention de te le voler,\nton Rouage du Temps!", german="Wir sind nicht hier, um dein\nZahnrad der Zeit zu stehlen! Wirklich!", italian="Devi crederci! Non siamo qui per\nrubare l'Ingranaggio del Tempo!", spanish="¡No hemos venido a robar\nel Engranaje del Tiempo! ¡En serio!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetAnimation(2) [anim idle native]
   pcall(function() UI:SetSpeaker(npc_npc_emuritto) end)
   SkySceneKit.say({english=" Don't lie to me!", french=" Epargnez-moi vos mensonges!", german=" Lügt mich nicht an!", italian=" Non mentitemi!", spanish=" ¡Basta de mentiras!"})
@@ -52,6 +56,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Pardon? You heard about it\nfrom [CS:N]Uxie[CR]?", french="Quoi? C'est [CS:N]Créhelf[CR] qui\nt'a avertie?", german=" Was? [CS:N]Selfe[CR] hat es dir gesagt?", italian=" Cosa? Te l'ha detto [CS:N]Uxie[CR]?", spanish=" ¿Qué? ¿[CS:N]Uxie[CR] te ha dicho eso?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_emuritto) end)
   SkySceneKit.say({english=" That was your doing, wasn't it?!", french=" C'était vous, n'est-ce pas?!", german=" Das wart ihr, nicht wahr?!?", italian=" È stata opera vostra, vero?", spanish="¡No pongáis cara de no haber\nroto nunca un plato!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
@@ -64,6 +69,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" No! It wasn't us!", french=" Non, ce n'est pas nous!", german=" Nein! Wir waren es nicht!", italian=" No! Non è colpa nostra!", spanish="¡Te equivocas! ¡No ha sido\ncosa nuestra!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_emuritto) end)
   SkySceneKit.say({english=" Then who's responsible?!", french=" Alors qui?!", german=" Wer ist dann verantwortlich?!?", italian="Ah no? E chi sarebbe stato,\nallora?!", spanish="Entonces, ¿quién es el\nresponsable?"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
@@ -113,11 +119,13 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" [CS:N]G-Grovyle[CR]!", french=" [CS:N]M-Massko[CR]!", german=" [CS:N]R-Reptain[CR]!", italian=" [CS:N]G-Grovyle[CR]!", spanish=" ¡[CS:N]Grovyle[CR]!"})
   end
-  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(Th-that's [CS:N]Grovyle[CR]!)", french="(C'est [CS:N]Massko[CR]!)", german="(D-das ist [CS:N]Reptain[CR]!)", italian="(Quello è [CS:N]Grovyle[CR]!)", spanish="(¡Ese es [CS:N]Grovyle[CR]!)"})
   else
   SkySceneKit.say({english="(Th-that's [CS:N]Grovyle[CR]!)", french="(C'est [CS:N]Massko[CR]!)", german="(D-das ist [CS:N]Reptain[CR]!)", italian="(Quello è [CS:N]Grovyle[CR]!)", spanish="(¡Ese es [CS:N]Grovyle[CR]!)"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english="I must apologize...[K]but I will be\ntaking that Time Gear.", french="Vous m'en voyez navré mais...[K]\nje vais m'emparer de ce Rouage du Temps.", german="Entschuldigt...[K] Aber ich werde\ndieses Zahnrad der Zeit mitnehmen.", italian="Vi chiedo scusa...[K] ma sarò io a\nprendere l'Ingranaggio del Tempo.", spanish="Tendréis que perdonarme, pero...[K]\nme voy a llevar el Engranaje del Tiempo."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
@@ -150,6 +158,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Waah!", french=" Ouaaah!", german=" Waah!", italian=" Eeeh!?", spanish=" ¡¿Qué?!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english=" Stand aside.", french=" Ecarte-toi.", german=" Lass mich durch.", italian=" Fatevi da parte.", spanish=" Apártate de mi camino."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
@@ -199,6 +208,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" [CS:N]Mesprit[CR]!", french=" [CS:N]Créfollet[CR]!", german=" [CS:N]Vesprit[CR]!", italian=" [CS:N]Mesprit[CR]!", spanish=" ¡[CS:N]Mesprit[CR]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english=" You lost that fight.", french=" Tu es vaincue.", german=" Du hast diesen Kampf verloren.", italian="Bisogna saper riconoscere la\nsconfitta.", spanish=" Acabas de perder una pelea."})
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
@@ -222,6 +232,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" You're not getting by us!", french="Il faudra nous passer\nsur le corps!", german=" An uns kommst du nicht vorbei!", italian=" Non ti lasceremo passare!", spanish=" ¡No vas a pasar por aquí!"})
   end
+  -- message_Close
   GROUND:MoveToPosition(hero, 316, 196, false, 2)
   GAME:WaitFrames(5)
   GROUND:MoveToPosition(partner, 284, 196, false, 2)
@@ -236,6 +247,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="We won't let you take the\nTime Gear!", french=" On ne te laissera pas faire!", german="Wir lassen nicht zu, dass du\ndas Zahnrad der Zeit nimmst!", italian="Non ti permetteremo di prendere\nl'Ingranaggio del Tempo!", spanish="¡No permitiremos que te lleves\nel Engranaje del Tiempo!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english=" All right...", french=" Entendu...", german=" In Ordnung...", italian=" Capisco...", spanish=" Si así lo queréis..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
@@ -275,6 +287,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Ugh! He's so...[K]fast!", french=" Argh! Il est bien trop...[K] rapide!", german=" Ugh! Er ist so...[K] schnell!", italian=" Argh! È...[K] velocissimo!", spanish=" ¡Ay! Es muy...[K] rápido."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   do local __slot = SkySceneKit.team_member(1); if __slot then pcall(function() GROUND:CharSetEmote(__slot, "sweating", 1) end) end end
   do local __slot = SkySceneKit.team_member(2); if __slot then pcall(function() GROUND:CharSetEmote(__slot, "sweating", 1) end) end end
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
@@ -299,6 +312,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Ugh...the Time Gear...[K] That thief\nis taking it...", french="Argh... le Rouage du Temps...[K]\nCe voleur est en train de s'en emparer...", german="Ugh... Das Zahnrad der Zeit...[K]\nDer Dieb hat es.", italian="Ugh... L'Ingranaggio del\nTempo...[K] Quel ladro lo sta portando via...", spanish="¡Ay! El Engranaje del Tiempo...[K]\n¡Ese ladrón va a llevárselo!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_emuritto) end)
   SkySceneKit.say({english=" I...I'm sorry...", french=" Je... je suis désolée...", german=" Es... tut mir leid...", italian=" P-Perdonatemi...", spanish=" Lo... lo siento..."})
   pcall(function() UI:SetSpeaker(npc_npc_emuritto) end)
@@ -362,6 +376,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Wh-why?", french=" Mais... pourquoi ça?", german=" W-warum?", italian=" P-Perché?", spanish=" ¿Por qué?"})
   end
+  -- message_Close
   GAME:FadeOut(false, 15)
   pcall(function() SOUND:FadeOutBGM(60) end)
   -- camera_SetEffect(0): arrêt d'effet caméra

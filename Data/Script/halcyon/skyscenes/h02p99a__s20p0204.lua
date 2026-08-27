@@ -44,6 +44,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Ooh, yes! The weather's great\ntoday again!", french="Oh, oui! Quel temps magnifique\naujourd'hui!", german="Oh ja! Das Wetter ist heute\nwieder klasse!", italian="Oh, sì! Il tempo è di nuovo\nbello oggi!", spanish=" ¡Hoy hace un tiempo excelente!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
@@ -54,6 +55,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Let's do good again today,\n[hero]!", french="Faisons encore de notre mieux\naujourd'hui, [hero]!", german="Lass uns heute unser Bestes\ngeben, [hero]!", italian="Mettiamocela tutta anche oggi,\n[hero]!", spanish="¡Sigamos con nuestras\naventuras, [hero]!"})
   end
+  -- message_Close
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]
   SkySubScreen.Hide(10) -- fin de scène: nappe sub retirée

@@ -23,6 +23,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Let's check the Wonder Map.", french=" Consultons la Carte Miracle.", german="Sehen wir uns mal die\nWunderkarte an.", italian="Controlliamo sulla Mappa delle\nmeraviglie.", spanish=" Miremos el Mapa Mágico."})
   end
+  -- message_Close
   -- GAP: se_Play(6667) — id SE NDS sans portage PMDO identifié
   GAME:FadeOut(false, 15)
   SkySceneKit.cleanup_npcs()

@@ -46,6 +46,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Stop!", french=" Halte!", german=" Stopp!", italian=" Basta!", spanish=" ¡Alto!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetAnimation(22) [anim idle native]
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Exclaim_Surprised") end)
   pcall(function() GROUND:CharSetEmote(npc_npc_juputoru, "exclaim", 1) end)
@@ -69,6 +70,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="You're not taking the Time Gear,\n[CS:N]Grovyle[CR]!", french="Tu ne partiras pas avec\nle Rouage du Temps, [CS:N]Massko[CR]!", german="Du wirst das Zahnrad der Zeit\nnicht mitnehmen, [CS:N]Reptain[CR]!", italian="Non riuscirai a mettere le mani\nsull'Ingranaggio del Tempo, [CS:N]Grovyle[CR]!", spanish="¡No te llevarás el Engranaje del\nTiempo, [CS:N]Grovyle[CR]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english="I have no quarrel with you.[K]\nOut of the way!", french="Vous n'avez rien à voir\ndans tout ça.[K] Hors de mon chemin!", german="Ich will euch nichts tun.[K]\nGeht mir aus dem Weg!", italian="Non ho niente da dire a voi due.[K]\nFuori dai piedi!", spanish="No tengo nada en contra vuestra.[K]\n¡Fuera de mi camino!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
@@ -81,6 +83,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" No way! You can't make me!", french="Jamais! Il faudra me passer\nsur le corps!", german=" Auf keinen Fall! Ich gehe nicht!", italian=" No! Non ce ne andremo!", spanish=" ¡Me niego! ¡No pienso moverme!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english=" Are you serious?!", french=" Tu plaisantes?!", german=" Ist das dein Ernst?!?", italian=" Dite sul serio?!", spanish=" ¿Lo dices en serio?"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())

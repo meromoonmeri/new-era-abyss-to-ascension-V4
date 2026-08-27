@@ -13,6 +13,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Ugh! That ended badly.", french=" Argh! On a échoué.", german=" Uff! Nicht geschafft.", italian=" Uff! È andata male.", spanish=" ¡Ay! Esto ha ido fatal."})
   end
+  -- message_KeyWait
   GAME:FadeOut(false,  60)
   -- message_CloseEnforce
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())
@@ -54,6 +55,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Wh-where are we?", french=" Où... où sommes-nous?", german=" W-wo sind wir?", italian=" D-Dove siamo?", spanish=" ¿Pero dónde...?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(hero, npc_npc_perappu, 4) end)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_perappu, 4) end)
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)

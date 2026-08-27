@@ -40,6 +40,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Yep.[K] Out for a walk.", french="Ouaip.[K] Je vais faire une petite\npromenade.", german=" Jep.[K] Ein kleiner Spaziergang.", italian="Sì.[K] Esco a fare una\npasseggiata.", spanish=" Sí.[K] Voy a dar una vuelta."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_bippa) end)
   SkySceneKit.say({english=" Sounds nice, yup yup!", french="T'as raison, c'est agréable,\nah ça oui!", german=" Hört sich nett an, jawollja!", italian=" Buona idea, sì, sì.", spanish=" Buena idea. Sí, señor."})
   pcall(function() UI:SetSpeaker(npc_npc_bippa) end)
@@ -52,6 +53,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Yep.[K] I hear you.", french=" Oui.[K] Entendu.", german=" Jep.[K] Das stimmt.", italian=" Sì.[K] Va bene.", spanish=" Vale.[K] De acuerdo."})
   end
+  -- message_Close
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(0), p.Y+(80), false, 2) end
   GROUND:EntTurn(npc_npc_bippa, Direction.Down)
   GAME:WaitFrames(80)

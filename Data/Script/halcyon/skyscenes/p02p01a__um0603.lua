@@ -433,6 +433,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" [CS:K]Marowak[CR] Dojo?", french=" Le [CS:K]Dojo Ossatueur[CR]?", german=" [CS:K]Knogga-Dojo[CR]?", italian=" Il Dojo [CS:K]Marowak[CR]?", spanish=" ¿El [CS:K]Dojo Marowak[CR]?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_yarukimono) end)
   SkySceneKit.say({english="[CS:K]Marowak[CR] Dojo is a place where\nexploration teams go to hone their skills.", french="Le [CS:K]Dojo Ossatueur[CR] permet\naux équipes d'exploration d'affûter\nleurs techniques de combat.", german="Im [CS:K]Knogga-Dojo[CR] verbessern\nErkundungsteams ihre Fähigkeiten.", italian="Il Dojo [CS:K]Marowak[CR] è un posto in\ncui le squadre d'esplorazione vanno ad affinare\nle loro abilità.", spanish="El [CS:K]Dojo Marowak[CR] es un lugar\nal que van los equipos de exploración para\nentrenarse un poco."})
   pcall(function() UI:SetSpeaker(npc_npc_yarukimono) end)
@@ -451,6 +452,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Pardon?!", french=" Hein?!", german=" Bitte?!?", italian=" Scusa?!", spanish=" ¡¿Qué?!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_yarukimono) end)
   SkySceneKit.say({english="But...[K]let there be rejoicing![K]\nThat [CS:K]Marowak[CR] Dojo...", french="Mais... [K]réjouissons-nous![K]\nLe [CS:K]Dojo Ossatueur[CR]...", german="Aber [K]lasst uns jubeln![K]\nDas [CS:K]Knogga-Dojo[CR]...", italian="Ma...[K] c'è da rallegrarsi![K]\nIl Dojo [CS:K]Marowak[CR]...", spanish="Pero...[K] ¡ya podemos alegrarnos![K]\nEl [CS:K]Dojo Marowak[CR]..."})
   pcall(function() UI:SetSpeaker(npc_npc_yarukimono) end)

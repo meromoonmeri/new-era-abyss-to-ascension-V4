@@ -2,11 +2,11 @@
  "schema": "sky-scene-compiler/1",
  "rule": "FAIL-CLOSED: seules les scènes 100% traduites sont émises ; PARTIAL_OPS/MULTIROUTINE comptées, jamais émises approximées",
  "totals": {
-  "COMPILED": 2574,
-  "PARTIAL_OPS": 649,
+  "COMPILED": 2590,
+  "PARTIAL_OPS": 633,
   "SKIPPED_REQUIRES_ENGINE_EXTENSION": 372,
   "TRIVIAL_SKIPPED": 165,
-  "COMPILED_DUAL_SCREEN": 91,
+  "COMPILED_DUAL_SCREEN": 92,
   "COMPILED_MULTIROUTINE": 9
  },
  "scenes": {
@@ -66,10 +66,11 @@
    ]
   },
   "D01P11A/enter01.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "message_SwitchTalk "
-   ]
+   "status": "COMPILED",
+   "file": "d01p11a__enter01.lua",
+   "dialogues": 6,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D01P11A/m01a0103.ssb": {
    "status": "COMPILED",
@@ -115,8 +116,8 @@
   "D01P11A/m20a0901.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "forever {\n        switch ",
-    "message_SwitchTalk "
+    "$SCENARIO_MAIN = scn[22, 0]",
+    "forever {\n        switch "
    ]
   },
   "D01P11A/m24p1101.ssb": {
@@ -567,7 +568,7 @@
   "D01P11B/m01a0208.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "message_SwitchMonologue "
+    "switch "
    ]
   },
   "D01P11B/m01a0301.ssb": {
@@ -582,8 +583,7 @@
   "D01P11B/m01a0702.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "forever {\n        switch ",
-    "message_SwitchMonologue "
+    "forever {\n        switch "
    ]
   },
   "D01P11B/m01d0282.ssb": {
@@ -1028,7 +1028,7 @@
   "D06P11A/m08a0603.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "message_SwitchTalk "
+    "$SCENARIO_MAIN = scn[9, 2]"
    ]
   },
   "D06P11A/m08a0701.ssb": {
@@ -1045,10 +1045,11 @@
    "gaps": null
   },
   "D06P11A/m08a0901.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "message_SwitchTalk "
-   ]
+   "status": "COMPILED",
+   "file": "d06p11a__m08a0901.lua",
+   "dialogues": 21,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D06P11A/um0800.ssb": {
    "status": "COMPILED",
@@ -1110,7 +1111,7 @@
   "D07P11A/m08b1301.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "message_SwitchTalk "
+    "$SCENARIO_MAIN = scn[9, 5]"
    ]
   },
   "D07P11A/um0800.ssb": {
@@ -1169,10 +1170,11 @@
    ]
   },
   "D08P11A/m09a0501.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "message_SwitchTalk "
-   ]
+   "status": "COMPILED",
+   "file": "d08p11a__m09a0501.lua",
+   "dialogues": 21,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D08P11A/m09d0112.ssb": {
    "status": "COMPILED",
@@ -1259,10 +1261,11 @@
    ]
   },
   "D09P11A/m10a0201.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "message_SwitchTalk "
-   ]
+   "status": "COMPILED",
+   "file": "d09p11a__m10a0201.lua",
+   "dialogues": 12,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D09P11A/m10a0401.ssb": {
    "status": "COMPILED",
@@ -2165,10 +2168,11 @@
    ]
   },
   "D18P11A/m17a0601.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "message_SwitchTalk "
-   ]
+   "status": "COMPILED",
+   "file": "d18p11a__m17a0601.lua",
+   "dialogues": 12,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D18P11A/m17a0701.ssb": {
    "status": "PARTIAL_OPS",
@@ -2198,10 +2202,11 @@
    ]
   },
   "D19P11A/m18a0201.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "message_SwitchTalk "
-   ]
+   "status": "COMPILED",
+   "file": "d19p11a__m18a0201.lua",
+   "dialogues": 12,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D19P11A/m18a0301.ssb": {
    "status": "COMPILED",
@@ -2238,10 +2243,11 @@
    "gaps": null
   },
   "D20P11A/m18b0601.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "message_SwitchTalk "
-   ]
+   "status": "COMPILED",
+   "file": "d20p11a__m18b0601.lua",
+   "dialogues": 12,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D20P11A/m18b0701.ssb": {
    "status": "COMPILED",
@@ -2400,7 +2406,7 @@
   "D22P11A/m19a0301.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "message_SwitchTalk "
+    "$SCENARIO_MAIN = scn[20, 2]"
    ]
   },
   "D22P11A/m19a0401.ssb": {
@@ -2505,10 +2511,11 @@
    ]
   },
   "D23P11A/m19b0801.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "message_SwitchTalk "
-   ]
+   "status": "COMPILED",
+   "file": "d23p11a__m19b0801.lua",
+   "dialogues": 12,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D23P11A/m19b0901.ssb": {
    "status": "PARTIAL_OPS",
@@ -2574,7 +2581,7 @@
   "D24P11A/m20a0501.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "message_SwitchTalk "
+    "$SCENARIO_MAIN = scn[21, 2]"
    ]
   },
   "D24P11A/m20a0601.ssb": {
@@ -2672,16 +2679,18 @@
    "gaps": null
   },
   "D25P11A/m23a0401.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "message_SwitchTalk "
-   ]
+   "status": "COMPILED",
+   "file": "d25p11a__m23a0401.lua",
+   "dialogues": 13,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D25P11A/m23a0403.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "message_SwitchTalk "
-   ]
+   "status": "COMPILED",
+   "file": "d25p11a__m23a0403.lua",
+   "dialogues": 12,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D25P11A/um2300.ssb": {
    "status": "COMPILED",
@@ -2905,7 +2914,7 @@
   "D27P11A/m24a0401.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "message_SwitchTalk "
+    "$SCENARIO_MAIN = scn[25, 2]"
    ]
   },
   "D27P11A/m24a0501.ssb": {
@@ -3310,8 +3319,7 @@
   "D29P11A/m25a0601.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[26, 3]",
-    "message_SwitchTalk "
+    "$SCENARIO_MAIN = scn[26, 3]"
    ]
   },
   "D29P11A/m25a0701.ssb": {
@@ -3536,10 +3544,11 @@
    "gaps": null
   },
   "D31P11A/s01p0501.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "message_SwitchTalk "
-   ]
+   "status": "COMPILED",
+   "file": "d31p11a__s01p0501.lua",
+   "dialogues": 15,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D31P11A/s01p0701.ssb": {
    "status": "COMPILED",
@@ -4004,10 +4013,11 @@
    ]
   },
   "D38P12A/s21p0701.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "message_SwitchTalk "
-   ]
+   "status": "COMPILED",
+   "file": "d38p12a__s21p0701.lua",
+   "dialogues": 15,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D38P12A/s21p0801.ssb": {
    "status": "PARTIAL_OPS",
@@ -4179,8 +4189,7 @@
   "D39P41A/s22p0101.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "forever {\n        switch ",
-    "message_SwitchTalk "
+    "forever {\n        switch "
    ]
   },
   "D39P41A/s22p0204.ssb": {
@@ -6164,7 +6173,6 @@
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[29, 10]",
     "forever {\n        switch ",
-    "message_SwitchTalk ",
     "routine1:forever {\n        Turn2Direction"
    ]
   },
@@ -8447,9 +8455,15 @@
    ]
   },
   "G01P03A/m06a0203.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "message_SwitchTalk "
+   "status": "COMPILED",
+   "file": "g01p03a__m06a0203.lua",
+   "dialogues": 173,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(6417) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6661) — id SE NDS sans portage PMDO identifié",
+    "SetEffect 639 — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_NONE sur PNJ non résolu (v2 cast SSA)"
    ]
   },
   "G01P03A/m07a0501.ssb": {
@@ -14296,7 +14310,7 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "$SCENARIO_MAIN = scn[29, 79]",
-    "message_SwitchTalk "
+    "back_SetBackEffect"
    ]
   },
   "H01P99D/t01p0303.ssb": {
@@ -14503,9 +14517,12 @@
    ]
   },
   "H02P99A/s03p2004.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "message_SwitchTalk "
+   "status": "COMPILED",
+   "file": "h02p99a__s03p2004.lua",
+   "dialogues": 40,
+   "dual_screen_focus": true,
+   "gaps": [
+    "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "H02P99A/s11p0101.ssb": {
@@ -14580,7 +14597,7 @@
   "H02P99A/s31a3707.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "message_SwitchTalk "
+    "me_Play"
    ]
   },
   "H02P99A/um2200.ssb": {
@@ -14846,10 +14863,11 @@
    "gaps": null
   },
   "P01P01A/enter02.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "message_SwitchTalk "
-   ]
+   "status": "COMPILED",
+   "file": "p01p01a__enter02.lua",
+   "dialogues": 6,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P01P01A/enter03.ssb": {
    "status": "COMPILED",
@@ -14916,10 +14934,11 @@
    "gaps": null
   },
   "P01P01A/m00p0701.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "message_SwitchTalk "
-   ]
+   "status": "COMPILED",
+   "file": "p01p01a__m00p0701.lua",
+   "dialogues": 15,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P01P01A/m00p0801.ssb": {
    "status": "PARTIAL_OPS",
@@ -17872,8 +17891,7 @@
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
     "Move2PositionMark:0",
-    "forever {\n        message_SetFace",
-    "message_SwitchMonologue "
+    "forever {\n        message_SetFace"
    ]
   },
   "P05P03A/m26a06d3.ssb": {
@@ -17918,8 +17936,7 @@
   "P06P01A/m18a0401.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "$SCENARIO_MAIN = scn[19, 2]",
-    "message_SwitchTalk "
+    "$SCENARIO_MAIN = scn[19, 2]"
    ]
   },
   "P06P01A/m26a0614.ssb": {

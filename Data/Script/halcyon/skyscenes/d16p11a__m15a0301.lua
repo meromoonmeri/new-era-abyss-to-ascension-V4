@@ -22,13 +22,17 @@ return function(hero, partner)
   SkySceneKit.say({english="We'll find the path to [CS:N]Azelf[CR]'s\nlake this time!", french="On trouvera le chemin du lac\nde [CS:N]Créfadet[CR] cette fois-ci!", german="Diesmal finden wir den Weg zum\nSee von [CS:N]Tobutz[CR]!", italian="Sono sicuro che questa volta\ntroveremo il passaggio per il lago dove si\ntrova [CS:N]Azelf[CR].", spanish="¡Esta vez encontraremos\nel camino al lago de [CS:N]Azelf[CR]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="We'll find the path to [CS:N]Azelf[CR]'s\nlake this time!", french="On trouvera le chemin du lac\nde [CS:N]Créfadet[CR] cette fois-ci!", german="Diesmal finden wir den Weg zum\nSee von [CS:N]Tobutz[CR]!", italian="Sono sicuro che questa volta\nriusciremo a trovare il passaggio per il lago\ndove si trova [CS:N]Azelf[CR].", spanish="¡Esta vez encontraremos\nel camino al lago de [CS:N]Azelf[CR]!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="We'll find the way to [CS:N]Azelf[CR]'s\nlake this time!", french="On trouvera le chemin du lac\nde [CS:N]Créfadet[CR] cette fois-ci!", german="Diesmal finden wir den Weg zum\nSee von [CS:N]Tobutz[CR]!", italian="Sono sicura che questa volta\nriusciremo a trovare il passaggio per il lago\ndove si trova [CS:N]Azelf[CR].", spanish="¡Esta vez encontraremos\nel camino al lago de [CS:N]Azelf[CR]!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Let's give it our best,\n[hero]!", french="Surpassons-nous,\n[hero]!", german="Geben wir unser Bestes,\n[hero]!", italian=" Diamoci dentro, [hero]!", spanish="¡Tenemos que darlo todo,\n[hero]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Let's do our best,\n[hero]!", french="Surpassons-nous,\n[hero]!", german="Lass uns unser Bestes geben,\n[hero]!", italian="Facciamo del nostro meglio,\n[hero]!", spanish="¡Hagamos todo lo que podamos,\n[hero]!"})
   else
   SkySceneKit.say({english=" Let's try our best, [hero]!", french="Surpassons-nous,\n[hero]!", german="Strengen wir uns an,\n[hero]!", italian="Facciamo del nostro meglio,\n[hero]!", spanish="¡Debemos esforzarnos mucho,\n[hero]!"})
   end
+  -- message_Close
   GROUND:MoveToPosition(partner, 284, 76, false, 2)
   GAME:WaitFrames(10)
   GROUND:MoveToPosition(hero, 316, 76, false, 2)

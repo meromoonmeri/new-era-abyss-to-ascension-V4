@@ -24,21 +24,31 @@ return function(hero, partner)
   SkySceneKit.say({english="This is...[K]our world?[K]\nIn the future?", french="C'est...[K] notre monde?[K]\nDans le futur?", german="Ist das...[K] unsere Welt?[K]\nIn der Zukunft?", italian="Questo è...[K] il nostro mondo?[K]\nNel futuro?", spanish="Este es...[K] ¿nuestro mundo?[K]\n¿Así es en el futuro?"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="This is...[K]our world?[K]\nIn the future?", french="C'est...[K] notre monde?[K]\nDans le futur?", german="Ist das...[K] unsere Welt?[K]\nIn der Zukunft?", italian="Questo è...[K] il nostro mondo?[K]\nNel futuro?", spanish="Este es...[K] ¿nuestro mundo?[K]\n¿Así es en el futuro?"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="This is...[K]our world?[K]\nIn the future?", french="C'est...[K] notre monde?[K]\nDans le futur?", german="Ist das...[K] unsere Welt?[K]\nIn der Zukunft?", italian="Questo è...[K] il nostro mondo?[K]\nNel futuro?", spanish="Este es...[K] ¿nuestro mundo?[K]\n¿Así es en el futuro?"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Those boulders are floating![K]\nThis is really a strange place...", french="Ces pierres flottent\nlittéralement dans les airs![K] Décidément,\ncet endroit est très étrange...", german="Die Felsen schweben![K]\nDas ist wirklich ein merkwürdiger Ort...", italian="Quei massi stanno galleggiando![K]\nÈ davvero un posto strano...", spanish="¡Esas piedras están flotando![K]\nEste lugar es muy extraño."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Those boulders are floating![K]\nThis is really a strange place...", french="Ces pierres flottent\nlittéralement dans les airs![K] Décidément,\ncet endroit est très étrange...", german="Die Felsen schweben![K]\nDas ist wirklich ein merkwürdiger Ort...", italian="Quei massi stanno galleggiando![K]\nÈ davvero un posto strano...", spanish="¡Esas piedras están flotando![K]\nEste lugar es muy extraño."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="Those boulders are floating![K]\nThis is really a strange place...", french="Ces pierres flottent\nlittéralement dans les airs![K] Décidément,\ncet endroit est très étrange...", german="Die Felsen schweben![K]\nDas ist wirklich ein merkwürdiger Ort...", italian="Quei massi stanno galleggiando![K]\nÈ davvero un posto strano...", spanish="¡Esas piedras están flotando![K]\nEste lugar es muy extraño."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" And it's horribly dark...", french=" Et il fait horriblement sombre...", german=" Und es ist schrecklich dunkel.", italian=" Ed è terribilmente buio...", spanish=" Y está horriblemente oscuro."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" And it's horribly dark...", french=" Et il fait horriblement sombre...", german=" Und es ist schrecklich dunkel.", italian=" Ed è terribilmente buio...", spanish=" Y está horriblemente oscuro."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" And it's horribly dark...", french=" Et il fait horriblement sombre...", german=" Und es ist schrecklich dunkel.", italian=" Ed è terribilmente buio...", spanish=" Y está horriblemente oscuro."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Not even the wind blows...", french=" Pas même un courant d'air...", german=" Es weht nicht einmal der Wind.", italian="Non c'è nemmeno un filo di\nvento...", spanish=" Ni siquiera sopla el viento..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Not even the wind blows...", french=" Pas même un courant d'air...", german=" Es weht nicht einmal der Wind.", italian="Non c'è nemmeno un filo di\nvento...", spanish=" Ni siquiera sopla el viento..."})
   else
   SkySceneKit.say({english=" Not even the wind blows...", french=" Pas même un courant d'air...", german=" Es weht nicht einmal der Wind.", italian="Non c'è nemmeno un filo di\nvento...", spanish=" Ni siquiera sopla el viento..."})
   end
+  -- message_Close
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   GAME:FadeOut(false, 30)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]

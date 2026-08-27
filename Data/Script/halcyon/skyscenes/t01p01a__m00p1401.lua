@@ -50,6 +50,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Hey, what's going on over here?", french=" Salut! Que se passe-t-il ici?", german=" Hey, was ist denn hier los?", italian=" Ehi, cosa succede qui?", spanish=" Oye, ¿qué hacéis aquí?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_ringuma) end)
   SkySceneKit.say({english="We went to [CS:P]Luminous Spring[CR]\nrecently.", french="On s'est rendus à la\n[CS:P]Source Lumineuse[CR] récemment.", german="Wir haben uns neulich zur\n[CS:P]Glitzerquelle[CR] begeben.", italian="Poco tempo fa siamo andati\nalla [CS:P]Sorgente Luccichio[CR].", spanish="Fuimos hace poco al\n[CS:P]Manantial Luminoso[CR]."})
   pcall(function() UI:SetSpeaker(npc_npc_ringuma) end)
@@ -90,6 +91,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" But?", french=" Mais?", german=" Aber?", italian=" Ma?", spanish=" ¿Pero?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_ringuma) end)
   SkySceneKit.say({english="Something about the place feels\ndifferent...[K]from the last time we went...", french="Il y a quelque chose de différent\nlà-bas...[K] par rapport à la dernière fois\nqu'on y est allés...", german="Etwas an diesem Ort fühlte sich\nanders an...[K] Im Vergleich zum letzten Mal, als\nwir dort waren...", italian="Rispetto all'ultima volta che\nsiamo stati in quel posto...[K] è cambiato\nqualcosa...", spanish="Noto algo diferente en ese\nlugar...[K] desde la última vez que fuimos..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
@@ -104,6 +106,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Different...?", french=" Quelque chose de différent...?", german=" Anders?", italian=" Cambiato qualcosa...?", spanish=" ¿Diferente...?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_ringuma) end)
   SkySceneKit.say({english=" Yeah.", french=" Ouais.", german=" Genau!", italian=" Sì.", spanish=" Sí, sí."})
   pcall(function() UI:SetSpeaker(npc_npc_ringuma) end)
@@ -147,6 +150,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Really? [K]We can evolve now?", french="Vraiment? [K]Tu penses qu'on peut\névoluer, maintenant? Mais c'est génial!", german="Wirklich? [K]\nWir können uns jetzt entwickeln?", italian="Dici sul serio? [K]Ora possiamo\nevolverci?", spanish="¿De verdad?[K] ¿Ahora\npodríamos evolucionar?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Sweatdrop") end)
   pcall(function() GROUND:CharSetEmote(npc_npc_ringuma, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect

@@ -16,5 +16,6 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="The beach isn't that way,\n[hero].", french="Ce n'est pas la direction de la\nplage, [hero].", german="Zum Strand geht es nicht dort\nlang, [hero].", italian="La spiaggia non è da quella\nparte, [hero].", spanish="La playa no está por ahí,\n[hero]."})
   end
+  -- message_Close
   -- supervision_Suspend(-2) [neutre/état moteur]
 end

@@ -29,13 +29,17 @@ return function(hero, partner)
   SkySceneKit.say({english="Hurry! We have to go to the\n[CS:P]Hidden Land[CR]!", french=" Vite! Aux [CS:P]Terres Illusoires[CR]!", german="Beeilung! Wir müssen zum\n[CS:P]Verborgenen Land[CR] gehen!", italian="Presto! Dobbiamo andare alla\n[CS:P]Terra Nascosta[CR]!", spanish="¡Rápido! ¡Tenemos que ir a\nla [CS:P]Tierra Oculta[CR]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Hurry! We have to go to the\n[CS:P]Hidden Land[CR]!", french=" Vite! Aux [CS:P]Terres Illusoires[CR]!", german="Beeilung! Wir müssen zum\n[CS:P]Verborgenen Land[CR] gehen!", italian="Presto! Dobbiamo andare alla\n[CS:P]Terra Nascosta[CR]!", spanish="¡Rápido! ¡Tenemos que ir a\nla [CS:P]Tierra Oculta[CR]!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="Hurry! We have to go to the\n[CS:P]Hidden Land[CR]!", french=" Vite! Aux [CS:P]Terres Illusoires[CR]!", german="Beeilung! Wir müssen zum\n[CS:P]Verborgenen Land[CR] gehen!", italian="Presto! Dobbiamo andare alla\n[CS:P]Terra Nascosta[CR]!", spanish="¡Rápido! ¡Tenemos que ir a\nla [CS:P]Tierra Oculta[CR]!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Let's move when you're ready,\n[hero]!", french="On se met en route quand tu\nveux, [hero]!", german="Lass uns losgehen, wenn du\nbereit bist, [hero]!", italian="Quando tutto è pronto\nci muoviamo, [hero]!", spanish="¡Avanzaremos cuando tú digas,\n[hero]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Let's go when you're ready,\n[hero]!", french="On se met en route quand tu\nveux, [hero]!", german="Lass uns losgehen, wenn du\nbereit bist, [hero]!", italian="Quando tutto è pronto andiamo,\n[hero]!", spanish="¡Avanzaremos cuando tú digas,\n[hero]!"})
   else
   SkySceneKit.say({english="Let's go when you're ready,\n[hero]!", french="On se met en route quand tu\nveux, [hero]!", german="Lass uns losgehen, wenn du\nbereit bist, [hero]!", italian="Quando tutto è pronto andiamo,\n[hero]!", spanish="¡Avanzaremos cuando tú digas,\n[hero]!"})
   end
+  -- message_Close
   end
   end
   SkySceneKit.cleanup_npcs()

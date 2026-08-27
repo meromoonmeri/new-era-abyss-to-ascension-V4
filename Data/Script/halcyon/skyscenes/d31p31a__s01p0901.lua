@@ -79,6 +79,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Whew...", french=" Pfiou...", german=" Puh...", italian=" Fiuuu...", spanish=" Uf..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
@@ -86,13 +87,17 @@ return function(hero, partner)
   SkySceneKit.say({english="So, uh, what was that\nall about...?", french=" Hein? Qu'est-ce qui leur a pris?", german="So, äh, und was sollte das\nGanze jetzt?", italian="Quindi, ehm, cos'è appena\nsuccesso...?", spanish=" ¿De qué iba todo esto?"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="What was that all about,\nI wonder...?", french=" Hein? Qu'est-ce qui leur a pris?", german="Was das wohl alles zu bedeuten\nhatte, möchte ich wissen...", italian="Quindi, ehm, cos'è appena\nsuccesso...?", spanish=" ¿De qué iba todo esto?"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="So, uh, what was that\nall about...?", french=" Hein? Qu'est-ce qui leur a pris?", german="So, äh, und was sollte das\nGanze jetzt?", italian="Quindi, ehm, cos'è appena\nsuccesso...?", spanish=" ¿De qué iba todo esto?"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" I guess we did all right.", french=" Je crois que nous avons réussi.", german="Ich denke, wir haben uns gut\ngeschlagen.", italian="Direi che ce la siamo cavata\nbene.", spanish=" Creo que ya está hecho."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Well, I guess we're done here.", french=" Je crois que nous avons réussi.", german="Nun, ich glaube, hier sind wir\nfertig.", italian="Direi che ce la siamo cavata\nbene.", spanish=" Creo que ya está hecho."})
   else
   SkySceneKit.say({english=" I guess it's all right.", french=" Je crois que nous avons réussi.", german=" Ich denke, das wäre erledigt.", italian="Direi che ce la siamo cavata\nbene.", spanish=" Creo que ya hemos terminado."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(partner, Direction.Up)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(60)
@@ -106,6 +111,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="We should move on...[K] Let's go to\n[CS:P]Luminous Spring[CR].", french="Avançons...[K] Allons à la\n[CS:P]Source Lumineuse[CR].", german="Wir sollten weiterziehen...[K]\nLass uns zur [CS:P]Glitzerquelle[CR] gehen.", italian="Proseguiamo...[K] Andiamo alla\n[CS:P]Sorgente Luccichio[CR].", spanish="Continuemos...[K] Vayamos al\n[CS:P]Manantial Luminoso[CR]."})
   end
+  -- message_Close
   GROUND:MoveToPosition(partner, 192, 164, false, 2)
   GROUND:MoveToPosition(hero, 264, 164, false, 2)
   GAME:WaitFrames(30)

@@ -33,6 +33,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="You're mistaken! We didn't come\nhere to steal the Time Gear!", french="C'est un malentendu! On n'est pas\nlà pour voler le Rouage du Temps!", german="Du verstehst das falsch! Wir\nsind nicht hier, um das Zahnrad der Zeit zu\nstehlen!", italian="Ti sbagli! Non siamo qui\nper rubare l'Ingranaggio del Tempo!", spanish="¡Te equivocas! ¡No hemos venido\na robar el Engranaje del Tiempo!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_emuritto) end)
   SkySceneKit.say({english="You say that...[K] But you can't be\ntrusted!", french="C'est ce que vous dites...[K]\nMais vous n'êtes pas dignes de confiance!", german="Das sagst du...[K]\nAber ich traue dir nicht!", italian="Come osate...[K] prendervi gioco\ndi me!", spanish="Eso decís...[K] ¡pero no puedo\nfiarme de vuestras intenciones!"})
   pcall(function() UI:SetSpeaker(npc_npc_emuritto) end)

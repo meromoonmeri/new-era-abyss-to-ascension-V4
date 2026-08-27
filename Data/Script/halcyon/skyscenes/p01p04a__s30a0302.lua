@@ -32,6 +32,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Wow, there's a crowd.", french=" Oh, une foule s'est rassemblée.", german=" Wow, ganz schön viel los.", italian=" Wow, che folla.", spanish=" Vaya, qué gentío."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GAME:MoveCamera(348, 220, 60, false) end) -- performer/caméra
   GAME:WaitFrames(7)
   GROUND:MoveToPosition(hero, 368, 232, false, 2)

@@ -18,6 +18,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="So let's go for it! Let's jump into\nthat quicksand pit, [hero]!", french="Alors on fonce! Sautons les yeux\nfermés dans les sables mouvants,\n[hero]!", german="Also, lass es uns tun! Lass uns\nin den Treibsandstrudel springen, [hero]!", italian="Andiamo! Tuffiamoci nelle\nsabbie mobili, [hero]!", spanish="Entonces, adelante... ¡Saltemos\na esas arenas movedizas, [hero]!"})
   end
+  -- message_Close
   GAME:WaitFrames(30)
   GROUND:EntTurn(partner, Direction.Up)
   GROUND:EntTurn(hero, Direction.Up)

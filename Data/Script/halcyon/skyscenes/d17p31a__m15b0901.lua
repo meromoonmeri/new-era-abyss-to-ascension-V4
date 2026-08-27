@@ -36,6 +36,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Oh!", french=" Eh!", german=" Oh!", italian=" Oh!", spanish=" ¡Hala!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(hero, Direction.Left)
   pcall(function() local g=GAME:GetCurrentGround(); GAME:MoveCamera(g.ViewCenter.X+(-40), g.ViewCenter.Y+(0), 40, false) end) -- MovePositionOffset performer/caméra
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(-64), p.Y+(0), false, 2) end
@@ -65,5 +66,6 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Look, [hero]!\nIt's the lake!", french="Regarde, [hero]! Voilà\nle lac!", german="Sieh mal, [hero]! Da ist\nder See!", italian=" Guarda, [hero]! Il lago!", spanish="¡Mira, [hero]!\n¡Es el lago!"})
   end
+  -- message_Close
   GAME:FadeOut(false, 30)
 end

@@ -29,6 +29,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Yes.[K] It's awfully disappointing\nthat we couldn't bring the gem back...", french="C'est ça.[K] Et nous n'avons pas\npu rapporter la gemme avec nous.\nC'est vraiment décevant!", german="Ja.[K] Dass wir den Edelstein nicht\nmitnehmen konnten, ist wirklich schade.", italian="Sì.[K] Purtroppo, però,\nabbiamo dovuto lasciare la gemma là.", spanish="Sí.[K] Pero es una auténtica pena\nque no hayamos podido traer la gema."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- GAP: se_Play(5122) — id SE NDS sans portage PMDO identifié
   -- SetAnimation(42) [anim idle native]
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
@@ -52,6 +53,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" R-really?!", french=" Vraiment?!", german=" W-wirklich?!?", italian=" D-Davvero?!", spanish=" ¿De... de verdad?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetAnimation(44) [anim idle native]
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english=" Undoubtedly! ♪", french=" Indubitablement! ♪", german=" Zweifellos! ♪", italian=" Senza dubbio! ♪", spanish=" ¡Sin duda alguna! ♪"})
@@ -71,6 +73,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Oh, I see! We made a discovery!", french="Oh, je vois! Nous avons fait\nune découverte!", german="Oh, verstehe! Wir haben eine\nEntdeckung gemacht!", italian="Oh, capisco! Abbiamo fatto una\nscoperta!", spanish="¡Ah, ya lo entiendo!\n¡Hemos hecho un descubrimiento!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharSetEmote(partner, "happy", 1) end)
   pcall(function() GROUND:CharSetEmote(npc_npc_perappu, "happy", 1) end)
   GAME:WaitFrames(10)
@@ -78,13 +81,17 @@ return function(hero, partner)
   pcall(function() SOUND:FadeOutBGM(120) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(60)
-  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(When I had those dizzy spells...)", french="(Quand j'ai eu ces vertiges...)", german="(Als ich diese Schwindelanfälle hatte...)", italian="(Quando ho avuto quei capogiri...)", spanish="(Cuando tuve esos mareos...)"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  else
+  SkySceneKit.say({english="(When I had those dizzy spells...)", french="(Quand j'ai eu ces vertiges...)", german="(Als ich diese Schwindelanfälle hatte...)", italian="(Quando ho avuto quei capogiri...)", spanish="(Cuando tuve esos mareos...)"})
+  end
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(The shadow of that Pokémon I saw...)", french="(... l'ombre du Pokémon que j'ai vu...)", german="(Da sah ich den Schatten eines Pokémon.)", italian="(L'ombra del Pokémon che ho visto...)", spanish="(La sombra de ese Pokémon que vi...)"})
   else
   SkySceneKit.say({english="(The shadow of that Pokémon I saw...)", french="(... l'ombre du Pokémon que j'ai vu...)", german="(Da sah ich den Schatten eines Pokémon.)", italian="(L'ombra del Pokémon che ho visto...)", spanish="(La sombra de ese Pokémon que vi...)"})
   end
+  -- message_Close
   GAME:FadeOut(false, 30)
   SkySceneKit.cleanup_npcs()
 end

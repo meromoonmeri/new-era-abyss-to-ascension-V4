@@ -18,13 +18,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" It's not far now, [hero].", french="Ce n'est plus très loin,\n[hero].", german="Es ist nicht mehr weit,\n[hero].", italian="Non manca più molto,\n[hero].", spanish="Enseguida llegaremos,\n[hero]."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="We're nearly there,\n[hero].", french="Ce n'est plus très loin,\n[hero].", german=" Wir sind fast da, [hero].", italian=" Ci siamo quasi, [hero].", spanish=" Ya casi estamos, [hero]."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="We're getting close,\n[hero].", french="Ce n'est plus très loin,\n[hero].", german="Wir kommen näher,\n[hero].", italian="Ci stiamo avvicinando,\n[hero].", spanish="Nos estamos acercando,\n[hero]."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" There's no turning back now.", french="Plus question de rebrousser\nchemin.", german=" Jetzt gibt es kein Zurück mehr.", italian=" Dobbiamo mettercela tutta.", spanish=" Ya no hay marcha atrás."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" There's no turning back now.", french="Plus question de rebrousser\nchemin.", german=" Jetzt gibt es kein Zurück mehr.", italian=" Dobbiamo mettercela tutta.", spanish=" Ya no hay marcha atrás."})
   else
   SkySceneKit.say({english=" There's no turning back now.", french="Plus question de rebrousser\nchemin.", german=" Jetzt gibt es kein Zurück mehr.", italian=" Dobbiamo mettercela tutta.", spanish=" Ya no hay marcha atrás."})
   end
+  -- message_Close
   GAME:WaitFrames(90)
   -- back_SetBackScrollSpeed(0,0): arrêt du défilement
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Startled") end)
@@ -40,6 +44,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Oh! Up there...", french=" Eh, regarde là-haut...", german=" Oh! Da oben...", italian=" Ehi! Lassù...", spanish=" Fíjate allí arriba."})
   end
+  -- message_Close
   -- back2_SetMode(4) [mode d'affichage sub NDS: géré par SubScreen]
   -- back2_SetGround(V25P02A) [décor sub chargé: Sub_v25p02a]
   -- camera2_SetPositionMark(Position<'m0', 20, 12.5>) [caméra sub NDS: nappe Sub_ cadrée fenêtre NDS, recadrage dynamique non simulé - documenté]
@@ -52,6 +57,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="The top of [CS:P]Temporal Tower[CR] is\nglowing red...[K] Why is that?", french="Il y a un halo rouge au sommet\nde la [CS:P]Tour du Temps[CR]...[K] Qu'est-ce que c'est?", german="Die Spitze des [CS:P]Zeitturms[CR]\nglüht rot...[K] Warum nur?", italian="La cima della [CS:P]Torre del Tempo[CR]\nemette una luce rossa...[K] Come mai?", spanish="La parte superior de la [CS:P]Torre[CR]\n[CS:P]del Tiempo[CR] tiene un extraño brillo rojizo...[K]\n¿Por qué será?"})
   end
+  -- message_Close
   SkySubScreen.Hide(15) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]
   GAME:WaitFrames(30)
@@ -64,6 +70,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Let's hurry!", french=" Dépêchons-nous!", german=" Beeilen wir uns!", italian=" Presto!", spanish=" ¡Adelante!"})
   end
+  -- message_Close
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(-120), p.Y+(-20), false, 2) end -- Move2PositionOffset
   do local p=hero.Position; GROUND:MoveToPosition(hero, p.X+(-120), p.Y+(-20), false, 2) end -- Move2PositionOffset
   GAME:WaitFrames(30)

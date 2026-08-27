@@ -35,6 +35,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Let's do our best on the\ngraduation exam, [hero]!", french="Il faut réussir cet examen,\n[hero]!", german="Geben wir unser Bestes für\ndie Abschlussprüfung, [hero]!", italian="Facciamo di tutto per superare\nl'esame, [hero]!", spanish="¡A por el gran reto,\n[hero]!"})
   end
+  -- message_Close
   GROUND:EntTurn(npc_npc_perappu, Direction.Down)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   SkySceneKit.cleanup_npcs()

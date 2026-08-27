@@ -13,6 +13,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Urggh...[K] That ended poorly...", french="Argh...[K] On a manqué notre\ncoup...", german="Urks...[K] Das ist schlecht\nausgegangen...", italian=" Urggh...[K] È andata male...", spanish=" Uf...[K] No ha acabado nada bien..."})
   end
+  -- message_KeyWait
   GAME:FadeOut(false,  60)
   -- message_CloseEnforce
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())
@@ -40,30 +41,39 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Urk![K] This is difficult...", french="Argh![K] Ça commence\nà se corser...", german=" Uff![K] Sehr schwierig...", italian=" Uh![K] È difficile...", spanish="Está resultando duro...[K] Más de\nlo que pensaba..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(partner, Direction.Up)
   GAME:WaitFrames(60)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="But we have to keep struggling\nto the very end...", french="... mais nous devons faire\nfront... jusqu'au bout...", german="Aber wir müssen bis zum\nbitteren Ende kämpfen...", italian="Ma dobbiamo mettercela tutta\nfino alla fine.", spanish="Pero tenemos que luchar hasta\nel final..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="But we have no choice. We have\nto keep struggling to the end.", french="... mais nous devons faire\nfront... jusqu'au bout...", german="Aber uns bleibt keine Wahl. Wir\nmüssen bis zum Ende kämpfen.", italian="Ma dobbiamo mettercela tutta\nfino alla fine.", spanish="Pero no tenemos elección. Hay\nque luchar hasta el final."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="But we have no other choice.\nWe have to keep struggling to the end.", french="... mais nous devons faire\nfront... jusqu'au bout...", german="Aber uns bleibt keine andere\nWahl. Wir müssen bis zum Ende kämpfen.", italian="Ma dobbiamo mettercela tutta\nfino alla fine.", spanish="Pero no tenemos elección. Hay\nque luchar hasta el final."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="We have to force [CS:N]Palkia[CR] to tell\nus what we need to know!", french="De gré ou de force, il faut que\n[CS:N]Palkia[CR] nous dise ce qu'on veut savoir!", german="Wir müssen [CS:N]Palkia[CR] zwingen,\nuns zu sagen, was wir wissen müssen!", italian="Dobbiamo costringere [CS:N]Palkia[CR] a\nrivelarci ciò che abbiamo bisogno di sapere!", spanish="¡Hay que obligar a [CS:N]Palkia[CR]\na contarnos lo que necesitamos saber!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="We have to force [CS:N]Palkia[CR] to tell\nus what we need to know!", french="De gré ou de force, il faut que\n[CS:N]Palkia[CR] nous dise ce qu'on veut savoir!", german="Wir müssen [CS:N]Palkia[CR] zwingen,\nuns zu sagen, was wir wissen müssen!", italian="Dobbiamo costringere [CS:N]Palkia[CR] a\nrivelarci ciò che abbiamo bisogno di sapere!", spanish="¡Hay que obligar a [CS:N]Palkia[CR]\na contarnos lo que necesitamos saber!"})
   else
   SkySceneKit.say({english="We have to force [CS:N]Palkia[CR] to tell\nus what we need to know!", french="De gré ou de force, il faut que\n[CS:N]Palkia[CR] nous dise ce qu'on veut savoir!", german="Wir müssen [CS:N]Palkia[CR] zwingen,\nuns zu sagen, was wir wissen müssen!", italian="Dobbiamo costringere [CS:N]Palkia[CR] a\nrivelarci ciò che abbiamo bisogno di sapere!", spanish="¡Hay que obligar a [CS:N]Palkia[CR]\na contarnos lo que necesitamos saber!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="We really have to find a way\nout of here!", french="Il faut qu'on trouve la sortie!\nCoûte que coûte!", german="Wir müssen wirklich einen Weg\nhier heraus finden!", italian="Dobbiamo davvero trovare un\nmodo per uscire da qui!", spanish=" ¡Hay que encontrar la salida!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="We really have to find a way\nout of here!", french="Il faut qu'on trouve la sortie!\nCoûte que coûte!", german="Wir müssen wirklich einen Weg\nhier heraus finden!", italian="Dobbiamo davvero trovare un\nmodo per uscire da qui!", spanish=" ¡Hay que encontrar la salida!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="We really have to find a way\nout of here!", french="Il faut qu'on trouve la sortie!\nCoûte que coûte!", german="Wir müssen wirklich einen Weg\nhier heraus finden!", italian="Dobbiamo davvero trovare un\nmodo per uscire da qui!", spanish=" ¡Hay que encontrar la salida!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Let's roll, [hero]!", french=" En route, [hero]!", german=" Legen wir los, [hero]!", italian=" Andiamo, [hero]!", spanish=" ¡Vamos allá, [hero]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Let's go, [hero]!", french=" En route, [hero]!", german=" Legen wir los, [hero]!", italian=" Andiamo, [hero]!", spanish=" ¡Vamos allá, [hero]!"})
   else
   SkySceneKit.say({english=" Let's go, [hero]!", french=" En route, [hero]!", german=" Legen wir los, [hero]!", italian=" Andiamo, [hero]!", spanish=" ¡Vamos allá, [hero]!"})
   end
+  -- message_Close
 end

@@ -17,6 +17,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="We won't let you do that![K]\n[CS:N]Drowzee[CR], you bully!", french="On ne te laissera pas t'en sortir\ncomme ça![K] [CS:N]Soporifik[CR], tu n'es qu'un monstre!", german="Das lassen wir nicht zu![K]\n[CS:N]Traumato[CR], du Bösewicht!", italian="Non te lo permetteremo![K]\n[CS:N]Drowzee[CR], brutto scellerato!", spanish="¡No te permitiremos que le\nobligues a hacer eso![K]\n[CS:N]Drowzee[CR], ¡eres un abusón!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   local npc_npc_suriipu = SkySceneKit.spawn_npc("drowzee", 352, 272, Direction.Down, "NPC_SURIIPU")
   pcall(function() GROUND:CharSetEmote(npc_npc_suriipu, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect

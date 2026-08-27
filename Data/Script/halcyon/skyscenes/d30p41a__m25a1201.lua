@@ -53,17 +53,27 @@ return function(hero, partner)
   -- camera_SetEffect(0): arrêt d'effet caméra
   -- SetAnimation(2) [anim idle native]
   GAME:WaitFrames(15)
-  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="([CS:N]Dialga[CR]'s taken on more darkness!)", french="(L'ombre s'empare de [CS:N]Dialga[CR]!)", german="(Die Dunkelheit hat noch mehr von [CS:N]Dialga[CR]\nBesitz ergriffen!)", italian="([CS:N]Dialga[CR] sta diventando più tenebroso!)", spanish="(¡La oscuridad ha afectado aún más a [CS:N]Dialga[CR]!)"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  else
+  SkySceneKit.say({english="([CS:N]Dialga[CR]'s taken on more darkness!)", french="(L'ombre s'empare de [CS:N]Dialga[CR]!)", german="(Die Dunkelheit hat noch mehr von [CS:N]Dialga[CR]\nBesitz ergriffen!)", italian="([CS:N]Dialga[CR] sta diventando più tenebroso!)", spanish="(¡La oscuridad ha afectado aún más a [CS:N]Dialga[CR]!)"})
+  end
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(That darkness will soon consume him!)", french="(Elle va bientôt l'engloutir!)", german="(Die Dunkelheit wird es bald verzehren!)", italian="(L'oscurità lo consumerà presto!)", spanish="(¡Pronto se adueñará de él!)"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  else
+  SkySceneKit.say({english="(That darkness will soon consume him!)", french="(Elle va bientôt l'engloutir!)", german="(Die Dunkelheit wird es bald verzehren!)", italian="(L'oscurità lo consumerà presto!)", spanish="(¡Pronto se adueñará de él!)"})
+  end
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(We have to stop it!)", french="(Il faut arrêter ça!)", german="(Wir müssen das verhindern!)", italian="(Dobbiamo fermarlo!)", spanish="(¡Tenemos que detener esto!)"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  else
+  SkySceneKit.say({english="(We have to stop it!)", french="(Il faut arrêter ça!)", german="(Wir müssen das verhindern!)", italian="(Dobbiamo fermarlo!)", spanish="(¡Tenemos que detener esto!)"})
+  end
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(For the world![K] For the future!)", french="(Pour la planète![K] Pour le futur!)", german="(Für die Welt![K] Für die Zukunft!)", italian="(Per il mondo![K] Per il futuro!)", spanish="(¡Por el mundo![K] ¡Por el futuro!)"})
   else
   SkySceneKit.say({english="(For the world![K] For the future!)", french="(Pour la planète![K] Pour le futur!)", german="(Für die Welt![K] Für die Zukunft!)", italian="(Per il mondo![K] Per il futuro!)", spanish="(¡Por el mundo![K] ¡Por el futuro!)"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Exclaim_Surprised") end)
   pcall(function() GROUND:CharSetEmote(partner, "exclaim", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
@@ -75,6 +85,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" H-here he comes, [hero]!", french="Il... il commence à se fâcher,\n[hero]!", german="E-es greift gleich an,\n[hero]!", italian="S-Si sta avvicinando,\n[hero]!", spanish=" ¡Aquí viene, [hero]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetAnimation(18) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   pcall(function() GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 2, 30)) end) -- camera_SetEffect('2', '1', '1', '0')

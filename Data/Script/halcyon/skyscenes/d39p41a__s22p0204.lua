@@ -33,6 +33,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Waaaaah!", french=" Ouaaah!", german=" Uaaaaah!", italian=" Aaaaaah!", spanish=" ¡Aaaaah!"})
   end
+  GAME:WaitFrames(2) -- join WaitExecuteLives
   -- SetAnimation(2) [anim idle native]
   -- SetAnimation(2) [anim idle native]
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -135,6 +136,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="The [CS:N]Cresselia[CR] we knew up to\nnow...[K]was just a fake?!", french="La [CS:N]Cresselia[CR] que nous avons\nconnue jusque-là...[K] n'était qu'une imposture?!", german="Die [CS:N]Cresselia[CR], die wir bis jetzt\nkannten...[K] Das war nur eine Fälschung?!?", italian="La [CS:N]Cresselia[CR] che abbiamo\nincontrato finora...[K] era finta?!", spanish="La [CS:N]Cresselia[CR] con la que hemos\ntratado hasta ahora...[K] ¿era una impostora?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(npc_npc_parukia, Direction.Left)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_FacePositionOffset(-1, 0) [neutre/état moteur]
@@ -165,6 +167,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Wh-what, us?", french=" Q-qui, nous?", german=" W-was, wir?", italian=" C-Chi, noi?", spanish=" ¿Qui... quién, nosotros? "})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_daakurai) end)
   SkySceneKit.say({english=" Correct.[K] Pay close attention.", french=" Exact.[K] Faites bien attention.", german=" Korrekt.[K] Passt gut auf.", italian=" Esatto.[K] Fate molta attenzione.", spanish=" Quién si no.[K] Prestad atención."})
   pcall(function() UI:SetSpeaker(npc_npc_daakurai) end)
@@ -185,6 +188,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" What?![K] What did you say?!", french=" Hein?![K] Tu peux répéter?!", german="Was?!?[K] W-was hast du\ngesagt?!?", italian=" Come?![K] Cosa hai detto?!", spanish=" ¡¿Eh?![K] ¡¿Qué has dicho?!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_daakurai) end)
   SkySceneKit.say({english="You are more than welcome to\ntry and stop me.", french="Tentez donc de m'arrêter, si\nvous en avez le pouvoir.", german="Ihr seid herzlich dazu\neingeladen zu versuchen, mich aufzuhalten.", italian="Potete benissimo provare\na fermarmi.", spanish="Ahora intentad detenerme si\npodéis."})
   pcall(function() UI:SetSpeaker(npc_npc_daakurai) end)
@@ -224,6 +228,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" [CS:N]D-Darkrai[CR] vanished?!", french=" [CS:N]D-Darkrai[CR] a disparu?!", german=" [CS:N]D-Darkrai[CR] ist verschwunden?!?", italian=" [CS:N]D-Darkrai[CR] è scomparso?!", spanish=" [CS:N]Darkrai[CR]... ¿Se ha esfumado?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:ResetSpeaker() end)
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english=" You cannot catch me, [CS:N]Cresselia[CR]...", french="Tu ne peux m'attraper,\n[CS:N]Cresselia[CR].", german="Du fängst mich nicht,\n[CS:N]Cresselia[CR]...", italian=" Non puoi prendermi, [CS:N]Cresselia[CR].", spanish="[CS:N]Cresselia[CR], nunca lograrás\natraparme..."})
@@ -246,6 +251,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" ...[K][CS:P]Dark[CR]...[K] [CS:P]Crater[CR]...", french=" ...[K] Le [CS:P]Cratère[CR]...[K] [CS:P]Obscur[CR]...", german=" ...[K][CS:P]Dunkelkrater[CR]...", italian=" ...[K] [CS:P]Cratere[CR]...[K] [CS:P]Oscuro[CR]...", spanish=" En el...[K] [CS:P]Cráter[CR]...[K] [CS:P]Oscuro[CR]..."})
   end
+  -- message_Close
   GAME:FadeOut(false, 90)
   GAME:WaitFrames(30)
   SV.SkyScenarioBitFlags = SV.SkyScenarioBitFlags or {}; SV.SkyScenarioBitFlags[8] = 1 -- $SCENARIO_MAIN_BIT_FLAG[8] = 1 (ROM)

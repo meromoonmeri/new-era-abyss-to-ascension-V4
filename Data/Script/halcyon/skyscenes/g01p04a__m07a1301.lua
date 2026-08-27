@@ -156,6 +156,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" I'm so hungry, [hero]...", french="J'ai tellement faim,\n[hero]...", german="Ich habe solchen Hunger,\n[hero]...", italian=" Ho tanta fame, [hero]...", spanish="Estoy tan hambrienta,\n[hero]..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(npc_npc_perappu, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_FacePositionOffset(0, -1) [neutre/état moteur]
@@ -192,6 +193,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Huh?! Wh-why?!", french=" Hein?! Pourquoi?!", german=" Häh?!? W-warum?!?", italian=" Eh?! P-Perché?!", spanish=" ¡¿Qué?! ¡¿Por qué?!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english="Your failure yesterday\nweighs heavily.", french="Votre échec d'hier va peser\nlourd dans la balance.", german="Euer gestriges Versagen wiegt\nschwer.", italian="Quello che è successo ieri ha un\npeso determinante.", spanish="El fracaso de ayer sin duda\ntendrá un gran peso en la decisión final."})
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
@@ -224,6 +226,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="I was already weak\nfrom hunger...", french="J'étais déjà affaiblie par\nla faim...", german="Ich war schon ganz schwach\nvor Hunger.", italian=" Ero già debole per la fame...", spanish="Ya me sentía muy débil\npor el hambre..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
@@ -234,6 +237,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="And then to be told something\nlike that... There's no way I can get\nmotivated now...", french="Et maintenant, après avoir\nentendu ça... je ne suis plus du tout motivée...", german="Und dann so etwas zu erfahren...\nJetzt kann ich mich gar nicht mehr motivieren.", italian="... e poi mi dicono questa cosa...\nAdesso sarà veramente difficile trovare le\nmotivazioni...", spanish="Y, ahora, que me digan algo así...\nHe perdido toda la motivación."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- message_ResetActor() [neutre/état moteur]
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english=" Psst! Listen up!", french=" Psst! Ecoutez!", german=" Psst! Hört mal!", italian=" Psst! Ehi!", spanish=" ¡Pss! Escuchad..."})
@@ -249,6 +253,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Huh? I heard a voice\nsomewhere...", french=" Hein? J'entends des voix?", german="Huch? Ich habe eine Stimme\ngehört...", italian="Eh? Ho sentito una voce da\nqualche parte...", spanish="¿Eh? Me ha parecido oír una\nvoz..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- ExecuteCommon(CORO_LOOK_AROUND_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(12)
   -- ExecuteCommon(CORO_LOOK_AROUND_LEFT_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
@@ -278,6 +283,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Hi! [CS:N]Bidoof[CR]!", french=" Hé! [CS:N]Keunotor[CR]!", german=" Hallo, [CS:N]Bidiza[CR]!", italian=" Ehi! [CS:N]Bidoof[CR]!", spanish=" ¡Hola! ¡[CS:N]Bidoof[CR]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Sweatdrop") end)
   pcall(function() GROUND:CharSetEmote(npc_npc_bippa, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect

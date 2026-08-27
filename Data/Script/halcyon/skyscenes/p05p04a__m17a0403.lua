@@ -14,13 +14,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" It's as if...[K]all movement...", french=" Comme si...[K] tout mouvement...", german=" Es ist, als ob...[K] alle Bewegung...", italian="È come se...[K] tutti\ni movimenti...", spanish="Es como si...[K] todo\nel movimiento..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" It's as if...[K]all movement...", french=" Comme si...[K] tout mouvement...", german=" Es ist, als ob...[K] alle Bewegung...", italian="È come se...[K] tutti\ni movimenti...", spanish="Es como si...[K] todo\nel movimiento..."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" It's as if...[K]all movement...", french=" Comme si...[K] tout mouvement...", german=" Es ist, als ob...[K] alle Bewegung...", italian="È come se...[K] tutti\ni movimenti...", spanish="Es como si...[K] todo\nel movimiento..."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" It's as if everything's stopped.", french=" Comme si tout s'était arrêté.", german=" Es ist, als sei alles erstarrt.", italian=" È come se tutto fosse immobile.", spanish="Como si todo se hubiera\ndetenido."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" It's as if everything's stopped.", french=" Comme si tout s'était arrêté.", german=" Es ist, als sei alles erstarrt.", italian=" È come se tutto fosse immobile.", spanish="Como si todo se hubiera\ndetenido."})
   else
   SkySceneKit.say({english=" It's as if everything's stopped.", french=" Comme si tout s'était arrêté.", german=" Es ist, als sei alles erstarrt.", italian=" È come se tutto fosse immobile.", spanish="Como si todo se hubiera\ndetenido."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   local npc_npc_juputoru = SkySceneKit.spawn_npc("grovyle", 272, 176, Direction.UpRight, "NPC_JUPUTORU")
   GROUND:EntTurn(npc_npc_juputoru, Direction.Left)
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -43,6 +47,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Pardon?!", french=" Pardon?!", german=" Wie?!?", italian=" Scusa?!", spanish=" ¡¿Qué?!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:ResetSpeaker() end)
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english=" Wheh-heh-heh!", french=" Whé hé hé!", german=" Wähähäh!", italian=" Meh-eh-eh-eh!", spanish=" ¡Je, je, je, je!"})
@@ -64,6 +69,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Wah! I hear those [CS:N]Sableye[CR]!", french="Ouah! Les [CS:N]Ténéfix[CR]!\nJe les entends d'ici!", german=" Wah! Ich höre die [CS:N]Zobiris[CR]!", italian=" Aah! Sento quei [CS:N]Sableye[CR]!", spanish="¡Aah! ¡Oigo venir a esos\n[CS:N]Sableye[CR]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english=" We have to keep running!", french=" Il faut qu'on continue à courir!", german=" Wir müssen weiterlaufen!", italian=" Dobbiamo continuare a correre!", spanish=" ¡Tenemos que seguir corriendo!"})
   -- message_Close

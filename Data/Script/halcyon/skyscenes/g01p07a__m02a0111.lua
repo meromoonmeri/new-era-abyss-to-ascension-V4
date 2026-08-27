@@ -40,6 +40,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Yay! We get beds!", french=" Waouh! On a des lits!", german=" Hurra! Wir bekommen Betten!", italian=" Wow! Dei letti!", spanish=" ¡Bien! ¡Nos han dado camas!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharSetEmote(partner, nil, 0) end) -- EFFECT_NONE
   GROUND:EntTurn(partner, Direction.UpLeft)
   pcall(function() GROUND:CharTurnToCharAnimated(hero, npc_npc_perappu, 4) end)

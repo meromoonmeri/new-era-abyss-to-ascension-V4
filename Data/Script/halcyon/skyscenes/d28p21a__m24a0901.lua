@@ -68,6 +68,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Urk![K] It's really tough.", french=" Argh![K] Ce n'est pas de la tarte.", german=" Uff![K] Das ist wirklich brutal.", italian=" Uh![K] È davvero dura.", spanish=" ¡Madre mía![K] ¡No hay manera!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english="It doesn't matter if [CS:N]Dusknoir[CR] is\nlying in wait.", french=" [CS:N]Noctunoir[CR] ou pas, peu importe.", german="Es macht nichts, wenn\n[CS:N]Zwirrfinst[CR] uns auflauert.", italian="Non importa se [CS:N]Dusknoir[CR]\nci sta aspettando.", spanish="No importa que [CS:N]Dusknoir[CR] esté\nesperándonos."})
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)

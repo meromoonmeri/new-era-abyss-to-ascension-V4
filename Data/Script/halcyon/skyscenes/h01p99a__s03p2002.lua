@@ -33,6 +33,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Ha! The little cutie's as good\nas ever!", french="Ha! Le petit est de nouveau sur\npied!", german="Ha! Das süße Kleine ist munter\nwie eh und je!", italian="Ah! Il cucciolo è completamente\nguarito!", spanish=" ¡Ya se ha recuperado!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharSetEmote(partner, nil, 0) end) -- EFFECT_NONE
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -46,6 +47,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Am I glad to see this!", french=" Comme je suis contente!", german=" Ich freue mich so, das zu sehen!", italian=" Come sono sollevata!", spanish=" ¡Cuánto me alegro!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   local npc_npc_perappu = SkySceneKit.spawn_npc("chatot", 312, 152, Direction.DownRight, "NPC_PERAPPU")
   GROUND:EntTurn(npc_npc_perappu, Direction.DownLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -62,13 +64,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" Yup.[K] We know...", french=" Oui.[K] On sait...", german=" Jep.[K] Ist gut, wir wissen schon...", italian=" Sì.[K] Lo sappiamo...", spanish=" Sí.[K] Lo sabemos..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Yes.[K] We know...", french=" Oui.[K] On sait...", german=" Jep.[K] Ist gut, wir wissen schon...", italian=" Sì.[K] Lo sappiamo...", spanish=" Sí.[K] Lo sabemos..."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Yes.[K] We know...", french=" Oui.[K] On sait...", german=" Jep.[K] Ist gut, wir wissen schon...", italian=" Sì.[K] Lo sappiamo...", spanish=" Sí.[K] Lo sabemos..."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="[CS:N]Manaphy[CR] needs to develop the\nability to survive in the sea...", french="[CS:N]Manaphy[CR] a besoin de\ndévelopper ses capacités de survie en mer...", german="[CS:N]Manaphy[CR] muss die Fähigkeit\nentwickeln, im Meer zu leben.", italian="[CS:N]Manaphy[CR] deve sviluppare\nl'abilità di sopravvivere in mare...", spanish="[CS:N]Manaphy[CR] tiene que aprender\na vivir en el mar..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="[CS:N]Manaphy[CR] needs to develop the\nability to survive in the sea...", french="[CS:N]Manaphy[CR] a besoin de\ndévelopper ses capacités de survie en mer...", german="[CS:N]Manaphy[CR] muss die Fähigkeit\nentwickeln, im Meer zu leben.", italian="[CS:N]Manaphy[CR] deve sviluppare\nl'abilità di sopravvivere in mare...", spanish="[CS:N]Manaphy[CR] tiene que aprender\na vivir en el mar..."})
   else
   SkySceneKit.say({english="[CS:N]Manaphy[CR] needs to develop the\nability to survive in the sea...", french="[CS:N]Manaphy[CR] a besoin de\ndévelopper ses capacités de survie en mer...", german="[CS:N]Manaphy[CR] muss die Fähigkeit\nentwickeln, im Meer zu leben.", italian="[CS:N]Manaphy[CR] deve sviluppare\nl'abilità di sopravvivere in mare...", spanish="[CS:N]Manaphy[CR] tiene que aprender\na vivir en el mar..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
@@ -77,13 +83,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" Well, [hero]...", french=" Alors, [hero]...", german=" Nun, [hero]...", italian=" Beh, [hero]...", spanish=" Bueno, [hero]..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Well, [hero]...", french=" Alors, [hero]...", german=" Nun, [hero]...", italian=" Beh, [hero]...", spanish=" Bueno, [hero]..."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Well, [hero]...", french=" Alors, [hero]...", german=" Nun, [hero]...", italian=" Beh, [hero]...", spanish=" Bueno, [hero]..."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Let's take [CS:N]Manaphy[CR] to the sea.", french=" Ramenons [CS:N]Manaphy[CR] à la mer.", german="Lass uns [CS:N]Manaphy[CR] zum Meer\nbringen.", italian=" Dai, portiamo [CS:N]Manaphy[CR] in mare.", spanish=" Llevemos a [CS:N]Manaphy[CR] al mar."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Let's take [CS:N]Manaphy[CR] to the sea.", french=" Ramenons [CS:N]Manaphy[CR] à la mer.", german="Lass uns [CS:N]Manaphy[CR] zum Meer\nbringen.", italian=" Dai, portiamo [CS:N]Manaphy[CR] in mare.", spanish=" Llevemos a [CS:N]Manaphy[CR] al mar."})
   else
   SkySceneKit.say({english=" Let's take [CS:N]Manaphy[CR] to the sea.", french=" Ramenons [CS:N]Manaphy[CR] à la mer.", german="Lass uns [CS:N]Manaphy[CR] zum Meer\nbringen.", italian=" Dai, portiamo [CS:N]Manaphy[CR] in mare.", spanish=" Llevemos a [CS:N]Manaphy[CR] al mar."})
   end
+  -- message_Close
   GAME:FadeOut(false, 60)
   SkySceneKit.cleanup_npcs()
 end

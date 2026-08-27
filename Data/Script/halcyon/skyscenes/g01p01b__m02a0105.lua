@@ -33,6 +33,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" What?[K] Are they arguing?", french=" Quoi?[K] Ils se disputent?", german=" Wie?[K] Streiten sie etwa?", italian=" Eh?[K] Stanno litigando?", spanish="¿Qué?[K] ¡No me digas que se han\npuesto a discutir!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GAME:WaitFrames(30)
   -- message_ResetActor() [neutre/état moteur]
   pcall(function() UI:SetSpeaker(partner) end)
@@ -72,6 +73,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Yipes!", french=" Gloups...", german=" Oh Mann!", italian=" Gulp!", spanish=" ¡Huy!"})
   end
+  GAME:WaitFrames(2) -- join WaitExecuteLives
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -83,17 +85,22 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" I'm so nervous! So jittery!", french="Je suis si nerveuse! Je tremble\ncomme une feuille!", german=" Ich bin ganz nervös und hibbelig!", italian=" Sono così nervosa! Ho i brividi!", spanish="¡Qué nerviosa estoy!\n¡Hasta tengo escalofríos!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="But I'm glad we're finally\nallowed in.[K] My heart's pounding, though...", french="Mais je suis content de pouvoir\nenfin entrer.[K] Par contre, mon cœur bat\nla chamade...", german="Aber ich bin froh, dass wir\nendlich hineindürfen.[K] Mein Herz klopft mir bis\nzum Hals...", italian="Ma sono felice di poter\nfinalmente entrare.[K] Anche se il cuore\nmi batte forte...", spanish="Pero me alegra que por fin\npodamos entrar.[K] Aunque el corazón\nme late muy deprisa..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="But I'm glad we're finally\nallowed in.[K] My heart's pounding, though...", french="Mais je suis content de pouvoir\nenfin entrer.[K] Par contre, mon cœur bat\nla chamade...", german="Aber ich bin froh, dass wir\nendlich hineindürfen.[K] Mein Herz klopft mir bis\nzum Hals...", italian="Ma sono felice di poter\nfinalmente entrare.[K] Anche se il cuore\nmi batte forte...", spanish="Pero me alegra que por fin\npodamos entrar.[K] Aunque el corazón\nme late muy deprisa..."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="But I'm glad we're finally\nallowed in.[K] My heart's pounding, though...", french="Mais je suis contente de pouvoir\nenfin entrer.[K] Par contre, mon cœur bat\nla chamade...", german="Aber ich bin froh, dass wir\nendlich hineindürfen.[K] Mein Herz klopft mir bis\nzum Hals...", italian="Ma sono felice di poter\nfinalmente entrare.[K] Anche se il cuore\nmi batte forte...", spanish="Pero estoy contenta de que\nal fin podamos entrar.[K] Aunque el corazón\nme late muy deprisa..."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Anyway, let's go.", french=" Allez, entrons.", german="Wie auch immer! Gehen wir\nrein.", italian=" Beh, andiamo.", spanish=" Venga, entremos."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" OK, let's go in.", french=" Allez, entrons.", german=" Okay, gehen wir rein.", italian=" Ok, andiamo.", spanish=" Vale, entremos."})
   else
   SkySceneKit.say({english=" Anyway, let's go.", french=" Allez, entrons.", german="Wie auch immer! Gehen wir\nrein.", italian=" Beh, andiamo.", spanish=" Bueno, ya es hora de entrar."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:MoveToPosition(hero, 240, 148, false, 2)
   GAME:WaitFrames(5)
   GROUND:MoveToPosition(partner, 240, 172, false, 2)

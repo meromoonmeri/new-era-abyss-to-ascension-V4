@@ -59,13 +59,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" Ugh...", french=" Argh...", german=" Ugh...", italian=" Ugh...", spanish=" Ay..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Ugh...", french=" Argh...", german=" Ugh...", italian=" Ugh...", spanish=" Ay..."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Ugh...", french=" Argh...", german=" Ugh...", italian=" Ugh...", spanish=" Ay..."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Been a while since we've been\nwoken up like that...", french="Ça faisait un moment qu'on\nn'avait pas eu un tel réveil...", german="So wurden wir schon lange nicht\nmehr geweckt...", italian="Era un po' che non ci svegliavano\ncosì...", spanish="Hacía tiempo que no me\ndespertaban de esa forma..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="It's been a while since we were\nwoken up like that...", french="Ça faisait un moment qu'on\nn'avait pas eu un tel réveil...", german="So wurden wir schon lange nicht\nmehr geweckt...", italian="È passato un po' di tempo\ndall'ultima volta che ci hanno svegliato così...", spanish="Hacía tiempo que no me\ndespertaban de esa forma..."})
   else
   SkySceneKit.say({english="It's been a while since we were\nwoken up like that...", french="Ça faisait un moment qu'on\nn'avait pas eu un tel réveil...", german="So wurden wir schon lange nicht\nmehr geweckt...", italian="È passato un po' di tempo\ndall'ultima volta che ci hanno svegliato così...", spanish="Hacía tiempo que no me\ndespertaban de esa forma..."})
   end
+  -- message_Close
   GAME:WaitFrames(30)
   -- SetAnimation(63) [anim idle native]
   -- SetAnimation(63) [anim idle native]

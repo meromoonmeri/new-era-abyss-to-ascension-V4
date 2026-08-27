@@ -15,13 +15,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" Ready? Here goes, [hero]!", french="C'est bon? On y va,\n[hero]!", german=" Fertig? Los, [hero]!", italian=" Pronti? Andiamo, [hero]!", spanish="¿Todo listo?\n¡Adelante, [hero]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Ready? Here goes, [hero]!", french="C'est bon? On y va,\n[hero]!", german=" Fertig? Los, [hero]!", italian="Tutto pronto?\nAndiamo, [hero]!", spanish="¿Todo listo?\n¡Adelante, [hero]!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Ready? Here goes, [hero]!", french="C'est bon? On y va,\n[hero]!", german=" Fertig? Los, [hero]!", italian="Te la senti? Andiamo,\n[hero]!", spanish="¿Todo listo?\n¡Adelante, [hero]!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Now!", french=" Maintenant!", german=" Jetzt!", italian=" Via!", spanish=" ¡Ahora!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Now!", french=" Maintenant!", german=" Jetzt!", italian=" Via!", spanish=" ¡Ahora!"})
   else
   SkySceneKit.say({english=" Now!", french=" Maintenant!", german=" Jetzt!", italian=" Via!", spanish=" ¡Ahora!"})
   end
+  -- message_Close
   GROUND:MoveToPosition(hero, 248, 180, false, 2)
   GROUND:MoveToPosition(partner, 216, 180, false, 2)
   GAME:WaitFrames(2) -- join WaitExecuteLives

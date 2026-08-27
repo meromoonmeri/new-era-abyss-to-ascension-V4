@@ -27,6 +27,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Wow, it's become dark outside!", french=" Waouh, il fait si sombre dehors!", german="Wow, draußen ist es dunkel\ngeworden!", italian="Wow! È buio pesto, non\ntrovate?", spanish=" Vaya, ¡qué oscuridad!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:MoveToPosition(npc_npc_yukushii, 156, 348, false, 1)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(15)
@@ -53,6 +54,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Wow!", french=" Waouh!", german=" Wow!", italian=" Wow!", spanish=" ¡Vaya!"})
   end
+  -- message_Close
   pcall(function() local g=GAME:GetCurrentGround(); GAME:MoveCamera(g.ViewCenter.X+(0), g.ViewCenter.Y+(-180), 180, false) end) -- MovePositionOffset performer/caméra
   GAME:WaitFrames(60)
   GAME:FadeOut(false, 30)

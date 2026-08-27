@@ -44,6 +44,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="It's not our fault. It's because\n[CS:N]Skuntank[CR] and his...", french="On n'y peut rien. En fait, c'est\nà cause de [CS:N]Moufflair[CR] et de ses...", german="Es ist nicht unsere Schuld. Es ist\nso, [CS:N]Skuntank[CR] und seine...", italian="Non è colpa nostra. Voglio dire,\n[CS:N]Skuntank[CR] e la sua...", spanish="No pudimos hacer nada.\n[CS:N]Skuntank[CR] y su..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetAnimation(2) [anim idle native]
   do local p=npc_npc_perappu.Position; GROUND:MoveToPosition(npc_npc_perappu, p.X+(0), p.Y+(16), false, 2) end
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -63,6 +64,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Urk...", french=" Argh...", german=" Urks...", italian=" Urk...", spanish=" Ay..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharSetEmote(npc_npc_perappu, nil, 0) end) -- EFFECT_NONE
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english=" You leave me no choice.", french=" Vous ne me laissez pas le choix.", german=" Ihr lasst mir keine Wahl.", italian=" Non mi lasciate altra scelta.", spanish=" No me dejáis elección."})
@@ -80,6 +82,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" What?! B-but...", french=" Quoi?! Mais...", german=" Was?!? A-aber...", italian=" C-Cosa?! M-Ma...", spanish=" ¡¿Qué?! Pero si..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharSetEmote(npc_npc_perappu, "angry", 1) end)
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english="You failed to complete an\nimportant job.", french="Vous avez échoué lors d'une\nmission importante.", german="Ihr habt bei einem wichtigen\nJob versagt.", italian="Non avete portato a termine una\nmissione importante.", spanish="Habéis fracasado en una misión\nimportantísima."})
@@ -93,6 +96,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Ugh...", french=" Argh...", german=" Umpf...", italian=" Ugh...", spanish=" Ay..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharSetEmote(npc_npc_perappu, nil, 0) end) -- EFFECT_NONE
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english="I don't want to hear anything\nfrom you!", french=" Je ne veux plus vous entendre!", german="Ich will nichts mehr von euch\nhören!", italian=" Non voglio sentire altro!", spanish=" ¡No quiero oír ni una palabra más!"})

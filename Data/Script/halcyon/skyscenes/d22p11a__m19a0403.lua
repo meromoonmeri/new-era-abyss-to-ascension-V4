@@ -10,11 +10,12 @@ return function(hero, partner)
   -- camera_SetMyself() [neutre/état moteur]
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(I thought so![K] This is similar to the\nsensation I had back then...)", french="(C'est bien ce que je pensais![K] J'ai ressenti\nla même chose quand...)", german="(Das dachte ich mir![K] Dieses Gefühl war ähnlich\nwie jenes, das ich damals hatte...)", italian="(Penso di sì![K] È simile alla sensazione che\navevo avvertito quando...)", spanish="(¡Era lo que pensaba![K] Esta sensación es como\nla que tuve entonces...)"})
   else
   SkySceneKit.say({english="(I thought so![K] This is similar to the\nsensation I had back then...)", french="(C'est bien ce que je pensais![K] J'ai ressenti\nla même chose quand...)", german="(Das dachte ich mir![K] Dieses Gefühl war ähnlich\nwie jenes, das ich damals hatte...)", italian="(Penso di sì![K] È simile alla sensazione che\navevo avvertito quando...)", spanish="(¡Era lo que pensaba![K] Esta sensación es como\nla que tuve entonces...)"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:ResetSpeaker() end)
   pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Hey! What are you doing?!", french="Eh! Qu'est-ce que vous\nfabriquez?!", german=" Hey! Was macht ihr da?", italian=" Ehi! Cosa state facendo?!", spanish=" ¡Eh! ¡¿Qué ocurre?!"})
@@ -44,6 +45,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Let's hurry, [hero].", french=" Vite, [hero].", german=" Beeilen wir uns, [hero].", italian=" Facciamo presto, [hero].", spanish=" Démonos prisa, [hero]."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:MoveToPosition(partner, 276, 4, false, 2)
   GAME:WaitFrames(10)
   GROUND:MoveToPosition(hero, 276, 4, false, 2)

@@ -42,6 +42,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Maybe we got a little careless.", french="On a dû être un peu trop\nimprudents.", german="Vielleicht waren wir etwas zu\nleichtsinnig.", italian="Siamo stati troppo sicuri\ne spericolati.", spanish=" Supongo que nos hemos confiado."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(hero, npc_npc_bippa, 4) end)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_bippa, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -60,16 +61,23 @@ return function(hero, partner)
   SkySceneKit.say({english="No, [CS:N]Bidoof[CR], it's not your fault.\nWe're a team, and that's what's important.", french="Mais non, [CS:N]Keunotor[CR], ce n'est pas\nta faute. Nous sommes une équipe et c'est ça\nqui compte.", german="Nein, [CS:N]Bidiza[CR], es liegt nicht an\ndir. Wir sind ein Team und das ist, was zählt.", italian="No, [CS:N]Bidoof[CR], non è colpa tua.\nSiamo una squadra ed è questo che conta.", spanish="No, [CS:N]Bidoof[CR], no es culpa tuya.\nSomos un equipo hasta el final."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="No, [CS:N]Bidoof[CR], it's not your fault.\nWe're a team, and that's what's important.", french="Mais non, [CS:N]Keunotor[CR], ce n'est pas\nta faute. Nous sommes une équipe et c'est ça\nqui compte.", german="Nein, [CS:N]Bidiza[CR], es liegt nicht an\ndir. Wir sind ein Team und das ist, was zählt.", italian="No, [CS:N]Bidoof[CR], non è colpa tua.\nSiamo una squadra ed è questo che conta.", spanish="No, [CS:N]Bidoof[CR], no es culpa tuya.\nSomos un equipo hasta el final."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="No, [CS:N]Bidoof[CR], it's not your fault.\nWe're a team, and that's what's important.", french="Mais non, [CS:N]Keunotor[CR], ce n'est pas\nta faute. Nous sommes une équipe et c'est ça\nqui compte.", german="Nein, [CS:N]Bidiza[CR], es liegt nicht an\ndir. Wir sind ein Team und das ist, was zählt.", italian="No, [CS:N]Bidoof[CR], non è colpa tua.\nSiamo una squadra ed è questo che conta.", spanish="No, [CS:N]Bidoof[CR], no es culpa tuya.\nSomos un equipo hasta el final."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="We need to hurry so we can\nmeet up with the others at the base camp.", french="Nous devons nous dépêcher de\nrejoindre les autres au camp de base.", german="Wir müssen uns beeilen,\num die anderen am Basislager zu treffen.", italian="Dobbiamo affrettarci per\nincontrare gli altri al Campo Base.", spanish="Hay que darse prisa\npara encontrarnos con los demás\nen el campamento base."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="We should hurry so we can\nlink up with the others at the base camp.", french="Nous devons nous dépêcher de\nrejoindre les autres au camp de base.", german="Wir sollten uns beeilen, damit\nwir die anderen am Basislager treffen können.", italian="Dobbiamo affrettarci per\nincontrare gli altri al Campo Base.", spanish="Debemos apresurarnos para\nreunirnos con los demás en el campamento\nbase."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="Let's hurry so we can join the\nothers at the base camp.", french="Nous devons nous dépêcher de\nrejoindre les autres au camp de base.", german="Beeilen wir uns, damit wir die\nanderen am Basislager treffen können.", italian="Dobbiamo affrettarci per\nincontrare gli altri al Campo Base.", spanish="Démonos prisa para reunirnos\ncon los demás en el campamento base."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Let's get it done!", french=" Finissons-en!", german=" Wir schaffen das!", italian=" Forza!", spanish=" ¡A por ello!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Let's get it done!", french=" Finissons-en!", german=" Wir schaffen das!", italian=" Forza!", spanish=" ¡Venga, vamos!"})
   else
   SkySceneKit.say({english=" Let's get it done!", french=" Finissons-en!", german=" Wir schaffen das!", italian=" Forza!", spanish=" ¡Adelante!"})
   end
+  -- message_Close
   SkySceneKit.cleanup_npcs()
 end

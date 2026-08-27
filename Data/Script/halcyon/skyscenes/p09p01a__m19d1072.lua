@@ -73,13 +73,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" Urk...", french=" Argh...", german=" Uff...", italian=" Ah...", spanish=" ¡Glup!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Urk...", french=" Argh...", german=" Uff...", italian=" Ah...", spanish=" ¡Glup!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Urk...", french=" Argh...", german=" Uff...", italian=" Uh...", spanish=" ¡Glup!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Hey, [hero]! [CS:N]Grovyle[CR]![K]\nYou can't give up!", french="Eh, [hero]! [CS:N]Massko[CR]![K]\nVous ne pouvez pas baisser les bras!", german="Hey, [hero]! [CS:N]Reptain[CR]![K]\nIhr könnt nicht aufgeben!", italian="Ehi, [hero]! [CS:N]Grovyle[CR]![K]\nNon potete mollare!", spanish="¡[hero]! ¡[CS:N]Grovyle[CR]![K]\n¡Escuchadme! ¡No podéis rendiros!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Hey, [hero]! [CS:N]Grovyle[CR]![K]\nYou can't give up!", french="Eh, [hero]! [CS:N]Massko[CR]![K]\nVous ne pouvez pas baisser les bras!", german="Hey, [hero]! [CS:N]Reptain[CR]![K]\nIhr könnt nicht aufgeben!", italian="Ehi, [hero]! [CS:N]Grovyle[CR]![K]\nNon potete mollare!", spanish="¡[hero]! ¡[CS:N]Grovyle[CR]![K]\n¡Escuchadme! ¡No podéis rendiros!"})
   else
   SkySceneKit.say({english="Hey, [hero]! [CS:N]Grovyle[CR]![K]\nYou can't give up!", french="Eh, [hero]! [CS:N]Massko[CR]![K]\nVous ne pouvez pas baisser les bras!", german="Hey, [hero]! [CS:N]Reptain[CR]![K]\nIhr könnt nicht aufgeben!", italian="Ehi, [hero]! [CS:N]Grovyle[CR]![K]\nNon potete mollare!", spanish="¡[hero]! ¡[CS:N]Grovyle[CR]![K]\n¡Escuchadme! ¡No podéis rendiros!"})
   end
+  -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- message_FacePositionOffset(1, -2) [neutre/état moteur]
@@ -98,6 +102,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" We have to think!", french=" Creusons-nous les méninges!", german=" Wir müssen nachdenken!", italian=" Dobbiamo pensare!", spanish=" ¡Hay que pensar en algo!"})
   end
+  -- message_Close
   GAME:FadeOut(false, 30)
   GAME:FadeIn(0) -- screen_FlushIn
   SkySceneKit.cleanup_npcs()

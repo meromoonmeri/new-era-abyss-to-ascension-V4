@@ -48,17 +48,24 @@ return function(hero, partner)
   SkySceneKit.say({english="Bottles washing up on\nthe beach...", french="Des Bouteilles qui s'échouent\nsur la plage...", german="An den Strand gespülte\nFlaschen...", italian="Sono state trovate delle\nbottiglie sulla spiaggia...", spanish=" Frascos que llegan a la playa..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Bottles washing up on\nthe beach...", french="Des Bouteilles qui s'échouent\nsur la plage...", german="An den Strand gespülte\nFlaschen...", italian="Sono state trovate delle\nbottiglie sulla spiaggia...", spanish=" Frascos que llegan a la costa..."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="Bottles washing up on\nthe beach...", french="Des Bouteilles qui s'échouent\nsur la plage...", german="An den Strand gespülte\nFlaschen...", italian="Sono state trovate delle\nbottiglie sulla spiaggia...", spanish="Frascos que alcanzan\nla costa..."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Bottles with something\nin them...", french="Des Bouteilles avec quelque\nchose à l'intérieur...", german="Flaschen mit\nunbekanntem Inhalt...", italian="Bottiglie che contengono\nqualcosa...", spanish=" Frascos con algo dentro..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Bottles with something\nin them...", french="Des Bouteilles avec quelque\nchose à l'intérieur...", german="Flaschen mit\nunbekanntem Inhalt...", italian="Bottiglie che contengono\nqualcosa...", spanish="Frascos que contienen\nalgo..."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="Bottles with something\nin them...", french="Des Bouteilles avec quelque\nchose à l'intérieur...", german="Flaschen mit\nunbekanntem Inhalt...", italian="Bottiglie che contengono\nqualcosa...", spanish="Frascos con algo\nen su interior..."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" I'm sold. Let's check it out.", french=" Intéressant. Et si on allait voir?", german="Das klingt spannend.\nAuf zum Strand!", italian="Forte! Andiamo a dare\nun'occhiata.", spanish="Me pica la curiosidad. Vamos a\nver de qué se trata."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" I'm interested...", french=" Intéressant. Et si on allait voir?", german=" Ich bin neugierig...", italian=" Interessante...", spanish=" Suena interesante..."})
   else
   SkySceneKit.say({english=" Sounds interesting...", french=" Intéressant. Et si on allait voir?", german=" Klingt interessant...", italian=" Questa storia mi ha incuriosita...", spanish=" Podría ser interesante..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
@@ -66,13 +73,17 @@ return function(hero, partner)
   SkySceneKit.say({english="Sounds like they're only washing\nup now and then...", french="On dirait qu'elles ne s'échouent\nque de temps en temps...", german="Anscheinend werden sie nur dann\nund wann angespült...", italian="A quanto pare si trovano solo\ndi tanto in tanto...", spanish="Por lo visto solo llegan\nde vez en cuando..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Sounds like they're only washing\nup now and then...", french="On dirait qu'elles ne s'échouent\nque de temps en temps...", german="Anscheinend werden sie nur dann\nund wann angespült...", italian="A quanto pare si trovano solo\ndi tanto in tanto...", spanish="Se ve que solo llegan\nde cuando en cuando..."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="Sounds like they're only washing\nup now and then...", french="On dirait qu'elles ne s'échouent\nque de temps en temps...", german="Anscheinend werden sie nur dann\nund wann angespült...", italian="A quanto pare si trovano solo\ndi tanto in tanto...", spanish="Por lo visto solo aparecen\nde vez en cuando..."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Whenever we head to the beach,\nwe can look for a Bottle!", french="Quand on ira à la plage, on\npourra voir si on trouve une Bouteille!", german="Jedes Mal, wenn wir zum Strand\ngehen, können wir nach Flaschen suchen!", italian="Ogni volta che andiamo\nalla spiaggia, possiamo cercare una bottiglia!", spanish="¡Siempre que vayamos a la playa\npodemos buscar frascos!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Whenever we head to the beach,\nwe can look for a Bottle!", french="Quand on ira à la plage, on\npourra voir si on trouve une Bouteille!", german="Jedes Mal, wenn wir zum Strand\ngehen, können wir nach Flaschen suchen!", italian="Ogni volta che andiamo\nalla spiaggia, possiamo cercare una bottiglia!", spanish="Cuando vayamos a la playa\npodemos buscar frascos."})
   else
   SkySceneKit.say({english="Whenever we head to the beach,\nwe can look for a Bottle!", french="Quand on ira à la plage, on\npourra voir si on trouve une Bouteille!", german="Jedes Mal, wenn wir zum Strand\ngehen, können wir nach Flaschen suchen!", italian="Ogni volta che andiamo\nalla spiaggia, possiamo cercare una bottiglia!", spanish="Si vamos a la playa\npodemos buscar frascos."})
   end
+  -- message_Close
   SV.SkyScenarioBitFlags = SV.SkyScenarioBitFlags or {}; SV.SkyScenarioBitFlags[92] = 1 -- $SCENARIO_MAIN_BIT_FLAG[92] = 1 (ROM)
   SkySceneKit.cleanup_npcs()
 end

@@ -11,13 +11,17 @@ return function(hero, partner)
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
   -- message_FacePositionOffset(-1, 0) [neutre/état moteur]
-  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="([CS:N]Darkrai[CR] told us to go to the [CS:P]Dark Crater[CR].)", french="([CS:N]Darkrai[CR] nous a lancé un défi: le rejoindre\nau [CS:P]Cratère Obscur[CR].)", german="([CS:N]Darkrai[CR] rief uns zum [CS:P]Dunkelkrater[CR].)", italian="([CS:N]Darkrai[CR] ci ha detto di andare al\n[CS:P]Cratere Oscuro[CR].)", spanish="([CS:N]Darkrai[CR] nos desafió a que fuéramos al\n[CS:P]Cráter Oscuro[CR].)"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  else
+  SkySceneKit.say({english="([CS:N]Darkrai[CR] told us to go to the [CS:P]Dark Crater[CR].)", french="([CS:N]Darkrai[CR] nous a lancé un défi: le rejoindre\nau [CS:P]Cratère Obscur[CR].)", german="([CS:N]Darkrai[CR] rief uns zum [CS:P]Dunkelkrater[CR].)", italian="([CS:N]Darkrai[CR] ci ha detto di andare al\n[CS:P]Cratere Oscuro[CR].)", spanish="([CS:N]Darkrai[CR] nos desafió a que fuéramos al\n[CS:P]Cráter Oscuro[CR].)"})
+  end
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(And that he would be waiting for us.)", french="(Il nous y attend.)", german="(Es sagte, es würde dort auf uns warten.)", italian="(E che ci avrebbe aspettato.)", spanish="(Dijo que allí estaría esperándonos.)"})
   else
   SkySceneKit.say({english="(And that he would be waiting for us.)", french="(Il nous y attend.)", german="(Es sagte, es würde dort auf uns warten.)", italian="(E che ci avrebbe aspettato.)", spanish="(Dijo que allí estaría esperándonos.)"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- message_FacePositionOffset(2, -2) [neutre/état moteur]
   local npc_npc_pukurin = SkySceneKit.spawn_npc("wigglytuff", 320, 184, Direction.Right, "NPC_PUKURIN")
   pcall(function() UI:SetSpeaker(npc_npc_pukurin) end)
@@ -55,21 +59,31 @@ return function(hero, partner)
   SkySceneKit.say({english="It doesn't matter if it's a trap\nor not!", french="Peu importe que ce soit un piège\nou pas!", german="Es macht keinen Unterschied,\nob Falle oder nicht!", italian=" Non importa se è una trappola!", spanish=" ¡Da igual que sea una trampa!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="It doesn't matter if it's a trap\nor not!", french="Peu importe que ce soit un piège\nou pas!", german="Es macht keinen Unterschied,\nob Falle oder nicht!", italian=" Non importa se è una trappola!", spanish=" ¡Da igual que sea una trampa!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="It doesn't matter if it's a trap\nor not!", french="Peu importe que ce soit un piège\nou pas!", german="Es macht keinen Unterschied,\nob Falle oder nicht!", italian=" Non importa se è una trappola!", spanish=" ¡Da igual que sea una trampa!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="If we don't stop [CS:N]Darkrai[CR], the\nwhole world will be smothered by darkness.", french="Si on n'arrête pas [CS:N]Darkrai[CR],\nl'ombre engloutira le monde entier.", german="Wenn wir [CS:N]Darkrai[CR] nicht stoppen,\nverschleiert Dunkelheit bald die ganze Welt.", italian="Se non fermiamo [CS:N]Darkrai[CR], il\nmondo sarà inghiottito dall'oscurità.", spanish="Si no le paramos los pies a\n[CS:N]Darkrai[CR], el mundo entero quedará\nsumido en la oscuridad."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="If we don't stop [CS:N]Darkrai[CR], he'll\nsmother the whole world with darkness.", french="Si on n'arrête pas [CS:N]Darkrai[CR],\nl'ombre engloutira le monde entier.", german="Wenn wir [CS:N]Darkrai[CR] nicht stoppen,\nverschleiert Dunkelheit bald die ganze Welt.", italian="Se non fermiamo [CS:N]Darkrai[CR], il\nmondo sarà inghiottito dall'oscurità.", spanish="Si no le paramos los pies a\n[CS:N]Darkrai[CR], el mundo entero quedará\nsumido en la oscuridad."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="If we don't stop [CS:N]Darkrai[CR], he'll\nsmother the whole world with darkness.", french="Si on n'arrête pas [CS:N]Darkrai[CR],\nl'ombre engloutira le monde entier.", german="Wenn wir [CS:N]Darkrai[CR] nicht stoppen,\nverschleiert Dunkelheit bald die ganze Welt.", italian="Se non fermiamo [CS:N]Darkrai[CR], il\nmondo sarà inghiottito dall'oscurità.", spanish="Si no le paramos los pies a\n[CS:N]Darkrai[CR], el mundo entero quedará\nsumido en la oscuridad."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" We have to do something!", french=" Il faut faire quelque chose!", german=" Wir müssen etwas unternehmen!", italian=" Dobbiamo fare qualcosa!", spanish=" ¡Tenemos que hacer algo!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" We have to do something!", french=" Il faut faire quelque chose!", german=" Wir müssen etwas unternehmen!", italian=" Dobbiamo fare qualcosa!", spanish=" ¡Tenemos que hacer algo!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" We have to do something!", french=" Il faut faire quelque chose!", german=" Wir müssen etwas unternehmen!", italian=" Dobbiamo fare qualcosa!", spanish=" ¡Tenemos que hacer algo!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" We're going to the [CS:P]Dark Crater[CR]!", french=" On va au [CS:P]Cratère Obscur[CR]!", german=" Wir gehen zum [CS:P]Dunkelkrater[CR]!", italian="Vogliamo andare al [CS:P]Cratere[CR]\n[CS:P]Oscuro[CR]!", spanish=" ¡Nos vamos al [CS:P]Cráter Oscuro[CR]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" We're going to the [CS:P]Dark Crater[CR]!", french=" On va au [CS:P]Cratère Obscur[CR]!", german=" Wir gehen zum [CS:P]Dunkelkrater[CR]!", italian="Vogliamo andare al [CS:P]Cratere[CR]\n[CS:P]Oscuro[CR]!", spanish=" ¡Nos vamos al [CS:P]Cráter Oscuro[CR]!"})
   else
   SkySceneKit.say({english=" We're going to the [CS:P]Dark Crater[CR]!", french=" On va au [CS:P]Cratère Obscur[CR]!", german=" Wir gehen zum [CS:P]Dunkelkrater[CR]!", italian="Vogliamo andare al [CS:P]Cratere[CR]\n[CS:P]Oscuro[CR]!", spanish=" ¡Nos vamos al [CS:P]Cráter Oscuro[CR]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- message_FacePositionOffset(0, -2) [neutre/état moteur]
   pcall(function() UI:SetSpeaker(npc_npc_kureseria) end)
   SkySceneKit.say({english=" ...OK.[K] I respect your decision.", french="... D'accord.[K] Je respecte votre\ndécision.", german="...Okay.[K] Ich respektiere eure\nEntscheidung.", italian="Ok.[K] Rispetto la vostra\ndecisione.", spanish=" Vale.[K] Respeto vuestra decisión."})
@@ -158,6 +172,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Don't worry, everyone![K] We'll be\nsure to defeat [CS:N]Darkrai[CR] and come back!", french="Ne vous inquiétez pas![K]\nNous réglerons son compte à [CS:N]Darkrai[CR] une\nbonne fois pour toutes, et nous reviendrons!", german="Macht euch keine Sorgen,\nLeute![K] Wir werden [CS:N]Darkrai[CR] ganz sicher\nbesiegen und wieder zurückkommen!", italian="Non preoccupatevi![K]\nSconfiggeremo [CS:N]Darkrai[CR] e torneremo qui da voi!", spanish="¡No os preocupéis![K]\n¡Derrotaremos a [CS:N]Darkrai[CR]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_FacePositionOffset(-1, -1) [neutre/état moteur]
@@ -188,6 +203,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Everyone, thank you!", french=" Merci, tout le monde!", german=" Ihr alle, vielen Dank!", italian=" Grazie a tutti!", spanish=" ¡Muchas gracias a todos!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
@@ -199,13 +215,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" Let's go, [hero]!", french=" En route, [hero]!", german=" Gehen wir, [hero]!", italian=" Andiamo, [hero]!", spanish=" ¡Vámonos, [hero]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Let's go, [hero]!", french=" En route, [hero]!", german=" Gehen wir, [hero]!", italian=" Andiamo, [hero]!", spanish=" ¡Vámonos, [hero]!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Let's go, [hero]!", french=" En route, [hero]!", german=" Gehen wir, [hero]!", italian=" Andiamo, [hero]!", spanish=" ¡Vámonos, [hero]!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Let's go to the [CS:P]Dark Crater[CR]...[K]\nwhere [CS:N]Darkrai[CR] awaits us!", french="Allons au [CS:P]Cratère Obscur[CR]...[K]\n[CS:N]Darkrai[CR] nous attend!", german="Lass uns zum [CS:P]Dunkelkrater[CR]\ngehen,[K] wo [CS:N]Darkrai[CR] uns erwartet!", italian="Andiamo al [CS:P]Cratere Oscuro[CR]...[K]\n[CS:N]Darkrai[CR] ci aspetta!", spanish="Vamos al [CS:P]Cráter Oscuro[CR]...[K]\n¡[CS:N]Darkrai[CR] nos está esperando!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Let's go to the [CS:P]Dark Crater[CR]...[K]\nwhere [CS:N]Darkrai[CR] awaits us!", french="Allons au [CS:P]Cratère Obscur[CR]...[K]\n[CS:N]Darkrai[CR] nous attend!", german="Lass uns zum [CS:P]Dunkelkrater[CR]\ngehen,[K] wo [CS:N]Darkrai[CR] uns erwartet!", italian="Andiamo al [CS:P]Cratere Oscuro[CR]...[K]\n[CS:N]Darkrai[CR] ci aspetta!", spanish="Vamos al [CS:P]Cráter Oscuro[CR]...[K]\n¡[CS:N]Darkrai[CR] nos está esperando!"})
   else
   SkySceneKit.say({english="Let's go to the [CS:P]Dark Crater[CR]...[K]\nwhere [CS:N]Darkrai[CR] awaits us!", french="Allons au [CS:P]Cratère Obscur[CR]...[K]\n[CS:N]Darkrai[CR] nous attend!", german="Lass uns zum [CS:P]Dunkelkrater[CR]\ngehen,[K] wo [CS:N]Darkrai[CR] uns erwartet!", italian="Andiamo al [CS:P]Cratere Oscuro[CR]...[K]\n[CS:N]Darkrai[CR] ci aspetta!", spanish="Vamos al [CS:P]Cráter Oscuro[CR]...[K]\n¡[CS:N]Darkrai[CR] nos está esperando!"})
   end
+  -- message_Close
   -- SetAnimation(71) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives

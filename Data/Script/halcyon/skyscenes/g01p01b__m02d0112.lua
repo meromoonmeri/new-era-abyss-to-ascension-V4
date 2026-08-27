@@ -33,6 +33,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Waah!", french=" Aaah!", german=" Waah!", italian=" Aaah!", spanish=" ¡Aaah!"})
   end
+  -- message_Close
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   GAME:FadeOut(false, 30)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]

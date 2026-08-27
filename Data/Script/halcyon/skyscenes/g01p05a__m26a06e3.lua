@@ -31,6 +31,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Let's always do our best,\n[hero]!", french="Donnons le meilleur\nde nous-mêmes, [hero]!", german="Lass uns immer unser Bestes\ngeben, [hero]!", italian="Mettiamocela\ntutta, [hero]!", spanish="¡Lo haremos siempre lo mejor\nque podamos, [hero]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetAnimation(71) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives

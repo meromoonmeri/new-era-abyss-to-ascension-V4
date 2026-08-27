@@ -22,6 +22,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" [hero], thank you.", french=" Merci, [hero].", german=" [hero], danke.", italian=" [hero], grazie.", spanish=" Gracias, [hero]."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(hero, Direction.UpLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(15)
@@ -32,6 +33,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="You tried to cheer me up\nbecause I was feeling down.", french="Tu as fait ce que tu as pu pour\nme remonter le moral.", german="Du wolltest mich aufmuntern,\nweil ich so niedergeschlagen war.", italian="Hai provato a tirarmi su il\nmorale perché ero giù di corda.", spanish="Has visto que estaba deprimida\ny me has animado."})
   end
+  -- message_Close
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   GAME:FadeOut(true, 30) -- screen_WhiteOut
   GAME:FadeIn(0) -- screen_FlushIn

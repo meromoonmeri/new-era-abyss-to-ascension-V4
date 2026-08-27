@@ -22,5 +22,6 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="But...what happens if a region\nloses its Time Gear?", french="Mais... que se passerait-il si\nune région perdait son Rouage du Temps?", german="Aber was, wenn eine Region ihr\nZahnrad der Zeit verliert?", italian="Cosa succede se un Ingranaggio\ndel Tempo sparisce?", spanish="Pero... ¿Qué pasaría si una\nregión perdiera su Engranaje del Tiempo?"})
   end
+  -- message_Close
   GAME:FadeOut(false, 15)
 end

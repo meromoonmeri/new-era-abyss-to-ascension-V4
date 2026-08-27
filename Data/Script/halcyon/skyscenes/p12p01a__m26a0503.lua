@@ -29,6 +29,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="[CS:P]Temporal Tower[CR] is...[K]getting\nfarther and farther away...", french="La [CS:P]Tour du Temps[CR]...[K] elle\ns'éloigne de plus en plus...", german="Der [CS:P]Zeitturm[CR].[K] Er rückt in immer\nweitere Ferne...", italian="La [CS:P]Torre del Tempo[CR] è...[K] sempre\npiù lontana...", spanish="La [CS:P]Torre del Tiempo[CR]...[K] está\ncada vez más lejos."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GAME:WaitFrames(45)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" .....................", french=" .....................", german=" .....................", italian=" .....................", spanish=" ..."})
@@ -37,6 +38,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" .....................", french=" .....................", german=" .....................", italian=" .....................", spanish=" ..."})
   end
+  -- message_KeyWait
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="And [hero]...[K] I'm getting\nfarther away from [hero]...", french="Et [hero]...[K] Je m'éloigne\nde plus en plus de [hero]...", german="Und auch [hero]...[K]\n[hero] entfernt sich immer weiter von\nmir...", italian="E [hero]...[K] Io sono\nsempre più lontano da [hero]...", spanish="Y también [hero]...[K]\nMe voy alejando más de [hero]..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
@@ -44,6 +46,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="And [hero]...[K] I'm getting\nfarther away from [hero]...", french="Et [hero]...[K] Je m'éloigne\nde plus en plus de [hero]...", german="Und auch [hero]...[K]\n[hero] entfernt sich immer weiter von\nmir...", italian="E [hero]...[K] Io sono\nsempre più lontana da [hero]...", spanish="Y también [hero]...[K]\nMe voy alejando más de [hero]..."})
   end
+  -- message_KeyWait
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Oh, [hero]...", french=" Oh, [hero]...", german=" Oh, [hero]...", italian=" Oh, [hero]...", spanish=" Oh, [hero]..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
@@ -51,6 +54,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Oh, [hero]...", french=" Oh, [hero]...", german=" Oh, [hero]...", italian=" Oh, [hero]...", spanish=" Oh, [hero]..."})
   end
+  -- message_Close
   GAME:WaitFrames(90)
   pcall(function() SOUND:FadeOutBGM(240) end)
   SkySubScreen.Hide(160) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)

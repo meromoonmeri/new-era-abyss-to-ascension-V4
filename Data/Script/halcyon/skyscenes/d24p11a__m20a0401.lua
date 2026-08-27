@@ -42,6 +42,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Is something wrong, [CS:N]Grovyle[CR]?", french=" Qu'est-ce qui se passe, [CS:N]Massko[CR]?", german=" Stimmt etwas nicht, [CS:N]Reptain[CR]?", italian=" Qualcosa non va, [CS:N]Grovyle[CR]?", spanish=" ¿Algún problema, [CS:N]Grovyle[CR]?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english="The atmosphere somehow feels\ndifferent than last time.", french="L'atmosphère est différente\nde la dernière fois.", german="Es liegt, anders als damals,\nirgendetwas in der Luft.", italian="L'atmosfera sembra diversa\nrispetto all'ultima volta.", spanish=" La atmósfera parece distinta."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())

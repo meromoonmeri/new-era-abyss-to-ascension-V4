@@ -19,5 +19,6 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Like in a forest...", french="Ils peuvent se trouver par\nexemple dans une forêt...", german=" Zum Beispiel in einem Wald...", italian=" Ad esempio in una foresta...", spanish="Como por ejemplo en lo más\nprofundo de un bosque..."})
   end
+  -- message_Close
   GAME:FadeOut(false, 30)
 end

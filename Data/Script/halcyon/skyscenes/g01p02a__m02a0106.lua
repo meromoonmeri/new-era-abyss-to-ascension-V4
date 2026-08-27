@@ -20,6 +20,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Th-there's a hatch that leads\nunderground here!", french="Il y a... il y a une échelle qui\nmène sous terre!", german="D-da ist eine Luke, die nach\nunten führt!", italian="Q-Qui c'è una scala che porta di\nsotto!", spanish=" ¡Hay una escalera para bajar!"})
   end
+  -- message_Close
   GROUND:MoveToPosition(hero, 204, 164, false, 2)
   GAME:WaitFrames(20)
   GROUND:MoveToPosition(partner, 204, 164, false, 2)

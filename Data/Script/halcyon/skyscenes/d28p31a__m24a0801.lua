@@ -77,6 +77,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Wow![K] Th-this place is...", french=" Waouh![K] Cet endroit est...", german=" Wow![K] D-dieser Ort ist...", italian=" Wow![K] Q-Questo posto è...", spanish=" ¡Vaya![K] Este lugar es..."})
   end
+  -- message_Close
   -- back_SetGround(LEVEL_D28P31A) [neutre/état moteur]
   -- supervision_Acting(0) [neutre/état moteur]
   -- camera_SetMyself() [neutre/état moteur]
@@ -100,13 +101,17 @@ return function(hero, partner)
   SkySceneKit.say({english="It's awesome! Look at it,\n[hero]!", french="Il est fantastique! Regarde\nun peu, [hero]!", german="Er ist großartig! Sieh es dir an,\n[hero]!", italian="È incredibile! Guarda,\n[hero]!", spanish="¡Es increíble!\n¡Mira, [hero]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="It's incredible! Look at it,\n[hero]!", french="Il est fantastique! Regarde\nun peu, [hero]!", german="Er ist unglaublich! Sieh es dir\nan, [hero]!", italian="È incredibile! Guarda,\n[hero]!", spanish="¡Es asombroso!\n¡Mira, [hero]!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="It's fantastic! Look at it,\n[hero]!", french="Il est fantastique! Regarde\nun peu, [hero]!", german="Er ist fantastisch! Sieh es dir\nan, [hero]!", italian="È incredibile! Guarda,\n[hero]!", spanish="¡Es fantástico!\n¡Mira, [hero]!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Look at these fantastic\ninscriptions and paintings on the rock walls!", french="Tu as vu ces gravures et ces\npeintures sur les parois, c'est superbe!", german="Sieh dir diese fantastischen\nInschriften und Malereien an den Felswänden\nan!", italian="Guarda quelle fantastiche\nincisioni e quei bellissimi dipinti sulle pareti\nrocciose!", spanish="¡Mira todos esos fantásticos\ndibujos en las paredes de roca!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Look at all these fantastic\npaintings and inscriptions on the walls!", french="Tu as vu ces gravures et ces\npeintures sur les parois, c'est superbe!", german="Sieh dir diese fantastischen\nInschriften und Malereien an den Wänden an!", italian="Guarda quelle fantastiche\nincisioni e quei bellissimi dipinti sulle pareti\nrocciose!", spanish="¡Mira todos esos fantásticos\ndibujos en las paredes de roca!"})
   else
   SkySceneKit.say({english="Look at all these fantastic\npaintings and inscriptions on the walls!", french="Tu as vu ces gravures et ces\npeintures sur les parois, c'est superbe!", german="Sieh dir diese fantastischen\nInschriften und Malereien an den Wänden an!", italian="Guarda quelle fantastiche\nincisioni e quei bellissimi dipinti sulle pareti\nrocciose!", spanish="¡Mira todos esos fantásticos\ndibujos en las paredes de roca!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GAME:MoveCamera(516, 192, 60, false) end) -- performer/caméra
   SkySceneKit.unlock(15) -- Unlock(15) NDS
   GAME:WaitFrames(5)
@@ -128,13 +133,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" Yeah, that's right!", french=" Oui, c'est vrai!", german=" Ja, so ist es!", italian=" Sì, hai ragione!", spanish=" ¡Claro que sí!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Yup, that's right!", french=" Oui, c'est vrai!", german=" Jep, so ist es!", italian=" Sì, hai ragione!", spanish=" ¡Claro que sí!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Yup, that's right!", french=" Oui, c'est vrai!", german=" Jep, so ist es!", italian=" Sì, hai ragione!", spanish=" ¡Claro que sí!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Let's get in there!", french=" Allons-y!", german=" Gehen wir hinein!", italian=" Entriamo!", spanish=" Entremos ahí."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Let's go in there!", french=" Allons-y!", german=" Gehen wir hinein!", italian=" Entriamo!", spanish=" Entremos ahí."})
   else
   SkySceneKit.say({english=" Let's get in there!", french=" Allons-y!", german=" Gehen wir hinein!", italian=" Entriamo!", spanish=" Entremos ahí."})
   end
+  -- message_Close
   do local p=hero.Position; GROUND:MoveToPosition(hero, p.X+(120), p.Y+(0), false, 2) end
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(120), p.Y+(0), false, 2) end
   do local p=npc_npc_juputoru.Position; GROUND:MoveToPosition(npc_npc_juputoru, p.X+(120), p.Y+(0), false, 2) end

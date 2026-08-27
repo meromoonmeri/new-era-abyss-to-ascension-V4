@@ -27,6 +27,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Yowowow...", french=" Oooh...", german=" Auauau...", italian=" Ahiahiahi...", spanish=" ¡Aaaah!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetAnimation(63) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -50,6 +51,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Are you OK, [hero]?", french=" Ça va, [hero]?", german=" Alles okay, [hero]?", italian=" Stai bene, [hero]?", spanish=" ¿Estás bien, [hero]?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Let's go inside.", french=" Entrons.", german=" Gehen wir rein.", italian=" Entriamo.", spanish=" ¡Adelante!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
@@ -57,6 +59,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Let's go inside.", french=" Entrons.", german=" Gehen wir rein.", italian=" Entriamo.", spanish=" ¡Venga!"})
   end
+  -- message_Close
   do local p=hero.Position; GROUND:MoveToPosition(hero, p.X+(0), p.Y+(-160), false, 2) end
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(0), p.Y+(-160), false, 2) end
   GAME:WaitFrames(30)

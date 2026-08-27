@@ -28,6 +28,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" R-really?!", french=" Vraiment?!", german=" W-wirklich?", italian=" D-Davvero?!", spanish=" ¡¿De... de verdad?!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
@@ -37,17 +38,24 @@ return function(hero, partner)
   SkySceneKit.say({english=" We did it, [hero]!", french=" On a réussi, [hero]!", german="Wir haben es geschafft,\n[hero]!", italian="Ce l'abbiamo fatta,\n[hero]!", spanish=" ¡Lo logramos, [hero]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" We did it, [hero]!", french=" On a réussi, [hero]!", german="Wir haben es geschafft,\n[hero]!", italian="Ce l'abbiamo fatta,\n[hero]!", spanish=" ¡Lo logramos, [hero]!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" We did it, [hero]!", french=" On a réussi, [hero]!", german="Wir haben es geschafft,\n[hero]!", italian="Ce l'abbiamo fatta,\n[hero]!", spanish=" ¡Lo logramos, [hero]!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" We finally did it!", french=" On a enfin réussi!", german="Wir haben es letztendlich\ngeschafft!", italian=" Alla fine ce l'abbiamo fatta!", spanish=" ¡Por fin lo conseguimos!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" We finally did it!", french=" On a enfin réussi!", german="Wir haben es letztendlich\ngeschafft!", italian=" Alla fine ce l'abbiamo fatta!", spanish=" ¡Por fin lo conseguimos!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" We finally did it!", french=" On a enfin réussi!", german="Wir haben es letztendlich\ngeschafft!", italian=" Alla fine ce l'abbiamo fatta!", spanish=" ¡Por fin lo conseguimos!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" We brought peace to the world!", french="On a ramené la paix\ndans le monde!", german="Wir haben der Welt Frieden\ngebracht!", italian="Abbiamo riportato la pace nel\nmondo!", spanish="¡Hemos devuelto la tranquilidad\na este mundo!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" We brought peace to the world!", french="On a ramené la paix\ndans le monde!", german="Wir haben der Welt Frieden\ngebracht!", italian="Abbiamo riportato la pace nel\nmondo!", spanish="¡Hemos devuelto la tranquilidad\na este mundo!"})
   else
   SkySceneKit.say({english=" We brought peace to the world!", french="On a ramené la paix\ndans le monde!", german="Wir haben der Welt Frieden\ngebracht!", italian="Abbiamo riportato la pace nel\nmondo!", spanish="¡Hemos devuelto la tranquilidad\na este mundo!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_diaruga, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, npc_npc_diaruga, 4) end)
@@ -69,6 +77,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" [CS:N]D-Dialga[CR]...", french=" [CS:N]D-Dialga[CR]...", german=" [CS:N]D-Dialga[CR]...", italian=" [CS:N]D-Dialga[CR]...", spanish=" [CS:N]Dialga[CR]..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_diaruga) end)
   SkySceneKit.say({english="BUT ALL IS NOT YET AS IT\nSHOULD BE... IT WILL TAKE TIME.", french="MAIS TOUT N'EST PAS ENCORE\nREVENU A LA NORMALE... CELA PRENDRA\nDU TEMPS.", german="ABER LEIDER IST NOCH NICHT\nALLES, WIE ES SEIN SOLLTE... ES WIRD\nETWAS MEHR ZEIT IN ANSPRUCH NEHMEN.", italian="MA NON È ANCORA TORNATO\nTUTTO ALLA NORMALITÀ... CI VORRÀ UN\nPO'.", spanish="AÚN NO ESTÁ TODO COMO\nDEBERÍA... LA NORMALIDAD TARDARÁ UN\nPOCO EN RESTABLECERSE."})
   pcall(function() UI:SetSpeaker(npc_npc_diaruga) end)
@@ -93,6 +102,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" OK!", french=" Super!", german=" Okay!", italian=" Ok!", spanish=" De acuerdo."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
@@ -100,13 +110,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" Let's go home, [hero]!", french="On rentre chez nous,\n[hero]!", german="Gehen wir nach Hause,\n[hero]!", italian=" Torniamo a casa, [hero]!", spanish=" Vámonos a casa, [hero]."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Let's go home, [hero]!", french="On rentre chez nous,\n[hero]!", german="Gehen wir nach Hause,\n[hero]!", italian=" Torniamo a casa, [hero]!", spanish=" Vámonos a casa, [hero]."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Let's go home, [hero]!", french="On rentre chez nous,\n[hero]!", german="Gehen wir nach Hause,\n[hero]!", italian=" Torniamo a casa, [hero]!", spanish=" Vámonos a casa, [hero]."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Back to Treasure Town!", french=" En route pour Bourg-Trésor!", german=" Zurück nach Schatzstadt!", italian=" Torniamo a Borgo Tesoro!", spanish=" ¡De vuelta a Aldea Tesoro!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Back to Treasure Town!", french=" En route pour Bourg-Trésor!", german=" Zurück nach Schatzstadt!", italian=" Torniamo a Borgo Tesoro!", spanish=" ¡De vuelta a Aldea Tesoro!"})
   else
   SkySceneKit.say({english=" Back to Treasure Town!", french=" En route pour Bourg-Trésor!", german=" Zurück nach Schatzstadt!", italian=" Torniamo a Borgo Tesoro!", spanish=" ¡De vuelta a Aldea Tesoro!"})
   end
+  -- message_Close
   pcall(function() SOUND:FadeOutBGM(160) end)
   GAME:FadeOut(false, 90)
   GAME:WaitFrames(90)

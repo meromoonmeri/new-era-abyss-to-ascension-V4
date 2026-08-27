@@ -23,13 +23,17 @@ return function(hero, partner)
   SkySceneKit.say({english="Oh, now I remember! There was\nthat weird hole in front of the gate...", french="Ah oui, je me rappelle! Il y\navait ce trou bizarre devant l'entrée...", german="Oh, ich weiß es wieder! Da war\ndieses seltsame Loch vor dem Eingang.", italian="Oh, adesso mi ricordo! C'era\nquello strano buco di fronte all'ingresso...", spanish="¡Ah, ya lo recuerdo! Aquel\nagujero tan raro que hay frente a la puerta."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Oh, now I remember! There was\nthat weird hole in front of the gate...", french="Ah oui, je me rappelle! Il y\navait ce trou bizarre devant l'entrée...", german="Oh, ich weiß es wieder! Da war\ndieses seltsame Loch vor dem Eingang.", italian="Oh, adesso mi ricordo! C'era\nquello strano buco di fronte all'ingresso...", spanish="¡Ah, ya lo recuerdo! Aquel\nagujero tan raro que hay frente a la puerta."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="Oh, now I remember! There was\nthat weird hole in front of the gate...", french="Ah oui, je me rappelle! Il y\navait ce trou bizarre devant l'entrée...", german="Oh, ich weiß es wieder! Da war\ndieses seltsame Loch vor dem Eingang.", italian="Oh, adesso mi ricordo! C'era\nquello strano buco di fronte all'ingresso...", spanish="¡Ah, ya lo recuerdo! Aquel\nagujero tan raro que hay frente a la puerta."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="I stood on the grating, then\nsomeone shouted up at me. It was shocking!", french="Quelqu'un s'est mis à crier\ndès que j'ai fait un pas sur la grille.\nÇa m'a secoué!", german="Ich stand auf dem Gitter,\nund jemand schrie von unten zu mir hoch!\nIch habe einen Riesenschreck bekommen!", italian="Mi sono messo sulla grata e poi\nqualcuno ha urlato. Che spavento!", spanish="Me puse sobre la reja y\nalguien me gritó. ¡Vaya susto!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="I stood on the grating, then\nsomeone shouted up at me. It was startling!", french="Quelqu'un s'est mis à crier\ndès que j'ai fait un pas sur la grille.\nÇa m'a secoué!", german="Ich stand auf dem Gitter,\nund jemand schrie von unten zu mir hoch!\nIch bin richtig erschrocken!", italian="Mi sono messo sulla grata e poi\nqualcuno ha urlato. Che spavento mi sono\npreso!", spanish="Me puse sobre la reja y\nalguien me gritó. ¡Vaya susto!"})
   else
   SkySceneKit.say({english="I stood on the grating, then\nsomeone shouted up at me. It was startling!", french="Quelqu'un s'est mis à crier\ndès que j'ai fait un pas sur la grille.\nÇa m'a secouée!", german="Ich stand auf dem Gitter,\nund jemand schrie von unten zu mir hoch!\nIch bin richtig erschrocken!", italian="Mi sono messa sulla grata e poi\nqualcuno ha urlato. Che paura!", spanish="Me puse sobre la reja y\nalguien me gritó. ¡Vaya susto!"})
   end
+  -- message_Close
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   GAME:FadeOut(false, 30)
   SkySubScreen.Show("v02p02a", 0, false) -- screen2_FlushIn: TOP_FOCUS (timeline ROM)

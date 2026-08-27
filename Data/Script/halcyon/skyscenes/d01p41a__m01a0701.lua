@@ -90,6 +90,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Oh! It's my Relic Fragment!", french="Oh! C'est mon Fragment de\nRelique!", german=" Oh! Mein Reliktfragment!", italian=" Oh! È il mio Frammento Antico!", spanish="¡Mi Reliquia de Piedra!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(8), p.Y+(-8), false, 2) end
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- GAP: se_Play(8710) — id SE NDS sans portage PMDO identifié
@@ -102,6 +103,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Thank goodness...[K] I actually\nmanaged to get it back.", french="Je suis si contente...[K] J'ai\nvraiment réussi à le récupérer.", german="Ich bin so erleichtert...[K] Ich habe\nes tatsächlich zurückbekommen.", italian="Sono così felice...[K] Sono\nriuscita a riaverlo.", spanish="¡Menos mal! [K]\nMe alegro de recuperarla."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(partner, Direction.DownRight)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
@@ -111,6 +113,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="This happened only because you\nhelped me, [hero].", french="C'est grâce à ton aide,\n[hero].", german="Und das liegt daran, dass du mir\ngeholfen hast, [hero].", italian="È tutto merito tuo,\n[hero].", spanish="Y lo he conseguido gracias a tu\nayuda, [hero]."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- ExecuteCommon(CORO_JUMP_HAPPY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Thanks, [hero]!", french=" Merci, [hero]!", german=" Danke, [hero]!", italian=" Grazie, [hero]!", spanish=" ¡Gracias, [hero]!"})
@@ -119,6 +122,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Thank you, [hero]!", french=" Merci, [hero]!", german=" Vielen Dank, [hero]!", italian=" Grazie, [hero]!", spanish=" ¡Gracias, [hero]!"})
   end
+  GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_Close
   pcall(function() SOUND:FadeOutBGM(120) end)
   GAME:FadeOut(false, 60)

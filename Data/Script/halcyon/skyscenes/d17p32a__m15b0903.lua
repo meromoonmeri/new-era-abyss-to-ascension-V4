@@ -23,6 +23,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Oh! What's happening there?!", french=" Eh! Qu'est-ce qui se passe?!", german=" Oh! Was passiert denn da?!?", italian=" Ehi! Cosa sta succedendo?", spanish=" ¡Oye! ¡¿Qué está pasando?!"})
   end
+  -- message_Close
   GROUND:MoveToPosition(hero, 224, 204, false, 2)
   do local __slot = SkySceneKit.team_member(1); if __slot then GROUND:MoveToPosition(__slot, 204, 248, false, 2) end end
   do local __slot = SkySceneKit.team_member(2); if __slot then GROUND:MoveToPosition(__slot, 240, 236, false, 2) end end
@@ -34,13 +35,17 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(hero, "shock", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(That's...)", french="(C'est...)", german="(Das ist...)", italian="(Quello è...)", spanish="(Ese es...)"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  else
+  SkySceneKit.say({english="(That's...)", french="(C'est...)", german="(Das ist...)", italian="(Quello è...)", spanish="(Ese es...)"})
+  end
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(That's [CS:N]Grovyle[CR]!)", french="([CS:N]Massko[CR]!)", german="(Das ist [CS:N]Reptain[CR]!)", italian="(... [CS:N]Grovyle[CR]!)", spanish="(¡Es [CS:N]Grovyle[CR]!)"})
   else
   SkySceneKit.say({english="(That's [CS:N]Grovyle[CR]!)", french="([CS:N]Massko[CR]!)", german="(Das ist [CS:N]Reptain[CR]!)", italian="(... [CS:N]Grovyle[CR]!)", spanish="(¡Es [CS:N]Grovyle[CR]!)"})
   end
+  -- message_Close
   pcall(function() local g=GAME:GetCurrentGround(); GAME:MoveCamera(g.ViewCenter.X+(0), g.ViewCenter.Y+(-180), 60, false) end) -- MovePositionOffset performer/caméra
   GAME:WaitFrames(15)
   GAME:FadeOut(false, 15)

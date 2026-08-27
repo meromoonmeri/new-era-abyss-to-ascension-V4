@@ -20,6 +20,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" What...?!", french=" Quoi...?!", german=" Was?!?", italian=" Oh!", spanish=" ¡¿Cómo?!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
   local npc_npc_perappu = SkySceneKit.spawn_npc("chatot", 352, 216, Direction.Down, "NPC_PERAPPU")
   pcall(function() GROUND:CharTurnToCharAnimated(npc_npc_perappu, partner, 4) end)
@@ -48,13 +49,17 @@ return function(hero, partner)
   SkySceneKit.say({english="So everyone's back from their\nsearches...", french=" Alors tout le monde est rentré...", german="Es sind also alle von ihrer\nSuche zurück...", italian="Anche gli altri hanno terminato\nle loro ricerche.", spanish="Así que todos han regresado\nde sus exploraciones..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="So everyone's back from their\nsearches...", french=" Alors tout le monde est rentré...", german="Es sind also alle von ihrer\nSuche zurück...", italian="Anche gli altri hanno terminato\nle loro ricerche.", spanish="Así que todos han regresado\nde sus exploraciones..."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="So everyone's back from their\nsearches...", french=" Alors tout le monde est rentré...", german="Es sind also alle von ihrer\nSuche zurück...", italian="Anche gli altri hanno terminato\nle loro ricerche.", spanish="Así que todos han regresado\nde sus exploraciones..."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" But nobody found anything?", french="Mais personne n'a découvert\nquoi que ce soit?", german="Aber niemand hat etwas\ngefunden?", italian="Possibile che nessuno abbia\ntrovato niente?", spanish=" ¿Pero nadie ha encontrado nada?"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" But nobody found anything?", french="Mais personne n'a découvert\nquoi que ce soit?", german="Aber niemand hat etwas\ngefunden?", italian="Possibile che nessuno abbia\ntrovato niente?", spanish=" ¿Pero nadie ha encontrado nada?"})
   else
   SkySceneKit.say({english=" But nobody found anything?", french="Mais personne n'a découvert\nquoi que ce soit?", german="Aber niemand hat etwas\ngefunden?", italian="Possibile che nessuno abbia\ntrovato niente?", spanish=" ¿Pero nadie ha encontrado nada?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Sweatdrop") end)
   pcall(function() GROUND:CharSetEmote(npc_npc_dagutorio, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect

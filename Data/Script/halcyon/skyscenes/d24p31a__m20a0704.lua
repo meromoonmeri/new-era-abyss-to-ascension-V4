@@ -17,13 +17,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" But didn't they...?", french=" Mais ils n'ont pas...?", german=" Aber haben sie nicht...", italian=" Ma loro non...?", spanish=" ¿Pero no habían...?"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" But didn't they...?", french=" Mais ils n'ont pas...?", german=" Aber haben sie nicht...", italian=" Ma loro non...?", spanish=" ¿Pero no habían...?"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" But didn't they...?", french=" Mais ils n'ont pas...?", german=" Aber haben sie nicht...", italian=" Ma loro non...?", spanish=" ¿Pero no habían...?"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Just before we were dragged\noff to the future with you, [CS:N]Grovyle[CR]...", french="Juste avant qu'on parte dans\nle futur avec toi, [CS:N]Massko[CR]...", german="Kurz bevor wir mit dir in die\nZukunft verschleppt worden sind, [CS:N]Reptain[CR]...", italian="Poco prima di finire nel futuro\ncon te, [CS:N]Grovyle[CR]...", spanish="Justo antes de que nos\narrastrasen al futuro, [CS:N]Grovyle[CR]..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Just before we were dragged\noff to the future with you, [CS:N]Grovyle[CR]...", french="Juste avant qu'on parte dans\nle futur avec toi, [CS:N]Massko[CR]...", german="Kurz bevor wir mit dir in die\nZukunft verschleppt worden sind, [CS:N]Reptain[CR]...", italian="Poco prima di finire nel futuro\ncon te, [CS:N]Grovyle[CR]...", spanish="Justo antes de que nos\narrastrasen al futuro, [CS:N]Grovyle[CR]..."})
   else
   SkySceneKit.say({english="Just before we were dragged\noff to the future with you, [CS:N]Grovyle[CR]...", french="Juste avant qu'on parte dans\nle futur avec toi, [CS:N]Massko[CR]...", german="Kurz bevor wir mit dir in die\nZukunft verschleppt worden sind, [CS:N]Reptain[CR]...", italian="Poco prima di finire nel futuro\ncon te, [CS:N]Grovyle[CR]...", spanish="Justo antes de que nos\narrastrasen al futuro, [CS:N]Grovyle[CR]..."})
   end
+  -- message_Close
   GAME:FadeOut(false, 30)
   SkySceneKit.cleanup_npcs()
 end

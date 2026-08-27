@@ -42,6 +42,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Huh? What...? Where are we?", french="Hein? Quoi...? Où est-ce\nqu'on est?", german=" Wie? Was? Wo sind wir?", italian=" Eh? Cosa...? Dove siamo?", spanish="¿Eh? ¿Qué ha pasado?\n¿Dónde estamos?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:MoveToPosition(npc_npc_himeguma, 220, 188, false, 1)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GROUND:EntTurn(npc_npc_himeguma, Direction.DownRight)
@@ -78,6 +79,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Where are we?", french=" Où sommes-nous?", german=" Wo sind wir?", italian=" Dove ci troviamo?", spanish=" ¿Dónde estamos?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(hero, npc_npc_himeguma, 4) end)
   pcall(function() UI:SetSpeaker(npc_npc_himeguma) end)
   SkySceneKit.say({english=" This is the Hot Spring.", french=" A la Source Chaude.", german=" Dies ist die Heiße Quelle.", italian=" Questa è la Sorgente Termale.", spanish=" Esta es la Terma."})
@@ -90,6 +92,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" H-Hot Spring?!", french=" La Source Chaude?!", german=" D-die Heiße Quelle?!?", italian=" S-Sorgente Termale?!", spanish=" ¿La... la Terma?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBGM("Heartwarming.ogg", true) end)
   local npc_npc_kootasu = SkySceneKit.spawn_npc("torkoal", 320, 136, Direction.DownLeft, "NPC_KOOTASU")
   do local p=npc_npc_kootasu.Position; GROUND:MoveToPosition(npc_npc_kootasu, p.X+(-56), p.Y+(0), false, 1) end
@@ -118,6 +121,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Map?[K] Oh, our Wonder Map, you\nmean? We have one.", french="Une carte?[K] Oh, tu veux dire une\nCarte Miracle? Bien sûr, oui.", german="Karte?[K] Oh, unsere Wunderkarte\nmeinst du? Die haben wir dabei.", italian="Mappa?[K] Oh, se intendi la\nMappa delle meraviglie, ce l'abbiamo.", spanish="¿Un mapa?[K] ¿Quieres decir\nun Mapa Mágico? Sí, tenemos uno."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_kootasu) end)
   SkySceneKit.say({english=" Unfold it for me.", french=" Pourrais-tu la déplier?", german=" Falte sie für mich auf.", italian=" Apritela un attimo.", spanish=" Desplegadlo."})
   -- message_Close

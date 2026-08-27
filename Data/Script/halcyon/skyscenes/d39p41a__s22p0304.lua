@@ -39,6 +39,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" ...[K][CS:P]Dark[CR]...[K] [CS:P]Crater[CR]...", french=" ...[K] Le [CS:P]Cratère[CR]...[K] [CS:P]Obscur[CR]...", german=" ...[K][CS:P]Dunkelkrater[CR]...", italian=" ...[K] [CS:P]Cratere[CR]...[K] [CS:P]Oscuro[CR]...", spanish=" El...[K] [CS:P]Cráter[CR]...[K] [CS:P]Oscuro[CR]..."})
   end
+  -- message_Close
   GAME:FadeOut(false, 30)
   GAME:FadeIn(0) -- screen_FlushIn
   SkySceneKit.cleanup_npcs()

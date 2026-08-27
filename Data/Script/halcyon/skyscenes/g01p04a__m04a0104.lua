@@ -24,6 +24,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="OK, so we should climb down\nthis hole. And then what?", french="D'accord, on doit descendre dans\nce trou, et après?", german="Okay, wir sollen also in dieses\nLoch steigen. Und weiter?", italian="Ok, quindi dobbiamo scendere di\nqui. Cosa facciamo dopo?", spanish="Vale, entonces bajamos\npor este agujero. ¿Y luego qué?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(hero, Direction.Left)
   GROUND:EntTurn(partner, Direction.UpLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives

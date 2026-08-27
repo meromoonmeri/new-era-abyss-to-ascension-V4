@@ -27,6 +27,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Oh, wow... This is so pretty!", french=" Waouh! Comme c'est beau!", german=" Oh, wow... Das ist so hübsch!", italian=" Oh, wow... È stupendo!", spanish=" ¡Qué bonito!"})
   end
+  -- message_Close
   GAME:WaitFrames(60)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- screen2_FadeOut [sub déjà caché]

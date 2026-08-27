@@ -21,15 +21,22 @@ return function(hero, partner)
   GAME:FadeIn(60)
   GAME:WaitFrames(30)
   pcall(function() UI:ResetSpeaker() end)
-  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(............)", french="(............)", german="(............)", italian="(............)", spanish="(...)"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  else
+  SkySceneKit.say({english="(............)", french="(............)", german="(............)", italian="(............)", spanish="(...)"})
+  end
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(..................)", french="(..................)", german="(..................)", italian="(..................)", spanish="(... ...)"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  else
+  SkySceneKit.say({english="(..................)", french="(..................)", german="(..................)", italian="(..................)", spanish="(... ...)"})
+  end
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(...![K] Huh?)", french="(...![K] Hein?)", german="(Äh?)", italian="(...![K] Eh?)", spanish="(¿Cómo?[K] ¿Eh?)"})
   else
   SkySceneKit.say({english="(...![K] Huh?)", french="(...![K] Hein?)", german="(Äh?)", italian="(...![K] Eh?)", spanish="(¿Cómo?[K] ¿Eh?)"})
   end
+  -- message_Close
   -- SetAnimation(2) [anim idle native]
   GROUND:EntTurn(hero, Direction.Down)
   GAME:WaitFrames(5)
@@ -40,18 +47,20 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(hero, "exclaim", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="([partner] isn't here...)", french="([partner] n'est pas là...)", german="([partner] ist nicht hier...)", italian="([partner] non è qui...)", spanish="([partner] no está aquí...)"})
   else
   SkySceneKit.say({english="([partner] isn't here...)", french="([partner] n'est pas là...)", german="([partner] ist nicht hier...)", italian="([partner] non è qui...)", spanish="([partner] no está aquí...)"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- ExecuteCommon(CORO_LOOK_AROUND_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(30)
-  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(Maybe outside...?)", french="(Peut-être dehors...?)", german="(Vielleicht draußen?)", italian="(Che sia fuori...?)", spanish="(Quizás está afuera...)"})
   else
   SkySceneKit.say({english="(Maybe outside...?)", french="(Peut-être dehors...?)", german="(Vielleicht draußen?)", italian="(Che sia fuori...?)", spanish="(Quizás está afuera...)"})
   end
+  -- message_Close
   SkySubScreen.Hide(10) -- fin de scène: nappe sub retirée
 end

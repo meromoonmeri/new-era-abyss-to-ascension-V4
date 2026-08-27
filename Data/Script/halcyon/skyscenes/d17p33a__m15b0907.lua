@@ -27,6 +27,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Waaah! Tremors!", french=" Ouaaah! Le sol tremble?!", german=" Waaah! Ein Beben?!?", italian=" Aaaah! Un terremoto!", spanish="¿Qué pasa? El suelo está\ntemblando."})
   end
+  -- message_Close
   GAME:FadeOut(false, 15)
   -- camera_SetEffect(0): arrêt d'effet caméra
 end

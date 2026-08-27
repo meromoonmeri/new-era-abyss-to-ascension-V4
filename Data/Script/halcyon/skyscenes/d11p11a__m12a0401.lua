@@ -20,6 +20,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Let's make it through this time!", french=" On va y arriver cette fois-ci!", german=" Diesmal schaffen wir es!", italian=" Questa volta ce la faremo!", spanish=" ¡Esta vez vamos a conseguirlo!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(10)
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
@@ -31,6 +32,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" [hero], let's try our best!", french="Faisons de notre mieux,\n[hero]!", german="[hero], lass uns unser\nBestes geben!", italian="Mettiamocela tutta,\n[hero]!", spanish="[hero], ¡esforcémonos al\nmáximo!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:MoveToPosition(partner, 212, 132, false, 2)
   GAME:WaitFrames(10)
   GROUND:MoveToPosition(hero, 244, 132, false, 2)

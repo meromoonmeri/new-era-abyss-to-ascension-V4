@@ -19,13 +19,17 @@ return function(hero, partner)
   SkySceneKit.say({english="Yes, [hero] was always\nthere to cheer me up...", french="Oui, [hero] a toujours\nété là pour me remonter le moral...", german="Ja, [hero] war immer da,\num mich aufzubauen...", italian="Sì, [hero] era sempre\nqui a tirarmi su il morale...", spanish="Sí, [hero] siempre estaba\nahí para animarme..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Yes, [hero] was always\nthere to cheer me up...", french="Oui, [hero] a toujours\nété là pour me remonter le moral...", german="Ja, [hero] war immer da,\num mich aufzubauen...", italian="Sì, [hero] era sempre\nqui a tirarmi su il morale...", spanish="Sí, [hero] siempre estaba\nahí para animarme..."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="Yes, [hero] was always\nthere to cheer me up...", french="Oui, [hero] a toujours\nété là pour me remonter le moral...", german="Ja, [hero] war immer da,\num mich aufzubauen...", italian="Sì, [hero] era sempre\nqui a tirarmi su il morale...", spanish="Sí, [hero] siempre estaba\nahí para animarme..."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" And...", french=" ... et...", german=" Und...", italian=" E...", spanish=" Y además..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" And...", french=" ... et...", german=" Und...", italian=" E...", spanish=" Y además..."})
   else
   SkySceneKit.say({english=" And...", french=" ... et...", german=" Und...", italian=" E...", spanish=" Y además..."})
   end
+  -- message_Close
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   pcall(function() SOUND:FadeOutBGM(140) end) -- bgm_ChangeVolume vers 0 (silence)
   GAME:FadeOut(false, 30)

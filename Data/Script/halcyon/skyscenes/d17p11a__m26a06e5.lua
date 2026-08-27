@@ -20,13 +20,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" Let's roll, [hero]!", french=" On y va, [hero]!", german=" Nichts wie los, [hero]!", italian="Andiamo, [hero]!\nRock'n'roll!", spanish=" ¡Adelante, [hero]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Let's go, [hero]!", french=" On y va, [hero]!", german=" Gehen wir, [hero]!", italian=" Andiamo, [hero]!", spanish=" ¡Adelante, [hero]!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Let's go, [hero]!", french=" On y va, [hero]!", german=" Gehen wir, [hero]!", italian=" Andiamo, [hero]!", spanish=" ¡Adelante, [hero]!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" We're off to [CS:N]Azelf[CR]'s lake!", french="En route pour le lac\nde [CS:N]Créfadet[CR]!", german=" Auf zum See von [CS:N]Tobutz[CR]!", italian=" Destinazione: il lago di [CS:N]Azelf[CR]!", spanish=" ¡Vamos al lago de [CS:N]Azelf[CR]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Onward to [CS:N]Azelf[CR]'s lake!", french="En route pour le lac\nde [CS:N]Créfadet[CR]!", german=" Auf zum See von [CS:N]Tobutz[CR]!", italian=" Destinazione: il lago di [CS:N]Azelf[CR]!", spanish=" ¡Vamos al lago de [CS:N]Azelf[CR]!"})
   else
   SkySceneKit.say({english=" We're off to [CS:N]Azelf[CR]'s lake!", french="En route pour le lac\nde [CS:N]Créfadet[CR]!", german=" Auf zum See von [CS:N]Tobutz[CR]!", italian=" Destinazione: il lago di [CS:N]Azelf[CR]!", spanish=" ¡Vamos al lago de [CS:N]Azelf[CR]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetAnimation(71) [anim idle native]
   -- SetAnimation(71) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation

@@ -60,6 +60,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" [CS:P]Zero Isle[CR]?", french=" L'[CS:P]Ile Zéro[CR]?", german=" Die [CS:P]Null-Insel[CR]?", italian=" L'[CS:P]Isola Zero[CR]?", spanish=" ¿La [CS:P]Isla Cero[CR]?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(npc_npc_dorapion, partner, 4) end)
   pcall(function() UI:SetSpeaker(npc_npc_dorapion) end)
   SkySceneKit.say({english="Yeah. Rumor has it that the\ngreatest treasures are there...", french="Ouais. Le bruit court que\nc'est là que se trouvent les trésors\nles plus fabuleux...", german="Ja. Gerüchten zufolge sind dort\ndie größten Schätze zu finden...", italian="Sì. Girano voci che ci siano\ndei grandi tesori laggiù...", spanish="Sí. Se rumorea que oculta\ngrandes tesoros..."})

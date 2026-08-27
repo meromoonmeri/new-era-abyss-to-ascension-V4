@@ -40,6 +40,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Aaaah!", french=" Aaah!", german=" Aaaah!", italian=" Aaaah!", spanish=" ¡Aaah!"})
   end
+  GAME:WaitFrames(10)
   do local p=npc_npc_zubatto.Position; GROUND:MoveToPosition(npc_npc_zubatto, p.X+(28), p.Y+(-24), false, 2) end -- Slide2PositionOffset
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GROUND:EntTurn(npc_npc_zubatto, Direction.Left)

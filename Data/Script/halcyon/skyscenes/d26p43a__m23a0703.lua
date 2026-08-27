@@ -19,6 +19,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Hey! [CS:N]Chatot[CR]!", french=" Eh, [CS:N]Pijako[CR]!", german=" Hey! [CS:N]Plaudagei[CR]!", italian=" Ehi! [CS:N]Chatot[CR]!", spanish=" ¡Oye! ¡[CS:N]Chatot[CR]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Exclaim_Surprised") end)
   local npc_npc_perappu = SkySceneKit.spawn_npc("chatot", 280, 328, Direction.Up, "NPC_PERAPPU")
   pcall(function() GROUND:CharSetEmote(npc_npc_perappu, "exclaim", 1) end)
@@ -67,6 +68,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="But...[K]there doesn't appear to be\nanywhere to hide here.", french="Mais...[K] il n'y a nulle part\noù se cacher ici.", german="Aber...[K] Es scheint hier nichts zu\ngeben, wo man sich verstecken könnte.", italian="Ma...[K] non vedo posti per\nnascondersi qui.", spanish="Pero...[K] ¡si no hay ningún sitio\ndonde esconderse!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english=" (What is this...?)", french=" (Qu'est-ce que c'est...?)", german=" (Was ist das?)", italian=" (Cos'è questo...?)", spanish=" (¿Qué ocurre?)"})
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
@@ -80,6 +82,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="There are only rock walls\naround us.", french="Il n'y a que des parois de pierre\ntout autour de nous.", german="Da sind nur Felswände um uns\nherum.", italian="Ci sono solo muri di roccia\nattorno a noi.", spanish=" Aquí solo hay paredes."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english="(That one glance I caught of\nthem...[K] I'm on the verge of remembering...)", french="(Je n'ai fait que les\napercevoir...[K] Ça va me revenir...)", german="(Das, was ich aus dem\nAugenwinkel von ihnen gesehen habe...[K] Ich bin\nkurz davor, mich zu erinnern.)", italian="(Li ho solo intravisti, ma...[K]\nMi sembra di ricordare...)", spanish="(Solo les vi un instante...[K]\nPero estoy a punto de recordarlo...)"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())

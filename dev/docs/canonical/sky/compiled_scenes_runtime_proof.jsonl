@@ -258,3 +258,5 @@
 {"event": "scene_runtime", "scene": "g01p05a__m26a06e3", "family": "offset_pos + GameVar", "verdict": "CINEMATIC_RUNTIME_PASS"}
 {"event": "compiler_v8_5", "date": "2026-08-27", "compiled": 2574, "partial_ops": 649, "note": "V8.5: acteurs demo NDS (NPC_DEMO_HERO/PARTNER, NPC_HERO/PARTNER_FIRST, LivesEntityTable type 5 entid 0) -> duo courant (meme regle que PLAYER_*); Turn2DirectionLives vers cible sans placement SSA (spawn moteur shop/hub) = orientation non jouee documentee; MovePositionOffset<object> props decor"}
 {"event": "scene_runtime", "scene": "d73p28a__us3104", "family": "orientation cible absente", "verdict": "CINEMATIC_RUNTIME_PASS"}
+{"event": "compiler_v8_6", "date": "2026-08-27", "compiled": 2590, "partial_ops": 633, "note": "V8.6: message_SwitchTalk/SwitchMonologue en forme BLOC (`op ($VAR) { case N: {...} }` — finit par '}' donc jamais capte par le regex op) : decoupage compile_def0 etendu + handler partage compile_op_switchtalk"}
+{"event": "scene_runtime", "scene": "d01p11a__enter01", "family": "SwitchTalk bloc (6 dialogues)", "verdict": "CINEMATIC_RUNTIME_PASS"}

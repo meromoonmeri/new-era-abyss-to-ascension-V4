@@ -34,6 +34,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Did you try asking [CS:N]Wynaut[CR]\nover there?", french="Demande plutôt à [CS:N]Okéoké[CR],\nà côté.", german="Probier doch mal,\n[CS:N]Isso[CR] anzusprechen.", italian="Hai provato a chiedere\na [CS:N]Wynaut[CR]?", spanish="¿Has probado a preguntarle a\n[CS:N]Wynaut[CR]?"})
   end
+  -- message_Close
   -- @label_131 [étiquette de flux ExplorerScript]
   -- JumpCommon(CORO_END_TALK) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   elseif (SkyProg.cmp(29, 9) >= 0) or (SkyProg.cmp(29, 8) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [29, 9] || scn($SCENARIO_MAIN) >= [29

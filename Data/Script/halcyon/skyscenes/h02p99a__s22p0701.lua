@@ -11,13 +11,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" Ugh...[K] That ended badly.", french=" Argh...[K] Ça s'est mal terminé.", german=" Uff...[K] Das ging böse aus.", italian=" Oh...[K] È finita male.", spanish=" Uf...[K] No ha acabado nada bien."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Ugh...[K] We didn't make it...", french=" Argh...[K] Ça s'est mal terminé.", german=" Uff...[K] Nicht geschafft...", italian=" Uff...[K] Non ce l'abbiamo fatta.", spanish=" Uf...[K] No lo logramos."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Ugh...[K] We didn't get through...", french=" Argh...[K] Ça s'est mal terminé.", german=" Uff...[K] Wir kamen nicht durch...", italian=" Uh...[K] Non ce l'abbiamo fatta.", spanish=" Uf...[K] No ha ido muy bien."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Hmm... This is tough...[K] Let's stop\nfor now and try again tomorrow.", french="Hum... Ce n'est pas une mince\naffaire...[K] A chaque jour suffit sa peine.\nRetentons notre chance demain.", german="Hmm... Es ist schwer...[K] Lasst\nuns erst einmal eine Pause einlegen und dann\nmorgen weitermachen.", italian="Mmm... È dura...[K] Fermiamoci\nqui per oggi e riproviamo domani.", spanish="Hum... Esto no es fácil...[K]\nDejémoslo por hoy e intentémoslo de\nnuevo mañana."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Hmm... This is tough...[K] Let's stop\nfor now and try again tomorrow.", french="Hum... Ce n'est pas une mince\naffaire...[K] A chaque jour suffit sa peine.\nRetentons notre chance demain.", german="Hmm... Es ist schwer...[K] Lasst\nuns erst einmal eine Pause einlegen und dann\nmorgen weitermachen.", italian="Mmm... È dura...[K] Fermiamoci\nqui per oggi e riproviamo domani.", spanish="Hum... Esto no es fácil...[K]\nDejémoslo por hoy e intentémoslo de\nnuevo mañana."})
   else
   SkySceneKit.say({english="Hmm... This is tough...[K] Let's stop\nfor now and try again tomorrow.", french="Hum... Ce n'est pas une mince\naffaire...[K] A chaque jour suffit sa peine.\nRetentons notre chance demain.", german="Hmm... Es ist schwer...[K] Lasst\nuns erst einmal eine Pause einlegen und dann\nmorgen weitermachen.", italian="Mmm... È dura...[K] Fermiamoci\nqui per oggi e riproviamo domani.", spanish="Hum... Esto no es fácil...[K]\nDejémoslo por hoy e intentémoslo de\nnuevo mañana."})
   end
+  -- message_KeyWait
   GAME:FadeOut(false,  60)
   -- message_CloseEnforce
   GAME:WaitFrames(60)
@@ -57,17 +61,24 @@ return function(hero, partner)
   SkySceneKit.say({english=" Good morning, [hero]!", french=" Bonjour, [hero]!", german=" Guten Morgen, [hero]!", italian=" Buongiorno, [hero]!", spanish=" ¡Buenos días, [hero]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Good morning, [hero]!", french=" Bonjour, [hero]!", german=" Guten Morgen, [hero]!", italian=" Buongiorno, [hero]!", spanish=" ¡Buenos días, [hero]!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Good morning, [hero]!", french=" Bonjour, [hero]!", german=" Guten Morgen, [hero]!", italian=" Buongiorno, [hero]!", spanish=" ¡Buenos días, [hero]!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Let's put an end to [CS:N]Darkrai[CR]'s\nscheme this time!", french="Mettons un terme aux projets\nde [CS:N]Darkrai[CR], cette fois-ci!", german="Setzen wir dem Vorhaben von\n[CS:N]Darkrai[CR] diesmal ein Ende!", italian="Questa volta metteremo fine ai\npiani di [CS:N]Darkrai[CR]!", spanish="¡Acabemos con [CS:N]Darkrai[CR] y su\nmalvado plan de una vez por todas!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Let's put an end to [CS:N]Darkrai[CR]'s\nscheme this time!", french="Mettons un terme aux projets\nde [CS:N]Darkrai[CR], cette fois-ci!", german="Setzen wir dem Vorhaben von\n[CS:N]Darkrai[CR] diesmal ein Ende!", italian="Questa volta metteremo fine ai\npiani di [CS:N]Darkrai[CR]!", spanish="¡Acabemos con [CS:N]Darkrai[CR] y su\nmalvado plan de una vez por todas!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="Let's put an end to [CS:N]Darkrai[CR]'s\nscheme this time!", french="Mettons un terme aux projets\nde [CS:N]Darkrai[CR], cette fois-ci!", german="Setzen wir dem Vorhaben von\n[CS:N]Darkrai[CR] diesmal ein Ende!", italian="Questa volta metteremo fine ai\npiani di [CS:N]Darkrai[CR]!", spanish="¡Acabemos con [CS:N]Darkrai[CR] y su\nmalvado plan de una vez por todas!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="There's no giving up now,\n[hero]!", french="On n'a pas le droit d'abandonner\nmaintenant, [hero]!", german="Es gibt diesmal kein Aufgeben,\n[hero]!", italian="Non possiamo arrenderci adesso,\n[hero]!", spanish="¡No podemos rendirnos ahora,\n[hero]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="There's no giving up now,\n[hero]!", french="On n'a pas le droit d'abandonner\nmaintenant, [hero]!", german="Es gibt diesmal kein Aufgeben,\n[hero]!", italian="Non possiamo arrenderci adesso,\n[hero]!", spanish="¡No podemos rendirnos ahora,\n[hero]!"})
   else
   SkySceneKit.say({english="We can't give up now,\n[hero]!", french="On n'a pas le droit d'abandonner\nmaintenant, [hero]!", german="Wir können jetzt nicht aufgeben,\n[hero]!", italian="Non possiamo arrenderci adesso,\n[hero]!", spanish="¡No podemos rendirnos ahora,\n[hero]!"})
   end
+  -- message_Close
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]
   SkySubScreen.Hide(10) -- fin de scène: nappe sub retirée

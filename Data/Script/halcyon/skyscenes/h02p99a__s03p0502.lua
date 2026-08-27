@@ -21,6 +21,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="OK, [CS:N]Manaphy[CR].[K] For the time being,\nthis is your house.", french="Très bien, [CS:N]Manaphy[CR].[K]\nPour l'instant, c'est ici ta maison.", german="Okay, [CS:N]Manaphy[CR].[K] Fürs Erste\nist das dein Haus.", italian="Va bene, [CS:N]Manaphy[CR].[K] Per il\nmomento, questa è la tua casa.", spanish="Bueno, [CS:N]Manaphy[CR]...[K]\nPor el momento, este será tu hogar."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Confused") end)
   local npc_npc_manafi = SkySceneKit.spawn_npc("manaphy", 312, 184, Direction.Down, "NPC_MANAFI")
   pcall(function() GROUND:CharSetEmote(npc_npc_manafi, "question", 1) end)
@@ -36,6 +37,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="That's right. House.[K] We're going\nto look after you, little cutie.", french="Oui. Maison. [K]Nous allons\nprendre soin de toi, petite tête.", german="Genau. Haus.[K] Wir werden auf\ndich aufpassen, süßer Fratz.", italian="Esatto. Casa.[K] Ci prenderemo\ncura di te, piccolino.", spanish="Sí, hogar.[K] Cuidaremos de ti,\npequeño."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() UI:SetSpeaker(npc_npc_manafi) end)
@@ -48,6 +50,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="But, um...[K] What do you think we\nshould do now?", french="Mais, euh...[K] qu'est-ce qu'on doit\nfaire?", german="Aber, ähem...[K] Was sollen wir\ndenn jetzt machen?", italian="Ma, eh...[K] Adesso cosa\nfacciamo?", spanish="Pero...[K] ¿qué se supone que\ndebemos hacer?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() UI:SetSpeaker(npc_npc_manafi) end)
@@ -71,6 +74,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="He's got quite the appetite, our\ncute little [CS:N]Manaphy[CR]!", french="Il a de l'appétit, notre petit\n[CS:N]Manaphy[CR].", german="Es hat einen ganz schönen\nAppetit, unser süßes, kleines [CS:N]Manaphy[CR].", italian="Ha un bell'appetito, il nostro\npiccolo [CS:N]Manaphy[CR].", spanish="Tiene apetito, el pequeño\n[CS:N]Manaphy[CR]."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- ExecuteCommon(CORO_JUMP_HAPPY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
@@ -80,6 +84,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" OK!", french=" Très bien!", german=" Okay!", italian=" Va bene!", spanish=" ¡Vale!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
@@ -90,5 +95,6 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Let's find another [CS:I]Blue Gummi[CR]\nfor [CS:N]Manaphy[CR], [hero].", french="Trouvons encore une\n[CS:I]Gelée Bleue[CR] pour [CS:N]Manaphy[CR], [hero].", german="Finden wir noch ein [CS:I]Blaugummi[CR]\nfür [CS:N]Manaphy[CR], [hero].", italian="Troviamo un'altra [CS:I]Gommablu[CR]\nper [CS:N]Manaphy[CR], [hero].", spanish="Encontremos otra [CS:I]Gomi Azul[CR]\npara [CS:N]Manaphy[CR], [hero]."})
   end
+  -- message_Close
   SkySceneKit.cleanup_npcs()
 end

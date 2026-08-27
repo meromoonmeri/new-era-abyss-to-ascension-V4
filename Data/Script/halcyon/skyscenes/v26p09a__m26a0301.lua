@@ -17,13 +17,18 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Th-this is...", french=" C'est...", german=" D-das ist...", italian=" Q-Questa è...", spanish=" Esto... Esto es..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:ResetSpeaker() end)
-  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="([CS:N]Dialga[CR] must be showing this to us...)", french="(Ça doit être [CS:N]Dialga[CR] qui nous fait voir ça...)", german="([CS:N]Dialga[CR] zeigt uns das wohl gerade...)", italian="([CS:N]Dialga[CR] ci sta facendo vedere...)", spanish="([CS:N]Dialga[CR] debe de estar mostrándonos esto...)"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  else
+  SkySceneKit.say({english="([CS:N]Dialga[CR] must be showing this to us...)", french="(Ça doit être [CS:N]Dialga[CR] qui nous fait voir ça...)", german="([CS:N]Dialga[CR] zeigt uns das wohl gerade...)", italian="([CS:N]Dialga[CR] ci sta facendo vedere...)", spanish="([CS:N]Dialga[CR] debe de estar mostrándonos esto...)"})
+  end
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(He must be using telepathy to do so.)", french="(Il doit se servir de la télépathie\npour y arriver.)", german="(Wahrscheinlich setzt es dazu Telepathie ein.)", italian="(Ci sta facendo vedere queste immagini\ncon i suoi poteri telepatici.)", spanish="(Debe de estar usando telepatía.)"})
   else
   SkySceneKit.say({english="(He must be using telepathy to do so.)", french="(Il doit se servir de la télépathie\npour y arriver.)", german="(Wahrscheinlich setzt es dazu Telepathie ein.)", italian="(Ci sta facendo vedere queste immagini\ncon i suoi poteri telepatici.)", spanish="(Debe de estar usando telepatía.)"})
   end
+  -- message_Close
   GAME:FadeOut(false, 30)
 end

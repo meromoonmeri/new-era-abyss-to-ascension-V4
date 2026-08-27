@@ -57,6 +57,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Wow! We're two floors under\nthe ground, but you can see outside!", french="Waouh! Alors qu'on est\nau deuxième sous-sol, on voit le ciel dehors!", german="Wow! Wir sind im zweiten\nUntergeschoss, und man kann trotzdem nach\ndraußen sehen!", italian="Wow! Siamo due piani sottoterra\nma si può vedere fuori!", spanish="¡Mira! ¡Estamos a dos pisos\nbajo tierra, pero se ve el exterior!"})
   end
+  -- message_Close
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Shock") end)
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -77,6 +78,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Oh.", french=" Ah bon.", german=" Oh.", italian=" Oh.", spanish=" Ah."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(npc_npc_perappu, hero, 4) end)
   GAME:WaitFrames(20)
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(-16), p.Y+(-16), false, 2) end -- Move2PositionOffset

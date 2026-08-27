@@ -29,6 +29,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" [CS:N]Drowzee[CR]!", french=" [CS:N]Soporifik[CR]!", german=" [CS:N]Traumato[CR]!", italian=" [CS:N]Drowzee[CR]!", spanish=" ¡[CS:N]Drowzee[CR]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   local npc_npc_suriipu = SkySceneKit.spawn_npc("drowzee", 352, 272, Direction.Up, "NPC_SURIIPU")
   GROUND:EntTurn(npc_npc_suriipu, Direction.Down)
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -42,6 +43,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Let go of [CS:N]Azurill[CR], [CS:N]Drowzee[CR]!", french=" [CS:N]Soporifik[CR]! Laisse partir [CS:N]Azurill[CR]!", german=" Lass [CS:N]Azurill[CR] in Ruhe, [CS:N]Traumato[CR]!", italian=" Lascia andare [CS:N]Azurill[CR], [CS:N]Drowzee[CR]!", spanish=" ¡[CS:N]Drowzee[CR], suelta a [CS:N]Azurill[CR]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_suriipu) end)
   SkySceneKit.say({english="You foolish pests. Do I have to\nembarrass you again?", french="Imbéciles. Combien de fois\nfaudra-t-il vous mettre une raclée?", german="Ihr dämlichen Nervensägen.\nMuss ich euch noch einmal bloßstellen?", italian="Ancora voi guastafeste. Devo\ndarvi un'altra lezione?", spanish="Sois insoportables. ¿Tengo\nque dejaros en evidencia otra vez?"})
   pcall(function() UI:SetSpeaker(npc_npc_suriipu) end)

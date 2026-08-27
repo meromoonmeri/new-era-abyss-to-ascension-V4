@@ -13,12 +13,16 @@ return function(hero, partner)
   SkySceneKit.say({english="The cave's mouth opens up to\nthe sea!", french=" La caverne donne sur la mer!", german="Der Höhlenausgang öffnet sich\nzum Meer hinaus!", italian=" La grotta si apre sul mare!", spanish="¡La boca de la cueva se abre\nhacia el mar!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="The cave's mouth opens wide to\nthe sea!", french=" La caverne donne sur la mer!", german="Der Höhlenausgang öffnet sich\nweit zum Meer hinaus!", italian=" La grotta si apre sul mare!", spanish="¡La boca de la cueva se abre\nhacia el mar!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="The cave's mouth opens wide to\nthe sea!", french=" La caverne donne sur la mer!", german="Der Höhlenausgang öffnet sich\nweit zum Meer hinaus!", italian=" La grotta si apre sul mare!", spanish="¡La boca de la cueva se abre\nhacia el mar!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="We couldn't see it because it's\nin the shadows outside.", french="On ne peut pas voir la sortie\nde l'extérieur parce qu'elle est cachée\ndans l'ombre.", german="Von außen konnten wir ihn nicht\nsehen, weil er im Schatten liegt.", italian="Da fuori non si vede perché\nrimane nell'ombra.", spanish="No podíamos verla desde\nel exterior porque está oscura."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="We couldn't see it from outside\nbecause it's in the shadows.", french="On ne peut pas voir la sortie\nde l'extérieur parce qu'elle est cachée\ndans l'ombre.", german="Von außen konnten wir ihn nicht\nsehen, weil er im Schatten liegt.", italian="Da fuori non si vede perché\nrimane nell'ombra.", spanish="No podíamos verla desde\nel exterior porque está oscura."})
   else
   SkySceneKit.say({english="We couldn't see it from outside\nbecause it's in the shadows.", french="On ne peut pas voir la sortie\nde l'extérieur parce qu'elle est cachée\ndans l'ombre.", german="Von außen konnten wir ihn nicht\nsehen, weil er im Schatten liegt.", italian="Da fuori non si vede perché\nrimane nell'ombra.", spanish="No podíamos verla desde\nel exterior porque está oscura."})
   end
+  -- message_Close
   GAME:FadeOut(false, 30)
 end

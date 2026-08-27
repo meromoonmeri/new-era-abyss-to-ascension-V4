@@ -27,6 +27,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Waaaaaaah!", french=" Wouaaaaaaah!", german=" Waaaaaaah!", italian=" Waaaaaaah!", spanish=" ¡Aaaaaaaah!"})
   end
+  GAME:WaitFrames(92)
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   GAME:FadeOut(false,  30)
   -- supervision2_SpecialActing(3, 0, 0) [acting sub NDS: décor déjà reproduit par SubScreen, acteurs sub non simulés - trace]

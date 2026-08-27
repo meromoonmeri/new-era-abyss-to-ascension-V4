@@ -29,6 +29,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Ugh...[K] We didn't make it.", french=" Argh...[K] On a raté notre coup.", german=" Uff...[K] Nicht geschafft.", italian=" Uh...[K] Non ce l'abbiamo fatta.", spanish=" Ay...[K] No hemos conseguido pasar."})
   end
+  -- message_KeyWait
   GAME:FadeOut(false,  60)
   -- message_CloseEnforce
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())
@@ -63,6 +64,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Urk... This is kind of\nchallenging...", french=" Aaah... Ce que c'est difficile...", german="Umpf... Das ist eine echte\nHerausforderung...", italian=" Uff... È molto impegnativo...", spanish="Desde luego, esto es todo un\ndesafío."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(npc_npc_juputoru, Direction.Down)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_juputoru, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives

@@ -33,6 +33,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Wa-waah! Watch out! Everyone,\nwe have to get back!", french=" Wouah! Attention! Reculez!", german="Waaaah! Passt auf!\nWir müssen zurückgehen!", italian="Wa-waah! A-Attenti!\nState indietro!", spanish="¿Quéee? ¡Cuidado!\n¡Atrás!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() local g=GAME:GetCurrentGround(); GAME:MoveCamera(g.ViewCenter.X+(0), g.ViewCenter.Y+(200), 200, false) end) -- MovePositionOffset performer/caméra
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(0), p.Y+(200), false, 2) end
   do local p=hero.Position; GROUND:MoveToPosition(hero, p.X+(0), p.Y+(200), false, 2) end

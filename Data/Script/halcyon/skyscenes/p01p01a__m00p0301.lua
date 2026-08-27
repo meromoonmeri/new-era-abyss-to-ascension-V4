@@ -32,6 +32,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Hi! [CS:N]Chimecho[CR]!", french=" Salut, [CS:N]Eoko[CR]!", german=" Hallo! [CS:N]Palimpalim[CR]!", italian=" Ehilà! [CS:N]Chimecho[CR]!", spanish=" ¡Hola! ¡[CS:N]Chimecho[CR]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GAME:MoveCamera(212, 196, 60, false) end) -- performer/caméra
   GROUND:MoveToPosition(hero, 196, 180, false, 2)
   GAME:WaitFrames(5)
@@ -45,6 +46,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" What's happening?", french=" Quoi de neuf?", german=" Was liegt an?", italian=" Come stai?", spanish=" ¿Qué ocurre?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_chiriin) end)
   SkySceneKit.say({english=" Oh, [hero]! [partner]!", french=" Oh, [hero]! [partner]!", german=" Oh, [hero]! [partner]!", italian=" Oh, [hero]! [partner]!", spanish="¡[hero]!\n¡[partner]!"})
   pcall(function() UI:SetSpeaker(npc_npc_chiriin) end)
@@ -72,6 +74,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" A special service?", french=" Un service très spécial?", german=" Einen Sonderservice?", italian=" Servizio speciale?", spanish=" ¿Un servicio especial?"})
   end
+  -- message_Close
   pcall(function() SOUND:FadeOutBGM(60) end)
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(30)

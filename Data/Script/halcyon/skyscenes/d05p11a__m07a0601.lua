@@ -23,13 +23,17 @@ return function(hero, partner)
   SkySceneKit.say({english="Let's get some Perfect Apples\nfor sure this time.", french="Cette fois, nous rapporterons\ndes Pommes Parfaites!", german="Lass uns diesmal auf jeden Fall\nPerfekte Äpfel holen.", italian="Questa volta dobbiamo trovare\ndelle Mele Perfette.", spanish="Esta vez tenemos que conseguir\nesas Manzanas Perfectas."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Let's make sure we come back\nwith Perfect Apples this time.", french="Cette fois, nous rapporterons\ndes Pommes Parfaites!", german="Lass uns diesmal auf jeden Fall\nPerfekte Äpfel finden.", italian="Questa volta dobbiamo trovare\ndelle Mele Perfette.", spanish="Esta vez tenemos que volver\ncon esas Manzanas Perfectas."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="Let's bring back some Perfect\nApples for sure this time.", french="Cette fois, nous rapporterons\ndes Pommes Parfaites!", german="Lass uns diesmal auf jeden Fall\nPerfekte Äpfel mitbringen.", italian="Questa volta dobbiamo trovare\ndelle Mele Perfette.", spanish="Esta vez tenemos que conseguir\nesas Manzanas Perfectas."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Let's give it our best,\n[hero]!", french="Faisons de notre mieux,\n[hero]!", german="Geben wir unser Bestes,\n[hero]!", italian="Facciamo del nostro meglio,\n[hero]!", spanish="¡Hagámoslo lo mejor posible,\n[hero]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Let's keep doing our best,\n[hero]!", french="Faisons de notre mieux,\n[hero]!", german="Geben wir wie immer unser\nBestes, [hero]!", italian="Facciamo del nostro meglio,\n[hero]!", spanish="¡Sigamos esforzándonos,\n[hero]!"})
   else
   SkySceneKit.say({english="Let's keep doing our best,\n[hero]!", french="Faisons de notre mieux,\n[hero]!", german="Geben wir wie immer unser\nBestes, [hero]!", italian="Facciamo del nostro meglio,\n[hero]!", spanish="¡Sigamos esforzándonos,\n[hero]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GAME:MoveCamera(276, 124, 60, false) end) -- performer/caméra
   GROUND:MoveToPosition(hero, 276, 124, false, 2)
   GAME:WaitFrames(20)

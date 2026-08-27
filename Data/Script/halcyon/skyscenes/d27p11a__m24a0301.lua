@@ -35,6 +35,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Th-this...[K] This is the [CS:P]Hidden\nLand[CR]...", french="Ce...[K] ce sont donc les [CS:P]Terres\nIllusoires[CR]...", german="D-das...[K] Das ist das\n[CS:P]Verborgene Land[CR]...", italian="Q-Questa...[K] Questa è la [CS:P]Terra[CR]\n[CS:P]Nascosta[CR]...", spanish="Así que...[K]\nEsto es la [CS:P]Tierra Oculta[CR]..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english=" We finally made it here.", french=" Nous y voilà enfin.", german="Wir haben es endlich geschafft,\nhierherzukommen.", italian=" Alla fine ce l'abbiamo fatta.", spanish=" Por fin hemos llegado."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
@@ -59,6 +60,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Oh! What's that?!", french=" Eh, qu'est-ce que c'est que ça?!", german=" Oh! Was ist das?", italian=" Ehi! Cos'è quella?!", spanish=" ¡Eh! ¡¿Qué es eso?!"})
   end
+  -- message_Close
   -- back2_SetMode(4) [mode d'affichage sub NDS: géré par SubScreen]
   -- back2_SetGround(V24P07A) [décor sub chargé: Sub_v24p07a]
   -- camera2_SetPositionMark(Position<'m0', 19, 15.5>) [caméra sub NDS: nappe Sub_ cadrée fenêtre NDS, recadrage dynamique non simulé - documenté]
@@ -80,17 +82,24 @@ return function(hero, partner)
   SkySceneKit.say({english=" But...[K] Take a closer look...", french="Mais...[K] à y regarder de plus\nprès...", german="Aber...[K] Seht euch das mal\ngenauer an...", italian=" Ma...[K] guardate meglio...", spanish=" Pero...[K] Si os fijáis..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" But...[K]if you take a close look...", french="Mais...[K] à y regarder de plus\nprès...", german="Aber...[K] Wenn ihr mal genauer\nhinseht...", italian=" Ma...[K] se guardate meglio...", spanish=" Pero...[K] Si os fijáis..."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" But...[K]if you take a close look...", french="Mais...[K] à y regarder de plus\nprès...", german="Aber...[K] Wenn ihr mal genauer\nhinseht...", italian=" Ma...[K] se guardate meglio...", spanish=" Pero...[K] Si os fijáis..."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="That place...[K]seems to be floating\nin the sky!", french="On dirait que...[K] cet endroit\nflotte dans le ciel!", german="Dieser Ort...[K] Er scheint in der\nLuft zu schweben!", italian="Quel posto...[K] sembra galleggiare\nnel cielo!", spanish="Parece...[K]\n¡Parece estar flotando en el cielo!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="That place...[K]seems to be floating\nin the sky!", french="On dirait que...[K] cet endroit\nflotte dans le ciel!", german="Dieser Ort...[K] Er scheint in der\nLuft zu schweben!", italian="Quel posto...[K] sembra galleggiare\nnel cielo!", spanish="Parece...[K]\n¡Parece estar flotando en el cielo!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="That place...[K]seems to be floating\nin the sky!", french="On dirait que...[K] cet endroit\nflotte dans le ciel!", german="Dieser Ort...[K] Er scheint in der\nLuft zu schweben!", italian="Quel posto...[K] sembra galleggiare\nnel cielo!", spanish="Parece...[K]\n¡Parece estar flotando en el cielo!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="How are we supposed to\nget there?", french=" Et comment on fait pour y aller?", german="Wie sollen wir diesen Ort\nerreichen?", italian=" Come facciamo ad arrivarci?", spanish="¿Cómo vamos a llegar hasta\nallí?"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="I wonder how we're supposed to\nget there?", french=" Et comment on fait pour y aller?", german="Ich frage mich, wie wir diesen\nOrt erreichen sollen?", italian="Mi chiedo come faremo ad\narrivarci...", spanish="¿Cómo vamos a llegar hasta\nallí?"})
   else
   SkySceneKit.say({english="How are we supposed to\nget there?", french=" Et comment on fait pour y aller?", german="Wie sollen wir diesen Ort\nerreichen?", italian=" Come facciamo ad arrivarci?", spanish="¿Cómo vamos a llegar hasta\nallí?"})
   end
+  -- message_Close
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]
   GAME:WaitFrames(30)
@@ -120,6 +129,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Thank you, [CS:N]Lapras[CR]!", french=" Merci, [CS:N]Lokhlass[CR]!", german=" Danke, [CS:N]Lapras[CR]!", italian=" Grazie, [CS:N]Lapras[CR]!", spanish=" ¡Gracias, [CS:N]Lapras[CR]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_rapurasu) end)
   SkySceneKit.say({english="This is the extent of what I can\ndo for you.", french="C'est tout ce que je peux faire\npour vous.", german="Damit habe ich meine\nMöglichkeiten erschöpft, euch zu helfen.", italian="Questo è tutto quello che posso\nfare per voi.", spanish="Esto es todo lo que puedo hacer\npara ayudaros."})
   pcall(function() UI:SetSpeaker(npc_npc_rapurasu) end)
@@ -132,6 +142,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" OK!", french=" Merci encore!", german=" Okay!", italian=" Ok!", spanish=" ¡Gracias!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(partner, Direction.UpRight)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, npc_npc_juputoru, 4) end)
@@ -140,13 +151,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" [CS:N]Grovyle[CR]! [hero]!", french=" [CS:N]Massko[CR]! [hero]!", german=" [CS:N]Reptain[CR]! [hero]!", italian=" [CS:N]Grovyle[CR]! [hero]!", spanish=" ¡[CS:N]Grovyle[CR]! ¡[hero]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" [CS:N]Grovyle[CR]! [hero]!", french=" [CS:N]Massko[CR]! [hero]!", german=" [CS:N]Reptain[CR]! [hero]!", italian=" [CS:N]Grovyle[CR]! [hero]!", spanish=" ¡[CS:N]Grovyle[CR]! ¡[hero]!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" [CS:N]Grovyle[CR]! [hero]!", french=" [CS:N]Massko[CR]! [hero]!", german=" [CS:N]Reptain[CR]! [hero]!", italian=" [CS:N]Grovyle[CR]! [hero]!", spanish=" ¡[CS:N]Grovyle[CR]! ¡[hero]!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="We don't have far to go now!\nLet's keep it up!", french="Ce n'est plus très loin!\nAccrochons-nous!", german="Wir müssen nicht mehr weit\ngehen! Lasst uns weitermachen.", italian="Non manca più molta strada!\nDiamoci dentro!", spanish="¡Ya no queda mucho!\n¡Hay que seguir adelante!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="We don't have far to go now!\nLet's keep it up!", french="Ce n'est plus très loin!\nAccrochons-nous!", german="Wir müssen nicht mehr weit\ngehen! Lasst uns weitermachen.", italian="Non manca più molta strada!\nDiamoci dentro!", spanish="¡Ya no queda mucho!\n¡Hay que seguir adelante!"})
   else
   SkySceneKit.say({english="We're almost there! Let's keep\nit up!", french="Ce n'est plus très loin!\nAccrochons-nous!", german="Wir müssen nicht mehr weit\ngehen! Lasst uns weitermachen.", italian="Non manca più molta strada!\nDiamoci dentro!", spanish="¡Ya no queda mucho!\n¡Hay que seguir adelante!"})
   end
+  -- message_Close
   SkySceneKit.cleanup_npcs()
   SkySubScreen.Hide(10) -- fin de scène: nappe sub retirée
 end

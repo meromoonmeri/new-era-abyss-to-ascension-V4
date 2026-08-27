@@ -52,6 +52,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" [CS:N]Manaphy[CR]...", french=" [CS:N]Manaphy[CR]...", german=" [CS:N]Manaphy[CR]...", italian=" [CS:N]Manaphy[CR]...", spanish=" [CS:N]Manaphy[CR]..."})
   end
+  GROUND:EntTurn(partner, Direction.Left)
   GROUND:EntTurn(npc_npc_manafi, Direction.Right)
   GROUND:EntTurn(hero, Direction.Left)
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
@@ -69,6 +70,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" [CS:N]Manaphy[CR]!", french=" [CS:N]Manaphy[CR]!", german=" [CS:N]Manaphy[CR]!", italian=" [CS:N]Manaphy[CR]!", spanish=" ¡[CS:N]Manaphy[CR]!"})
   end
+  -- message_Close
   GROUND:MoveToPosition(partner, 448, 172, false, 2)
   GROUND:MoveToPosition(hero, 448, 196, false, 2)
   GROUND:MoveToPosition(npc_npc_perappu, 436, 212, false, 2)
@@ -84,6 +86,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="You're really...[K]that little\n[CS:N]Manaphy[CR]?", french="C'est vraiment toi...[K] notre petit\n[CS:N]Manaphy[CR]?", german="Du bist wirklich...[K] das kleine\n[CS:N]Manaphy[CR]?", italian="Sei davvero...[K] il nostro piccolo\n[CS:N]Manaphy[CR]?", spanish="Eres realmente...[K] ¿el pequeño\n[CS:N]Manaphy[CR]?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   pcall(function() UI:SetSpeaker(npc_npc_manafi) end)
   SkySceneKit.say({english=" Yup, yup!", french=" Ouaip ouaip!", german=" Jep, jep!", italian=" Sì, sì!", spanish=" ¡Sí, sí!"})
@@ -102,6 +105,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Oh![K] You remembered us!", french=" Oh![K] Tu t'es souvenu de nous!", german=" Oh![K] Du erinnerst dich an uns!", italian=" Oh![K] Ti ricordi di noi!", spanish=" ¡Oh![K] ¡Nos recuerdas!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_manafi) end)
   SkySceneKit.say({english=" Of course! I didn't forget you!", french="Bien sûr, je ne pouvais pas vous\noublier!", german="Natürlich habe ich euch nicht\nvergessen!", italian=" Certo che mi ricordo!", spanish=" ¡Claro que os recuerdo!"})
   pcall(function() UI:SetSpeaker(npc_npc_manafi) end)

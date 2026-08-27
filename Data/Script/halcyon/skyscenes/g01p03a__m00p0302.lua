@@ -18,6 +18,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="And what might this special\nservice be?", french=" En quoi ça consiste?", german="Und was hat es mit diesem\nSonderservice auf sich?", italian="In cosa consiste questo servizio\nspeciale?", spanish="¿En qué consiste este servicio\nespecial?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   local npc_npc_chiriin = SkySceneKit.spawn_npc("chimecho", 520, 240, Direction.Down, "NPC_CHIRIIN")
   pcall(function() UI:SetSpeaker(npc_npc_chiriin) end)
   SkySceneKit.say({english=" Well...it's special!", french="Eh bien... c'est un service...\neuh... spécial!", german=" Nun, etwas ganz Besonderes!", italian="Beh... è speciale!", spanish="Bueno...\n¡Pues es algo la mar de especial!"})
@@ -31,6 +32,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="The team leader?[K] We can change\nthe leader before going into a dungeon?", french="Le meneur de l'équipe?[K] On peut\nchanger notre meneur avant d'aller dans\nun donjon?", german="Einen anderen Anführer?[K] Wir\nkönnen den Anführer ändern, bevor wir in\neinen Dungeon gehen?", italian="Il leader della squadra?[K]\nPossiamo cambiare il leader prima di entrare\nin un dungeon?", spanish="¿Cambiar de líder?[K]\n¿Se puede escoger otro líder de grupo\nantes de ir a un territorio?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_chiriin) end)
   SkySceneKit.say({english=" Yes!", french=" Exactement!", german=" Ja!", italian=" Sì!", spanish=" ¡Sí!"})
   pcall(function() UI:SetSpeaker(npc_npc_chiriin) end)
@@ -52,17 +54,24 @@ return function(hero, partner)
   SkySceneKit.say({english=" Oh, cool![K] So that means...", french="Ah, je comprends![K] Ça veut\ndire que...", german=" Oh, cool![K] Das heißt also...", italian=" Oh, che bello![K] Significa...", spanish=" ¡Ah, genial![K] Eso significa que..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Oh, I get it![K] So that means...", french="Ah, je comprends![K] Ça veut\ndire que...", german=" Oh, verstehe![K] Das heißt also...", italian=" Oh, che bello![K] Significa...", spanish="¡Ah, ya lo entiendo![K] Eso\nsignifica que..."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Oh, I get it![K] So that means...", french="Ah, je comprends![K] Ça veut\ndire que...", german=" Oh, verstehe![K] Das heißt also...", italian=" Oh, capisco![K] Significa...", spanish="¡Ah, ya lo entiendo![K] Eso\nsignifica que..."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="If we plan to explore a dungeon\nwhere our current team will suffer type-based\ndisadvantages...", french="... si nous voulons explorer\nun donjon dans lequel notre équipe actuelle\naurait un désavantage lié au type...", german="Wenn wir einen Dungeon\nerkunden wollen, in dem unser jetziges Team\ntypspezifische Nachteile hätte...", italian="... che se intendiamo esplorare\nun dungeon dove la nostra squadra attuale\nha degli svantaggi legati al tipo...", spanish="Si planeamos explorar un\nterritorio donde nuestro equipo actual esté\nen desventaja por el tipo de sus miembros..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="If we plan to explore a dungeon\nwhere our current team will suffer type-based\ndisadvantages...", french="... si nous voulons explorer\nun donjon dans lequel notre équipe actuelle\naurait un désavantage lié au type...", german="Wenn wir einen Dungeon\nerkunden wollen, in dem unser jetziges Team\ntypspezifische Nachteile hätte...", italian="... che se intendiamo esplorare\nun dungeon dove la nostra squadra attuale\nha degli svantaggi legati al tipo...", spanish="Si planeamos explorar un\nterritorio donde nuestro equipo actual esté\nen desventaja por el tipo de sus miembros..."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="If we plan to explore a dungeon\nwhere our current team will suffer type-based\ndisadvantages...", french="... si nous voulons explorer\nun donjon dans lequel notre équipe actuelle\naurait un désavantage lié au type...", german="Wenn wir einen Dungeon\nerkunden wollen, in dem unser jetziges Team\ntypspezifische Nachteile hätte...", italian="... che se intendiamo esplorare\nun dungeon dove la nostra squadra attuale\nha degli svantaggi legati al tipo...", spanish="Si planeamos explorar un\nterritorio donde nuestro equipo actual esté\nen desventaja por el tipo de sus miembros..."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="We can build a totally different\nteam, even changing the team leader, so that\nwe can gain type advantages instead!", french="... nous pouvons former une\néquipe totalement différente ou changer de\nmeneur pour avoir un avantage lié au type!", german="Dann können wir ein völlig\nanderes Team mit einem anderen Anführer\nbilden und sogar Vorteile von Typen nutzen!", italian="... possiamo formare una\nsquadra completamente diversa, in modo\nda avere dei vantaggi!", spanish="¡Podemos hacer un grupo\ncompletamente distinto, y hasta cambiar\nel líder para ganar ventaja!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="We can build a totally different\nteam, even changing the team leader, so that\nwe can gain type advantages instead!", french="... nous pouvons former une\néquipe totalement différente ou changer de\nmeneur pour avoir un avantage lié au type!", german="Dann können wir ein völlig\nanderes Team mit einem anderen Anführer\nbilden und sogar Vorteile von Typen nutzen!", italian="... possiamo formare una\nsquadra completamente diversa, in modo\nda avere dei vantaggi!", spanish="¡Podemos hacer un grupo\ncompletamente distinto, y hasta cambiar\nel líder para ganar ventaja!"})
   else
   SkySceneKit.say({english="We can build a totally different\nteam, even changing the team leader, so that\nwe can gain type advantages instead!", french="... nous pouvons former une\néquipe totalement différente ou changer de\nmeneur pour avoir un avantage lié au type!", german="Dann können wir ein völlig\nanderes Team mit einem anderen Anführer\nbilden und sogar Vorteile von Typen nutzen!", italian="... possiamo formare una\nsquadra completamente diversa, in modo\nda avere dei vantaggi!", spanish="¡Podemos hacer un grupo\ncompletamente distinto, y hasta cambiar\nel líder para ganar ventaja!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_chiriin) end)
   SkySceneKit.say({english=" Absolutely!", french=" Absolument!", german=" Ganz genau!", italian=" Esatto!", spanish=" ¡Así es!"})
   pcall(function() UI:SetSpeaker(npc_npc_chiriin) end)

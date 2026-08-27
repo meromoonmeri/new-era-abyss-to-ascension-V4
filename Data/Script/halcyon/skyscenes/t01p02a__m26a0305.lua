@@ -29,6 +29,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Everyone looks cheerful!", french=" Tout le monde a l'air si heureux!", german=" Alle sehen fröhlich aus!", italian=" Sembrano tutti allegri!", spanish=" ¡Todos parecen contentos!"})
   end
+  GAME:WaitFrames(240)
   -- message_CloseEnforce
   GAME:FadeOut(false,  60)
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())

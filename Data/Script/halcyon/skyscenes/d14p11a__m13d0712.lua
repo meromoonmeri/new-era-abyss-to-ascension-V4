@@ -9,15 +9,22 @@ return function(hero, partner)
   GAME:FadeOut(false, 0) -- screen_FlushOut
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(This feeling...)", french="(Cette sensation...)", german="(Dieses Gefühl...)", italian="(Questa sensazione...)", spanish="(Esa sensación...)"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  else
+  SkySceneKit.say({english="(This feeling...)", french="(Cette sensation...)", german="(Dieses Gefühl...)", italian="(Questa sensazione...)", spanish="(Esa sensación...)"})
+  end
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(It's like the one I got at [CS:P]Fogbound Lake[CR]...)", french="(J'ai ressenti la même chose au [CS:P]Lac\ndes Brumes[CR]...)", german="(Dasselbe hatte ich am [CS:P]Nebelsee[CR].)", italian="(È davvero come quella che ho avuto al [CS:P]Lago[CR]\n[CS:P]Foschia[CR]...)", spanish="(Es como la que tuve en el [CS:P]Lago Velado[CR].)"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  else
+  SkySceneKit.say({english="(It's like the one I got at [CS:P]Fogbound Lake[CR]...)", french="(J'ai ressenti la même chose au [CS:P]Lac\ndes Brumes[CR]...)", german="(Dasselbe hatte ich am [CS:P]Nebelsee[CR].)", italian="(È davvero come quella che ho avuto al [CS:P]Lago[CR]\n[CS:P]Foschia[CR]...)", spanish="(Es como la que tuve en el [CS:P]Lago Velado[CR].)"})
+  end
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(I...[K]I know this place!)", french="(Je...[K] je connais cet endroit!)", german="(Ich...[K] Ich kenne diesen Ort!)", italian="(Io...[K] sono già stato qui!)", spanish="(Yo...[K] ¡conozco este lugar!)"})
   else
   SkySceneKit.say({english="(I...[K]I know this place!)", french="(Je...[K] je connais cet endroit!)", german="(Ich...[K] Ich kenne diesen Ort!)", italian="(Io...[K] sono già stata qui!)", spanish="(Yo...[K] ¡conozco este lugar!)"})
   end
+  -- message_Close
   GAME:FadeOut(false, 30)
   GAME:FadeIn(0) -- screen_FlushIn
 end

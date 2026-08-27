@@ -42,6 +42,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Ack! Our time-traveling path has\nbeen shattered!", french="Aïe! Notre passage dans\nle temps a volé en éclats!", german="Argh! Unser Zeitreise-Pfad\nwurde zersplittert.", italian="Ah! Il nostro varco temporale\nè stato distrutto!", spanish="¡Aaah! ¡Han destruido la vía\npor la que viajábamos en el tiempo!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GAME:MoveCamera(300, 364, 60, false) end) -- performer/caméra
   local npc_npc_yonowaaru = SkySceneKit.spawn_npc("dusknoir", 304, 384, Direction.Down, "NPC_YONOWAARU")
   GROUND:EntTurn(npc_npc_yonowaaru, Direction.Up)
@@ -81,6 +82,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="We got so close to the Passage\nof Time!", french="On y était presque! On a presque\natteint le Couloir du Temps!", german="Wir sind so nahe an den\nZeittunnel gekommen!", italian="Siamo quasi al Portale del\nTempo!", spanish="¡Estábamos ya tan cerca del\npasaje!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(npc_npc_serebii, Direction.Up)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GROUND:EntTurn(partner, Direction.DownRight)
@@ -97,6 +99,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Wh-what about you, [CS:N]Celebi[CR]?!", french=" Et... et toi, [CS:N]Celebi[CR]?!", german=" W-was ist mit dir, [CS:N]Celebi[CR]?!?", italian=" C-Che ne sarà di te, [CS:N]Celebi[CR]?!", spanish=" ¡¿Y qué pasará contigo, [CS:N]Celebi[CR]?!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_serebii) end)
   SkySceneKit.say({english="Don't fret over me![K] I told you I\ncan't be caught!", french="Ne vous en faites pas pour moi!\nJe vous ai déjà dit qu'on ne pouvait pas me\ncapturer!", german="Kümmert euch nicht um mich![K]\nIch sagte euch doch bereits, ich kann nicht\ngefangen werden!", italian="Non preoccupatevi per me![K]\nVi ho detto che non posso essere catturata!", spanish="¡No os inquietéis![K]\n¡Ya os dije que nadie puede capturarme!"})
   pcall(function() UI:SetSpeaker(npc_npc_serebii) end)
@@ -112,6 +115,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Thank you, [CS:N]Celebi[CR]!", french=" Merci, [CS:N]Celebi[CR]!", german=" Danke, [CS:N]Celebi[CR]!", italian=" Grazie, [CS:N]Celebi[CR]!", spanish=" ¡Gracias, [CS:N]Celebi[CR]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_yonowaaru) end)
   SkySceneKit.say({english=" You're not getting away!", french=" Vous ne m'échapperez pas!", german=" Ihr kommt nicht davon!", italian=" Non riuscirete a scappare!", spanish=" ¡No escaparéis!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())

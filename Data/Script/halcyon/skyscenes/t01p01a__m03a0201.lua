@@ -15,6 +15,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="The [CS:K]Kecleon[CR] Market isn't over\nthis way.", french="Ce n'est pas le bon chemin pour\naller au [CS:K]Marché Kecleon[CR].", german="Der [CS:K]Kecleon-Markt[CR] liegt nicht in\ndieser Richtung.", italian="Il [CS:K]Kecleon[CR] Market non è da\nquesta parte.", spanish="El [CS:K]Bazar Kecleon[CR] no está por\nahí."})
   end
+  -- message_Close
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GROUND:EntTurn(partner, Direction.Left)
@@ -23,11 +24,15 @@ return function(hero, partner)
   SkySceneKit.say({english=" The [CS:K]Kecleon[CR] Market is this way.", french=" Le [CS:K]Marché Kecleon[CR] est par là.", german="Zum [CS:K]Kecleon-Markt[CR] geht es da\nlang.", italian="Il [CS:K]Kecleon[CR] Market è da questa\nparte.", spanish=" Al [CS:K]Bazar Kecleon[CR] se va por aquí."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" The [CS:K]Kecleon[CR] Market is this way.", french=" Le [CS:K]Marché Kecleon[CR] est par là.", german="Zum [CS:K]Kecleon-Markt[CR] geht es da\nlang.", italian="Il [CS:K]Kecleon[CR] Market è da questa\nparte.", spanish=" Al [CS:K]Bazar Kecleon[CR] se va por aquí."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" The [CS:K]Kecleon[CR] Market is this way.", french=" Le [CS:K]Marché Kecleon[CR] est par là.", german="Zum [CS:K]Kecleon-Markt[CR] geht es da\nlang.", italian="Il [CS:K]Kecleon[CR] Market è da questa\nparte.", spanish=" Al [CS:K]Bazar Kecleon[CR] se va por aquí."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Let's go, [hero]!", french=" C'est parti, [hero]!", german=" Lass uns gehen, [hero]!", italian=" Andiamo, [hero]!", spanish=" ¡Vamos, [hero]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Let's go, [hero]!", french=" C'est parti, [hero]!", german=" Lass uns gehen, [hero]!", italian=" Andiamo, [hero]!", spanish=" ¡Vamos, [hero]!"})
   else
   SkySceneKit.say({english=" Let's go, [hero]!", french=" C'est parti, [hero]!", german=" Lass uns gehen, [hero]!", italian=" Andiamo, [hero]!", spanish=" ¡Vamos, [hero]!"})
   end
+  -- message_Close
 end

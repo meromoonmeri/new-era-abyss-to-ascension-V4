@@ -48,6 +48,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Uh... All right.", french=" Euh... d'accord.", german=" Äh... In Ordnung.", italian=" Eh... Va bene.", spanish=" Eh... Vale."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(npc_npc_perappu, Direction.Down)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -59,5 +60,6 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Let's keep doing our best,\n[hero]!", french="Donnons le meilleur de\nnous-mêmes, [hero]!", german="Versuchen wir unser Bestes,\n[hero]!", italian="Mettiamocela tutta,\n[hero]!", spanish="¡Sigamos esforzándonos,\n[hero]!"})
   end
+  -- message_Close
   SkySceneKit.cleanup_npcs()
 end

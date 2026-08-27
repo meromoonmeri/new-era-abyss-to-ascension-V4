@@ -104,17 +104,24 @@ return function(hero, partner)
   SkySceneKit.say({english=" Wh-what is that?!", french="Que... qu'est-ce que c'est\nque ça?!", german=" W-was ist das?!?", italian=" Eh? E quello chi è?", spanish=" ¿Qué... qué es eso?"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Waaah! Wh-what is that?!", french="Que... qu'est-ce que c'est\nque ça?!", german=" Waaah! W-was ist das?!?", italian=" Waaah! Cos'è quello?", spanish=" ¿Qué... qué es eso?"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Waaah! Wh-what is that?!", french="Que... qu'est-ce que c'est\nque ça?!", german=" Waaah! W-was ist das?!?", italian=" Aaaah! C-Cos'è quello?", spanish=" ¿Qué... qué es eso?"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" It looks like the statue!", french=" On dirait la statue!", german=" Es sieht aus wie die Statue!", italian="È uguale a quella statua di\nprima!", spanish=" ¡Se parece a la estatua!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" It looks like the statue!", french=" On dirait la statue!", german=" Es sieht aus wie die Statue!", italian="È uguale a quella statua di\nprima!", spanish=" ¡Se parece a la estatua!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" It looks like the statue!", french=" On dirait la statue!", german=" Es sieht aus wie die Statue!", italian="È uguale a quella statua di\nprima!", spanish=" ¡Se parece a la estatua!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Th-that Pokémon...[K]really exists?", french="Mais alors...[K] ce Pokémon existe\npour de vrai?", german="D-dieses Pokémon...[K] Es existiert\nwirklich?", italian="E così quel Pokémon...[K]\n... esiste davvero?", spanish="Ese... ese Pokémon...[K]\n¿es de verdad?"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Th-that Pokémon...[K]really exists?", french="Mais alors...[K] ce Pokémon existe\npour de vrai?", german="D-dieses Pokémon...[K] Es existiert\nwirklich?", italian="Quel Pokémon...[K] esiste\ndavvero?", spanish="Ese... ese Pokémon...[K]\n¿es de verdad?"})
   else
   SkySceneKit.say({english=" Th-that Pokémon...[K]really exists?", french="Mais alors...[K] ce Pokémon existe\npour de vrai?", german="D-dieses Pokémon...[K] Es existiert\nwirklich?", italian="Quel Pokémon...[K] esiste\ndavvero?", spanish="Ese... ese Pokémon...[K]\n¿es de verdad?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 2, 30)) end) -- camera_SetEffect('2', '1', '1', '0')
   -- GAP: se_Play(6930) — id SE NDS sans portage PMDO identifié
   -- SetAnimation(9) [anim idle native]
@@ -148,6 +155,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Eep!", french=" Brrr!", german=" Ieep!", italian=" Waah!", spanish=" ¡Aaay!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_guraadon) end)
   SkySceneKit.say({english=" GRROOOOOOH...!", french=" GRROOOOOOH...!", german=" GRROOOOOOH!", italian=" VOI!", spanish=" ¡GRRRRRRRR!"})
   pcall(function() UI:SetSpeaker(npc_npc_guraadon) end)
@@ -166,6 +174,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="B-b-but...[K] W-w-we only want to\ngo to [CS:P]Fogbound Lake[CR]!", french="Mais...[K] on veut juste aller\nau [CS:P]Lac des Brumes[CR]!", german="A-a-aber...[K] W-w-wir wollen\nnur zum [CS:P]Nebelsee[CR]!", italian="M-Ma...[K] noi vogliamo solo\nandare al [CS:P]Lago Foschia[CR]!", spanish="Pe... pero...[K] ¡Solo queremos\nir al [CS:P]Lago Velado[CR]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharSetEmote(npc_npc_guraadon, "shock", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -216,6 +225,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Whaaat?!", french=" Quoi?!", german=" Waaaas?!?", italian=" Cooooosa?", spanish=" ¡¿Quéeee?!"})
   end
+  -- message_Close
   GAME:FadeOut(false, 15)
   SkySceneKit.cleanup_npcs()
 end

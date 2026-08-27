@@ -13,6 +13,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Ugh...[K] We couldn't do it...", french=" Argh...[K] On s'est pris une raclée...", german=" Ugh...[K] Das lief nicht gut...", italian=" Uh...[K] Non ce l'abbiamo fatta...", spanish=" Ay...[K] No hemos podido..."})
   end
+  -- message_KeyWait
   GAME:FadeOut(false,  60)
   -- message_CloseEnforce
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())
@@ -49,4 +50,5 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="But we can't give up![K] Let's keep\nat it, [hero]!", french="Mais hors de question qu'on\nbaisse les bras![K] Courage, [hero]!", german="Wir dürfen nicht aufgeben![K]\nBleiben wir dran, [hero]!", italian="Ma non dobbiamo mollare![K]\nCoraggio, [hero]!", spanish="¡No podemos rendirnos![K]\n¡Sigamos adelante, [hero]!"})
   end
+  -- message_Close
 end

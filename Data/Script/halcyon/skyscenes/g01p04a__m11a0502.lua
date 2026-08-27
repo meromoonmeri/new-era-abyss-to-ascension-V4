@@ -37,6 +37,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Um...[K] We could go get some\nPerfect Apples for you at [CS:P]Apple Woods[CR]...", french="Hum...[K] On pourrait peut-être\naller cueillir des Pommes Parfaites au [CS:P]Bois\naux Pommes[CR]...", german="Äh...[K] Wir könnten ein paar\nPerfekte Äpfel aus dem [CS:P]Apfelwald[CR] holen...", italian="Mmm...[K] Potremmo andare noi al\n[CS:P]Giardino dei Meli[CR] e prendere un po' di Mele\nPerfette!", spanish="Esto...[K] Quizás podríamos ir\na buscar Manzanas Perfectas al [CS:P]Manzanar[CR]."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(npc_npc_perappu, Direction.Down)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- GAP: se_Play(5122) — id SE NDS sans portage PMDO identifié

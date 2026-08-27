@@ -25,11 +25,12 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_daakurai) end)
   SkySceneKit.say({english="During the accident...[K]you shielded\n[CS:N]Grovyle[CR] from my attack.", french="Pendant l'accident...[K] tu as\nprotégé [CS:N]Massko[CR] en parant mon attaque\navec ton corps.", german="Während des Unfalls[K] hast du\n[CS:N]Reptain[CR] vor meinem Angriff geschützt.", italian="Quando si è verificato\nl'incidente...[K] hai protetto [CS:N]Grovyle[CR] dal\nmio attacco.", spanish="Durante el accidente...[K] protegiste\na [CS:N]Grovyle[CR] de mi ataque."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(I shielded [CS:N]Grovyle[CR]...?!)", french="(J'ai protégé [CS:N]Massko[CR]...?!)", german="(Ich habe [CS:N]Reptain[CR] geschützt?)", italian="(Ho protetto [CS:N]Grovyle[CR]...?!)", spanish="(¿Protegí a [CS:N]Grovyle[CR]?)"})
   else
   SkySceneKit.say({english="(I shielded [CS:N]Grovyle[CR]...?!)", french="(J'ai protégé [CS:N]Massko[CR]...?!)", german="(Ich habe [CS:N]Reptain[CR] geschützt?)", italian="(Ho protetto [CS:N]Grovyle[CR]...?!)", spanish="(¿Protegí a [CS:N]Grovyle[CR]?)"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_daakurai) end)
   SkySceneKit.say({english="Yes, you absorbed the brunt of\nthe attack I'd intended for [CS:N]Grovyle[CR]...", french="Oui, tu as essuyé le plus gros\nde l'attaque que je destinais à [CS:N]Massko[CR]...", german="Ja, du hast die volle Wucht\nder Attacke auf [CS:N]Reptain[CR] abbekommen...", italian="Sì, hai assorbito gran parte della\npotenza dell'attacco che doveva colpire\n[CS:N]Grovyle[CR]...", spanish="Sí, absorbiste la mayor parte del\nataque dirigido a [CS:N]Grovyle[CR]..."})
   pcall(function() UI:SetSpeaker(npc_npc_daakurai) end)

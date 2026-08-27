@@ -134,13 +134,17 @@ return function(hero, partner)
   SkySceneKit.say({english="We should go back to\n[CS:P]Quicksand Cave[CR], [hero].", french="On devrait retourner à la [CS:P]Grotte\nSables Mouvants[CR], [hero].", german="Wir sollten uns wieder auf den\nWeg zur [CS:P]Treibsandhöhle[CR] machen, [hero].", italian="Dovremmo tornare alla [CS:P]Grotta[CR]\n[CS:P]delle Sabbie Mobili[CR], non credi, [hero]?", spanish="[hero], deberíamos volver\na la [CS:P]Cueva Arenas[CR]."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="We should go back to\n[CS:P]Quicksand Cave[CR], [hero].", french="On devrait retourner à la [CS:P]Grotte\nSables Mouvants[CR], [hero].", german="Wir sollten zurück zur\n[CS:P]Treibsandhöhle[CR] gehen, [hero].", italian="Torniamo alla [CS:P]Grotta delle Sabbie[CR]\n[CS:P]Mobili[CR], [hero].", spanish="Deberíamos volver\na la [CS:P]Cueva Arenas[CR], [hero]."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="Let's go back to [CS:P]Quicksand Cave[CR],\n[hero].", french="On devrait retourner à la [CS:P]Grotte\nSables Mouvants[CR], [hero].", german="Wir sollten zurück zur\n[CS:P]Treibsandhöhle[CR] gehen, [hero].", italian="Torniamo alla [CS:P]Grotta delle Sabbie[CR]\n[CS:P]Mobili[CR], [hero].", spanish="Deberíamos volver\na la [CS:P]Cueva Arenas[CR], [hero]."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Let's search [CS:P]Quicksand Cave[CR]\ncarefully.", french="Passons la [CS:P]Grotte Sables\nMouvants[CR] au peigne fin.", german="Lass uns die [CS:P]Treibsandhöhle[CR]\ngründlich durchsuchen.", italian="Dobbiamo setacciare la [CS:P]Grotta[CR]\n[CS:P]delle Sabbie Mobili[CR].", spanish="Busquemos en la [CS:P]Cueva Arenas[CR]\nminuciosamente."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Let's search [CS:P]Quicksand Cave[CR]\nthoroughly.", french="Passons la [CS:P]Grotte Sables\nMouvants[CR] au peigne fin.", german="Lass uns die [CS:P]Treibsandhöhle[CR]\ngründlich durchsuchen.", italian="Esploriamo la [CS:P]Grotta[CR]\n[CS:P]delle Sabbie Mobili[CR] da cima a fondo.", spanish="Busquemos en la [CS:P]Cueva Arenas[CR]\nminuciosamente."})
   else
   SkySceneKit.say({english="We should search [CS:P]Quicksand\nCave[CR] carefully.", french="Passons la [CS:P]Grotte Sables\nMouvants[CR] au peigne fin.", german="Wir sollten die [CS:P]Treibsandhöhle[CR]\ngründlich durchsuchen.", italian="Esploriamo la [CS:P]Grotta[CR]\n[CS:P]delle Sabbie Mobili[CR] da cima a fondo.", spanish="Busquemos en la [CS:P]Cueva Arenas[CR]\nminuciosamente."})
   end
+  -- message_Close
   pcall(function() GROUND:CharSetEmote(npc_npc_perappu, nil, 0) end) -- EFFECT_NONE
   -- @label_1 [étiquette de flux ExplorerScript]
   else
@@ -148,13 +152,17 @@ return function(hero, partner)
   SkySceneKit.say({english="We should head back to\n[CS:P]Quicksand Desert[CR], [hero].", french="On devrait retourner au [CS:P]Désert\nSables Mouvants[CR], [hero].", german="Wir sollten uns wieder auf den\nWeg zur [CS:P]Mahlsandwüste[CR] machen, [hero].", italian="Allora, [hero], si torna al\n[CS:P]Deserto delle Sabbie Mobili[CR]?", spanish="[hero], deberíamos volver\na las [CS:P]Arenas Movedizas[CR]."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="We should go back to\n[CS:P]Quicksand Desert[CR], [hero].", french="On devrait retourner au [CS:P]Désert\nSables Mouvants[CR], [hero].", german="Wir sollten zurück zur\n[CS:P]Mahlsandwüste[CR] gehen, [hero].", italian="Torniamo al [CS:P]Deserto delle Sabbie[CR]\n[CS:P]Mobili[CR], [hero].", spanish="[hero], deberíamos volver\na las [CS:P]Arenas Movedizas[CR]."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="We should return to\n[CS:P]Quicksand Desert[CR], [hero].", french="On devrait retourner au [CS:P]Désert\nSables Mouvants[CR], [hero].", german="Wir sollten zurück zur\n[CS:P]Mahlsandwüste[CR] gehen, [hero].", italian="Torniamo al [CS:P]Deserto delle Sabbie[CR]\n[CS:P]Mobili[CR], [hero].", spanish="[hero], deberíamos volver\na las [CS:P]Arenas Movedizas[CR]."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Let's search [CS:P]Quicksand Desert[CR]\ncarefully.", french="Passons le [CS:P]Désert Sables\nMouvants[CR] au peigne fin.", german="Lass uns die [CS:P]Mahlsandwüste[CR]\ngründlich durchsuchen.", italian="Dobbiamo setacciare il [CS:P]Deserto[CR]\n[CS:P]delle Sabbie Mobili[CR].", spanish="Vamos a escudriñar cada rincón\nde las [CS:P]Arenas Movedizas[CR]."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Let's search [CS:P]Quicksand Desert[CR]\nthoroughly.", french="Passons le [CS:P]Désert Sables\nMouvants[CR] au peigne fin.", german="Lass uns die [CS:P]Mahlsandwüste[CR]\ngründlich durchsuchen.", italian="Mi raccomando, questa volta\ndobbiamo ispezionarlo per bene il [CS:P]Deserto delle[CR]\n[CS:P]Sabbie Mobili[CR]. Andiamo su!", spanish="Vamos a escudriñar cada rincón\nde las [CS:P]Arenas Movedizas[CR]."})
   else
   SkySceneKit.say({english="We should search [CS:P]Quicksand\nDesert[CR] carefully.", french="Passons le [CS:P]Désert Sables\nMouvants[CR] au peigne fin.", german="Wir sollten die [CS:P]Mahlsandwüste[CR]\ngründlich durchsuchen.", italian="Mi raccomando, questa volta\ndobbiamo ispezionarlo per bene il [CS:P]Deserto delle[CR]\n[CS:P]Sabbie Mobili[CR]. Andiamo su!", spanish="Vamos a escudriñar cada rincón\nde las [CS:P]Arenas Movedizas[CR]."})
   end
+  -- message_Close
   pcall(function() GROUND:CharSetEmote(npc_npc_perappu, nil, 0) end) -- EFFECT_NONE
   -- jump @label_1 [saut final de branche vers l'épilogue commun: flux naturel]
   end

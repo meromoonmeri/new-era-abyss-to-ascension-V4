@@ -22,6 +22,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" I guess that about covers it.", french=" Je crois qu'on a fait le tour.", german="Ich glaube, das wäre so ziemlich\nalles.", italian=" Mi sembra che non ci sia altro.", spanish=" Creo que eso es todo."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   local npc_npc_bippa = SkySceneKit.spawn_npc("bidoof", 320, 216, Direction.Right, "NPC_BIPPA")
   pcall(function() UI:SetSpeaker(npc_npc_bippa) end)
   SkySceneKit.say({english="You sure know a lot, yes sirree!\nAnd that's good to know!", french="T'en sais des choses, pour sûr!\nC'est vachement bon à savoir!", german="Du weißt aber eine Menge, ja\nwirklich! Das ist gut zu wissen!", italian="Sai proprio un sacco di cose,\nsissignore! Mi fa piacere saperlo!", spanish="Sabes muchas cosas. ¡Sí, señor!\n¡Es estupendo!"})
@@ -37,6 +38,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Thank you. How nice of you,\n[CS:N]Bidoof[CR]!", french="Merci, [CS:N]Keunotor[CR]. C'était très\nsympa de ta part de nous faire visiter.", german="Vielen Dank. Das ist wirklich\nfreundlich von dir, [CS:N]Bidiza[CR]!", italian="Grazie, [CS:N]Bidoof[CR]. Sei stato molto\ngentile.", spanish="Gracias. Ha sido todo un detalle,\n[CS:N]Bidoof[CR]."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Sweatdrop") end)
   pcall(function() GROUND:CharSetEmote(npc_npc_bippa, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
@@ -66,20 +68,30 @@ return function(hero, partner)
   SkySceneKit.say({english=" All right, let's go.", french=" On le rejoindra tout à l'heure.", german=" Alles klar, gehen wir.", italian=" Va bene, andiamo.", spanish=" De acuerdo, vamos."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" OK, let's go.", french=" On le rejoindra tout à l'heure.", german=" Okay, lass uns gehen.", italian=" Va bene, andiamo.", spanish=" De acuerdo, vamos."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" OK, let's go.", french=" On le rejoindra tout à l'heure.", german=" Okay, lass uns gehen.", italian=" Va bene, andiamo.", spanish=" De acuerdo, vamos."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="I'd like to see what kinds of\nitems are available!", french="J'aimerais bien aller voir quels\ngenres d'objets sont disponibles!", german="Ich würde gerne sehen, welche\nItems man kaufen kann!", italian="Vorrei vedere quali strumenti\nsono in vendita!", spanish="¡Quiero ver qué objetos\npodemos comprar!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="I'd like to see what kinds of\nitems are available!", french="J'aimerais bien aller voir quels\ngenres d'objets sont disponibles!", german="Ich würde gerne sehen, welche\nItems man kaufen kann!", italian="Vorrei vedere quali strumenti\nsono in vendita!", spanish="¡Quiero ver qué objetos\npodemos comprar!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="I'd like to see what kinds of\nitems are available!", french="J'aimerais bien aller voir quels\ngenres d'objets sont disponibles!", german="Ich würde gerne sehen, welche\nItems man kaufen kann!", italian="Vorrei vedere quali strumenti\nsono in vendita!", spanish="¡Quiero ver qué objetos\npodemos comprar!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Let's go to the [CS:K]Kecleon[CR] Market!", french=" Allons au [CS:K]Marché Kecleon[CR]!", german=" Gehen wir zum [CS:K]Kecleon-Markt[CR]!", italian=" Andiamo al [CS:K]Kecleon[CR] Market!", spanish=" ¡Vámonos al [CS:K]Bazar Kecleon[CR]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Let's go to the [CS:K]Kecleon[CR] Market!", french=" Allons au [CS:K]Marché Kecleon[CR]!", german=" Gehen wir zum [CS:K]Kecleon-Markt[CR]!", italian=" Andiamo al [CS:K]Kecleon[CR] Market!", spanish=" ¡Vayamos al [CS:K]Bazar Kecleon[CR]!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Let's go to the [CS:K]Kecleon[CR] Market!", french=" Allons au [CS:K]Marché Kecleon[CR]!", german=" Gehen wir zum [CS:K]Kecleon-Markt[CR]!", italian=" Andiamo al [CS:K]Kecleon[CR] Market!", spanish=" ¡Vamos al [CS:K]Bazar Kecleon[CR]!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Before we head back, a visit to\nthe [CS:K]Kecleon[CR] Market is a must!", french="Avant de rentrer, une visite au\n[CS:K]Marché Kecleon[CR] s'impose!", german="Bevor wir zurückgehen, müssen\nwir unbedingt zum [CS:K]Kecleon-Markt[CR]!", italian="Prima di tornare indietro, una\nvisita al [CS:K]Kecleon[CR] Market è d'obbligo!", spanish="Antes de volver, ¡tenemos\nque visitar el [CS:K]Bazar Kecleon[CR]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Before we head back, a visit to\nthe [CS:K]Kecleon[CR] Market is a must!", french="Avant de rentrer, une visite au\n[CS:K]Marché Kecleon[CR] s'impose!", german="Bevor wir zurückgehen, müssen\nwir unbedingt zum [CS:K]Kecleon-Markt[CR]!", italian="Prima di tornare indietro, una\nvisita al [CS:K]Kecleon[CR] Market è d'obbligo!", spanish="Antes de volver, ¡tenemos\nque visitar el [CS:K]Bazar Kecleon[CR]!"})
   else
   SkySceneKit.say({english="Before we head back, a visit to\nthe [CS:K]Kecleon[CR] Market is a must!", french="Avant de rentrer, une visite au\n[CS:K]Marché Kecleon[CR] s'impose!", german="Bevor wir zurückgehen, müssen\nwir unbedingt zum [CS:K]Kecleon-Markt[CR]!", italian="Prima di tornare indietro, una\nvisita al [CS:K]Kecleon[CR] Market è d'obbligo!", spanish="Antes de volver, ¡tenemos\nque visitar el [CS:K]Bazar Kecleon[CR]!"})
   end
+  -- message_Close
   SkySceneKit.cleanup_npcs()
 end

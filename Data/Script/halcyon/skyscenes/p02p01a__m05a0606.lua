@@ -80,6 +80,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Good idea. We'll do that. Thanks,\neveryone!", french=" Bonne idée. Merci à vous tous!", german="Gute Idee. Das machen wir.\nVielen Dank euch allen!", italian="Ottima idea. Lo faremo. Grazie\na tutti voi!", spanish="Buena idea. Eso haremos.\n¡Gracias a todos!"})
   end
+  -- message_Close
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)

@@ -32,6 +32,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" It's Treasure Town!", french=" C'est Bourg-Trésor!", german=" Das ist Schatzstadt!", italian=" È Borgo Tesoro!", spanish=" ¡Es Aldea Tesoro!"})
   end
+  GAME:WaitFrames(240)
   -- message_CloseEnforce
   GAME:FadeOut(false,  60)
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())

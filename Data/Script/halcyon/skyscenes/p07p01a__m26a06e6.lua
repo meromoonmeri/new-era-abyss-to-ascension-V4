@@ -32,6 +32,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" [hero].", french=" [hero].", german=" [hero].", italian=" [hero].", spanish=" [hero]..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(15)
@@ -39,13 +40,17 @@ return function(hero, partner)
   SkySceneKit.say({english="We have to...[K] We have to\nget back!", french=" Il faut...[K] il faut qu'on rentre!", german="Wir müssen...[K] Wir müssen\nwieder zurück!", italian="Dobbiamo...[K] Dobbiamo tornare\nindietro!", spanish="Tenemos que...[K]\n¡Tenemos que regresar!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="We have to...[K] We have to\nget back!", french=" Il faut...[K] il faut qu'on rentre!", german="Wir müssen...[K] Wir müssen\nwieder zurück!", italian="Dobbiamo...[K] Dobbiamo tornare\nindietro!", spanish="Tenemos que...[K]\n¡Tenemos que regresar!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="We have to...[K] We have to\nget back!", french=" Il faut...[K] il faut qu'on rentre!", german="Wir müssen...[K] Wir müssen\nwieder zurück!", italian="Dobbiamo...[K] Dobbiamo tornare\nindietro!", spanish="Tenemos que...[K]\n¡Tenemos que regresar!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Back to our own world!", french=" Qu'on rentre dans notre monde!", german=" Zurück in unsere Zeit!", italian=" Nel nostro mondo!", spanish="¡Hay que volver a nuestro\nmundo!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Back to our own world!", french=" Qu'on rentre dans notre monde!", german=" Zurück in unsere Zeit!", italian=" Nel nostro mondo!", spanish="¡Hay que volver a nuestro\nmundo!"})
   else
   SkySceneKit.say({english=" Back to our own world!", french=" Qu'on rentre dans notre monde!", german=" Zurück in unsere Zeit!", italian=" Nel nostro mondo!", spanish="¡Hay que volver a nuestro\nmundo!"})
   end
+  -- message_Close
   SkySubScreen.Hide(30) -- screen2_WhiteOut: retour BOTTOM_FOCUS (timeline ROM)
   GAME:FadeOut(true, 30) -- screen_WhiteOut
   GAME:FadeIn(0) -- screen_FlushIn

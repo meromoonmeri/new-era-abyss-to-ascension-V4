@@ -406,13 +406,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" Whoa! No, no, [hero]!", french=" Ouaaah! Non, non, [hero]!", german=" Halt! Nein, nein, [hero]!", italian=" Oooh! No, no, [hero]!", spanish=" ¡Alto! ¡No, [hero]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Waah! No, [hero]!", french=" Ouaaah! Non, non, [hero]!", german=" Waah! Nein, [hero]!", italian=" Aaah! No, [hero]!", spanish=" ¡Alto! ¡No, [hero]!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Waah! No, no, [hero]!", french=" Ouaaah! Non, non, [hero]!", german=" Waah! Nein, nein, [hero]!", italian=" Aaah! No, no, [hero]!", spanish=" ¡Alto! ¡No, [hero]!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="We have to keep our plans to go\nto [CS:P]Amp Plains[CR] a secret from [CS:N]Chatot[CR]!", french="Il ne faut rien dire à [CS:N]Pijako[CR]\nà propos de notre voyage jusqu'aux [CS:P]Plaines\nElek[CR].", german="Wir müssen unseren Plan, in die\n[CS:P]Ampere-Ebene[CR] zu reisen, vor [CS:N]Plaudagei[CR] geheim\nhalten!", italian="Dobbiamo far sì che [CS:N]Chatot[CR] non\nvenga a sapere del nostro piano di andare alle\n[CS:P]Pianure Saetta[CR].", spanish="No podemos dejar que [CS:N]Chatot[CR] se\nentere de que vamos a la [CS:P]Pradera Destello[CR]."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="We have to keep our plans to go\nto [CS:P]Amp Plains[CR] a secret from [CS:N]Chatot[CR]!", french="Il ne faut rien dire à [CS:N]Pijako[CR]\nà propos de notre voyage jusqu'aux [CS:P]Plaines\nElek[CR].", german="Wir müssen unseren Plan, in die\n[CS:P]Ampere-Ebene[CR] zu reisen, vor [CS:N]Plaudagei[CR] geheim\nhalten!", italian="Dobbiamo far sì che [CS:N]Chatot[CR] non\nvenga a sapere del nostro piano di andare alle\n[CS:P]Pianure Saetta[CR].", spanish="No podemos dejar que [CS:N]Chatot[CR] se\nentere de que vamos a la [CS:P]Pradera Destello[CR]."})
   else
   SkySceneKit.say({english="We have to keep our plans to go\nto [CS:P]Amp Plains[CR] a secret from [CS:N]Chatot[CR]!", french="Il ne faut rien dire à [CS:N]Pijako[CR]\nà propos de notre voyage jusqu'aux [CS:P]Plaines\nElek[CR].", german="Wir müssen unseren Plan, in die\n[CS:P]Ampere-Ebene[CR] zu reisen, vor [CS:N]Plaudagei[CR] geheim\nhalten!", italian="Dobbiamo far sì che [CS:N]Chatot[CR] non\nvenga a sapere del nostro piano di andare alle\n[CS:P]Pianure Saetta[CR].", spanish="No podemos dejar que [CS:N]Chatot[CR] se\nentere de que vamos a la [CS:P]Pradera Destello[CR]."})
   end
+  -- message_Close
   -- jump @label_129 [saut final de branche vers l'épilogue commun: flux naturel]
   else
   SV.SkyTalkBitFlags = SV.SkyTalkBitFlags or {}; SV.SkyTalkBitFlags[50] = 1 -- $SCENARIO_TALK_BIT_FLAG[50] = 1 (ROM)
@@ -436,13 +440,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" Ack... No, no! It's nothing!", french="Euuuh... Non, non! C'est rien!\nRien du tout!", german=" Umpf... Nein, nein! Es ist nichts!", italian=" Ah... No, no! Non è nulla!", spanish=" Ay... ¡No, no! ¡No es nada!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Ack... No, no! It's nothing!", french="Euuuh... Non, non! C'est rien!\nRien du tout!", german=" Umpf... Nein, nein! Es ist nichts!", italian=" Ah... No, no! Non è nulla!", spanish=" Ay... ¡No, no! ¡No es nada!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Ack... No, no! It's nothing!", french="Euuuh... Non, non! C'est rien!\nRien du tout!", german=" Umpf... Nein, nein! Es ist nichts!", italian=" Ah... No, no! Non è nulla!", spanish=" Ay... ¡No, no! ¡No es nada!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="We'll get back to work like\nwe're supposed to!", french="On retourne travailler\ncomme prévu!", german="Wir machen uns wieder an die\nArbeit wie vorgesehen!", italian="Stavamo giusto tornando a\nlavorare!", spanish="¡Ahora mismo volvemos al\ntrabajo!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="We'll get back to work like\nwe're supposed to!", french="On retourne travailler\ncomme prévu!", german="Wir machen uns wieder an die\nArbeit wie vorgesehen!", italian="Stavamo giusto tornando a\nlavorare!", spanish="¡Ahora mismo volvemos al\ntrabajo!"})
   else
   SkySceneKit.say({english="We'll get back to work like\nwe're supposed to!", french="On retourne travailler\ncomme prévu!", german="Wir machen uns wieder an die\nArbeit wie vorgesehen!", italian="Stavamo giusto tornando a\nlavorare!", spanish="¡Ahora mismo volvemos al\ntrabajo!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(npc_npc_perappu, partner, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Confused") end)
@@ -468,6 +476,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Urk...[K] We can't tell [CS:N]Chatot[CR] about\ngoing to [CS:P]Amp Plains[CR].", french="[CS:N]Pijako[CR] ne doit pas être\nmis au courant de notre voyage jusqu'aux\n[CS:P]Plaines Elek[CR].", german="Urgs...[K] Wir können [CS:N]Plaudagei[CR]\nnichts von unserer Absicht, in die\n[CS:P]Ampere-Ebene[CR] zu gehen, erzählen.", italian="Uhm...[K] Non possiamo dire a\n[CS:N]Chatot[CR] che vogliamo andare alle\n[CS:P]Pianure Saetta[CR].", spanish="Esto...[K] No podemos contarle\na [CS:N]Chatot[CR] que vamos a la [CS:P]Pradera Destello[CR]."})
   end
+  -- message_Close
   -- jump @label_129 [saut final de branche vers l'épilogue commun: flux naturel]
   end
   elseif (SkyProg.cmp(13, 1) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [13, 1]
@@ -488,13 +497,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" Whoa! No, no, [hero]!", french=" Ouaaah! Non, non, [hero]!", german=" Halt! Nein, nein, [hero]!", italian=" Oooh! No, no, [hero]!", spanish=" ¡Alto! ¡No, [hero]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Waah! No, [hero]!", french=" Ouaaah! Non, non, [hero]!", german=" Waah! Nein, [hero]!", italian=" Aaah! No, [hero]!", spanish=" ¡Alto! ¡No, [hero]!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Waah! No, no, [hero]!", french=" Ouaaah! Non, non, [hero]!", german=" Waah! Nein, nein, [hero]!", italian=" Aaah! No, no, [hero]!", spanish=" ¡Alto! ¡No, [hero]!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="We have to keep our plans to go\nto [CS:P]Amp Plains[CR] a secret from [CS:N]Chatot[CR].", french="[CS:N]Pijako[CR] ne doit rien savoir\nde notre voyage jusqu'aux [CS:P]Plaines Elek[CR].", german="Wir müssen unseren Plan, in die\n[CS:P]Ampere-Ebene[CR] zu gehen, vor [CS:N]Plaudagei[CR] geheim\nhalten.", italian="Dobbiamo fare in modo che\n[CS:N]Chatot[CR] non venga a sapere del nostro viaggio\nalle [CS:P]Pianure Saetta[CR].", spanish="No podemos dejar que [CS:N]Chatot[CR] se\nentere de que vamos a la [CS:P]Pradera Destello[CR]."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="We have to keep our plans to go\nto [CS:P]Amp Plains[CR] a secret from [CS:N]Chatot[CR].", french="[CS:N]Pijako[CR] ne doit rien savoir\nde notre voyage jusqu'aux [CS:P]Plaines Elek[CR].", german="Wir müssen unseren Plan, in die\n[CS:P]Ampere-Ebene[CR] zu gehen, vor [CS:N]Plaudagei[CR] geheim\nhalten.", italian="Dobbiamo fare in modo che\n[CS:N]Chatot[CR] non venga a sapere del nostro viaggio\nalle [CS:P]Pianure Saetta[CR].", spanish="No podemos dejar que [CS:N]Chatot[CR] se\nentere de que vamos a la [CS:P]Pradera Destello[CR]."})
   else
   SkySceneKit.say({english="We have to keep our plans to go\nto [CS:P]Amp Plains[CR] a secret from [CS:N]Chatot[CR].", french="[CS:N]Pijako[CR] ne doit rien savoir\nde notre voyage jusqu'aux [CS:P]Plaines Elek[CR].", german="Wir müssen unseren Plan, in die\n[CS:P]Ampere-Ebene[CR] zu gehen, vor [CS:N]Plaudagei[CR] geheim\nhalten.", italian="Dobbiamo fare in modo che\n[CS:N]Chatot[CR] non venga a sapere del nostro viaggio\nalle [CS:P]Pianure Saetta[CR].", spanish="No podemos dejar que [CS:N]Chatot[CR] se\nentere de que vamos a la [CS:P]Pradera Destello[CR]."})
   end
+  -- message_Close
   -- jump @label_129 [saut final de branche vers l'épilogue commun: flux naturel]
   else
   SV.SkyTalkBitFlags = SV.SkyTalkBitFlags or {}; SV.SkyTalkBitFlags[49] = 1 -- $SCENARIO_TALK_BIT_FLAG[49] = 1 (ROM)
@@ -535,13 +548,17 @@ return function(hero, partner)
   SkySceneKit.say({english="Urk![K] We got chewed out right\noff the bat...", french="Oups![K] On s'est fait rembarrer\nen deux temps trois mouvements...", german="Urgs![K] Wir sind gleich am Anfang\nzusammengestaucht worden.", italian="Urgh![K] Che lavata di capo ci\nsiamo presi...", spanish="¡Ay![K] No ha querido ni\nescucharnos..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Urk![K] We got yelled at right off\nthe bat...", french="Oups![K] On s'est fait rembarrer\nen deux temps trois mouvements...", german="Urgs![K] Wir sind gleich am Anfang\nangebrüllt worden.", italian="Ugh![K] Ci siamo fatti subito\nsgridare...", spanish="¡Ay![K] No ha querido ni\nescucharnos..."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="Urk![K] We got yelled at right off\nthe bat...", french="Oups![K] On s'est fait rembarrer\nen deux temps trois mouvements...", german="Urgs![K] Wir sind gleich am Anfang\nangebrüllt worden.", italian="Ugh![K] Ci ha dato una bella\nsgridata...", spanish="¡Ay![K] No ha querido ni\nescucharnos..."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Then there's no choice.[K] We have\nto go out to [CS:P]Amp Plains[CR] without telling [CS:N]Chatot[CR].", french="Alors on n'a pas le choix.[K] On doit\naller aux [CS:P]Plaines Elek[CR] sans le dire à [CS:N]Pijako[CR].", german="Dann gibt es keine andere\nMöglichkeit.[K] Wir müssen in die [CS:P]Ampere-Ebene[CR],\nohne es [CS:N]Plaudagei[CR] zu sagen.", italian="Allora non abbiamo altra scelta.[K]\nDobbiamo andare alle [CS:P]Pianure Saetta[CR] senza\ndirlo a [CS:N]Chatot[CR].", spanish="Entonces no hay elección.[K]\nTendremos que ir a la [CS:P]Pradera Destello[CR]\nsin decírselo a [CS:N]Chatot[CR]."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Then there's no choice.[K] We have\nto go out to [CS:P]Amp Plains[CR] without telling [CS:N]Chatot[CR].", french="Alors on n'a pas le choix.[K] On doit\naller aux [CS:P]Plaines Elek[CR] sans le dire à [CS:N]Pijako[CR].", german="Dann gibt es keine andere\nMöglichkeit.[K] Wir müssen in die [CS:P]Ampere-Ebene[CR],\nohne es [CS:N]Plaudagei[CR] zu sagen.", italian="Allora non abbiamo altra scelta.[K]\nDobbiamo andare alle [CS:P]Pianure Saetta[CR] senza\ndirlo a [CS:N]Chatot[CR].", spanish="Entonces no hay elección.[K]\nTendremos que ir a la [CS:P]Pradera Destello[CR]\nsin decírselo a [CS:N]Chatot[CR]."})
   else
   SkySceneKit.say({english="We have no choice.[K] We'll have\nto go to [CS:P]Amp Plains[CR] without telling [CS:N]Chatot[CR].", french="Alors on n'a pas le choix.[K] On doit\naller aux [CS:P]Plaines Elek[CR] sans le dire à [CS:N]Pijako[CR].", german="Wir haben keine Wahl.[K] Wir\nmüssen in die [CS:P]Ampere-Ebene[CR], ohne es\n[CS:N]Plaudagei[CR] zu sagen.", italian="Non ci lascia altra scelta.[K]\nDobbiamo andare alle [CS:P]Pianure Saetta[CR] senza\ndirlo a [CS:N]Chatot[CR].", spanish="Entonces no hay elección.[K]\nTendremos que ir a la [CS:P]Pradera Destello[CR]\nsin decírselo a [CS:N]Chatot[CR]."})
   end
+  -- message_Close
   -- jump @label_129 [saut final de branche vers l'épilogue commun: flux naturel]
   end
   elseif (SkyProg.cmp(12, 4) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [12, 4]

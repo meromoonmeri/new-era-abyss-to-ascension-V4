@@ -20,13 +20,14 @@ return function(hero, partner)
   SkySceneKit.say({english="[c_name:PLAYER]", french="[c_name:PLAYER]", german="[c_name:PLAYER]", italian="[c_name:PLAYER]", spanish="[c_name:PLAYER]"})
   -- message_Close
   GAME:WaitFrames(20)
-  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="Male", french="Male", german="Male", italian="Male", spanish="Male"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 5 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 5
+  elseif ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 5 then -- message_SwitchMonologue($HERO_TALK_KIND) case 5
   SkySceneKit.say({english="Female", french="Female", german="Female", italian="Female", spanish="Female"})
   else
   SkySceneKit.say({english="Mystery", french="Mystery", german="Mystery", italian="Mystery", spanish="Mystery"})
   end
+  GAME:WaitFrames(20)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Male", french="Male", german="Male", italian="Male", spanish="Male"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
@@ -34,6 +35,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Hey!", french="Hey!", german="Hey!", italian="Hey!", spanish="Hey!"})
   end
+  -- message_Close
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="Good-bye.", french="Good-bye.", german="Good-bye.", italian="Good-bye.", spanish="Good-bye."})
   -- message_Close

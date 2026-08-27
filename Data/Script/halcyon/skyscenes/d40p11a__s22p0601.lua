@@ -23,6 +23,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="So this is the entrance to the\n[CS:P]Dark Crater[CR]...", french="Voici donc l'entrée du [CS:P]Cratère\nObscur[CR]...", german="Das ist also der Eingang zum\n[CS:P]Dunkelkrater[CR]...", italian="Quindi questo è l'ingresso del\n[CS:P]Cratere Oscuro[CR]...", spanish="Así que esta es la entrada al\n[CS:P]Cráter Oscuro[CR]..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(npc_npc_kureseria, Direction.Down)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() UI:SetSpeaker(npc_npc_kureseria) end)

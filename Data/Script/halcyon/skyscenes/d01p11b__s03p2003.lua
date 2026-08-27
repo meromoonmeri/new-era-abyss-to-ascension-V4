@@ -34,6 +34,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Please take good care of the\nlittle cutie.", french="Prends bien soin de ce petit\ngars, d'accord?", german="Bitte pass gut auf das kleine\nKerlchen auf.", italian=" Prenditi cura di questo cucciolo.", spanish=" Cuídalo bien, por favor."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(partner, Direction.Up)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GROUND:EntTurn(hero, Direction.Up)
@@ -44,13 +45,17 @@ return function(hero, partner)
   SkySceneKit.say({english="[CS:N]Manaphy[CR].[K] From now on, I want\nyou to be good and obey [CS:N]Walrein[CR].", french="[CS:N]Manaphy[CR].[K] Maintenant, sois bien\ngentil et écoute toujours [CS:N]Kaimorse[CR].", german="[CS:N]Manaphy[CR].[K] Ich möchte,\ndass du jetzt artig bist und [CS:N]Walraisa[CR]\ngehorchst.", italian="[CS:N]Manaphy[CR].[K] D'ora in poi voglio\nche tu faccia il bravo e obbedisca a [CS:N]Walrein[CR].", spanish="[CS:N]Manaphy[CR].[K] A partir de ahora,\nquiero que te portes bien y obedezcas a\n[CS:N]Walrein[CR]."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="[CS:N]Manaphy[CR].[K] From now on, I want\nyou to be good and listen to [CS:N]Walrein[CR].", french="[CS:N]Manaphy[CR].[K] Maintenant, sois bien\ngentil et écoute toujours [CS:N]Kaimorse[CR].", german="[CS:N]Manaphy[CR].[K] Ich möchte,\ndass du jetzt artig bist und [CS:N]Walraisa[CR]\ngehorchst.", italian="[CS:N]Manaphy[CR].[K] D'ora in poi voglio\nche tu faccia il bravo e obbedisca a [CS:N]Walrein[CR].", spanish="[CS:N]Manaphy[CR].[K] A partir de ahora,\nquiero que te portes bien y obedezcas a\n[CS:N]Walrein[CR]."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="[CS:N]Manaphy[CR].[K] From now on, I want\nyou to be good and listen to [CS:N]Walrein[CR].", french="[CS:N]Manaphy[CR].[K] Maintenant, sois bien\ngentil et écoute toujours [CS:N]Kaimorse[CR].", german="[CS:N]Manaphy[CR].[K] Ich möchte,\ndass du jetzt artig bist und [CS:N]Walraisa[CR]\ngehorchst.", italian="[CS:N]Manaphy[CR].[K] D'ora in poi voglio\nche tu faccia il bravo e obbedisca a [CS:N]Walrein[CR].", spanish="[CS:N]Manaphy[CR].[K] A partir de ahora,\nquiero que te portes bien y obedezcas a\n[CS:N]Walrein[CR]."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="And grow strong and healthy in\nthe sea...", french="Et grandis en bonne santé dans\nla mer...", german="Und dass du im Meer groß und\nstark wirst!", italian="E cresci forte e in salute\nnel mare...", spanish="Y que crezcas, sano y fuerte,\nen el mar..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="And grow strong and healthy in\nthe sea...", french="Et grandis en bonne santé dans\nla mer...", german="Und dass du im Meer groß und\nstark wirst!", italian="E cresci forte e in salute\nnel mare...", spanish="Y que crezcas, sano y fuerte,\nen el mar..."})
   else
   SkySceneKit.say({english="And grow strong and healthy in\nthe sea...", french="Et grandis en bonne santé dans\nla mer...", german="Und dass du im Meer groß und\nstark wirst!", italian="E cresci forte e in salute\nnel mare...", spanish="Y que crezcas, sano y fuerte,\nen el mar..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Confused") end)
   local npc_npc_manafi = SkySceneKit.spawn_npc("manaphy", 456, 160, Direction.Down, "NPC_MANAFI")
   pcall(function() GROUND:CharSetEmote(npc_npc_manafi, "question", 1) end)
@@ -69,6 +74,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Urf...[K] As you get older...[K]\nPlease don't forget us...", french="Ah...[K] Et même en grandissant...\nne nous oublie pas...", german="Hmpf...[K] Wenn du älter\nwirst...[K] Vergiss uns nicht...", italian="Uh...[K] Crescendo...[K]\nnon scordarti di noi...", spanish="Esto...[K] Cuando crezcas...[K]\nNo nos olvides..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(npc_npc_manafi, Direction.DownLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- GAP: se_Play(8963) — id SE NDS sans portage PMDO identifié
@@ -157,13 +163,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" Sniffle...", french=" Snif...", german=" Schnief...", italian=" Sniff...", spanish=" Snif..."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Sniffle...", french=" Snif...", german=" Schnief...", italian=" Sniff...", spanish=" Snif..."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Sniffle...", french=" Snif...", german=" Schnief...", italian=" Sniff...", spanish=" Snif..."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Take care...[K] [CS:N]Manaphy[CR].", french="Prends bien soin de toi...[K]\n[CS:N]Manaphy[CR].", german=" Lebe wohl...[K] [CS:N]Manaphy[CR].", italian=" Abbi cura di te...[K] [CS:N]Manaphy[CR].", spanish=" Cuídate...[K] [CS:N]Manaphy[CR]."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Take care...[K] [CS:N]Manaphy[CR].", french="Prends bien soin de toi...[K]\n[CS:N]Manaphy[CR].", german=" Lebe wohl...[K] [CS:N]Manaphy[CR].", italian=" Abbi cura di te...[K] [CS:N]Manaphy[CR].", spanish=" Cuídate...[K] [CS:N]Manaphy[CR]."})
   else
   SkySceneKit.say({english=" Take care...[K] [CS:N]Manaphy[CR].", french="Prends bien soin de toi...[K]\n[CS:N]Manaphy[CR].", german=" Lebe wohl...[K] [CS:N]Manaphy[CR].", italian=" Abbi cura di te...[K] [CS:N]Manaphy[CR].", spanish=" Cuídate...[K] [CS:N]Manaphy[CR]."})
   end
+  -- message_Close
   pcall(function() SOUND:FadeOutBGM(180) end)
   -- bgm2_FadeOut [canal BGM sub: voir bgm2_Play]
   SkySubScreen.Hide(90) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)

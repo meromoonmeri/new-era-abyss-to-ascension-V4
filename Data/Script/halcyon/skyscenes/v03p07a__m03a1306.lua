@@ -19,5 +19,6 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Or at a lake in an underground\ncavern...", french="... ou au milieu d'un lac\ndans une grotte souterraine...", german="Oder bei einem See in einer\nunterirdischen Höhle...", italian="... o in un lago di una caverna\nsotterranea...", spanish="O en el lago de una caverna\nsubterránea..."})
   end
+  -- message_Close
   GAME:FadeOut(false, 30)
 end

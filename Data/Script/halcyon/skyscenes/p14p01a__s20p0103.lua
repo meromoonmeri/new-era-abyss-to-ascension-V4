@@ -17,6 +17,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Why can't I evolve?", french="Pourquoi je ne peux pas\névoluer?", german="Warum kann ich mich nicht\nentwickeln?", italian=" Perché io non posso?", spanish="¿Por qué yo no puedo\nevolucionar?"})
   end
+  -- ExecuteCommon(CORO_JUMP_HAPPY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:ResetSpeaker() end)
@@ -35,6 +36,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Distortion?[K] The fabric of space?", french="Une distorsion?[K] Dans la trame\nde l'espace?", german=" Verzerrung?[K] Das Raumgefüge?", italian="Distorsione?[K] Della struttura\ndello spazio?", spanish=" ¿Deformación?[K] ¿Del espacio?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:ResetSpeaker() end)
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english="[CN]Why that should be, I do not know...", french="[CN]Quelle en est la cause, je l'ignore...", german="[CN]Ich weiß nicht, warum das so sein könnte...", italian="[CN]Il motivo, non lo conosco...", spanish="[CN]No sé por qué..."})
@@ -65,6 +67,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" What?! [hero] too?!", french=" Hein?! [hero] aussi?!", german=" Was?!? [hero] auch?!?", italian=" Cosa?! Anche [hero]?!", spanish="¡¿Quéee?! ¿[hero]\ntampoco?"})
   end
+  -- message_Close
   GAME:FadeOut(false, 30)
   GAME:FadeIn(0) -- screen_FlushIn
   SkySceneKit.cleanup_npcs()

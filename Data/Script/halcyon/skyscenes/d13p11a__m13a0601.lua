@@ -20,6 +20,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Let's find that Time Gear\nthis time!", french="Trouvons le Rouage du Temps\ncette fois-ci!", german="Diesmal finden wir das Zahnrad\nder Zeit!", italian="Questa volta dobbiamo trovare\nl'Ingranaggio del Tempo!", spanish="¡Esta vez tenemos que\nencontrarlo!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
@@ -30,6 +31,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Let's try our best, [hero]!", french="Faisons de notre mieux,\n[hero]!", german="Strengen wir uns an,\n[hero]!", italian="Facciamo del nostro meglio,\n[hero]!", spanish="¡Hay que esforzarse todo\nlo posible, [hero]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetAnimation(71) [anim idle native]
   -- SetAnimation(71) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation

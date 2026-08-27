@@ -28,6 +28,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Ugh...[K] This is so rough...", french=" Argh...[K] Ce que c'est difficile...", german=" Uff...[K] Das ist so grob...", italian=" Uff...[K] È davvero dura...", spanish=" Uf...[K] Esto es todo un reto..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(partner, Direction.Up)
   GAME:WaitFrames(60)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
@@ -37,6 +38,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="This dungeon led to a\ndead end too...", french=" C'est un cul-de-sac ici aussi...", german="Dieser Dungeon hat uns auch in\neine Sackgasse geführt...", italian="Questo dungeon porta a\nun vicolo cieco...", spanish="Estamos en un callejón sin\nsalida..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
@@ -46,39 +48,60 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="There's nowhere left we can\nrun to...", french="Je crois bien qu'on n'a nulle part\noù se réfugier...", german="Ich glaube, jetzt gibt es keinen\nAusweg mehr...", italian="Mi sembra che non si possa\nandare da nessun'altra parte...", spanish="No hay ningún sitio por donde\nescapar..."})
   end
-  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(...[K]That means...)", french="(...[K] Ce qui veut dire...)", german="(...[K]Das bedeutet...)", italian="(...[K] Ciò significa...)", spanish="(Lo que...[K] Lo que significa que...)"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  else
+  SkySceneKit.say({english="(...[K]That means...)", french="(...[K] Ce qui veut dire...)", german="(...[K]Das bedeutet...)", italian="(...[K] Ciò significa...)", spanish="(Lo que...[K] Lo que significa que...)"})
+  end
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(There's only one possible solution left.)", french="(... qu'il ne nous reste qu'une seule solution.)", german="(Es ist nur noch eine mögliche Lösung übrig.)", italian="(Ci rimane un'unica soluzione.)", spanish="(Solo hay una solución posible.)"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  else
+  SkySceneKit.say({english="(There's only one possible solution left.)", french="(... qu'il ne nous reste qu'une seule solution.)", german="(Es ist nur noch eine mögliche Lösung übrig.)", italian="(Ci rimane un'unica soluzione.)", spanish="(Solo hay una solución posible.)"})
+  end
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(We must ask [CS:N]Palkia[CR] how we can get out.)", french="(Il faut qu'on aille demander à [CS:N]Palkia[CR] comment\nsortir d'ici.)", german="(Wir müssen [CS:N]Palkia[CR] fragen, wie wir hier\nherauskommen.)", italian="(Dobbiamo chiedere a [CS:N]Palkia[CR] come uscire.)", spanish="(Hay que preguntarle a [CS:N]Palkia[CR] cómo se sale\nde aquí.)"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  else
+  SkySceneKit.say({english="(We must ask [CS:N]Palkia[CR] how we can get out.)", french="(Il faut qu'on aille demander à [CS:N]Palkia[CR] comment\nsortir d'ici.)", german="(Wir müssen [CS:N]Palkia[CR] fragen, wie wir hier\nherauskommen.)", italian="(Dobbiamo chiedere a [CS:N]Palkia[CR] come uscire.)", spanish="(Hay que preguntarle a [CS:N]Palkia[CR] cómo se sale\nde aquí.)"})
+  end
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(But, to do so...)", french="(Mais pour ce faire...)", german="(Aber um das zu tun...)", italian="(Ma per farlo...)", spanish="(Pero para eso...)"})
   else
   SkySceneKit.say({english="(But, to do so...)", french="(Mais pour ce faire...)", german="(Aber um das zu tun...)", italian="(Ma per farlo...)", spanish="(Pero para eso...)"})
   end
-  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  if ((SV.SkyVars or {}).HERO_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($HERO_TALK_KIND) case 4
   SkySceneKit.say({english="(We must defeat [CS:N]Palkia[CR]!)", french="(... on doit d'abord le vaincre!)", german="(Damit dies gelingt, müssen wir [CS:N]Palkia[CR]\nbesiegen!)", italian="(... dobbiamo sconfiggere [CS:N]Palkia[CR]!)", spanish="(¡Tendremos que derrotarlo primero!)"})
   else
   SkySceneKit.say({english="(We must defeat [CS:N]Palkia[CR]!)", french="(... on doit d'abord le vaincre!)", german="(Damit dies gelingt, müssen wir [CS:N]Palkia[CR]\nbesiegen!)", italian="(... dobbiamo sconfiggere [CS:N]Palkia[CR]!)", spanish="(¡Tendremos que derrotarlo primero!)"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="...[hero], I bet that you've\ncome to the same conclusion I have.", french="... [hero], je parie que\ntu as abouti à la même conclusion que moi.", german="...[hero], ich wette,\ndu bist zum gleichen Entschluss gekommen\nwie ich.", italian="... [hero], scommetto che\nstiamo pensando la stessa cosa.", spanish="Esto... [hero], creo que\nhemos llegado a la misma conclusión."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="...[hero], I bet that you've\ncome to the same conclusion I have.", french="... [hero], je parie que\ntu as abouti à la même conclusion que moi.", german="...[hero], ich wette,\ndu bist zum gleichen Entschluss gekommen\nwie ich.", italian="... [hero], scommetto che\nstiamo pensando la stessa cosa.", spanish="Esto... [hero], creo que\nhemos llegado a la misma conclusión."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="...[hero], I bet that you've\ncome to the same conclusion I have.", french="... [hero], je parie que\ntu as abouti à la même conclusion que moi.", german="...[hero], ich wette,\ndu bist zum gleichen Entschluss gekommen\nwie ich.", italian="... [hero], scommetto che\nstiamo pensando la stessa cosa.", spanish="Esto... [hero], creo que\nhemos llegado a la misma conclusión."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="We need to confront [CS:N]Palkia[CR] and\nask him.", french="On doit affronter [CS:N]Palkia[CR]\npour l'interroger.", german="Wir müssen [CS:N]Palkia[CR]\ngegenübertreten und es fragen.", italian="Dobbiamo affrontare [CS:N]Palkia[CR] e\nchiedere a lui.", spanish="Tenemos que enfrentarnos a\n[CS:N]Palkia[CR] y preguntarle."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="We need to confront [CS:N]Palkia[CR] and\nask him.", french="On doit affronter [CS:N]Palkia[CR]\npour l'interroger.", german="Wir müssen [CS:N]Palkia[CR]\ngegenübertreten und es fragen.", italian="Dobbiamo affrontare [CS:N]Palkia[CR] e\nchiedere a lui.", spanish="Tenemos que enfrentarnos a\n[CS:N]Palkia[CR] y preguntarle."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="We need to confront [CS:N]Palkia[CR] and\nask him.", french="On doit affronter [CS:N]Palkia[CR]\npour l'interroger.", german="Wir müssen [CS:N]Palkia[CR]\ngegenübertreten und es fragen.", italian="Dobbiamo affrontare [CS:N]Palkia[CR] e\nchiedere a lui.", spanish="Tenemos que enfrentarnos a\n[CS:N]Palkia[CR] y preguntarle."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="We really have to find a way\nout of here!", french="Il faut absolument qu'on trouve\nun moyen de sortir d'ici!", german="Wir müssen unbedingt einen Weg\nhier heraus finden!", italian="Dobbiamo trovare un modo per\nuscire da qui!", spanish=" ¡Hay que encontrar una salida!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="We really have to find a way\nout of here!", french="Il faut absolument qu'on trouve\nun moyen de sortir d'ici!", german="Wir müssen unbedingt einen Weg\nhier heraus finden!", italian="Dobbiamo trovare un modo per\nuscire da qui!", spanish=" ¡Hay que encontrar una salida!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="We really have to find a way\nout of here!", french="Il faut absolument qu'on trouve\nun moyen de sortir d'ici!", german="Wir müssen unbedingt einen Weg\nhier heraus finden!", italian="Dobbiamo trovare un modo per\nuscire da qui!", spanish=" ¡Hay que encontrar una salida!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="And we have to find out why\nhe keeps attacking us.", french="Et il faut aussi qu'on découvre\npourquoi il n'arrête pas de nous attaquer.", german="Und wir müssen herausfinden,\nwarum es uns angreift.", italian="E dobbiamo scoprire perché\ncontinua ad attaccarci.", spanish="Además, tenemos que averiguar\npor qué nos ataca."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="And we have to find out why\nhe keeps attacking us.", french="Et il faut aussi qu'on découvre\npourquoi il n'arrête pas de nous attaquer.", german="Und wir müssen herausfinden,\nwarum es uns angreift.", italian="E dobbiamo scoprire perché\ncontinua ad attaccarci.", spanish="Además, tenemos que averiguar\npor qué nos ataca."})
   else
   SkySceneKit.say({english="And we have to find out why\nhe keeps attacking us.", french="Et il faut aussi qu'on découvre\npourquoi il n'arrête pas de nous attaquer.", german="Und wir müssen herausfinden,\nwarum es uns angreift.", italian="E dobbiamo scoprire perché\ncontinua ad attaccarci.", spanish="Además, tenemos que averiguar\npor qué nos ataca."})
   end
+  -- message_Close
 end

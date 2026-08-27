@@ -78,6 +78,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Oh, well... Thanks, everyone!", french=" Eh bien... merci, tout le monde!", german=" Na gut! Danke, Leute!", italian=" Oh, bene... Grazie a tutti!", spanish=" Ah, bueno... ¡Gracias a todos!"})
   end
+  -- message_Close
   pcall(function() SOUND:FadeOutBGM(120) end)
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(2) -- join WaitBgm

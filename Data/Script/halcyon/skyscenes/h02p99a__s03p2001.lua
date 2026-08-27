@@ -31,6 +31,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" OK!", french=" Oui!", german=" Okay!", italian=" Ok!", spanish=" ¡De acuerdo!"})
   end
+  -- SetAnimation(2) [anim idle native]
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(partner, Direction.UpRight)
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -42,6 +43,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Here, take this, [CS:N]Manaphy[CR].[K]\nIt's a Phione Dew.", french="Et voilà, [CS:N]Manaphy[CR].[K]\nC'est une Rosée Phione.", german="Hier, nimm das, [CS:N]Manaphy[CR].[K]\nDas ist Phione-Tau.", italian="Ecco, [CS:N]Manaphy[CR].[K]\nÈ la Brina Phione.", spanish="Tómate esto, [CS:N]Manaphy[CR].[K]\nEs un Rocío Phione."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:FadeOutBGM(120) end)
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(8), p.Y+(-8), false, 1) end
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -69,6 +71,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Whew, thank goodness!", french=" Ouf, je suis si contente!", german=" Puh, ein Glück!", italian=" Fiuuu, come sono contenta!", spanish=" ¡Uf, qué alegría!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english=" It seems to be working.", french=" On dirait que ça marche.", german=" Er scheint zu wirken.", italian=" Sembra che funzioni.", spanish=" Parece que funciona."})
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
@@ -81,6 +84,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" That's great...[K] Am I ever glad...", french=" Tant mieux...[K] Quel soulagement...", german="Das ist großartig...[K]\nIch bin so froh!", italian="È fantastico...[K] Sono così\nfelice...", spanish=" Estupendo...[K] ¡Qué alivio!"})
   end
+  -- message_Close
   GAME:FadeOut(false, 90)
   GAME:WaitFrames(30)
   SkySceneKit.cleanup_npcs()

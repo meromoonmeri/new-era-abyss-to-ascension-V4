@@ -16,6 +16,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Can you give it a try,\n[hero]?", french="Tu veux essayer,\n[hero]?", german="Kannst du es mal versuchen,\n[hero]?", italian="Vuoi provare tu,\n[hero]?", spanish="¿Por qué no pruebas tú,\n[hero]?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(-40), p.Y+(0), false, 2) end
   GAME:WaitFrames(10)
   GROUND:MoveToPosition(hero, 252, 164, false, 2)

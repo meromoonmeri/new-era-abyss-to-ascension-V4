@@ -19,5 +19,6 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="I've even heard that there is\na hidden altar inside a volcano.", french="J'ai même entendu dire qu'il y\navait un autel caché à l'intérieur d'un volcan.", german="Ich habe sogar von einem\ngeheimen Altar in einem Vulkan gehört.", italian="Ho persino sentito dire che c'è\nun altare nascosto all'interno di un vulcano.", spanish="Incluso he oído decir que hasta\ndentro de un volcán."})
   end
+  -- message_Close
   GAME:FadeOut(false, 30)
 end

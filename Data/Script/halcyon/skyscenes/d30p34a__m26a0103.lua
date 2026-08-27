@@ -37,6 +37,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Waaaaah!", french=" Ouaaaaah!", german=" Waaaaah!", italian=" Aaaaaah!", spanish=" ¡Aaaaah!"})
   end
+  GAME:WaitFrames(40)
   -- GAP: se_Play(6403) — id SE NDS sans portage PMDO identifié
   pcall(function() SOUND:FadeOutBGM(120) end)
   -- bgm2_FadeOut [canal BGM sub: voir bgm2_Play]

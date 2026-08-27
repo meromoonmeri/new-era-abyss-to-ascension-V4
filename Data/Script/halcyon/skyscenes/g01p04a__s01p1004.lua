@@ -21,6 +21,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" [CS:P]Luminous Spring[CR]?", french=" La [CS:P]Source Lumineuse[CR]?", german=" [CS:P]Glitzerquelle[CR]?", italian=" [CS:P]Sorgente Luccichio[CR]?", spanish=" ¿[CS:P]Manantial Luminoso[CR]?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   local npc_npc_pukurin = SkySceneKit.spawn_npc("wigglytuff", 424, 224, Direction.DownRight, "NPC_PUKURIN")
   pcall(function() UI:SetSpeaker(npc_npc_pukurin) end)
   SkySceneKit.say({english="Yup! ♪[K] It was where Pokémon\nonce went to evolve.", french="Ouiii! ♪[K] C'est à cet endroit que\nles Pokémon partaient autrefois pour évoluer.", german="Ja! ♪[K] Dort gingen einst die\nPokémon hin, um sich zu entwickeln.", italian="Sì! ♪[K] È lì che una volta i\nPokémon andavano a evolversi.", spanish="Sí. ♪[K] Allí es donde antaño\niban los Pokémon a evolucionar."})

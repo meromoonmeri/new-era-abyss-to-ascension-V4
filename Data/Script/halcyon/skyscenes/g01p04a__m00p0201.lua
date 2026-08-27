@@ -29,6 +29,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Oh, it's [CS:N]Croagunk[CR]!", french=" Oh! C'est [CS:N]Cradopaud[CR]!", german=" Oh! [CS:N]Glibunkel[CR]!", italian=" Oh, è [CS:N]Croagunk[CR]!", spanish=" ¡Oh! ¡Es [CS:N]Croagunk[CR]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetPositionLives(0) [cible objet/id de décor NDS non simulée - trace]
   -- camera_SetMyself() [neutre/état moteur]
   do local p=hero.Position; GROUND:MoveToPosition(hero, p.X+(-48), p.Y+(0), false, 2) end
@@ -70,6 +71,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" [CS:K]Croagunk[CR]...[K]Swap Shop?", french=" Le...[K] [CS:K]Stand Troc Cradopaud[CR]?", german=" Die [CS:K]Glibunkel-Tauschbörse[CR]?", italian=" Centro Cambi[K] [CS:K]Croagunk[CR]...?", spanish=" ¿Cómo?[K] ¿[CS:K]Trueques Croagunk[CR]?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_guregguru) end)
   SkySceneKit.say({english=" Meh-heh-heh! You heard right.", french="Mwé hé hé... Vous avez bien\nentendu...", german=" Mehehe! Richtig gehört.", italian=" Eh eh eh! Proprio così.", spanish=" ¡Je, je, je! Habéis oído bien."})
   pcall(function() UI:SetSpeaker(npc_npc_guregguru) end)

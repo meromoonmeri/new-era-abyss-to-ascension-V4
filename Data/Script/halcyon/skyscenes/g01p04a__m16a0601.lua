@@ -134,6 +134,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Going home?", french=" ... repartir?", german=" Er geht nach Hause?", italian=" ... tornare indietro?", spanish=" ¿A casa?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- message_FacePositionOffset(-1, 0) [neutre/état moteur]
   pcall(function() UI:SetSpeaker(npc_npc_dogoomu) end)
   SkySceneKit.say({english=" Going back to the future...?", french=" Repartir dans le futur...?", german=" Er geht wieder in die Zukunft?", italian=" Vuole tornare nel futuro...?", spanish=" ¿De vuelta al futuro?"})
@@ -182,6 +183,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Let's hurry! We have to go to\nTreasure Town!", french="Allez, on se dépêche!\nTous à Bourg-Trésor!", german="Beeilung! Wir müssen nach\nSchatzstadt!", italian="Sbrighiamoci! Corriamo tutti a\nBorgo Tesoro!", spanish="¡Vamos, rápido! ¡Tenemos que\nir a Aldea Tesoro!"})
   end
+  -- message_Close
   -- GAP: se_Play(6422) — id SE NDS sans portage PMDO identifié
   GROUND:EntTurn(npc_npc_dagutorio, Direction.Down)
   -- SetAnimation(25) [anim idle native]

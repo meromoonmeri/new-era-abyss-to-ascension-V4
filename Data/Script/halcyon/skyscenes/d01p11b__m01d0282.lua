@@ -34,6 +34,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Waah![K] Someone has collapsed on\nthe sand!", french="Aaah![K] Quelqu'un vient de\ns'effondrer sur le sable!", german="Waah![K] Da ist jemand im Sand\nzusammengebrochen!", italian="Aaah![K] Qualcuno è\nsvenuto sulla sabbia!", spanish=" ¡Aaah![K] ¡Alguien se ha desmayado!"})
   end
+  -- message_Close
   pcall(function() GAME:MoveCamera(308, 176, 60, false) end) -- performer/caméra
   -- SetAnimation(1024) [anim idle native]
   GROUND:MoveToPosition(partner, 312, 172, false, 2)
@@ -49,6 +50,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" What happened?![K] Are you OK?", french=" Que s'est-il passé?![K] Ça va?", german=" Was ist passiert?!?[K] Alles okay?", italian=" Cos'è successo?![K] Stai bene?", spanish=" ¿Qué ha ocurrido?[K] ¿Estás bien?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   GAME:FadeOut(false, 30)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]

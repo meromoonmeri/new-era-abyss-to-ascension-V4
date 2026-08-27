@@ -23,6 +23,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="I don't really know the answer\nto that question.", french="Je n'ai pas de réponse à cette\nquestion.", german="Ich weiß keine sichere Antwort\nauf diese Frage.", italian="Non conosco proprio la\nrisposta a questa domanda.", spanish="Desconozco la respuesta\na esa pregunta."})
   end
+  -- message_Close
   -- GAP: se_Play(6420) — id SE NDS sans portage PMDO identifié
   -- SetAnimation(1024) [anim idle native]
   GROUND:MoveToPosition(npc_npc_juputoru, 144, 236, false, 2)

@@ -38,6 +38,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Oh? What's the matter,\n[hero]?", french="Hein? Qu'est-ce qu'il y a,\n[hero]?", german=" Oh? Was ist los, [hero]?", italian=" Eh? Cosa c'è, [hero]?", spanish=" ¿Eh? ¿Qué pasa, [hero]?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- ExecuteCommon(CORO_EXPLANATION_FUNC_SERIES, 3) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Exclaim") end)
@@ -48,13 +49,17 @@ return function(hero, partner)
   SkySceneKit.say({english=" Huh?", french=" Pardon?", german=" Äh?", italian=" Eh?", spanish=" ¿Qué?"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Huh?", french=" Pardon?", german=" Äh?", italian=" Eh?", spanish=" ¿Qué?"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" Pardon?!", french=" Pardon?", german=" Wie bitte?!?", italian=" Come?!", spanish=" ¿Qué?"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="You're saying that [CS:N]Wigglytuff[CR]\nhas been to the waterfall before?!", french="Tu es en train de me dire que\n[CS:N]Grodoudou[CR] est déjà allé à la cascade?!", german="Du sagst, dass [CS:N]Knuddeluff[CR] schon\nmal an dem Wasserfall war?!?", italian="Stai dicendo che [CS:N]Wigglytuff[CR]\nè già stato alla cascata?!", spanish="¡¿Crees que [CS:N]Wigglytuff[CR] ya había\nestado en la cueva que hay tras la cascada?!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="You're saying [CS:N]Wigglytuff[CR] may\nhave been at that waterfall before?!", french="Tu es en train de me dire que\n[CS:N]Grodoudou[CR] est déjà allé à la cascade?!", german="Du sagst, dass [CS:N]Knuddeluff[CR] schon\nmal an dem Wasserfall war?!?", italian="Stai dicendo che [CS:N]Wigglytuff[CR]\nè già stato alla cascata?!", spanish="¡¿Crees que [CS:N]Wigglytuff[CR] ya había\nestado en la cueva que hay tras la cascada?!"})
   else
   SkySceneKit.say({english="You're saying [CS:N]Wigglytuff[CR] may\nhave gone to that waterfall before?!", french="Tu es en train de me dire que\n[CS:N]Grodoudou[CR] est déjà allé à la cascade?!", german="Du sagst, dass [CS:N]Knuddeluff[CR] schon\nmal an dem Wasserfall war?!?", italian="Stai dicendo che [CS:N]Wigglytuff[CR]\nè già stato alla cascata?!", spanish="¡¿Crees que [CS:N]Wigglytuff[CR] ya había\nestado en la cueva que hay tras la cascada?!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(hero, Direction.Up)
   GROUND:EntTurn(partner, Direction.Up)
   GROUND:EntTurn(npc_npc_perappu, Direction.Down)
@@ -113,6 +118,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" What was that, [CS:N]Chatot[CR]?", french=" Qu'as-tu dit, [CS:N]Pijako[CR]?", german=" Was war das?", italian=" Cosa stai dicendo, [CS:N]Chatot[CR]?", spanish=" ¿Qué decías, [CS:N]Chatot[CR]?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Exclaim") end)
   pcall(function() GROUND:CharSetEmote(npc_npc_perappu, "shock", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
@@ -153,6 +159,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" So how did it go?", french=" Alors, qu'est-ce qu'il a dit?", german=" Und, wie lief es?", italian=" Allora, come è andata?", spanish=" ¿Qué ha dicho?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GAME:WaitFrames(20)
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english="When I asked the Guildmaster,\nhe mulled it over for a bit.", french="Quand j'ai posé la question au\nMaître, il s'est plongé dans ses pensées\npendant quelques instants.", german="Als ich den Gildenmeister fragte,\nwurde er erst einmal sehr nachdenklich.", italian="Quando gliel'ho detto, il Capitano\nsi è messo a rimuginare un po'.", spanish="Cuando le pregunté al Gran\nBluff, se lo pensó un rato."})
@@ -193,13 +200,17 @@ return function(hero, partner)
   SkySceneKit.say({english="Oh... Is that so?[K] That's so\ndisappointing...", french=" Ah bon...[K] Quelle déception...", german="Oh... Tatsächlich?[K] Das ist aber\nschade...", italian=" Ah... È così?[K] Che delusione...", spanish="Oh... ¿De verdad?[K]\n¡Menudo chasco!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Oh... OK.[K] That's kind of\ndisappointing...", french=" Ah bon...[K] Quelle déception...", german="Oh... Okay.[K] Das ist irgendwie\nschade...", italian=" Oh... È così?[K] Che delusione...", spanish=" Oh... Vaya.[K] ¡Qué decepción!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="Oh... OK.[K] That's kind of\ndisappointing...", french=" Ah bon...[K] Quelle déception...", german="Oh... Okay.[K] Das ist irgendwie\nschade...", italian=" Oh... È così?[K] Che delusione...", spanish=" Oh... Vaya.[K] ¡Qué decepción!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="We really thought we'd\ndiscovered a new place.", french="Nous qui pensions avoir\nvraiment découvert un lieu inexploré...", german="Wir dachten wirklich, wir\nhätten eine Entdeckung gemacht.", italian="Pensavamo davvero di aver\nscoperto un posto nuovo.", spanish="Creíamos haber descubierto un\nlugar nuevo."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="We really thought we'd\ndiscovered a new place.", french="Nous qui pensions avoir\nvraiment découvert un lieu inexploré...", german="Wir dachten wirklich, wir\nhätten eine Entdeckung gemacht.", italian="Pensavamo davvero di aver\nscoperto un posto nuovo.", spanish="Creíamos haber descubierto un\nlugar nuevo."})
   else
   SkySceneKit.say({english="We really thought we'd\ndiscovered a new place.", french="Nous qui pensions avoir\nvraiment découvert un lieu inexploré...", german="Wir dachten wirklich, wir\nhätten eine Entdeckung gemacht.", italian="Pensavamo davvero di aver\nscoperto un posto nuovo.", spanish="Creíamos haber descubierto un\nlugar nuevo."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Sweatdrop") end)
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
@@ -211,6 +222,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="I wish [CS:N]Wigglytuff[CR] had told us\nright from the start...", french="J'aurais préféré que [CS:N]Grodoudou[CR]\nnous le dise dès le début...", german="Ich wünschte, [CS:N]Knuddeluff[CR] hätte\nuns das gleich gesagt.", italian="Se solo [CS:N]Wigglytuff[CR] ce l'avesse\ndetto subito...", spanish="[CS:N]Wigglytuff[CR] tendría que\nhabérnoslo dicho desde el principio."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english="The Guildmaster can be rather,\nuh, erratic at times...", french="Il est vrai que le Maître de\nla Guilde peut se montrer... disons... assez\nimprévisible quelquefois...", german="Der Gildenmeister kann\nmanchmal ziemlich, äh, launisch sein.", italian="Il Capitano può essere alquanto,\neh, imprevedibile, a volte...", spanish="El Gran Bluff a veces\npuede ser... esto, impredecible."})
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
@@ -227,6 +239,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Urf...", french=" Arf...", german=" Urf...", italian=" Uff...", spanish=" Uf..."})
   end
+  -- message_Close
   pcall(function() SOUND:FadeOutBGM(120) end)
   GAME:FadeOut(false, 90)
   GAME:WaitFrames(2) -- join WaitBgm

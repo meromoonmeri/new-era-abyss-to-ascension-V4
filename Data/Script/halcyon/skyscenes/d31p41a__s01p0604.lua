@@ -30,6 +30,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Say, [CS:N]Wigglytuff[CR].[K] Please, can you\ntell us what's going on?", french="Hé, [CS:N]Grodoudou[CR].[K] Vous pouvez\nnous expliquer ce qui se passe?", german="Sag mal, [CS:N]Knuddeluff[CR].[K] Kannst du\nuns bitte sagen, was hier vor sich geht?", italian="Ehi, [CS:N]Wigglytuff[CR],[K] puoi dirci cosa\nsta succedendo?", spanish="Oye, [CS:N]Wigglytuff[CR].[K] ¿Puedes\nexplicarnos qué está pasando?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:FadeOutBGM(120) end)
   local npc_npc_pukurin = SkySceneKit.spawn_npc("wigglytuff", 280, 176, Direction.Down, "NPC_PUKURIN")
   pcall(function() GROUND:CharTurnToCharAnimated(hero, npc_npc_pukurin, 4) end)
@@ -70,6 +71,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" What?!", french=" Quoi?!", german=" Was?!?", italian=" Cosa?!", spanish=" ¿Qué?"})
   end
+  GAME:WaitFrames(2) -- join WaitExecuteLives
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- GAP: BGM BGM_THE_POWER_OF_DARKNESS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
   pcall(function() UI:ResetSpeaker() end)
@@ -89,6 +91,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Whaaat?!", french=" Quoiii?!", german=" Waaaas?!?", italian=" Cooosa?!", spanish=" ¡¿Quéee?!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(npc_npc_perappu, Direction.DownLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- GAP: se_Play(5122) — id SE NDS sans portage PMDO identifié
@@ -139,6 +142,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Wh-what's going on here?!", french="Mais... mais qu'est-ce qui\nse passe ici, à la fin?!", german=" W-was läuft denn hier?!?", italian=" C-Cosa sta succedendo qui?!", spanish=" ¡¿Qué está ocurriendo aquí?!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:ResetSpeaker() end)
   -- message_FacePositionOffset(0, -1) [neutre/état moteur]
   pcall(function() UI:SetSpeaker(partner) end)

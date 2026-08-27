@@ -321,7 +321,9 @@ class SceneCompiler:
                     head = txt[start:pos].lstrip()
                     rest = txt[pos + 1:pos + 12].lstrip()
                     if head.startswith(("if", "switch", "else", "with",
-                                        "forever", "while")) \
+                                        "forever", "while",
+                                        "message_SwitchTalk",
+                                        "message_SwitchMonologue")) \
                             and not rest.startswith("else"):
                         stmts.append(txt[start:pos + 1].strip())
                         start = pos + 1
@@ -570,6 +572,51 @@ class SceneCompiler:
             groups.append((pending, ""))
         return groups
 
+    def compile_op_switchtalk(self, op, args):
+        """message_SwitchTalk/SwitchMonologue : variantes par TALK_KIND
+        (genre/nature du héros ou du partenaire, GameVar ROM) — TOUTES
+        les branches compilées en if/elseif Lua sur SV.SkyVars ; le
+        default reste le texte générique canonique."""
+        mvar = re.match(r"\s*\(?\s*\$(\w+)\s*\)?", args)
+        var = mvar.group(1) if mvar else "PARTNER_TALK_KIND"
+        cases = []          # (num|None, langs)
+        for mo in re.finditer(r"(?:case\s+(\d+)|default)\s*:", args):
+            num = mo.group(1)
+            jb = args.find("{", mo.end())
+            if jb < 0:
+                continue
+            langs, _ = parse_dialogue_block(args, jb)
+            if langs:
+                cases.append((int(num) if num else None, langs))
+        if not cases:
+            self.unsupported.append(op + ":no_cases")
+            return
+        self.dialogues += len(cases)
+        expr = f"((SV.SkyVars or {{}}).{var} or 0)"
+        first = True
+        deflt = None
+        for num, langs in cases:
+            tbl = ", ".join(f"{k}={lua_str(v)}"
+                            for k, v in langs.items())
+            if num is None:
+                deflt = tbl
+                continue
+            kw = "if" if first else "elseif"
+            first = False
+            self.emit(f"{kw} {expr} == {num} then "
+                      f"-- {op}(${var}) case {num}")
+            self.emit(f"SkySceneKit.say({{{tbl}}})")
+        if deflt is not None:
+            if first:
+                self.emit(f"SkySceneKit.say({{{deflt}}}) "
+                          f"-- {op}: default seul")
+            else:
+                self.emit("else")
+                self.emit(f"SkySceneKit.say({{{deflt}}})")
+                self.emit("end")
+        elif not first:
+            self.emit("end")
+
     def compile_stmt(self, st, is_last=False):
         st = st.strip()
         # `jump @label_N` en DERNIÈRE position d'une branche = saut vers
@@ -801,6 +848,15 @@ class SceneCompiler:
                           "kit au runtime)")
                 self.compile_def0(seg)
                 return
+        # message_SwitchTalk/SwitchMonologue en forme BLOC (`op ($VAR)
+        # { case N: {...} }` — le statement finit par '}') : redirigé vers
+        # le handler op (mêmes branches toutes compilées)
+        mst = re.match(r"(message_SwitchTalk|message_SwitchMonologue)\s*"
+                       r"\((.*)\)?\s*\{(.*)\}$", st, re.S)
+        if mst:
+            self.compile_op_switchtalk(mst.group(1),
+                                       mst.group(2) + "{" + mst.group(3) + "}")
+            return
         # ---- switch GÉNÉRIQUE sur variable de contexte NDS : TOUTES les
         # branches sont compilées (if/elseif Lua sur la valeur runtime,
         # aucun contenu perdu). Sujets = variables moteur ROM lues via la
@@ -1162,49 +1218,7 @@ class SceneCompiler:
                 self.emit("pcall(function() UI:ResetSpeaker() end)")
             self.emit(f"SkySceneKit.say({{{tbl}}})")
         elif op in ("message_SwitchTalk", "message_SwitchMonologue"):
-            # variantes par TALK_KIND (genre/nature du héros ou du
-            # partenaire, GameVar ROM) : TOUTES les branches compilées
-            # en if/elseif Lua sur SV.SkyVars — le default reste le
-            # texte générique canonique.
-            mvar = re.match(r"\s*\(\s*\$(\w+)\s*\)", args)
-            var = mvar.group(1) if mvar else "PARTNER_TALK_KIND"
-            cases = []          # (num|None, langs)
-            for mo in re.finditer(r"(?:case\s+(\d+)|default)\s*:", args):
-                num = mo.group(1)
-                jb = args.find("{", mo.end())
-                if jb < 0:
-                    continue
-                langs, _ = parse_dialogue_block(args, jb)
-                if langs:
-                    cases.append((int(num) if num else None, langs))
-            if not cases:
-                self.unsupported.append(op + ":no_cases")
-                return
-            self.dialogues += len(cases)
-            expr = f"((SV.SkyVars or {{}}).{var} or 0)"
-            first = True
-            deflt = None
-            for num, langs in cases:
-                tbl = ", ".join(f"{k}={lua_str(v)}"
-                                for k, v in langs.items())
-                if num is None:
-                    deflt = tbl
-                    continue
-                kw = "if" if first else "elseif"
-                first = False
-                self.emit(f"{kw} {expr} == {num} then "
-                          f"-- {op}(${var}) case {num}")
-                self.emit(f"SkySceneKit.say({{{tbl}}})")
-            if deflt is not None:
-                if first:
-                    self.emit(f"SkySceneKit.say({{{deflt}}}) "
-                              f"-- {op}: default seul")
-                else:
-                    self.emit("else")
-                    self.emit(f"SkySceneKit.say({{{deflt}}})")
-                    self.emit("end")
-            elif not first:
-                self.emit("end")
+            self.compile_op_switchtalk(op, args)
         elif op in ("message_Close", "message_KeyWait", "message_FaceOff"):
             self.emit("-- " + op)
         elif op == "CallCommon":

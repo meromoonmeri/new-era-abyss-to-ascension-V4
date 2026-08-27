@@ -36,6 +36,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Waah!", french=" Ouaaah!", german=" Waah!", italian=" Aaah!", spanish=" ¡Aaah!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   local npc_npc_ringuma = SkySceneKit.spawn_npc("ursaring", 272, 240, Direction.UpRight, "NPC_RINGUMA")
   pcall(function() GROUND:CharSetEmote(npc_npc_ringuma, "exclaim", 1) end)
   local npc_npc_s_diguda = SkySceneKit.spawn_npc("diglett", 440, 216, Direction.UpLeft, "NPC_S_DIGUDA")
@@ -74,6 +75,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Waaah!", french=" Ouaaah!", german=" Waaah!", italian=" Aaaah!", spanish=" ¡Aaah!"})
   end
+  GAME:WaitFrames(45)
   -- message_CloseEnforce
   -- Destroy() [neutre/état moteur]
   -- Destroy() [neutre/état moteur]

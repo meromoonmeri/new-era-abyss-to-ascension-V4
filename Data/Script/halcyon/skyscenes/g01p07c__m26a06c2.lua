@@ -17,6 +17,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="I realized I did the right thing in\nbecoming an exploration team member.", french="J'ai compris que j'ai pris\nla bonne décision en devenant membre\nd'une équipe d'exploration.", german="Mir wurde klar, dass es richtig\nwar, Mitglied in einem Erkundungsteam zu\nwerden.", italian="Mi ha fatta sentire felice di\nessere diventata membro di una squadra\nd'esplorazione.", spanish="Me he dado cuenta de que ha\nsido muy buena idea hacerme exploradora."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetOutputAttribute(4) [neutre/état moteur]
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(8), p.Y+(8), false, 1) end
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -31,17 +32,24 @@ return function(hero, partner)
   SkySceneKit.say({english="One day I'm sure I'll solve the\nsecret of my Relic Fragment.", french="Et je suis sûr qu'un jour, je\ndécouvrirai le secret de mon Fragment de\nRelique.", german="Ich bin mir sicher, dass ich\neines Tages das Geheimnis meines\nReliktfragments lösen werde.", italian="Sono sicuro che un giorno\nrisolverò il mistero del Frammento Antico.", spanish="Seguro que un día de estos\nresolveré el misterio de mi Reliquia de\nPiedra."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="One day I'm sure I'll solve the\nsecret of my Relic Fragment.", french="Et je suis sûr qu'un jour, je\ndécouvrirai le secret de mon Fragment de\nRelique.", german="Ich bin mir sicher, dass ich\neines Tages das Geheimnis meines\nReliktfragments lösen werde.", italian="Sono sicuro che un giorno\nrisolverò il mistero del Frammento Antico.", spanish="Seguro que un día de estos\nresolveré el misterio de mi Reliquia de\nPiedra."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="One day I'm sure I'll solve the\nsecret of my Relic Fragment.", french="Et je suis sûre qu'un jour, je\ndécouvrirai le secret de mon Fragment de\nRelique.", german="Ich bin mir sicher, dass ich\neines Tages das Geheimnis meines\nReliktfragments lösen werde.", italian="Sono sicura che un giorno\nrisolverò il mistero del Frammento Antico.", spanish="Seguro que un día de estos\nresolveré el misterio de mi Reliquia de\nPiedra."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" That's my dream.", french=" C'est mon plus grand rêve.", german=" Davon träume ich.", italian=" È il mio sogno.", spanish=" Ese es mi sueño."})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" That's the dream I have.", french=" C'est mon plus grand rêve.", german=" Das ist mein großer Traum.", italian=" È il mio sogno.", spanish=" Ese es mi mayor deseo."})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english=" That's my dream.", french=" C'est mon plus grand rêve.", german=" Das ist mein Traum.", italian=" È il mio sogno.", spanish=" Ese es mi sueño."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="If it ever came true, I'd surely\nfaint from happiness!", french="S'il devenait réalité, je pense\nque j'en tomberais à la renverse tellement\nje serais heureux!", german="Wenn dieser Traum jemals\nwahr wird, falle ich vor Glück bestimmt in\nOhnmacht!", italian="Se riuscissi a realizzarlo, sono\nsicuro che sverrei dalla gioia!", spanish="Si consiguiera resolver el\nmisterio, ¡creo que me desmayaría de\nla felicidad!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="If it ever came true, I'd surely\nfaint from sheer happiness!", french="S'il devenait réalité, je pense\nque j'en tomberais à la renverse tellement\nje serais heureux!", german="Wenn er jemals wahr wird,\nfalle ich vor lauter Freude bestimmt in\nOhnmacht!", italian="Se riuscissi a realizzarlo, sono\nsicuro che sverrei dalla gioia!", spanish="Si consiguiera resolver el\nmisterio, ¡creo que me desmayaría de\nla felicidad!"})
   else
   SkySceneKit.say({english="If it ever came true, I'd surely\nfaint from sheer happiness!", french="S'il devenait réalité, je pense\nque j'en tomberais à la renverse tellement\nje serais heureuse!", german="Wenn er jemals wahr wird,\nfalle ich vor lauter Freude bestimmt in\nOhnmacht!", italian="Se riuscissi a realizzarlo, sono\nsicura che sverrei dalla gioia!", spanish="Si consiguiera resolver el\nmisterio, ¡creo que me desmayaría de\nla felicidad!"})
   end
+  -- message_KeyWait
   pcall(function() GROUND:CharSetEmote(partner, "happy", 1) end)
   if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" Ha ha ha ha!", french=" Ha ha ha ha!", german=" Hahahaha!", italian=" Ah ah ah ah!", spanish=" ¡Ja, ja, ja!"})
@@ -50,6 +58,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Ha ha ha ha!", french=" Ha ha ha ha!", german=" Hahahaha!", italian=" Ah ah ah ah!", spanish=" ¡Ja, ja, ja!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharSetEmote(hero, "happy", 1) end)
   GAME:WaitFrames(90)
   GAME:FadeOut(true, 30) -- screen_WhiteOut

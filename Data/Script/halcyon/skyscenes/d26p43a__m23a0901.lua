@@ -73,6 +73,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" [CS:N]Chatot[CR]!", french=" [CS:N]Pijako[CR]!", german=" [CS:N]Plaudagei[CR]!", italian=" [CS:N]Chatot[CR]!", spanish=" ¡[CS:N]Chatot[CR]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetAnimation(32) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -88,6 +89,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="[CS:N]Chatot[CR]! Are you all right?![K]\nStay with us!", french="[CS:N]Pijako[CR]! Tu vas bien?![K]\nReste avec nous!", german="[CS:N]Plaudagei[CR]! Bist du okay?!?[K]\nHalte durch!", italian="[CS:N]Chatot[CR]! Stai bene?![K] Resta con\nnoi!", spanish="¡[CS:N]Chatot[CR]! ¡¿Estás bien?![K]\n¡Aguanta!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- message_ResetActor() [neutre/état moteur]
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english=" [CS:N]Chatot[CR]!", french=" [CS:N]Pijako[CR]!", german=" [CS:N]Plaudagei[CR]!", italian=" [CS:N]Chatot[CR]!", spanish=" ¡[CS:N]Chatot[CR]!"})
@@ -131,6 +133,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" [CS:N]Wigglytuff[CR]![K] And [CS:N]Grovyle[CR] too!", french="[CS:N]Grodoudou[CR]![K] Et [CS:N]Massko[CR] est là\naussi!", german=" [CS:N]Knuddeluff[CR]![K] Und auch [CS:N]Reptain[CR]!", italian=" [CS:N]Wigglytuff[CR]![K] E anche [CS:N]Grovyle[CR]!", spanish=" ¡[CS:N]Wigglytuff[CR]![K] ¡Y [CS:N]Grovyle[CR]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:ResetSpeaker() end)
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english=" Guildmaster!", french=" Maître!", german=" Gildenmeister!", italian=" Capitano!", spanish=" ¡Gran Bluff!"})
@@ -357,6 +360,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english="Well, we have to be quick!\nLet's all go back to the guild!", french="Allez, on se dépêche!\nTous à la Guilde!", german="Nun denn! Schnell, gehen wir alle\nzur Gilde zurück!", italian="Bene allora! Presto, torniamo\ntutti alla Gilda!", spanish="¡Entendido!\n¡Rápido, volvamos todos al [CS:N]Pokégremio[CR]!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(npc_npc_pukurin, Direction.UpLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() UI:SetSpeaker(npc_npc_pukurin) end)
@@ -378,6 +382,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" But...!", french=" Mais...!", german=" Aber!", italian=" Ma...!", spanish=" ¡Pero...!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_pukurin) end)
   SkySceneKit.say({english=" Don't worry about it.", french=" Ne vous en faites pas.", german=" Macht euch keine Sorgen.", italian=" Non dovete preoccuparvi.", spanish=" No os preocupéis más."})
   pcall(function() UI:SetSpeaker(npc_npc_pukurin) end)
@@ -396,6 +401,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Urf...", french=" Argh...", german=" Urf...", italian=" Uff...", spanish=" Hum..."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_pukurin) end)
   SkySceneKit.say({english=" The strange pattern is up ahead.", french="L'étrange symbole vous attend\nun peu plus loin.", german="Das seltsame Muster liegt vor\nuns.", italian="Quello strano disegno è più\navanti.", spanish="El dibujo está un poco más\nadelante."})
   pcall(function() UI:SetSpeaker(npc_npc_pukurin) end)
@@ -431,6 +437,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" ...OK.", french=" ... D'accord.", german=" ...Okay.", italian=" Ok.", spanish=" De acuerdo."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
@@ -441,6 +448,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Let's go, [hero].", french=" C'est parti, [hero].", german=" Gehen wir, [hero].", italian=" Andiamo, [hero].", spanish=" Vámonos, [hero]."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:MoveToPosition(npc_npc_juputoru, 276, 84, false, 2)
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(0), p.Y+(-40), false, 2) end
   GAME:WaitFrames(5)

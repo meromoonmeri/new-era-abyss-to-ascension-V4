@@ -16,6 +16,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" Why don't we get some sleep?", french=" Il est l'heure de dormir.", german="Wieso legen wir uns nicht\nschlafen?", italian=" Andiamo a dormire.", spanish="Será mejor que nos vayamos\na dormir."})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- supervision_Acting(1) [neutre/état moteur]
   GAME:WaitFrames(1)
   local npc_npc_perappu = SkySceneKit.spawn_npc("chatot", 16, 184, Direction.Right, "NPC_PERAPPU")

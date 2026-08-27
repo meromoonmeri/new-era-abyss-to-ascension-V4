@@ -44,6 +44,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" [CS:P]Fogbound Lake[CR]?", french=" Le [CS:P]Lac des Brumes[CR]?", german=" Der [CS:P]Nebelsee[CR]?", italian=" [CS:P]Lago Foschia[CR]?", spanish=" ¿El [CS:P]Lago Velado[CR]?"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(npc_npc_perappu, Direction.DownRight)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
@@ -64,13 +65,17 @@ return function(hero, partner)
   SkySceneKit.say({english="Wow! Treasure?! We're going\non a treasure hunt!", french="Wouah! Un trésor?! On part\nà la chasse au trésor!", german="Wow! Ein Schatz?!? Wir gehen\nauf Schatzjagd!", italian="Wow! Un tesoro?! Andiamo\na caccia di tesori!", spanish="¡Vaya! ¡¿Un tesoro?!\n¡Vamos a buscar un tesoro!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="Wow! Treasure?! We're going\non a treasure hunt!", french="Wouah! Un trésor?! On part\nà la chasse au trésor!", german="Wow! Ein Schatz?!? Wir gehen\nauf Schatzjagd!", italian="Wow! Un tesoro?! Andiamo\na caccia di tesori!", spanish="¡Vaya! ¡¿Un tesoro?!\n¡Vamos a buscar un tesoro!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="Wow! Treasure?! We're going\non a treasure hunt!", french="Wouah! Un trésor?! On part\nà la chasse au trésor!", german="Wow! Ein Schatz?!? Wir gehen\nauf Schatzjagd!", italian="Wow! Un tesoro?! Andiamo\na caccia di tesori!", spanish="¡Vaya! ¡¿Un tesoro?!\n¡Vamos a buscar un tesoro!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english=" This is so exciting!", french=" Je brûle d'impatience!", german=" Das ist ja so aufregend!", italian=" È così emozionante!", spanish=" ¡Qué emocionante!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" This is so exciting!", french=" Je brûle d'impatience!", german=" Das ist ja so aufregend!", italian=" Che emozione!", spanish=" ¡Qué emocionante!"})
   else
   SkySceneKit.say({english=" This is so exciting!", french=" Je brûle d'impatience!", german=" Das ist ja so aufregend!", italian=" Sono così emozionata!", spanish=" ¡Qué emocionante!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   local npc_npc_pukurin = SkySceneKit.spawn_npc("wigglytuff", 424, 208, Direction.Down, "NPC_PUKURIN")
   pcall(function() GROUND:CharSetEmote(npc_npc_pukurin, "happy", 1) end)
   pcall(function() UI:SetSpeaker(npc_npc_pukurin) end)

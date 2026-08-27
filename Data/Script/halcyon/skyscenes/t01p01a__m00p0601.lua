@@ -26,6 +26,7 @@ return function(hero, partner)
   else
   SkySceneKit.say({english=" What was that? That tremor...", french="Qu'est-ce que c'était que ça?\nCette secousse...", german=" Was war das? Dieses Beben...", italian=" Cos'è stato? Quella scossa...", spanish=" ¡He notado un temblor!"})
   end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
@@ -34,13 +35,17 @@ return function(hero, partner)
   SkySceneKit.say({english="It sounded like...[K]it came from\ninside the dojo?", french="On dirait que...[K] ça vient\nde l'intérieur du dojo!", german="Das klang wie...[K] Kam es aus dem\nDojo?", italian="Dal suono sembrava...[K]\nprovenire dall'interno del dojo?", spanish="Sonaba como...[K] ¡como si\nviniera del interior del dojo!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english="It sounded as if...[K]it came from\ninside the dojo.", french="On dirait que...[K] ça vient\nde l'intérieur du dojo!", german="Das klang wie...[K] Kam es aus dem\nDojo?", italian="Dal suono sembrava...[K]\nprovenire dall'interno del dojo.", spanish="Sonaba como si...[K] ¡como si\nviniera del interior del dojo!"})
-  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  else
+  SkySceneKit.say({english="Did it...[K]sound like it came from\ninside the dojo?", french="On dirait que...[K] ça vient\nde l'intérieur du dojo!", german="Das klang wie...[K] Kam es aus dem\nDojo?", italian="Veniva forse...[K] dall'interno\ndel dojo?", spanish="Sonaba...[K] ¡como si\nviniera del interior del dojo!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
   SkySceneKit.say({english="Let's go in and check it out,\n[hero]!", french="Allons voir ce que c'est,\n[hero]!", german="Gehen wir rein und finden es\nheraus, [hero]!", italian="Entriamo a dare un'occhiata,\n[hero]!", spanish="¡Vamos a entrar a ver qué\nhay dentro, [hero]!"})
   elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
   SkySceneKit.say({english=" Let's go in, [hero]!", french="Allons voir ce que c'est,\n[hero]!", german="Lass uns hineingehen,\n[hero]!", italian=" Entriamo, [hero]!", spanish=" ¡Entremos, [hero]!"})
   else
   SkySceneKit.say({english=" Let's go in, [hero]!", french="Allons voir ce que c'est,\n[hero]!", german="Lass uns hineingehen,\n[hero]!", italian=" Entriamo, [hero]!", spanish=" ¡Vamos adentro, [hero]!"})
   end
+  -- message_Close
   GROUND:EntTurn(partner, Direction.Up)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GROUND:EntTurn(hero, Direction.Up)
