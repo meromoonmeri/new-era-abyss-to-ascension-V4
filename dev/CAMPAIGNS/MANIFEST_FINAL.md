@@ -206,6 +206,31 @@ items 205/290 (85 REQUIRES_MOD_ITEM) · zones vs ROM 43/43 EXACT · AUDIT_PASS.
 
 ---
 
+## 7ter. État de clôture ACTUALISÉ (session 2026-08-27 — FINALISATION)
+
+Cette section REMPLACE les compteurs du §7 ci-dessous (conservé comme
+historique daté 2026-08-26). Chaque ligne est adossée à une preuve jsonl.
+
+| Élément | Statut | Détail / preuve |
+|---|---|---|
+| Donjons Sky d00–d179 | **PASS — COUVERTURE TOTALE** | **149/149 zones EXACT** vs ROM + CANONICAL_RUNTIME_PASS (Zero Isle d99-d103, Destiny Tower d104, Sky Peak d111-d122, épisodes spéciaux SE1-SE5 d123-d159, événements Wonder Mail S d165-d170, épilogue d174-d179). Seules exceptions : d105/d106/d171/d172/d173 = `[M:D1]Dummy` ROM (prouvé non canonique) |
+| Fixed floors / arènes boss | **PASS** | 24 arènes fixed.bin (ff11 d45, ff17-ff26 post-game, **ff29-ff41 épisodes spéciaux** : Jirachi L16, Dialga primal L48, Sky Peak Summit + 3 guides ALLY_HELP→AllyTeams natif) — espèces ov29, niveaux EXACTS overlay10 FIXED_ROOM_MONSTER_SPAWN_STATS_TABLE |
+| Musiques Sky | **PASS — 0 manquante** | Identités CORRIGÉES par contre-épreuve (MUSIC_ID_TABLE+RANDOM_MUSIC_ID_TABLE overlay10 EU × BackgroundMusicIDs, l'enum pmdsky-debug diverge de +1 au-delà de 138) ; groupes RANDOM = 4 pistes canoniques nommées ; 27 zones réalignées, 14 pistes extraites (Fortune Ravine, Ice Mountains, Sky Peak…) ; 0 musique manquante sur 261 zones |
+| Cinématiques Sky compilées | **PASS 96,7 %** | **3454 COMPILED + 146 dual + 37 multi = 3637/3760** ; V8→V9.3 : switch génériques toutes branches, chaînes elseif (bug elseif→else corrigé), menus choix joueur natifs (kit.ask), SwitchTalk toutes variantes TALK_KIND, écritures $SCENARIO_MAIN→SkyProg.set, chaînage réel supervision_Execute*→play_scene, cast légendaires monster.md, slots équipe dynamiques ; ~30 CINEMATIC_RUNTIME_PASS de preuve ; 137 PARTIAL restants (formes résiduelles chiffrées) |
+| REQUIRES_ENGINE_EXTENSION | **RÉSOLU 372→0** | les 3 ops «NON» avaient des équivalents natifs prouvés : message_Mail→dialogue natif (cadre courrier documenté), main_EnterRescueUser/Help→rescue natif PMDO (Rescues des zones) |
+| CAST cinématiques | **PASS 3454/3454** | audit automatisé ROM_CAST vs PMDO_CAST (sky_cast_audit.py) : acteur à rôle narratif présent dans le Lua, hero/partner obligatoires ; corrections canon : message_SetActor/SetFace voix hors champ = SetSpeaker identité espèce ROM (attribution préservée) |
+| Journey Sky CH1→CH15 | **PASS bout-en-bout AVEC CINÉMATIQUES** | GLOBAL_JOURNEY_PASS : 14 chapitres, **13 SCENE_PASS** (scènes d'ouverture canoniques jouées dans leur ground), 313 étages réels, 8 boss vérifiés par espèce jusqu'à DIALGA, état final 21.1, persistance SV à travers scènes→donjons→boss |
+| Journey Red EVENT→gameplay | **PASS bout-en-bout AVEC CINÉMATIQUES** | RED_GLOBAL_JOURNEY_PASS : 13 chapitres, **13/13 SCENE_PASS** (stations ROM EU V2 jouées : d01p01 «Where am I?»→d16p01 Sky Tower), 182 étages, 6 boss (Zapdos, Moltres, Glalie, GROUDON, RAYQUAZA) |
+| Stations Red REVIEW | **RÉSOLU 3→0 (133/133)** | t01p01/b01p01a/a05p02 extraits en mode EU-AUTORITAIRE (la ROM EU contient des groupes régionaux absents de pret ; divergences documentées : 1133/880/0) — t01p01 : 346 scripts/526 blocs texte, b01p01a : 287/730 |
+| Persistance | **PASS ×2 re-vérifié** | RESUME_RUNTIME_PASS (Sky 6.0→8.0) + RED_RESUME_RUNTIME_PASS (Red 7.0) |
+| Non-régression finale | **PASS** | 149/149 EXACT, 0 musique manquante, lockfile CH1-5 INTÉGRITÉ OK, cast 3454/3454 |
+
+Preuves : `dev/docs/canonical/sky/{compiled_scenes_runtime_proof,journey_ch1_ch15_scenes_proof,postgame_zones_runtime_proof}.jsonl`,
+`dev/docs/canonical/red/{journey_event_gameplay_proof,review_stations_resolution,resume_runtime_proof}.jsonl`,
+`Docs/CAST_AUDIT.json`, `Tables/{MUSIC_MID_MAP,MUSIC_ID_TABLES,ZONE_VS_ROM_COMPARISON}.json`.
+
+---
+
 ## 7. État de clôture — statuts distincts (contre-audit 2026-08-26)
 
 Statuts : **PASS** (prouvé runtime+ROM) · **PARTIAL** (une partie prouvée, reste
