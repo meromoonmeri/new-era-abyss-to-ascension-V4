@@ -1,0 +1,11 @@
+{"event":"dprobe_begin","count":8}
+{"event":"dprobe_floor","zone":"temporal_pinnacle","floor":0,"mobs":1,"items":0,"traps":0,"species":"dialga"}
+{"event":"dprobe_floor","zone":"underground_lake","floor":0,"mobs":1,"items":0,"traps":0,"species":"mesprit"}
+{"event":"dprobe_floor","zone":"magma_pit_groudon","floor":0,"mobs":1,"items":0,"traps":0,"species":"groudon"}
+{"event":"dprobe_floor","zone":"sky_summit_rayquaza","floor":0,"mobs":1,"items":0,"traps":0,"species":"rayquaza"}
+{"event":"dprobe_floor","zone":"spiritomb_room","floor":0,"mobs":1,"items":0,"traps":0,"species":"spiritomb"}
+{"event":"dprobe_floor","zone":"vast_ice_mountain_pinnacle","floor":0,"mobs":1,"items":0,"traps":0,"species":"dialga"}
+{"event":"dprobe_floor","zone":"sky_stairway_apex","floor":0,"mobs":1,"items":0,"traps":0,"species":"rayquaza"}
+{"event":"dprobe_floor","zone":"sky_peak_summit","floor":0,"mobs":8,"items":0,"traps":0,"species":"muk,grimer,grimer,muk,muk,grimer,grimer,grimer"}
+{"event":"dprobe_end","verdict":"DPROBE_DONE"}
+{"event":"end"}

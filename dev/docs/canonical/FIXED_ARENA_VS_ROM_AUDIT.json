@@ -1,0 +1,583 @@
+{
+ "summary": {
+  "PASS": 36
+ },
+ "arenas": {
+  "amp_clearing_arena": {
+   "rom_dims": [
+    18,
+    32
+   ],
+   "rsmap_dims": [
+    18,
+    32
+   ],
+   "cells": 576,
+   "identical": 576,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff4"
+  },
+  "barren_valley_clearing_map": {
+   "rom_dims": [
+    14,
+    16
+   ],
+   "rsmap_dims": [
+    14,
+    16
+   ],
+   "cells": 224,
+   "identical": 224,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff33"
+  },
+  "beach_cave_pit_arena": {
+   "rom_dims": [
+    14,
+    15
+   ],
+   "rsmap_dims": [
+    14,
+    15
+   ],
+   "cells": 210,
+   "identical": 210,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff1"
+  },
+  "black_swamp_map": {
+   "rom_dims": [
+    14,
+    13
+   ],
+   "rsmap_dims": [
+    14,
+    13
+   ],
+   "cells": 182,
+   "identical": 182,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff34"
+  },
+  "bottomless_sea_depths_map": {
+   "rom_dims": [
+    19,
+    13
+   ],
+   "rsmap_dims": [
+    19,
+    13
+   ],
+   "cells": 247,
+   "identical": 247,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff23"
+  },
+  "boulder_quarry_clearing_map": {
+   "rom_dims": [
+    16,
+    14
+   ],
+   "rsmap_dims": [
+    16,
+    14
+   ],
+   "cells": 224,
+   "identical": 224,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff37"
+  },
+  "brine_cave_pit_arena": {
+   "rom_dims": [
+    18,
+    26
+   ],
+   "rsmap_dims": [
+    18,
+    26
+   ],
+   "cells": 468,
+   "identical": 468,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff8"
+  },
+  "crystal_lake_arena": {
+   "rom_dims": [
+    24,
+    16
+   ],
+   "rsmap_dims": [
+    24,
+    16
+   ],
+   "cells": 384,
+   "identical": 384,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff6"
+  },
+  "dark_crater_pit_map": {
+   "rom_dims": [
+    18,
+    19
+   ],
+   "rsmap_dims": [
+    18,
+    19
+   ],
+   "cells": 342,
+   "identical": 342,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff19"
+  },
+  "dark_ice_mountain_pinnacle_map": {
+   "rom_dims": [
+    16,
+    12
+   ],
+   "rsmap_dims": [
+    16,
+    12
+   ],
+   "cells": 192,
+   "identical": 192,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff35"
+  },
+  "deep_mystery_jungle_map": {
+   "rom_dims": [
+    56,
+    19
+   ],
+   "rsmap_dims": [
+    56,
+    19
+   ],
+   "cells": 1064,
+   "identical": 1064,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff25"
+  },
+  "deep_star_cave_team_rogue_map": {
+   "rom_dims": [
+    16,
+    16
+   ],
+   "rsmap_dims": [
+    16,
+    16
+   ],
+   "cells": 256,
+   "identical": 256,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff30"
+  },
+  "fortune_ravine_pit_map": {
+   "rom_dims": [
+    16,
+    16
+   ],
+   "rsmap_dims": [
+    16,
+    16
+   ],
+   "cells": 256,
+   "identical": 256,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff32"
+  },
+  "giant_volcano_peak_map": {
+   "rom_dims": [
+    19,
+    13
+   ],
+   "rsmap_dims": [
+    19,
+    13
+   ],
+   "cells": 247,
+   "identical": 247,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff20"
+  },
+  "limestone_cavern_depths_map": {
+   "rom_dims": [
+    14,
+    15
+   ],
+   "rsmap_dims": [
+    14,
+    15
+   ],
+   "cells": 210,
+   "identical": 210,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff38"
+  },
+  "magma_pit_groudon": {
+   "rom_dims": [
+    11,
+    11
+   ],
+   "rsmap_dims": [
+    11,
+    11
+   ],
+   "cells": 121,
+   "identical": 121,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "red fixedmap.inc fr7"
+  },
+  "middle_spring_cave_map": {
+   "rom_dims": [
+    14,
+    17
+   ],
+   "rsmap_dims": [
+    14,
+    17
+   ],
+   "cells": 238,
+   "identical": 238,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff40"
+  },
+  "mt_avalanche_peak_map": {
+   "rom_dims": [
+    19,
+    13
+   ],
+   "rsmap_dims": [
+    19,
+    13
+   ],
+   "cells": 247,
+   "identical": 247,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff22"
+  },
+  "mt_bristle_peak_arena": {
+   "rom_dims": [
+    24,
+    22
+   ],
+   "rsmap_dims": [
+    24,
+    22
+   ],
+   "cells": 528,
+   "identical": 528,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff2"
+  },
+  "mystifying_clearing_d45": {
+   "rom_dims": [
+    18,
+    16
+   ],
+   "rsmap_dims": [
+    18,
+    16
+   ],
+   "cells": 288,
+   "identical": 288,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff11"
+  },
+  "old_ruins_arena": {
+   "rom_dims": [
+    16,
+    17
+   ],
+   "rsmap_dims": [
+    16,
+    17
+   ],
+   "cells": 272,
+   "identical": 272,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff9"
+  },
+  "regigigas_chamber_boss_map": {
+   "rom_dims": [
+    20,
+    22
+   ],
+   "rsmap_dims": [
+    20,
+    22
+   ],
+   "cells": 440,
+   "identical": 440,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff17"
+  },
+  "shimmer_desert_pit_map": {
+   "rom_dims": [
+    19,
+    13
+   ],
+   "rsmap_dims": [
+    19,
+    13
+   ],
+   "cells": 247,
+   "identical": 247,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff21"
+  },
+  "sky_peak_summit_map": {
+   "rom_dims": [
+    16,
+    16
+   ],
+   "rsmap_dims": [
+    16,
+    16
+   ],
+   "cells": 256,
+   "identical": 256,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff29"
+  },
+  "sky_stairway_apex_map": {
+   "rom_dims": [
+    23,
+    19
+   ],
+   "rsmap_dims": [
+    23,
+    19
+   ],
+   "cells": 437,
+   "identical": 437,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff26"
+  },
+  "sky_summit_rayquaza": {
+   "rom_dims": [
+    13,
+    16
+   ],
+   "rsmap_dims": [
+    13,
+    16
+   ],
+   "cells": 208,
+   "identical": 208,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "red fixedmap.inc fr8"
+  },
+  "spacial_rift_bottom_map": {
+   "rom_dims": [
+    22,
+    21
+   ],
+   "rsmap_dims": [
+    22,
+    21
+   ],
+   "cells": 462,
+   "identical": 462,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff18"
+  },
+  "spiritomb_arena": {
+   "rom_dims": [
+    22,
+    17
+   ],
+   "rsmap_dims": [
+    22,
+    17
+   ],
+   "cells": 374,
+   "identical": 374,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff7"
+  },
+  "spring_cave_pit_map": {
+   "rom_dims": [
+    14,
+    14
+   ],
+   "rsmap_dims": [
+    14,
+    14
+   ],
+   "cells": 196,
+   "identical": 196,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff41"
+  },
+  "star_cave_pit_map": {
+   "rom_dims": [
+    16,
+    14
+   ],
+   "rsmap_dims": [
+    16,
+    14
+   ],
+   "cells": 224,
+   "identical": 224,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff31"
+  },
+  "steam_cave_peak_arena": {
+   "rom_dims": [
+    22,
+    21
+   ],
+   "rsmap_dims": [
+    22,
+    21
+   ],
+   "cells": 462,
+   "identical": 462,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff3"
+  },
+  "temporal_pinnacle_arena": {
+   "rom_dims": [
+    18,
+    19
+   ],
+   "rsmap_dims": [
+    18,
+    19
+   ],
+   "cells": 342,
+   "identical": 342,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff10"
+  },
+  "underground_lake_arena": {
+   "rom_dims": [
+    20,
+    20
+   ],
+   "rsmap_dims": [
+    20,
+    20
+   ],
+   "cells": 400,
+   "identical": 400,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff5"
+  },
+  "upper_spring_cave_haunter_map": {
+   "rom_dims": [
+    14,
+    14
+   ],
+   "rsmap_dims": [
+    14,
+    14
+   ],
+   "cells": 196,
+   "identical": 196,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff39"
+  },
+  "vast_ice_mountain_pinnacle_map": {
+   "rom_dims": [
+    16,
+    15
+   ],
+   "rsmap_dims": [
+    16,
+    15
+   ],
+   "cells": 240,
+   "identical": 240,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff36"
+  },
+  "world_abyss_pit_map": {
+   "rom_dims": [
+    19,
+    13
+   ],
+   "rsmap_dims": [
+    19,
+    13
+   ],
+   "cells": 247,
+   "identical": 247,
+   "diff_count": 0,
+   "diffs_sample": [],
+   "verdict": "PASS",
+   "source": "sky fixed.bin ff24"
+  }
+ }
+}

@@ -1817,7 +1817,9 @@
             },
             {
               "AutoTileset": "sky_stairway_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_stairway_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -1927,13 +1929,17 @@
             },
             {
               "AutoTileset": "sky_stairway_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_stairway_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "sky_stairway_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_stairway_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -2043,123 +2049,9 @@
             },
             {
               "AutoTileset": "sky_stairway_secondary",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_stairway_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_stairway_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_stairway_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_stairway_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_stairway_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_stairway_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_stairway_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            }
-          ],
-          [
-            {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_stairway_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_stairway_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -2275,7 +2167,9 @@
             },
             {
               "AutoTileset": "sky_stairway_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_stairway_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -2391,7 +2285,9 @@
             },
             {
               "AutoTileset": "sky_stairway_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_stairway_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -2507,7 +2403,9 @@
             },
             {
               "AutoTileset": "sky_stairway_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_stairway_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -2623,13 +2521,135 @@
             },
             {
               "AutoTileset": "sky_stairway_secondary",
+              "Associates": [
+                "sky_stairway_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_stairway_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_stairway_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_stairway_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_stairway_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_stairway_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_stairway_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_stairway_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            }
+          ],
+          [
+            {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_stairway_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "sky_stairway_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_stairway_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_stairway_secondary",
+              "Associates": [
+                "sky_stairway_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -2745,7 +2765,9 @@
             },
             {
               "AutoTileset": "sky_stairway_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_stairway_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -6737,10 +6759,12 @@
         },
         {
           "Data": {
-            "ID": "floor",
+            "ID": "pit",
             "TileTex": {
               "AutoTileset": "sky_stairway_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_stairway_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -7135,10 +7159,12 @@
         },
         {
           "Data": {
-            "ID": "floor",
+            "ID": "pit",
             "TileTex": {
               "AutoTileset": "sky_stairway_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_stairway_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -7157,10 +7183,12 @@
         },
         {
           "Data": {
-            "ID": "floor",
+            "ID": "pit",
             "TileTex": {
               "AutoTileset": "sky_stairway_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_stairway_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -7555,430 +7583,12 @@
         },
         {
           "Data": {
-            "ID": "floor",
+            "ID": "pit",
             "TileTex": {
               "AutoTileset": "sky_stairway_secondary",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_stairway_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_stairway_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_stairway_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_stairway_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_stairway_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_stairway_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_stairway_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        }
-      ],
-      [
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_stairway_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_stairway_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_stairway_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -8395,10 +8005,12 @@
         },
         {
           "Data": {
-            "ID": "floor",
+            "ID": "pit",
             "TileTex": {
               "AutoTileset": "sky_stairway_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_stairway_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -8815,10 +8427,12 @@
         },
         {
           "Data": {
-            "ID": "floor",
+            "ID": "pit",
             "TileTex": {
               "AutoTileset": "sky_stairway_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_stairway_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -9235,10 +8849,12 @@
         },
         {
           "Data": {
-            "ID": "floor",
+            "ID": "pit",
             "TileTex": {
               "AutoTileset": "sky_stairway_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_stairway_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -9655,9 +9271,33 @@
         },
         {
           "Data": {
-            "ID": "floor",
+            "ID": "pit",
             "TileTex": {
               "AutoTileset": "sky_stairway_secondary",
+              "Associates": [
+                "sky_stairway_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "sky_stairway_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": -1
@@ -9679,8 +9319,410 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "sky_stairway_secondary",
+              "AutoTileset": "sky_stairway_floor",
               "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "sky_stairway_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "sky_stairway_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "sky_stairway_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "sky_stairway_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "sky_stairway_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        }
+      ],
+      [
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_stairway_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "pit",
+            "TileTex": {
+              "AutoTileset": "sky_stairway_secondary",
+              "Associates": [
+                "sky_stairway_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "pit",
+            "TileTex": {
+              "AutoTileset": "sky_stairway_secondary",
+              "Associates": [
+                "sky_stairway_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -10097,10 +10139,12 @@
         },
         {
           "Data": {
-            "ID": "floor",
+            "ID": "pit",
             "TileTex": {
               "AutoTileset": "sky_stairway_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_stairway_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },

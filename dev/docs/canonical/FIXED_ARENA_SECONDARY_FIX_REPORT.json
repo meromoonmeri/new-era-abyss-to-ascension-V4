@@ -1,0 +1,34 @@
+{
+ "magma_pit_groudon": {
+  "fixes": 8,
+  "secondary_as": "lava"
+ },
+ "sky_peak_summit_map": {
+  "fixes": 25,
+  "secondary_as": "water"
+ },
+ "sky_stairway_apex_map": {
+  "fixes": 11,
+  "secondary_as": "pit"
+ },
+ "sky_summit_rayquaza": {
+  "fixes": 1,
+  "secondary_as": "water"
+ },
+ "spiritomb_arena": {
+  "fixes": 1,
+  "secondary_as": "water"
+ },
+ "temporal_pinnacle_arena": {
+  "fixes": 200,
+  "secondary_as": "pit"
+ },
+ "underground_lake_arena": {
+  "fixes": 46,
+  "secondary_as": "water"
+ },
+ "vast_ice_mountain_pinnacle_map": {
+  "fixes": 192,
+  "secondary_as": "water"
+ }
+}

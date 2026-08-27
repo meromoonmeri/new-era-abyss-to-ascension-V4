@@ -46,7 +46,7 @@ function V:begin()
   -- (séparées par des virgules) et compter mobs/items/pièges RÉELLEMENT
   -- générés par le moteur (preuve runtime, pas JSON statique).
   self.idx=-5;SV.RuntimeGroundAudit.Active=false
-  self.dprobe={};self.dprobe_i=1;self.dprobe_floors=2
+  self.dprobe={};self.dprobe_i=1;self.dprobe_floors=tonumber(os.getenv('PMDO_DPROBE_FLOORS') or '2')
   for z in string.gmatch(string.sub(self.mode,8),'([^,]+)') do self.dprobe[#self.dprobe+1]=z end
   emit('{"event":"dprobe_begin","count":'..#self.dprobe..'}')
   GAME:EnterZone(self.dprobe[1],0,0,0)

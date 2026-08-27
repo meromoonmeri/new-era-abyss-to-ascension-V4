@@ -1886,7 +1886,7 @@
           [
             {
               "Layers": [],
-              "AutoTileset": "sky_tower_wall",
+              "AutoTileset": "sky_tower_floor",
               "Associates": [],
               "NeighborCode": -1
             },
@@ -6442,9 +6442,9 @@
       [
         {
           "Data": {
-            "ID": "wall",
+            "ID": "floor",
             "TileTex": {
-              "AutoTileset": "sky_tower_wall",
+              "AutoTileset": "sky_tower_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": -1

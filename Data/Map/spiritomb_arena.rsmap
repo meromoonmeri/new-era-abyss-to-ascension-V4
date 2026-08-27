@@ -6420,7 +6420,7 @@
         },
         {
           "Data": {
-            "ID": "floor",
+            "ID": "wall",
             "TileTex": {
               "AutoTileset": "sealed_ruin_wall",
               "Associates": [],
@@ -11422,8 +11422,8 @@
     "EntryPoints": [
       {
         "Loc": {
-          "X": 8,
-          "Y": 12
+          "X": 7,
+          "Y": 4
         },
         "Dir": 4
       }

@@ -741,8 +741,10 @@
             },
             {
               "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
+              "AutoTileset": "magma_cavern_2_secondary",
+              "Associates": [
+                "magma_cavern_2_floor"
+              ],
               "NeighborCode": -1
             },
             {
@@ -803,8 +805,10 @@
             },
             {
               "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
+              "AutoTileset": "magma_cavern_2_secondary",
+              "Associates": [
+                "magma_cavern_2_floor"
+              ],
               "NeighborCode": -1
             },
             {
@@ -847,212 +851,10 @@
             },
             {
               "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_wall",
-              "Associates": [],
-              "NeighborCode": -1
-            }
-          ],
-          [
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_wall",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_wall",
-              "Associates": [],
-              "NeighborCode": -1
-            }
-          ],
-          [
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_wall",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_wall",
-              "Associates": [],
-              "NeighborCode": -1
-            }
-          ],
-          [
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_wall",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "NeighborCode": -1
-            },
-            {
-              "Layers": [],
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
+              "AutoTileset": "magma_cavern_2_secondary",
+              "Associates": [
+                "magma_cavern_2_floor"
+              ],
               "NeighborCode": -1
             },
             {
@@ -1237,6 +1039,72 @@
             },
             {
               "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_secondary",
+              "Associates": [
+                "magma_cavern_2_floor"
+              ],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_secondary",
+              "Associates": [
+                "magma_cavern_2_floor"
+              ],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_wall",
+              "Associates": [],
+              "NeighborCode": -1
+            }
+          ],
+          [
+            {
+              "Layers": [],
               "AutoTileset": "magma_cavern_2_wall",
               "Associates": [],
               "NeighborCode": -1
@@ -1285,8 +1153,156 @@
             },
             {
               "Layers": [],
+              "AutoTileset": "magma_cavern_2_secondary",
+              "Associates": [
+                "magma_cavern_2_floor"
+              ],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
               "AutoTileset": "magma_cavern_2_floor",
               "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_wall",
+              "Associates": [],
+              "NeighborCode": -1
+            }
+          ],
+          [
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_wall",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_secondary",
+              "Associates": [
+                "magma_cavern_2_floor"
+              ],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_wall",
+              "Associates": [],
+              "NeighborCode": -1
+            }
+          ],
+          [
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_wall",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_wall",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "NeighborCode": -1
+            },
+            {
+              "Layers": [],
+              "AutoTileset": "magma_cavern_2_secondary",
+              "Associates": [
+                "magma_cavern_2_floor"
+              ],
               "NeighborCode": -1
             },
             {
@@ -1821,10 +1837,12 @@
         },
         {
           "Data": {
-            "ID": "floor",
+            "ID": "lava",
             "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
+              "AutoTileset": "magma_cavern_2_secondary",
+              "Associates": [
+                "magma_cavern_2_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -2043,10 +2061,12 @@
         },
         {
           "Data": {
-            "ID": "floor",
+            "ID": "lava",
             "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
+              "AutoTileset": "magma_cavern_2_secondary",
+              "Associates": [
+                "magma_cavern_2_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -2199,742 +2219,12 @@
         },
         {
           "Data": {
-            "ID": "floor",
+            "ID": "lava",
             "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "wall",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        }
-      ],
-      [
-        {
-          "Data": {
-            "ID": "wall",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "wall",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        }
-      ],
-      [
-        {
-          "Data": {
-            "ID": "wall",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "wall",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        }
-      ],
-      [
-        {
-          "Data": {
-            "ID": "wall",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "magma_cavern_2_floor",
-              "Associates": [],
+              "AutoTileset": "magma_cavern_2_secondary",
+              "Associates": [
+                "magma_cavern_2_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -3597,6 +2887,232 @@
         },
         {
           "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "lava",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_secondary",
+              "Associates": [
+                "magma_cavern_2_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "lava",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_secondary",
+              "Associates": [
+                "magma_cavern_2_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "wall",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        }
+      ],
+      [
+        {
+          "Data": {
             "ID": "wall",
             "TileTex": {
               "AutoTileset": "magma_cavern_2_wall",
@@ -3773,10 +3289,526 @@
         },
         {
           "Data": {
+            "ID": "lava",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_secondary",
+              "Associates": [
+                "magma_cavern_2_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
             "ID": "floor",
             "TileTex": {
               "AutoTileset": "magma_cavern_2_floor",
               "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "wall",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        }
+      ],
+      [
+        {
+          "Data": {
+            "ID": "wall",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "lava",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_secondary",
+              "Associates": [
+                "magma_cavern_2_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "wall",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        }
+      ],
+      [
+        {
+          "Data": {
+            "ID": "wall",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "wall",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "lava",
+            "TileTex": {
+              "AutoTileset": "magma_cavern_2_secondary",
+              "Associates": [
+                "magma_cavern_2_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },

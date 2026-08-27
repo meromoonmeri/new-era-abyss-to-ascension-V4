@@ -3339,7 +3339,9 @@
           [
             {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -3437,7 +3439,9 @@
           [
             {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -3535,7 +3539,9 @@
           [
             {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -3583,7 +3589,9 @@
             },
             {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -3633,129 +3641,37 @@
           [
             {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            }
-          ],
-          [
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -3829,13 +3745,17 @@
           [
             {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -3927,13 +3847,17 @@
           [
             {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -4025,25 +3949,17 @@
           [
             {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -4066,7 +3982,19 @@
               "NeighborCode": -1
             },
             {
-              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": -1
@@ -4123,7 +4051,115 @@
           [
             {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
               "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            }
+          ],
+          [
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -4221,7 +4257,9 @@
           [
             {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -4319,105 +4357,9 @@
           [
             {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            }
-          ],
-          [
-            {
-              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -4515,7 +4457,9 @@
           [
             {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -4613,7 +4557,9 @@
           [
             {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -4711,7 +4657,9 @@
           [
             {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -4809,7 +4757,109 @@
           [
             {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
               "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            }
+          ],
+          [
+            {
+              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -4919,10 +4969,12 @@
       [
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -5273,10 +5325,12 @@
       [
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -5627,10 +5681,12 @@
       [
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -5803,10 +5859,12 @@
         },
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -5981,10 +6039,12 @@
       [
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -6003,10 +6063,12 @@
         },
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -6069,364 +6131,12 @@
         },
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        }
-      ],
-      [
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -6689,10 +6399,12 @@
       [
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -6711,10 +6423,12 @@
         },
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -7043,10 +6757,12 @@
       [
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -7065,10 +6781,12 @@
         },
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -7397,10 +7115,12 @@
       [
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -7419,54 +7139,12 @@
         },
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_floor",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -7553,7 +7231,51 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": -1
@@ -7751,10 +7473,374 @@
       [
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "water",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
               "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "water",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "water",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "floor",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_floor",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        }
+      ],
+      [
+        {
+          "Data": {
+            "ID": "water",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -8105,10 +8191,12 @@
       [
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -8459,364 +8547,12 @@
       [
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        },
-        {
-          "Data": {
-            "ID": "unbreakable",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_wall",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            "StableTex": false
-          },
-          "Effect": {
-            "TileLoc": {
-              "X": 0,
-              "Y": 0
-            },
-            "ID": "",
-            "Revealed": false,
-            "Owner": 0,
-            "TileStates": []
-          }
-        }
-      ],
-      [
-        {
-          "Data": {
-            "ID": "floor",
-            "TileTex": {
-              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -9167,10 +8903,12 @@
       [
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -9521,10 +9259,12 @@
       [
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -9875,10 +9615,12 @@
       [
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
-              "Associates": [],
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
@@ -10229,10 +9971,368 @@
       [
         {
           "Data": {
-            "ID": "floor",
+            "ID": "water",
             "TileTex": {
               "AutoTileset": "sky_peak_summit_pass_ts_secondary",
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
               "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        },
+        {
+          "Data": {
+            "ID": "unbreakable",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_wall",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            "StableTex": false
+          },
+          "Effect": {
+            "TileLoc": {
+              "X": 0,
+              "Y": 0
+            },
+            "ID": "",
+            "Revealed": false,
+            "Owner": 0,
+            "TileStates": []
+          }
+        }
+      ],
+      [
+        {
+          "Data": {
+            "ID": "water",
+            "TileTex": {
+              "AutoTileset": "sky_peak_summit_pass_ts_secondary",
+              "Associates": [
+                "sky_peak_summit_pass_ts_floor"
+              ],
               "Layers": [],
               "NeighborCode": -1
             },
