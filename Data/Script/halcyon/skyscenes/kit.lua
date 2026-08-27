@@ -78,7 +78,7 @@ function SkySceneKit.say(t)
     end
     if cur ~= '' then pages[#pages + 1] = cur end
     for _, page in ipairs(pages) do
-      local frames = math.max(20, math.min(50, #page))
+      local frames = math.max(10, math.min(25, math.floor(#page / 3)))
       pcall(function() UI:WaitShowTimedDialogue(page, frames) end)
     end
   else

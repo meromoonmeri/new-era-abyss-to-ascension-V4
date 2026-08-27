@@ -840,6 +840,22 @@ class SceneCompiler:
         # break_loop / continue : contrôle de la boucle forever NDS —
         # une itération étant compilée, break_loop = fin naturelle du
         # bloc, continue = ré-itération (annulation, documentée)
+        mcall = re.match(r"call\s+(@label_\d+)$", st)
+        if mcall:
+            # `call @label_N` observé UNIQUEMENT avec le label défini
+            # immédiatement après (fall-through: le flux compilé y tombe
+            # naturellement, le retour de sous-routine est le flux même)
+            self.emit(f"-- call {mcall.group(1)} [sous-routine locale "
+                      f"adjacente: flux naturel]")
+            return
+        if st == "return":
+            # fin de routine SSB (retour à l'appelant) : fin naturelle du
+            # flux compilé (les call sont documentés)
+            self.emit("-- return [fin de routine SSB]")
+            return
+        if st == "alias previous":
+            self.emit("-- alias previous [alias de coroutine NDS]")
+            return
         if st in ("break_loop", "continue"):
             self.emit(f"-- {st} [contrôle de boucle forever NDS: une "
                       f"itération compilée]")
@@ -1351,7 +1367,7 @@ class SceneCompiler:
         elif op == "SetupOutputAttributeAndAnimation" and kind == "object":
             self.emit(f"-- SetupOutputAttributeAndAnimation<object "
                       f"{target}> [prop décor NDS, rendu du ground]")
-        elif op == "se_Play":
+        elif op in ("se_Play", "se_PlayVolume"):
             sid = args.strip()
             se = SE_TO_PMDO.get(sid)
             if se:
@@ -1430,12 +1446,18 @@ class SceneCompiler:
             d = DIRMAP.get(f[-1])
             if A and d:
                 self.emit(f"GROUND:EntTurn({A}, {d})")
+            elif d:
+                self.emit(f"-- Turn2Direction {target} [acteur sans "
+                          f"placement SSA zone: orientation non jouée]")
             else:
                 self.unsupported.append(f"Turn2Direction:{target}")
         elif op in ("Turn", "SetDirection"):
             d = DIRMAP.get(args.strip())
             if A and d:
                 self.emit(f"GROUND:EntTurn({A}, {d})")
+            elif d:
+                self.emit(f"-- {op} {target} [acteur sans placement "
+                          f"SSA zone: orientation non jouée]")
             else:
                 self.unsupported.append(f"{op}:{target}")
         elif op == "Turn2DirectionTurn":
@@ -1466,6 +1488,9 @@ class SceneCompiler:
                 speed = 2 if (sp and float(sp.group(1)) >= 0.6) else 1
                 self.emit(f"GROUND:MoveToPosition({A}, {int(x)}, {int(y)},"
                           f" false, {speed})")
+            elif mm:
+                self.emit(f"-- MovePositionMark {target} [cible sans "
+                          f"placement SSA zone: mouvement non joué]")
             else:
                 self.unsupported.append(f"MovePositionMark:{target}")
         elif op in ("Move2PositionOffset", "Slide2PositionOffset",
@@ -1506,6 +1531,9 @@ class SceneCompiler:
                 y = int(float(mm.group(2)) * 8)
                 self.emit(f"GROUND:TeleportTo({A}, {x}, {y}, "
                           f"Direction.Down)")
+            elif mm:
+                self.emit(f"-- SetPositionMark {target} [cible sans "
+                          f"placement SSA zone: placement non joué]")
             else:
                 self.unsupported.append(f"SetPositionMark:{target}")
         elif op == "Turn2DirectionLives":
@@ -1593,6 +1621,9 @@ class SceneCompiler:
             elif mm and kind == "object":
                 self.emit(f"-- MovePositionOffset<object {target}> "
                           f"[prop décor NDS, géré par le rendu du ground]")
+            elif mm:
+                self.emit(f"-- MovePositionOffset {target} [cible sans "
+                          f"placement SSA zone: déplacement non joué]")
             else:
                 self.unsupported.append(f"MovePositionOffset:{target}")
         elif op in ("main_EnterDungeon", "main_EnterGround",
@@ -1617,6 +1648,9 @@ class SceneCompiler:
                 # dialogue/acteur perdu.
                 self.emit(f"-- Move2PositionMark<object {target}> "
                           f"[prop décor NDS, géré par le rendu du ground]")
+            elif mm:
+                self.emit(f"-- Move2PositionMark {target} [cible sans "
+                          f"placement SSA zone: mouvement non joué]")
             else:
                 self.unsupported.append(f"Move2PositionMark:{target}")
         elif op in ("Slide2PositionMark",) and kind == "object":
@@ -1698,6 +1732,9 @@ class SceneCompiler:
                 speed = 2 if (sp and float(sp.group(1)) >= 0.6) else 1
                 self.emit(f"GROUND:MoveToPosition({A}, {x}, {y}, false, "
                           f"{speed}) -- {op} (glissement)")
+            elif mm:
+                self.emit(f"-- {op} {target} [cible sans placement "
+                          f"SSA zone: glissement non joué]")
             else:
                 self.unsupported.append(f"{op}:{target}")
         elif op == "MovePosition":
@@ -1709,6 +1746,9 @@ class SceneCompiler:
                 self.emit(f"GROUND:MoveToPosition({A}, "
                           f"{int(float(mm.group(2)))}, "
                           f"{int(float(mm.group(3)))}, false, {speed})")
+            elif mm:
+                self.emit(f"-- MovePosition {target} [cible sans "
+                          f"placement SSA zone: déplacement non joué]")
             else:
                 self.unsupported.append(f"MovePosition:{target}")
         elif op == "Turn2DirectionMark":
@@ -1841,7 +1881,10 @@ class SceneCompiler:
                     "object", "performer", "CameraCancel",
                     "message_ResetActor", "message_SetWaitMode",
                     "message_FacePositionOffset", "debug_Print",
-                    "flag_SetScenario", "flag_CalcValue", "flag_CalcBit"):
+                    "flag_SetScenario", "flag_CalcValue", "flag_CalcBit",
+                    "camera_SetMyPosition", "StopAnimation", "PauseEffect",
+                    "RestartEffect", "worldmap_BlinkMark",
+                    "SlideHeight", "MoveHeight2", "SetAttributeAnimation"):
             self.emit(f"-- {op}({args.strip()[:50]}) [neutre/état moteur]")
         elif op == "supervision_SpecialActing":
             self.emit(f"-- supervision_SpecialActing({args.strip()}) "

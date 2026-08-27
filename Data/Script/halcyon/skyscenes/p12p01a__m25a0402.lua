@@ -8,32 +8,62 @@ return function(hero, partner)
   SkySceneKit.run_routine(function() -- def 1 for object OBJECT_P12P01A1_147
     -- SetAnimation(17) [anim idle native]
     -- @label_0 [étiquette de flux ExplorerScript]
+    -- forever{...} NDS: une itération compilée (ré-affichage du menu = annulation, documenté)
+    -- Move2PositionMark OBJECT_P12P01A1_147 [cible sans placement SSA zone: mouvement non joué]
+    -- SetPositionMark OBJECT_P12P01A1_147 [cible sans placement SSA zone: placement non joué]
+    -- continue [contrôle de boucle forever NDS: une itération compilée]
+    -- may be redundant
   end)
   SkySceneKit.run_routine(function() -- def 2 for object OBJECT_P12P01A1_148
     -- SetAnimation(18) [anim idle native]
     -- @label_1 [étiquette de flux ExplorerScript]
+    -- forever{...} NDS: une itération compilée (ré-affichage du menu = annulation, documenté)
+    -- Move2PositionMark OBJECT_P12P01A1_148 [cible sans placement SSA zone: mouvement non joué]
+    -- SetPositionMark OBJECT_P12P01A1_148 [cible sans placement SSA zone: placement non joué]
+    -- continue [contrôle de boucle forever NDS: une itération compilée]
+    -- may be redundant
   end)
   SkySceneKit.run_routine(function() -- def 3 for object OBJECT_P12P01A1_149
     -- SetOutputAttribute(8) [neutre/état moteur]
     -- SetOutputAttribute(4) [neutre/état moteur]
     -- SetAnimation(19) [anim idle native]
     -- @label_2 [étiquette de flux ExplorerScript]
+    -- forever{...} NDS: une itération compilée (ré-affichage du menu = annulation, documenté)
+    -- Move2PositionMark OBJECT_P12P01A1_149 [cible sans placement SSA zone: mouvement non joué]
+    -- SetPositionMark OBJECT_P12P01A1_149 [cible sans placement SSA zone: placement non joué]
+    -- continue [contrôle de boucle forever NDS: une itération compilée]
+    -- may be redundant
   end)
   SkySceneKit.run_routine(function() -- def 4 for object OBJECT_P12P01A1_150
     -- SetOutputAttribute(8) [neutre/état moteur]
     -- SetOutputAttribute(4) [neutre/état moteur]
     -- SetAnimation(19) [anim idle native]
     -- @label_3 [étiquette de flux ExplorerScript]
+    -- forever{...} NDS: une itération compilée (ré-affichage du menu = annulation, documenté)
+    -- Move2PositionMark OBJECT_P12P01A1_150 [cible sans placement SSA zone: mouvement non joué]
+    -- SetPositionMark OBJECT_P12P01A1_150 [cible sans placement SSA zone: placement non joué]
+    -- continue [contrôle de boucle forever NDS: une itération compilée]
+    -- may be redundant
   end)
   SkySceneKit.run_routine(function() -- def 5 for object OBJECT_P12P01A1_151
     -- SetAnimation(19) [anim idle native]
     -- @label_4 [étiquette de flux ExplorerScript]
+    -- forever{...} NDS: une itération compilée (ré-affichage du menu = annulation, documenté)
+    -- Move2PositionMark OBJECT_P12P01A1_151 [cible sans placement SSA zone: mouvement non joué]
+    -- SetPositionMark OBJECT_P12P01A1_151 [cible sans placement SSA zone: placement non joué]
+    -- continue [contrôle de boucle forever NDS: une itération compilée]
+    -- may be redundant
   end)
   SkySceneKit.run_routine(function() -- def 6 for object 65535
     -- SetOutputAttribute(8) [neutre/état moteur]
     -- SetOutputAttribute(4) [neutre/état moteur]
     -- SetAnimation(17) [anim idle native]
     -- @label_5 [étiquette de flux ExplorerScript]
+    -- forever{...} NDS: une itération compilée (ré-affichage du menu = annulation, documenté)
+    -- Move2PositionMark 65535 [cible sans placement SSA zone: mouvement non joué]
+    -- SetPositionMark 65535 [cible sans placement SSA zone: placement non joué]
+    -- continue [contrôle de boucle forever NDS: une itération compilée]
+    -- may be redundant
   end)
   GAME:FadeOut(true, 0) -- screen_WhiteOutAll
   GAME:WaitFrames(1)
@@ -59,7 +89,21 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "exclaim", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Look at that!", french=" Regarde ça!", german=" Sieh dir das an!", italian=" Guarda!", spanish=" ¡Mira!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Hey!", french=" Eh!", german=" Hey!", italian=" Ehi!", spanish=" ¡Oh!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Hey!", french=" Eh!", german=" Hey!", italian=" Ehi!", spanish=" ¡Oh!"})
+  else
+  SkySceneKit.say({english=" Oh!", french=" Eh!", german=" Oh!", italian=" Oh!", spanish=" ¡Oh!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Look at that!", french=" Regarde ça!", german=" Sieh dir das an!", italian=" Guarda!", spanish=" ¡Mira!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Look at that!", french=" Regarde ça!", german=" Sieh dir das an!", italian=" Guarda!", spanish=" ¡Mira!"})
+  else
+  SkySceneKit.say({english=" Look at that!", french=" Regarde ça!", german=" Sieh dir das an!", italian=" Guarda!", spanish=" ¡Mira!"})
+  end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- bgm2_FadeOut [canal BGM sub: voir bgm2_Play]
   GROUND:EntTurn(hero, Direction.UpLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -70,9 +114,30 @@ return function(hero, partner)
   GAME:WaitFrames(30)
   pcall(function() SOUND:PlayBGM("Time Gear Remix.ogg", true) end)
   GAME:WaitFrames(5)
-  SkySceneKit.say({english=" [CS:P]Temporal Tower[CR]!", french=" C'est la [CS:P]Tour du Temps[CR]!", german=" Der [CS:P]Zeitturm[CR]!", italian=" La [CS:P]Torre del Tempo[CR]!", spanish=" ¡Es la [CS:P]Torre del Tiempo[CR]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" It's [CS:P]Temporal Tower[CR]!", french=" C'est la [CS:P]Tour du Temps[CR]!", german=" Das ist der [CS:P]Zeitturm[CR]!", italian=" È la [CS:P]Torre del Tempo[CR]!", spanish=" ¡Es la [CS:P]Torre del Tiempo[CR]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" [CS:P]Temporal Tower[CR]!", french=" C'est la [CS:P]Tour du Temps[CR]!", german=" Der [CS:P]Zeitturm[CR]!", italian=" La [CS:P]Torre del Tempo[CR]!", spanish=" ¡Es la [CS:P]Torre del Tiempo[CR]!"})
+  else
+  SkySceneKit.say({english=" [CS:P]Temporal Tower[CR]!", french=" C'est la [CS:P]Tour du Temps[CR]!", german=" Der [CS:P]Zeitturm[CR]!", italian=" La [CS:P]Torre del Tempo[CR]!", spanish=" ¡Es la [CS:P]Torre del Tiempo[CR]!"})
+  end
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GAME:WaitFrames(45)
-  SkySceneKit.say({english=" We're going there...", french=" C'est là-bas que nous allons...", german=" Da fahren wir jetzt hin...", italian=" Siamo sulla buona strada...", spanish=" ¡Allá vamos!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Finally...[K] We're on our way...", french=" Enfin...[K] On tient le bon bout...", german="Endlich...[K] Wir sind auf dem\nWeg...", italian="Finalmente...[K] siamo quasi\nalla meta...", spanish="¡Al fin![K]\nYa estamos de camino."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Finally...[K] We're on our way...", french=" Enfin...[K] On tient le bon bout...", german="Endlich...[K] Wir sind auf dem\nWeg...", italian=" Finalmente...[K] ci siamo quasi...", spanish="¡Al fin![K]\nYa estamos de camino."})
+  else
+  SkySceneKit.say({english=" Finally...[K] We're on our way...", french=" Enfin...[K] On tient le bon bout...", german="Endlich...[K] Wir sind auf dem\nWeg...", italian="Finalmente...[K] ce l'abbiamo\nquasi fatta...", spanish="¡Al fin![K]\nYa estamos de camino."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" We're going there...", french=" C'est là-bas que nous allons...", german=" Da fahren wir jetzt hin...", italian=" Siamo sulla buona strada...", spanish=" ¡Allá vamos!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" We're going there...", french=" C'est là-bas que nous allons...", german=" Da fahren wir jetzt hin...", italian=" Siamo sulla buona strada...", spanish=" ¡Allá vamos!"})
+  else
+  SkySceneKit.say({english=" We're going there...", french=" C'est là-bas que nous allons...", german=" Da fahren wir jetzt hin...", italian=" Siamo sulla buona strada...", spanish=" ¡Allá vamos!"})
+  end
+  -- message_Close
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   GAME:FadeOut(false,  30)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]
