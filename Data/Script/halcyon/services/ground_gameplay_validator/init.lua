@@ -14,7 +14,7 @@ local function emit(s)
  PrintInfo('[GROUND_VALIDATOR] '..s)
  local f=io.open('/tmp/ground_gameplay_validator.jsonl','a');if f then f:write(s..'\n');f:flush();f:close() end
 end
-function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:' or string.sub(self.mode or '',1,9)=='skyscene:' or self.mode=='skyprogress' or self.mode=='skyjourney' or string.sub(self.mode or '',1,9)=='skyresume' or self.mode=='redjourney' or string.sub(self.mode or '',1,9)=='redresume' or string.sub(self.mode or '',1,7)=='skyhub:');self.idx=0;self.entered=false;self.busy=false
+function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:' or string.sub(self.mode or '',1,9)=='skyscene:' or self.mode=='skyprogress' or self.mode=='skyjourney' or string.sub(self.mode or '',1,9)=='skyresume' or self.mode=='redjourney' or string.sub(self.mode or '',1,9)=='redresume' or string.sub(self.mode or '',1,7)=='skyhub:' or string.sub(self.mode or '',1,7)=='dprobe:');self.idx=0;self.entered=false;self.busy=false
  -- mode 'skyscene:<scene>@<ground>' : rejoue une cinématique canonique Sky
  if string.sub(self.mode or '',1,9)=='skyscene:' then
   local spec=string.sub(self.mode,10)
@@ -39,6 +39,17 @@ function V:begin()
   local gi=141;if self.mode=='luluby_evening' then gi=142 elseif self.mode=='luluby_night' then gi=143 end
   emit('{"event":"luluby_runtime_begin","ground_index":'..tostring(gi)..'}')
   GAME:EnterZone('master_zone',-1,gi,0)
+  return
+ end
+ if string.sub(self.mode or '',1,7)=='dprobe:' then
+  -- Sonde de peuplement donjon : entrer au 1er étage des zones demandées
+  -- (séparées par des virgules) et compter mobs/items/pièges RÉELLEMENT
+  -- générés par le moteur (preuve runtime, pas JSON statique).
+  self.idx=-5;SV.RuntimeGroundAudit.Active=false
+  self.dprobe={};self.dprobe_i=1;self.dprobe_floors=2
+  for z in string.gmatch(string.sub(self.mode,8),'([^,]+)') do self.dprobe[#self.dprobe+1]=z end
+  emit('{"event":"dprobe_begin","count":'..#self.dprobe..'}')
+  GAME:EnterZone(self.dprobe[1],0,0,0)
   return
  end
  if self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' then
@@ -269,6 +280,45 @@ function V:begin()
  self.idx=1;emit('{"event":"begin","count":'..#PILOT..'}');GAME:EnterZone(PILOT[self.idx].zone,-1,PILOT[self.idx].idx,0)
 end
 function V:OnDungeonFloorEnter()
+ if self.enabled and self.dprobe then
+  local ok,err=xpcall(function()
+    local cz=tostring(_ZONE.CurrentZoneID)
+    local floor=_ZONE.CurrentMapID.ID
+    local map=_ZONE.CurrentMap
+    local mobs=0;local species={}
+    for ti=0,map.MapTeams.Count-1 do
+      local t2=map.MapTeams[ti]
+      mobs=mobs+t2.Players.Count
+      for pi=0,t2.Players.Count-1 do
+        local ok2,sp=pcall(function() return tostring(t2.Players[pi].BaseForm.Species) end)
+        if ok2 and sp then species[#species+1]=sp end
+      end
+    end
+    local items=map.Items.Count
+    local traps=0
+    pcall(function()
+      local w=map.Width;local h=map.Height
+      for x=0,w-1 do for y=0,h-1 do
+        local eff=map.Tiles[x][y].Effect
+        if eff and eff.ID~=nil and tostring(eff.ID)~='' then traps=traps+1 end
+      end end
+    end)
+    emit('{"event":"dprobe_floor","zone":"'..cz..'","floor":'..floor..',"mobs":'..mobs..',"items":'..items..',"traps":'..traps..',"species":"'..table.concat(species,',')..'"}')
+    if floor+1<self.dprobe_floors then
+      GAME:EnterZone(cz,0,floor+1,0)
+    else
+      self.dprobe_i=self.dprobe_i+1
+      if self.dprobe[self.dprobe_i] then
+        GAME:EnterZone(self.dprobe[self.dprobe_i],0,0,0)
+      else
+        emit('{"event":"dprobe_end","verdict":"DPROBE_DONE"}');emit('{"event":"end"}')
+        self.dprobe=nil
+      end
+    end
+  end,debug.traceback)
+  if not ok then emit('{"event":"dprobe_end","verdict":"FAIL","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}');emit('{"event":"end"}');self.dprobe=nil end
+  return
+ end
  if self.enabled and self.mode=='redjourney' and self.RJ then
   local ok,err=xpcall(function()
     local C=self.RJ[self.rjch]

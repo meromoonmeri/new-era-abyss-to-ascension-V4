@@ -1,0 +1,238 @@
+{
+ "changed": {
+  "buried_relic": {
+   "mob": 99,
+   "item": 99,
+   "money": 99,
+   "trap": 0
+  },
+  "darknight_relic": {
+   "mob": 15,
+   "item": 15,
+   "money": 15,
+   "trap": 0
+  },
+  "desert_region": {
+   "mob": 20,
+   "item": 20,
+   "money": 20,
+   "trap": 0
+  },
+  "fantasy_strait": {
+   "mob": 30,
+   "item": 30,
+   "money": 30,
+   "trap": 0
+  },
+  "far_off_sea": {
+   "mob": 75,
+   "item": 75,
+   "money": 75,
+   "trap": 0
+  },
+  "fiery_field": {
+   "mob": 30,
+   "item": 30,
+   "money": 30,
+   "trap": 0
+  },
+  "frosty_forest": {
+   "mob": 9,
+   "item": 9,
+   "money": 9,
+   "trap": 0
+  },
+  "frosty_grotto": {
+   "mob": 5,
+   "item": 5,
+   "money": 5,
+   "trap": 0
+  },
+  "grand_sea": {
+   "mob": 30,
+   "item": 30,
+   "money": 30,
+   "trap": 0
+  },
+  "howling_forest": {
+   "mob": 15,
+   "item": 15,
+   "money": 15,
+   "trap": 0
+  },
+  "joyous_tower": {
+   "mob": 99,
+   "item": 99,
+   "money": 99,
+   "trap": 0
+  },
+  "lightning_field": {
+   "mob": 30,
+   "item": 30,
+   "money": 30,
+   "trap": 0
+  },
+  "magma_cavern": {
+   "mob": 23,
+   "item": 23,
+   "money": 23,
+   "trap": 0
+  },
+  "magma_cavern_pit": {
+   "mob": 3,
+   "item": 0,
+   "money": 3,
+   "trap": 0
+  },
+  "marvelous_sea": {
+   "mob": 20,
+   "item": 20,
+   "money": 20,
+   "trap": 0
+  },
+  "meteor_cave": {
+   "mob": 20,
+   "item": 0,
+   "money": 20,
+   "trap": 0
+  },
+  "mt_faraway": {
+   "mob": 40,
+   "item": 40,
+   "money": 40,
+   "trap": 0
+  },
+  "murky_cave": {
+   "mob": 19,
+   "item": 0,
+   "money": 19,
+   "trap": 0
+  },
+  "northern_range": {
+   "mob": 25,
+   "item": 25,
+   "money": 25,
+   "trap": 0
+  },
+  "northwind_field": {
+   "mob": 30,
+   "item": 30,
+   "money": 30,
+   "trap": 0
+  },
+  "oddity_cave": {
+   "mob": 15,
+   "item": 15,
+   "money": 15,
+   "trap": 0
+  },
+  "pitfall_valley": {
+   "mob": 25,
+   "item": 25,
+   "money": 25,
+   "trap": 0
+  },
+  "purity_forest": {
+   "mob": 99,
+   "item": 99,
+   "money": 99,
+   "trap": 0
+  },
+  "remains_island": {
+   "mob": 20,
+   "item": 20,
+   "money": 20,
+   "trap": 0
+  },
+  "rock_path": {
+   "mob": 4,
+   "item": 4,
+   "money": 4,
+   "trap": 0
+  },
+  "silver_trench": {
+   "mob": 99,
+   "item": 99,
+   "money": 99,
+   "trap": 0
+  },
+  "sky_tower": {
+   "mob": 25,
+   "item": 25,
+   "money": 25,
+   "trap": 0
+  },
+  "sky_tower_summit": {
+   "mob": 9,
+   "item": 9,
+   "money": 9,
+   "trap": 0
+  },
+  "snow_path": {
+   "mob": 4,
+   "item": 4,
+   "money": 4,
+   "trap": 0
+  },
+  "solar_cave": {
+   "mob": 20,
+   "item": 20,
+   "money": 20,
+   "trap": 0
+  },
+  "southern_cavern": {
+   "mob": 50,
+   "item": 50,
+   "money": 50,
+   "trap": 0
+  },
+  "stormy_sea": {
+   "mob": 40,
+   "item": 40,
+   "money": 40,
+   "trap": 0
+  },
+  "unown_relic": {
+   "mob": 11,
+   "item": 11,
+   "money": 11,
+   "trap": 0
+  },
+  "uproar_forest": {
+   "mob": 10,
+   "item": 10,
+   "money": 10,
+   "trap": 0
+  },
+  "waterfall_pond": {
+   "mob": 19,
+   "item": 19,
+   "money": 19,
+   "trap": 0
+  },
+  "western_cave": {
+   "mob": 99,
+   "item": 99,
+   "money": 99,
+   "trap": 0
+  },
+  "wish_cave": {
+   "mob": 99,
+   "item": 99,
+   "money": 99,
+   "trap": 0
+  },
+  "wyvern_hill": {
+   "mob": 30,
+   "item": 30,
+   "money": 30,
+   "trap": 0
+  }
+ },
+ "totals": {
+  "mob": 1315,
+  "item": 1273,
+  "money": 1315,
+  "trap": 0
+ }
+}
