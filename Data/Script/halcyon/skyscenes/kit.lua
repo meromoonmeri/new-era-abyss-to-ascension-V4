@@ -72,6 +72,33 @@ function SkySceneKit.say(t)
   trace('{"kit":"say_done"}')
 end
 
+-- Choix ROM message_SwitchMenu : menu natif PMDO (UI:BeginChoiceMenu /
+-- ChoiceMenuYesNo comme origin/common.lua). Les libellés viennent des
+-- blocs menu({...}) 5 langues ROM (pick_lang). Retourne l'INDEX 1-based
+-- du choix (ordre ROM). En headless (validateur) : premier choix (déter-
+-- ministe, chemins alternatifs couverts par les branches compilées).
+function SkySceneKit.ask(choices)
+  local headless = os.getenv('PMDO_GROUND_VALIDATOR') ~= nil
+  local labels = {}
+  for i, t in ipairs(choices) do labels[i] = clean(pick_lang(t)) end
+  trace('{"kit":"ask","n":' .. #labels .. '}')
+  if headless then return 1 end
+  local result = 1
+  local ok = pcall(function()
+    if #labels == 2 and (labels[1] == 'Yes' or labels[1] == 'Oui') then
+      UI:ChoiceMenuYesNo('', false)
+      UI:WaitForChoice()
+      result = UI:ChoiceResult() and 1 or 2
+    else
+      UI:BeginChoiceMenu('', labels, 1, #labels)
+      UI:WaitForChoice()
+      result = UI:ChoiceResult()
+    end
+  end)
+  if not ok then result = 1 end
+  return result
+end
+
 -- PNJ temporaires des scènes compilées (cast SSA ROM : espèce via
 -- PMDO_MAPPING entid→species, position tuile*8+off*4, direction SSA).
 -- Même mécanique native que LulubyTown.spawn (GroundChar+AddTempChar).

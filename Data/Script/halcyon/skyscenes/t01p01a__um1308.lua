@@ -19,7 +19,7 @@ return function(hero, partner)
   -- message_Close
   -- @label_130 [étiquette de flux ExplorerScript]
   -- JumpCommon(CORO_END_TALK) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
-  else
+  elseif (SkyProg.cmp(14, 4) >= 0) or (SkyProg.cmp(14, 2) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [14, 4] || scn($SCENARIO_MAIN) >= [14
   -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- SetAnimation(2) [anim idle native]
@@ -29,6 +29,40 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_yonowaaru) end)
   SkySceneKit.say({english=" Please do take care!", french="Faites preuve de prudence, je\nvous en conjure!", german=" Bitte gebt auf euch acht!", italian=" Fate molta attenzione!", spanish=" ¡Tened mucho cuidado!"})
   -- message_Close
+  -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(14, 1) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [14, 1]
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- SetAnimation(2) [anim idle native]
+  pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_yonowaaru, 4) end)
+  pcall(function() UI:SetSpeaker(npc_npc_yonowaaru) end)
+  SkySceneKit.say({english="I will lend my support to\ncapturing that thieving [CS:N]Grovyle[CR].", french="Je viens apporter mon concours\nà la capture de ce coquin de [CS:N]Massko[CR].", german="Ich gewähre euch meine\nUnterstützung bei der Gefangennahme des\ndiebischen [CS:N]Reptain[CR].", italian="Da parte mia, farò di tutto per\nacciuffare quel mascalzone di [CS:N]Grovyle[CR].", spanish="Tenéis todo mi apoyo para\natrapar a ese ladrón de [CS:N]Grovyle[CR]."})
+  pcall(function() UI:SetSpeaker(npc_npc_yonowaaru) end)
+  SkySceneKit.say({english="Let us work together...[K]and catch\nthat [CS:N]Grovyle[CR].", french="Travaillons ensemble...[K] à la\ncapture du vil [CS:N]Massko[CR].", german="Lasst uns zusammenarbeiten[K] und\ndiesen [CS:N]Reptain[CR] fangen.", italian="Diamoci da fare tutti insieme...[K]\nE prendiamo quel [CS:N]Grovyle[CR]!", spanish="Trabajemos juntos...[K] para\natrapar a ese [CS:N]Grovyle[CR]."})
+  -- message_Close
+  -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(13, 2) >= 0) or (SkyProg.cmp(13, 1) >= 0) or (SkyProg.cmp(12, 4) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [13, 2] || scn($SCENARIO_MAIN) >= [13
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- SetAnimation(2) [anim idle native]
+  pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_yonowaaru, 4) end)
+  pcall(function() UI:SetSpeaker(npc_npc_yonowaaru) end)
+  SkySceneKit.say({english=" Good day! You're from the guild!", french="Salutations! Mais vous\nappartenez à la Guilde, si je ne m'abuse!", german="Guten Tag! Ihr seid von der\nGilde!", italian=" Buongiorno! Voi siete della Gilda!", spanish="¡Saludos! Veo que sois miembros\ndel [CS:N]Pokégremio[CR]."})
+  pcall(function() UI:SetSpeaker(npc_npc_yonowaaru) end)
+  SkySceneKit.say({english="I've been getting acquainted with\nyour Treasure Town.", french="J'ai musardé quelque peu dans\nvotre bonne ville de Bourg-Trésor.", german="Ich habe mich mit eurem\nSchatzstadt vertraut gemacht.", italian="Ho fatto un giretto qui a Borgo\nTesoro.", spanish="He estado familiarizándome\ncon vuestra Aldea Tesoro."})
+  pcall(function() UI:SetSpeaker(npc_npc_yonowaaru) end)
+  SkySceneKit.say({english=" This is an excellent place.", french="C'est un endroit tout à fait\ncharmant.", german=" Das ist ein hervorragender Ort.", italian=" È un gran bel posto.", spanish=" Sin duda es un lugar excelente."})
+  pcall(function() UI:SetSpeaker(npc_npc_yonowaaru) end)
+  SkySceneKit.say({english="The climate is quite pleasant.\nThe town is well served by shops.", french="Le climat est fort plaisant.\nEt la ville est bien pourvue en boutiques.", german="Das Klima ist ziemlich angenehm.\nIn der Stadt gibt es reichlich Läden.", italian="Il clima è piuttosto gradevole.\nIl paese è ben servito da negozi.", spanish="El clima es muy agradable.\nLas tiendas están bien provistas."})
+  pcall(function() UI:SetSpeaker(npc_npc_yonowaaru) end)
+  SkySceneKit.say({english="The quality of life here must be\ncheery and charming.", french="La qualité de vie doit être\nhonorable ici.", german="Die Lebensqualität hier muss\nvergnügt und bezaubernd zugleich sein.", italian="La vita qui dev'essere piacevole\ne gioiosa.", spanish="Aquí la vida es tranquila y\nsin complicaciones."})
+  pcall(function() UI:SetSpeaker(npc_npc_yonowaaru) end)
+  SkySceneKit.say({english="Why, it's so welcoming, I might\nlike to settle here myself... Hoo-hoo-ha!", french="Ma foi, cet endroit est si\naccueillant que l'envie pourrait me prendre de\nm'y installer moi aussi... Ha ha ha!", german="Da das hier alles so einladend\nist, lasse ich mich vielleicht selbst hier\nnieder... Huuhuuha!", italian="È così accogliente che potrei\naddirittura decidere di trasferirmi qui...\nOoh-ohh-ah!", spanish="Es un sitio tan acogedor, que\nquizás hasta me quede... ¡Ja, jua, jua!"})
+  -- message_Close
+  -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(12, 3) >= 0) or (SkyProg.cmp(12, 1) >= 0) or (SkyProg.cmp(10, 2) >= 0) or (SkyProg.cmp(10, 1) >= 0) or (SkyProg.cmp(9, 5) >= 0) or (SkyProg.cmp(9, 4) >= 0) or (SkyProg.cmp(9, 2) >= 0) or (SkyProg.cmp(9, 1) >= 0) or (SkyProg.cmp(8, 7) >= 0) or (SkyProg.cmp(8, 6) >= 0) or (SkyProg.cmp(8, 5) >= 0) or (SkyProg.cmp(8, 3) >= 0) or (SkyProg.cmp(8, 2) >= 0) or (SkyProg.cmp(8, 1) >= 0) or (SkyProg.cmp(7, 6) >= 0) or (SkyProg.cmp(7, 3) >= 0) or (SkyProg.cmp(7, 2) >= 0) or (SkyProg.cmp(7, 1) >= 0) or (SkyProg.cmp(6, 5) >= 0) or (SkyProg.cmp(6, 1) >= 0) or (SkyProg.cmp(5, 5) >= 0) or (SkyProg.cmp(4, 7) >= 0) or (SkyProg.cmp(4, 5) >= 0) or (SkyProg.cmp(4, 3) >= 0) or (SkyProg.cmp(4, 2) >= 0) or (SkyProg.cmp(4, 1) >= 0) or (SkyProg.cmp(4, 0) >= 0) or (SkyProg.cmp(3, 1) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [12, 3] || scn($SCENARIO_MAIN) >= [12
+  -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
+  else
   -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
   end
   SkySceneKit.cleanup_npcs()

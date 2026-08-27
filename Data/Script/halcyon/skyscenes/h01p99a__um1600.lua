@@ -13,7 +13,8 @@ return function(hero, partner)
   -- supervision_Station(3) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- jump @label_2 [saut final de branche vers l'épilogue commun: flux naturel]
   end
-  else
+  elseif (SkyProg.cmp(17, 1) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [17, 1]
   -- supervision_Station(1) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  else
   end
 end

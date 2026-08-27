@@ -30,7 +30,7 @@ return function(hero, partner)
   SkySceneKit.say({english="Did you try asking [CS:N]Wynaut[CR]\nover there?", french="Demande plutôt à [CS:N]Okéoké[CR],\nà côté.", german="Probier doch mal,\n[CS:N]Isso[CR] anzusprechen.", italian="Hai provato a chiedere\na [CS:N]Wynaut[CR]?", spanish="¿Has probado a preguntarle a\n[CS:N]Wynaut[CR]?"}) -- SwitchTalk: branche default (canon générique)
   -- @label_131 [étiquette de flux ExplorerScript]
   -- JumpCommon(CORO_END_TALK) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
-  else
+  elseif (SkyProg.cmp(29, 9) >= 0) or (SkyProg.cmp(29, 8) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [29, 9] || scn($SCENARIO_MAIN) >= [29
   -- SetAnimation(2) [anim idle native]
   -- SetAnimation(2) [anim idle native]
   -- SetAnimation(2) [anim idle native]
@@ -42,6 +42,56 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_Close
   -- SetAnimation(4) [anim idle native]
+  -- jump @label_131 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(29, 6) >= 0) or (SkyProg.cmp(29, 5) >= 0) or (SkyProg.cmp(29, 4) >= 0) or (SkyProg.cmp(29, 3) >= 0) or (SkyProg.cmp(29, 2) >= 0) or (SkyProg.cmp(29, 1) >= 0) or (SkyProg.cmp(25, 4) >= 0) or (SkyProg.cmp(25, 3) >= 0) or (SkyProg.cmp(25, 2) >= 0) or (SkyProg.cmp(25, 2) >= 0) or (SkyProg.cmp(25, 1) >= 0) or (SkyProg.cmp(24, 1) >= 0) or (SkyProg.cmp(24, 1) >= 0) or (SkyProg.cmp(23, 3) >= 0) or (SkyProg.cmp(23, 2) >= 0) or (SkyProg.cmp(23, 1) >= 0) or (SkyProg.cmp(22, 3) >= 0) or (SkyProg.cmp(22, 2) >= 0) or (SkyProg.cmp(21, 2) >= 0) or (SkyProg.cmp(21, 1) >= 0) or (SkyProg.cmp(20, 4) >= 0) or (SkyProg.cmp(20, 3) >= 0) or (SkyProg.cmp(20, 2) >= 0) or (SkyProg.cmp(20, 1) >= 0) or (SkyProg.cmp(17, 3) >= 0) or (SkyProg.cmp(17, 1) >= 0) or (SkyProg.cmp(16, 2) >= 0) or (SkyProg.cmp(16, 0) >= 0) or (SkyProg.cmp(15, 4) >= 0) or (SkyProg.cmp(15, 1) >= 0) or (SkyProg.cmp(14, 5) >= 0) or (SkyProg.cmp(14, 4) >= 0) or (SkyProg.cmp(14, 2) >= 0) or (SkyProg.cmp(14, 1) >= 0) or (SkyProg.cmp(13, 2) >= 0) or (SkyProg.cmp(13, 1) >= 0) or (SkyProg.cmp(12, 4) >= 0) or (SkyProg.cmp(12, 3) >= 0) or (SkyProg.cmp(12, 1) >= 0) or (SkyProg.cmp(10, 2) >= 0) or (SkyProg.cmp(10, 1) >= 0) or (SkyProg.cmp(9, 5) >= 0) or (SkyProg.cmp(9, 4) >= 0) or (SkyProg.cmp(9, 2) >= 0) or (SkyProg.cmp(9, 1) >= 0) or (SkyProg.cmp(8, 7) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [29, 6] || scn($SCENARIO_MAIN) >= [29
+  -- jump @label_118 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(8, 6) >= 0) or (SkyProg.cmp(8, 5) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [8, 6] || scn($SCENARIO_MAIN) >= [8, 
+  -- SetAnimation(2) [anim idle native]
+  -- SetAnimation(2) [anim idle native]
+  -- SetAnimation(2) [anim idle native]
+  pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_soonansu, 4) end)
+  -- SetAnimation(22) [anim idle native]
+  GAME:WaitFrames(2) -- join WaitAnimation
+  pcall(function() UI:SetSpeaker(npc_npc_soonansu) end)
+  SkySceneKit.say({english=" That's right!", french=" Banco!", german=" Ganz genau!", italian=" Esatto!", spanish=" ¡Eso, eso!"})
+  GAME:WaitFrames(2) -- join WaitExecuteLives
+  -- message_Close
+  -- SetAnimation(4) [anim idle native]
+  -- jump @label_131 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(8, 3) >= 0) or (SkyProg.cmp(8, 2) >= 0) or (SkyProg.cmp(8, 1) >= 0) or (SkyProg.cmp(7, 6) >= 0) or (SkyProg.cmp(7, 3) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [8, 3] || scn($SCENARIO_MAIN) >= [8, 
+  -- jump @label_118 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(7, 2) >= 0) or (SkyProg.cmp(7, 1) >= 0) or (SkyProg.cmp(6, 5) >= 0) or (SkyProg.cmp(6, 1) >= 0) or (SkyProg.cmp(5, 5) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [7, 2] || scn($SCENARIO_MAIN) >= [7, 
+  -- SetAnimation(2) [anim idle native]
+  -- SetAnimation(2) [anim idle native]
+  pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_soonansu, 4) end)
+  -- SetAnimation(2) [anim idle native]
+  -- SetAnimation(2) [anim idle native]
+  pcall(function() UI:SetSpeaker(npc_npc_soonano) end)
+  SkySceneKit.say({english=" Right here, right?", french=" O.K., non?", german=" Genau hier, genau?", italian=" Proprio qui, no?", spanish=" Aquí, ¿no?"})
+  -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
+  GROUND:EntTurn(npc_npc_soonansu, Direction.Down)
+  GAME:WaitFrames(2) -- join WaitExecuteLives
+  -- SetAnimation(22) [anim idle native]
+  GAME:WaitFrames(2) -- join WaitAnimation
+  pcall(function() UI:SetSpeaker(npc_npc_soonansu) end)
+  SkySceneKit.say({english=" That's right!", french=" Banco!", german=" Ganz genau!", italian=" Esatto!", spanish=" ¡Eso, eso!"})
+  GAME:WaitFrames(2) -- join WaitExecuteLives
+  -- message_Close
+  -- SetAnimation(2) [anim idle native]
+  GROUND:EntTurn(npc_npc_soonansu, Direction.Up)
+  GAME:WaitFrames(2) -- join WaitExecuteLives
+  -- SetAnimation(4) [anim idle native]
+  -- jump @label_131 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(4, 7) >= 0) or (SkyProg.cmp(4, 5) >= 0) or (SkyProg.cmp(4, 3) >= 0) or (SkyProg.cmp(4, 2) >= 0) or (SkyProg.cmp(4, 1) >= 0) or (SkyProg.cmp(4, 0) >= 0) or (SkyProg.cmp(3, 1) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [4, 7] || scn($SCENARIO_MAIN) >= [4, 
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- SetAnimation(2) [anim idle native]
+  pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_soonansu, 4) end)
+  pcall(function() UI:SetSpeaker(npc_npc_soonansu) end)
+  SkySceneKit.say({english=" That's right!", french=" Banco!", german=" Ganz genau!", italian=" Esatto!", spanish=" ¡Eso, eso!"})
+  -- message_Close
+  -- jump @label_131 [saut final de branche vers l'épilogue commun: flux naturel]
+  else
   -- jump @label_131 [saut final de branche vers l'épilogue commun: flux naturel]
   end
   SkySceneKit.cleanup_npcs()

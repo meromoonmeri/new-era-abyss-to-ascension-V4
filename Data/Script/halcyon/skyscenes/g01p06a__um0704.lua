@@ -15,7 +15,7 @@ return function(hero, partner)
   -- message_Close
   -- @label_130 [étiquette de flux ExplorerScript]
   -- JumpCommon(CORO_END_TALK) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
-  else
+  elseif (SkyProg.cmp(8, 7) >= 0) or (SkyProg.cmp(8, 6) >= 0) or (SkyProg.cmp(8, 5) >= 0) or (SkyProg.cmp(8, 3) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [8, 7] || scn($SCENARIO_MAIN) >= [8, 
   -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- SetAnimation(2) [anim idle native]
@@ -25,6 +25,23 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_sukatanku) end)
   SkySceneKit.say({english="You're not suggesting that we\nraided your stock, are you? Chaw-haw-haw!", french="Je suis choqué! Vous osez\ninsinuer que c'est moi qui ai pillé\nvotre réserve? Gnark gnark gnark!", german="Ihr wollt doch nicht ernsthaft\nbehaupten, wir hätten uns über eure Vorräte\nhergemacht?!? Cha-ha-ha!", italian="Non starete insinuando che vi\nabbiamo razziato le scorte, vero? Ahr-ahr-ahr!", spanish="No nos estarás acusando de\nvaciar la despensa, ¿verdad? ¡Jua, jua,\njua!"})
   -- message_Close
+  -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(8, 2) >= 0) or (SkyProg.cmp(8, 1) >= 0) or (SkyProg.cmp(7, 6) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [8, 2] || scn($SCENARIO_MAIN) >= [8, 
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- SetAnimation(2) [anim idle native]
+  pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_sukatanku, 4) end)
+  pcall(function() UI:SetSpeaker(npc_npc_sukatanku) end)
+  SkySceneKit.say({english="The expedition should be a joke.\nI'm looking forward to it. Chaw-haw-haw!", french="L'expédition, ça va être du\ngâteau. Vivement qu'elle commence! Gnark\ngnark gnark!", german="Die Expedition dürfte ein Witz\nwerden. Ich freu mich schon drauf.\nCha-ha-ha!", italian="La spedizione sarà uno scherzo.\nNon vedo l'ora di partire. Ahr-ahr-ahr!", spanish="Esta expedición va a ser la\nmonda. Estoy impaciente por ver la que\nse monta. ¡Jua, jua, jua!"})
+  pcall(function() UI:SetSpeaker(npc_npc_sukatanku) end)
+  SkySceneKit.say({english="Of course, there's just one\nlittle thing...", french="Bien sûr, il reste juste\nun minuscule détail...", german="Allerdings stellt sich mir noch\neine Frage...", italian="Come no, c'è solo un piccolo\ndettaglio...", spanish=" Bueno, hay una cosilla más..."})
+  pcall(function() UI:SetSpeaker(npc_npc_sukatanku) end)
+  SkySceneKit.say({english="Will you wimps get picked for\nthe expedition? Chaw-haw-haw!", french="Est-ce que des poules mouillées\ndans votre genre vont être prises pour\nl'expédition? Gnark gnark gnark!", german="Werdet ihr Schwächlinge\nüberhaupt für die Expedition ausgewählt?\nCha-ha-ha!", italian="Sceglieranno dei Pokémon\nimbranati come voi per la spedizione?\nAhr-ahr-ahr!", spanish="¿Os dejarán ir a la expedición,\npedazo de enclenques? ¡Jua, jua, jua!"})
+  -- message_Close
+  -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(7, 3) >= 0) or (SkyProg.cmp(7, 2) >= 0) or (SkyProg.cmp(7, 1) >= 0) or (SkyProg.cmp(6, 5) >= 0) or (SkyProg.cmp(6, 1) >= 0) or (SkyProg.cmp(5, 5) >= 0) or (SkyProg.cmp(4, 7) >= 0) or (SkyProg.cmp(4, 5) >= 0) or (SkyProg.cmp(4, 3) >= 0) or (SkyProg.cmp(4, 2) >= 0) or (SkyProg.cmp(4, 1) >= 0) or (SkyProg.cmp(4, 0) >= 0) or (SkyProg.cmp(3, 1) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [7, 3] || scn($SCENARIO_MAIN) >= [7, 
+  -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
+  else
   -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
   end
   SkySceneKit.cleanup_npcs()

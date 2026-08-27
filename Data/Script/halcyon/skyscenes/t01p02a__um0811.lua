@@ -17,7 +17,7 @@ return function(hero, partner)
   -- message_Close
   -- @label_130 [étiquette de flux ExplorerScript]
   -- JumpCommon(CORO_END_TALK) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
-  else
+  elseif (SkyProg.cmp(8, 7) >= 0) or (SkyProg.cmp(8, 6) >= 0) or (SkyProg.cmp(8, 5) >= 0) or (SkyProg.cmp(8, 3) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [8, 7] || scn($SCENARIO_MAIN) >= [8, 
   -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- SetAnimation(2) [anim idle native]
@@ -27,6 +27,21 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_dogaasu) end)
   SkySceneKit.say({english="You gonna say that you don't\nwant us around? Whoa-ho-ho!", french="Vous allez encore dire que vous\nvoulez pas de nous dans le coin, hein?\nMouarf mouarf!", german="Ihr wollt sagen, dass ihr uns\nnicht in eurer Nähe haben wollt?!? Whoahoho!", italian="Ci state dicendo che non ci\nvolete qua attorno, uooh-oh?", spanish="No iréis a decir que no nos\nqueréis por aquí, ¿no? ¡Jo, jo, jo!"})
   -- message_Close
+  -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(8, 2) >= 0) or (SkyProg.cmp(8, 1) >= 0) or (SkyProg.cmp(7, 6) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [8, 2] || scn($SCENARIO_MAIN) >= [8, 
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- SetAnimation(2) [anim idle native]
+  pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_dogaasu, 4) end)
+  pcall(function() UI:SetSpeaker(npc_npc_dogaasu) end)
+  SkySceneKit.say({english="Whoa-ho-ho! Seems we're living\nhere with you wimps for a while.", french="Mouarf mouarf mouarf!\nOn dirait qu'on va devoir cohabiter pendant\nquelque temps, bande de poules mouillées.", german="Whoahoho! Scheint, als würden\nwir hier eine Weile mit euch Schwächlingen\nleben.", italian="Uooh-oh-oh! Mi sembra quasi di\nvivere qui con voi mezze calzette da un po'.", spanish="¡Jo, jo, jo! Parece que vamos a\nestar juntos una temporada, peleles."})
+  pcall(function() UI:SetSpeaker(npc_npc_dogaasu) end)
+  SkySceneKit.say({english=" We'll put up with you, whoa-ho!", french="On fera ce qu'on peut pour vous\nsupporter. Mouarf mouarf mouarf!", german="Wir ertragen euch schon,\nwhoaho!", italian=" Dovremo sopportarvi, ah!", spanish="Tendremos que soportaros,\n¡jo, jo!"})
+  -- message_Close
+  -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(7, 3) >= 0) or (SkyProg.cmp(7, 2) >= 0) or (SkyProg.cmp(7, 1) >= 0) or (SkyProg.cmp(6, 5) >= 0) or (SkyProg.cmp(6, 1) >= 0) or (SkyProg.cmp(5, 5) >= 0) or (SkyProg.cmp(4, 7) >= 0) or (SkyProg.cmp(4, 5) >= 0) or (SkyProg.cmp(4, 3) >= 0) or (SkyProg.cmp(4, 2) >= 0) or (SkyProg.cmp(4, 1) >= 0) or (SkyProg.cmp(4, 0) >= 0) or (SkyProg.cmp(3, 1) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [7, 3] || scn($SCENARIO_MAIN) >= [7, 
+  -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
+  else
   -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
   end
   SkySceneKit.cleanup_npcs()

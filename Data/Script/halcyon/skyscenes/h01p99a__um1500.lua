@@ -7,6 +7,7 @@ return function(hero, partner)
   -- supervision_Station(0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   if (SkyProg.cmp(16, 2) >= 0) then -- if ROM: scn($SCENARIO_MAIN) >= [16, 2]
   -- @label_0 [étiquette de flux ExplorerScript]
+  elseif (SkyProg.cmp(16, 0) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [16, 0]
   else
   end
 end

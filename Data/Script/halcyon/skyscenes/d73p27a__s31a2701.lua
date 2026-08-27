@@ -43,10 +43,35 @@ return function(hero, partner)
   SkySceneKit.say({english="We can't give up!\nLet's do our best!", french="On ne peut pas abandonner ici!\nCourage!", german="Wir dürfen nicht aufgeben!\nLasst uns unser Bestes geben!", italian="Non possiamo arrenderci!\nMettiamocela tutta!", spanish="¡No podemos rendirnos!\n¡Vamos a por todas!"})
   -- message_Close
   end
-  else
+  elseif (SkyProg.cmp(29, 30) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [29, 30]
   -- supervision_Station(15) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- supervision_Station(40) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- supervision_Station(41) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- jump @label_23 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(29, 29) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [29, 29]
+  -- supervision_Station(15) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- supervision_Station(40) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- supervision_Station(41) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- jump @label_23 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(29, 28) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [29, 28]
+  -- jump @label_23 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(29, 27) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [29, 27]
+  -- supervision_Station(15) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- supervision_Station(41) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- jump @label_23 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(29, 26) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [29, 26]
+  -- jump @label_23 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(29, 25) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [29, 25]
+  -- supervision_Station(15) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- supervision_Station(17) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- jump @label_23 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(29, 24) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [29, 24]
+  -- supervision_Station(15) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- supervision_Station(17) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- jump @label_23 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(29, 23) >= 0) or (SkyProg.cmp(29, 22) >= 0) or (SkyProg.cmp(29, 21) >= 0) or (SkyProg.cmp(29, 20) >= 0) or (SkyProg.cmp(29, 19) >= 0) or (SkyProg.cmp(29, 18) >= 0) or (SkyProg.cmp(29, 17) >= 0) or (SkyProg.cmp(29, 16) >= 0) or (SkyProg.cmp(29, 15) >= 0) or (SkyProg.cmp(29, 14) >= 0) or (SkyProg.cmp(29, 13) >= 0) or (SkyProg.cmp(29, 12) >= 0) or (SkyProg.cmp(29, 11) >= 0) or (SkyProg.cmp(29, 10) >= 0) or (SkyProg.cmp(29, 8) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [29, 23] || scn($SCENARIO_MAIN) >= [2
+  -- jump @label_23 [saut final de branche vers l'épilogue commun: flux naturel]
+  else
   -- jump @label_23 [saut final de branche vers l'épilogue commun: flux naturel]
   end
 end

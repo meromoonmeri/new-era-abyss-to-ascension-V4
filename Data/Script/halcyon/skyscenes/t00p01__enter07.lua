@@ -6,4 +6,13 @@ return function(hero, partner)
   -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   pcall(function() UI:ResetSpeaker() end)
   SkySceneKit.say({english="Would you like to save your adventure?", french="Would you like to save your adventure?", german="Would you like to save your adventure?", italian="Vuoi salvare l'avventura?", spanish="Would you like to save your adventure?"})
+  do local __choice = SkySceneKit.ask({{english="Yes", french="Yes", german="Yes", italian="Sì", spanish="Yes"}, {english="No", french="No", german="No", italian="No", spanish="No"}}) -- message_SwitchMenu(1, 2) ROM
+  if __choice == 1 then
+  -- @label_0 [étiquette de flux ExplorerScript]
+  -- switch(message_Menu(MENU_SAVE_MENU)) [menu système NDS sans embranchement (corps vide): équivalent géré par le moteur PMDO]
+  -- JumpCommon(CORO_END_TALK) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  else -- default/annulation
+  -- JumpCommon(CORO_END_TALK) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  end
+  end
 end

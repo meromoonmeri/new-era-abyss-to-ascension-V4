@@ -15,7 +15,7 @@ return function(hero, partner)
   -- message_Close
   -- @label_130 [étiquette de flux ExplorerScript]
   -- JumpCommon(CORO_END_TALK) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
-  else
+  elseif (SkyProg.cmp(29, 39) >= 0) or (SkyProg.cmp(29, 33) >= 0) or (SkyProg.cmp(29, 32) >= 0) or (SkyProg.cmp(29, 31) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [29, 39] || scn($SCENARIO_MAIN) >= [2
   -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   pcall(function() UI:SetSpeaker(npc_npc_tamatama) end)
@@ -23,6 +23,35 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_tamatama) end)
   SkySceneKit.say({english="We've heard that the view up\nthere is spectacular.", french="Nous avons entendu dire\nque la vue là-haut est spectaculaire.", german="Ich habe gehört, die Aussicht\nvon dort sei spektakulär.", italian="Ci hanno detto che il panorama\nda lassù è spettacolare.", spanish="Hemos oído que las vistas\nahí arriba son espectaculares."})
   -- message_Close
+  -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(29, 30) >= 0) or (SkyProg.cmp(29, 29) >= 0) or (SkyProg.cmp(29, 28) >= 0) or (SkyProg.cmp(29, 27) >= 0) or (SkyProg.cmp(29, 26) >= 0) or (SkyProg.cmp(29, 25) >= 0) or (SkyProg.cmp(29, 24) >= 0) or (SkyProg.cmp(29, 23) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [29, 30] || scn($SCENARIO_MAIN) >= [2
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  pcall(function() UI:SetSpeaker(npc_npc_tamatama) end)
+  SkySceneKit.say({english="We've set up a base at the\n6th Station Clearing.", french="Il y a un dernier campement\nà la trouée du 6[F:E] Relais.", german="Wir haben eine Basis auf der\n6. Zwischenlagerlichtung errichtet.", italian="Abbiamo creato un campo base\nal Bivacco 6.", spanish="Hemos levantado un campamento\nen la Base del Sexto Puerto."})
+  pcall(function() UI:SetSpeaker(npc_npc_tamatama) end)
+  SkySceneKit.say({english=" Please make good use of it.", french=" Faites-en bon usage.", german="Bitte verwendet sie zu\neurem Besten.", italian=" Fatene buon uso.", spanish=" Espero que te resulte útil."})
+  -- message_Close
+  -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(29, 22) >= 0) or (SkyProg.cmp(29, 21) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [29, 22] || scn($SCENARIO_MAIN) >= [2
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  pcall(function() UI:SetSpeaker(npc_npc_tamatama) end)
+  SkySceneKit.say({english="The quarrel at the 5th Station\nClearing has been resolved, hasn't it?", french="La dispute à la trouée\ndu 5[F:E] Relais a été résolue, n'est-ce pas?", german="Die Streiterei auf der\n5. Zwischenlagerlichtung wurde bereits\ngeschlichtet, nicht wahr?", italian="I problemi al Bivacco 5 sono\nstati risolti, non è vero?", spanish="La disputa de la Base del Quinto\nPuerto se ha resuelto, ¿no?"})
+  pcall(function() UI:SetSpeaker(npc_npc_tamatama) end)
+  SkySceneKit.say({english="We're glad it could be\nworked out and resolved.", french="Nous sommes contents que\nle problème ait pu être traité et résolu.", german="Es ist gut, dass das Problem\ngelöst ist und sich wieder alle gut verstehen.", italian="Siamo felici che tutto si sia\nrisolto per il meglio.", spanish="Nos alegramos de que se haya\npodido solventar sin más consecuencias."})
+  -- message_Close
+  -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(29, 20) >= 0) or (SkyProg.cmp(29, 19) >= 0) or (SkyProg.cmp(29, 18) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [29, 20] || scn($SCENARIO_MAIN) >= [2
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  pcall(function() UI:SetSpeaker(npc_npc_tamatama) end)
+  SkySceneKit.say({english="We wonder what happened at\nthe 5th Station Clearing?", french="Nous nous demandons\nce qui s'est passé à la trouée du 5[F:E] Relais.", german="Was wohl auf der\n5. Zwischenlagerlichtung geschehen ist?", italian="Chissà cos'è successo\nal Bivacco 5...", spanish="¿Qué habrá sucedido en la Base\ndel Quinto Puerto?"})
+  -- message_Close
+  -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(29, 17) >= 0) or (SkyProg.cmp(29, 16) >= 0) or (SkyProg.cmp(29, 15) >= 0) or (SkyProg.cmp(29, 14) >= 0) or (SkyProg.cmp(29, 13) >= 0) or (SkyProg.cmp(29, 12) >= 0) or (SkyProg.cmp(29, 11) >= 0) or (SkyProg.cmp(29, 10) >= 0) or (SkyProg.cmp(29, 8) >= 0) or (SkyProg.cmp(29, 6) >= 0) or (SkyProg.cmp(29, 5) >= 0) or (SkyProg.cmp(29, 4) >= 0) or (SkyProg.cmp(29, 3) >= 0) or (SkyProg.cmp(29, 2) >= 0) or (SkyProg.cmp(29, 1) >= 0) or (SkyProg.cmp(25, 4) >= 0) or (SkyProg.cmp(25, 3) >= 0) or (SkyProg.cmp(25, 2) >= 0) or (SkyProg.cmp(25, 2) >= 0) or (SkyProg.cmp(25, 1) >= 0) or (SkyProg.cmp(24, 1) >= 0) or (SkyProg.cmp(24, 1) >= 0) or (SkyProg.cmp(23, 3) >= 0) or (SkyProg.cmp(23, 2) >= 0) or (SkyProg.cmp(23, 1) >= 0) or (SkyProg.cmp(22, 3) >= 0) or (SkyProg.cmp(22, 2) >= 0) or (SkyProg.cmp(21, 2) >= 0) or (SkyProg.cmp(21, 1) >= 0) or (SkyProg.cmp(20, 4) >= 0) or (SkyProg.cmp(20, 3) >= 0) or (SkyProg.cmp(20, 2) >= 0) or (SkyProg.cmp(20, 1) >= 0) or (SkyProg.cmp(17, 3) >= 0) or (SkyProg.cmp(17, 1) >= 0) or (SkyProg.cmp(16, 2) >= 0) or (SkyProg.cmp(16, 0) >= 0) or (SkyProg.cmp(15, 4) >= 0) or (SkyProg.cmp(15, 1) >= 0) or (SkyProg.cmp(14, 5) >= 0) or (SkyProg.cmp(14, 4) >= 0) or (SkyProg.cmp(14, 2) >= 0) or (SkyProg.cmp(14, 1) >= 0) or (SkyProg.cmp(13, 2) >= 0) or (SkyProg.cmp(13, 1) >= 0) or (SkyProg.cmp(12, 4) >= 0) or (SkyProg.cmp(12, 3) >= 0) or (SkyProg.cmp(12, 1) >= 0) or (SkyProg.cmp(10, 2) >= 0) or (SkyProg.cmp(10, 1) >= 0) or (SkyProg.cmp(9, 5) >= 0) or (SkyProg.cmp(9, 4) >= 0) or (SkyProg.cmp(9, 2) >= 0) or (SkyProg.cmp(9, 1) >= 0) or (SkyProg.cmp(8, 7) >= 0) or (SkyProg.cmp(8, 6) >= 0) or (SkyProg.cmp(8, 5) >= 0) or (SkyProg.cmp(8, 3) >= 0) or (SkyProg.cmp(8, 2) >= 0) or (SkyProg.cmp(8, 1) >= 0) or (SkyProg.cmp(7, 6) >= 0) or (SkyProg.cmp(7, 3) >= 0) or (SkyProg.cmp(7, 2) >= 0) or (SkyProg.cmp(7, 1) >= 0) or (SkyProg.cmp(6, 5) >= 0) or (SkyProg.cmp(6, 1) >= 0) or (SkyProg.cmp(5, 5) >= 0) or (SkyProg.cmp(4, 7) >= 0) or (SkyProg.cmp(4, 5) >= 0) or (SkyProg.cmp(4, 3) >= 0) or (SkyProg.cmp(4, 2) >= 0) or (SkyProg.cmp(4, 1) >= 0) or (SkyProg.cmp(4, 0) >= 0) or (SkyProg.cmp(3, 1) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [29, 17] || scn($SCENARIO_MAIN) >= [2
+  -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
+  else
   -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
   end
   SkySceneKit.cleanup_npcs()

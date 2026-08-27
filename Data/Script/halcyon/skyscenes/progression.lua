@@ -90,4 +90,15 @@ function SkyProgression.cmp(m, s)
   return (cur.sub or 0) - (s or 0)
 end
 
+-- comparaison d'état des épisodes spéciaux (équivalent
+-- `scn($SCENARIO_SIDE) >= [M,S]`) : SV.SkyScenarioSide, défaut {0,0}
+-- (même mécanique ROM que $SCENARIO_MAIN, variable ID 4 VAR_SCENARIO_SIDE)
+function SkyProgression.cmp_side(m, s)
+  SkyProgression.init()
+  SV.SkyScenarioSide = SV.SkyScenarioSide or { main = 0, sub = 0 }
+  local cur = SV.SkyScenarioSide
+  if cur.main ~= m then return cur.main - m end
+  return (cur.sub or 0) - (s or 0)
+end
+
 return SkyProgression

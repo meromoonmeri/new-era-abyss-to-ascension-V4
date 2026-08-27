@@ -243,3 +243,7 @@
 {"kit":"lock_timeout","lock":10}
 {"scene":"d27p11a__m24a0501","kind":"compiled","verdict":"CINEMATIC_RUNTIME_PASS"}
 {"event":"end"}
+{"event": "compiler_v8", "date": "2026-08-27", "compiled": 2274, "partial_ops": 949, "note": "V8: (1) switch generique sur GameVar contexte NDS (GROUND_ENTER/GETOUT/EXECUTE_SPECIAL_EPISODE_TYPE/START_MODE/TALK_KIND/CRYSTAL_COLOR/REQUEST_CLEAR_COUNT + scn($SCENARIO_MAIN)[0]/scn($SCENARIO_SIDE)[0]/sector()) — toutes branches compilees if/elseif Lua, cases fallthrough agreges, break; retire; (2) chaines if/elseif/else completes (l'ancien code traitait elseif comme else — contenu mal branche, corrige fail-closed); (3) switch(message_SwitchMenu) avec cases menu({5 langues}) -> kit.ask (UI:ChoiceMenuYesNo/BeginChoiceMenu natifs PMDO, choix 1 deterministe en headless); (4) BranchVariation (variation=SKY vrai/T-D faux) + BranchDebug (retail vrai) traduits ROM EU; (5) GameVar generiques ($EVENT_LOCAL, $SUB30_*, $SIDE02_TALK...) -> SV.SkyVars; (6) scn($SCENARIO_SIDE) -> SkyProg.cmp_side; (7) switch ProcessSpecial/message_Menu corps vide = proc moteur sans embranchement"}
+{"event": "scene_runtime", "scene": "d01p11a__dus05", "family": "message_SwitchMenu+menu cases (kit.ask)", "verdict": "CINEMATIC_RUNTIME_PASS"}
+{"event": "scene_runtime", "scene": "d22p11a__un0801", "family": "switch generique GameVar (__sw)", "verdict": "CINEMATIC_RUNTIME_PASS"}
+{"event": "scene_runtime", "scene": "d01p11a__us0403", "family": "chaine if/elseif/else + ask", "verdict": "CINEMATIC_RUNTIME_PASS"}

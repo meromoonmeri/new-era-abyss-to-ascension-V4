@@ -12,12 +12,13 @@ return function(hero, partner)
   else
   -- supervision_Station(4) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   end
-  else
+  elseif (SkyProg.cmp(13, 1) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [13, 1]
   if ((SV.SkyTalkBitFlags or {})[23] == 1) then -- if ROM: $SCENARIO_TALK_BIT_FLAG[23]
   -- jump @label_2 [saut final de branche vers l'épilogue commun: flux naturel]
   else
   -- supervision_Station(2) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- jump @label_2 [saut final de branche vers l'épilogue commun: flux naturel]
   end
+  else
   end
 end

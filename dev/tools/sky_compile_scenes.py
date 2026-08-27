@@ -323,8 +323,211 @@ class SceneCompiler:
                 out.append(f"((SV.SkyTalkBitFlags or {{}})"
                            f"[{int(m.group(1))}] == 1)")
                 continue
+            # BranchVariation : `variation` = branche SKY (ROM Explorers
+            # of Sky EU -> toujours VRAI), `not variation` = branche
+            # Time/Darkness (jamais prise sur cette ROM). Sémantique
+            # décompilateur explorerscript if_start.py (params[0]>0).
+            if p == "variation":
+                out.append("true --[[BranchVariation: ROM Sky EU]]")
+                continue
+            if p == "not variation":
+                out.append("false --[[BranchVariation: branche T/D]]")
+                continue
+            # BranchDebug : `not debug` = build retail (VRAI sur la ROM
+            # EU vendue), `debug` = build debug (jamais).
+            if p == "not debug":
+                out.append("true --[[BranchDebug: retail EU]]")
+                continue
+            if p == "debug":
+                out.append("false --[[BranchDebug: build debug]]")
+                continue
+            # scn($SCENARIO_SIDE) : progression des épisodes spéciaux —
+            # SV native dédiée (SkyProg.cmp_side, défaut [0,0])
+            m = re.match(r"scn\(\$SCENARIO_SIDE\)\s*(>=|==|<|>|<=)\s*"
+                         r"\[(\d+),\s*(\d+)\]$", p)
+            if m:
+                op, M, S = m.group(1), int(m.group(2)), int(m.group(3))
+                out.append(f"(SkyProg.cmp_side({M}, {S}) {op} 0)")
+                continue
+            # $PERFORMANCE_PROGRESS_LIST[n] : drapeaux de progression
+            # démo/performance NDS -> SV native (défaut 0, écrits par
+            # les scènes qui les posent)
+            m = re.match(r"\$PERFORMANCE_PROGRESS_LIST\[(\d+)\]$", p)
+            if m:
+                out.append(f"((SV.SkyPerformanceProgress or {{}})"
+                           f"[{int(m.group(1))}] == 1)")
+                continue
+            # GameVar GÉNÉRIQUE (EVENT_LOCAL, SUB30_*, SIDE02_TALK…) :
+            # variables script NDS (pmd2scriptdata GameVar) tenues dans
+            # SV.SkyVars — mêmes valeurs que la ROM (défaut 0), écrites
+            # par les affectations compilées ci-dessous. Comparaison ou
+            # vérité (non-zéro comme l'interpréteur SSB).
+            m = re.match(r"\$([A-Z][A-Z0-9_]*)(?:\[(\d+)\])?"
+                         r"(?:\s*(==|!=|<=|>=|<|>)\s*(-?\d+))?$", p)
+            if m:
+                name, idx, cmp_op, val = m.groups()
+                if idx is not None:
+                    expr = (f"(((SV.SkyVars or {{}}).{name} or {{}})"
+                            f"[{int(idx)}] or 0)")
+                else:
+                    expr = f"((SV.SkyVars or {{}}).{name} or 0)"
+                if cmp_op:
+                    lua_op = "~=" if cmp_op == "!=" else cmp_op
+                    out.append(f"({expr} {lua_op} {int(val)})")
+                else:
+                    out.append(f"({expr} ~= 0)")
+                continue
             return None
         return "".join(out)
+
+    # sujets de switch traduisibles -> (expression Lua, note provenance).
+    # Les variables de contexte ground sont maintenues par le kit/harnais
+    # dans SV.SkyVars (défaut 0/-1 comme la ROM au boot d'un ground).
+    SWITCH_VARS = {
+        "$GROUND_ENTER": ("((SV.SkyVars or {}).GROUND_ENTER or -1)",
+                          "GameVar GROUND_ENTER: point d'entrée du ground"),
+        "$GROUND_GETOUT": ("((SV.SkyVars or {}).GROUND_GETOUT or -1)",
+                           "GameVar GROUND_GETOUT: sortie précédente"),
+        "$GROUND_START_MODE": ("((SV.SkyVars or {}).GROUND_START_MODE or 0)",
+                               "GameVar GROUND_START_MODE"),
+        "$EXECUTE_SPECIAL_EPISODE_TYPE": (
+            "((SV.SkyVars or {}).EXECUTE_SPECIAL_EPISODE_TYPE or 0)",
+            "GameVar EXECUTE_SPECIAL_EPISODE_TYPE: épisode spécial actif"),
+        "$PARTNER_TALK_KIND": ("((SV.SkyVars or {}).PARTNER_TALK_KIND or 0)",
+                               "GameVar PARTNER_TALK_KIND (genre partenaire)"),
+        "$HERO_TALK_KIND": ("((SV.SkyVars or {}).HERO_TALK_KIND or 0)",
+                            "GameVar HERO_TALK_KIND (genre héros)"),
+        "$REQUEST_CLEAR_COUNT": (
+            "((SV.SkyVars or {}).REQUEST_CLEAR_COUNT or 0)",
+            "GameVar REQUEST_CLEAR_COUNT (missions accomplies)"),
+        "$CRYSTAL_COLOR_01": ("((SV.SkyVars or {}).CRYSTAL_COLOR_01 or 0)",
+                              "GameVar CRYSTAL_COLOR_01 (Crevice Cave)"),
+        "$CRYSTAL_COLOR_02": ("((SV.SkyVars or {}).CRYSTAL_COLOR_02 or 0)",
+                              "GameVar CRYSTAL_COLOR_02"),
+        "$CRYSTAL_COLOR_03": ("((SV.SkyVars or {}).CRYSTAL_COLOR_03 or 0)",
+                              "GameVar CRYSTAL_COLOR_03"),
+    }
+
+    def switch_subject(self, subj):
+        s = subj.strip()
+        if s in self.SWITCH_VARS:
+            return self.SWITCH_VARS[s]
+        m = re.match(r"scn\(\$SCENARIO_MAIN\)\[0\]$", s)
+        if m:
+            self.used_skyprog = True
+            return ("select(1, SkyProg.state())",
+                    "scn($SCENARIO_MAIN)[0]: chapitre courant")
+        m = re.match(r"scn\(\$SCENARIO_SIDE\)\[0\]$", s)
+        if m:
+            self.used_skyprog = True
+            return ("(SV.SkyScenarioSide and SV.SkyScenarioSide.main or 0)",
+                    "scn($SCENARIO_SIDE)[0]: épisode spécial courant")
+        if s == "sector()":
+            # sector() = index de secteur d'acting du superviseur NDS ;
+            # dans PMDO le validateur/kit joue la scène en secteur 1
+            # (acting principal), constante documentée.
+            return ("1", "sector(): acting principal (kit PMDO)")
+        return None
+
+    def lua_str(self, s):
+        return lua_str(s)
+
+    def parse_menu_switch(self, body):
+        """Corps d'un switch(message_SwitchMenu) : cases `menu({...}):`
+        (+ default). Retourne (labels[], branches[([idx],corps)],
+        default_body|None) ; None si structure imprévue."""
+        marks = []
+        depth = 0
+        i = 0
+        while i < len(body):
+            c = body[i]
+            if depth == 0:
+                if body.startswith("case menu(", i):
+                    j = body.find("{", i)
+                    langs, endj = parse_dialogue_block(body, j)
+                    # après menu({...}) vient `):`
+                    k = body.find(":", endj)
+                    if k < 0 or not langs:
+                        return None
+                    marks.append((i, k + 1, ("menu", langs)))
+                    i = k + 1
+                    continue
+                mo = re.match(r"default\s*:", body[i:])
+                if mo and (i == 0 or body[i-1] in " \t\n;{}:"):
+                    marks.append((i, i + mo.end(), ("default", None)))
+                    i += mo.end()
+                    continue
+            if c == "{":
+                depth += 1
+            elif c == "}":
+                depth -= 1
+            i += 1
+        if not marks or body[:marks[0][0]].strip():
+            return None
+        labels = []
+        branches = []
+        default_body = None
+        pending = []
+        for k, (s0, s1, (kind, langs)) in enumerate(marks):
+            nxt = marks[k + 1][0] if k + 1 < len(marks) else len(body)
+            seg = body[s1:nxt]
+            if kind == "menu":
+                labels.append(langs)
+                pending.append(len(labels))
+            if seg.strip():
+                seg = re.sub(r"break\s*;\s*$", "", seg.strip())
+                if kind == "default" or (pending and kind == "menu"):
+                    if kind == "default":
+                        default_body = seg
+                        pending = []
+                    else:
+                        branches.append((pending, seg))
+                        pending = []
+        if not labels:
+            return None
+        return labels, branches, default_body
+
+    def parse_switch_cases(self, body):
+        """Découpe le corps d'un switch en [([labels], corps)] au premier
+        niveau. None si structure imprévue (fail-closed)."""
+        # positions des `case X:` / `default:` de premier niveau
+        marks = []
+        depth = 0
+        i = 0
+        while i < len(body):
+            c = body[i]
+            if c == "{":
+                depth += 1
+            elif c == "}":
+                depth -= 1
+            elif depth == 0:
+                mo = re.match(r"(case\s*([^:\n]{1,20})|default)\s*:",
+                              body[i:])
+                if mo and (i == 0 or body[i-1] in " \t\n;{}:"):
+                    lab = ("default" if mo.group(1).startswith("default")
+                           else mo.group(2).strip())
+                    marks.append((i, i + mo.end(), lab))
+                    i += mo.end()
+                    continue
+            i += 1
+        if not marks:
+            return None
+        if body[:marks[0][0]].strip():
+            return None  # code avant le premier case: imprévu
+        groups = []
+        pending = []
+        for k, (s0, s1, lab) in enumerate(marks):
+            nxt = marks[k + 1][0] if k + 1 < len(marks) else len(body)
+            seg = body[s1:nxt]
+            pending.append(lab)
+            if seg.strip():  # fallthrough: cases vides agrégés au suivant
+                # retirer break; final (sémantique switch)
+                seg = re.sub(r"break\s*;\s*$", "", seg.strip())
+                groups.append((pending, seg))
+                pending = []
+        if pending:
+            groups.append((pending, ""))
+        return groups
 
     def compile_stmt(self, st, is_last=False):
         st = st.strip()
@@ -388,27 +591,64 @@ class SceneCompiler:
                 j += 1
             body_if = st[i + 1:j]
             rest = st[j + 1:].strip()
+            # chaîne if / elseif* / else? — chaque condition doit être
+            # traduisible (fail-closed sinon)
+            branches = [(cond_lua, mif.group(1), body_if)]
             body_else = None
-            if rest.startswith("else"):
-                k = rest.find("{")
-                depth = 0
-                l2 = k
-                while l2 < len(rest):
-                    if rest[l2] == "{":
-                        depth += 1
-                    elif rest[l2] == "}":
-                        depth -= 1
-                        if depth == 0:
-                            break
-                    l2 += 1
-                body_else = rest[k + 1:l2]
-            self.emit(f"if {cond_lua} then "
-                      f"-- if ROM: {mif.group(1)[:60]}")
-            self.compile_def0(body_if)
-            if body_else is not None:
-                self.emit("else")
-                self.compile_def0(body_else)
-            self.emit("end")
+            ok = True
+            while rest:
+                mei = re.match(r"elseif\s*\(\s*(.*?)\s*\)\s*\{", rest,
+                               re.S)
+                if mei:
+                    c2 = self.translate_cond(mei.group(1))
+                    if c2 is None:
+                        ok = False
+                        break
+                    if "SkyProg." in c2:
+                        self.used_skyprog = True
+                    k = rest.find("{", mei.end() - 1)
+                    depth = 0
+                    l2 = k
+                    while l2 < len(rest):
+                        if rest[l2] == "{":
+                            depth += 1
+                        elif rest[l2] == "}":
+                            depth -= 1
+                            if depth == 0:
+                                break
+                        l2 += 1
+                    branches.append((c2, mei.group(1), rest[k + 1:l2]))
+                    rest = rest[l2 + 1:].strip()
+                    continue
+                if rest.startswith("else"):
+                    k = rest.find("{")
+                    depth = 0
+                    l2 = k
+                    while l2 < len(rest):
+                        if rest[l2] == "{":
+                            depth += 1
+                        elif rest[l2] == "}":
+                            depth -= 1
+                            if depth == 0:
+                                break
+                        l2 += 1
+                    body_else = rest[k + 1:l2]
+                    rest = rest[l2 + 1:].strip()
+                    continue
+                ok = False
+                break
+            if ok:
+                for bi, (cl, craw, bb) in enumerate(branches):
+                    kw = "if" if bi == 0 else "elseif"
+                    self.emit(f"{kw} {cl} then "
+                              f"-- {kw} ROM: {craw[:60]}")
+                    self.compile_def0(bb)
+                if body_else is not None:
+                    self.emit("else")
+                    self.compile_def0(body_else)
+                self.emit("end")
+                return
+            self.unsupported.append("if:chain " + st[:40])
             return
         # écritures de drapeaux TALK (mémoire de conversation NDS)
         mtb = re.match(
@@ -426,6 +666,57 @@ class SceneCompiler:
             self.emit(f"-- switch(message_Menu({mm_menu.group(1)})) "
                       f"[menu système NDS sans embranchement (corps "
                       f"vide): équivalent géré par le moteur PMDO]")
+            return
+        # switch à CORPS VIDE sur un procédé moteur NDS :
+        # ProcessSpecial(id,...) = appel SPECIAL_PROC_* arm9 (init
+        # d'équipe/partenaires SE id 3-4, next day id 5…) sans
+        # embranchement scripté — équivalents PMDO gérés par le
+        # harnais/NewGame ; message_SwitchMenu(x,y)/main_EnterAdventure
+        # = menus & bascules d'écran moteur. Corps vide == AUCUN
+        # contenu canonique sauté (trace conservée).
+        mm_proc = re.match(
+            r"switch\s*\(\s*((?:ProcessSpecial|message_SwitchMenu|"
+            r"message_Menu|main_EnterAdventure|main_EnterTraining|"
+            r"main_EnterRescue)\([^)]*\))\s*\)\s*\{\s*\}$", st, re.S)
+        if mm_proc:
+            self.emit(f"-- switch({mm_proc.group(1)[:70]}) [procédé/menu "
+                      f"moteur NDS, corps vide: aucun embranchement "
+                      f"canonique — équivalent moteur PMDO]")
+            return
+        # switch(message_SwitchMenu(x,y)) AVEC cases menu({5 langues}) :
+        # choix joueur canonique -> menu natif PMDO (kit.ask, ChoiceMenu
+        # comme origin/common.lua). Toutes les branches sont compilées.
+        mm_choice = re.match(
+            r"switch\s*\(\s*message_SwitchMenu\(([\d, ]+)\)\s*\)\s*"
+            r"\{(.*)\}$", st, re.S)
+        if mm_choice and "menu(" in mm_choice.group(2):
+            parsed = self.parse_menu_switch(mm_choice.group(2))
+            if parsed is not None:
+                labels, branches, default_body = parsed
+                lab_lua = []
+                for lab in labels:
+                    lab_lua.append("{" + ", ".join(
+                        f"{lang}={self.lua_str(txt)}"
+                        for lang, txt in lab.items()) + "}")
+                self.emit(f"do local __choice = SkySceneKit.ask({{"
+                          f"{', '.join(lab_lua)}}}) "
+                          f"-- message_SwitchMenu({mm_choice.group(1)}) ROM")
+                first = True
+                for idxs, body in branches:
+                    kw = "if" if first else "elseif"
+                    first = False
+                    conds = " or ".join(f"__choice == {i}" for i in idxs)
+                    self.emit(f"{kw} {conds} then")
+                    self.compile_def0(body)
+                if default_body is not None:
+                    self.emit("else -- default/annulation" if not first
+                              else "if true then -- default")
+                    self.compile_def0(default_body)
+                if not first or default_body is not None:
+                    self.emit("end")
+                self.emit("end")
+                return
+            self.unsupported.append("switch:menu_parse")
             return
         # switch($LANGUAGE_TYPE) : la langue est résolue au RUNTIME par le
         # kit (say choisit la langue du joueur) ; les cases par langue des
@@ -446,6 +737,57 @@ class SceneCompiler:
                           "compilée (textes 5 langues résolus par le "
                           "kit au runtime)")
                 self.compile_def0(seg)
+                return
+        # ---- switch GÉNÉRIQUE sur variable de contexte NDS : TOUTES les
+        # branches sont compilées (if/elseif Lua sur la valeur runtime,
+        # aucun contenu perdu). Sujets = variables moteur ROM lues via la
+        # SV native (SkyVars, écrites par le harnais/les scènes) —
+        # sémantique GameVar pmd2scriptdata (GROUND_ENTER/GETOUT posés
+        # aux transitions de ground, EXECUTE_SPECIAL_EPISODE_TYPE posé au
+        # lancement d'un épisode spécial…). Fail-closed conservé : toute
+        # op non traduite d'une branche re-classe la scène PARTIAL_OPS.
+        msw = re.match(r"switch\s*\(\s*(.+?)\s*\)\s*\{(.*)\}$", st, re.S)
+        if msw and self.switch_subject(msw.group(1)) is not None:
+            subj_lua, subj_note = self.switch_subject(msw.group(1))
+            if not msw.group(2).strip():
+                # switch à corps vide sur variable de contexte : lecture
+                # sans embranchement (aucun contenu canonique)
+                self.emit(f"-- switch({msw.group(1)[:50]}) corps vide "
+                          f"[{subj_note}]")
+                return
+            groups = self.parse_switch_cases(msw.group(2))
+            if groups is not None:
+                self.emit(f"do local __sw = {subj_lua} "
+                          f"-- switch({msw.group(1)[:50]}) [{subj_note}]")
+                first = True
+                default_body = None
+                for labels, body in groups:
+                    if labels == ["default"]:
+                        default_body = body
+                        continue
+                    conds = []
+                    for lab in labels:
+                        mo = re.match(r"(==|<=|>=|<|>)?\s*(-?\d+)$", lab)
+                        if not mo:
+                            conds = None
+                            break
+                        conds.append(f"__sw {mo.group(1) or '=='} "
+                                     f"{mo.group(2)}")
+                    if conds is None:
+                        self.unsupported.append("switch:case " +
+                                                str(labels)[:30])
+                        return
+                    kw = "if" if first else "elseif"
+                    first = False
+                    self.emit(f"{kw} {' or '.join(conds)} then")
+                    self.compile_def0(body)
+                if default_body is not None:
+                    self.emit("elseif true then -- default" if not first
+                              else "if true then -- default")
+                    self.compile_def0(default_body)
+                if not first or default_body is not None:
+                    self.emit("end")
+                self.emit("end")
                 return
         m = re.match(r"(\w+)(?:<(\w+) (\w+)>)?\s*\((.*)\)$", st, re.S)
         if not m:

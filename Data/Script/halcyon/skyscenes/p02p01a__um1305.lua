@@ -17,7 +17,7 @@ return function(hero, partner)
   -- message_Close
   -- @label_130 [étiquette de flux ExplorerScript]
   -- JumpCommon(CORO_END_TALK) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
-  else
+  elseif (SkyProg.cmp(25, 4) >= 0) or (SkyProg.cmp(25, 3) >= 0) or (SkyProg.cmp(25, 2) >= 0) or (SkyProg.cmp(25, 2) >= 0) or (SkyProg.cmp(25, 1) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [25, 4] || scn($SCENARIO_MAIN) >= [25
   -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- SetAnimation(2) [anim idle native]
@@ -31,6 +31,38 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_okorizaru) end)
   SkySceneKit.say({english="Stop the planet's paralysis or\nsomething! You can do it!", french="Empêchez la Paralysie de la\nPlanète! Faites quelque chose! Vous pouvez\ny arriver!", german="Haltet die Lähmung des Planeten\nauf! ...Oder so! ...Ihr könnt das schaffen!", italian="Scongiurate la paralisi del\npianeta! Ce la potete fare!", spanish="¡Detened la parálisis del planeta,\nhaced algo! ¡Podéis hacerlo!"})
   -- message_Close
+  -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(24, 1) >= 0) or (SkyProg.cmp(24, 1) >= 0) or (SkyProg.cmp(23, 3) >= 0) or (SkyProg.cmp(23, 2) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [24, 1] || scn($SCENARIO_MAIN) >= [24
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- SetAnimation(2) [anim idle native]
+  pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_okorizaru, 4) end)
+  pcall(function() UI:SetSpeaker(npc_npc_okorizaru) end)
+  SkySceneKit.say({english="We came running when we heard\nthe world's in danger!", french="On a accouru dès qu'on a su que\nle monde était en danger!", german="Wir sind hergeeilt, als wir\nerfuhren, dass die Welt in Gefahr ist!", italian="Quando abbiamo saputo che il\nmondo era in pericolo, ci siamo precipitati qui!", spanish="¡Vinimos inmediatamente cuando\nsupimos que el mundo estaba en peligro!"})
+  pcall(function() UI:SetSpeaker(npc_npc_okorizaru) end)
+  SkySceneKit.say({english="I tell you, this is no time to be\nsoaking in the Hot Spring!", french="Non mais vraiment, le moment\nest mal choisi pour se la couler douce\ndans la Source Chaude!", german="Ich sage euch, das ist nicht die\nrichtige Zeit, um sich in der Heißen Quelle\nzu entspannen!", italian="Ve lo dico, questo non è il\nmomento di fare il bagno nella\nSorgente Termale!", spanish="Porque, evidentemente, ¡este\nno es el momento para relajarse en la\nTerma!"})
+  pcall(function() UI:SetSpeaker(npc_npc_okorizaru) end)
+  SkySceneKit.say({english=" So...[K]we've come but...", french=" Alors... [K]on est venus, mais...", german="Also...[K] Wir sind hergekommen,\naber...", italian=" Quindi...[K] siamo venuti, ma...", spanish=" Así que...[K] hemos venido, pero..."})
+  pcall(function() UI:SetSpeaker(npc_npc_okorizaru) end)
+  SkySceneKit.say({english="What are we supposed to\ndo now...?", french="Qu'est-ce qu'on peut bien\nfaire maintenant...?", german=" Was sollen wir jetzt machen?", italian=" Cosa dobbiamo fare ora?", spanish="¿Qué es lo que vamos a hacer\nahora?"})
+  -- message_Close
+  -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(23, 1) >= 0) or (SkyProg.cmp(22, 3) >= 0) or (SkyProg.cmp(22, 2) >= 0) or (SkyProg.cmp(21, 2) >= 0) or (SkyProg.cmp(21, 1) >= 0) or (SkyProg.cmp(20, 4) >= 0) or (SkyProg.cmp(20, 3) >= 0) or (SkyProg.cmp(20, 2) >= 0) or (SkyProg.cmp(20, 1) >= 0) or (SkyProg.cmp(17, 3) >= 0) or (SkyProg.cmp(17, 1) >= 0) or (SkyProg.cmp(16, 2) >= 0) or (SkyProg.cmp(16, 0) >= 0) or (SkyProg.cmp(15, 4) >= 0) or (SkyProg.cmp(15, 1) >= 0) or (SkyProg.cmp(14, 5) >= 0) or (SkyProg.cmp(14, 4) >= 0) or (SkyProg.cmp(14, 2) >= 0) or (SkyProg.cmp(14, 1) >= 0) or (SkyProg.cmp(13, 2) >= 0) or (SkyProg.cmp(13, 1) >= 0) or (SkyProg.cmp(12, 4) >= 0) or (SkyProg.cmp(12, 3) >= 0) or (SkyProg.cmp(12, 1) >= 0) or (SkyProg.cmp(10, 2) >= 0) or (SkyProg.cmp(10, 1) >= 0) or (SkyProg.cmp(9, 5) >= 0) or (SkyProg.cmp(9, 4) >= 0) or (SkyProg.cmp(9, 2) >= 0) or (SkyProg.cmp(9, 1) >= 0) or (SkyProg.cmp(8, 7) >= 0) or (SkyProg.cmp(8, 6) >= 0) or (SkyProg.cmp(8, 5) >= 0) or (SkyProg.cmp(8, 3) >= 0) or (SkyProg.cmp(8, 2) >= 0) or (SkyProg.cmp(8, 1) >= 0) or (SkyProg.cmp(7, 6) >= 0) or (SkyProg.cmp(7, 3) >= 0) or (SkyProg.cmp(7, 2) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [23, 1] || scn($SCENARIO_MAIN) >= [22
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
+  -- SetAnimation(2) [anim idle native]
+  pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_okorizaru, 4) end)
+  pcall(function() UI:SetSpeaker(npc_npc_okorizaru) end)
+  SkySceneKit.say({english="The Hot Spring here is good for\nloosening up knotted muscles.", french="La Source Chaude permet de\ndécontracter les muscles noués.", german="Die Heiße Quelle eignet sich\nbestens, um verhärtete Muskeln aufzulockern.", italian="La Sorgente Termale va bene\nper rilassare i muscoli.", spanish="La Terma es estupenda para\nrelajar los músculos agarrotados."})
+  pcall(function() UI:SetSpeaker(npc_npc_okorizaru) end)
+  SkySceneKit.say({english="The way I keep my arms raised\nall the time... It does a number on\nmy shoulders.", french="Je garde toujours les bras en\nl'air... C'est éprouvant pour mes épaules.", german="Die Art, wie ich meine Arme die\nganze Zeit angehoben lasse, geht ganz schön\nauf meine Schultern.", italian="Tengo le braccia sollevate tutto\nil tempo e ho sempre le spalle indolenzite.", spanish="Tener los brazos levantados me\nviene bien para la espalda..."})
+  pcall(function() UI:SetSpeaker(npc_npc_okorizaru) end)
+  SkySceneKit.say({english=" I'm lucky the Hot Spring exists!", french="J'ai de la chance que la Source\nChaude existe!", german="Ich bin froh, dass es die Heiße\nQuelle gibt!", italian="Per fortuna esiste la Sorgente\nTermale!", spanish=" No sé qué sería de mí sin la Terma."})
+  -- message_Close
+  -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
+  elseif (SkyProg.cmp(7, 1) >= 0) or (SkyProg.cmp(6, 5) >= 0) or (SkyProg.cmp(6, 1) >= 0) or (SkyProg.cmp(5, 5) >= 0) or (SkyProg.cmp(4, 7) >= 0) or (SkyProg.cmp(4, 5) >= 0) or (SkyProg.cmp(4, 3) >= 0) or (SkyProg.cmp(4, 2) >= 0) or (SkyProg.cmp(4, 1) >= 0) or (SkyProg.cmp(4, 0) >= 0) or (SkyProg.cmp(3, 1) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [7, 1] || scn($SCENARIO_MAIN) >= [6, 
+  -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
+  else
   -- jump @label_130 [saut final de branche vers l'épilogue commun: flux naturel]
   end
   SkySceneKit.cleanup_npcs()
