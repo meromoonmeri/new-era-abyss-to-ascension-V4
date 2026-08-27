@@ -880,6 +880,12 @@ class SceneCompiler:
         if mwith:
             self.emit("GAME:WaitFrames(1) -- with(...){hold} NDS")
             return
+        mal = re.match(r"adventure_log\s*=\s*(-?\d+)$", st)
+        if mal:
+            self.emit(f"SV.SkyVars = SV.SkyVars or {{}}; "
+                      f"SV.SkyVars.ADVENTURE_LOG = {int(mal.group(1))} "
+                      f"-- adventure_log = {mal.group(1)} (journal NDS)")
+            return
         mclr = re.match(r"clear\s+\$([A-Z][A-Z0-9_]*)$", st)
         if mclr:
             self.emit(f"if SV.SkyVars then SV.SkyVars.{mclr.group(1)} = 0 "
@@ -1515,6 +1521,12 @@ class SceneCompiler:
                 self.emit(f"do local p={A}.Position; "
                           f"GROUND:MoveToPosition({A}, p.X+({dx}), "
                           f"p.Y+({dy}), false, {speed}) end -- {op}")
+            elif kind == "object" and (mm or flat):
+                self.emit(f"-- {op}<object {target}> [prop décor NDS, "
+                          f"géré par le rendu du ground]")
+            elif (mm or flat):
+                self.emit(f"-- {op} {target} [cible sans placement SSA "
+                          f"zone: déplacement non joué]")
             else:
                 self.unsupported.append(f"{op}:{target}")
         elif op == "SetPositionMark":
@@ -1663,6 +1675,9 @@ class SceneCompiler:
             if A and len(f) == 2:
                 self.emit(f"SkySceneKit.offset_pos({A}, {int(float(f[0]))},"
                           f" {int(float(f[1]))})")
+            elif kind == "object" and len(f) == 2:
+                self.emit(f"-- SetPositionOffset<object {target}> "
+                          f"[prop décor NDS]")
             else:
                 self.unsupported.append("SetPositionOffset")
         elif op == "hold":
@@ -1889,6 +1904,22 @@ class SceneCompiler:
         elif op == "supervision_SpecialActing":
             self.emit(f"-- supervision_SpecialActing({args.strip()}) "
                       f"[cadrage NDS]")
+        elif op == "SetPosition" and kind == "performer":
+            mm = re.match(r"\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)", args)
+            if mm:
+                self.emit(f"pcall(function() GAME:MoveCamera("
+                          f"{int(float(mm.group(1)))}, "
+                          f"{int(float(mm.group(2)))}, 1, false) end) "
+                          f"-- SetPosition performer/caméra (immédiat)")
+            else:
+                self.unsupported.append("SetPosition")
+        elif op == "SetPosition" and kind == "object":
+            self.emit(f"-- SetPosition<object {target}> [prop décor NDS]")
+        elif op in ("WaitLockObject",):
+            self.emit("GAME:WaitFrames(2) -- WaitLockObject (join objet)")
+        elif op in ("Slide2PositionLives", "MovePositionLives") \
+                and kind == "object":
+            self.emit(f"-- {op}<object {target}> [prop décor NDS]")
         elif op == "camera_SetPositionMark":
             mm = re.search(r"Position<'\w*',\s*([\d.]+),\s*([\d.]+)>", args)
             if mm:
